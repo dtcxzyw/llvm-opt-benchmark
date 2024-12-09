@@ -33481,10 +33481,10 @@ define internal fastcc ptr @zend_fetch_prop_info(ptr nocapture noundef readonly 
   br i1 %.not32.i, label %59, label %56
 
 56:                                               ; preds = %52, %51
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
-  store ptr %47, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %47, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %58 = tail call ptr @zend_get_property_info(ptr noundef nonnull %.0, ptr noundef %45, i32 noundef 1) #19
-  store ptr %57, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %57, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %magicptr.i = ptrtoint ptr %58 to i64
   switch i64 %magicptr.i, label %lookup_prop_info.exit.thread30 [
     i64 -1, label %.thread
@@ -33658,10 +33658,10 @@ define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noun
   br i1 %.not32.i, label %81, label %78
 
 78:                                               ; preds = %74, %73
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
-  store ptr %69, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %69, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %80 = tail call ptr @zend_get_property_info(ptr noundef nonnull %.028, ptr noundef %67, i32 noundef 1) #19
-  store ptr %79, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %magicptr.i = ptrtoint ptr %80 to i64
   switch i64 %magicptr.i, label %lookup_prop_info.exit.thread6 [
     i64 -1, label %.thread

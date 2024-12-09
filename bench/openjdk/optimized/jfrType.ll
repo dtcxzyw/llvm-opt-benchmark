@@ -782,7 +782,7 @@ define hidden void @_ZN20JfrThreadConstantSet9serializeER19JfrCheckpointWriter(p
   %4 = alloca %class.JfrCheckpointThreadClosure, align 8
   %5 = alloca %class.JfrThreadIterator, align 8
   %6 = alloca %class.JfrThreadIterator.2, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV26JfrCheckpointThreadClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26JfrCheckpointThreadClosure, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16

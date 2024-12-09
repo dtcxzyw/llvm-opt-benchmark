@@ -2595,7 +2595,7 @@ av1_use_intra_edge_upsample.exit291.thread.i:     ; preds = %675, %av1_use_intra
   br label %av1_highbd_dr_prediction_z1_c.exit.sink.split.i.i
 
 av1_highbd_dr_prediction_z1_c.exit.sink.split.i.i: ; preds = %826, %825
-  %.sink.i.i = phi ptr [ getelementptr inbounds (i8, ptr @pred_high, i64 304), %826 ], [ getelementptr inbounds (i8, ptr @pred_high, i64 152), %825 ]
+  %.sink.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @pred_high, i64 304), %826 ], [ getelementptr inbounds nuw (i8, ptr @pred_high, i64 152), %825 ]
   %827 = getelementptr inbounds nuw [19 x ptr], ptr %.sink.i.i, i64 0, i64 %27
   %828 = load ptr, ptr %827, align 8
   call void %828(ptr noundef %313, i64 noundef range(i64 -2147483648, 2147483648) %679, ptr noundef nonnull %317, ptr noundef nonnull %318, i32 noundef %680) #11
@@ -3531,7 +3531,7 @@ av1_use_intra_edge_upsample.exit275.thread.i:     ; preds = %av1_upsample_intra_
   br label %av1_dr_prediction_z1_c.exit.sink.split.i.i
 
 av1_dr_prediction_z1_c.exit.sink.split.i.i:       ; preds = %1297, %1296
-  %.sink.i.i228 = phi ptr [ getelementptr inbounds (i8, ptr @pred, i64 304), %1297 ], [ getelementptr inbounds (i8, ptr @pred, i64 152), %1296 ]
+  %.sink.i.i228 = phi ptr [ getelementptr inbounds nuw (i8, ptr @pred, i64 304), %1297 ], [ getelementptr inbounds nuw (i8, ptr @pred, i64 152), %1296 ]
   %1298 = getelementptr inbounds nuw [19 x ptr], ptr %.sink.i.i228, i64 0, i64 %27
   %1299 = load ptr, ptr %1298, align 8
   call void %1299(ptr noundef %11, i64 noundef range(i64 -2147483648, 2147483648) %1153, ptr noundef nonnull %850, ptr noundef nonnull %851) #11
@@ -3704,386 +3704,386 @@ define hidden void @av1_init_intra_predictors() local_unnamed_addr #3 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @init_intra_predictors_internal() #6 {
-  store ptr @aom_v_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 152), align 8
-  store ptr @aom_v_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 160), align 16
-  store ptr @aom_v_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 168), align 8
-  store ptr @aom_v_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 176), align 16
-  store ptr @aom_v_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 184), align 8
-  store ptr @aom_v_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 192), align 16
-  store ptr @aom_v_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 200), align 8
-  store ptr @aom_v_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 208), align 16
-  store ptr @aom_v_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 216), align 8
-  store ptr @aom_v_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 224), align 16
-  store ptr @aom_v_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 232), align 8
-  store ptr @aom_v_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 240), align 16
-  store ptr @aom_v_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 248), align 8
-  store ptr @aom_v_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 256), align 16
-  store ptr @aom_v_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 264), align 8
-  store ptr @aom_v_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 272), align 16
-  store ptr @aom_v_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 280), align 8
-  store ptr @aom_v_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 288), align 16
-  store ptr @aom_v_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 296), align 8
-  store ptr @aom_h_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 304), align 16
-  store ptr @aom_h_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 312), align 8
-  store ptr @aom_h_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 320), align 16
-  store ptr @aom_h_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 328), align 8
-  store ptr @aom_h_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 336), align 16
-  store ptr @aom_h_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 344), align 8
-  store ptr @aom_h_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 352), align 16
-  store ptr @aom_h_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 360), align 8
-  store ptr @aom_h_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 368), align 16
-  store ptr @aom_h_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 376), align 8
-  store ptr @aom_h_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 384), align 16
-  store ptr @aom_h_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 392), align 8
-  store ptr @aom_h_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 400), align 16
-  store ptr @aom_h_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 408), align 8
-  store ptr @aom_h_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 416), align 16
-  store ptr @aom_h_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 424), align 8
-  store ptr @aom_h_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 432), align 16
-  store ptr @aom_h_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 440), align 8
-  store ptr @aom_h_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 448), align 16
-  store ptr @aom_paeth_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1824), align 16
-  store ptr @aom_paeth_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1832), align 8
-  store ptr @aom_paeth_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1840), align 16
-  store ptr @aom_paeth_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1848), align 8
-  store ptr @aom_paeth_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1856), align 16
-  store ptr @aom_paeth_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1864), align 8
-  store ptr @aom_paeth_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1872), align 16
-  store ptr @aom_paeth_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1880), align 8
-  store ptr @aom_paeth_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1888), align 16
-  store ptr @aom_paeth_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1896), align 8
-  store ptr @aom_paeth_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1904), align 16
-  store ptr @aom_paeth_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1912), align 8
-  store ptr @aom_paeth_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1920), align 16
-  store ptr @aom_paeth_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1928), align 8
-  store ptr @aom_paeth_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1936), align 16
-  store ptr @aom_paeth_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1944), align 8
-  store ptr @aom_paeth_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1952), align 16
-  store ptr @aom_paeth_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1960), align 8
-  store ptr @aom_paeth_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1968), align 16
-  store ptr @aom_smooth_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1368), align 8
-  store ptr @aom_smooth_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1376), align 16
-  store ptr @aom_smooth_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1384), align 8
-  store ptr @aom_smooth_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1392), align 16
-  store ptr @aom_smooth_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1400), align 8
-  store ptr @aom_smooth_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1408), align 16
-  store ptr @aom_smooth_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1416), align 8
-  store ptr @aom_smooth_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1424), align 16
-  store ptr @aom_smooth_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1432), align 8
-  store ptr @aom_smooth_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1440), align 16
-  store ptr @aom_smooth_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1448), align 8
-  store ptr @aom_smooth_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1456), align 16
-  store ptr @aom_smooth_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1464), align 8
-  store ptr @aom_smooth_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1472), align 16
-  store ptr @aom_smooth_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1480), align 8
-  store ptr @aom_smooth_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1488), align 16
-  store ptr @aom_smooth_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1496), align 8
-  store ptr @aom_smooth_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1504), align 16
-  store ptr @aom_smooth_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1512), align 8
-  store ptr @aom_smooth_v_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1520), align 16
-  store ptr @aom_smooth_v_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1528), align 8
-  store ptr @aom_smooth_v_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1536), align 16
-  store ptr @aom_smooth_v_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1544), align 8
-  store ptr @aom_smooth_v_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1552), align 16
-  store ptr @aom_smooth_v_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1560), align 8
-  store ptr @aom_smooth_v_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1568), align 16
-  store ptr @aom_smooth_v_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1576), align 8
-  store ptr @aom_smooth_v_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1584), align 16
-  store ptr @aom_smooth_v_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1592), align 8
-  store ptr @aom_smooth_v_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1600), align 16
-  store ptr @aom_smooth_v_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1608), align 8
-  store ptr @aom_smooth_v_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1616), align 16
-  store ptr @aom_smooth_v_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1624), align 8
-  store ptr @aom_smooth_v_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1632), align 16
-  store ptr @aom_smooth_v_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1640), align 8
-  store ptr @aom_smooth_v_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1648), align 16
-  store ptr @aom_smooth_v_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1656), align 8
-  store ptr @aom_smooth_v_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1664), align 16
-  store ptr @aom_smooth_h_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1672), align 8
-  store ptr @aom_smooth_h_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1680), align 16
-  store ptr @aom_smooth_h_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1688), align 8
-  store ptr @aom_smooth_h_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1696), align 16
-  store ptr @aom_smooth_h_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1704), align 8
-  store ptr @aom_smooth_h_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1712), align 16
-  store ptr @aom_smooth_h_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1720), align 8
-  store ptr @aom_smooth_h_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1728), align 16
-  store ptr @aom_smooth_h_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1736), align 8
-  store ptr @aom_smooth_h_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1744), align 16
-  store ptr @aom_smooth_h_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1752), align 8
-  store ptr @aom_smooth_h_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1760), align 16
-  store ptr @aom_smooth_h_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1768), align 8
-  store ptr @aom_smooth_h_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1776), align 16
-  store ptr @aom_smooth_h_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1784), align 8
-  store ptr @aom_smooth_h_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1792), align 16
-  store ptr @aom_smooth_h_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1800), align 8
-  store ptr @aom_smooth_h_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1808), align 16
-  store ptr @aom_smooth_h_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred, i64 1816), align 8
+  store ptr @aom_v_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 152), align 8
+  store ptr @aom_v_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 160), align 16
+  store ptr @aom_v_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 168), align 8
+  store ptr @aom_v_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 176), align 16
+  store ptr @aom_v_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 184), align 8
+  store ptr @aom_v_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 192), align 16
+  store ptr @aom_v_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 200), align 8
+  store ptr @aom_v_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 208), align 16
+  store ptr @aom_v_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 216), align 8
+  store ptr @aom_v_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 224), align 16
+  store ptr @aom_v_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 232), align 8
+  store ptr @aom_v_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 240), align 16
+  store ptr @aom_v_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 248), align 8
+  store ptr @aom_v_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 256), align 16
+  store ptr @aom_v_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 264), align 8
+  store ptr @aom_v_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 272), align 16
+  store ptr @aom_v_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 280), align 8
+  store ptr @aom_v_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 288), align 16
+  store ptr @aom_v_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 296), align 8
+  store ptr @aom_h_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 304), align 16
+  store ptr @aom_h_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 312), align 8
+  store ptr @aom_h_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 320), align 16
+  store ptr @aom_h_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 328), align 8
+  store ptr @aom_h_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 336), align 16
+  store ptr @aom_h_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 344), align 8
+  store ptr @aom_h_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 352), align 16
+  store ptr @aom_h_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 360), align 8
+  store ptr @aom_h_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 368), align 16
+  store ptr @aom_h_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 376), align 8
+  store ptr @aom_h_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 384), align 16
+  store ptr @aom_h_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 392), align 8
+  store ptr @aom_h_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 400), align 16
+  store ptr @aom_h_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 408), align 8
+  store ptr @aom_h_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 416), align 16
+  store ptr @aom_h_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 424), align 8
+  store ptr @aom_h_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 432), align 16
+  store ptr @aom_h_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 440), align 8
+  store ptr @aom_h_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 448), align 16
+  store ptr @aom_paeth_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1824), align 16
+  store ptr @aom_paeth_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1832), align 8
+  store ptr @aom_paeth_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1840), align 16
+  store ptr @aom_paeth_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1848), align 8
+  store ptr @aom_paeth_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1856), align 16
+  store ptr @aom_paeth_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1864), align 8
+  store ptr @aom_paeth_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1872), align 16
+  store ptr @aom_paeth_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1880), align 8
+  store ptr @aom_paeth_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1888), align 16
+  store ptr @aom_paeth_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1896), align 8
+  store ptr @aom_paeth_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1904), align 16
+  store ptr @aom_paeth_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1912), align 8
+  store ptr @aom_paeth_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1920), align 16
+  store ptr @aom_paeth_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1928), align 8
+  store ptr @aom_paeth_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1936), align 16
+  store ptr @aom_paeth_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1944), align 8
+  store ptr @aom_paeth_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1952), align 16
+  store ptr @aom_paeth_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1960), align 8
+  store ptr @aom_paeth_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1968), align 16
+  store ptr @aom_smooth_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1368), align 8
+  store ptr @aom_smooth_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1376), align 16
+  store ptr @aom_smooth_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1384), align 8
+  store ptr @aom_smooth_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1392), align 16
+  store ptr @aom_smooth_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1400), align 8
+  store ptr @aom_smooth_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1408), align 16
+  store ptr @aom_smooth_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1416), align 8
+  store ptr @aom_smooth_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1424), align 16
+  store ptr @aom_smooth_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1432), align 8
+  store ptr @aom_smooth_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1440), align 16
+  store ptr @aom_smooth_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1448), align 8
+  store ptr @aom_smooth_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1456), align 16
+  store ptr @aom_smooth_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1464), align 8
+  store ptr @aom_smooth_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1472), align 16
+  store ptr @aom_smooth_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1480), align 8
+  store ptr @aom_smooth_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1488), align 16
+  store ptr @aom_smooth_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1496), align 8
+  store ptr @aom_smooth_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1504), align 16
+  store ptr @aom_smooth_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1512), align 8
+  store ptr @aom_smooth_v_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1520), align 16
+  store ptr @aom_smooth_v_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1528), align 8
+  store ptr @aom_smooth_v_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1536), align 16
+  store ptr @aom_smooth_v_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1544), align 8
+  store ptr @aom_smooth_v_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1552), align 16
+  store ptr @aom_smooth_v_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1560), align 8
+  store ptr @aom_smooth_v_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1568), align 16
+  store ptr @aom_smooth_v_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1576), align 8
+  store ptr @aom_smooth_v_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1584), align 16
+  store ptr @aom_smooth_v_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1592), align 8
+  store ptr @aom_smooth_v_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1600), align 16
+  store ptr @aom_smooth_v_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1608), align 8
+  store ptr @aom_smooth_v_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1616), align 16
+  store ptr @aom_smooth_v_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1624), align 8
+  store ptr @aom_smooth_v_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1632), align 16
+  store ptr @aom_smooth_v_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1640), align 8
+  store ptr @aom_smooth_v_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1648), align 16
+  store ptr @aom_smooth_v_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1656), align 8
+  store ptr @aom_smooth_v_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1664), align 16
+  store ptr @aom_smooth_h_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1672), align 8
+  store ptr @aom_smooth_h_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1680), align 16
+  store ptr @aom_smooth_h_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1688), align 8
+  store ptr @aom_smooth_h_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1696), align 16
+  store ptr @aom_smooth_h_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1704), align 8
+  store ptr @aom_smooth_h_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1712), align 16
+  store ptr @aom_smooth_h_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1720), align 8
+  store ptr @aom_smooth_h_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1728), align 16
+  store ptr @aom_smooth_h_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1736), align 8
+  store ptr @aom_smooth_h_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1744), align 16
+  store ptr @aom_smooth_h_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1752), align 8
+  store ptr @aom_smooth_h_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1760), align 16
+  store ptr @aom_smooth_h_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1768), align 8
+  store ptr @aom_smooth_h_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1776), align 16
+  store ptr @aom_smooth_h_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1784), align 8
+  store ptr @aom_smooth_h_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1792), align 16
+  store ptr @aom_smooth_h_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1800), align 8
+  store ptr @aom_smooth_h_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1808), align 16
+  store ptr @aom_smooth_h_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred, i64 1816), align 8
   store ptr @aom_dc_128_predictor_4x4_c, ptr @dc_pred, align 16
-  store ptr @aom_dc_128_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 8), align 8
-  store ptr @aom_dc_128_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 16), align 16
-  store ptr @aom_dc_128_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 24), align 8
-  store ptr @aom_dc_128_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 32), align 16
-  store ptr @aom_dc_128_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 40), align 8
-  store ptr @aom_dc_128_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 48), align 16
-  store ptr @aom_dc_128_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 56), align 8
-  store ptr @aom_dc_128_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 64), align 16
-  store ptr @aom_dc_128_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 72), align 8
-  store ptr @aom_dc_128_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 80), align 16
-  store ptr @aom_dc_128_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 88), align 8
-  store ptr @aom_dc_128_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 96), align 16
-  store ptr @aom_dc_128_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 104), align 8
-  store ptr @aom_dc_128_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 112), align 16
-  store ptr @aom_dc_128_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 120), align 8
-  store ptr @aom_dc_128_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 128), align 16
-  store ptr @aom_dc_128_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 136), align 8
-  store ptr @aom_dc_128_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 144), align 16
-  store ptr @aom_dc_top_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 152), align 8
-  store ptr @aom_dc_top_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 160), align 16
-  store ptr @aom_dc_top_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 168), align 8
-  store ptr @aom_dc_top_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 176), align 16
-  store ptr @aom_dc_top_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 184), align 8
-  store ptr @aom_dc_top_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 192), align 16
-  store ptr @aom_dc_top_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 200), align 8
-  store ptr @aom_dc_top_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 208), align 16
-  store ptr @aom_dc_top_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 216), align 8
-  store ptr @aom_dc_top_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 224), align 16
-  store ptr @aom_dc_top_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 232), align 8
-  store ptr @aom_dc_top_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 240), align 16
-  store ptr @aom_dc_top_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 248), align 8
-  store ptr @aom_dc_top_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 256), align 16
-  store ptr @aom_dc_top_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 264), align 8
-  store ptr @aom_dc_top_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 272), align 16
-  store ptr @aom_dc_top_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 280), align 8
-  store ptr @aom_dc_top_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 288), align 16
-  store ptr @aom_dc_top_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 296), align 8
-  store ptr @aom_dc_left_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 304), align 16
-  store ptr @aom_dc_left_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 312), align 8
-  store ptr @aom_dc_left_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 320), align 16
-  store ptr @aom_dc_left_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 328), align 8
-  store ptr @aom_dc_left_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 336), align 16
-  store ptr @aom_dc_left_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 344), align 8
-  store ptr @aom_dc_left_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 352), align 16
-  store ptr @aom_dc_left_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 360), align 8
-  store ptr @aom_dc_left_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 368), align 16
-  store ptr @aom_dc_left_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 376), align 8
-  store ptr @aom_dc_left_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 384), align 16
-  store ptr @aom_dc_left_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 392), align 8
-  store ptr @aom_dc_left_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 400), align 16
-  store ptr @aom_dc_left_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 408), align 8
-  store ptr @aom_dc_left_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 416), align 16
-  store ptr @aom_dc_left_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 424), align 8
-  store ptr @aom_dc_left_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 432), align 16
-  store ptr @aom_dc_left_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 440), align 8
-  store ptr @aom_dc_left_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 448), align 16
-  store ptr @aom_dc_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 456), align 8
-  store ptr @aom_dc_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 464), align 16
-  store ptr @aom_dc_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 472), align 8
-  store ptr @aom_dc_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 480), align 16
-  store ptr @aom_dc_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 488), align 8
-  store ptr @aom_dc_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 496), align 16
-  store ptr @aom_dc_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 504), align 8
-  store ptr @aom_dc_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 512), align 16
-  store ptr @aom_dc_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 520), align 8
-  store ptr @aom_dc_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 528), align 16
-  store ptr @aom_dc_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 536), align 8
-  store ptr @aom_dc_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 544), align 16
-  store ptr @aom_dc_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 552), align 8
-  store ptr @aom_dc_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 560), align 16
-  store ptr @aom_dc_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 568), align 8
-  store ptr @aom_dc_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 576), align 16
-  store ptr @aom_dc_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 584), align 8
-  store ptr @aom_dc_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 592), align 16
-  store ptr @aom_dc_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred, i64 600), align 8
-  store ptr @aom_highbd_v_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 152), align 8
-  store ptr @aom_highbd_v_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 160), align 16
-  store ptr @aom_highbd_v_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 168), align 8
-  store ptr @aom_highbd_v_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 176), align 16
-  store ptr @aom_highbd_v_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 184), align 8
-  store ptr @aom_highbd_v_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 192), align 16
-  store ptr @aom_highbd_v_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 200), align 8
-  store ptr @aom_highbd_v_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 208), align 16
-  store ptr @aom_highbd_v_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 216), align 8
-  store ptr @aom_highbd_v_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 224), align 16
-  store ptr @aom_highbd_v_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 232), align 8
-  store ptr @aom_highbd_v_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 240), align 16
-  store ptr @aom_highbd_v_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 248), align 8
-  store ptr @aom_highbd_v_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 256), align 16
-  store ptr @aom_highbd_v_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 264), align 8
-  store ptr @aom_highbd_v_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 272), align 16
-  store ptr @aom_highbd_v_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 280), align 8
-  store ptr @aom_highbd_v_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 288), align 16
-  store ptr @aom_highbd_v_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 296), align 8
-  store ptr @aom_highbd_h_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 304), align 16
-  store ptr @aom_highbd_h_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 312), align 8
-  store ptr @aom_highbd_h_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 320), align 16
-  store ptr @aom_highbd_h_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 328), align 8
-  store ptr @aom_highbd_h_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 336), align 16
-  store ptr @aom_highbd_h_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 344), align 8
-  store ptr @aom_highbd_h_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 352), align 16
-  store ptr @aom_highbd_h_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 360), align 8
-  store ptr @aom_highbd_h_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 368), align 16
-  store ptr @aom_highbd_h_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 376), align 8
-  store ptr @aom_highbd_h_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 384), align 16
-  store ptr @aom_highbd_h_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 392), align 8
-  store ptr @aom_highbd_h_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 400), align 16
-  store ptr @aom_highbd_h_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 408), align 8
-  store ptr @aom_highbd_h_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 416), align 16
-  store ptr @aom_highbd_h_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 424), align 8
-  store ptr @aom_highbd_h_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 432), align 16
-  store ptr @aom_highbd_h_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 440), align 8
-  store ptr @aom_highbd_h_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 448), align 16
-  store ptr @aom_highbd_paeth_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1824), align 16
-  store ptr @aom_highbd_paeth_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1832), align 8
-  store ptr @aom_highbd_paeth_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1840), align 16
-  store ptr @aom_highbd_paeth_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1848), align 8
-  store ptr @aom_highbd_paeth_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1856), align 16
-  store ptr @aom_highbd_paeth_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1864), align 8
-  store ptr @aom_highbd_paeth_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1872), align 16
-  store ptr @aom_highbd_paeth_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1880), align 8
-  store ptr @aom_highbd_paeth_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1888), align 16
-  store ptr @aom_highbd_paeth_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1896), align 8
-  store ptr @aom_highbd_paeth_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1904), align 16
-  store ptr @aom_highbd_paeth_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1912), align 8
-  store ptr @aom_highbd_paeth_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1920), align 16
-  store ptr @aom_highbd_paeth_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1928), align 8
-  store ptr @aom_highbd_paeth_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1936), align 16
-  store ptr @aom_highbd_paeth_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1944), align 8
-  store ptr @aom_highbd_paeth_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1952), align 16
-  store ptr @aom_highbd_paeth_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1960), align 8
-  store ptr @aom_highbd_paeth_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1968), align 16
-  store ptr @aom_highbd_smooth_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1368), align 8
-  store ptr @aom_highbd_smooth_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1376), align 16
-  store ptr @aom_highbd_smooth_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1384), align 8
-  store ptr @aom_highbd_smooth_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1392), align 16
-  store ptr @aom_highbd_smooth_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1400), align 8
-  store ptr @aom_highbd_smooth_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1408), align 16
-  store ptr @aom_highbd_smooth_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1416), align 8
-  store ptr @aom_highbd_smooth_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1424), align 16
-  store ptr @aom_highbd_smooth_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1432), align 8
-  store ptr @aom_highbd_smooth_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1440), align 16
-  store ptr @aom_highbd_smooth_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1448), align 8
-  store ptr @aom_highbd_smooth_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1456), align 16
-  store ptr @aom_highbd_smooth_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1464), align 8
-  store ptr @aom_highbd_smooth_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1472), align 16
-  store ptr @aom_highbd_smooth_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1480), align 8
-  store ptr @aom_highbd_smooth_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1488), align 16
-  store ptr @aom_highbd_smooth_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1496), align 8
-  store ptr @aom_highbd_smooth_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1504), align 16
-  store ptr @aom_highbd_smooth_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1512), align 8
-  store ptr @aom_highbd_smooth_v_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1520), align 16
-  store ptr @aom_highbd_smooth_v_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1528), align 8
-  store ptr @aom_highbd_smooth_v_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1536), align 16
-  store ptr @aom_highbd_smooth_v_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1544), align 8
-  store ptr @aom_highbd_smooth_v_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1552), align 16
-  store ptr @aom_highbd_smooth_v_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1560), align 8
-  store ptr @aom_highbd_smooth_v_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1568), align 16
-  store ptr @aom_highbd_smooth_v_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1576), align 8
-  store ptr @aom_highbd_smooth_v_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1584), align 16
-  store ptr @aom_highbd_smooth_v_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1592), align 8
-  store ptr @aom_highbd_smooth_v_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1600), align 16
-  store ptr @aom_highbd_smooth_v_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1608), align 8
-  store ptr @aom_highbd_smooth_v_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1616), align 16
-  store ptr @aom_highbd_smooth_v_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1624), align 8
-  store ptr @aom_highbd_smooth_v_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1632), align 16
-  store ptr @aom_highbd_smooth_v_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1640), align 8
-  store ptr @aom_highbd_smooth_v_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1648), align 16
-  store ptr @aom_highbd_smooth_v_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1656), align 8
-  store ptr @aom_highbd_smooth_v_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1664), align 16
-  store ptr @aom_highbd_smooth_h_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1672), align 8
-  store ptr @aom_highbd_smooth_h_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1680), align 16
-  store ptr @aom_highbd_smooth_h_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1688), align 8
-  store ptr @aom_highbd_smooth_h_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1696), align 16
-  store ptr @aom_highbd_smooth_h_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1704), align 8
-  store ptr @aom_highbd_smooth_h_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1712), align 16
-  store ptr @aom_highbd_smooth_h_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1720), align 8
-  store ptr @aom_highbd_smooth_h_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1728), align 16
-  store ptr @aom_highbd_smooth_h_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1736), align 8
-  store ptr @aom_highbd_smooth_h_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1744), align 16
-  store ptr @aom_highbd_smooth_h_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1752), align 8
-  store ptr @aom_highbd_smooth_h_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1760), align 16
-  store ptr @aom_highbd_smooth_h_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1768), align 8
-  store ptr @aom_highbd_smooth_h_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1776), align 16
-  store ptr @aom_highbd_smooth_h_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1784), align 8
-  store ptr @aom_highbd_smooth_h_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1792), align 16
-  store ptr @aom_highbd_smooth_h_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1800), align 8
-  store ptr @aom_highbd_smooth_h_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1808), align 16
-  store ptr @aom_highbd_smooth_h_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @pred_high, i64 1816), align 8
+  store ptr @aom_dc_128_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 8), align 8
+  store ptr @aom_dc_128_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 16), align 16
+  store ptr @aom_dc_128_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 24), align 8
+  store ptr @aom_dc_128_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 32), align 16
+  store ptr @aom_dc_128_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 40), align 8
+  store ptr @aom_dc_128_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 48), align 16
+  store ptr @aom_dc_128_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 56), align 8
+  store ptr @aom_dc_128_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 64), align 16
+  store ptr @aom_dc_128_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 72), align 8
+  store ptr @aom_dc_128_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 80), align 16
+  store ptr @aom_dc_128_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 88), align 8
+  store ptr @aom_dc_128_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 96), align 16
+  store ptr @aom_dc_128_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 104), align 8
+  store ptr @aom_dc_128_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 112), align 16
+  store ptr @aom_dc_128_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 120), align 8
+  store ptr @aom_dc_128_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 128), align 16
+  store ptr @aom_dc_128_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 136), align 8
+  store ptr @aom_dc_128_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 144), align 16
+  store ptr @aom_dc_top_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 152), align 8
+  store ptr @aom_dc_top_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 160), align 16
+  store ptr @aom_dc_top_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 168), align 8
+  store ptr @aom_dc_top_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 176), align 16
+  store ptr @aom_dc_top_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 184), align 8
+  store ptr @aom_dc_top_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 192), align 16
+  store ptr @aom_dc_top_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 200), align 8
+  store ptr @aom_dc_top_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 208), align 16
+  store ptr @aom_dc_top_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 216), align 8
+  store ptr @aom_dc_top_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 224), align 16
+  store ptr @aom_dc_top_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 232), align 8
+  store ptr @aom_dc_top_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 240), align 16
+  store ptr @aom_dc_top_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 248), align 8
+  store ptr @aom_dc_top_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 256), align 16
+  store ptr @aom_dc_top_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 264), align 8
+  store ptr @aom_dc_top_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 272), align 16
+  store ptr @aom_dc_top_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 280), align 8
+  store ptr @aom_dc_top_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 288), align 16
+  store ptr @aom_dc_top_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 296), align 8
+  store ptr @aom_dc_left_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 304), align 16
+  store ptr @aom_dc_left_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 312), align 8
+  store ptr @aom_dc_left_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 320), align 16
+  store ptr @aom_dc_left_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 328), align 8
+  store ptr @aom_dc_left_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 336), align 16
+  store ptr @aom_dc_left_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 344), align 8
+  store ptr @aom_dc_left_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 352), align 16
+  store ptr @aom_dc_left_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 360), align 8
+  store ptr @aom_dc_left_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 368), align 16
+  store ptr @aom_dc_left_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 376), align 8
+  store ptr @aom_dc_left_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 384), align 16
+  store ptr @aom_dc_left_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 392), align 8
+  store ptr @aom_dc_left_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 400), align 16
+  store ptr @aom_dc_left_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 408), align 8
+  store ptr @aom_dc_left_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 416), align 16
+  store ptr @aom_dc_left_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 424), align 8
+  store ptr @aom_dc_left_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 432), align 16
+  store ptr @aom_dc_left_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 440), align 8
+  store ptr @aom_dc_left_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 448), align 16
+  store ptr @aom_dc_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 456), align 8
+  store ptr @aom_dc_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 464), align 16
+  store ptr @aom_dc_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 472), align 8
+  store ptr @aom_dc_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 480), align 16
+  store ptr @aom_dc_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 488), align 8
+  store ptr @aom_dc_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 496), align 16
+  store ptr @aom_dc_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 504), align 8
+  store ptr @aom_dc_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 512), align 16
+  store ptr @aom_dc_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 520), align 8
+  store ptr @aom_dc_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 528), align 16
+  store ptr @aom_dc_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 536), align 8
+  store ptr @aom_dc_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 544), align 16
+  store ptr @aom_dc_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 552), align 8
+  store ptr @aom_dc_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 560), align 16
+  store ptr @aom_dc_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 568), align 8
+  store ptr @aom_dc_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 576), align 16
+  store ptr @aom_dc_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 584), align 8
+  store ptr @aom_dc_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 592), align 16
+  store ptr @aom_dc_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred, i64 600), align 8
+  store ptr @aom_highbd_v_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 152), align 8
+  store ptr @aom_highbd_v_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 160), align 16
+  store ptr @aom_highbd_v_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 168), align 8
+  store ptr @aom_highbd_v_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 176), align 16
+  store ptr @aom_highbd_v_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 184), align 8
+  store ptr @aom_highbd_v_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 192), align 16
+  store ptr @aom_highbd_v_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 200), align 8
+  store ptr @aom_highbd_v_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 208), align 16
+  store ptr @aom_highbd_v_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 216), align 8
+  store ptr @aom_highbd_v_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 224), align 16
+  store ptr @aom_highbd_v_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 232), align 8
+  store ptr @aom_highbd_v_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 240), align 16
+  store ptr @aom_highbd_v_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 248), align 8
+  store ptr @aom_highbd_v_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 256), align 16
+  store ptr @aom_highbd_v_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 264), align 8
+  store ptr @aom_highbd_v_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 272), align 16
+  store ptr @aom_highbd_v_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 280), align 8
+  store ptr @aom_highbd_v_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 288), align 16
+  store ptr @aom_highbd_v_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 296), align 8
+  store ptr @aom_highbd_h_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 304), align 16
+  store ptr @aom_highbd_h_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 312), align 8
+  store ptr @aom_highbd_h_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 320), align 16
+  store ptr @aom_highbd_h_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 328), align 8
+  store ptr @aom_highbd_h_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 336), align 16
+  store ptr @aom_highbd_h_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 344), align 8
+  store ptr @aom_highbd_h_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 352), align 16
+  store ptr @aom_highbd_h_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 360), align 8
+  store ptr @aom_highbd_h_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 368), align 16
+  store ptr @aom_highbd_h_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 376), align 8
+  store ptr @aom_highbd_h_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 384), align 16
+  store ptr @aom_highbd_h_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 392), align 8
+  store ptr @aom_highbd_h_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 400), align 16
+  store ptr @aom_highbd_h_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 408), align 8
+  store ptr @aom_highbd_h_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 416), align 16
+  store ptr @aom_highbd_h_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 424), align 8
+  store ptr @aom_highbd_h_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 432), align 16
+  store ptr @aom_highbd_h_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 440), align 8
+  store ptr @aom_highbd_h_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 448), align 16
+  store ptr @aom_highbd_paeth_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1824), align 16
+  store ptr @aom_highbd_paeth_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1832), align 8
+  store ptr @aom_highbd_paeth_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1840), align 16
+  store ptr @aom_highbd_paeth_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1848), align 8
+  store ptr @aom_highbd_paeth_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1856), align 16
+  store ptr @aom_highbd_paeth_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1864), align 8
+  store ptr @aom_highbd_paeth_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1872), align 16
+  store ptr @aom_highbd_paeth_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1880), align 8
+  store ptr @aom_highbd_paeth_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1888), align 16
+  store ptr @aom_highbd_paeth_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1896), align 8
+  store ptr @aom_highbd_paeth_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1904), align 16
+  store ptr @aom_highbd_paeth_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1912), align 8
+  store ptr @aom_highbd_paeth_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1920), align 16
+  store ptr @aom_highbd_paeth_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1928), align 8
+  store ptr @aom_highbd_paeth_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1936), align 16
+  store ptr @aom_highbd_paeth_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1944), align 8
+  store ptr @aom_highbd_paeth_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1952), align 16
+  store ptr @aom_highbd_paeth_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1960), align 8
+  store ptr @aom_highbd_paeth_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1968), align 16
+  store ptr @aom_highbd_smooth_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1368), align 8
+  store ptr @aom_highbd_smooth_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1376), align 16
+  store ptr @aom_highbd_smooth_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1384), align 8
+  store ptr @aom_highbd_smooth_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1392), align 16
+  store ptr @aom_highbd_smooth_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1400), align 8
+  store ptr @aom_highbd_smooth_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1408), align 16
+  store ptr @aom_highbd_smooth_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1416), align 8
+  store ptr @aom_highbd_smooth_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1424), align 16
+  store ptr @aom_highbd_smooth_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1432), align 8
+  store ptr @aom_highbd_smooth_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1440), align 16
+  store ptr @aom_highbd_smooth_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1448), align 8
+  store ptr @aom_highbd_smooth_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1456), align 16
+  store ptr @aom_highbd_smooth_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1464), align 8
+  store ptr @aom_highbd_smooth_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1472), align 16
+  store ptr @aom_highbd_smooth_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1480), align 8
+  store ptr @aom_highbd_smooth_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1488), align 16
+  store ptr @aom_highbd_smooth_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1496), align 8
+  store ptr @aom_highbd_smooth_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1504), align 16
+  store ptr @aom_highbd_smooth_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1512), align 8
+  store ptr @aom_highbd_smooth_v_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1520), align 16
+  store ptr @aom_highbd_smooth_v_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1528), align 8
+  store ptr @aom_highbd_smooth_v_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1536), align 16
+  store ptr @aom_highbd_smooth_v_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1544), align 8
+  store ptr @aom_highbd_smooth_v_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1552), align 16
+  store ptr @aom_highbd_smooth_v_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1560), align 8
+  store ptr @aom_highbd_smooth_v_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1568), align 16
+  store ptr @aom_highbd_smooth_v_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1576), align 8
+  store ptr @aom_highbd_smooth_v_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1584), align 16
+  store ptr @aom_highbd_smooth_v_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1592), align 8
+  store ptr @aom_highbd_smooth_v_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1600), align 16
+  store ptr @aom_highbd_smooth_v_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1608), align 8
+  store ptr @aom_highbd_smooth_v_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1616), align 16
+  store ptr @aom_highbd_smooth_v_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1624), align 8
+  store ptr @aom_highbd_smooth_v_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1632), align 16
+  store ptr @aom_highbd_smooth_v_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1640), align 8
+  store ptr @aom_highbd_smooth_v_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1648), align 16
+  store ptr @aom_highbd_smooth_v_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1656), align 8
+  store ptr @aom_highbd_smooth_v_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1664), align 16
+  store ptr @aom_highbd_smooth_h_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1672), align 8
+  store ptr @aom_highbd_smooth_h_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1680), align 16
+  store ptr @aom_highbd_smooth_h_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1688), align 8
+  store ptr @aom_highbd_smooth_h_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1696), align 16
+  store ptr @aom_highbd_smooth_h_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1704), align 8
+  store ptr @aom_highbd_smooth_h_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1712), align 16
+  store ptr @aom_highbd_smooth_h_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1720), align 8
+  store ptr @aom_highbd_smooth_h_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1728), align 16
+  store ptr @aom_highbd_smooth_h_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1736), align 8
+  store ptr @aom_highbd_smooth_h_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1744), align 16
+  store ptr @aom_highbd_smooth_h_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1752), align 8
+  store ptr @aom_highbd_smooth_h_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1760), align 16
+  store ptr @aom_highbd_smooth_h_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1768), align 8
+  store ptr @aom_highbd_smooth_h_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1776), align 16
+  store ptr @aom_highbd_smooth_h_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1784), align 8
+  store ptr @aom_highbd_smooth_h_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1792), align 16
+  store ptr @aom_highbd_smooth_h_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1800), align 8
+  store ptr @aom_highbd_smooth_h_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1808), align 16
+  store ptr @aom_highbd_smooth_h_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @pred_high, i64 1816), align 8
   store ptr @aom_highbd_dc_128_predictor_4x4_c, ptr @dc_pred_high, align 16
-  store ptr @aom_highbd_dc_128_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 8), align 8
-  store ptr @aom_highbd_dc_128_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 16), align 16
-  store ptr @aom_highbd_dc_128_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 24), align 8
-  store ptr @aom_highbd_dc_128_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 32), align 16
-  store ptr @aom_highbd_dc_128_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 40), align 8
-  store ptr @aom_highbd_dc_128_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 48), align 16
-  store ptr @aom_highbd_dc_128_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 56), align 8
-  store ptr @aom_highbd_dc_128_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 64), align 16
-  store ptr @aom_highbd_dc_128_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 72), align 8
-  store ptr @aom_highbd_dc_128_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 80), align 16
-  store ptr @aom_highbd_dc_128_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 88), align 8
-  store ptr @aom_highbd_dc_128_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 96), align 16
-  store ptr @aom_highbd_dc_128_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 104), align 8
-  store ptr @aom_highbd_dc_128_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 112), align 16
-  store ptr @aom_highbd_dc_128_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 120), align 8
-  store ptr @aom_highbd_dc_128_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 128), align 16
-  store ptr @aom_highbd_dc_128_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 136), align 8
-  store ptr @aom_highbd_dc_128_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 144), align 16
-  store ptr @aom_highbd_dc_top_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 152), align 8
-  store ptr @aom_highbd_dc_top_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 160), align 16
-  store ptr @aom_highbd_dc_top_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 168), align 8
-  store ptr @aom_highbd_dc_top_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 176), align 16
-  store ptr @aom_highbd_dc_top_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 184), align 8
-  store ptr @aom_highbd_dc_top_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 192), align 16
-  store ptr @aom_highbd_dc_top_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 200), align 8
-  store ptr @aom_highbd_dc_top_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 208), align 16
-  store ptr @aom_highbd_dc_top_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 216), align 8
-  store ptr @aom_highbd_dc_top_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 224), align 16
-  store ptr @aom_highbd_dc_top_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 232), align 8
-  store ptr @aom_highbd_dc_top_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 240), align 16
-  store ptr @aom_highbd_dc_top_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 248), align 8
-  store ptr @aom_highbd_dc_top_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 256), align 16
-  store ptr @aom_highbd_dc_top_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 264), align 8
-  store ptr @aom_highbd_dc_top_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 272), align 16
-  store ptr @aom_highbd_dc_top_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 280), align 8
-  store ptr @aom_highbd_dc_top_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 288), align 16
-  store ptr @aom_highbd_dc_top_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 296), align 8
-  store ptr @aom_highbd_dc_left_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 304), align 16
-  store ptr @aom_highbd_dc_left_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 312), align 8
-  store ptr @aom_highbd_dc_left_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 320), align 16
-  store ptr @aom_highbd_dc_left_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 328), align 8
-  store ptr @aom_highbd_dc_left_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 336), align 16
-  store ptr @aom_highbd_dc_left_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 344), align 8
-  store ptr @aom_highbd_dc_left_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 352), align 16
-  store ptr @aom_highbd_dc_left_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 360), align 8
-  store ptr @aom_highbd_dc_left_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 368), align 16
-  store ptr @aom_highbd_dc_left_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 376), align 8
-  store ptr @aom_highbd_dc_left_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 384), align 16
-  store ptr @aom_highbd_dc_left_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 392), align 8
-  store ptr @aom_highbd_dc_left_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 400), align 16
-  store ptr @aom_highbd_dc_left_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 408), align 8
-  store ptr @aom_highbd_dc_left_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 416), align 16
-  store ptr @aom_highbd_dc_left_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 424), align 8
-  store ptr @aom_highbd_dc_left_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 432), align 16
-  store ptr @aom_highbd_dc_left_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 440), align 8
-  store ptr @aom_highbd_dc_left_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 448), align 16
-  store ptr @aom_highbd_dc_predictor_4x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 456), align 8
-  store ptr @aom_highbd_dc_predictor_8x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 464), align 16
-  store ptr @aom_highbd_dc_predictor_16x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 472), align 8
-  store ptr @aom_highbd_dc_predictor_32x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 480), align 16
-  store ptr @aom_highbd_dc_predictor_64x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 488), align 8
-  store ptr @aom_highbd_dc_predictor_4x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 496), align 16
-  store ptr @aom_highbd_dc_predictor_8x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 504), align 8
-  store ptr @aom_highbd_dc_predictor_8x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 512), align 16
-  store ptr @aom_highbd_dc_predictor_16x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 520), align 8
-  store ptr @aom_highbd_dc_predictor_16x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 528), align 16
-  store ptr @aom_highbd_dc_predictor_32x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 536), align 8
-  store ptr @aom_highbd_dc_predictor_32x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 544), align 16
-  store ptr @aom_highbd_dc_predictor_64x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 552), align 8
-  store ptr @aom_highbd_dc_predictor_4x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 560), align 16
-  store ptr @aom_highbd_dc_predictor_16x4_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 568), align 8
-  store ptr @aom_highbd_dc_predictor_8x32_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 576), align 16
-  store ptr @aom_highbd_dc_predictor_32x8_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 584), align 8
-  store ptr @aom_highbd_dc_predictor_16x64_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 592), align 16
-  store ptr @aom_highbd_dc_predictor_64x16_c, ptr getelementptr inbounds (i8, ptr @dc_pred_high, i64 600), align 8
+  store ptr @aom_highbd_dc_128_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 8), align 8
+  store ptr @aom_highbd_dc_128_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 16), align 16
+  store ptr @aom_highbd_dc_128_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 24), align 8
+  store ptr @aom_highbd_dc_128_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 32), align 16
+  store ptr @aom_highbd_dc_128_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 40), align 8
+  store ptr @aom_highbd_dc_128_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 48), align 16
+  store ptr @aom_highbd_dc_128_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 56), align 8
+  store ptr @aom_highbd_dc_128_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 64), align 16
+  store ptr @aom_highbd_dc_128_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 72), align 8
+  store ptr @aom_highbd_dc_128_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 80), align 16
+  store ptr @aom_highbd_dc_128_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 88), align 8
+  store ptr @aom_highbd_dc_128_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 96), align 16
+  store ptr @aom_highbd_dc_128_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 104), align 8
+  store ptr @aom_highbd_dc_128_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 112), align 16
+  store ptr @aom_highbd_dc_128_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 120), align 8
+  store ptr @aom_highbd_dc_128_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 128), align 16
+  store ptr @aom_highbd_dc_128_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 136), align 8
+  store ptr @aom_highbd_dc_128_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 144), align 16
+  store ptr @aom_highbd_dc_top_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 152), align 8
+  store ptr @aom_highbd_dc_top_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 160), align 16
+  store ptr @aom_highbd_dc_top_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 168), align 8
+  store ptr @aom_highbd_dc_top_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 176), align 16
+  store ptr @aom_highbd_dc_top_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 184), align 8
+  store ptr @aom_highbd_dc_top_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 192), align 16
+  store ptr @aom_highbd_dc_top_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 200), align 8
+  store ptr @aom_highbd_dc_top_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 208), align 16
+  store ptr @aom_highbd_dc_top_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 216), align 8
+  store ptr @aom_highbd_dc_top_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 224), align 16
+  store ptr @aom_highbd_dc_top_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 232), align 8
+  store ptr @aom_highbd_dc_top_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 240), align 16
+  store ptr @aom_highbd_dc_top_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 248), align 8
+  store ptr @aom_highbd_dc_top_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 256), align 16
+  store ptr @aom_highbd_dc_top_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 264), align 8
+  store ptr @aom_highbd_dc_top_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 272), align 16
+  store ptr @aom_highbd_dc_top_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 280), align 8
+  store ptr @aom_highbd_dc_top_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 288), align 16
+  store ptr @aom_highbd_dc_top_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 296), align 8
+  store ptr @aom_highbd_dc_left_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 304), align 16
+  store ptr @aom_highbd_dc_left_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 312), align 8
+  store ptr @aom_highbd_dc_left_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 320), align 16
+  store ptr @aom_highbd_dc_left_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 328), align 8
+  store ptr @aom_highbd_dc_left_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 336), align 16
+  store ptr @aom_highbd_dc_left_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 344), align 8
+  store ptr @aom_highbd_dc_left_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 352), align 16
+  store ptr @aom_highbd_dc_left_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 360), align 8
+  store ptr @aom_highbd_dc_left_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 368), align 16
+  store ptr @aom_highbd_dc_left_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 376), align 8
+  store ptr @aom_highbd_dc_left_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 384), align 16
+  store ptr @aom_highbd_dc_left_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 392), align 8
+  store ptr @aom_highbd_dc_left_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 400), align 16
+  store ptr @aom_highbd_dc_left_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 408), align 8
+  store ptr @aom_highbd_dc_left_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 416), align 16
+  store ptr @aom_highbd_dc_left_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 424), align 8
+  store ptr @aom_highbd_dc_left_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 432), align 16
+  store ptr @aom_highbd_dc_left_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 440), align 8
+  store ptr @aom_highbd_dc_left_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 448), align 16
+  store ptr @aom_highbd_dc_predictor_4x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 456), align 8
+  store ptr @aom_highbd_dc_predictor_8x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 464), align 16
+  store ptr @aom_highbd_dc_predictor_16x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 472), align 8
+  store ptr @aom_highbd_dc_predictor_32x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 480), align 16
+  store ptr @aom_highbd_dc_predictor_64x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 488), align 8
+  store ptr @aom_highbd_dc_predictor_4x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 496), align 16
+  store ptr @aom_highbd_dc_predictor_8x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 504), align 8
+  store ptr @aom_highbd_dc_predictor_8x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 512), align 16
+  store ptr @aom_highbd_dc_predictor_16x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 520), align 8
+  store ptr @aom_highbd_dc_predictor_16x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 528), align 16
+  store ptr @aom_highbd_dc_predictor_32x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 536), align 8
+  store ptr @aom_highbd_dc_predictor_32x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 544), align 16
+  store ptr @aom_highbd_dc_predictor_64x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 552), align 8
+  store ptr @aom_highbd_dc_predictor_4x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 560), align 16
+  store ptr @aom_highbd_dc_predictor_16x4_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 568), align 8
+  store ptr @aom_highbd_dc_predictor_8x32_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 576), align 16
+  store ptr @aom_highbd_dc_predictor_32x8_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 584), align 8
+  store ptr @aom_highbd_dc_predictor_16x64_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 592), align 16
+  store ptr @aom_highbd_dc_predictor_64x16_c, ptr getelementptr inbounds nuw (i8, ptr @dc_pred_high, i64 600), align 8
   ret void
 }
 

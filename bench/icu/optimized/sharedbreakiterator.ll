@@ -17,7 +17,7 @@ define void @_ZN6icu_7519SharedBreakIteratorC2EPNS_13BreakIteratorE(ptr nocaptur
 entry:
   %softRefCount.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i64 16), ptr %this, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %biToAdopt, ptr %ptr, align 8
   ret void
@@ -26,7 +26,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7519SharedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i64 16), ptr %this, align 8
   %ptr = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %isnull = icmp eq ptr %0, null

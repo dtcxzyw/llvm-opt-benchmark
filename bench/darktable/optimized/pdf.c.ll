@@ -846,13 +846,13 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   store ptr %4, ptr %5, align 8, !tbaa !63
   %6 = tail call i64 @gtk_grid_get_type() #20
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %6) #17
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !64
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !64
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1448
   %10 = load double, ptr %9, align 8, !tbaa !73
   %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e+00
   %12 = fptoui double %11 to i32
   tail call void @gtk_grid_set_row_spacing(ptr noundef %7, i32 noundef %12) #17
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !64
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !64
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1448
   %15 = load double, ptr %14, align 8, !tbaa !73
   %16 = fmul reassoc nsz arcp contract afn double %15, 8.000000e+00

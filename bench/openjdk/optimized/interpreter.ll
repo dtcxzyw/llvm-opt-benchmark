@@ -298,9 +298,9 @@ _ZN11CodeletMark12codelet_sizeEv.exit:            ; preds = %4
   store i32 %3, ptr %85, align 4
   %86 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #9
   tail call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull %38) #9
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %86, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %86, align 8
   tail call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(48) %86) #9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV25InterpreterMacroAssembler, i64 16), ptr %86, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV25InterpreterMacroAssembler, i64 16), ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
   store i32 14, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 44

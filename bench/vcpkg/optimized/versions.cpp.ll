@@ -292,7 +292,7 @@ define dso_local void @_ZNK5vcpkg7Version9to_stringB5cxx11Ev(ptr dead_on_unwind 
   store i64 %9, ptr %10, align 8, !alias.scope !5
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %9, ptr %11, align 8, !alias.scope !5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %3, align 8, !alias.scope !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %3, align 8, !alias.scope !5
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %12, align 8, !alias.scope !5
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @.str, i64 3, i64 1, ptr nonnull %4, ptr null)
@@ -333,7 +333,7 @@ define dso_local void @_ZNK5vcpkg7Version9to_stringERNSt7__cxx1112basic_stringIc
   store i64 %9, ptr %10, align 8, !alias.scope !8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %9, ptr %11, align 8, !alias.scope !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %3, align 8, !alias.scope !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %3, align 8, !alias.scope !8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %1, ptr %12, align 8, !alias.scope !8
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @.str, i64 3, i64 1, ptr nonnull %4, ptr null)
@@ -803,7 +803,7 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit: 
   store i64 %17, ptr %18, align 8, !alias.scope !34, !noalias !31
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %17, ptr %19, align 8, !alias.scope !34, !noalias !31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %3, align 8, !alias.scope !34, !noalias !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %3, align 8, !alias.scope !34, !noalias !31
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %5, ptr %20, align 8, !alias.scope !34, !noalias !31
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @.str, i64 3, i64 1, ptr nonnull %4, ptr null)
@@ -5907,7 +5907,7 @@ define linkonce_odr dso_local ptr @_ZNK3fmt3v109formatterIN5vcpkg7VersionEcvE6fo
   store i64 %12, ptr %13, align 8, !alias.scope !109, !noalias !106
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %12, ptr %14, align 8, !alias.scope !109, !noalias !106
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %4, align 8, !alias.scope !109, !noalias !106
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %4, align 8, !alias.scope !109, !noalias !106
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %7, ptr %15, align 8, !alias.scope !109, !noalias !106
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull @.str, i64 3, i64 1, ptr nonnull %5, ptr null)

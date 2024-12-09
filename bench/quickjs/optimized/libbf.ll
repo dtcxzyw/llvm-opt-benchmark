@@ -2440,7 +2440,7 @@ bf_resize.exit141.thread:                         ; preds = %ntt_free.exit, %237
   %252 = icmp eq i32 %248, 0
   %.0.i146 = select i1 %252, i64 -1, i64 %250
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, i8 0, i64 40, i1 false)
-  %253 = getelementptr i64, ptr getelementptr inbounds (i8, ptr @ntt_mods, i64 40), i64 %242
+  %253 = getelementptr i64, ptr getelementptr inbounds nuw (i8, ptr @ntt_mods, i64 40), i64 %242
   %254 = getelementptr i64, ptr %247, i64 %246
   %255 = shl i64 %107, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %241, i8 0, i64 %255, i1 false)

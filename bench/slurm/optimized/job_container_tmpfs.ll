@@ -331,7 +331,7 @@ define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone 
   br label %_restore_ns.exit.thread
 
 74:                                               ; preds = %67
-  %75 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %76 = and i64 %75, 16777216
   %.not13.i = icmp eq i64 %76, 0
   br i1 %.not13.i, label %81, label %77
@@ -534,7 +534,7 @@ define range(i32 -1, 1) i32 @container_p_join(i32 noundef %0, i32 noundef %1) lo
   br label %.sink.split
 
 25:                                               ; preds = %19
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %27 = and i64 %26, 16777216
   %.not11 = icmp eq i64 %27, 0
   br i1 %.not11, label %32, label %28
@@ -708,7 +708,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
   br label %77
 
 77:                                               ; preds = %75, %60
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1144), align 8
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1144), align 8
   %79 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %8, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.37, ptr noundef %78) #12
   %80 = load ptr, ptr @conf, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4272
@@ -731,7 +731,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
   br label %238
 
 92:                                               ; preds = %77
-  %93 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %93 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %94 = and i64 %93, 16777216
   %.not52.i = icmp eq i64 %94, 0
   br i1 %.not52.i, label %100, label %95
@@ -1133,7 +1133,7 @@ define internal fastcc range(i32 -1, 1) i32 @_delete_ns(i32 noundef %0) unnamed_
   br i1 %.not8, label %20, label %12
 
 12:                                               ; preds = %10
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %14 = and i64 %13, 16777216
   %.not9 = icmp eq i64 %14, 0
   br i1 %.not9, label %21, label %15
@@ -1166,7 +1166,7 @@ define internal fastcc range(i32 -1, 1) i32 @_delete_ns(i32 noundef %0) unnamed_
   ]
 
 26:                                               ; preds = %24, %24
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %28 = and i64 %27, 16777216
   %.not11 = icmp eq i64 %28, 0
   br i1 %.not11, label %37, label %29
@@ -1204,7 +1204,7 @@ define internal fastcc range(i32 -1, 1) i32 @_delete_ns(i32 noundef %0) unnamed_
   br i1 %.not13, label %54, label %46
 
 46:                                               ; preds = %43
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %48 = and i64 %47, 16777216
   %.not14 = icmp eq i64 %48, 0
   br i1 %.not14, label %54, label %49
@@ -1904,7 +1904,7 @@ define internal fastcc range(i32 -1, 1) i32 @_clean_job_basepath(i32 noundef %0)
   br i1 %.not13, label %36, label %28
 
 28:                                               ; preds = %22
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %30 = and i64 %29, 16777216
   %.not14 = icmp eq i64 %30, 0
   br i1 %.not14, label %36, label %31

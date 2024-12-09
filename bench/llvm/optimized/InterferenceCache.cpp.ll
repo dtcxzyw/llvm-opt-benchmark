@@ -610,7 +610,7 @@ _ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit: ; preds = %49, %57
 
 63:                                               ; preds = %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit
   %64 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #16
-  %65 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24UseSegmentSetForPhysRegsE, i64 128), align 8
+  %65 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24UseSegmentSetForPhysRegsE, i64 128), align 8
   %66 = trunc i8 %65 to i1
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(104) %64, ptr noundef nonnull %67, i64 noundef 2) #12

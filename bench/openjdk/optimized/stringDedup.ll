@@ -148,7 +148,7 @@ define hidden void @_ZN11StringDedup10initializeEv() local_unnamed_addr #1 align
 
 4:                                                ; preds = %0
   tail call void @_ZN11StringDedup6Config10initializeEv() #8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   store ptr %5, ptr @_ZN11StringDedup21_string_klass_or_nullE, align 8
   %6 = tail call noundef i32 @_ZN11StringDedup6Config13age_thresholdEv() #8
   store i32 %6, ptr @_ZN11StringDedup22_enabled_age_thresholdE, align 4

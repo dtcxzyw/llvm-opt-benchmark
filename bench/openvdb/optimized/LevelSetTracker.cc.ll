@@ -5097,7 +5097,7 @@ entry:
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEE, i64 16), ptr %this, align 8
   %mGrid = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %grid, ptr %mGrid, align 8
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
@@ -5217,7 +5217,7 @@ catch:                                            ; preds = %lpad8, %lpad6
 try.cont:                                         ; preds = %catch, %invoke.cont12
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #29
           to label %unreachable unwind label %lpad14
 
@@ -5323,7 +5323,7 @@ catch41:                                          ; preds = %ehcleanup40, %lpad2
 try.cont45:                                       ; preds = %catch41, %invoke.cont38
   %exception46 = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception46, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg18) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception46, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception46, align 8
   invoke void @__cxa_throw(ptr nonnull %exception46, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #29
           to label %unreachable unwind label %lpad43
 
@@ -5369,7 +5369,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_012RuntimeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #19
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
@@ -5388,7 +5388,7 @@ declare void @_ZN7openvdb5v11_08GridBase17gridClassToStringB5cxx11ENS0_9GridClas
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat($_ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEE, i64 16), ptr %this, align 8
   %mLeafs = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLeafs, align 8
   %isnull = icmp eq ptr %0, null
@@ -5560,7 +5560,7 @@ catch:                                            ; preds = %lpad7, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont10
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad12
 
@@ -5878,7 +5878,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %i
   %mTree.i5 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %12 = load ptr, ptr %mTree.i5, align 8
   store i8 0, ptr %ref.tmp11, align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %mask0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %mask0, align 8
   %mRoot.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEC2INS3_INS3_INS4_IfLj3EEELj4EEELj5EEEEERKNS2_IT_EERKbNS0_12TopologyCopyE(ptr noundef nonnull align 8 dereferenceable(68) %mRoot.i, ptr noundef nonnull align 8 dereferenceable(68) %mRoot.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
   store i64 1, ptr %my_mask.i.i.i.i, align 8
@@ -5955,7 +5955,7 @@ invoke.cont21:                                    ; preds = %invoke.cont18
   %mTree.i9 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %22 = load ptr, ptr %mTree.i9, align 8
   store i8 0, ptr %ref.tmp25, align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %mask, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %mask, align 8
   %mRoot.i.i11 = getelementptr inbounds nuw i8, ptr %22, i64 8
   invoke void @_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEC2INS3_INS3_INS4_IfLj3EEELj4EEELj5EEEEERKNS2_IT_EERKbNS0_12TopologyCopyE(ptr noundef nonnull align 8 dereferenceable(68) %mRoot.i10, ptr noundef nonnull align 8 dereferenceable(68) %mRoot.i.i11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
           to label %.noexc unwind label %lpad
@@ -6072,7 +6072,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1232) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %this, align 8
   invoke void @_ZN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(1232) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -6554,7 +6554,7 @@ entry:
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEE, i64 16), ptr %this, align 8
   %mGrid = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %grid, ptr %mGrid, align 8
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
@@ -6673,7 +6673,7 @@ catch:                                            ; preds = %lpad8, %lpad6
 try.cont:                                         ; preds = %catch, %invoke.cont12
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #29
           to label %unreachable unwind label %lpad14
 
@@ -6779,7 +6779,7 @@ catch41:                                          ; preds = %ehcleanup40, %lpad2
 try.cont45:                                       ; preds = %catch41, %invoke.cont38
   %exception46 = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception46, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg18) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception46, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception46, align 8
   invoke void @__cxa_throw(ptr nonnull %exception46, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #29
           to label %unreachable unwind label %lpad43
 
@@ -6803,7 +6803,7 @@ unreachable:                                      ; preds = %try.cont45, %try.co
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #5 comdat($_ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEEE, i64 16), ptr %this, align 8
   %mLeafs = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mLeafs, align 8
   %isnull = icmp eq ptr %0, null
@@ -6975,7 +6975,7 @@ catch:                                            ; preds = %lpad7, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont10
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad12
 
@@ -7293,7 +7293,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %i
   %mTree.i5 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %12 = load ptr, ptr %mTree.i5, align 8
   store i8 0, ptr %ref.tmp11, align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %mask0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %mask0, align 8
   %mRoot.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEC2INS3_INS3_INS4_IdLj3EEELj4EEELj5EEEEERKNS2_IT_EERKbNS0_12TopologyCopyE(ptr noundef nonnull align 8 dereferenceable(68) %mRoot.i, ptr noundef nonnull align 8 dereferenceable(72) %mRoot.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
   store i64 1, ptr %my_mask.i.i.i.i, align 8
@@ -7370,7 +7370,7 @@ invoke.cont21:                                    ; preds = %invoke.cont18
   %mTree.i9 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %22 = load ptr, ptr %mTree.i9, align 8
   store i8 0, ptr %ref.tmp25, align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %mask, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %mask, align 8
   %mRoot.i.i11 = getelementptr inbounds nuw i8, ptr %22, i64 8
   invoke void @_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEC2INS3_INS3_INS4_IdLj3EEELj4EEELj5EEEEERKNS2_IT_EERKbNS0_12TopologyCopyE(ptr noundef nonnull align 8 dereferenceable(68) %mRoot.i10, ptr noundef nonnull align 8 dereferenceable(72) %mRoot.i.i11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25)
           to label %.noexc unwind label %lpad
@@ -7757,7 +7757,7 @@ declare void @llvm.trap() #10
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %eType, ptr noundef %msg) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #19
   %tobool.not = icmp eq ptr %eType, null
@@ -7871,7 +7871,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #19
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
@@ -7881,7 +7881,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #19
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
@@ -8024,7 +8024,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_012RuntimeErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #19
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
@@ -9979,7 +9979,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -10289,7 +10289,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -10589,7 +10589,7 @@ invoke.cont14:                                    ; preds = %if.then10
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %32 = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i20, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i20, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 88
@@ -10825,7 +10825,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -10845,7 +10845,7 @@ unreachable:                                      ; preds = %try.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_010ValueErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #19
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
@@ -10855,7 +10855,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_010ValueErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #19
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
@@ -10894,7 +10894,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -11172,7 +11172,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -11402,7 +11402,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -12726,7 +12726,7 @@ catch:                                            ; preds = %lpad3, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont6
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad8
 
@@ -12756,7 +12756,7 @@ if.then:                                          ; preds = %entry
   %call.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc, i64 noundef 256)
   %2 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
@@ -12889,7 +12889,7 @@ _ZNSt10unique_ptrIA_PN7openvdb5v11_04tree8LeafNodeIfLj3EEESt14default_deleteIS6_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -12927,7 +12927,7 @@ _ZN7openvdb5v11_04tree11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -13165,7 +13165,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 256, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -13395,7 +13395,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -13728,7 +13728,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -13979,7 +13979,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -14230,7 +14230,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -14481,7 +14481,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -14732,7 +14732,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -16628,7 +16628,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end63
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end63
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %249 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %249, null
@@ -16671,7 +16671,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
   %mAcc.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
   %mTree.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mTree.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -16708,7 +16708,7 @@ entry:
   %mAcc = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mTree.i = getelementptr inbounds nuw i8, ptr %grid, i64 72
   %0 = load ptr, ptr %mTree.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %mTree.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
@@ -16774,7 +16774,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
@@ -16862,7 +16862,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i, 
 define linkonce_odr void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca ptr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
   %mTree.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTree.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -16929,7 +16929,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt5arr
 define linkonce_odr void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca ptr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTree.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -16988,7 +16988,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
 define linkonce_odr void @_ZN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
   %mTree = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTree, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -18761,7 +18761,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.50, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.50, i64 17))
           to label %invoke.cont20 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -19816,7 +19816,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.51, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.51, i64 13))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -19901,7 +19901,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -20609,7 +20609,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -20774,7 +20774,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -20864,7 +20864,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -20889,7 +20889,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -21411,7 +21411,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -21506,7 +21506,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -23627,7 +23627,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %249 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %249, null
@@ -23803,7 +23803,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -23893,7 +23893,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -23918,7 +23918,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -24440,7 +24440,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -24535,7 +24535,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -26274,7 +26274,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %255 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %255, null
@@ -28275,7 +28275,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %249 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %249, null
@@ -28451,7 +28451,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -28541,7 +28541,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -28566,7 +28566,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -29088,7 +29088,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -29183,7 +29183,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -30922,7 +30922,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %255 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %255, null
@@ -32604,7 +32604,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %255 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %255, null
@@ -33786,7 +33786,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %155 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %155, null
@@ -33829,7 +33829,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
   %mAcc.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
   %mTree.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mTree.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -33866,7 +33866,7 @@ entry:
   %mAcc = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mTree.i = getelementptr inbounds nuw i8, ptr %grid, i64 72
   %0 = load ptr, ptr %mTree.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %mTree.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
@@ -33932,7 +33932,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
@@ -34358,7 +34358,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -34448,7 +34448,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -34473,7 +34473,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -34995,7 +34995,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -35090,7 +35090,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -36376,7 +36376,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %155 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %155, null
@@ -36552,7 +36552,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -36642,7 +36642,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -36667,7 +36667,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -37189,7 +37189,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -37284,7 +37284,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -38298,7 +38298,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %161 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %161, null
@@ -39574,7 +39574,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %155 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %155, null
@@ -39750,7 +39750,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -39840,7 +39840,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -39865,7 +39865,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -40387,7 +40387,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -40482,7 +40482,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -41496,7 +41496,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %161 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %161, null
@@ -42453,7 +42453,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %161 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %161, null
@@ -43431,7 +43431,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %107 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %107, null
@@ -43474,7 +43474,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
   %mAcc.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
   %mTree.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mTree.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -43511,7 +43511,7 @@ entry:
   %mAcc = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mTree.i = getelementptr inbounds nuw i8, ptr %grid, i64 72
   %0 = load ptr, ptr %mTree.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %mTree.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
@@ -43577,7 +43577,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
@@ -44254,7 +44254,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -44344,7 +44344,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -44369,7 +44369,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -44891,7 +44891,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -44986,7 +44986,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -46068,7 +46068,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %107 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %107, null
@@ -46244,7 +46244,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -46334,7 +46334,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -46359,7 +46359,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -46881,7 +46881,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -46976,7 +46976,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -47786,7 +47786,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %113 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %113, null
@@ -48858,7 +48858,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %107 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %107, null
@@ -49034,7 +49034,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -49124,7 +49124,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -49149,7 +49149,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -49671,7 +49671,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -49766,7 +49766,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -50576,7 +50576,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %113 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %113, null
@@ -51329,7 +51329,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %113 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %113, null
@@ -52731,7 +52731,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %183 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %183, null
@@ -53131,7 +53131,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -53221,7 +53221,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -53246,7 +53246,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -53768,7 +53768,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -53863,7 +53863,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -55369,7 +55369,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %183 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %183, null
@@ -55545,7 +55545,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -55635,7 +55635,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -55660,7 +55660,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -56182,7 +56182,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -56277,7 +56277,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -57511,7 +57511,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %189 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %189, null
@@ -59007,7 +59007,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %183 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %183, null
@@ -59183,7 +59183,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -59273,7 +59273,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -59298,7 +59298,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -59820,7 +59820,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -59915,7 +59915,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -61149,7 +61149,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %189 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %189, null
@@ -62326,7 +62326,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %189 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %189, null
@@ -63448,7 +63448,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %107 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %107, null
@@ -64127,7 +64127,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -64217,7 +64217,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -64242,7 +64242,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -64764,7 +64764,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -64859,7 +64859,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -66085,7 +66085,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %107 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %107, null
@@ -66261,7 +66261,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -66351,7 +66351,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -66376,7 +66376,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -66898,7 +66898,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -66993,7 +66993,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -67947,7 +67947,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %113 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %113, null
@@ -69163,7 +69163,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %107 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %107, null
@@ -69339,7 +69339,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -69429,7 +69429,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -69454,7 +69454,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(184) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -69976,7 +69976,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -70071,7 +70071,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -71025,7 +71025,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %113 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %113, null
@@ -71922,7 +71922,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end60
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end60
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %113 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %113, null
@@ -72210,7 +72210,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 96
@@ -72490,7 +72490,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -72728,7 +72728,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::LeafManager<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>>>::LeafRange", ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 96
@@ -72875,7 +72875,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -73151,7 +73151,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 96
@@ -73431,7 +73431,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -73669,7 +73669,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::LeafManager<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>>>::LeafRange", ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 96
@@ -74049,7 +74049,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 96
@@ -74329,7 +74329,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -74567,7 +74567,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::LeafManager<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4>, 5>>>>::LeafRange", ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 96
@@ -74758,7 +74758,7 @@ catch:                                            ; preds = %lpad8, %lpad6
 try.cont:                                         ; preds = %catch, %invoke.cont12
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad14
 
@@ -75113,7 +75113,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 4))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -75141,7 +75141,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr void @_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEE4copyEv(ptr noalias sret(%"class.std::shared_ptr.574") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1232) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1232) ptr @_Znwm(i64 noundef 1232) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEE, i64 16), ptr %call, align 8
   %mRoot.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %mRoot2.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -75280,7 +75280,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04tree8TreeBaseEEC2INS2_4TreeINS2_8RootNodeINS2_
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7openvdb5v11_04tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i, align 8
@@ -77141,7 +77141,7 @@ call.i.noexc:                                     ; preds = %invoke.cont318
           to label %.noexc unwind label %lpad322
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp320, ptr noundef nonnull @.str.93, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.93, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp320, ptr noundef nonnull @.str.93, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.93, i64 22))
           to label %invoke.cont323 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -77160,7 +77160,7 @@ call.i.noexc119:                                  ; preds = %invoke.cont323
           to label %.noexc121 unwind label %lpad326
 
 .noexc121:                                        ; preds = %call.i.noexc119
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp324, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp324, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 1))
           to label %invoke.cont327 unwind label %lpad.i118
 
 lpad.i118:                                        ; preds = %.noexc121
@@ -77187,7 +77187,7 @@ call.i.noexc127:                                  ; preds = %invoke.cont329
           to label %.noexc129 unwind label %lpad335
 
 .noexc129:                                        ; preds = %call.i.noexc127
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp333, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.94, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp333, ptr noundef nonnull @.str.94, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.94, i64 22))
           to label %invoke.cont336 unwind label %lpad.i126
 
 lpad.i126:                                        ; preds = %.noexc129
@@ -77206,7 +77206,7 @@ call.i.noexc135:                                  ; preds = %invoke.cont336
           to label %.noexc137 unwind label %lpad339
 
 .noexc137:                                        ; preds = %call.i.noexc135
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp337, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp337, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 1))
           to label %invoke.cont340 unwind label %lpad.i134
 
 lpad.i134:                                        ; preds = %.noexc137
@@ -77236,7 +77236,7 @@ call.i.noexc143:                                  ; preds = %if.then349
           to label %.noexc145 unwind label %lpad352
 
 .noexc145:                                        ; preds = %call.i.noexc143
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp350, ptr noundef nonnull @.str.95, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.95, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp350, ptr noundef nonnull @.str.95, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.95, i64 22))
           to label %invoke.cont353 unwind label %lpad.i142
 
 lpad.i142:                                        ; preds = %.noexc145
@@ -77255,7 +77255,7 @@ call.i.noexc151:                                  ; preds = %invoke.cont353
           to label %.noexc153 unwind label %lpad356
 
 .noexc153:                                        ; preds = %call.i.noexc151
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp354, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp354, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 1))
           to label %invoke.cont357 unwind label %lpad.i150
 
 lpad.i150:                                        ; preds = %.noexc153
@@ -77645,7 +77645,7 @@ catch:                                            ; preds = %ehcleanup, %lpad37
 try.cont:                                         ; preds = %catch, %invoke.cont45
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09TypeErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09TypeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_09TypeErrorE, ptr nonnull @_ZN7openvdb5v11_09TypeErrorD2Ev) #29
           to label %unreachable unwind label %lpad47
 
@@ -77993,7 +77993,7 @@ _ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE15getN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_09TypeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #19
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
@@ -78265,7 +78265,7 @@ _ZN7openvdb5v11_04tree8LeafNodeIfLj3EE15getNodeLog2DimsERSt6vectorIjSaIjEE.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_09TypeErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #19
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #19
@@ -78304,7 +78304,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IfLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IfLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 80
@@ -78583,7 +78583,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IfLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IfLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i32, ptr %my_range2.i.i.i.i, align 64
   store i32 %6, ptr %my_range.i.i.i.i, align 8
@@ -78816,7 +78816,7 @@ invoke.cont13:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.577", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IfLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IfLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 80
@@ -79072,7 +79072,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IfLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IfLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 80
@@ -79351,7 +79351,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IfLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IfLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i32, ptr %my_range2.i.i.i.i, align 64
   store i32 %6, ptr %my_range.i.i.i.i, align 8
@@ -79644,7 +79644,7 @@ invoke.cont13:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.577", ptr %my_pool2.i, i64 %idxprom.i
   %27 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IfLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IfLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 80
@@ -80789,7 +80789,7 @@ catch:                                            ; preds = %lpad6, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont10
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad12
 
@@ -81086,7 +81086,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE8DeepCopyISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE8DeepCopyISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 80
@@ -81365,7 +81365,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE8DeepCopyISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE8DeepCopyISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i32, ptr %my_range2.i.i.i.i, align 64
   store i32 %6, ptr %my_range.i.i.i.i, align 8
@@ -81598,7 +81598,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.577", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE8DeepCopyISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE8DeepCopyISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 80
@@ -81849,7 +81849,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE8DeepCopyISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE8DeepCopyISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 80
@@ -82128,7 +82128,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE8DeepCopyISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE8DeepCopyISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i32, ptr %my_range2.i.i.i.i, align 64
   store i32 %6, ptr %my_range.i.i.i.i, align 8
@@ -82417,7 +82417,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.577", ptr %my_pool2.i, i64 %idxprom.i
   %26 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE8DeepCopyISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE8DeepCopyISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 80
@@ -82721,7 +82721,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 4))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -83337,7 +83337,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -83572,7 +83572,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -84324,7 +84324,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -84391,7 +84391,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -87239,7 +87239,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -87517,7 +87517,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -87815,7 +87815,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %32 = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i20, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i20, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 88
@@ -88018,7 +88018,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -88296,7 +88296,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -88526,7 +88526,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -89358,7 +89358,7 @@ catch:                                            ; preds = %lpad3, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont6
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad8
 
@@ -89388,7 +89388,7 @@ if.then:                                          ; preds = %entry
   %call.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc, i64 noundef 256)
   %2 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
@@ -89531,7 +89531,7 @@ _ZNSt10unique_ptrIA_PKN7openvdb5v11_04tree8LeafNodeINS1_9ValueMaskELj3EEESt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -89579,7 +89579,7 @@ _ZN7openvdb5v11_04tree11LeafManagerIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -89827,7 +89827,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 256, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -90057,7 +90057,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerIKNS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -90191,7 +90191,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal18ActiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal18ActiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -90425,7 +90425,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal18ActiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal18ActiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -90703,7 +90703,7 @@ invoke.cont13:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::LeafManager<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>, 5>>>>::LeafRange", ptr %my_pool2.i, i64 %idxprom.i
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal18ActiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i20, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal18ActiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i20, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 96
@@ -91171,7 +91171,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal20InactiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal20InactiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -91405,7 +91405,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal20InactiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal20InactiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -91684,7 +91684,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::LeafManager<const openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>, 5>>>>::LeafRange", ptr %my_pool2.i, i64 %idxprom.i
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal20InactiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree11LeafManagerIKNS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEE9LeafRangeENSI_11LeafReducerINS4_5tools14count_internal20InactiveVoxelCountOpISG_EEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 96
@@ -93892,7 +93892,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -94149,7 +94149,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -94499,7 +94499,7 @@ invoke.cont13:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %37 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %37, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -94866,7 +94866,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -95144,7 +95144,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -95416,7 +95416,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %34 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 88
@@ -95591,7 +95591,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -95869,7 +95869,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -96099,7 +96099,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -96574,7 +96574,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -96831,7 +96831,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -97181,7 +97181,7 @@ invoke.cont13:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %37 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %37, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -97548,7 +97548,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -97826,7 +97826,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -98098,7 +98098,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %34 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 88
@@ -98273,7 +98273,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -98551,7 +98551,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -98781,7 +98781,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal18ActiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -99087,7 +99087,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -99321,7 +99321,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -99599,7 +99599,7 @@ invoke.cont13:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal18ActiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -101711,7 +101711,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -101968,7 +101968,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -102216,7 +102216,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %23 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 96
@@ -102468,7 +102468,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -102746,7 +102746,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -103018,7 +103018,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %34 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 88
@@ -103193,7 +103193,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -103471,7 +103471,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -103701,7 +103701,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -104186,7 +104186,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -104443,7 +104443,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -104691,7 +104691,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %23 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 96
@@ -104943,7 +104943,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -105221,7 +105221,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -105493,7 +105493,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %34 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 88
@@ -105668,7 +105668,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -105946,7 +105946,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -106176,7 +106176,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal20InactiveVoxelCountOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -106482,7 +106482,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -106716,7 +106716,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -106995,7 +106995,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal20InactiveVoxelCountOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -108255,7 +108255,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -108512,7 +108512,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -108797,7 +108797,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %31 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -109099,7 +109099,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -109377,7 +109377,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -109649,7 +109649,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %34 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 88
@@ -109824,7 +109824,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -110102,7 +110102,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -110332,7 +110332,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal17ActiveTileCountOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -110638,7 +110638,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -110872,7 +110872,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -111151,7 +111151,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS4_5tools14count_internal17ActiveTileCountOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -113041,7 +113041,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -113305,7 +113305,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -113566,7 +113566,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %26 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -113844,7 +113844,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -114122,7 +114122,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -114394,7 +114394,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %34 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 88
@@ -114569,7 +114569,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -114847,7 +114847,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -115077,7 +115077,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -115419,7 +115419,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -115683,7 +115683,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -115944,7 +115944,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %26 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -116222,7 +116222,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -116500,7 +116500,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -116772,7 +116772,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %34 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 88
@@ -116947,7 +116947,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -117225,7 +117225,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -117455,7 +117455,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal10MemUsageOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -117761,7 +117761,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -118003,7 +118003,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -118258,7 +118258,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %24 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal10MemUsageOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -120298,7 +120298,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.50, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.50, i64 17))
           to label %invoke.cont20 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -120842,7 +120842,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.50, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.50, i64 17))
           to label %invoke.cont20 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -129624,7 +129624,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -129885,7 +129885,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -130151,7 +130151,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>, 5>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %28 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS7_INS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEELj5EEEE9NodeRangeENSE_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeISC_EEEEEEEENSE_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -130674,7 +130674,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -130952,7 +130952,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -131224,7 +131224,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %34 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 88
@@ -131399,7 +131399,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -131677,7 +131677,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -131907,7 +131907,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEEE16initNodeChildrenINS8_IKNS9_ISD_Lj5EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeISH_EEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -132249,7 +132249,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -132510,7 +132510,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -132776,7 +132776,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>, 4>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %28 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_12InternalNodeINS5_8LeafNodeINS4_9ValueMaskELj3EEELj4EEEE9NodeRangeENSD_11NodeReducerINS5_14ReduceFilterOpINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS7_ISB_Lj5EEEEEEEEEEENSD_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -133299,7 +133299,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -133577,7 +133577,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -133849,7 +133849,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %34 = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i21, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i21, i64 88
@@ -134024,7 +134024,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -134302,7 +134302,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -134532,7 +134532,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree8NodeListIKNS7_8LeafNodeINS6_9ValueMaskELj3EEEE16initNodeChildrenINS8_IKNS7_12InternalNodeISB_Lj4EEEEENS7_14ReduceFilterOpINS6_5tools14count_internal14MinMaxValuesOpINS7_4TreeINS7_8RootNodeINSF_ISG_Lj5EEEEEEEEEEEEEbRT_RKT0_bEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -134838,7 +134838,7 @@ if.then.i:                                        ; preds = %entry
 call.i4.i.noexc:                                  ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i4.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4.i1, i64 96
@@ -135076,7 +135076,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -135335,7 +135335,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::NodeList<const openvdb::v11_0::tree::LeafNode<openvdb::v11_0::ValueMask, 3>>::NodeRange", ptr %my_pool2.i, i64 %idxprom.i
   %26 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112start_reduceIN7openvdb5v11_04tree8NodeListIKNS5_8LeafNodeINS4_9ValueMaskELj3EEEE9NodeRangeENSB_11NodeReducerINS4_5tools14count_internal14MinMaxValuesOpINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINSJ_IS9_Lj4EEELj5EEEEEEEEENSB_11OpWithIndexEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 96
@@ -137184,7 +137184,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -137463,7 +137463,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -137707,7 +137707,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 88
@@ -137961,7 +137961,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISF_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISF_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -138240,7 +138240,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISF_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISF_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -138485,7 +138485,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISF_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree4TreeINS7_8RootNodeINS7_12InternalNodeINSA_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EEEEEE15DeallocateNodesISF_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 88
@@ -139978,7 +139978,7 @@ catch:                                            ; preds = %ehcleanup, %lpad37
 try.cont:                                         ; preds = %catch, %invoke.cont45
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09TypeErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09TypeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_09TypeErrorE, ptr nonnull @_ZN7openvdb5v11_09TypeErrorD2Ev) #29
           to label %unreachable unwind label %lpad47
 
@@ -140071,7 +140071,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE18TopologyDifferenceISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE18TopologyDifferenceISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 80
@@ -140350,7 +140350,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE18TopologyDifferenceISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE18TopologyDifferenceISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i32, ptr %my_range2.i.i.i.i, align 64
   store i32 %6, ptr %my_range.i.i.i.i, align 8
@@ -140583,7 +140583,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.577", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE18TopologyDifferenceISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE18TopologyDifferenceISD_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 80
@@ -141105,7 +141105,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE18TopologyDifferenceISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE18TopologyDifferenceISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 80
@@ -141384,7 +141384,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE18TopologyDifferenceISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE18TopologyDifferenceISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i32, ptr %my_range2.i.i.i.i, align 64
   store i32 %6, ptr %my_range.i.i.i.i, align 8
@@ -141617,7 +141617,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.577", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE18TopologyDifferenceISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE18TopologyDifferenceISC_EEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 80
@@ -143129,7 +143129,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -143407,7 +143407,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -143705,7 +143705,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %32 = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i20, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i20, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i20, i64 88
@@ -143927,7 +143927,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -143975,7 +143975,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 88
@@ -144253,7 +144253,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -144483,7 +144483,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE13initLeafArrayEbEUlRS4_E0_KNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -145807,7 +145807,7 @@ catch:                                            ; preds = %lpad3, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont6
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad8
 
@@ -145837,7 +145837,7 @@ if.then:                                          ; preds = %entry
   %call.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc, i64 noundef 256)
   %2 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(24) %range, i64 24, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
@@ -145970,7 +145970,7 @@ _ZNSt10unique_ptrIA_PN7openvdb5v11_04tree8LeafNodeIdLj3EEESt14default_deleteIS6_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -146008,7 +146008,7 @@ _ZN7openvdb5v11_04tree11LeafManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -146246,7 +146246,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 256, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -146476,7 +146476,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEN7openvdb5v11_04tree11LeafManagerINS7_4TreeINS7_8RootNodeINS7_12InternalNodeINSB_INS7_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 88
@@ -146806,7 +146806,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -147057,7 +147057,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -147308,7 +147308,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -147559,7 +147559,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -147810,7 +147810,7 @@ catch:                                            ; preds = %lpad5, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont8
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad10
 
@@ -149706,7 +149706,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end62
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end62
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %249 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %249, null
@@ -149749,7 +149749,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
   %mAcc.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
   %mTree.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mTree.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -149786,7 +149786,7 @@ entry:
   %mAcc = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mTree.i = getelementptr inbounds nuw i8, ptr %grid, i64 72
   %0 = load ptr, ptr %mTree.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %mTree.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
@@ -149852,7 +149852,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
@@ -149940,7 +149940,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i, 
 define linkonce_odr void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca ptr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
   %mTree.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTree.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -150007,7 +150007,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt5arr
 define linkonce_odr void @_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca ptr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTree.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -150066,7 +150066,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
 define linkonce_odr void @_ZN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %this, align 8
   %mTree = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mTree, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -151695,7 +151695,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.50, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.50, i64 17))
           to label %invoke.cont20 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -152466,7 +152466,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -153112,7 +153112,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -153202,7 +153202,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -153227,7 +153227,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -153749,7 +153749,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -153844,7 +153844,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -155965,7 +155965,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %249 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %249, null
@@ -156141,7 +156141,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -156231,7 +156231,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -156256,7 +156256,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -156778,7 +156778,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -156873,7 +156873,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -158612,7 +158612,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %255 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %255, null
@@ -160613,7 +160613,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %249 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %249, null
@@ -160789,7 +160789,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -160879,7 +160879,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -160904,7 +160904,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -161426,7 +161426,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -161521,7 +161521,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE0ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -163260,7 +163260,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %255 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %255, null
@@ -164942,7 +164942,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %255 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %255, null
@@ -166124,7 +166124,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %155 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %155, null
@@ -166167,7 +166167,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
   %mAcc.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
   %mTree.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mTree.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -166204,7 +166204,7 @@ entry:
   %mAcc = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mTree.i = getelementptr inbounds nuw i8, ptr %grid, i64 72
   %0 = load ptr, ptr %mTree.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %mTree.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
@@ -166270,7 +166270,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
@@ -166696,7 +166696,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -166786,7 +166786,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -166811,7 +166811,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -167333,7 +167333,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -167428,7 +167428,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -168714,7 +168714,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %155 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %155, null
@@ -168890,7 +168890,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -168980,7 +168980,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -169005,7 +169005,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -169527,7 +169527,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -169622,7 +169622,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -170636,7 +170636,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %161 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %161, null
@@ -171912,7 +171912,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %155 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %155, null
@@ -172088,7 +172088,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -172178,7 +172178,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -172203,7 +172203,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -172725,7 +172725,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -172820,7 +172820,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE1ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -173834,7 +173834,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %161 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %161, null
@@ -174791,7 +174791,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %161 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %161, null
@@ -176011,7 +176011,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %167 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %167, null
@@ -176054,7 +176054,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
   %mAcc.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i, align 8
   %mTree.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mTree.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -176091,7 +176091,7 @@ entry:
   %mAcc = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mTree.i = getelementptr inbounds nuw i8, ptr %grid, i64 72
   %0 = load ptr, ptr %mTree.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc, align 8
   %mTree.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %mTree.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %a.i.i.i)
@@ -176157,7 +176157,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAcc, align 8
   %mKeys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i, i8 0, i64 36, i1 false)
@@ -176675,7 +176675,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -176765,7 +176765,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -176790,7 +176790,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -177312,7 +177312,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -177407,7 +177407,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -178731,7 +178731,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %167 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %167, null
@@ -178907,7 +178907,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -178997,7 +178997,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -179022,7 +179022,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -179544,7 +179544,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -179639,7 +179639,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -180691,7 +180691,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %173 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %173, null
@@ -182005,7 +182005,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %167 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %167, null
@@ -182181,7 +182181,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -182271,7 +182271,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -182296,7 +182296,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -182818,7 +182818,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -182913,7 +182913,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE2ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -183965,7 +183965,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %173 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %173, null
@@ -184960,7 +184960,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %173 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %173, null
@@ -185938,7 +185938,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %107 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %107, null
@@ -186393,7 +186393,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -186483,7 +186483,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -186508,7 +186508,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -187030,7 +187030,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -187125,7 +187125,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -188207,7 +188207,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %107 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %107, null
@@ -188383,7 +188383,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -188473,7 +188473,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -188498,7 +188498,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -189020,7 +189020,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -189115,7 +189115,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -189925,7 +189925,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %113 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %113, null
@@ -190997,7 +190997,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %107 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %107, null
@@ -191173,7 +191173,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -191263,7 +191263,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -191288,7 +191288,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -191810,7 +191810,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -191905,7 +191905,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE3ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -192715,7 +192715,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %113 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %113, null
@@ -193468,7 +193468,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %113 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %113, null
@@ -194608,7 +194608,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %121 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %121, null
@@ -195199,7 +195199,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -195289,7 +195289,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -195314,7 +195314,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -195836,7 +195836,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -195931,7 +195931,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE0ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -197175,7 +197175,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %121 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %121, null
@@ -197351,7 +197351,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -197441,7 +197441,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -197466,7 +197466,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -197988,7 +197988,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -198083,7 +198083,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE1ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -199055,7 +199055,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %127 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %127, null
@@ -200289,7 +200289,7 @@ if.then.i.i.i.i.i189:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i189, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %121 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i190 = icmp eq ptr %121, null
@@ -200465,7 +200465,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11Leaf
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %my_range = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -200555,7 +200555,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED2Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -200580,7 +200580,7 @@ _ZN7openvdb5v11_05tools15LevelSetTrackerINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEED0Ev(ptr noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %this, align 64
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -201102,7 +201102,7 @@ entry:
   %call = tail call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call, align 64
   %my_range2.i = getelementptr inbounds nuw i8, ptr %args, i64 64
   %my_range.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   %1 = load i64, ptr %my_range2.i, align 64
@@ -201197,7 +201197,7 @@ entry:
   %0 = load i8, ptr %constructor_args3, align 1
   %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE10NormalizerILNS4_4math20BiasedGradientSchemeE4ELNSQ_25TemporalIntegrationSchemeE2ENS7_INS8_INS9_INS9_INSA_INS4_9ValueMaskELj3EEELj4EEELj5EEEEEEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i, align 64
   %my_range.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constructor_args1, i64 32, i1 false)
   %my_body.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -202169,7 +202169,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %127 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %127, null
@@ -203084,7 +203084,7 @@ if.then.i.i.i.i.i191:                             ; preds = %for.end59
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i191, %for.end59
   %mAcc.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEE, i64 16), ptr %mAcc.i.i, align 8
   %mTree.i.i.i.i = getelementptr inbounds nuw i8, ptr %stencil, i64 16
   %127 = load ptr, ptr %mTree.i.i.i.i, align 8
   %tobool.not.i.i.i.i192 = icmp eq ptr %127, null
@@ -203372,7 +203372,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 96
@@ -203652,7 +203652,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -203890,7 +203890,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::LeafManager<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>>>::LeafRange", ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE1EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 96
@@ -204037,7 +204037,7 @@ catch:                                            ; preds = %lpad2, %lpad
 try.cont:                                         ; preds = %catch, %invoke.cont4
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad6
 
@@ -204313,7 +204313,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 96
@@ -204593,7 +204593,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -204831,7 +204831,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::LeafManager<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>>>::LeafRange", ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE2EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 96
@@ -205211,7 +205211,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %range, i64 32, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 96
@@ -205491,7 +205491,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i64, ptr %my_range2.i.i.i.i, align 64
   store i64 %6, ptr %my_range.i.i.i.i, align 8
@@ -205729,7 +205729,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.openvdb::v11_0::tree::LeafManager<openvdb::v11_0::tree::Tree<openvdb::v11_0::tree::RootNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4>, 5>>>>::LeafRange", ptr %my_pool2.i, i64 %idxprom.i
   %22 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forIN7openvdb5v11_04tree11LeafManagerINS5_4TreeINS5_8RootNodeINS5_12InternalNodeINS9_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9LeafRangeENS4_5tools15LevelSetTrackerINS4_4GridISF_EENS4_4util15NullInterrupterEE4TrimILNSI_7lstrack8TrimModeE3EEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 96
@@ -205920,7 +205920,7 @@ catch:                                            ; preds = %lpad8, %lpad6
 try.cont:                                         ; preds = %catch, %invoke.cont12
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_010ValueErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_010ValueErrorE, ptr nonnull @_ZN7openvdb5v11_010ValueErrorD2Ev) #29
           to label %unreachable unwind label %lpad14
 
@@ -206361,7 +206361,7 @@ catch:                                            ; preds = %ehcleanup, %lpad37
 try.cont:                                         ; preds = %catch, %invoke.cont45
   %exception = call ptr @__cxa_allocate_exception(i64 40) #19
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09TypeErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09TypeErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_09TypeErrorE, ptr nonnull @_ZN7openvdb5v11_09TypeErrorD2Ev) #29
           to label %unreachable unwind label %lpad47
 
@@ -206717,7 +206717,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IdLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IdLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 80
@@ -206996,7 +206996,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IdLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IdLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i32, ptr %my_range2.i.i.i.i, align 64
   store i32 %6, ptr %my_range.i.i.i.i, align 8
@@ -207229,7 +207229,7 @@ invoke.cont12:                                    ; preds = %if.then9.thread, %i
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.577", ptr %my_pool2.i, i64 %idxprom.i
   %21 = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IdLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS8_INS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EEELj5EE13TopologyCopy1INS8_INS8_INS9_IdLj3EEELj4EEELj5EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i18, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 80
@@ -207485,7 +207485,7 @@ if.then.i:                                        ; preds = %entry
 call.i.i.noexc:                                   ; preds = %if.then.i
   %2 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IdLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IdLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i1, align 64
   %my_range.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
   %my_body.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 80
@@ -207764,7 +207764,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   %call.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %ed)
   %5 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IdLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IdLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 64
   %6 = load i32, ptr %my_range2.i.i.i.i, align 64
   store i32 %6, ptr %my_range.i.i.i.i, align 8
@@ -208057,7 +208057,7 @@ invoke.cont12:                                    ; preds = %if.then9
   %arrayidx.i = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.577", ptr %my_pool2.i, i64 %idxprom.i
   %27 = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IdLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIjEEN7openvdb5v11_04tree12InternalNodeINS7_8LeafNodeINS6_9ValueMaskELj3EEELj4EE13TopologyCopy1INS8_INS9_IdLj3EEELj4EEEEEKNS1_16auto_partitionerEEE, i64 16), ptr %call.i.i.i19, align 64
   %my_range.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %my_range.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
   %my_body.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i19, i64 80

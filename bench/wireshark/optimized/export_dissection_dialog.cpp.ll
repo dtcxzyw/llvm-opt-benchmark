@@ -231,9 +231,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit55
 
 _ZN7QStringD2Ev.exit55:                           ; preds = %_ZN7QStringD2Ev.exit51, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53, %42
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ExportDissectionDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ExportDissectionDialog, i64 16), ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ExportDissectionDialog, i64 488), ptr %44, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ExportDissectionDialog, i64 488), ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %3, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -940,7 +940,7 @@ _ZN7QStringD2Ev.exit209:                          ; preds = %246, %_ZN17QArrayDa
 251:                                              ; preds = %249
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store i32 0, ptr %252, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %250, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %250, align 8
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 12
   store i32 1, ptr %253, align 4
   %254 = getelementptr inbounds nuw i8, ptr %250, i64 16
@@ -1994,9 +1994,9 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapI7QString13export_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22ExportDissectionDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8), (16, 24)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ExportDissectionDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ExportDissectionDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ExportDissectionDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ExportDissectionDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   invoke void @g_free(ptr noundef %4)

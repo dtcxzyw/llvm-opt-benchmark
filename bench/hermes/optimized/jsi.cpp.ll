@@ -2076,11 +2076,11 @@ define linkonce_odr void @_ZN8facebook3jsi18JSINativeExceptionC2ENSt7__cxx1112ba
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %what) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -3182,10 +3182,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook3jsi7JSErrorC2ERNS0_7RuntimeEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_, i8 0, i64 16, i1 false)
   %message_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -3204,7 +3204,7 @@ lpad:                                             ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stack_) #25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message_) #25
   tail call void @_ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   resume { ptr, i32 } %0
@@ -3257,7 +3257,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !95
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !95
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook3jsi5ValueESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook3jsi5ValueESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !95
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZN8facebook3jsi5ValueC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %_ZSt11make_sharedIN8facebook3jsi5ValueEJS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook3jsi5ValueESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !95
@@ -4307,7 +4307,7 @@ _ZNSt12__shared_ptrIN8facebook3jsi5ValueELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook3jsi12JSIExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
@@ -4327,10 +4327,10 @@ entry:
   %ref.tmp16 = alloca %"class.std::allocator", align 1
   %ref.tmp32 = alloca %"class.facebook::jsi::Value", align 8
   %ref.tmp33 = alloca %"class.facebook::jsi::String", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_, i8 0, i64 16, i1 false)
   %message_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -4572,7 +4572,7 @@ ehcleanup47:                                      ; preds = %ehcleanup45, %lpad4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stack_) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message_) #25
   call void @_ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   resume { ptr, i32 } %lpad.val53.merged
@@ -5088,10 +5088,10 @@ entry:
   %ref.tmp17 = alloca %"class.facebook::jsi::String", align 8
   %ref.tmp18 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp19 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_, i8 0, i64 16, i1 false)
   %message_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -5389,7 +5389,7 @@ ehcleanup36:                                      ; preds = %ehcleanup31, %lpad3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stack_) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message_) #25
   call void @_ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   resume { ptr, i32 } %lpad.val42.merged
@@ -5494,11 +5494,11 @@ define void @_ZN8facebook3jsi7JSErrorC2ENSt7__cxx1112basic_stringIcSt11char_trai
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %what) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_, i8 0, i64 16, i1 false)
   %message_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -5517,7 +5517,7 @@ lpad2:                                            ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stack_) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message_) #25
   call void @_ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   resume { ptr, i32 } %0
@@ -5548,12 +5548,12 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 invoke.cont:                                      ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call.i23) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
   store ptr null, ptr %value_, align 8, !alias.scope !194
@@ -5565,7 +5565,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !194
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i4, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !194
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook3jsi5ValueESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i4, align 8, !noalias !194
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook3jsi5ValueESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i4, align 8, !noalias !194
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i4, i64 16
   invoke void @_ZN8facebook3jsi5ValueC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %invoke.cont5 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook3jsi5ValueESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !194
@@ -5599,7 +5599,7 @@ lpad4:                                            ; preds = %invoke.cont
 
 lpad4.body:                                       ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook3jsi5ValueESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %lpad4
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad4 ], [ %1, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook3jsi5ValueESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   br label %common.resume
@@ -5624,7 +5624,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook3jsi18JSINativeExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
@@ -5642,7 +5642,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8facebook3jsi7JSErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
   %stack_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stack_) #25
   %message_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -5721,7 +5721,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
@@ -5834,11 +5834,11 @@ entry:
 invoke.cont3:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %exception, align 8
   %what_.i.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook3jsi18JSINativeExceptionE, ptr nonnull @_ZN8facebook3jsi18JSINativeExceptionD1Ev) #26
           to label %unreachable unwind label %ehcleanup
@@ -5879,11 +5879,11 @@ entry:
 invoke.cont3:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %exception, align 8
   %what_.i.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8facebook3jsi18JSINativeExceptionE, ptr nonnull @_ZN8facebook3jsi18JSINativeExceptionD1Ev) #26
           to label %unreachable unwind label %ehcleanup

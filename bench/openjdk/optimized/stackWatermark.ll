@@ -770,7 +770,7 @@ declare void @_ZN16StackFrameStreamC1EP10JavaThreadbbb(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14StackWatermarkC2EP10JavaThread18StackWatermarkKindj(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14StackWatermark, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14StackWatermark, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = shl i32 %3, 1
   %7 = or disjoint i32 %6, 1
@@ -794,7 +794,7 @@ define hidden void @_ZN14StackWatermarkC2EP10JavaThread18StackWatermarkKindj(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14StackWatermarkD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (160, 164)) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14StackWatermark, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14StackWatermark, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

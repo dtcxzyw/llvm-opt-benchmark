@@ -84,13 +84,13 @@ define internal void @usb_port_device_release(ptr noundef %0) #0 align 16 {
 define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(840) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 840) #11
   %7 = icmp eq ptr %6, null
   br i1 %7, label %158, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 72) #11
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 760
   store ptr %10, ptr %11, align 8

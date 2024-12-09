@@ -95,7 +95,7 @@ define hidden void @_ZN6google8protobuf14DynamicMessageC2EPKNS0_21DynamicMessage
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %this, align 8
   %type_info_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %type_info, ptr %type_info_, align 8
   %cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -556,7 +556,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %this, align 8
   %type_info_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %type_info, ptr %type_info_, align 8
   %cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -570,7 +570,7 @@ define hidden void @_ZN6google8protobuf14DynamicMessageC2EPNS0_21DynamicMessageF
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %this, align 8
   %type_info_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %type_info, ptr %type_info_, align 8
   %cached_byte_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1201,7 +1201,7 @@ for.end131:                                       ; preds = %for.inc129, %for.en
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call133, i8 0, i64 %conv132, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %call133, i64 8
   store i64 0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %call133, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %call133, align 8
   %type_info_.i = getelementptr inbounds nuw i8, ptr %call133, i64 16
   store ptr %call12, ptr %type_info_.i, align 8
   %cached_byte_size_.i = getelementptr inbounds nuw i8, ptr %call133, i64 24
@@ -2197,7 +2197,7 @@ if.else:                                          ; preds = %entry
 return:                                           ; preds = %if.else, %if.else.i
   %call10.sink14 = phi ptr [ %call10, %if.else ], [ %call2.i, %if.else.i ]
   %.sink = phi ptr [ %6, %if.else ], [ %4, %if.else.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %call10.sink14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 16), ptr %call10.sink14, align 8
   %type_info_.i10 = getelementptr inbounds nuw i8, ptr %call10.sink14, i64 16
   store ptr %.sink, ptr %type_info_.i10, align 8
   %cached_byte_size_.i11 = getelementptr inbounds nuw i8, ptr %call10.sink14, i64 24
@@ -2226,13 +2226,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf21DynamicMessageFactoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 17), (24, 64)) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %pool_, align 8
   %delegate_to_generated_factory_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %delegate_to_generated_factory_, align 8
   %prototypes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %prototypes_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %prototypes_, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slots_.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   ret void
@@ -2244,13 +2244,13 @@ declare void @_ZN6google8protobuf14MessageFactoryD2Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf21DynamicMessageFactoryC2EPKNS0_14DescriptorPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 17), (24, 64)) %this, ptr noundef %pool) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %pool, ptr %pool_, align 8
   %delegate_to_generated_factory_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %delegate_to_generated_factory_, align 8
   %prototypes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %prototypes_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %prototypes_, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slots_.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   ret void
@@ -2259,7 +2259,7 @@ invoke.cont:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf21DynamicMessageFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i64 16), ptr %this, align 8
   %prototypes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %prototypes_, align 8, !nonnull !22, !noundef !22
   %slots_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32

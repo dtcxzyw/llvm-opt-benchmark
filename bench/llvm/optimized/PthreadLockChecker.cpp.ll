@@ -738,7 +738,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118PthreadLockCheckerC2Ev(ptr nocap
   %79 = alloca [1 x %"class.llvm::StringRef"], align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118PthreadLockCheckerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118PthreadLockCheckerE, i64 16), ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %81, align 8
   %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -5616,7 +5616,7 @@ define internal void @_ZNK12_GLOBAL__N_118PthreadLockChecker10TryC11LockERKN5cla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_118PthreadLockCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118PthreadLockCheckerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118PthreadLockCheckerE, i64 16), ptr %0, align 8
   br label %2
 
 2:                                                ; preds = %_ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit, %1
@@ -11598,7 +11598,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN
   %10 = alloca %"class.std::allocator.0", align 1
   %11 = alloca %"class.std::allocator.0", align 1
   %12 = zext i1 %6 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %13, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

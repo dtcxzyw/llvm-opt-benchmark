@@ -87,20 +87,20 @@ define hidden void @_ZN11ZBarrierSetC2Ev(ptr noundef nonnull align 8 dereference
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #7
   tail call void @_ZN13ZBarrierSetC1C1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #7
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #7
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV13ZBarrierSetC2, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 352) (i8, ptr @_ZTV13ZBarrierSetC2, i64 16), ptr %5, align 8
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18ZBarrierSetNMethod, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV18ZBarrierSetNMethod, i64 16), ptr %6, align 8
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #7
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21ZBarrierSetStackChunk, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21ZBarrierSetStackChunk, i64 16), ptr %9, align 8
   store i64 64, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 6, ptr %10, align 8
   call void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(12) %2) #7
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11ZBarrierSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11ZBarrierSet, i64 16), ptr %0, align 8
   ret void
 }
 

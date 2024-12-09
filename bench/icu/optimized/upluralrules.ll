@@ -826,7 +826,7 @@ if.then10.i:                                      ; preds = %call7.i.noexc
           to label %invoke.cont unwind label %lpad
 
 if.end13.i:                                       ; preds = %call7.i.noexc, %cleanup.thread.i, %if.end7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8, !alias.scope !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8, !alias.scope !5
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !5
   br label %invoke.cont

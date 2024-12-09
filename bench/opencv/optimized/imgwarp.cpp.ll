@@ -785,7 +785,7 @@ _ZNK2cv11_InputArray6getMatEi.exit118:            ; preds = %92, %95
   %.0125 = phi ptr [ %14, %253 ], [ %spec.select, %._crit_edge133 ]
   %.0124 = phi ptr [ %15, %253 ], [ %spec.select126, %._crit_edge133 ]
   %.0 = phi i32 [ %257, %253 ], [ 0, %._crit_edge133 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12RemapInvokerE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12RemapInvokerE, i64 16), ptr %32, align 8
   %259 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %13, ptr %259, align 8
   %260 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -30047,7 +30047,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc, %19
   %61 = load double, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %63 = load double, ptr %62, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv17WarpAffineInvokerE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv17WarpAffineInvokerE, i64 16), ptr %18, align 8
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 8
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %64, ptr noundef nonnull align 8 dereferenceable(96) %14)
           to label %65 unwind label %75
@@ -30102,7 +30102,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc, %19
           to label %83 unwind label %90
 
 83:                                               ; preds = %80
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv17WarpAffineInvokerE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv17WarpAffineInvokerE, i64 16), ptr %18, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %66) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %64) #20
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %18) #20
@@ -30168,7 +30168,7 @@ declare void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv17WarpAffineInvokerD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv17WarpAffineInvokerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv17WarpAffineInvokerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30634,7 +30634,7 @@ define void @_ZN2cv3hal15warpPerspectiveEiPKhmiiPhmiiPKdiiS5_(i32 noundef %0, pt
   %26 = load double, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %28 = load double, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv22WarpPerspectiveInvokerE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv22WarpPerspectiveInvokerE, i64 16), ptr %17, align 8
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %29, ptr noundef nonnull align 8 dereferenceable(96) %14)
           to label %30 unwind label %37
@@ -30685,7 +30685,7 @@ _ZN2cv22WarpPerspectiveInvokerC2ERKNS_3MatERS1_PKdiiRKNS_7Scalar_IdEE.exit: ; pr
           to label %45 unwind label %48
 
 45:                                               ; preds = %42
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv22WarpPerspectiveInvokerE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv22WarpPerspectiveInvokerE, i64 16), ptr %17, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #20
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %17) #20
@@ -30717,7 +30717,7 @@ _ZN2cv22WarpPerspectiveInvokerC2ERKNS_3MatERS1_PKdiiRKNS_7Scalar_IdEE.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv22WarpPerspectiveInvokerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv22WarpPerspectiveInvokerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv22WarpPerspectiveInvokerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35103,7 +35103,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv17WarpAffineInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv17WarpAffineInvokerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv17WarpAffineInvokerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35551,7 +35551,7 @@ _ZN2cv10AutoBufferIsLm0EED2Ev.exit108:            ; preds = %186, %219, %224
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv22WarpPerspectiveInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv22WarpPerspectiveInvokerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv22WarpPerspectiveInvokerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8

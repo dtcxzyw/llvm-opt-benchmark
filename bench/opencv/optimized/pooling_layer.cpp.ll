@@ -328,7 +328,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3dnn20PoolingLayerIn
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %18, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn20PoolingLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn20PoolingLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %19, align 8
   store ptr %6, ptr %5, align 8
@@ -381,7 +381,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20PoolingLayerInt8ImplC2ERKNS0_14dnn4
   %35 = alloca %"class.std::__cxx11::basic_string", align 8
   %36 = alloca %"class.std::allocator.0", align 1
   tail call void @_ZN2cv3dnn14dnn4_v202405215LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(324) %0)
-  store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112PoolingLayerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112PoolingLayerE, i64 16), ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr null, ptr %38, align 8
@@ -400,7 +400,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20PoolingLayerInt8ImplC2ERKNS0_14dnn4
   store i32 0, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 0, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn20PoolingLayerInt8ImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn20PoolingLayerInt8ImplE, i64 16), ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i8 0, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -4069,7 +4069,7 @@ declare void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052112PoolingLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112PoolingLayerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112PoolingLayerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -6071,7 +6071,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn20PoolingLayerInt8Impl14PoolingInvoke
   br label %334
 
 141:                                              ; preds = %131
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20PoolingLayerInt8Impl14PoolingInvokerE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20PoolingLayerInt8Impl14PoolingInvokerE, i64 16), ptr %33, align 8
   %142 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %143 = getelementptr inbounds nuw i8, ptr %33, i64 52
   %144 = getelementptr inbounds nuw i8, ptr %33, i64 92
@@ -6514,7 +6514,7 @@ declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn20PoolingLayerInt8Impl14PoolingInvokerD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20PoolingLayerInt8Impl14PoolingInvokerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn20PoolingLayerInt8Impl14PoolingInvokerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

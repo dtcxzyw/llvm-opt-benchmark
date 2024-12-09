@@ -720,7 +720,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -732,7 +732,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -7144,7 +7144,7 @@ _ZN4llvm11raw_ostreamlsEc.exit630:                ; preds = %904, %906
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit492
 
 _ZN4llvm11raw_ostreamlsEPKc.exit492:              ; preds = %918, %916, %879, %877, %853, %851, %610, %608, %591, %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit, %546, %544, %514, %512, %478, %476, %452, %450, %405, %403, %381, %379, %353, %351, %333, %331, %265, %263, %_ZN4llvm5APIntD2Ev.exit, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeEKNS_6SDNodeEEEDcPT0_.exit, %501, %560, %_ZN4llvm8dyn_castINS_20ExternalSymbolSDNodeEKNS_6SDNodeEEEDcPT0_.exit, %630, %625, %662, %718, %764, %822, %898, %883, %887, %_ZN4llvm8dyn_castINS_18BlockAddressSDNodeEKNS_6SDNodeEEEDcPT0_.exit, %789, %747, %686, %632, %615, %620, %_ZN4llvm11raw_ostreamlsEc.exit546, %_ZN4llvm8dyn_castINS_15JumpTableSDNodeEKNS_6SDNodeEEEDcPT0_.exit, %_ZN4llvm11raw_ostreamlsEc.exit530, %213
-  %920 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17VerboseDAGDumping, i64 128), align 8
+  %920 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 128), align 8
   %921 = trunc i8 %920 to i1
   br i1 %921, label %922, label %_ZN4llvm11raw_ostreamlsEc.exit711
 
@@ -8594,7 +8594,7 @@ define dso_local void @_ZNK4llvm6SDNode5printERNS_11raw_ostreamEPKNS_12Selection
   br i1 %.not30, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17VerboseDAGDumping, i64 128), align 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 128), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %12
 
@@ -8714,7 +8714,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %49, %51
   br label %_ZL12printOperandRN4llvm11raw_ostreamEPKNS_12SelectionDAGENS_7SDValueE.exit
 
 68:                                               ; preds = %55
-  %69 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17VerboseDAGDumping, i64 128), align 8
+  %69 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 128), align 8
   %70 = trunc i8 %69 to i1
   %or.cond.i.i = and i1 %31, %70
   br i1 %or.cond.i.i, label %71, label %.critedge.i.i
@@ -9205,7 +9205,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -9333,10 +9333,10 @@ define internal void @_GLOBAL__sub_I_SelectionDAGDumper.cpp() #14 section ".text
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL17VerboseDAGDumping, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL17VerboseDAGDumping, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL17VerboseDAGDumping, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL17VerboseDAGDumping) #17
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 176), align 8

@@ -48,7 +48,7 @@ entry:
   %version = alloca [4 x i8], align 4
   call void @u_versionFromString_75(ptr noundef nonnull %version, ptr noundef %v) #13
   %0 = load i32, ptr %version, align 4
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @dataInfo, i64 16), align 2
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @dataInfo, i64 16), align 2
   ret void
 }
 
@@ -74,7 +74,7 @@ entry:
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %add10 = or disjoint i32 %add7, %conv9
-  store i32 %add10, ptr getelementptr inbounds (i8, ptr @indexes, i64 8), align 8
+  store i32 %add10, ptr getelementptr inbounds nuw (i8, ptr @indexes, i64 8), align 8
   ret void
 }
 
@@ -111,7 +111,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @setOptions(i32 noundef %options) local_unnamed_addr #6 {
 entry:
-  store i32 %options, ptr getelementptr inbounds (i8, ptr @indexes, i64 28), align 4
+  store i32 %options, ptr getelementptr inbounds nuw (i8, ptr @indexes, i64 28), align 4
   ret void
 }
 
@@ -646,7 +646,7 @@ if.then101.i:                                     ; preds = %while.end98.i, %if.
   br label %storeMappingData.exit
 
 if.else107.i:                                     ; preds = %while.end98.i
-  store i32 %limitIndex.1.lcssa.i, ptr getelementptr inbounds (i8, ptr @indexes, i64 24), align 8
+  store i32 %limitIndex.1.lcssa.i, ptr getelementptr inbounds nuw (i8, ptr @indexes, i64 24), align 8
   br label %storeMappingData.exit
 
 storeMappingData.exit:                            ; preds = %entry, %if.then101.i, %if.else107.i
@@ -710,11 +710,11 @@ if.end26:                                         ; preds = %if.end17
   store i32 %call2, ptr @indexes, align 16
   %44 = load i32, ptr @mappingDataCapacity, align 4
   %mul27 = shl nsw i32 %44, 1
-  store i32 %mul27, ptr getelementptr inbounds (i8, ptr @indexes, i64 4), align 4
+  store i32 %mul27, ptr getelementptr inbounds nuw (i8, ptr @indexes, i64 4), align 4
   call void @udata_writeBlock(ptr noundef %call21, ptr noundef nonnull @indexes, i32 noundef 64) #13
   call void @udata_writeBlock(ptr noundef %call21, ptr noundef nonnull @generateData.sprepTrieBlock, i32 noundef %call2) #13
   %45 = load ptr, ptr @mappingData, align 8
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @indexes, i64 4), align 4
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @indexes, i64 4), align 4
   call void @udata_writeBlock(ptr noundef %call21, ptr noundef %45, i32 noundef %46) #13
   %call28 = call i32 @udata_finish(ptr noundef %call21, ptr noundef nonnull %errorCode) #13
   %47 = load i32, ptr %errorCode, align 4

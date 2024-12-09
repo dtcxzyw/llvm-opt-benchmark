@@ -64,7 +64,7 @@ entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 368), align 8, !tbaa !3
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 368), align 8, !tbaa !3
   %call = tail call noundef ptr %0(i32 noundef 7939) #12
   %call231 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 32) #13
   %tobool.not32 = icmp eq ptr %call231, null
@@ -777,7 +777,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i) #12
   store i32 0, ptr %val.i, align 4, !tbaa !42
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 360), align 8, !tbaa !44
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !44
   call void %0(i32 noundef 33309, ptr noundef nonnull %val.i) #12
   %1 = load i32, ptr %val.i, align 4, !tbaa !42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i) #12
@@ -797,7 +797,7 @@ for.cond.cleanup:                                 ; preds = %_ZNSt7__cxx1112basi
 for.body:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %for.body.lr.ph
   %k.08 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #12
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 2112), align 8, !tbaa !45
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 2112), align 8, !tbaa !45
   %call2 = call noundef ptr %3(i32 noundef 7939, i32 noundef %k.08) #12
   store ptr %2, ptr %ref.tmp, align 8, !tbaa !14
   %cmp.i = icmp eq ptr %call2, null

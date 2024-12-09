@@ -274,9 +274,9 @@ define void @_ZN20WlanStatisticsDialogC2ER7QWidgetR11CaptureFilePKc(ptr noundef 
   %30 = alloca %"class.QMetaObject::Connection", align 8
   %31 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 232)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20WlanStatisticsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20WlanStatisticsDialog, i64 16), ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20WlanStatisticsDialog, i64 560), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20WlanStatisticsDialog, i64 560), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -790,7 +790,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN7QStringD2Ev.exi
           to label %188 unwind label %316
 
 188:                                              ; preds = %187
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18PercentBarDelegate, i64 16), ptr %186, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18PercentBarDelegate, i64 16), ptr %186, align 8
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %186, ptr %189, align 8
   %190 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
@@ -810,7 +810,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN7QStringD2Ev.exi
           to label %196 unwind label %318
 
 196:                                              ; preds = %195
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18PercentBarDelegate, i64 16), ptr %194, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18PercentBarDelegate, i64 16), ptr %194, align 8
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %194, ptr %197, align 8
   %198 = invoke noundef ptr @_ZN18TapParameterDialog15statsTreeWidgetEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
@@ -1832,9 +1832,9 @@ declare void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20WlanStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20WlanStatisticsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20WlanStatisticsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20WlanStatisticsDialog, i64 560), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20WlanStatisticsDialog, i64 560), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2427,7 +2427,7 @@ define linkonce_odr void @_ZN25WlanNetworkTreeWidgetItemC2EP11QTreeWidgetPK9_wla
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef %1, i32 noundef 1000)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25WlanNetworkTreeWidgetItem, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25WlanNetworkTreeWidgetItem, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
@@ -5588,7 +5588,7 @@ declare void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN25WlanNetworkTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25WlanNetworkTreeWidgetItem, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25WlanNetworkTreeWidgetItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -5627,7 +5627,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZN5QListIP15QTreeW
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN25WlanNetworkTreeWidgetItemD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25WlanNetworkTreeWidgetItem, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25WlanNetworkTreeWidgetItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -5893,7 +5893,7 @@ define linkonce_odr void @_ZN25WlanStationTreeWidgetItemC2EPK8_address(ptr nound
   %3 = alloca %class.QVariant, align 8
   %4 = alloca %class.QString, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 1001)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25WlanStationTreeWidgetItem, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25WlanStationTreeWidgetItem, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 0, i64 36, i1 false)

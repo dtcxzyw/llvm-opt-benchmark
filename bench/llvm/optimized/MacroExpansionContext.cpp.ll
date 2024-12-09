@@ -232,7 +232,7 @@ define dso_local void @_ZN5clang21MacroExpansionContext23registerForPreprocessor
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang6detail27MacroExpansionRangeRecorderE, i64 16), ptr %9, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang6detail27MacroExpansionRangeRecorderE, i64 16), ptr %9, align 8, !noalias !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %10, align 8, !noalias !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -248,7 +248,7 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
   %15 = ptrtoint ptr %14 to i64
   %16 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16, !noalias !7
   %17 = ptrtoint ptr %9 to i64
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %16, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %16, align 8, !noalias !7
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %17, ptr %18, align 8, !noalias !7
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1318,7 +1318,7 @@ _ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit: ; preds = 
   store i32 1, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %8, align 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %7, ptr %20, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #17

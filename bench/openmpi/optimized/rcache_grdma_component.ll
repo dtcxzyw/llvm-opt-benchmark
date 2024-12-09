@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @grdma_open() #0 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -34,8 +34,8 @@ define internal noundef i32 @grdma_open() #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  store ptr @opal_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 272), align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 280), align 8
+  store ptr @opal_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 272), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 280), align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
@@ -44,7 +44,7 @@ define internal noundef i32 @grdma_open() #0 {
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %4 ]
   %.07.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %4 ]
-  tail call void %7(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 272)) #7
+  tail call void %7(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 272)) #7
   %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -56,20 +56,20 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @grdma_close() #0 {
-  %1 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 280), align 8
+  %1 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 280), align 8
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %.preheader, label %opal_list_remove_first.exit.thread
 
 .preheader:                                       ; preds = %0
-  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %opal_list_remove_first.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %33
-  %5 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
+  %5 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
   %6 = add i64 %5, -1
-  store volatile i64 %6, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 304), align 8
+  store volatile i64 %6, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 304), align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load volatile ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -77,7 +77,7 @@ define internal noundef i32 @grdma_close() #0 {
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store volatile ptr %9, ptr %12, align 8
   %13 = load volatile ptr, ptr %10, align 8
-  store volatile ptr %13, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 304), align 8
+  store volatile ptr %13, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 304), align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i8, ptr @opal_uses_threads, align 1
   %16 = trunc i8 %15 to i1
@@ -122,12 +122,12 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
   br label %33
 
 33:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %34 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
+  %34 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %opal_list_remove_first.exit.thread, label %.lr.ph, !llvm.loop !7
 
 opal_list_remove_first.exit.thread:               ; preds = %33, %.preheader, %0
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 272), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 272), align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
@@ -137,7 +137,7 @@ opal_list_remove_first.exit.thread:               ; preds = %33, %.preheader, %0
 .lr.ph.i6:                                        ; preds = %opal_list_remove_first.exit.thread, %.lr.ph.i6
   %40 = phi ptr [ %42, %.lr.ph.i6 ], [ %39, %opal_list_remove_first.exit.thread ]
   %.07.i7 = phi ptr [ %41, %.lr.ph.i6 ], [ %38, %opal_list_remove_first.exit.thread ]
-  tail call void %40(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 272)) #7
+  tail call void %40(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 272)) #7
   %41 = getelementptr inbounds nuw i8, ptr %.07.i7, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i8 = icmp eq ptr %42, null
@@ -149,8 +149,8 @@ opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_li
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @grdma_register() #0 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 344), align 8
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_grdma_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 344)) #7
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 344), align 8
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_rcache_grdma_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 344)) #7
   ret i32 0
 }
 
@@ -162,9 +162,9 @@ define internal noundef ptr @grdma_init(ptr nocapture noundef readonly %0) #0 {
   %5 = and i8 %4, 1
   %6 = zext nneg i8 %5 to i32
   %7 = select i1 %3, i32 1, i32 %6
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 348), align 4
-  %.022 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 304), align 8
-  %.not23 = icmp eq ptr %.022, getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 288)
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 348), align 4
+  %.022 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 304), align 8
+  %.not23 = icmp eq ptr %.022, getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 288)
   br i1 %.not23, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
@@ -182,7 +182,7 @@ define internal noundef ptr @grdma_init(ptr nocapture noundef readonly %0) #0 {
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %.0 = load volatile ptr, ptr %15, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 288)
+  %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 288)
   br i1 %.not, label %.thread, label %9, !llvm.loop !8
 
 16:                                               ; preds = %9
@@ -190,10 +190,10 @@ define internal noundef ptr @grdma_init(ptr nocapture noundef readonly %0) #0 {
   br i1 %17, label %.thread, label %41
 
 .thread:                                          ; preds = %14, %1, %16
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_cache_t_class, i64 56), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_cache_t_class, i64 56), align 8
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #9
   %20 = load i32, ptr @opal_class_init_epoch, align 4
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_cache_t_class, i64 32), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_cache_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %20, %21
   br i1 %.not.i, label %23, label %22
 
@@ -228,18 +228,18 @@ opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %24
   %32 = tail call noalias ptr @strdup(ptr noundef %31) #7
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %32, ptr %33, align 8
-  %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 312), align 8
+  %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 312), align 8
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store volatile ptr %34, ptr %35, align 8
-  %36 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 312), align 8
+  %36 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 312), align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store volatile ptr %19, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store volatile ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 288), ptr %38, align 8
-  store volatile ptr %19, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 312), align 8
-  %39 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 288), ptr %38, align 8
+  store volatile ptr %19, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 312), align 8
+  %39 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
   %40 = add i64 %39, 1
-  store volatile i64 %40, ptr getelementptr inbounds (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
+  store volatile i64 %40, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_grdma_component, i64 328), align 8
   br label %41
 
 41:                                               ; preds = %opal_obj_new.exit.thread20, %16

@@ -467,7 +467,7 @@ if.else:                                          ; preds = %entry
   %dealloc = getelementptr inbounds nuw i8, ptr %policy, i64 24
   %7 = load ptr, ptr %dealloc, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(32) %policy)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c, align 8
   %slots_.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %slots_.i, i8 0, i64 16, i1 false)
   br label %if.end

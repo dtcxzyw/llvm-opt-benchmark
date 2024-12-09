@@ -461,7 +461,7 @@ define internal void @_import_add_file_callback(ptr noundef %0, ptr noundef %1, 
   br i1 %135, label %141, label %136
 
 136:                                              ; preds = %133
-  %137 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !37
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !37
   %138 = and i32 %137, 2
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %187, label %140
@@ -618,16 +618,16 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef %27) #16
   tail call void @gtk_box_pack_start(ptr noundef %25, ptr noundef %28, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
   tail call fastcc void @_lib_import_ui_devices_update(ptr noundef %0)
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !53
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !53
   %30 = and i32 %29, 2
   %31 = icmp ne i32 %30, 0
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3276), align 4
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
   %33 = icmp ne i32 %32, 0
   %34 = select i1 %31, i1 %33, i1 false
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %1
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !37
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !37
   %37 = and i32 %36, 1048576
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %40, label %39
@@ -637,7 +637,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br label %40
 
 40:                                               ; preds = %39, %35, %1
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !54
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !54
   tail call void @dt_control_signal_connect(ptr noundef %41, i32 noundef 38, ptr noundef nonnull @_camera_detected, ptr noundef nonnull %0) #16
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %43 = load ptr, ptr %5, align 8, !tbaa !49
@@ -647,7 +647,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %46 = tail call ptr @gtk_grid_new() #16
   %47 = tail call i64 @gtk_grid_get_type() #17
   %48 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %47) #16
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1448
   %51 = load double, ptr %50, align 8, !tbaa !56
   %52 = fmul reassoc nsz arcp contract afn double %51, 5.000000e+00
@@ -722,7 +722,7 @@ define internal void @_lib_import_from_callback(ptr noundef readnone %0, ptr nou
   br label %23
 
 23:                                               ; preds = %22, %12, %2
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !66
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 152
   store i32 1, ptr %25, align 8, !tbaa !67
   tail call fastcc void @_import_from_dialog_new(ptr noundef nonnull %1)
@@ -766,7 +766,7 @@ define internal fastcc void @_lib_import_ui_devices_update(ptr noundef %0) unnam
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !66
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef %13) #16
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %16 = load ptr, ptr %15, align 8, !tbaa !69
@@ -1009,13 +1009,13 @@ declare void @dt_gui_update_collapsible_section(ptr noundef) local_unnamed_addr 
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !53
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !53
   %5 = and i32 %4, 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !37
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !37
   %9 = and i32 %8, 1048576
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %11
@@ -1025,7 +1025,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br label %12
 
 12:                                               ; preds = %11, %7, %1
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !54
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !54
   tail call void @dt_control_signal_disconnect(ptr noundef %13, ptr noundef nonnull @_camera_detected, ptr noundef nonnull %0) #16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 104
   tail call void @dt_import_metadata_cleanup(ptr noundef nonnull %14) #16
@@ -1813,7 +1813,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %2 = alloca %struct._GdkRGBA, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %6 = load ptr, ptr %5, align 8, !tbaa !91
   %7 = tail call ptr @dt_ui_main_window(ptr noundef %6) #16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -1910,7 +1910,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %82 = tail call ptr @gtk_grid_new() #16
   %83 = tail call i64 @gtk_grid_get_type() #17
   %84 = tail call ptr @g_type_check_instance_cast(ptr noundef %82, i64 noundef %83) #16
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1448
   %87 = load double, ptr %86, align 8, !tbaa !56
   %88 = fmul reassoc nsz arcp contract afn double %87, 5.000000e+00
@@ -1962,7 +1962,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %121 = tail call ptr @gtk_widget_get_style_context(ptr noundef %120) #16
   %122 = tail call i32 @gtk_widget_get_state_flags(ptr noundef %120) #16
   call void @gtk_style_context_get_color(ptr noundef %121, i32 noundef %122, ptr noundef nonnull %2) #16
-  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 1448
   %125 = load double, ptr %124, align 8, !tbaa !56
   %126 = fmul reassoc nsz arcp contract afn double %125, 1.300000e+01
@@ -2072,7 +2072,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %198 = load ptr, ptr %191, align 8, !tbaa !27
   %199 = call i32 @gtk_tree_view_append_column(ptr noundef %198, ptr noundef %197) #16
   call void @gtk_tree_view_column_set_alignment(ptr noundef %197, float noundef 5.000000e-01) #16
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 1448
   %202 = load double, ptr %201, align 8, !tbaa !56
   %203 = fmul reassoc nsz arcp contract afn double %202, 2.500000e+01
@@ -2088,7 +2088,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %211 = call i32 @gtk_tree_view_append_column(ptr noundef %210, ptr noundef %209) #16
   call void @gtk_tree_view_column_set_expand(ptr noundef %209, i32 noundef 1) #16
   call void @gtk_tree_view_column_set_resizable(ptr noundef %209, i32 noundef 1) #16
-  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 1448
   %214 = load double, ptr %213, align 8, !tbaa !56
   %215 = fmul reassoc nsz arcp contract afn double %214, 2.000000e+02
@@ -2128,7 +2128,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   store ptr %231, ptr %237, align 8, !tbaa !95
   call void @gtk_tree_view_column_set_alignment(ptr noundef %228, float noundef 5.000000e-01) #16
   call void @gtk_tree_view_column_set_clickable(ptr noundef %228, i32 noundef 1) #16
-  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 1448
   %240 = load double, ptr %239, align 8, !tbaa !56
   %241 = fmul reassoc nsz arcp contract afn double %240, 1.280000e+02
@@ -2288,7 +2288,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %351 = zext i1 %350 to i32
   call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %348, i32 noundef 0, i32 noundef %351) #16
   %352 = call i64 @g_signal_connect_data(ptr noundef %339, ptr noundef nonnull @.str.55, ptr noundef nonnull @_folder_order_clicked, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
-  %353 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 1448
   %355 = load double, ptr %354, align 8, !tbaa !56
   %356 = fmul reassoc nsz arcp contract afn double %355, 2.000000e+02
@@ -2297,7 +2297,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %358 = getelementptr inbounds nuw i8, ptr %324, i64 208
   store ptr %339, ptr %358, align 8, !tbaa !101
   %359 = call ptr @g_type_check_instance_cast(ptr noundef %326, i64 noundef %186) #16
-  %360 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %360 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 1448
   %362 = load double, ptr %361, align 8, !tbaa !56
   %363 = fmul reassoc nsz arcp contract afn double %362, 2.000000e+02
@@ -2331,7 +2331,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %379 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #16
   %380 = call ptr @gtk_grid_new() #16
   %381 = call ptr @g_type_check_instance_cast(ptr noundef %380, i64 noundef %83) #16
-  %382 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %382 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 1448
   %384 = load double, ptr %383, align 8, !tbaa !56
   %385 = fmul reassoc nsz arcp contract afn double %384, 5.000000e+00
@@ -2347,7 +2347,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   call void @dt_gui_new_collapsible_section(ptr noundef nonnull %390, ptr noundef nonnull @.str.109, ptr noundef %392, ptr noundef %391, ptr noundef null) #16
   %393 = call ptr @gtk_grid_new() #16
   %394 = call ptr @g_type_check_instance_cast(ptr noundef %393, i64 noundef %83) #16
-  %395 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %395 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 1448
   %397 = load double, ptr %396, align 8, !tbaa !56
   %398 = fmul reassoc nsz arcp contract afn double %397, 5.000000e+00
@@ -2394,7 +2394,7 @@ define internal fastcc void @_import_from_dialog_new(ptr noundef %0) unnamed_add
   %425 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #16
   %426 = call ptr @gtk_grid_new() #16
   %427 = call ptr @g_type_check_instance_cast(ptr noundef %426, i64 noundef %83) #16
-  %428 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %428 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 1448
   %430 = load double, ptr %429, align 8, !tbaa !56
   %431 = fmul reassoc nsz arcp contract afn double %430, 5.000000e+00
@@ -2450,7 +2450,7 @@ define internal fastcc void @_import_from_dialog_run(ptr nocapture noundef reado
   br label %20
 
 20:                                               ; preds = %118, %14
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !106
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !106
   call void @dt_view_filtering_reset(ptr noundef %21, i32 noundef 1) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   %22 = load ptr, ptr %15, align 8, !tbaa !33
@@ -2538,7 +2538,7 @@ define internal fastcc void @_import_from_dialog_run(ptr nocapture noundef reado
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %68
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !107
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !107
   %74 = load ptr, ptr %7, align 8, !tbaa !77
   %75 = call ptr @dt_camera_import_job_create(ptr noundef %55, ptr noundef %74, ptr noundef nonnull %5) #16
   %76 = call i32 @dt_control_add_job(ptr noundef %73, i32 noundef 2, ptr noundef %75) #16
@@ -2580,7 +2580,7 @@ define internal fastcc void @_import_from_dialog_run(ptr nocapture noundef reado
   call void @dt_conf_set_int(ptr noundef nonnull @.str.121, i32 noundef 1) #16
   call void @dt_conf_set_int(ptr noundef nonnull @.str.120, i32 noundef %98) #16
   call void @dt_conf_set_string(ptr noundef nonnull @.str.122, ptr noundef nonnull %93) #16
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 160), align 8, !tbaa !108
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !108
   call void @dt_collection_update_query(ptr noundef %99, i32 noundef 1, i32 noundef 36, ptr noundef null) #16
   br label %100
 
@@ -2826,7 +2826,7 @@ define internal noundef i32 @_update_files_list(ptr noundef %0) #1 {
 
 21:                                               ; preds = %1
   %22 = load ptr, ptr %5, align 8, !tbaa !6
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !66
   %24 = load ptr, ptr %22, align 8, !tbaa !77
   %25 = tail call ptr @dt_camctl_get_images_list(ptr noundef %23, ptr noundef %24) #16
   %26 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.16) #16
@@ -3492,7 +3492,7 @@ define internal fastcc void @_thumb_set_in_listview(ptr noundef %0, ptr noundef 
   br i1 %14, label %21, label %16
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !66
   %18 = load ptr, ptr %3, align 8, !tbaa !77
   %19 = load ptr, ptr %9, align 8, !tbaa !13
   %20 = call ptr @dt_camctl_get_thumbnail(ptr noundef %17, ptr noundef %18, ptr noundef %19) #16
@@ -4119,7 +4119,7 @@ define internal void @_lib_import_select_folder(ptr nocapture readnone %0, ptr n
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %8 = load ptr, ptr %7, align 8, !tbaa !91
   %9 = tail call ptr @dt_ui_main_window(ptr noundef %8) #16
   %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.89, i32 noundef 5) #16
@@ -5064,7 +5064,7 @@ define internal void @_browse_basedir_clicked(ptr noundef %0, ptr noundef %1) #1
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %12, %2
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !55
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !55
   %17 = load ptr, ptr %16, align 8, !tbaa !91
   %18 = tail call ptr @dt_ui_main_window(ptr noundef %17) #16
   br label %19
@@ -5250,7 +5250,7 @@ declare i64 @gtk_bin_get_type() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_import_from_camera_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i32 1, ptr %4, align 8, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -5269,7 +5269,7 @@ declare void @dt_gui_add_help_link(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_import_tethered_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !66
   tail call void @dt_camctl_select_camera(ptr noundef %3, ptr noundef %1) #16
   tail call void @dt_ctl_switch_mode_to(ptr noundef nonnull @.str.131) #16
   ret void
@@ -5279,7 +5279,7 @@ define internal void @_lib_import_tethered_callback(ptr nocapture readnone %0, p
 define internal void @_lib_import_unmount_callback(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((32968, 32972)) %1) #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32968
   store i32 1, ptr %3, align 8, !tbaa !139
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !66
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i32 3, ptr %5, align 8, !tbaa !140
   ret void
@@ -5289,7 +5289,7 @@ define internal void @_lib_import_unmount_callback(ptr nocapture readnone %0, pt
 define internal void @_lib_import_mount_callback(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 28)) %1) #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 1, ptr %3, align 8, !tbaa !141
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !66
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i32 3, ptr %5, align 8, !tbaa !140
   ret void

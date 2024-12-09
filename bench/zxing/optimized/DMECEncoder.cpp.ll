@@ -821,7 +821,7 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   %.sroa.5165.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 62, ptr %.sroa.5165.0..sroa_idx.i, align 1
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 8), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 24), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 24), i8 0, i64 24, i1 false)
   %3 = invoke noalias noundef nonnull dereferenceable(7) ptr @_Znwm(i64 noundef 7) #18
           to label %6 unwind label %4
 
@@ -831,9 +831,9 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 6:                                                ; preds = %0
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 24), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 24), align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 40), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 40), align 8
   store i8 23, ptr %3, align 1
   %.sroa.2155.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 68, ptr %.sroa.2155.0..sroa_idx.i, align 1
@@ -847,8 +847,8 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   store i8 92, ptr %.sroa.6159.0..sroa_idx.i, align 1
   %.sroa.7160.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 -2, ptr %.sroa.7160.0..sroa_idx.i, align 1
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 32), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 48), i8 0, i64 24, i1 false)
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 48), i8 0, i64 24, i1 false)
   %8 = invoke noalias noundef nonnull dereferenceable(10) ptr @_Znwm(i64 noundef 10) #18
           to label %11 unwind label %9
 
@@ -858,9 +858,9 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 11:                                               ; preds = %6
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 48), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 48), align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 64), align 8
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 64), align 8
   store i8 28, ptr %8, align 1
   %.sroa.2145.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 24, ptr %.sroa.2145.0..sroa_idx.i, align 1
@@ -880,8 +880,8 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   store i8 110, ptr %.sroa.9152.0..sroa_idx.i, align 1
   %.sroa.10153.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 9
   store i8 61, ptr %.sroa.10153.0..sroa_idx.i, align 1
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 56), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 72), i8 0, i64 24, i1 false)
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 56), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 72), i8 0, i64 24, i1 false)
   %13 = invoke noalias noundef nonnull dereferenceable(11) ptr @_Znwm(i64 noundef 11) #18
           to label %16 unwind label %14
 
@@ -891,9 +891,9 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 16:                                               ; preds = %11
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 72), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 72), align 8
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 11
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 88), align 8
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 88), align 8
   store i8 -81, ptr %13, align 1
   %.sroa.2134.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 1
   store i8 -118, ptr %.sroa.2134.0..sroa_idx.i, align 1
@@ -915,8 +915,8 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   store i8 97, ptr %.sroa.10142.0..sroa_idx.i, align 1
   %.sroa.11143.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 10
   store i8 120, ptr %.sroa.11143.0..sroa_idx.i, align 1
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 80), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 96), i8 0, i64 24, i1 false)
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 80), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 96), i8 0, i64 24, i1 false)
   %18 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #18
           to label %21 unwind label %19
 
@@ -926,9 +926,9 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 21:                                               ; preds = %16
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 96), align 8
+  store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 96), align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 112), align 8
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 112), align 8
   store i8 41, ptr %18, align 1
   %.sroa.2122.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 -103, ptr %.sroa.2122.0..sroa_idx.i, align 1
@@ -952,8 +952,8 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   store i8 100, ptr %.sroa.11131.0..sroa_idx.i, align 1
   %.sroa.12132.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 11
   store i8 -14, ptr %.sroa.12132.0..sroa_idx.i, align 1
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 104), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 120), i8 0, i64 24, i1 false)
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 104), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 120), i8 0, i64 24, i1 false)
   %23 = invoke noalias noundef nonnull dereferenceable(14) ptr @_Znwm(i64 noundef 14) #18
           to label %26 unwind label %24
 
@@ -963,9 +963,9 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 26:                                               ; preds = %21
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 120), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 120), align 8
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 14
-  store ptr %27, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 136), align 8
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 136), align 8
   store i8 -100, ptr %23, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 97, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -993,8 +993,8 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   store i8 83, ptr %.sroa.13.0..sroa_idx.i, align 1
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 13
   store i8 -71, ptr %.sroa.14.0..sroa_idx.i, align 1
-  store ptr %27, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 128), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 144), i8 0, i64 24, i1 false)
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 128), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 144), i8 0, i64 24, i1 false)
   %28 = invoke noalias noundef nonnull dereferenceable(18) ptr @_Znwm(i64 noundef 18) #18
           to label %31 unwind label %29
 
@@ -1004,12 +1004,12 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 31:                                               ; preds = %26
-  store ptr %28, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 144), align 8
+  store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 144), align 8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 160), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 160), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %28, ptr noundef nonnull align 1 dereferenceable(18) @constinit, i64 18, i1 false)
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 152), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 168), i8 0, i64 24, i1 false)
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 152), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 168), i8 0, i64 24, i1 false)
   %33 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #18
           to label %36 unwind label %34
 
@@ -1019,12 +1019,12 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 36:                                               ; preds = %31
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 168), align 8
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 168), align 8
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 20
-  store ptr %37, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 184), align 8
+  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 184), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %33, ptr noundef nonnull align 1 dereferenceable(20) @constinit.1, i64 20, i1 false)
-  store ptr %37, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 176), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 192), i8 0, i64 24, i1 false)
+  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 176), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 192), i8 0, i64 24, i1 false)
   %38 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %41 unwind label %39
 
@@ -1034,12 +1034,12 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 41:                                               ; preds = %36
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 192), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 192), align 8
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 208), align 8
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 208), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %38, ptr noundef nonnull align 1 dereferenceable(24) @constinit.2, i64 24, i1 false)
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 200), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 216), i8 0, i64 24, i1 false)
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 200), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 216), i8 0, i64 24, i1 false)
   %43 = invoke noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #18
           to label %46 unwind label %44
 
@@ -1049,12 +1049,12 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 46:                                               ; preds = %41
-  store ptr %43, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 216), align 8
+  store ptr %43, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 216), align 8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 28
-  store ptr %47, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 232), align 8
+  store ptr %47, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 232), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %43, ptr noundef nonnull align 1 dereferenceable(28) @constinit.3, i64 28, i1 false)
-  store ptr %47, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 224), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 240), i8 0, i64 24, i1 false)
+  store ptr %47, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 224), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 240), i8 0, i64 24, i1 false)
   %48 = invoke noalias noundef nonnull dereferenceable(36) ptr @_Znwm(i64 noundef 36) #18
           to label %51 unwind label %49
 
@@ -1064,12 +1064,12 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 51:                                               ; preds = %46
-  store ptr %48, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 240), align 8
+  store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 240), align 8
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 36
-  store ptr %52, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 256), align 8
+  store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 256), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %48, ptr noundef nonnull align 1 dereferenceable(36) @constinit.4, i64 36, i1 false)
-  store ptr %52, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 248), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 264), i8 0, i64 24, i1 false)
+  store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 248), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 264), i8 0, i64 24, i1 false)
   %53 = invoke noalias noundef nonnull dereferenceable(42) ptr @_Znwm(i64 noundef 42) #18
           to label %56 unwind label %54
 
@@ -1079,12 +1079,12 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 56:                                               ; preds = %51
-  store ptr %53, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 264), align 8
+  store ptr %53, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 264), align 8
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 42
-  store ptr %57, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 280), align 8
+  store ptr %57, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 280), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %53, ptr noundef nonnull align 1 dereferenceable(42) @constinit.5, i64 42, i1 false)
-  store ptr %57, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 272), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 288), i8 0, i64 24, i1 false)
+  store ptr %57, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 272), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 288), i8 0, i64 24, i1 false)
   %58 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
           to label %61 unwind label %59
 
@@ -1094,12 +1094,12 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 61:                                               ; preds = %56
-  store ptr %58, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 288), align 8
+  store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 288), align 8
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  store ptr %62, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 304), align 8
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 304), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %58, ptr noundef nonnull align 1 dereferenceable(48) @constinit.6, i64 48, i1 false)
-  store ptr %62, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 296), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 312), i8 0, i64 24, i1 false)
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 296), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 312), i8 0, i64 24, i1 false)
   %63 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
           to label %66 unwind label %64
 
@@ -1109,12 +1109,12 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 66:                                               ; preds = %61
-  store ptr %63, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 312), align 8
+  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 312), align 8
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 56
-  store ptr %67, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 328), align 8
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 328), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %63, ptr noundef nonnull align 1 dereferenceable(56) @constinit.7, i64 56, i1 false)
-  store ptr %67, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 320), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 336), i8 0, i64 24, i1 false)
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 320), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 336), i8 0, i64 24, i1 false)
   %68 = invoke noalias noundef nonnull dereferenceable(62) ptr @_Znwm(i64 noundef 62) #18
           to label %71 unwind label %69
 
@@ -1124,12 +1124,12 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 71:                                               ; preds = %66
-  store ptr %68, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 336), align 8
+  store ptr %68, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 336), align 8
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 62
-  store ptr %72, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 352), align 8
+  store ptr %72, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 352), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %68, ptr noundef nonnull align 1 dereferenceable(62) @constinit.8, i64 62, i1 false)
-  store ptr %72, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 344), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 360), i8 0, i64 24, i1 false)
+  store ptr %72, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 344), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 360), i8 0, i64 24, i1 false)
   %73 = invoke noalias noundef nonnull dereferenceable(68) ptr @_Znwm(i64 noundef 68) #18
           to label %__cxx_global_var_init.exit unwind label %74
 
@@ -1139,7 +1139,7 @@ define internal void @_GLOBAL__sub_I_DMECEncoder.cpp() #13 section ".text.startu
   br label %.body.i
 
 .body.i:                                          ; preds = %74, %69, %64, %59, %54, %49, %44, %39, %34, %29, %24, %19, %14, %9, %4
-  %.0.lpad-body.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 24), %4 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 48), %9 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 72), %14 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 96), %19 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 120), %24 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 144), %29 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 168), %34 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 192), %39 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 216), %44 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 240), %49 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 264), %54 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 288), %59 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 312), %64 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 336), %69 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 360), %74 ]
+  %.0.lpad-body.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 24), %4 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 48), %9 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 72), %14 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 96), %19 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 120), %24 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 144), %29 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 168), %34 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 192), %39 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 216), %44 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 240), %49 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 264), %54 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 288), %59 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 312), %64 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 336), %69 ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 360), %74 ]
   %eh.lpad-body.i = phi { ptr, i32 } [ %5, %4 ], [ %10, %9 ], [ %15, %14 ], [ %20, %19 ], [ %25, %24 ], [ %30, %29 ], [ %35, %34 ], [ %40, %39 ], [ %45, %44 ], [ %50, %49 ], [ %55, %54 ], [ %60, %59 ], [ %65, %64 ], [ %70, %69 ], [ %75, %74 ]
   br label %76
 
@@ -1162,11 +1162,11 @@ _ZN5ZXing9ByteArrayD2Ev.exit.i:                   ; preds = %80, %76
   resume { ptr, i32 } %eh.lpad-body.i
 
 __cxx_global_var_init.exit:                       ; preds = %71
-  store ptr %73, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 360), align 8
+  store ptr %73, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 360), align 8
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 68
-  store ptr %82, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 376), align 8
+  store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 376), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %73, ptr noundef nonnull align 1 dereferenceable(68) @constinit.9, i64 68, i1 false)
-  store ptr %82, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 368), align 8
+  store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing10DataMatrixL7FACTORSE, i64 368), align 8
   %83 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayIN5ZXing9ByteArrayELm16EED2Ev, ptr nonnull @_ZN5ZXing10DataMatrixL7FACTORSE, ptr nonnull @__dso_handle) #16
   ret void
 }

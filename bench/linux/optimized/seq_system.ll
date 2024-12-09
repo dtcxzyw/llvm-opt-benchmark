@@ -95,7 +95,7 @@ define dso_local i32 @snd_seq_system_notify(i32 noundef %0, i32 noundef %1, ptr 
 define dso_local i32 @snd_seq_system_client_init() local_unnamed_addr #4 section ".init.text" align 16 {
   %1 = alloca %struct.snd_seq_port_callback, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #7
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 168) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %36, label %5

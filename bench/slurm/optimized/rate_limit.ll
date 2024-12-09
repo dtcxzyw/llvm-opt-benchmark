@@ -41,13 +41,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rate_limit_init() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1248), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %2 = tail call ptr @xstrcasestr(ptr noundef %1, ptr noundef nonnull @.str) #7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %48, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1248), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %5 = tail call ptr @xstrcasestr(ptr noundef %4, ptr noundef nonnull @.str.1) #7
   %.not9 = icmp eq ptr %5, null
   br i1 %.not9, label %9, label %6
@@ -59,7 +59,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %6, %3
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1248), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %11 = tail call ptr @xstrcasestr(ptr noundef %10, ptr noundef nonnull @.str.2) #7
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %15, label %12
@@ -71,7 +71,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %12, %9
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1248), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %17 = tail call ptr @xstrcasestr(ptr noundef %16, ptr noundef nonnull @.str.3) #7
   %.not11 = icmp eq ptr %17, null
   br i1 %.not11, label %21, label %18
@@ -83,7 +83,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %18, %15
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1248), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %23 = tail call ptr @xstrcasestr(ptr noundef %22, ptr noundef nonnull @.str.4) #7
   %.not12 = icmp eq ptr %23, null
   br i1 %.not12, label %27, label %24
@@ -95,7 +95,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
   br label %27
 
 27:                                               ; preds = %24, %21
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1248), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %29 = tail call ptr @xstrcasestr(ptr noundef %28, ptr noundef nonnull @.str.5) #7
   %.not13 = icmp eq ptr %29, null
   br i1 %.not13, label %33, label %30

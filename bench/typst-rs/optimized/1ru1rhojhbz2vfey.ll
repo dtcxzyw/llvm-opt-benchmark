@@ -55781,7 +55781,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hfb4373219075dd
 
 .backedge.i:                                      ; preds = %15, %.lr.ph.split.i
   %.not.i = icmp eq i64 %10, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.5c04a1d5f2b09caa3146db3fe8360175.291.llvm.14728845296163125433, i64 24), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @anon.5c04a1d5f2b09caa3146db3fe8360175.291.llvm.14728845296163125433, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %11, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 
@@ -192253,7 +192253,7 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr null, ptr %12, align 8, !alias.scope !42697
   %13 = load ptr, ptr @"_ZN5typst6layout4grid1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridCell$GT$4data4DATA17h34bf1afb9098e9cbE.llvm.13383457361836014260", align 8, !noalias !42707, !nonnull !5, !align !28, !noundef !5
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst6layout4grid1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridCell$GT$4data4DATA17h34bf1afb9098e9cbE.llvm.13383457361836014260", i64 8), align 8, !noalias !42707, !noundef !5
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst6layout4grid1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridCell$GT$4data4DATA17h34bf1afb9098e9cbE.llvm.13383457361836014260", i64 8), align 8, !noalias !42707, !noundef !5
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14, ptr noundef nonnull align 8 @"_ZN5typst6layout4grid1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridCell$GT$4data4DATA17h34bf1afb9098e9cbE.llvm.13383457361836014260", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17hc010c928957a7b4eE.exit unwind label %15
 
@@ -192265,25 +192265,25 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
 
 _ZN5typst11foundations5scope5Scope11define_elem17hc010c928957a7b4eE.exit: ; preds = %_ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit
   %17 = load ptr, ptr @"_ZN5typst6layout4grid1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridHLine$GT$4data4DATA17h2f07d64be6495a39E.llvm.13383457361836014260", align 8, !noalias !42710, !nonnull !5, !align !28, !noundef !5
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst6layout4grid1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridHLine$GT$4data4DATA17h2f07d64be6495a39E.llvm.13383457361836014260", i64 8), align 8, !noalias !42710, !noundef !5
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst6layout4grid1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridHLine$GT$4data4DATA17h2f07d64be6495a39E.llvm.13383457361836014260", i64 8), align 8, !noalias !42710, !noundef !5
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18, ptr noundef nonnull align 8 @"_ZN5typst6layout4grid1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridHLine$GT$4data4DATA17h2f07d64be6495a39E.llvm.13383457361836014260", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17h75d5d24141c023b1E.exit unwind label %15
 
 _ZN5typst11foundations5scope5Scope11define_elem17h75d5d24141c023b1E.exit: ; preds = %_ZN5typst11foundations5scope5Scope11define_elem17hc010c928957a7b4eE.exit
   %19 = load ptr, ptr @"_ZN5typst6layout4grid1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridVLine$GT$4data4DATA17h5b97db7da15ddf43E.llvm.13383457361836014260", align 8, !noalias !42713, !nonnull !5, !align !28, !noundef !5
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst6layout4grid1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridVLine$GT$4data4DATA17h5b97db7da15ddf43E.llvm.13383457361836014260", i64 8), align 8, !noalias !42713, !noundef !5
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst6layout4grid1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridVLine$GT$4data4DATA17h5b97db7da15ddf43E.llvm.13383457361836014260", i64 8), align 8, !noalias !42713, !noundef !5
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20, ptr noundef nonnull align 8 @"_ZN5typst6layout4grid1_103_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridVLine$GT$4data4DATA17h5b97db7da15ddf43E.llvm.13383457361836014260", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17h4d551ec90efd7529E.exit unwind label %15
 
 _ZN5typst11foundations5scope5Scope11define_elem17h4d551ec90efd7529E.exit: ; preds = %_ZN5typst11foundations5scope5Scope11define_elem17h75d5d24141c023b1E.exit
   %21 = load ptr, ptr @"_ZN5typst6layout4grid1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridHeader$GT$4data4DATA17hd355e96ebdf85a50E.llvm.13383457361836014260", align 8, !noalias !42716, !nonnull !5, !align !28, !noundef !5
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst6layout4grid1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridHeader$GT$4data4DATA17hd355e96ebdf85a50E.llvm.13383457361836014260", i64 8), align 8, !noalias !42716, !noundef !5
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst6layout4grid1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridHeader$GT$4data4DATA17hd355e96ebdf85a50E.llvm.13383457361836014260", i64 8), align 8, !noalias !42716, !noundef !5
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %22, ptr noundef nonnull align 8 @"_ZN5typst6layout4grid1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridHeader$GT$4data4DATA17hd355e96ebdf85a50E.llvm.13383457361836014260", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17h81b6f8b249b2c055E.exit unwind label %15
 
 _ZN5typst11foundations5scope5Scope11define_elem17h81b6f8b249b2c055E.exit: ; preds = %_ZN5typst11foundations5scope5Scope11define_elem17h4d551ec90efd7529E.exit
   %23 = load ptr, ptr @"_ZN5typst6layout4grid1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridFooter$GT$4data4DATA17h8d6fef2a61552165E.llvm.13383457361836014260", align 8, !noalias !42719, !nonnull !5, !align !28, !noundef !5
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst6layout4grid1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridFooter$GT$4data4DATA17h8d6fef2a61552165E.llvm.13383457361836014260", i64 8), align 8, !noalias !42719, !noundef !5
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst6layout4grid1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridFooter$GT$4data4DATA17h8d6fef2a61552165E.llvm.13383457361836014260", i64 8), align 8, !noalias !42719, !noundef !5
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24, ptr noundef nonnull align 8 @"_ZN5typst6layout4grid1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..grid..GridFooter$GT$4data4DATA17h8d6fef2a61552165E.llvm.13383457361836014260", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17hecaab4eea263e260E.exit unwind label %15
 

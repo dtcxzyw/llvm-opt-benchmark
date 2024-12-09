@@ -520,7 +520,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512RegexMatcherC2EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 24), (56, 60), (64, 131), (136, 170), (184, 192), (264, 312), (313, 314), (316, 320)) %this, ptr noundef %pat) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
   %fDeferredStatus = getelementptr inbounds nuw i8, ptr %this, i64 316
   %fPattern.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fFrameSize.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -787,7 +787,7 @@ define void @_ZN6icu_7512RegexMatcherC2ERKNS_13UnicodeStringES3_jR10UErrorCode(p
 entry:
   %pe = alloca %struct.UParseError, align 4
   %inputText = alloca %struct.UText, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
   %fPattern.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fFrameSize.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize.i, align 8
@@ -889,7 +889,7 @@ declare ptr @utext_close_75(ptr noundef) local_unnamed_addr #6
 define void @_ZN6icu_7512RegexMatcherC2EP5UTextS2_jR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 24), (56, 60), (64, 131), (136, 170), (176, 192), (264, 312), (313, 314), (316, 320)) %this, ptr noundef %regexp, ptr noundef %input, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pe = alloca %struct.UParseError, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
   %fPattern.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fFrameSize.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize.i, align 8
@@ -973,7 +973,7 @@ declare noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR11UParseErrorR10U
 define void @_ZN6icu_7512RegexMatcherC2ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 24), (56, 60), (64, 131), (136, 170), (176, 192), (264, 312), (313, 314), (316, 320)) %this, ptr noundef nonnull align 8 dereferenceable(64) %regexp, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pe = alloca %struct.UParseError, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
   %fPattern.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fFrameSize.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize.i, align 8
@@ -1058,7 +1058,7 @@ invoke.cont11:                                    ; preds = %invoke.cont3, %entr
 define void @_ZN6icu_7512RegexMatcherC2EP5UTextjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 24), (56, 60), (64, 131), (136, 170), (176, 192), (264, 312), (313, 314), (316, 320)) %this, ptr noundef %regexp, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pe = alloca %struct.UParseError, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
   %fPattern.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fFrameSize.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %fFrameSize.i, align 8
@@ -1912,7 +1912,7 @@ if.else254:                                       ; preds = %for.body
   br i1 %cmp256, label %if.then257, label %if.else303
 
 if.then257:                                       ; preds = %if.else254
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %groupName, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %groupName, align 8
   store i16 2, ptr %fUnion2.i, align 8
   %call258 = invoke i32 @utext_next32_75(ptr noundef %replacement)
           to label %while.cond.preheader unwind label %lpad.loopexit.split-lp
@@ -14123,7 +14123,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7512RegexMatcher5groupEiR10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, i32 noundef %groupNum, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -15725,7 +15725,7 @@ entry:
   store i32 878368812, ptr %resultText, align 8
   %1 = getelementptr inbounds nuw i8, ptr %resultText, i64 12
   store i32 144, ptr %1, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %2 = load i32, ptr %status, align 4
@@ -15787,7 +15787,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp, label %if.then7, label %if.then16
 
 if.then7:                                         ; preds = %if.end6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %emptyString, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %emptyString, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %emptyString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %empty, i8 0, i64 144, i1 false)
@@ -15900,7 +15900,7 @@ entry:
   store i32 878368812, ptr %resultText, align 8
   %1 = getelementptr inbounds nuw i8, ptr %resultText, i64 12
   store i32 144, ptr %1, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke ptr @utext_openConstUnicodeString_75(ptr noundef nonnull %replacementText, ptr noundef nonnull %replacement, ptr noundef nonnull %status)
@@ -16003,7 +16003,7 @@ if.end12:                                         ; preds = %if.end6
   br i1 %cmp, label %if.then13, label %if.end19
 
 if.then13:                                        ; preds = %if.end12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %emptyString, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %emptyString, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %emptyString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %empty, i8 0, i64 144, i1 false)

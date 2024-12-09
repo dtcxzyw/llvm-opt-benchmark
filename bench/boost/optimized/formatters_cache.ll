@@ -71,7 +71,7 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6locale8impl_icu16formatters_cacheE, i64 16), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost6locale8impl_icu16formatters_cacheE, i64 16), ptr %0, align 8, !tbaa !8
   br label %7
 
 7:                                                ; preds = %7, %2
@@ -85,7 +85,7 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
 .preheader176:                                    ; preds = %7, %.preheader176
   %.idx47 = phi i64 [ %.add48, %.preheader176 ], [ 72, %7 ]
   %.ptr49.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx47
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr49.ptr, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr49.ptr, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %.ptr49.ptr, i64 8
   store i16 2, ptr %9, align 8, !tbaa !13
   %.add48 = add nuw nsw i64 %.idx47, 64
@@ -99,7 +99,7 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
 12:                                               ; preds = %11, %12
   %.idx56 = phi i64 [ 328, %11 ], [ %.add57, %12 ]
   %.ptr58.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx56
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr58.ptr, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr58.ptr, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %.ptr58.ptr, i64 8
   store i16 2, ptr %13, align 8, !tbaa !13
   %.add57 = add nuw nsw i64 %.idx56, 64
@@ -113,7 +113,7 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
 16:                                               ; preds = %15, %16
   %.idx65 = phi i64 [ 584, %15 ], [ %.add66, %16 ]
   %.ptr67.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx65
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr67.ptr, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr67.ptr, align 8, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %.ptr67.ptr, i64 8
   store i16 2, ptr %17, align 8, !tbaa !13
   %.add66 = add nuw nsw i64 %.idx65, 64
@@ -123,15 +123,15 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
 19:                                               ; preds = %16
   %.ptr69 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1608
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %20, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %20, align 8, !tbaa !8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   store i16 2, ptr %21, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %22, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %22, align 8, !tbaa !8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   store i16 2, ptr %23, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1736
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %24, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %24, align 8, !tbaa !8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   store i16 2, ptr %25, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1800
@@ -942,7 +942,7 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit15: ; pr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale8impl_icu16formatters_cacheD2Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6locale8impl_icu16formatters_cacheE, i64 16), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost6locale8impl_icu16formatters_cacheE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   tail call void @_ZN6icu_706LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1800

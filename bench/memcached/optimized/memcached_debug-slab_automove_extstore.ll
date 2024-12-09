@@ -135,7 +135,7 @@ memcheck.exit:                                    ; preds = %for.body.i
   %conv10.i = fptoui double %mul.i to i32
   %spec.select.i = call i32 @llvm.umax.i32(i32 %conv10.i, i32 2)
   store i32 %spec.select.i, ptr %global_pool_watermark.i, align 4
-  store i32 %spec.select.i, ptr getelementptr inbounds (i8, ptr @settings, i64 316), align 4
+  store i32 %spec.select.i, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 316), align 4
   %sam_before = getelementptr inbounds nuw i8, ptr %arg, i64 3128
   %item_size = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %window_size.i = getelementptr inbounds nuw i8, ptr %arg, i64 16

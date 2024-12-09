@@ -282,7 +282,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 personal
           to label %.noexc unwind label %152
 
 .noexc:                                           ; preds = %93
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_0EEEEEE", i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_0EEEEEE", i64 16), ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %9, ptr %99, align 8
   %.sroa.287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 16
@@ -331,7 +331,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i: ; preds = %105
           to label %.noexc54 unwind label %154
 
 .noexc54:                                         ; preds = %111
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_1EEEEEE", i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_1EEEEEE", i64 16), ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %9, ptr %113, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %112, i64 16

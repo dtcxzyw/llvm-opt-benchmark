@@ -130,7 +130,7 @@ define internal ptr @vgacon_startup() #1 align 16 {
 
 7:                                                ; preds = %19, %19, %19, %19, %19, %15, %10, %6, %3, %3, %0
   store ptr @dummy_con, ptr @conswitchp, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @dummy_con, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dummy_con, i64 8), align 8
   %9 = tail call ptr %8() #13
   br label %132
 

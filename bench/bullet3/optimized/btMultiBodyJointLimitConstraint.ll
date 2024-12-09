@@ -50,7 +50,7 @@ entry:
   %m_parent = getelementptr inbounds %struct.btMultibodyLink, ptr %0, i64 %idxprom.i.i, i32 2
   %1 = load i32, ptr %m_parent, align 4
   tail call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %body, ptr noundef nonnull %body, i32 noundef %link, i32 noundef %1, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV31btMultiBodyJointLimitConstraint, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV31btMultiBodyJointLimitConstraint, i64 16), ptr %this, align 8
   %m_lowerBound = getelementptr inbounds nuw i8, ptr %this, i64 96
   store float %lower, ptr %m_lowerBound, align 8
   %m_upperBound = getelementptr inbounds nuw i8, ptr %this, i64 100

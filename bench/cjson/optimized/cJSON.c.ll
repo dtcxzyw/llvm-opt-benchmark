@@ -129,7 +129,7 @@ define void @cJSON_InitHooks(ptr noundef readonly %0) local_unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   %spec.store.select = select i1 %.not, ptr @malloc, ptr %4
-  store ptr @free, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  store ptr @free, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
@@ -145,8 +145,8 @@ define void @cJSON_InitHooks(ptr noundef readonly %0) local_unnamed_addr #4 {
   %spec.store.select11.sink = phi ptr [ %spec.store.select11, %3 ], [ @free, %1 ]
   %storemerge = phi ptr [ %spec.store.select10, %3 ], [ @realloc, %1 ]
   store ptr %spec.store.select.sink, ptr @global_hooks, align 8
-  store ptr %spec.store.select11.sink, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 16), align 8
+  store ptr %spec.store.select11.sink, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
+  store ptr %storemerge, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 16), align 8
   ret void
 }
 
@@ -197,7 +197,7 @@ define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %.not19, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %17(ptr noundef nonnull %15) #31
   %.pre24 = load i32, ptr %3, align 8
   br label %18
@@ -215,12 +215,12 @@ define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %.not21, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %25(ptr noundef nonnull %23) #31
   br label %26
 
 26:                                               ; preds = %24, %21, %18
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %27(ptr noundef nonnull %.023) #31
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -298,7 +298,7 @@ define ptr @cJSON_SetValuestring(ptr noundef %0, ptr noundef readonly %1) local_
   br i1 %.not23, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %28(ptr noundef nonnull %26) #31
   br label %29
 
@@ -319,7 +319,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @cJSON_free(ptr noundef %0) local_unnamed_addr #8 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %2(ptr noundef %0) #31
   ret void
 }
@@ -963,7 +963,7 @@ define internal fastcc ptr @print(ptr noundef %0, i32 noundef range(i32 0, 2) %1
   br label %update_offset.exit
 
 update_offset.exit:                               ; preds = %13, %16
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 16), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 16), align 8
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %29, label %23
 
@@ -994,7 +994,7 @@ update_offset.exit:                               ; preds = %13, %16
   %42 = load i64, ptr %31, align 16
   %43 = getelementptr inbounds i8, ptr %34, i64 %42
   store i8 0, ptr %43, align 1
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   %45 = load ptr, ptr %3, align 16
   call void %44(ptr noundef %45) #31
   br label %50
@@ -1005,7 +1005,7 @@ update_offset.exit:                               ; preds = %13, %16
   br i1 %.not25, label %50, label %48
 
 48:                                               ; preds = %46
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   call void %49(ptr noundef nonnull %47) #31
   br label %50
 
@@ -1052,7 +1052,7 @@ define ptr @cJSON_PrintBuffered(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   br i1 %.not6, label %18, label %21
 
 18:                                               ; preds = %11
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   %20 = load ptr, ptr %4, align 8
   call void %19(ptr noundef %20) #31
   br label %23
@@ -2351,7 +2351,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObject(ptr noundef %0, ptr noundef re
   br i1 %.not33.i, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %23(ptr noundef nonnull %21) #31
   br label %24
 
@@ -2417,7 +2417,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObjectCS(ptr noundef %0, ptr noundef 
   br i1 %.not33.i, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %17(ptr noundef nonnull %15) #31
   br label %18
 
@@ -2563,7 +2563,7 @@ create_reference.exit:                            ; preds = %7
   br i1 %.not33.i, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %27(ptr noundef nonnull %25) #31
   br label %28
 
@@ -2643,7 +2643,7 @@ cJSON_CreateNull.exit:                            ; preds = %2
   br i1 %.not33.i, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %22(ptr noundef nonnull %20) #31
   br label %23
 
@@ -2745,7 +2745,7 @@ cJSON_CreateTrue.exit:                            ; preds = %2
   br i1 %.not33.i, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %22(ptr noundef nonnull %20) #31
   br label %23
 
@@ -2847,7 +2847,7 @@ cJSON_CreateFalse.exit:                           ; preds = %2
   br i1 %.not33.i, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %22(ptr noundef nonnull %20) #31
   br label %23
 
@@ -2951,7 +2951,7 @@ cJSON_CreateBool.exit:                            ; preds = %3
   br i1 %.not33.i, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %24(ptr noundef nonnull %22) #31
   br label %25
 
@@ -3072,7 +3072,7 @@ cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
   br i1 %.not33.i, label %32, label %30
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %31(ptr noundef nonnull %29) #31
   br label %32
 
@@ -3219,7 +3219,7 @@ cJSON_CreateString.exit:                          ; preds = %3, %cJSON_strdup.ex
   br i1 %.not33.i, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %36(ptr noundef nonnull %34) #31
   br label %37
 
@@ -3371,7 +3371,7 @@ cJSON_CreateRaw.exit:                             ; preds = %3, %cJSON_strdup.ex
   br i1 %.not33.i, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %36(ptr noundef nonnull %34) #31
   br label %37
 
@@ -3495,7 +3495,7 @@ cJSON_CreateObject.exit:                          ; preds = %2
   br i1 %.not33.i, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %22(ptr noundef nonnull %20) #31
   br label %23
 
@@ -3597,7 +3597,7 @@ cJSON_CreateArray.exit:                           ; preds = %2
   br i1 %.not33.i, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %22(ptr noundef nonnull %20) #31
   br label %23
 
@@ -4470,7 +4470,7 @@ define internal fastcc range(i32 0, 2) i32 @replace_item_in_object(ptr noundef %
   br i1 %.not18, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
   tail call void %15(ptr noundef nonnull %13) #31
   br label %16
 

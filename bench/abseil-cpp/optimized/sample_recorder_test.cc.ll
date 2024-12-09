@@ -892,7 +892,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_136SampleRecorderTest_Registration_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_136SampleRecorderTest_Registration_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -2107,7 +2107,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
@@ -2218,7 +2218,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -2324,7 +2324,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %cleanup
@@ -2357,7 +2357,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad16 ], [ %18, %lpad28 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %ehcleanup41
 
@@ -2367,7 +2367,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
   %21 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorImSaImEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorImSaImEEE8IsSharedEv.exit.i.i.i
@@ -2453,7 +2453,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
@@ -2564,7 +2564,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -2670,7 +2670,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %cleanup
@@ -2703,7 +2703,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad16 ], [ %18, %lpad28 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %ehcleanup41
 
@@ -2713,7 +2713,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %matcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %matcher, align 8
   %21 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorIlSaIlEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEE8IsSharedEv.exit.i.i.i
@@ -2772,7 +2772,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
@@ -2883,7 +2883,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -2989,7 +2989,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %cleanup
@@ -3022,7 +3022,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad16 ], [ %18, %lpad28 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %ehcleanup41
 
@@ -3032,7 +3032,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
   %21 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorImSaImEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorImSaImEEE8IsSharedEv.exit.i.i.i
@@ -3091,7 +3091,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
@@ -3202,7 +3202,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -3308,7 +3308,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %cleanup
@@ -3341,7 +3341,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad16 ], [ %18, %lpad28 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %ehcleanup41
 
@@ -3351,7 +3351,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %matcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %matcher, align 8
   %21 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorIlSaIlEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEE8IsSharedEv.exit.i.i.i
@@ -3542,7 +3542,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %1 = load ptr, ptr %vtable_.i.i, align 8
@@ -3582,7 +3582,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %inner_listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %inner_listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %vtable_.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
@@ -3683,7 +3683,7 @@ call1.i23.noexc:                                  ; preds = %if.then.i
 invoke.cont22:                                    ; preds = %invoke.cont19, %call1.i23.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %return
 
@@ -3700,7 +3700,7 @@ ehcleanup:                                        ; preds = %lpad21, %lpad6
 
 ehcleanup23:                                      ; preds = %lpad, %lpad.i, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad ], [ %6, %lpad.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %common.resume
 
@@ -3720,7 +3720,7 @@ declare void @_ZN7testing15AssertionResultC1ERKS0_(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %this, align 8
   %ss_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_) #22
   ret void
@@ -3732,7 +3732,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorImSaImEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -3790,7 +3790,7 @@ invoke.cont5:                                     ; preds = %_ZNSt12_Vector_base
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i2, i64 16
   store i64 %conv.i.i.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %call5.i.i.i.i.i2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %call5.i.i.i.i.i2, align 8
   %incdec.ptr.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i2, i64 24
   store ptr %incdec.ptr.i.i.i.i.i.i5, ptr %_M_finish.i.i.i.i.i.i, align 8
   %call9 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
@@ -3803,7 +3803,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %buffer_.i.i, align 8
@@ -3817,7 +3817,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   %3 = ptrtoint ptr %call9 to i64
   store i64 %3, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i6, ptr %buffer_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
   %4 = load ptr, ptr %matchers, align 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i8 = icmp eq ptr %4, %5
@@ -3873,7 +3873,7 @@ entry:
   store i32 %matcher_flags, ptr %0, align 8
   %matcher_describers_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matcher_describers_.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers_, i8 0, i64 24, i1 false)
   %cmp.i.not28 = icmp eq ptr %first.coerce, %last.coerce
@@ -3911,14 +3911,14 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK7testing8intern
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.then.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i.i, %for.body
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !53
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !53
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %6, align 8
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %vtable_.i.i.i.i, align 8
   store ptr %8, ptr %vtable_.i.i.i.i.i.i, align 8
@@ -3926,7 +3926,7 @@ if.then.i.i:                                      ; preds = %invoke.cont6
   %9 = load i64, ptr %buffer_.i.i.i.i, align 8
   store i64 %9, ptr %buffer_.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %6, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
@@ -3937,7 +3937,7 @@ if.else.i.i:                                      ; preds = %invoke.cont6
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.then.i.i, %if.else.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   %11 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKmED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i
@@ -4156,7 +4156,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -4197,7 +4197,7 @@ _ZN7testing8internal11MatcherBaseIRKmED2Ev.exit:  ; preds = %entry, %_ZNK7testin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKmED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -4305,7 +4305,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -4346,7 +4346,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKmED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -4461,7 +4461,7 @@ _ZNKSt6vectorIN7testing7MatcherIRKmEESaIS4_EE12_M_check_lenEmPKc.exit: ; preds =
   %4 = load i64, ptr %buffer_3.i.i.i.i, align 8
   store i64 %4, ptr %buffer_.i.i.i.i, align 8
   store ptr null, ptr %vtable_2.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %add.ptr, align 8
   %cmp.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not7.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i
 
@@ -4491,7 +4491,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %__cur.09.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %__cur.09.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
@@ -4506,7 +4506,7 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i35, %for.inc.i.i.i.i.i33 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i34, %for.inc.i.i.i.i.i33 ], [ %__position.coerce, %invoke.cont10 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %vtable_.i.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i22, i64 8
   %vtable_2.i.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i23, i64 8
   %10 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i25, align 8
@@ -4530,7 +4530,7 @@ if.then.i.i.i.i.i.i.i.i32:                        ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i33
 
 for.inc.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i.i.i.i.i32, %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %incdec.ptr.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i23, i64 24
   %incdec.ptr1.i.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i22, i64 24
   %cmp.not.i.i.i.i.i36 = icmp eq ptr %incdec.ptr.i.i.i.i.i34, %0
@@ -4570,7 +4570,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKmEESaIS4_EE13_M_deallocateEPS4_m.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorImSaImEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -4617,7 +4617,7 @@ _ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorImSaImEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
   %matchers_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -4798,7 +4798,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %did_match, i8 0, i64 24, i1 false)
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %dummy, i64 8
   store ptr null, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy, align 8
   %cmp.i.not63 = icmp eq ptr %elem_first.coerce, %elem_last.coerce
   br i1 %cmp.i.not63, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit.for.end23_crit_edge, label %for.body.lr.ph
 
@@ -5362,7 +5362,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorImSaImEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -5437,7 +5437,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5478,7 +5478,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -5586,7 +5586,7 @@ delete.end:                                       ; preds = %_ZN7testing8interna
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing25StringMatchResultListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %this, align 8
   %ss_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -6080,7 +6080,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %1 = load ptr, ptr %vtable_.i.i, align 8
@@ -6120,7 +6120,7 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %inner_listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %inner_listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %vtable_.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
@@ -6221,7 +6221,7 @@ call1.i23.noexc:                                  ; preds = %if.then.i
 invoke.cont21:                                    ; preds = %invoke.cont18, %call1.i23.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %return
 
@@ -6238,7 +6238,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad9
 
 ehcleanup22:                                      ; preds = %lpad, %lpad.i, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad ], [ %6, %lpad.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %common.resume
 
@@ -6250,7 +6250,7 @@ return:                                           ; preds = %invoke.cont21, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorIlSaIlEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6308,7 +6308,7 @@ invoke.cont5:                                     ; preds = %_ZNSt12_Vector_base
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i2, i64 16
   store i64 %conv.i.i.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %call5.i.i.i.i.i2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %call5.i.i.i.i.i2, align 8
   %incdec.ptr.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i2, i64 24
   store ptr %incdec.ptr.i.i.i.i.i.i5, ptr %_M_finish.i.i.i.i.i.i, align 8
   %call9 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
@@ -6321,7 +6321,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %buffer_.i.i, align 8
@@ -6335,7 +6335,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   %3 = ptrtoint ptr %call9 to i64
   store i64 %3, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i6, ptr %buffer_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
   %4 = load ptr, ptr %matchers, align 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i8 = icmp eq ptr %4, %5
@@ -6391,7 +6391,7 @@ entry:
   store i32 %matcher_flags, ptr %0, align 8
   %matcher_describers_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matcher_describers_.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchers_, i8 0, i64 24, i1 false)
   %cmp.i.not30 = icmp eq ptr %first.coerce, %last.coerce
@@ -6429,14 +6429,14 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK7testing8intern
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i.i, %for.body
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !86
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !86
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %6, align 8
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %vtable_.i.i.i.i, align 8
   store ptr %8, ptr %vtable_.i.i.i.i.i.i, align 8
@@ -6444,7 +6444,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %9 = load i64, ptr %buffer_.i.i.i.i, align 8
   store i64 %9, ptr %buffer_.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %6, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
@@ -6455,7 +6455,7 @@ if.else.i.i:                                      ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then.i.i, %if.else.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   %11 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKlED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i
@@ -6661,7 +6661,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKlEESaIS4_EED2Ev.exit: ; preds = %invoke.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKlED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6702,7 +6702,7 @@ _ZN7testing8internal11MatcherBaseIRKlED2Ev.exit:  ; preds = %entry, %_ZNK7testin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKlED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -6810,7 +6810,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKlED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -6851,7 +6851,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKlED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6959,7 +6959,7 @@ _ZNKSt6vectorIN7testing7MatcherIRKlEESaIS4_EE12_M_check_lenEmPKc.exit: ; preds =
   %4 = load i64, ptr %buffer_3.i.i.i.i, align 8
   store i64 %4, ptr %buffer_.i.i.i.i, align 8
   store ptr null, ptr %vtable_2.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %add.ptr, align 8
   %cmp.not7.i.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not7.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i
 
@@ -6989,7 +6989,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %__cur.09.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %__cur.09.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
@@ -7004,7 +7004,7 @@ invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, 
 for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for.inc.i.i.i.i.i33
   %__cur.09.i.i.i.i.i22 = phi ptr [ %incdec.ptr1.i.i.i.i.i35, %for.inc.i.i.i.i.i33 ], [ %incdec.ptr, %invoke.cont10 ]
   %__first.addr.08.i.i.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i.i.i34, %for.inc.i.i.i.i.i33 ], [ %__position.coerce, %invoke.cont10 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %vtable_.i.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i22, i64 8
   %vtable_2.i.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i23, i64 8
   %10 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i25, align 8
@@ -7028,7 +7028,7 @@ if.then.i.i.i.i.i.i.i.i32:                        ; preds = %_ZNK7testing8intern
   br label %for.inc.i.i.i.i.i33
 
 for.inc.i.i.i.i.i33:                              ; preds = %if.then.i.i.i.i.i.i.i.i32, %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %__cur.09.i.i.i.i.i22, align 8
   %incdec.ptr.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i23, i64 24
   %incdec.ptr1.i.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i22, i64 24
   %cmp.not.i.i.i.i.i36 = icmp eq ptr %incdec.ptr.i.i.i.i.i34, %0
@@ -7068,7 +7068,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKlEESaIS4_EE13_M_deallocateEPS4_m.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIlSaIlEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -7115,7 +7115,7 @@ _ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIlSaIlEEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
   %matchers_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %matchers_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -7289,7 +7289,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %did_match, i8 0, i64 24, i1 false)
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %dummy, i64 8
   store ptr null, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy, align 8
   %cmp.i.not63 = icmp eq ptr %elem_first.coerce, %elem_last.coerce
   br i1 %cmp.i.not63, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit.for.end22_crit_edge, label %for.body.lr.ph
 
@@ -7604,7 +7604,7 @@ ehcleanup52:                                      ; preds = %lpad5.loopexit, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKSt6vectorIlSaIlEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -7679,7 +7679,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -7720,7 +7720,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %this, align 8
   %vtable_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -8003,7 +8003,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %buffer_.i.i, align 8
@@ -8017,7 +8017,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   %2 = ptrtoint ptr %call9 to i64
   store i64 %2, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i4, ptr %buffer_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
   %3 = load ptr, ptr %matchers, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i6 = icmp eq ptr %3, %4
@@ -8078,7 +8078,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !108
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !108
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !108
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !108
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !108
@@ -8095,11 +8095,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKmED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -8108,7 +8108,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKmED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i
 
@@ -8148,7 +8148,7 @@ _ZN7testing7MatcherIRKmED2Ev.exit:                ; preds = %invoke.cont.thread,
   %12 = load i32, ptr %t, align 4, !noalias !121
   %conv.i.i.i.i.i = sext i32 %12 to i64
   %vtable_.i.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !121
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !121
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i4, align 8, !alias.scope !121
   %buffer_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !121
@@ -8162,7 +8162,7 @@ invoke.cont.thread.i:                             ; preds = %_ZN7testing7Matcher
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %13, align 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -8174,7 +8174,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZN7testing7Matcher
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i
   %.pre.i = load ptr, ptr %vtable_.i.i.i.i.i.i.i4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal26TransformTupleValuesHelperISt5tupleIJiiEENS0_22CastAndAppendTransformIRKmEESt20back_insert_iteratorISt6vectorINS_7MatcherIS6_EESaISB_EEEE16IterateOverTupleIS3_Lm1EEclES7_RKS3_SE_.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i.i
 
@@ -8259,7 +8259,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %buffer_.i.i, align 8
@@ -8273,7 +8273,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   %2 = ptrtoint ptr %call9 to i64
   store i64 %2, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i4, ptr %buffer_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
   %3 = load ptr, ptr %matchers, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i6 = icmp eq ptr %3, %4
@@ -8334,7 +8334,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !134
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !134
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !134
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !134
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !134
@@ -8351,11 +8351,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKlED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -8364,7 +8364,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKlED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i
 
@@ -8404,7 +8404,7 @@ _ZN7testing7MatcherIRKlED2Ev.exit:                ; preds = %invoke.cont.thread,
   %12 = load i32, ptr %t, align 4, !noalias !147
   %conv.i.i.i.i.i = sext i32 %12 to i64
   %vtable_.i.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !147
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !147
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i4, align 8, !alias.scope !147
   %buffer_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !147
@@ -8418,7 +8418,7 @@ invoke.cont.thread.i:                             ; preds = %_ZN7testing7Matcher
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %13, align 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -8430,7 +8430,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZN7testing7Matcher
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i
   %.pre.i = load ptr, ptr %vtable_.i.i.i.i.i.i.i4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal26TransformTupleValuesHelperISt5tupleIJiiEENS0_22CastAndAppendTransformIRKlEESt20back_insert_iteratorISt6vectorINS_7MatcherIS6_EESaISB_EEEE16IterateOverTupleIS3_Lm1EEclES7_RKS3_SE_.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i.i
 
@@ -8503,7 +8503,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_138SampleRecorderTest_Unregistration_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_138SampleRecorderTest_Unregistration_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10553,7 +10553,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
@@ -10664,7 +10664,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -10770,7 +10770,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %cleanup
@@ -10803,7 +10803,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad16 ], [ %18, %lpad28 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %ehcleanup41
 
@@ -10813,7 +10813,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
   %21 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorImSaImEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorImSaImEEE8IsSharedEv.exit.i.i.i
@@ -10872,7 +10872,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
@@ -10983,7 +10983,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -11089,7 +11089,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %cleanup
@@ -11122,7 +11122,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad16 ], [ %18, %lpad28 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %ehcleanup41
 
@@ -11132,7 +11132,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %matcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %matcher, align 8
   %21 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorIlSaIlEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEE8IsSharedEv.exit.i.i.i
@@ -11191,7 +11191,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
@@ -11302,7 +11302,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -11408,7 +11408,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %cleanup
@@ -11441,7 +11441,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad16 ], [ %18, %lpad28 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %ehcleanup41
 
@@ -11451,7 +11451,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
   %21 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorImSaImEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorImSaImEEE8IsSharedEv.exit.i.i.i
@@ -11510,7 +11510,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8
@@ -11621,7 +11621,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -11727,7 +11727,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %cleanup
@@ -11760,7 +11760,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad16 ], [ %18, %lpad28 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %ehcleanup41
 
@@ -11770,7 +11770,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %matcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %matcher, align 8
   %21 = load ptr, ptr %vtable_.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorIlSaIlEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEE8IsSharedEv.exit.i.i.i
@@ -11831,7 +11831,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %call.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24, !noalias !197
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal14IsEmptyMatcherEE15MonomorphicImplIRKSt6vectorImSaImEEEE, i64 16), ptr %call.i.i.i.i.i, align 8, !noalias !197
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal14IsEmptyMatcherEE15MonomorphicImplIRKSt6vectorImSaImEEEE, i64 16), ptr %call.i.i.i.i.i, align 8, !noalias !197
   %vtable_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 8
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %matcher, i64 16
   store ptr @_ZZN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEE9GetVTableINS7_11ValuePolicyIPKNS_16MatcherInterfaceIS6_EELb1EEEEEPKNS7_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i, align 8, !alias.scope !197
@@ -11841,11 +11841,11 @@ entry:
   %0 = ptrtoint ptr %call.i.i.i.i.i to i64
   store i64 %0, ptr %value.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !197
   store ptr %call.i.i1.i.i.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8, !alias.scope !197
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8, !alias.scope !197
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8, !alias.scope !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i)
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %dummy.i, i64 8
   store ptr null, ptr %stream_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %dummy.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
   %call.i1.i7 = invoke noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
           to label %call.i1.i.noexc unwind label %lpad
@@ -11953,7 +11953,7 @@ invoke.cont14:                                    ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %listener, i64 32
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %listener, i64 8
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -12059,7 +12059,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont39, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %cleanup
@@ -12092,7 +12092,7 @@ ehcleanup:                                        ; preds = %lpad36.body, %lpad3
 
 ehcleanup40:                                      ; preds = %ehcleanup, %lpad28, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad16 ], [ %18, %lpad28 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #22
   br label %ehcleanup41
 
@@ -12102,7 +12102,7 @@ ehcleanup41:                                      ; preds = %lpad4, %lpad.i, %eh
   br label %ehcleanup42
 
 cleanup:                                          ; preds = %if.then, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %matcher, align 8
   %21 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKSt6vectorImSaImEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKSt6vectorImSaImEEE8IsSharedEv.exit.i.i.i
@@ -12176,7 +12176,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %buffer_.i.i, align 8
@@ -12190,7 +12190,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   %2 = ptrtoint ptr %call9 to i64
   store i64 %2, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i4, ptr %buffer_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
   %3 = load ptr, ptr %matchers, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i6 = icmp eq ptr %3, %4
@@ -12251,7 +12251,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !210
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !210
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !210
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !210
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !210
@@ -12268,11 +12268,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKmED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -12281,7 +12281,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKmED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i
 
@@ -12336,7 +12336,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !223
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !223
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !223
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !223
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !223
@@ -12353,11 +12353,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKmED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -12366,7 +12366,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKmED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i
 
@@ -12406,7 +12406,7 @@ _ZN7testing7MatcherIRKmED2Ev.exit:                ; preds = %invoke.cont.thread,
   %12 = load i32, ptr %t, align 4, !noalias !236
   %conv.i.i.i.i.i = sext i32 %12 to i64
   %vtable_.i.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !236
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !236
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i4, align 8, !alias.scope !236
   %buffer_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !236
@@ -12420,7 +12420,7 @@ invoke.cont.thread.i:                             ; preds = %_ZN7testing7Matcher
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %13, align 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -12432,7 +12432,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZN7testing7Matcher
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i
   %.pre.i = load ptr, ptr %vtable_.i.i.i.i.i.i.i4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal26TransformTupleValuesHelperISt5tupleIJiiiEENS0_22CastAndAppendTransformIRKmEESt20back_insert_iteratorISt6vectorINS_7MatcherIS6_EESaISB_EEEE16IterateOverTupleIS3_Lm1EEclES7_RKS3_SE_.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i.i
 
@@ -12517,7 +12517,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %buffer_.i.i, align 8
@@ -12531,7 +12531,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   %2 = ptrtoint ptr %call9 to i64
   store i64 %2, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i4, ptr %buffer_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
   %3 = load ptr, ptr %matchers, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i6 = icmp eq ptr %3, %4
@@ -12592,7 +12592,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !249
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !249
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !249
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !249
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !249
@@ -12609,11 +12609,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKlED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -12622,7 +12622,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKlED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i
 
@@ -12677,7 +12677,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !262
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !262
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !262
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !262
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !262
@@ -12694,11 +12694,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKlED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -12707,7 +12707,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKlED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i
 
@@ -12747,7 +12747,7 @@ _ZN7testing7MatcherIRKlED2Ev.exit:                ; preds = %invoke.cont.thread,
   %12 = load i32, ptr %t, align 4, !noalias !275
   %conv.i.i.i.i.i = sext i32 %12 to i64
   %vtable_.i.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !275
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !275
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i4, align 8, !alias.scope !275
   %buffer_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !275
@@ -12761,7 +12761,7 @@ invoke.cont.thread.i:                             ; preds = %_ZN7testing7Matcher
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %13, align 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -12773,7 +12773,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZN7testing7Matcher
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i
   %.pre.i = load ptr, ptr %vtable_.i.i.i.i.i.i.i4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal26TransformTupleValuesHelperISt5tupleIJiiiEENS0_22CastAndAppendTransformIRKlEESt20back_insert_iteratorISt6vectorINS_7MatcherIS6_EESaISB_EEEE16IterateOverTupleIS3_Lm1EEclES7_RKS3_SE_.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i.i
 
@@ -12858,7 +12858,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %buffer_.i.i, align 8
@@ -12872,7 +12872,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   %2 = ptrtoint ptr %call9 to i64
   store i64 %2, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i4, ptr %buffer_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorImSaImEEEE, i64 16), ptr %agg.result, align 8
   %3 = load ptr, ptr %matchers, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i6 = icmp eq ptr %3, %4
@@ -12933,7 +12933,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !288
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !288
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !288
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !288
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !288
@@ -12950,11 +12950,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKmED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -12963,7 +12963,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKmED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i
 
@@ -13018,7 +13018,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !301
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !301
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !301
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !301
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !301
@@ -13035,11 +13035,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKmED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -13048,7 +13048,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKmED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i
 
@@ -13103,7 +13103,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !314
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !314
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !314
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !314
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !314
@@ -13120,11 +13120,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKmED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -13133,7 +13133,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKmED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i
 
@@ -13173,7 +13173,7 @@ _ZN7testing7MatcherIRKmED2Ev.exit:                ; preds = %invoke.cont.thread,
   %12 = load i32, ptr %t, align 4, !noalias !327
   %conv.i.i.i.i.i = sext i32 %12 to i64
   %vtable_.i.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !327
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !327
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i4, align 8, !alias.scope !327
   %buffer_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !327
@@ -13187,7 +13187,7 @@ invoke.cont.thread.i:                             ; preds = %_ZN7testing7Matcher
   store ptr @_ZZN7testing8internal11MatcherBaseIRKmE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherImEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKmEE, i64 16), ptr %13, align 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -13199,7 +13199,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZN7testing7Matcher
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i
   %.pre.i = load ptr, ptr %vtable_.i.i.i.i.i.i.i4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKmEE, i64 16), ptr %ref.tmp.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal26TransformTupleValuesHelperISt5tupleIJiiiiEENS0_22CastAndAppendTransformIRKmEESt20back_insert_iteratorISt6vectorINS_7MatcherIS6_EESaISB_EEEE16IterateOverTupleIS3_Lm1EEclES7_RKS3_SE_.exit, label %_ZNK7testing8internal11MatcherBaseIRKmE8IsSharedEv.exit.i.i.i.i
 
@@ -13284,7 +13284,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
   %vtable_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i64 0, ptr %buffer_.i.i, align 8
@@ -13298,7 +13298,7 @@ invoke.cont20:                                    ; preds = %invoke.cont19
   %2 = ptrtoint ptr %call9 to i64
   store i64 %2, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i4, ptr %buffer_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIlSaIlEEEE, i64 16), ptr %agg.result, align 8
   %3 = load ptr, ptr %matchers, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i6 = icmp eq ptr %3, %4
@@ -13359,7 +13359,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !340
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !340
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !340
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !340
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !340
@@ -13376,11 +13376,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKlED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -13389,7 +13389,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKlED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i
 
@@ -13444,7 +13444,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !353
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !353
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !353
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !353
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !353
@@ -13461,11 +13461,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKlED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -13474,7 +13474,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKlED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i
 
@@ -13529,7 +13529,7 @@ entry:
   %0 = load i32, ptr %add.ptr.i.i.i, align 4, !noalias !366
   %conv.i.i.i.i = sext i32 %0 to i64
   %vtable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !366
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !366
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i, align 8, !alias.scope !366
   %buffer_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i, align 8, !alias.scope !366
@@ -13546,11 +13546,11 @@ invoke.cont.thread:                               ; preds = %entry
   %buffer_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %conv.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN7testing7MatcherIRKlED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -13559,7 +13559,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.else.i.i.i
   %.pre = load ptr, ptr %vtable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKlED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i
 
@@ -13599,7 +13599,7 @@ _ZN7testing7MatcherIRKlED2Ev.exit:                ; preds = %invoke.cont.thread,
   %12 = load i32, ptr %t, align 4, !noalias !379
   %conv.i.i.i.i.i = sext i32 %12 to i64
   %vtable_.i.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !379
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %ref.tmp.i, align 8, !alias.scope !379
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i4, align 8, !alias.scope !379
   %buffer_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8, !alias.scope !379
@@ -13613,7 +13613,7 @@ invoke.cont.thread.i:                             ; preds = %_ZN7testing7Matcher
   store ptr @_ZZN7testing8internal11MatcherBaseIRKlE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIlEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %conv.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKlEE, i64 16), ptr %13, align 8
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -13625,7 +13625,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZN7testing7Matcher
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i
   %.pre.i = load ptr, ptr %vtable_.i.i.i.i.i.i.i4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKlEE, i64 16), ptr %ref.tmp.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal26TransformTupleValuesHelperISt5tupleIJiiiiEENS0_22CastAndAppendTransformIRKlEESt20back_insert_iteratorISt6vectorINS_7MatcherIS6_EESaISB_EEEE16IterateOverTupleIS3_Lm1EEclES7_RKS3_SE_.exit, label %_ZNK7testing8internal11MatcherBaseIRKlE8IsSharedEv.exit.i.i.i.i
 
@@ -13760,7 +13760,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_137SampleRecorderTest_MultiThreaded_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_137SampleRecorderTest_MultiThreaded_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -13985,7 +13985,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %call.i.noexc unwind label %lpad3.loopexit
 
 call.i.noexc:                                     ; preds = %for.body
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4absl24synchronization_internal10ThreadPoolEFvvEPS5_EEEEEE, i64 16), ptr %call.i6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4absl24synchronization_internal10ThreadPoolEFvvEPS5_EEEEEE, i64 16), ptr %call.i6, align 8
   %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i6, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %call.i6, i64 16
@@ -15704,7 +15704,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.41, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.41, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.41, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.41, i64 7))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -16804,7 +16804,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_132SampleRecorderTest_Callback_TestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_132SampleRecorderTest_Callback_TestE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -17640,7 +17640,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 146))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 146))
           to label %invoke.cont.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
@@ -17672,7 +17672,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18profiling_internal12_GLOBAL__N_136SampleRecorderTest_Registration_TestEEE, i64 16), ptr %call11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18profiling_internal12_GLOBAL__N_136SampleRecorderTest_Registration_TestEEE, i64 16), ptr %call11.i, align 8
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef %call.i, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %__cxx_global_var_init.1.exit unwind label %lpad4.i
 
@@ -17723,7 +17723,7 @@ call.i.noexc.i7:                                  ; preds = %__cxx_global_var_in
           to label %.noexc.i8 unwind label %lpad.i4
 
 .noexc.i8:                                        ; preds = %call.i.noexc.i7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 146))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 146))
           to label %invoke.cont.i10 unwind label %lpad.i.i9
 
 lpad.i.i9:                                        ; preds = %.noexc.i8
@@ -17755,7 +17755,7 @@ invoke.cont8.i21:                                 ; preds = %invoke.cont6.i19
           to label %invoke.cont10.i unwind label %lpad4.i16
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18profiling_internal12_GLOBAL__N_138SampleRecorderTest_Unregistration_TestEEE, i64 16), ptr %call11.i22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18profiling_internal12_GLOBAL__N_138SampleRecorderTest_Unregistration_TestEEE, i64 16), ptr %call11.i22, align 8
   %call15.i23 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1, ptr noundef %call.i15, ptr noundef %call7.i18, ptr noundef %call9.i20, ptr noundef nonnull %call11.i22)
           to label %__cxx_global_var_init.4.exit unwind label %lpad4.i16
 
@@ -17800,7 +17800,7 @@ call.i.noexc.i31:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i32 unwind label %lpad.i28
 
 .noexc.i32:                                       ; preds = %call.i.noexc.i31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 146))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i25, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 146))
           to label %invoke.cont.i34 unwind label %lpad.i.i33
 
 lpad.i.i33:                                       ; preds = %.noexc.i32
@@ -17832,7 +17832,7 @@ invoke.cont8.i46:                                 ; preds = %invoke.cont6.i44
           to label %invoke.cont10.i48 unwind label %lpad4.i41
 
 invoke.cont10.i48:                                ; preds = %invoke.cont8.i46
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18profiling_internal12_GLOBAL__N_137SampleRecorderTest_MultiThreaded_TestEEE, i64 16), ptr %call11.i47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18profiling_internal12_GLOBAL__N_137SampleRecorderTest_MultiThreaded_TestEEE, i64 16), ptr %call11.i47, align 8
   %call15.i49 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i24, ptr noundef %call.i40, ptr noundef %call7.i43, ptr noundef %call9.i45, ptr noundef nonnull %call11.i47)
           to label %__cxx_global_var_init.6.exit unwind label %lpad4.i41
 
@@ -17877,7 +17877,7 @@ call.i.noexc.i57:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i58 unwind label %lpad.i54
 
 .noexc.i58:                                       ; preds = %call.i.noexc.i57
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i51, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 146))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i51, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 146))
           to label %invoke.cont.i60 unwind label %lpad.i.i59
 
 lpad.i.i59:                                       ; preds = %.noexc.i58
@@ -17909,7 +17909,7 @@ invoke.cont8.i72:                                 ; preds = %invoke.cont6.i70
           to label %invoke.cont10.i74 unwind label %lpad4.i67
 
 invoke.cont10.i74:                                ; preds = %invoke.cont8.i72
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18profiling_internal12_GLOBAL__N_132SampleRecorderTest_Callback_TestEEE, i64 16), ptr %call11.i73, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl18profiling_internal12_GLOBAL__N_132SampleRecorderTest_Callback_TestEEE, i64 16), ptr %call11.i73, align 8
   %call15.i75 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i50, ptr noundef %call.i66, ptr noundef %call7.i69, ptr noundef %call9.i71, ptr noundef nonnull %call11.i73)
           to label %__cxx_global_var_init.8.exit unwind label %lpad4.i67
 

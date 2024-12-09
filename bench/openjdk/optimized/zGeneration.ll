@@ -661,7 +661,7 @@ declare void @_ZN12ZStatSamplerC1EPKcS1_PFv15LogTargetHandleRKS_RK19ZStatSampler
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11ZGenerationC2E13ZGenerationIdP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6592) initializes((0, 9), (16, 40)) %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11ZGeneration, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11ZGeneration, i64 16), ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1940,7 +1940,7 @@ define hidden void @_ZN16ZYoungTypeSetterD2Ev(ptr nocapture nonnull readnone ali
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16ZGenerationYoungC2EP10ZPageTablePK16ZForwardingTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6720) initializes((0, 9), (16, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN11ZGenerationC2E13ZGenerationIdP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6592) %0, i8 noundef zeroext 0, ptr noundef %1, ptr noundef %3)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16ZGenerationYoung, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16ZGenerationYoung, i64 16), ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6592
   store i32 4, ptr %5, align 64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6596
@@ -1950,7 +1950,7 @@ define hidden void @_ZN16ZGenerationYoungC2EP10ZPageTablePK16ZForwardingTableP14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 6704
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV12ZYoungTracer, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV12ZYoungTracer, i64 16), ptr %8, align 8
   store ptr %0, ptr @_ZN11ZGeneration6_youngE, align 8
   ret void
 }
@@ -2073,7 +2073,7 @@ define hidden void @_ZN16ZGenerationYoung7collectE10ZYoungTypeP17ConcurrentGCTim
   store i32 %64, ptr %43, align 8
   store i32 %63, ptr %44, align 4
   store i8 0, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV16VM_ZMarkEndYoung, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV16VM_ZMarkEndYoung, i64 16), ptr %16, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(25) %16) #17
   %65 = load ptr, ptr %16, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
@@ -2280,7 +2280,7 @@ define hidden void @_ZN16ZGenerationYoung16pause_mark_startEv(ptr nocapture noun
   store i32 %9, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV24VM_ZMarkStartYoungAndOld, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV24VM_ZMarkStartYoungAndOld, i64 16), ptr %2, align 8
   tail call void @_ZN12ZJNICritical5blockEv() #17
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(25) %2) #17
   %15 = load ptr, ptr %2, align 8
@@ -2318,7 +2318,7 @@ define hidden void @_ZN16ZGenerationYoung16pause_mark_startEv(ptr nocapture noun
   store i32 %30, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV18VM_ZMarkStartYoung, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV18VM_ZMarkStartYoung, i64 16), ptr %3, align 8
   tail call void @_ZN12ZJNICritical5blockEv() #17
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(25) %3) #17
   %36 = load ptr, ptr %3, align 8
@@ -2436,7 +2436,7 @@ define hidden noundef zeroext i1 @_ZN16ZGenerationYoung14pause_mark_endEv(ptr no
   store i32 %13, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV16VM_ZMarkEndYoung, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV16VM_ZMarkEndYoung, i64 16), ptr %2, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(25) %2) #17
   %19 = load ptr, ptr %2, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
@@ -2657,7 +2657,7 @@ define hidden void @_ZN16ZGenerationYoung20pause_relocate_startEv(ptr nocapture 
   store i32 %13, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV22VM_ZRelocateStartYoung, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV22VM_ZRelocateStartYoung, i64 16), ptr %2, align 8
   tail call void @_ZN12ZJNICritical5blockEv() #17
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(25) %2) #17
   %19 = load ptr, ptr %2, align 8
@@ -3253,7 +3253,7 @@ define hidden noundef nonnull ptr @_ZN16ZGenerationYoung10jfr_tracerEv(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14ZGenerationOldC2EP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6720) initializes((0, 9), (16, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN11ZGenerationC2E13ZGenerationIdP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6592) %0, i8 noundef zeroext 1, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14ZGenerationOld, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14ZGenerationOld, i64 16), ptr %0, align 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6592
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN19ZReferenceProcessorC1EP8ZWorkers(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %5) #17
@@ -3264,7 +3264,7 @@ define hidden void @_ZN14ZGenerationOldC2EP10ZPageTableP14ZPageAllocator(ptr nou
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 6688
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 6696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10ZOldTracer, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10ZOldTracer, i64 16), ptr %9, align 8
   store ptr %0, ptr @_ZN11ZGeneration4_oldE, align 8
   ret void
 }
@@ -3357,7 +3357,7 @@ define hidden void @_ZN14ZGenerationOld7collectEP17ConcurrentGCTimer(ptr noundef
   store i32 %53, ptr %40, align 8
   store i32 %52, ptr %41, align 4
   store i8 0, ptr %42, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV14VM_ZMarkEndOld, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV14VM_ZMarkEndOld, i64 16), ptr %16, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(25) %16) #17
   %54 = load ptr, ptr %16, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 80
@@ -3486,7 +3486,7 @@ _ZN14ZGenerationOld14pause_mark_endEv.exit:       ; preds = %50, %58
   call void @_ZN13ZDriverLockerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %118, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV13VM_ZVerifyOld, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV13VM_ZVerifyOld, i64 16), ptr %7, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   call void @_ZN13ZDriverLockerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   br label %_ZN14ZGenerationOld12pause_verifyEv.exit
@@ -3652,7 +3652,7 @@ define hidden noundef zeroext i1 @_ZN14ZGenerationOld14pause_mark_endEv(ptr noca
   store i32 %4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV14VM_ZMarkEndOld, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV14VM_ZMarkEndOld, i64 16), ptr %2, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(25) %2) #17
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -3854,7 +3854,7 @@ define hidden void @_ZN14ZGenerationOld12pause_verifyEv(ptr nocapture noundef no
   call void @_ZN13ZDriverLockerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV13VM_ZVerifyOld, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV13VM_ZVerifyOld, i64 16), ptr %3, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   call void @_ZN13ZDriverLockerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
   br label %11
@@ -3931,7 +3931,7 @@ define hidden void @_ZN14ZGenerationOld20pause_relocate_startEv(ptr nocapture no
   store i32 %4, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV20VM_ZRelocateStartOld, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV20VM_ZRelocateStartOld, i64 16), ptr %2, align 8
   tail call void @_ZN12ZJNICritical5blockEv() #17
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(25) %2) #17
   %10 = load ptr, ptr %2, align 8
@@ -4087,11 +4087,11 @@ define hidden void @_ZN14ZGenerationOld29process_non_strong_referencesEv(ptr nou
   call void @_ZN7ZUnload6unlinkEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.95, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV27ZRendezvousHandshakeClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV27ZRendezvousHandshakeClosure, i64 16), ptr %3, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %3) #17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV20ZRendezvousGCThreads, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV20ZRendezvousGCThreads, i64 16), ptr %4, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #17
   call void @_ZN13ZResurrection7unblockEv() #17
   call void @_ZN7ZUnload5purgeEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
@@ -4140,7 +4140,7 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:
   call void @_ZN20ZRemapYoungRootsTaskC2EP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 8 dereferenceable(1112) %1, ptr noundef %12, ptr noundef %14)
   call void @_ZN8ZWorkers3runEP5ZTask(ptr noundef nonnull align 8 dereferenceable(184) %2, ptr noundef nonnull %1) #17
   call void @_ZN8ZWorkers18set_active_workersEj(ptr noundef nonnull align 8 dereferenceable(184) %2, i32 noundef %3) #17
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20ZRemapYoungRootsTask, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20ZRemapYoungRootsTask, i64 16), ptr %1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 976
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   call void @_ZN21ZNMethodsIteratorImplD2Ev(ptr noundef nonnull align 1 dereferenceable(4) %16) #17
@@ -4340,7 +4340,7 @@ declare void @_ZN7ZUnload6finishEv(ptr noundef nonnull align 8 dereferenceable(8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20ZRemapYoungRootsTaskC2EP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
   tail call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.98) #17
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20ZRemapYoungRootsTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20ZRemapYoungRootsTask, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN32ZGenerationPagesParallelIteratorC1EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %1, i8 noundef zeroext 1, ptr noundef %2) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4384,17 +4384,17 @@ define linkonce_odr hidden void @_ZN20ZRemapYoungRootsTaskC2EP10ZPageTableP14ZPa
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1051
   store volatile i8 0, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16ZRemapOopClosure, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16ZRemapOopClosure, i64 16), ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   store ptr %27, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store i32 0, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23ClaimingCLDToOopClosureILi0EE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23ClaimingCLDToOopClosureILi0EE, i64 16), ptr %28, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ZRemapThreadClosure, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ZRemapThreadClosure, i64 16), ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20ZRemapNMethodClosure, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20ZRemapNMethodClosure, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %34 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
@@ -4755,14 +4755,14 @@ define linkonce_odr hidden void @_ZNK5ZPage7log_msgEPKcz(ptr noundef nonnull ali
 7:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #17
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #17
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i32 1, ptr %9, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %5, align 8
   %11 = call i32 @jio_vsnprintf(ptr noundef nonnull %10, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #17
@@ -4809,7 +4809,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #17
   ret void
@@ -5884,7 +5884,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %2, %_ZN14ZReentrant
 18:                                               ; preds = %_ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit
   tail call void @_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod(ptr noundef %1) #17
   %19 = tail call noundef i64 @_ZN8ZNMethod5colorEP7nmethod(ptr noundef %1) #17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV31ZUncoloredRootProcessOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV31ZUncoloredRootProcessOopClosure, i64 16), ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %19, ptr %20, align 8
   call void @_ZN8ZNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(ptr noundef %1, ptr noundef nonnull %3) #17
@@ -6449,9 +6449,9 @@ declare void @_ZNK14ZPageAllocator19enable_safe_destroyEv(ptr noundef nonnull al
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_zGeneration.cpp() #11 section ".text.startup" {
   tail call void @_ZN20ZStatPhaseGenerationC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(49) @_ZL21ZPhaseGenerationYoung, ptr noundef nonnull @.str, i8 noundef zeroext 0) #17
-  tail call void @_ZN20ZStatPhaseGenerationC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds (i8, ptr @_ZL21ZPhaseGenerationYoung, i64 56), ptr noundef nonnull @.str.5, i8 noundef zeroext 0) #17
-  tail call void @_ZN20ZStatPhaseGenerationC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds (i8, ptr @_ZL21ZPhaseGenerationYoung, i64 112), ptr noundef nonnull @.str.6, i8 noundef zeroext 0) #17
-  tail call void @_ZN20ZStatPhaseGenerationC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds (i8, ptr @_ZL21ZPhaseGenerationYoung, i64 168), ptr noundef nonnull @.str, i8 noundef zeroext 0) #17
+  tail call void @_ZN20ZStatPhaseGenerationC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds nuw (i8, ptr @_ZL21ZPhaseGenerationYoung, i64 56), ptr noundef nonnull @.str.5, i8 noundef zeroext 0) #17
+  tail call void @_ZN20ZStatPhaseGenerationC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds nuw (i8, ptr @_ZL21ZPhaseGenerationYoung, i64 112), ptr noundef nonnull @.str.6, i8 noundef zeroext 0) #17
+  tail call void @_ZN20ZStatPhaseGenerationC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(49) getelementptr inbounds nuw (i8, ptr @_ZL21ZPhaseGenerationYoung, i64 168), ptr noundef nonnull @.str, i8 noundef zeroext 0) #17
   tail call void @_ZN20ZStatPhaseGenerationC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(49) @_ZL19ZPhaseGenerationOld, ptr noundef nonnull @.str.8, i8 noundef zeroext 1) #17
   tail call void @_ZN15ZStatPhasePauseC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(48) @_ZL25ZPhasePauseMarkStartYoung, ptr noundef nonnull @.str.10, i8 noundef zeroext 0) #17
   tail call void @_ZN15ZStatPhasePauseC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(48) @_ZL31ZPhasePauseMarkStartYoungAndOld, ptr noundef nonnull @.str.12, i8 noundef zeroext 0) #17

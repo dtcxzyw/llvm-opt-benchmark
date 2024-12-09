@@ -706,12 +706,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC21IccXYZArrayTypeReaderE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC21IccXYZArrayTypeReaderE, i64 16), ptr %call, align 8
   br label %return
 
 if.then2:                                         ; preds = %entry
   %call3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC28IccParametricCurveTypeReaderE, i64 16), ptr %call3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC28IccParametricCurveTypeReaderE, i64 16), ptr %call3, align 8
   %mFunctionType.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store i16 0, ptr %mFunctionType.i, align 8
   %mnNumParam.i = getelementptr inbounds nuw i8, ptr %call3, i64 10
@@ -722,7 +722,7 @@ if.then2:                                         ; preds = %entry
 
 if.then8:                                         ; preds = %entry
   %call9 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC18IccCurveTypeReaderE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC18IccCurveTypeReaderE, i64 16), ptr %call9, align 8
   %mCurve.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mCurve.i, i8 0, i64 24, i1 false)
   br label %return
@@ -730,7 +730,7 @@ if.then8:                                         ; preds = %entry
 if.then14:                                        ; preds = %entry
   %call15 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call15, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC28IccTextDescriptionTypeReaderE, i64 16), ptr %call15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC28IccTextDescriptionTypeReaderE, i64 16), ptr %call15, align 8
   %mText.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mText.i) #30
   br label %return
@@ -738,7 +738,7 @@ if.then14:                                        ; preds = %entry
 if.then20:                                        ; preds = %entry
   %call21 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call21, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC34IccMultiLocalizedUnicodeTypeReaderE, i64 16), ptr %call21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC34IccMultiLocalizedUnicodeTypeReaderE, i64 16), ptr %call21, align 8
   %mText.i5 = getelementptr inbounds nuw i8, ptr %call21, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mText.i5) #30
   br label %return
@@ -1624,7 +1624,7 @@ if.end171:                                        ; preds = %invoke.cont167
 
 invoke.cont175:                                   ; preds = %if.end171
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %call173, i8 0, i64 200, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15LocalCachedFileE, i64 16), ptr %call173, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15LocalCachedFileE, i64 16), ptr %call173, align 8
   %mProfileDescription.i = getelementptr inbounds nuw i8, ptr %call173, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mProfileDescription.i) #30
   %mMatrix44.i = getelementptr inbounds nuw i8, ptr %call173, i64 40
@@ -1672,7 +1672,7 @@ invoke.cont177:                                   ; preds = %invoke.cont175
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN19OpenColorIO_v2_4dev15LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN19OpenColorIO_v2_4dev15LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call173, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i, align 8
@@ -4180,7 +4180,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %if.else
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !22
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i146, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11Lut1DOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i146, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11Lut1DOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i146, align 8, !noalias !22
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i146, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataC1Em(ptr noundef nonnull align 8 dereferenceable(364) %_M_impl.i.i.i.i.i.i, i64 noundef 1024)
           to label %invoke.cont267 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11Lut1DOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !22
@@ -4467,7 +4467,7 @@ call5.i.i.i3.i.i.i.i.noexc180:                    ; preds = %if.else405
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i175, align 8, !noalias !26
   %_M_weak_count.i.i.i.i.i.i176 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i181, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i176, align 4, !noalias !26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11Lut1DOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i181, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11Lut1DOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i181, align 8, !noalias !26
   %_M_impl.i.i.i.i.i.i177 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i181, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataC1Em(ptr noundef nonnull align 8 dereferenceable(364) %_M_impl.i.i.i.i.i.i177, i64 noundef %sub.ptr.div.i)
           to label %invoke.cont408 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11Lut1DOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i178, !noalias !26
@@ -5231,7 +5231,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont80
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i66, align 8, !noalias !38
   %_M_weak_count.i.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i68, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i67, align 4, !noalias !38
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i68, align 8, !noalias !38
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i68, align 8, !noalias !38
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i68, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpDataC1ERKNS0_5StyleERKSt6vectorIdSaIdEES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(272) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp82, ptr noundef nonnull align 8 dereferenceable(24) %redParams, ptr noundef nonnull align 8 dereferenceable(24) %greenParams, ptr noundef nonnull align 8 dereferenceable(24) %blueParams, ptr noundef nonnull align 8 dereferenceable(24) %alphaParams)
           to label %invoke.cont84 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !38
@@ -5542,7 +5542,7 @@ call5.i.i.i3.i.i.i.i.noexc178:                    ; preds = %invoke.cont169
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i173, align 8, !noalias !41
   %_M_weak_count.i.i.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i179, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i174, align 4, !noalias !41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i179, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i179, align 8, !noalias !41
   %_M_impl.i.i.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i179, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpDataC1ERKNS0_5StyleERKSt6vectorIdSaIdEES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(272) %_M_impl.i.i.i.i.i.i175, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp172, ptr noundef nonnull align 8 dereferenceable(24) %redParams111, ptr noundef nonnull align 8 dereferenceable(24) %greenParams126, ptr noundef nonnull align 8 dereferenceable(24) %blueParams141, ptr noundef nonnull align 8 dereferenceable(24) %alphaParams156)
           to label %invoke.cont174 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11GammaOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i176, !noalias !41
@@ -5998,7 +5998,7 @@ declare void @_ZN19OpenColorIO_v2_4dev14CreateMatrixOpERNS_10OpRcPtrVecEPKdNS_18
 define hidden noalias noundef nonnull ptr @_ZN19OpenColorIO_v2_4dev19CreateFileFormatICCEv() local_unnamed_addr #6 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15LocalFileFormatE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15LocalFileFormatE, i64 16), ptr %call, align 8
   ret ptr %call
 }
 
@@ -6474,7 +6474,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9SampleICC28IccParametricCurveTypeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC28IccParametricCurveTypeReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC28IccParametricCurveTypeReaderE, i64 16), ptr %this, align 8
   %mParam = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mParam, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -6491,7 +6491,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9SampleICC28IccParametricCurveTypeReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC28IccParametricCurveTypeReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC28IccParametricCurveTypeReaderE, i64 16), ptr %this, align 8
   %mParam.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mParam.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -6689,7 +6689,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9SampleICC18IccCurveTypeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC18IccCurveTypeReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC18IccCurveTypeReaderE, i64 16), ptr %this, align 8
   %mCurve = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mCurve, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6706,7 +6706,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9SampleICC18IccCurveTypeReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC18IccCurveTypeReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC18IccCurveTypeReaderE, i64 16), ptr %this, align 8
   %mCurve.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mCurve.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -7020,7 +7020,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9SampleICC28IccTextDescriptionTypeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC28IccTextDescriptionTypeReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC28IccTextDescriptionTypeReaderE, i64 16), ptr %this, align 8
   %mText = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mText) #30
   ret void
@@ -7029,7 +7029,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9SampleICC28IccTextDescriptionTypeReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC28IccTextDescriptionTypeReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC28IccTextDescriptionTypeReaderE, i64 16), ptr %this, align 8
   %mText.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mText.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
@@ -7175,7 +7175,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9SampleICC34IccMultiLocalizedUnicodeTypeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC34IccMultiLocalizedUnicodeTypeReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC34IccMultiLocalizedUnicodeTypeReaderE, i64 16), ptr %this, align 8
   %mText = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mText) #30
   ret void
@@ -7184,7 +7184,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9SampleICC34IccMultiLocalizedUnicodeTypeReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9SampleICC34IccMultiLocalizedUnicodeTypeReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9SampleICC34IccMultiLocalizedUnicodeTypeReaderE, i64 16), ptr %this, align 8
   %mText.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mText.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
@@ -7752,7 +7752,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev15LocalCachedFileD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15LocalCachedFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15LocalCachedFileE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -7835,7 +7835,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11Lut1DOpDataEED2Ev.exit: ; preds = %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev15LocalCachedFileD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15LocalCachedFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15LocalCachedFileE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null

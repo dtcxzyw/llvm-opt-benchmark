@@ -293,7 +293,7 @@ define dso_local i64 @i915_gpu_coredump_copy_to_buffer(ptr noundef %0, ptr nocap
   br label %32
 
 32:                                               ; preds = %31, %24
-  call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 260))
+  call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 130), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 260))
   call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8
@@ -3086,7 +3086,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr nocapture nound
   br i1 %17, label %18, label %397
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %20 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 26624, i64 noundef 72) #16
   %21 = icmp eq ptr %20, null
   br i1 %21, label %397, label %22
@@ -4368,7 +4368,7 @@ define dso_local noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i32 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @i915_vma_capture_prepare(ptr nocapture readnone %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(232) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 26624, i64 noundef 232) #16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %53, label %5
@@ -4867,7 +4867,7 @@ define internal fastcc ptr @i915_gpu_coredump(ptr noundef %0, i32 noundef %1, i3
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %.pre32, align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %39 = tail call noalias align 8 dereferenceable_or_null(920) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 26880, i64 noundef 920) #16
   %40 = icmp eq ptr %39, null
   br i1 %40, label %163, label %41
@@ -5210,7 +5210,7 @@ define internal fastcc ptr @i915_gpu_coredump(ptr noundef %0, i32 noundef %1, i3
   br i1 %264, label %capture_vma_snapshot.exit, label %265
 
 265:                                              ; preds = %261
-  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %266 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %267 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %266, i32 noundef 10272, i64 noundef 40) #16
   %268 = icmp eq ptr %267, null
   br i1 %268, label %capture_vma_snapshot.exit, label %269
@@ -5264,7 +5264,7 @@ capture_vma_snapshot.exit:                        ; preds = %261, %265, %272, %2
   br i1 %293, label %capture_vma_snapshot.exit24, label %294
 
 294:                                              ; preds = %.preheader
-  %295 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %295 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %296 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %295, i32 noundef 10272, i64 noundef 40) #16
   %297 = icmp eq ptr %296, null
   br i1 %297, label %capture_vma_snapshot.exit24, label %298

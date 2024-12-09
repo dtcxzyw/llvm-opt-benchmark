@@ -558,12 +558,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA29_S3_NSt7__c
   %59 = getelementptr inbounds nuw i8, ptr %28, i64 296
   %60 = getelementptr inbounds nuw i8, ptr %28, i64 304
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIPNSt7__cxx114listISt8functionIFvvEESaIS7_EEENS1_23cache_aligned_allocatorISA_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIPNSt7__cxx114listISt8functionIFvvEESaIS7_EEENS1_23cache_aligned_allocatorISA_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %59, align 8
   %61 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 8)
           to label %62 unwind label %70
 
 62:                                               ; preds = %29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIPNSt7__cxx114listISt8functionIFvvEESaIS8_EEEEEEE, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIPNSt7__cxx114listISt8functionIFvvEESaIS8_EEEEEEE, i64 16), ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %28, i64 320
   store ptr %61, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %28, i64 328
@@ -586,19 +586,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA29_S3_NSt7__c
 70:                                               ; preds = %29
   %71 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %59, align 8
   br label %.body.i.i.i
 
 _ZN3tbb6detail2d126enumerable_thread_specificIPNSt7__cxx114listISt8functionIFvvEESaIS7_EEENS1_23cache_aligned_allocatorISA_EELNS1_18ets_key_usage_typeE1EEC2Ev.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %72 = getelementptr inbounds nuw i8, ptr %28, i64 400
   %73 = getelementptr inbounds nuw i8, ptr %28, i64 408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateENS1_23cache_aligned_allocatorIS6_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateENS1_23cache_aligned_allocatorIS6_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %72, align 8
   %74 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 8)
           to label %75 unwind label %84
 
 75:                                               ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIPNSt7__cxx114listISt8functionIFvvEESaIS7_EEENS1_23cache_aligned_allocatorISA_EELNS1_18ets_key_usage_typeE1EEC2Ev.exit.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEEEE, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEEEE, i64 16), ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %28, i64 424
   store ptr %74, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %28, i64 432
@@ -621,7 +621,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIPNSt7__cxx114listISt8functionIFvvE
 84:                                               ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIPNSt7__cxx114listISt8functionIFvvEESaIS7_EEENS1_23cache_aligned_allocatorISA_EELNS1_18ets_key_usage_typeE1EEC2Ev.exit.i.i.i
   %85 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %72, align 8
   br label %.body7.i.i.i
 
 _ZN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateENS1_23cache_aligned_allocatorIS6_EELNS1_18ets_key_usage_typeE1EEC2Ev.exit.i.i.i: ; preds = %81
@@ -1784,7 +1784,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug6Helper3MsgEPKcz(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateENS1_23cache_aligned_allocatorIS6_EELNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateENS1_23cache_aligned_allocatorIS6_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateENS1_23cache_aligned_allocatorIS6_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2033,7 +2033,7 @@ _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal
 _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EEED2Ev.exit: ; preds = %93, %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEELm128EEENS1_23cache_aligned_allocatorISB_EENS1_17concurrent_vectorISB_SD_EELm3EE14clear_segmentsEv.exit.i.i.i
   store atomic i64 0, ptr %31 monotonic, align 8
   store atomic i64 0, ptr %30 monotonic, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i
@@ -2055,7 +2055,7 @@ _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInte
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d126enumerable_thread_specificIPNSt7__cxx114listISt8functionIFvvEESaIS7_EEENS1_23cache_aligned_allocatorISA_EELNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIPNSt7__cxx114listISt8functionIFvvEESaIS7_EEENS1_23cache_aligned_allocatorISA_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIPNSt7__cxx114listISt8functionIFvvEESaIS7_EEENS1_23cache_aligned_allocatorISA_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2139,7 +2139,7 @@ _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIPNSt7__cxx
   store atomic i64 0, ptr %33 monotonic, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store atomic i64 0, ptr %34 monotonic, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i
@@ -2335,7 +2335,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -2353,7 +2353,7 @@ declare noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef) local_unn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK3tbb6detail2d113callback_leafINS1_20construct_by_defaultIPNSt7__cxx114listISt8functionIFvvEESaIS8_EEEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 8)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIPNSt7__cxx114listISt8functionIFvvEESaIS8_EEEEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIPNSt7__cxx114listISt8functionIFvvEESaIS8_EEEEEEE, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -3420,7 +3420,7 @@ define internal void @_ZN3tbb6detail2d126enumerable_thread_specificIN32pxrIntern
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZNK3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEEE5cloneEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
   %2 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 8)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl19_ActiveLibraryStateEEEEE, i64 16), ptr %2, align 8
   ret ptr %2
 }
 

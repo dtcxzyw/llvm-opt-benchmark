@@ -1895,8 +1895,8 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_q931() local_unnamed_addr #0 {
   store ptr @ett_q931, ptr @proto_register_q931.ett, align 16
-  store ptr @ett_q931_segments, ptr getelementptr inbounds (i8, ptr @proto_register_q931.ett, i64 8), align 8
-  store ptr @ett_q931_segment, ptr getelementptr inbounds (i8, ptr @proto_register_q931.ett, i64 16), align 16
+  store ptr @ett_q931_segments, ptr getelementptr inbounds nuw (i8, ptr @proto_register_q931.ett, i64 8), align 8
+  store ptr @ett_q931_segment, ptr getelementptr inbounds nuw (i8, ptr @proto_register_q931.ett, i64 16), align 16
   br label %1
 
 1:                                                ; preds = %0, %1

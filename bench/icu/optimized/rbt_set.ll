@@ -33,7 +33,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7522TransliterationRuleSetC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) initializes((0, 1056)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522TransliterationRuleSetE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522TransliterationRuleSetE, i64 16), ptr %this, align 8
   %ruleVector = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1048) %ruleVector, i8 0, i64 1048, i1 false)
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #12
@@ -114,7 +114,7 @@ define void @_ZN6icu_7522TransliterationRuleSetC2ERKS0_(ptr noundef nonnull alig
 entry:
   %status = alloca i32, align 4
   %p = alloca %struct.UParseError, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522TransliterationRuleSetE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522TransliterationRuleSetE, i64 16), ptr %this, align 8
   %ruleVector = getelementptr inbounds nuw i8, ptr %this, i64 8
   %maxContextLength = getelementptr inbounds nuw i8, ptr %this, i64 1052
   %maxContextLength2 = getelementptr inbounds nuw i8, ptr %other, i64 1052
@@ -240,7 +240,7 @@ declare void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522TransliterationRuleSetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1056) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522TransliterationRuleSetE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522TransliterationRuleSetE, i64 16), ptr %this, align 8
   %ruleVector = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ruleVector, align 8
   %isnull = icmp eq ptr %0, null
@@ -654,7 +654,7 @@ invoke.cont130:                                   ; preds = %for.body126
 if.then133:                                       ; preds = %invoke.cont130
   store i32 65557, ptr %status, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %r.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %r.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %r.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %r.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %offset.i = getelementptr inbounds nuw i8, ptr %parseError, i64 4

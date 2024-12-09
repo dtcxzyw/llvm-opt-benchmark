@@ -606,7 +606,7 @@ return:                                           ; preds = %_ZN6icu_7515MaybeSt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7517CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(389) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(389) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %this, align 8
   %trie = getelementptr inbounds nuw i8, ptr %this, i64 8
   %trie2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load ptr, ptr %trie2, align 8
@@ -728,7 +728,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(389) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %this, align 8
   %skipped = getelementptr inbounds nuw i8, ptr %this, i64 376
   %0 = load ptr, ptr %skipped, align 8
   %isnull = icmp eq ptr %0, null
@@ -4860,11 +4860,11 @@ if.then18:                                        ; preds = %if.end10
 
 new.cont:                                         ; preds = %if.then18
   %oldBuffer.i = getelementptr inbounds nuw i8, ptr %call19, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldBuffer.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldBuffer.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %call19, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %newBuffer.i = getelementptr inbounds nuw i8, ptr %call19, i64 72
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %newBuffer.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %newBuffer.i, align 8
   %fUnion2.i1.i = getelementptr inbounds nuw i8, ptr %call19, i64 80
   store i16 2, ptr %fUnion2.i1.i, align 8
   %pos.i = getelementptr inbounds nuw i8, ptr %call19, i64 136

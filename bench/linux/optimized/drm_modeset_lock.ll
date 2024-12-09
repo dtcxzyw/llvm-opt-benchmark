@@ -46,7 +46,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_modeset_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_modeset_lock_all(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 36288, i64 noundef 64) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6, !prof !5
@@ -73,7 +73,7 @@ define dso_local void @drm_modeset_lock_all(ptr noundef %0) #0 align 16 {
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 0, ptr %15, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @crtc_ww_class, i64 24), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @crtc_ww_class, i64 24), align 8
   %17 = trunc i32 %16 to i16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 22
   store i16 %17, ptr %18, align 2
@@ -260,7 +260,7 @@ define dso_local void @drm_modeset_acquire_init(ptr noundef initializes((0, 64))
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 0, ptr %10, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @crtc_ww_class, i64 24), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @crtc_ww_class, i64 24), align 8
   %12 = trunc i32 %11 to i16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %12, ptr %13, align 2
@@ -647,8 +647,8 @@ define dso_local void @drm_modeset_unlock(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_modeset_lock_init(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @crtc_ww_class, i64 16), align 8
-  tail call void @__mutex_init(ptr noundef %0, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @crtc_ww_class, i64 8)) #6
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @crtc_ww_class, i64 16), align 8
+  tail call void @__mutex_init(ptr noundef %0, ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @crtc_ww_class, i64 8)) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40

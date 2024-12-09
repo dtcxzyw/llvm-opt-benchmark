@@ -3937,7 +3937,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h40d1c2c36c513414E.exit"
 
 "_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h40d1c2c36c513414E.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -8566,7 +8566,7 @@ _ZN4core3ops8function6FnOnce9call_once17hebbf9748c7a973c0E.llvm.6479914185044064
   br label %83
 
 _ZN4core3ops8function6FnOnce9call_once17hebbf9748c7a973c0E.llvm.6479914185044064769.exit.thread6.i.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hebbf9748c7a973c0E.llvm.6479914185044064769.exit.i.i.i, %2
-  %.sroa.0.0.i.i.i8.i.i.i = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17hebbf9748c7a973c0E.llvm.6479914185044064769.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i8.i.i.i = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17hebbf9748c7a973c0E.llvm.6479914185044064769.exit.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %2 ]
   call void @llvm.lifetime.start.p0(i64 824, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %8, ptr noundef nonnull align 8 dereferenceable(824) %11, i64 824, i1 false), !noalias !1542
   call void @llvm.lifetime.start.p0(i64 824, ptr nonnull %7), !noalias !1571

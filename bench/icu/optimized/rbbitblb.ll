@@ -3713,7 +3713,7 @@ entry:
   %srcChar.addr.i = alloca i16, align 2
   %safePairs = alloca %"class.icu_75::UnicodeString", align 8
   %states = alloca %"struct.std::pair", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %safePairs, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %safePairs, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %safePairs, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = load ptr, ptr %this, align 8

@@ -1937,8 +1937,8 @@ declare void @register_init_routine(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @proto_init_6lowpan() #0 {
   store i32 0, ptr @lowpan_context_local, align 4
-  store i8 10, ptr getelementptr inbounds (i8, ptr @lowpan_context_local, i64 4), align 4
-  store i64 33022, ptr getelementptr inbounds (i8, ptr @lowpan_context_local, i64 5), align 1
+  store i8 10, ptr getelementptr inbounds nuw (i8, ptr @lowpan_context_local, i64 4), align 4
+  store i64 33022, ptr getelementptr inbounds nuw (i8, ptr @lowpan_context_local, i64 5), align 1
   tail call void @prefs_6lowpan_apply()
   ret void
 }

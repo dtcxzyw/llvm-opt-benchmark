@@ -485,10 +485,10 @@ for.inc:                                          ; preds = %vaarg.end, %vaarg.e
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %new.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultStr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultStr, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %resultStr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %fieldPosition, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %fieldPosition, align 8
   %fField.i = getelementptr inbounds nuw i8, ptr %fieldPosition, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds nuw i8, ptr %fieldPosition, i64 12
@@ -721,7 +721,7 @@ if.end13:                                         ; preds = %if.then11, %if.end9
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %temp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %2 = load i32, ptr %count, align 4
@@ -1255,7 +1255,7 @@ if.then7:                                         ; preds = %lor.lhs.false4, %if
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp11 = icmp eq i32 %resultLength, 0

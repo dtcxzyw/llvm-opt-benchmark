@@ -902,12 +902,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyThread_init_thread() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %.b.i = load i1, ptr @PyThread__init_thread.lib_initialized, align 4
   br i1 %.b.i, label %if.end.i, label %if.then.i
 
@@ -916,13 +916,13 @@ if.then.i:                                        ; preds = %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
-  %call.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752)) #14
-  %call1.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
+  %call.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752)) #14
+  %call1.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.end.i
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 744), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 744), align 8
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.end.i, %entry
@@ -932,7 +932,7 @@ return:                                           ; preds = %if.then.i.i, %if.en
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyThread_cond_init(ptr noundef %cond) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 744), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 744), align 8
   %call = tail call i32 @pthread_cond_init(ptr noundef %cond, ptr noundef %0) #14
   ret i32 %call
 }
@@ -944,7 +944,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden void @_PyThread_cond_after(i64 noundef %us, ptr noundef %abs) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @_PyTime_FromMicrosecondsClamp(i64 noundef %us) #14
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 744), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 744), align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -998,12 +998,12 @@ define internal fastcc range(i32 -1, 1) i32 @do_start_joinable_thread(ptr nounde
 entry:
   %th = alloca i64, align 8
   %attrs = alloca %union.pthread_attr_t, align 8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %.b.i.i = load i1, ptr @PyThread__init_thread.lib_initialized, align 4
   br i1 %.b.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -1012,13 +1012,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %call.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752)) #14
-  %call1.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
+  %call.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752)) #14
+  %call1.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
   %cmp.i.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 744), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 744), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i.i, %if.end.i.i, %entry
@@ -1132,12 +1132,12 @@ declare i64 @pthread_self() local_unnamed_addr #4
 define dso_local i64 @PyThread_get_thread_ident_ex() local_unnamed_addr #0 {
 entry:
   %threadid = alloca i64, align 8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %.b.i.i = load i1, ptr @PyThread__init_thread.lib_initialized, align 4
   br i1 %.b.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -1146,13 +1146,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %call.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752)) #14
-  %call1.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
+  %call.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752)) #14
+  %call1.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
   %cmp.i.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 744), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 744), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i.i, %if.end.i.i, %entry
@@ -1167,12 +1167,12 @@ define dso_local i64 @PyThread_get_thread_ident() local_unnamed_addr #0 {
 entry:
   %threadid.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %threadid.i)
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i.i, label %PyThread_get_thread_ident_ex.exit
 
 if.end.i.i:                                       ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %.b.i.i.i = load i1, ptr @PyThread__init_thread.lib_initialized, align 4
   br i1 %.b.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
@@ -1181,13 +1181,13 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.end.i.i
-  %call.i.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752)) #14
-  %call1.i.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
+  %call.i.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752)) #14
+  %call1.i.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
   %cmp.i.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %PyThread_get_thread_ident_ex.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 744), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 744), align 8
   br label %PyThread_get_thread_ident_ex.exit
 
 PyThread_get_thread_ident_ex.exit:                ; preds = %entry, %if.end.i.i.i, %if.then.i.i.i.i
@@ -1201,12 +1201,12 @@ PyThread_get_thread_ident_ex.exit:                ; preds = %entry, %if.end.i.i.
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @PyThread_get_thread_native_id() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %.b.i.i = load i1, ptr @PyThread__init_thread.lib_initialized, align 4
   br i1 %.b.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -1215,13 +1215,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %call.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752)) #14
-  %call1.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
+  %call.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752)) #14
+  %call1.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
   %cmp.i.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 744), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 744), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i.i, %if.end.i.i, %entry
@@ -1237,7 +1237,7 @@ declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #1
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @PyThread_exit_thread() local_unnamed_addr #5 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -1259,12 +1259,12 @@ declare void @pthread_exit(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyThread_allocate_lock() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 736), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 736), align 8
   %.b.i.i = load i1, ptr @PyThread__init_thread.lib_initialized, align 4
   br i1 %.b.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -1273,13 +1273,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %call.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752)) #14
-  %call1.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
+  %call.i.i.i = tail call i32 @pthread_condattr_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752)) #14
+  %call1.i.i.i = tail call i32 @pthread_condattr_setclock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), i32 noundef 1) #14
   %cmp.i.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 744), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 752), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 744), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i.i, %if.end.i.i, %entry

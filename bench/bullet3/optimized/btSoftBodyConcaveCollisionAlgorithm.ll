@@ -144,12 +144,12 @@ define dso_local void @_ZN35btSoftBodyConcaveCollisionAlgorithmC2ERK36btCollisio
 entry:
   %frombool = zext i1 %isSwapped to i8
   tail call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35btSoftBodyConcaveCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35btSoftBodyConcaveCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_isSwapped = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 %frombool, ptr %m_isSwapped, align 8
   %m_btSoftBodyTriangleCallback = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %ci, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26btSoftBodyTriangleCallback, i64 16), ptr %m_btSoftBodyTriangleCallback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btSoftBodyTriangleCallback, i64 16), ptr %m_btSoftBodyTriangleCallback, align 8
   %m_dispatcher.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %0, ptr %m_dispatcher.i, align 8
   %m_dispatchInfoPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -218,7 +218,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN35btSoftBodyConcaveCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (24, 32)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35btSoftBodyConcaveCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35btSoftBodyConcaveCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_btSoftBodyTriangleCallback = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN26btSoftBodyTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %m_btSoftBodyTriangleCallback) #12
   ret void
@@ -227,7 +227,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN35btSoftBodyConcaveCollisionAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (24, 32)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35btSoftBodyConcaveCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35btSoftBodyConcaveCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_btSoftBodyTriangleCallback.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN26btSoftBodyTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %m_btSoftBodyTriangleCallback.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
@@ -240,7 +240,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN26btSoftBodyTriangleCallbackC2EP12btDispatcherPK24btCollisionObjectWrapperS4_b(ptr noundef nonnull align 8 dereferenceable(220) initializes((0, 24), (64, 80), (92, 100), (104, 113), (124, 132), (136, 145), (156, 164), (168, 177), (188, 196), (200, 209)) %this, ptr noundef %dispatcher, ptr nocapture noundef readonly %body0Wrap, ptr nocapture noundef readonly %body1Wrap, i1 noundef zeroext %isSwapped) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26btSoftBodyTriangleCallback, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btSoftBodyTriangleCallback, i64 16), ptr %this, align 8
   %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %dispatcher, ptr %m_dispatcher, align 8
   %m_dispatchInfoPtr = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -545,7 +545,7 @@ declare void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN26btSoftBodyTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(220) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26btSoftBodyTriangleCallback, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btSoftBodyTriangleCallback, i64 16), ptr %this, align 8
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 156
   %0 = load i32, ptr %m_size.i.i.i, align 4
   %cmp9.i = icmp sgt i32 %0, 0
@@ -2191,7 +2191,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit6.i:                  ; preds = %if.then.i5.i, %_Z8b
   store float %add8.i, ptr %arrayidx5.i86, align 4
   %add13.i = fadd float %106, %105
   store float %add13.i, ptr %convexFromLocal.sroa.19.48.rayAabbMax.sroa_idx, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN35btSoftBodyConcaveCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResultE31LocalTriangleSphereCastCallback, i64 16), ptr %raycastCallback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN35btSoftBodyConcaveCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResultE31LocalTriangleSphereCastCallback, i64 16), ptr %raycastCallback, align 8
   %m_ccdSphereFromTrans.i = getelementptr inbounds nuw i8, ptr %raycastCallback, i64 8
   store float %32, ptr %m_ccdSphereFromTrans.i, align 8
   %convexFromLocal.sroa.2.0.m_ccdSphereFromTrans.i.sroa_idx = getelementptr inbounds nuw i8, ptr %raycastCallback, i64 12
@@ -2340,7 +2340,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i, align 4
   %arrayidx7.i6.i.i.i = getelementptr inbounds nuw i8, ptr %ident, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i6.i.i.i, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %castResult, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12btConvexCast10CastResultE, i64 16), ptr %castResult, align 8
   %m_fraction.i = getelementptr inbounds nuw i8, ptr %castResult, i64 168
   %m_debugDrawer.i = getelementptr inbounds nuw i8, ptr %castResult, i64 176
   store ptr null, ptr %m_debugDrawer.i, align 8
@@ -2356,7 +2356,7 @@ entry:
   %m_ccdSphereRadius = getelementptr inbounds nuw i8, ptr %this, i64 200
   %1 = load float, ptr %m_ccdSphereRadius, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %pointShape)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %pointShape, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %pointShape, align 8
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %pointShape, i64 8
   store i32 8, ptr %m_shapeType.i, align 8
   %m_localScaling.i = getelementptr inbounds nuw i8, ptr %pointShape, i64 32
@@ -2379,7 +2379,7 @@ entry:
 invoke.cont7:                                     ; preds = %entry
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %triangle, i64 32
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %triangle, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triShape, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triShape, align 8
   %m_vertices1.ptr.i = getelementptr inbounds nuw i8, ptr %triShape, i64 80
   %m_shapeType.i6 = getelementptr inbounds nuw i8, ptr %triShape, i64 8
   store i32 1, ptr %m_shapeType.i6, align 8

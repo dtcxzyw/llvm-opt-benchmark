@@ -178,7 +178,7 @@ _ZNSt10unique_ptrIN4llvm7MatcherESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   store i32 2, ptr %48, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm18RecordChildMatcherE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm18RecordChildMatcherE, i64 16), ptr %42, align 8
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 28
   store i32 %43, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -218,7 +218,7 @@ _ZNSt10unique_ptrIN4llvm7MatcherESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
   store i32 16, ptr %69, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm21CheckChildTypeMatcherE, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm21CheckChildTypeMatcherE, i64 16), ptr %64, align 8
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 28
   store i32 %65, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 32
@@ -250,7 +250,7 @@ _ZNSt10unique_ptrIN4llvm7MatcherESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   store i32 9, ptr %85, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm21CheckChildSameMatcherE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm21CheckChildSameMatcherE, i64 16), ptr %80, align 8
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 28
   store i32 %81, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 32
@@ -282,7 +282,7 @@ _ZNSt10unique_ptrIN4llvm7MatcherESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false)
   store i32 18, ptr %101, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm24CheckChildIntegerMatcherE, i64 16), ptr %96, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm24CheckChildIntegerMatcherE, i64 16), ptr %96, align 8
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 28
   store i32 %97, ptr %102, align 4
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 32
@@ -315,7 +315,7 @@ _ZNSt10unique_ptrIN4llvm7MatcherESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
   store i32 20, ptr %114, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm26CheckChild2CondCodeMatcherE, i64 16), ptr %111, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm26CheckChild2CondCodeMatcherE, i64 16), ptr %111, align 8
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store ptr %.sroa.0.0.copyload.i, ptr %115, align 8
   %.sroa.2.0..sroa_idx.i173 = getelementptr inbounds nuw i8, ptr %111, i64 40
@@ -608,7 +608,7 @@ _ZN4llvm7Matcher7setNextEPS0_.exit192:            ; preds = %_ZNSt10unique_ptrIN
   %239 = getelementptr inbounds nuw i8, ptr %235, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %238, i8 0, i64 16, i1 false)
   store i32 6, ptr %239, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm18MoveSiblingMatcherE, i64 16), ptr %235, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm18MoveSiblingMatcherE, i64 16), ptr %235, align 8
   %240 = getelementptr inbounds nuw i8, ptr %235, i64 28
   store i32 %237, ptr %240, align 4
   %241 = getelementptr inbounds nuw i8, ptr %233, i64 8
@@ -657,7 +657,7 @@ _ZN4llvm7Matcher7setNextEPS0_.exit200:            ; preds = %234, %_ZNKSt14defau
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %263, i8 0, i64 16, i1 false)
   store i32 6, ptr %264, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm18MoveSiblingMatcherE, i64 16), ptr %261, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm18MoveSiblingMatcherE, i64 16), ptr %261, align 8
   %265 = getelementptr inbounds nuw i8, ptr %261, i64 28
   store i32 %262, ptr %265, align 4
   %266 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #9
@@ -668,7 +668,7 @@ _ZN4llvm7Matcher7setNextEPS0_.exit200:            ; preds = %234, %_ZNKSt14defau
   %271 = getelementptr inbounds nuw i8, ptr %266, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %270, i8 0, i64 16, i1 false)
   store i32 1, ptr %271, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm13RecordMatcherE, i64 16), ptr %266, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm13RecordMatcherE, i64 16), ptr %266, align 8
   %272 = getelementptr inbounds nuw i8, ptr %266, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %272, ptr noundef nonnull align 8 dereferenceable(32) %267) #8
   %273 = getelementptr inbounds nuw i8, ptr %266, i64 64
@@ -1205,7 +1205,7 @@ _ZN4llvm7Matcher7setNextEPS0_.exit:               ; preds = %173, %_ZNKSt14defau
   %211 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #9
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %212, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm12ScopeMatcherE, i64 16), ptr %211, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm12ScopeMatcherE, i64 16), ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 32
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 48
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %213, ptr noundef nonnull %214, i64 noundef 4) #8
@@ -1464,7 +1464,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_10SDNodeInfoEPNS_7MatcherEELb1EE9
   %324 = getelementptr inbounds nuw i8, ptr %322, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %323, i8 0, i64 16, i1 false)
   store i32 13, ptr %324, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm19SwitchOpcodeMatcherE, i64 16), ptr %322, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm19SwitchOpcodeMatcherE, i64 16), ptr %322, align 8
   %325 = getelementptr inbounds nuw i8, ptr %322, i64 32
   %326 = getelementptr inbounds nuw i8, ptr %322, i64 48
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %325, ptr noundef nonnull %326, i64 noundef 8) #8
@@ -1693,7 +1693,7 @@ _ZN4llvm12ScopeMatcher10resetChildEjPNS_7MatcherE.exit: ; preds = %_ZN4llvm12Sco
   %440 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #9
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %441, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm12ScopeMatcherE, i64 16), ptr %440, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm12ScopeMatcherE, i64 16), ptr %440, align 8
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 32
   %443 = getelementptr inbounds nuw i8, ptr %440, i64 48
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %442, ptr noundef nonnull %443, i64 noundef 4) #8
@@ -1811,7 +1811,7 @@ _ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i266: ; preds = %481
   %492 = getelementptr inbounds nuw i8, ptr %488, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %491, i8 0, i64 16, i1 false)
   store i32 14, ptr %492, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm16CheckTypeMatcherE, i64 16), ptr %488, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm16CheckTypeMatcherE, i64 16), ptr %488, align 8
   %493 = getelementptr inbounds nuw i8, ptr %488, i64 28
   store i16 %490, ptr %493, align 4
   %494 = getelementptr inbounds nuw i8, ptr %488, i64 32
@@ -1972,7 +1972,7 @@ define linkonce_odr hidden void @_ZN4llvm18MorphNodeToMatcherC2ERKNS_18CodeGenIn
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store i32 37, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm21EmitNodeMatcherCommonE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm21EmitNodeMatcherCommonE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1995,7 +1995,7 @@ define linkonce_odr hidden void @_ZN4llvm18MorphNodeToMatcherC2ERKNS_18CodeGenIn
   store i8 %16, ptr %29, align 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %10, ptr %30, align 4
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm18MorphNodeToMatcherE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm18MorphNodeToMatcherE, i64 16), ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %11, ptr %31, align 8
   ret void
@@ -2127,7 +2127,7 @@ define linkonce_odr hidden void @_ZN4llvm17SwitchTypeMatcherC2EONS_15SmallVector
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i32 15, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm17SwitchTypeMatcherE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm17SwitchTypeMatcherE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %6, i64 noundef 8) #8

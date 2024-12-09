@@ -22,7 +22,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZN4absl19GetCurrentTimeNanosEv.exit, label %do.body1.i.i
 
 do.body1.i.i:                                     ; preds = %entry
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   unreachable
 
 _ZN4absl19GetCurrentTimeNanosEv.exit:             ; preds = %entry
@@ -74,7 +74,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN4absl13time_internalL29GetCurrentTimeNanosFromSystemEv.exit, label %do.body1.i
 
 do.body1.i:                                       ; preds = %entry
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 118), i32 noundef 17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 118), i32 noundef 17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   unreachable
 
 _ZN4absl13time_internalL29GetCurrentTimeNanosFromSystemEv.exit: ; preds = %entry

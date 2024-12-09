@@ -522,7 +522,7 @@ define dso_local ptr @copy_net_ns(i64 noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %31
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %38 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %37, i32 noundef 3520, i64 noundef 24) #21
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 72
   store ptr %38, ptr %39, align 8
@@ -611,7 +611,7 @@ define internal fastcc i32 @setup_net(ptr noundef %0, ptr noundef %1) unnamed_ad
   store volatile i32 1, ptr %0, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 336
   call void @get_random_bytes(ptr noundef nonnull %6, i64 noundef 4) #17
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !19
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !19
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !20
   %7 = load ptr, ptr @net_cookie, align 64
   %8 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #22, !srcloc !21
@@ -628,7 +628,7 @@ define internal fastcc i32 @setup_net(ptr noundef %0, ptr noundef %1) unnamed_ad
   br i1 %16, label %17, label %19, !prof !7
 
 17:                                               ; preds = %12
-  %18 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @net_cookie, i64 64), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @net_cookie, i64 64)) #17, !srcloc !23
+  %18 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @net_cookie, i64 64), i64 4096, ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @net_cookie, i64 64)) #17, !srcloc !23
   br label %19
 
 19:                                               ; preds = %17, %12
@@ -638,7 +638,7 @@ define internal fastcc i32 @setup_net(ptr noundef %0, ptr noundef %1) unnamed_ad
   br label %25
 
 22:                                               ; preds = %2
-  %23 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @net_cookie, i64 72), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @net_cookie, i64 72)) #17, !srcloc !23
+  %23 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @net_cookie, i64 72), i64 -1, ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @net_cookie, i64 72)) #17, !srcloc !23
   %24 = add i64 %23, -1
   br label %25
 
@@ -648,7 +648,7 @@ define internal fastcc i32 @setup_net(ptr noundef %0, ptr noundef %1) unnamed_ad
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3456
   store i64 %26, ptr %27, align 64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !25
-  %28 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !26
+  %28 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !26
   %29 = icmp ult i8 %28, 2
   call void @llvm.assume(i1 %29)
   %30 = icmp eq i8 %28, 0
@@ -694,13 +694,13 @@ define internal fastcc i32 @setup_net(ptr noundef %0, ptr noundef %1) unnamed_ad
   %50 = phi i32 [ 0, %34 ], [ %48, %44 ]
   call void @down_write(ptr noundef nonnull @net_rwsem) #17
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @net_namespace_list, i64 8), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @net_namespace_list, i64 8), align 8
   store ptr @net_namespace_list, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %52, ptr %53, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !29
   store volatile ptr %51, ptr %52, align 8
-  store ptr %51, ptr getelementptr inbounds (i8, ptr @net_namespace_list, i64 8), align 8
+  store ptr %51, ptr getelementptr inbounds nuw (i8, ptr @net_namespace_list, i64 8), align 8
   call void @up_write(ptr noundef nonnull @net_rwsem) #17
   br label %54
 
@@ -1038,8 +1038,8 @@ define dso_local void @net_ns_init() local_unnamed_addr #3 section ".init.text" 
   %12 = load i32, ptr @max_gen_ptrs, align 4
   store i32 %12, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !36
-  store volatile ptr %9, ptr getelementptr inbounds (i8, ptr @init_net, i64 2536), align 8
-  store ptr @init_net_key_domain, ptr getelementptr inbounds (i8, ptr @init_net, i64 72), align 8
+  store volatile ptr %9, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 2536), align 8
+  store ptr @init_net_key_domain, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 72), align 8
   tail call void @down_write(ptr noundef nonnull @pernet_ops_rwsem) #17
   %13 = tail call fastcc i32 @setup_net(ptr noundef nonnull @init_net, ptr noundef nonnull @init_user_ns)
   %14 = icmp eq i32 %13, 0
@@ -2672,7 +2672,7 @@ define internal void @cleanup_net(ptr nocapture readnone %0) #0 align 16 {
   br i1 %17, label %18, label %.preheader30, !llvm.loop !47
 
 18:                                               ; preds = %.preheader30
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @net_namespace_list, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @net_namespace_list, i64 8), align 8
   call void @up_write(ptr noundef nonnull @net_rwsem) #17
   br label %20
 
@@ -2681,7 +2681,7 @@ define internal void @cleanup_net(ptr nocapture readnone %0) #0 align 16 {
   br label %24
 
 .loopexit29:                                      ; preds = %87, %.thread
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pernet_list, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pernet_list, i64 8), align 8
   %23 = icmp eq ptr %22, @pernet_list
   br i1 %23, label %.loopexit28, label %.preheader27
 
@@ -2841,12 +2841,12 @@ rtnl_net_notifyid.exit:                           ; preds = %83, %72, %85
 
 .loopexit28:                                      ; preds = %.loopexit26, %.loopexit29
   call void @synchronize_rcu() #17
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @pernet_list, i64 8), align 8
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pernet_list, i64 8), align 8
   %113 = icmp eq ptr %112, @pernet_list
   br i1 %113, label %.thread17, label %.preheader24
 
 114:                                              ; preds = %133
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @pernet_list, i64 8), align 8
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pernet_list, i64 8), align 8
   %115 = icmp eq ptr %.pr, @pernet_list
   br i1 %115, label %.thread17, label %.preheader21
 

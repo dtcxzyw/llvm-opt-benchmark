@@ -364,7 +364,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
 
 .loopexit5:                                       ; preds = %39, %18, %..loopexit5_crit_edge
   %.pre-phi = phi i64 [ %.pre, %..loopexit5_crit_edge ], [ %7, %18 ], [ %7, %39 ]
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !24
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !24
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !25
   %42 = tail call ptr @__module_text_address(i64 noundef %.pre-phi) #13
   %43 = ptrtoint ptr %1 to i64
@@ -382,7 +382,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
   %48 = tail call zeroext i1 @try_module_get(ptr noundef %42) #13
   %49 = select i1 %48, ptr %42, ptr null
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !29
-  %50 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !30
+  %50 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !30
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i8 %50, 0
@@ -642,7 +642,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   br label %14
 
 92:                                               ; preds = %86
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %94 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %93, i32 noundef 3520, i64 noundef 24) #15
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread10, label %96
@@ -667,7 +667,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   %110 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store ptr %109, ptr %110, align 8
   store ptr %94, ptr %97, align 8
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %112 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %111, i32 noundef 3520, i64 noundef 24) #15
   %113 = icmp eq ptr %112, null
   br i1 %113, label %.thread10, label %114

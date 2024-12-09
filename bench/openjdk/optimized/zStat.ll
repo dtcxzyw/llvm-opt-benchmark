@@ -1890,7 +1890,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_88ELS1_0ELS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN10ZStatPhaseC2EPKcS1_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10ZStatPhase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV10ZStatPhase, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr @_ZN18ZStatIterableValueI12ZStatSamplerE6_countE, align 4
   %6 = add i32 %5, 1
@@ -2081,7 +2081,7 @@ define hidden void @_ZN20ZStatPhaseCollectionC2EPKcb(ptr noundef nonnull align 8
   store ptr %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_Z13ZStatUnitTime15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistory, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ZStatPhaseCollection, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ZStatPhaseCollection, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %4, ptr %16, align 8
   ret void
@@ -2458,7 +2458,7 @@ _ZNK20ZStatPhaseCollection13used_at_startEv.exit: ; preds = %94, %97
 
 _ZNK20ZStatPhaseCollection13used_at_startEv.exit11: ; preds = %104, %107
   %110 = phi i64 [ %106, %104 ], [ %109, %107 ]
-  %111 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %111 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i12 = icmp eq i64 %111, 0
   %112 = uitofp i64 %110 to double
   %113 = uitofp i64 %111 to double
@@ -2484,7 +2484,7 @@ declare void @_ZN13CollectedHeap19trace_heap_after_gcEPK8GCTracer(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN9ZStatHeap12max_capacityEv() local_unnamed_addr #5 align 2 {
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   ret i64 %1
 }
 
@@ -2512,7 +2512,7 @@ define hidden void @_ZN20ZStatPhaseGenerationC2EPKc13ZGenerationId(ptr noundef n
   store ptr %15, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_Z13ZStatUnitTime15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistory, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ZStatPhaseGeneration, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ZStatPhaseGeneration, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %2, ptr %17, align 8
   ret void
@@ -2844,7 +2844,7 @@ _ZN14ZStatMetaspace5printEv.exit:                 ; preds = %_ZN13ZStatNMethods5
   %143 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 3288
   %144 = load i64, ptr %143, align 8
   %145 = lshr i64 %144, 20
-  %146 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %146 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i23 = icmp eq i64 %146, 0
   %147 = uitofp i64 %144 to double
   %148 = uitofp i64 %146 to double
@@ -3600,7 +3600,7 @@ define hidden void @_ZN15ZStatRelocation15print_age_tableEv(ptr nocapture nounde
   %88 = load ptr, ptr %15, align 8, !noalias !52
   call void (ptr, ptr, ptr, ...) @_ZN17ZStatTablePrinter7ZColumn4leftEPKcz(ptr dead_on_unwind nonnull writable sret(%"class.ZStatTablePrinter::ZColumn") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.12, ptr noundef %88), !noalias !52
   %89 = lshr i64 %79, 20
-  %90 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8, !noalias !52
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8, !noalias !52
   %.not.i.i = icmp eq i64 %90, 0
   %91 = uitofp i64 %79 to double
   %92 = uitofp i64 %90 to double
@@ -3619,7 +3619,7 @@ define hidden void @_ZN15ZStatRelocation15print_age_tableEv(ptr nocapture nounde
   %97 = load i64, ptr %96, align 8
   %98 = sub i64 %97, %79
   %99 = lshr i64 %98, 20
-  %100 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %100 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i = icmp eq i64 %100, 0
   %101 = uitofp i64 %98 to double
   %102 = uitofp i64 %100 to double
@@ -3747,7 +3747,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
 84:                                               ; preds = %2
   %85 = load i64, ptr @_ZN9ZStatHeap14_at_initializeE, align 8
   %86 = lshr i64 %85, 20
-  %87 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i = icmp eq i64 %87, 0
   %88 = uitofp i64 %85 to double
   %89 = uitofp i64 %87 to double
@@ -3763,7 +3763,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   br i1 %.not57, label %102, label %95
 
 95:                                               ; preds = %93
-  %96 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %97 = lshr i64 %96, 20
   %.not.i3 = icmp eq i64 %96, 0
   %98 = uitofp i64 %96 to double
@@ -3782,7 +3782,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %106 = load i64, ptr %105, align 8
   %107 = lshr i64 %106, 20
-  %108 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i4 = icmp eq i64 %108, 0
   %109 = uitofp i64 %106 to double
   %110 = uitofp i64 %108 to double
@@ -3855,7 +3855,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %140 = load i64, ptr %139, align 8
   %141 = lshr i64 %140, 20
-  %142 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %142 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i5 = icmp eq i64 %142, 0
   %143 = uitofp i64 %140 to double
   %144 = uitofp i64 %142 to double
@@ -3866,7 +3866,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %149 = load i64, ptr %148, align 8
   %150 = lshr i64 %149, 20
-  %151 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %151 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i6 = icmp eq i64 %151, 0
   %152 = uitofp i64 %149 to double
   %153 = uitofp i64 %151 to double
@@ -3877,7 +3877,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %158 = load i64, ptr %157, align 8
   %159 = lshr i64 %158, 20
-  %160 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %160 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i7 = icmp eq i64 %160, 0
   %161 = uitofp i64 %158 to double
   %162 = uitofp i64 %160 to double
@@ -3888,7 +3888,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %167 = load i64, ptr %166, align 8
   %168 = lshr i64 %167, 20
-  %169 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %169 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i8 = icmp eq i64 %169, 0
   %170 = uitofp i64 %167 to double
   %171 = uitofp i64 %169 to double
@@ -3899,7 +3899,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %176 = load i64, ptr %175, align 8
   %177 = lshr i64 %176, 20
-  %178 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %178 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i9 = icmp eq i64 %178, 0
   %179 = uitofp i64 %176 to double
   %180 = uitofp i64 %178 to double
@@ -3910,7 +3910,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %185 = load i64, ptr %184, align 8
   %186 = lshr i64 %185, 20
-  %187 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %187 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i10 = icmp eq i64 %187, 0
   %188 = uitofp i64 %185 to double
   %189 = uitofp i64 %187 to double
@@ -3948,7 +3948,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %208 = load i64, ptr %207, align 8
   %209 = lshr i64 %208, 20
-  %210 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %210 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i11 = icmp eq i64 %210, 0
   %211 = uitofp i64 %208 to double
   %212 = uitofp i64 %210 to double
@@ -3959,7 +3959,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %217 = load i64, ptr %216, align 8
   %218 = lshr i64 %217, 20
-  %219 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %219 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i12 = icmp eq i64 %219, 0
   %220 = uitofp i64 %217 to double
   %221 = uitofp i64 %219 to double
@@ -3970,7 +3970,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %226 = load i64, ptr %225, align 8
   %227 = lshr i64 %226, 20
-  %228 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %228 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i13 = icmp eq i64 %228, 0
   %229 = uitofp i64 %226 to double
   %230 = uitofp i64 %228 to double
@@ -3981,7 +3981,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %235 = load i64, ptr %234, align 8
   %236 = lshr i64 %235, 20
-  %237 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %237 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i14 = icmp eq i64 %237, 0
   %238 = uitofp i64 %235 to double
   %239 = uitofp i64 %237 to double
@@ -3992,7 +3992,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %244 = load i64, ptr %243, align 8
   %245 = lshr i64 %244, 20
-  %246 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %246 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i15 = icmp eq i64 %246, 0
   %247 = uitofp i64 %244 to double
   %248 = uitofp i64 %246 to double
@@ -4003,7 +4003,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %253 = load i64, ptr %252, align 8
   %254 = lshr i64 %253, 20
-  %255 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %255 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i16 = icmp eq i64 %255, 0
   %256 = uitofp i64 %253 to double
   %257 = uitofp i64 %255 to double
@@ -4041,7 +4041,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %276 = load i64, ptr %275, align 8
   %277 = lshr i64 %276, 20
-  %278 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %278 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i17 = icmp eq i64 %278, 0
   %279 = uitofp i64 %276 to double
   %280 = uitofp i64 %278 to double
@@ -4052,7 +4052,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %285 = load i64, ptr %284, align 8
   %286 = lshr i64 %285, 20
-  %287 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %287 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i18 = icmp eq i64 %287, 0
   %288 = uitofp i64 %285 to double
   %289 = uitofp i64 %287 to double
@@ -4063,7 +4063,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %294 = load i64, ptr %293, align 8
   %295 = lshr i64 %294, 20
-  %296 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %296 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i19 = icmp eq i64 %296, 0
   %297 = uitofp i64 %294 to double
   %298 = uitofp i64 %296 to double
@@ -4074,7 +4074,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %303 = load i64, ptr %302, align 8
   %304 = lshr i64 %303, 20
-  %305 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %305 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i20 = icmp eq i64 %305, 0
   %306 = uitofp i64 %303 to double
   %307 = uitofp i64 %305 to double
@@ -4085,7 +4085,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %312 = load i64, ptr %311, align 8
   %313 = lshr i64 %312, 20
-  %314 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %314 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i21 = icmp eq i64 %314, 0
   %315 = uitofp i64 %312 to double
   %316 = uitofp i64 %314 to double
@@ -4096,7 +4096,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %321 = load i64, ptr %320, align 8
   %322 = lshr i64 %321, 20
-  %323 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %323 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i22 = icmp eq i64 %323, 0
   %324 = uitofp i64 %321 to double
   %325 = uitofp i64 %323 to double
@@ -4178,7 +4178,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %364 = load i64, ptr %363, align 8
   %365 = lshr i64 %364, 20
-  %366 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %366 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i23 = icmp eq i64 %366, 0
   %367 = uitofp i64 %364 to double
   %368 = uitofp i64 %366 to double
@@ -4189,7 +4189,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %373 = load i64, ptr %372, align 8
   %374 = lshr i64 %373, 20
-  %375 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %375 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i24 = icmp eq i64 %375, 0
   %376 = uitofp i64 %373 to double
   %377 = uitofp i64 %375 to double
@@ -4200,7 +4200,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %382 = load i64, ptr %381, align 8
   %383 = lshr i64 %382, 20
-  %384 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %384 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i25 = icmp eq i64 %384, 0
   %385 = uitofp i64 %382 to double
   %386 = uitofp i64 %384 to double
@@ -4211,7 +4211,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %391 = load i64, ptr %390, align 8
   %392 = lshr i64 %391, 20
-  %393 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %393 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i26 = icmp eq i64 %393, 0
   %394 = uitofp i64 %391 to double
   %395 = uitofp i64 %393 to double
@@ -4250,7 +4250,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %414 = load i64, ptr %413, align 8
   %415 = lshr i64 %414, 20
-  %416 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %416 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i27 = icmp eq i64 %416, 0
   %417 = uitofp i64 %414 to double
   %418 = uitofp i64 %416 to double
@@ -4261,7 +4261,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %423 = load i64, ptr %422, align 8
   %424 = lshr i64 %423, 20
-  %425 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %425 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i28 = icmp eq i64 %425, 0
   %426 = uitofp i64 %423 to double
   %427 = uitofp i64 %425 to double
@@ -4272,7 +4272,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %432 = load i64, ptr %431, align 8
   %433 = lshr i64 %432, 20
-  %434 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %434 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i29 = icmp eq i64 %434, 0
   %435 = uitofp i64 %432 to double
   %436 = uitofp i64 %434 to double
@@ -4311,7 +4311,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %455 = load i64, ptr %454, align 8
   %456 = lshr i64 %455, 20
-  %457 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %457 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i30 = icmp eq i64 %457, 0
   %458 = uitofp i64 %455 to double
   %459 = uitofp i64 %457 to double
@@ -4322,7 +4322,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %464 = load i64, ptr %463, align 8
   %465 = lshr i64 %464, 20
-  %466 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %466 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i31 = icmp eq i64 %466, 0
   %467 = uitofp i64 %464 to double
   %468 = uitofp i64 %466 to double
@@ -4333,7 +4333,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %472 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %473 = load i64, ptr %472, align 8
   %474 = lshr i64 %473, 20
-  %475 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %475 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i32 = icmp eq i64 %475, 0
   %476 = uitofp i64 %473 to double
   %477 = uitofp i64 %475 to double
@@ -4372,7 +4372,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %495 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %496 = load i64, ptr %495, align 8
   %497 = lshr i64 %496, 20
-  %498 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %498 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i33 = icmp eq i64 %498, 0
   %499 = uitofp i64 %496 to double
   %500 = uitofp i64 %498 to double
@@ -4383,7 +4383,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %504 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %505 = load i64, ptr %504, align 8
   %506 = lshr i64 %505, 20
-  %507 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %507 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i34 = icmp eq i64 %507, 0
   %508 = uitofp i64 %505 to double
   %509 = uitofp i64 %507 to double
@@ -4394,7 +4394,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %514 = load i64, ptr %513, align 8
   %515 = lshr i64 %514, 20
-  %516 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %516 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i35 = icmp eq i64 %516, 0
   %517 = uitofp i64 %514 to double
   %518 = uitofp i64 %516 to double
@@ -4434,7 +4434,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %537 = load i64, ptr %536, align 8
   %538 = lshr i64 %537, 20
-  %539 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %539 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i36 = icmp eq i64 %539, 0
   %540 = uitofp i64 %537 to double
   %541 = uitofp i64 %539 to double
@@ -4445,7 +4445,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %546 = load i64, ptr %545, align 8
   %547 = lshr i64 %546, 20
-  %548 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %548 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i37 = icmp eq i64 %548, 0
   %549 = uitofp i64 %546 to double
   %550 = uitofp i64 %548 to double
@@ -4491,7 +4491,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %573 = load i64, ptr %572, align 8
   %574 = lshr i64 %573, 20
-  %575 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %575 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i38 = icmp eq i64 %575, 0
   %576 = uitofp i64 %573 to double
   %577 = uitofp i64 %575 to double
@@ -4502,7 +4502,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %582 = load i64, ptr %581, align 8
   %583 = lshr i64 %582, 20
-  %584 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %584 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i39 = icmp eq i64 %584, 0
   %585 = uitofp i64 %582 to double
   %586 = uitofp i64 %584 to double
@@ -4543,7 +4543,7 @@ define hidden void @_ZNK9ZStatHeap5printEPK11ZGeneration(ptr nocapture noundef n
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %605 = load i64, ptr %604, align 8
   %606 = lshr i64 %605, 20
-  %607 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %607 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %.not.i40 = icmp eq i64 %607, 0
   %608 = uitofp i64 %605 to double
   %609 = uitofp i64 %607 to double
@@ -4602,7 +4602,7 @@ define hidden void @_ZN15ZStatPhasePauseC2EPKc13ZGenerationId(ptr noundef nonnul
   store ptr %15, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_Z13ZStatUnitTime15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistory, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV15ZStatPhasePause, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV15ZStatPhasePause, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4710,7 +4710,7 @@ _Z11ZStatSampleRK12ZStatSamplerm.exit:            ; preds = %42, %44
 
 47:                                               ; preds = %_Z11ZStatSampleRK12ZStatSamplerm.exit
   store i64 %7, ptr @_ZN15ZStatPhasePause4_maxE, align 8
-  store i64 %10, ptr getelementptr inbounds (i8, ptr @_ZN15ZStatPhasePause4_maxE, i64 8), align 8
+  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN15ZStatPhasePause4_maxE, i64 8), align 8
   br label %48
 
 48:                                               ; preds = %47, %_Z11ZStatSampleRK12ZStatSamplerm.exit
@@ -4761,7 +4761,7 @@ define hidden void @_ZN20ZStatPhaseConcurrentC2EPKc13ZGenerationId(ptr noundef n
   store ptr %15, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_Z13ZStatUnitTime15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistory, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ZStatPhaseConcurrent, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ZStatPhaseConcurrent, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4907,7 +4907,7 @@ define hidden void @_ZN13ZStatSubPhaseC2EPKc13ZGenerationId(ptr noundef nonnull 
   store ptr %15, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_Z13ZStatUnitTime15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistory, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13ZStatSubPhase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13ZStatSubPhase, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5206,7 +5206,7 @@ define hidden void @_ZN18ZStatCriticalPhaseC2EPKcb(ptr noundef nonnull align 8 d
   store ptr %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_Z13ZStatUnitTime15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistory, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18ZStatCriticalPhase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18ZStatCriticalPhase, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i32, ptr @_ZN18ZStatIterableValueI12ZStatCounterE6_countE, align 4
   %18 = add i32 %17, 1
@@ -5799,7 +5799,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %_ZN7ZLockerI5ZLockE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ZStatC2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #20
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV5ZStat, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV5ZStat, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN10ZMetronomeC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 1) #20
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %0, ptr noundef nonnull @.str.35) #20
@@ -7599,7 +7599,7 @@ define hidden noundef i64 @_ZNK9ZStatHeap12capacity_lowEv(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK9ZStatHeap4freeEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(488) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %4 = sub i64 %3, %1
   ret i64 %4
 }
@@ -7636,7 +7636,7 @@ define hidden void @_ZN9ZStatHeap13at_initializeEmm(ptr noundef nonnull align 8 
 _ZN7ZLockerI5ZLockED2Ev.exit:
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   store i64 %1, ptr @_ZN9ZStatHeap14_at_initializeE, align 8
-  store i64 %2, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
@@ -7655,7 +7655,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   store i64 %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %12 = sub i64 %11, %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %12, ptr %13, align 8
@@ -7684,7 +7684,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   store i64 %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %12 = sub i64 %11, %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %12, ptr %13, align 8
@@ -7713,7 +7713,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   store i64 %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %9 = sub i64 %8, %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %9, ptr %10, align 8
@@ -7783,7 +7783,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   store i64 %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %9 = sub i64 %8, %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %9, ptr %10, align 8
@@ -7869,7 +7869,7 @@ define hidden void @_ZN9ZStatHeap15at_relocate_endERK19ZPageAllocatorStatsb(ptr 
   store i64 %20, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i64, ptr %22, align 8
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ZStatHeap14_at_initializeE, i64 8), align 8
   %25 = sub i64 %24, %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 %25, ptr %26, align 8
@@ -8080,7 +8080,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ZStatD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV5ZStat, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV5ZStat, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #20
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #20
@@ -8089,7 +8089,7 @@ define linkonce_odr hidden void @_ZN5ZStatD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ZStatD0Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV5ZStat, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTV5ZStat, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #20
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) #20

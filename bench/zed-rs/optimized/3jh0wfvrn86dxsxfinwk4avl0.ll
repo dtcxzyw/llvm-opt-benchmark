@@ -1789,12 +1789,12 @@ define { i64, ptr } @_ZN15live_kit_client4test10TestServer3get17hbc2b5e27ada34e5
 10:                                               ; preds = %2, %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN15live_kit_client4test7SERVERS17h04bc46fe2c1656d6E, i64 8), align 8, !alias.scope !429, !noalias !432, !noundef !5
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN15live_kit_client4test7SERVERS17h04bc46fe2c1656d6E, i64 8), align 8, !alias.scope !429, !noalias !432, !noundef !5
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.sink.split, label %13
 
 13:                                               ; preds = %10
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN15live_kit_client4test7SERVERS17h04bc46fe2c1656d6E, i64 16), align 8, !alias.scope !429, !noalias !432, !noundef !5
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15live_kit_client4test7SERVERS17h04bc46fe2c1656d6E, i64 16), align 8, !alias.scope !429, !noalias !432, !noundef !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !434
   invoke void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd1e3fca6a7c04b9cE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noundef nonnull %11, i64 noundef %14, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
           to label %.noexc unwind label %19
@@ -1907,7 +1907,7 @@ define noundef ptr @_ZN15live_kit_client4test10TestServer8teardown17hb43d80aa422
   br label %7
 
 7:                                                ; preds = %1, %5
-  %8 = invoke noundef ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h3a8a12a6918ee8b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN15live_kit_client4test7SERVERS17h04bc46fe2c1656d6E, i64 8), ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  %8 = invoke noundef ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h3a8a12a6918ee8b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN15live_kit_client4test7SERVERS17h04bc46fe2c1656d6E, i64 8), ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
           to label %14 unwind label %9
 
 9:                                                ; preds = %21, %16, %7

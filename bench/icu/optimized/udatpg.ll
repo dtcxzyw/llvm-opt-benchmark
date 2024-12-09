@@ -392,7 +392,7 @@ if.end3:                                          ; preds = %if.end
 invoke.cont6:                                     ; preds = %if.end3
   %1 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #4, !srcloc !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %conflictingPatternString, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %conflictingPatternString, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %conflictingPatternString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call9 = invoke noundef i32 @_ZN6icu_7524DateTimePatternGenerator10addPatternERKNS_13UnicodeStringEaRS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4796) %dtpg, ptr noundef nonnull align 8 dereferenceable(64) %patternString, i8 noundef signext %override, ptr noundef nonnull align 8 dereferenceable(64) %conflictingPatternString, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)

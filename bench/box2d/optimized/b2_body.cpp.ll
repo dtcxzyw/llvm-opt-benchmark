@@ -353,7 +353,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %3 = load float, ptr @b2Vec2_zero, align 4
-  %4 = load float, ptr getelementptr inbounds (i8, ptr @b2Vec2_zero, i64 4), align 4
+  %4 = load float, ptr getelementptr inbounds nuw (i8, ptr @b2Vec2_zero, i64 4), align 4
   %m_fixtureList = getelementptr inbounds nuw i8, ptr %this, i64 112
   %f.034 = load ptr, ptr %m_fixtureList, align 8
   %tobool.not35 = icmp eq ptr %f.034, null

@@ -255,7 +255,7 @@ define hidden void @_ZN9Relocator15insert_space_atEiiPhP10JavaThread(ptr dead_on
   %17 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #10
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %2, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11ChangeWiden, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11ChangeWiden, i64 16), ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %3, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -733,7 +733,7 @@ define hidden void @_ZN9Relocator15push_jump_widenEiii(ptr nocapture noundef non
   %23 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %1, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV15ChangeJumpWiden, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV15ChangeJumpWiden, i64 16), ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 %3, ptr %25, align 4
   %26 = load i32, ptr %.lcssa, align 8
@@ -840,7 +840,7 @@ define hidden void @_ZN9Relocator11change_jumpEiibii(ptr nocapture noundef nonnu
   %42 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #10
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 %1, ptr %43, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV15ChangeJumpWiden, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV15ChangeJumpWiden, i64 16), ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %.0, ptr %44, align 4
   %45 = load i32, ptr %.lcssa.i, align 8
@@ -1066,7 +1066,7 @@ _ZN9Relocator19get_orig_switch_padEib.exit.thread: ; preds = %52, %29, %_ZN9Relo
   %72 = zext i1 %30 to i8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 %.074123, ptr %73, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV15ChangeSwitchPad, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV15ChangeSwitchPad, i64 16), ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 %62, ptr %74, align 4
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 16

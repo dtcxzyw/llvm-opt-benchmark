@@ -1435,7 +1435,7 @@ define hidden ptr @rb_yjit_builtin_function(ptr nocapture noundef readonly %0) l
   %13 = getelementptr [210 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @rb_vm_insn_len_info, i64 64), align 16
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @rb_vm_insn_len_info, i64 64), align 16
   %17 = zext i8 %16 to i32
   %18 = add nuw nsw i32 %17, %15
   %.not.i = icmp eq i32 %11, %18

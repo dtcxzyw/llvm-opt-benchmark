@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pcmcia_get_m
 define dso_local i32 @pccard_read_tuple(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.tuple_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 256) #9
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
@@ -100,7 +100,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pcmcia_loop_config(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.tuple_t, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(768) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 768) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %223, label %8
@@ -117,7 +117,7 @@ define dso_local i32 @pcmcia_loop_config(ptr noundef %0, ptr noundef %1, ptr nou
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %17 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3520, i64 noundef 256) #9
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %21
@@ -443,7 +443,7 @@ define dso_local i32 @pcmcia_loop_tuple(ptr noundef %0, i8 noundef zeroext %1, p
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %11 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 256) #9
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15

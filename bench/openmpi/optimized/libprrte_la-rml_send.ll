@@ -70,7 +70,7 @@ define range(i32 -5, 1) i32 @prte_rml_send_buffer_nb(i32 noundef %0, ptr noundef
   br label %109
 
 21:                                               ; preds = %17
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %23 = icmp eq i32 %22, %0
   br i1 %23, label %24, label %57
 
@@ -193,7 +193,7 @@ pmix_obj_new_tma.exit42:                          ; preds = %.lr.ph.i.i39, %63, 
   store i32 %2, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %59, i64 696
   store ptr %1, ptr %78, align 8
-  %79 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond35 = icmp ult i32 %79, 64
   br i1 %or.cond35, label %80, label %87
 

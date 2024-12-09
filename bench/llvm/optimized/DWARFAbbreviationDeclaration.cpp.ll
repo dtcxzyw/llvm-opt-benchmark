@@ -706,7 +706,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %24, %26
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %33, align 8, !alias.scope !42
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_5dwarf3TagEEE, i64 16), ptr %34, align 8, !alias.scope !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_5dwarf3TagEEE, i64 16), ptr %34, align 8, !alias.scope !42
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i16 %30, ptr %35, align 8, !alias.scope !42
   store ptr %34, ptr %31, align 8, !alias.scope !42
@@ -810,9 +810,9 @@ _ZN4llvm11raw_ostreamlsEc.exit26:                 ; preds = %69, %71
   store ptr %78, ptr %79, align 8, !alias.scope !47
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i.i.i28, align 8, !alias.scope !47
   store i8 1, ptr %80, align 8, !alias.scope !47
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_5dwarf4FormEEE, i64 16), ptr %81, align 8, !alias.scope !47
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_5dwarf4FormEEE, i64 16), ptr %81, align 8, !alias.scope !47
   store ptr %86, ptr %82, align 8, !alias.scope !47
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_5dwarf9AttributeEEE, i64 16), ptr %83, align 8, !alias.scope !47
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_5dwarf9AttributeEEE, i64 16), ptr %83, align 8, !alias.scope !47
   store ptr %.039, ptr %84, align 8, !alias.scope !47
   store ptr %83, ptr %78, align 8, !alias.scope !47
   store ptr %81, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !47
@@ -1509,7 +1509,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %46, %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.11, ptr %52, align 8, !alias.scope !57
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJNS_5dwarf3TagEEEE, i64 16), ptr %5, align 8, !alias.scope !57
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJNS_5dwarf3TagEEEE, i64 16), ptr %5, align 8, !alias.scope !57
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i16, ptr %0, align 2, !noalias !57
   store i16 %54, ptr %53, align 8, !alias.scope !57
@@ -1668,7 +1668,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %46, %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.11, ptr %52, align 8, !alias.scope !60
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJNS_5dwarf4FormEEEE, i64 16), ptr %5, align 8, !alias.scope !60
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJNS_5dwarf4FormEEEE, i64 16), ptr %5, align 8, !alias.scope !60
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i16, ptr %0, align 2, !noalias !60
   store i16 %54, ptr %53, align 8, !alias.scope !60
@@ -1810,7 +1810,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %46, %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.11, ptr %52, align 8, !alias.scope !63
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJNS_5dwarf9AttributeEEEE, i64 16), ptr %5, align 8, !alias.scope !63
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJNS_5dwarf9AttributeEEEE, i64 16), ptr %5, align 8, !alias.scope !63
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i16, ptr %0, align 2, !noalias !63
   store i16 %54, ptr %53, align 8, !alias.scope !63

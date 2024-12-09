@@ -124,8 +124,8 @@ define internal i32 @dmi_init() #0 section ".init.text" align 16 {
 16:                                               ; preds = %10
   %17 = load i32, ptr @smbios_entry_point_size, align 4
   %18 = zext nneg i32 %17 to i64
-  store i64 %18, ptr getelementptr inbounds (i8, ptr @bin_attr_smbios_entry_point, i64 16), align 8
-  store ptr @smbios_entry_point, ptr getelementptr inbounds (i8, ptr @bin_attr_smbios_entry_point, i64 24), align 8
+  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @bin_attr_smbios_entry_point, i64 16), align 8
+  store ptr @smbios_entry_point, ptr getelementptr inbounds nuw (i8, ptr @bin_attr_smbios_entry_point, i64 24), align 8
   %19 = tail call i32 @sysfs_create_bin_file(ptr noundef nonnull %8, ptr noundef nonnull @bin_attr_smbios_entry_point) #21
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %27
@@ -133,8 +133,8 @@ define internal i32 @dmi_init() #0 section ".init.text" align 16 {
 21:                                               ; preds = %16
   %22 = load i32, ptr @dmi_len, align 4
   %23 = zext i32 %22 to i64
-  store i64 %23, ptr getelementptr inbounds (i8, ptr @bin_attr_DMI, i64 16), align 8
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @bin_attr_DMI, i64 24), align 8
+  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @bin_attr_DMI, i64 16), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @bin_attr_DMI, i64 24), align 8
   %24 = tail call i32 @sysfs_create_bin_file(ptr noundef nonnull %8, ptr noundef nonnull @bin_attr_DMI) #21
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %34, label %26
@@ -185,13 +185,13 @@ define internal fastcc void @dmi_scan_machine() unnamed_addr #0 section ".init.t
   %1 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false), !annotation !5
-  %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
+  %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 264), align 8
   %3 = and i64 %2, 4
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %25, label %5
 
 5:                                                ; preds = %0
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 40), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 40), align 8
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %15, label %8
 
@@ -212,7 +212,7 @@ define internal fastcc void @dmi_scan_machine() unnamed_addr #0 section ".init.t
   br label %55
 
 15:                                               ; preds = %11, %5
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 32), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 32), align 8
   %17 = icmp eq i64 %16, -1
   br i1 %17, label %53, label %18
 
@@ -532,7 +532,7 @@ define dso_local ptr @dmi_get_system_info(i32 noundef %0) #5 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local noundef range(i32 0, 2) i32 @dmi_name_in_serial(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 72), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 72), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
 
@@ -1490,7 +1490,7 @@ define internal void @dmi_decode(ptr noundef %0, ptr nocapture readnone %1) #0 s
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @dmi_format_ids() unnamed_addr #0 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 48), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 48), align 16
   %2 = tail call fastcc i32 @print_filtered(ptr noundef nonnull @dmi_ids_string, i64 noundef 128, ptr noundef %1) #23
   %3 = sext i32 %2 to i64
   %4 = getelementptr i8, ptr @dmi_ids_string, i64 %3
@@ -1500,10 +1500,10 @@ define internal fastcc void @dmi_format_ids() unnamed_addr #0 section ".init.tex
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr @dmi_ids_string, i64 %8
   %10 = sub nsw i64 128, %8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 56), align 8
   %12 = tail call fastcc i32 @print_filtered(ptr noundef %9, i64 noundef %10, ptr noundef %11) #23
   %13 = add i32 %12, %7
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 112), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 112), align 16
   %15 = icmp eq ptr %14, null
   br i1 %15, label %27, label %16
 
@@ -1530,7 +1530,7 @@ define internal fastcc void @dmi_format_ids() unnamed_addr #0 section ".init.tex
   %34 = sext i32 %33 to i64
   %35 = getelementptr i8, ptr @dmi_ids_string, i64 %34
   %36 = sub nsw i64 128, %34
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 16), align 16
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 16), align 16
   %38 = tail call fastcc i32 @print_filtered(ptr noundef %35, i64 noundef %36, ptr noundef %37) #23
   %39 = add i32 %38, %33
   %40 = sext i32 %39 to i64
@@ -1541,7 +1541,7 @@ define internal fastcc void @dmi_format_ids() unnamed_addr #0 section ".init.tex
   %45 = sext i32 %44 to i64
   %46 = getelementptr i8, ptr @dmi_ids_string, i64 %45
   %47 = sub nsw i64 128, %45
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 24), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 24), align 8
   %49 = tail call fastcc i32 @print_filtered(ptr noundef %46, i64 noundef %47, ptr noundef %48) #23
   ret void
 }
@@ -1628,7 +1628,7 @@ define internal fastcc void @dmi_save_release(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @dmi_save_uuid(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 80), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 80), align 16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %40
 
@@ -1680,7 +1680,7 @@ define internal fastcc void @dmi_save_uuid(ptr noundef %0) unnamed_addr #0 secti
   %37 = icmp ugt i32 %36, 132607
   %38 = select i1 %37, ptr @.str.11, ptr @.str.12
   %39 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %38, ptr noundef %9) #21
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 80), align 16
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 80), align 16
   br label %40
 
 40:                                               ; preds = %35, %32, %26, %4, %1
@@ -1689,7 +1689,7 @@ define internal fastcc void @dmi_save_uuid(ptr noundef %0) unnamed_addr #0 secti
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @dmi_save_type(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 152), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 152), align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %17
 
@@ -1710,7 +1710,7 @@ define internal fastcc void @dmi_save_type(ptr nocapture noundef readonly %0) un
   %14 = and i8 %13, 127
   %15 = zext nneg i8 %14 to i32
   %16 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %15) #21
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @dmi_ident, i64 152), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @dmi_ident, i64 152), align 8
   br label %17
 
 17:                                               ; preds = %11, %8, %4, %1
@@ -1867,8 +1867,8 @@ define internal fastcc void @dmi_save_ipmi_device(ptr nocapture noundef readonly
   store ptr @.str.14, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %5, ptr %15, align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @dmi_devices, i64 8), align 8
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @dmi_devices, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dmi_devices, i64 8), align 8
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @dmi_devices, i64 8), align 8
   store ptr @dmi_devices, ptr %10, align 8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %16, ptr %17, align 8

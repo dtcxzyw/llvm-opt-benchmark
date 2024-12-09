@@ -252,9 +252,9 @@ define void @_ZN9ProtoTreeC2EP7QWidgetP12epan_dissect(ptr noundef nonnull align 
   %17 = alloca %"class.QMetaObject::Connection", align 8
   %18 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9ProtoTree, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9ProtoTree, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9ProtoTree, i64 816), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9ProtoTree, i64 816), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
           to label %22 unwind label %92
@@ -739,9 +739,9 @@ _ZN17QArrayDataPointerIP7QActionED2Ev.exit:       ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN23ProtocolPreferencesMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23ProtocolPreferencesMenu, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23ProtocolPreferencesMenu, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23ProtocolPreferencesMenu, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23ProtocolPreferencesMenu, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null

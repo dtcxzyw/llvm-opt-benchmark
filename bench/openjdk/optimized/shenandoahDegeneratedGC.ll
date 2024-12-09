@@ -131,7 +131,7 @@ $_ZN6Events3logEP6ThreadPKcz = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17ShenandoahDegenGCC2EN12ShenandoahGC20ShenandoahDegenPointE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(13) initializes((0, 13)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17ShenandoahDegenGC, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17ShenandoahDegenGC, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -158,7 +158,7 @@ define hidden noundef zeroext i1 @_ZN17ShenandoahDegenGC7collectEN7GCCause5Cause
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = call noundef i32 @_ZN4GCId7currentEv() #8
   store i32 %12, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV26VM_ShenandoahDegeneratedGC, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV26VM_ShenandoahDegeneratedGC, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %13, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %5) #8
@@ -186,7 +186,7 @@ define hidden void @_ZN17ShenandoahDegenGC16vmop_degeneratedEv(ptr noundef nonnu
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = call noundef i32 @_ZN4GCId7currentEv() #8
   store i32 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV26VM_ShenandoahDegeneratedGC, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV26VM_ShenandoahDegeneratedGC, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %12, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #8

@@ -1241,7 +1241,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe34PriorBoxParameter_CodeType_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe39FillerParameter_VarianceNorm_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 8), align 8
   ret ptr %1
 }
 
@@ -1254,7 +1254,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe36FillerParameter_VarianceNor
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe41SolverParameter_SnapshotFormat_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 16), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 16), align 16
   ret ptr %1
 }
 
@@ -1267,7 +1267,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe38SolverParameter_SnapshotFor
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe37SolverParameter_SolverMode_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 24), align 8
   ret ptr %1
 }
 
@@ -1280,7 +1280,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe34SolverParameter_SolverMode_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe37SolverParameter_SolverType_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 32), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 32), align 16
   ret ptr %1
 }
 
@@ -1293,7 +1293,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe34SolverParameter_SolverType_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe33ParamSpec_DimCheckMode_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 40), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 40), align 8
   ret ptr %1
 }
 
@@ -1306,7 +1306,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe30ParamSpec_DimCheckMode_IsVa
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe42LossParameter_NormalizationMode_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 48), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 48), align 16
   ret ptr %1
 }
 
@@ -1319,7 +1319,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe39LossParameter_Normalization
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe38ConvolutionParameter_Engine_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 56), align 8
   ret ptr %1
 }
 
@@ -1332,7 +1332,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe35ConvolutionParameter_Engine
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe27DataParameter_DB_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 64), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 64), align 16
   ret ptr %1
 }
 
@@ -1345,7 +1345,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe24DataParameter_DB_IsValidEi(
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe37EltwiseParameter_EltwiseOp_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 72), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 72), align 8
   ret ptr %1
 }
 
@@ -1358,7 +1358,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe34EltwiseParameter_EltwiseOp_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe34HingeLossParameter_Norm_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 80), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 80), align 16
   ret ptr %1
 }
 
@@ -1372,7 +1372,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe31HingeLossParameter_Norm_IsV
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe34LRNParameter_NormRegion_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 88), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 88), align 8
   ret ptr %1
 }
 
@@ -1385,7 +1385,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe31LRNParameter_NormRegion_IsV
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe30LRNParameter_Engine_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 96), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 96), align 16
   ret ptr %1
 }
 
@@ -1398,7 +1398,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe27LRNParameter_Engine_IsValid
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe38PoolingParameter_PoolMethod_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 104), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 104), align 8
   ret ptr %1
 }
 
@@ -1411,7 +1411,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe35PoolingParameter_PoolMethod
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe34PoolingParameter_Engine_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 112), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 112), align 16
   ret ptr %1
 }
 
@@ -1424,7 +1424,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe31PoolingParameter_Engine_IsV
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe41ReductionParameter_ReductionOp_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 120), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 120), align 8
   ret ptr %1
 }
 
@@ -1438,7 +1438,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe38ReductionParameter_Reductio
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe31ReLUParameter_Engine_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 128), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 128), align 16
   ret ptr %1
 }
 
@@ -1451,7 +1451,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe28ReLUParameter_Engine_IsVali
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe34SigmoidParameter_Engine_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 136), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 136), align 8
   ret ptr %1
 }
 
@@ -1464,7 +1464,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe31SigmoidParameter_Engine_IsV
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe34SoftmaxParameter_Engine_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 144), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 144), align 16
   ret ptr %1
 }
 
@@ -1477,7 +1477,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe31SoftmaxParameter_Engine_IsV
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe31TanHParameter_Engine_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 152), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 152), align 8
   ret ptr %1
 }
 
@@ -1490,7 +1490,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe28TanHParameter_Engine_IsVali
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe34SPPParameter_PoolMethod_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 160), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 160), align 16
   ret ptr %1
 }
 
@@ -1503,7 +1503,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe31SPPParameter_PoolMethod_IsV
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe30SPPParameter_Engine_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 168), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 168), align 8
   ret ptr %1
 }
 
@@ -1516,7 +1516,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe27SPPParameter_Engine_IsValid
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe37V1LayerParameter_LayerType_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 176), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 176), align 16
   ret ptr %1
 }
 
@@ -1529,7 +1529,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe34V1LayerParameter_LayerType_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe40V1LayerParameter_DimCheckMode_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 184), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 184), align 8
   ret ptr %1
 }
 
@@ -1542,7 +1542,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe37V1LayerParameter_DimCheckMo
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe38V0LayerParameter_PoolMethod_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 192), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 192), align 16
   ret ptr %1
 }
 
@@ -1555,7 +1555,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe35V0LayerParameter_PoolMethod
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe15Type_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 200), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 200), align 8
   ret ptr %1
 }
 
@@ -1568,7 +1568,7 @@ define hidden noundef zeroext i1 @_ZN12opencv_caffe12Type_IsValidEi(i32 noundef 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe16Phase_descriptorEv() local_unnamed_addr #3 {
   tail call void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb(ptr noundef nonnull @descriptor_table_opencv_2dcaffe_2eproto, i1 noundef zeroext false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 208), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL50file_level_enum_descriptors_opencv_2dcaffe_2eproto, i64 208), align 16
   ret ptr %1
 }
 
@@ -1585,7 +1585,7 @@ define hidden void @_ZN12opencv_caffe9BlobShapeC2EPN6google8protobuf5ArenaEb(ptr
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobShapeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobShapeE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN6google8protobuf13RepeatedFieldIlEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %1)
           to label %9 unwind label %11
@@ -1611,7 +1611,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2
@@ -1647,7 +1647,7 @@ _ZN6google8protobuf11MessageLiteD2Ev.exit:        ; preds = %1, %11, %13
 define hidden void @_ZN12opencv_caffe9BlobShapeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobShapeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobShapeE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN6google8protobuf13RepeatedFieldIlEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -1794,7 +1794,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = load i64, ptr %2, align 8
   %23 = and i64 %22, 2
   %.not.i.i.i = icmp eq i64 %23, 0
@@ -2531,7 +2531,7 @@ define hidden void @_ZN12opencv_caffe9BlobProtoC2EPN6google8protobuf5ArenaEb(ptr
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobProtoE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2613,7 +2613,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull alig
 define hidden void @_ZN12opencv_caffe9BlobProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobProtoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobProtoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -2939,7 +2939,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #23
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %43 = load i64, ptr %2, align 8
   %44 = and i64 %43, 2
   %.not.i.i.i = icmp eq i64 %44, 0
@@ -4990,7 +4990,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIdE12InternalSwapEPS2_(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe9BlobProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 16))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 16))
   ret { ptr, ptr } %2
 }
 
@@ -5001,7 +5001,7 @@ define hidden void @_ZN12opencv_caffe15BlobProtoVectorC2EPN6google8protobuf5Aren
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5038,7 +5038,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN12opencv
 define hidden void @_ZN12opencv_caffe15BlobProtoVectorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -5203,7 +5203,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, %27
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %31 = load i64, ptr %2, align 8
   %32 = and i64 %31, 2
   %.not.i.i.i = icmp eq i64 %32, 0
@@ -5877,7 +5877,7 @@ define hidden void @_ZN12opencv_caffe15BlobProtoVector12InternalSwapEPS0_(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe15BlobProtoVector11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 32))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 32))
   ret { ptr, ptr } %2
 }
 
@@ -5888,7 +5888,7 @@ define hidden void @_ZN12opencv_caffe16PermuteParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PermuteParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PermuteParameterE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN6google8protobuf13RepeatedFieldIjEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %1)
           to label %9 unwind label %11
@@ -5914,7 +5914,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull alig
 define hidden void @_ZN12opencv_caffe16PermuteParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PermuteParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PermuteParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN6google8protobuf13RepeatedFieldIjEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -6061,7 +6061,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = load i64, ptr %2, align 8
   %23 = and i64 %22, 2
   %.not.i.i.i = icmp eq i64 %23, 0
@@ -6711,7 +6711,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIjE12InternalSwapEPS2_(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16PermuteParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 48))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 48))
   ret { ptr, ptr } %2
 }
 
@@ -6729,7 +6729,7 @@ define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameterC2EPN6google8protob
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr, i8 0, i64 16, i1 false)
@@ -6745,7 +6745,7 @@ define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameterC2EPN6google8protob
 define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -6910,7 +6910,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %16, %_ZN12opencv_caffe22NormalizeBBoxParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %34 = phi i64 [ %.pre3, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %15, %16 ], [ %15, %_ZN12opencv_caffe22NormalizeBBoxParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %35 = and i64 %34, 2
   %.not.i.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %36
@@ -7326,7 +7326,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %89
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %95, %92
   %.sink35.i.i.i = phi ptr [ %93, %92 ], [ %96, %95 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -7744,7 +7744,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %27, %24
   %.sink35.i.i.i = phi ptr [ %25, %24 ], [ %28, %27 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -8128,7 +8128,7 @@ define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter12InternalSwapEPS0_
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe22NormalizeBBoxParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 64))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 64))
   ret { ptr, ptr } %2
 }
 
@@ -8139,7 +8139,7 @@ define hidden void @_ZN12opencv_caffe17PriorBoxParameterC2EPN6google8protobuf5Ar
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17PriorBoxParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17PriorBoxParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -8275,7 +8275,7 @@ define hidden void @_ZN12opencv_caffe17PriorBoxParameterC2EPN6google8protobuf5Ar
 define hidden void @_ZN12opencv_caffe17PriorBoxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17PriorBoxParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17PriorBoxParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -8553,7 +8553,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %29 = load i64, ptr %2, align 8
   %30 = and i64 %29, 2
   %.not.i.i.i = icmp eq i64 %30, 0
@@ -10473,7 +10473,7 @@ define hidden void @_ZN12opencv_caffe17PriorBoxParameter12InternalSwapEPS0_(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe17PriorBoxParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 80))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 80))
   ret { ptr, ptr } %2
 }
 
@@ -10498,7 +10498,7 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameterC2EPN6google8prot
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %.ptr, i8 0, i64 38, i1 false)
@@ -10516,7 +10516,7 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameterC2EPN6google8prot
 define hidden void @_ZN12opencv_caffe24DetectionOutputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -10563,7 +10563,7 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameterC2ERKS0_(ptr noun
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 0, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %32 = load i32, ptr %31, align 8
@@ -10752,7 +10752,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %22, %_ZN12opencv_caffe24DetectionOutputParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %40 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %20, %22 ], [ %20, %_ZN12opencv_caffe24DetectionOutputParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %41 = and i64 %40, 2
   %.not.i.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %42
@@ -11340,7 +11340,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %13
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe30NonMaximumSuppressionParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %140, %137
   %.sink36.i.i.i = phi ptr [ %138, %137 ], [ %141, %140 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %.sink36.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %.sink36.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %144 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 20
@@ -11405,7 +11405,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i41: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19SaveOutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %169, %166
   %.sink39.i.i.i = phi ptr [ %167, %166 ], [ %170, %169 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %.sink39.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %.sink39.i.i.i, align 8
   %.ptr.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i43, align 4
   %173 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 20
@@ -12552,7 +12552,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe30NonMaximumSuppressionParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %27, %24
   %.sink36.i.i.i = phi ptr [ %25, %24 ], [ %28, %27 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %.sink36.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %.sink36.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 20
@@ -12623,7 +12623,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i58: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19SaveOutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %60, %57
   %.sink39.i.i.i = phi ptr [ %58, %57 ], [ %61, %60 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %.sink39.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %.sink39.i.i.i, align 8
   %.ptr.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i60, align 4
   %64 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 20
@@ -13295,7 +13295,7 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameter12InternalSwapEPS
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe24DetectionOutputParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 96))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 96))
   ret { ptr, ptr } %2
 }
 
@@ -13306,7 +13306,7 @@ define hidden void @_ZN12opencv_caffe5DatumC2EPN6google8protobuf5ArenaEb(ptr nou
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe5DatumE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe5DatumE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -13333,7 +13333,7 @@ define hidden void @_ZN12opencv_caffe5DatumC2EPN6google8protobuf5ArenaEb(ptr nou
 define hidden void @_ZN12opencv_caffe5DatumC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe5DatumE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe5DatumE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -13547,7 +13547,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN12opencv_caffe5Datum10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %34 = load i64, ptr %2, align 8
   %35 = and i64 %34, 2
   %.not.i.i.i = icmp eq i64 %35, 0
@@ -14884,7 +14884,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe5Datum11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 112))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 112))
   ret { ptr, ptr } %2
 }
 
@@ -14895,7 +14895,7 @@ define hidden void @_ZN12opencv_caffe15FillerParameterC2EPN6google8protobuf5Aren
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr, i8 0, i64 32, i1 false)
@@ -14911,7 +14911,7 @@ define hidden void @_ZN12opencv_caffe15FillerParameterC2EPN6google8protobuf5Aren
 define hidden void @_ZN12opencv_caffe15FillerParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -15073,7 +15073,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN12opencv_caffe15FillerParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %33 = phi i64 [ %.pre2, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %14, %15 ], [ %14, %_ZN12opencv_caffe15FillerParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %34 = and i64 %33, 2
   %.not.i.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %35
@@ -16095,7 +16095,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe15FillerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 128))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 128))
   ret { ptr, ptr } %2
 }
 
@@ -16113,7 +16113,7 @@ define hidden void @_ZN12opencv_caffe12NetParameterC2EPN6google8protobuf5ArenaEb
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -16253,7 +16253,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN12opencv
 define hidden void @_ZN12opencv_caffe12NetParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -16711,7 +16711,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobShapeEED2Ev.exit: ; pr
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe16V1LayerParameterEED2Ev.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobShapeEED2Ev.exit, %67
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %71 = load i64, ptr %2, align 8
   %72 = and i64 %71, 2
   %.not.i.i.i = icmp eq i64 %72, 0
@@ -18787,7 +18787,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe12NetParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 144))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 144))
   ret { ptr, ptr } %2
 }
 
@@ -18819,7 +18819,7 @@ define hidden void @_ZN12opencv_caffe15SolverParameterC2EPN6google8protobuf5Aren
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15SolverParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15SolverParameterE, i64 16), ptr %0, align 8
   %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %scevgep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -18964,7 +18964,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN12opencv
 define hidden void @_ZN12opencv_caffe15SolverParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(304) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15SolverParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15SolverParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
@@ -19683,7 +19683,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe12NetParameterEED2Ev.exit: 
   tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %52) #23
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %54 = load i64, ptr %2, align 8
   %55 = and i64 %54, 2
   %.not.i.i.i = icmp eq i64 %55, 0
@@ -25901,7 +25901,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe15SolverParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 160))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 160))
   ret { ptr, ptr } %2
 }
 
@@ -25912,7 +25912,7 @@ define hidden void @_ZN12opencv_caffe11SolverStateC2EPN6google8protobuf5ArenaEb(
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -25932,7 +25932,7 @@ define hidden void @_ZN12opencv_caffe11SolverStateC2EPN6google8protobuf5ArenaEb(
 define hidden void @_ZN12opencv_caffe11SolverStateC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -26166,7 +26166,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, %39
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %43 = load i64, ptr %2, align 8
   %44 = and i64 %43, 2
   %.not.i.i.i = icmp eq i64 %44, 0
@@ -27252,7 +27252,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe11SolverState11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 176))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 176))
   ret { ptr, ptr } %2
 }
 
@@ -27263,7 +27263,7 @@ define hidden void @_ZN12opencv_caffe8NetStateC2EPN6google8protobuf5ArenaEb(ptr 
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe8NetStateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe8NetStateE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -27290,7 +27290,7 @@ define hidden void @_ZN12opencv_caffe8NetStateC2EPN6google8protobuf5ArenaEb(ptr 
 define hidden void @_ZN12opencv_caffe8NetStateC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe8NetStateE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe8NetStateE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -27443,7 +27443,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = load i64, ptr %2, align 8
   %23 = and i64 %22, 2
   %.not.i.i.i = icmp eq i64 %23, 0
@@ -28190,7 +28190,7 @@ define hidden void @_ZN12opencv_caffe8NetState12InternalSwapEPS0_(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe8NetState11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 192))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 192))
   ret { ptr, ptr } %2
 }
 
@@ -28201,7 +28201,7 @@ define hidden void @_ZN12opencv_caffe12NetStateRuleC2EPN6google8protobuf5ArenaEb
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -28241,7 +28241,7 @@ define hidden void @_ZN12opencv_caffe12NetStateRuleC2EPN6google8protobuf5ArenaEb
 define hidden void @_ZN12opencv_caffe12NetStateRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -28411,7 +28411,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #23
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %23 = load i64, ptr %2, align 8
   %24 = and i64 %23, 2
   %.not.i.i.i = icmp eq i64 %24, 0
@@ -29549,7 +29549,7 @@ define hidden void @_ZN12opencv_caffe12NetStateRule12InternalSwapEPS0_(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe12NetStateRule11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 208))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 208))
   ret { ptr, ptr } %2
 }
 
@@ -29560,7 +29560,7 @@ define hidden void @_ZN12opencv_caffe9ParamSpecC2EPN6google8protobuf5ArenaEb(ptr
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -29580,7 +29580,7 @@ define hidden void @_ZN12opencv_caffe9ParamSpecC2EPN6google8protobuf5ArenaEb(ptr
 define hidden void @_ZN12opencv_caffe9ParamSpecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -29740,7 +29740,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN12opencv_caffe9ParamSpec10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %33 = phi i64 [ %.pre2, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %14, %15 ], [ %14, %_ZN12opencv_caffe9ParamSpec10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %34 = and i64 %33, 2
   %.not.i.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %35
@@ -30692,7 +30692,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe9ParamSpec11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 224))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 224))
   ret { ptr, ptr } %2
 }
 
@@ -31081,7 +31081,7 @@ define hidden void @_ZN12opencv_caffe14LayerParameterC2EPN6google8protobuf5Arena
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14LayerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14LayerParameterE, i64 16), ptr %0, align 8
   %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %scevgep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -31230,7 +31230,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN12opencv
 define hidden void @_ZN12opencv_caffe14LayerParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(664) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14LayerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14LayerParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
@@ -31504,7 +31504,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 126:                                              ; preds = %124
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i64 0, ptr %127, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %125, align 8
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %129 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %130 = load i32, ptr %129, align 8
@@ -31567,7 +31567,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 157:                                              ; preds = %155
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store i64 0, ptr %158, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %156, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %156, align 8
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %160 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %161 = load i32, ptr %160, align 8
@@ -31630,7 +31630,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 188:                                              ; preds = %186
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store i64 0, ptr %189, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %187, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %187, align 8
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %191 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %192 = load i32, ptr %191, align 8
@@ -31693,7 +31693,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 219:                                              ; preds = %217
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store i64 0, ptr %220, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %218, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %218, align 8
   %221 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %222 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %223 = load i32, ptr %222, align 8
@@ -31757,7 +31757,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 251:                                              ; preds = %249
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store i64 0, ptr %252, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %250, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %250, align 8
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 16
   %254 = getelementptr inbounds nuw i8, ptr %246, i64 16
   %255 = load i32, ptr %254, align 8
@@ -31877,7 +31877,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 309:                                              ; preds = %307
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i64 0, ptr %310, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %308, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %308, align 8
   %311 = getelementptr inbounds nuw i8, ptr %308, i64 16
   %312 = getelementptr inbounds nuw i8, ptr %304, i64 16
   %313 = load i32, ptr %312, align 8
@@ -31996,7 +31996,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 366:                                              ; preds = %364
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i64 0, ptr %367, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %365, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %365, align 8
   %368 = getelementptr inbounds nuw i8, ptr %365, i64 16
   %369 = getelementptr inbounds nuw i8, ptr %361, i64 16
   %370 = load i32, ptr %369, align 8
@@ -32115,7 +32115,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 423:                                              ; preds = %421
   %424 = getelementptr inbounds nuw i8, ptr %422, i64 8
   store i64 0, ptr %424, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %422, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %422, align 8
   %425 = getelementptr inbounds nuw i8, ptr %422, i64 16
   %426 = getelementptr inbounds nuw i8, ptr %418, i64 16
   %427 = load i32, ptr %426, align 8
@@ -32263,7 +32263,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 494:                                              ; preds = %492
   %495 = getelementptr inbounds nuw i8, ptr %493, i64 8
   store i64 0, ptr %495, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %493, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %493, align 8
   %496 = getelementptr inbounds nuw i8, ptr %493, i64 16
   %497 = getelementptr inbounds nuw i8, ptr %489, i64 16
   %498 = load i32, ptr %497, align 8
@@ -32326,7 +32326,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 525:                                              ; preds = %523
   %526 = getelementptr inbounds nuw i8, ptr %524, i64 8
   store i64 0, ptr %526, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %524, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %524, align 8
   %527 = getelementptr inbounds nuw i8, ptr %524, i64 16
   %528 = getelementptr inbounds nuw i8, ptr %520, i64 16
   %529 = load i32, ptr %528, align 8
@@ -32389,7 +32389,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 556:                                              ; preds = %554
   %557 = getelementptr inbounds nuw i8, ptr %555, i64 8
   store i64 0, ptr %557, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %555, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %555, align 8
   %558 = getelementptr inbounds nuw i8, ptr %555, i64 16
   %559 = getelementptr inbounds nuw i8, ptr %551, i64 16
   %560 = load i32, ptr %559, align 8
@@ -32453,7 +32453,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 588:                                              ; preds = %586
   %589 = getelementptr inbounds nuw i8, ptr %587, i64 8
   store i64 0, ptr %589, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %587, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %587, align 8
   %590 = getelementptr inbounds nuw i8, ptr %587, i64 16
   %591 = getelementptr inbounds nuw i8, ptr %583, i64 16
   %592 = load i32, ptr %591, align 8
@@ -32516,7 +32516,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 619:                                              ; preds = %617
   %620 = getelementptr inbounds nuw i8, ptr %618, i64 8
   store i64 0, ptr %620, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %618, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %618, align 8
   %621 = getelementptr inbounds nuw i8, ptr %618, i64 16
   %622 = getelementptr inbounds nuw i8, ptr %614, i64 16
   %623 = load i32, ptr %622, align 8
@@ -32579,7 +32579,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 650:                                              ; preds = %648
   %651 = getelementptr inbounds nuw i8, ptr %649, i64 8
   store i64 0, ptr %651, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %649, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %649, align 8
   %652 = getelementptr inbounds nuw i8, ptr %649, i64 16
   %653 = getelementptr inbounds nuw i8, ptr %645, i64 16
   %654 = load i32, ptr %653, align 8
@@ -32643,7 +32643,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 682:                                              ; preds = %680
   %683 = getelementptr inbounds nuw i8, ptr %681, i64 8
   store i64 0, ptr %683, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %681, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %681, align 8
   %684 = getelementptr inbounds nuw i8, ptr %681, i64 16
   %685 = getelementptr inbounds nuw i8, ptr %677, i64 16
   %686 = load i32, ptr %685, align 8
@@ -32707,7 +32707,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 714:                                              ; preds = %712
   %715 = getelementptr inbounds nuw i8, ptr %713, i64 8
   store i64 0, ptr %715, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %713, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %713, align 8
   %716 = getelementptr inbounds nuw i8, ptr %713, i64 16
   %717 = getelementptr inbounds nuw i8, ptr %709, i64 16
   %718 = load i32, ptr %717, align 8
@@ -32799,7 +32799,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 759:                                              ; preds = %757
   %760 = getelementptr inbounds nuw i8, ptr %758, i64 8
   store i64 0, ptr %760, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %758, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %758, align 8
   %761 = getelementptr inbounds nuw i8, ptr %758, i64 16
   %762 = getelementptr inbounds nuw i8, ptr %754, i64 16
   %763 = load i32, ptr %762, align 8
@@ -32863,7 +32863,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 791:                                              ; preds = %789
   %792 = getelementptr inbounds nuw i8, ptr %790, i64 8
   store i64 0, ptr %792, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %790, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %790, align 8
   %793 = getelementptr inbounds nuw i8, ptr %790, i64 16
   %794 = getelementptr inbounds nuw i8, ptr %786, i64 16
   %795 = load i32, ptr %794, align 8
@@ -33011,7 +33011,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 863:                                              ; preds = %861
   %864 = getelementptr inbounds nuw i8, ptr %862, i64 8
   store i64 0, ptr %864, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %862, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %862, align 8
   %865 = getelementptr inbounds nuw i8, ptr %862, i64 16
   %866 = getelementptr inbounds nuw i8, ptr %858, i64 16
   %867 = load i32, ptr %866, align 8
@@ -33102,7 +33102,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 907:                                              ; preds = %905
   %908 = getelementptr inbounds nuw i8, ptr %906, i64 8
   store i64 0, ptr %908, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %906, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %906, align 8
   %909 = getelementptr inbounds nuw i8, ptr %906, i64 16
   %910 = getelementptr inbounds nuw i8, ptr %902, i64 16
   %911 = load i32, ptr %910, align 8
@@ -33165,7 +33165,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 938:                                              ; preds = %936
   %939 = getelementptr inbounds nuw i8, ptr %937, i64 8
   store i64 0, ptr %939, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %937, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %937, align 8
   %940 = getelementptr inbounds nuw i8, ptr %937, i64 16
   %941 = getelementptr inbounds nuw i8, ptr %933, i64 16
   %942 = load i32, ptr %941, align 8
@@ -33229,7 +33229,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 970:                                              ; preds = %968
   %971 = getelementptr inbounds nuw i8, ptr %969, i64 8
   store i64 0, ptr %971, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %969, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %969, align 8
   %972 = getelementptr inbounds nuw i8, ptr %969, i64 16
   %973 = getelementptr inbounds nuw i8, ptr %965, i64 16
   %974 = load i32, ptr %973, align 8
@@ -33320,7 +33320,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 1014:                                             ; preds = %1012
   %1015 = getelementptr inbounds nuw i8, ptr %1013, i64 8
   store i64 0, ptr %1015, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %1013, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %1013, align 8
   %1016 = getelementptr inbounds nuw i8, ptr %1013, i64 16
   %1017 = getelementptr inbounds nuw i8, ptr %1009, i64 16
   %1018 = load i32, ptr %1017, align 8
@@ -33384,7 +33384,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 1046:                                             ; preds = %1044
   %1047 = getelementptr inbounds nuw i8, ptr %1045, i64 8
   store i64 0, ptr %1047, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %1045, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %1045, align 8
   %1048 = getelementptr inbounds nuw i8, ptr %1045, i64 16
   %1049 = getelementptr inbounds nuw i8, ptr %1041, i64 16
   %1050 = load i32, ptr %1049, align 8
@@ -33447,7 +33447,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 1077:                                             ; preds = %1075
   %1078 = getelementptr inbounds nuw i8, ptr %1076, i64 8
   store i64 0, ptr %1078, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %1076, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %1076, align 8
   %1079 = getelementptr inbounds nuw i8, ptr %1076, i64 16
   %1080 = getelementptr inbounds nuw i8, ptr %1072, i64 16
   %1081 = load i32, ptr %1080, align 8
@@ -33819,7 +33819,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 1252:                                             ; preds = %1250
   %1253 = getelementptr inbounds nuw i8, ptr %1251, i64 8
   store i64 0, ptr %1253, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %1251, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %1251, align 8
   %1254 = getelementptr inbounds nuw i8, ptr %1251, i64 16
   %1255 = getelementptr inbounds nuw i8, ptr %1247, i64 16
   %1256 = load i32, ptr %1255, align 8
@@ -33882,7 +33882,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit161._crit_edge: ;
 1283:                                             ; preds = %1281
   %1284 = getelementptr inbounds nuw i8, ptr %1282, i64 8
   store i64 0, ptr %1284, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %1282, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %1282, align 8
   %1285 = getelementptr inbounds nuw i8, ptr %1282, i64 16
   %1286 = getelementptr inbounds nuw i8, ptr %1278, i64 16
   %1287 = load i32, ptr %1286, align 8
@@ -34149,7 +34149,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9ParamSpecEED2Ev.exit: ; pr
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #23
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %74) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %75 = load i64, ptr %2, align 8
   %76 = and i64 %75, 2
   %.not.i.i.i = icmp eq i64 %76, 0
@@ -40952,7 +40952,7 @@ _ZN12opencv_caffe14LayerParameter22_internal_mutable_typeB5cxx11Ev.exit: ; preds
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN12opencv_caffe9ParamSpecEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i: ; preds = %214, %211
   %.sink37.i.i.i.i.i.i = phi ptr [ %212, %211 ], [ %215, %214 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %.sink37.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %.sink37.i.i.i.i.i.i, align 8
   %.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink37.i.i.i.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i.i.i.i, align 4
   %218 = getelementptr inbounds nuw i8, ptr %.sink37.i.i.i.i.i.i, i64 20
@@ -41366,7 +41366,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i177: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13LossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %418, %415
   %.sink33.i.i.i = phi ptr [ %416, %415 ], [ %419, %418 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i, i64 16
   %422 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %.ptr.i.i.i.i, i8 0, i64 13, i1 false)
@@ -41425,7 +41425,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i180: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17AccuracyParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %444, %441
   %.sink36.i.i.i = phi ptr [ %442, %441 ], [ %445, %444 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i.i, align 8
   %.ptr.i.i.i.i182 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i182, align 4
   %448 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 20
@@ -41490,7 +41490,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i184: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ArgMaxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %473, %470
   %.sink33.i.i.i186 = phi ptr [ %471, %470 ], [ %474, %473 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i.i186, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i.i186, align 8
   %.ptr.i.i.i.i187 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i186, i64 16
   %477 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i186, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i187, i8 0, i64 16, i1 false)
@@ -41549,7 +41549,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i189: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ConcatParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %499, %496
   %.sink35.i.i.i = phi ptr [ %497, %496 ], [ %500, %499 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i191 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i191, align 4
   %503 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 20
@@ -41612,7 +41612,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i193: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe24ContrastiveLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %527, %524
   %.sink33.i.i.i195 = phi ptr [ %525, %524 ], [ %528, %527 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i.i195, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i.i195, align 8
   %.ptr.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i195, i64 16
   %531 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i195, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i.i196, i8 0, i64 9, i1 false)
@@ -41682,7 +41682,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i198: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13DataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %559, %556
   %.sink38.i.i.i = phi ptr [ %557, %556 ], [ %560, %559 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i.i, align 8
   %.ptr.i.i.i.i200 = getelementptr inbounds nuw i8, ptr %.sink38.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i200, align 4
   %563 = getelementptr inbounds nuw i8, ptr %.sink38.i.i.i, i64 20
@@ -41751,7 +41751,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i202: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16DropoutParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %590, %587
   %.sink35.i.i.i204 = phi ptr [ %588, %587 ], [ %591, %590 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i.i204, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i.i204, align 8
   %.ptr.i.i.i.i205 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i204, i64 16
   store i32 0, ptr %.ptr.i.i.i.i205, align 4
   %594 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i204, i64 20
@@ -41862,7 +41862,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i210: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12ExpParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %642, %639
   %.sink36.i.i.i212 = phi ptr [ %640, %639 ], [ %643, %642 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i.i212, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i.i212, align 8
   %.ptr.i.i.i.i213 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i212, i64 16
   store i32 0, ptr %.ptr.i.i.i.i213, align 4
   %646 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i212, i64 20
@@ -41927,7 +41927,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i215: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17HDF5DataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %671, %668
   %.sink35.i.i.i217 = phi ptr [ %669, %668 ], [ %672, %671 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i.i217, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i.i217, align 8
   %.ptr.i.i.i.i218 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i217, i64 16
   store i32 0, ptr %.ptr.i.i.i.i218, align 4
   %675 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i217, i64 20
@@ -41990,7 +41990,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i220: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19HDF5OutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %699, %696
   %.sink34.i.i.i = phi ptr [ %697, %696 ], [ %700, %699 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
   %.ptr.i.i.i.i222 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i222, align 4
   %703 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 20
@@ -42051,7 +42051,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i224: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18HingeLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %726, %723
   %.sink34.i.i.i226 = phi ptr [ %724, %723 ], [ %727, %726 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i.i226, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i.i226, align 8
   %.ptr.i.i.i.i227 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i226, i64 16
   store i32 0, ptr %.ptr.i.i.i.i227, align 4
   %730 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i226, i64 20
@@ -42112,7 +42112,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i229: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ImageDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %753, %750
   %.sink40.i.i.i = phi ptr [ %751, %750 ], [ %754, %753 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i.i, align 8
   %.ptr.i.i.i.i231 = getelementptr inbounds nuw i8, ptr %.sink40.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i231, align 4
   %757 = getelementptr inbounds nuw i8, ptr %.sink40.i.i.i, i64 20
@@ -42185,7 +42185,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i233: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InfogainLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %786, %783
   %.sink34.i.i.i235 = phi ptr [ %784, %783 ], [ %787, %786 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i.i235, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i.i235, align 8
   %.ptr.i.i.i.i236 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i235, i64 16
   store i32 0, ptr %.ptr.i.i.i.i236, align 4
   %790 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i235, i64 20
@@ -42246,7 +42246,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i238: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InnerProductParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %813, %810
   %.sink34.i.i.i240 = phi ptr [ %811, %810 ], [ %814, %813 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i.i240, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i.i240, align 8
   %.ptr.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i240, i64 16
   %817 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i240, i64 45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %.ptr.i.i.i.i241, i8 0, i64 29, i1 false)
@@ -42307,7 +42307,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i243: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12LRNParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %840, %837
   %.sink36.i.i.i245 = phi ptr [ %838, %837 ], [ %841, %840 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i.i245, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i.i245, align 8
   %.ptr.i.i.i.i246 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i245, i64 16
   %844 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i245, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i246, i8 0, i64 16, i1 false)
@@ -42372,7 +42372,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i248: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19MemoryDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %869, %866
   %.sink32.i.i.i = phi ptr [ %867, %866 ], [ %870, %869 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i.i, align 8
   %.ptr.i.i.i.i250 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i250, i8 0, i64 24, i1 false)
   store ptr %.sink32.i.i.i, ptr %45, align 8
@@ -42429,7 +42429,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i252: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12MVNParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %894, %891
   %.sink34.i.i.i254 = phi ptr [ %892, %891 ], [ %895, %894 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i.i254, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i.i254, align 8
   %.ptr.i.i.i.i255 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i254, i64 16
   %898 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i254, i64 25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i.i255, i8 0, i64 9, i1 false)
@@ -42490,7 +42490,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i257: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16PoolingParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %921, %918
   %.sink34.i.i.i259 = phi ptr [ %919, %918 ], [ %922, %921 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i.i259, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i.i259, align 8
   %.ptr.i.i.i.i260 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i259, i64 16
   %925 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i259, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.ptr.i.i.i.i260, i8 0, i64 49, i1 false)
@@ -42551,7 +42551,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i262: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14PowerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %948, %945
   %.sink36.i.i.i264 = phi ptr [ %946, %945 ], [ %949, %948 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i.i264, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i.i264, align 8
   %.ptr.i.i.i.i265 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i264, i64 16
   store i32 0, ptr %.ptr.i.i.i.i265, align 4
   %952 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i264, i64 20
@@ -42616,7 +42616,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i267: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13ReLUParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %977, %974
   %.sink32.i.i.i269 = phi ptr [ %975, %974 ], [ %978, %977 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i.i269, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i.i269, align 8
   %.ptr.i.i.i.i270 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i269, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i270, i8 0, i64 16, i1 false)
   store ptr %.sink32.i.i.i269, ptr %41, align 8
@@ -42673,7 +42673,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i272: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SigmoidParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1002, %999
   %.sink34.i.i.i274 = phi ptr [ %1000, %999 ], [ %1003, %1002 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i.i274, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i.i274, align 8
   %.ptr.i.i.i.i275 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i274, i64 16
   store i32 0, ptr %.ptr.i.i.i.i275, align 4
   %1006 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i274, i64 20
@@ -42734,7 +42734,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i277: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SoftmaxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1029, %1026
   %.sink35.i.i.i279 = phi ptr [ %1027, %1026 ], [ %1030, %1029 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i.i279, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i.i279, align 8
   %.ptr.i.i.i.i280 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i279, i64 16
   store i32 0, ptr %.ptr.i.i.i.i280, align 4
   %1033 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i279, i64 20
@@ -42834,7 +42834,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i285: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13TanHParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1075, %1072
   %.sink34.i.i.i287 = phi ptr [ %1073, %1072 ], [ %1076, %1075 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i.i287, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i.i287, align 8
   %.ptr.i.i.i.i288 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i287, i64 16
   store i32 0, ptr %.ptr.i.i.i.i288, align 4
   %1079 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i287, i64 20
@@ -42895,7 +42895,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i290: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ThresholdParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1102, %1099
   %.sink34.i.i.i292 = phi ptr [ %1100, %1099 ], [ %1103, %1102 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i.i292, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i.i292, align 8
   %.ptr.i.i.i.i293 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i292, i64 16
   store i32 0, ptr %.ptr.i.i.i.i293, align 4
   %1106 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i292, i64 20
@@ -42956,7 +42956,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i295: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19WindowDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1129, %1126
   %.sink42.i.i.i = phi ptr [ %1127, %1126 ], [ %1130, %1129 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i.i, align 8
   %.ptr.i.i.i.i297 = getelementptr inbounds nuw i8, ptr %.sink42.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i297, align 4
   %1133 = getelementptr inbounds nuw i8, ptr %.sink42.i.i.i, i64 20
@@ -43033,7 +43033,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i299: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15PythonParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1164, %1161
   %.sink37.i.i.i = phi ptr [ %1162, %1161 ], [ %1165, %1164 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %.sink37.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %.sink37.i.i.i, align 8
   %.ptr.i.i.i.i301 = getelementptr inbounds nuw i8, ptr %.sink37.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i301, align 4
   %1168 = getelementptr inbounds nuw i8, ptr %.sink37.i.i.i, i64 20
@@ -43100,7 +43100,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i303: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14PReLUParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1194, %1191
   %.sink32.i.i.i305 = phi ptr [ %1192, %1191 ], [ %1195, %1194 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %.sink32.i.i.i305, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %.sink32.i.i.i305, align 8
   %.ptr.i.i.i.i306 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i305, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.ptr.i.i.i.i306, i8 0, i64 17, i1 false)
   store ptr %.sink32.i.i.i305, ptr %32, align 8
@@ -43157,7 +43157,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i308: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12SPPParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1219, %1216
   %.sink32.i.i.i310 = phi ptr [ %1217, %1216 ], [ %1220, %1219 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %.sink32.i.i.i310, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %.sink32.i.i.i310, align 8
   %.ptr.i.i.i.i311 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i310, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i.i311, i8 0, i64 20, i1 false)
   store ptr %.sink32.i.i.i310, ptr %31, align 8
@@ -43214,7 +43214,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i313: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16ReshapeParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1244, %1241
   %.sink33.i.i.i315 = phi ptr [ %1242, %1241 ], [ %1245, %1244 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %.sink33.i.i.i315, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %.sink33.i.i.i315, align 8
   %.ptr.i.i.i.i316 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i315, i64 16
   %1248 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i315, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i.i316, i8 0, i64 20, i1 false)
@@ -43273,7 +43273,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i318: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12LogParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1270, %1267
   %.sink36.i.i.i320 = phi ptr [ %1268, %1267 ], [ %1271, %1270 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %.sink36.i.i.i320, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %.sink36.i.i.i320, align 8
   %.ptr.i.i.i.i321 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i320, i64 16
   store i32 0, ptr %.ptr.i.i.i.i321, align 4
   %1274 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i320, i64 20
@@ -43338,7 +43338,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i323: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16FlattenParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1299, %1296
   %.sink35.i.i.i325 = phi ptr [ %1297, %1296 ], [ %1300, %1299 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %.sink35.i.i.i325, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %.sink35.i.i.i325, align 8
   %.ptr.i.i.i.i326 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i325, i64 16
   store i32 0, ptr %.ptr.i.i.i.i326, align 4
   %1303 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i325, i64 20
@@ -43401,7 +43401,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i328: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ReductionParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1327, %1324
   %.sink36.i.i.i330 = phi ptr [ %1325, %1324 ], [ %1328, %1327 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %.sink36.i.i.i330, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %.sink36.i.i.i330, align 8
   %.ptr.i.i.i.i331 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i330, i64 16
   store i32 0, ptr %.ptr.i.i.i.i331, align 4
   %1331 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i330, i64 20
@@ -43466,7 +43466,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i333: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14EmbedParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1356, %1353
   %.sink33.i.i.i335 = phi ptr [ %1354, %1353 ], [ %1357, %1356 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %.sink33.i.i.i335, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %.sink33.i.i.i335, align 8
   %.ptr.i.i.i.i336 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i335, i64 16
   %1360 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i335, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i336, i8 0, i64 32, i1 false)
@@ -43525,7 +43525,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i338: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13TileParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1382, %1379
   %.sink35.i.i.i340 = phi ptr [ %1380, %1379 ], [ %1383, %1382 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %.sink35.i.i.i340, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %.sink35.i.i.i340, align 8
   %.ptr.i.i.i.i341 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i340, i64 16
   store i32 0, ptr %.ptr.i.i.i.i341, align 4
   %1386 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i340, i64 20
@@ -43588,7 +43588,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i343: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18BatchNormParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1410, %1407
   %.sink36.i.i.i345 = phi ptr [ %1408, %1407 ], [ %1411, %1410 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %.sink36.i.i.i345, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %.sink36.i.i.i345, align 8
   %.ptr.i.i.i.i346 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i345, i64 16
   store i32 0, ptr %.ptr.i.i.i.i346, align 4
   %1414 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i345, i64 20
@@ -43653,7 +43653,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i348: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12ELUParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1439, %1436
   %.sink34.i.i.i350 = phi ptr [ %1437, %1436 ], [ %1440, %1439 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %.sink34.i.i.i350, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %.sink34.i.i.i350, align 8
   %.ptr.i.i.i.i351 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i350, i64 16
   store i32 0, ptr %.ptr.i.i.i.i351, align 4
   %1443 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i350, i64 20
@@ -43714,7 +43714,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i353: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13BiasParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1466, %1463
   %.sink34.i.i.i355 = phi ptr [ %1464, %1463 ], [ %1467, %1466 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %.sink34.i.i.i355, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %.sink34.i.i.i355, align 8
   %.ptr.i.i.i.i356 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i355, i64 16
   %1470 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i355, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i356, i8 0, i64 16, i1 false)
@@ -43775,7 +43775,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i358: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14ScaleParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1493, %1490
   %.sink34.i.i.i360 = phi ptr [ %1491, %1490 ], [ %1494, %1493 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %.sink34.i.i.i360, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %.sink34.i.i.i360, align 8
   %.ptr.i.i.i.i361 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i360, i64 16
   %1497 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i360, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.ptr.i.i.i.i361, i8 0, i64 25, i1 false)
@@ -43825,7 +43825,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i363: ; preds = 
   %1518 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %1519 = getelementptr inbounds nuw i8, ptr %1518, i64 8
   store i64 0, ptr %1519, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %1518, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %1518, align 8
   %1520 = getelementptr inbounds nuw i8, ptr %1518, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1520, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14InputParameterEEEPT_PNS0_5ArenaE.exit.i
@@ -43835,7 +43835,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i363: ; preds = 
   %1523 = getelementptr inbounds nuw i8, ptr %1522, i64 8
   %1524 = ptrtoint ptr %.0.i.i364 to i64
   store i64 %1524, ptr %1523, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %1522, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %1522, align 8
   %1525 = getelementptr inbounds nuw i8, ptr %1522, i64 16
   store ptr %.0.i.i364, ptr %1525, align 8
   %1526 = getelementptr inbounds nuw i8, ptr %1522, i64 24
@@ -43935,7 +43935,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i369: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ParameterParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1566, %1563
   %.sink32.i.i.i371 = phi ptr [ %1564, %1563 ], [ %1567, %1566 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %.sink32.i.i.i371, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %.sink32.i.i.i371, align 8
   %.ptr.i.i.i.i372 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i371, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i372, i8 0, i64 16, i1 false)
   store ptr %.sink32.i.i.i371, ptr %18, align 8
@@ -43992,7 +43992,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i374: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18RecurrentParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1591, %1588
   %.sink32.i.i.i376 = phi ptr [ %1589, %1588 ], [ %1592, %1591 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %.sink32.i.i.i376, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %.sink32.i.i.i376, align 8
   %.ptr.i.i.i.i377 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i376, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %.ptr.i.i.i.i377, i8 0, i64 30, i1 false)
   store ptr %.sink32.i.i.i376, ptr %17, align 8
@@ -44049,7 +44049,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i379: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe24DetectionOutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1616, %1613
   %.sink36.i.i.i381 = phi ptr [ %1614, %1613 ], [ %1617, %1616 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %.sink36.i.i.i381, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %.sink36.i.i.i381, align 8
   %.ptr.i.i.i.i382 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i381, i64 16
   %1620 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i381, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %.ptr.i.i.i.i382, i8 0, i64 38, i1 false)
@@ -44151,7 +44151,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i387: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe22NormalizeBBoxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1663, %1660
   %.sink35.i.i.i389 = phi ptr [ %1661, %1660 ], [ %1664, %1663 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %.sink35.i.i.i389, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %.sink35.i.i.i389, align 8
   %.ptr.i.i.i.i390 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i389, i64 16
   %1667 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i389, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i390, i8 0, i64 16, i1 false)
@@ -44262,7 +44262,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i395: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21PSROIPoolingParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1715, %1712
   %.sink32.i.i.i397 = phi ptr [ %1713, %1712 ], [ %1716, %1715 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %.sink32.i.i.i397, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %.sink32.i.i.i397, align 8
   %.ptr.i.i.i.i398 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i397, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i.i398, i8 0, i64 20, i1 false)
   store ptr %.sink32.i.i.i397, ptr %12, align 8
@@ -44319,7 +44319,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i400: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19ROIPoolingParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1740, %1737
   %.sink33.i.i.i402 = phi ptr [ %1738, %1737 ], [ %1741, %1740 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %.sink33.i.i.i402, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %.sink33.i.i.i402, align 8
   %.ptr.i.i.i.i403 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i402, i64 16
   %1744 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i402, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i403, i8 0, i64 16, i1 false)
@@ -51223,7 +51223,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i223: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13LossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %103, %100
   %.sink33.i.i.i = phi ptr [ %101, %100 ], [ %104, %103 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i, i64 16
   %107 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %.ptr.i.i.i.i, i8 0, i64 13, i1 false)
@@ -51288,7 +51288,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i227: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17AccuracyParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %133, %130
   %.sink36.i.i.i = phi ptr [ %131, %130 ], [ %134, %133 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i.i, align 8
   %.ptr.i.i.i.i229 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i229, align 4
   %137 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 20
@@ -51359,7 +51359,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i232: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ArgMaxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %166, %163
   %.sink33.i.i.i234 = phi ptr [ %164, %163 ], [ %167, %166 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i.i234, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i.i234, align 8
   %.ptr.i.i.i.i235 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i234, i64 16
   %170 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i234, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i235, i8 0, i64 16, i1 false)
@@ -51424,7 +51424,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i238: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ConcatParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %196, %193
   %.sink35.i.i.i = phi ptr [ %194, %193 ], [ %197, %196 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i240, align 4
   %200 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 20
@@ -51493,7 +51493,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i243: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe24ContrastiveLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %228, %225
   %.sink33.i.i.i245 = phi ptr [ %226, %225 ], [ %229, %228 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i.i245, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i.i245, align 8
   %.ptr.i.i.i.i246 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i245, i64 16
   %232 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i245, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i.i246, i8 0, i64 9, i1 false)
@@ -51577,7 +51577,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i250: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13DataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %267, %264
   %.sink38.i.i.i = phi ptr [ %265, %264 ], [ %268, %267 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i.i, align 8
   %.ptr.i.i.i.i252 = getelementptr inbounds nuw i8, ptr %.sink38.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i252, align 4
   %271 = getelementptr inbounds nuw i8, ptr %.sink38.i.i.i, i64 20
@@ -51652,7 +51652,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i255: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16DropoutParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %302, %299
   %.sink35.i.i.i257 = phi ptr [ %300, %299 ], [ %303, %302 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i.i257, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i.i257, align 8
   %.ptr.i.i.i.i258 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i257, i64 16
   store i32 0, ptr %.ptr.i.i.i.i258, align 4
   %306 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i257, i64 20
@@ -51778,7 +51778,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i266: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12ExpParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %363, %360
   %.sink36.i.i.i268 = phi ptr [ %361, %360 ], [ %364, %363 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i.i268, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i.i268, align 8
   %.ptr.i.i.i.i269 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i268, i64 16
   store i32 0, ptr %.ptr.i.i.i.i269, align 4
   %367 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i268, i64 20
@@ -51849,7 +51849,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i272: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17HDF5DataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %396, %393
   %.sink35.i.i.i274 = phi ptr [ %394, %393 ], [ %397, %396 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i.i274, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i.i274, align 8
   %.ptr.i.i.i.i275 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i274, i64 16
   store i32 0, ptr %.ptr.i.i.i.i275, align 4
   %400 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i274, i64 20
@@ -51918,7 +51918,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i278: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19HDF5OutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %428, %425
   %.sink34.i.i.i = phi ptr [ %426, %425 ], [ %429, %428 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
   %.ptr.i.i.i.i280 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i280, align 4
   %432 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 20
@@ -51990,7 +51990,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i283: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18HingeLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %461, %458
   %.sink34.i.i.i285 = phi ptr [ %459, %458 ], [ %462, %461 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i.i285, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i.i285, align 8
   %.ptr.i.i.i.i286 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i285, i64 16
   store i32 0, ptr %.ptr.i.i.i.i286, align 4
   %465 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i285, i64 20
@@ -52127,7 +52127,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i292: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ImageDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %528, %525
   %.sink40.i.i.i = phi ptr [ %526, %525 ], [ %529, %528 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i.i, align 8
   %.ptr.i.i.i.i294 = getelementptr inbounds nuw i8, ptr %.sink40.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i294, align 4
   %532 = getelementptr inbounds nuw i8, ptr %.sink40.i.i.i, i64 20
@@ -52206,7 +52206,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i297: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InfogainLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %565, %562
   %.sink34.i.i.i299 = phi ptr [ %563, %562 ], [ %566, %565 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i.i299, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i.i299, align 8
   %.ptr.i.i.i.i300 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i299, i64 16
   store i32 0, ptr %.ptr.i.i.i.i300, align 4
   %569 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i299, i64 20
@@ -52273,7 +52273,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i303: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InnerProductParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %596, %593
   %.sink34.i.i.i305 = phi ptr [ %594, %593 ], [ %597, %596 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i.i305, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i.i305, align 8
   %.ptr.i.i.i.i306 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i305, i64 16
   %600 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i305, i64 45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %.ptr.i.i.i.i306, i8 0, i64 29, i1 false)
@@ -52340,7 +52340,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i309: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12LRNParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %627, %624
   %.sink36.i.i.i311 = phi ptr [ %625, %624 ], [ %628, %627 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i.i311, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i.i311, align 8
   %.ptr.i.i.i.i312 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i311, i64 16
   %631 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i311, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i312, i8 0, i64 16, i1 false)
@@ -52411,7 +52411,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i315: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19MemoryDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %660, %657
   %.sink32.i.i.i = phi ptr [ %658, %657 ], [ %661, %660 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i.i, align 8
   %.ptr.i.i.i.i317 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i317, i8 0, i64 24, i1 false)
   store ptr %.sink32.i.i.i, ptr %645, align 8
@@ -52474,7 +52474,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i320: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12MVNParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %689, %686
   %.sink34.i.i.i322 = phi ptr [ %687, %686 ], [ %690, %689 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i.i322, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i.i322, align 8
   %.ptr.i.i.i.i323 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i322, i64 16
   %693 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i322, i64 25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i.i323, i8 0, i64 9, i1 false)
@@ -52541,7 +52541,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i326: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16PoolingParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %720, %717
   %.sink34.i.i.i328 = phi ptr [ %718, %717 ], [ %721, %720 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i.i328, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i.i328, align 8
   %.ptr.i.i.i.i329 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i328, i64 16
   %724 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i328, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.ptr.i.i.i.i329, i8 0, i64 49, i1 false)
@@ -52612,7 +52612,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i332: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14PowerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %752, %749
   %.sink36.i.i.i334 = phi ptr [ %750, %749 ], [ %753, %752 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i.i334, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i.i334, align 8
   %.ptr.i.i.i.i335 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i334, i64 16
   store i32 0, ptr %.ptr.i.i.i.i335, align 4
   %756 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i334, i64 20
@@ -52683,7 +52683,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i338: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13ReLUParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %785, %782
   %.sink32.i.i.i340 = phi ptr [ %783, %782 ], [ %786, %785 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i.i340, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i.i340, align 8
   %.ptr.i.i.i.i341 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i340, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i341, i8 0, i64 16, i1 false)
   store ptr %.sink32.i.i.i340, ptr %770, align 8
@@ -52746,7 +52746,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i344: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SigmoidParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %814, %811
   %.sink34.i.i.i346 = phi ptr [ %812, %811 ], [ %815, %814 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i.i346, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i.i346, align 8
   %.ptr.i.i.i.i347 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i346, i64 16
   store i32 0, ptr %.ptr.i.i.i.i347, align 4
   %818 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i346, i64 20
@@ -52883,7 +52883,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i359: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SoftmaxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %881, %878
   %.sink35.i.i.i361 = phi ptr [ %879, %878 ], [ %882, %881 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i.i361, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i.i361, align 8
   %.ptr.i.i.i.i362 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i361, i64 16
   store i32 0, ptr %.ptr.i.i.i.i362, align 4
   %885 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i361, i64 20
@@ -52995,7 +52995,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i369: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13TanHParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %935, %932
   %.sink34.i.i.i371 = phi ptr [ %933, %932 ], [ %936, %935 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i.i371, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i.i371, align 8
   %.ptr.i.i.i.i372 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i371, i64 16
   store i32 0, ptr %.ptr.i.i.i.i372, align 4
   %939 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i371, i64 20
@@ -53132,7 +53132,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i384: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ThresholdParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1002, %999
   %.sink34.i.i.i386 = phi ptr [ %1000, %999 ], [ %1003, %1002 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i.i386, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i.i386, align 8
   %.ptr.i.i.i.i387 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i386, i64 16
   store i32 0, ptr %.ptr.i.i.i.i387, align 4
   %1006 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i386, i64 20
@@ -53268,7 +53268,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i399: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19WindowDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1068, %1065
   %.sink42.i.i.i = phi ptr [ %1066, %1065 ], [ %1069, %1068 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i.i, align 8
   %.ptr.i.i.i.i401 = getelementptr inbounds nuw i8, ptr %.sink42.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i401, align 4
   %1072 = getelementptr inbounds nuw i8, ptr %.sink42.i.i.i, i64 20
@@ -53358,7 +53358,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i404: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15PythonParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1111, %1108
   %.sink37.i.i.i = phi ptr [ %1109, %1108 ], [ %1112, %1111 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %.sink37.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %.sink37.i.i.i, align 8
   %.ptr.i.i.i.i406 = getelementptr inbounds nuw i8, ptr %.sink37.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i406, align 4
   %1115 = getelementptr inbounds nuw i8, ptr %.sink37.i.i.i, i64 20
@@ -53431,7 +53431,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i409: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14PReLUParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1145, %1142
   %.sink32.i.i.i411 = phi ptr [ %1143, %1142 ], [ %1146, %1145 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %.sink32.i.i.i411, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %.sink32.i.i.i411, align 8
   %.ptr.i.i.i.i412 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i411, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.ptr.i.i.i.i412, i8 0, i64 17, i1 false)
   store ptr %.sink32.i.i.i411, ptr %1130, align 8
@@ -53494,7 +53494,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i415: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12SPPParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1174, %1171
   %.sink32.i.i.i417 = phi ptr [ %1172, %1171 ], [ %1175, %1174 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %.sink32.i.i.i417, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %.sink32.i.i.i417, align 8
   %.ptr.i.i.i.i418 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i417, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i.i418, i8 0, i64 20, i1 false)
   store ptr %.sink32.i.i.i417, ptr %1159, align 8
@@ -53557,7 +53557,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i421: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16ReshapeParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1203, %1200
   %.sink33.i.i.i423 = phi ptr [ %1201, %1200 ], [ %1204, %1203 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %.sink33.i.i.i423, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %.sink33.i.i.i423, align 8
   %.ptr.i.i.i.i424 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i423, i64 16
   %1207 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i423, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i.i424, i8 0, i64 20, i1 false)
@@ -53622,7 +53622,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i427: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12LogParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1233, %1230
   %.sink36.i.i.i429 = phi ptr [ %1231, %1230 ], [ %1234, %1233 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %.sink36.i.i.i429, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %.sink36.i.i.i429, align 8
   %.ptr.i.i.i.i430 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i429, i64 16
   store i32 0, ptr %.ptr.i.i.i.i430, align 4
   %1237 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i429, i64 20
@@ -53693,7 +53693,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i433: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16FlattenParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1266, %1263
   %.sink35.i.i.i435 = phi ptr [ %1264, %1263 ], [ %1267, %1266 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %.sink35.i.i.i435, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %.sink35.i.i.i435, align 8
   %.ptr.i.i.i.i436 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i435, i64 16
   store i32 0, ptr %.ptr.i.i.i.i436, align 4
   %1270 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i435, i64 20
@@ -53762,7 +53762,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i439: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ReductionParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1298, %1295
   %.sink36.i.i.i441 = phi ptr [ %1296, %1295 ], [ %1299, %1298 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %.sink36.i.i.i441, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %.sink36.i.i.i441, align 8
   %.ptr.i.i.i.i442 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i441, i64 16
   store i32 0, ptr %.ptr.i.i.i.i442, align 4
   %1302 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i441, i64 20
@@ -53833,7 +53833,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i445: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14EmbedParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1331, %1328
   %.sink33.i.i.i447 = phi ptr [ %1329, %1328 ], [ %1332, %1331 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %.sink33.i.i.i447, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %.sink33.i.i.i447, align 8
   %.ptr.i.i.i.i448 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i447, i64 16
   %1335 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i447, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i448, i8 0, i64 32, i1 false)
@@ -53903,7 +53903,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i451: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13TileParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1363, %1360
   %.sink35.i.i.i453 = phi ptr [ %1361, %1360 ], [ %1364, %1363 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %.sink35.i.i.i453, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %.sink35.i.i.i453, align 8
   %.ptr.i.i.i.i454 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i453, i64 16
   store i32 0, ptr %.ptr.i.i.i.i454, align 4
   %1367 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i453, i64 20
@@ -53972,7 +53972,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i457: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18BatchNormParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1395, %1392
   %.sink36.i.i.i459 = phi ptr [ %1393, %1392 ], [ %1396, %1395 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %.sink36.i.i.i459, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %.sink36.i.i.i459, align 8
   %.ptr.i.i.i.i460 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i459, i64 16
   store i32 0, ptr %.ptr.i.i.i.i460, align 4
   %1399 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i459, i64 20
@@ -54043,7 +54043,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i463: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12ELUParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1428, %1425
   %.sink34.i.i.i465 = phi ptr [ %1426, %1425 ], [ %1429, %1428 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %.sink34.i.i.i465, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %.sink34.i.i.i465, align 8
   %.ptr.i.i.i.i466 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i465, i64 16
   store i32 0, ptr %.ptr.i.i.i.i466, align 4
   %1432 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i465, i64 20
@@ -54180,7 +54180,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i478: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13BiasParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1495, %1492
   %.sink34.i.i.i480 = phi ptr [ %1493, %1492 ], [ %1496, %1495 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %.sink34.i.i.i480, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %.sink34.i.i.i480, align 8
   %.ptr.i.i.i.i481 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i480, i64 16
   %1499 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i480, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i481, i8 0, i64 16, i1 false)
@@ -54247,7 +54247,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i484: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14ScaleParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1526, %1523
   %.sink34.i.i.i486 = phi ptr [ %1524, %1523 ], [ %1527, %1526 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %.sink34.i.i.i486, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %.sink34.i.i.i486, align 8
   %.ptr.i.i.i.i487 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i486, i64 16
   %1530 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i486, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.ptr.i.i.i.i487, i8 0, i64 25, i1 false)
@@ -54303,7 +54303,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i490: ; preds = 
   %1555 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 8
   store i64 0, ptr %1556, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %1555, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %1555, align 8
   %1557 = getelementptr inbounds nuw i8, ptr %1555, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1557, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14InputParameterEEEPT_PNS0_5ArenaE.exit.i
@@ -54313,7 +54313,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i490: ; preds = 
   %1560 = getelementptr inbounds nuw i8, ptr %1559, i64 8
   %1561 = ptrtoint ptr %.0.i.i491 to i64
   store i64 %1561, ptr %1560, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %1559, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %1559, align 8
   %1562 = getelementptr inbounds nuw i8, ptr %1559, i64 16
   store ptr %.0.i.i491, ptr %1562, align 8
   %1563 = getelementptr inbounds nuw i8, ptr %1559, i64 24
@@ -54425,7 +54425,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i498: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ParameterParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1611, %1608
   %.sink32.i.i.i500 = phi ptr [ %1609, %1608 ], [ %1612, %1611 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %.sink32.i.i.i500, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %.sink32.i.i.i500, align 8
   %.ptr.i.i.i.i501 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i500, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i501, i8 0, i64 16, i1 false)
   store ptr %.sink32.i.i.i500, ptr %1596, align 8
@@ -54493,7 +54493,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i504: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18RecurrentParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1642, %1639
   %.sink32.i.i.i506 = phi ptr [ %1640, %1639 ], [ %1643, %1642 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %.sink32.i.i.i506, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %.sink32.i.i.i506, align 8
   %.ptr.i.i.i.i507 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i506, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %.ptr.i.i.i.i507, i8 0, i64 30, i1 false)
   store ptr %.sink32.i.i.i506, ptr %1627, align 8
@@ -54556,7 +54556,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i510: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe24DetectionOutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1671, %1668
   %.sink36.i.i.i512 = phi ptr [ %1669, %1668 ], [ %1672, %1671 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %.sink36.i.i.i512, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %.sink36.i.i.i512, align 8
   %.ptr.i.i.i.i513 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i512, i64 16
   %1675 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i512, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %.ptr.i.i.i.i513, i8 0, i64 38, i1 false)
@@ -54725,7 +54725,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i528: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe22NormalizeBBoxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1753, %1750
   %.sink35.i.i.i530 = phi ptr [ %1751, %1750 ], [ %1754, %1753 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %.sink35.i.i.i530, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %.sink35.i.i.i530, align 8
   %.ptr.i.i.i.i531 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i530, i64 16
   %1757 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i530, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i531, i8 0, i64 16, i1 false)
@@ -54851,7 +54851,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i539: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21PSROIPoolingParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1814, %1811
   %.sink32.i.i.i541 = phi ptr [ %1812, %1811 ], [ %1815, %1814 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %.sink32.i.i.i541, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %.sink32.i.i.i541, align 8
   %.ptr.i.i.i.i542 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i541, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i.i542, i8 0, i64 20, i1 false)
   store ptr %.sink32.i.i.i541, ptr %1799, align 8
@@ -54914,7 +54914,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i545: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19ROIPoolingParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1843, %1840
   %.sink33.i.i.i547 = phi ptr [ %1841, %1840 ], [ %1844, %1843 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %.sink33.i.i.i547, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %.sink33.i.i.i547, align 8
   %.ptr.i.i.i.i548 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i547, i64 16
   %1847 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i547, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i548, i8 0, i64 16, i1 false)
@@ -55785,7 +55785,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %29
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %35, %32
   %.sink35.i.i.i = phi ptr [ %33, %32 ], [ %36, %35 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -55854,7 +55854,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i71: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i73: ; preds = %67, %64
   %.sink35.i.i.i74 = phi ptr [ %65, %64 ], [ %68, %67 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i74, align 8
   %.ptr.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i74, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i74, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i75, i8 0, i64 32, i1 false)
@@ -57624,7 +57624,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %27, %24
   %.sink35.i.i.i = phi ptr [ %25, %24 ], [ %28, %27 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -57693,7 +57693,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i38: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i40: ; preds = %59, %56
   %.sink35.i.i.i41 = phi ptr [ %57, %56 ], [ %60, %59 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i41, align 8
   %.ptr.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i41, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i41, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i42, i8 0, i64 32, i1 false)
@@ -59679,7 +59679,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %27, %24
   %.sink35.i.i.i = phi ptr [ %25, %24 ], [ %28, %27 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -60465,7 +60465,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %27, %24
   %.sink35.i.i.i = phi ptr [ %25, %24 ], [ %28, %27 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -60534,7 +60534,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i35: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i37: ; preds = %59, %56
   %.sink35.i.i.i38 = phi ptr [ %57, %56 ], [ %60, %59 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i38, align 8
   %.ptr.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i38, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i38, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i39, i8 0, i64 32, i1 false)
@@ -61018,7 +61018,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %27, %24
   %.sink35.i.i.i = phi ptr [ %25, %24 ], [ %28, %27 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -61186,7 +61186,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %27, %24
   %.sink35.i.i.i = phi ptr [ %25, %24 ], [ %28, %27 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -61255,7 +61255,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i35: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i37: ; preds = %59, %56
   %.sink35.i.i.i38 = phi ptr [ %57, %56 ], [ %60, %59 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i38, align 8
   %.ptr.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i38, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i38, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i39, i8 0, i64 32, i1 false)
@@ -61870,7 +61870,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %21
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %27, %24
   %.sink35.i.i.i = phi ptr [ %25, %24 ], [ %28, %27 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -61939,7 +61939,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i35: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i37: ; preds = %59, %56
   %.sink35.i.i.i38 = phi ptr [ %57, %56 ], [ %60, %59 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i38, align 8
   %.ptr.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i38, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i38, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i39, i8 0, i64 32, i1 false)
@@ -62786,7 +62786,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal7memswapILi436EEENS
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe14LayerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 240))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 240))
   ret { ptr, ptr } %2
 }
 
@@ -62797,7 +62797,7 @@ define hidden void @_ZN12opencv_caffe23TransformationParameterC2EPN6google8proto
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe23TransformationParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe23TransformationParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -62826,7 +62826,7 @@ define hidden void @_ZN12opencv_caffe23TransformationParameterC2EPN6google8proto
 define hidden void @_ZN12opencv_caffe23TransformationParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe23TransformationParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe23TransformationParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -63040,7 +63040,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN12opencv_caffe23TransformationParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %34 = load i64, ptr %2, align 8
   %35 = and i64 %34, 2
   %.not.i.i.i = icmp eq i64 %35, 0
@@ -64011,7 +64011,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe23TransformationParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 256))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 256))
   ret { ptr, ptr } %2
 }
 
@@ -64022,7 +64022,7 @@ define hidden void @_ZN12opencv_caffe13LossParameterC2EPN6google8protobuf5ArenaE
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %.ptr, i8 0, i64 13, i1 false)
@@ -64034,7 +64034,7 @@ define hidden void @_ZN12opencv_caffe13LossParameterC2EPN6google8protobuf5ArenaE
 define hidden void @_ZN12opencv_caffe13LossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -64132,7 +64132,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -64863,7 +64863,7 @@ define hidden void @_ZN12opencv_caffe13LossParameter12InternalSwapEPS0_(ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe13LossParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 272))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 272))
   ret { ptr, ptr } %2
 }
 
@@ -64874,7 +64874,7 @@ define hidden void @_ZN12opencv_caffe17AccuracyParameterC2EPN6google8protobuf5Ar
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -64892,7 +64892,7 @@ define hidden void @_ZN12opencv_caffe17AccuracyParameterC2EPN6google8protobuf5Ar
 define hidden void @_ZN12opencv_caffe17AccuracyParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -64990,7 +64990,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -65703,7 +65703,7 @@ define hidden void @_ZN12opencv_caffe17AccuracyParameter12InternalSwapEPS0_(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe17AccuracyParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 288))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 288))
   ret { ptr, ptr } %2
 }
 
@@ -65714,7 +65714,7 @@ define hidden void @_ZN12opencv_caffe15ArgMaxParameterC2EPN6google8protobuf5Aren
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr, i8 0, i64 16, i1 false)
@@ -65726,7 +65726,7 @@ define hidden void @_ZN12opencv_caffe15ArgMaxParameterC2EPN6google8protobuf5Aren
 define hidden void @_ZN12opencv_caffe15ArgMaxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -65824,7 +65824,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -66488,7 +66488,7 @@ define hidden void @_ZN12opencv_caffe15ArgMaxParameter12InternalSwapEPS0_(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe15ArgMaxParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 304))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 304))
   ret { ptr, ptr } %2
 }
 
@@ -66499,7 +66499,7 @@ define hidden void @_ZN12opencv_caffe15ConcatParameterC2EPN6google8protobuf5Aren
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -66515,7 +66515,7 @@ define hidden void @_ZN12opencv_caffe15ConcatParameterC2EPN6google8protobuf5Aren
 define hidden void @_ZN12opencv_caffe15ConcatParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -66614,7 +66614,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -67197,7 +67197,7 @@ define hidden void @_ZN12opencv_caffe15ConcatParameter12InternalSwapEPS0_(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe15ConcatParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 320))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 320))
   ret { ptr, ptr } %2
 }
 
@@ -67208,7 +67208,7 @@ define hidden void @_ZN12opencv_caffe18BatchNormParameterC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -67226,7 +67226,7 @@ define hidden void @_ZN12opencv_caffe18BatchNormParameterC2EPN6google8protobuf5A
 define hidden void @_ZN12opencv_caffe18BatchNormParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -67324,7 +67324,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -67922,7 +67922,7 @@ define hidden void @_ZN12opencv_caffe18BatchNormParameter12InternalSwapEPS0_(ptr
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe18BatchNormParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 336))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 336))
   ret { ptr, ptr } %2
 }
 
@@ -67940,7 +67940,7 @@ define hidden void @_ZN12opencv_caffe13BiasParameterC2EPN6google8protobuf5ArenaE
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr, i8 0, i64 16, i1 false)
@@ -67954,7 +67954,7 @@ define hidden void @_ZN12opencv_caffe13BiasParameterC2EPN6google8protobuf5ArenaE
 define hidden void @_ZN12opencv_caffe13BiasParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -68119,7 +68119,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %16, %_ZN12opencv_caffe13BiasParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %34 = phi i64 [ %.pre3, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %15, %16 ], [ %15, %_ZN12opencv_caffe13BiasParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %35 = and i64 %34, 2
   %.not.i.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %36
@@ -68386,7 +68386,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %10
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %106, %103
   %.sink35.i.i.i = phi ptr [ %104, %103 ], [ %107, %106 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %110 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -68807,7 +68807,7 @@ define hidden void @_ZN12opencv_caffe13BiasParameter12InternalSwapEPS0_(ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe13BiasParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 352))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 352))
   ret { ptr, ptr } %2
 }
 
@@ -68818,7 +68818,7 @@ define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterC2EPN6google8prot
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr, i8 0, i64 9, i1 false)
@@ -68830,7 +68830,7 @@ define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterC2EPN6google8prot
 define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -68929,7 +68929,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -69399,7 +69399,7 @@ define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter12InternalSwapEPS
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe24ContrastiveLossParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 368))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 368))
   ret { ptr, ptr } %2
 }
 
@@ -69424,7 +69424,7 @@ define hidden void @_ZN12opencv_caffe20ConvolutionParameterC2EPN6google8protobuf
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe20ConvolutionParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe20ConvolutionParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -69500,7 +69500,7 @@ define hidden void @_ZN12opencv_caffe20ConvolutionParameterC2EPN6google8protobuf
 define hidden void @_ZN12opencv_caffe20ConvolutionParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe20ConvolutionParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe20ConvolutionParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -69809,7 +69809,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #23
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %44 = load i64, ptr %2, align 8
   %45 = and i64 %44, 2
   %.not.i.i.i = icmp eq i64 %45, 0
@@ -70363,7 +70363,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %22
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %233, %230
   %.sink35.i.i.i = phi ptr [ %231, %230 ], [ %234, %233 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %237 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -70426,7 +70426,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i80: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i82: ; preds = %261, %258
   %.sink35.i.i.i83 = phi ptr [ %259, %258 ], [ %262, %261 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i83, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i83, align 8
   %.ptr.i.i.i.i84 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i83, i64 16
   %265 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i83, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i84, i8 0, i64 32, i1 false)
@@ -72442,7 +72442,7 @@ define hidden void @_ZN12opencv_caffe20ConvolutionParameter12InternalSwapEPS0_(p
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe20ConvolutionParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 384))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 384))
   ret { ptr, ptr } %2
 }
 
@@ -72453,7 +72453,7 @@ define hidden void @_ZN12opencv_caffe13CropParameterC2EPN6google8protobuf5ArenaE
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13CropParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13CropParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -72478,7 +72478,7 @@ define hidden void @_ZN12opencv_caffe13CropParameterC2EPN6google8protobuf5ArenaE
 define hidden void @_ZN12opencv_caffe13CropParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13CropParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13CropParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -72631,7 +72631,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = load i64, ptr %2, align 8
   %23 = and i64 %22, 2
   %.not.i.i.i = icmp eq i64 %23, 0
@@ -73219,7 +73219,7 @@ define hidden void @_ZN12opencv_caffe13CropParameter12InternalSwapEPS0_(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe13CropParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 400))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 400))
   ret { ptr, ptr } %2
 }
 
@@ -73230,7 +73230,7 @@ define hidden void @_ZN12opencv_caffe13DataParameterC2EPN6google8protobuf5ArenaE
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -73252,7 +73252,7 @@ define hidden void @_ZN12opencv_caffe13DataParameterC2EPN6google8protobuf5ArenaE
 define hidden void @_ZN12opencv_caffe13DataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -73447,7 +73447,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %20, %_ZN12opencv_caffe13DataParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %38 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %18, %20 ], [ %18, %_ZN12opencv_caffe13DataParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %39 = and i64 %38, 2
   %.not.i.i.i = icmp eq i64 %39, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %40
@@ -74939,7 +74939,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe13DataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 416))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 416))
   ret { ptr, ptr } %2
 }
 
@@ -74950,7 +74950,7 @@ define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterC2EPN6googl
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -74968,7 +74968,7 @@ define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterC2EPN6googl
 define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -75066,7 +75066,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -75626,7 +75626,7 @@ define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter12InternalS
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe30NonMaximumSuppressionParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 432))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 432))
   ret { ptr, ptr } %2
 }
 
@@ -75637,7 +75637,7 @@ define hidden void @_ZN12opencv_caffe19SaveOutputParameterC2EPN6google8protobuf5
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -75661,7 +75661,7 @@ define hidden void @_ZN12opencv_caffe19SaveOutputParameterC2EPN6google8protobuf5
 define hidden void @_ZN12opencv_caffe19SaveOutputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -75977,7 +75977,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %32, %_ZN12opencv_caffe19SaveOutputParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %50 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %30, %32 ], [ %30, %_ZN12opencv_caffe19SaveOutputParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %51 = and i64 %50, 2
   %.not.i.i.i = icmp eq i64 %51, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %52
@@ -76956,7 +76956,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe19SaveOutputParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 448))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 448))
   ret { ptr, ptr } %2
 }
 
@@ -76967,7 +76967,7 @@ define hidden void @_ZN12opencv_caffe16DropoutParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -76983,7 +76983,7 @@ define hidden void @_ZN12opencv_caffe16DropoutParameterC2EPN6google8protobuf5Are
 define hidden void @_ZN12opencv_caffe16DropoutParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -77081,7 +77081,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -77550,7 +77550,7 @@ define hidden void @_ZN12opencv_caffe16DropoutParameter12InternalSwapEPS0_(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16DropoutParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 464))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 464))
   ret { ptr, ptr } %2
 }
 
@@ -77561,7 +77561,7 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameterC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18DummyDataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18DummyDataParameterE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -77659,7 +77659,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN12opencv
 define hidden void @_ZN12opencv_caffe18DummyDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18DummyDataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18DummyDataParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -77965,7 +77965,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobShapeEED2Ev.exit: ; pr
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe15FillerParameterEED2Ev.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobShapeEED2Ev.exit, %41
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %45 = load i64, ptr %2, align 8
   %46 = and i64 %45, 2
   %.not.i.i.i = icmp eq i64 %46, 0
@@ -78161,7 +78161,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN12opencv_caffe15FillerParameterEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i: ; preds = %85, %82
   %.sink35.i.i.i.i.i.i = phi ptr [ %83, %82 ], [ %86, %85 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i.i.i.i, align 8
   %.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i.i.i.i, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i.i.i.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
@@ -79218,7 +79218,7 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameter12InternalSwapEPS0_(ptr
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe18DummyDataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 480))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 480))
   ret { ptr, ptr } %2
 }
 
@@ -79229,7 +79229,7 @@ define hidden void @_ZN12opencv_caffe16EltwiseParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16EltwiseParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16EltwiseParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -79256,7 +79256,7 @@ define hidden void @_ZN12opencv_caffe16EltwiseParameterC2EPN6google8protobuf5Are
 define hidden void @_ZN12opencv_caffe16EltwiseParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16EltwiseParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16EltwiseParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -79408,7 +79408,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = load i64, ptr %2, align 8
   %23 = and i64 %22, 2
   %.not.i.i.i = icmp eq i64 %23, 0
@@ -80090,7 +80090,7 @@ define hidden void @_ZN12opencv_caffe16EltwiseParameter12InternalSwapEPS0_(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16EltwiseParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 496))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 496))
   ret { ptr, ptr } %2
 }
 
@@ -80101,7 +80101,7 @@ define hidden void @_ZN12opencv_caffe12ELUParameterC2EPN6google8protobuf5ArenaEb
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -80115,7 +80115,7 @@ define hidden void @_ZN12opencv_caffe12ELUParameterC2EPN6google8protobuf5ArenaEb
 define hidden void @_ZN12opencv_caffe12ELUParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -80214,7 +80214,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -80701,7 +80701,7 @@ define hidden void @_ZN12opencv_caffe12ELUParameter12InternalSwapEPS0_(ptr nocap
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe12ELUParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 512))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 512))
   ret { ptr, ptr } %2
 }
 
@@ -80726,7 +80726,7 @@ define hidden void @_ZN12opencv_caffe14EmbedParameterC2EPN6google8protobuf5Arena
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr, i8 0, i64 32, i1 false)
@@ -80738,7 +80738,7 @@ define hidden void @_ZN12opencv_caffe14EmbedParameterC2EPN6google8protobuf5Arena
 define hidden void @_ZN12opencv_caffe14EmbedParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -80939,7 +80939,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %22, %_ZN12opencv_caffe14EmbedParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %40 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %20, %22 ], [ %20, %_ZN12opencv_caffe14EmbedParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %41 = and i64 %40, 2
   %.not.i.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %42
@@ -81255,7 +81255,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %12
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %134, %131
   %.sink35.i.i.i = phi ptr [ %132, %131 ], [ %135, %134 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %138 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -81318,7 +81318,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i34: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i36: ; preds = %162, %159
   %.sink35.i.i.i37 = phi ptr [ %160, %159 ], [ %163, %162 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i37, align 8
   %.ptr.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i37, i64 16
   %166 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i37, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i38, i8 0, i64 32, i1 false)
@@ -81832,7 +81832,7 @@ define hidden void @_ZN12opencv_caffe14EmbedParameter12InternalSwapEPS0_(ptr noc
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe14EmbedParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 528))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 528))
   ret { ptr, ptr } %2
 }
 
@@ -81843,7 +81843,7 @@ define hidden void @_ZN12opencv_caffe12ExpParameterC2EPN6google8protobuf5ArenaEb
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -81861,7 +81861,7 @@ define hidden void @_ZN12opencv_caffe12ExpParameterC2EPN6google8protobuf5ArenaEb
 define hidden void @_ZN12opencv_caffe12ExpParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -81959,7 +81959,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -82436,7 +82436,7 @@ define hidden void @_ZN12opencv_caffe12ExpParameter12InternalSwapEPS0_(ptr nocap
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe12ExpParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 544))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 544))
   ret { ptr, ptr } %2
 }
 
@@ -82447,7 +82447,7 @@ define hidden void @_ZN12opencv_caffe16FlattenParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -82463,7 +82463,7 @@ define hidden void @_ZN12opencv_caffe16FlattenParameterC2EPN6google8protobuf5Are
 define hidden void @_ZN12opencv_caffe16FlattenParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -82562,7 +82562,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -83146,7 +83146,7 @@ define hidden void @_ZN12opencv_caffe16FlattenParameter12InternalSwapEPS0_(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16FlattenParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 560))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 560))
   ret { ptr, ptr } %2
 }
 
@@ -83157,7 +83157,7 @@ define hidden void @_ZN12opencv_caffe17HDF5DataParameterC2EPN6google8protobuf5Ar
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -83173,7 +83173,7 @@ define hidden void @_ZN12opencv_caffe17HDF5DataParameterC2EPN6google8protobuf5Ar
 define hidden void @_ZN12opencv_caffe17HDF5DataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -83333,7 +83333,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN12opencv_caffe17HDF5DataParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %33 = phi i64 [ %.pre2, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %14, %15 ], [ %14, %_ZN12opencv_caffe17HDF5DataParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %34 = and i64 %33, 2
   %.not.i.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %35
@@ -84014,7 +84014,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe17HDF5DataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 576))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 576))
   ret { ptr, ptr } %2
 }
 
@@ -84025,7 +84025,7 @@ define hidden void @_ZN12opencv_caffe19HDF5OutputParameterC2EPN6google8protobuf5
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -84039,7 +84039,7 @@ define hidden void @_ZN12opencv_caffe19HDF5OutputParameterC2EPN6google8protobuf5
 define hidden void @_ZN12opencv_caffe19HDF5OutputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -84196,7 +84196,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN12opencv_caffe19HDF5OutputParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %33 = phi i64 [ %.pre2, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %14, %15 ], [ %14, %_ZN12opencv_caffe19HDF5OutputParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %34 = and i64 %33, 2
   %.not.i.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %35
@@ -84623,7 +84623,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe19HDF5OutputParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 592))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 592))
   ret { ptr, ptr } %2
 }
 
@@ -84634,7 +84634,7 @@ define hidden void @_ZN12opencv_caffe18HingeLossParameterC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -84648,7 +84648,7 @@ define hidden void @_ZN12opencv_caffe18HingeLossParameterC2EPN6google8protobuf5A
 define hidden void @_ZN12opencv_caffe18HingeLossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -84747,7 +84747,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -85368,7 +85368,7 @@ define hidden void @_ZN12opencv_caffe18HingeLossParameter12InternalSwapEPS0_(ptr
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe18HingeLossParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 608))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 608))
   ret { ptr, ptr } %2
 }
 
@@ -85379,7 +85379,7 @@ define hidden void @_ZN12opencv_caffe18ImageDataParameterC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -85405,7 +85405,7 @@ define hidden void @_ZN12opencv_caffe18ImageDataParameterC2EPN6google8protobuf5A
 define hidden void @_ZN12opencv_caffe18ImageDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -85640,7 +85640,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %24, %_ZN12opencv_caffe18ImageDataParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %42 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %22, %24 ], [ %22, %_ZN12opencv_caffe18ImageDataParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %43 = and i64 %42, 2
   %.not.i.i.i = icmp eq i64 %43, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %44
@@ -87196,7 +87196,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe18ImageDataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 624))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 624))
   ret { ptr, ptr } %2
 }
 
@@ -87207,7 +87207,7 @@ define hidden void @_ZN12opencv_caffe21InfogainLossParameterC2EPN6google8protobu
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -87221,7 +87221,7 @@ define hidden void @_ZN12opencv_caffe21InfogainLossParameterC2EPN6google8protobu
 define hidden void @_ZN12opencv_caffe21InfogainLossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -87378,7 +87378,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN12opencv_caffe21InfogainLossParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %33 = phi i64 [ %.pre2, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %14, %15 ], [ %14, %_ZN12opencv_caffe21InfogainLossParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %34 = and i64 %33, 2
   %.not.i.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %35
@@ -87805,7 +87805,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe21InfogainLossParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 640))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 640))
   ret { ptr, ptr } %2
 }
 
@@ -87830,7 +87830,7 @@ define hidden void @_ZN12opencv_caffe21InnerProductParameterC2EPN6google8protobu
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %.ptr, i8 0, i64 29, i1 false)
@@ -87844,7 +87844,7 @@ define hidden void @_ZN12opencv_caffe21InnerProductParameterC2EPN6google8protobu
 define hidden void @_ZN12opencv_caffe21InnerProductParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -88045,7 +88045,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %22, %_ZN12opencv_caffe21InnerProductParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %40 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %20, %22 ], [ %20, %_ZN12opencv_caffe21InnerProductParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %41 = and i64 %40, 2
   %.not.i.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %42
@@ -88318,7 +88318,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %11
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %116, %113
   %.sink35.i.i.i = phi ptr [ %114, %113 ], [ %117, %116 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -88381,7 +88381,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i30: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i32: ; preds = %144, %141
   %.sink35.i.i.i33 = phi ptr [ %142, %141 ], [ %145, %144 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i33, align 8
   %.ptr.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i33, i64 16
   %148 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i33, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i34, i8 0, i64 32, i1 false)
@@ -89027,7 +89027,7 @@ define hidden void @_ZN12opencv_caffe21InnerProductParameter12InternalSwapEPS0_(
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe21InnerProductParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 656))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 656))
   ret { ptr, ptr } %2
 }
 
@@ -89038,7 +89038,7 @@ define hidden void @_ZN12opencv_caffe14InputParameterC2EPN6google8protobuf5Arena
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -89050,7 +89050,7 @@ define hidden void @_ZN12opencv_caffe14InputParameterC2EPN6google8protobuf5Arena
 define hidden void @_ZN12opencv_caffe14InputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -89246,7 +89246,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobShapeEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, %27
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %31 = load i64, ptr %2, align 8
   %32 = and i64 %31, 2
   %.not.i.i.i = icmp eq i64 %32, 0
@@ -89766,7 +89766,7 @@ define hidden void @_ZN12opencv_caffe14InputParameter12InternalSwapEPS0_(ptr noc
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe14InputParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 672))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 672))
   ret { ptr, ptr } %2
 }
 
@@ -89777,7 +89777,7 @@ define hidden void @_ZN12opencv_caffe12LogParameterC2EPN6google8protobuf5ArenaEb
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -89795,7 +89795,7 @@ define hidden void @_ZN12opencv_caffe12LogParameterC2EPN6google8protobuf5ArenaEb
 define hidden void @_ZN12opencv_caffe12LogParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -89893,7 +89893,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -90370,7 +90370,7 @@ define hidden void @_ZN12opencv_caffe12LogParameter12InternalSwapEPS0_(ptr nocap
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe12LogParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 688))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 688))
   ret { ptr, ptr } %2
 }
 
@@ -90381,7 +90381,7 @@ define hidden void @_ZN12opencv_caffe12LRNParameterC2EPN6google8protobuf5ArenaEb
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr, i8 0, i64 16, i1 false)
@@ -90399,7 +90399,7 @@ define hidden void @_ZN12opencv_caffe12LRNParameterC2EPN6google8protobuf5ArenaEb
 define hidden void @_ZN12opencv_caffe12LRNParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -90497,7 +90497,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -91469,7 +91469,7 @@ define hidden void @_ZN12opencv_caffe12LRNParameter12InternalSwapEPS0_(ptr nocap
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe12LRNParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 704))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 704))
   ret { ptr, ptr } %2
 }
 
@@ -91480,7 +91480,7 @@ define hidden void @_ZN12opencv_caffe19MemoryDataParameterC2EPN6google8protobuf5
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr, i8 0, i64 24, i1 false)
   ret void
@@ -91490,7 +91490,7 @@ define hidden void @_ZN12opencv_caffe19MemoryDataParameterC2EPN6google8protobuf5
 define hidden void @_ZN12opencv_caffe19MemoryDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -91588,7 +91588,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -92399,7 +92399,7 @@ define hidden void @_ZN12opencv_caffe19MemoryDataParameter12InternalSwapEPS0_(pt
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe19MemoryDataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 720))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 720))
   ret { ptr, ptr } %2
 }
 
@@ -92410,7 +92410,7 @@ define hidden void @_ZN12opencv_caffe12MVNParameterC2EPN6google8protobuf5ArenaEb
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr, i8 0, i64 9, i1 false)
@@ -92424,7 +92424,7 @@ define hidden void @_ZN12opencv_caffe12MVNParameterC2EPN6google8protobuf5ArenaEb
 define hidden void @_ZN12opencv_caffe12MVNParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -92523,7 +92523,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -93082,7 +93082,7 @@ define hidden void @_ZN12opencv_caffe12MVNParameter12InternalSwapEPS0_(ptr nocap
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe12MVNParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 736))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 736))
   ret { ptr, ptr } %2
 }
 
@@ -93100,7 +93100,7 @@ define hidden void @_ZN12opencv_caffe18ParameterParameterC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr, i8 0, i64 16, i1 false)
   ret void
@@ -93110,7 +93110,7 @@ define hidden void @_ZN12opencv_caffe18ParameterParameterC2EPN6google8protobuf5A
 define hidden void @_ZN12opencv_caffe18ParameterParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -93271,7 +93271,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %16, %_ZN12opencv_caffe18ParameterParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %34 = phi i64 [ %.pre3, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %15, %16 ], [ %15, %_ZN12opencv_caffe18ParameterParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %35 = and i64 %34, 2
   %.not.i.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %36
@@ -93728,7 +93728,7 @@ define hidden void @_ZN12opencv_caffe18ParameterParameter12InternalSwapEPS0_(ptr
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe18ParameterParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 752))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 752))
   ret { ptr, ptr } %2
 }
 
@@ -93739,7 +93739,7 @@ define hidden void @_ZN12opencv_caffe16PoolingParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.ptr, i8 0, i64 49, i1 false)
@@ -93753,7 +93753,7 @@ define hidden void @_ZN12opencv_caffe16PoolingParameterC2EPN6google8protobuf5Are
 define hidden void @_ZN12opencv_caffe16PoolingParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -93851,7 +93851,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -95841,7 +95841,7 @@ define hidden void @_ZN12opencv_caffe16PoolingParameter12InternalSwapEPS0_(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16PoolingParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 768))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 768))
   ret { ptr, ptr } %2
 }
 
@@ -95852,7 +95852,7 @@ define hidden void @_ZN12opencv_caffe14PowerParameterC2EPN6google8protobuf5Arena
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -95870,7 +95870,7 @@ define hidden void @_ZN12opencv_caffe14PowerParameterC2EPN6google8protobuf5Arena
 define hidden void @_ZN12opencv_caffe14PowerParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -95968,7 +95968,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -96445,7 +96445,7 @@ define hidden void @_ZN12opencv_caffe14PowerParameter12InternalSwapEPS0_(ptr noc
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe14PowerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 784))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 784))
   ret { ptr, ptr } %2
 }
 
@@ -96456,7 +96456,7 @@ define hidden void @_ZN12opencv_caffe15PythonParameterC2EPN6google8protobuf5Aren
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -96476,7 +96476,7 @@ define hidden void @_ZN12opencv_caffe15PythonParameterC2EPN6google8protobuf5Aren
 define hidden void @_ZN12opencv_caffe15PythonParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -96713,7 +96713,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %24, %_ZN12opencv_caffe15PythonParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %42 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %22, %24 ], [ %22, %_ZN12opencv_caffe15PythonParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %43 = and i64 %42, 2
   %.not.i.i.i = icmp eq i64 %43, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %44
@@ -97442,7 +97442,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe15PythonParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 800))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 800))
   ret { ptr, ptr } %2
 }
 
@@ -97467,7 +97467,7 @@ define hidden void @_ZN12opencv_caffe18RecurrentParameterC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %.ptr, i8 0, i64 30, i1 false)
   ret void
@@ -97477,7 +97477,7 @@ define hidden void @_ZN12opencv_caffe18RecurrentParameterC2EPN6google8protobuf5A
 define hidden void @_ZN12opencv_caffe18RecurrentParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -97678,7 +97678,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %22, %_ZN12opencv_caffe18RecurrentParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %40 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %20, %22 ], [ %20, %_ZN12opencv_caffe18RecurrentParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %41 = and i64 %40, 2
   %.not.i.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %42
@@ -97900,7 +97900,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %83
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %89, %86
   %.sink35.i.i.i = phi ptr [ %87, %86 ], [ %90, %89 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -97963,7 +97963,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i25: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i27: ; preds = %117, %114
   %.sink35.i.i.i28 = phi ptr [ %115, %114 ], [ %118, %117 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i28, align 8
   %.ptr.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i28, i64 16
   %121 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i28, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i29, i8 0, i64 32, i1 false)
@@ -98528,7 +98528,7 @@ define hidden void @_ZN12opencv_caffe18RecurrentParameter12InternalSwapEPS0_(ptr
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe18RecurrentParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 816))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 816))
   ret { ptr, ptr } %2
 }
 
@@ -98539,7 +98539,7 @@ define hidden void @_ZN12opencv_caffe18ReductionParameterC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -98557,7 +98557,7 @@ define hidden void @_ZN12opencv_caffe18ReductionParameterC2EPN6google8protobuf5A
 define hidden void @_ZN12opencv_caffe18ReductionParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -98655,7 +98655,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -99356,7 +99356,7 @@ define hidden void @_ZN12opencv_caffe18ReductionParameter12InternalSwapEPS0_(ptr
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe18ReductionParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 832))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 832))
   ret { ptr, ptr } %2
 }
 
@@ -99367,7 +99367,7 @@ define hidden void @_ZN12opencv_caffe13ReLUParameterC2EPN6google8protobuf5ArenaE
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr, i8 0, i64 16, i1 false)
   ret void
@@ -99377,7 +99377,7 @@ define hidden void @_ZN12opencv_caffe13ReLUParameterC2EPN6google8protobuf5ArenaE
 define hidden void @_ZN12opencv_caffe13ReLUParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -99476,7 +99476,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -100027,7 +100027,7 @@ define hidden void @_ZN12opencv_caffe13ReLUParameter12InternalSwapEPS0_(ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe13ReLUParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 848))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 848))
   ret { ptr, ptr } %2
 }
 
@@ -100045,7 +100045,7 @@ define hidden void @_ZN12opencv_caffe16ReshapeParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr, i8 0, i64 20, i1 false)
@@ -100057,7 +100057,7 @@ define hidden void @_ZN12opencv_caffe16ReshapeParameterC2EPN6google8protobuf5Are
 define hidden void @_ZN12opencv_caffe16ReshapeParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -100222,7 +100222,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %16, %_ZN12opencv_caffe16ReshapeParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %34 = phi i64 [ %.pre3, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %15, %16 ], [ %15, %_ZN12opencv_caffe16ReshapeParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %35 = and i64 %34, 2
   %.not.i.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %36
@@ -100973,7 +100973,7 @@ define hidden void @_ZN12opencv_caffe16ReshapeParameter12InternalSwapEPS0_(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16ReshapeParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 864))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 864))
   ret { ptr, ptr } %2
 }
 
@@ -100998,7 +100998,7 @@ define hidden void @_ZN12opencv_caffe14ScaleParameterC2EPN6google8protobuf5Arena
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.ptr, i8 0, i64 25, i1 false)
@@ -101012,7 +101012,7 @@ define hidden void @_ZN12opencv_caffe14ScaleParameterC2EPN6google8protobuf5Arena
 define hidden void @_ZN12opencv_caffe14ScaleParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -101213,7 +101213,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %22, %_ZN12opencv_caffe14ScaleParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %40 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %20, %22 ], [ %20, %_ZN12opencv_caffe14ScaleParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %41 = and i64 %40, 2
   %.not.i.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %42
@@ -101475,7 +101475,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %10
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %108, %105
   %.sink35.i.i.i = phi ptr [ %106, %105 ], [ %109, %108 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %112 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -101592,7 +101592,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i34: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i36: ; preds = %162, %159
   %.sink35.i.i.i37 = phi ptr [ %160, %159 ], [ %163, %162 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i37, align 8
   %.ptr.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i37, i64 16
   %166 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i37, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i38, i8 0, i64 32, i1 false)
@@ -102108,7 +102108,7 @@ define hidden void @_ZN12opencv_caffe14ScaleParameter12InternalSwapEPS0_(ptr noc
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe14ScaleParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 880))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 880))
   ret { ptr, ptr } %2
 }
 
@@ -102119,7 +102119,7 @@ define hidden void @_ZN12opencv_caffe16SigmoidParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -102133,7 +102133,7 @@ define hidden void @_ZN12opencv_caffe16SigmoidParameterC2EPN6google8protobuf5Are
 define hidden void @_ZN12opencv_caffe16SigmoidParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -102232,7 +102232,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -102852,7 +102852,7 @@ define hidden void @_ZN12opencv_caffe16SigmoidParameter12InternalSwapEPS0_(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16SigmoidParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 896))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 896))
   ret { ptr, ptr } %2
 }
 
@@ -102863,7 +102863,7 @@ define hidden void @_ZN12opencv_caffe14SliceParameterC2EPN6google8protobuf5Arena
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14SliceParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14SliceParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -102890,7 +102890,7 @@ define hidden void @_ZN12opencv_caffe14SliceParameterC2EPN6google8protobuf5Arena
 define hidden void @_ZN12opencv_caffe14SliceParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14SliceParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14SliceParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -103043,7 +103043,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = load i64, ptr %2, align 8
   %23 = and i64 %22, 2
   %.not.i.i.i = icmp eq i64 %23, 0
@@ -103775,7 +103775,7 @@ define hidden void @_ZN12opencv_caffe14SliceParameter12InternalSwapEPS0_(ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe14SliceParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 912))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 912))
   ret { ptr, ptr } %2
 }
 
@@ -103786,7 +103786,7 @@ define hidden void @_ZN12opencv_caffe16SoftmaxParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -103802,7 +103802,7 @@ define hidden void @_ZN12opencv_caffe16SoftmaxParameterC2EPN6google8protobuf5Are
 define hidden void @_ZN12opencv_caffe16SoftmaxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -103901,7 +103901,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -104544,7 +104544,7 @@ define hidden void @_ZN12opencv_caffe16SoftmaxParameter12InternalSwapEPS0_(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16SoftmaxParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 928))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 928))
   ret { ptr, ptr } %2
 }
 
@@ -104555,7 +104555,7 @@ define hidden void @_ZN12opencv_caffe13TanHParameterC2EPN6google8protobuf5ArenaE
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -104569,7 +104569,7 @@ define hidden void @_ZN12opencv_caffe13TanHParameterC2EPN6google8protobuf5ArenaE
 define hidden void @_ZN12opencv_caffe13TanHParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -104668,7 +104668,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -105288,7 +105288,7 @@ define hidden void @_ZN12opencv_caffe13TanHParameter12InternalSwapEPS0_(ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe13TanHParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 944))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 944))
   ret { ptr, ptr } %2
 }
 
@@ -105299,7 +105299,7 @@ define hidden void @_ZN12opencv_caffe13TileParameterC2EPN6google8protobuf5ArenaE
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -105315,7 +105315,7 @@ define hidden void @_ZN12opencv_caffe13TileParameterC2EPN6google8protobuf5ArenaE
 define hidden void @_ZN12opencv_caffe13TileParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -105414,7 +105414,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -105998,7 +105998,7 @@ define hidden void @_ZN12opencv_caffe13TileParameter12InternalSwapEPS0_(ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe13TileParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 960))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 960))
   ret { ptr, ptr } %2
 }
 
@@ -106009,7 +106009,7 @@ define hidden void @_ZN12opencv_caffe18ThresholdParameterC2EPN6google8protobuf5A
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -106023,7 +106023,7 @@ define hidden void @_ZN12opencv_caffe18ThresholdParameterC2EPN6google8protobuf5A
 define hidden void @_ZN12opencv_caffe18ThresholdParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -106122,7 +106122,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -106609,7 +106609,7 @@ define hidden void @_ZN12opencv_caffe18ThresholdParameter12InternalSwapEPS0_(ptr
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe18ThresholdParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 976))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 976))
   ret { ptr, ptr } %2
 }
 
@@ -106620,7 +106620,7 @@ define hidden void @_ZN12opencv_caffe19WindowDataParameterC2EPN6google8protobuf5
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -106650,7 +106650,7 @@ define hidden void @_ZN12opencv_caffe19WindowDataParameterC2EPN6google8protobuf5
 define hidden void @_ZN12opencv_caffe19WindowDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -106925,7 +106925,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %28, %_ZN12opencv_caffe19WindowDataParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %46 = phi i64 [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %26, %28 ], [ %26, %_ZN12opencv_caffe19WindowDataParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %47 = and i64 %46, 2
   %.not.i.i.i = icmp eq i64 %47, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %48
@@ -108404,7 +108404,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe19WindowDataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 992))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 992))
   ret { ptr, ptr } %2
 }
 
@@ -108415,7 +108415,7 @@ define hidden void @_ZN12opencv_caffe12SPPParameterC2EPN6google8protobuf5ArenaEb
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr, i8 0, i64 20, i1 false)
   ret void
@@ -108425,7 +108425,7 @@ define hidden void @_ZN12opencv_caffe12SPPParameterC2EPN6google8protobuf5ArenaEb
 define hidden void @_ZN12opencv_caffe12SPPParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -108523,7 +108523,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -109342,7 +109342,7 @@ define hidden void @_ZN12opencv_caffe12SPPParameter12InternalSwapEPS0_(ptr nocap
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe12SPPParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1008))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1008))
   ret { ptr, ptr } %2
 }
 
@@ -109570,7 +109570,7 @@ define hidden void @_ZN12opencv_caffe16V1LayerParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16V1LayerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16V1LayerParameterE, i64 16), ptr %0, align 8
   %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %scevgep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -109702,7 +109702,7 @@ define hidden void @_ZN12opencv_caffe16V1LayerParameterC2EPN6google8protobuf5Are
 define hidden void @_ZN12opencv_caffe16V1LayerParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(504) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16V1LayerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16V1LayerParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
@@ -109967,7 +109967,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 121:                                              ; preds = %119
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i64 0, ptr %122, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %120, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %120, align 8
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %125 = load i32, ptr %124, align 8
@@ -110087,7 +110087,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 179:                                              ; preds = %177
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i64 0, ptr %180, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %178, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %178, align 8
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %182 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %183 = load i32, ptr %182, align 8
@@ -110290,7 +110290,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 275:                                              ; preds = %273
   %276 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store i64 0, ptr %276, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %274, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %274, align 8
   %277 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %278 = getelementptr inbounds nuw i8, ptr %270, i64 16
   %279 = load i32, ptr %278, align 8
@@ -110353,7 +110353,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 306:                                              ; preds = %304
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i64 0, ptr %307, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %305, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %305, align 8
   %308 = getelementptr inbounds nuw i8, ptr %305, i64 16
   %309 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %310 = load i32, ptr %309, align 8
@@ -110444,7 +110444,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 350:                                              ; preds = %348
   %351 = getelementptr inbounds nuw i8, ptr %349, i64 8
   store i64 0, ptr %351, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %349, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %349, align 8
   %352 = getelementptr inbounds nuw i8, ptr %349, i64 16
   %353 = getelementptr inbounds nuw i8, ptr %345, i64 16
   %354 = load i32, ptr %353, align 8
@@ -110507,7 +110507,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 381:                                              ; preds = %379
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 8
   store i64 0, ptr %382, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %380, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %380, align 8
   %383 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %384 = getelementptr inbounds nuw i8, ptr %376, i64 16
   %385 = load i32, ptr %384, align 8
@@ -110570,7 +110570,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 412:                                              ; preds = %410
   %413 = getelementptr inbounds nuw i8, ptr %411, i64 8
   store i64 0, ptr %413, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %411, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %411, align 8
   %414 = getelementptr inbounds nuw i8, ptr %411, i64 16
   %415 = getelementptr inbounds nuw i8, ptr %407, i64 16
   %416 = load i32, ptr %415, align 8
@@ -110661,7 +110661,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 456:                                              ; preds = %454
   %457 = getelementptr inbounds nuw i8, ptr %455, i64 8
   store i64 0, ptr %457, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %455, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %455, align 8
   %458 = getelementptr inbounds nuw i8, ptr %455, i64 16
   %459 = getelementptr inbounds nuw i8, ptr %451, i64 16
   %460 = load i32, ptr %459, align 8
@@ -110753,7 +110753,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 501:                                              ; preds = %499
   %502 = getelementptr inbounds nuw i8, ptr %500, i64 8
   store i64 0, ptr %502, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %500, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %500, align 8
   %503 = getelementptr inbounds nuw i8, ptr %500, i64 16
   %504 = getelementptr inbounds nuw i8, ptr %496, i64 16
   %505 = load i32, ptr %504, align 8
@@ -110816,7 +110816,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 532:                                              ; preds = %530
   %533 = getelementptr inbounds nuw i8, ptr %531, i64 8
   store i64 0, ptr %533, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %531, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %531, align 8
   %534 = getelementptr inbounds nuw i8, ptr %531, i64 16
   %535 = getelementptr inbounds nuw i8, ptr %527, i64 16
   %536 = load i32, ptr %535, align 8
@@ -110880,7 +110880,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 564:                                              ; preds = %562
   %565 = getelementptr inbounds nuw i8, ptr %563, i64 8
   store i64 0, ptr %565, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %563, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %563, align 8
   %566 = getelementptr inbounds nuw i8, ptr %563, i64 16
   %567 = getelementptr inbounds nuw i8, ptr %559, i64 16
   %568 = load i32, ptr %567, align 8
@@ -110972,7 +110972,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 609:                                              ; preds = %607
   %610 = getelementptr inbounds nuw i8, ptr %608, i64 8
   store i64 0, ptr %610, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %608, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %608, align 8
   %611 = getelementptr inbounds nuw i8, ptr %608, i64 16
   %612 = getelementptr inbounds nuw i8, ptr %604, i64 16
   %613 = load i32, ptr %612, align 8
@@ -111064,7 +111064,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 654:                                              ; preds = %652
   %655 = getelementptr inbounds nuw i8, ptr %653, i64 8
   store i64 0, ptr %655, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %653, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %653, align 8
   %656 = getelementptr inbounds nuw i8, ptr %653, i64 16
   %657 = getelementptr inbounds nuw i8, ptr %649, i64 16
   %658 = load i32, ptr %657, align 8
@@ -111128,7 +111128,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 686:                                              ; preds = %684
   %687 = getelementptr inbounds nuw i8, ptr %685, i64 8
   store i64 0, ptr %687, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %685, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %685, align 8
   %688 = getelementptr inbounds nuw i8, ptr %685, i64 16
   %689 = getelementptr inbounds nuw i8, ptr %681, i64 16
   %690 = load i32, ptr %689, align 8
@@ -111192,7 +111192,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 718:                                              ; preds = %716
   %719 = getelementptr inbounds nuw i8, ptr %717, i64 8
   store i64 0, ptr %719, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %717, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %717, align 8
   %720 = getelementptr inbounds nuw i8, ptr %717, i64 16
   %721 = getelementptr inbounds nuw i8, ptr %713, i64 16
   %722 = load i32, ptr %721, align 8
@@ -111256,7 +111256,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 750:                                              ; preds = %748
   %751 = getelementptr inbounds nuw i8, ptr %749, i64 8
   store i64 0, ptr %751, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %749, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %749, align 8
   %752 = getelementptr inbounds nuw i8, ptr %749, i64 16
   %753 = getelementptr inbounds nuw i8, ptr %745, i64 16
   %754 = load i32, ptr %753, align 8
@@ -111320,7 +111320,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 782:                                              ; preds = %780
   %783 = getelementptr inbounds nuw i8, ptr %781, i64 8
   store i64 0, ptr %783, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %781, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %781, align 8
   %784 = getelementptr inbounds nuw i8, ptr %781, i64 16
   %785 = getelementptr inbounds nuw i8, ptr %777, i64 16
   %786 = load i32, ptr %785, align 8
@@ -111382,7 +111382,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 813:                                              ; preds = %811
   %814 = getelementptr inbounds nuw i8, ptr %812, i64 8
   store i64 0, ptr %814, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %812, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %812, align 8
   %815 = getelementptr inbounds nuw i8, ptr %812, i64 16
   %816 = getelementptr inbounds nuw i8, ptr %808, i64 16
   %817 = load i32, ptr %816, align 8
@@ -111642,7 +111642,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEED2Ev.exit: ; pr
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %66) #23
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %67) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %68 = load i64, ptr %2, align 8
   %69 = and i64 %68, 2
   %.not.i.i.i = icmp eq i64 %69, 0
@@ -114384,7 +114384,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %24
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ConcatParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %255, %252
   %.sink35.i.i.i = phi ptr [ %253, %252 ], [ %256, %255 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %259 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 20
@@ -114458,7 +114458,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i130: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13DataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %289, %286
   %.sink38.i.i.i = phi ptr [ %287, %286 ], [ %290, %289 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i.i, align 8
   %.ptr.i.i.i.i132 = getelementptr inbounds nuw i8, ptr %.sink38.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i132, align 4
   %293 = getelementptr inbounds nuw i8, ptr %.sink38.i.i.i, i64 20
@@ -114527,7 +114527,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i134: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16DropoutParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %320, %317
   %.sink35.i.i.i136 = phi ptr [ %318, %317 ], [ %321, %320 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i.i136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i.i136, align 8
   %.ptr.i.i.i.i137 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i136, i64 16
   store i32 0, ptr %.ptr.i.i.i.i137, align 4
   %324 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i136, i64 20
@@ -114590,7 +114590,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i139: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17HDF5DataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %348, %345
   %.sink35.i.i.i141 = phi ptr [ %346, %345 ], [ %349, %348 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i.i141, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i.i141, align 8
   %.ptr.i.i.i.i142 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i141, i64 16
   store i32 0, ptr %.ptr.i.i.i.i142, align 4
   %352 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i141, i64 20
@@ -114653,7 +114653,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i144: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19HDF5OutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %376, %373
   %.sink34.i.i.i = phi ptr [ %374, %373 ], [ %377, %376 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
   %.ptr.i.i.i.i146 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i146, align 4
   %380 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 20
@@ -114714,7 +114714,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i148: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ImageDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %403, %400
   %.sink40.i.i.i = phi ptr [ %401, %400 ], [ %404, %403 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i.i, align 8
   %.ptr.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %.sink40.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i150, align 4
   %407 = getelementptr inbounds nuw i8, ptr %.sink40.i.i.i, i64 20
@@ -114787,7 +114787,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i152: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InfogainLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %436, %433
   %.sink34.i.i.i154 = phi ptr [ %434, %433 ], [ %437, %436 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i.i154, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i.i154, align 8
   %.ptr.i.i.i.i155 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i154, i64 16
   store i32 0, ptr %.ptr.i.i.i.i155, align 4
   %440 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i154, i64 20
@@ -114848,7 +114848,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i157: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InnerProductParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %463, %460
   %.sink34.i.i.i159 = phi ptr [ %461, %460 ], [ %464, %463 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i.i159, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i.i159, align 8
   %.ptr.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i159, i64 16
   %467 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i159, i64 45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %.ptr.i.i.i.i160, i8 0, i64 29, i1 false)
@@ -114909,7 +114909,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i162: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12LRNParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %490, %487
   %.sink36.i.i.i = phi ptr [ %488, %487 ], [ %491, %490 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i.i, align 8
   %.ptr.i.i.i.i164 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 16
   %494 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i164, i8 0, i64 16, i1 false)
@@ -114974,7 +114974,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i166: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16PoolingParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %519, %516
   %.sink34.i.i.i168 = phi ptr [ %517, %516 ], [ %520, %519 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i.i168, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i.i168, align 8
   %.ptr.i.i.i.i169 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i168, i64 16
   %523 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i168, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.ptr.i.i.i.i169, i8 0, i64 49, i1 false)
@@ -115035,7 +115035,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i171: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19WindowDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %546, %543
   %.sink42.i.i.i = phi ptr [ %544, %543 ], [ %547, %546 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i.i, align 8
   %.ptr.i.i.i.i173 = getelementptr inbounds nuw i8, ptr %.sink42.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i173, align 4
   %550 = getelementptr inbounds nuw i8, ptr %.sink42.i.i.i, i64 20
@@ -115112,7 +115112,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i175: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14PowerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %581, %578
   %.sink36.i.i.i177 = phi ptr [ %579, %578 ], [ %582, %581 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i.i177, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i.i177, align 8
   %.ptr.i.i.i.i178 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i177, i64 16
   store i32 0, ptr %.ptr.i.i.i.i178, align 4
   %585 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i177, i64 20
@@ -115177,7 +115177,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i180: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19MemoryDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %610, %607
   %.sink32.i.i.i = phi ptr [ %608, %607 ], [ %611, %610 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i.i, align 8
   %.ptr.i.i.i.i182 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i182, i8 0, i64 24, i1 false)
   store ptr %.sink32.i.i.i, ptr %41, align 8
@@ -115234,7 +115234,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i184: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ArgMaxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %635, %632
   %.sink33.i.i.i = phi ptr [ %633, %632 ], [ %636, %635 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i.i, align 8
   %.ptr.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i, i64 16
   %639 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i186, i8 0, i64 16, i1 false)
@@ -115330,7 +115330,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i191: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ThresholdParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %679, %676
   %.sink34.i.i.i193 = phi ptr [ %677, %676 ], [ %680, %679 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i.i193, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i.i193, align 8
   %.ptr.i.i.i.i194 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i193, i64 16
   store i32 0, ptr %.ptr.i.i.i.i194, align 4
   %683 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i193, i64 20
@@ -115402,7 +115402,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i196: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17AccuracyParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %712, %709
   %.sink36.i.i.i198 = phi ptr [ %710, %709 ], [ %713, %712 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i.i198, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i.i198, align 8
   %.ptr.i.i.i.i199 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i198, i64 16
   store i32 0, ptr %.ptr.i.i.i.i199, align 4
   %716 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i198, i64 20
@@ -115467,7 +115467,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i201: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18HingeLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %741, %738
   %.sink34.i.i.i203 = phi ptr [ %739, %738 ], [ %742, %741 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i.i203, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i.i203, align 8
   %.ptr.i.i.i.i204 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i203, i64 16
   store i32 0, ptr %.ptr.i.i.i.i204, align 4
   %745 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i203, i64 20
@@ -115528,7 +115528,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i206: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13ReLUParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %768, %765
   %.sink32.i.i.i208 = phi ptr [ %766, %765 ], [ %769, %768 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i.i208, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i.i208, align 8
   %.ptr.i.i.i.i209 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i208, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i209, i8 0, i64 16, i1 false)
   store ptr %.sink32.i.i.i208, ptr %35, align 8
@@ -115728,7 +115728,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i217: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12MVNParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %867, %864
   %.sink34.i.i.i219 = phi ptr [ %865, %864 ], [ %868, %867 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i.i219, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i.i219, align 8
   %.ptr.i.i.i.i220 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i219, i64 16
   %871 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i219, i64 25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i.i220, i8 0, i64 9, i1 false)
@@ -115860,7 +115860,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i227: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13TanHParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %924, %921
   %.sink34.i.i.i229 = phi ptr [ %922, %921 ], [ %925, %924 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i.i229, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i.i229, align 8
   %.ptr.i.i.i.i230 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i229, i64 16
   store i32 0, ptr %.ptr.i.i.i.i230, align 4
   %928 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i229, i64 20
@@ -115921,7 +115921,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i232: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SigmoidParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %951, %948
   %.sink34.i.i.i234 = phi ptr [ %949, %948 ], [ %952, %951 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i.i234, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i.i234, align 8
   %.ptr.i.i.i.i235 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i234, i64 16
   store i32 0, ptr %.ptr.i.i.i.i235, align 4
   %955 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i234, i64 20
@@ -115982,7 +115982,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i237: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SoftmaxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %978, %975
   %.sink35.i.i.i239 = phi ptr [ %976, %975 ], [ %979, %978 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i.i239, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i.i239, align 8
   %.ptr.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i239, i64 16
   store i32 0, ptr %.ptr.i.i.i.i240, align 4
   %982 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i239, i64 20
@@ -116045,7 +116045,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i242: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe24ContrastiveLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1006, %1003
   %.sink33.i.i.i244 = phi ptr [ %1004, %1003 ], [ %1007, %1006 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i.i244, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i.i244, align 8
   %.ptr.i.i.i.i245 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i244, i64 16
   %1010 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i244, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i.i245, i8 0, i64 9, i1 false)
@@ -116104,7 +116104,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i247: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12ExpParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1032, %1029
   %.sink36.i.i.i249 = phi ptr [ %1030, %1029 ], [ %1033, %1032 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i.i249, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i.i249, align 8
   %.ptr.i.i.i.i250 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i249, i64 16
   store i32 0, ptr %.ptr.i.i.i.i250, align 4
   %1036 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i249, i64 20
@@ -116169,7 +116169,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i252: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13LossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1061, %1058
   %.sink33.i.i.i254 = phi ptr [ %1059, %1058 ], [ %1062, %1061 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i.i254, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i.i254, align 8
   %.ptr.i.i.i.i255 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i254, i64 16
   %1065 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i254, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %.ptr.i.i.i.i255, i8 0, i64 13, i1 false)
@@ -120647,7 +120647,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %67
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ConcatParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %73, %70
   %.sink35.i.i.i = phi ptr [ %71, %70 ], [ %74, %73 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %77 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 20
@@ -120730,7 +120730,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i138: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13DataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %112, %109
   %.sink38.i.i.i = phi ptr [ %110, %109 ], [ %113, %112 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i.i, align 8
   %.ptr.i.i.i.i140 = getelementptr inbounds nuw i8, ptr %.sink38.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i140, align 4
   %116 = getelementptr inbounds nuw i8, ptr %.sink38.i.i.i, i64 20
@@ -120805,7 +120805,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i143: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16DropoutParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %147, %144
   %.sink35.i.i.i145 = phi ptr [ %145, %144 ], [ %148, %147 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i.i145, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i.i145, align 8
   %.ptr.i.i.i.i146 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i145, i64 16
   store i32 0, ptr %.ptr.i.i.i.i146, align 4
   %151 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i145, i64 20
@@ -120874,7 +120874,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i149: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17HDF5DataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %179, %176
   %.sink35.i.i.i151 = phi ptr [ %177, %176 ], [ %180, %179 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i.i151, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i.i151, align 8
   %.ptr.i.i.i.i152 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i151, i64 16
   store i32 0, ptr %.ptr.i.i.i.i152, align 4
   %183 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i151, i64 20
@@ -120943,7 +120943,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i155: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19HDF5OutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %211, %208
   %.sink34.i.i.i = phi ptr [ %209, %208 ], [ %212, %211 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
   %.ptr.i.i.i.i157 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i157, align 4
   %215 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 20
@@ -121015,7 +121015,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i160: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ImageDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %244, %241
   %.sink40.i.i.i = phi ptr [ %242, %241 ], [ %245, %244 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i.i, align 8
   %.ptr.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %.sink40.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i162, align 4
   %248 = getelementptr inbounds nuw i8, ptr %.sink40.i.i.i, i64 20
@@ -121094,7 +121094,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i165: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InfogainLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %281, %278
   %.sink34.i.i.i167 = phi ptr [ %279, %278 ], [ %282, %281 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i.i167, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i.i167, align 8
   %.ptr.i.i.i.i168 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i167, i64 16
   store i32 0, ptr %.ptr.i.i.i.i168, align 4
   %285 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i167, i64 20
@@ -121161,7 +121161,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i171: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InnerProductParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %312, %309
   %.sink34.i.i.i173 = phi ptr [ %310, %309 ], [ %313, %312 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i.i173, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i.i173, align 8
   %.ptr.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i173, i64 16
   %316 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i173, i64 45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %.ptr.i.i.i.i174, i8 0, i64 29, i1 false)
@@ -121228,7 +121228,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i177: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12LRNParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %343, %340
   %.sink36.i.i.i = phi ptr [ %341, %340 ], [ %344, %343 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i.i, align 8
   %.ptr.i.i.i.i179 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 16
   %347 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i179, i8 0, i64 16, i1 false)
@@ -121299,7 +121299,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i182: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16PoolingParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %376, %373
   %.sink34.i.i.i184 = phi ptr [ %374, %373 ], [ %377, %376 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i.i184, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i.i184, align 8
   %.ptr.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i184, i64 16
   %380 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i184, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.ptr.i.i.i.i185, i8 0, i64 49, i1 false)
@@ -121366,7 +121366,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i188: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19WindowDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %407, %404
   %.sink42.i.i.i = phi ptr [ %405, %404 ], [ %408, %407 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i.i, align 8
   %.ptr.i.i.i.i190 = getelementptr inbounds nuw i8, ptr %.sink42.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i190, align 4
   %411 = getelementptr inbounds nuw i8, ptr %.sink42.i.i.i, i64 20
@@ -121449,7 +121449,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i193: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14PowerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %446, %443
   %.sink36.i.i.i195 = phi ptr [ %444, %443 ], [ %447, %446 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i.i195, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i.i195, align 8
   %.ptr.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i195, i64 16
   store i32 0, ptr %.ptr.i.i.i.i196, align 4
   %450 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i195, i64 20
@@ -121520,7 +121520,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i199: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19MemoryDataParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %479, %476
   %.sink32.i.i.i = phi ptr [ %477, %476 ], [ %480, %479 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i.i, align 8
   %.ptr.i.i.i.i201 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i201, i8 0, i64 24, i1 false)
   store ptr %.sink32.i.i.i, ptr %464, align 8
@@ -121588,7 +121588,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i204: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ArgMaxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %510, %507
   %.sink33.i.i.i = phi ptr [ %508, %507 ], [ %511, %510 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i.i, align 8
   %.ptr.i.i.i.i206 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i, i64 16
   %514 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i206, i8 0, i64 16, i1 false)
@@ -121696,7 +121696,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i213: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ThresholdParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %562, %559
   %.sink34.i.i.i215 = phi ptr [ %560, %559 ], [ %563, %562 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i.i215, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i.i215, align 8
   %.ptr.i.i.i.i216 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i215, i64 16
   store i32 0, ptr %.ptr.i.i.i.i216, align 4
   %566 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i215, i64 20
@@ -121847,7 +121847,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i223: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17AccuracyParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %636, %633
   %.sink36.i.i.i225 = phi ptr [ %634, %633 ], [ %637, %636 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i.i225, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i.i225, align 8
   %.ptr.i.i.i.i226 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i225, i64 16
   store i32 0, ptr %.ptr.i.i.i.i226, align 4
   %640 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i225, i64 20
@@ -121918,7 +121918,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i229: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18HingeLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %669, %666
   %.sink34.i.i.i231 = phi ptr [ %667, %666 ], [ %670, %669 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i.i231, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i.i231, align 8
   %.ptr.i.i.i.i232 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i231, i64 16
   store i32 0, ptr %.ptr.i.i.i.i232, align 4
   %673 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i231, i64 20
@@ -122055,7 +122055,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i244: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13ReLUParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %736, %733
   %.sink32.i.i.i246 = phi ptr [ %734, %733 ], [ %737, %736 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i.i246, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i.i246, align 8
   %.ptr.i.i.i.i247 = getelementptr inbounds nuw i8, ptr %.sink32.i.i.i246, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i.i247, i8 0, i64 16, i1 false)
   store ptr %.sink32.i.i.i246, ptr %721, align 8
@@ -122165,7 +122165,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i254: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12MVNParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %788, %785
   %.sink34.i.i.i256 = phi ptr [ %786, %785 ], [ %789, %788 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i.i256, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i.i256, align 8
   %.ptr.i.i.i.i257 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i256, i64 16
   %792 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i256, i64 25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i.i257, i8 0, i64 9, i1 false)
@@ -122275,7 +122275,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i264: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13TanHParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %841, %838
   %.sink34.i.i.i266 = phi ptr [ %839, %838 ], [ %842, %841 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i.i266, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i.i266, align 8
   %.ptr.i.i.i.i267 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i266, i64 16
   store i32 0, ptr %.ptr.i.i.i.i267, align 4
   %845 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i266, i64 20
@@ -122412,7 +122412,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i279: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SigmoidParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %908, %905
   %.sink34.i.i.i281 = phi ptr [ %906, %905 ], [ %909, %908 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i.i281, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i.i281, align 8
   %.ptr.i.i.i.i282 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i281, i64 16
   store i32 0, ptr %.ptr.i.i.i.i282, align 4
   %912 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i281, i64 20
@@ -122549,7 +122549,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i294: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SoftmaxParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %975, %972
   %.sink35.i.i.i296 = phi ptr [ %973, %972 ], [ %976, %975 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i.i296, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i.i296, align 8
   %.ptr.i.i.i.i297 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i296, i64 16
   store i32 0, ptr %.ptr.i.i.i.i297, align 4
   %979 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i296, i64 20
@@ -122618,7 +122618,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i300: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe24ContrastiveLossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1007, %1004
   %.sink33.i.i.i302 = phi ptr [ %1005, %1004 ], [ %1008, %1007 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i.i302, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i.i302, align 8
   %.ptr.i.i.i.i303 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i302, i64 16
   %1011 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i302, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i.i303, i8 0, i64 9, i1 false)
@@ -122683,7 +122683,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i306: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12ExpParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1037, %1034
   %.sink36.i.i.i308 = phi ptr [ %1035, %1034 ], [ %1038, %1037 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i.i308, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i.i308, align 8
   %.ptr.i.i.i.i309 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i308, i64 16
   store i32 0, ptr %.ptr.i.i.i.i309, align 4
   %1041 = getelementptr inbounds nuw i8, ptr %.sink36.i.i.i308, i64 20
@@ -122753,7 +122753,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i312: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13LossParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %1069, %1066
   %.sink33.i.i.i314 = phi ptr [ %1067, %1066 ], [ %1070, %1069 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i.i314, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i.i314, align 8
   %.ptr.i.i.i.i315 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i314, i64 16
   %1073 = getelementptr inbounds nuw i8, ptr %.sink33.i.i.i314, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %.ptr.i.i.i.i315, i8 0, i64 13, i1 false)
@@ -123078,7 +123078,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %12
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %128, %125
   %.sink35.i.i.i = phi ptr [ %126, %125 ], [ %129, %128 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -123147,7 +123147,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i181: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i183: ; preds = %160, %157
   %.sink35.i.i.i184 = phi ptr [ %158, %157 ], [ %161, %160 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i184, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i184, align 8
   %.ptr.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i184, i64 16
   %164 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i184, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i185, i8 0, i64 32, i1 false)
@@ -123216,7 +123216,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i188: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19HDF5OutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %192, %189
   %.sink34.i.i.i = phi ptr [ %190, %189 ], [ %193, %192 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
   %.ptr.i.i.i.i190 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i190, align 4
   %196 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 20
@@ -123901,7 +123901,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16V1LayerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1024))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1024))
   ret { ptr, ptr } %2
 }
 
@@ -123933,7 +123933,7 @@ define hidden void @_ZN12opencv_caffe16V0LayerParameterC2EPN6google8protobuf5Are
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16V0LayerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16V0LayerParameterE, i64 16), ptr %0, align 8
   %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %scevgep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -124012,7 +124012,7 @@ define hidden void @_ZN12opencv_caffe16V0LayerParameterC2EPN6google8protobuf5Are
 define hidden void @_ZN12opencv_caffe16V0LayerParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 28), (32, 56)) %0, ptr noundef nonnull align 8 dereferenceable(256) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16V0LayerParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16V0LayerParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
@@ -124483,7 +124483,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN12opencv_caffe9BlobProtoEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, %39
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %43 = load i64, ptr %2, align 8
   %44 = and i64 %43, 2
   %.not.i.i.i = icmp eq i64 %44, 0
@@ -124979,7 +124979,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %17
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %183, %180
   %.sink35.i.i.i = phi ptr [ %181, %180 ], [ %184, %183 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %187 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -125042,7 +125042,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i78: ; preds = %
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i80: ; preds = %211, %208
   %.sink35.i.i.i81 = phi ptr [ %209, %208 ], [ %212, %211 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i81, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i81, align 8
   %.ptr.i.i.i.i82 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i81, i64 16
   %215 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i81, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i82, i8 0, i64 32, i1 false)
@@ -126183,7 +126183,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i190: ; preds = 
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19HDF5OutputParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %753, %750
   %.sink34.i.i.i = phi ptr [ %751, %750 ], [ %754, %753 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i.i, align 8
   %.ptr.i.i.i.i192 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i.i192, align 4
   %757 = getelementptr inbounds nuw i8, ptr %.sink34.i.i.i, i64 20
@@ -128980,7 +128980,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe16V0LayerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1040))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1040))
   ret { ptr, ptr } %2
 }
 
@@ -128998,7 +128998,7 @@ define hidden void @_ZN12opencv_caffe14PReLUParameterC2EPN6google8protobuf5Arena
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.ptr, i8 0, i64 17, i1 false)
   ret void
@@ -129008,7 +129008,7 @@ define hidden void @_ZN12opencv_caffe14PReLUParameterC2EPN6google8protobuf5Arena
 define hidden void @_ZN12opencv_caffe14PReLUParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -129174,7 +129174,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %16, %_ZN12opencv_caffe14PReLUParameter10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %34 = phi i64 [ %.pre3, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %15, %16 ], [ %15, %_ZN12opencv_caffe14PReLUParameter10SharedDtorEv.exit ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %35 = and i64 %34, 2
   %.not.i.i.i = icmp eq i64 %35, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %36
@@ -129354,7 +129354,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i: ; preds = %61
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit.i: ; preds = %67, %64
   %.sink35.i.i.i = phi ptr [ %65, %64 ], [ %68, %67 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i.i, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %.sink35.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i.i, i8 0, i64 32, i1 false)
@@ -129694,7 +129694,7 @@ define hidden void @_ZN12opencv_caffe14PReLUParameter12InternalSwapEPS0_(ptr noc
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe14PReLUParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1056))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1056))
   ret { ptr, ptr } %2
 }
 
@@ -129705,7 +129705,7 @@ define hidden void @_ZN12opencv_caffe14NormalizedBBoxC2EPN6google8protobuf5Arena
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14NormalizedBBoxE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14NormalizedBBoxE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.ptr, i8 0, i64 40, i1 false)
   ret void
@@ -129715,7 +129715,7 @@ define hidden void @_ZN12opencv_caffe14NormalizedBBoxC2EPN6google8protobuf5Arena
 define hidden void @_ZN12opencv_caffe14NormalizedBBoxC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14NormalizedBBoxE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14NormalizedBBoxE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -129813,7 +129813,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -130821,7 +130821,7 @@ define hidden void @_ZN12opencv_caffe14NormalizedBBox12InternalSwapEPS0_(ptr noc
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe14NormalizedBBox11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1072))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1072))
   ret { ptr, ptr } %2
 }
 
@@ -130832,7 +130832,7 @@ define hidden void @_ZN12opencv_caffe19ROIPoolingParameterC2EPN6google8protobuf5
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr, i8 0, i64 16, i1 false)
@@ -130844,7 +130844,7 @@ define hidden void @_ZN12opencv_caffe19ROIPoolingParameterC2EPN6google8protobuf5
 define hidden void @_ZN12opencv_caffe19ROIPoolingParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -130942,7 +130942,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -131571,7 +131571,7 @@ define hidden void @_ZN12opencv_caffe19ROIPoolingParameter12InternalSwapEPS0_(pt
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe19ROIPoolingParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1088))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1088))
   ret { ptr, ptr } %2
 }
 
@@ -131582,7 +131582,7 @@ define hidden void @_ZN12opencv_caffe17ProposalParameterC2EPN6google8protobuf5Ar
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17ProposalParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17ProposalParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -131632,7 +131632,7 @@ define hidden void @_ZN12opencv_caffe17ProposalParameterC2EPN6google8protobuf5Ar
 define hidden void @_ZN12opencv_caffe17ProposalParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17ProposalParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17ProposalParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -131802,7 +131802,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #23
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf13RepeatedFieldIfED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #23
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %23 = load i64, ptr %2, align 8
   %24 = and i64 %23, 2
   %.not.i.i.i = icmp eq i64 %24, 0
@@ -132983,7 +132983,7 @@ define hidden void @_ZN12opencv_caffe17ProposalParameter12InternalSwapEPS0_(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe17ProposalParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1104))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1104))
   ret { ptr, ptr } %2
 }
 
@@ -132994,7 +132994,7 @@ define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterC2EPN6google8protobu
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %0, align 8
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr, i8 0, i64 20, i1 false)
   ret void
@@ -133004,7 +133004,7 @@ define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterC2EPN6google8protobu
 define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -133102,7 +133102,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
   %21 = phi i64 [ %3, %1 ], [ %.pre, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i ], [ %3, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread ]
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf7MessageD2Ev.exit, label %23
@@ -133793,7 +133793,7 @@ define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter12InternalSwapEPS0_(
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZNK12opencv_caffe21PSROIPoolingParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
-  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1120))
+  %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1120))
   ret { ptr, ptr } %2
 }
 
@@ -133806,7 +133806,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobShapeE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobShapeE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN6google8protobuf13RepeatedFieldIlEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef null)
           to label %_ZN12opencv_caffe9BlobShapeC2EPN6google8protobuf5ArenaEb.exit unwind label %.body
@@ -133827,7 +133827,7 @@ common.resume:                                    ; preds = %13, %.body
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %0 to i64
   store i64 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobShapeE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9BlobShapeE, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   invoke void @_ZN6google8protobuf13RepeatedFieldIlEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %0)
           to label %_ZN12opencv_caffe9BlobShapeC2EPN6google8protobuf5ArenaEb.exit unwind label %13
@@ -133880,7 +133880,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   br label %13
@@ -133890,7 +133890,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -133911,7 +133911,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PermuteParameterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PermuteParameterE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN6google8protobuf13RepeatedFieldIjEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef null)
           to label %_ZN12opencv_caffe16PermuteParameterC2EPN6google8protobuf5ArenaEb.exit unwind label %.body
@@ -133932,7 +133932,7 @@ common.resume:                                    ; preds = %13, %.body
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %0 to i64
   store i64 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PermuteParameterE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PermuteParameterE, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   invoke void @_ZN6google8protobuf13RepeatedFieldIjEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %0)
           to label %_ZN12opencv_caffe16PermuteParameterC2EPN6google8protobuf5ArenaEb.exit unwind label %13
@@ -133970,7 +133970,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i, i8 0, i64 16, i1 false)
@@ -134028,7 +134028,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %.ptr.i, i8 0, i64 38, i1 false)
@@ -134051,7 +134051,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe5DatumE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe5DatumE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -134076,7 +134076,7 @@ common.resume:                                    ; preds = %15, %.body
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = ptrtoint ptr %0 to i64
   store i64 %12, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe5DatumE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe5DatumE, i64 16), ptr %10, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -134120,7 +134120,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
@@ -134141,7 +134141,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetParameterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetParameterE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -134188,7 +134188,7 @@ common.resume:                                    ; preds = %30, %.body
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = ptrtoint ptr %0 to i64
   store i64 %19, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetParameterE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetParameterE, i64 16), ptr %17, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 20
@@ -134278,7 +134278,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
@@ -134290,7 +134290,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %8, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -134319,7 +134319,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe8NetStateE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe8NetStateE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -134344,7 +134344,7 @@ common.resume:                                    ; preds = %15, %.body
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = ptrtoint ptr %0 to i64
   store i64 %12, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe8NetStateE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe8NetStateE, i64 16), ptr %10, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -134377,7 +134377,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -134417,7 +134417,7 @@ common.resume:                                    ; preds = %26, %.body
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = ptrtoint ptr %0 to i64
   store i64 %17, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %15, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -134474,7 +134474,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink37 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %.sink37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %.sink37, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink37, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink37, i64 20
@@ -134525,7 +134525,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe23TransformationParameterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe23TransformationParameterE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -134550,7 +134550,7 @@ common.resume:                                    ; preds = %15, %.body
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = ptrtoint ptr %0 to i64
   store i64 %12, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe23TransformationParameterE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe23TransformationParameterE, i64 16), ptr %10, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -134596,7 +134596,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink33 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %.ptr.i, i8 0, i64 13, i1 false)
@@ -134624,7 +134624,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 20
@@ -134658,7 +134658,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink33 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i, i8 0, i64 16, i1 false)
@@ -134686,7 +134686,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -134718,7 +134718,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 20
@@ -134752,7 +134752,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i, i8 0, i64 16, i1 false)
@@ -134782,7 +134782,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink33 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i, i8 0, i64 9, i1 false)
@@ -134825,7 +134825,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13CropParameterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13CropParameterE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -134850,7 +134850,7 @@ common.resume:                                    ; preds = %15, %.body
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = ptrtoint ptr %0 to i64
   store i64 %12, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13CropParameterE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13CropParameterE, i64 16), ptr %10, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -134892,7 +134892,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink38 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink38, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink38, i64 20
@@ -134930,7 +134930,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 20
@@ -134964,7 +134964,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink39 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %.sink39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %.sink39, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink39, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink39, i64 20
@@ -135004,7 +135004,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -135051,7 +135051,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16EltwiseParameterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16EltwiseParameterE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -135076,7 +135076,7 @@ common.resume:                                    ; preds = %15, %.body
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = ptrtoint ptr %0 to i64
   store i64 %12, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16EltwiseParameterE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16EltwiseParameterE, i64 16), ptr %10, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -135120,7 +135120,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 20
@@ -135150,7 +135150,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink33 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %.sink33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %.sink33, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
@@ -135178,7 +135178,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 20
@@ -135212,7 +135212,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -135244,7 +135244,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -135276,7 +135276,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 20
@@ -135306,7 +135306,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 20
@@ -135336,7 +135336,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink40 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink40, i64 20
@@ -135378,7 +135378,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 20
@@ -135408,7 +135408,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %.ptr.i, i8 0, i64 29, i1 false)
@@ -135427,7 +135427,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   br label %13
@@ -135437,7 +135437,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -135469,7 +135469,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 20
@@ -135503,7 +135503,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i, i8 0, i64 16, i1 false)
@@ -135537,7 +135537,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i, i8 0, i64 24, i1 false)
   ret ptr %.sink32
@@ -135563,7 +135563,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i, i8 0, i64 9, i1 false)
@@ -135593,7 +135593,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i, i8 0, i64 16, i1 false)
   ret ptr %.sink32
@@ -135619,7 +135619,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.ptr.i, i8 0, i64 49, i1 false)
@@ -135649,7 +135649,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 20
@@ -135683,7 +135683,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink37 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %.sink37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %.sink37, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink37, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink37, i64 20
@@ -135719,7 +135719,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %.ptr.i, i8 0, i64 30, i1 false)
   ret ptr %.sink32
@@ -135745,7 +135745,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink36 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %.sink36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %.sink36, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36, i64 20
@@ -135779,7 +135779,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i, i8 0, i64 16, i1 false)
   ret ptr %.sink32
@@ -135805,7 +135805,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink33 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %.sink33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %.sink33, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i, i8 0, i64 20, i1 false)
@@ -135833,7 +135833,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.ptr.i, i8 0, i64 25, i1 false)
@@ -135863,7 +135863,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 20
@@ -135882,7 +135882,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14SliceParameterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14SliceParameterE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -135907,7 +135907,7 @@ common.resume:                                    ; preds = %15, %.body
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = ptrtoint ptr %0 to i64
   store i64 %12, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14SliceParameterE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14SliceParameterE, i64 16), ptr %10, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -135951,7 +135951,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -135983,7 +135983,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 20
@@ -136013,7 +136013,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink35 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %.sink35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %.sink35, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink35, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35, i64 20
@@ -136045,7 +136045,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink34 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34, i64 20
@@ -136075,7 +136075,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink42 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink42, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink42, i64 20
@@ -136121,7 +136121,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i, i8 0, i64 20, i1 false)
   ret ptr %.sink32
@@ -136199,7 +136199,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.ptr.i, i8 0, i64 17, i1 false)
   ret ptr %.sink32
@@ -136225,7 +136225,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14NormalizedBBoxE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14NormalizedBBoxE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.ptr.i, i8 0, i64 40, i1 false)
   ret ptr %.sink32
@@ -136251,7 +136251,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink33 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %.sink33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %.sink33, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i, i8 0, i64 16, i1 false)
@@ -136268,7 +136268,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17ProposalParameterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17ProposalParameterE, i64 16), ptr %4, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -136308,7 +136308,7 @@ common.resume:                                    ; preds = %26, %.body
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = ptrtoint ptr %0 to i64
   store i64 %17, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17ProposalParameterE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17ProposalParameterE, i64 16), ptr %15, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %.ptr.i.i, align 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -136375,7 +136375,7 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN12open
 
 10:                                               ; preds = %3, %6
   %.sink32 = phi ptr [ %4, %3 ], [ %7, %6 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %.sink32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %.sink32, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.sink32, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i, i8 0, i64 20, i1 false)
   ret ptr %.sink32
@@ -136453,7 +136453,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe15BlobProtoVector3NewE
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15BlobProtoVectorEEEPT_PNS0_5ArenaE.exit
@@ -136463,7 +136463,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe15BlobProtoVector3NewE
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15BlobProtoVectorE, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -136515,7 +136515,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe22NormalizeBBoxParamet
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe22NormalizeBBoxParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i, i8 0, i64 16, i1 false)
@@ -136587,7 +136587,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe24DetectionOutputParam
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe24DetectionOutputParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink36.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %.sink36.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %.sink36.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %.ptr.i.i.i, i8 0, i64 38, i1 false)
@@ -136641,7 +136641,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe15FillerParameter3NewE
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15FillerParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i, i8 0, i64 32, i1 false)
@@ -136715,7 +136715,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe11SolverState3NewEPN6g
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %5, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.ptr.i.i.i, i8 0, i64 32, i1 false)
@@ -136727,7 +136727,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe11SolverState3NewEPN6g
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe11SolverStateE, i64 16), ptr %9, align 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %.ptr.i.i.i.i, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -136800,7 +136800,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe9ParamSpec3NewEPN6goog
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe9ParamSpecEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink37.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %.sink37.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %.sink37.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink37.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink37.i.i, i64 20
@@ -136889,7 +136889,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe13LossParameter3NewEPN
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13LossParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink33.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %.sink33.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %.ptr.i.i.i, i8 0, i64 13, i1 false)
@@ -136924,7 +136924,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe17AccuracyParameter3Ne
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17AccuracyParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink36.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %.sink36.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 20
@@ -136965,7 +136965,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe15ArgMaxParameter3NewE
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ArgMaxParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink33.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %.sink33.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i, i8 0, i64 16, i1 false)
@@ -137000,7 +137000,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe15ConcatParameter3NewE
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15ConcatParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -137039,7 +137039,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe18BatchNormParameter3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18BatchNormParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink36.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %.sink36.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %.sink36.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 20
@@ -137080,7 +137080,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe13BiasParameter3NewEPN
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13BiasParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i, i8 0, i64 16, i1 false)
@@ -137117,7 +137117,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe24ContrastiveLossParam
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe24ContrastiveLossParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink33.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %.sink33.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i, i8 0, i64 9, i1 false)
@@ -137198,7 +137198,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe13DataParameter3NewEPN
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13DataParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink38.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %.sink38.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink38.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink38.i.i, i64 20
@@ -137243,7 +137243,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe30NonMaximumSuppressio
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe30NonMaximumSuppressionParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink36.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %.sink36.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %.sink36.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 20
@@ -137284,7 +137284,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe19SaveOutputParameter3
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19SaveOutputParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink39.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %.sink39.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %.sink39.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink39.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink39.i.i, i64 20
@@ -137331,7 +137331,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe16DropoutParameter3New
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16DropoutParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -137416,7 +137416,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe12ELUParameter3NewEPN6
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12ELUParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 20
@@ -137453,7 +137453,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe14EmbedParameter3NewEP
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14EmbedParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink33.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %.sink33.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %.sink33.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.i, i8 0, i64 32, i1 false)
@@ -137488,7 +137488,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe12ExpParameter3NewEPN6
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12ExpParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink36.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %.sink36.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 20
@@ -137529,7 +137529,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe16FlattenParameter3New
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16FlattenParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -137568,7 +137568,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe17HDF5DataParameter3Ne
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe17HDF5DataParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -137607,7 +137607,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe19HDF5OutputParameter3
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19HDF5OutputParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 20
@@ -137644,7 +137644,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe18HingeLossParameter3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18HingeLossParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 20
@@ -137681,7 +137681,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe18ImageDataParameter3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ImageDataParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink40.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %.sink40.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink40.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink40.i.i, i64 20
@@ -137730,7 +137730,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe21InfogainLossParamete
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InfogainLossParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 20
@@ -137767,7 +137767,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe21InnerProductParamete
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21InnerProductParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %.ptr.i.i.i, i8 0, i64 29, i1 false)
@@ -137793,7 +137793,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe14InputParameter3NewEP
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14InputParameterEEEPT_PNS0_5ArenaE.exit
@@ -137803,7 +137803,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe14InputParameter3NewEP
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -137842,7 +137842,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe12LogParameter3NewEPN6
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12LogParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink36.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %.sink36.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %.sink36.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 20
@@ -137883,7 +137883,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe12LRNParameter3NewEPN6
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12LRNParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink36.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %.sink36.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i, i8 0, i64 16, i1 false)
@@ -137924,7 +137924,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe19MemoryDataParameter3
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19MemoryDataParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i, i8 0, i64 24, i1 false)
   ret ptr %.sink32.i.i
@@ -137957,7 +137957,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe12MVNParameter3NewEPN6
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12MVNParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.ptr.i.i.i, i8 0, i64 9, i1 false)
@@ -137994,7 +137994,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe18ParameterParameter3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ParameterParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %.sink32.i.i
@@ -138027,7 +138027,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe16PoolingParameter3New
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16PoolingParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.ptr.i.i.i, i8 0, i64 49, i1 false)
@@ -138064,7 +138064,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe14PowerParameter3NewEP
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14PowerParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink36.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %.sink36.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 20
@@ -138105,7 +138105,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe15PythonParameter3NewE
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe15PythonParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink37.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %.sink37.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %.sink37.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink37.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink37.i.i, i64 20
@@ -138148,7 +138148,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe18RecurrentParameter3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18RecurrentParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %.ptr.i.i.i, i8 0, i64 30, i1 false)
   ret ptr %.sink32.i.i
@@ -138181,7 +138181,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe18ReductionParameter3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ReductionParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink36.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %.sink36.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %.sink36.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink36.i.i, i64 20
@@ -138222,7 +138222,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe13ReLUParameter3NewEPN
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13ReLUParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %.sink32.i.i
@@ -138255,7 +138255,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe16ReshapeParameter3New
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16ReshapeParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink33.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %.sink33.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %.sink33.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i, i8 0, i64 20, i1 false)
@@ -138290,7 +138290,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe14ScaleParameter3NewEP
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14ScaleParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.ptr.i.i.i, i8 0, i64 25, i1 false)
@@ -138327,7 +138327,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe16SigmoidParameter3New
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SigmoidParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 20
@@ -138377,7 +138377,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe16SoftmaxParameter3New
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe16SoftmaxParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -138416,7 +138416,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe13TanHParameter3NewEPN
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13TanHParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 20
@@ -138453,7 +138453,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe13TileParameter3NewEPN
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe13TileParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink35.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %.sink35.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %.sink35.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink35.i.i, i64 20
@@ -138492,7 +138492,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe18ThresholdParameter3N
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe18ThresholdParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink34.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %.sink34.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink34.i.i, i64 20
@@ -138529,7 +138529,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe19WindowDataParameter3
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19WindowDataParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink42.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %.sink42.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink42.i.i, i64 16
   store i32 0, ptr %.ptr.i.i.i, align 4
   %11 = getelementptr inbounds nuw i8, ptr %.sink42.i.i, i64 20
@@ -138582,7 +138582,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe12SPPParameter3NewEPN6
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe12SPPParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %.sink32.i.i
@@ -138681,7 +138681,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe14PReLUParameter3NewEP
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14PReLUParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.ptr.i.i.i, i8 0, i64 17, i1 false)
   ret ptr %.sink32.i.i
@@ -138714,7 +138714,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe14NormalizedBBox3NewEP
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe14NormalizedBBoxEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14NormalizedBBoxE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14NormalizedBBoxE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.ptr.i.i.i, i8 0, i64 40, i1 false)
   ret ptr %.sink32.i.i
@@ -138747,7 +138747,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe19ROIPoolingParameter3
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe19ROIPoolingParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink33.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %.sink33.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %.sink33.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sink33.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i, i8 0, i64 16, i1 false)
@@ -138795,7 +138795,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12opencv_caffe21PSROIPoolingParamete
 
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN12opencv_caffe21PSROIPoolingParameterEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink32.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %.sink32.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %.sink32.i.i, align 8
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink32.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %.sink32.i.i
@@ -139491,7 +139491,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %23 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %23, align 8
   %.ptr.i.us = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %.ptr.i.us, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 20
@@ -139516,7 +139516,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %31 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 48, ptr noundef nonnull @_ZTIN12opencv_caffe9ParamSpecE)
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %21, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %31, align 8
   %.ptr.i5 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 0, ptr %.ptr.i5, align 4
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 20
@@ -139608,7 +139608,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN12opencv_caffe12NetStateRuleEJEEE
   %23 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %23, align 8
   %.ptr.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %.ptr.i, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 20
@@ -139658,7 +139658,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN12opencv_caffe12NetStateRuleEJEEE
   %35 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 88, ptr noundef nonnull @_ZTIN12opencv_caffe12NetStateRuleE)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %22, ptr %36, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12NetStateRuleE, i64 16), ptr %35, align 8
   %.ptr.i23 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 0, ptr %.ptr.i23, align 4
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 20
@@ -139767,7 +139767,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN12opencv_caffe15FillerParameterEJ
   %23 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %23, align 8
   %.ptr.i.i.us = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i.us, i8 0, i64 32, i1 false)
@@ -139788,7 +139788,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN12opencv_caffe15FillerParameterEJ
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 64, ptr noundef nonnull @_ZTIN12opencv_caffe15FillerParameterE)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %21, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %29, align 8
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i.i, i8 0, i64 32, i1 false)

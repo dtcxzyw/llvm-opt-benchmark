@@ -159,7 +159,7 @@ $_ZTV10nullStream = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 13), (16, 20), (24, 56)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12outputStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12outputStream, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1133,7 +1133,7 @@ define hidden void @_ZN12stringStreamC2Em(ptr noundef nonnull align 8 dereferenc
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %6, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12stringStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12stringStream, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store ptr %8, ptr %7, align 8
@@ -1239,7 +1239,7 @@ define hidden void @_ZN12stringStreamC2EPcm(ptr nocapture noundef nonnull writeo
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %7, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12stringStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12stringStream, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1446,7 +1446,7 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12stringStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(129) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12stringStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12stringStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1471,7 +1471,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12stringStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(129) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12stringStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV12stringStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1717,7 +1717,7 @@ define hidden void @_ZN10fileStreamC2EPKc(ptr nocapture noundef nonnull writeonl
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %6, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %0, align 8
   %7 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %1, ptr noundef nonnull @.str.16) #21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %7, ptr %8, align 8
@@ -1757,7 +1757,7 @@ define hidden void @_ZN10fileStreamC2EPKcS1_(ptr nocapture noundef nonnull write
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %7, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %0, align 8
   %8 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %1, ptr noundef %2) #21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %8, ptr %9, align 8
@@ -1888,7 +1888,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZN10fileStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #10 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1915,7 +1915,7 @@ _ZN10fileStream5closeEv.exit:                     ; preds = %4, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10fileStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2067,7 +2067,7 @@ define hidden void @_ZN13defaultStream4initEv(ptr noundef nonnull align 8 derefe
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i8 0, ptr %18, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV9xmlStream, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV9xmlStream, i64 16), ptr %14, align 8
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store i32 0, ptr %20, align 8
@@ -2077,7 +2077,7 @@ define hidden void @_ZN13defaultStream4initEv(ptr noundef nonnull align 8 derefe
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 100
   store i8 0, ptr %23, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13xmlTextStream, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13xmlTextStream, i64 16), ptr %19, align 8
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr null, ptr %24, align 8
   tail call void @_ZN9xmlStream10initializeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull %11) #21
@@ -2117,7 +2117,7 @@ define hidden void @_ZN13defaultStream8init_logEv(ptr noundef nonnull align 8 de
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %11, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV9xmlStream, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV9xmlStream, i64 16), ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 0, ptr %13, align 8
@@ -2127,7 +2127,7 @@ define hidden void @_ZN13defaultStream8init_logEv(ptr noundef nonnull align 8 de
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 100
   store i8 0, ptr %16, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13xmlTextStream, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13xmlTextStream, i64 16), ptr %12, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store ptr null, ptr %17, align 8
   tail call void @_ZN9xmlStream10initializeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull %4) #21
@@ -2190,7 +2190,7 @@ define hidden noundef ptr @_ZN13defaultStream9open_fileEPKc(ptr nocapture nonnul
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %11, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %7, align 8
   %12 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull %3, ptr noundef nonnull @.str.16) #21
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %12, ptr %13, align 8
@@ -2240,7 +2240,7 @@ _ZN10fileStreamC2EPKc.exit:                       ; preds = %6, %14
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i8 0, ptr %36, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %32, align 8
   %37 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull %26, ptr noundef nonnull @.str.16) #21
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store ptr %37, ptr %38, align 8
@@ -3061,7 +3061,7 @@ define hidden void @_Z12ostream_initv() local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 0, ptr %8, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13defaultStream, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13defaultStream, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -3219,7 +3219,7 @@ define hidden void @_ZN14bufferedStreamC2Emm(ptr nocapture noundef nonnull write
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %7, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14bufferedStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV14bufferedStream, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %1, ptr %8, align 8
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %1, i8 noundef zeroext 9, i32 noundef 0) #21
@@ -3386,7 +3386,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14bufferedStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(89) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14bufferedStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV14bufferedStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #21
@@ -3395,7 +3395,7 @@ define hidden void @_ZN14bufferedStreamD2Ev(ptr nocapture noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14bufferedStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14bufferedStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV14bufferedStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #21
@@ -3461,7 +3461,7 @@ _ZN13defaultStream12has_log_fileEv.exit:          ; preds = %1, %11, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13defaultStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13defaultStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13defaultStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -3682,18 +3682,18 @@ define internal void @_GLOBAL__sub_I_ostream.cpp() #17 section ".text.startup" {
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18tty_preinit_stream, i64 8), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18tty_preinit_stream, i64 12), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL18tty_preinit_stream, i64 24), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10nullStream, i64 16), ptr @_ZL18tty_preinit_stream, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10nullStream, i64 16), ptr @_ZL18tty_preinit_stream, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stdout_streamE, i64 16), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stdout_streamE, i64 8), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stdout_streamE, i64 12), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stdout_streamE, i64 24), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr @_ZN8fdStream14_stdout_streamE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr @_ZN8fdStream14_stdout_streamE, align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stdout_streamE, i64 56), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stderr_streamE, i64 16), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stderr_streamE, i64 8), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stderr_streamE, i64 12), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stderr_streamE, i64 24), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr @_ZN8fdStream14_stderr_streamE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr @_ZN8fdStream14_stderr_streamE, align 8
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN8fdStream14_stderr_streamE, i64 56), align 8
   %1 = load ptr, ptr @stdout, align 8
   store ptr %1, ptr @_ZN13defaultStream14_output_streamE, align 8

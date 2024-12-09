@@ -93,7 +93,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryD0Ev(ptr nocapture nonnul
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryC2ENS0_3Sdc10SchemeTypeERKNS3_7OptionsERKNS2_7OptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 32), (33, 35), (44, 56)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 13

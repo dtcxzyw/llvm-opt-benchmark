@@ -812,7 +812,7 @@ define noundef i32 @mca_fcoll_dynamic_gen2_file_write_all(ptr noundef %0, ptr no
   br i1 %exitcond735.not, label %._crit_edge627, label %.lr.ph626, !llvm.loop !19
 
 ._crit_edge627:                                   ; preds = %.lr.ph626, %.preheader556
-  %403 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %403 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %404 = load i32, ptr %47, align 8
   %405 = add nsw i32 %404, 1
   %406 = mul nsw i32 %405, %spec.select.i
@@ -893,7 +893,7 @@ define noundef i32 @mca_fcoll_dynamic_gen2_file_write_all(ptr noundef %0, ptr no
   br i1 %exitcond748.not, label %._crit_edge638, label %.lr.ph637, !llvm.loop !22
 
 ._crit_edge638:                                   ; preds = %.lr.ph637, %.preheader552
-  %438 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %438 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %439 = load i32, ptr %47, align 8
   %440 = add nsw i32 %439, 1
   %441 = mul nsw i32 %440, %spec.select.i
@@ -2827,7 +2827,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   br i1 %.not552, label %727, label %719
 
 719:                                              ; preds = %702
-  %720 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %720 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %721 = load ptr, ptr %692, align 8
   %722 = load ptr, ptr %693, align 8
   %723 = getelementptr inbounds nuw i32, ptr %722, i64 %indvars.iv675
@@ -2989,7 +2989,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   %802 = call i32 @ompi_datatype_create_hindexed(i32 noundef %801, ptr noundef nonnull %.3494, ptr noundef %.3489, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %6) #11
   %.val555 = load ptr, ptr %6, align 8
   %803 = call i32 @opal_datatype_commit(ptr noundef %.val555) #11
-  %804 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %804 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %805 = inttoptr i64 %.1 to ptr
   %806 = load ptr, ptr %6, align 8
   %807 = add nsw i32 %0, 123

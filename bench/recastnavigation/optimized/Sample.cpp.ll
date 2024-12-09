@@ -121,7 +121,7 @@ switch.lookup:                                    ; preds = %2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 41), (44, 103), (104, 112), (184, 200)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6Sample, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Sample, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -137,7 +137,7 @@ define dso_local void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceabl
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15SampleDebugDraw, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SampleDebugDraw, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store float 0x3FD3333340000000, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -236,7 +236,7 @@ define linkonce_odr dso_local void @_ZN15SampleDebugDrawD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6Sample, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Sample, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z18dtFreeNavMeshQueryP14dtNavMeshQuery(ptr noundef %3)

@@ -45013,7 +45013,7 @@ define hidden void @"_ZN4gpui6window13WindowContext5spawn28_$u7b$$u7b$closure$u7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9601)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9604)
-  %13 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !9606
+  %13 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !9606
   %14 = icmp eq i32 %13, 4
   br i1 %14, label %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h8a0ce10f1736d5b1E.exit5.i", label %15
 
@@ -45022,7 +45022,7 @@ define hidden void @"_ZN4gpui6window13WindowContext5spawn28_$u7b$$u7b$closure$u7
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %5, align 8, !noalias !9606
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !9606
   store ptr %5, ptr %4, align 8, !noalias !9606
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bc586015a8f6e240d58b5e0e5d3d0319.83.llvm.12982194851600844284)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bc586015a8f6e240d58b5e0e5d3d0319.83.llvm.12982194851600844284)
           to label %.noexc.i unwind label %16, !noalias !9610
 
 .noexc.i:                                         ; preds = %15
@@ -145078,7 +145078,7 @@ define hidden void @"_ZN9workspace9Workspace19serialize_workspace28_$u7b$$u7b$cl
 define hidden void @"_ZN9workspace9Workspace28serialize_workspace_internal28_$u7b$$u7b$closure$u7d$$u7d$17h97bb4d9ac0457ee2E.llvm.12982194851600844284"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([680 x i8]) align 8 dereferenceable(680) %0, ptr noalias nocapture noundef align 8 dereferenceable(328) %1, ptr noalias nocapture noundef align 8 dereferenceable(64) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
-  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !30065
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !30065
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h8a0ce10f1736d5b1E.exit5", label %8
 
@@ -145087,7 +145087,7 @@ define hidden void @"_ZN9workspace9Workspace28serialize_workspace_internal28_$u7
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %5, align 8, !noalias !30065
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !30065
   store ptr %5, ptr %4, align 8, !noalias !30065
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bc586015a8f6e240d58b5e0e5d3d0319.83.llvm.12982194851600844284)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bc586015a8f6e240d58b5e0e5d3d0319.83.llvm.12982194851600844284)
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %8

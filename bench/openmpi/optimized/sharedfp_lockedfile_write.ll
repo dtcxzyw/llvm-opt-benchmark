@@ -33,7 +33,7 @@ define i32 @mca_sharedfp_lockedfile_write(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %11, ptr noundef nonnull @.str) #4
   br label %34
 
@@ -47,7 +47,7 @@ define i32 @mca_sharedfp_lockedfile_write(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %18, ptr noundef nonnull @.str.1, i64 noundef %15) #4
   %.pre = load ptr, ptr %7, align 8
   br label %19
@@ -70,7 +70,7 @@ define i32 @mca_sharedfp_lockedfile_write(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not18, label %31, label %29
 
 29:                                               ; preds = %27
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %30, ptr noundef nonnull @.str.2, i64 noundef %26) #4
   %.pre19 = load i64, ptr %6, align 8
   br label %31
@@ -103,7 +103,7 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %13, ptr noundef nonnull @.str.3) #4
   br label %89
 
@@ -177,7 +177,7 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
   br i1 %.not68, label %50, label %48
 
 48:                                               ; preds = %.lr.ph.split
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %49, ptr noundef nonnull @.str.4, i64 noundef %47) #4
   %.pre = load i32, ptr @mca_sharedfp_lockedfile_verbose, align 4
   br label %50
@@ -201,7 +201,7 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
   br i1 %.not65, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %58 = load i64, ptr %8, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %57, ptr noundef nonnull @.str.5, i64 noundef %58) #4
   br label %59
@@ -254,7 +254,7 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
   br i1 %.not67, label %85, label %83
 
 83:                                               ; preds = %75
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %84, ptr noundef nonnull @.str.6, i64 noundef %81) #4
   br label %85
 

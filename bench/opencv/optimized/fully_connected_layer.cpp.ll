@@ -300,7 +300,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv3dnn27FullyConnected
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %18, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn27FullyConnectedLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn27FullyConnectedLayerInt8ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %19, align 8
   store ptr %6, ptr %5, align 8
@@ -349,7 +349,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn27FullyConnectedLayerInt8ImplC2ERKNS0
   %31 = alloca %"class.cv::_OutputArray", align 8
   %32 = alloca %"class.cv::Mat", align 8
   tail call void @_ZN2cv3dnn14dnn4_v202405215LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(121) %0)
-  store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn27FullyConnectedLayerInt8ImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn27FullyConnectedLayerInt8ImplE, i64 16), ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #22
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2846,7 +2846,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn27FullyConnectedLayerInt8Impl14FullyC
   br label %94
 
 62:                                               ; preds = %49
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn27FullyConnectedLayerInt8Impl14FullyConnectedE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv3dnn27FullyConnectedLayerInt8Impl14FullyConnectedE, i64 16), ptr %12, align 8
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %64, i8 0, i64 28, i1 false)

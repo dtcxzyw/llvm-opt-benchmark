@@ -24,7 +24,7 @@ $_ZNK4LIEF6ObjectneERKS0_ = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO14FilesetCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -42,7 +42,7 @@ define void @_ZN4LIEF5MachO14FilesetCommandC2ERKNS0_7details21fileset_entry_comm
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   tail call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef 2147483701, i32 noundef %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -63,7 +63,7 @@ declare void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr nound
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO14FilesetCommandC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -77,7 +77,7 @@ _ZN4LIEF5MachO14FilesetCommand4nameERKNSt7__cxx1112basic_stringIcSt11char_traits
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   tail call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #10
   resume { ptr, i32 } %7
@@ -94,7 +94,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF5MachO14FilesetCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   tail call void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
@@ -140,7 +140,7 @@ define void @_ZN4LIEF5MachO14FilesetCommand4swapERS1_(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO14FilesetCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)

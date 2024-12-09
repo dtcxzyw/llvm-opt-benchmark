@@ -217,7 +217,7 @@ define internal noundef i32 @_ZL34hb_font_get_nominal_glyphs_defaultP9hb_font_tP
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 48), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 48), align 8
   %.not24 = icmp eq ptr %12, %13
   br i1 %.not24, label %34, label %.preheader
 
@@ -319,7 +319,7 @@ define internal void @_ZL36hb_font_get_glyph_h_advances_defaultP9hb_font_tPvjPKj
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 72), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 72), align 8
   %.not = icmp eq ptr %12, %13
   br i1 %.not, label %33, label %.preheader
 
@@ -434,7 +434,7 @@ define internal void @_ZL36hb_font_get_glyph_v_advances_defaultP9hb_font_tPvjPKj
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 80), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 80), align 8
   %.not = icmp eq ptr %12, %13
   br i1 %.not, label %33, label %.preheader
 
@@ -623,7 +623,7 @@ define hidden noundef ptr @hb_font_funcs_create() local_unnamed_addr #4 {
   store atomic i64 0, ptr %4 monotonic, align 8
   %5 = load atomic i32, ptr %1 monotonic, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 152, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 152, i1 false)
   br label %7
 
 7:                                                ; preds = %0, %2
@@ -1895,7 +1895,7 @@ define internal noundef i32 @_ZL33hb_font_get_nominal_glyph_defaultP9hb_font_tPv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 56), align 8
   %.not = icmp eq ptr %10, %11
   br i1 %.not, label %22, label %12
 
@@ -2355,7 +2355,7 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_h_advance_defaultP9hb_font_t
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 88), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 88), align 8
   %.not = icmp eq ptr %10, %11
   br i1 %.not, label %22, label %12
 
@@ -2559,7 +2559,7 @@ define internal noundef i32 @_ZL35hb_font_get_glyph_v_advance_defaultP9hb_font_t
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 96), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 96), align 8
   %.not = icmp eq ptr %10, %11
   br i1 %.not, label %22, label %12
 
@@ -4860,7 +4860,7 @@ define hidden noundef zeroext i1 @_ZN9hb_font_t12has_func_setEj(ptr nocapture no
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw [19 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw [19 x ptr], ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 0, i64 %6
+  %9 = getelementptr inbounds nuw [19 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 0, i64 %6
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %8, %10
   ret i1 %11
@@ -4869,7 +4869,7 @@ define hidden noundef zeroext i1 @_ZN9hb_font_t12has_func_setEj(ptr nocapture no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN9hb_font_t8has_funcEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw [19 x ptr], ptr getelementptr inbounds (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [19 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZL22_hb_font_funcs_default, i64 32), i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %tailrecurse
 

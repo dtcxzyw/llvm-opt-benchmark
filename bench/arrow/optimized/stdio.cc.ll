@@ -170,7 +170,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN5arrow2io12StdoutStreamC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io8WritableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io8WritableE, i64 16), ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8
   %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
@@ -207,8 +207,8 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %mode_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io12StdoutStreamE, i64 24), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io12StdoutStreamE, i64 152), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io12StdoutStreamE, i64 24), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io12StdoutStreamE, i64 152), ptr %0, align 8
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %pos_, align 8
   store i32 1, ptr %mode_.i, align 8
@@ -289,7 +289,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 define void @_ZN5arrow2io12StderrStreamC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io8WritableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io8WritableE, i64 16), ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8
   %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
@@ -324,8 +324,8 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %mode_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io12StderrStreamE, i64 24), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io12StderrStreamE, i64 152), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io12StderrStreamE, i64 24), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io12StderrStreamE, i64 152), ptr %0, align 8
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %pos_, align 8
   store i32 1, ptr %mode_.i, align 8
@@ -449,8 +449,8 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %mode_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io11StdinStreamE, i64 224), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io11StdinStreamE, i64 64), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io11StdinStreamE, i64 224), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io11StdinStreamE, i64 64), ptr %this, align 8
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %pos_, align 8
   store i32 0, ptr %mode_.i, align 8
@@ -947,7 +947,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1671,7 +1671,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8

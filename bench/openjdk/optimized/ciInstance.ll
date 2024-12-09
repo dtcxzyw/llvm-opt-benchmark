@@ -201,7 +201,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 _ZNK7oopDesc5klassEv.exit:                        ; preds = %23, %33
   %.0.i = phi ptr [ %32, %23 ], [ %34, %33 ]
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
   %.not = icmp eq ptr %.0.i, %35
   br i1 %.not, label %36, label %_ZN5ciEnv9get_klassEP5Klass.exit
 
@@ -892,7 +892,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -911,7 +911,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -930,7 +930,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -949,7 +949,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -968,7 +968,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -996,7 +996,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9

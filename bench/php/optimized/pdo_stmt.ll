@@ -505,7 +505,7 @@ define hidden void @zim_PDOStatement_execute(ptr noundef %0, ptr nocapture nound
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %30) #16
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
   br label %239
@@ -1643,7 +1643,7 @@ define hidden void @zim_PDOStatement_fetch(ptr noundef %0, ptr noundef %1) #0 {
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %49) #16
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %51 = icmp ne ptr %50, null
   call void @llvm.assume(i1 %51)
   br label %72
@@ -1656,7 +1656,7 @@ define hidden void @zim_PDOStatement_fetch(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %55, label %59, label %56
 
 56:                                               ; preds = %52
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %58 = icmp ne ptr %57, null
   call void @llvm.assume(i1 %58)
   br label %72
@@ -2932,7 +2932,7 @@ define hidden void @zim_PDOStatement_fetchObject(ptr noundef %0, ptr noundef %1)
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %30) #16
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %91
@@ -3215,7 +3215,7 @@ define hidden void @zim_PDOStatement_fetchColumn(ptr noundef %0, ptr noundef %1)
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %28) #16
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %43
@@ -3631,7 +3631,7 @@ define internal fastcc void @fetch_value(ptr noundef %0, ptr noundef initializes
   br label %67
 
 67:                                               ; preds = %57, %60, %65
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 384), align 16
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zend_one_char_string, i64 384), align 16
   store ptr %68, ptr %1, align 8
   store i32 6, ptr %15, align 8
   br label %.thread
@@ -3840,7 +3840,7 @@ define hidden void @zim_PDOStatement_fetchAll(ptr noundef %0, ptr noundef %1) #0
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %41) #16
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
   br label %311
@@ -3851,7 +3851,7 @@ define hidden void @zim_PDOStatement_fetchAll(ptr noundef %0, ptr noundef %1) #0
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %49 = icmp ne ptr %48, null
   call void @llvm.assume(i1 %49)
   br label %311
@@ -3927,7 +3927,7 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
 79:                                               ; preds = %76
   %80 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0246312) #16
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef %80) #16
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %82 = icmp ne ptr %81, null
   call void @llvm.assume(i1 %82)
   br label %311
@@ -3941,7 +3941,7 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
 
 86:                                               ; preds = %83
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 2, ptr noundef nonnull @.str.3) #16
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %88 = icmp ne ptr %87, null
   call void @llvm.assume(i1 %88)
   br label %311
@@ -4054,7 +4054,7 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
   br label %138
 
 138:                                              ; preds = %122, %136, %137, %129
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %140 = icmp ne ptr %139, null
   call void @llvm.assume(i1 %140)
   br label %311
@@ -4065,7 +4065,7 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
 
 143:                                              ; preds = %141
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 2, ptr noundef nonnull @.str.5) #16
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %145 = icmp ne ptr %144, null
   call void @llvm.assume(i1 %145)
   br label %311
@@ -4081,7 +4081,7 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
   br i1 %151, label %do_fetch_class_prepare.exit, label %152
 
 152:                                              ; preds = %146
-  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %154 = icmp ne ptr %153, null
   call void @llvm.assume(i1 %154)
   br label %311
@@ -4125,7 +4125,7 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
   br label %174
 
 174:                                              ; preds = %158, %172, %173, %165
-  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %176 = icmp ne ptr %175, null
   call void @llvm.assume(i1 %176)
   br label %311
@@ -4143,7 +4143,7 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
 181:                                              ; preds = %178
   %182 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0246312) #16
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef %182) #16
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %184 = icmp ne ptr %183, null
   call void @llvm.assume(i1 %184)
   br label %311
@@ -4155,7 +4155,7 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
 
 188:                                              ; preds = %185
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.8) #16
-  %189 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %190 = icmp ne ptr %189, null
   call void @llvm.assume(i1 %190)
   br label %311
@@ -4211,7 +4211,7 @@ do_fetch_opt_finish.exit:                         ; preds = %70, %73
   br label %215
 
 215:                                              ; preds = %199, %213, %214, %206
-  %216 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %217 = icmp ne ptr %216, null
   call void @llvm.assume(i1 %217)
   br label %311
@@ -4649,7 +4649,7 @@ define hidden void @zim_PDOStatement_bindValue(ptr noundef %0, ptr nocapture nou
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %41) #16
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
   br label %83
@@ -4671,7 +4671,7 @@ define hidden void @zim_PDOStatement_bindValue(ptr noundef %0, ptr nocapture nou
 
 53:                                               ; preds = %49
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.10) #16
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %55 = icmp ne ptr %54, null
   call void @llvm.assume(i1 %55)
   br label %83
@@ -4687,7 +4687,7 @@ define hidden void @zim_PDOStatement_bindValue(ptr noundef %0, ptr nocapture nou
 
 61:                                               ; preds = %56
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.11) #16
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %63 = icmp ne ptr %62, null
   call void @llvm.assume(i1 %63)
   br label %83
@@ -4864,7 +4864,7 @@ define internal fastcc void @register_bound_param(ptr noundef %0, ptr nocapture 
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %62) #16
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %64 = icmp ne ptr %63, null
   call void @llvm.assume(i1 %64)
   br label %116
@@ -4886,7 +4886,7 @@ define internal fastcc void @register_bound_param(ptr noundef %0, ptr nocapture 
 
 74:                                               ; preds = %70
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.10) #16
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %76 = icmp ne ptr %75, null
   call void @llvm.assume(i1 %76)
   br label %116
@@ -4902,7 +4902,7 @@ define internal fastcc void @register_bound_param(ptr noundef %0, ptr nocapture 
 
 82:                                               ; preds = %77
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.11) #16
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %84 = icmp ne ptr %83, null
   call void @llvm.assume(i1 %84)
   br label %116
@@ -5008,7 +5008,7 @@ define hidden void @zim_PDOStatement_rowCount(ptr nocapture noundef readonly %0,
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %16) #16
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %23
@@ -5053,7 +5053,7 @@ define hidden void @zim_PDOStatement_errorCode(ptr nocapture noundef readonly %0
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %16) #16
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %36
@@ -5124,7 +5124,7 @@ define hidden void @zim_PDOStatement_errorInfo(ptr nocapture noundef readonly %0
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %17) #16
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %.loopexit
@@ -5238,7 +5238,7 @@ define hidden void @zim_PDOStatement_setAttribute(ptr noundef %0, ptr nocapture 
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %32) #16
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %34)
   br label %54
@@ -5343,7 +5343,7 @@ define hidden void @zim_PDOStatement_getAttribute(ptr noundef %0, ptr noundef %1
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %25) #16
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %62
@@ -5454,7 +5454,7 @@ define hidden void @zim_PDOStatement_columnCount(ptr nocapture noundef readonly 
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %16) #16
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %24
@@ -5524,7 +5524,7 @@ define hidden void @zim_PDOStatement_getColumnMeta(ptr noundef %0, ptr noundef %
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %25) #16
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %69
@@ -5536,7 +5536,7 @@ define hidden void @zim_PDOStatement_getColumnMeta(ptr noundef %0, ptr noundef %
 
 31:                                               ; preds = %28
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.8) #16
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %69
@@ -6029,7 +6029,7 @@ define hidden void @zim_PDOStatement_setFetchMode(ptr nocapture noundef readonly
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %59
@@ -6050,7 +6050,7 @@ define hidden void @zim_PDOStatement_setFetchMode(ptr nocapture noundef readonly
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %24) #16
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %59
@@ -6119,7 +6119,7 @@ do_fetch_opt_finish.exit:                         ; preds = %46, %49
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %do_fetch_opt_finish.exit
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %56 = icmp ne ptr %55, null
   call void @llvm.assume(i1 %56)
   br label %59
@@ -6162,7 +6162,7 @@ define hidden void @zim_PDOStatement_nextRowset(ptr nocapture noundef readonly %
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %17) #16
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %67
@@ -6305,7 +6305,7 @@ define hidden void @zim_PDOStatement_closeCursor(ptr nocapture noundef readonly 
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %17) #16
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %79
@@ -6490,7 +6490,7 @@ define hidden void @zim_PDOStatement_debugDumpParams(ptr nocapture noundef reado
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %20) #16
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %115
@@ -7195,12 +7195,12 @@ register_class_PDOStatement.exit:                 ; preds = %0, %28, %35, %36
   store ptr @pdo_dbstmt_object_handlers, ptr %39, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @pdo_dbstmt_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 312, ptr @pdo_dbstmt_object_handlers, align 8
-  store ptr @pdo_dbstmt_free_storage, ptr getelementptr inbounds (i8, ptr @pdo_dbstmt_object_handlers, i64 8), align 8
-  store ptr @dbstmt_prop_write, ptr getelementptr inbounds (i8, ptr @pdo_dbstmt_object_handlers, i64 40), align 8
-  store ptr @dbstmt_prop_delete, ptr getelementptr inbounds (i8, ptr @pdo_dbstmt_object_handlers, i64 80), align 8
-  store ptr @dbstmt_method_get, ptr getelementptr inbounds (i8, ptr @pdo_dbstmt_object_handlers, i64 112), align 8
-  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds (i8, ptr @pdo_dbstmt_object_handlers, i64 184), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pdo_dbstmt_object_handlers, i64 24), align 8
+  store ptr @pdo_dbstmt_free_storage, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbstmt_object_handlers, i64 8), align 8
+  store ptr @dbstmt_prop_write, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbstmt_object_handlers, i64 40), align 8
+  store ptr @dbstmt_prop_delete, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbstmt_object_handlers, i64 80), align 8
+  store ptr @dbstmt_method_get, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbstmt_object_handlers, i64 112), align 8
+  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbstmt_object_handlers, i64 184), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pdo_dbstmt_object_handlers, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -7273,20 +7273,20 @@ register_class_PDORow.exit:                       ; preds = %register_class_PDOS
   %70 = getelementptr inbounds nuw i8, ptr %45, i64 360
   store ptr @pdo_row_object_handlers, ptr %70, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @pdo_row_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 184, i1 false)
-  store ptr @pdo_row_free_storage, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 24), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 64), align 8
-  store ptr @row_prop_read, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 32), align 8
-  store ptr @row_prop_write, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 40), align 8
-  store ptr @row_prop_exists, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 72), align 8
-  store ptr @row_prop_delete, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 80), align 8
-  store ptr @row_dim_read, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 48), align 8
-  store ptr @row_dim_write, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 56), align 8
-  store ptr @row_dim_exists, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 88), align 8
-  store ptr @row_dim_delete, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 96), align 8
-  store ptr @row_get_properties_for, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 192), align 8
-  store ptr @row_get_ctor, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 120), align 8
-  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds (i8, ptr @pdo_row_object_handlers, i64 184), align 8
+  store ptr @pdo_row_free_storage, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 64), align 8
+  store ptr @row_prop_read, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 32), align 8
+  store ptr @row_prop_write, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 40), align 8
+  store ptr @row_prop_exists, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 72), align 8
+  store ptr @row_prop_delete, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 80), align 8
+  store ptr @row_dim_read, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 48), align 8
+  store ptr @row_dim_write, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 56), align 8
+  store ptr @row_dim_exists, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 88), align 8
+  store ptr @row_dim_delete, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 96), align 8
+  store ptr @row_get_properties_for, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 192), align 8
+  store ptr @row_get_ctor, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 120), align 8
+  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds nuw (i8, ptr @pdo_row_object_handlers, i64 184), align 8
   ret void
 }
 

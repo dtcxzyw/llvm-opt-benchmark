@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @gtk_load(ptr noundef %0, i32 noundef %1, i32 
   %18 = load ptr, ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %18, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @gtk_libs, i64 40), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @gtk_libs, i64 40), ptr %10, align 8
   br label %get_libs_order.exit.i.preheader
 
 get_libs_order.exit.i.preheader:                  ; preds = %.critedge.i.i, %._crit_edge.i.i
@@ -172,7 +172,7 @@ get_libs_order.exit.thread:                       ; preds = %51
   %63 = load ptr, ptr %55, align 8
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %63, ptr %64, align 8
-  store ptr getelementptr inbounds (i8, ptr @gtk_libs, i64 40), ptr %55, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @gtk_libs, i64 40), ptr %55, align 8
   br label %get_libs_order.exit
 
 get_libs_order.exit:                              ; preds = %._crit_edge.i, %.critedge.i
@@ -321,7 +321,7 @@ define hidden range(i32 0, 2) i32 @gtk_check_version(i32 noundef %0) local_unnam
   %15 = load ptr, ptr %7, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %15, ptr %16, align 8
-  store ptr getelementptr inbounds (i8, ptr @gtk_libs, i64 40), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @gtk_libs, i64 40), ptr %7, align 8
   br label %get_libs_order.exit.i.preheader
 
 get_libs_order.exit.i.preheader:                  ; preds = %.critedge.i.i, %._crit_edge.i.i
@@ -396,7 +396,7 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
   %44 = load ptr, ptr %36, align 8
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %44, ptr %45, align 8
-  store ptr getelementptr inbounds (i8, ptr @gtk_libs, i64 40), ptr %36, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @gtk_libs, i64 40), ptr %36, align 8
   br label %get_libs_order.exit.i11.preheader
 
 get_libs_order.exit.i11.preheader:                ; preds = %.critedge.i.i10, %._crit_edge.i.i8

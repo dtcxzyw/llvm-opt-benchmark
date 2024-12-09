@@ -419,7 +419,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb10WriteBatchC2Emmmm(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 35), (36, 64)) %this, i64 noundef %reserved_bytes, i64 noundef %max_bytes, i64 noundef %protection_bytes_per_key, i64 noundef %default_cf_ts_sz) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
   %save_points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %content_flags_ = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 0, ptr %content_flags_, align 4
@@ -619,7 +619,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb10WriteBatchC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 35), (36, 64)) %this, ptr noundef nonnull align 8 dereferenceable(32) %rep) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
   %save_points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %content_flags_ = getelementptr inbounds nuw i8, ptr %this, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %save_points_, i8 0, i64 27, i1 false)
@@ -647,7 +647,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb10WriteBatchC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 35), (36, 64)) %this, ptr noundef nonnull align 8 dereferenceable(32) %rep) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
   %save_points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %content_flags_ = getelementptr inbounds nuw i8, ptr %this, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %save_points_, i8 0, i64 27, i1 false)
@@ -665,7 +665,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb10WriteBatchC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 35), (36, 64)) %this, ptr noundef nonnull align 8 dereferenceable(96) %src) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
   %save_points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %save_points_, align 8
   %wal_term_point_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -891,7 +891,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb10WriteBatchC2EOS0_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 35), (36, 64)) %this, ptr noundef nonnull align 8 dereferenceable(96) %src) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
   %save_points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %save_points_2 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i64, ptr %save_points_2, align 8
@@ -966,7 +966,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb10WriteBatchD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %this, align 8
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rep_) #26
   %prot_info_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1219,7 +1219,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_122BatchContentClassifierE, i64 16), ptr %classifier, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_122BatchContentClassifierE, i64 16), ptr %classifier, align 8
   %content_flags.i = getelementptr inbounds nuw i8, ptr %classifier, i64 8
   store i32 0, ptr %content_flags.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -10040,7 +10040,7 @@ entry:
   %ts_updater = alloca %"class.rocksdb::TimestampUpdater", align 8
   %prot_info_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %prot_info_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16TimestampUpdaterISt8functionIFmjEEEE, i64 16), ptr %ts_updater, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16TimestampUpdaterISt8functionIFmjEEEE, i64 16), ptr %ts_updater, align 8
   %prot_info_.i = getelementptr inbounds nuw i8, ptr %ts_updater, i64 8
   store ptr %0, ptr %prot_info_.i, align 8
   %ts_sz_func_.i = getelementptr inbounds nuw i8, ptr %ts_updater, i64 16
@@ -10107,7 +10107,7 @@ lpad:                                             ; preds = %if.end.i, %if.then.
   resume { ptr, i32 } %4
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont3, %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16TimestampUpdaterISt8functionIFmjEEEE, i64 16), ptr %ts_updater, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16TimestampUpdaterISt8functionIFmjEEEE, i64 16), ptr %ts_updater, align 8
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ts_updater, i64 32
   %5 = load ptr, ptr %_M_manager.i.i.i4, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
@@ -10131,7 +10131,7 @@ _ZN7rocksdb16TimestampUpdaterISt8functionIFmjEEED2Ev.exit: ; preds = %nrvo.skipd
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb16TimestampUpdaterISt8functionIFmjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16TimestampUpdaterISt8functionIFmjEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16TimestampUpdaterISt8functionIFmjEEEE, i64 16), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -10711,7 +10711,7 @@ invoke.cont7:
   %frombool.i = zext i1 %ignore_missing_column_families to i8
   %frombool1.i = zext i1 %concurrent_memtable_writes to i8
   %frombool2.i = zext i1 %seq_per_batch to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MemTableInserterE, i64 16), ptr %inserter, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MemTableInserterE, i64 16), ptr %inserter, align 16
   %sequence_.i = getelementptr inbounds nuw i8, ptr %inserter, i64 8
   store i64 %sequence, ptr %sequence_.i, align 8
   %cf_mems_.i = getelementptr inbounds nuw i8, ptr %inserter, i64 16
@@ -10941,7 +10941,7 @@ cleanup:                                          ; preds = %for.end, %if.then36
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_116MemTableInserterD2Ev(ptr noundef nonnull align 16 dereferenceable(336) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MemTableInserterE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MemTableInserterE, i64 16), ptr %this, align 16
   %dup_dectector_on_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load i8, ptr %dup_dectector_on_, align 16
   %tobool = trunc i8 %0 to i1
@@ -11065,7 +11065,7 @@ invoke.cont:
   %frombool1.i = zext i1 %concurrent_memtable_writes to i8
   %frombool2.i = zext i1 %seq_per_batch to i8
   %frombool4.i = zext i1 %hint_per_batch to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MemTableInserterE, i64 16), ptr %inserter, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MemTableInserterE, i64 16), ptr %inserter, align 16
   %sequence_.i = getelementptr inbounds nuw i8, ptr %inserter, i64 8
   store i64 %sequence, ptr %sequence_.i, align 8
   %cf_mems_.i = getelementptr inbounds nuw i8, ptr %inserter, i64 16
@@ -11247,7 +11247,7 @@ entry:
   %frombool.i = zext i1 %ignore_missing_column_families to i8
   %frombool1.i = zext i1 %concurrent_memtable_writes to i8
   %frombool2.i = zext i1 %seq_per_batch to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MemTableInserterE, i64 16), ptr %inserter, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MemTableInserterE, i64 16), ptr %inserter, align 16
   %sequence_.i = getelementptr inbounds nuw i8, ptr %inserter, i64 8
   store i64 %result.0.copyload.i.i, ptr %sequence_.i, align 8
   %cf_mems_.i = getelementptr inbounds nuw i8, ptr %inserter, i64 16
@@ -11725,7 +11725,7 @@ _ZNSt10unique_ptrIN7rocksdb10WriteBatch14ProtectionInfoESt14default_deleteIS2_EE
   %vect_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vect_.i.i, i8 0, i64 24, i1 false)
   store ptr %call10, ptr %prot_info_6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdaterE, i64 16), ptr %prot_info_updater, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121ProtectionInfoUpdaterE, i64 16), ptr %prot_info_updater, align 8
   %prot_info_.i = getelementptr inbounds nuw i8, ptr %prot_info_updater, i64 8
   store ptr %call10, ptr %prot_info_.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -14376,7 +14376,7 @@ call.i.noexc:                                     ; preds = %invoke.cont51
           to label %.noexc unwind label %lpad58
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.40, i64 41))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.40, i64 41))
           to label %invoke.cont59 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -15163,7 +15163,7 @@ invoke.cont58:                                    ; preds = %if.then57
   store ptr %self_space_.i.i, ptr %buf_.i.i, align 8
   %columns_.i = getelementptr inbounds nuw i8, ptr %existing, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columns_.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 16), ptr %read_from_snapshot, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 16), ptr %read_from_snapshot, align 8
   %min_uncommitted_.i = getelementptr inbounds nuw i8, ptr %read_from_snapshot, i64 16
   store i64 1, ptr %min_uncommitted_.i, align 8
   %50 = load i64, ptr %sequence_, align 8
@@ -16251,7 +16251,7 @@ if.then5:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %call7 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %call7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10WriteBatchE, i64 16), ptr %call7, align 8
   %save_points_.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 8
   %content_flags_.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %save_points_.i.i, i8 0, i64 27, i1 false)
@@ -17652,7 +17652,7 @@ _ZN7rocksdb6StatusD2Ev.exit151:                   ; preds = %_ZN7rocksdb6Statusa
   br i1 %cmp.i152, label %if.then58, label %if.end186
 
 if.then58:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit151
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 16), ptr %read_from_snapshot, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 16), ptr %read_from_snapshot, align 8
   %min_uncommitted_.i = getelementptr inbounds nuw i8, ptr %read_from_snapshot, i64 16
   store i64 1, ptr %min_uncommitted_.i, align 8
   %76 = load i64, ptr %sequence_48, align 8
@@ -22314,7 +22314,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN7rock
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb16TimestampUpdaterISt8functionIFmjEEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16TimestampUpdaterISt8functionIFmjEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16TimestampUpdaterISt8functionIFmjEEEE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

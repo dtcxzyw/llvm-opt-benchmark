@@ -418,7 +418,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %18, %.critedge.i.i.
   store i32 %4, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %3, ptr %30, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang20OpenACCDefaultClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang20OpenACCDefaultClauseE, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 %1, ptr %31, align 8
   ret ptr %.0.i.i.i
@@ -482,7 +482,7 @@ define dso_local void @_ZN5clang15OpenACCIfClauseC2ENS_14SourceLocationES1_PNS_4
   store i32 %2, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang15OpenACCIfClauseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang15OpenACCIfClauseE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -541,7 +541,7 @@ define dso_local void @_ZN5clang17OpenACCSelfClauseC2ENS_14SourceLocationES1_PNS
   store i32 %2, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang17OpenACCSelfClauseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang17OpenACCSelfClauseE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -1073,7 +1073,7 @@ define dso_local void @_ZN5clang23OpenACCNumWorkersClauseC2ENS_14SourceLocationE
   br label %_ZN5clang30OpenACCClauseWithSingleIntExprC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_PNS_4ExprES2_.exit
 
 _ZN5clang30OpenACCClauseWithSingleIntExprC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_PNS_4ExprES2_.exit: ; preds = %5, %12
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang23OpenACCNumWorkersClauseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang23OpenACCNumWorkersClauseE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -1144,7 +1144,7 @@ define dso_local void @_ZN5clang25OpenACCVectorLengthClauseC2ENS_14SourceLocatio
   br label %_ZN5clang30OpenACCClauseWithSingleIntExprC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_PNS_4ExprES2_.exit
 
 _ZN5clang30OpenACCClauseWithSingleIntExprC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_PNS_4ExprES2_.exit: ; preds = %5, %12
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang25OpenACCVectorLengthClauseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang25OpenACCVectorLengthClauseE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -1215,7 +1215,7 @@ define dso_local void @_ZN5clang18OpenACCAsyncClauseC2ENS_14SourceLocationES1_PN
   br label %_ZN5clang30OpenACCClauseWithSingleIntExprC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_PNS_4ExprES2_.exit
 
 _ZN5clang30OpenACCClauseWithSingleIntExprC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_PNS_4ExprES2_.exit: ; preds = %5, %12
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang18OpenACCAsyncClauseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang18OpenACCAsyncClauseE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -1310,7 +1310,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %25, %.critedge.i.i.
   store i32 %2, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang17OpenACCWaitClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang17OpenACCWaitClauseE, i64 16), ptr %.0.i.i.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i32 %4, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
@@ -1376,7 +1376,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %.critedge.i.i.
   store i32 %2, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang21OpenACCNumGangsClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang21OpenACCNumGangsClauseE, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5clang21OpenACCNumGangsClauseC2ENS_14SourceLocationES1_N4llvm8ArrayRefIPNS_4ExprEEES1_.exit, label %31
@@ -1436,7 +1436,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %.critedge.i.i.
   store i32 %2, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang20OpenACCPrivateClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang20OpenACCPrivateClauseE, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5clang20OpenACCPrivateClauseC2ENS_14SourceLocationES1_N4llvm8ArrayRefIPNS_4ExprEEES1_.exit, label %31
@@ -1496,7 +1496,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %.critedge.i.i.
   store i32 %2, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang25OpenACCFirstPrivateClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang25OpenACCFirstPrivateClauseE, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5clang25OpenACCFirstPrivateClauseC2ENS_14SourceLocationES1_N4llvm8ArrayRefIPNS_4ExprEEES1_.exit, label %31
@@ -1556,7 +1556,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %.critedge.i.i.
   store i32 %2, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang19OpenACCAttachClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang19OpenACCAttachClauseE, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5clang19OpenACCAttachClauseC2ENS_14SourceLocationES1_N4llvm8ArrayRefIPNS_4ExprEEES1_.exit, label %31
@@ -1616,7 +1616,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %.critedge.i.i.
   store i32 %2, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang22OpenACCDevicePtrClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang22OpenACCDevicePtrClauseE, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5clang22OpenACCDevicePtrClauseC2ENS_14SourceLocationES1_N4llvm8ArrayRefIPNS_4ExprEEES1_.exit, label %31
@@ -1676,7 +1676,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %.critedge.i.i.
   store i32 %2, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang21OpenACCNoCreateClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang21OpenACCNoCreateClauseE, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5clang21OpenACCNoCreateClauseC2ENS_14SourceLocationES1_N4llvm8ArrayRefIPNS_4ExprEEES1_.exit, label %31
@@ -1736,7 +1736,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %21, %.critedge.i.i.
   store i32 %2, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang20OpenACCPresentClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang20OpenACCPresentClauseE, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5clang20OpenACCPresentClauseC2ENS_14SourceLocationES1_N4llvm8ArrayRefIPNS_4ExprEEES1_.exit, label %31
@@ -1796,7 +1796,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %22, %.critedge.i.i.
   store i32 %3, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang17OpenACCCopyClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang17OpenACCCopyClauseE, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5clang17OpenACCCopyClauseC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_N4llvm8ArrayRefIPNS_4ExprEEES2_.exit, label %32
@@ -1860,7 +1860,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %24, %.critedge.i.i.
   store i32 %3, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang19OpenACCCopyInClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang19OpenACCCopyInClauseE, i64 16), ptr %.0.i.i.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 %28, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
@@ -1926,7 +1926,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %24, %.critedge.i.i.
   store i32 %3, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang20OpenACCCopyOutClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang20OpenACCCopyOutClauseE, i64 16), ptr %.0.i.i.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 %28, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
@@ -1992,7 +1992,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %24, %.critedge.i.i.
   store i32 %3, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang19OpenACCCreateClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang19OpenACCCreateClauseE, i64 16), ptr %.0.i.i.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 %28, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
@@ -2052,7 +2052,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %22, %.critedge.i.i.
   store i32 %6, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   store i32 %3, ptr %29, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang23OpenACCDeviceTypeClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang23OpenACCDeviceTypeClauseE, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %31 = trunc i64 %5 to i32
   store i32 %31, ptr %30, align 8
@@ -2121,7 +2121,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %22, %.critedge.i.i.
   store i32 %2, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang22OpenACCReductionClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang22OpenACCReductionClauseE, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i32 %3, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
@@ -2184,7 +2184,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %16, %.critedge.i.i.
   store i32 %1, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 %2, ptr %27, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang17OpenACCAutoClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang17OpenACCAutoClauseE, i64 16), ptr %.0.i.i.i, align 8
   ret ptr %.0.i.i.i
 }
 
@@ -2233,7 +2233,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %16, %.critedge.i.i.
   store i32 %1, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 %2, ptr %27, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang24OpenACCIndependentClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang24OpenACCIndependentClauseE, i64 16), ptr %.0.i.i.i, align 8
   ret ptr %.0.i.i.i
 }
 
@@ -2282,7 +2282,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %16, %.critedge.i.i.
   store i32 %1, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 %2, ptr %27, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang16OpenACCSeqClauseE, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang16OpenACCSeqClauseE, i64 16), ptr %.0.i.i.i, align 8
   ret ptr %.0.i.i.i
 }
 

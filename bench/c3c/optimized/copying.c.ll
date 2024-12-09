@@ -50,19 +50,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @copy_ast_single(ptr noundef %0) local_unnamed_addr #0 {
-  store ptr @copy_struct, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777208), align 8
+  store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
   %2 = tail call fastcc ptr @ast_copy_deep(ptr noundef nonnull @copy_struct, ptr noundef %0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @copy_begin() local_unnamed_addr #1 {
-  store ptr @copy_struct, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777208), align 8
+  store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
   ret void
 }
 
@@ -1721,17 +1721,17 @@ doc_ast_copy.exit:                                ; preds = %529, %269, %copy_as
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @copy_end() local_unnamed_addr #1 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @copy_type_info_single(ptr noundef %0) local_unnamed_addr #0 {
-  store ptr @copy_struct, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777208), align 8
+  store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
   %2 = tail call fastcc ptr @copy_type_info(ptr noundef nonnull @copy_struct, ptr noundef %0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   ret ptr %2
 }
 
@@ -1910,21 +1910,21 @@ define dso_local noundef ptr @copy_ast_macro(ptr noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @copy_ast_defer(ptr noundef %0) local_unnamed_addr #0 {
-  store ptr @copy_struct, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777208), align 8
+  store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
   %2 = tail call fastcc noundef ptr @ast_copy_deep(ptr noundef nonnull @copy_struct, ptr noundef %0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @copy_expr_single(ptr noundef %0) local_unnamed_addr #0 {
-  store ptr @copy_struct, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777208), align 8
+  store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
   %2 = tail call fastcc ptr @copy_expr(ptr noundef nonnull @copy_struct, ptr noundef %0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   ret ptr %2
 }
 
@@ -2107,7 +2107,7 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %common.ret575
 
 65:                                               ; preds = %3
-  %66 = load i8, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777210), align 2
+  %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
   %67 = trunc i8 %66 to i1
   br i1 %67, label %68, label %common.ret575
 
@@ -3453,9 +3453,9 @@ define internal fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @copy_decl_list_single(ptr noundef readonly %0) local_unnamed_addr #0 {
-  store ptr @copy_struct, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777208), align 8
+  store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %copy_decl_list_macro.exit, label %2
 
@@ -3534,15 +3534,15 @@ define dso_local ptr @copy_decl_list_single(ptr noundef readonly %0) local_unnam
 
 copy_decl_list_macro.exit:                        ; preds = %28, %1, %2
   %.021.lcssa.i.i = phi ptr [ null, %2 ], [ null, %1 ], [ %31, %28 ]
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   ret ptr %.021.lcssa.i.i
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unnamed_addr #0 {
-  store ptr @copy_struct, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777208), align 8
+  store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %copy_attributes.exit, label %2
 
@@ -3701,17 +3701,17 @@ copy_expr_list.exit.i:                            ; preds = %36, %10, %.lr.ph.i
 
 copy_attributes.exit:                             ; preds = %70, %1, %2
   %.028.i = phi ptr [ null, %1 ], [ null, %2 ], [ %73, %70 ]
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   ret ptr %.028.i
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777210), align 2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777210), align 2
-  store ptr @copy_struct, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777208), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
+  store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %copy_decl_list_macro.exit, label %3
 
@@ -3791,22 +3791,22 @@ define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly %0) lo
 copy_decl_list_macro.exit:                        ; preds = %29, %1, %3
   %.021.lcssa.i.i = phi ptr [ null, %3 ], [ null, %1 ], [ %32, %29 ]
   %40 = and i8 %2, 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 %40, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777210), align 2
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 %40, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
   ret ptr %.021.lcssa.i.i
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @copy_lambda_deep(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777210), align 2
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
   %3 = and i8 %2, 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777210), align 2
-  store ptr @copy_struct, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777208), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
+  store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
   %4 = tail call fastcc ptr @copy_decl(ptr noundef nonnull @copy_struct, ptr noundef %0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  store i8 %3, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777210), align 2
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
+  store i8 %3, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
   ret ptr %4
 }
 

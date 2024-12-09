@@ -523,7 +523,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i32 1, ptr %136, align 4, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %135, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %135, align 8, !noalias !5
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 12
   store i8 0, ptr %137, align 4, !noalias !5
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 13
@@ -596,7 +596,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRe
           to label %.noexc51 unwind label %743
 
 .noexc51:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %171
 
 171:                                              ; preds = %.noexc51
@@ -775,7 +775,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %218, %223
           to label %.noexc66 unwind label %763
 
 .noexc66:                                         ; preds = %.noexc65
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 17))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69 unwind label %232
 
 232:                                              ; preds = %.noexc66
@@ -1549,7 +1549,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; p
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51)
   store ptr %101, ptr %425, align 8
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__13SdfValueBlockE, ptr %426, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30SdfAbstractDataConstTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30SdfAbstractDataConstTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %51, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer13SetTimeSampleERKNS_7SdfPathEdRKNS_25SdfAbstractDataConstValueE(ptr noundef nonnull align 8 dereferenceable(557) %493, ptr noundef nonnull align 4 dereferenceable(8) %100, double noundef %440, ptr noundef nonnull align 8 dereferenceable(24) %51)
           to label %504 unwind label %778
 
@@ -1799,7 +1799,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42)
   store ptr %104, ptr %427, align 8
   store ptr @_ZTId, ptr %428, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30SdfAbstractDataConstTypedValueIdEE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30SdfAbstractDataConstTypedValueIdEE, i64 16), ptr %42, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer13SetTimeSampleERKNS_7SdfPathEdRKNS_25SdfAbstractDataConstValueE(ptr noundef nonnull align 8 dereferenceable(557) %574, ptr noundef nonnull align 4 dereferenceable(8) %103, double noundef %440, ptr noundef nonnull align 8 dereferenceable(24) %42)
           to label %585 unwind label %781
 
@@ -1891,7 +1891,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit217: ; preds = %585, %587,
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
   store ptr %106, ptr %429, align 8
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__13SdfValueBlockE, ptr %430, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30SdfAbstractDataConstTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30SdfAbstractDataConstTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %38, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer13SetTimeSampleERKNS_7SdfPathEdRKNS_25SdfAbstractDataConstValueE(ptr noundef nonnull align 8 dereferenceable(557) %604, ptr noundef nonnull align 4 dereferenceable(8) %105, double noundef %440, ptr noundef nonnull align 8 dereferenceable(24) %38)
           to label %615 unwind label %783
 
@@ -1985,7 +1985,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit234: ; preds = %615, %617,
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__13SdfValueBlockE, ptr %432, align 8
   store i8 0, ptr %433, align 8
   store i8 0, ptr %434, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %34, align 8
   %645 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %634, ptr noundef nonnull align 4 dereferenceable(8) %107, double noundef %440, ptr noundef nonnull %34)
           to label %646 unwind label %.loopexit521
 
@@ -2172,7 +2172,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_13SdfValueBlockEEEbv
   store ptr @_ZTId, ptr %436, align 8
   store i8 0, ptr %437, align 8
   store i8 0, ptr %438, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %28, align 8
   %705 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15QueryTimeSampleERKNS_7SdfPathEdPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %689, ptr noundef nonnull align 4 dereferenceable(8) %109, double noundef %440, ptr noundef nonnull %28)
           to label %706 unwind label %.loopexit532
 
@@ -3155,7 +3155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   store i8 0, ptr %997, align 8
   %998 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 0, ptr %998, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_13SdfValueBlockEEE, i64 16), ptr %8, align 8
   %999 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %970, ptr noundef nonnull align 4 dereferenceable(8) %116, ptr noundef nonnull align 8 dereferenceable(8) %994, ptr noundef nonnull %8)
           to label %1000 unwind label %1137
 

@@ -46,7 +46,7 @@ define i32 @ompi_interlib_declare(i32 noundef %0, ptr noundef %1) local_unnamed_
   store i32 -147, ptr %5, align 4
   %7 = call i32 @PMIx_Info_load(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i16 noundef zeroext 3) #6
   %8 = load i32, ptr @opal_class_init_epoch, align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %8, %9
   br i1 %.not, label %11, label %10
 
@@ -148,7 +148,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i12, %._crit
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 1656
   call void @PMIx_Info_destruct(ptr noundef nonnull %54) #6
   %55 = call i32 @PMIx_Finalize(ptr noundef null, i64 noundef 0) #6
-  %56 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
+  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 408), align 8
   %57 = trunc i8 %56 to i1
   %58 = icmp eq i32 %53, -25
   %or.cond = select i1 %57, i1 %58, i1 false

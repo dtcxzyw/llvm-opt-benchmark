@@ -326,7 +326,7 @@ select.unfold.i.i:                                ; preds = %24, %._crit_edge.th
           to label %.noexc24 unwind label %61
 
 .noexc24:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %47
 
 47:                                               ; preds = %.noexc24
@@ -400,7 +400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr %71, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %6, ptr %77, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_128NodeStoringImplicitDepLoaderE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_128NodeStoringImplicitDepLoaderE, i64 16), ptr %8, align 8
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %7, ptr %78, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25

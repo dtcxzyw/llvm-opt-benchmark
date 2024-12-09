@@ -370,7 +370,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.
 
 55:                                               ; preds = %.preheader.i
   %56 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  %57 = icmp eq ptr %56, getelementptr inbounds (i8, ptr @.str, i64 13)
+  %57 = icmp eq ptr %56, getelementptr inbounds nuw (i8, ptr @.str, i64 13)
   br i1 %57, label %_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_.exit, label %58
 
 58:                                               ; preds = %55
@@ -501,7 +501,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit65.
 
 108:                                              ; preds = %.preheader.i26
   %109 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 1
-  %110 = icmp eq ptr %109, getelementptr inbounds (i8, ptr @.str.1, i64 4)
+  %110 = icmp eq ptr %109, getelementptr inbounds nuw (i8, ptr @.str.1, i64 4)
   br i1 %110, label %_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_.exit40, label %111
 
 111:                                              ; preds = %108

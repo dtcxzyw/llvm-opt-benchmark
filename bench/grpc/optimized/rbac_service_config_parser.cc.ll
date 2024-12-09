@@ -876,7 +876,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8JsonArgsE, i64 16), ptr %ref.tmp6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core8JsonArgsE, i64 16), ptr %ref.tmp6, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rbac_config, i8 0, i64 24, i1 false), !alias.scope !4
   %vtable.i = load ptr, ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfigEEEE6value_E, align 8, !noalias !4
@@ -2016,7 +2016,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22RbacMethodParsedConfigE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22RbacMethodParsedConfigE, i64 16), ptr %call, align 8
   %authorization_engines_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %authorization_engines_.i, i8 0, i64 24, i1 false)
   %cmp.i.not7.i = icmp eq ptr %0, %1
@@ -2245,7 +2245,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.76", align 8
   %service_config_parser_.i = getelementptr inbounds nuw i8, ptr %builder, i64 656
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24, !noalias !54
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23RbacServiceConfigParserE, i64 16), ptr %call.i, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core23RbacServiceConfigParserE, i64 16), ptr %call.i, align 8, !noalias !54
   store ptr %call.i, ptr %agg.tmp, align 8
   invoke void @_ZN9grpc_core19ServiceConfigParser7Builder14RegisterParserESt10unique_ptrINS0_6ParserESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %service_config_parser_.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2341,7 +2341,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2357,7 +2357,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2373,7 +2373,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIjEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIjEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIjEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2389,7 +2389,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIlEEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIlEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIlEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIlEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIlEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2405,7 +2405,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIbEEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIbEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIbEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIbEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIbEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2415,105 +2415,105 @@ init.end:                                         ; preds = %init.check, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.6() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.7() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.8() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.9() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.10() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS8_EEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS9_EEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS8_EEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS9_EEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.11() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.12() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.13() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.14() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy8MetadataEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy8MetadataEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy8MetadataEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy8MetadataEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.15() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.16() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.17() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS8_EEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS9_EEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS8_EEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS9_EEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.18() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.19() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13AuthenticatedEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13AuthenticatedEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13AuthenticatedEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13AuthenticatedEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.20() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEEE6value_E, align 8
   ret void
 }
 
@@ -2526,7 +2526,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS9_ESaISt4pairIKS9_SB_EEEEEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS9_ESaISt4pairIKS9_SB_EEEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS9_ESaISt4pairIKS9_SB_EEEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2542,7 +2542,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIiEEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIiEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIiEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderIiEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIiEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2552,63 +2552,63 @@ init.end:                                         ; preds = %init.check, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.23() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.24() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyESt4lessIS8_ESaISt4pairIKS8_SD_EEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyESt4lessIS9_ESaISt4pairIKS9_SE_EEEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyESt4lessIS8_ESaISt4pairIKS8_SD_EEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyESt4lessIS9_ESaISt4pairIKS9_SE_EEEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.25() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.26() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS7_EEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS8_EEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS7_EEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerESaIS8_EEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.27() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.28() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.29() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicyEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicyEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicyEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicyEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.30() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS5_EEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS6_EEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS5_EEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS6_EEEEE6value_E, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @__cxx_global_var_init.31() #7 section ".text.startup" {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfigEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfigEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfigEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfigEEEE6value_E, align 8
   ret void
 }
 
@@ -4319,7 +4319,7 @@ invoke.cont2.i:                                   ; preds = %init.check.i
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchELm1EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy14SafeRegexMatchELm1EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -4384,7 +4384,7 @@ invoke.cont4.i:                                   ; preds = %init.check.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont4.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchELm2EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10RangeMatchELm2EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIlEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -4448,7 +4448,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchELm0EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchELm0EvEE, i64 16), ptr %call.i1.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch10JsonLoaderERKNS_8JsonArgsEE6loader) #25
   br label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch10JsonLoaderERKNS_8JsonArgsE.exit
@@ -4497,7 +4497,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %1, -1
   %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -4554,7 +4554,7 @@ if.end.i:                                         ; preds = %lor.lhs.false15.i
 if.then.i.i.i17.i:                                ; preds = %if.end.i
   %cmp.i.not.i.i.i.i18.i = icmp eq i8 %9, -1
   %exception.i.i.i.i.i19.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i19.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i19.i, align 8
   %_M_reason.i.i.i.i.i.i20.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i19.i, i64 8
   br i1 %cmp.i.not.i.i.i.i18.i, label %if.then.i.i.i.i22.i, label %if.else.i.i.i.i21.i
 
@@ -4824,7 +4824,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %cmp.i.not.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -4856,7 +4856,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %cmp.i.not.i.i.i.i = icmp eq i8 %1, -1
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -5359,7 +5359,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionELm0EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionELm0EvEE, i64 16), ptr %call.i1.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission10JsonLoaderERKNS_8JsonArgsEE6loader) #25
   br label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission10JsonLoaderERKNS_8JsonArgsE.exit
@@ -5457,7 +5457,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %1, -1
   %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -5512,7 +5512,7 @@ if.end.i:                                         ; preds = %_ZNK9grpc_core12exp
 if.then.i.i.i60.i:                                ; preds = %if.end.i
   %cmp.i.not.i.i.i.i61.i = icmp eq i8 %5, -1
   %exception.i.i.i.i.i62.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i62.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i62.i, align 8
   %_M_reason.i.i.i.i.i.i63.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i62.i, i64 8
   br i1 %cmp.i.not.i.i.i.i61.i, label %if.then.i.i.i.i65.i, label %if.else.i.i.i.i64.i
 
@@ -5596,7 +5596,7 @@ if.end23.i:                                       ; preds = %_ZNK9grpc_core12exp
 if.then.i.i.i81.i:                                ; preds = %if.end23.i
   %cmp.i.not.i.i.i.i82.i = icmp eq i8 %11, -1
   %exception.i.i.i.i.i83.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i83.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i83.i, align 8
   %_M_reason.i.i.i.i.i.i84.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i83.i, i64 8
   %.str.50..str.51209.i = select i1 %cmp.i.not.i.i.i.i82.i, ptr @.str.50, ptr @.str.51
   store ptr %.str.50..str.51209.i, ptr %_M_reason.i.i.i.i.i.i84.i, align 8
@@ -5691,7 +5691,7 @@ if.end46.i:                                       ; preds = %invoke.cont28.i
 if.then.i.i.i102.i:                               ; preds = %if.end46.i
   %cmp.i.not.i.i.i.i103.i = icmp eq i8 %19, -1
   %exception.i.i.i.i.i104.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i104.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i104.i, align 8
   %_M_reason.i.i.i.i.i.i105.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i104.i, i64 8
   %.str.50..str.51.i = select i1 %cmp.i.not.i.i.i.i103.i, ptr @.str.50, ptr @.str.51
   store ptr %.str.50..str.51.i, ptr %_M_reason.i.i.i.i.i.i105.i, align 8
@@ -5761,7 +5761,7 @@ if.end65.i:                                       ; preds = %invoke.cont50.i
 if.then.i.i.i124.i:                               ; preds = %if.end65.i
   %cmp.i.not.i.i.i.i125.i = icmp eq i8 %24, -1
   %exception.i.i.i.i.i126.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i126.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i126.i, align 8
   %_M_reason.i.i.i.i.i.i127.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i126.i, i64 8
   br i1 %cmp.i.not.i.i.i.i125.i, label %if.then.i.i.i.i129.i, label %if.else.i.i.i.i128.i
 
@@ -5826,7 +5826,7 @@ if.end85.i:                                       ; preds = %invoke.cont70.i
 if.then.i.i.i147.i:                               ; preds = %if.end85.i
   %cmp.i.not.i.i.i.i148.i = icmp eq i8 %29, -1
   %exception.i.i.i.i.i149.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i149.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i149.i, align 8
   %_M_reason.i.i.i.i.i.i150.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i149.i, i64 8
   br i1 %cmp.i.not.i.i.i.i148.i, label %if.then.i.i.i.i152.i, label %if.else.i.i.i.i151.i
 
@@ -7782,7 +7782,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchELm0EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchELm0EvEE, i64 16), ptr %call.i1.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10JsonLoaderERKNS_8JsonArgsEE6loader) #25
   br label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch10JsonLoaderERKNS_8JsonArgsE.exit
@@ -7841,7 +7841,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %1, -1
   %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -7879,7 +7879,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i:
 if.then.i.i.i23.i:                                ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
   %cmp.i.not.i.i.i.i24.i = icmp eq i8 %3, -1
   %exception.i.i.i.i.i25.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i25.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i25.i, align 8
   %_M_reason.i.i.i.i.i.i26.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i25.i, i64 8
   br i1 %cmp.i.not.i.i.i.i24.i, label %if.then.i.i.i.i28.i, label %if.else.i.i.i.i27.i
 
@@ -7969,7 +7969,7 @@ if.end.i:                                         ; preds = %invoke.cont26.i
 if.then.i.i.i47.i:                                ; preds = %if.end.i
   %cmp.i.not.i.i.i.i48.i = icmp eq i8 %16, -1
   %exception.i.i.i.i.i49.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i49.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i49.i, align 8
   %_M_reason.i.i.i.i.i.i50.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i49.i, i64 8
   br i1 %cmp.i.not.i.i.i.i48.i, label %if.then.i.i.i.i52.i, label %if.else.i.i.i.i51.i
 
@@ -8095,7 +8095,7 @@ if.end47.i:                                       ; preds = %invoke.cont31.i
 if.then.i.i.i66.i:                                ; preds = %if.end47.i
   %cmp.i.not.i.i.i.i67.i = icmp eq i8 %37, -1
   %exception.i.i.i.i.i68.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i68.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i68.i, align 8
   %_M_reason.i.i.i.i.i.i69.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i68.i, i64 8
   br i1 %cmp.i.not.i.i.i.i67.i, label %if.then.i.i.i.i71.i, label %if.else.i.i.i.i70.i
 
@@ -8330,7 +8330,7 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %cmp.i.not.i.i.i.i = icmp eq i8 %1, -1
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
@@ -8695,7 +8695,7 @@ invoke.cont2.i:                                   ; preds = %init.check.i
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchELm1EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchELm1EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -8749,7 +8749,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeELm0EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRangeELm0EvEE, i64 16), ptr %call.i1.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRange10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRange10JsonLoaderERKNS_8JsonArgsEE6loader) #25
   br label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9CidrRange10JsonLoaderERKNS_8JsonArgsE.exit
@@ -8789,7 +8789,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -8812,7 +8812,7 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit.i: ; preds = %if.then
 if.then.i.i.i7.i:                                 ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit.i
   %cmp.i.not.i.i.i.i8.i = icmp eq i8 %1, -1
   %exception.i.i.i.i.i9.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i9.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i9.i, align 8
   %_M_reason.i.i.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i9.i, i64 8
   %.str.50..str.51.i = select i1 %cmp.i.not.i.i.i.i8.i, ptr @.str.50, ptr @.str.51
   store ptr %.str.50..str.51.i, ptr %_M_reason.i.i.i.i.i.i10.i, align 8
@@ -8962,7 +8962,7 @@ invoke.cont2.i:                                   ; preds = %init.check.i
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy8MetadataELm1EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy8MetadataELm1EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIbEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -9016,7 +9016,7 @@ invoke.cont2.i:                                   ; preds = %init.check.i
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListELm1EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListELm1EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS9_EEEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -9070,7 +9070,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalELm0EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalELm0EvEE, i64 16), ptr %call.i1.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal10JsonLoaderERKNS_8JsonArgsEE6loader) #25
   br label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal10JsonLoaderERKNS_8JsonArgsE.exit
@@ -9187,7 +9187,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %1, -1
   %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -9242,7 +9242,7 @@ if.end.i:                                         ; preds = %_ZNK9grpc_core12exp
 if.then.i.i.i69.i:                                ; preds = %if.end.i
   %cmp.i.not.i.i.i.i70.i = icmp eq i8 %5, -1
   %exception.i.i.i.i.i71.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i71.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i71.i, align 8
   %_M_reason.i.i.i.i.i.i72.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i71.i, i64 8
   br i1 %cmp.i.not.i.i.i.i70.i, label %if.then.i.i.i.i74.i, label %if.else.i.i.i.i73.i
 
@@ -9509,7 +9509,7 @@ if.end38.i:                                       ; preds = %_ZN9grpc_core19Load
 if.then.i.i.i102.i:                               ; preds = %if.end38.i
   %cmp.i.not.i.i.i.i103.i = icmp eq i8 %30, -1
   %exception.i.i.i.i.i104.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i104.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i104.i, align 8
   %_M_reason.i.i.i.i.i.i105.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i104.i, i64 8
   %.str.50..str.51.i = select i1 %cmp.i.not.i.i.i.i103.i, ptr @.str.50, ptr @.str.51
   store ptr %.str.50..str.51.i, ptr %_M_reason.i.i.i.i.i.i105.i, align 8
@@ -9578,7 +9578,7 @@ if.end58.i:                                       ; preds = %invoke.cont42.i
 if.then.i.i.i124.i:                               ; preds = %if.end58.i
   %cmp.i.not.i.i.i.i125.i = icmp eq i8 %35, -1
   %exception.i.i.i.i.i126.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i126.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i126.i, align 8
   %_M_reason.i.i.i.i.i.i127.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i126.i, i64 8
   br i1 %cmp.i.not.i.i.i.i125.i, label %if.then.i.i.i.i129.i, label %if.else.i.i.i.i128.i
 
@@ -9691,7 +9691,7 @@ if.end81.i:                                       ; preds = %_ZNSt8optionalIN9gr
 if.then.i.i.i152.i:                               ; preds = %if.end81.i
   %cmp.i.not.i.i.i.i153.i = icmp eq i8 %43, -1
   %exception.i.i.i.i.i154.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i154.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i154.i, align 8
   %_M_reason.i.i.i.i.i.i155.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i154.i, i64 8
   br i1 %cmp.i.not.i.i.i.i153.i, label %if.then.i.i.i.i157.i, label %if.else.i.i.i.i156.i
 
@@ -9799,7 +9799,7 @@ if.end103.i:                                      ; preds = %_ZNSt8optionalIN9gr
 if.then.i.i.i190.i:                               ; preds = %if.end103.i
   %cmp.i.not.i.i.i.i191.i = icmp eq i8 %50, -1
   %exception.i.i.i.i.i192.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i192.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i192.i, align 8
   %_M_reason.i.i.i.i.i.i193.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i192.i, i64 8
   br i1 %cmp.i.not.i.i.i.i191.i, label %if.then.i.i.i.i195.i, label %if.else.i.i.i.i194.i
 
@@ -11131,7 +11131,7 @@ invoke.cont2.i:                                   ; preds = %init.check.i
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13AuthenticatedELm1EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13AuthenticatedELm1EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEEEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -11185,7 +11185,7 @@ invoke.cont2.i:                                   ; preds = %init.check.i
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListELm1EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListELm1EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS9_EEEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -11265,7 +11265,7 @@ invoke.cont4.i:                                   ; preds = %init.check.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont4.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyELm2EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6PolicyELm2EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS9_EEEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -11808,7 +11808,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerELm0EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLoggerELm0EvEE, i64 16), ptr %call.i1.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLogger10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLogger10JsonLoaderERKNS_8JsonArgsEE6loader) #25
   br label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules11AuditLogger10JsonLoaderERKNS_8JsonArgsE.exit
@@ -11844,7 +11844,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %0, -1
   %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -11880,7 +11880,7 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit12.i: ; preds = %_ZNK9grpc
 if.then.i.i.i15.i:                                ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit12.i
   %cmp.i.not.i.i.i.i16.i = icmp eq i8 %3, -1
   %exception.i.i.i.i.i17.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i17.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i17.i, align 8
   %_M_reason.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i17.i, i64 8
   br i1 %cmp.i.not.i.i.i.i16.i, label %if.then.i.i.i.i20.i, label %if.else.i.i.i.i19.i
 
@@ -12506,7 +12506,7 @@ invoke.cont4.i:                                   ; preds = %init.check.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont4.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesELm2EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesELm2EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIiEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -12615,7 +12615,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
 if.then.i.i.i.i:                                  ; preds = %if.end.i
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %4, -1
   %exception.i.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -12676,7 +12676,7 @@ if.end16.i:                                       ; preds = %if.then.i28.i, %sw.
 if.then.i.i.i33.i:                                ; preds = %if.end16.i
   %cmp.i.not.i.i.i.i34.i = icmp eq i8 %9, -1
   %exception.i.i.i.i.i35.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i35.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i35.i, align 8
   %_M_reason.i.i.i.i.i.i36.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i35.i, i64 8
   br i1 %cmp.i.not.i.i.i.i34.i, label %if.then.i.i.i.i38.i, label %if.else.i.i.i.i37.i
 
@@ -13744,7 +13744,7 @@ invoke.cont2.i:                                   ; preds = %init.check.i
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicyELm1EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfig10RbacPolicyELm1EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5RulesEEEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -13950,7 +13950,7 @@ invoke.cont2.i:                                   ; preds = %init.check.i
           to label %invoke.cont3.i unwind label %lpad.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfigELm1EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_12_GLOBAL__N_110RbacConfigELm1EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_12_GLOBAL__N_110RbacConfig10RbacPolicyESaIS6_EEEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -14025,7 +14025,7 @@ _ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngineESaIS1_EED2Ev.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22RbacMethodParsedConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22RbacMethodParsedConfigE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22RbacMethodParsedConfigE, i64 16), ptr %this, align 8
   %authorization_engines_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %authorization_engines_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -14062,7 +14062,7 @@ _ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngineESaIS1_EED2Ev.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22RbacMethodParsedConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22RbacMethodParsedConfigE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22RbacMethodParsedConfigE, i64 16), ptr %this, align 8
   %authorization_engines_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %authorization_engines_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16

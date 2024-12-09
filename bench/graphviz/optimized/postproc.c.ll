@@ -66,7 +66,7 @@ define void @translate_bb(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %11 = extractvalue { double, double } %9, 1
   %12 = load double, ptr @Offset, align 8
   %13 = fsub double %10, %12
-  %14 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %14 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %15 = fsub double %11, %14
   %16 = load i32, ptr @Rankdir, align 4
   %17 = mul nuw nsw i32 %16, 90
@@ -75,7 +75,7 @@ define void @translate_bb(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %20 = extractvalue { double, double } %18, 1
   %21 = load double, ptr @Offset, align 8
   %22 = fsub double %19, %21
-  %23 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %23 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %24 = fsub double %20, %23
   %25 = load ptr, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -104,7 +104,7 @@ define void @translate_bb(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %39 = extractvalue { double, double } %37, 1
   %40 = load double, ptr @Offset, align 8
   %41 = fsub double %38, %40
-  %42 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %42 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %43 = fsub double %39, %42
   store double %41, ptr %31, align 8
   store double %43, ptr %33, align 8
@@ -1370,7 +1370,7 @@ default.unreachable:                              ; preds = %568
 586:                                              ; preds = %568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @Offset, ptr noundef nonnull align 8 dereferenceable(16) %571, i64 16, i1 false)
   %.pre = load double, ptr @Offset, align 8
-  %.pre83 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %.pre83 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %587 = fcmp une double %.pre, 0.000000e+00
   %588 = fcmp une double %.pre83, 0.000000e+00
   %589 = select i1 %587, i1 true, i1 %588
@@ -1380,7 +1380,7 @@ default.unreachable:                              ; preds = %568
   %.sink92 = phi double [ %575, %572 ], [ %578, %577 ], [ %584, %582 ]
   %.sink = phi double [ %576, %572 ], [ %581, %577 ], [ %585, %582 ]
   store double %.sink92, ptr @Offset, align 8
-  store double %.sink, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  store double %.sink, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %586
@@ -1413,7 +1413,7 @@ default.unreachable:                              ; preds = %568
   %604 = extractvalue { double, double } %602, 1
   %605 = load double, ptr @Offset, align 8
   %606 = fsub double %603, %605
-  %607 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %607 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %608 = fsub double %604, %607
   store double %606, ptr %598, align 8
   store double %608, ptr %600, align 8
@@ -1435,7 +1435,7 @@ default.unreachable:                              ; preds = %568
   %621 = extractvalue { double, double } %619, 1
   %622 = load double, ptr @Offset, align 8
   %623 = fsub double %620, %622
-  %624 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %624 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %625 = fsub double %621, %624
   store double %623, ptr %613, align 8
   store double %625, ptr %615, align 8
@@ -1526,7 +1526,7 @@ default.unreachable:                              ; preds = %568
   %671 = extractvalue { double, double } %669, 1
   %672 = load double, ptr @Offset, align 8
   %673 = fsub double %670, %672
-  %674 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %674 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %675 = fsub double %671, %674
   store double %673, ptr %663, align 8
   store double %675, ptr %665, align 8
@@ -1558,7 +1558,7 @@ default.unreachable:                              ; preds = %568
   %689 = extractvalue { double, double } %687, 1
   %690 = load double, ptr @Offset, align 8
   %691 = fsub double %688, %690
-  %692 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %692 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %693 = fsub double %689, %692
   store double %691, ptr %681, align 8
   store double %693, ptr %683, align 8
@@ -1585,7 +1585,7 @@ default.unreachable:                              ; preds = %568
   %707 = extractvalue { double, double } %705, 1
   %708 = load double, ptr @Offset, align 8
   %709 = fsub double %706, %708
-  %710 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %710 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %711 = fsub double %707, %710
   store double %709, ptr %699, align 8
   store double %711, ptr %701, align 8
@@ -1621,7 +1621,7 @@ default.unreachable:                              ; preds = %568
   %730 = extractvalue { double, double } %728, 1
   %731 = load double, ptr @Offset, align 8
   %732 = fsub double %729, %731
-  %733 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %733 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %734 = fsub double %730, %733
   store double %732, ptr %722, align 8
   store double %734, ptr %724, align 8
@@ -1647,7 +1647,7 @@ default.unreachable:                              ; preds = %568
   %748 = extractvalue { double, double } %746, 1
   %749 = load double, ptr @Offset, align 8
   %750 = fsub double %747, %749
-  %751 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %751 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %752 = fsub double %748, %751
   store double %750, ptr %740, align 8
   store double %752, ptr %742, align 8
@@ -1673,7 +1673,7 @@ default.unreachable:                              ; preds = %568
   %766 = extractvalue { double, double } %764, 1
   %767 = load double, ptr @Offset, align 8
   %768 = fsub double %765, %767
-  %769 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %769 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %770 = fsub double %766, %769
   store double %768, ptr %758, align 8
   store double %770, ptr %760, align 8
@@ -1699,7 +1699,7 @@ default.unreachable:                              ; preds = %568
   %784 = extractvalue { double, double } %782, 1
   %785 = load double, ptr @Offset, align 8
   %786 = fsub double %783, %785
-  %787 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %787 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %788 = fsub double %784, %787
   store double %786, ptr %776, align 8
   store double %788, ptr %778, align 8
@@ -1802,7 +1802,7 @@ place_root_label.exit:                            ; preds = %826, %830
   br label %839
 
 839:                                              ; preds = %place_root_label.exit, %798, %translate_drawing.exit
-  %840 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
+  %840 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 8), align 8
   %841 = icmp eq i64 %840, 0
   br i1 %841, label %899, label %842
 
@@ -1814,12 +1814,12 @@ place_root_label.exit:                            ; preds = %826, %830
 
 845:                                              ; preds = %842
   %846 = load double, ptr @Offset, align 8
-  %847 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %847 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.2, double noundef %846, double noundef %847, double noundef %846, double noundef %847)
   br label %853
 
 848:                                              ; preds = %842
-  %849 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
+  %849 = load double, ptr getelementptr inbounds nuw (i8, ptr @Offset, i64 8), align 8
   %850 = load double, ptr @Offset, align 8
   %851 = fneg double %850
   %852 = fneg double %849
@@ -1879,8 +1879,8 @@ agxbsizeof.exit.i.i:                              ; preds = %853
 
 agxbdisown.exit:                                  ; preds = %867, %.thread.i, %agxblen.exit.i
   %.0.i = phi ptr [ %856, %agxblen.exit.i ], [ %871, %.thread.i ], [ %.pre84, %867 ]
-  %873 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
-  %874 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 16), align 8
+  %873 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 8), align 8
+  %874 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 16), align 8
   %875 = icmp eq i64 %873, %874
   br i1 %875, label %876, label %._crit_edge.i.i81
 
@@ -1903,15 +1903,15 @@ agxbdisown.exit:                                  ; preds = %867, %.thread.i, %a
   br i1 %883, label %890, label %884
 
 884:                                              ; preds = %879
-  %885 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 16), align 8
+  %885 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 16), align 8
   %886 = shl i64 %885, 3
   %887 = getelementptr inbounds i8, ptr %882, i64 %886
   %888 = sub i64 %spec.select.i.i, %885
   %889 = shl i64 %888, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %887, i8 0, i64 %889, i1 false)
   store ptr %882, ptr @Show_boxes, align 8
-  store i64 %spec.select.i.i, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 16), align 8
-  %.pre1.i.i = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
+  store i64 %spec.select.i.i, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 16), align 8
+  %.pre1.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 8), align 8
   br label %show_boxes_append.exit
 
 890:                                              ; preds = %879, %876
@@ -1927,9 +1927,9 @@ show_boxes_append.exit:                           ; preds = %._crit_edge.i.i81, 
   %895 = phi ptr [ %.pre.i.i82, %._crit_edge.i.i81 ], [ %882, %884 ]
   %896 = getelementptr inbounds ptr, ptr %895, i64 %894
   store ptr %.0.i, ptr %896, align 8
-  %897 = load i64, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
+  %897 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 8), align 8
   %898 = add i64 %897, 1
-  store i64 %898, ptr getelementptr inbounds (i8, ptr @Show_boxes, i64 8), align 8
+  store i64 %898, ptr getelementptr inbounds nuw (i8, ptr @Show_boxes, i64 8), align 8
   br label %899
 
 899:                                              ; preds = %show_boxes_append.exit, %839

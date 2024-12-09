@@ -874,7 +874,7 @@ declare noundef zeroext i1 @_ZNK2cv3ccm2IOeqERKS1_(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK2cv3ccm10ColorSpace8relationERKS1_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::ccm::Operations") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv3ccm10Operations16get_IDENTITY_OPSEv()
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1064,7 +1064,7 @@ define hidden void @_ZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceE(ptr dead_o
 
 15:                                               ; preds = %3
   %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv3ccm10Operations16get_IDENTITY_OPSEv()
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1131,7 +1131,7 @@ _ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE.exit: ; preds = %38
   store i64 %40, ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNKS0_3ccm8RGBBase_8relationERKNS3_10ColorSpaceEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %42, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNKS0_3ccm8RGBBase_8relationERKNS3_10ColorSpaceEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %4, align 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1144,7 +1144,7 @@ _ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE.exit: ; preds = %38
   store i64 %40, ptr %46, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNKS0_3ccm8RGBBase_8relationERKNS3_10ColorSpaceEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %48, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNKS0_3ccm8RGBBase_8relationERKNS3_10ColorSpaceEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %47, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %51 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #30
@@ -1173,7 +1173,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i: ; pre
 59:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %56, ptr %60, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %4, align 8
   %61 = load ptr, ptr %47, align 8
   %.not.i.i.i26 = icmp eq ptr %61, null
   br i1 %.not.i.i.i26, label %_ZN2cv3ccm9OperationD2Ev.exit, label %62
@@ -1232,7 +1232,7 @@ _ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE.exit34: ; preds = %38
   store i64 %40, ptr %7, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNKS0_3ccm8RGBBase_8relationERKNS3_10ColorSpaceEE3$_1E9_M_invokeERKSt9_Any_dataOS1_", ptr %81, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNKS0_3ccm8RGBBase_8relationERKNS3_10ColorSpaceEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %80, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %6, align 8
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 0, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1245,7 +1245,7 @@ _ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE.exit34: ; preds = %38
   store i64 %40, ptr %85, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNKS0_3ccm8RGBBase_8relationERKNS3_10ColorSpaceEE3$_1E9_M_invokeERKSt9_Any_dataOS1_", ptr %87, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNKS0_3ccm8RGBBase_8relationERKNS3_10ColorSpaceEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %86, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
   %90 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #30
@@ -1274,7 +1274,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i37: ; p
 98:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i37
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %95, ptr %99, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %6, align 8
   %100 = load ptr, ptr %86, align 8
   %.not.i.i.i41 = icmp eq ptr %100, null
   br i1 %.not.i.i.i41, label %_ZN2cv3ccm9OperationD2Ev.exit42, label %101
@@ -1331,7 +1331,7 @@ _ZNSt8functionIFN2cv3MatES1_EED2Ev.exit:          ; preds = %107, %_ZN2cv3ccm9Op
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1387,7 +1387,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm10OperationsC2ESt16initializer_listINS0_9OperationEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds %"class.cv::ccm::Operation", ptr %1, i64 %2
@@ -1441,7 +1441,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -3130,7 +3130,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv3c
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %113, %115
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %47, align 8
   %116 = getelementptr inbounds nuw i8, ptr %47, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #28
   %117 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -3144,7 +3144,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %113, %115
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit138
 
 _ZNSt6vectorIdSaIdEED2Ev.exit138:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %119
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %43, align 8
   %120 = getelementptr inbounds nuw i8, ptr %43, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #28
   %121 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -3158,7 +3158,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit138:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit140
 
 _ZNSt6vectorIdSaIdEED2Ev.exit140:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit138, %123
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %39, align 8
   %124 = getelementptr inbounds nuw i8, ptr %39, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %124) #28
   %125 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -3172,7 +3172,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit140:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit142
 
 _ZNSt6vectorIdSaIdEED2Ev.exit142:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit140, %127
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %35, align 8
   %128 = getelementptr inbounds nuw i8, ptr %35, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #28
   %129 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -3186,7 +3186,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit142:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit144
 
 _ZNSt6vectorIdSaIdEED2Ev.exit144:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit142, %131
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %31, align 8
   %132 = getelementptr inbounds nuw i8, ptr %31, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %132) #28
   %133 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -3200,7 +3200,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit144:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit146
 
 _ZNSt6vectorIdSaIdEED2Ev.exit146:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit144, %135
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %27, align 8
   %136 = getelementptr inbounds nuw i8, ptr %27, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #28
   %137 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -3214,7 +3214,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit146:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit148
 
 _ZNSt6vectorIdSaIdEED2Ev.exit148:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit146, %139
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %23, align 8
   %140 = getelementptr inbounds nuw i8, ptr %23, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #28
   %141 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3228,7 +3228,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit148:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit150
 
 _ZNSt6vectorIdSaIdEED2Ev.exit150:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit148, %143
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %19, align 8
   %144 = getelementptr inbounds nuw i8, ptr %19, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #28
   %145 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -3242,7 +3242,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit150:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit152
 
 _ZNSt6vectorIdSaIdEED2Ev.exit152:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit150, %147
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %15, align 8
   %148 = getelementptr inbounds nuw i8, ptr %15, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %148) #28
   %149 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -3256,7 +3256,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit152:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit154
 
 _ZNSt6vectorIdSaIdEED2Ev.exit154:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit152, %151
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %11, align 8
   %152 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #28
   %153 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3270,7 +3270,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit154:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit156
 
 _ZNSt6vectorIdSaIdEED2Ev.exit156:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit154, %155
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %7, align 8
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #28
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3284,7 +3284,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit156:                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit158
 
 _ZNSt6vectorIdSaIdEED2Ev.exit158:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit156, %159
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %160 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #28
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3482,7 +3482,7 @@ _ZNKSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St6vectorIdSaIdEEESt10_Select1stIS8_ESt4
 _ZNSt6vectorIdSaIdEED2Ev.exit161:                 ; preds = %229, %.loopexit192, %216
   %.pn.pn = phi { ptr, i32 } [ %217, %216 ], [ %.pn, %.loopexit192 ], [ %.pn, %229 ]
   %.23 = phi i1 [ false, %216 ], [ %227, %.loopexit192 ], [ %227, %229 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %47, align 8
   %230 = getelementptr inbounds nuw i8, ptr %47, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %230) #28
   %231 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -3505,7 +3505,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit163:                 ; preds = %234, %232, %212
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %213, %212 ], [ %.pn.pn.pn, %232 ], [ %.pn.pn.pn, %234 ]
   %.32 = phi ptr [ %99, %212 ], [ %.33, %232 ], [ %.33, %234 ]
   %.21 = phi i1 [ false, %212 ], [ %.22, %232 ], [ %.22, %234 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %43, align 8
   %235 = getelementptr inbounds nuw i8, ptr %43, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %235) #28
   %236 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -3528,7 +3528,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit165:                 ; preds = %239, %237, %208
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %209, %208 ], [ %.pn.pn.pn.pn.pn, %237 ], [ %.pn.pn.pn.pn.pn, %239 ]
   %.30 = phi ptr [ %95, %208 ], [ %.31, %237 ], [ %.31, %239 ]
   %.19 = phi i1 [ false, %208 ], [ %.20, %237 ], [ %.20, %239 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %39, align 8
   %240 = getelementptr inbounds nuw i8, ptr %39, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %240) #28
   %241 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -3551,7 +3551,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit167:                 ; preds = %244, %242, %204
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %205, %204 ], [ %.pn.pn.pn.pn.pn.pn.pn, %242 ], [ %.pn.pn.pn.pn.pn.pn.pn, %244 ]
   %.28 = phi ptr [ %91, %204 ], [ %.29, %242 ], [ %.29, %244 ]
   %.17 = phi i1 [ false, %204 ], [ %.18, %242 ], [ %.18, %244 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %35, align 8
   %245 = getelementptr inbounds nuw i8, ptr %35, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %245) #28
   %246 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -3574,7 +3574,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit169:                 ; preds = %249, %247, %200
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %201, %200 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %247 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %249 ]
   %.26 = phi ptr [ %87, %200 ], [ %.27, %247 ], [ %.27, %249 ]
   %.15 = phi i1 [ false, %200 ], [ %.16, %247 ], [ %.16, %249 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %31, align 8
   %250 = getelementptr inbounds nuw i8, ptr %31, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %250) #28
   %251 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -3597,7 +3597,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit171:                 ; preds = %254, %252, %196
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %197, %196 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %252 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %254 ]
   %.2453 = phi ptr [ %83, %196 ], [ %.25, %252 ], [ %.25, %254 ]
   %.13 = phi i1 [ false, %196 ], [ %.14, %252 ], [ %.14, %254 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %27, align 8
   %255 = getelementptr inbounds nuw i8, ptr %27, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %255) #28
   %256 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -3620,7 +3620,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit173:                 ; preds = %259, %257, %192
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %193, %192 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %257 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %259 ]
   %.2251 = phi ptr [ %79, %192 ], [ %.2352, %257 ], [ %.2352, %259 ]
   %.11 = phi i1 [ false, %192 ], [ %.12, %257 ], [ %.12, %259 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %23, align 8
   %260 = getelementptr inbounds nuw i8, ptr %23, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %260) #28
   %261 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3643,7 +3643,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit175:                 ; preds = %264, %262, %188
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %189, %188 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %262 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %264 ]
   %.2049 = phi ptr [ %75, %188 ], [ %.2150, %262 ], [ %.2150, %264 ]
   %.9 = phi i1 [ false, %188 ], [ %.10, %262 ], [ %.10, %264 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %19, align 8
   %265 = getelementptr inbounds nuw i8, ptr %19, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %265) #28
   %266 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -3666,7 +3666,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit177:                 ; preds = %269, %267, %184
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %267 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %269 ]
   %.1847 = phi ptr [ %71, %184 ], [ %.1948, %267 ], [ %.1948, %269 ]
   %.7 = phi i1 [ false, %184 ], [ %.8, %267 ], [ %.8, %269 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %15, align 8
   %270 = getelementptr inbounds nuw i8, ptr %15, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %270) #28
   %271 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -3689,7 +3689,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit179:                 ; preds = %274, %272, %180
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %181, %180 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %272 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %274 ]
   %.1645 = phi ptr [ %67, %180 ], [ %.1746, %272 ], [ %.1746, %274 ]
   %.5 = phi i1 [ false, %180 ], [ %.6, %272 ], [ %.6, %274 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %11, align 8
   %275 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %275) #28
   %276 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3712,7 +3712,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit181:                 ; preds = %279, %277, %176
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %177, %176 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %277 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %279 ]
   %.1443 = phi ptr [ %63, %176 ], [ %.1544, %277 ], [ %.1544, %279 ]
   %.3 = phi i1 [ false, %176 ], [ %.4, %277 ], [ %.4, %279 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %7, align 8
   %280 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %280) #28
   %281 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3735,7 +3735,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit181:                 ; preds = %279, %277, %176
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %173, %172 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %282 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %284 ]
   %.1241 = phi ptr [ %2, %172 ], [ %.1342, %282 ], [ %.1342, %284 ]
   %.1 = phi i1 [ false, %172 ], [ %.2, %282 ], [ %.2, %284 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %286 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %286) #28
   %287 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3881,7 +3881,7 @@ define hidden void @_ZN2cv3ccm8RGBBase_13calOperationsEv(ptr noundef nonnull ali
   br label %.loopexit179.sink.split
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3891,7 +3891,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %23
 33:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %2, align 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %36 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #30
@@ -3925,7 +3925,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i: ; pre
           to label %_ZN2cv3ccm10OperationsaSERKS1_.exit unwind label %110
 
 _ZN2cv3ccm10OperationsaSERKS1_.exit:              ; preds = %45
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %2, align 8
   %49 = load ptr, ptr %35, align 8
   %50 = load ptr, ptr %46, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %49, %50
@@ -3954,7 +3954,7 @@ _ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_
   br label %_ZN2cv3ccm10OperationsD2Ev.exit
 
 _ZN2cv3ccm10OperationsD2Ev.exit:                  ; preds = %_ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i, %55
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %3, align 8
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %57 = load ptr, ptr %56, align 8
   %.not.i.i.i = icmp eq ptr %57, null
@@ -3998,7 +3998,7 @@ _ZN2cv3ccm9OperationD2Ev.exit:                    ; preds = %_ZN2cv3ccm10Operati
   br label %.loopexit179.sink.split
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit88:               ; preds = %_ZN2cv3ccm9OperationD2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %7, align 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 1, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4008,7 +4008,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit88:               ; preds = %_ZN2cv3ccm9Operatio
 77:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit88
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %6, align 8
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   %80 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #30
@@ -4042,7 +4042,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i92: ; p
           to label %_ZN2cv3ccm10OperationsaSERKS1_.exit96 unwind label %114
 
 _ZN2cv3ccm10OperationsaSERKS1_.exit96:            ; preds = %88
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %6, align 8
   %92 = load ptr, ptr %79, align 8
   %93 = load ptr, ptr %89, align 8
   %.not4.i.i.i.i.i97 = icmp eq ptr %92, %93
@@ -4071,7 +4071,7 @@ _ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i103: ; preds = %_ZS
   br label %_ZN2cv3ccm10OperationsD2Ev.exit105
 
 _ZN2cv3ccm10OperationsD2Ev.exit105:               ; preds = %_ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i103, %98
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %7, align 8
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i106 = icmp eq ptr %100, null
@@ -4135,7 +4135,7 @@ _ZN2cv3ccm9OperationD2Ev.exit107:                 ; preds = %_ZN2cv3ccm10Operati
   store i64 %117, ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm8RGBBase_13calOperationsEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %119, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm8RGBBase_13calOperationsEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %118, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %11, align 8
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -4202,7 +4202,7 @@ _ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE.exit: ; preds = %129, %116
   br label %.body112
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit114:              ; preds = %142
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %140, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %140, align 8
   %149 = getelementptr inbounds nuw i8, ptr %11, i64 152
   store i8 1, ptr %149, align 8
   %150 = getelementptr inbounds nuw i8, ptr %11, i64 160
@@ -4212,7 +4212,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit114:              ; preds = %142
 151:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit114
   %152 = getelementptr inbounds nuw i8, ptr %11, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %152, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %10, align 8
   %153 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, i8 0, i64 24, i1 false)
   %154 = getelementptr inbounds nuw i8, ptr %11, i64 288
@@ -4246,7 +4246,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i118: ; 
           to label %_ZN2cv3ccm10OperationsaSERKS1_.exit122 unwind label %272
 
 _ZN2cv3ccm10OperationsaSERKS1_.exit122:           ; preds = %163
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %10, align 8
   %167 = load ptr, ptr %153, align 8
   %168 = load ptr, ptr %164, align 8
   %.not4.i.i.i.i.i123 = icmp eq ptr %167, %168
@@ -4280,7 +4280,7 @@ _ZN2cv3ccm10OperationsD2Ev.exit131.preheader:     ; preds = %_ZSt8_DestroyIPN2cv
 _ZN2cv3ccm10OperationsD2Ev.exit131:               ; preds = %_ZN2cv3ccm10OperationsD2Ev.exit131.preheader, %_ZN2cv3ccm9OperationD2Ev.exit133
   %174 = phi ptr [ %175, %_ZN2cv3ccm9OperationD2Ev.exit133 ], [ %154, %_ZN2cv3ccm10OperationsD2Ev.exit131.preheader ]
   %175 = getelementptr inbounds i8, ptr %174, i64 -144
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %175, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %175, align 8
   %176 = getelementptr inbounds i8, ptr %174, i64 -16
   %177 = load ptr, ptr %176, align 8
   %.not.i.i.i132 = icmp eq ptr %177, null
@@ -4344,7 +4344,7 @@ _ZNSt8functionIFN2cv3MatES1_EED2Ev.exit:          ; preds = %186, %191
   br label %.loopexit179.sink.split
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit136:              ; preds = %_ZNSt8functionIFN2cv3MatES1_EED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %16, align 8
   %202 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 1, ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -4362,7 +4362,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit136:              ; preds = %_ZNSt8functionIFN2c
   store i64 %117, ptr %19, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm8RGBBase_13calOperationsEvE3$_1E9_M_invokeERKSt9_Any_dataOS1_", ptr %208, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm8RGBBase_13calOperationsEvE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %207, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %206, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %206, align 8
   %210 = getelementptr inbounds nuw i8, ptr %16, i64 152
   store i8 0, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %16, i64 160
@@ -4409,7 +4409,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit136:              ; preds = %_ZNSt8functionIFN2c
   br label %.body141
 
 _ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE.exit143: ; preds = %218, %204
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %15, align 8
   %229 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, i8 0, i64 24, i1 false)
   %230 = getelementptr inbounds nuw i8, ptr %16, i64 288
@@ -4443,7 +4443,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i146: ; 
           to label %_ZN2cv3ccm10OperationsaSERKS1_.exit150 unwind label %290
 
 _ZN2cv3ccm10OperationsaSERKS1_.exit150:           ; preds = %238
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %15, align 8
   %242 = load ptr, ptr %229, align 8
   %243 = load ptr, ptr %239, align 8
   %.not4.i.i.i.i.i151 = icmp eq ptr %242, %243
@@ -4477,7 +4477,7 @@ _ZN2cv3ccm10OperationsD2Ev.exit159.preheader:     ; preds = %_ZSt8_DestroyIPN2cv
 _ZN2cv3ccm10OperationsD2Ev.exit159:               ; preds = %_ZN2cv3ccm10OperationsD2Ev.exit159.preheader, %_ZN2cv3ccm9OperationD2Ev.exit161
   %249 = phi ptr [ %250, %_ZN2cv3ccm9OperationD2Ev.exit161 ], [ %230, %_ZN2cv3ccm10OperationsD2Ev.exit159.preheader ]
   %250 = getelementptr inbounds i8, ptr %249, i64 -144
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %250, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %250, align 8
   %251 = getelementptr inbounds i8, ptr %249, i64 -16
   %252 = load ptr, ptr %251, align 8
   %.not.i.i.i160 = icmp eq ptr %252, null
@@ -4667,7 +4667,7 @@ declare void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind writable sret(%"class.cv::MatEx
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm10OperationsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6359,13 +6359,13 @@ define hidden void @_ZN2cv3ccm3XYZ3camENS0_2IOENS0_3CAME(ptr dead_on_unwind noal
   br i1 %12, label %.thread, label %14
 
 .thread:                                          ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   br label %.critedge45
 
 14:                                               ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
@@ -6385,7 +6385,7 @@ common.resume:                                    ; preds = %.body, %19
   br label %common.resume
 
 _ZN2cv3ccm2IOC2ERKS1_.exit:                       ; preds = %14
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
@@ -6426,7 +6426,7 @@ _ZN2cv3ccm2IOC2ERKS1_.exit46:                     ; preds = %.noexc
   br label %.body47
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6436,7 +6436,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %28
 37:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %40 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #30
@@ -6465,7 +6465,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i: ; pre
 48:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %45, ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %5, align 8
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %51 = load ptr, ptr %50, align 8
   %.not.i.i.i = icmp eq ptr %51, null
@@ -6494,10 +6494,10 @@ _ZN2cv3ccm9OperationD2Ev.exit:                    ; preds = %48, %52
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #28
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   br label %.critedge45
@@ -6543,14 +6543,14 @@ _ZN2cv3ccm9OperationD2Ev.exit:                    ; preds = %48, %52
 
 72:                                               ; preds = %64, %71
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %71 ], [ %65, %64 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #28
   br label %.body
 
 .body:                                            ; preds = %62, %25, %72
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %72 ], [ %63, %62 ], [ %26, %25 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #28
   br label %common.resume
 }
@@ -6655,13 +6655,13 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %54
 65:                                               ; preds = %63
   %.not = icmp eq ptr %64, getelementptr inbounds nuw (i8, ptr @_ZZNK2cv3ccm3XYZ4cam_ENS0_2IOES2_NS0_3CAMEE4cams, i64 8)
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #28
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #28
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #28
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6679,13 +6679,13 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %54
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #28
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #28
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #28
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -7263,13 +7263,13 @@ _ZSt10make_tupleIJRN2cv3ccm2IOES3_RNS1_3CAMEEESt5tupleIJDpNSt25__strip_reference
 
 313:                                              ; preds = %311
   %314 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %314, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %314, align 8
   %315 = getelementptr inbounds nuw i8, ptr %43, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %315) #28
   %316 = getelementptr inbounds nuw i8, ptr %43, i64 88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %316) #28
   %317 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %317, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %43, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %318) #28
   %319 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -7295,13 +7295,13 @@ _ZSt10make_tupleIJRN2cv3ccm2IOES3_RNS1_3CAMEEESt5tupleIJDpNSt25__strip_reference
 
 _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %322
   %327 = getelementptr inbounds nuw i8, ptr %45, i64 80
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %327, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %327, align 8
   %328 = getelementptr inbounds nuw i8, ptr %45, i64 120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %328) #28
   %329 = getelementptr inbounds nuw i8, ptr %45, i64 88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %329) #28
   %330 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %330, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %330, align 8
   %331 = getelementptr inbounds nuw i8, ptr %45, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %331) #28
   %332 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -7717,7 +7717,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %322
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm2IOD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7754,13 +7754,13 @@ declare void @_ZN2cv3Mat3eyeENS_5Size_IiEEi(ptr dead_on_unwind writable sret(%"c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt5tupleIJN2cv3ccm2IOES2_NS1_3CAMEEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8246,7 +8246,7 @@ select.unfold:                                    ; preds = %21, %_ZNKSt8_Rb_tre
   store i32 1, ptr %47, align 8, !noalias !86
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 1, ptr %48, align 4, !noalias !86
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3ccm3XYZESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %46, align 8, !noalias !86
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3ccm3XYZESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %46, align 8, !noalias !86
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   invoke void @_ZSt10_ConstructIN2cv3ccm3XYZEJRNS1_2IOEEEvPT_DpOT0_(ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %_ZSt11make_sharedIN2cv3ccm3XYZEJRNS1_2IOEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3ccm3XYZESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !86
@@ -8693,7 +8693,7 @@ define hidden void @_ZN2cv3ccm3LabC2ENS0_2IOE(ptr noundef nonnull align 8 derefe
   %9 = alloca %"class.cv::ccm::Operations", align 8
   %10 = alloca [1 x %"class.cv::ccm::Operation"], align 8
   %11 = alloca %"class.std::function", align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
@@ -8718,9 +8718,9 @@ _ZN2cv3ccm2IOC2ERKS1_.exit:                       ; preds = %2
           to label %18 unwind label %128
 
 18:                                               ; preds = %_ZN2cv3ccm2IOC2ERKS1_.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm10ColorSpaceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm10ColorSpaceE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.noexc unwind label %130
@@ -8748,7 +8748,7 @@ _ZN2cv3ccm2IOC2ERKS1_.exit.i:                     ; preds = %.noexc
 25:                                               ; preds = %_ZN2cv3ccm2IOC2ERKS1_.exit.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %19, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #28
   br label %common.resume.i
 
@@ -8756,19 +8756,19 @@ _ZN2cv3ccm2IOC2ERKS1_.exit.i:                     ; preds = %.noexc
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 1, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #28
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm3LabE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm3LabE, i64 16), ptr %0, align 8
   %33 = ptrtoint ptr %0 to i64
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -8777,7 +8777,7 @@ _ZN2cv3ccm2IOC2ERKS1_.exit.i:                     ; preds = %.noexc
   store i64 %33, ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm3LabC1ENS3_2IOEE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %35, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm3LabC1ENS3_2IOEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -8824,7 +8824,7 @@ _ZN2cv3ccm2IOC2ERKS1_.exit.i:                     ; preds = %.noexc
   br label %.body31
 
 _ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE.exit: ; preds = %45, %27
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %6, align 8
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %57 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #30
@@ -8857,7 +8857,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i: ; pre
           to label %_ZN2cv3ccm10OperationsaSERKS1_.exit unwind label %133
 
 _ZN2cv3ccm10OperationsaSERKS1_.exit:              ; preds = %66
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %6, align 8
   %69 = load ptr, ptr %56, align 8
   %70 = load ptr, ptr %67, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %69, %70
@@ -8886,7 +8886,7 @@ _ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_
   br label %_ZN2cv3ccm10OperationsD2Ev.exit
 
 _ZN2cv3ccm10OperationsD2Ev.exit:                  ; preds = %_ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i, %75
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %7, align 8
   %76 = load ptr, ptr %40, align 8
   %.not.i.i.i37 = icmp eq ptr %76, null
   br i1 %.not.i.i.i37, label %_ZN2cv3ccm9OperationD2Ev.exit, label %77
@@ -8927,7 +8927,7 @@ _ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE.exit43: ; preds = %83, %_ZN2cv
   store i64 %33, ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm3LabC1ENS3_2IOEE3$_1E9_M_invokeERKSt9_Any_dataOS1_", ptr %89, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm3LabC1ENS3_2IOEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %88, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %10, align 8
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 0, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -8940,7 +8940,7 @@ _ZN2cv3ccm9OperationC2ESt8functionIFNS_3MatES3_EE.exit43: ; preds = %83, %_ZN2cv
   store i64 %33, ptr %93, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm3LabC1ENS3_2IOEE3$_1E9_M_invokeERKSt9_Any_dataOS1_", ptr %95, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2cv3MatES1_EZNS0_3ccm3LabC1ENS3_2IOEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %94, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %9, align 8
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
   %98 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #30
@@ -8973,7 +8973,7 @@ _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i.i46: ; p
           to label %_ZN2cv3ccm10OperationsaSERKS1_.exit51 unwind label %141
 
 _ZN2cv3ccm10OperationsaSERKS1_.exit51:            ; preds = %106
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %9, align 8
   %109 = load ptr, ptr %97, align 8
   %110 = load ptr, ptr %107, align 8
   %.not4.i.i.i.i.i52 = icmp eq ptr %109, %110
@@ -9002,7 +9002,7 @@ _ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i58: ; preds = %_ZSt
   br label %_ZN2cv3ccm10OperationsD2Ev.exit60
 
 _ZN2cv3ccm10OperationsD2Ev.exit60:                ; preds = %_ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i58, %115
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %10, align 8
   %116 = load ptr, ptr %94, align 8
   %.not.i.i.i61 = icmp eq ptr %116, null
   br i1 %.not.i.i.i61, label %_ZN2cv3ccm9OperationD2Ev.exit62, label %117
@@ -9056,7 +9056,7 @@ _ZNSt8functionIFN2cv3MatES1_EED2Ev.exit64:        ; preds = %_ZN2cv3ccm9Operatio
 132:                                              ; preds = %.body, %128
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %129, %128 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #28
   br label %common.resume
@@ -9883,7 +9883,7 @@ _ZNSt3mapIN2cv3ccm2IOESt10shared_ptrINS1_3LabEESt4lessIS2_ESaISt4pairIKS2_S5_EEE
 
 select.unfold:                                    ; preds = %22, %_ZNKSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St10shared_ptrINS1_3LabEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %17
   %47 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #30
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %49)
@@ -9945,11 +9945,11 @@ _ZN2cv3ccm2IOC2ERKS1_.exit:                       ; preds = %.noexc
   store i32 1, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %56, i64 12
   store i32 1, ptr %72, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm3LabELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm3LabELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %56, align 8
   %73 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %47, ptr %73, align 8
   store ptr %56, ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -10261,7 +10261,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 .body:                                            ; preds = %191, %64
   %.0.lpad-body = phi i1 [ true, %191 ], [ false, %64 ]
   %eh.lpad-body12 = phi { ptr, i32 } [ %192, %191 ], [ %65, %64 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #28
   br i1 %.0.lpad-body, label %.body.thread, label %193
@@ -10631,7 +10631,7 @@ _ZNSt10shared_ptrIN2cv3ccm5sRGB_EEC2IS2_vEEPT_.exit: ; preds = %86
   store i32 1, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %88, i64 12
   store i32 1, ptr %103, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm5sRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %88, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm5sRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %88, align 8
   %104 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %85, ptr %104, align 8
   store ptr %88, ptr %87, align 8
@@ -10682,7 +10682,7 @@ _ZNSt10shared_ptrIN2cv3ccm5sRGB_EEC2IS2_vEEPT_.exit: ; preds = %86
   store i32 1, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store i32 1, ptr %125, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm5sRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm5sRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %109, align 8
   %126 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store ptr %105, ptr %126, align 8
   store ptr %109, ptr %108, align 8
@@ -11276,7 +11276,7 @@ _ZNSt10shared_ptrIN2cv3ccm9AdobeRGB_EEC2IS2_vEEPT_.exit: ; preds = %353
   store i32 1, ptr %369, align 8
   %370 = getelementptr inbounds nuw i8, ptr %355, i64 12
   store i32 1, ptr %370, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AdobeRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %355, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AdobeRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %355, align 8
   %371 = getelementptr inbounds nuw i8, ptr %355, i64 16
   store ptr %352, ptr %371, align 8
   store ptr %355, ptr %354, align 8
@@ -11327,7 +11327,7 @@ _ZNSt10shared_ptrIN2cv3ccm9AdobeRGB_EEC2IS2_vEEPT_.exit: ; preds = %353
   store i32 1, ptr %391, align 8
   %392 = getelementptr inbounds nuw i8, ptr %376, i64 12
   store i32 1, ptr %392, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AdobeRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %376, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AdobeRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %376, align 8
   %393 = getelementptr inbounds nuw i8, ptr %376, i64 16
   store ptr %372, ptr %393, align 8
   store ptr %376, ptr %375, align 8
@@ -11921,7 +11921,7 @@ _ZNSt10shared_ptrIN2cv3ccm13WideGamutRGB_EEC2IS2_vEEPT_.exit: ; preds = %620
   store i32 1, ptr %636, align 8
   %637 = getelementptr inbounds nuw i8, ptr %622, i64 12
   store i32 1, ptr %637, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13WideGamutRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %622, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13WideGamutRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %622, align 8
   %638 = getelementptr inbounds nuw i8, ptr %622, i64 16
   store ptr %619, ptr %638, align 8
   store ptr %622, ptr %621, align 8
@@ -11972,7 +11972,7 @@ _ZNSt10shared_ptrIN2cv3ccm13WideGamutRGB_EEC2IS2_vEEPT_.exit: ; preds = %620
   store i32 1, ptr %658, align 8
   %659 = getelementptr inbounds nuw i8, ptr %643, i64 12
   store i32 1, ptr %659, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13WideGamutRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %643, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13WideGamutRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %643, align 8
   %660 = getelementptr inbounds nuw i8, ptr %643, i64 16
   store ptr %639, ptr %660, align 8
   store ptr %643, ptr %642, align 8
@@ -12566,7 +12566,7 @@ _ZNSt10shared_ptrIN2cv3ccm12ProPhotoRGB_EEC2IS2_vEEPT_.exit: ; preds = %887
   store i32 1, ptr %903, align 8
   %904 = getelementptr inbounds nuw i8, ptr %889, i64 12
   store i32 1, ptr %904, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12ProPhotoRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %889, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12ProPhotoRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %889, align 8
   %905 = getelementptr inbounds nuw i8, ptr %889, i64 16
   store ptr %886, ptr %905, align 8
   store ptr %889, ptr %888, align 8
@@ -12617,7 +12617,7 @@ _ZNSt10shared_ptrIN2cv3ccm12ProPhotoRGB_EEC2IS2_vEEPT_.exit: ; preds = %887
   store i32 1, ptr %925, align 8
   %926 = getelementptr inbounds nuw i8, ptr %910, i64 12
   store i32 1, ptr %926, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12ProPhotoRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %910, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12ProPhotoRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %910, align 8
   %927 = getelementptr inbounds nuw i8, ptr %910, i64 16
   store ptr %906, ptr %927, align 8
   store ptr %910, ptr %909, align 8
@@ -13211,7 +13211,7 @@ _ZNSt10shared_ptrIN2cv3ccm11DCI_P3_RGB_EEC2IS2_vEEPT_.exit: ; preds = %1154
   store i32 1, ptr %1170, align 8
   %1171 = getelementptr inbounds nuw i8, ptr %1156, i64 12
   store i32 1, ptr %1171, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm11DCI_P3_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1156, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm11DCI_P3_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1156, align 8
   %1172 = getelementptr inbounds nuw i8, ptr %1156, i64 16
   store ptr %1153, ptr %1172, align 8
   store ptr %1156, ptr %1155, align 8
@@ -13262,7 +13262,7 @@ _ZNSt10shared_ptrIN2cv3ccm11DCI_P3_RGB_EEC2IS2_vEEPT_.exit: ; preds = %1154
   store i32 1, ptr %1192, align 8
   %1193 = getelementptr inbounds nuw i8, ptr %1177, i64 12
   store i32 1, ptr %1193, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm11DCI_P3_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1177, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm11DCI_P3_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1177, align 8
   %1194 = getelementptr inbounds nuw i8, ptr %1177, i64 16
   store ptr %1173, ptr %1194, align 8
   store ptr %1177, ptr %1176, align 8
@@ -13856,7 +13856,7 @@ _ZNSt10shared_ptrIN2cv3ccm9AppleRGB_EEC2IS2_vEEPT_.exit: ; preds = %1421
   store i32 1, ptr %1437, align 8
   %1438 = getelementptr inbounds nuw i8, ptr %1423, i64 12
   store i32 1, ptr %1438, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AppleRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1423, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AppleRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1423, align 8
   %1439 = getelementptr inbounds nuw i8, ptr %1423, i64 16
   store ptr %1420, ptr %1439, align 8
   store ptr %1423, ptr %1422, align 8
@@ -13907,7 +13907,7 @@ _ZNSt10shared_ptrIN2cv3ccm9AppleRGB_EEC2IS2_vEEPT_.exit: ; preds = %1421
   store i32 1, ptr %1459, align 8
   %1460 = getelementptr inbounds nuw i8, ptr %1444, i64 12
   store i32 1, ptr %1460, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AppleRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1444, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AppleRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1444, align 8
   %1461 = getelementptr inbounds nuw i8, ptr %1444, i64 16
   store ptr %1440, ptr %1461, align 8
   store ptr %1444, ptr %1443, align 8
@@ -14501,7 +14501,7 @@ _ZNSt10shared_ptrIN2cv3ccm12REC_709_RGB_EEC2IS2_vEEPT_.exit: ; preds = %1688
   store i32 1, ptr %1704, align 8
   %1705 = getelementptr inbounds nuw i8, ptr %1690, i64 12
   store i32 1, ptr %1705, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12REC_709_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1690, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12REC_709_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1690, align 8
   %1706 = getelementptr inbounds nuw i8, ptr %1690, i64 16
   store ptr %1687, ptr %1706, align 8
   store ptr %1690, ptr %1689, align 8
@@ -14552,7 +14552,7 @@ _ZNSt10shared_ptrIN2cv3ccm12REC_709_RGB_EEC2IS2_vEEPT_.exit: ; preds = %1688
   store i32 1, ptr %1726, align 8
   %1727 = getelementptr inbounds nuw i8, ptr %1711, i64 12
   store i32 1, ptr %1727, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12REC_709_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1711, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12REC_709_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1711, align 8
   %1728 = getelementptr inbounds nuw i8, ptr %1711, i64 16
   store ptr %1707, ptr %1728, align 8
   store ptr %1711, ptr %1710, align 8
@@ -15146,7 +15146,7 @@ _ZNSt10shared_ptrIN2cv3ccm13REC_2020_RGB_EEC2IS2_vEEPT_.exit: ; preds = %1955
   store i32 1, ptr %1971, align 8
   %1972 = getelementptr inbounds nuw i8, ptr %1957, i64 12
   store i32 1, ptr %1972, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13REC_2020_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1957, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13REC_2020_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1957, align 8
   %1973 = getelementptr inbounds nuw i8, ptr %1957, i64 16
   store ptr %1954, ptr %1973, align 8
   store ptr %1957, ptr %1956, align 8
@@ -15197,7 +15197,7 @@ _ZNSt10shared_ptrIN2cv3ccm13REC_2020_RGB_EEC2IS2_vEEPT_.exit: ; preds = %1955
   store i32 1, ptr %1993, align 8
   %1994 = getelementptr inbounds nuw i8, ptr %1978, i64 12
   store i32 1, ptr %1994, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13REC_2020_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1978, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13REC_2020_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1978, align 8
   %1995 = getelementptr inbounds nuw i8, ptr %1978, i64 16
   store ptr %1974, ptr %1995, align 8
   store ptr %1978, ptr %1977, align 8
@@ -15896,15 +15896,15 @@ define linkonce_odr hidden void @_ZN2cv3ccm5sRGB_C2Eb(ptr noundef nonnull align 
           to label %7 unwind label %12
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9sRGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9sRGBBase_E, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm5sRGB_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm5sRGB_E, i64 16), ptr %0, align 8
   ret void
 
 10:                                               ; preds = %2
@@ -15921,7 +15921,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm5sRGB_C2Eb(ptr noundef nonnull align 
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -15980,7 +15980,7 @@ _ZNSt12__shared_ptrIN2cv3ccm5sRGB_ELN9__gnu_cxx12_Lock_policyE2EEC2IS2_vEEPT_.ex
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm5sRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm5sRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -16246,15 +16246,15 @@ define linkonce_odr hidden void @_ZN2cv3ccm9AdobeRGB_C2Eb(ptr noundef nonnull al
           to label %7 unwind label %12
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9AdobeRGB_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9AdobeRGB_E, i64 16), ptr %0, align 8
   ret void
 
 10:                                               ; preds = %2
@@ -16271,7 +16271,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm9AdobeRGB_C2Eb(ptr noundef nonnull al
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16330,7 +16330,7 @@ _ZNSt12__shared_ptrIN2cv3ccm9AdobeRGB_ELN9__gnu_cxx12_Lock_policyE2EEC2IS2_vEEPT
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AdobeRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AdobeRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -16547,15 +16547,15 @@ define linkonce_odr hidden void @_ZN2cv3ccm13WideGamutRGB_C2Eb(ptr noundef nonnu
           to label %7 unwind label %12
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13WideGamutRGB_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13WideGamutRGB_E, i64 16), ptr %0, align 8
   ret void
 
 10:                                               ; preds = %2
@@ -16572,7 +16572,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm13WideGamutRGB_C2Eb(ptr noundef nonnu
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16631,7 +16631,7 @@ _ZNSt12__shared_ptrIN2cv3ccm13WideGamutRGB_ELN9__gnu_cxx12_Lock_policyE2EEC2IS2_
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13WideGamutRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13WideGamutRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -16848,15 +16848,15 @@ define linkonce_odr hidden void @_ZN2cv3ccm12ProPhotoRGB_C2Eb(ptr noundef nonnul
           to label %7 unwind label %12
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm12ProPhotoRGB_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm12ProPhotoRGB_E, i64 16), ptr %0, align 8
   ret void
 
 10:                                               ; preds = %2
@@ -16873,7 +16873,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm12ProPhotoRGB_C2Eb(ptr noundef nonnul
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16932,7 +16932,7 @@ _ZNSt12__shared_ptrIN2cv3ccm12ProPhotoRGB_ELN9__gnu_cxx12_Lock_policyE2EEC2IS2_v
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12ProPhotoRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12ProPhotoRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -17149,15 +17149,15 @@ define linkonce_odr hidden void @_ZN2cv3ccm11DCI_P3_RGB_C2Eb(ptr noundef nonnull
           to label %7 unwind label %12
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm11DCI_P3_RGB_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm11DCI_P3_RGB_E, i64 16), ptr %0, align 8
   ret void
 
 10:                                               ; preds = %2
@@ -17174,7 +17174,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm11DCI_P3_RGB_C2Eb(ptr noundef nonnull
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17233,7 +17233,7 @@ _ZNSt12__shared_ptrIN2cv3ccm11DCI_P3_RGB_ELN9__gnu_cxx12_Lock_policyE2EEC2IS2_vE
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm11DCI_P3_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm11DCI_P3_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -17450,15 +17450,15 @@ define linkonce_odr hidden void @_ZN2cv3ccm9AppleRGB_C2Eb(ptr noundef nonnull al
           to label %7 unwind label %12
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13AdobeRGBBase_E, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9AppleRGB_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9AppleRGB_E, i64 16), ptr %0, align 8
   ret void
 
 10:                                               ; preds = %2
@@ -17475,7 +17475,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm9AppleRGB_C2Eb(ptr noundef nonnull al
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17534,7 +17534,7 @@ _ZNSt12__shared_ptrIN2cv3ccm9AppleRGB_ELN9__gnu_cxx12_Lock_policyE2EEC2IS2_vEEPT
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AppleRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm9AppleRGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -17751,15 +17751,15 @@ define linkonce_odr hidden void @_ZN2cv3ccm12REC_709_RGB_C2Eb(ptr noundef nonnul
           to label %7 unwind label %12
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9sRGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9sRGBBase_E, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm12REC_709_RGB_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm12REC_709_RGB_E, i64 16), ptr %0, align 8
   ret void
 
 10:                                               ; preds = %2
@@ -17776,7 +17776,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm12REC_709_RGB_C2Eb(ptr noundef nonnul
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -17835,7 +17835,7 @@ _ZNSt12__shared_ptrIN2cv3ccm12REC_709_RGB_ELN9__gnu_cxx12_Lock_policyE2EEC2IS2_v
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12REC_709_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm12REC_709_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -18052,15 +18052,15 @@ define linkonce_odr hidden void @_ZN2cv3ccm13REC_2020_RGB_C2Eb(ptr noundef nonnu
           to label %7 unwind label %12
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9sRGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm9sRGBBase_E, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13REC_2020_RGB_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm13REC_2020_RGB_E, i64 16), ptr %0, align 8
   ret void
 
 10:                                               ; preds = %2
@@ -18077,7 +18077,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm13REC_2020_RGB_C2Eb(ptr noundef nonnu
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18136,7 +18136,7 @@ _ZNSt12__shared_ptrIN2cv3ccm13REC_2020_RGB_ELN9__gnu_cxx12_Lock_policyE2EEC2IS2_
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13REC_2020_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3ccm13REC_2020_RGB_ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -19274,7 +19274,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit:        ; preds = %359
   %362 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %363 = load ptr, ptr %362, align 8
   store ptr %363, ptr %361, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %40, align 8
   %364 = getelementptr inbounds nuw i8, ptr %40, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %364) #28
   %365 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -19284,7 +19284,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit:        ; preds = %359
 366:                                              ; preds = %359
   %367 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %40, align 8
   %368 = getelementptr inbounds nuw i8, ptr %40, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %368) #28
   %369 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -19303,7 +19303,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit126:     ; preds = %370
   %373 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %374 = load ptr, ptr %373, align 8
   store ptr %374, ptr %372, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %42, align 8
   %375 = getelementptr inbounds nuw i8, ptr %42, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %375) #28
   %376 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -19313,7 +19313,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit126:     ; preds = %370
 377:                                              ; preds = %370
   %378 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %42, align 8
   %379 = getelementptr inbounds nuw i8, ptr %42, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %379) #28
   %380 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -19332,7 +19332,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit133:     ; preds = %381
   %384 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %385 = load ptr, ptr %384, align 8
   store ptr %385, ptr %383, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %44, align 8
   %386 = getelementptr inbounds nuw i8, ptr %44, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %386) #28
   %387 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -19342,7 +19342,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit133:     ; preds = %381
 388:                                              ; preds = %381
   %389 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %44, align 8
   %390 = getelementptr inbounds nuw i8, ptr %44, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %390) #28
   %391 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -19361,7 +19361,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit140:     ; preds = %392
   %395 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %396 = load ptr, ptr %395, align 8
   store ptr %396, ptr %394, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %46, align 8
   %397 = getelementptr inbounds nuw i8, ptr %46, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %397) #28
   %398 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -19371,7 +19371,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit140:     ; preds = %392
 399:                                              ; preds = %392
   %400 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %46, align 8
   %401 = getelementptr inbounds nuw i8, ptr %46, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %401) #28
   %402 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -19390,7 +19390,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit147:     ; preds = %403
   %406 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %407 = load ptr, ptr %406, align 8
   store ptr %407, ptr %405, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %48, align 8
   %408 = getelementptr inbounds nuw i8, ptr %48, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %408) #28
   %409 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -19400,7 +19400,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit147:     ; preds = %403
 410:                                              ; preds = %403
   %411 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %48, align 8
   %412 = getelementptr inbounds nuw i8, ptr %48, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %412) #28
   %413 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -19419,7 +19419,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit154:     ; preds = %414
   %417 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %418 = load ptr, ptr %417, align 8
   store ptr %418, ptr %416, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %50, align 8
   %419 = getelementptr inbounds nuw i8, ptr %50, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %419) #28
   %420 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -19429,7 +19429,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit154:     ; preds = %414
 421:                                              ; preds = %414
   %422 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %50, align 8
   %423 = getelementptr inbounds nuw i8, ptr %50, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %423) #28
   %424 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -19448,7 +19448,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit161:     ; preds = %425
   %428 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %429 = load ptr, ptr %428, align 8
   store ptr %429, ptr %427, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %52, align 8
   %430 = getelementptr inbounds nuw i8, ptr %52, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %430) #28
   %431 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -19458,7 +19458,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit161:     ; preds = %425
 432:                                              ; preds = %425
   %433 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %52, align 8
   %434 = getelementptr inbounds nuw i8, ptr %52, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %434) #28
   %435 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -19477,7 +19477,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit168:     ; preds = %436
   %439 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %440 = load ptr, ptr %439, align 8
   store ptr %440, ptr %438, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %54, align 8
   %441 = getelementptr inbounds nuw i8, ptr %54, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %441) #28
   %442 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -19487,7 +19487,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit168:     ; preds = %436
 443:                                              ; preds = %436
   %444 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %54, align 8
   %445 = getelementptr inbounds nuw i8, ptr %54, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %445) #28
   %446 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -19506,7 +19506,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit175:     ; preds = %447
   %450 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %451 = load ptr, ptr %450, align 8
   store ptr %451, ptr %449, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %56, align 8
   %452 = getelementptr inbounds nuw i8, ptr %56, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %452) #28
   %453 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -19516,7 +19516,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit175:     ; preds = %447
 454:                                              ; preds = %447
   %455 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %56, align 8
   %456 = getelementptr inbounds nuw i8, ptr %56, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %456) #28
   %457 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -19535,7 +19535,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit182:     ; preds = %458
   %461 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %462 = load ptr, ptr %461, align 8
   store ptr %462, ptr %460, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %58, align 8
   %463 = getelementptr inbounds nuw i8, ptr %58, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %463) #28
   %464 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -19545,7 +19545,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit182:     ; preds = %458
 465:                                              ; preds = %458
   %466 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %58, align 8
   %467 = getelementptr inbounds nuw i8, ptr %58, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %467) #28
   %468 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -19564,7 +19564,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit189:     ; preds = %469
   %472 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %473 = load ptr, ptr %472, align 8
   store ptr %473, ptr %471, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %60, align 8
   %474 = getelementptr inbounds nuw i8, ptr %60, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %474) #28
   %475 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -19574,7 +19574,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit189:     ; preds = %469
 476:                                              ; preds = %469
   %477 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %60, align 8
   %478 = getelementptr inbounds nuw i8, ptr %60, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %478) #28
   %479 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -19593,7 +19593,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit196:     ; preds = %480
   %483 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %484 = load ptr, ptr %483, align 8
   store ptr %484, ptr %482, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %62, align 8
   %485 = getelementptr inbounds nuw i8, ptr %62, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %485) #28
   %486 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -19603,7 +19603,7 @@ _ZNSt10shared_ptrIN2cv3ccm3XYZEED2Ev.exit196:     ; preds = %480
 487:                                              ; preds = %480
   %488 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %62, align 8
   %489 = getelementptr inbounds nuw i8, ptr %62, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %489) #28
   %490 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -19622,7 +19622,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit:        ; preds = %491
   %494 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %495 = load ptr, ptr %494, align 8
   store ptr %495, ptr %493, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %64, align 8
   %496 = getelementptr inbounds nuw i8, ptr %64, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %496) #28
   %497 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -19632,7 +19632,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit:        ; preds = %491
 498:                                              ; preds = %491
   %499 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %64, align 8
   %500 = getelementptr inbounds nuw i8, ptr %64, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %500) #28
   %501 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -19651,7 +19651,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit209:     ; preds = %502
   %505 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %506 = load ptr, ptr %505, align 8
   store ptr %506, ptr %504, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %66, align 8
   %507 = getelementptr inbounds nuw i8, ptr %66, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %507) #28
   %508 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -19661,7 +19661,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit209:     ; preds = %502
 509:                                              ; preds = %502
   %510 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %66, align 8
   %511 = getelementptr inbounds nuw i8, ptr %66, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %511) #28
   %512 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -19680,7 +19680,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit216:     ; preds = %513
   %516 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %517 = load ptr, ptr %516, align 8
   store ptr %517, ptr %515, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %68, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %68, align 8
   %518 = getelementptr inbounds nuw i8, ptr %68, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %518) #28
   %519 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -19690,7 +19690,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit216:     ; preds = %513
 520:                                              ; preds = %513
   %521 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %68, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %68, align 8
   %522 = getelementptr inbounds nuw i8, ptr %68, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %522) #28
   %523 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -19709,7 +19709,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit223:     ; preds = %524
   %527 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %528 = load ptr, ptr %527, align 8
   store ptr %528, ptr %526, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %70, align 8
   %529 = getelementptr inbounds nuw i8, ptr %70, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %529) #28
   %530 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -19719,7 +19719,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit223:     ; preds = %524
 531:                                              ; preds = %524
   %532 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %70, align 8
   %533 = getelementptr inbounds nuw i8, ptr %70, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %533) #28
   %534 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -19738,7 +19738,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit230:     ; preds = %535
   %538 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %539 = load ptr, ptr %538, align 8
   store ptr %539, ptr %537, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %72, align 8
   %540 = getelementptr inbounds nuw i8, ptr %72, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %540) #28
   %541 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -19748,7 +19748,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit230:     ; preds = %535
 542:                                              ; preds = %535
   %543 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %72, align 8
   %544 = getelementptr inbounds nuw i8, ptr %72, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %544) #28
   %545 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -19767,7 +19767,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit237:     ; preds = %546
   %549 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %550 = load ptr, ptr %549, align 8
   store ptr %550, ptr %548, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %74, align 8
   %551 = getelementptr inbounds nuw i8, ptr %74, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %551) #28
   %552 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -19777,7 +19777,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit237:     ; preds = %546
 553:                                              ; preds = %546
   %554 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %74, align 8
   %555 = getelementptr inbounds nuw i8, ptr %74, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %555) #28
   %556 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -19796,7 +19796,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit244:     ; preds = %557
   %560 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %561 = load ptr, ptr %560, align 8
   store ptr %561, ptr %559, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %76, align 8
   %562 = getelementptr inbounds nuw i8, ptr %76, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %562) #28
   %563 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -19806,7 +19806,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit244:     ; preds = %557
 564:                                              ; preds = %557
   %565 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %76, align 8
   %566 = getelementptr inbounds nuw i8, ptr %76, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %566) #28
   %567 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -19825,7 +19825,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit251:     ; preds = %568
   %571 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %572 = load ptr, ptr %571, align 8
   store ptr %572, ptr %570, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %78, align 8
   %573 = getelementptr inbounds nuw i8, ptr %78, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %573) #28
   %574 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -19835,7 +19835,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit251:     ; preds = %568
 575:                                              ; preds = %568
   %576 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %78, align 8
   %577 = getelementptr inbounds nuw i8, ptr %78, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %577) #28
   %578 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -19854,7 +19854,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit258:     ; preds = %579
   %582 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %583 = load ptr, ptr %582, align 8
   store ptr %583, ptr %581, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %80, align 8
   %584 = getelementptr inbounds nuw i8, ptr %80, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %584) #28
   %585 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -19864,7 +19864,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit258:     ; preds = %579
 586:                                              ; preds = %579
   %587 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %80, align 8
   %588 = getelementptr inbounds nuw i8, ptr %80, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %588) #28
   %589 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -19883,7 +19883,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit265:     ; preds = %590
   %593 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %594 = load ptr, ptr %593, align 8
   store ptr %594, ptr %592, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %82, align 8
   %595 = getelementptr inbounds nuw i8, ptr %82, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %595) #28
   %596 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -19893,7 +19893,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit265:     ; preds = %590
 597:                                              ; preds = %590
   %598 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %82, align 8
   %599 = getelementptr inbounds nuw i8, ptr %82, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %599) #28
   %600 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -19912,7 +19912,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit272:     ; preds = %601
   %604 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %605 = load ptr, ptr %604, align 8
   store ptr %605, ptr %603, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %84, align 8
   %606 = getelementptr inbounds nuw i8, ptr %84, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %606) #28
   %607 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -19922,7 +19922,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit272:     ; preds = %601
 608:                                              ; preds = %601
   %609 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %84, align 8
   %610 = getelementptr inbounds nuw i8, ptr %84, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %610) #28
   %611 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -19941,7 +19941,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit279:     ; preds = %612
   %615 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %616 = load ptr, ptr %615, align 8
   store ptr %616, ptr %614, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %86, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %86, align 8
   %617 = getelementptr inbounds nuw i8, ptr %86, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %617) #28
   %618 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -19951,7 +19951,7 @@ _ZNSt10shared_ptrIN2cv3ccm3LabEED2Ev.exit279:     ; preds = %612
 619:                                              ; preds = %612
   %620 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %86, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %86, align 8
   %621 = getelementptr inbounds nuw i8, ptr %86, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %621) #28
   %622 = getelementptr inbounds nuw i8, ptr %86, i64 8
@@ -20038,11 +20038,11 @@ declare void @_ZN2cv3ccm2IO6getIOsENS0_7IO_TYPEE(ptr dead_on_unwind writable sre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm10ColorSpaceD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm10ColorSpaceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm10ColorSpaceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -20074,7 +20074,7 @@ _ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_
 
 _ZN2cv3ccm10OperationsD2Ev.exit:                  ; preds = %_ZSt8_DestroyIPN2cv3ccm9OperationES2_EvT_S4_RSaIT0_E.exit.i.i, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -20108,7 +20108,7 @@ _ZN2cv3ccm10OperationsD2Ev.exit9:                 ; preds = %_ZSt8_DestroyIPN2cv
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #28
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #28
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20125,7 +20125,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm10ColorSpaceD0Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9sRGBBase_D2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20136,7 +20136,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm9sRGBBase_D2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9sRGBBase_D0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20153,7 +20153,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm8RGBBase_12setParameterEv(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm8RGBBase_D2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20164,7 +20164,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm8RGBBase_D2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm8RGBBase_D0Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20181,7 +20181,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm8RGBBase_9calLinearEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm5sRGB_D2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20192,7 +20192,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm5sRGB_D2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm5sRGB_D0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20204,7 +20204,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm5sRGB_D0Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm13AdobeRGBBase_D2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20215,7 +20215,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm13AdobeRGBBase_D2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm13AdobeRGBBase_D0Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20227,7 +20227,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm13AdobeRGBBase_D0Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9AdobeRGB_D2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20238,7 +20238,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm9AdobeRGB_D2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9AdobeRGB_D0Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20250,7 +20250,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm9AdobeRGB_D0Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm13WideGamutRGB_D2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20261,7 +20261,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm13WideGamutRGB_D2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm13WideGamutRGB_D0Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20273,7 +20273,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm13WideGamutRGB_D0Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm12ProPhotoRGB_D2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20284,7 +20284,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm12ProPhotoRGB_D2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm12ProPhotoRGB_D0Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20296,7 +20296,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm12ProPhotoRGB_D0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm11DCI_P3_RGB_D2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20307,7 +20307,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm11DCI_P3_RGB_D2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm11DCI_P3_RGB_D0Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20319,7 +20319,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm11DCI_P3_RGB_D0Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9AppleRGB_D2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20330,7 +20330,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm9AppleRGB_D2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9AppleRGB_D0Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20342,7 +20342,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm9AppleRGB_D0Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm12REC_709_RGB_D2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20353,7 +20353,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm12REC_709_RGB_D2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm12REC_709_RGB_D0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20365,7 +20365,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm12REC_709_RGB_D0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm13REC_2020_RGB_D2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20376,7 +20376,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm13REC_2020_RGB_D2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm13REC_2020_RGB_D0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -20469,7 +20469,7 @@ _ZNSt8functionIFN2cv3MatES1_EED2Ev.exit2:         ; preds = %18, %21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9OperationC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
@@ -20573,7 +20573,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm9OperationD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -20600,7 +20600,7 @@ _ZN2cv3ccm9OperationD2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm10OperationsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20652,7 +20652,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__no
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN2cv3ccm9OperationEJRKS2_EEvPT_DpOT0_.exit
   %.019 = phi ptr [ %31, %_ZSt10_ConstructIN2cv3ccm9OperationEJRKS2_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.sroa.08.018 = phi ptr [ %30, %_ZSt10_ConstructIN2cv3ccm9OperationEJRKS2_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %.019, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %.019, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.018, i64 8
   %6 = load i8, ptr %5, align 8
@@ -20778,7 +20778,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPKN2cv3ccm9Operat
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN2cv3ccm9OperationEJRKS2_EEvPT_DpOT0_.exit
   %.021 = phi ptr [ %31, %_ZSt10_ConstructIN2cv3ccm9OperationEJRKS2_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.01220 = phi ptr [ %30, %_ZSt10_ConstructIN2cv3ccm9OperationEJRKS2_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %.021, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %.021, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %.01220, i64 8
   %6 = load i8, ptr %5, align 8
@@ -20891,7 +20891,7 @@ _ZSt8_DestroyIPN2cv3ccm9OperationEEvT_S4_.exit:   ; preds = %.lr.ph.i.i, %.body
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt4pairIKN2cv3ccm2IOESt6vectorIdSaIdEEEC2IS3_S6_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISA_SB_EEEbE4typeELb1EEERS3_RKS6_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -20965,7 +20965,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %17
 32:                                               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, %.noexc.i.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   br label %common.resume
 }
@@ -21092,7 +21092,7 @@ define linkonce_odr hidden void @_ZNSt4pairIKN2cv3ccm2IOESt6vectorIdSaIdEEED2Ev(
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21207,7 +21207,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt4pairIKN2cv3ccm2IOESt6vectorIdSaIdEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -21282,7 +21282,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %17
 32:                                               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, %.noexc.i.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   br label %common.resume
 }
@@ -21310,7 +21310,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St6vecto
 
 _ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St6vectorIdSaIdEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %.lr.ph, %9
   %10 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.07, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #28
   %12 = getelementptr inbounds nuw i8, ptr %.07, i64 40
@@ -21650,7 +21650,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPN2cv3ccm9Operati
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN2cv3ccm9OperationEJRS2_EEvPT_DpOT0_.exit
   %.021 = phi ptr [ %31, %_ZSt10_ConstructIN2cv3ccm9OperationEJRS2_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.01220 = phi ptr [ %30, %_ZSt10_ConstructIN2cv3ccm9OperationEJRS2_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %.021, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm9OperationE, i64 16), ptr %.021, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %.01220, i64 8
   %6 = load i8, ptr %5, align 8
@@ -21765,7 +21765,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm2IOD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21789,13 +21789,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeISt5tupleIJN2cv3ccm2IOES3_NS2_3CA
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 184
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #28
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 112
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
   %10 = getelementptr inbounds nuw i8, ptr %.07, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   %11 = getelementptr inbounds nuw i8, ptr %.07, i64 40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %.07, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #28
   %13 = getelementptr inbounds nuw i8, ptr %.07, i64 48
@@ -21813,7 +21813,7 @@ define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJN2cv3ccm2IOES2_NS1_3CAM
   %5 = load i32, ptr %3, align 4
   store i32 %5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -21834,7 +21834,7 @@ common.resume:                                    ; preds = %.body, %11
 
 _ZNSt11_Tuple_implILm1EJN2cv3ccm2IOENS1_3CAMEEEC2IRS2_JRS3_EvEEOT_DpOT0_.exit: ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
@@ -21862,7 +21862,7 @@ _ZNSt10_Head_baseILm0EN2cv3ccm2IOELb0EEC2IRS2_EEOT_.exit: ; preds = %.noexc
 
 .body:                                            ; preds = %18, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #28
   br label %common.resume
 }
@@ -22136,7 +22136,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St10shared_ptrINS1_3XYZEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %2, %21, %34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #28
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -22245,7 +22245,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St10shared_ptrINS1_3LabEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %2, %21, %34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #28
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -22350,9 +22350,9 @@ _ZNSt8_Rb_treeIN2cv3ccm11COLOR_SPACEESt4pairIKS2_St10shared_ptrINS1_10ColorSpace
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv3ccm8RGBBase_CI2NS0_10ColorSpaceEENS0_2IOENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm10ColorSpaceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm10ColorSpaceE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -22379,7 +22379,7 @@ _ZN2cv3ccm2IOC2ERKS1_.exit.i:                     ; preds = %4
 13:                                               ; preds = %_ZN2cv3ccm2IOC2ERKS1_.exit.i
   %14 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %5, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   br label %common.resume.i
 
@@ -22388,14 +22388,14 @@ _ZN2cv3ccm10ColorSpaceC2ENS0_2IOENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv3ccm8RGBBase_E, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #28
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -22733,7 +22733,7 @@ define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvRKN2cv5RangeEEEC2ERKS5_.exit.thread, label %11
 
 _ZNSt8functionIFvRKN2cv5RangeEEEC2ERKS5_.exit.thread: ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
@@ -22771,7 +22771,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEEC2ERKS5_.exit:    ; preds = %11
   store ptr %22, ptr %6, align 8
   %23 = load ptr, ptr %7, align 8
   store ptr %23, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -22819,7 +22819,7 @@ _ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit: ; pre
           to label %42 unwind label %55
 
 42:                                               ; preds = %_ZN2cv29ParallelLoopBodyLambdaWrapperC2ESt8functionIFvRKNS_5RangeEEE.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %3, align 8
   %43 = load ptr, ptr %40, align 8
   %.not.i.i.i5 = icmp eq ptr %43, null
   br i1 %.not.i.i.i5, label %_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev.exit, label %44
@@ -22883,7 +22883,7 @@ declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -22911,7 +22911,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv29ParallelLoopBodyLambdaWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv29ParallelLoopBodyLambdaWrapperE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -23469,13 +23469,13 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeISt5tupleIJN2cv3ccm2IOES3_NS2_3CAM
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 184
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #28
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #28
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #28
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #28
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -23703,13 +23703,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeISt5tupleIJN2cv3ccm2IOES3_NS2_3CA
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 184
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #28
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -23769,7 +23769,7 @@ define linkonce_odr hidden void @_ZNSt11_Tuple_implILm0EJN2cv3ccm2IOES2_NS1_3CAM
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -23790,7 +23790,7 @@ common.resume:                                    ; preds = %.body, %9
 
 _ZNSt11_Tuple_implILm1EJN2cv3ccm2IOENS1_3CAMEEEC2EOS4_.exit: ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
@@ -23818,7 +23818,7 @@ _ZNSt10_Head_baseILm0EN2cv3ccm2IOELb0EEC2EOS3_.exit: ; preds = %.noexc
 
 .body:                                            ; preds = %16, %18
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %4, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
   br label %common.resume
 }
@@ -24423,7 +24423,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St10shar
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %3, align 8
   %8 = inttoptr i64 %7 to ptr
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -24540,7 +24540,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN2cv3ccm3XYZEJRNS1_2IOEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::ccm::IO", align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -24564,7 +24564,7 @@ _ZN2cv3ccm2IOC2ERKS1_.exit:                       ; preds = %2
           to label %10 unwind label %11
 
 10:                                               ; preds = %_ZN2cv3ccm2IOC2ERKS1_.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   ret void
@@ -24572,7 +24572,7 @@ _ZN2cv3ccm2IOC2ERKS1_.exit:                       ; preds = %2
 11:                                               ; preds = %_ZN2cv3ccm2IOC2ERKS1_.exit
   %12 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   br label %common.resume
 }
@@ -24582,7 +24582,7 @@ define linkonce_odr hidden void @_ZN2cv3ccm3XYZC2ENS0_2IOE(ptr noundef nonnull a
   %3 = alloca %"class.cv::ccm::IO", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -24607,9 +24607,9 @@ _ZN2cv3ccm2IOC2ERKS1_.exit:                       ; preds = %2
           to label %12 unwind label %27
 
 12:                                               ; preds = %_ZN2cv3ccm2IOC2ERKS1_.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm10ColorSpaceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm10ColorSpaceE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %29
@@ -24637,7 +24637,7 @@ _ZN2cv3ccm2IOC2ERKS1_.exit.i:                     ; preds = %.noexc
 19:                                               ; preds = %_ZN2cv3ccm2IOC2ERKS1_.exit.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %13, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #28
   br label %common.resume.i
 
@@ -24645,19 +24645,19 @@ _ZN2cv3ccm2IOC2ERKS1_.exit.i:                     ; preds = %.noexc
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm3XYZE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3ccm3XYZE, i64 16), ptr %0, align 8
   ret void
 
 27:                                               ; preds = %_ZN2cv3ccm2IOC2ERKS1_.exit
@@ -24678,7 +24678,7 @@ _ZN2cv3ccm2IOC2ERKS1_.exit.i:                     ; preds = %.noexc
 31:                                               ; preds = %.body, %27
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %28, %27 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #28
   br label %common.resume
 }
@@ -25044,7 +25044,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St10shar
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %3, align 8
   %8 = inttoptr i64 %7 to ptr
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm2IOE, i64 16), ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)

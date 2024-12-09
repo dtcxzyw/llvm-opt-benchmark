@@ -1003,7 +1003,7 @@ declare noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define void @_ZN5arrow11RecordBatchC2ERKSt10shared_ptrINS_6SchemaEEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %schema, i64 noundef %num_rows) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
   %schema_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %schema, align 8
   store ptr %0, ptr %schema_, align 8
@@ -1046,7 +1046,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !4
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_5ArrayEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %schema, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr, ptr noundef nonnull align 8 dereferenceable(24) %columns)
           to label %_ZNSt10shared_ptrIN5arrow17SimpleRecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !4
@@ -1074,7 +1074,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !7
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !7
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_9ArrayDataEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %schema, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr, ptr noundef nonnull align 8 dereferenceable(24) %columns)
           to label %_ZNSt10shared_ptrIN5arrow17SimpleRecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !7
@@ -1392,7 +1392,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %for.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !20
   %_M_weak_count.i.i.i.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i53, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i52, align 4, !noalias !20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i53, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i53, align 8, !noalias !20
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i53, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_5ArrayEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp29, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp30)
           to label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !20
@@ -1778,7 +1778,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2746,7 +2746,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %invoke.cont38
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i38, align 8, !noalias !48
   %_M_weak_count.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i40, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i39, align 4, !noalias !48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i40, align 8, !noalias !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i40, align 8, !noalias !48
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i40, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_5ArrayEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp43)
           to label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !48
@@ -3497,7 +3497,7 @@ call5.i.i.i3.i.i.i.i.i.noexc345:                  ; preds = %invoke.cont72
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i340, align 8, !noalias !56
   %_M_weak_count.i.i.i.i.i.i.i341 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i346, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i341, align 4, !noalias !56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i346, align 8, !noalias !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i346, align 8, !noalias !56
   %_M_impl.i.i.i.i.i.i.i342 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i346, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_9ArrayDataEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i342, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i339, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67)
           to label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit382 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i343, !noalias !56
@@ -4706,7 +4706,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %if.end17
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !63
   %_M_weak_count.i.i.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i41, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i40, align 4, !noalias !63
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11StructArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i41, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow11StructArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i41, align 8, !noalias !63
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i41, i64 16
   invoke void @_ZSt10_ConstructIN5arrow11StructArrayEJSt10shared_ptrINS0_8DataTypeEERKlSt6vectorIS2_INS0_5ArrayEESaIS9_EEDniiEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(8) %num_rows_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp24)
           to label %_ZNSt10shared_ptrIN5arrow11StructArrayEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow11StructArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !63
@@ -5113,7 +5113,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -6598,7 +6598,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %invoke.cont58
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i195, align 8, !noalias !94
   %_M_weak_count.i.i.i.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i197, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i196, align 4, !noalias !94
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i197, align 8, !noalias !94
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i197, align 8, !noalias !94
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i197, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_5ArrayEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp53)
           to label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !94
@@ -7428,7 +7428,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont32
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !98
   %_M_weak_count.i.i.i.i.i.i77 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i78, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i77, align 4, !noalias !98
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6SchemaESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i78, align 8, !noalias !98
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6SchemaESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i78, align 8, !noalias !98
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i78, i64 16
   invoke void @_ZSt10_ConstructIN5arrow6SchemaEJSt6vectorISt10shared_ptrINS0_5FieldEESaIS5_EERKS3_IKNS0_16KeyValueMetadataEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %fields, ptr noundef nonnull align 8 dereferenceable(16) %call33)
           to label %invoke.cont34 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6SchemaESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !98
@@ -7467,7 +7467,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %invoke.cont34
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i80, align 8, !noalias !104
   %_M_weak_count.i.i.i.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i83, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i81, align 4, !noalias !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i83, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i83, align 8, !noalias !104
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i83, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_5ArrayEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp39)
           to label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !104
@@ -9147,7 +9147,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -9624,7 +9624,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -10112,7 +10112,7 @@ if.end9:                                          ; preds = %if.end9.i.i.i, %if.
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !144
   %_M_weak_count.i.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i3, align 4, !noalias !144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow23SimpleRecordBatchReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !144
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow23SimpleRecordBatchReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !144
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZSt10_ConstructIN5arrow23SimpleRecordBatchReaderEJSt6vectorISt10shared_ptrINS0_11RecordBatchEESaIS5_EES3_INS0_6SchemaEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %batches, ptr noundef nonnull align 8 dereferenceable(16) %schema)
           to label %_ZNSt10shared_ptrIN5arrow23SimpleRecordBatchReaderEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow23SimpleRecordBatchReaderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !144
@@ -10209,7 +10209,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -10372,7 +10372,7 @@ _ZNSt10shared_ptrIN5arrow23SimpleRecordBatchReaderEED2Ev.exit: ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !150
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !150
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow23SimpleRecordBatchReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow23SimpleRecordBatchReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !150
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %13 = load i64, ptr %batches, align 8, !noalias !150
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %batches, i64 8
@@ -10384,7 +10384,7 @@ _ZNSt10shared_ptrIN5arrow23SimpleRecordBatchReaderEED2Ev.exit: ; preds = %entry
   %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %schema, i64 8
   %17 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !noalias !150
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %schema, i8 0, i64 16, i1 false), !noalias !150
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow23SimpleRecordBatchReaderE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow23SimpleRecordBatchReaderE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !150
   %schema_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   store ptr %16, ptr %schema_.i.i.i.i.i.i.i.i, align 8, !noalias !150
   %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
@@ -10409,7 +10409,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5arrow17RecordBatchReaderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17RecordBatchReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow17RecordBatchReaderE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -11342,7 +11342,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %for.end82
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i192, align 8, !noalias !179
   %_M_weak_count.i.i.i.i.i.i.i193 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i194, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i193, align 4, !noalias !179
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i194, align 8, !noalias !179
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i194, align 8, !noalias !179
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i194, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_5ArrayEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp84)
           to label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !179
@@ -11738,7 +11738,7 @@ declare void @_ZN5arrow11ConcatenateERKSt6vectorISt10shared_ptrINS_5ArrayEESaIS3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow11RecordBatchD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -12156,7 +12156,7 @@ call.i.noexc5:                                    ; preds = %if.then
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 37))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 37))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -12733,7 +12733,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow17SimpleRecordBatchC2ESt10shared_ptrINS_6SchemaEElSt6vectorIS1_INS_5ArrayEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %schema, i64 noundef %num_rows, ptr noundef %columns) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
   %schema_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %schema, align 8
   store ptr %0, ptr %schema_.i, align 8
@@ -12763,7 +12763,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZN5arrow11RecordBatchC2ERKSt10shared_ptrINS_6SchemaEEl.exit: ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %num_rows_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %num_rows, ptr %num_rows_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17SimpleRecordBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow17SimpleRecordBatchE, i64 16), ptr %this, align 8
   %columns_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columns_, i8 0, i64 24, i1 false)
   %boxed_columns_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -13053,7 +13053,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow17SimpleRecordBatchD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17SimpleRecordBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow17SimpleRecordBatchE, i64 16), ptr %this, align 8
   %boxed_columns_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %boxed_columns_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -13256,7 +13256,7 @@ if.then.i.i.i23:                                  ; preds = %invoke.cont.i21
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i21, %if.then.i.i.i23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %28 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i43 = icmp eq ptr %28, null
@@ -14244,7 +14244,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %invoke.cont76
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i78, align 8, !noalias !217
   %_M_weak_count.i.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i80, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i79, align 4, !noalias !217
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i80, align 8, !noalias !217
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i80, align 8, !noalias !217
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i80, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_9ArrayDataEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp71)
           to label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !217
@@ -15046,7 +15046,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %invoke.cont74
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i78, align 8, !noalias !237
   %_M_weak_count.i.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i80, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i79, align 4, !noalias !237
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i80, align 8, !noalias !237
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i80, align 8, !noalias !237
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i80, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_9ArrayDataEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp69)
           to label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !237
@@ -15463,7 +15463,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !248
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i6, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !248
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i6, align 8, !noalias !248
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i6, align 8, !noalias !248
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i6, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_9ArrayDataEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7)
           to label %_ZNSt10shared_ptrIN5arrow11RecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !248
@@ -15865,7 +15865,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !254
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !254
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i3, align 8, !noalias !254
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i3, align 8, !noalias !254
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i3, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_9ArrayDataEESaIS8_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %num_rows.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp2)
           to label %invoke.cont4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !254
@@ -16468,7 +16468,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %for.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !268
   %_M_weak_count.i.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i15, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i14, align 4, !noalias !268
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i15, align 8, !noalias !268
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i15, align 8, !noalias !268
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i15, i64 16
   invoke void @_ZSt10_ConstructIN5arrow17SimpleRecordBatchEJRKSt10shared_ptrINS0_6SchemaEERlSt6vectorIS2_INS0_9ArrayDataEESaISA_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %schema_.i, ptr noundef nonnull align 8 dereferenceable(8) %num_rows, ptr noundef nonnull align 8 dereferenceable(24) %arrays)
           to label %_ZNSt10shared_ptrIN5arrow17SimpleRecordBatchEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow17SimpleRecordBatchESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !268
@@ -17971,7 +17971,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow17SimpleRecordBatchC2ERKSt10shared_ptrINS_6SchemaEElSt6vectorIS1_INS_9ArrayDataEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %schema, i64 noundef %num_rows, ptr noundef %columns) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
   %schema_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %schema, align 8
   store ptr %0, ptr %schema_.i, align 8
@@ -18001,7 +18001,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZN5arrow11RecordBatchC2ERKSt10shared_ptrINS_6SchemaEEl.exit: ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %num_rows_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %num_rows, ptr %num_rows_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17SimpleRecordBatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow17SimpleRecordBatchE, i64 16), ptr %this, align 8
   %columns_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %columns, align 8
   store ptr %5, ptr %columns_, align 8
@@ -19378,7 +19378,7 @@ entry:
   %agg.tmp.i = alloca %"class.arrow::VectorIterator", align 8
   %agg.tmp1.i = alloca %"class.std::vector.81", align 8
   %agg.tmp = alloca %"class.std::vector.81", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow23SimpleRecordBatchReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow23SimpleRecordBatchReaderE, i64 16), ptr %this, align 8
   %schema_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %schema, align 8
   store ptr %0, ptr %schema_, align 8
@@ -19417,7 +19417,7 @@ lpad2.i:                                          ; preds = %entry
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow11RecordBatchEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i) #19, !noalias !317
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow11RecordBatchEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #19
   call void @_ZNSt10shared_ptrIN5arrow6SchemaEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %schema_) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17RecordBatchReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow17RecordBatchReaderE, i64 16), ptr %this, align 8
   resume { ptr, i32 } %5
 
 _ZNSt6vectorISt10shared_ptrIN5arrow11RecordBatchEESaIS3_EED2Ev.exit: ; preds = %entry
@@ -19442,7 +19442,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow11RecordBatchEESaIS3_EED2Ev.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow23SimpleRecordBatchReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow23SimpleRecordBatchReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow23SimpleRecordBatchReaderE, i64 16), ptr %this, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -19537,14 +19537,14 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow6SchemaEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow6SchemaEED2Ev.exit:      ; preds = %_ZN5arrow8IteratorISt10shared_ptrINS_11RecordBatchEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17RecordBatchReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow17RecordBatchReaderE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow23SimpleRecordBatchReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow23SimpleRecordBatchReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow23SimpleRecordBatchReaderE, i64 16), ptr %this, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

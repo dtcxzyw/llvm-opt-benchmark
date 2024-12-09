@@ -96,7 +96,7 @@ define void @zif_dl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_un
 15:                                               ; preds = %._crit_edge, %.thread
   %16 = phi ptr [ %.pre, %._crit_edge ], [ %11, %.thread ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 9), align 1
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 9), align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %22, label %20
 
@@ -127,7 +127,7 @@ define void @zif_dl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_un
   br i1 %.not, label %32, label %31
 
 31:                                               ; preds = %28
-  store i8 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 533), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 533), align 1
   br label %32
 
 32:                                               ; preds = %31, %28, %26, %20, %14
@@ -186,7 +186,7 @@ define range(i32 -1, 1) i32 @php_load_extension(ptr noundef %0, i32 noundef %1, 
   br label %10
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 104), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 104), align 8
   br label %10
 
 10:                                               ; preds = %8, %6

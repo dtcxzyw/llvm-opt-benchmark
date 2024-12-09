@@ -1027,7 +1027,7 @@ define dso_local noundef ptr @hid_resolv_usage(i32 noundef %0, ptr noundef %1) #
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 2336, i64 noundef 512) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
@@ -1547,7 +1547,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @hid_dump_report(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 2080, i64 noundef 512) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %61, label %8
@@ -2084,7 +2084,7 @@ define internal range(i32 0, 66) i32 @hid_debug_events_poll(ptr noundef %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @hid_debug_events_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 88) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %37, label %6

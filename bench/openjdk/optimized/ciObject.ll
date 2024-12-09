@@ -201,7 +201,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 define hidden void @_ZN8ciObjectC2EP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %4, align 8
   %5 = load volatile i8, ptr @_ZN15ciObjectFactory12_initializedE, align 1
@@ -270,7 +270,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @_ZN8ciObjectC2E6Handle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %4, align 8
   %5 = load volatile i8, ptr @_ZN15ciObjectFactory12_initializedE, align 1
@@ -307,7 +307,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %7, %9
 define hidden void @_ZN8ciObjectC2EP7ciKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -321,7 +321,7 @@ define hidden void @_ZN8ciObjectC2EP7ciKlass(ptr nocapture noundef nonnull write
 define hidden void @_ZN8ciObjectC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   ret void

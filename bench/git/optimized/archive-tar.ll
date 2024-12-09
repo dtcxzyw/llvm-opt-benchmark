@@ -1383,26 +1383,26 @@ if.then5:                                         ; preds = %if.then3
   unreachable
 
 if.end6:                                          ; preds = %if.then3
-  store ptr @outbuf, ptr getelementptr inbounds (i8, ptr @gzstream, i64 152), align 8
-  store i64 16384, ptr getelementptr inbounds (i8, ptr @gzstream, i64 120), align 8
+  store ptr @outbuf, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 152), align 8
+  store i64 16384, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 120), align 8
   %call7 = call i32 @write_tar_archive(ptr nonnull poison, ptr noundef nonnull %args)
   br label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %while.body.us.i.backedge, %if.end6
   %call.us.i = call i32 @git_deflate(ptr noundef nonnull @gzstream, i32 noundef 4) #10
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @gzstream, i64 120), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 120), align 8
   %tobool1.us.i = icmp eq i64 %3, 0
   %cmp2.us.i = icmp eq i32 %call.us.i, 1
   %or.cond.us.i = select i1 %tobool1.us.i, i1 true, i1 %cmp2.us.i
   br i1 %or.cond.us.i, label %if.then.us.i, label %if.end5.us.i
 
 if.then.us.i:                                     ; preds = %while.body.us.i
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gzstream, i64 152), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 152), align 8
   %sub.ptr.lhs.cast.us.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.us.i = sub i64 %sub.ptr.lhs.cast.us.i, ptrtoint (ptr @outbuf to i64)
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull @outbuf, i64 noundef %sub.ptr.sub.us.i) #10
-  store ptr @outbuf, ptr getelementptr inbounds (i8, ptr @gzstream, i64 152), align 8
-  store i64 16384, ptr getelementptr inbounds (i8, ptr @gzstream, i64 120), align 8
+  store ptr @outbuf, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 152), align 8
+  store i64 16384, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 120), align 8
   br i1 %cmp2.us.i, label %tgz_deflate.exit, label %if.end5.us.i
 
 if.end5.us.i:                                     ; preds = %if.then.us.i, %while.body.us.i
@@ -1511,25 +1511,25 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal void @tgz_write_block(ptr noundef %data) #0 {
 while.body.lr.ph.i:
-  store ptr %data, ptr getelementptr inbounds (i8, ptr @gzstream, i64 144), align 8
-  store i64 10240, ptr getelementptr inbounds (i8, ptr @gzstream, i64 112), align 8
+  store ptr %data, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 144), align 8
+  store i64 10240, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 112), align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
   %call.i = tail call i32 @git_deflate(ptr noundef nonnull @gzstream, i32 noundef 0) #10
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @gzstream, i64 120), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 120), align 8
   %tobool1.i = icmp eq i64 %0, 0
   %cmp2.i = icmp eq i32 %call.i, 1
   %or.cond.i = select i1 %tobool1.i, i1 true, i1 %cmp2.i
   br i1 %or.cond.i, label %if.then.i, label %if.end5.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gzstream, i64 152), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 152), align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, ptrtoint (ptr @outbuf to i64)
   tail call void @write_or_die(i32 noundef 1, ptr noundef nonnull @outbuf, i64 noundef %sub.ptr.sub.i) #10
-  store ptr @outbuf, ptr getelementptr inbounds (i8, ptr @gzstream, i64 152), align 8
-  store i64 16384, ptr getelementptr inbounds (i8, ptr @gzstream, i64 120), align 8
+  store ptr @outbuf, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 152), align 8
+  store i64 16384, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 120), align 8
   br i1 %cmp2.i, label %tgz_deflate.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then.i, %while.body.i
@@ -1539,7 +1539,7 @@ if.end5.i:                                        ; preds = %if.then.i, %while.b
   ]
 
 while.cond.backedge.i:                            ; preds = %if.end5.i, %if.end5.i
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @gzstream, i64 112), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gzstream, i64 112), align 8
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %tgz_deflate.exit, label %while.body.i
 

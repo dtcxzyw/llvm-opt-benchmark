@@ -97,11 +97,11 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr nocapture noundef 
 
 5:                                                ; preds = %3
   store i32 1991057938, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2kn, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2kn, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2kn, i64 4), align 4
   store float 0x3E1DB46680000000, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2wn, align 16
-  store float 0x3E1B8A7C40000000, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2wn, i64 508), align 4
+  store float 0x3E1B8A7C40000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2wn, i64 508), align 4
   store float 1.000000e+00, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2fn, align 16
-  store float 0x3F65DE9E40000000, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2fn, i64 508), align 4
+  store float 0x3F65DE9E40000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL13randn_0_1_32fEPfiPmE2fn, i64 508), align 4
   br label %6
 
 6:                                                ; preds = %5, %6

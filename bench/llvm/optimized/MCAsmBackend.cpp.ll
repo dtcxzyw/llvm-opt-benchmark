@@ -135,7 +135,7 @@ $_ZNK4llvm12MCAsmBackend11isMicroMipsEPKNS_8MCSymbolE = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm12MCAsmBackendC2ENS_10endiannessEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN4llvm12MCAsmBackendE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN4llvm12MCAsmBackendE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -195,7 +195,7 @@ _ZNSt10unique_ptrIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EED2Ev.
   store ptr null, ptr %5, align 8, !noalias !4
   %24 = call noalias noundef nonnull dereferenceable(2032) ptr @_Znwm(i64 noundef 2032) #17, !noalias !9
   %25 = ptrtoint ptr %23 to i64
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm14MCObjectWriterE, i64 16), ptr %24, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm14MCObjectWriterE, i64 16), ptr %24, align 8, !noalias !9
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %27, i64 noundef 0) #16, !noalias !9
@@ -205,7 +205,7 @@ _ZNSt10unique_ptrIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EED2Ev.
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %28, i8 0, i64 26, i1 false), !noalias !9
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull %30, i64 noundef 0) #16, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm16MachObjectWriterE, i64 16), ptr %24, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm16MachObjectWriterE, i64 16), ptr %24, align 8, !noalias !9
   store i64 %25, ptr %30, align 8, !noalias !9
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %31, i8 0, i64 20, i1 false), !noalias !9

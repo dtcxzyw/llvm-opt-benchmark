@@ -2497,7 +2497,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail18basic_execute_impl
   store i32 1, ptr %28, align 8, !tbaa !44, !noalias !103
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 1, ptr %29, align 4, !tbaa !46, !noalias !103
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !tbaa !47, !noalias !103
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !tbaa !47, !noalias !103
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 383, ptr %30, align 4, !tbaa !106, !noalias !103
   store ptr %25, ptr %27, align 8, !tbaa !16, !alias.scope !108
@@ -2936,7 +2936,7 @@ _ZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJEE
           to label %90 unwind label %91
 
 90:                                               ; preds = %88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7process2v113process_errorE, i64 16), ptr %89, align 8, !tbaa !47
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7process2v113process_errorE, i64 16), ptr %89, align 8, !tbaa !47
   invoke void @__cxa_throw(ptr nonnull %89, ptr nonnull @_ZTIN5boost7process2v113process_errorE, ptr nonnull @_ZNSt12system_errorD2Ev) #34
           to label %.noexc55 unwind label %32
 
@@ -3006,7 +3006,7 @@ _ZN5boost7process2v16detail5posix8executorINS_6fusion10joint_viewINS5_5tupleIJEE
   store i32 1, ptr %121, align 8, !tbaa !44, !noalias !22
   %122 = getelementptr inbounds nuw i8, ptr %.sink100, i64 12
   store i32 1, ptr %122, align 4, !tbaa !46, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink100, align 8, !tbaa !47, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIiESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink100, align 8, !tbaa !47, !noalias !22
   %123 = getelementptr inbounds nuw i8, ptr %.sink100, i64 16
   store i32 383, ptr %123, align 4, !tbaa !106, !noalias !22
   store ptr %.sink100, ptr %119, align 8, !tbaa !16
@@ -3134,7 +3134,7 @@ common.resume:                                    ; preds = %.body, %.body76, %1
           to label %171 unwind label %172
 
 171:                                              ; preds = %169
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7process2v113process_errorE, i64 16), ptr %170, align 8, !tbaa !47
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7process2v113process_errorE, i64 16), ptr %170, align 8, !tbaa !47
   invoke void @__cxa_throw(ptr nonnull %170, ptr nonnull @_ZTIN5boost7process2v113process_errorE, ptr nonnull @_ZNSt12system_errorD2Ev) #34
           to label %.noexc75 unwind label %174
 
@@ -4021,7 +4021,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost7process2v113process_errorCI2St12system_errorESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %1, ptr %2, ptr noundef %3) unnamed_addr #8 comdat align 2 {
   tail call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 %1, ptr %2, ptr noundef %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7process2v113process_errorE, i64 16), ptr %0, align 8, !tbaa !47
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7process2v113process_errorE, i64 16), ptr %0, align 8, !tbaa !47
   ret void
 }
 
@@ -4179,7 +4179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !47
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !47
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %63, align 8, !tbaa !49
   %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -90,7 +90,7 @@ define internal void @dynamic_netconsole_exit() #1 section ".exit.text" align 16
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @cleanup_netconsole() #0 section ".exit.text" align 16 {
   tail call void @console_list_lock() #11
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @netconsole_ext, i64 120), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @netconsole_ext, i64 120), align 8
   %2 = icmp eq ptr %1, null
   tail call void @console_list_unlock() #11
   br i1 %2, label %5, label %3
@@ -155,7 +155,7 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
 .preheader8:                                      ; preds = %4, %57
   %7 = phi ptr [ %69, %57 ], [ %5, %4 ]
   %8 = phi i8 [ %62, %57 ], [ 0, %4 ]
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %10 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 104) #12
   %11 = icmp eq ptr %10, null
   br i1 %11, label %47, label %12
@@ -242,7 +242,7 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 17
   %59 = load i8, ptr %58, align 1, !range !8, !noundef !9
   %60 = icmp eq i8 %59, 0
-  %61 = select i1 %60, ptr getelementptr inbounds (i8, ptr @netconsole, i64 72), ptr getelementptr inbounds (i8, ptr @netconsole_ext, i64 72)
+  %61 = select i1 %60, ptr getelementptr inbounds nuw (i8, ptr @netconsole, i64 72), ptr getelementptr inbounds nuw (i8, ptr @netconsole_ext, i64 72)
   %62 = select i1 %60, i8 %8, i8 1
   %63 = load i16, ptr %61, align 8
   %64 = or i16 %63, 1
@@ -379,7 +379,7 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
   br i1 %19, label %47, label %50
 
 .thread:                                          ; preds = %36
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) getelementptr inbounds (i8, ptr @init_uts_ns, i64 130)) #11
+  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 130)) #11
   %42 = trunc i64 %41 to i32
   %43 = add i32 %42, 1
   %.reass = add i32 %invariant.op, %42
@@ -387,7 +387,7 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %.thread
-  %46 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull @send_ext_msg_udp.buf, i64 noundef 1000, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), ptr noundef %1) #11
+  %46 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull @send_ext_msg_udp.buf, i64 noundef 1000, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 130), ptr noundef %1) #11
   br label %47
 
 47:                                               ; preds = %40, %45
@@ -398,7 +398,7 @@ define internal void @write_ext_msg(ptr nocapture readnone %0, ptr noundef %1, i
 
 50:                                               ; preds = %.thread, %40
   %51 = phi i32 [ %43, %.thread ], [ 0, %40 ]
-  %52 = phi ptr [ getelementptr inbounds (i8, ptr @init_uts_ns, i64 130), %.thread ], [ null, %40 ]
+  %52 = phi ptr [ getelementptr inbounds nuw (i8, ptr @init_uts_ns, i64 130), %.thread ], [ null, %40 ]
   %53 = tail call ptr @memchr(ptr noundef %1, i32 noundef 59, i64 noundef %17) #11
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %56, !prof !12

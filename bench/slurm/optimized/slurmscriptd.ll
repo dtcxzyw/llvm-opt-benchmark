@@ -185,7 +185,7 @@ define internal noundef zeroext i1 @_msg_readable(ptr nocapture noundef readonly
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %11 = and i64 %10, 72057594037927936
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %16, label %12
@@ -577,7 +577,7 @@ define internal noundef i32 @_handle_close(ptr nocapture noundef writeonly initi
   br label %6
 
 6:                                                ; preds = %2, %5
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 72057594037927936
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %13, label %9
@@ -991,7 +991,7 @@ define dso_local void @slurmscriptd_run_power(ptr noundef %0, ptr noundef %1, pt
   store ptr %17, ptr %18, align 8
   %19 = tail call ptr @env_array_create() #11
   store ptr %19, ptr %9, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1144), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1144), align 8
   %21 = call i32 @env_array_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.8, ptr noundef %20) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %24, label %22
@@ -1157,7 +1157,7 @@ define dso_local void @slurmscriptd_run_prepilog(i32 noundef %0, i1 noundef zero
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1287, ptr noundef nonnull @__func__.slurmscriptd_run_prepilog) #11
   %. = select i1 %1, i32 2, i32 5
   %.str.11..str.12 = select i1 %1, ptr @.str.11, ptr @.str.12
-  %8 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 928), align 8
+  %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 928), align 8
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1156, ptr noundef nonnull @__func__._init_run_script_msg) #11
   %11 = tail call ptr @env_array_copy(ptr noundef %3) #11
@@ -2253,7 +2253,7 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
   br i1 %.02745, label %12, label %19
 
 12:                                               ; preds = %11
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %14 = and i64 %13, 72057594037927936
   %.not44 = icmp eq i64 %14, 0
   br i1 %.not44, label %19, label %15
@@ -2410,7 +2410,7 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
   ]
 
 24:                                               ; preds = %23
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %26 = and i64 %25, 72057594037927936
   %.not.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.i, label %34, label %27
@@ -2467,7 +2467,7 @@ _handle_flush.exit.i:                             ; preds = %46, %45
 47:                                               ; preds = %23
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %51 = and i64 %50, 72057594037927936
   %.not.i5.i = icmp eq i64 %51, 0
   br i1 %.not.i5.i, label %_handle_flush_job.exit.i, label %52
@@ -2528,7 +2528,7 @@ _handle_flush_job.exit.i:                         ; preds = %55, %52, %47
   store ptr %10, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i8 0, ptr %82, align 8
-  %83 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %84 = and i64 %83, 72057594037927936
   %.not.i6.i = icmp eq i64 %84, 0
   br i1 %.not.i6.i, label %103, label %85
@@ -3014,7 +3014,7 @@ _handle_run_script.exit.i:                        ; preds = %275, %_respond_to_s
   unreachable
 
 _notify_script_done.exit.i.i:                     ; preds = %323, %280
-  %327 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %327 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %328 = and i64 %327, 72057594037927936
   %.not21.i.i = icmp eq i64 %328, 0
   br i1 %.not21.i.i, label %341, label %329
@@ -3135,7 +3135,7 @@ _notify_script_done.exit.i.i:                     ; preds = %323, %280
   %387 = load i64, ptr %386, align 8
   %388 = call ptr @debug_flags2str(i64 noundef %387) #11
   store ptr %388, ptr %2, align 8
-  %389 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %389 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %390 = and i64 %389, 72057594037927936
   %.not.i13.i = icmp eq i64 %390, 0
   br i1 %.not.i13.i, label %_handle_update_debug_flags.exit.i, label %391
@@ -3158,7 +3158,7 @@ _handle_update_debug_flags.exit.i:                ; preds = %394, %391, %384
   call void @slurm_xfree(ptr noundef nonnull %2) #11
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._handle_update_log.config_write_lock) #11
   %399 = load i64, ptr %386, align 8
-  store i64 %399, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  store i64 %399, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %400 = call i64 @time(ptr noundef null) #11
   store i64 %400, ptr @slurm_conf, align 8
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._handle_update_log.config_write_lock) #11
@@ -3172,7 +3172,7 @@ _handle_update_debug_flags.exit.i:                ; preds = %394, %391, %384
   %405 = getelementptr inbounds nuw i8, ptr %403, i64 4
   %406 = load i8, ptr %405, align 4
   %407 = trunc i8 %406 to i1
-  %408 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %408 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %409 = and i64 %408, 72057594037927936
   %.not.i14.i = icmp eq i64 %409, 0
   br i1 %.not.i14.i, label %420, label %410
@@ -3203,7 +3203,7 @@ _handle_update_debug_flags.exit.i:                ; preds = %394, %391, %384
 422:                                              ; preds = %420
   call void @update_log_levels(i32 noundef %404, i32 noundef %404) #11
   %423 = trunc i32 %404 to i16
-  store i16 %423, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1192), align 8
+  store i16 %423, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1192), align 8
   %424 = call i64 @time(ptr noundef null) #11
   store i64 %424, ptr @slurm_conf, align 8
   br label %_handle_update_log.exit.i
@@ -3213,7 +3213,7 @@ _handle_update_log.exit.i:                        ; preds = %422, %421
   br label %_handle_request.exit
 
 425:                                              ; preds = %23
-  %426 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %426 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %427 = and i64 %426, 72057594037927936
   %.not.i15.i = icmp eq i64 %427, 0
   br i1 %.not.i15.i, label %_handle_shutdown.exit.i, label %428
@@ -3674,7 +3674,7 @@ define internal fastcc i32 @_run_script(ptr noundef nonnull initializes((12, 16)
 
 60:                                               ; preds = %51
   %.not46 = icmp eq i32 %1, 0
-  %61 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %62 = and i64 %61, 72057594037927936
   %.not47 = icmp eq i64 %62, 0
   br i1 %.not46, label %70, label %63

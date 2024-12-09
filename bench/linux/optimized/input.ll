@@ -712,7 +712,7 @@ define dso_local void @input_alloc_absinfo(ptr noundef %0) #0 align 16 {
   br i1 %4, label %5, label %15
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(1536) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 1536) #20
   store ptr %7, ptr %2, align 8
   %8 = icmp eq ptr %7, null
@@ -747,7 +747,7 @@ define dso_local void @input_set_abs_params(ptr noundef %0, i32 noundef %1, i32 
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(1536) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 1536) #20
   store ptr %15, ptr %10, align 8
   %16 = icmp eq ptr %15, null
@@ -826,7 +826,7 @@ define dso_local void @input_copy_abs(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %30 = tail call noalias align 8 dereferenceable_or_null(1536) ptr @kmalloc_trace(ptr noundef %29, i32 noundef 3520, i64 noundef 1536) #20
   store ptr %30, ptr %25, align 8
   %31 = icmp eq ptr %30, null
@@ -918,7 +918,7 @@ define dso_local void @input_set_capability(ptr noundef %0, i32 noundef %1, i32 
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %27 = tail call noalias align 8 dereferenceable_or_null(1536) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 1536) #20
   store ptr %27, ptr %22, align 8
   %28 = icmp eq ptr %27, null
@@ -1955,7 +1955,7 @@ define internal noalias ptr @input_devnode(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @input_allocate_device() #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %2 = tail call noalias noundef align 8 dereferenceable_or_null(1360) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 1360) #20
   %3 = icmp eq ptr %2, null
   br i1 %3, label %19, label %4
@@ -2652,8 +2652,8 @@ define dso_local i32 @input_register_device(ptr noundef %0) #0 align 16 {
 
 191:                                              ; preds = %181
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @input_dev_list, i64 8), align 8
-  store ptr %192, ptr getelementptr inbounds (i8, ptr @input_dev_list, i64 8), align 8
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @input_dev_list, i64 8), align 8
+  store ptr %192, ptr getelementptr inbounds nuw (i8, ptr @input_dev_list, i64 8), align 8
   store ptr @input_dev_list, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   store ptr %193, ptr %194, align 8
@@ -3229,8 +3229,8 @@ define dso_local i32 @input_register_handler(ptr noundef %0) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store volatile ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @input_handler_list, i64 8), align 8
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @input_handler_list, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @input_handler_list, i64 8), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @input_handler_list, i64 8), align 8
   store ptr @input_handler_list, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %8, ptr %9, align 8

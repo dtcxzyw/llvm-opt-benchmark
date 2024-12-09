@@ -3242,7 +3242,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_11v() #2 personality ptr @__gxx_per
   %14 = alloca %"struct.doctest::detail::Expression_lhs.44", align 8
   %15 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %16 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %1, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1040
@@ -3678,7 +3678,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %171
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %176
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %1, align 8
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 1072
   %183 = load ptr, ptr %182, align 8
   %.not.i.i.i.i = icmp eq ptr %183, null
@@ -3756,7 +3756,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_13v() #2 personality ptr @__gxx_per
   %14 = alloca %"struct.doctest::detail::Expression_lhs.44", align 8
   %15 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %16 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4188,7 +4188,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %169
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %174
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %181 = load ptr, ptr %180, align 8
   %.not.i.i.i.i = icmp eq ptr %181, null
@@ -4223,7 +4223,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit26:                  ; preds = %188, %151, %150, %1
 
 _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit20: ; preds = %108, %105, %.body, %103
   %.pn13.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn, %.body ], [ %104, %103 ], [ %106, %105 ], [ %106, %108 ]
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %190 = load ptr, ptr %189, align 8
   %.not.i.i.i.i27 = icmp eq ptr %190, null
@@ -4266,7 +4266,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_15v() #2 personality ptr @__gxx_per
   %13 = alloca %"struct.doctest::detail::Expression_lhs.44", align 8
   %14 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %15 = alloca i32, align 4
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4669,7 +4669,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %153
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %158
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %165 = load ptr, ptr %164, align 8
   %.not.i.i.i.i = icmp eq ptr %165, null
@@ -4704,7 +4704,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit23:                  ; preds = %172, %135, %134, %1
 
 173:                                              ; preds = %.body, %96
   %.pn13.pn.pn.pn = phi { ptr, i32 } [ %.pn13.pn.pn, %.body ], [ %97, %96 ]
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %1, align 8
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %175 = load ptr, ptr %174, align 8
   %.not.i.i.i.i24 = icmp eq ptr %175, null
@@ -5168,7 +5168,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_19v() #2 personality ptr @__gxx_per
 _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2Ev.exit: ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1080) %27, i8 0, i64 1040, i1 false), !noalias !40
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %26, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %26, align 8, !noalias !40
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 1064
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -5176,7 +5176,7 @@ _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2
   store ptr %30, ptr %29, align 8, !noalias !40
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 1072
   store ptr null, ptr %31, align 8, !noalias !40
-  %32 = load ptr, ptr getelementptr inbounds inrange(-48, 64) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 48), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 64) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 48), align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef 0)
           to label %33 unwind label %106
 
@@ -5762,7 +5762,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_21v() #2 personality ptr @__gxx_per
 _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2Ev.exit: ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1080) %29, i8 0, i64 1040, i1 false), !noalias !46
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %28, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %28, align 8, !noalias !46
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1064
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -5770,7 +5770,7 @@ _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2
   store ptr %32, ptr %31, align 8, !noalias !46
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 1072
   store ptr null, ptr %33, align 8, !noalias !46
-  %34 = load ptr, ptr getelementptr inbounds inrange(-48, 64) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 48), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 64) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 48), align 8
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef 0)
           to label %35 unwind label %55
 
@@ -6513,7 +6513,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_23v() #2 personality ptr @__gxx_per
 _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2Ev.exit: ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1080) %37, i8 0, i64 1040, i1 false), !noalias !52
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %36, align 8, !noalias !52
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %36, align 8, !noalias !52
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 1064
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -6521,7 +6521,7 @@ _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2
   store ptr %40, ptr %39, align 8, !noalias !52
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 1072
   store ptr null, ptr %41, align 8, !noalias !52
-  %42 = load ptr, ptr getelementptr inbounds inrange(-48, 64) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 48), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 64) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 48), align 8
   invoke void %42(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef 0)
           to label %43 unwind label %166
 
@@ -7403,7 +7403,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_25v() #2 personality ptr @__gxx_per
 _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2Ev.exit: ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1080) %46, i8 0, i64 1040, i1 false), !noalias !59
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %45, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %45, align 8, !noalias !59
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 1064
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -7411,7 +7411,7 @@ _ZNSt10unique_ptrIN4Luau7CodeGen19UnwindBuilderDwarf2ESt14default_deleteIS2_EED2
   store ptr %49, ptr %48, align 8, !noalias !59
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 1072
   store ptr null, ptr %50, align 8, !noalias !59
-  %51 = load ptr, ptr getelementptr inbounds inrange(-48, 64) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 48), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 64) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 48), align 8
   invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %45, i32 noundef 0)
           to label %52 unwind label %137
 
@@ -10413,7 +10413,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7CodeGen16UnwindBuilderWinD2Ev(ptr noundef nonnull align 8 dereferenceable(1099) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen16UnwindBuilderWinE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

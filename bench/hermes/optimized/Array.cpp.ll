@@ -2908,7 +2908,7 @@ if.end77:                                         ; preds = %if.end67
 cleanup:                                          ; preds = %if.end67, %if.end77
   %retval.sroa.0.1 = phi i32 [ 1, %if.end77 ], [ 0, %if.end67 ]
   %retval.sroa.8.1 = phi i64 [ %retval.sroa.0.0.copyload.i41, %if.end77 ], [ undef, %if.end67 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %sm, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %sm, align 8
   %gcScope_.i = getelementptr inbounds nuw i8, ptr %sm, i64 16
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i) #8
   call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %sm) #8
@@ -9636,7 +9636,7 @@ for.end121:                                       ; preds = %for.inc119
   call fastcc void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS5_INS0_8CallableEEE(ptr noundef nonnull align 8 dereferenceable(328) %sm, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call42, ptr %compareFn.coerce)
   %call128 = call noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef nonnull %sm, i32 noundef 0, i32 noundef %numProps.0.lcssa271) #8
   %cmp129.not = icmp eq i32 %call128, 0
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %sm, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %sm, align 8
   %gcScope_.i = getelementptr inbounds nuw i8, ptr %sm, i64 16
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i) #8
   call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %sm) #8
@@ -9824,7 +9824,7 @@ cleanup179:                                       ; preds = %if.end48, %if.end41
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS5_INS0_8CallableEEE(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %obj.coerce, ptr %compareFn.coerce) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %runtime, ptr %runtime_, align 8
   %gcScope_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -10043,7 +10043,7 @@ declare noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef, i32
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
   %gcScope_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_) #8
   tail call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
@@ -12999,7 +12999,7 @@ cleanup:                                          ; preds = %if.end143, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelD0Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
   %gcScope_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_.i) #8
   tail call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) #8

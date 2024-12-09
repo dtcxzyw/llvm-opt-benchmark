@@ -495,9 +495,9 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 define void @_ZN6icu_7524ICUResourceBundleFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN6icu_7516LocaleKeyFactoryC2Ei(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524ICUResourceBundleFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524ICUResourceBundleFactoryE, i64 16), ptr %this, align 8
   %_bundleName = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %_bundleName, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %_bundleName, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i16 2, ptr %fUnion2.i, align 8
   ret void
@@ -512,7 +512,7 @@ declare void @_ZN6icu_7516LocaleKeyFactoryD2Ev(ptr noundef nonnull align 8 deref
 define void @_ZN6icu_7524ICUResourceBundleFactoryC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(64) %bundleName) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7516LocaleKeyFactoryC2Ei(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524ICUResourceBundleFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524ICUResourceBundleFactoryE, i64 16), ptr %this, align 8
   %_bundleName = getelementptr inbounds nuw i8, ptr %this, i64 80
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %_bundleName, ptr noundef nonnull align 8 dereferenceable(64) %bundleName)
           to label %invoke.cont unwind label %lpad
@@ -532,7 +532,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7524ICUResourceBundleFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524ICUResourceBundleFactoryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524ICUResourceBundleFactoryE, i64 16), ptr %this, align 8
   %_bundleName = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_bundleName) #10
   tail call void @_ZN6icu_7516LocaleKeyFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #10

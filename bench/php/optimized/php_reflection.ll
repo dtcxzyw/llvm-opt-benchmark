@@ -680,7 +680,7 @@ define hidden void @zim_Reflection_getModifierNames(ptr nocapture noundef readon
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %45
@@ -953,7 +953,7 @@ thread-pre-split:                                 ; preds = %22
   %88 = load ptr, ptr %3, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %87, i64 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull %89) #13
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %92 = icmp ne ptr %91, null
   call void @llvm.assume(i1 %92)
   br label %129
@@ -1072,7 +1072,7 @@ define hidden void @zim_ReflectionFunction___toString(ptr nocapture noundef read
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %84
@@ -1086,7 +1086,7 @@ define hidden void @zim_ReflectionFunction___toString(ptr nocapture noundef read
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not121 = icmp eq ptr %15, null
   br i1 %.not121, label %21, label %16
 
@@ -1099,7 +1099,7 @@ define hidden void @zim_ReflectionFunction___toString(ptr nocapture noundef read
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %84
@@ -1957,7 +1957,7 @@ define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr nocapt
   br i1 %.not32.i, label %362, label %358
 
 358:                                              ; preds = %353
-  %359 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %359 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 %356
   %361 = load ptr, ptr %360, align 8
   br label %362
@@ -2246,7 +2246,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getName(ptr nocapture noundef
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %35
@@ -2260,7 +2260,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getName(ptr nocapture noundef
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %20, label %15
 
@@ -2273,7 +2273,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getName(ptr nocapture noundef
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %35
@@ -2314,7 +2314,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isClosure(ptr nocapture nound
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -2328,7 +2328,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isClosure(ptr nocapture nound
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -2341,7 +2341,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isClosure(ptr nocapture nound
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -2369,7 +2369,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureThis(ptr nocapture 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %38
@@ -2384,7 +2384,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureThis(ptr nocapture 
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp eq ptr %15, null
   br i1 %.not15, label %21, label %16
 
@@ -2397,7 +2397,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureThis(ptr nocapture 
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %38
@@ -2440,7 +2440,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureScopeClass(ptr noca
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %62
@@ -2455,7 +2455,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureScopeClass(ptr noca
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not14 = icmp eq ptr %15, null
   br i1 %.not14, label %21, label %16
 
@@ -2468,7 +2468,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureScopeClass(ptr noca
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %62
@@ -2552,7 +2552,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureCalledClass(ptr noc
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %76
@@ -2567,7 +2567,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureCalledClass(ptr noc
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %.critedge
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not17 = icmp eq ptr %18, null
   br i1 %.not17, label %24, label %19
 
@@ -2580,7 +2580,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureCalledClass(ptr noc
 
 24:                                               ; preds = %19, %17
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %26)
   br label %76
@@ -2690,7 +2690,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureUsedVariables(ptr n
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %.critedge
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not46 = icmp eq ptr %13, null
   br i1 %.not46, label %19, label %14
 
@@ -2741,7 +2741,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureUsedVariables(ptr n
   br i1 %.not41, label %45, label %41
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %39
   %44 = load ptr, ptr %43, align 8
   br label %45
@@ -2816,7 +2816,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureUsedVariables(ptr n
   br i1 %89, label %62, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %5, %19
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %91 = icmp ne ptr %90, null
   tail call void @llvm.assume(i1 %91)
   br label %.loopexit
@@ -2836,7 +2836,7 @@ define hidden void @zim_ReflectionFunction_getClosure(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %34
@@ -2851,7 +2851,7 @@ define hidden void @zim_ReflectionFunction_getClosure(ptr nocapture noundef read
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not16 = icmp eq ptr %15, null
   br i1 %.not16, label %21, label %16
 
@@ -2864,7 +2864,7 @@ define hidden void @zim_ReflectionFunction_getClosure(ptr nocapture noundef read
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %34
@@ -2904,7 +2904,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isInternal(ptr nocapture noun
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %28
@@ -2918,7 +2918,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isInternal(ptr nocapture noun
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -2931,7 +2931,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isInternal(ptr nocapture noun
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %28
@@ -2957,7 +2957,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isUserDefined(ptr nocapture n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %28
@@ -2971,7 +2971,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isUserDefined(ptr nocapture n
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -2984,7 +2984,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isUserDefined(ptr nocapture n
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %28
@@ -3021,7 +3021,7 @@ define hidden void @zim_ReflectionFunction_isAnonymous(ptr nocapture noundef rea
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %13, null
   br i1 %.not7, label %19, label %14
 
@@ -3034,7 +3034,7 @@ define hidden void @zim_ReflectionFunction_isAnonymous(ptr nocapture noundef rea
 
 19:                                               ; preds = %14, %12
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
   br label %29
@@ -3062,7 +3062,7 @@ define hidden void @zim_ReflectionFunction_isDisabled(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %9
@@ -3085,7 +3085,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getFileName(ptr nocapture nou
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -3099,7 +3099,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getFileName(ptr nocapture nou
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not17 = icmp eq ptr %14, null
   br i1 %.not17, label %20, label %15
 
@@ -3112,7 +3112,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getFileName(ptr nocapture nou
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -3163,7 +3163,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getStartLine(ptr nocapture no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %33
@@ -3177,7 +3177,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getStartLine(ptr nocapture no
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %20, label %15
 
@@ -3190,7 +3190,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getStartLine(ptr nocapture no
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %33
@@ -3227,7 +3227,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getEndLine(ptr nocapture noun
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %33
@@ -3241,7 +3241,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getEndLine(ptr nocapture noun
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %20, label %15
 
@@ -3254,7 +3254,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getEndLine(ptr nocapture noun
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %33
@@ -3291,7 +3291,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getDocComment(ptr nocapture n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %52
@@ -3305,7 +3305,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getDocComment(ptr nocapture n
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not35 = icmp eq ptr %14, null
   br i1 %.not35, label %20, label %15
 
@@ -3318,7 +3318,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getDocComment(ptr nocapture n
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %52
@@ -3403,7 +3403,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getAttributes(ptr nocapture n
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not14 = icmp eq ptr %9, null
   br i1 %.not14, label %15, label %10
 
@@ -3416,7 +3416,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getAttributes(ptr nocapture n
 
 15:                                               ; preds = %10, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %37
@@ -3473,7 +3473,7 @@ define internal fastcc void @reflect_attributes(i32 %.44.val, ptr nocapture noun
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %269
@@ -3486,7 +3486,7 @@ define internal fastcc void @reflect_attributes(i32 %.44.val, ptr nocapture noun
 
 18:                                               ; preds = %15
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.140) #13
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %269
@@ -3504,7 +3504,7 @@ define internal fastcc void @reflect_attributes(i32 %.44.val, ptr nocapture noun
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not21 = icmp eq ptr %27, null
   br i1 %.not21, label %28, label %32
 
@@ -3512,7 +3512,7 @@ define internal fastcc void @reflect_attributes(i32 %.44.val, ptr nocapture noun
   %29 = load ptr, ptr %8, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.141, ptr noundef nonnull %30) #13
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %.pre, null
   br label %32
 
@@ -3889,7 +3889,7 @@ reflection_attribute_factory.exit102.us.i:        ; preds = %205, %189
   br i1 %225, label %226, label %228
 
 226:                                              ; preds = %220
-  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not94.i = icmp eq ptr %227, null
   br i1 %.not94.i, label %266, label %268
 
@@ -3990,7 +3990,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getStaticVariables(ptr nocapt
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %56
@@ -4004,7 +4004,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getStaticVariables(ptr nocapt
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not33 = icmp eq ptr %14, null
   br i1 %.not33, label %20, label %15
 
@@ -4017,7 +4017,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getStaticVariables(ptr nocapt
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %56
@@ -4046,7 +4046,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getStaticVariables(ptr nocapt
   br i1 %.not30, label %40, label %36
 
 36:                                               ; preds = %29
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %34
   %39 = load ptr, ptr %38, align 8
   br label %40
@@ -4066,7 +4066,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getStaticVariables(ptr nocapt
   br i1 %.not32, label %51, label %48
 
 48:                                               ; preds = %42
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 %46
   store ptr %44, ptr %50, align 8
   br label %52
@@ -4128,7 +4128,7 @@ define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr nocapture 
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not105 = icmp eq ptr %22, null
   br i1 %.not105, label %28, label %23
 
@@ -4141,7 +4141,7 @@ define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr nocapture 
 
 28:                                               ; preds = %23, %21
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
   br label %105
@@ -4200,7 +4200,7 @@ define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr nocapture 
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = icmp eq i8 %64, 0
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not103 = icmp eq ptr %66, null
   %or.cond = select i1 %65, i1 %.not103, i1 false
   br i1 %or.cond, label %67, label %75
@@ -4211,7 +4211,7 @@ define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr nocapture 
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %68, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull %71) #13
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %74 = icmp ne ptr %73, null
   call void @llvm.assume(i1 %74)
   br label %105
@@ -4286,7 +4286,7 @@ define hidden void @zim_ReflectionFunction_invokeArgs(ptr nocapture noundef read
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %105
@@ -4301,7 +4301,7 @@ define hidden void @zim_ReflectionFunction_invokeArgs(ptr nocapture noundef read
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not70 = icmp eq ptr %21, null
   br i1 %.not70, label %27, label %22
 
@@ -4314,7 +4314,7 @@ define hidden void @zim_ReflectionFunction_invokeArgs(ptr nocapture noundef read
 
 27:                                               ; preds = %22, %20
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
   br label %105
@@ -4374,7 +4374,7 @@ define hidden void @zim_ReflectionFunction_invokeArgs(ptr nocapture noundef read
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = icmp eq i8 %64, 0
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not68 = icmp eq ptr %66, null
   %or.cond = select i1 %65, i1 %.not68, i1 false
   br i1 %or.cond, label %67, label %75
@@ -4385,7 +4385,7 @@ define hidden void @zim_ReflectionFunction_invokeArgs(ptr nocapture noundef read
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %68, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull %71) #13
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %74 = icmp ne ptr %73, null
   call void @llvm.assume(i1 %74)
   br label %105
@@ -4457,7 +4457,7 @@ define hidden void @zim_ReflectionFunctionAbstract_returnsReference(ptr nocaptur
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -4471,7 +4471,7 @@ define hidden void @zim_ReflectionFunctionAbstract_returnsReference(ptr nocaptur
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -4484,7 +4484,7 @@ define hidden void @zim_ReflectionFunctionAbstract_returnsReference(ptr nocaptur
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -4512,7 +4512,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNumberOfParameters(ptr noc
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
@@ -4526,7 +4526,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNumberOfParameters(ptr noc
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %20, label %15
 
@@ -4539,7 +4539,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNumberOfParameters(ptr noc
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %32
@@ -4571,7 +4571,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNumberOfRequiredParameters
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %28
@@ -4585,7 +4585,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNumberOfRequiredParameters
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %20, label %15
 
@@ -4598,7 +4598,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNumberOfRequiredParameters
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %28
@@ -4626,7 +4626,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getParameters(ptr nocapture n
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %.loopexit
@@ -4641,7 +4641,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getParameters(ptr nocapture n
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %.critedge
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not34 = icmp eq ptr %16, null
   br i1 %.not34, label %22, label %17
 
@@ -4654,7 +4654,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getParameters(ptr nocapture n
 
 22:                                               ; preds = %17, %15
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %24)
   br label %.loopexit
@@ -4837,7 +4837,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getExtension(ptr nocapture no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %35
@@ -4851,7 +4851,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getExtension(ptr nocapture no
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %20, label %15
 
@@ -4864,7 +4864,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getExtension(ptr nocapture no
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %35
@@ -4975,7 +4975,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getExtensionName(ptr nocaptur
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %45
@@ -4989,7 +4989,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getExtensionName(ptr nocaptur
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not74 = icmp eq ptr %14, null
   br i1 %.not74, label %20, label %15
 
@@ -5002,7 +5002,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getExtensionName(ptr nocaptur
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %45
@@ -5072,7 +5072,7 @@ define hidden void @zim_ReflectionGenerator___construct(ptr nocapture noundef re
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %37
@@ -5088,7 +5088,7 @@ define hidden void @zim_ReflectionGenerator___construct(ptr nocapture noundef re
 20:                                               ; preds = %15
   %21 = load ptr, ptr @reflection_exception_ptr, align 8
   %22 = call ptr @zend_throw_exception(ptr noundef %21, ptr noundef nonnull @.str.14, i64 noundef 0) #13
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %37
@@ -5131,7 +5131,7 @@ define hidden void @zim_ReflectionGenerator_getTrace(ptr nocapture noundef reado
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -40
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -5141,7 +5141,7 @@ define hidden void @zim_ReflectionGenerator_getTrace(ptr nocapture noundef reado
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %68
@@ -5153,7 +5153,7 @@ define hidden void @zim_ReflectionGenerator_getTrace(ptr nocapture noundef reado
 19:                                               ; preds = %18
   %20 = load ptr, ptr @reflection_exception_ptr, align 8
   %21 = call ptr @zend_throw_exception(ptr noundef %20, ptr noundef nonnull @.str.16, i64 noundef 0) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
   br label %68
@@ -5225,11 +5225,11 @@ define hidden void @zim_ReflectionGenerator_getTrace(ptr nocapture noundef reado
   %.029 = phi ptr [ null, %46 ], [ %53, %49 ]
   %60 = getelementptr inbounds nuw i8, ptr %.036, i64 56
   %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %62 = load i64, ptr %3, align 8
   %63 = trunc i64 %62 to i32
   call void @zend_fetch_debug_backtrace(ptr noundef %1, i32 noundef 0, i32 noundef %63, i32 noundef 0) #13
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %64 = load ptr, ptr %60, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store ptr %.029, ptr %65, align 8
@@ -5259,7 +5259,7 @@ define hidden void @zim_ReflectionGenerator_getExecutingLine(ptr nocapture nound
 
 11:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
   br label %25
@@ -5271,7 +5271,7 @@ define hidden void @zim_ReflectionGenerator_getExecutingLine(ptr nocapture nound
 14:                                               ; preds = %.critedge
   %15 = load ptr, ptr @reflection_exception_ptr, align 8
   %16 = tail call ptr @zend_throw_exception(ptr noundef %15, ptr noundef nonnull @.str.16, i64 noundef 0) #13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %25
@@ -5305,7 +5305,7 @@ define hidden void @zim_ReflectionGenerator_getExecutingFile(ptr nocapture nound
 
 11:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
   br label %33
@@ -5317,7 +5317,7 @@ define hidden void @zim_ReflectionGenerator_getExecutingFile(ptr nocapture nound
 14:                                               ; preds = %.critedge
   %15 = load ptr, ptr @reflection_exception_ptr, align 8
   %16 = tail call ptr @zend_throw_exception(ptr noundef %15, ptr noundef nonnull @.str.16, i64 noundef 0) #13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %33
@@ -5366,7 +5366,7 @@ define hidden void @zim_ReflectionGenerator_getFunction(ptr nocapture noundef re
 
 11:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
   br label %119
@@ -5378,7 +5378,7 @@ define hidden void @zim_ReflectionGenerator_getFunction(ptr nocapture noundef re
 14:                                               ; preds = %.critedge
   %15 = load ptr, ptr @reflection_exception_ptr, align 8
   %16 = tail call ptr @zend_throw_exception(ptr noundef %15, ptr noundef nonnull @.str.16, i64 noundef 0) #13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %119
@@ -5654,7 +5654,7 @@ define hidden void @zim_ReflectionGenerator_getThis(ptr nocapture noundef readon
 
 11:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
   br label %31
@@ -5666,7 +5666,7 @@ define hidden void @zim_ReflectionGenerator_getThis(ptr nocapture noundef readon
 14:                                               ; preds = %.critedge
   %15 = load ptr, ptr @reflection_exception_ptr, align 8
   %16 = tail call ptr @zend_throw_exception(ptr noundef %15, ptr noundef nonnull @.str.16, i64 noundef 0) #13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %31
@@ -5710,7 +5710,7 @@ define hidden void @zim_ReflectionGenerator_getExecutingGenerator(ptr nocapture 
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %37
@@ -5724,7 +5724,7 @@ define hidden void @zim_ReflectionGenerator_getExecutingGenerator(ptr nocapture 
 14:                                               ; preds = %.critedge
   %15 = load ptr, ptr @reflection_exception_ptr, align 8
   %16 = tail call ptr @zend_throw_exception(ptr noundef %15, ptr noundef nonnull @.str.16, i64 noundef 0) #13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %37
@@ -5832,7 +5832,7 @@ define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr noca
 24:                                               ; preds = %.thread458
   %25 = load ptr, ptr %10, align 8
   %26 = call ptr @zend_string_tolower_ex(ptr noundef %25, i1 noundef zeroext false) #13
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %28 = call ptr @zend_hash_find(ptr noundef %27, ptr noundef %26) #13
   %.not424 = icmp eq ptr %28, null
   br i1 %.not424, label %31, label %29
@@ -5880,7 +5880,7 @@ define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr noca
   %47 = load ptr, ptr %10, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %46, i64 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull %48) #13
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %51 = icmp ne ptr %50, null
   call void @llvm.assume(i1 %51)
   br label %377
@@ -5905,7 +5905,7 @@ define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr noca
 63:                                               ; preds = %59, %55
   %64 = load ptr, ptr @reflection_exception_ptr, align 8
   %65 = call ptr @zend_throw_exception(ptr noundef %64, ptr noundef nonnull @.str.17, i64 noundef 0) #13
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
   br label %377
@@ -5982,7 +5982,7 @@ define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr noca
   br label %103
 
 103:                                              ; preds = %87, %101, %102, %94
-  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %105 = icmp ne ptr %104, null
   call void @llvm.assume(i1 %105)
   br label %377
@@ -6145,7 +6145,7 @@ is_closure_invoke.exit.thread:                    ; preds = %138, %143, %is_clos
   br label %182
 
 182:                                              ; preds = %169, %180, %181, %173
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %184 = icmp ne ptr %183, null
   call void @llvm.assume(i1 %184)
   br label %377
@@ -6257,7 +6257,7 @@ is_closure_invoke.exit.thread:                    ; preds = %138, %143, %is_clos
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
   %240 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %236, i64 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull %239, ptr noundef nonnull @.str.20) #13
-  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %242 = icmp ne ptr %241, null
   call void @llvm.assume(i1 %242)
   br label %377
@@ -6266,7 +6266,7 @@ is_closure_invoke.exit.thread:                    ; preds = %138, %143, %is_clos
   %244 = load ptr, ptr @reflection_exception_ptr, align 8
   %245 = call ptr @zend_zval_value_name(ptr noundef nonnull %10) #13
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %244, i32 noundef 1, ptr noundef nonnull @.str.21, ptr noundef %245) #13
-  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %247 = icmp ne ptr %246, null
   call void @llvm.assume(i1 %247)
   br label %377
@@ -6525,11 +6525,11 @@ has_internal_arg_info.exit441.thread:             ; preds = %315, %has_internal_
   br label %368
 
 368:                                              ; preds = %356, %367, %362
-  %369 = icmp eq ptr %.0365, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
+  %369 = icmp eq ptr %.0365, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1288)
   br i1 %369, label %370, label %371
 
 370:                                              ; preds = %368
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1296), align 8
   br label %372
 
 371:                                              ; preds = %368
@@ -6544,7 +6544,7 @@ has_internal_arg_info.exit441.thread:             ; preds = %315, %has_internal_
   br label %374
 
 374:                                              ; preds = %372, %373
-  %375 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %376 = icmp ne ptr %375, null
   call void @llvm.assume(i1 %376)
   br label %377
@@ -6579,7 +6579,7 @@ define hidden void @zim_ReflectionParameter___toString(ptr nocapture noundef rea
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %90
@@ -6593,7 +6593,7 @@ define hidden void @zim_ReflectionParameter___toString(ptr nocapture noundef rea
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not123 = icmp eq ptr %15, null
   br i1 %.not123, label %21, label %16
 
@@ -6606,7 +6606,7 @@ define hidden void @zim_ReflectionParameter___toString(ptr nocapture noundef rea
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %90
@@ -7188,7 +7188,7 @@ define hidden void @zim_ReflectionParameter_getName(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %57
@@ -7202,7 +7202,7 @@ define hidden void @zim_ReflectionParameter_getName(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not78 = icmp eq ptr %14, null
   br i1 %.not78, label %20, label %15
 
@@ -7215,7 +7215,7 @@ define hidden void @zim_ReflectionParameter_getName(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %57
@@ -7295,7 +7295,7 @@ define hidden void @zim_ReflectionParameter_getDeclaringFunction(ptr nocapture n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %141
@@ -7310,7 +7310,7 @@ define hidden void @zim_ReflectionParameter_getDeclaringFunction(ptr nocapture n
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not19 = icmp eq ptr %15, null
   br i1 %.not19, label %21, label %16
 
@@ -7323,7 +7323,7 @@ define hidden void @zim_ReflectionParameter_getDeclaringFunction(ptr nocapture n
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %141
@@ -7546,7 +7546,7 @@ define hidden void @zim_ReflectionParameter_getDeclaringClass(ptr nocapture noun
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %56
@@ -7560,7 +7560,7 @@ define hidden void @zim_ReflectionParameter_getDeclaringClass(ptr nocapture noun
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not10 = icmp eq ptr %14, null
   br i1 %.not10, label %20, label %15
 
@@ -7573,7 +7573,7 @@ define hidden void @zim_ReflectionParameter_getDeclaringClass(ptr nocapture noun
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %56
@@ -7644,7 +7644,7 @@ define hidden void @zim_ReflectionParameter_getClass(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %108
@@ -7658,7 +7658,7 @@ define hidden void @zim_ReflectionParameter_getClass(ptr nocapture noundef reado
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not38 = icmp eq ptr %14, null
   br i1 %.not38, label %20, label %15
 
@@ -7671,7 +7671,7 @@ define hidden void @zim_ReflectionParameter_getClass(ptr nocapture noundef reado
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %108
@@ -7710,7 +7710,7 @@ define hidden void @zim_ReflectionParameter_getClass(ptr nocapture noundef reado
 43:                                               ; preds = %38
   %44 = load ptr, ptr @reflection_exception_ptr, align 8
   %45 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %44, i64 noundef 0, ptr noundef nonnull @.str.26) #13
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %47 = icmp ne ptr %46, null
   tail call void @llvm.assume(i1 %47)
   br label %108
@@ -7741,7 +7741,7 @@ thread-pre-split:                                 ; preds = %35
 59:                                               ; preds = %54
   %60 = load ptr, ptr @reflection_exception_ptr, align 8
   %61 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %60, i64 noundef 0, ptr noundef nonnull @.str.28) #13
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %63 = icmp ne ptr %62, null
   tail call void @llvm.assume(i1 %63)
   br label %108
@@ -7755,7 +7755,7 @@ thread-pre-split:                                 ; preds = %35
 67:                                               ; preds = %64
   %68 = load ptr, ptr @reflection_exception_ptr, align 8
   %69 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %68, i64 noundef 0, ptr noundef nonnull @.str.29) #13
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   tail call void @llvm.assume(i1 %71)
   br label %108
@@ -7769,7 +7769,7 @@ thread-pre-split:                                 ; preds = %35
   %75 = load ptr, ptr @reflection_exception_ptr, align 8
   %76 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %77 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %75, i64 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %76) #13
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %79 = icmp ne ptr %78, null
   tail call void @llvm.assume(i1 %79)
   br label %108
@@ -7835,7 +7835,7 @@ define hidden void @zim_ReflectionParameter_hasType(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %31
@@ -7849,7 +7849,7 @@ define hidden void @zim_ReflectionParameter_hasType(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -7862,7 +7862,7 @@ define hidden void @zim_ReflectionParameter_hasType(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %31
@@ -7892,7 +7892,7 @@ define hidden void @zim_ReflectionParameter_getType(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %34
@@ -7906,7 +7906,7 @@ define hidden void @zim_ReflectionParameter_getType(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not10 = icmp eq ptr %14, null
   br i1 %.not10, label %20, label %15
 
@@ -7919,7 +7919,7 @@ define hidden void @zim_ReflectionParameter_getType(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %34
@@ -8059,7 +8059,7 @@ define hidden void @zim_ReflectionParameter_isArray(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %36
@@ -8073,7 +8073,7 @@ define hidden void @zim_ReflectionParameter_isArray(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not10 = icmp eq ptr %14, null
   br i1 %.not10, label %20, label %15
 
@@ -8086,7 +8086,7 @@ define hidden void @zim_ReflectionParameter_isArray(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %36
@@ -8126,7 +8126,7 @@ define hidden void @zim_ReflectionParameter_isCallable(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
@@ -8140,7 +8140,7 @@ define hidden void @zim_ReflectionParameter_isCallable(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -8153,7 +8153,7 @@ define hidden void @zim_ReflectionParameter_isCallable(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %32
@@ -8183,7 +8183,7 @@ define hidden void @zim_ReflectionParameter_allowsNull(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %33
@@ -8197,7 +8197,7 @@ define hidden void @zim_ReflectionParameter_allowsNull(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not10 = icmp eq ptr %14, null
   br i1 %.not10, label %20, label %15
 
@@ -8210,7 +8210,7 @@ define hidden void @zim_ReflectionParameter_allowsNull(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %33
@@ -8243,7 +8243,7 @@ define hidden void @zim_ReflectionParameter_isPassedByReference(ptr nocapture no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %31
@@ -8257,7 +8257,7 @@ define hidden void @zim_ReflectionParameter_isPassedByReference(ptr nocapture no
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -8270,7 +8270,7 @@ define hidden void @zim_ReflectionParameter_isPassedByReference(ptr nocapture no
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %31
@@ -8300,7 +8300,7 @@ define hidden void @zim_ReflectionParameter_canBePassedByValue(ptr nocapture nou
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %31
@@ -8314,7 +8314,7 @@ define hidden void @zim_ReflectionParameter_canBePassedByValue(ptr nocapture nou
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -8327,7 +8327,7 @@ define hidden void @zim_ReflectionParameter_canBePassedByValue(ptr nocapture nou
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %31
@@ -8358,7 +8358,7 @@ define hidden void @zim_ReflectionParameter_getAttributes(ptr nocapture noundef 
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
@@ -8371,7 +8371,7 @@ define hidden void @zim_ReflectionParameter_getAttributes(ptr nocapture noundef 
 
 15:                                               ; preds = %10, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %35
@@ -8414,7 +8414,7 @@ define hidden void @zim_ReflectionParameter_getPosition(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %27
@@ -8428,7 +8428,7 @@ define hidden void @zim_ReflectionParameter_getPosition(ptr nocapture noundef re
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %20, label %15
 
@@ -8441,7 +8441,7 @@ define hidden void @zim_ReflectionParameter_getPosition(ptr nocapture noundef re
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %27
@@ -8467,7 +8467,7 @@ define hidden void @zim_ReflectionParameter_isOptional(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -8481,7 +8481,7 @@ define hidden void @zim_ReflectionParameter_isOptional(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -8494,7 +8494,7 @@ define hidden void @zim_ReflectionParameter_isOptional(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -8521,7 +8521,7 @@ define hidden void @zim_ReflectionParameter_isDefaultValueAvailable(ptr nocaptur
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %59
@@ -8535,7 +8535,7 @@ define hidden void @zim_ReflectionParameter_isDefaultValueAvailable(ptr nocaptur
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not16 = icmp eq ptr %14, null
   br i1 %.not16, label %20, label %15
 
@@ -8548,7 +8548,7 @@ define hidden void @zim_ReflectionParameter_isDefaultValueAvailable(ptr nocaptur
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %59
@@ -8635,7 +8635,7 @@ define hidden void @zim_ReflectionParameter_getDefaultValue(ptr nocapture nounde
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %78
@@ -8649,7 +8649,7 @@ define hidden void @zim_ReflectionParameter_getDefaultValue(ptr nocapture nounde
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %20, label %15
 
@@ -8662,7 +8662,7 @@ define hidden void @zim_ReflectionParameter_getDefaultValue(ptr nocapture nounde
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %78
@@ -8749,7 +8749,7 @@ get_parameter_default.exit:                       ; preds = %28
 get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.i, %28, %get_parameter_default.exit
   %66 = load ptr, ptr @reflection_exception_ptr, align 8
   %67 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %66, i64 noundef 0, ptr noundef nonnull @.str.30) #13
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %69 = icmp ne ptr %68, null
   tail call void @llvm.assume(i1 %69)
   br label %78
@@ -8783,7 +8783,7 @@ define hidden void @zim_ReflectionParameter_isDefaultValueConstant(ptr nocapture
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %92
@@ -8797,7 +8797,7 @@ define hidden void @zim_ReflectionParameter_isDefaultValueConstant(ptr nocapture
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not22 = icmp eq ptr %15, null
   br i1 %.not22, label %21, label %16
 
@@ -8810,7 +8810,7 @@ define hidden void @zim_ReflectionParameter_isDefaultValueConstant(ptr nocapture
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %92
@@ -8903,7 +8903,7 @@ get_parameter_default.exit.get_parameter_default.exit.thread25_crit_edge: ; pred
 get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.i, %29, %get_parameter_default.exit
   %68 = load ptr, ptr @reflection_exception_ptr, align 8
   %69 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %68, i64 noundef 0, ptr noundef nonnull @.str.30) #13
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %92
@@ -8965,7 +8965,7 @@ define hidden void @zim_ReflectionParameter_getDefaultValueConstantName(ptr noca
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %136
@@ -8979,7 +8979,7 @@ define hidden void @zim_ReflectionParameter_getDefaultValueConstantName(ptr noca
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not120 = icmp eq ptr %15, null
   br i1 %.not120, label %21, label %16
 
@@ -8992,7 +8992,7 @@ define hidden void @zim_ReflectionParameter_getDefaultValueConstantName(ptr noca
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %136
@@ -9085,7 +9085,7 @@ get_parameter_default.exit.get_parameter_default.exit.thread123_crit_edge: ; pre
 get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.i, %29, %get_parameter_default.exit
   %68 = load ptr, ptr @reflection_exception_ptr, align 8
   %69 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %68, i64 noundef 0, ptr noundef nonnull @.str.30) #13
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %136
@@ -9227,7 +9227,7 @@ define hidden void @zim_ReflectionParameter_isVariadic(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %31
@@ -9241,7 +9241,7 @@ define hidden void @zim_ReflectionParameter_isVariadic(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -9254,7 +9254,7 @@ define hidden void @zim_ReflectionParameter_isVariadic(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %31
@@ -9284,7 +9284,7 @@ define hidden void @zim_ReflectionParameter_isPromoted(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %31
@@ -9298,7 +9298,7 @@ define hidden void @zim_ReflectionParameter_isPromoted(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -9311,7 +9311,7 @@ define hidden void @zim_ReflectionParameter_isPromoted(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %31
@@ -9341,7 +9341,7 @@ define hidden void @zim_ReflectionType_allowsNull(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -9355,7 +9355,7 @@ define hidden void @zim_ReflectionType_allowsNull(ptr nocapture noundef readonly
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -9368,7 +9368,7 @@ define hidden void @zim_ReflectionType_allowsNull(ptr nocapture noundef readonly
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -9396,7 +9396,7 @@ define hidden void @zim_ReflectionType___toString(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %45
@@ -9410,7 +9410,7 @@ define hidden void @zim_ReflectionType___toString(ptr nocapture noundef readonly
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %20, label %15
 
@@ -9423,7 +9423,7 @@ define hidden void @zim_ReflectionType___toString(ptr nocapture noundef readonly
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %45
@@ -9480,7 +9480,7 @@ define hidden void @zim_ReflectionNamedType_getName(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %63
@@ -9494,7 +9494,7 @@ define hidden void @zim_ReflectionNamedType_getName(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %20, label %15
 
@@ -9507,7 +9507,7 @@ define hidden void @zim_ReflectionNamedType_getName(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %63
@@ -9597,7 +9597,7 @@ define hidden void @zim_ReflectionNamedType_isBuiltin(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -9611,7 +9611,7 @@ define hidden void @zim_ReflectionNamedType_isBuiltin(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not14 = icmp eq ptr %14, null
   br i1 %.not14, label %20, label %15
 
@@ -9624,7 +9624,7 @@ define hidden void @zim_ReflectionNamedType_isBuiltin(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -9689,7 +9689,7 @@ define hidden void @zim_ReflectionUnionType_getTypes(ptr nocapture noundef reado
 
 18:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
   br label %208
@@ -9703,7 +9703,7 @@ define hidden void @zim_ReflectionUnionType_getTypes(ptr nocapture noundef reado
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %.critedge
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not62 = icmp eq ptr %27, null
   br i1 %.not62, label %33, label %28
 
@@ -9716,7 +9716,7 @@ define hidden void @zim_ReflectionUnionType_getTypes(ptr nocapture noundef reado
 
 33:                                               ; preds = %28, %26
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %35)
   br label %208
@@ -10107,7 +10107,7 @@ define hidden void @zim_ReflectionIntersectionType_getTypes(ptr nocapture nounde
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %.critedge
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not20 = icmp eq ptr %13, null
   br i1 %.not20, label %19, label %14
 
@@ -10161,7 +10161,7 @@ define hidden void @zim_ReflectionIntersectionType_getTypes(ptr nocapture nounde
   br i1 %37, label %.lr.ph, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %6, %19
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   tail call void @llvm.assume(i1 %39)
   br label %.loopexit
@@ -10191,7 +10191,7 @@ define internal fastcc void @instantiate_reflection_method(ptr noundef %0, ptr n
 
 10:                                               ; preds = %9
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.149) #13
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not341 = icmp eq ptr %11, null
   br i1 %.not341, label %thread-pre-split, label %204
 
@@ -10323,7 +10323,7 @@ thread-pre-split:                                 ; preds = %10
 
 45:                                               ; preds = %44
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.150) #13
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %47 = icmp ne ptr %46, null
   call void @llvm.assume(i1 %47)
   br label %204
@@ -10365,7 +10365,7 @@ thread-pre-split:                                 ; preds = %10
 67:                                               ; preds = %62
   %68 = load ptr, ptr @reflection_exception_ptr, align 8
   call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %68, i32 noundef 1, ptr noundef nonnull @.str.151) #13
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %70 = icmp ne ptr %69, null
   call void @llvm.assume(i1 %70)
   br label %204
@@ -10413,7 +10413,7 @@ thread-pre-split:                                 ; preds = %10
   br i1 %95, label %96, label %118
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not355 = icmp eq ptr %97, null
   br i1 %.not355, label %98, label %102
 
@@ -10453,7 +10453,7 @@ thread-pre-split:                                 ; preds = %10
   br label %115
 
 115:                                              ; preds = %102, %113, %114, %106
-  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %117 = icmp ne ptr %116, null
   call void @llvm.assume(i1 %117)
   br label %204
@@ -10550,7 +10550,7 @@ thread-pre-split:                                 ; preds = %10
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %161 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %157, i64 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull %160, ptr noundef nonnull %.0312455466) #13
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %163 = icmp ne ptr %162, null
   call void @llvm.assume(i1 %163)
   br label %204
@@ -10643,7 +10643,7 @@ define hidden void @zim_ReflectionMethod___toString(ptr nocapture noundef readon
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %84
@@ -10657,7 +10657,7 @@ define hidden void @zim_ReflectionMethod___toString(ptr nocapture noundef readon
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not121 = icmp eq ptr %15, null
   br i1 %.not121, label %21, label %16
 
@@ -10670,7 +10670,7 @@ define hidden void @zim_ReflectionMethod___toString(ptr nocapture noundef readon
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %84
@@ -10798,7 +10798,7 @@ define hidden void @zim_ReflectionMethod_getClosure(ptr nocapture noundef readon
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %67
@@ -10812,7 +10812,7 @@ define hidden void @zim_ReflectionMethod_getClosure(ptr nocapture noundef readon
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not30 = icmp eq ptr %18, null
   br i1 %.not30, label %24, label %19
 
@@ -10825,7 +10825,7 @@ define hidden void @zim_ReflectionMethod_getClosure(ptr nocapture noundef readon
 
 24:                                               ; preds = %19, %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %67
@@ -10850,7 +10850,7 @@ define hidden void @zim_ReflectionMethod_getClosure(ptr nocapture noundef readon
 
 36:                                               ; preds = %34
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.34) #13
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
   br label %67
@@ -10878,7 +10878,7 @@ define hidden void @zim_ReflectionMethod_getClosure(ptr nocapture noundef readon
 48:                                               ; preds = %46
   %49 = load ptr, ptr @reflection_exception_ptr, align 8
   %50 = call ptr @zend_throw_exception(ptr noundef %49, ptr noundef nonnull @.str.35, i64 noundef 0) #13
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %52 = icmp ne ptr %51, null
   call void @llvm.assume(i1 %52)
   br label %67
@@ -10935,7 +10935,7 @@ define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapt
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not148 = icmp eq ptr %13, null
   br i1 %.not148, label %19, label %14
 
@@ -10948,7 +10948,7 @@ define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapt
 
 19:                                               ; preds = %14, %12
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
   br label %169
@@ -10971,7 +10971,7 @@ define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapt
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %27, i64 noundef 0, ptr noundef nonnull @.str.152, ptr noundef nonnull %32, ptr noundef nonnull %35) #13
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %38)
   br label %169
@@ -11043,7 +11043,7 @@ define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapt
   br label %65
 
 62:                                               ; preds = %59
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %64 = icmp ne ptr %63, null
   call void @llvm.assume(i1 %64)
   br label %169
@@ -11076,7 +11076,7 @@ define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapt
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %72, i64 noundef 0, ptr noundef nonnull @.str.154, ptr noundef nonnull %77, ptr noundef nonnull %80) #13
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %83 = icmp ne ptr %82, null
   call void @llvm.assume(i1 %83)
   br label %169
@@ -11108,7 +11108,7 @@ define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapt
 95:                                               ; preds = %94, %93
   %96 = load ptr, ptr @reflection_exception_ptr, align 8
   %97 = call ptr @zend_throw_exception(ptr noundef %96, ptr noundef nonnull @.str.35, i64 noundef 0) #13
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %99 = icmp ne ptr %98, null
   call void @llvm.assume(i1 %99)
   br label %169
@@ -11160,7 +11160,7 @@ _copy_function.exit:                              ; preds = %.critedge2, %112
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %123 = load i8, ptr %122, align 8
   %124 = icmp eq i8 %123, 0
-  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not146 = icmp eq ptr %125, null
   %or.cond = select i1 %124, i1 %.not146, i1 false
   br i1 %or.cond, label %126, label %139
@@ -11176,7 +11176,7 @@ _copy_function.exit:                              ; preds = %.critedge2, %112
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %127, i64 noundef 0, ptr noundef nonnull @.str.155, ptr noundef nonnull %132, ptr noundef nonnull %135) #13
-  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %138 = icmp ne ptr %137, null
   call void @llvm.assume(i1 %138)
   br label %169
@@ -11254,7 +11254,7 @@ define hidden void @zim_ReflectionMethod_isFinal(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_function_check_flag.exit
@@ -11268,7 +11268,7 @@ define hidden void @zim_ReflectionMethod_isFinal(ptr nocapture noundef readonly 
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -11281,7 +11281,7 @@ define hidden void @zim_ReflectionMethod_isFinal(ptr nocapture noundef readonly 
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_function_check_flag.exit
@@ -11309,7 +11309,7 @@ define hidden void @zim_ReflectionMethod_isAbstract(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_function_check_flag.exit
@@ -11323,7 +11323,7 @@ define hidden void @zim_ReflectionMethod_isAbstract(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -11336,7 +11336,7 @@ define hidden void @zim_ReflectionMethod_isAbstract(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_function_check_flag.exit
@@ -11364,7 +11364,7 @@ define hidden void @zim_ReflectionMethod_isPublic(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_function_check_flag.exit
@@ -11378,7 +11378,7 @@ define hidden void @zim_ReflectionMethod_isPublic(ptr nocapture noundef readonly
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -11391,7 +11391,7 @@ define hidden void @zim_ReflectionMethod_isPublic(ptr nocapture noundef readonly
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_function_check_flag.exit
@@ -11418,7 +11418,7 @@ define hidden void @zim_ReflectionMethod_isPrivate(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_function_check_flag.exit
@@ -11432,7 +11432,7 @@ define hidden void @zim_ReflectionMethod_isPrivate(ptr nocapture noundef readonl
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -11445,7 +11445,7 @@ define hidden void @zim_ReflectionMethod_isPrivate(ptr nocapture noundef readonl
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_function_check_flag.exit
@@ -11473,7 +11473,7 @@ define hidden void @zim_ReflectionMethod_isProtected(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_function_check_flag.exit
@@ -11487,7 +11487,7 @@ define hidden void @zim_ReflectionMethod_isProtected(ptr nocapture noundef reado
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -11500,7 +11500,7 @@ define hidden void @zim_ReflectionMethod_isProtected(ptr nocapture noundef reado
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_function_check_flag.exit
@@ -11528,7 +11528,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isDeprecated(ptr nocapture no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_function_check_flag.exit
@@ -11542,7 +11542,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isDeprecated(ptr nocapture no
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -11555,7 +11555,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isDeprecated(ptr nocapture no
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_function_check_flag.exit
@@ -11583,7 +11583,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isGenerator(ptr nocapture nou
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_function_check_flag.exit
@@ -11597,7 +11597,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isGenerator(ptr nocapture nou
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -11610,7 +11610,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isGenerator(ptr nocapture nou
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_function_check_flag.exit
@@ -11638,7 +11638,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isVariadic(ptr nocapture noun
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_function_check_flag.exit
@@ -11652,7 +11652,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isVariadic(ptr nocapture noun
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -11665,7 +11665,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isVariadic(ptr nocapture noun
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_function_check_flag.exit
@@ -11693,7 +11693,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isStatic(ptr nocapture nounde
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_function_check_flag.exit
@@ -11707,7 +11707,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isStatic(ptr nocapture nounde
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -11720,7 +11720,7 @@ define hidden void @zim_ReflectionFunctionAbstract_isStatic(ptr nocapture nounde
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_function_check_flag.exit
@@ -11748,7 +11748,7 @@ define hidden void @zim_ReflectionFunctionAbstract_inNamespace(ptr nocapture nou
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
@@ -11762,7 +11762,7 @@ define hidden void @zim_ReflectionFunctionAbstract_inNamespace(ptr nocapture nou
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %20, label %15
 
@@ -11775,7 +11775,7 @@ define hidden void @zim_ReflectionFunctionAbstract_inNamespace(ptr nocapture nou
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %32
@@ -11806,7 +11806,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNamespaceName(ptr nocaptur
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %46
@@ -11820,7 +11820,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNamespaceName(ptr nocaptur
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not79 = icmp eq ptr %14, null
   br i1 %.not79, label %20, label %15
 
@@ -11833,7 +11833,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getNamespaceName(ptr nocaptur
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %46
@@ -11891,7 +11891,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getShortName(ptr nocapture no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %55
@@ -11905,7 +11905,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getShortName(ptr nocapture no
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not87 = icmp eq ptr %14, null
   br i1 %.not87, label %20, label %15
 
@@ -11918,7 +11918,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getShortName(ptr nocapture no
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %55
@@ -11993,7 +11993,7 @@ define hidden void @zim_ReflectionFunctionAbstract_hasReturnType(ptr nocapture n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %37
@@ -12007,7 +12007,7 @@ define hidden void @zim_ReflectionFunctionAbstract_hasReturnType(ptr nocapture n
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not10 = icmp eq ptr %14, null
   br i1 %.not10, label %20, label %15
 
@@ -12020,7 +12020,7 @@ define hidden void @zim_ReflectionFunctionAbstract_hasReturnType(ptr nocapture n
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %37
@@ -12061,7 +12061,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getReturnType(ptr nocapture n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %38
@@ -12075,7 +12075,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getReturnType(ptr nocapture n
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %20, label %15
 
@@ -12088,7 +12088,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getReturnType(ptr nocapture n
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %38
@@ -12133,7 +12133,7 @@ define hidden void @zim_ReflectionFunctionAbstract_hasTentativeReturnType(ptr no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %37
@@ -12147,7 +12147,7 @@ define hidden void @zim_ReflectionFunctionAbstract_hasTentativeReturnType(ptr no
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not10 = icmp eq ptr %14, null
   br i1 %.not10, label %20, label %15
 
@@ -12160,7 +12160,7 @@ define hidden void @zim_ReflectionFunctionAbstract_hasTentativeReturnType(ptr no
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %37
@@ -12201,7 +12201,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getTentativeReturnType(ptr no
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %38
@@ -12215,7 +12215,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getTentativeReturnType(ptr no
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %20, label %15
 
@@ -12228,7 +12228,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getTentativeReturnType(ptr no
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %38
@@ -12273,7 +12273,7 @@ define hidden void @zim_ReflectionMethod_isConstructor(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %42
@@ -12287,7 +12287,7 @@ define hidden void @zim_ReflectionMethod_isConstructor(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %20, label %15
 
@@ -12300,7 +12300,7 @@ define hidden void @zim_ReflectionMethod_isConstructor(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %42
@@ -12348,7 +12348,7 @@ define hidden void @zim_ReflectionMethod_isDestructor(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %36
@@ -12362,7 +12362,7 @@ define hidden void @zim_ReflectionMethod_isDestructor(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %20, label %15
 
@@ -12375,7 +12375,7 @@ define hidden void @zim_ReflectionMethod_isDestructor(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %36
@@ -12414,7 +12414,7 @@ define hidden void @zim_ReflectionMethod_getModifiers(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -12428,7 +12428,7 @@ define hidden void @zim_ReflectionMethod_getModifiers(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %20, label %15
 
@@ -12441,7 +12441,7 @@ define hidden void @zim_ReflectionMethod_getModifiers(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -12469,7 +12469,7 @@ define hidden void @zim_ReflectionMethod_getDeclaringClass(ptr nocapture noundef
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %53
@@ -12483,7 +12483,7 @@ define hidden void @zim_ReflectionMethod_getDeclaringClass(ptr nocapture noundef
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -12496,7 +12496,7 @@ define hidden void @zim_ReflectionMethod_getDeclaringClass(ptr nocapture noundef
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %53
@@ -12561,7 +12561,7 @@ define hidden void @zim_ReflectionMethod_hasPrototype(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %28
@@ -12575,7 +12575,7 @@ define hidden void @zim_ReflectionMethod_hasPrototype(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -12588,7 +12588,7 @@ define hidden void @zim_ReflectionMethod_hasPrototype(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %28
@@ -12615,7 +12615,7 @@ define hidden void @zim_ReflectionMethod_getPrototype(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %82
@@ -12629,7 +12629,7 @@ define hidden void @zim_ReflectionMethod_getPrototype(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %20, label %15
 
@@ -12642,7 +12642,7 @@ define hidden void @zim_ReflectionMethod_getPrototype(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %82
@@ -12664,7 +12664,7 @@ define hidden void @zim_ReflectionMethod_getPrototype(ptr nocapture noundef read
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %27, i64 noundef 0, ptr noundef nonnull @.str.37, ptr noundef nonnull %32, ptr noundef nonnull %35) #13
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %38)
   br label %82
@@ -12752,7 +12752,7 @@ define hidden void @zim_ReflectionMethod_setAccessible(ptr nocapture noundef rea
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %11
@@ -12848,7 +12848,7 @@ define hidden void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr 
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %33, i64 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %35) #13
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
   br label %114
@@ -12869,7 +12869,7 @@ define hidden void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr 
   br i1 %.not172, label %57, label %47
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %49 = ptrtoint ptr %46 to i64
   %50 = getelementptr inbounds i8, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
@@ -12905,7 +12905,7 @@ define hidden void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr 
   %67 = load ptr, ptr %4, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %63, i64 noundef 0, ptr noundef nonnull @.str.39, ptr noundef nonnull %66, ptr noundef nonnull %68) #13
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %114
@@ -12992,7 +12992,7 @@ define hidden void @zim_ReflectionClassConstant___toString(ptr nocapture noundef
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %98
@@ -13006,7 +13006,7 @@ define hidden void @zim_ReflectionClassConstant___toString(ptr nocapture noundef
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not131 = icmp eq ptr %15, null
   br i1 %.not131, label %21, label %16
 
@@ -13019,7 +13019,7 @@ define hidden void @zim_ReflectionClassConstant___toString(ptr nocapture noundef
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %98
@@ -13041,7 +13041,7 @@ define hidden void @zim_ReflectionClassConstant___toString(ptr nocapture noundef
 
 33:                                               ; preds = %24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.40) #13
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %35)
   br label %98
@@ -13442,7 +13442,7 @@ define hidden void @zim_ReflectionClassConstant_getName(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %43
@@ -13464,7 +13464,7 @@ define hidden void @zim_ReflectionClassConstant_getName(ptr nocapture noundef re
 
 19:                                               ; preds = %.critedge
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.40) #13
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
   br label %43
@@ -13524,7 +13524,7 @@ define hidden void @zim_ReflectionClassConstant_getType(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
@@ -13538,7 +13538,7 @@ define hidden void @zim_ReflectionClassConstant_getType(ptr nocapture noundef re
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not10 = icmp eq ptr %14, null
   br i1 %.not10, label %20, label %15
 
@@ -13551,7 +13551,7 @@ define hidden void @zim_ReflectionClassConstant_getType(ptr nocapture noundef re
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %32
@@ -13587,7 +13587,7 @@ define hidden void @zim_ReflectionClassConstant_hasType(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -13601,7 +13601,7 @@ define hidden void @zim_ReflectionClassConstant_hasType(ptr nocapture noundef re
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -13614,7 +13614,7 @@ define hidden void @zim_ReflectionClassConstant_hasType(ptr nocapture noundef re
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -13642,7 +13642,7 @@ define hidden void @zim_ReflectionClassConstant_isPublic(ptr nocapture noundef r
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_constant_check_flag.exit
@@ -13656,7 +13656,7 @@ define hidden void @zim_ReflectionClassConstant_isPublic(ptr nocapture noundef r
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -13669,7 +13669,7 @@ define hidden void @zim_ReflectionClassConstant_isPublic(ptr nocapture noundef r
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_constant_check_flag.exit
@@ -13696,7 +13696,7 @@ define hidden void @zim_ReflectionClassConstant_isPrivate(ptr nocapture noundef 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_constant_check_flag.exit
@@ -13710,7 +13710,7 @@ define hidden void @zim_ReflectionClassConstant_isPrivate(ptr nocapture noundef 
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -13723,7 +13723,7 @@ define hidden void @zim_ReflectionClassConstant_isPrivate(ptr nocapture noundef 
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_constant_check_flag.exit
@@ -13751,7 +13751,7 @@ define hidden void @zim_ReflectionClassConstant_isProtected(ptr nocapture nounde
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_constant_check_flag.exit
@@ -13765,7 +13765,7 @@ define hidden void @zim_ReflectionClassConstant_isProtected(ptr nocapture nounde
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -13778,7 +13778,7 @@ define hidden void @zim_ReflectionClassConstant_isProtected(ptr nocapture nounde
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_constant_check_flag.exit
@@ -13806,7 +13806,7 @@ define hidden void @zim_ReflectionClassConstant_isFinal(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_constant_check_flag.exit
@@ -13820,7 +13820,7 @@ define hidden void @zim_ReflectionClassConstant_isFinal(ptr nocapture noundef re
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -13833,7 +13833,7 @@ define hidden void @zim_ReflectionClassConstant_isFinal(ptr nocapture noundef re
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_constant_check_flag.exit
@@ -13861,7 +13861,7 @@ define hidden void @zim_ReflectionClassConstant_getModifiers(ptr nocapture nound
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -13875,7 +13875,7 @@ define hidden void @zim_ReflectionClassConstant_getModifiers(ptr nocapture nound
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %20, label %15
 
@@ -13888,7 +13888,7 @@ define hidden void @zim_ReflectionClassConstant_getModifiers(ptr nocapture nound
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -13916,7 +13916,7 @@ define hidden void @zim_ReflectionClassConstant_getValue(ptr nocapture noundef r
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %65
@@ -13930,7 +13930,7 @@ define hidden void @zim_ReflectionClassConstant_getValue(ptr nocapture noundef r
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not33 = icmp eq ptr %14, null
   br i1 %.not33, label %20, label %15
 
@@ -13943,7 +13943,7 @@ define hidden void @zim_ReflectionClassConstant_getValue(ptr nocapture noundef r
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %65
@@ -13963,7 +13963,7 @@ define hidden void @zim_ReflectionClassConstant_getValue(ptr nocapture noundef r
 
 33:                                               ; preds = %23
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.40) #13
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %35)
   br label %65
@@ -13983,7 +13983,7 @@ define hidden void @zim_ReflectionClassConstant_getValue(ptr nocapture noundef r
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %40
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %48 = icmp ne ptr %47, null
   tail call void @llvm.assume(i1 %48)
   br label %65
@@ -14035,7 +14035,7 @@ define hidden void @zim_ReflectionClassConstant_getDeclaringClass(ptr nocapture 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %53
@@ -14049,7 +14049,7 @@ define hidden void @zim_ReflectionClassConstant_getDeclaringClass(ptr nocapture 
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -14062,7 +14062,7 @@ define hidden void @zim_ReflectionClassConstant_getDeclaringClass(ptr nocapture 
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %53
@@ -14127,7 +14127,7 @@ define hidden void @zim_ReflectionClassConstant_getDocComment(ptr nocapture noun
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %38
@@ -14141,7 +14141,7 @@ define hidden void @zim_ReflectionClassConstant_getDocComment(ptr nocapture noun
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %20, label %15
 
@@ -14154,7 +14154,7 @@ define hidden void @zim_ReflectionClassConstant_getDocComment(ptr nocapture noun
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %38
@@ -14205,7 +14205,7 @@ define hidden void @zim_ReflectionClassConstant_getAttributes(ptr nocapture noun
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
@@ -14218,7 +14218,7 @@ define hidden void @zim_ReflectionClassConstant_getAttributes(ptr nocapture noun
 
 15:                                               ; preds = %10, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %31
@@ -14258,7 +14258,7 @@ define hidden void @zim_ReflectionClassConstant_isEnumCase(ptr nocapture noundef
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not6 = icmp eq ptr %9, null
   br i1 %.not6, label %15, label %10
 
@@ -14271,7 +14271,7 @@ define hidden void @zim_ReflectionClassConstant_isEnumCase(ptr nocapture noundef
 
 15:                                               ; preds = %10, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %24
@@ -14434,7 +14434,7 @@ define internal fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 no
   br i1 %58, label %59, label %69
 
 59:                                               ; preds = %53
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not180 = icmp eq ptr %60, null
   br i1 %.not180, label %61, label %67
 
@@ -14443,7 +14443,7 @@ define internal fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 no
   %63 = load ptr, ptr %3, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %62, i64 noundef -1, ptr noundef nonnull @.str.18, ptr noundef nonnull %64) #13
-  %.pre68 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.pre68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %66 = icmp ne ptr %.pre68, null
   br label %67
 
@@ -14514,7 +14514,7 @@ define hidden void @zim_ReflectionClass_getStaticProperties(ptr nocapture nounde
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %.critedge
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not66 = icmp eq ptr %12, null
   br i1 %.not66, label %18, label %13
 
@@ -14549,7 +14549,7 @@ define hidden void @zim_ReflectionClass_getStaticProperties(ptr nocapture nounde
   br i1 %.not57, label %33, label %29
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 %27
   %32 = load ptr, ptr %31, align 8
   br label %33
@@ -14625,7 +14625,7 @@ define hidden void @zim_ReflectionClass_getStaticProperties(ptr nocapture nounde
   br i1 %.not63, label %74, label %70
 
 70:                                               ; preds = %66
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 %68
   %73 = load ptr, ptr %72, align 8
   br label %74
@@ -14690,7 +14690,7 @@ define hidden void @zim_ReflectionClass_getStaticProperties(ptr nocapture nounde
   br i1 %.not60, label %.loopexit, label %49
 
 .loopexit.sink.split:                             ; preds = %19, %5, %18
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %106 = icmp ne ptr %105, null
   tail call void @llvm.assume(i1 %106)
   br label %.loopexit
@@ -14717,7 +14717,7 @@ define hidden void @zim_ReflectionClass_getStaticPropertyValue(ptr nocapture nou
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %78
@@ -14731,7 +14731,7 @@ define hidden void @zim_ReflectionClass_getStaticPropertyValue(ptr nocapture nou
   br i1 %17, label %18, label %28
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not49 = icmp eq ptr %19, null
   br i1 %.not49, label %25, label %20
 
@@ -14744,7 +14744,7 @@ define hidden void @zim_ReflectionClass_getStaticPropertyValue(ptr nocapture nou
 
 25:                                               ; preds = %20, %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %78
@@ -14755,17 +14755,17 @@ define hidden void @zim_ReflectionClass_getStaticPropertyValue(ptr nocapture nou
   br i1 %.not, label %33, label %30
 
 30:                                               ; preds = %28
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %78
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %35 = load ptr, ptr %3, align 8
   %36 = call ptr @zend_std_get_static_property(ptr noundef nonnull %16, ptr noundef %35, i32 noundef 3) #13
-  store ptr %34, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %.not44 = icmp eq ptr %36, null
   br i1 %.not44, label %59, label %37
 
@@ -14862,7 +14862,7 @@ define hidden void @zim_ReflectionClass_setStaticPropertyValue(ptr nocapture nou
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %75
@@ -14876,7 +14876,7 @@ define hidden void @zim_ReflectionClass_setStaticPropertyValue(ptr nocapture nou
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %13
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not31 = icmp eq ptr %20, null
   br i1 %.not31, label %26, label %21
 
@@ -14889,7 +14889,7 @@ define hidden void @zim_ReflectionClass_setStaticPropertyValue(ptr nocapture nou
 
 26:                                               ; preds = %21, %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %75
@@ -14900,17 +14900,17 @@ define hidden void @zim_ReflectionClass_setStaticPropertyValue(ptr nocapture nou
   br i1 %.not, label %34, label %31
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %75
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %36 = load ptr, ptr %4, align 8
   %37 = call ptr @zend_std_get_static_property_with_info(ptr noundef nonnull %17, ptr noundef %36, i32 noundef 1, ptr noundef nonnull %3) #13
-  store ptr %35, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %.not28 = icmp eq ptr %37, null
   br i1 %.not28, label %38, label %48
 
@@ -14923,7 +14923,7 @@ define hidden void @zim_ReflectionClass_setStaticPropertyValue(ptr nocapture nou
   %43 = load ptr, ptr %4, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %39, i64 noundef 0, ptr noundef nonnull @.str.44, ptr noundef nonnull %42, ptr noundef nonnull %44) #13
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %47 = icmp ne ptr %46, null
   call void @llvm.assume(i1 %47)
   br label %75
@@ -14995,7 +14995,7 @@ define hidden void @zim_ReflectionClass_getDefaultProperties(ptr nocapture nound
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %31
@@ -15009,7 +15009,7 @@ define hidden void @zim_ReflectionClass_getDefaultProperties(ptr nocapture nound
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %20, label %15
 
@@ -15022,7 +15022,7 @@ define hidden void @zim_ReflectionClass_getDefaultProperties(ptr nocapture nound
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %31
@@ -15037,7 +15037,7 @@ define hidden void @zim_ReflectionClass_getDefaultProperties(ptr nocapture nound
   br i1 %.not14, label %30, label %27
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
   tail call void @llvm.assume(i1 %29)
   br label %31
@@ -15210,7 +15210,7 @@ define hidden void @zim_ReflectionClass___toString(ptr nocapture noundef readonl
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %83
@@ -15224,7 +15224,7 @@ define hidden void @zim_ReflectionClass___toString(ptr nocapture noundef readonl
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not121 = icmp eq ptr %15, null
   br i1 %.not121, label %21, label %16
 
@@ -15237,7 +15237,7 @@ define hidden void @zim_ReflectionClass___toString(ptr nocapture noundef readonl
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %83
@@ -15600,7 +15600,7 @@ define internal fastcc void @_class_string(ptr noundef nonnull %0, ptr noundef %
   br i1 %.not517, label %139, label %129
 
 129:                                              ; preds = %126
-  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %131 = ptrtoint ptr %128 to i64
   %132 = getelementptr inbounds i8, ptr %130, i64 %131
   %133 = load ptr, ptr %132, align 8
@@ -15649,7 +15649,7 @@ define internal fastcc void @_class_string(ptr noundef nonnull %0, ptr noundef %
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %.0470588, align 8
   tail call fastcc void @_class_const_string(ptr noundef %0, ptr noundef %156, ptr noundef %157, ptr noundef nonnull %149)
-  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not568 = icmp eq ptr %158, null
   br i1 %.not568, label %172, label %159
 
@@ -16355,11 +16355,11 @@ is_closure_invoke.exit.thread:                    ; preds = %460, %455, %465, %i
   br label %500
 
 500:                                              ; preds = %499, %494, %488
-  %501 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
+  %501 = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1288)
   br i1 %501, label %502, label %503
 
 502:                                              ; preds = %500
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1296), align 8
   br label %_free_function.exit
 
 503:                                              ; preds = %500
@@ -16501,7 +16501,7 @@ define hidden void @zim_ReflectionClass_getName(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %35
@@ -16515,7 +16515,7 @@ define hidden void @zim_ReflectionClass_getName(ptr nocapture noundef readonly %
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %20, label %15
 
@@ -16528,7 +16528,7 @@ define hidden void @zim_ReflectionClass_getName(ptr nocapture noundef readonly %
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %35
@@ -16569,7 +16569,7 @@ define hidden void @zim_ReflectionClass_isInternal(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %28
@@ -16583,7 +16583,7 @@ define hidden void @zim_ReflectionClass_isInternal(ptr nocapture noundef readonl
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -16596,7 +16596,7 @@ define hidden void @zim_ReflectionClass_isInternal(ptr nocapture noundef readonl
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %28
@@ -16622,7 +16622,7 @@ define hidden void @zim_ReflectionClass_isUserDefined(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %28
@@ -16636,7 +16636,7 @@ define hidden void @zim_ReflectionClass_isUserDefined(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -16649,7 +16649,7 @@ define hidden void @zim_ReflectionClass_isUserDefined(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %28
@@ -16675,7 +16675,7 @@ define hidden void @zim_ReflectionClass_isAnonymous(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -16689,7 +16689,7 @@ define hidden void @zim_ReflectionClass_isAnonymous(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -16702,7 +16702,7 @@ define hidden void @zim_ReflectionClass_isAnonymous(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -16730,7 +16730,7 @@ define hidden void @zim_ReflectionClass_getFileName(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -16744,7 +16744,7 @@ define hidden void @zim_ReflectionClass_getFileName(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not17 = icmp eq ptr %14, null
   br i1 %.not17, label %20, label %15
 
@@ -16757,7 +16757,7 @@ define hidden void @zim_ReflectionClass_getFileName(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -16808,7 +16808,7 @@ define hidden void @zim_ReflectionClass_getStartLine(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %33
@@ -16822,7 +16822,7 @@ define hidden void @zim_ReflectionClass_getStartLine(ptr nocapture noundef reado
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %20, label %15
 
@@ -16835,7 +16835,7 @@ define hidden void @zim_ReflectionClass_getStartLine(ptr nocapture noundef reado
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %33
@@ -16872,7 +16872,7 @@ define hidden void @zim_ReflectionClass_getEndLine(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %33
@@ -16886,7 +16886,7 @@ define hidden void @zim_ReflectionClass_getEndLine(ptr nocapture noundef readonl
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %20, label %15
 
@@ -16899,7 +16899,7 @@ define hidden void @zim_ReflectionClass_getEndLine(ptr nocapture noundef readonl
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %33
@@ -16936,7 +16936,7 @@ define hidden void @zim_ReflectionClass_getDocComment(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %38
@@ -16950,7 +16950,7 @@ define hidden void @zim_ReflectionClass_getDocComment(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %20, label %15
 
@@ -16963,7 +16963,7 @@ define hidden void @zim_ReflectionClass_getDocComment(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %38
@@ -17014,7 +17014,7 @@ define hidden void @zim_ReflectionClass_getAttributes(ptr nocapture noundef read
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
@@ -17027,7 +17027,7 @@ define hidden void @zim_ReflectionClass_getAttributes(ptr nocapture noundef read
 
 15:                                               ; preds = %10, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %29
@@ -17064,7 +17064,7 @@ define hidden void @zim_ReflectionClass_getConstructor(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %70
@@ -17078,7 +17078,7 @@ define hidden void @zim_ReflectionClass_getConstructor(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %20, label %15
 
@@ -17091,7 +17091,7 @@ define hidden void @zim_ReflectionClass_getConstructor(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %70
@@ -17189,7 +17189,7 @@ define hidden void @zim_ReflectionClass_hasMethod(ptr nocapture noundef readonly
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %54
@@ -17203,7 +17203,7 @@ define hidden void @zim_ReflectionClass_hasMethod(ptr nocapture noundef readonly
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not24 = icmp eq ptr %18, null
   br i1 %.not24, label %24, label %19
 
@@ -17216,7 +17216,7 @@ define hidden void @zim_ReflectionClass_hasMethod(ptr nocapture noundef readonly
 
 24:                                               ; preds = %19, %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %54
@@ -17295,7 +17295,7 @@ define hidden void @zim_ReflectionClass_getMethod(ptr nocapture noundef readonly
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %166
@@ -17310,7 +17310,7 @@ define hidden void @zim_ReflectionClass_getMethod(ptr nocapture noundef readonly
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not52 = icmp eq ptr %20, null
   br i1 %.not52, label %26, label %21
 
@@ -17323,7 +17323,7 @@ define hidden void @zim_ReflectionClass_getMethod(ptr nocapture noundef readonly
 
 26:                                               ; preds = %21, %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %166
@@ -17602,7 +17602,7 @@ define hidden void @zim_ReflectionClass_getMethods(ptr nocapture noundef readonl
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %193
@@ -17625,7 +17625,7 @@ define hidden void @zim_ReflectionClass_getMethods(ptr nocapture noundef readonl
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not47 = icmp eq ptr %27, null
   br i1 %.not47, label %33, label %28
 
@@ -17638,7 +17638,7 @@ define hidden void @zim_ReflectionClass_getMethods(ptr nocapture noundef readonl
 
 33:                                               ; preds = %28, %26
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %193
@@ -17927,11 +17927,11 @@ _addmethod.exit62:                                ; preds = %153, %169
   br label %188
 
 188:                                              ; preds = %187, %182, %176
-  %189 = icmp eq ptr %118, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
+  %189 = icmp eq ptr %118, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1288)
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %188
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1296), align 8
   br label %_free_function.exit
 
 191:                                              ; preds = %188
@@ -17959,7 +17959,7 @@ define hidden void @zim_ReflectionClass_hasProperty(ptr nocapture noundef readon
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %59
@@ -17974,7 +17974,7 @@ define hidden void @zim_ReflectionClass_hasProperty(ptr nocapture noundef readon
   br i1 %17, label %18, label %28
 
 18:                                               ; preds = %11
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not30 = icmp eq ptr %19, null
   br i1 %.not30, label %25, label %20
 
@@ -17987,7 +17987,7 @@ define hidden void @zim_ReflectionClass_hasProperty(ptr nocapture noundef readon
 
 25:                                               ; preds = %20, %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %59
@@ -18064,7 +18064,7 @@ define hidden void @zim_ReflectionClass_getProperty(ptr nocapture noundef readon
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %230
@@ -18079,7 +18079,7 @@ define hidden void @zim_ReflectionClass_getProperty(ptr nocapture noundef readon
   br i1 %17, label %18, label %28
 
 18:                                               ; preds = %11
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not152 = icmp eq ptr %19, null
   br i1 %.not152, label %25, label %20
 
@@ -18092,7 +18092,7 @@ define hidden void @zim_ReflectionClass_getProperty(ptr nocapture noundef readon
 
 25:                                               ; preds = %20, %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %230
@@ -18338,7 +18338,7 @@ reflection_property_factory.exit160:              ; preds = %130, %143
   br i1 %.not145, label %172, label %189
 
 172:                                              ; preds = %151
-  %173 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not146 = icmp eq ptr %173, null
   br i1 %.not146, label %174, label %177
 
@@ -18367,7 +18367,7 @@ reflection_property_factory.exit160:              ; preds = %130, %143
   br label %186
 
 186:                                              ; preds = %177, %185, %180
-  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %188 = icmp ne ptr %187, null
   call void @llvm.assume(i1 %188)
   br label %230
@@ -18408,7 +18408,7 @@ reflection_property_factory.exit160:              ; preds = %130, %143
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %210 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %203, i64 noundef -1, ptr noundef nonnull @.str.47, ptr noundef nonnull %206, ptr noundef nonnull %170, ptr noundef nonnull %209) #13
-  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %212 = icmp ne ptr %211, null
   call void @llvm.assume(i1 %212)
   br label %230
@@ -18611,7 +18611,7 @@ define hidden void @zim_ReflectionClass_getProperties(ptr nocapture noundef read
   br i1 %21, label %22, label %30
 
 22:                                               ; preds = %16
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not67 = icmp eq ptr %23, null
   br i1 %.not67, label %29, label %24
 
@@ -18927,7 +18927,7 @@ _adddynproperty.exit:                             ; preds = %138, %reflection_pr
   br i1 %.not65, label %.loopexit, label %125
 
 .loopexit.sink.split:                             ; preds = %2, %29
-  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %189 = icmp ne ptr %188, null
   call void @llvm.assume(i1 %189)
   br label %.loopexit
@@ -18946,7 +18946,7 @@ define hidden void @zim_ReflectionClass_hasConstant(ptr nocapture noundef readon
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %34
@@ -18960,7 +18960,7 @@ define hidden void @zim_ReflectionClass_hasConstant(ptr nocapture noundef readon
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not10 = icmp eq ptr %18, null
   br i1 %.not10, label %24, label %19
 
@@ -18973,7 +18973,7 @@ define hidden void @zim_ReflectionClass_hasConstant(ptr nocapture noundef readon
 
 24:                                               ; preds = %19, %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %34
@@ -19028,7 +19028,7 @@ define hidden void @zim_ReflectionClass_getConstants(ptr nocapture noundef reado
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not66 = icmp eq ptr %21, null
   br i1 %.not66, label %27, label %22
 
@@ -19061,7 +19061,7 @@ define hidden void @zim_ReflectionClass_getConstants(ptr nocapture noundef reado
   br i1 %.not58, label %47, label %37
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %39 = ptrtoint ptr %36 to i64
   %40 = getelementptr inbounds i8, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
@@ -19174,7 +19174,7 @@ define hidden void @zim_ReflectionClass_getConstants(ptr nocapture noundef reado
   br i1 %.not62, label %.loopexit, label %60
 
 .loopexit.sink.split:                             ; preds = %71, %2, %27
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %101 = icmp ne ptr %100, null
   call void @llvm.assume(i1 %101)
   br label %.loopexit
@@ -19213,7 +19213,7 @@ define hidden void @zim_ReflectionClass_getReflectionConstants(ptr nocapture nou
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not46 = icmp eq ptr %21, null
   br i1 %.not46, label %27, label %22
 
@@ -19246,7 +19246,7 @@ define hidden void @zim_ReflectionClass_getReflectionConstants(ptr nocapture nou
   br i1 %.not40, label %47, label %37
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %39 = ptrtoint ptr %36 to i64
   %40 = getelementptr inbounds i8, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
@@ -19378,7 +19378,7 @@ reflection_class_constant_factory.exit:           ; preds = %93, %108
   br i1 %.not44, label %.loopexit, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %2, %27
-  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %117 = icmp ne ptr %116, null
   call void @llvm.assume(i1 %117)
   br label %.loopexit
@@ -19397,7 +19397,7 @@ define hidden void @zim_ReflectionClass_getConstant(ptr nocapture noundef readon
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %96
@@ -19411,7 +19411,7 @@ define hidden void @zim_ReflectionClass_getConstant(ptr nocapture noundef readon
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not71 = icmp eq ptr %18, null
   br i1 %.not71, label %24, label %19
 
@@ -19424,7 +19424,7 @@ define hidden void @zim_ReflectionClass_getConstant(ptr nocapture noundef readon
 
 24:                                               ; preds = %19, %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %96
@@ -19443,7 +19443,7 @@ define hidden void @zim_ReflectionClass_getConstant(ptr nocapture noundef readon
   br i1 %.not63, label %44, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %36 = ptrtoint ptr %33 to i64
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
@@ -19504,7 +19504,7 @@ define hidden void @zim_ReflectionClass_getConstant(ptr nocapture noundef readon
   br i1 %.not73, label %.critedge, label %70
 
 70:                                               ; preds = %64
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %72 = icmp ne ptr %71, null
   call void @llvm.assume(i1 %72)
   br label %96
@@ -19572,7 +19572,7 @@ define hidden void @zim_ReflectionClass_getReflectionConstant(ptr nocapture noun
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not34 = icmp eq ptr %10, null
   br i1 %.not34, label %16, label %11
 
@@ -19585,7 +19585,7 @@ define hidden void @zim_ReflectionClass_getReflectionConstant(ptr nocapture noun
 
 16:                                               ; preds = %11, %9
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %94
@@ -19598,7 +19598,7 @@ define hidden void @zim_ReflectionClass_getReflectionConstant(ptr nocapture noun
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %94
@@ -19617,7 +19617,7 @@ define hidden void @zim_ReflectionClass_getReflectionConstant(ptr nocapture noun
   br i1 %.not30, label %44, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %36 = ptrtoint ptr %33 to i64
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
@@ -19732,7 +19732,7 @@ define hidden void @zim_ReflectionClass_isInstantiable(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -19746,7 +19746,7 @@ define hidden void @zim_ReflectionClass_isInstantiable(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %20, label %15
 
@@ -19759,7 +19759,7 @@ define hidden void @zim_ReflectionClass_isInstantiable(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -19810,7 +19810,7 @@ define hidden void @zim_ReflectionClass_isCloneable(ptr nocapture noundef readon
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %73
@@ -19825,7 +19825,7 @@ define hidden void @zim_ReflectionClass_isCloneable(ptr nocapture noundef readon
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %.critedge
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not30 = icmp eq ptr %16, null
   br i1 %.not30, label %22, label %17
 
@@ -19838,7 +19838,7 @@ define hidden void @zim_ReflectionClass_isCloneable(ptr nocapture noundef readon
 
 22:                                               ; preds = %17, %15
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %24)
   br label %73
@@ -19936,7 +19936,7 @@ define hidden void @zim_ReflectionClass_isInterface(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_check_flag.exit
@@ -19950,7 +19950,7 @@ define hidden void @zim_ReflectionClass_isInterface(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -19963,7 +19963,7 @@ define hidden void @zim_ReflectionClass_isInterface(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_check_flag.exit
@@ -19990,7 +19990,7 @@ define hidden void @zim_ReflectionClass_isTrait(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_check_flag.exit
@@ -20004,7 +20004,7 @@ define hidden void @zim_ReflectionClass_isTrait(ptr nocapture noundef readonly %
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -20017,7 +20017,7 @@ define hidden void @zim_ReflectionClass_isTrait(ptr nocapture noundef readonly %
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_check_flag.exit
@@ -20045,7 +20045,7 @@ define hidden void @zim_ReflectionClass_isEnum(ptr nocapture noundef readonly %0
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_check_flag.exit
@@ -20059,7 +20059,7 @@ define hidden void @zim_ReflectionClass_isEnum(ptr nocapture noundef readonly %0
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -20072,7 +20072,7 @@ define hidden void @zim_ReflectionClass_isEnum(ptr nocapture noundef readonly %0
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_check_flag.exit
@@ -20100,7 +20100,7 @@ define hidden void @zim_ReflectionClass_isFinal(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_check_flag.exit
@@ -20114,7 +20114,7 @@ define hidden void @zim_ReflectionClass_isFinal(ptr nocapture noundef readonly %
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -20127,7 +20127,7 @@ define hidden void @zim_ReflectionClass_isFinal(ptr nocapture noundef readonly %
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_check_flag.exit
@@ -20155,7 +20155,7 @@ define hidden void @zim_ReflectionClass_isReadOnly(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_check_flag.exit
@@ -20169,7 +20169,7 @@ define hidden void @zim_ReflectionClass_isReadOnly(ptr nocapture noundef readonl
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -20182,7 +20182,7 @@ define hidden void @zim_ReflectionClass_isReadOnly(ptr nocapture noundef readonl
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_check_flag.exit
@@ -20210,7 +20210,7 @@ define hidden void @zim_ReflectionClass_isAbstract(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_class_check_flag.exit
@@ -20224,7 +20224,7 @@ define hidden void @zim_ReflectionClass_isAbstract(ptr nocapture noundef readonl
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8.i = icmp eq ptr %14, null
   br i1 %.not8.i, label %20, label %15
 
@@ -20237,7 +20237,7 @@ define hidden void @zim_ReflectionClass_isAbstract(ptr nocapture noundef readonl
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_class_check_flag.exit
@@ -20265,7 +20265,7 @@ define hidden void @zim_ReflectionClass_getModifiers(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -20279,7 +20279,7 @@ define hidden void @zim_ReflectionClass_getModifiers(ptr nocapture noundef reado
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %20, label %15
 
@@ -20292,7 +20292,7 @@ define hidden void @zim_ReflectionClass_getModifiers(ptr nocapture noundef reado
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -20321,7 +20321,7 @@ define hidden void @zim_ReflectionClass_isInstance(ptr nocapture noundef readonl
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %39
@@ -20335,7 +20335,7 @@ define hidden void @zim_ReflectionClass_isInstance(ptr nocapture noundef readonl
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %24, label %19
 
@@ -20348,7 +20348,7 @@ define hidden void @zim_ReflectionClass_isInstance(ptr nocapture noundef readonl
 
 24:                                               ; preds = %19, %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %39
@@ -20386,7 +20386,7 @@ define hidden void @zim_ReflectionClass_newInstance(ptr noundef %0, ptr noundef 
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not62 = icmp eq ptr %9, null
   br i1 %.not62, label %15, label %10
 
@@ -20399,7 +20399,7 @@ define hidden void @zim_ReflectionClass_newInstance(ptr noundef %0, ptr noundef 
 
 15:                                               ; preds = %10, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %68
@@ -20410,15 +20410,15 @@ define hidden void @zim_ReflectionClass_newInstance(ptr noundef %0, ptr noundef 
   br i1 %.not, label %20, label %68
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %22 = load ptr, ptr %1, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef %22) #13
-  store ptr %21, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %.not56 = icmp eq ptr %27, null
   br i1 %.not56, label %59, label %28
 
@@ -20463,7 +20463,7 @@ define hidden void @zim_ReflectionClass_newInstance(ptr noundef %0, ptr noundef 
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   tail call void @zend_call_known_function(ptr noundef nonnull %27, ptr noundef %50, ptr noundef %52, ptr noundef null, i32 noundef %41, ptr noundef %.1, ptr noundef %.151) #13
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not61 = icmp eq ptr %53, null
   br i1 %.not61, label %68, label %54
 
@@ -20505,7 +20505,7 @@ define hidden void @zim_ReflectionClass_newInstanceWithoutConstructor(ptr nocapt
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not13 = icmp eq ptr %9, null
   br i1 %.not13, label %15, label %10
 
@@ -20518,7 +20518,7 @@ define hidden void @zim_ReflectionClass_newInstanceWithoutConstructor(ptr nocapt
 
 15:                                               ; preds = %10, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %43
@@ -20531,7 +20531,7 @@ define hidden void @zim_ReflectionClass_newInstanceWithoutConstructor(ptr nocapt
 
 21:                                               ; preds = %18
   tail call void @zend_wrong_parameters_none_error() #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %43
@@ -20560,7 +20560,7 @@ define hidden void @zim_ReflectionClass_newInstanceWithoutConstructor(ptr nocapt
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %34, i64 noundef 0, ptr noundef nonnull @.str.51, ptr noundef nonnull %37) #13
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %40)
   br label %43
@@ -20585,7 +20585,7 @@ define hidden void @zim_ReflectionClass_newInstanceArgs(ptr nocapture noundef re
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not31 = icmp eq ptr %10, null
   br i1 %.not31, label %16, label %11
 
@@ -20598,7 +20598,7 @@ define hidden void @zim_ReflectionClass_newInstanceArgs(ptr nocapture noundef re
 
 16:                                               ; preds = %11, %9
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %72
@@ -20611,7 +20611,7 @@ define hidden void @zim_ReflectionClass_newInstanceArgs(ptr nocapture noundef re
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %72
@@ -20634,15 +20634,15 @@ define hidden void @zim_ReflectionClass_newInstanceArgs(ptr nocapture noundef re
   br i1 %.not26, label %35, label %72
 
 35:                                               ; preds = %33
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %37 = load ptr, ptr %1, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 120
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr %41(ptr noundef %37) #13
-  store ptr %36, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %.not27 = icmp eq ptr %42, null
   br i1 %.not27, label %65, label %43
 
@@ -20670,7 +20670,7 @@ define hidden void @zim_ReflectionClass_newInstanceArgs(ptr nocapture noundef re
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %3, align 8
   call void @zend_call_known_function(ptr noundef nonnull %42, ptr noundef %55, ptr noundef %57, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %58) #13
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not30 = icmp eq ptr %59, null
   br i1 %.not30, label %72, label %60
 
@@ -20707,7 +20707,7 @@ define hidden void @zim_ReflectionClass_getInterfaces(ptr nocapture noundef read
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %.loopexit
@@ -20721,7 +20721,7 @@ define hidden void @zim_ReflectionClass_getInterfaces(ptr nocapture noundef read
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %21, label %16
 
@@ -20734,7 +20734,7 @@ define hidden void @zim_ReflectionClass_getInterfaces(ptr nocapture noundef read
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %.loopexit
@@ -20842,7 +20842,7 @@ define hidden void @zim_ReflectionClass_getInterfaceNames(ptr nocapture noundef 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %.loopexit
@@ -20856,7 +20856,7 @@ define hidden void @zim_ReflectionClass_getInterfaceNames(ptr nocapture noundef 
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %20, label %15
 
@@ -20869,7 +20869,7 @@ define hidden void @zim_ReflectionClass_getInterfaceNames(ptr nocapture noundef 
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %.loopexit
@@ -20945,7 +20945,7 @@ define hidden void @zim_ReflectionClass_getTraits(ptr nocapture noundef readonly
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %.loopexit
@@ -20959,7 +20959,7 @@ define hidden void @zim_ReflectionClass_getTraits(ptr nocapture noundef readonly
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not26 = icmp eq ptr %15, null
   br i1 %.not26, label %21, label %16
 
@@ -20972,7 +20972,7 @@ define hidden void @zim_ReflectionClass_getTraits(ptr nocapture noundef readonly
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %.loopexit
@@ -21080,7 +21080,7 @@ define hidden void @zim_ReflectionClass_getTraitNames(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %.loopexit
@@ -21094,7 +21094,7 @@ define hidden void @zim_ReflectionClass_getTraitNames(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %20, label %15
 
@@ -21107,7 +21107,7 @@ define hidden void @zim_ReflectionClass_getTraitNames(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %.loopexit
@@ -21175,7 +21175,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %.loopexit125
@@ -21189,7 +21189,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not124 = icmp eq ptr %14, null
   br i1 %.not124, label %20, label %15
 
@@ -21202,7 +21202,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %.loopexit125
@@ -21260,7 +21260,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %42, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %42 ]
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %51 = load ptr, ptr %32, align 8
   %52 = getelementptr inbounds nuw %struct._zend_class_name, ptr %51, i64 %indvars.iv, i32 1
   %53 = load ptr, ptr %52, align 8
@@ -21373,7 +21373,7 @@ define hidden void @zim_ReflectionClass_getParentClass(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %56
@@ -21387,7 +21387,7 @@ define hidden void @zim_ReflectionClass_getParentClass(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %20, label %15
 
@@ -21400,7 +21400,7 @@ define hidden void @zim_ReflectionClass_getParentClass(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %56
@@ -21562,7 +21562,7 @@ thread-pre-split:                                 ; preds = %20
 
 41:                                               ; preds = %36
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.55) #13
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   tail call void @llvm.assume(i1 %43)
   br label %76
@@ -21578,7 +21578,7 @@ thread-pre-split:                                 ; preds = %20
   %49 = load ptr, ptr %3, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %48, i64 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %50) #13
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %53 = icmp ne ptr %52, null
   call void @llvm.assume(i1 %53)
   br label %76
@@ -21592,7 +21592,7 @@ thread-pre-split:                                 ; preds = %20
   br i1 %58, label %59, label %69
 
 59:                                               ; preds = %54
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not105 = icmp eq ptr %60, null
   br i1 %.not105, label %66, label %61
 
@@ -21605,7 +21605,7 @@ thread-pre-split:                                 ; preds = %20
 
 66:                                               ; preds = %61, %59
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %68 = icmp ne ptr %67, null
   call void @llvm.assume(i1 %68)
   br label %76
@@ -21726,7 +21726,7 @@ thread-pre-split:                                 ; preds = %20
 
 41:                                               ; preds = %36
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.55) #13
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp ne ptr %42, null
   tail call void @llvm.assume(i1 %43)
   br label %89
@@ -21742,7 +21742,7 @@ thread-pre-split:                                 ; preds = %20
   %49 = load ptr, ptr %3, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %48, i64 noundef 0, ptr noundef nonnull @.str.56, ptr noundef nonnull %50) #13
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %53 = icmp ne ptr %52, null
   call void @llvm.assume(i1 %53)
   br label %89
@@ -21761,7 +21761,7 @@ thread-pre-split:                                 ; preds = %20
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %59, i64 noundef 0, ptr noundef nonnull @.str.57, ptr noundef nonnull %62) #13
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %65 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %65)
   br label %89
@@ -21774,7 +21774,7 @@ thread-pre-split:                                 ; preds = %20
   br i1 %70, label %71, label %81
 
 71:                                               ; preds = %66
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not105 = icmp eq ptr %72, null
   br i1 %.not105, label %78, label %73
 
@@ -21787,7 +21787,7 @@ thread-pre-split:                                 ; preds = %20
 
 78:                                               ; preds = %73, %71
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %80 = icmp ne ptr %79, null
   call void @llvm.assume(i1 %80)
   br label %89
@@ -21820,7 +21820,7 @@ define hidden void @zim_ReflectionClass_isIterable(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %41
@@ -21834,7 +21834,7 @@ define hidden void @zim_ReflectionClass_isIterable(ptr nocapture noundef readonl
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not17 = icmp eq ptr %14, null
   br i1 %.not17, label %20, label %15
 
@@ -21847,7 +21847,7 @@ define hidden void @zim_ReflectionClass_isIterable(ptr nocapture noundef readonl
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %41
@@ -21899,7 +21899,7 @@ define hidden void @zim_ReflectionClass_getExtension(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
@@ -21913,7 +21913,7 @@ define hidden void @zim_ReflectionClass_getExtension(ptr nocapture noundef reado
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %20, label %15
 
@@ -21926,7 +21926,7 @@ define hidden void @zim_ReflectionClass_getExtension(ptr nocapture noundef reado
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %32
@@ -21961,7 +21961,7 @@ define hidden void @zim_ReflectionClass_getExtensionName(ptr nocapture noundef r
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %44
@@ -21975,7 +21975,7 @@ define hidden void @zim_ReflectionClass_getExtensionName(ptr nocapture noundef r
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not71 = icmp eq ptr %14, null
   br i1 %.not71, label %20, label %15
 
@@ -21988,7 +21988,7 @@ define hidden void @zim_ReflectionClass_getExtensionName(ptr nocapture noundef r
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %44
@@ -22045,7 +22045,7 @@ define hidden void @zim_ReflectionClass_inNamespace(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
@@ -22059,7 +22059,7 @@ define hidden void @zim_ReflectionClass_inNamespace(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %20, label %15
 
@@ -22072,7 +22072,7 @@ define hidden void @zim_ReflectionClass_inNamespace(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %32
@@ -22103,7 +22103,7 @@ define hidden void @zim_ReflectionClass_getNamespaceName(ptr nocapture noundef r
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %46
@@ -22117,7 +22117,7 @@ define hidden void @zim_ReflectionClass_getNamespaceName(ptr nocapture noundef r
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not79 = icmp eq ptr %14, null
   br i1 %.not79, label %20, label %15
 
@@ -22130,7 +22130,7 @@ define hidden void @zim_ReflectionClass_getNamespaceName(ptr nocapture noundef r
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %46
@@ -22188,7 +22188,7 @@ define hidden void @zim_ReflectionClass_getShortName(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %55
@@ -22202,7 +22202,7 @@ define hidden void @zim_ReflectionClass_getShortName(ptr nocapture noundef reado
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not87 = icmp eq ptr %14, null
   br i1 %.not87, label %20, label %15
 
@@ -22215,7 +22215,7 @@ define hidden void @zim_ReflectionClass_getShortName(ptr nocapture noundef reado
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %55
@@ -22370,7 +22370,7 @@ define hidden void @zim_ReflectionProperty___construct(ptr noundef %0, ptr nocap
   %32 = load ptr, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %31, i64 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %33) #13
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %128
@@ -22427,7 +22427,7 @@ define hidden void @zim_ReflectionProperty___construct(ptr noundef %0, ptr nocap
   %67 = load ptr, ptr %4, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %63, i64 noundef 0, ptr noundef nonnull @.str.42, ptr noundef nonnull %66, ptr noundef nonnull %68) #13
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %128
@@ -22548,7 +22548,7 @@ define hidden void @zim_ReflectionProperty___toString(ptr nocapture noundef read
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %86
@@ -22562,7 +22562,7 @@ define hidden void @zim_ReflectionProperty___toString(ptr nocapture noundef read
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not121 = icmp eq ptr %15, null
   br i1 %.not121, label %21, label %16
 
@@ -22575,7 +22575,7 @@ define hidden void @zim_ReflectionProperty___toString(ptr nocapture noundef read
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %86
@@ -23143,7 +23143,7 @@ define hidden void @zim_ReflectionProperty_getName(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %35
@@ -23157,7 +23157,7 @@ define hidden void @zim_ReflectionProperty_getName(ptr nocapture noundef readonl
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %20, label %15
 
@@ -23170,7 +23170,7 @@ define hidden void @zim_ReflectionProperty_getName(ptr nocapture noundef readonl
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %35
@@ -23211,7 +23211,7 @@ define hidden void @zim_ReflectionProperty_isPublic(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_property_check_flag.exit
@@ -23225,7 +23225,7 @@ define hidden void @zim_ReflectionProperty_isPublic(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12.i = icmp eq ptr %14, null
   br i1 %.not12.i, label %20, label %15
 
@@ -23238,7 +23238,7 @@ define hidden void @zim_ReflectionProperty_isPublic(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_property_check_flag.exit
@@ -23274,7 +23274,7 @@ define hidden void @zim_ReflectionProperty_isPrivate(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_property_check_flag.exit
@@ -23288,7 +23288,7 @@ define hidden void @zim_ReflectionProperty_isPrivate(ptr nocapture noundef reado
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12.i = icmp eq ptr %14, null
   br i1 %.not12.i, label %20, label %15
 
@@ -23301,7 +23301,7 @@ define hidden void @zim_ReflectionProperty_isPrivate(ptr nocapture noundef reado
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_property_check_flag.exit
@@ -23338,7 +23338,7 @@ define hidden void @zim_ReflectionProperty_isProtected(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_property_check_flag.exit
@@ -23352,7 +23352,7 @@ define hidden void @zim_ReflectionProperty_isProtected(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12.i = icmp eq ptr %14, null
   br i1 %.not12.i, label %20, label %15
 
@@ -23365,7 +23365,7 @@ define hidden void @zim_ReflectionProperty_isProtected(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_property_check_flag.exit
@@ -23402,7 +23402,7 @@ define hidden void @zim_ReflectionProperty_isStatic(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_property_check_flag.exit
@@ -23416,7 +23416,7 @@ define hidden void @zim_ReflectionProperty_isStatic(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12.i = icmp eq ptr %14, null
   br i1 %.not12.i, label %20, label %15
 
@@ -23429,7 +23429,7 @@ define hidden void @zim_ReflectionProperty_isStatic(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_property_check_flag.exit
@@ -23466,7 +23466,7 @@ define hidden void @zim_ReflectionProperty_isReadOnly(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_property_check_flag.exit
@@ -23480,7 +23480,7 @@ define hidden void @zim_ReflectionProperty_isReadOnly(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12.i = icmp eq ptr %14, null
   br i1 %.not12.i, label %20, label %15
 
@@ -23493,7 +23493,7 @@ define hidden void @zim_ReflectionProperty_isReadOnly(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_property_check_flag.exit
@@ -23530,7 +23530,7 @@ define hidden void @zim_ReflectionProperty_isDefault(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %27
@@ -23544,7 +23544,7 @@ define hidden void @zim_ReflectionProperty_isDefault(ptr nocapture noundef reado
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -23557,7 +23557,7 @@ define hidden void @zim_ReflectionProperty_isDefault(ptr nocapture noundef reado
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %27
@@ -23583,7 +23583,7 @@ define hidden void @zim_ReflectionProperty_isPromoted(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %_property_check_flag.exit
@@ -23597,7 +23597,7 @@ define hidden void @zim_ReflectionProperty_isPromoted(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge.i
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12.i = icmp eq ptr %14, null
   br i1 %.not12.i, label %20, label %15
 
@@ -23610,7 +23610,7 @@ define hidden void @zim_ReflectionProperty_isPromoted(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %_property_check_flag.exit
@@ -23647,7 +23647,7 @@ define hidden void @zim_ReflectionProperty_getModifiers(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %33
@@ -23661,7 +23661,7 @@ define hidden void @zim_ReflectionProperty_getModifiers(ptr nocapture noundef re
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %20, label %15
 
@@ -23674,7 +23674,7 @@ define hidden void @zim_ReflectionProperty_getModifiers(ptr nocapture noundef re
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %33
@@ -23714,7 +23714,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %140
@@ -23728,7 +23728,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   br i1 %17, label %18, label %28
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not123 = icmp eq ptr %19, null
   br i1 %.not123, label %25, label %20
 
@@ -23741,7 +23741,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
 
 25:                                               ; preds = %20, %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %140
@@ -23817,7 +23817,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
 
 64:                                               ; preds = %.critedge125
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.58) #13
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %66 = icmp ne ptr %65, null
   call void @llvm.assume(i1 %66)
   br label %140
@@ -23845,7 +23845,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
 77:                                               ; preds = %75
   %78 = load ptr, ptr @reflection_exception_ptr, align 8
   %79 = call ptr @zend_throw_exception(ptr noundef %78, ptr noundef nonnull @.str.59, i64 noundef 0) #13
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %81 = icmp ne ptr %80, null
   call void @llvm.assume(i1 %81)
   br label %140
@@ -23980,7 +23980,7 @@ define hidden void @zim_ReflectionProperty_setValue(ptr nocapture noundef readon
   br i1 %10, label %11, label %21
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not48 = icmp eq ptr %12, null
   br i1 %.not48, label %18, label %13
 
@@ -23993,7 +23993,7 @@ define hidden void @zim_ReflectionProperty_setValue(ptr nocapture noundef readon
 
 18:                                               ; preds = %13, %11
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
   br label %100
@@ -24024,7 +24024,7 @@ define hidden void @zim_ReflectionProperty_setValue(ptr nocapture noundef readon
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %100
@@ -24071,7 +24071,7 @@ define hidden void @zim_ReflectionProperty_setValue(ptr nocapture noundef readon
   br label %59
 
 59:                                               ; preds = %50, %58, %57, %44
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not47 = icmp eq ptr %60, null
   br i1 %.not47, label %78, label %100
 
@@ -24108,7 +24108,7 @@ define hidden void @zim_ReflectionProperty_setValue(ptr nocapture noundef readon
   br label %76
 
 76:                                               ; preds = %67, %75, %74, %61
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not42 = icmp eq ptr %77, null
   br i1 %.not42, label %78, label %100
 
@@ -24129,7 +24129,7 @@ define hidden void @zim_ReflectionProperty_setValue(ptr nocapture noundef readon
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %.critedge
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %91 = icmp ne ptr %90, null
   call void @llvm.assume(i1 %91)
   br label %100
@@ -24170,7 +24170,7 @@ define hidden void @zim_ReflectionProperty_isInitialized(ptr nocapture noundef r
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %79
@@ -24184,7 +24184,7 @@ define hidden void @zim_ReflectionProperty_isInitialized(ptr nocapture noundef r
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not38 = icmp eq ptr %18, null
   br i1 %.not38, label %24, label %19
 
@@ -24197,7 +24197,7 @@ define hidden void @zim_ReflectionProperty_isInitialized(ptr nocapture noundef r
 
 24:                                               ; preds = %19, %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %79
@@ -24244,7 +24244,7 @@ define hidden void @zim_ReflectionProperty_isInitialized(ptr nocapture noundef r
 
 48:                                               ; preds = %.critedge40
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.58) #13
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %50 = icmp ne ptr %49, null
   call void @llvm.assume(i1 %50)
   br label %79
@@ -24271,16 +24271,16 @@ define hidden void @zim_ReflectionProperty_isInitialized(ptr nocapture noundef r
 61:                                               ; preds = %59
   %62 = load ptr, ptr @reflection_exception_ptr, align 8
   %63 = call ptr @zend_throw_exception(ptr noundef %62, ptr noundef nonnull @.str.59, i64 noundef 0) #13
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %65 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %65)
   br label %79
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %51
   %66 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %47, %51 ]
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %68 = load ptr, ptr %56, align 8
-  store ptr %68, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %68, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %69 = load ptr, ptr %66, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
@@ -24289,7 +24289,7 @@ define hidden void @zim_ReflectionProperty_isInitialized(ptr nocapture noundef r
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 %73(ptr noundef %69, ptr noundef %75, i32 noundef 2, ptr noundef null) #13
-  store ptr %67, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 496), align 8
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8
   %.not35 = icmp eq i32 %76, 0
   %77 = select i1 %.not35, i32 2, i32 3
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -24309,7 +24309,7 @@ define hidden void @zim_ReflectionProperty_getDeclaringClass(ptr nocapture nound
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %55
@@ -24323,7 +24323,7 @@ define hidden void @zim_ReflectionProperty_getDeclaringClass(ptr nocapture nound
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %20, label %15
 
@@ -24336,7 +24336,7 @@ define hidden void @zim_ReflectionProperty_getDeclaringClass(ptr nocapture nound
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %55
@@ -24405,7 +24405,7 @@ define hidden void @zim_ReflectionProperty_getDocComment(ptr nocapture noundef r
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -24419,7 +24419,7 @@ define hidden void @zim_ReflectionProperty_getDocComment(ptr nocapture noundef r
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %20, label %15
 
@@ -24432,7 +24432,7 @@ define hidden void @zim_ReflectionProperty_getDocComment(ptr nocapture noundef r
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -24488,7 +24488,7 @@ define hidden void @zim_ReflectionProperty_getAttributes(ptr nocapture noundef r
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
@@ -24501,7 +24501,7 @@ define hidden void @zim_ReflectionProperty_getAttributes(ptr nocapture noundef r
 
 15:                                               ; preds = %10, %8
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %36
@@ -24552,7 +24552,7 @@ define hidden void @zim_ReflectionProperty_setAccessible(ptr nocapture noundef r
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %11
@@ -24570,7 +24570,7 @@ define hidden void @zim_ReflectionProperty_getType(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %34
@@ -24584,7 +24584,7 @@ define hidden void @zim_ReflectionProperty_getType(ptr nocapture noundef readonl
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %20, label %15
 
@@ -24597,7 +24597,7 @@ define hidden void @zim_ReflectionProperty_getType(ptr nocapture noundef readonl
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %34
@@ -24638,7 +24638,7 @@ define hidden void @zim_ReflectionProperty_hasType(ptr nocapture noundef readonl
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %33
@@ -24652,7 +24652,7 @@ define hidden void @zim_ReflectionProperty_hasType(ptr nocapture noundef readonl
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %20, label %15
 
@@ -24665,7 +24665,7 @@ define hidden void @zim_ReflectionProperty_hasType(ptr nocapture noundef readonl
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %33
@@ -24702,7 +24702,7 @@ define hidden void @zim_ReflectionProperty_hasDefaultValue(ptr nocapture noundef
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %56
@@ -24716,7 +24716,7 @@ define hidden void @zim_ReflectionProperty_hasDefaultValue(ptr nocapture noundef
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not14 = icmp eq ptr %14, null
   br i1 %.not14, label %20, label %15
 
@@ -24729,7 +24729,7 @@ define hidden void @zim_ReflectionProperty_hasDefaultValue(ptr nocapture noundef
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %56
@@ -24811,7 +24811,7 @@ define hidden void @zim_ReflectionProperty_getDefaultValue(ptr nocapture noundef
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %.critedge
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not38 = icmp eq ptr %12, null
   br i1 %.not38, label %18, label %13
 
@@ -24922,7 +24922,7 @@ property_get_default.exit:                        ; preds = %29, %37, %39
   br i1 %.not37, label %76, label %.sink.split
 
 .sink.split:                                      ; preds = %71, %5, %18
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %75 = icmp ne ptr %74, null
   tail call void @llvm.assume(i1 %75)
   br label %76
@@ -24943,7 +24943,7 @@ define hidden void @zim_ReflectionExtension___construct(ptr nocapture noundef re
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %63
@@ -24984,7 +24984,7 @@ define hidden void @zim_ReflectionExtension___construct(ptr nocapture noundef re
   %32 = load ptr, ptr @reflection_exception_ptr, align 8
   %33 = load ptr, ptr %3, align 8
   %34 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %32, i64 noundef 0, ptr noundef nonnull @.str.66, ptr noundef %33) #13
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
   br label %63
@@ -25052,7 +25052,7 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %560
@@ -25066,7 +25066,7 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %.critedge
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not120 = icmp eq ptr %18, null
   br i1 %.not120, label %24, label %19
 
@@ -25079,7 +25079,7 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 
 24:                                               ; preds = %19, %17
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %26)
   br label %560
@@ -25414,7 +25414,7 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 
 173:                                              ; preds = %._crit_edge.i, %66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 816), align 8
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 816), align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 24
@@ -25710,7 +25710,7 @@ _extension_ini_string.exit.i:                     ; preds = %263, %189, %185
   %301 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %301, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %302 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %304 = load ptr, ptr %303, align 8
   %305 = getelementptr inbounds nuw i8, ptr %302, i64 24
@@ -25888,7 +25888,7 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
 384:                                              ; preds = %383, %._crit_edge19.thread.i
   %385 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %385, align 8
-  %386 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  %386 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds nuw i8, ptr %386, i64 24
@@ -25955,7 +25955,7 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
 ._crit_edge25.thread.i:                           ; preds = %._crit_edge25.thread82.i, %._crit_edge25.i, %384
   %412 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.10) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %413 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 16
   %415 = load ptr, ptr %414, align 8
   %416 = getelementptr inbounds nuw i8, ptr %413, i64 24
@@ -26261,7 +26261,7 @@ define hidden void @zim_ReflectionExtension_getName(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %36
@@ -26275,7 +26275,7 @@ define hidden void @zim_ReflectionExtension_getName(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not66 = icmp eq ptr %14, null
   br i1 %.not66, label %20, label %15
 
@@ -26288,7 +26288,7 @@ define hidden void @zim_ReflectionExtension_getName(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %36
@@ -26329,7 +26329,7 @@ define hidden void @zim_ReflectionExtension_getVersion(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -26343,7 +26343,7 @@ define hidden void @zim_ReflectionExtension_getVersion(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not69 = icmp eq ptr %14, null
   br i1 %.not69, label %20, label %15
 
@@ -26356,7 +26356,7 @@ define hidden void @zim_ReflectionExtension_getVersion(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -26418,7 +26418,7 @@ define hidden void @zim_ReflectionExtension_getFunctions(ptr nocapture noundef r
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %.critedge
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %19, label %14
 
@@ -26438,7 +26438,7 @@ define hidden void @zim_ReflectionExtension_getFunctions(ptr nocapture noundef r
   store ptr %21, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -26520,7 +26520,7 @@ reflection_function_factory.exit:                 ; preds = %44, %63
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %6, %19
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %73 = icmp ne ptr %72, null
   tail call void @llvm.assume(i1 %73)
   br label %.loopexit
@@ -26550,7 +26550,7 @@ define hidden void @zim_ReflectionExtension_getConstants(ptr nocapture noundef r
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %.critedge
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not43 = icmp eq ptr %13, null
   br i1 %.not43, label %19, label %14
 
@@ -26570,7 +26570,7 @@ define hidden void @zim_ReflectionExtension_getConstants(ptr nocapture noundef r
   store ptr %21, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 448), align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -26649,7 +26649,7 @@ define hidden void @zim_ReflectionExtension_getConstants(ptr nocapture noundef r
   br i1 %.not40, label %.loopexit, label %35
 
 .loopexit.sink.split:                             ; preds = %6, %19
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %70 = icmp ne ptr %69, null
   tail call void @llvm.assume(i1 %70)
   br label %.loopexit
@@ -26680,7 +26680,7 @@ define hidden void @zim_ReflectionExtension_getINIEntries(ptr nocapture noundef 
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %20, label %15
 
@@ -26700,7 +26700,7 @@ define hidden void @zim_ReflectionExtension_getINIEntries(ptr nocapture noundef 
   store ptr %22, ptr %1, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %23, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 816), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 816), align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -26808,7 +26808,7 @@ _addinientry.exit:                                ; preds = %40, %73, %.critedge
   br i1 %.not25, label %.loopexit, label %36
 
 .loopexit.sink.split:                             ; preds = %7, %20
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %80 = icmp ne ptr %79, null
   tail call void @llvm.assume(i1 %80)
   br label %.loopexit
@@ -26837,7 +26837,7 @@ define hidden void @zim_ReflectionExtension_getClasses(ptr nocapture noundef rea
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %.critedge
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not28 = icmp eq ptr %12, null
   br i1 %.not28, label %18, label %13
 
@@ -26857,7 +26857,7 @@ define hidden void @zim_ReflectionExtension_getClasses(ptr nocapture noundef rea
   store ptr %20, ptr %1, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -26892,7 +26892,7 @@ define hidden void @zim_ReflectionExtension_getClasses(ptr nocapture noundef rea
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %5, %18
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %42 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %42)
   br label %.loopexit
@@ -27035,7 +27035,7 @@ define hidden void @zim_ReflectionExtension_getClassNames(ptr nocapture noundef 
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %.critedge
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not28 = icmp eq ptr %12, null
   br i1 %.not28, label %18, label %13
 
@@ -27055,7 +27055,7 @@ define hidden void @zim_ReflectionExtension_getClassNames(ptr nocapture noundef 
   store ptr %20, ptr %1, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %21, align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 440), align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -27148,7 +27148,7 @@ add_extension_class.exit:                         ; preds = %72, %46, %43, %37, 
   br i1 %.not27, label %.loopexit, label %33
 
 .loopexit.sink.split:                             ; preds = %5, %18
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %76 = icmp ne ptr %75, null
   tail call void @llvm.assume(i1 %76)
   br label %.loopexit
@@ -27166,7 +27166,7 @@ define hidden void @zim_ReflectionExtension_getDependencies(ptr nocapture nounde
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %.loopexit
@@ -27180,7 +27180,7 @@ define hidden void @zim_ReflectionExtension_getDependencies(ptr nocapture nounde
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not104 = icmp eq ptr %14, null
   br i1 %.not104, label %20, label %15
 
@@ -27193,7 +27193,7 @@ define hidden void @zim_ReflectionExtension_getDependencies(ptr nocapture nounde
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %.loopexit
@@ -27307,7 +27307,7 @@ define hidden void @zim_ReflectionExtension_info(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %24
@@ -27321,7 +27321,7 @@ define hidden void @zim_ReflectionExtension_info(ptr nocapture noundef readonly 
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not6 = icmp eq ptr %14, null
   br i1 %.not6, label %20, label %15
 
@@ -27334,7 +27334,7 @@ define hidden void @zim_ReflectionExtension_info(ptr nocapture noundef readonly 
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %24
@@ -27358,7 +27358,7 @@ define hidden void @zim_ReflectionExtension_isPersistent(ptr nocapture noundef r
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -27372,7 +27372,7 @@ define hidden void @zim_ReflectionExtension_isPersistent(ptr nocapture noundef r
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -27385,7 +27385,7 @@ define hidden void @zim_ReflectionExtension_isPersistent(ptr nocapture noundef r
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -27412,7 +27412,7 @@ define hidden void @zim_ReflectionExtension_isTemporary(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %29
@@ -27426,7 +27426,7 @@ define hidden void @zim_ReflectionExtension_isTemporary(ptr nocapture noundef re
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -27439,7 +27439,7 @@ define hidden void @zim_ReflectionExtension_isTemporary(ptr nocapture noundef re
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %29
@@ -27469,7 +27469,7 @@ define hidden void @zim_ReflectionZendExtension___construct(ptr nocapture nounde
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %45
@@ -27485,7 +27485,7 @@ define hidden void @zim_ReflectionZendExtension___construct(ptr nocapture nounde
   %18 = load ptr, ptr @reflection_exception_ptr, align 8
   %19 = load ptr, ptr %3, align 8
   %20 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %18, i64 noundef 0, ptr noundef nonnull @.str.73, ptr noundef %19) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %45
@@ -27543,7 +27543,7 @@ define hidden void @zim_ReflectionZendExtension___toString(ptr nocapture noundef
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %106
@@ -27557,7 +27557,7 @@ define hidden void @zim_ReflectionZendExtension___toString(ptr nocapture noundef
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not120 = icmp eq ptr %15, null
   br i1 %.not120, label %21, label %16
 
@@ -27570,7 +27570,7 @@ define hidden void @zim_ReflectionZendExtension___toString(ptr nocapture noundef
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %106
@@ -27747,7 +27747,7 @@ define hidden void @zim_ReflectionZendExtension_getName(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %35
@@ -27761,7 +27761,7 @@ define hidden void @zim_ReflectionZendExtension_getName(ptr nocapture noundef re
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not66 = icmp eq ptr %14, null
   br i1 %.not66, label %20, label %15
 
@@ -27774,7 +27774,7 @@ define hidden void @zim_ReflectionZendExtension_getName(ptr nocapture noundef re
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %35
@@ -27814,7 +27814,7 @@ define hidden void @zim_ReflectionZendExtension_getVersion(ptr nocapture noundef
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -27828,7 +27828,7 @@ define hidden void @zim_ReflectionZendExtension_getVersion(ptr nocapture noundef
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not73 = icmp eq ptr %14, null
   br i1 %.not73, label %20, label %15
 
@@ -27841,7 +27841,7 @@ define hidden void @zim_ReflectionZendExtension_getVersion(ptr nocapture noundef
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -27893,7 +27893,7 @@ define hidden void @zim_ReflectionZendExtension_getAuthor(ptr nocapture noundef 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -27907,7 +27907,7 @@ define hidden void @zim_ReflectionZendExtension_getAuthor(ptr nocapture noundef 
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not73 = icmp eq ptr %14, null
   br i1 %.not73, label %20, label %15
 
@@ -27920,7 +27920,7 @@ define hidden void @zim_ReflectionZendExtension_getAuthor(ptr nocapture noundef 
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -27972,7 +27972,7 @@ define hidden void @zim_ReflectionZendExtension_getURL(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -27986,7 +27986,7 @@ define hidden void @zim_ReflectionZendExtension_getURL(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not73 = icmp eq ptr %14, null
   br i1 %.not73, label %20, label %15
 
@@ -27999,7 +27999,7 @@ define hidden void @zim_ReflectionZendExtension_getURL(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -28051,7 +28051,7 @@ define hidden void @zim_ReflectionZendExtension_getCopyright(ptr nocapture nound
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %40
@@ -28065,7 +28065,7 @@ define hidden void @zim_ReflectionZendExtension_getCopyright(ptr nocapture nound
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not73 = icmp eq ptr %14, null
   br i1 %.not73, label %20, label %15
 
@@ -28078,7 +28078,7 @@ define hidden void @zim_ReflectionZendExtension_getCopyright(ptr nocapture nound
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %40
@@ -28213,7 +28213,7 @@ define hidden void @zim_ReflectionReference_fromArrayElement(ptr noundef %0, ptr
 29:                                               ; preds = %28
   %30 = load ptr, ptr @reflection_exception_ptr, align 8
   %31 = call ptr @zend_throw_exception(ptr noundef %30, ptr noundef nonnull @.str.75, i64 noundef 0) #13
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %58
@@ -28289,7 +28289,7 @@ define hidden void @zim_ReflectionReference_getId(ptr nocapture noundef readonly
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   br label %41
@@ -28310,7 +28310,7 @@ define hidden void @zim_ReflectionReference_getId(ptr nocapture noundef readonly
 18:                                               ; preds = %.critedge
   %19 = load ptr, ptr @reflection_exception_ptr, align 8
   %20 = tail call ptr @zend_throw_exception(ptr noundef %19, ptr noundef nonnull @.str.76, i64 noundef 0) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %41
@@ -28321,12 +28321,12 @@ define hidden void @zim_ReflectionReference_getId(ptr nocapture noundef readonly
   br i1 %25, label %33, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call i32 @php_random_bytes(ptr noundef nonnull getelementptr inbounds (i8, ptr @reflection_globals, i64 1), i64 noundef 16, i1 noundef zeroext true) #13
+  %27 = tail call i32 @php_random_bytes(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @reflection_globals, i64 1), i64 noundef 16, i1 noundef zeroext true) #13
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %31)
   br label %41
@@ -28338,7 +28338,7 @@ define hidden void @zim_ReflectionReference_getId(ptr nocapture noundef readonly
 33:                                               ; preds = %32, %23
   call void @PHP_SHA1InitArgs(ptr noundef nonnull %4, ptr noundef null) #13
   call void @PHP_SHA1Update(ptr noundef nonnull %4, ptr noundef nonnull %15, i64 noundef 8) #13
-  call void @PHP_SHA1Update(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @reflection_globals, i64 1), i64 noundef 16) #13
+  call void @PHP_SHA1Update(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @reflection_globals, i64 1), i64 noundef 16) #13
   call void @PHP_SHA1Final(ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %34 = call noalias ptr @_emalloc_48() #13
   store i32 1, ptr %34, align 4
@@ -28391,7 +28391,7 @@ define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef rea
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %214
@@ -28405,7 +28405,7 @@ define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef rea
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not441 = icmp eq ptr %15, null
   br i1 %.not441, label %21, label %16
 
@@ -28418,7 +28418,7 @@ define hidden void @zim_ReflectionAttribute___toString(ptr nocapture noundef rea
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %214
@@ -29492,7 +29492,7 @@ define hidden void @zim_ReflectionAttribute_getName(ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %36
@@ -29506,7 +29506,7 @@ define hidden void @zim_ReflectionAttribute_getName(ptr nocapture noundef readon
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %20, label %15
 
@@ -29519,7 +29519,7 @@ define hidden void @zim_ReflectionAttribute_getName(ptr nocapture noundef readon
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %36
@@ -29561,7 +29561,7 @@ define hidden void @zim_ReflectionAttribute_getTarget(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %28
@@ -29575,7 +29575,7 @@ define hidden void @zim_ReflectionAttribute_getTarget(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %20, label %15
 
@@ -29588,7 +29588,7 @@ define hidden void @zim_ReflectionAttribute_getTarget(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %28
@@ -29615,7 +29615,7 @@ define hidden void @zim_ReflectionAttribute_isRepeated(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %30
@@ -29629,7 +29629,7 @@ define hidden void @zim_ReflectionAttribute_isRepeated(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -29642,7 +29642,7 @@ define hidden void @zim_ReflectionAttribute_isRepeated(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %30
@@ -29673,7 +29673,7 @@ define hidden void @zim_ReflectionAttribute_getArguments(ptr nocapture noundef r
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %.loopexit
@@ -29687,7 +29687,7 @@ define hidden void @zim_ReflectionAttribute_getArguments(ptr nocapture noundef r
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.critedge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not25 = icmp eq ptr %15, null
   br i1 %.not25, label %21, label %16
 
@@ -29700,7 +29700,7 @@ define hidden void @zim_ReflectionAttribute_getArguments(ptr nocapture noundef r
 
 21:                                               ; preds = %16, %14
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %23)
   br label %.loopexit
@@ -29731,7 +29731,7 @@ define hidden void @zim_ReflectionAttribute_getArguments(ptr nocapture noundef r
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %32
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
   br label %.loopexit
@@ -29780,7 +29780,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %192
@@ -29794,7 +29794,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %.critedge
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not154 = icmp eq ptr %17, null
   br i1 %.not154, label %23, label %18
 
@@ -29807,7 +29807,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
 
 23:                                               ; preds = %18, %16
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %25)
   br label %192
@@ -29825,7 +29825,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.87, ptr noundef nonnull %35) #13
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   tail call void @llvm.assume(i1 %37)
   br label %192
@@ -29842,7 +29842,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.89, ptr noundef nonnull %46) #13
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %48 = icmp ne ptr %47, null
   tail call void @llvm.assume(i1 %48)
   br label %192
@@ -29864,7 +29864,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %60 = icmp ne ptr %59, null
   call void @llvm.assume(i1 %60)
   br label %192
@@ -29949,7 +29949,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   br label %101
 
 101:                                              ; preds = %88, %99, %100, %92
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %103 = icmp ne ptr %102, null
   call void @llvm.assume(i1 %103)
   br label %192
@@ -29970,7 +29970,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.91, ptr noundef nonnull %113) #13
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %115 = icmp ne ptr %114, null
   call void @llvm.assume(i1 %115)
   br label %192
@@ -29981,7 +29981,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   br i1 %.not149, label %121, label %118
 
 118:                                              ; preds = %116
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %120 = icmp ne ptr %119, null
   call void @llvm.assume(i1 %120)
   br label %192
@@ -30021,7 +30021,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
 
 140:                                              ; preds = %134
   call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %128, i32 noundef %.1133158, ptr noundef %.1159)
-  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %142 = icmp ne ptr %141, null
   call void @llvm.assume(i1 %142)
   br label %192
@@ -30093,7 +30093,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
 
 175:                                              ; preds = %169
   call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %.0, i32 noundef %.0132, ptr noundef %.0130)
-  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %177 = icmp ne ptr %176, null
   call void @llvm.assume(i1 %177)
   br label %192
@@ -30110,7 +30110,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull %184) #13
-  %185 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %186 = icmp ne ptr %185, null
   call void @llvm.assume(i1 %186)
   br label %192
@@ -30208,8 +30208,8 @@ define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr noca
 
 21:                                               ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %8, i8 0, i64 240, i1 false)
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 464), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %22 to i64
   %26 = sub i64 %24, %25
@@ -30230,7 +30230,7 @@ define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr noca
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 352
-  store ptr %35, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %8, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -30253,7 +30253,7 @@ define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr noca
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   store ptr %45, ptr %46, align 8
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %48 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   store ptr %47, ptr %48, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %45, i8 0, i64 240, i1 false)
@@ -30267,12 +30267,12 @@ define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr noca
   store i32 %54, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %.0, i64 264
   store ptr %6, ptr %55, align 8
-  store ptr %.0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %.0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %57 = load ptr, ptr %56, align 8
   call void @zend_call_known_function(ptr noundef nonnull %10, ptr noundef %2, ptr noundef %57, ptr noundef null, i32 noundef %4, ptr noundef %3, ptr noundef %5) #13
   %58 = load ptr, ptr %48, align 8
-  store ptr %58, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, 262144
@@ -30280,27 +30280,27 @@ define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr noca
   br i1 %.not91, label %71, label %62
 
 62:                                               ; preds = %38
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 472), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 472), align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %67 = icmp eq ptr %.0, %66
   call void @llvm.assume(i1 %67)
   %68 = load ptr, ptr %65, align 8
-  store ptr %68, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
+  store ptr %68, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %70 = load ptr, ptr %69, align 8
-  store ptr %70, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 464), align 8
-  store ptr %65, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 472), align 8
+  store ptr %70, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8
+  store ptr %65, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 472), align 8
   call void @_efree(ptr noundef %63) #13
   br label %72
 
 71:                                               ; preds = %38
-  store ptr %.0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 456), align 8
+  store ptr %.0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8
   br label %72
 
 72:                                               ; preds = %.thread, %62, %71
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not92 = icmp eq ptr %73, null
   br i1 %.not92, label %78, label %74
 
@@ -30319,7 +30319,7 @@ define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr noca
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_ReflectionEnum___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
   tail call fastcc void @reflection_class_object_ctor(ptr noundef %0, i32 noundef 0)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %23
 
@@ -30351,7 +30351,7 @@ define hidden void @zim_ReflectionEnum___construct(ptr noundef %0, ptr nocapture
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %15
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %23
@@ -30370,7 +30370,7 @@ define hidden void @zim_ReflectionEnum_hasCase(ptr nocapture noundef readonly %0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %40
@@ -30384,7 +30384,7 @@ define hidden void @zim_ReflectionEnum_hasCase(ptr nocapture noundef readonly %0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not19 = icmp eq ptr %18, null
   br i1 %.not19, label %24, label %19
 
@@ -30397,7 +30397,7 @@ define hidden void @zim_ReflectionEnum_hasCase(ptr nocapture noundef readonly %0
 
 24:                                               ; preds = %19, %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %40
@@ -30439,7 +30439,7 @@ define hidden void @zim_ReflectionEnum_getCase(ptr nocapture noundef readonly %0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %120
@@ -30453,7 +30453,7 @@ define hidden void @zim_ReflectionEnum_getCase(ptr nocapture noundef readonly %0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not39 = icmp eq ptr %18, null
   br i1 %.not39, label %24, label %19
 
@@ -30466,7 +30466,7 @@ define hidden void @zim_ReflectionEnum_getCase(ptr nocapture noundef readonly %0
 
 24:                                               ; preds = %19, %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %120
@@ -30485,7 +30485,7 @@ define hidden void @zim_ReflectionEnum_getCase(ptr nocapture noundef readonly %0
   br i1 %.not34, label %44, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %36 = ptrtoint ptr %33 to i64
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
@@ -30521,7 +30521,7 @@ define hidden void @zim_ReflectionEnum_getCase(ptr nocapture noundef readonly %0
   %54 = load ptr, ptr %3, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %50, i64 noundef 0, ptr noundef nonnull @.str.94, ptr noundef nonnull %53, ptr noundef nonnull %55) #13
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %58 = icmp ne ptr %57, null
   call void @llvm.assume(i1 %58)
   br label %120
@@ -30542,7 +30542,7 @@ define hidden void @zim_ReflectionEnum_getCase(ptr nocapture noundef readonly %0
   %69 = load ptr, ptr %3, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %65, i64 noundef 0, ptr noundef nonnull @.str.95, ptr noundef nonnull %68, ptr noundef nonnull %70) #13
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %73 = icmp ne ptr %72, null
   call void @llvm.assume(i1 %73)
   br label %120
@@ -30645,7 +30645,7 @@ define hidden void @zim_ReflectionEnum_getCases(ptr nocapture noundef readonly %
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %.critedge
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not48 = icmp eq ptr %13, null
   br i1 %.not48, label %19, label %14
 
@@ -30678,7 +30678,7 @@ define hidden void @zim_ReflectionEnum_getCases(ptr nocapture noundef readonly %
   br i1 %.not42, label %39, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %31 = ptrtoint ptr %28 to i64
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
@@ -30816,7 +30816,7 @@ reflection_enum_case_factory.exit:                ; preds = %88, %103
   br i1 %.not46, label %.loopexit, label %52
 
 .loopexit.sink.split:                             ; preds = %6, %19
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %112 = icmp ne ptr %111, null
   tail call void @llvm.assume(i1 %112)
   br label %.loopexit
@@ -30834,7 +30834,7 @@ define hidden void @zim_ReflectionEnum_isBacked(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %28
@@ -30848,7 +30848,7 @@ define hidden void @zim_ReflectionEnum_isBacked(ptr nocapture noundef readonly %
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %20, label %15
 
@@ -30861,7 +30861,7 @@ define hidden void @zim_ReflectionEnum_isBacked(ptr nocapture noundef readonly %
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %28
@@ -30888,7 +30888,7 @@ define hidden void @zim_ReflectionEnum_getBackingType(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %32
@@ -30902,7 +30902,7 @@ define hidden void @zim_ReflectionEnum_getBackingType(ptr nocapture noundef read
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %20, label %15
 
@@ -30915,7 +30915,7 @@ define hidden void @zim_ReflectionEnum_getBackingType(ptr nocapture noundef read
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %32
@@ -30957,7 +30957,7 @@ define hidden void @zim_ReflectionEnum_getBackingType(ptr nocapture noundef read
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_ReflectionEnumUnitCase___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
   tail call void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr poison)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %33
 
@@ -31000,7 +31000,7 @@ define hidden void @zim_ReflectionEnumUnitCase___construct(ptr noundef %0, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %15
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
   br label %33
@@ -31018,7 +31018,7 @@ define hidden void @zim_ReflectionEnumUnitCase_getEnum(ptr nocapture noundef rea
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %53
@@ -31032,7 +31032,7 @@ define hidden void @zim_ReflectionEnumUnitCase_getEnum(ptr nocapture noundef rea
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %20, label %15
 
@@ -31045,7 +31045,7 @@ define hidden void @zim_ReflectionEnumUnitCase_getEnum(ptr nocapture noundef rea
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %53
@@ -31104,7 +31104,7 @@ zend_reflection_class_factory.exit:               ; preds = %23, %49
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_ReflectionEnumBackedCase___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
   tail call void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr readnone poison)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %zim_ReflectionEnumUnitCase___construct.exit.thread
 
@@ -31172,7 +31172,7 @@ zim_ReflectionEnumUnitCase___construct.exit:      ; preds = %11
   br label %zim_ReflectionEnumUnitCase___construct.exit.thread.sink.split
 
 zim_ReflectionEnumUnitCase___construct.exit.thread.sink.split: ; preds = %10, %15, %36
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %51 = icmp ne ptr %50, null
   tail call void @llvm.assume(i1 %51)
   br label %zim_ReflectionEnumUnitCase___construct.exit.thread
@@ -31190,7 +31190,7 @@ define hidden void @zim_ReflectionEnumBackedCase_getBackingValue(ptr nocapture n
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %65
@@ -31204,7 +31204,7 @@ define hidden void @zim_ReflectionEnumBackedCase_getBackingValue(ptr nocapture n
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not32 = icmp eq ptr %14, null
   br i1 %.not32, label %20, label %15
 
@@ -31217,7 +31217,7 @@ define hidden void @zim_ReflectionEnumBackedCase_getBackingValue(ptr nocapture n
 
 20:                                               ; preds = %15, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   tail call void @llvm.assume(i1 %22)
   br label %65
@@ -31232,7 +31232,7 @@ define hidden void @zim_ReflectionEnumBackedCase_getBackingValue(ptr nocapture n
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @zval_update_constant_ex(ptr noundef nonnull %11, ptr noundef %29) #13
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not29 = icmp eq ptr %31, null
   br i1 %.not29, label %32, label %65
 
@@ -31466,7 +31466,7 @@ define hidden void @zim_ReflectionFiber_getTrace(ptr noundef %0, ptr noundef %1)
 
 26:                                               ; preds = %23, %23, %.thread98
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.98) #13
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %43
@@ -31477,21 +31477,21 @@ define hidden void @zim_ReflectionFiber_getTrace(ptr noundef %0, ptr noundef %1)
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
   store ptr null, ptr %32, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1664), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1664), align 8
   %.not74 = icmp eq ptr %34, %7
   br i1 %.not74, label %38, label %35
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   br label %38
 
 38:                                               ; preds = %35, %29
   %39 = load i64, ptr %3, align 8
   %40 = trunc i64 %39 to i32
   call void @zend_fetch_debug_backtrace(ptr noundef %1, i32 noundef 0, i32 noundef %40, i32 noundef 0) #13
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %41 = load ptr, ptr %30, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   store ptr %33, ptr %42, align 8
@@ -31530,13 +31530,13 @@ define hidden void @zim_ReflectionFiber_getExecutingLine(ptr nocapture noundef r
 
 15:                                               ; preds = %12, %12, %10
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.98) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %35
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1664), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1664), align 8
   %20 = icmp eq ptr %19, %6
   br i1 %20, label %24, label %21
 
@@ -31618,13 +31618,13 @@ define hidden void @zim_ReflectionFiber_getExecutingFile(ptr nocapture noundef r
 
 15:                                               ; preds = %12, %12, %10
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.98) #13
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %41
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1664), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1664), align 8
   %20 = icmp eq ptr %19, %6
   br i1 %20, label %24, label %21
 
@@ -31717,7 +31717,7 @@ define hidden void @zim_ReflectionFiber_getCallable(ptr nocapture noundef readon
 
 16:                                               ; preds = %12, %10
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.99) #13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   br label %29
@@ -31836,10 +31836,10 @@ define hidden noundef i32 @zm_startup_reflection(i32 %0, i32 %1) #0 {
   %90 = alloca %struct._zend_class_entry, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @reflection_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 40, ptr @reflection_object_handlers, align 8
-  store ptr @reflection_free_objects_storage, ptr getelementptr inbounds (i8, ptr @reflection_object_handlers, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @reflection_object_handlers, i64 24), align 8
-  store ptr @_reflection_write_property, ptr getelementptr inbounds (i8, ptr @reflection_object_handlers, i64 40), align 8
-  store ptr @reflection_get_gc, ptr getelementptr inbounds (i8, ptr @reflection_object_handlers, i64 168), align 8
+  store ptr @reflection_free_objects_storage, ptr getelementptr inbounds nuw (i8, ptr @reflection_object_handlers, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @reflection_object_handlers, i64 24), align 8
+  store ptr @_reflection_write_property, ptr getelementptr inbounds nuw (i8, ptr @reflection_object_handlers, i64 40), align 8
+  store ptr @reflection_get_gc, ptr getelementptr inbounds nuw (i8, ptr @reflection_object_handlers, i64 168), align 8
   %91 = load ptr, ptr @zend_ce_exception, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %90)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %90, i8 0, i64 512, i1 false)
@@ -33802,11 +33802,11 @@ define internal void @reflection_free_objects_storage(ptr noundef %0) #0 {
   br label %26
 
 26:                                               ; preds = %25, %20, %14
-  %27 = icmp eq ptr %9, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
+  %27 = icmp eq ptr %9, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1288)
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1296), align 8
   br label %_free_function.exit
 
 29:                                               ; preds = %26
@@ -33889,11 +33889,11 @@ _free_function.exit:                              ; preds = %7, %10, %28, %29
   br label %66
 
 66:                                               ; preds = %65, %60, %54
-  %67 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
+  %67 = icmp eq ptr %3, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1288)
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %66
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1296), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1296), align 8
   br label %_free_function.exit57
 
 69:                                               ; preds = %66

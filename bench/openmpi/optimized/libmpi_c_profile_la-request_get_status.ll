@@ -68,15 +68,15 @@ define i32 @PMPI_Request_get_status(ptr noundef %0, ptr noundef writeonly %1, pt
   br i1 %.not31, label %59, label %25
 
 25:                                               ; preds = %._crit_edge
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 4), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 4), align 4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %26, ptr %27, align 4
   %28 = load i32, ptr @ompi_status_empty, align 8
   store i32 %28, ptr %2, align 8
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 16), align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %29, ptr %30, align 8
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 12), align 4
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %31, ptr %32, align 4
   br label %59

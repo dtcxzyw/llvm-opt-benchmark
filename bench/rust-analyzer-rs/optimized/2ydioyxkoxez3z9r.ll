@@ -73645,7 +73645,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf3400c107519e14eE.exit.i: ; pr
   call void @llvm.experimental.noalias.scope.decl(metadata !15972)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !15975
   store ptr @anon.91380dbf7fcc3cee666491d632c78d8e.417.llvm.3663151438746104753, ptr %12, align 8, !noalias !15975
-  store ptr getelementptr inbounds (i8, ptr @anon.91380dbf7fcc3cee666491d632c78d8e.417.llvm.3663151438746104753, i64 528), ptr %51, align 8, !noalias !15975
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.91380dbf7fcc3cee666491d632c78d8e.417.llvm.3663151438746104753, i64 528), ptr %51, align 8, !noalias !15975
   %178 = invoke { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hb32d858118f16bd5E.llvm.3663151438746104753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
           to label %180 unwind label %.loopexit27.i, !noalias !15977
 

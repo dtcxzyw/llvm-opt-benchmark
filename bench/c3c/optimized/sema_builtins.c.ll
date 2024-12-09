@@ -727,7 +727,7 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
 
 ._crit_edge.i480:                                 ; preds = %247, %.preheader.i474, %221
   %.032.lcssa.i = phi i1 [ false, %.preheader.i474 ], [ false, %221 ], [ %248, %247 ]
-  %249 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %249 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   switch i32 %249, label %250 [
     i32 3, label %253
     i32 4, label %253

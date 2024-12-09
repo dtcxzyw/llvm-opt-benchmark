@@ -1015,7 +1015,7 @@ define hidden void @"_ZN81_$LT$ockam_executor..executor..Node$LT$F$GT$$u20$as$u2
   br i1 %21, label %22, label %.critedge57
 
 22:                                               ; preds = %19
-  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN81_$LT$ockam_executor..executor..Node$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop10__CALLSITE17h6ca115d0b4255862E", i64 16) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN81_$LT$ockam_executor..executor..Node$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop10__CALLSITE17h6ca115d0b4255862E", i64 16) monotonic, align 8
   switch i8 %23, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit [
     i8 0, label %.critedge57
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread

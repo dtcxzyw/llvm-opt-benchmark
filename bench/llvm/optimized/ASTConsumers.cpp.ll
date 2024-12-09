@@ -174,7 +174,7 @@ define dso_local void @_ZN5clang16CreateASTPrinterESt10unique_ptrIN4llvm11raw_os
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %10, align 8, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %7, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %7, align 8, !noalias !4
   %.not.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i, label %11, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110ASTPrinterESt14default_deleteIS1_EED2Ev.exit
 
@@ -225,7 +225,7 @@ define dso_local void @_ZN5clang15CreateASTDumperESt10unique_ptrIN4llvm11raw_ost
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11), !noalias !7
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 0, ptr %15, align 8, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %12, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %12, align 8, !noalias !7
   %.not.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i, label %16, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110ASTPrinterESt14default_deleteIS1_EED2Ev.exit
 
@@ -275,7 +275,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117ASTDeclNodeListerESt14default_deleteIS1_EED2E
   %1 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !10
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %2, align 8, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_117ASTDeclNodeListerE, i64 16), ptr %1, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_117ASTDeclNodeListerE, i64 16), ptr %1, align 8, !noalias !10
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #18, !noalias !10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %3, ptr %4, align 8, !noalias !10
@@ -288,7 +288,7 @@ define dso_local void @_ZN5clang15CreateASTViewerEv(ptr dead_on_unwind noalias n
 _ZNSt10unique_ptrIN12_GLOBAL__N_19ASTViewerESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !13
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_19ASTViewerE, i64 16), ptr %1, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_19ASTViewerE, i64 16), ptr %1, align 8, !noalias !13
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %2, align 8, !noalias !13
   store ptr %1, ptr %0, align 8
@@ -311,7 +311,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_110ASTPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -333,7 +333,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_110ASTPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24

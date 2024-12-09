@@ -185,7 +185,7 @@ define internal void @_ZN12_GLOBAL__N_19TracePass7executeESt6vectorINSt7__cxx111
   store i32 %17, ptr @_ZZN5Yosys5RTLIL7MonitorC1EvE13hashidx_count, align 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %17, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112TraceMonitorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_112TraceMonitorE, i64 16), ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   call void @_ZN5Yosys7hashlib4poolIPNS_5RTLIL7MonitorENS0_8hash_opsIS4_EEE6insertEOS4_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %6, ptr noundef nonnull align 8 dereferenceable(49) %19, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -2023,7 +2023,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19TracePassE, i64 16), ptr @_ZN12_GLOBAL__N_19TracePassE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_19TracePassE, i64 16), ptr @_ZN12_GLOBAL__N_19TracePassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -2073,7 +2073,7 @@ __cxx_global_var_init.2.exit:                     ; preds = %21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19DebugPassE, i64 16), ptr @_ZN12_GLOBAL__N_19DebugPassE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_19DebugPassE, i64 16), ptr @_ZN12_GLOBAL__N_19DebugPassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

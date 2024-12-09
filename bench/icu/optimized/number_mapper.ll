@@ -2021,7 +2021,7 @@ entry:
 define noundef zeroext i1 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider19positiveHasPlusSignEv(ptr noundef nonnull align 8 dereferenceable(267) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localStatus = alloca %"class.icu_75::ErrorCode", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %localStatus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %localStatus, align 8
   %errorCode.i = getelementptr inbounds nuw i8, ptr %localStatus, i64 8
   store i32 0, ptr %errorCode.i, align 8
   %posPrefix = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2189,7 +2189,7 @@ declare void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr sret(%"class.icu_
 define noundef zeroext i1 @_ZNK6icu_756number4impl30PropertiesAffixPatternProvider20negativeHasMinusSignEv(ptr noundef nonnull align 8 dereferenceable(267) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localStatus = alloca %"class.icu_75::ErrorCode", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %localStatus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %localStatus, align 8
   %errorCode.i = getelementptr inbounds nuw i8, ptr %localStatus, i64 8
   store i32 0, ptr %errorCode.i, align 8
   %negPrefix = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2287,7 +2287,7 @@ for.body:                                         ; preds = %entry, %invoke.cont
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %for.body
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %patternString, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %patternString, align 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %call)
           to label %invoke.cont4 unwind label %lpad3
@@ -2742,7 +2742,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl30PropertiesAffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(267) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %this, align 8
   %negSuffix = getelementptr inbounds nuw i8, ptr %this, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix) #13
   %negPrefix = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2758,7 +2758,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl30PropertiesAffixPatternProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(267) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %this, align 8
   %negSuffix.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i) #13
   %negPrefix.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2775,14 +2775,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(2185) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i64 16), ptr %this, align 8
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
   %arraydestroy.elementPast.idx = phi i64 [ 2184, %entry ], [ %arraydestroy.elementPast.add, %arraydestroy.body ]
   %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -272
   %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast.add
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %arraydestroy.element.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %arraydestroy.element.ptr, align 8
   %negSuffix.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i) #13
   %negPrefix.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr, i64 136
@@ -2803,14 +2803,14 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(2185) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl31CurrencyPluralInfoAffixProviderE, i64 16), ptr %this, align 8
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %entry
   %arraydestroy.elementPast.idx.i = phi i64 [ 2184, %entry ], [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -272
   %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast.add.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %arraydestroy.element.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 16), ptr %arraydestroy.element.ptr.i, align 8
   %negSuffix.i.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr.i, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i.i) #13
   %negPrefix.i.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr.i, i64 136

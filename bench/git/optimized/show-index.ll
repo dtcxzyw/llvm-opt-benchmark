@@ -91,7 +91,7 @@ if.end15:                                         ; preds = %if.end9
   br i1 %cmp17.not, label %if.else.i, label %if.else
 
 if.else.i:                                        ; preds = %if.end15
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @cmd_show_index.top_index, i64 4), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cmd_show_index.top_index, i64 4), align 4
   %8 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %7) #9, !srcloc !5
   %or.cond.not = icmp eq i32 %8, 2
   br i1 %or.cond.not, label %if.end26, label %if.then25
@@ -112,7 +112,7 @@ if.then30:                                        ; preds = %if.end26
 
 if.else:                                          ; preds = %if.end15
   %10 = load ptr, ptr @stdin, align 8
-  %call32 = call i64 @fread(ptr noundef nonnull getelementptr inbounds (i8, ptr @cmd_show_index.top_index, i64 8), i64 noundef 1016, i64 noundef 1, ptr noundef %10)
+  %call32 = call i64 @fread(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cmd_show_index.top_index, i64 8), i64 noundef 1016, i64 noundef 1, ptr noundef %10)
   %cmp33.not = icmp eq i64 %call32, 1
   br i1 %cmp33.not, label %if.else.i50.preheader, label %if.then35
 

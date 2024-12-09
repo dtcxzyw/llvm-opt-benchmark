@@ -47,7 +47,7 @@ $_ZNK7rocksdb18FSRandomAccessFile14GetTemperatureEv = comdat any
 define void @_ZN7rocksdb28NewReadaheadRandomAccessFileEOSt10unique_ptrINS_18FSRandomAccessFileESt14default_deleteIS1_EEm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file, i64 noundef %readahead_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i64 16), ptr %call, align 8
   %file_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i64, ptr %file, align 8
   store i64 %0, ptr %file_.i, align 8
@@ -130,7 +130,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i64 16), ptr %this, align 8
   %buf_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %buf_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -162,7 +162,7 @@ _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFileE, i64 16), ptr %this, align 8
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %buf_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

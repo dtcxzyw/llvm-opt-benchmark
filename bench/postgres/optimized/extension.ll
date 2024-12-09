@@ -319,7 +319,7 @@ define dso_local { i64, i32 } @CreateExtension(ptr noundef %0, ptr nocapture nou
 
 17:                                               ; preds = %11, %13
   %.sroa.036.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %18 = insertvalue { i64, i32 } poison, i64 %.sroa.036.0.copyload, 0
   %19 = insertvalue { i64, i32 } %18, i32 %.sroa.3.0.copyload, 1
   br label %71
@@ -3192,7 +3192,7 @@ define dso_local { i64, i32 } @AlterExtensionNamespace(ptr noundef %0, ptr nound
   call void @table_close(ptr noundef %23, i32 noundef 3) #13
   %.sroa.077.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.077.sroa.3.0.extract.shift = lshr i64 %.sroa.077.0.copyload, 32
-  %.sroa.478.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.478.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %42 = and i64 %.sroa.077.0.copyload, 4294967295
   br label %135
 
@@ -3609,7 +3609,7 @@ define dso_local { i64, i32 } @ExecAlterExtensionStmt(ptr noundef %0, ptr nocapt
   %.sroa.047.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.047.sroa.3.0.extract.shift = lshr i64 %.sroa.047.0.copyload, 32
   %.sroa.047.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.047.sroa.3.0.extract.shift to i32
-  %.sroa.448.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.448.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %95 = and i64 %.sroa.047.0.copyload, 4294967295
   br label %145
 

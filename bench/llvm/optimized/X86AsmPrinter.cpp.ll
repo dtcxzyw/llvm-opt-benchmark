@@ -174,7 +174,7 @@ _ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i: ; preds = %3
 
 _ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit: ; preds = %3, %_ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i
   store ptr null, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN4llvm13X86AsmPrinterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 520) (i8, ptr @_ZTVN4llvm13X86AsmPrinterE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 800
@@ -880,7 +880,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit77:                ; preds = %62, %56
 
 83:                                               ; preds = %76
   %84 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22MachineModuleInfoMachOE, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22MachineModuleInfoMachOE, i64 16), ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %85, i8 0, i64 20, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
@@ -4139,7 +4139,7 @@ define hidden void @_ZN4llvm13X86AsmPrinter16emitEndOfAsmFileERNS_6ModuleE(ptr n
 
 20:                                               ; preds = %12
   %21 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22MachineModuleInfoMachOE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm22MachineModuleInfoMachOE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, i8 0, i64 20, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -4590,7 +4590,7 @@ declare noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_64
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm13X86AsmPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN4llvm13X86AsmPrinterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 520) (i8, ptr @_ZTVN4llvm13X86AsmPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -4615,7 +4615,7 @@ _ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm13X86AsmPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN4llvm13X86AsmPrinterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 520) (i8, ptr @_ZTVN4llvm13X86AsmPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -5539,7 +5539,7 @@ _ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i.i: ; preds = %2
 
 _ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i.i, %2
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN4llvm13X86AsmPrinterE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 520) (i8, ptr @_ZTVN4llvm13X86AsmPrinterE, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 792
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 800

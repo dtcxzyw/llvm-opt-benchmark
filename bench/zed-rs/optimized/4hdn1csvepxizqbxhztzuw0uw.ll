@@ -148,7 +148,7 @@ define void @_ZN11time_format26format_localized_timestamp17hec277e24b7dd1989E(pt
   unreachable
 
 39:                                               ; preds = %5
-  %40 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN11time_format25format_timestamp_fallback14CURRENT_LOCALE17h6629fe688eb63524E, i64 24) acquire, align 8, !noalias !7
+  %40 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN11time_format25format_timestamp_fallback14CURRENT_LOCALE17h6629fe688eb63524E, i64 24) acquire, align 8, !noalias !7
   %.not.i.i.i = icmp eq i32 %40, 4
   br i1 %.not.i.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h04e464cb42daad24E.exit.i.i", label %41
 
@@ -182,7 +182,7 @@ _ZN11time_format25format_absolute_timestamp17hfb3f62ca6b297b1fE.exit: ; preds = 
   br label %112
 
 50:                                               ; preds = %5
-  %51 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN11time_format25format_timestamp_fallback14CURRENT_LOCALE17h6629fe688eb63524E, i64 24) acquire, align 8, !noalias !36
+  %51 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN11time_format25format_timestamp_fallback14CURRENT_LOCALE17h6629fe688eb63524E, i64 24) acquire, align 8, !noalias !36
   %.not.i.i.i9 = icmp eq i32 %51, 4
   br i1 %.not.i.i.i9, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h04e464cb42daad24E.exit.i.i10", label %52
 
@@ -216,7 +216,7 @@ _ZN11time_format25format_absolute_timestamp17hfb3f62ca6b297b1fE.exit15: ; preds 
   br label %112
 
 61:                                               ; preds = %5
-  %62 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN11time_format25format_timestamp_fallback14CURRENT_LOCALE17h6629fe688eb63524E, i64 24) acquire, align 8, !noalias !64
+  %62 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN11time_format25format_timestamp_fallback14CURRENT_LOCALE17h6629fe688eb63524E, i64 24) acquire, align 8, !noalias !64
   %.not.i.i.i16 = icmp eq i32 %62, 4
   br i1 %.not.i.i.i16, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h04e464cb42daad24E.exit.i.i17", label %63
 

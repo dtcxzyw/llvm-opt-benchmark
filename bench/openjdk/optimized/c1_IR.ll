@@ -1259,7 +1259,7 @@ declare void @_ZN9Optimizer21eliminate_null_checksEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2IR20split_critical_edgesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.CriticalEdgeFinder, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18CriticalEdgeFinder, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18CriticalEdgeFinder, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #19
   store i32 0, ptr %3, align 8
@@ -1316,7 +1316,7 @@ define hidden void @_ZN2IR20split_critical_edgesEv(ptr nocapture noundef nonnull
   br i1 %38, label %.lr.ph.i, label %_ZN18CriticalEdgeFinder11split_edgesEv.exit, !llvm.loop !14
 
 _ZN18CriticalEdgeFinder11split_edgesEv.exit:      ; preds = %35, %1
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18CriticalEdgeFinder, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18CriticalEdgeFinder, i64 16), ptr %2, align 8
   %39 = load i64, ptr %7, align 8
   %40 = and i64 %39, 1
   %.not.i.i = icmp eq i64 %40, 0
@@ -4729,8 +4729,8 @@ define hidden void @_ZN2IR18compute_use_countsEv(ptr nocapture noundef nonnull r
   %16 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %4, %1 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16UseCountComputer, i64 16), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16UseCountComputer, i64 48), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16UseCountComputer, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16UseCountComputer, i64 48), ptr %17, align 8
   %18 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #19
   %19 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #19
   store i32 0, ptr %18, align 4

@@ -791,37 +791,37 @@ define hidden void @VP8LEncDspInit() local_unnamed_addr #1 {
   store ptr @VectorMismatch_C, ptr @VP8LVectorMismatch, align 8
   store ptr @VP8LBundleColorMap_C, ptr @VP8LBundleColorMap, align 8
   store ptr @PredictorSub0_C, ptr @VP8LPredictorsSub, align 16
-  store ptr @PredictorSub1_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 8), align 8
-  store ptr @PredictorSub2_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 16), align 16
-  store ptr @PredictorSub3_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 24), align 8
-  store ptr @PredictorSub4_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 32), align 16
-  store ptr @PredictorSub5_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 40), align 8
-  store ptr @PredictorSub6_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 48), align 16
-  store ptr @PredictorSub7_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 56), align 8
-  store ptr @PredictorSub8_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 64), align 16
-  store ptr @PredictorSub9_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 72), align 8
-  store ptr @PredictorSub10_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 80), align 16
-  store ptr @PredictorSub11_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 88), align 8
-  store ptr @PredictorSub12_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 96), align 16
-  store ptr @PredictorSub13_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 104), align 8
-  store ptr @PredictorSub0_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 112), align 16
-  store ptr @PredictorSub0_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 120), align 8
+  store ptr @PredictorSub1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 8), align 8
+  store ptr @PredictorSub2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 16), align 16
+  store ptr @PredictorSub3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 24), align 8
+  store ptr @PredictorSub4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 32), align 16
+  store ptr @PredictorSub5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 40), align 8
+  store ptr @PredictorSub6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 48), align 16
+  store ptr @PredictorSub7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 56), align 8
+  store ptr @PredictorSub8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 64), align 16
+  store ptr @PredictorSub9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 72), align 8
+  store ptr @PredictorSub10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 80), align 16
+  store ptr @PredictorSub11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 88), align 8
+  store ptr @PredictorSub12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 96), align 16
+  store ptr @PredictorSub13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 104), align 8
+  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 112), align 16
+  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 120), align 8
   store ptr @PredictorSub0_C, ptr @VP8LPredictorsSub_C, align 16
-  store ptr @PredictorSub1_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 8), align 8
-  store ptr @PredictorSub2_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 16), align 16
-  store ptr @PredictorSub3_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 24), align 8
-  store ptr @PredictorSub4_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 32), align 16
-  store ptr @PredictorSub5_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 40), align 8
-  store ptr @PredictorSub6_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 48), align 16
-  store ptr @PredictorSub7_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 56), align 8
-  store ptr @PredictorSub8_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 64), align 16
-  store ptr @PredictorSub9_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 72), align 8
-  store ptr @PredictorSub10_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 80), align 16
-  store ptr @PredictorSub11_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 88), align 8
-  store ptr @PredictorSub12_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 96), align 16
-  store ptr @PredictorSub13_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 104), align 8
-  store ptr @PredictorSub0_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 112), align 16
-  store ptr @PredictorSub0_C, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub_C, i64 120), align 8
+  store ptr @PredictorSub1_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 8), align 8
+  store ptr @PredictorSub2_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 16), align 16
+  store ptr @PredictorSub3_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 24), align 8
+  store ptr @PredictorSub4_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 32), align 16
+  store ptr @PredictorSub5_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 40), align 8
+  store ptr @PredictorSub6_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 48), align 16
+  store ptr @PredictorSub7_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 56), align 8
+  store ptr @PredictorSub8_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 64), align 16
+  store ptr @PredictorSub9_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 72), align 8
+  store ptr @PredictorSub10_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 80), align 16
+  store ptr @PredictorSub11_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 88), align 8
+  store ptr @PredictorSub12_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 96), align 16
+  store ptr @PredictorSub13_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 104), align 8
+  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 112), align 16
+  store ptr @PredictorSub0_C, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub_C, i64 120), align 8
   %6 = load ptr, ptr @VP8GetCPUInfo, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %VP8LEncDspInit_body.exit, label %7

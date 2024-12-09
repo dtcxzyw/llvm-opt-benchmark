@@ -128,7 +128,7 @@ define dso_local void @_ZN4llvm29LazyBranchProbabilityInfoPassC2Ev(ptr nocapture
   store ptr @_ZN4llvm29LazyBranchProbabilityInfoPass2IDE, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm29LazyBranchProbabilityInfoPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN4llvm29LazyBranchProbabilityInfoPassE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %7, align 8
   %8 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #11
@@ -401,7 +401,7 @@ declare void @_ZN4llvm42initializeTargetLibraryInfoWrapperPassPassERNS_12PassReg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm29LazyBranchProbabilityInfoPassD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm29LazyBranchProbabilityInfoPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN4llvm29LazyBranchProbabilityInfoPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -420,7 +420,7 @@ _ZNSt10unique_ptrIN4llvm29LazyBranchProbabilityInfoPass25LazyBranchProbabilityIn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm29LazyBranchProbabilityInfoPassD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm29LazyBranchProbabilityInfoPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN4llvm29LazyBranchProbabilityInfoPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null

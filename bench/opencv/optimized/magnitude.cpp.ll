@@ -141,7 +141,7 @@ define hidden void @_ZN2cv3hfs9MagnitudeC2Eii(ptr noundef nonnull align 8 derefe
   %10 = shl nuw i64 %.sroa.0149.0.insert.ext159, 32
   %sext.i = mul i64 %10, %.sroa.6.0.insert.ext174
   %11 = ashr exact i64 %sext.i, 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %11, ptr %12, align 8
   %13 = icmp ugt i64 %11, 4611686018427387903
@@ -154,7 +154,7 @@ define hidden void @_ZN2cv3hfs9MagnitudeC2Eii(ptr noundef nonnull align 8 derefe
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %16, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %14, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIiEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIiEE, i64 16), ptr %8, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %1, ptr %19, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -195,7 +195,7 @@ define hidden void @_ZN2cv3hfs9MagnitudeC2Eii(ptr noundef nonnull align 8 derefe
   store i32 1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 1, ptr %36, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIiEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIiEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %8, ptr %37, align 8
   store ptr %8, ptr %0, align 8
@@ -353,7 +353,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit:   ; preds = %88, %100, %_ZNSt16_
           to label %106 unwind label %490
 
 106:                                              ; preds = %_ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %105, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store i64 %11, ptr %107, align 8
   %108 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %15) #12
@@ -363,7 +363,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit:   ; preds = %88, %100, %_ZNSt16_
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %108, ptr %110, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %108, i8 0, i64 %14, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIiEE, i64 16), ptr %105, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIiEE, i64 16), ptr %105, align 8
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store i32 %1, ptr %111, align 8
   %.sroa.3.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %105, i64 28
@@ -404,7 +404,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit:   ; preds = %88, %100, %_ZNSt16_
   store i32 1, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %112, i64 12
   store i32 1, ptr %128, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIiEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIiEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %112, align 8
   %129 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %105, ptr %129, align 8
   store ptr %105, ptr %4, align 8
@@ -574,7 +574,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit47: ; preds = %184, %196, %_ZNSt16
           to label %202 unwind label %490
 
 202:                                              ; preds = %_ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit47
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %201, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 16
   store i64 %11, ptr %203, align 8
   %204 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %15) #12
@@ -584,7 +584,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit47: ; preds = %184, %196, %_ZNSt16
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store ptr %204, ptr %206, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %204, i8 0, i64 %14, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIiEE, i64 16), ptr %201, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIiEE, i64 16), ptr %201, align 8
   %207 = getelementptr inbounds nuw i8, ptr %201, i64 24
   store i32 %1, ptr %207, align 8
   %.sroa.3.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %201, i64 28
@@ -625,7 +625,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit47: ; preds = %184, %196, %_ZNSt16
   store i32 1, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %208, i64 12
   store i32 1, ptr %224, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIiEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %208, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIiEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %208, align 8
   %225 = getelementptr inbounds nuw i8, ptr %208, i64 16
   store ptr %201, ptr %225, align 8
   store ptr %201, ptr %5, align 8
@@ -795,7 +795,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit77: ; preds = %280, %292, %_ZNSt16
           to label %298 unwind label %490
 
 298:                                              ; preds = %_ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit77
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %297, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %297, align 8
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 16
   store i64 %11, ptr %299, align 8
   %300 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %11) #12
@@ -805,7 +805,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit77: ; preds = %280, %292, %_ZNSt16
   %302 = getelementptr inbounds nuw i8, ptr %297, i64 8
   store ptr %300, ptr %302, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %300, i8 0, i64 %11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIhEE, i64 16), ptr %297, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIhEE, i64 16), ptr %297, align 8
   %303 = getelementptr inbounds nuw i8, ptr %297, i64 24
   store i32 %1, ptr %303, align 8
   %.sroa.3.0..sroa_idx.i82 = getelementptr inbounds nuw i8, ptr %297, i64 28
@@ -846,7 +846,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIiEEED2Ev.exit77: ; preds = %280, %292, %_ZNSt16
   store i32 1, ptr %319, align 8
   %320 = getelementptr inbounds nuw i8, ptr %304, i64 12
   store i32 1, ptr %320, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIhEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %304, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIhEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %304, align 8
   %321 = getelementptr inbounds nuw i8, ptr %304, i64 16
   store ptr %297, ptr %321, align 8
   store ptr %297, ptr %6, align 8
@@ -1016,7 +1016,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIhEEED2Ev.exit:   ; preds = %376, %388, %_ZNSt16
           to label %394 unwind label %490
 
 394:                                              ; preds = %_ZN2cv3PtrINS_3hfs7orutils5ImageIhEEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %393, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %393, align 8
   %395 = getelementptr inbounds nuw i8, ptr %393, i64 16
   store i64 %11, ptr %395, align 8
   %396 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %11) #12
@@ -1026,7 +1026,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIhEEED2Ev.exit:   ; preds = %376, %388, %_ZNSt16
   %398 = getelementptr inbounds nuw i8, ptr %393, i64 8
   store ptr %396, ptr %398, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %396, i8 0, i64 %11, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIhEE, i64 16), ptr %393, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils5ImageIhEE, i64 16), ptr %393, align 8
   %399 = getelementptr inbounds nuw i8, ptr %393, i64 24
   store i32 %1, ptr %399, align 8
   %.sroa.3.0..sroa_idx.i108 = getelementptr inbounds nuw i8, ptr %393, i64 28
@@ -1067,7 +1067,7 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIhEEED2Ev.exit:   ; preds = %376, %388, %_ZNSt16
   store i32 1, ptr %415, align 8
   %416 = getelementptr inbounds nuw i8, ptr %400, i64 12
   store i32 1, ptr %416, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIhEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %400, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3hfs7orutils5ImageIhEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %400, align 8
   %417 = getelementptr inbounds nuw i8, ptr %400, i64 16
   store ptr %393, ptr %417, align 8
   store ptr %393, ptr %7, align 8
@@ -2904,7 +2904,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3hfs7orutils5ImageIiED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2920,7 +2920,7 @@ _ZN2cv3hfs7orutils11MemoryBlockIiED2Ev.exit:      ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3hfs7orutils5ImageIiED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2937,7 +2937,7 @@ _ZN2cv3hfs7orutils5ImageIiED2Ev.exit:             ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3hfs7orutils11MemoryBlockIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2953,7 +2953,7 @@ _ZN2cv3hfs7orutils11MemoryBlockIiE4FreeEv.exit:   ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3hfs7orutils11MemoryBlockIiED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3023,7 +3023,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt15_Sp_counted_ptrIPN2cv3hfs7orutils
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3hfs7orutils5ImageIhED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3039,7 +3039,7 @@ _ZN2cv3hfs7orutils11MemoryBlockIhED2Ev.exit:      ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3hfs7orutils5ImageIhED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3056,7 +3056,7 @@ _ZN2cv3hfs7orutils5ImageIhED2Ev.exit:             ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3hfs7orutils11MemoryBlockIhED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3072,7 +3072,7 @@ _ZN2cv3hfs7orutils11MemoryBlockIhE4FreeEv.exit:   ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3hfs7orutils11MemoryBlockIhED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3hfs7orutils11MemoryBlockIhEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

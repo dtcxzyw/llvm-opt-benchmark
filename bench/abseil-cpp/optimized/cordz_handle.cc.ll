@@ -25,7 +25,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN4absl13cord_internal11CordzHandleC2Eb(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 9), (16, 32)) %this, i1 noundef zeroext %is_snapshot) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %is_snapshot to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i64 16), ptr %this, align 8
   %is_snapshot_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %frombool, ptr %is_snapshot_, align 8
   %dq_prev_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -93,7 +93,7 @@ if.end10:                                         ; preds = %if.end, %_ZN4absl13
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont, !prof !5

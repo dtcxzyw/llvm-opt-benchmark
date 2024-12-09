@@ -460,7 +460,7 @@ define internal i32 @_has_exclusive_features(ptr noundef %0, ptr nocapture readn
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = call i32 @job_features_set2str(ptr noundef %0, ptr noundef nonnull %3) #10
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %6 = and i64 %5, 140737488355328
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %12, label %7
@@ -627,7 +627,7 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %6, label %35
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 140737488355328
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %15, label %9
@@ -669,7 +669,7 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
   br label %26
 
 26:                                               ; preds = %25, %24
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %28 = and i64 %27, 140737488355328
   %.not22 = icmp eq i64 %28, 0
   br i1 %.not22, label %35, label %29
@@ -811,7 +811,7 @@ define dso_local ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1,
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %9 = and i64 %8, 140737488355328
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %14, label %10
@@ -826,7 +826,7 @@ define dso_local ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1,
   br label %14
 
 14:                                               ; preds = %13, %10, %4
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %16 = and i64 %15, 140737488355328
   %.not28 = icmp eq i64 %16, 0
   br i1 %.not28, label %21, label %17
@@ -841,7 +841,7 @@ define dso_local ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1,
   br label %21
 
 21:                                               ; preds = %20, %17, %14
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 140737488355328
   %.not29 = icmp eq i64 %23, 0
   br i1 %.not29, label %28, label %24
@@ -938,7 +938,7 @@ define dso_local ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1,
   br label %58
 
 58:                                               ; preds = %57, %._crit_edge43
-  %59 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %60 = and i64 %59, 140737488355328
   %.not35 = icmp eq i64 %60, 0
   br i1 %.not35, label %66, label %61
@@ -1001,7 +1001,7 @@ define dso_local ptr @node_features_p_job_xlate(ptr noundef %0, ptr noundef %1, 
   store ptr null, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %14, align 8
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %16 = and i64 %15, 140737488355328
   %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %26, label %17
@@ -1009,7 +1009,7 @@ define dso_local ptr @node_features_p_job_xlate(ptr noundef %0, ptr noundef %1, 
 17:                                               ; preds = %13
   %18 = tail call ptr @bitmap2node_name(ptr noundef %2) #10
   store ptr %18, ptr %5, align 8
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %20 = and i64 %19, 140737488355328
   %.not10.i = icmp eq i64 %20, 0
   br i1 %.not10.i, label %25, label %21
@@ -1034,7 +1034,7 @@ define dso_local ptr @node_features_p_job_xlate(ptr noundef %0, ptr noundef %1, 
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %26
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %32 = and i64 %31, 140737488355328
   %.not11.i = icmp eq i64 %32, 0
   br i1 %.not11.i, label %41, label %33
@@ -1251,7 +1251,7 @@ define dso_local noundef zeroext i1 @node_features_p_user_update(i32 noundef %0)
   br i1 %10, label %.loopexit, label %6
 
 ._crit_edge:                                      ; preds = %6, %.preheader
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %12 = and i64 %11, 140737488355328
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %.loopexit, label %13
@@ -1745,7 +1745,7 @@ define internal range(i32 -1, 1) i32 @_reconcile_job_features(ptr noundef %0, pt
   store ptr %8, ptr %6, align 8
   %9 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #10
   store ptr %9, ptr %3, align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %11 = and i64 %10, 140737488355328
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %24, label %12
@@ -1756,7 +1756,7 @@ define internal range(i32 -1, 1) i32 @_reconcile_job_features(ptr noundef %0, pt
   %14 = tail call ptr @bitmap2node_name(ptr noundef %13) #10
   store ptr %14, ptr %5, align 8
   %15 = call i32 @job_features_set2str(ptr noundef %0, ptr noundef nonnull %4) #10
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %17 = and i64 %16, 140737488355328
   %.not12 = icmp eq i64 %17, 0
   br i1 %.not12, label %23, label %18
@@ -1822,7 +1822,7 @@ define internal range(i32 -1, 1) i32 @_build_valid_feature_set(ptr nocapture nou
   br label %24
 
 16:                                               ; preds = %2
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 140737488355328
   %.not8 = icmp eq i64 %18, 0
   br i1 %.not8, label %24, label %19

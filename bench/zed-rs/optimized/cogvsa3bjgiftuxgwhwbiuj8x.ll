@@ -1179,7 +1179,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8c272aee12b087afE.exit.i.i.i: ; preds =
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha0c8b42631c993a5E.exit.i.i": ; preds = %.noexc, %39
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %42, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %39 ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %42, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %39 ]
   %.val.i.i.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !231, !noundef !9
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %46 = load atomic i64, ptr %45 acquire, align 8, !noalias !231
@@ -1226,7 +1226,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8c272aee12b087afE.exit.i.i.i92: ; preds
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha0c8b42631c993a5E.exit.i.i93": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8c272aee12b087afE.exit.i.i.i92, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h30ee884b09e98fc3E.exit"
-  %.sroa.0.0.i.i.i2.i.i.i94 = phi ptr [ %56, %_ZN4core3ops8function6FnOnce9call_once17h8c272aee12b087afE.exit.i.i.i92 ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h30ee884b09e98fc3E.exit" ]
+  %.sroa.0.0.i.i.i2.i.i.i94 = phi ptr [ %56, %_ZN4core3ops8function6FnOnce9call_once17h8c272aee12b087afE.exit.i.i.i92 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17h30ee884b09e98fc3E.exit" ]
   %.val.i.i.i95 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i94, align 8, !noalias !250, !noundef !9
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %60 = load atomic i64, ptr %59 acquire, align 8, !noalias !250
@@ -2995,12 +2995,12 @@ default.unreachable164:                           ; preds = %.noexc.i33, %.noexc
 
 61:                                               ; preds = %38
   %62 = lshr i64 %46, 32
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !558, !noundef !9
+  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !558, !noundef !9
   %64 = icmp ult i64 %62, %63
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %61
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !558, !nonnull !9, !align !10, !noundef !9
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !558, !nonnull !9, !align !10, !noundef !9
   %67 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %66, i64 0, i64 %62
   %68 = load ptr, ptr %67, align 8, !noalias !558, !nonnull !9, !align !121, !noundef !9
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8

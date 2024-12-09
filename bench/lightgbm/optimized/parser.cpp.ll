@@ -2814,7 +2814,7 @@ define noundef ptr @_ZN8LightGBM6Parser12CreateParserEPKcbiib(ptr noundef %0, i1
 
 20:                                               ; preds = %18
   %21 = load i32, ptr %7, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM12LibSVMParserE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM12LibSVMParserE, i64 16), ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %17, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -2844,7 +2844,7 @@ define noundef ptr @_ZN8LightGBM6Parser12CreateParserEPKcbiib(ptr noundef %0, i1
 
 _ZNSt10unique_ptrIN8LightGBM6ParserESt14default_deleteIS1_EE5resetEPS1_.exit34: ; preds = %30
   %32 = load i32, ptr %7, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9TSVParserE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9TSVParserE, i64 16), ptr %31, align 8
   br label %_ZNSt10unique_ptrIN8LightGBM6ParserESt14default_deleteIS1_EE5resetEPS1_.exit.sink.split
 
 33:                                               ; preds = %14
@@ -2857,7 +2857,7 @@ _ZNSt10unique_ptrIN8LightGBM6ParserESt14default_deleteIS1_EE5resetEPS1_.exit34: 
 
 _ZNSt10unique_ptrIN8LightGBM6ParserESt14default_deleteIS1_EE5resetEPS1_.exit37: ; preds = %35
   %37 = load i32, ptr %7, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9CSVParserE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9CSVParserE, i64 16), ptr %36, align 8
   br label %_ZNSt10unique_ptrIN8LightGBM6ParserESt14default_deleteIS1_EE5resetEPS1_.exit.sink.split
 
 .unreachabledefault:                              ; preds = %14
@@ -6460,7 +6460,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %87, %62
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %65
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8LightGBM14PipelineReader4ReadEPKciRKSt8functionIFmS6_mEEEUlvE_EEEEEE, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN8LightGBM14PipelineReader4ReadEPKciRKSt8functionIFmS6_mEEEUlvE_EEEEEE, i64 16), ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %16, ptr %67, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 16

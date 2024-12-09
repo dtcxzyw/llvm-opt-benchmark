@@ -59,7 +59,7 @@ define void @_ZN6icu_7524FieldPositionOnlyHandlerC2ERNS_13FieldPositionE(ptr noc
 entry:
   %fShift.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %fShift.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524FieldPositionOnlyHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7524FieldPositionOnlyHandlerE, i64 16), ptr %this, align 8
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %_pos, ptr %pos, align 8
   %acceptFirstOnly = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -183,7 +183,7 @@ define void @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_21FieldPositionItera
 entry:
   %fShift.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %fShift.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i64 16), ptr %this, align 8
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %posIter, ptr %iter, align 8
   %vec = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -233,7 +233,7 @@ define void @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_9UVector32ER10UError
 entry:
   %fShift.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %fShift.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i64 16), ptr %this, align 8
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %iter, align 8
   %vec2 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -249,7 +249,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7528FieldPositionIteratorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i64 16), ptr %this, align 8
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %iter, align 8
   %tobool.not = icmp eq ptr %0, null

@@ -3911,7 +3911,7 @@ define dso_local void @ExecBSInsertTriggers(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @before_stmt_triggers_fired(i32 noundef %0, i32 noundef range(i32 2, 5) %1) unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %8
 
@@ -3923,7 +3923,7 @@ define internal fastcc zeroext i1 @before_stmt_triggers_fired(i32 noundef %0, i3
   unreachable
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %.not = icmp slt i32 %3, %9
   br i1 %.not, label %AfterTriggerEnlargeQueryState.exit, label %10
 
@@ -3943,7 +3943,7 @@ define internal fastcc zeroext i1 @before_stmt_triggers_fired(i32 noundef %0, i3
 19:                                               ; preds = %10
   %20 = shl i32 %9, 1
   %21 = tail call i32 @llvm.smax.i32(i32 %12, i32 %20)
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %23 = sext i32 %21 to i64
   %24 = mul nsw i64 %23, 40
   %25 = tail call ptr @repalloc(ptr noundef %22, i64 noundef %24) #15
@@ -3952,8 +3952,8 @@ define internal fastcc zeroext i1 @before_stmt_triggers_fired(i32 noundef %0, i3
 26:                                               ; preds = %19, %13
   %storemerge14.i = phi ptr [ %25, %19 ], [ %18, %13 ]
   %storemerge.i = phi i32 [ %21, %19 ], [ %14, %13 ]
-  store ptr %storemerge14.i, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  store ptr %storemerge14.i, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  store i32 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %27 = icmp slt i32 %9, %storemerge.i
   br i1 %27, label %.lr.ph.preheader.i, label %AfterTriggerEnlargeQueryState.exit
 
@@ -3963,18 +3963,18 @@ define internal fastcc zeroext i1 @before_stmt_triggers_fired(i32 noundef %0, i3
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %30 = getelementptr %struct.AfterTriggersQueryData, ptr %29, i64 %indvars.iv.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, i8 0, i64 40, i1 false)
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i, %32
   br i1 %33, label %.lr.ph.i, label %AfterTriggerEnlargeQueryState.exit, !llvm.loop !27
 
 AfterTriggerEnlargeQueryState.exit:               ; preds = %.lr.ph.i, %26, %8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %36 = sext i32 %35 to i64
   %37 = getelementptr %struct.AfterTriggersQueryData, ptr %34, i64 %36, i32 2
   %38 = load ptr, ptr %37, align 8
@@ -4312,7 +4312,7 @@ define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 115
   %22 = load i8, ptr %21, align 1
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %28
 
@@ -4324,7 +4324,7 @@ define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %
   unreachable
 
 28:                                               ; preds = %12
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %.not = icmp slt i32 %23, %29
   br i1 %.not, label %AfterTriggerEnlargeQueryState.exit, label %30
 
@@ -4344,7 +4344,7 @@ define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %
 39:                                               ; preds = %30
   %40 = shl i32 %29, 1
   %41 = tail call i32 @llvm.smax.i32(i32 %32, i32 %40)
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %43 = sext i32 %41 to i64
   %44 = mul nsw i64 %43, 40
   %45 = tail call ptr @repalloc(ptr noundef %42, i64 noundef %44) #15
@@ -4353,8 +4353,8 @@ define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %
 46:                                               ; preds = %39, %33
   %storemerge14.i = phi ptr [ %45, %39 ], [ %38, %33 ]
   %storemerge.i = phi i32 [ %41, %39 ], [ %34, %33 ]
-  store ptr %storemerge14.i, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  store ptr %storemerge14.i, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  store i32 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %47 = icmp slt i32 %29, %storemerge.i
   br i1 %47, label %.lr.ph.preheader.i, label %AfterTriggerEnlargeQueryState.exit
 
@@ -4364,11 +4364,11 @@ define internal fastcc void @AfterTriggerSaveEvent(ptr noundef %0, ptr noundef %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %48, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %50 = getelementptr %struct.AfterTriggersQueryData, ptr %49, i64 %indvars.iv.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %50, i8 0, i64 40, i1 false)
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next.i, %52
   br i1 %53, label %.lr.ph.i, label %AfterTriggerEnlargeQueryState.exit, !llvm.loop !27
@@ -4852,8 +4852,8 @@ default.unreachable216:                           ; preds = %.critedge, %133
   br i1 %292, label %293, label %.sink.split219
 
 293:                                              ; preds = %291
-  %294 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %295 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %295 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %296 = sext i32 %295 to i64
   %297 = getelementptr %struct.AfterTriggersQueryData, ptr %294, i64 %296, i32 1
   %298 = load ptr, ptr %297, align 8
@@ -4871,8 +4871,8 @@ default.unreachable216:                           ; preds = %.critedge, %133
   %306 = tail call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %305) #15
   store ptr %303, ptr @CurrentResourceOwner, align 8
   store ptr %302, ptr @CurrentMemoryContext, align 8
-  %307 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %308 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %307 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %308 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %309 = sext i32 %308 to i64
   %310 = getelementptr %struct.AfterTriggersQueryData, ptr %307, i64 %309, i32 1
   store ptr %306, ptr %310, align 8
@@ -4987,14 +4987,14 @@ default.unreachable216:                           ; preds = %.critedge, %133
   br i1 %278, label %afterTriggerCopyBitmap.exit, label %368
 
 368:                                              ; preds = %367
-  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 40), align 8
+  %369 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 40), align 8
   %370 = icmp eq ptr %369, null
   br i1 %370, label %371, label %374
 
 371:                                              ; preds = %368
   %372 = load ptr, ptr @TopTransactionContext, align 8
   %373 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %372, ptr noundef nonnull @.str.85, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
-  store ptr %373, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 40), align 8
+  store ptr %373, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 40), align 8
   br label %374
 
 374:                                              ; preds = %371, %368
@@ -5008,8 +5008,8 @@ default.unreachable216:                           ; preds = %.critedge, %133
 afterTriggerCopyBitmap.exit:                      ; preds = %367, %374
   %.0.i191 = phi ptr [ %377, %374 ], [ null, %367 ]
   store ptr %.0.i191, ptr %279, align 8
-  %378 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %379 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %378 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %379 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %380 = sext i32 %379 to i64
   %381 = getelementptr %struct.AfterTriggersQueryData, ptr %378, i64 %380
   call fastcc void @afterTriggerAddEvent(ptr noundef %381, ptr noundef nonnull %13, ptr noundef nonnull %14)
@@ -6655,7 +6655,7 @@ define dso_local noundef ptr @MakeTransitionCaptureState(ptr noundef readonly %0
   %.04360 = phi i8 [ %.043596573, %24 ], [ %.0435965, %.thread61 ], [ %.043.in, %21 ], [ %.043.in, %19 ]
   %.04458 = phi i8 [ %.044576672, %24 ], [ %.0445766, %.thread61 ], [ %.044, %21 ], [ %.044, %19 ]
   %.04556 = phi i8 [ %.045556771, %24 ], [ %.0455567, %.thread61 ], [ %.045, %21 ], [ %.045, %19 ]
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %33
 
@@ -6667,7 +6667,7 @@ define dso_local noundef ptr @MakeTransitionCaptureState(ptr noundef readonly %0
   unreachable
 
 33:                                               ; preds = %26
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %.not = icmp slt i32 %28, %34
   br i1 %.not, label %AfterTriggerEnlargeQueryState.exit, label %35
 
@@ -6687,7 +6687,7 @@ define dso_local noundef ptr @MakeTransitionCaptureState(ptr noundef readonly %0
 44:                                               ; preds = %35
   %45 = shl i32 %34, 1
   %46 = tail call i32 @llvm.smax.i32(i32 %37, i32 %45)
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %48 = sext i32 %46 to i64
   %49 = mul nsw i64 %48, 40
   %50 = tail call ptr @repalloc(ptr noundef %47, i64 noundef %49) #15
@@ -6696,8 +6696,8 @@ define dso_local noundef ptr @MakeTransitionCaptureState(ptr noundef readonly %0
 51:                                               ; preds = %44, %38
   %storemerge14.i = phi ptr [ %50, %44 ], [ %43, %38 ]
   %storemerge.i = phi i32 [ %46, %44 ], [ %39, %38 ]
-  store ptr %storemerge14.i, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  store ptr %storemerge14.i, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  store i32 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %52 = icmp slt i32 %34, %storemerge.i
   br i1 %52, label %.lr.ph.preheader.i, label %AfterTriggerEnlargeQueryState.exit
 
@@ -6707,18 +6707,18 @@ define dso_local noundef ptr @MakeTransitionCaptureState(ptr noundef readonly %0
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %53, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %55 = getelementptr %struct.AfterTriggersQueryData, ptr %54, i64 %indvars.iv.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, i8 0, i64 40, i1 false)
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next.i, %57
   br i1 %58, label %.lr.ph.i, label %AfterTriggerEnlargeQueryState.exit, !llvm.loop !27
 
 AfterTriggerEnlargeQueryState.exit:               ; preds = %.lr.ph.i, %51, %33
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %61 = sext i32 %60 to i64
   %62 = getelementptr %struct.AfterTriggersQueryData, ptr %59, i64 %61, i32 2
   %63 = load ptr, ptr %62, align 8
@@ -6886,34 +6886,34 @@ declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @AfterTriggerBeginXact() local_unnamed_addr #7 {
   store i32 1, ptr @afterTriggers, align 8
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @AfterTriggerBeginQuery() local_unnamed_addr #8 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %2 = add i32 %1, 1
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AfterTriggerEndQuery(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %.not = icmp slt i32 %2, %3
   br i1 %.not, label %4, label %53
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %6 = sext i32 %2 to i64
   %7 = getelementptr %struct.AfterTriggersQueryData, ptr %5, i64 %6
-  %8 = tail call fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @afterTriggers, i64 16), i1 noundef zeroext true)
+  %8 = tail call fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef %7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i1 noundef zeroext true)
   br i1 %8, label %.lr.ph11, label %._crit_edge
 
 .loopexit:                                        ; preds = %afterTriggerDeleteHeadEventChunk.exit, %15
-  %9 = tail call fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef nonnull %19, ptr noundef nonnull getelementptr inbounds (i8, ptr @afterTriggers, i64 16), i1 noundef zeroext true)
+  %9 = tail call fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef nonnull %19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i1 noundef zeroext true)
   br i1 %9, label %.lr.ph11, label %._crit_edge
 
 .lr.ph11:                                         ; preds = %4, %.loopexit
@@ -6927,8 +6927,8 @@ define dso_local void @AfterTriggerEndQuery(ptr noundef %0) local_unnamed_addr #
   br i1 %14, label %._crit_edge, label %15
 
 15:                                               ; preds = %.lr.ph11
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %18 = sext i32 %17 to i64
   %19 = getelementptr %struct.AfterTriggersQueryData, ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
@@ -6991,18 +6991,18 @@ afterTriggerDeleteHeadEventChunk.exit:            ; preds = %42, %22, %.lr.ph.i
   br i1 %.not8, label %.loopexit, label %22, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph11, %.loopexit, %4
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %50 = sext i32 %49 to i64
   %51 = getelementptr %struct.AfterTriggersQueryData, ptr %48, i64 %50
   tail call fastcc void @AfterTriggerFreeQuery(ptr noundef %51)
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   br label %53
 
 53:                                               ; preds = %1, %._crit_edge
   %storemerge.in = phi i32 [ %52, %._crit_edge ], [ %2, %1 ]
   %storemerge = add i32 %storemerge.in, -1
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   ret void
 }
 
@@ -7050,7 +7050,7 @@ define internal fastcc zeroext i1 @afterTriggerMarkEvents(ptr nocapture noundef 
   %.val.us.us = load i32, ptr %13, align 8
   %15 = getelementptr i8, ptr %13, i64 4
   %.val34.us.us = load i32, ptr %15, align 4
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   %17 = and i32 %.val.us.us, 32
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %afterTriggerCheckState.exit.thread.us.us, label %19
@@ -7143,14 +7143,14 @@ afterTriggerCheckState.exit.us.us:                ; preds = %._crit_edge.i.us.us
   br i1 %59, label %60, label %94
 
 60:                                               ; preds = %50, %46
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 40), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 40), align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr @TopTransactionContext, align 8
   %65 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %64, ptr noundef nonnull @.str.85, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
-  store ptr %65, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 40), align 8
+  store ptr %65, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 40), align 8
   br label %66
 
 66:                                               ; preds = %63, %60
@@ -7645,8 +7645,8 @@ define internal fastcc zeroext i1 @afterTriggerInvokeEvents(ptr nocapture nounde
   ]
 
 120:                                              ; preds = %117
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %122 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %123 = sext i32 %122 to i64
   %124 = getelementptr %struct.AfterTriggersQueryData, ptr %121, i64 %123, i32 1
   %125 = load ptr, ptr %124, align 8
@@ -7664,8 +7664,8 @@ define internal fastcc zeroext i1 @afterTriggerInvokeEvents(ptr nocapture nounde
   %133 = call ptr @tuplestore_begin_heap(i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %132) #15
   store ptr %130, ptr @CurrentResourceOwner, align 8
   store ptr %129, ptr @CurrentMemoryContext, align 8
-  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %135 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %136 = sext i32 %135 to i64
   %137 = getelementptr %struct.AfterTriggersQueryData, ptr %134, i64 %136, i32 1
   store ptr %133, ptr %137, align 8
@@ -8234,14 +8234,14 @@ afterTriggerFreeEventList.exit:                   ; preds = %.lr.ph.i, %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AfterTriggerFireDeferred() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), align 8
   %.not.not = icmp eq ptr %1, null
   br i1 %.not.not, label %afterTriggerMarkEvents.exit.thread.thread, label %2
 
 2:                                                ; preds = %0
   %3 = tail call ptr @GetTransactionSnapshot() #15
   tail call void @PushActiveSnapshot(ptr noundef %3) #15
-  %.02653.i.old.pre = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 16), align 8
+  %.02653.i.old.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), align 8
   %.not54.i.old = icmp eq ptr %.02653.i.old.pre, null
   br i1 %.not54.i.old, label %afterTriggerMarkEvents.exit.thread.thread8, label %.lr.ph58.split.i
 
@@ -8314,8 +8314,8 @@ afterTriggerMarkEvents.exit:                      ; preds = %.loopexit.i
   %26 = load i32, ptr @afterTriggers, align 8
   %27 = add i32 %26, 1
   store i32 %27, ptr @afterTriggers, align 8
-  %28 = tail call fastcc zeroext i1 @afterTriggerInvokeEvents(ptr noundef nonnull getelementptr inbounds (i8, ptr @afterTriggers, i64 16), i32 noundef %26, ptr noundef null, i1 noundef zeroext true)
-  %.02653.i = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 16), align 8
+  %28 = tail call fastcc zeroext i1 @afterTriggerInvokeEvents(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i32 noundef %26, ptr noundef null, i1 noundef zeroext true)
+  %.02653.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), align 8
   %.not54.i = icmp eq ptr %.02653.i, null
   %or.cond = select i1 %28, i1 true, i1 %.not54.i
   br i1 %or.cond, label %afterTriggerMarkEvents.exit.thread.thread8, label %.lr.ph58.split.i.backedge
@@ -8336,32 +8336,32 @@ declare void @PopActiveSnapshot() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AfterTriggerEndXact(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 40), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 40), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
   tail call void @MemoryContextDelete(ptr noundef nonnull %2) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @afterTriggers, i64 16), i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i8 0, i64 32, i1 false)
   br label %4
 
 4:                                                ; preds = %3, %1
-  store ptr null, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @afterTriggers, i64 60), i8 0, i64 16, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), i8 0, i64 16, i1 false)
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AfterTriggerBeginSubXact() local_unnamed_addr #0 {
   %1 = tail call i32 @GetCurrentTransactionNestLevel() #15
-  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 72), align 8
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 72), align 8
   %.not9 = icmp slt i32 %1, %.pr
   br i1 %.not9, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %0
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %0, %13
@@ -8376,7 +8376,7 @@ define dso_local void @AfterTriggerBeginSubXact() local_unnamed_addr #0 {
 
 7:                                                ; preds = %.lr.ph
   %8 = shl i32 %2, 1
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %10 = sext i32 %8 to i64
   %11 = mul nsw i64 %10, 40
   %12 = tail call ptr @repalloc(ptr noundef %9, i64 noundef %11) #15
@@ -8385,8 +8385,8 @@ define dso_local void @AfterTriggerBeginSubXact() local_unnamed_addr #0 {
 13:                                               ; preds = %7, %4
   %storemerge8 = phi ptr [ %12, %7 ], [ %6, %4 ]
   %storemerge = phi i32 [ %8, %7 ], [ 8, %4 ]
-  store ptr %storemerge8, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 72), align 8
+  store ptr %storemerge8, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 72), align 8
   %.not = icmp slt i32 %1, %storemerge
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
@@ -8395,15 +8395,15 @@ define dso_local void @AfterTriggerBeginSubXact() local_unnamed_addr #0 {
   %15 = sext i32 %1 to i64
   %16 = getelementptr %struct.AfterTriggersTransData, ptr %14, i64 %15
   store ptr null, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %18 = getelementptr %struct.AfterTriggersTransData, ptr %17, i64 %15, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @afterTriggers, i64 16), i64 24, i1 false)
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i64 24, i1 false)
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %21 = getelementptr %struct.AfterTriggersTransData, ptr %20, i64 %15, i32 2
   store i32 %19, ptr %21, align 8
   %22 = load i32, ptr @afterTriggers, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %24 = getelementptr %struct.AfterTriggersTransData, ptr %23, i64 %15, i32 3
   store i32 %22, ptr %24, align 4
   ret void
@@ -8419,7 +8419,7 @@ define dso_local void @AfterTriggerEndSubXact(i1 noundef zeroext %0) local_unnam
   br i1 %0, label %3, label %12
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr %struct.AfterTriggersTransData, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -8428,7 +8428,7 @@ define dso_local void @AfterTriggerEndSubXact(i1 noundef zeroext %0) local_unnam
 
 8:                                                ; preds = %3
   tail call void @pfree(ptr noundef nonnull %7) #15
-  %.pre53 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %.pre53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -8438,14 +8438,14 @@ define dso_local void @AfterTriggerEndSubXact(i1 noundef zeroext %0) local_unnam
   br label %.loopexit37
 
 12:                                               ; preds = %1
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 72), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 72), align 8
   %.not = icmp slt i32 %2, %13
   br i1 %.not, label %.preheader, label %.loopexit37
 
 .preheader:                                       ; preds = %12
   %14 = sext i32 %2 to i64
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %17 = getelementptr %struct.AfterTriggersTransData, ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load i32, ptr %18, align 8
@@ -8453,7 +8453,7 @@ define dso_local void @AfterTriggerEndSubXact(i1 noundef zeroext %0) local_unnam
   br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pre49 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  %.pre49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
@@ -8464,13 +8464,13 @@ define dso_local void @AfterTriggerEndSubXact(i1 noundef zeroext %0) local_unnam
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %.lr.ph
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %27 = sext i32 %23 to i64
   %28 = getelementptr %struct.AfterTriggersQueryData, ptr %26, i64 %27
   tail call fastcc void @AfterTriggerFreeQuery(ptr noundef %28)
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
-  %.pre50 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
-  %.pre51 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
+  %.pre50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
+  %.pre51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   br label %29
 
 29:                                               ; preds = %25, %.lr.ph
@@ -8478,7 +8478,7 @@ define dso_local void @AfterTriggerEndSubXact(i1 noundef zeroext %0) local_unnam
   %31 = phi i32 [ %.pre50, %25 ], [ %23, %.lr.ph ]
   %32 = phi i32 [ %.pre, %25 ], [ %22, %.lr.ph ]
   %33 = add i32 %31, -1
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %34 = getelementptr %struct.AfterTriggersTransData, ptr %30, i64 %14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i32, ptr %35, align 8
@@ -8493,27 +8493,27 @@ define dso_local void @AfterTriggerEndSubXact(i1 noundef zeroext %0) local_unnam
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %._crit_edge
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 16), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), align 8
   %.not6.i.i = icmp eq ptr %42, null
   br i1 %.not6.i.i, label %afterTriggerFreeEventList.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
   %43 = phi ptr [ %45, %.lr.ph.i.i ], [ %42, %41 ]
   %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 16), align 8
+  store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), align 8
   tail call void @pfree(ptr noundef nonnull %43) #15
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 16), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), align 8
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %afterTriggerFreeEventList.exit.i, label %.lr.ph.i.i, !llvm.loop !47
 
 afterTriggerFreeEventList.exit.i:                 ; preds = %.lr.ph.i.i, %41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @afterTriggers, i64 24), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 24), i8 0, i64 16, i1 false)
   br label %afterTriggerRestoreEventList.exit
 
 46:                                               ; preds = %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @afterTriggers, i64 16), ptr noundef nonnull readonly align 8 dereferenceable(24) %47, i64 24, i1 false)
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 24), align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), ptr noundef nonnull readonly align 8 dereferenceable(24) %47, i64 24, i1 false)
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 24), align 8
   %49 = load ptr, ptr %48, align 8
   %.not1.i = icmp eq ptr %49, null
   br i1 %.not1.i, label %._crit_edge.i, label %.lr.ph.i
@@ -8526,40 +8526,40 @@ afterTriggerFreeEventList.exit.i:                 ; preds = %.lr.ph.i.i, %41
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !51
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 24), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 24), align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %46
   %51 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %48, %46 ]
   store ptr null, ptr %51, align 8
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 32), align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 24), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 32), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 24), align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %52, ptr %54, align 8
   br label %afterTriggerRestoreEventList.exit
 
 afterTriggerRestoreEventList.exit:                ; preds = %afterTriggerFreeEventList.exit.i, %._crit_edge.i
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %56 = getelementptr %struct.AfterTriggersTransData, ptr %55, i64 %14
   %57 = load ptr, ptr %56, align 8
   %.not32 = icmp eq ptr %57, null
   br i1 %.not32, label %60, label %58
 
 58:                                               ; preds = %afterTriggerRestoreEventList.exit
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   tail call void @pfree(ptr noundef %59) #15
-  store ptr %57, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
-  %.pre52 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  store ptr %57, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
+  %.pre52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   br label %60
 
 60:                                               ; preds = %58, %afterTriggerRestoreEventList.exit
   %61 = phi ptr [ %.pre52, %58 ], [ %55, %afterTriggerRestoreEventList.exit ]
   %62 = getelementptr %struct.AfterTriggersTransData, ptr %61, i64 %14
   store ptr null, ptr %62, align 8
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %64 = getelementptr %struct.AfterTriggersTransData, ptr %63, i64 %14, i32 3
   %65 = load i32, ptr %64, align 4
-  %.02743 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 16), align 8
+  %.02743 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), align 8
   %.not3344 = icmp eq ptr %.02743, null
   br i1 %.not3344, label %.loopexit37, label %.lr.ph47
 
@@ -8629,7 +8629,7 @@ define dso_local void @AfterTriggerSetState(ptr nocapture noundef readonly %0) l
   %3 = alloca %struct.ScanKeyData, align 8
   %4 = alloca %struct.ScanKeyData, align 8
   %5 = tail call i32 @GetCurrentTransactionNestLevel() #15
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %12
 
@@ -8638,7 +8638,7 @@ define dso_local void @AfterTriggerSetState(ptr nocapture noundef readonly %0) l
   %10 = tail call ptr @MemoryContextAllocZero(ptr noundef %9, i64 noundef 76) #15
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 8, ptr %11, align 4
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   br label %12
 
 12:                                               ; preds = %8, %1
@@ -8647,7 +8647,7 @@ define dso_local void @AfterTriggerSetState(ptr nocapture noundef readonly %0) l
   br i1 %14, label %15, label %44
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %17 = zext nneg i32 %5 to i64
   %18 = getelementptr %struct.AfterTriggersTransData, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -8681,7 +8681,7 @@ define dso_local void @AfterTriggerSetState(ptr nocapture noundef readonly %0) l
   %40 = sext i32 %36 to i64
   %41 = shl nsw i64 %40, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr nonnull readonly align 4 %39, i64 %41, i1 false)
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 64), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 64), align 8
   %43 = getelementptr %struct.AfterTriggersTransData, ptr %42, i64 %17
   store ptr %28, ptr %43, align 8
   br label %44
@@ -8693,14 +8693,14 @@ define dso_local void @AfterTriggerSetState(ptr nocapture noundef readonly %0) l
   br i1 %47, label %48, label %57
 
 48:                                               ; preds = %44
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 0, ptr %50, align 4
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   store i8 1, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i8, ptr %52, align 8
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = and i8 %53, 1
   store i8 %56, ptr %55, align 1
@@ -9002,7 +9002,7 @@ define dso_local void @AfterTriggerSetState(ptr nocapture noundef readonly %0) l
   %200 = load ptr, ptr %196, align 8
   %201 = getelementptr %union.ListCell, ptr %200, i64 %indvars.iv267328
   %202 = load i32, ptr %201, align 8
-  %203 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
+  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 4
   %205 = load i32, ptr %204, align 4
   %206 = icmp sgt i32 %205, 0
@@ -9071,7 +9071,7 @@ SetConstraintStateAddItem.exit:                   ; preds = %.critedge, %220
   store i8 %229, ptr %236, align 4
   %237 = add i32 %234, 1
   store i32 %237, ptr %231, align 4
-  store ptr %.0.i, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 8), align 8
+  store ptr %.0.i, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   br label %238
 
 238:                                              ; preds = %213, %SetConstraintStateAddItem.exit
@@ -9089,7 +9089,7 @@ SetConstraintStateAddItem.exit:                   ; preds = %.critedge, %220
 
 .preheader:                                       ; preds = %.thread159, %252
   %.0105 = phi i8 [ %.2107, %252 ], [ 0, %.thread159 ]
-  %245 = call fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef nonnull getelementptr inbounds (i8, ptr @afterTriggers, i64 16), ptr noundef null, i1 noundef zeroext true)
+  %245 = call fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), ptr noundef null, i1 noundef zeroext true)
   br i1 %245, label %246, label %256
 
 246:                                              ; preds = %.preheader
@@ -9108,7 +9108,7 @@ SetConstraintStateAddItem.exit:                   ; preds = %.critedge, %220
   %.2107 = phi i8 [ %.0105, %246 ], [ 1, %250 ]
   %253 = call zeroext i1 @IsSubTransaction() #15
   %254 = xor i1 %253, true
-  %255 = call fastcc zeroext i1 @afterTriggerInvokeEvents(ptr noundef nonnull getelementptr inbounds (i8, ptr @afterTriggers, i64 16), i32 noundef %247, ptr noundef null, i1 noundef zeroext %254)
+  %255 = call fastcc zeroext i1 @afterTriggerInvokeEvents(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i32 noundef %247, ptr noundef null, i1 noundef zeroext %254)
   br i1 %255, label %256, label %.preheader, !llvm.loop !58
 
 256:                                              ; preds = %252, %.preheader
@@ -9138,7 +9138,7 @@ declare zeroext i1 @IsSubTransaction() local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @AfterTriggerPendingOnRel(i32 noundef %0) local_unnamed_addr #6 {
-  %.03447 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 16), align 8
+  %.03447 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), align 8
   %.not48 = icmp eq ptr %.03447, null
   br i1 %.not48, label %.preheader, label %.lr.ph50
 
@@ -9148,15 +9148,15 @@ define dso_local noundef zeroext i1 @AfterTriggerPendingOnRel(i32 noundef %0) lo
   br i1 %.not, label %.preheader, label %.lr.ph50, !llvm.loop !59
 
 .preheader:                                       ; preds = %.loopexit44, %1
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 60), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 60), align 4
   %4 = icmp sgt i32 %2, -1
   %5 = icmp sgt i32 %3, 0
   %6 = select i1 %4, i1 %5, i1 false
   br i1 %6, label %.lr.ph58, label %.loopexit42
 
 .lr.ph58:                                         ; preds = %.preheader
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %8 = zext nneg i32 %3 to i64
   %9 = zext nneg i32 %2 to i64
   br label %31
@@ -9375,14 +9375,14 @@ define internal fastcc void @afterTriggerAddEvent(ptr nocapture noundef %0, ptr 
   br i1 %23, label %24, label %58
 
 24:                                               ; preds = %14, %9
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 40), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 40), align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr @TopTransactionContext, align 8
   %29 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %28, ptr noundef nonnull @.str.85, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 40), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 40), align 8
   br label %30
 
 30:                                               ; preds = %27, %24
@@ -9551,8 +9551,8 @@ declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cancel_prior_stmt_triggers(i32 noundef %0, i32 noundef range(i32 2, 5) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 48), align 8
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @afterTriggers, i64 56), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr %struct.AfterTriggersQueryData, ptr %4, i64 %6
   %8 = getelementptr %struct.AfterTriggersQueryData, ptr %4, i64 %6, i32 2

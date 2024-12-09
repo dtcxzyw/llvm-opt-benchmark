@@ -939,7 +939,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   br label %109
 
 38:                                               ; preds = %33
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %101
 
@@ -991,7 +991,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not83, label %109, label %.preheader
 
 .preheader:                                       ; preds = %69
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph, label %._crit_edge
 
@@ -1019,7 +1019,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %81 = getelementptr inbounds nuw i32, ptr %60, i64 %80
   store i32 %.sroa.4.0.copyload, ptr %81, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %82 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
   br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -1586,7 +1586,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
 
 79:                                               ; preds = %72, %76
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 972, ptr noundef null)
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.lr.ph141.preheader, label %._crit_edge142
 
@@ -1698,7 +1698,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   %130 = getelementptr inbounds nuw i8, ptr %84, i64 60
   store volatile i32 0, ptr %130, align 4
   %.pre = load ptr, ptr @screenSpace, align 8
-  %.pre149 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %.pre149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   br label %131
 
 131:                                              ; preds = %.lr.ph141, %.thread
@@ -1782,9 +1782,9 @@ define internal fastcc i32 @makeScreencast(ptr noundef %0, i64 %.0.val, i64 %.8.
 21:                                               ; preds = %.thread15.i, %.thread.i, %14
   %22 = load ptr, ptr @fp_pw_init, align 8
   tail call void %22(ptr noundef null, ptr noundef null) #15
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @pw, i64 72), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 12), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 12), align 4
   %23 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 2, i64 noundef 64) #17
   store ptr %23, ptr @screenSpace, align 8
   %.not.i.i = icmp eq ptr %23, null
@@ -1802,7 +1802,7 @@ initScreenSpace.exit.i:                           ; preds = %21
 
 27:                                               ; preds = %initScreenSpace.exit.i
   %28 = tail call i32 @getPipewireFd(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 -536870912, 536870912) %2) #15
-  store i32 %28, ptr getelementptr inbounds (i8, ptr @pw, i64 72), align 8
+  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %36, label %30
 
@@ -1818,7 +1818,7 @@ initScreenSpace.exit.i:                           ; preds = %21
 
 36:                                               ; preds = %27, %initScreenSpace.exit.i, %initScreenSpace.exit.thread.i
   tail call fastcc void @doCleanup()
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @pw, i64 72), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
   br label %doLoop.exit.thread
 
 38:                                               ; preds = %30, %19
@@ -1845,7 +1845,7 @@ initScreenSpace.exit.i:                           ; preds = %21
   %47 = load ptr, ptr @fp_pw_thread_loop_get_loop, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %43) #15
   %49 = tail call ptr %46(ptr noundef %48, ptr noundef null, i64 noundef 0) #15
-  store ptr %49, ptr getelementptr inbounds (i8, ptr @pw, i64 8), align 8
+  store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 8), align 8
   %.not40.i = icmp eq ptr %49, null
   br i1 %.not40.i, label %50, label %51
 
@@ -1871,10 +1871,10 @@ initScreenSpace.exit.i:                           ; preds = %21
   %58 = load ptr, ptr @pw, align 8
   tail call void %57(ptr noundef %58) #15
   %59 = load ptr, ptr @fp_pw_context_connect_fd, align 8
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @pw, i64 8), align 8
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @pw, i64 72), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 8), align 8
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
   %62 = tail call ptr %59(ptr noundef %60, i32 noundef %61, ptr noundef null, i64 noundef 0) #15
-  store ptr %62, ptr getelementptr inbounds (i8, ptr @pw, i64 16), align 8
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 16), align 8
   %.not42.i = icmp eq ptr %62, null
   br i1 %.not42.i, label %.thread.i9, label %63
 
@@ -1897,11 +1897,11 @@ initScreenSpace.exit.i:                           ; preds = %21
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call i32 %68(ptr noundef %71, ptr noundef nonnull getelementptr inbounds (i8, ptr @pw, i64 24), ptr noundef nonnull @coreEvents, ptr noundef null) #15
+  %72 = tail call i32 %68(ptr noundef %71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pw, i64 24), ptr noundef nonnull @coreEvents, ptr noundef null) #15
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %69, %66, %63, %38
-  %73 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.lr.ph.i, label %._crit_edge.i
 
@@ -1965,7 +1965,7 @@ initScreenSpace.exit.i:                           ; preds = %21
   %107 = load i32, ptr %106, align 4
   %108 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.doLoop, i32 noundef 641, i32 noundef %99, i32 noundef %101, i32 noundef %103, i32 noundef %105, i32 noundef %107, i32 noundef %108)
-  %109 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %110 = sext i32 %109 to i64
   %.not.i.i7 = icmp slt i64 %indvars.iv.i, %110
   br i1 %.not.i.i7, label %111, label %checkScreen.exit.thread.i
@@ -2040,7 +2040,7 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
 
 148:                                              ; preds = %checkScreen.exit.i
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.60, ptr noundef nonnull @__func__.connectStream, i32 noundef 432, i32 noundef %108)
-  %149 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %150 = sext i32 %149 to i64
   %.not.i50.i = icmp slt i64 %indvars.iv.i, %150
   br i1 %.not.i50.i, label %152, label %151
@@ -2068,7 +2068,7 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   %161 = getelementptr inbounds nuw i8, ptr %156, i64 152
   store i32 0, ptr %161, align 8
   %162 = load ptr, ptr @fp_pw_stream_new, align 8
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @pw, i64 16), align 8
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 16), align 8
   %164 = load ptr, ptr @fp_pw_properties_new, align 8
   %165 = call ptr (ptr, ...) %164(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef null) #15
   %166 = call ptr %162(ptr noundef %163, ptr noundef nonnull @.str.63, ptr noundef %165) #15
@@ -2262,7 +2262,7 @@ connectStream.exit.i:                             ; preds = %158
   %270 = load i32, ptr %106, align 4
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.doLoop, i32 noundef 647, i32 noundef %266, i32 noundef %267, i32 noundef %268, i32 noundef %269, i32 noundef %270, i32 noundef %108)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %271 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %271 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %272 = sext i32 %271 to i64
   %273 = icmp slt i64 %indvars.iv.next.i, %272
   br i1 %273, label %87, label %._crit_edge.i, !llvm.loop !12
@@ -2293,7 +2293,7 @@ connectStream.exit.thread.i:                      ; preds = %connectStream.exit.
   br label %doLoop.exit.thread
 
 doLoop.exit:                                      ; preds = %doLoop.exit.preheader, %isAllDataReady.exit
-  %281 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %281 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %282 = icmp sgt i32 %281, 0
   br i1 %282, label %.lr.ph.i11, label %doLoop.exit.thread
 
@@ -2368,7 +2368,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
   br label %5
 
 5:                                                ; preds = %2, %0
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2415,7 +2415,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
   tail call void @free(ptr noundef %28) #15
   store ptr null, ptr %10, align 8
   %.pre = load ptr, ptr @screenSpace, align 8
-  %.pre23 = load i32, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  %.pre23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   br label %29
 
 29:                                               ; preds = %.lr.ph, %27
@@ -2427,25 +2427,25 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %29, %5
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @pw, i64 72), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %._crit_edge
   %37 = tail call i32 @close(i32 noundef %34) #15
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @pw, i64 72), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
   tail call void (...) @portalScreenCastCleanup() #15
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @pw, i64 16), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 16), align 8
   %.not14 = icmp eq ptr %39, null
   br i1 %.not14, label %43, label %40
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @fp_pw_core_disconnect, align 8
   %42 = tail call i32 %41(ptr noundef nonnull %39) #15
-  store ptr null, ptr getelementptr inbounds (i8, ptr @pw, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 16), align 8
   br label %43
 
 43:                                               ; preds = %40, %38
@@ -2467,7 +2467,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
 49:                                               ; preds = %47
   tail call void @free(ptr noundef nonnull %48) #15
   store ptr null, ptr @screenSpace, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @screenSpace, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   br label %50
 
 50:                                               ; preds = %49, %47

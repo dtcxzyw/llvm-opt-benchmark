@@ -136,7 +136,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
   br i1 %5, label %6, label %.preheader
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 88) #6
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10, !prof !9
@@ -182,7 +182,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
   br i1 %36, label %82, label %37
 
 37:                                               ; preds = %28
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %39 = tail call noalias noundef align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 152) #6
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread, label %41, !prof !9
@@ -260,7 +260,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
   br i1 %90, label %91, label %28
 
 91:                                               ; preds = %84
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %93 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %92, i32 noundef 3264, i64 noundef 88) #6
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.thread, label %95, !prof !9

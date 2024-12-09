@@ -569,7 +569,7 @@ _ZN2cv9RGB2XYZ_iIhEC2EiiPKf.exit:                 ; preds = %22, %20
   store i32 0, ptr %14, align 4
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %5, ptr %28, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2XYZ_iIhEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2XYZ_iIhEEEE, i64 16), ptr %15, align 8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -625,7 +625,7 @@ _ZN2cv9RGB2XYZ_iItEC2EiiPKf.exit:                 ; preds = %42, %40
   store i32 0, ptr %12, align 4
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %5, ptr %48, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2XYZ_iItEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2XYZ_iItEEEE, i64 16), ptr %13, align 8
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -700,7 +700,7 @@ _ZN2cv9RGB2XYZ_fIfEC2EiiPKf.exit:                 ; preds = %66, %.split12.us.i
   store i32 0, ptr %10, align 4
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %5, ptr %78, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2XYZ_fIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2XYZ_fIfEEEE, i64 16), ptr %11, align 8
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -837,7 +837,7 @@ _ZN2cv9XYZ2RGB_iIhEC2EiiPKi.exit:                 ; preds = %24, %21
   store i32 0, ptr %14, align 4
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %5, ptr %30, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9XYZ2RGB_iIhEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9XYZ2RGB_iIhEEEE, i64 16), ptr %15, align 8
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -895,7 +895,7 @@ _ZN2cv9XYZ2RGB_iItEC2EiiPKi.exit:                 ; preds = %42, %45
   store i32 0, ptr %12, align 4
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %5, ptr %51, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9XYZ2RGB_iItEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9XYZ2RGB_iItEEEE, i64 16), ptr %13, align 8
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -972,7 +972,7 @@ _ZN2cv9XYZ2RGB_fIfEC2EiiPKf.exit:                 ; preds = %.split12.us.i, %70
   store i32 0, ptr %10, align 4
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %5, ptr %82, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9XYZ2RGB_fIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9XYZ2RGB_fIfEEEE, i64 16), ptr %11, align 8
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1068,7 +1068,7 @@ define void @_ZN2cv3hal11cvtBGRtoLabEPKhmPhmiiiibbb(ptr noundef %0, i64 noundef 
   store i32 0, ptr %18, align 4
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %5, ptr %32, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2Lab_bEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2Lab_bEEE, i64 16), ptr %19, align 8
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -1109,7 +1109,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_9RGB2Lab_bEEEvPKhmPhmiiRKT_.exit: ; p
   store i32 0, ptr %16, align 4
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %5, ptr %46, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2Lab_fEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2Lab_fEEE, i64 16), ptr %17, align 8
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1186,7 +1186,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_9RGB2Lab_fEEEvPKhmPhmiiRKT_.exit: ; p
   store i32 0, ptr %14, align 4
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %5, ptr %73, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2Luv_bEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2Luv_bEEE, i64 16), ptr %15, align 8
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1229,7 +1229,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_9RGB2Luv_bEEEvPKhmPhmiiRKT_.exit: ; p
   store i32 0, ptr %12, align 4
   %88 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %5, ptr %88, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2Luv_fEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9RGB2Luv_fEEE, i64 16), ptr %13, align 8
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1761,7 +1761,7 @@ define void @_ZN2cv3hal11cvtLabtoBGREPKhmPhmiiiibbb(ptr noundef %0, i64 noundef 
   store i32 0, ptr %18, align 4
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %5, ptr %34, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Lab2RGB_bEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Lab2RGB_bEEE, i64 16), ptr %19, align 8
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -1804,7 +1804,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_9Lab2RGB_bEEEvPKhmPhmiiRKT_.exit: ; p
   store i32 0, ptr %16, align 4
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %5, ptr %49, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Lab2RGB_fEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Lab2RGB_fEEE, i64 16), ptr %17, align 8
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1857,7 +1857,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_9Lab2RGB_fEEEvPKhmPhmiiRKT_.exit: ; p
   store i32 0, ptr %14, align 4
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %5, ptr %67, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Luv2RGB_bEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Luv2RGB_bEEE, i64 16), ptr %15, align 8
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1900,7 +1900,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_9Luv2RGB_bEEEvPKhmPhmiiRKT_.exit: ; p
   store i32 0, ptr %12, align 4
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %5, ptr %82, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Luv2RGB_fEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_9Luv2RGB_fEEE, i64 16), ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3629,10 +3629,10 @@ _ZN2cv9softfloataSERKS0_.exit106:                 ; preds = %_ZN2cv9softfloataSE
 _ZN2cvL14initLUTforABXZEv.exit:                   ; preds = %363
   store ptr %348, ptr @_ZN2cvL8abToXZ_bE, align 8
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %227, i32 noundef 15)
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %226, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %227)
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %226, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN2cvL3D65E, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %227)
   call void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %225, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL3D65E, ptr noundef nonnull align 8 dereferenceable(8) %226)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %229, i32 noundef 3)
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %228, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %229)
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %228, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN2cvL3D65E, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %229)
   call void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %224, ptr noundef nonnull align 8 dereferenceable(8) %225, ptr noundef nonnull align 8 dereferenceable(8) %228)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %223, ptr noundef nonnull align 8 dereferenceable(8) %224)
   store i32 1065353216, ptr %231, align 4, !alias.scope !75
@@ -3652,7 +3652,7 @@ _ZN2cvL14initLUTforABXZEv.exit:                   ; preds = %363
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %234, ptr noundef nonnull align 4 dereferenceable(4) %235, ptr noundef nonnull align 4 dereferenceable(4) %237)
   call void @_ZN2cv9softfloatC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %240, i32 noundef 117)
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %239, ptr noundef nonnull align 4 dereferenceable(4) %223, ptr noundef nonnull align 4 dereferenceable(4) %240)
-  call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %241, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 8))
+  call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %241, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN2cvL3D65E, i64 8))
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %238, ptr noundef nonnull align 4 dereferenceable(4) %239, ptr noundef nonnull align 4 dereferenceable(4) %241)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %140)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %141)
@@ -3928,7 +3928,7 @@ _ZN2cvL13initLUTforLUVERKNS_9softfloatES2_.exit:  ; preds = %394
   store i64 4607182418800017408, ptr %395, align 8, !alias.scope !111
   %396 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 4607182418800017408, ptr %22, align 8, !alias.scope !116
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %396, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 16))
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %396, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN2cvL3D65E, i64 16))
   br label %_ZN2cv9softfloataSERKS0_.exit.i
 
 _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit.i, %_ZN2cvL13initLUTforLUVERKNS_9softfloatES2_.exit
@@ -11079,26 +11079,26 @@ define internal void @_GLOBAL__sub_I_color_lab.cpp() #16 section ".text.startup"
   %18 = alloca %"struct.cv::softfloat", align 4
   %19 = alloca %"struct.cv::softfloat", align 4
   store i64 4601101712626337293, ptr @_ZN2cvL12sRGB2XYZ_D65E, align 16, !alias.scope !281
-  store i64 4600113208536926488, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 8), align 8, !alias.scope !284
-  store i64 4595668443935087960, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 16), align 16, !alias.scope !287
-  store i64 4596830300581355510, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 24), align 8, !alias.scope !290
-  store i64 4604616808164296984, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 32), align 16, !alias.scope !293
-  store i64 4589864745167288149, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 40), align 8, !alias.scope !296
-  store i64 4581229867500941131, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 48), align 16, !alias.scope !299
-  store i64 4593253181469327672, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 56), align 8, !alias.scope !302
-  store i64 4606734103471511185, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 64), align 16, !alias.scope !305
+  store i64 4600113208536926488, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 8), align 8, !alias.scope !284
+  store i64 4595668443935087960, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 16), align 16, !alias.scope !287
+  store i64 4596830300581355510, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 24), align 8, !alias.scope !290
+  store i64 4604616808164296984, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 32), align 16, !alias.scope !293
+  store i64 4589864745167288149, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 40), align 8, !alias.scope !296
+  store i64 4581229867500941131, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 48), align 16, !alias.scope !299
+  store i64 4593253181469327672, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 56), align 8, !alias.scope !302
+  store i64 4606734103471511185, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 64), align 16, !alias.scope !305
   store i64 4614479328808468367, ptr @_ZN2cvL12XYZ2sRGB_D65E, align 16, !alias.scope !308
-  store i64 -4613770509514916338, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 8), align 8, !alias.scope !311
-  store i64 -4620719608775945287, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 16), align 16, !alias.scope !314
-  store i64 -4616466535388646157, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 24), align 8, !alias.scope !317
-  store i64 4611127531541197316, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 32), align 16, !alias.scope !320
-  store i64 4586149671791474699, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 40), align 8, !alias.scope !323
-  store i64 4588180543021839660, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 48), align 16, !alias.scope !326
-  store i64 -4626852592734099919, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 56), align 8, !alias.scope !329
-  store i64 4607440524598261638, ptr getelementptr inbounds (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 64), align 16, !alias.scope !332
+  store i64 -4613770509514916338, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 8), align 8, !alias.scope !311
+  store i64 -4620719608775945287, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 16), align 16, !alias.scope !314
+  store i64 -4616466535388646157, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 24), align 8, !alias.scope !317
+  store i64 4611127531541197316, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 32), align 16, !alias.scope !320
+  store i64 4586149671791474699, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 40), align 8, !alias.scope !323
+  store i64 4588180543021839660, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 48), align 16, !alias.scope !326
+  store i64 -4626852592734099919, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 56), align 8, !alias.scope !329
+  store i64 4607440524598261638, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 64), align 16, !alias.scope !332
   store i64 4606736166120140520, ptr @_ZN2cvL3D65E, align 16, !alias.scope !335
-  store i64 4607182418800017408, ptr getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 8), align 8, !alias.scope !338
-  store i64 4607582131281345049, ptr getelementptr inbounds (i8, ptr @_ZN2cvL3D65E, i64 16), align 16, !alias.scope !343
+  store i64 4607182418800017408, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL3D65E, i64 8), align 8, !alias.scope !338
+  store i64 4607582131281345049, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL3D65E, i64 16), align 16, !alias.scope !343
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)

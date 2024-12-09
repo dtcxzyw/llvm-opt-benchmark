@@ -715,7 +715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit827: ; preds = %if
   %cond491 = select nsz i1 %cmp482, float 0x3FD51EB860000000, float %cond489
   store float %cond491, ptr @_ZL6params.6, align 4, !tbaa !14
   store i8 0, ptr @_ZL9light_LUT, align 16, !tbaa !22
-  store i8 -1, ptr getelementptr inbounds (i8, ptr @_ZL9light_LUT, i64 15), align 1, !tbaa !22
+  store i8 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZL9light_LUT, i64 15), align 1, !tbaa !22
   %73 = load float, ptr @_ZL6params.0, align 4
   %74 = load float, ptr @_ZL6params.1, align 4
   %75 = load float, ptr @_ZL6params.2, align 4

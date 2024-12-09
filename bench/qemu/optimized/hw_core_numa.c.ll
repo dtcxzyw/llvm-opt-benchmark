@@ -1628,7 +1628,7 @@ for.end:                                          ; preds = %for.body, %numa_sta
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_block_notifier_add(ptr noundef initializes((24, 32)) %n) local_unnamed_addr #1 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ram_list, i64 96), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 96), align 8
   %next = getelementptr inbounds nuw i8, ptr %n, i64 24
   store ptr %0, ptr %next, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -1640,9 +1640,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  store ptr %n, ptr getelementptr inbounds (i8, ptr @ram_list, i64 96), align 8
+  store ptr %n, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 96), align 8
   %le_prev5 = getelementptr inbounds nuw i8, ptr %n, i64 32
-  store ptr getelementptr inbounds (i8, ptr @ram_list, i64 96), ptr %le_prev5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 96), ptr %le_prev5, align 8
   %1 = load ptr, ptr %n, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end7, label %if.then6
@@ -1730,7 +1730,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_block_notify_add(ptr noundef %host, i64 noundef %size, i64 noundef %max_size) local_unnamed_addr #1 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ram_list, i64 96), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 96), align 8
   %tobool.not5 = icmp eq ptr %0, null
   br i1 %tobool.not5, label %for.end, label %land.rhs
 
@@ -1757,7 +1757,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_block_notify_remove(ptr noundef %host, i64 noundef %size, i64 noundef %max_size) local_unnamed_addr #1 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ram_list, i64 96), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 96), align 8
   %tobool.not5 = icmp eq ptr %0, null
   br i1 %tobool.not5, label %for.end, label %land.rhs
 
@@ -1785,7 +1785,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_block_notify_resize(ptr noundef %host, i64 noundef %old_size, i64 noundef %new_size) local_unnamed_addr #1 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ram_list, i64 96), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 96), align 8
   %tobool.not5 = icmp eq ptr %0, null
   br i1 %tobool.not5, label %for.end, label %land.rhs
 

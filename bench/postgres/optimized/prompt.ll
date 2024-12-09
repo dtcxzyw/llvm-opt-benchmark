@@ -38,15 +38,15 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   ]
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 424), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 424), align 8
   br label %11
 
 7:                                                ; preds = %2, %2, %2, %2, %2, %2
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 432), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 432), align 8
   br label %11
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 440), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 440), align 8
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %2
@@ -288,7 +288,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %168
 
 103:                                              ; preds = %100
-  %104 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 387), align 1
+  %104 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 387), align 1
   %105 = trunc i8 %104 to i1
   br i1 %105, label %107, label %106
 
@@ -359,7 +359,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %168
 
 123:                                              ; preds = %19
-  %124 = load i64, ptr getelementptr inbounds (i8, ptr @pset, i64 344), align 8
+  %124 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 344), align 8
   %125 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 257, ptr noundef nonnull @.str.8, i64 noundef %124) #11
   br label %168
 
@@ -415,7 +415,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   %sext = shl i64 %150, 32
   %151 = ashr exact i64 %sext, 32
   %152 = call ptr @pnstrdup(ptr noundef %149, i64 noundef %151) #11
-  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %154 = call ptr @GetVariable(ptr noundef %153, ptr noundef %152) #11
   %.not71 = icmp eq ptr %154, null
   br i1 %.not71, label %157, label %155
@@ -469,7 +469,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br i1 %.not, label %.critedge, label %14, !llvm.loop !5
 
 .critedge:                                        ; preds = %14, %171, %11
-  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 424), align 8
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 424), align 8
   %176 = icmp eq ptr %.048, %175
   br i1 %176, label %177, label %.loopexit
 
@@ -498,7 +498,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %.backedge
 
 186:                                              ; preds = %180
-  %187 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %188 = call i32 @PQmblen(ptr noundef nonnull %.051, i32 noundef %187) #11
   %189 = sext i32 %188 to i64
   %190 = getelementptr i8, ptr %.051, i64 %189
@@ -514,7 +514,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %180, !llvm.loop !7
 
 193:                                              ; preds = %192
-  %194 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %194 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %195 = call i32 @PQdsplen(ptr noundef nonnull %.051, i32 noundef %194) #11
   %196 = load i8, ptr %.051, align 1
   %197 = icmp eq i8 %196, 10

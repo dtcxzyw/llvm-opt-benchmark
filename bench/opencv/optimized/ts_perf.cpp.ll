@@ -8934,7 +8934,7 @@ define hidden void @_ZN4perf8TestBase4InitERKSt6vectorINSt7__cxx1112basic_string
           to label %91 unwind label %87
 
 91:                                               ; preds = %89
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_115PerfEnvironmentE, i64 16), ptr %90, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_115PerfEnvironmentE, i64 16), ptr %90, align 8
   %92 = invoke noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
           to label %.noexc unwind label %87
 
@@ -9825,7 +9825,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %371 unwind label %360
 
 371:                                              ; preds = %369
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV25PerfValidationEnvironment, i64 16), ptr %370, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV25PerfValidationEnvironment, i64 16), ptr %370, align 8
   %372 = invoke noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
           to label %.noexc133 unwind label %360
 
@@ -10314,7 +10314,7 @@ define hidden noundef i32 @_ZN4perf8TestBase35getCurrentModulePerformanceStrateg
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -14692,7 +14692,7 @@ _ZN7testing7MessagelsIA18_cEERS0_RKT_.exit:       ; preds = %_ZN7testing7Message
           to label %95 unwind label %101
 
 95:                                               ; preds = %93
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV22PerfEarlyExitException, i64 16), ptr %94, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV22PerfEarlyExitException, i64 16), ptr %94, align 8
   invoke void @__cxa_throw(ptr nonnull %94, ptr nonnull @_ZTI22PerfEarlyExitException, ptr nonnull @_ZN22PerfEarlyExitExceptionD2Ev) #39
           to label %105 unwind label %58
 
@@ -14736,7 +14736,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN22PerfEarlyExitExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #4 comdat align 2 {
   tail call void @_ZN2cv9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV22PerfEarlyExitException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV22PerfEarlyExitException, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -15954,7 +15954,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4perf8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

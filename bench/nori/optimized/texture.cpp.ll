@@ -31,7 +31,7 @@ define hidden void @_ZN7nanogui7TextureC2ENS0_11PixelFormatENS0_15ComponentForma
   %11 = zext i1 %9 to i8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 13
@@ -82,7 +82,7 @@ define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui7TextureE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 2, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 14

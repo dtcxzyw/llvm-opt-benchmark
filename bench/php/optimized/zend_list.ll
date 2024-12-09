@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @zend_list_insert(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 608), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 608), align 8
   switch i64 %4, label %.fold.split [
     i64 0, label %6
     i64 9223372036854775807, label %5
@@ -64,7 +64,7 @@ define ptr @zend_list_insert(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   store ptr %7, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 265, ptr %12, align 8
-  %13 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 568), i64 noundef %.0, ptr noundef nonnull %3) #14
+  %13 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 568), i64 noundef %.0, ptr noundef nonnull %3) #14
   ret ptr %13
 }
 
@@ -88,7 +88,7 @@ define i32 @zend_list_delete(ptr nocapture noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 568), i64 noundef %8) #14
+  %9 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 568), i64 noundef %8) #14
   br label %10
 
 10:                                               ; preds = %1, %6
@@ -102,7 +102,7 @@ declare i32 @zend_hash_index_del(ptr noundef, i64 noundef) local_unnamed_addr #2
 define void @zend_list_free(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %4 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 568), i64 noundef %3) #14
+  %4 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 568), i64 noundef %3) #14
   ret void
 }
 
@@ -116,7 +116,7 @@ define void @zend_list_close(ptr nocapture noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 568), i64 noundef %7) #14
+  %8 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 568), i64 noundef %7) #14
   br label %22
 
 9:                                                ; preds = %1
@@ -158,7 +158,7 @@ zend_resource_dtor.exit:                          ; preds = %13, %21
 define ptr @zend_register_resource(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 608), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 608), align 8
   switch i64 %4, label %.fold.split.i [
     i64 0, label %zend_list_insert.exit
     i64 9223372036854775807, label %5
@@ -186,7 +186,7 @@ zend_list_insert.exit:                            ; preds = %2, %.fold.split.i
   store ptr %6, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 265, ptr %11, align 8
-  %12 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 568), i64 noundef %.0.i, ptr noundef nonnull %3) #14
+  %12 = call ptr @zend_hash_index_add_new(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 568), i64 noundef %.0.i, ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %13 = load ptr, ptr %12, align 8
   ret ptr %13
@@ -499,8 +499,8 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @zend_init_rsrc_list() local_unnamed_addr #0 {
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 568), i32 noundef 8, ptr noundef nonnull @list_entry_destructor, i1 noundef zeroext false) #14
-  store i64 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 608), align 8
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 568), i32 noundef 8, ptr noundef nonnull @list_entry_destructor, i1 noundef zeroext false) #14
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 608), align 8
   ret void
 }
 
@@ -508,7 +508,7 @@ declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_init_rsrc_plist() local_unnamed_addr #0 {
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 624), i32 noundef 8, ptr noundef nonnull @plist_entry_destructor, i1 noundef zeroext true) #14
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 624), i32 noundef 8, ptr noundef nonnull @plist_entry_destructor, i1 noundef zeroext true) #14
   ret void
 }
 
@@ -612,7 +612,7 @@ define internal range(i32 0, 2) i32 @zend_clean_module_rsrc_dtors_cb(ptr nocaptu
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  tail call void @zend_hash_apply_with_argument(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 624), ptr noundef nonnull @clean_module_resource, ptr noundef nonnull %9) #14
+  tail call void @zend_hash_apply_with_argument(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 624), ptr noundef nonnull @clean_module_resource, ptr noundef nonnull %9) #14
   br label %10
 
 10:                                               ; preds = %2, %8
@@ -629,7 +629,7 @@ define i32 @zend_register_list_destructors_ex(ptr noundef %0, ptr noundef %1, pt
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %3, ptr %8, align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @list_destructors, i64 40), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 40), align 8
   %10 = trunc i64 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %10, ptr %11, align 4
@@ -647,7 +647,7 @@ define i32 @zend_register_list_destructors_ex(ptr noundef %0, ptr noundef %1, pt
   br label %21
 
 17:                                               ; preds = %4
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @list_destructors, i64 40), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 40), align 8
   %19 = trunc i64 %18 to i32
   %20 = add i32 %19, -1
   br label %21
@@ -664,11 +664,11 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
 define i32 @zend_fetch_list_dtor_id(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @list_destructors, i64 16), align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @list_destructors, i64 24), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 16), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 24), align 8
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw %struct._zval_struct, ptr %2, i64 %4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @list_destructors, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 8), align 8
   %7 = and i32 %6, 4
   %8 = icmp ne i32 %7, 0
   tail call void @llvm.assume(i1 %8)
@@ -715,7 +715,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_init_rsrc_list_dtors() local_unnamed_addr #0 {
   tail call void @_zend_hash_init(ptr noundef nonnull @list_destructors, i32 noundef 64, ptr noundef nonnull @list_destructors_dtor, i1 noundef zeroext true) #14
-  store i64 1, ptr getelementptr inbounds (i8, ptr @list_destructors, i64 40), align 8
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 40), align 8
   ret void
 }
 
@@ -770,7 +770,7 @@ define ptr @zend_register_persistent_resource_ex(ptr noundef %0, ptr noundef %1,
   store ptr %5, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 265, ptr %10, align 8
-  %11 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 624), ptr noundef %0, ptr noundef nonnull %4) #14
+  %11 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 624), ptr noundef %0, ptr noundef nonnull %4) #14
   %12 = load ptr, ptr %11, align 8
   ret ptr %12
 }
@@ -808,7 +808,7 @@ define ptr @zend_register_persistent_resource(ptr nocapture noundef readonly %0,
   store ptr %14, ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 265, ptr %19, align 8
-  %20 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 624), ptr noundef nonnull %8, ptr noundef nonnull %5) #14
+  %20 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 624), ptr noundef nonnull %8, ptr noundef nonnull %5) #14
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %22 = load i32, ptr %9, align 4

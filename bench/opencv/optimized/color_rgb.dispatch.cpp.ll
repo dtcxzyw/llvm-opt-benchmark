@@ -368,7 +368,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtBGRtoBGREPKhmPhmiiiiib(ptr noun
   store i32 0, ptr %23, align 4
   %54 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %5, ptr %54, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBIhEEEE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBIhEEEE, i64 16), ptr %24, align 8
   %55 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %0, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -483,7 +483,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_17RGB2
   store i32 0, ptr %17, align 4
   %86 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %5, ptr %86, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBItEEEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBItEEEE, i64 16), ptr %18, align 8
   %87 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %0, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -593,7 +593,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_17RGB2
   store i32 0, ptr %11, align 4
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %5, ptr %118, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBIfEEEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_17RGB2RGBIfEEEE, i64 16), ptr %12, align 8
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -689,7 +689,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14cvtBGRtoBGR5x5EPKhmPhmiiibi(ptr no
   store i32 0, ptr %10, align 4
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %5, ptr %17, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5EEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5EEE, i64 16), ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -757,7 +757,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14cvtBGR5x5toBGREPKhmPhmiiibi(ptr no
   store i32 0, ptr %10, align 4
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %5, ptr %17, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_110RGB5x52RGBEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_110RGB5x52RGBEEE, i64 16), ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -913,7 +913,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline12cvtBGRtoGrayEPKhmPhmiiiib(ptr noun
   store i32 0, ptr %16, align 4
   %56 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %5, ptr %56, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIhEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIhEEEE, i64 16), ptr %17, align 8
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1033,7 +1033,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2
   store i32 0, ptr %12, align 4
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %5, ptr %100, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayItEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayItEEEE, i64 16), ptr %13, align 8
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1082,7 +1082,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEC2EiiPKf.exit: ; preds = %112,
   store i32 0, ptr %10, align 4
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %5, ptr %116, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18RGB2GrayIfEEEE, i64 16), ptr %11, align 8
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1162,7 +1162,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline12cvtGraytoBGREPKhmPhmiiii(ptr nound
   store i32 0, ptr %13, align 4
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %5, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIhEEEE, i64 16), ptr %14, align 8
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1203,7 +1203,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_18Gray
   store i32 0, ptr %11, align 4
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %5, ptr %33, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEEEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBItEEEE, i64 16), ptr %12, align 8
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1237,7 +1237,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_18Gray
   store i32 0, ptr %9, align 4
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %5, ptr %43, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_18Gray2RGBIfEEEE, i64 16), ptr %10, align 8
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1298,7 +1298,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline15cvtBGR5x5toGrayEPKhmPhmiii(ptr nou
   store i32 0, ptr %8, align 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %5, ptr %12, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111RGB5x52GrayEEE, i64 16), ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1361,7 +1361,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline15cvtGraytoBGR5x5EPKhmPhmiii(ptr nou
   store i32 0, ptr %8, align 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %5, ptr %12, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5EEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111Gray2RGB5x5EEE, i64 16), ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1423,7 +1423,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline23cvtRGBAtoMultipliedRGBAEPKhmPhmii(
   store i32 0, ptr %7, align 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %5, ptr %11, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_110RGBA2mRGBAIhEEEE, i64 16), ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1485,7 +1485,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline23cvtMultipliedRGBAtoRGBAEPKhmPhmii(
   store i32 0, ptr %7, align 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %5, ptr %11, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_110mRGBA2RGBAIhEEEE, i64 16), ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16

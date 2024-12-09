@@ -757,14 +757,14 @@ invoke.cont:
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.11)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.21)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.11)
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 47), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 47), align 1
   %tobool.i.i.i8 = icmp slt i8 %2, 0
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 24), align 8
-  %spec.select.i.i9 = select i1 %tobool.i.i.i8, ptr %3, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 24)
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 71), align 1
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 24), align 8
+  %spec.select.i.i9 = select i1 %tobool.i.i.i8, ptr %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 24)
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 71), align 1
   %tobool.i.i.i10 = icmp slt i8 %4, 0
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 48), align 8
-  %spec.select.i.i11 = select i1 %tobool.i.i.i10, ptr %5, ptr getelementptr inbounds (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 48)
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 48), align 8
+  %spec.select.i.i11 = select i1 %tobool.i.i.i10, ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Benchmark12gEnvironmentE, i64 48)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %spec.select.i.i9, ptr noundef %spec.select.i.i11, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.26)
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %sTestTypeLast, i64 23
@@ -989,7 +989,7 @@ if.else.i.i71:                                    ; preds = %for.cond
   %mRemainingSizeField.i.i.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %resultSum, i64 87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %mTime1.i, i8 0, i64 33, i1 false)
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i1.i, align 1
-  %call19.i.i79 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %resultSum, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.27, i64 3))
+  %call19.i.i79 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %resultSum, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.27, i64 3))
           to label %invoke.cont37 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %if.else.i.i71

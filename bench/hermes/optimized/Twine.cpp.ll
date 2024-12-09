@@ -79,7 +79,7 @@ if.then11:                                        ; preds = %if.end
   store i32 1, ptr %BufferMode.i.i.i, align 8, !noalias !4
   %OutBufStart.i.i.i = getelementptr inbounds nuw i8, ptr %Stream.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false), !noalias !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %Stream.i, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %Stream.i, align 8, !noalias !4
   %OS.i.i = getelementptr inbounds nuw i8, ptr %Stream.i, i64 40
   store ptr %agg.result, ptr %OS.i.i, align 8, !noalias !4
   %call.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %Stream.i, ptr noundef nonnull align 8 dereferenceable(64) %3) #8
@@ -194,7 +194,7 @@ if.end:                                           ; preds = %if.end.i, %entry
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds nuw i8, ptr %OS.i, i64 40
   store ptr %Out, ptr %OS.i.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
@@ -230,7 +230,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS, align 8
   %OS.i = getelementptr inbounds nuw i8, ptr %OS, i64 40
   store ptr %Out, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %OS, ptr noundef null, i64 noundef 0, i32 noundef 0) #8
@@ -302,7 +302,7 @@ if.end:                                           ; preds = %if.then, %entry
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds nuw i8, ptr %OS.i, i64 40
   store ptr %Out, ptr %OS.i.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %OS.i, ptr noundef null, i64 noundef 0, i32 noundef 0) #8

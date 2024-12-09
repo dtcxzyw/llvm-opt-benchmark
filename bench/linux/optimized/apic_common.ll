@@ -111,7 +111,7 @@ define dso_local void @default_init_apic_ldr() local_unnamed_addr #2 align 16 {
   tail call void @__SCT__apic_call_write(i32 noundef 224, i32 noundef -1) #7
   %1 = tail call i32 @__SCT__apic_call_read(i32 noundef 208) #7
   %2 = and i32 %1, 16777215
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !6
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !6
   %4 = zext nneg i32 %3 to i64
   %5 = shl i64 16777216, %4
   %6 = trunc i64 %5 to i32

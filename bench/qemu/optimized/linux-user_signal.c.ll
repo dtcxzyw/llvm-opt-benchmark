@@ -958,7 +958,7 @@ entry:
   %opaque = getelementptr inbounds nuw i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
   %call.i = tail call i32 @__libc_current_sigrtmin() #16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @host_to_target_signal_table, i64 6), align 2
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @host_to_target_signal_table, i64 6), align 2
   %idxprom.i = sext i32 %call.i to i64
   %arrayidx.i = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom.i
   store i8 6, ptr %arrayidx.i, align 1
@@ -1014,7 +1014,7 @@ for.inc24.i:                                      ; preds = %if.end.i, %for.body
   br i1 %exitcond.not.i, label %for.end26.i, label %for.body10.i, !llvm.loop !10
 
 for.end26.i:                                      ; preds = %for.inc24.i
-  store i8 6, ptr getelementptr inbounds (i8, ptr @host_to_target_signal_table, i64 6), align 2
+  store i8 6, ptr getelementptr inbounds nuw (i8, ptr @host_to_target_signal_table, i64 6), align 2
   br label %for.body30.i
 
 for.body30.i:                                     ; preds = %for.inc40.i, %for.end26.i

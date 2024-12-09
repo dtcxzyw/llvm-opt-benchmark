@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @tls_create(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @tls_auth, i64 36), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @tls_auth, i64 36)) #8, !srcloc !5
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @tls_auth, i64 36), i32 1, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @tls_auth, i64 36)) #8, !srcloc !5
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5, !prof !6
 
@@ -41,7 +41,7 @@ define internal noundef ptr @tls_create(ptr nocapture readnone %0, ptr nocapture
 
 9:                                                ; preds = %5, %2
   %10 = phi i32 [ 2, %2 ], [ 1, %5 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds (i8, ptr @tls_auth, i64 36), i32 noundef %10) #8
+  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tls_auth, i64 36), i32 noundef %10) #8
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -55,14 +55,14 @@ define internal void @tls_destroy(ptr nocapture readnone %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @tls_lookup_cred(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #0 align 16 {
-  %4 = load volatile i32, ptr getelementptr inbounds (i8, ptr @tls_cred, i64 80), align 8
+  %4 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @tls_cred, i64 80), align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %3, %11
   %6 = phi i32 [ %12, %11 ], [ %4, %3 ]
   %7 = add i32 %6, 1
-  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @tls_cred, i64 80), i32 %7, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @tls_cred, i64 80), i32 %6) #8, !srcloc !8
+  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @tls_cred, i64 80), i32 %7, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @tls_cred, i64 80), i32 %6) #8, !srcloc !8
   %9 = extractvalue { i8, i32 } %8, 0
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
@@ -82,7 +82,7 @@ define internal ptr @tls_lookup_cred(ptr nocapture readnone %0, ptr nocapture re
   br i1 %17, label %19, label %18, !prof !7
 
 18:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds (i8, ptr @tls_cred, i64 80), i32 noundef 0) #8
+  tail call void @refcount_warn_saturate(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tls_cred, i64 80), i32 noundef 0) #8
   br label %19
 
 19:                                               ; preds = %18, %.thread

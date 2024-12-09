@@ -64,7 +64,7 @@ define void @gui_init(ptr noundef initializes((416, 424)) %0) local_unnamed_addr
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %2, i64 noundef 80) #7
   %5 = tail call i64 @g_signal_connect_data(ptr noundef %4, ptr noundef nonnull @.str.1, ptr noundef nonnull @_lib_filmstrip_draw_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #7
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !13
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 416
   store ptr %0, ptr %7, align 8, !tbaa !23
   ret void
@@ -85,7 +85,7 @@ define internal noundef i32 @_lib_filmstrip_draw_callback(ptr noundef %0, ptr no
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !37
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !37
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = tail call ptr @dt_ui_thumbtable(ptr noundef %10) #7
   tail call void @dt_thumbtable_set_parent(ptr noundef %11, ptr noundef %0, i32 noundef 2) #7
@@ -103,7 +103,7 @@ define internal noundef i32 @_lib_filmstrip_draw_callback(ptr noundef %0, ptr no
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !13
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 416
   store ptr null, ptr %3, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280

@@ -737,7 +737,7 @@ _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i: ; preds = %5
 
 _ZNSt10unique_ptrIN5clang14FrontendActionESt14default_deleteIS1_EED2Ev.exit: ; preds = %5, %_ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt17ObjCMigrateActionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt17ObjCMigrateActionE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -806,7 +806,7 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
   %19 = ptrtoint ptr %18 to i64
   %20 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24, !noalias !4
   %21 = ptrtoint ptr %10 to i64
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %20, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %20, align 8, !noalias !4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %21, ptr %22, align 8, !noalias !4
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -836,7 +836,7 @@ _ZNSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS1_EED2Ev.exit: ; pred
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 0, ptr %38, align 8, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_122ObjCMigrateASTConsumerE, i64 16), ptr %34, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_122ObjCMigrateASTConsumerE, i64 16), ptr %34, align 8, !noalias !7
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr null, ptr %39, align 8, !noalias !7
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -1039,7 +1039,7 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
   %36 = ptrtoint ptr %35 to i64
   %37 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24, !noalias !20
   %38 = ptrtoint ptr %20 to i64
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %37, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %37, align 8, !noalias !20
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %38, ptr %39, align 8, !noalias !20
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -1361,7 +1361,7 @@ _ZL21getAllowListFilenamesB5cxx11N4llvm9StringRefE.exit: ; preds = %_ZNSt10uniqu
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7), !noalias !27
   %189 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i8 0, ptr %189, align 8, !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_122ObjCMigrateASTConsumerE, i64 16), ptr %183, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_122ObjCMigrateASTConsumerE, i64 16), ptr %183, align 8, !noalias !27
   %190 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store ptr null, ptr %190, align 8, !noalias !27
   %191 = getelementptr inbounds nuw i8, ptr %183, i64 24
@@ -4553,7 +4553,7 @@ _ZN5clang4edit6CommitD2Ev.exit.i:                 ; preds = %1292, %_ZN4llvm20Bu
   store ptr %1138, ptr %1140, align 8, !noalias !115
   store ptr %1138, ptr %1141, align 8, !noalias !115
   store i64 0, ptr %1142, align 8, !noalias !115
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_116RewritesReceiverE, i64 16), ptr %26, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_116RewritesReceiverE, i64 16), ptr %26, align 8, !noalias !115
   store ptr %25, ptr %1143, align 8, !noalias !115
   call void @_ZN5clang4edit12EditedSource13applyRewritesERNS0_13EditsReceiverEb(ptr noundef nonnull align 8 dereferenceable(384) %23, ptr noundef nonnull align 8 dereferenceable(8) %26, i1 noundef zeroext false) #23, !noalias !115
   %1294 = load ptr, ptr %1139, align 8, !noalias !115
@@ -4594,7 +4594,7 @@ _ZNK5clang8Rewriter19getRewriteBufferForENS_6FileIDE.exit.i: ; preds = %_ZNKSt3m
   store i8 0, ptr %1146, align 8, !noalias !115
   store i32 1, ptr %1147, align 4, !noalias !115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1148, i8 0, i64 24, i1 false), !noalias !115
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %28, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %28, align 8, !noalias !115
   store ptr %27, ptr %1149, align 8, !noalias !115
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef null, i64 noundef 0, i32 noundef 0) #23, !noalias !115
   %1302 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm13RewriteBuffer5writeERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(32) %1301, ptr noundef nonnull align 8 dereferenceable(48) %28) #23, !noalias !115
@@ -5052,12 +5052,12 @@ declare noundef zeroext i1 @_ZN5clang21WrapperFrontendAction22shouldEraseOutputF
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang5arcmt17ObjCMigrateActionD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt17ObjCMigrateActionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt17ObjCMigrateActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZN5clang5arcmt12FileRemapperD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang21WrapperFrontendActionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang21WrapperFrontendActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
@@ -5078,12 +5078,12 @@ _ZN5clang21WrapperFrontendActionD2Ev.exit:        ; preds = %1, %_ZNKSt14default
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang5arcmt17ObjCMigrateActionD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt17ObjCMigrateActionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt17ObjCMigrateActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZN5clang5arcmt12FileRemapperD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang21WrapperFrontendActionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang21WrapperFrontendActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, null
@@ -5143,7 +5143,7 @@ declare noundef zeroext i1 @_ZN5clang14FrontendAction22shouldEraseOutputFilesEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang5arcmt19MigrateSourceActionD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt19MigrateSourceActionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt19MigrateSourceActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN5clang5arcmt12FileRemapperD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
   tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #23
@@ -5152,7 +5152,7 @@ define linkonce_odr hidden void @_ZN5clang5arcmt19MigrateSourceActionD2Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang5arcmt19MigrateSourceActionD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt19MigrateSourceActionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang5arcmt19MigrateSourceActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN5clang5arcmt12FileRemapperD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
   tail call void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #23
@@ -5210,7 +5210,7 @@ define linkonce_odr hidden void @_ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5Twi
   store i32 1, ptr %9, align 8, !noalias !156
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4, !noalias !156
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !156
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !156
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, i8 0, i64 96, i1 false), !noalias !156
@@ -6183,7 +6183,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !205
   %155 = load ptr, ptr %2, align 8, !noalias !208
   store ptr null, ptr %2, align 8, !noalias !208
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
@@ -7687,7 +7687,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122ObjCMigrateASTConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(528) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_122ObjCMigrateASTConsumerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_122ObjCMigrateASTConsumerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %4 = load i32, ptr %3, align 4
@@ -9798,7 +9798,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 843:                                              ; preds = %785
   %844 = getelementptr inbounds nuw i8, ptr %1, i64 2104
   %845 = load ptr, ptr %844, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114JSONEditWriterE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114JSONEditWriterE, i64 16), ptr %15, align 8
   %846 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %845, ptr %846, align 8
   %847 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -9828,7 +9828,7 @@ _ZN12_GLOBAL__N_114JSONEditWriterC2ERN5clang13SourceManagerERN4llvm11raw_ostream
   %861 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %862 = load ptr, ptr %861, align 8
   call void @_ZN5clang4edit12EditedSource13applyRewritesERNS0_13EditsReceiverEb(ptr noundef nonnull align 8 dereferenceable(384) %862, ptr noundef nonnull align 8 dereferenceable(8) %15, i1 noundef zeroext true) #23
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114JSONEditWriterE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114JSONEditWriterE, i64 16), ptr %15, align 8
   %863 = load ptr, ptr %847, align 8
   %864 = getelementptr inbounds nuw i8, ptr %863, i64 24
   %865 = load ptr, ptr %864, align 8
@@ -9873,7 +9873,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %874, %872, %_ZN5cla
   store ptr %883, ptr %886, align 8
   %887 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i64 0, ptr %887, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_116RewritesReceiverE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_116RewritesReceiverE, i64 16), ptr %17, align 8
   %888 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %16, ptr %888, align 8
   %889 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -9943,7 +9943,7 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit: ; preds = %_ZN
   store i8 0, ptr %894, align 8
   store i32 1, ptr %895, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %896, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %19, align 8
   store ptr %18, ptr %897, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef null, i64 noundef 0, i32 noundef 0) #23
   %921 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm13RewriteBuffer5writeERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(32) %906, ptr noundef nonnull align 8 dereferenceable(48) %19) #23
@@ -76303,7 +76303,7 @@ declare noundef nonnull align 8 dereferenceable(1304) ptr @_ZNK5clang10ASTContex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114JSONEditWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114JSONEditWriterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114JSONEditWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -76626,7 +76626,7 @@ define internal fastcc void @_ZL21rewriteToObjCPropertyPKN5clang14ObjCMethodDecl
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #23
   %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %11) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 10))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.22, i64 10))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #23
   br i1 %6, label %22, label %24
 
@@ -119689,7 +119689,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114JSONEditWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114JSONEditWriterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_114JSONEditWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24

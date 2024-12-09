@@ -1071,7 +1071,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.i:      ; preds = %_ZNK5clang4Type10is
 349:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread.i
   %.sroa.0.0.copyload.i83.i = load i32, ptr %85, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_11SourceRangeEEEE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_11SourceRangeEEEE, i64 16), ptr %35, align 8
   %350 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 2979, ptr %350, align 8
   %351 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -1246,7 +1246,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit92.thread.i: ; preds = %_ZNK5
   %439 = inttoptr i64 %438 to ptr
   store ptr %439, ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %34, align 8
   %440 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 2979, ptr %440, align 8
   %441 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -13560,7 +13560,7 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit91: ; preds = %_ZNK5clang4T
   store i32 1, ptr %182, align 4
   %183 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %183, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %12, align 8
   %184 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %11, ptr %184, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
@@ -16605,7 +16605,7 @@ _ZL21TryLValueToRValueCastRN5clang4SemaEPNS_4ExprENS_8QualTypeEbRNS_8CastKindERN
 
 200:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJEEE, i64 16), ptr %10, align 8
   %201 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 2694, ptr %201, align 8
   %202 = call noundef zeroext i1 @_ZN5clang4Sema22RequireNonAbstractTypeENS_14SourceLocationENS_8QualTypeERNS0_13TypeDiagnoserE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %30, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %10) #15

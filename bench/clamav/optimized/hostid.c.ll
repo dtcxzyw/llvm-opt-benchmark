@@ -31,15 +31,15 @@ define range(i32 0, 2) i32 @is_valid_hostid() local_unnamed_addr #0 {
   br i1 %.not8, label %7, label %12
 
 7:                                                ; preds = %6
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 8), align 8
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @hostid, i64 8), align 8
   %.not9 = icmp eq i8 %8, 45
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 13), align 1
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @hostid, i64 13), align 1
   %.not10 = icmp eq i8 %9, 45
   %or.cond = select i1 %.not9, i1 %.not10, i1 false
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 18), align 2
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @hostid, i64 18), align 2
   %.not11 = icmp eq i8 %10, 45
   %or.cond13 = select i1 %or.cond, i1 %.not11, i1 false
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 23), align 1
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @hostid, i64 23), align 1
   %.not12 = icmp eq i8 %11, 45
   %or.cond14 = select i1 %or.cond13, i1 %.not12, i1 false
   %spec.select15 = zext i1 %or.cond14 to i32
@@ -81,15 +81,15 @@ define noalias ptr @get_hostid(ptr nocapture noundef readnone %0) local_unnamed_
   br i1 %.not8.i, label %is_valid_hostid.exit, label %.sink.split
 
 is_valid_hostid.exit:                             ; preds = %8
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 8), align 8
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @hostid, i64 8), align 8
   %.not9.i = icmp ne i8 %9, 45
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 13), align 1
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @hostid, i64 13), align 1
   %.not10.i = icmp ne i8 %10, 45
   %or.cond.i.not5 = select i1 %.not9.i, i1 true, i1 %.not10.i
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 18), align 2
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @hostid, i64 18), align 2
   %.not11.i = icmp ne i8 %11, 45
   %or.cond13.i.not4 = select i1 %or.cond.i.not5, i1 true, i1 %.not11.i
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @hostid, i64 23), align 1
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @hostid, i64 23), align 1
   %.not12.i = icmp ne i8 %12, 45
   %or.cond14.i.not = select i1 %or.cond13.i.not4, i1 true, i1 %.not12.i
   br i1 %or.cond14.i.not, label %.sink.split, label %13

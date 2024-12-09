@@ -37,7 +37,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
   %2 = alloca %"class.std::allocator.1", align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WidgetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui6WidgetE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -183,7 +183,7 @@ declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WidgetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui6WidgetE, i64 16), ptr %0, align 8
   %2 = tail call noundef i32 @_ZSt19uncaught_exceptionsv() #23
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.loopexit, label %4

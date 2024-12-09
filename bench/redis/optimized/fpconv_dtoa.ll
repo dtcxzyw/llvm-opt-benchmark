@@ -210,7 +210,7 @@ for.cond.i.i:                                     ; preds = %if.end.i85.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %find_cachedpow10.exit.i
   %part1.07.i.i = phi i64 [ %shr.i83.i, %find_cachedpow10.exit.i ], [ %sub20.i87.i, %for.cond.i.i ]
-  %divp.06.i.i = phi ptr [ getelementptr inbounds (i8, ptr @tens, i64 80), %find_cachedpow10.exit.i ], [ %incdec.ptr.i.i, %for.cond.i.i ]
+  %divp.06.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @tens, i64 80), %find_cachedpow10.exit.i ], [ %incdec.ptr.i.i, %for.cond.i.i ]
   %kappa.05.i.i = phi i32 [ 10, %find_cachedpow10.exit.i ], [ %dec.i88.i, %for.cond.i.i ]
   %idx.04.i.i = phi i32 [ 0, %find_cachedpow10.exit.i ], [ %idx.1.i.i, %for.cond.i.i ]
   %10 = load i64, ptr %divp.06.i.i, align 8
@@ -281,7 +281,7 @@ while.body.i90.i:                                 ; preds = %for.cond.i.i, %if.e
   %kappa.1.i.i = phi i32 [ %dec37.i.i, %if.end53.i.i ], [ 0, %for.cond.i.i ]
   %part2.0.i.i = phi i64 [ %and56.i.i, %if.end53.i.i ], [ %and.i84.i, %for.cond.i.i ]
   %delta.0.i.i = phi i64 [ %mul36.i.i, %if.end53.i.i ], [ %sub4.i.i, %for.cond.i.i ]
-  %unit.0.i.i = phi ptr [ %incdec.ptr64.i.i, %if.end53.i.i ], [ getelementptr inbounds (i8, ptr @tens, i64 144), %for.cond.i.i ]
+  %unit.0.i.i = phi ptr [ %incdec.ptr64.i.i, %if.end53.i.i ], [ getelementptr inbounds nuw (i8, ptr @tens, i64 144), %for.cond.i.i ]
   %mul35.i.i = mul i64 %part2.0.i.i, 10
   %mul36.i.i = mul i64 %delta.0.i.i, 10
   %dec37.i.i = add nsw i32 %kappa.1.i.i, -1

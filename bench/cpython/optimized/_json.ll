@@ -2651,7 +2651,7 @@ declare void @_PyUnicodeWriter_Init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @raise_errmsg(ptr noundef %msg, ptr noundef %s, i64 noundef %end) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @_PyImport_GetModuleAttr(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25320), ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25904)) #3
+  %call = tail call ptr @_PyImport_GetModuleAttr(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25320), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25904)) #3
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.end3, label %if.end
 
@@ -7390,7 +7390,7 @@ if.else16:                                        ; preds = %if.else8
   br i1 %tobool19.not, label %if.else27, label %if.then20
 
 if.then20:                                        ; preds = %if.else16
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 88), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyLong_Type, i64 88), align 8
   %call22 = tail call ptr %15(ptr noundef %obj) #3
   %cmp23 = icmp eq ptr %call22, null
   br i1 %cmp23, label %return, label %if.end25
@@ -7460,7 +7460,7 @@ if.else8.i:                                       ; preds = %if.else.i
   br label %encoder_encode_float.exit
 
 if.end10.i:                                       ; preds = %if.then30
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 88), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 88), align 8
   %call11.i = tail call ptr %23(ptr noundef nonnull %obj) #3
   br label %encoder_encode_float.exit
 
@@ -8258,7 +8258,7 @@ if.else8.i:                                       ; preds = %if.else.i
   br label %if.end27
 
 if.end10.i:                                       ; preds = %if.then5
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 88), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 88), align 8
   %call11.i = tail call ptr %9(ptr noundef nonnull %key) #3
   br label %if.end27
 
@@ -8273,8 +8273,8 @@ if.else7:                                         ; preds = %PyObject_TypeCheck.
 if.then11:                                        ; preds = %if.else7
   %brmerge = or i1 %cmp10, %cmp
   %brmerge65 = or i1 %cmp8, %brmerge
-  %.mux = select i1 %cmp, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 60936), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 45000)
-  %.mux.mux = select i1 %cmp10, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 53304), ptr %.mux
+  %.mux = select i1 %cmp, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60936), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45000)
+  %.mux.mux = select i1 %cmp10, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53304), ptr %.mux
   br i1 %brmerge65, label %if.end30, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.then11
@@ -8291,7 +8291,7 @@ if.else13:                                        ; preds = %if.else7
   br i1 %tobool16.not, label %if.else19, label %if.then17
 
 if.then17:                                        ; preds = %if.else13
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 88), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyLong_Type, i64 88), align 8
   %call18 = tail call ptr %13(ptr noundef %key) #3
   br label %if.end27
 

@@ -33,7 +33,7 @@ define void @_ZN9grpc_core11ThreadQuotaC2Ev(ptr nocapture noundef nonnull writeo
 entry:
   %refs_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11ThreadQuotaE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11ThreadQuotaE, i64 16), ptr %this, align 8
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %max_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu_, i8 0, i64 16, i1 false)
@@ -46,7 +46,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core11ThreadQuotaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11ThreadQuotaE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11ThreadQuotaE, i64 16), ptr %this, align 8
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #10
   ret void

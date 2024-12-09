@@ -128,7 +128,7 @@ $_ZTV17DeadlyImportError = comdat any
 define hidden void @_ZN6Assimp23SplitByBoneCountProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp23SplitByBoneCountProcessE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp23SplitByBoneCountProcessE, i64 16), ptr %this, align 8
   %mMaxBoneCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 60, ptr %mMaxBoneCount, align 8
   %mSubMeshIndices = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -3023,7 +3023,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -3057,7 +3057,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp23SplitByBoneCountProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp23SplitByBoneCountProcessE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp23SplitByBoneCountProcessE, i64 16), ptr %this, align 8
   %mSubMeshIndices = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %mSubMeshIndices, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -3101,7 +3101,7 @@ _ZNSt6vectorIS_IjSaIjEESaIS1_EED2Ev.exit:         ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp23SplitByBoneCountProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp23SplitByBoneCountProcessE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp23SplitByBoneCountProcessE, i64 16), ptr %this, align 8
   %mSubMeshIndices.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %mSubMeshIndices.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40

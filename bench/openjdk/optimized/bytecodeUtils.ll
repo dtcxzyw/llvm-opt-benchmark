@@ -2060,7 +2060,7 @@ _ZN21SimulatedOperandStack3popEi.exit447:         ; preds = %595, %.lr.ph.prehea
   br label %.loopexit
 
 604:                                              ; preds = %71
-  %605 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_depthE, i64 167), align 1
+  %605 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_depthE, i64 167), align 1
   %606 = icmp slt i8 %605, 0
   br i1 %606, label %.lr.ph.preheader.i448, label %_ZN21SimulatedOperandStack3popEi.exit450
 
@@ -2081,7 +2081,7 @@ _ZN21SimulatedOperandStack3popEi.exit450:         ; preds = %604, %.lr.ph.prehea
   br label %_ZN21SimulatedOperandStack3popEi.exit
 
 614:                                              ; preds = %71
-  %615 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes6_depthE, i64 200), align 8
+  %615 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes6_depthE, i64 200), align 8
   %616 = icmp slt i8 %615, 0
   br i1 %616, label %.lr.ph.preheader.i452, label %_ZN21SimulatedOperandStack3popEi.exit454
 
@@ -2552,7 +2552,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit39:   ; preds = %21, %25
   %73 = zext i16 %71 to i64
   %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %.not = icmp eq ptr %75, %76
   br i1 %.not, label %85, label %77
 
@@ -3500,7 +3500,7 @@ define hidden noundef zeroext i1 @_ZN13BytecodeUtils18get_NPE_message_atEP12outp
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 440), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 440), align 8
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZN12ResourceMarkD2Ev.exit, label %13
 

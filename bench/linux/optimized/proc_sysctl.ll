@@ -2059,7 +2059,7 @@ define internal ptr @proc_sys_lookup(ptr nocapture noundef readonly %0, ptr noun
   %6 = getelementptr i8, ptr %0, i64 -40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  %9 = select i1 %8, ptr getelementptr inbounds (i8, ptr @sysctl_table_root, i64 8), ptr %7
+  %9 = select i1 %8, ptr getelementptr inbounds nuw (i8, ptr @sysctl_table_root, i64 8), ptr %7
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysctl_lock) #19
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
@@ -2251,7 +2251,7 @@ define internal i32 @proc_sys_permission(ptr nocapture readnone %0, ptr nocaptur
   %10 = getelementptr i8, ptr %1, i64 -40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  %13 = select i1 %12, ptr getelementptr inbounds (i8, ptr @sysctl_table_root, i64 8), ptr %11
+  %13 = select i1 %12, ptr getelementptr inbounds nuw (i8, ptr @sysctl_table_root, i64 8), ptr %11
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysctl_lock) #19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -2395,7 +2395,7 @@ define internal i32 @proc_sys_getattr(ptr nocapture readnone %0, ptr nocapture n
   %10 = getelementptr i8, ptr %9, i64 -40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  %13 = select i1 %12, ptr getelementptr inbounds (i8, ptr @sysctl_table_root, i64 8), ptr %11
+  %13 = select i1 %12, ptr getelementptr inbounds nuw (i8, ptr @sysctl_table_root, i64 8), ptr %11
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysctl_lock) #19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -2824,7 +2824,7 @@ define internal noundef range(i32 24, 326) i32 @proc_sys_poll(ptr noundef %0, pt
   %5 = getelementptr i8, ptr %4, i64 -40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  %8 = select i1 %7, ptr getelementptr inbounds (i8, ptr @sysctl_table_root, i64 8), ptr %6
+  %8 = select i1 %7, ptr getelementptr inbounds nuw (i8, ptr @sysctl_table_root, i64 8), ptr %6
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysctl_lock) #19
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -2919,7 +2919,7 @@ define internal i32 @proc_sys_open(ptr nocapture noundef readonly %0, ptr nocapt
   %3 = getelementptr i8, ptr %0, i64 -40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  %6 = select i1 %5, ptr getelementptr inbounds (i8, ptr @sysctl_table_root, i64 8), ptr %4
+  %6 = select i1 %5, ptr getelementptr inbounds nuw (i8, ptr @sysctl_table_root, i64 8), ptr %4
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysctl_lock) #19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3002,7 +3002,7 @@ define internal fastcc i64 @proc_sys_call_handler(ptr noundef %0, ptr noundef %1
   %8 = getelementptr i8, ptr %7, i64 -40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  %11 = select i1 %10, ptr getelementptr inbounds (i8, ptr @sysctl_table_root, i64 8), ptr %9
+  %11 = select i1 %10, ptr getelementptr inbounds nuw (i8, ptr @sysctl_table_root, i64 8), ptr %9
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysctl_lock) #19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
@@ -3221,7 +3221,7 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   %5 = getelementptr i8, ptr %4, i64 -40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  %8 = select i1 %7, ptr getelementptr inbounds (i8, ptr @sysctl_table_root, i64 8), ptr %6
+  %8 = select i1 %7, ptr getelementptr inbounds nuw (i8, ptr @sysctl_table_root, i64 8), ptr %6
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysctl_lock) #19
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8

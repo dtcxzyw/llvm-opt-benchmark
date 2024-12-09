@@ -83,10 +83,10 @@ $_ZTV19ZGenerationCounters = comdat any
 define hidden void @_ZN23ZServiceabilityCountersC2Emmm(ptr noundef nonnull align 8 dereferenceable(200) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 1, i64 noundef %2, i64 noundef %3, i64 noundef %1) #9
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ZGenerationCounters, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ZGenerationCounters, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.4, i32 noundef 1, i32 noundef 1, i64 noundef 0, i64 noundef %3, i64 noundef 0) #9
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ZGenerationCounters, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ZGenerationCounters, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -162,7 +162,7 @@ declare void @_ZN17MetaspaceCounters27update_performance_countersEv() local_unna
 define hidden void @_ZN25ZServiceabilityMemoryPoolC2EPKc13ZGenerationIdmm(ptr noundef nonnull align 8 dereferenceable(202) %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
   %6 = icmp eq i8 %2, 1
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %1, i32 noundef 1, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %6, i1 noundef zeroext true) #9
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV25ZServiceabilityMemoryPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV25ZServiceabilityMemoryPool, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 201
   store i8 %2, ptr %7, align 1
   ret void
@@ -214,7 +214,7 @@ define hidden void @_ZN25ZServiceabilityMemoryPool16get_memory_usageEv(ptr dead_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN28ZServiceabilityMemoryManagerC2EPKcP10MemoryPoolS3_(ptr noundef nonnull align 8 dereferenceable(191) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(191) %0, ptr noundef %1) #9
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %0, align 8
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %0, ptr noundef %2) #9
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %0, ptr noundef %3) #9
   ret void
@@ -233,33 +233,33 @@ define hidden void @_ZN15ZServiceabilityC2Emmm(ptr noundef nonnull align 8 deref
   store i64 %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(202) %7, ptr noundef nonnull @.str.8, i32 noundef 1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext false, i1 noundef zeroext true) #9
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV25ZServiceabilityMemoryPool, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV25ZServiceabilityMemoryPool, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 225
   store i8 0, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load i64, ptr %6, align 8
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(202) %9, ptr noundef nonnull @.str.9, i32 noundef 1, i64 noundef 0, i64 noundef %10, i1 noundef zeroext true, i1 noundef zeroext true) #9
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV25ZServiceabilityMemoryPool, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV25ZServiceabilityMemoryPool, i64 16), ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 433
   store i8 1, ptr %11, align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 440
   tail call void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(191) %12, ptr noundef nonnull @.str.10) #9
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %12, align 8
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %12, ptr noundef nonnull %7) #9
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %12, ptr noundef nonnull %9) #9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 632
   tail call void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(191) %13, ptr noundef nonnull @.str.11) #9
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %13, align 8
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %13, ptr noundef nonnull %7) #9
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %13, ptr noundef nonnull %9) #9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 824
   tail call void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(191) %14, ptr noundef nonnull @.str.12) #9
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %14, align 8
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %14, ptr noundef nonnull %7) #9
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %14, ptr noundef nonnull %9) #9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   tail call void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(191) %15, ptr noundef nonnull @.str.13) #9
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV28ZServiceabilityMemoryManager, i64 16), ptr %15, align 8
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %15, ptr noundef nonnull %7) #9
   tail call void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191) %15, ptr noundef nonnull %9) #9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -277,10 +277,10 @@ define hidden void @_ZN15ZServiceability10initializeEv(ptr nocapture noundef non
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 1, i64 noundef %5, i64 noundef %7, i64 noundef %3) #9
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ZGenerationCounters, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ZGenerationCounters, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.4, i32 noundef 1, i32 noundef 1, i64 noundef 0, i64 noundef %7, i64 noundef 0) #9
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ZGenerationCounters, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ZGenerationCounters, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8

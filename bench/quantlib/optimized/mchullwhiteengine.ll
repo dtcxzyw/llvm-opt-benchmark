@@ -163,7 +163,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -226,7 +226,7 @@ entry:
   %ref.tmp74 = alloca %"class.QuantLib::Date", align 8
   %ref.tmp99 = alloca %"class.QuantLib::Date", align 8
   %ref.tmp102 = alloca %"class.QuantLib::Date", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib6detail23HullWhiteCapFloorPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib6detail23HullWhiteCapFloorPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %args_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN8QuantLib8CapFloor9argumentsC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(280) %args_, ptr noundef nonnull align 8 dereferenceable(280) %args)
   %model_ = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -785,7 +785,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit133:                 ; preds = %_ZNSt6vectorIdSaIdE
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib8CapFloor9argumentsC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib8CapFloor9argumentsE, i64 40), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib8CapFloor9argumentsE, i64 40), ptr %this, align 8, !tbaa !14
   %type = getelementptr inbounds nuw i8, ptr %this, i64 8
   %type2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %type2, align 8, !tbaa !52
@@ -2259,7 +2259,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #10
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib6detail23HullWhiteCapFloorPricerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib6detail23HullWhiteCapFloorPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib6detail23HullWhiteCapFloorPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %fixingTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load ptr, ptr %fixingTimes_, align 8, !tbaa !45
   %tobool.not.i.i.i = icmp eq ptr %0, null

@@ -924,7 +924,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 11))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -949,7 +949,7 @@ call.i.noexc25:                                   ; preds = %invoke.cont7
           to label %.noexc27 unwind label %lpad10
 
 .noexc27:                                         ; preds = %call.i.noexc25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 7))
           to label %invoke.cont11 unwind label %lpad.i24
 
 lpad.i24:                                         ; preds = %.noexc27
@@ -974,7 +974,7 @@ call.i.noexc34:                                   ; preds = %invoke.cont15
           to label %.noexc36 unwind label %lpad19
 
 .noexc36:                                         ; preds = %call.i.noexc34
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 11))
           to label %invoke.cont20 unwind label %lpad.i33
 
 lpad.i33:                                         ; preds = %.noexc36
@@ -999,7 +999,7 @@ call.i.noexc43:                                   ; preds = %invoke.cont24
           to label %.noexc45 unwind label %lpad28
 
 .noexc45:                                         ; preds = %call.i.noexc43
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 7))
           to label %invoke.cont29 unwind label %lpad.i42
 
 lpad.i42:                                         ; preds = %.noexc45
@@ -1024,7 +1024,7 @@ call.i.noexc52:                                   ; preds = %invoke.cont33
           to label %.noexc54 unwind label %lpad37
 
 .noexc54:                                         ; preds = %call.i.noexc52
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 11))
           to label %invoke.cont38 unwind label %lpad.i51
 
 lpad.i51:                                         ; preds = %.noexc54
@@ -1053,7 +1053,7 @@ call.i.noexc62:                                   ; preds = %invoke.cont43
           to label %.noexc64 unwind label %lpad47
 
 .noexc64:                                         ; preds = %call.i.noexc62
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 7))
           to label %invoke.cont48 unwind label %lpad.i61
 
 lpad.i61:                                         ; preds = %.noexc64
@@ -1082,7 +1082,7 @@ call.i.noexc72:                                   ; preds = %invoke.cont53
           to label %.noexc74 unwind label %lpad57
 
 .noexc74:                                         ; preds = %call.i.noexc72
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 29))
           to label %invoke.cont58 unwind label %lpad.i71
 
 lpad.i71:                                         ; preds = %.noexc74
@@ -1105,7 +1105,7 @@ call.i.noexc80:                                   ; preds = %invoke.cont60
           to label %.noexc82 unwind label %lpad64
 
 .noexc82:                                         ; preds = %call.i.noexc80
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont65 unwind label %lpad.i79
 
 lpad.i79:                                         ; preds = %.noexc82
@@ -1128,7 +1128,7 @@ call.i.noexc88:                                   ; preds = %invoke.cont67
           to label %.noexc90 unwind label %lpad71
 
 .noexc90:                                         ; preds = %call.i.noexc88
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 29))
           to label %invoke.cont72 unwind label %lpad.i87
 
 lpad.i87:                                         ; preds = %.noexc90
@@ -1717,7 +1717,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !6
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i39, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i39, align 8, !noalias !6
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i39, align 8, !noalias !6
   br label %cleanup
 
 lpad:                                             ; preds = %if.else52, %if.then49, %if.else43, %if.then40, %if.else, %if.then33, %invoke.cont, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit27
@@ -1736,7 +1736,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i49, align 8, !noalias !9
   %_M_weak_count.i.i.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i54, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i50, align 4, !noalias !9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i54, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i54, align 8, !noalias !9
   br label %cleanup
 
 if.else37:                                        ; preds = %dynamic_cast.notnull.i59
@@ -1751,7 +1751,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i88, align 8, !noalias !12
   %_M_weak_count.i.i.i.i.i.i89 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i93, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i89, align 4, !noalias !12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i93, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i93, align 8, !noalias !12
   br label %cleanup
 
 if.else43:                                        ; preds = %if.else37
@@ -1763,7 +1763,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i127, align 8, !noalias !15
   %_M_weak_count.i.i.i.i.i.i128 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i132, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i128, align 4, !noalias !15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i132, align 8, !noalias !15
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i132, align 8, !noalias !15
   br label %cleanup
 
 dynamic_cast.notnull.i:                           ; preds = %dynamic_cast.notnull.i65
@@ -1778,7 +1778,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i166, align 8, !noalias !18
   %_M_weak_count.i.i.i.i.i.i167 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i171, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i167, align 4, !noalias !18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i171, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i171, align 8, !noalias !18
   br label %cleanup
 
 if.else52:                                        ; preds = %dynamic_cast.notnull.i
@@ -1790,12 +1790,12 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i205, align 8, !noalias !21
   %_M_weak_count.i.i.i.i.i.i206 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i210, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i206, align 4, !noalias !21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i210, align 8, !noalias !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i210, align 8, !noalias !21
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i210.sink328 = phi ptr [ %call5.i.i.i5.i.i.i.i210, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i171, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i132, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i93, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i54, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i39, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i207 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i210.sink328, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i207, align 8, !noalias !24
   %aRescale_.i.i.i.i.i.i.i.i208 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i210.sink328, i64 24
@@ -2339,7 +2339,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !25
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i35, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i35, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i35, align 8, !noalias !25
   br label %cleanup
 
 lpad:                                             ; preds = %if.else52, %if.then49, %if.else43, %if.then40, %if.else, %if.then33, %invoke.cont, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit27
@@ -2358,7 +2358,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i45, align 8, !noalias !28
   %_M_weak_count.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i50, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i46, align 4, !noalias !28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i50, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i50, align 8, !noalias !28
   br label %cleanup
 
 if.else37:                                        ; preds = %dynamic_cast.notnull.i59
@@ -2373,7 +2373,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i84, align 8, !noalias !31
   %_M_weak_count.i.i.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i89, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i85, align 4, !noalias !31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i89, align 8, !noalias !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i89, align 8, !noalias !31
   br label %cleanup
 
 if.else43:                                        ; preds = %if.else37
@@ -2385,7 +2385,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i123, align 8, !noalias !34
   %_M_weak_count.i.i.i.i.i.i124 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i128, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i124, align 4, !noalias !34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i128, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i128, align 8, !noalias !34
   br label %cleanup
 
 dynamic_cast.notnull.i:                           ; preds = %dynamic_cast.notnull.i65
@@ -2400,7 +2400,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i162, align 8, !noalias !37
   %_M_weak_count.i.i.i.i.i.i163 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i167, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i163, align 4, !noalias !37
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i167, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i167, align 8, !noalias !37
   br label %cleanup
 
 if.else52:                                        ; preds = %dynamic_cast.notnull.i
@@ -2412,12 +2412,12 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i201, align 8, !noalias !40
   %_M_weak_count.i.i.i.i.i.i202 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i206, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i202, align 4, !noalias !40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i206, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i206, align 8, !noalias !40
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i206.sink324 = phi ptr [ %call5.i.i.i5.i.i.i.i206, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i167, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i128, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i89, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i50, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i203 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i206.sink324, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i203, align 8, !noalias !24
   %aRescale_.i.i.i.i.i.i.i.i204 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i206.sink324, i64 24
@@ -2681,7 +2681,7 @@ if.end.i59:                                       ; preds = %.noexc.i
           to label %invoke.cont.i62 unwind label %lpad.i61, !noalias !43
 
 invoke.cont.i62:                                  ; preds = %if.end.i59
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i60, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 11)) #26, !noalias !43
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i60, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 11)) #26, !noalias !43
   store ptr null, ptr %__guard.i56, align 8, !noalias !43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i, i64 noundef 11)
           to label %invoke.cont.i unwind label %lpad.i61, !noalias !43
@@ -2727,7 +2727,7 @@ if.end.i49:                                       ; preds = %.noexc27.i
           to label %invoke.cont.i52 unwind label %lpad.i51, !noalias !43
 
 invoke.cont.i52:                                  ; preds = %if.end.i49
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i50, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 7)) #26, !noalias !43
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i50, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 7)) #26, !noalias !43
   store ptr null, ptr %__guard.i46, align 8, !noalias !43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i, i64 noundef 7)
           to label %invoke.cont11.i unwind label %lpad.i51, !noalias !43
@@ -2773,7 +2773,7 @@ if.end.i39:                                       ; preds = %.noexc36.i
           to label %invoke.cont.i42 unwind label %lpad.i41, !noalias !43
 
 invoke.cont.i42:                                  ; preds = %if.end.i39
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i40, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 11)) #26, !noalias !43
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i40, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 11)) #26, !noalias !43
   store ptr null, ptr %__guard.i36, align 8, !noalias !43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17.i, i64 noundef 11)
           to label %invoke.cont20.i unwind label %lpad.i41, !noalias !43
@@ -2819,7 +2819,7 @@ if.end.i29:                                       ; preds = %.noexc45.i
           to label %invoke.cont.i32 unwind label %lpad.i31, !noalias !43
 
 invoke.cont.i32:                                  ; preds = %if.end.i29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i30, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 7)) #26, !noalias !43
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i30, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 7)) #26, !noalias !43
   store ptr null, ptr %__guard.i26, align 8, !noalias !43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i, i64 noundef 7)
           to label %invoke.cont29.i unwind label %lpad.i31, !noalias !43
@@ -2865,7 +2865,7 @@ if.end.i19:                                       ; preds = %.noexc54.i
           to label %invoke.cont.i22 unwind label %lpad.i21, !noalias !43
 
 invoke.cont.i22:                                  ; preds = %if.end.i19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i20, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 11)) #26, !noalias !43
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i20, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 11)) #26, !noalias !43
   store ptr null, ptr %__guard.i16, align 8, !noalias !43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i, i64 noundef 11)
           to label %invoke.cont38.i unwind label %lpad.i21, !noalias !43
@@ -2915,7 +2915,7 @@ if.end.i:                                         ; preds = %.noexc64.i
           to label %invoke.cont.i14 unwind label %lpad.i13, !noalias !43
 
 invoke.cont.i14:                                  ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 7)) #26, !noalias !43
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 7)) #26, !noalias !43
   store ptr null, ptr %__guard.i, align 8, !noalias !43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45.i, i64 noundef 7)
           to label %invoke.cont48.i unwind label %lpad.i13, !noalias !43
@@ -2948,7 +2948,7 @@ call.i.noexc72.i:                                 ; preds = %invoke.cont53.i
           to label %.noexc74.i unwind label %lpad57.i, !noalias !43
 
 .noexc74.i:                                       ; preds = %call.i.noexc72.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.i, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.i, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 29))
           to label %invoke.cont58.i unwind label %lpad.i71.i, !noalias !43
 
 lpad.i71.i:                                       ; preds = %.noexc74.i
@@ -2971,7 +2971,7 @@ call.i.noexc80.i:                                 ; preds = %invoke.cont60.i
           to label %.noexc82.i unwind label %lpad64.i, !noalias !43
 
 .noexc82.i:                                       ; preds = %call.i.noexc80.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont65.i unwind label %lpad.i79.i, !noalias !43
 
 lpad.i79.i:                                       ; preds = %.noexc82.i
@@ -2994,7 +2994,7 @@ call.i.noexc88.i:                                 ; preds = %invoke.cont67.i
           to label %.noexc90.i unwind label %lpad71.i, !noalias !43
 
 .noexc90.i:                                       ; preds = %call.i.noexc88.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69.i, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69.i, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 29))
           to label %invoke.cont72.i unwind label %lpad.i87.i, !noalias !43
 
 lpad.i87.i:                                       ; preds = %.noexc90.i
@@ -3745,7 +3745,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !46
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i30, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !46
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i30, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i30, align 8, !noalias !46
   br label %cleanup
 
 lpad:                                             ; preds = %if.else52, %if.then49, %if.else43, %if.then40, %if.else, %if.then33, %invoke.cont, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit27
@@ -3764,7 +3764,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i40, align 8, !noalias !49
   %_M_weak_count.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i45, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i41, align 4, !noalias !49
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i45, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i45, align 8, !noalias !49
   br label %cleanup
 
 if.else37:                                        ; preds = %dynamic_cast.notnull.i59
@@ -3779,7 +3779,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i79, align 8, !noalias !52
   %_M_weak_count.i.i.i.i.i.i80 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i84, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i80, align 4, !noalias !52
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i84, align 8, !noalias !52
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i84, align 8, !noalias !52
   br label %cleanup
 
 if.else43:                                        ; preds = %if.else37
@@ -3791,7 +3791,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i118, align 8, !noalias !55
   %_M_weak_count.i.i.i.i.i.i119 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i123, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i119, align 4, !noalias !55
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i123, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i123, align 8, !noalias !55
   br label %cleanup
 
 dynamic_cast.notnull.i:                           ; preds = %dynamic_cast.notnull.i65
@@ -3806,7 +3806,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i157, align 8, !noalias !58
   %_M_weak_count.i.i.i.i.i.i158 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i162, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i158, align 4, !noalias !58
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i162, align 8, !noalias !58
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i162, align 8, !noalias !58
   br label %cleanup
 
 if.else52:                                        ; preds = %dynamic_cast.notnull.i
@@ -3818,12 +3818,12 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i196, align 8, !noalias !61
   %_M_weak_count.i.i.i.i.i.i197 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i201, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i197, align 4, !noalias !61
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i201, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i201, align 8, !noalias !61
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i201.sink319 = phi ptr [ %call5.i.i.i5.i.i.i.i201, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i162, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i123, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i84, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i45, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i30, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i198 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i201.sink319, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i198, align 8, !noalias !24
   %aRescale_.i.i.i.i.i.i.i.i199 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i201.sink319, i64 24
@@ -4087,7 +4087,7 @@ if.end.i59:                                       ; preds = %.noexc.i
           to label %invoke.cont.i62 unwind label %lpad.i61, !noalias !64
 
 invoke.cont.i62:                                  ; preds = %if.end.i59
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i60, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 11)) #26, !noalias !64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i60, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 11)) #26, !noalias !64
   store ptr null, ptr %__guard.i56, align 8, !noalias !64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i, i64 noundef 11)
           to label %invoke.cont.i unwind label %lpad.i61, !noalias !64
@@ -4133,7 +4133,7 @@ if.end.i49:                                       ; preds = %.noexc27.i
           to label %invoke.cont.i52 unwind label %lpad.i51, !noalias !64
 
 invoke.cont.i52:                                  ; preds = %if.end.i49
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i50, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 7)) #26, !noalias !64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i50, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 7)) #26, !noalias !64
   store ptr null, ptr %__guard.i46, align 8, !noalias !64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i, i64 noundef 7)
           to label %invoke.cont11.i unwind label %lpad.i51, !noalias !64
@@ -4179,7 +4179,7 @@ if.end.i39:                                       ; preds = %.noexc36.i
           to label %invoke.cont.i42 unwind label %lpad.i41, !noalias !64
 
 invoke.cont.i42:                                  ; preds = %if.end.i39
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i40, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 11)) #26, !noalias !64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i40, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 11)) #26, !noalias !64
   store ptr null, ptr %__guard.i36, align 8, !noalias !64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17.i, i64 noundef 11)
           to label %invoke.cont20.i unwind label %lpad.i41, !noalias !64
@@ -4225,7 +4225,7 @@ if.end.i29:                                       ; preds = %.noexc45.i
           to label %invoke.cont.i32 unwind label %lpad.i31, !noalias !64
 
 invoke.cont.i32:                                  ; preds = %if.end.i29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i30, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 7)) #26, !noalias !64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i30, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 7)) #26, !noalias !64
   store ptr null, ptr %__guard.i26, align 8, !noalias !64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i, i64 noundef 7)
           to label %invoke.cont29.i unwind label %lpad.i31, !noalias !64
@@ -4271,7 +4271,7 @@ if.end.i19:                                       ; preds = %.noexc54.i
           to label %invoke.cont.i22 unwind label %lpad.i21, !noalias !64
 
 invoke.cont.i22:                                  ; preds = %if.end.i19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i20, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 11)) #26, !noalias !64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i20, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 11)) #26, !noalias !64
   store ptr null, ptr %__guard.i16, align 8, !noalias !64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i, i64 noundef 11)
           to label %invoke.cont38.i unwind label %lpad.i21, !noalias !64
@@ -4321,7 +4321,7 @@ if.end.i:                                         ; preds = %.noexc64.i
           to label %invoke.cont.i14 unwind label %lpad.i13, !noalias !64
 
 invoke.cont.i14:                                  ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 7)) #26, !noalias !64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 7)) #26, !noalias !64
   store ptr null, ptr %__guard.i, align 8, !noalias !64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45.i, i64 noundef 7)
           to label %invoke.cont48.i unwind label %lpad.i13, !noalias !64
@@ -4354,7 +4354,7 @@ call.i.noexc72.i:                                 ; preds = %invoke.cont53.i
           to label %.noexc74.i unwind label %lpad57.i, !noalias !64
 
 .noexc74.i:                                       ; preds = %call.i.noexc72.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.i, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.i, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 29))
           to label %invoke.cont58.i unwind label %lpad.i71.i, !noalias !64
 
 lpad.i71.i:                                       ; preds = %.noexc74.i
@@ -4377,7 +4377,7 @@ call.i.noexc80.i:                                 ; preds = %invoke.cont60.i
           to label %.noexc82.i unwind label %lpad64.i, !noalias !64
 
 .noexc82.i:                                       ; preds = %call.i.noexc80.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont65.i unwind label %lpad.i79.i, !noalias !64
 
 lpad.i79.i:                                       ; preds = %.noexc82.i
@@ -4400,7 +4400,7 @@ call.i.noexc88.i:                                 ; preds = %invoke.cont67.i
           to label %.noexc90.i unwind label %lpad71.i, !noalias !64
 
 .noexc90.i:                                       ; preds = %call.i.noexc88.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69.i, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69.i, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 29))
           to label %invoke.cont72.i unwind label %lpad.i87.i, !noalias !64
 
 lpad.i87.i:                                       ; preds = %.noexc90.i
@@ -5165,7 +5165,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !67
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i34, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !67
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i34, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i34, align 8, !noalias !67
   br label %cleanup
 
 lpad:                                             ; preds = %if.else52, %if.then49, %if.else43, %if.then40, %if.else, %if.then33, %invoke.cont, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit27
@@ -5184,7 +5184,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i44, align 8, !noalias !70
   %_M_weak_count.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i49, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i45, align 4, !noalias !70
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i49, align 8, !noalias !70
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i49, align 8, !noalias !70
   br label %cleanup
 
 if.else37:                                        ; preds = %dynamic_cast.notnull.i59
@@ -5199,7 +5199,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i83, align 8, !noalias !73
   %_M_weak_count.i.i.i.i.i.i84 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i88, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i84, align 4, !noalias !73
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i88, align 8, !noalias !73
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i88, align 8, !noalias !73
   br label %cleanup
 
 if.else43:                                        ; preds = %if.else37
@@ -5211,7 +5211,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i122, align 8, !noalias !76
   %_M_weak_count.i.i.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i127, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i123, align 4, !noalias !76
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i127, align 8, !noalias !76
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i127, align 8, !noalias !76
   br label %cleanup
 
 dynamic_cast.notnull.i:                           ; preds = %dynamic_cast.notnull.i65
@@ -5226,7 +5226,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i161, align 8, !noalias !79
   %_M_weak_count.i.i.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i166, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i162, align 4, !noalias !79
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i166, align 8, !noalias !79
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i166, align 8, !noalias !79
   br label %cleanup
 
 if.else52:                                        ; preds = %dynamic_cast.notnull.i
@@ -5238,12 +5238,12 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i200, align 8, !noalias !82
   %_M_weak_count.i.i.i.i.i.i201 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i205, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i201, align 4, !noalias !82
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i205, align 8, !noalias !82
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i205, align 8, !noalias !82
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i205.sink323 = phi ptr [ %call5.i.i.i5.i.i.i.i205, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i166, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i127, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i88, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i49, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i202 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i205.sink323, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i202, align 8, !noalias !24
   %aRescale_.i.i.i.i.i.i.i.i203 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i205.sink323, i64 24
@@ -5518,7 +5518,7 @@ if.end.i69:                                       ; preds = %.noexc.i
           to label %invoke.cont.i72 unwind label %lpad.i71, !noalias !85
 
 invoke.cont.i72:                                  ; preds = %if.end.i69
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i70, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 11)) #26, !noalias !85
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i70, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 11)) #26, !noalias !85
   store ptr null, ptr %__guard.i66, align 8, !noalias !85
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i, i64 noundef 11)
           to label %invoke.cont.i unwind label %lpad.i71, !noalias !85
@@ -5564,7 +5564,7 @@ if.end.i59:                                       ; preds = %.noexc31.i
           to label %invoke.cont.i62 unwind label %lpad.i61, !noalias !85
 
 invoke.cont.i62:                                  ; preds = %if.end.i59
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i60, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 7)) #26, !noalias !85
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i60, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 7)) #26, !noalias !85
   store ptr null, ptr %__guard.i56, align 8, !noalias !85
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i, i64 noundef 7)
           to label %invoke.cont11.i unwind label %lpad.i61, !noalias !85
@@ -5610,7 +5610,7 @@ if.end.i49:                                       ; preds = %.noexc40.i
           to label %invoke.cont.i52 unwind label %lpad.i51, !noalias !85
 
 invoke.cont.i52:                                  ; preds = %if.end.i49
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i50, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 11)) #26, !noalias !85
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i50, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 11)) #26, !noalias !85
   store ptr null, ptr %__guard.i46, align 8, !noalias !85
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17.i, i64 noundef 11)
           to label %invoke.cont20.i unwind label %lpad.i51, !noalias !85
@@ -5643,7 +5643,7 @@ call.i.noexc48.i:                                 ; preds = %invoke.cont25.i
           to label %.noexc50.i unwind label %lpad29.i, !noalias !85
 
 .noexc50.i:                                       ; preds = %call.i.noexc48.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27.i, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27.i, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.19, i64 23))
           to label %invoke.cont30.i unwind label %lpad.i47.i, !noalias !85
 
 lpad.i47.i:                                       ; preds = %.noexc50.i
@@ -5666,7 +5666,7 @@ call.i.noexc56.i:                                 ; preds = %invoke.cont32.i
           to label %.noexc58.i unwind label %lpad36.i, !noalias !85
 
 .noexc58.i:                                       ; preds = %call.i.noexc56.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont37.i unwind label %lpad.i55.i, !noalias !85
 
 lpad.i55.i:                                       ; preds = %.noexc58.i
@@ -5726,7 +5726,7 @@ if.end.i39:                                       ; preds = %.noexc77.i
           to label %invoke.cont.i42 unwind label %lpad.i41, !noalias !85
 
 invoke.cont.i42:                                  ; preds = %if.end.i39
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i40, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 11)) #26, !noalias !85
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i40, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 11)) #26, !noalias !85
   store ptr null, ptr %__guard.i36, align 8, !noalias !85
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i, i64 noundef 11)
           to label %invoke.cont46.i unwind label %lpad.i41, !noalias !85
@@ -5772,7 +5772,7 @@ if.end.i29:                                       ; preds = %.noexc86.i
           to label %invoke.cont.i32 unwind label %lpad.i31, !noalias !85
 
 invoke.cont.i32:                                  ; preds = %if.end.i29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i30, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 7)) #26, !noalias !85
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i30, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 7)) #26, !noalias !85
   store ptr null, ptr %__guard.i26, align 8, !noalias !85
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i, i64 noundef 7)
           to label %invoke.cont55.i unwind label %lpad.i31, !noalias !85
@@ -5818,7 +5818,7 @@ if.end.i19:                                       ; preds = %.noexc95.i
           to label %invoke.cont.i22 unwind label %lpad.i21, !noalias !85
 
 invoke.cont.i22:                                  ; preds = %if.end.i19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i20, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 11)) #26, !noalias !85
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i20, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 11)) #26, !noalias !85
   store ptr null, ptr %__guard.i16, align 8, !noalias !85
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61.i, i64 noundef 11)
           to label %invoke.cont64.i unwind label %lpad.i21, !noalias !85
@@ -5851,7 +5851,7 @@ call.i.noexc103.i:                                ; preds = %invoke.cont69.i
           to label %.noexc105.i unwind label %lpad73.i, !noalias !85
 
 .noexc105.i:                                      ; preds = %call.i.noexc103.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.i, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.i, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 29))
           to label %invoke.cont74.i unwind label %lpad.i102.i, !noalias !85
 
 lpad.i102.i:                                      ; preds = %.noexc105.i
@@ -5874,7 +5874,7 @@ call.i.noexc111.i:                                ; preds = %invoke.cont76.i
           to label %.noexc113.i unwind label %lpad80.i, !noalias !85
 
 .noexc113.i:                                      ; preds = %call.i.noexc111.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont81.i unwind label %lpad.i110.i, !noalias !85
 
 lpad.i110.i:                                      ; preds = %.noexc113.i
@@ -5914,7 +5914,7 @@ if.end.i:                                         ; preds = %.noexc121.i
           to label %invoke.cont.i14 unwind label %lpad.i13, !noalias !85
 
 invoke.cont.i14:                                  ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 7)) #26, !noalias !85
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.22, i64 7)) #26, !noalias !85
   store ptr null, ptr %__guard.i, align 8, !noalias !85
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85.i, i64 noundef 7)
           to label %invoke.cont88.i unwind label %lpad.i13, !noalias !85
@@ -6806,7 +6806,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !89
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i18, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !89
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i18, align 8, !noalias !89
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i18, align 8, !noalias !89
   br label %cleanup
 
 if.else:                                          ; preds = %dynamic_cast.notnull.i
@@ -6825,7 +6825,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i28, align 8, !noalias !92
   %_M_weak_count.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i35, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i29, align 4, !noalias !92
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i35, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i35, align 8, !noalias !92
   br label %cleanup
 
 if.end44:                                         ; preds = %if.else
@@ -6837,12 +6837,12 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i69, align 8, !noalias !95
   %_M_weak_count.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i70, align 4, !noalias !95
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i76, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i76, align 8, !noalias !95
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i76.sink188 = phi ptr [ %call5.i.i.i5.i.i.i.i76, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i18, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
   %extraParams.sroa.0.0.insert.insert147.sink = or disjoint i64 %extraParams.sroa.0.0174, %extraParams.sroa.4.0176
   %_M_impl.i.i.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink188, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i71, align 8, !noalias !24
@@ -7131,7 +7131,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 11))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -7156,7 +7156,7 @@ call.i.noexc13:                                   ; preds = %invoke.cont7
           to label %.noexc15 unwind label %lpad10
 
 .noexc15:                                         ; preds = %call.i.noexc13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 7))
           to label %invoke.cont11 unwind label %lpad.i12
 
 lpad.i12:                                         ; preds = %.noexc15
@@ -7181,7 +7181,7 @@ call.i.noexc22:                                   ; preds = %invoke.cont15
           to label %.noexc24 unwind label %lpad19
 
 .noexc24:                                         ; preds = %call.i.noexc22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont20 unwind label %lpad.i21
 
 lpad.i21:                                         ; preds = %.noexc24
@@ -7204,7 +7204,7 @@ call.i.noexc30:                                   ; preds = %invoke.cont22
           to label %.noexc32 unwind label %lpad26
 
 .noexc32:                                         ; preds = %call.i.noexc30
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont27 unwind label %lpad.i29
 
 lpad.i29:                                         ; preds = %.noexc32
@@ -7568,7 +7568,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !98
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i17, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !98
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i17, align 8, !noalias !98
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i17, align 8, !noalias !98
   br label %cleanup
 
 if.else:                                          ; preds = %dynamic_cast.notnull.i
@@ -7587,7 +7587,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i27, align 8, !noalias !101
   %_M_weak_count.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i34, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i28, align 4, !noalias !101
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i34, align 8, !noalias !101
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i34, align 8, !noalias !101
   br label %cleanup
 
 if.end43:                                         ; preds = %if.else
@@ -7599,12 +7599,12 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i68, align 8, !noalias !104
   %_M_weak_count.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i69, align 4, !noalias !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i75, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i75, align 8, !noalias !104
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
   %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.4.0, %extraParams.sroa.0.0
   %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i70, align 8, !noalias !24
@@ -7947,7 +7947,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !107
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i17, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !107
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i17, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i17, align 8, !noalias !107
   br label %cleanup
 
 if.else:                                          ; preds = %dynamic_cast.notnull.i
@@ -7966,7 +7966,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i27, align 8, !noalias !110
   %_M_weak_count.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i34, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i28, align 4, !noalias !110
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i34, align 8, !noalias !110
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i34, align 8, !noalias !110
   br label %cleanup
 
 if.end43:                                         ; preds = %if.else
@@ -7978,12 +7978,12 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i68, align 8, !noalias !113
   %_M_weak_count.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i69, align 4, !noalias !113
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i75, align 8, !noalias !113
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i75, align 8, !noalias !113
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
   %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.4.0, %extraParams.sroa.0.0
   %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i70, align 8, !noalias !24
@@ -8154,7 +8154,7 @@ if.end.i29:                                       ; preds = %.noexc.i
           to label %invoke.cont.i32 unwind label %lpad.i31, !noalias !116
 
 invoke.cont.i32:                                  ; preds = %if.end.i29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i30, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 11)) #26, !noalias !116
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i30, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 11)) #26, !noalias !116
   store ptr null, ptr %__guard.i26, align 8, !noalias !116
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i, i64 noundef 11)
           to label %invoke.cont.i unwind label %lpad.i31, !noalias !116
@@ -8200,7 +8200,7 @@ if.end.i19:                                       ; preds = %.noexc19.i
           to label %invoke.cont.i22 unwind label %lpad.i21, !noalias !116
 
 invoke.cont.i22:                                  ; preds = %if.end.i19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i20, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 7)) #26, !noalias !116
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i20, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 7)) #26, !noalias !116
   store ptr null, ptr %__guard.i16, align 8, !noalias !116
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i, i64 noundef 7)
           to label %invoke.cont11.i unwind label %lpad.i21, !noalias !116
@@ -8246,7 +8246,7 @@ if.end.i:                                         ; preds = %.noexc28.i
           to label %invoke.cont.i14 unwind label %lpad.i13, !noalias !116
 
 invoke.cont.i14:                                  ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 7)) #26, !noalias !116
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.23, i64 7)) #26, !noalias !116
   store ptr null, ptr %__guard.i, align 8, !noalias !116
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17.i, i64 noundef 7)
           to label %invoke.cont20.i unwind label %lpad.i13, !noalias !116
@@ -8273,7 +8273,7 @@ call.i.noexc34.i:                                 ; preds = %invoke.cont22.i
           to label %.noexc36.i unwind label %lpad26.i, !noalias !116
 
 .noexc36.i:                                       ; preds = %call.i.noexc34.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont27.i unwind label %lpad.i33.i, !noalias !116
 
 lpad.i33.i:                                       ; preds = %.noexc36.i
@@ -8296,7 +8296,7 @@ call.i.noexc42.i:                                 ; preds = %invoke.cont29.i
           to label %.noexc44.i unwind label %lpad33.i, !noalias !116
 
 .noexc44.i:                                       ; preds = %call.i.noexc42.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont34.i unwind label %lpad.i41.i, !noalias !116
 
 lpad.i41.i:                                       ; preds = %.noexc44.i
@@ -8319,7 +8319,7 @@ call.i.noexc50.i:                                 ; preds = %invoke.cont36.i
           to label %.noexc52.i unwind label %lpad40.i, !noalias !116
 
 .noexc52.i:                                       ; preds = %call.i.noexc50.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 29))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38.i, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 29))
           to label %invoke.cont41.i unwind label %lpad.i49.i, !noalias !116
 
 lpad.i49.i:                                       ; preds = %.noexc52.i
@@ -8952,7 +8952,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFuncti
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !119
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i24, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !119
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i24, align 8, !noalias !119
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i24, align 8, !noalias !119
   br label %cleanup
 
 if.else:                                          ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit23.if.else_crit_edge, %dynamic_cast.notnull.i43
@@ -8992,12 +8992,12 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFuncti
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i34, align 8, !noalias !122
   %_M_weak_count.i.i.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i37, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i35, align 4, !noalias !122
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i37, align 8, !noalias !122
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i37, align 8, !noalias !122
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit
   %call5.i.i.i5.i.i.i.i37.sink167 = phi ptr [ %call5.i.i.i5.i.i.i.i37, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i24, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit ]
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit ]
   %_M_impl.i.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i37.sink167, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i36, align 8, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i36, ptr %agg.result, align 8
@@ -16574,7 +16574,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !161
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !161
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !161
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !161
   store i64 %6, ptr %size_.i.i.i, align 8, !noalias !161
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !161
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !161
@@ -16853,7 +16853,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #16
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox13AlignedBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -23443,7 +23443,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !212
   %padding_.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !212
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !212
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call6.i, align 8, !noalias !212
   store i64 %6, ptr %size_.i.i.i, align 8, !noalias !212
   store ptr %call6.i, ptr %newValues, align 8, !alias.scope !212
   %10 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !212

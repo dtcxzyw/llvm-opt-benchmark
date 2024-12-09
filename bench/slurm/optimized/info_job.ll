@@ -2317,12 +2317,12 @@ define dso_local range(i32 -1, 1) i32 @scontrol_job_ready(ptr noundef %0) local_
   br label %_wait_nodes_ready.exit
 
 7:                                                ; preds = %1
-  %8 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1384), align 8
+  %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1384), align 8
   %.not.i = icmp eq i16 %8, 0
   br i1 %.not.i, label %_wait_nodes_ready.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1018), align 2
+  %10 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1018), align 2
   %.not31.i = icmp eq i16 %10, 0
   br i1 %.not31.i, label %_wait_nodes_ready.exit, label %11
 

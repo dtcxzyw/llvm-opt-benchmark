@@ -250,7 +250,7 @@ entry:
   %ref.tmp15 = alloca %"class.QuantLib::ConstantParameter", align 8
   %ref.tmp16 = alloca %"class.QuantLib::PositiveConstraint", align 8
   tail call void @_ZN8QuantLib18LmCorrelationModelC2Emm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %size, i64 noundef 2)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib35LmLinearExponentialCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib35LmLinearExponentialCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
   %corrMatrix_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %mul.i = mul i64 %size, %size
   %cmp.not.i = icmp eq i64 %mul.i, 0
@@ -849,7 +849,7 @@ define linkonce_odr void @_ZN8QuantLib18BoundaryConstraintC2Edd(ptr noundef nonn
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.12", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib18BoundaryConstraint4ImplE, i64 16), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib18BoundaryConstraint4ImplE, i64 16), ptr %call, align 8, !tbaa !3
   %low_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store double %low, ptr %low_.i, align 8, !tbaa !34
   %high_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -898,7 +898,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEEC2INS1_18BoundaryConstraint4I
   store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !39
   %weak_count_.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i3, align 4, !tbaa !42
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib18BoundaryConstraint4ImplEEE, i64 16), ptr %call.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib18BoundaryConstraint4ImplEEE, i64 16), ptr %call.i.i, align 8, !tbaa !3
   %px_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i, align 8, !tbaa !43
   store ptr %call.i.i, ptr %pn.i, align 8, !tbaa !30
@@ -965,7 +965,7 @@ entry:
   %ref.tmp20 = alloca %"class.std::allocator.16", align 1
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib17ConstantParameter4ImplE, i64 16), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib17ConstantParameter4ImplE, i64 16), ptr %call, align 8, !tbaa !3
   store ptr %call, ptr %agg.tmp, align 8, !tbaa !27
   %pn.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !30
@@ -1010,7 +1010,7 @@ _ZN5boost10shared_ptrIN8QuantLib9Parameter4ImplEEC2INS1_17ConstantParameter4Impl
   store i32 1, ptr %use_count_.i.i.i.i45, align 8, !tbaa !39
   %weak_count_.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %call.i.i43, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i46, align 4, !tbaa !42
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib17ConstantParameter4ImplEEE, i64 16), ptr %call.i.i43, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib17ConstantParameter4ImplEEE, i64 16), ptr %call.i.i43, align 8, !tbaa !3
   %px_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i43, i64 16
   store ptr %call, ptr %px_.i.i.i, align 8, !tbaa !45
   store ptr %call.i.i43, ptr %pn.i, align 8, !tbaa !30
@@ -1272,7 +1272,7 @@ define linkonce_odr void @_ZN8QuantLib18PositiveConstraintC2Ev(ptr noundef nonnu
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.12", align 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib18PositiveConstraint4ImplE, i64 16), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib18PositiveConstraint4ImplE, i64 16), ptr %call, align 8, !tbaa !3
   store ptr %call, ptr %agg.tmp, align 8, !tbaa !32
   %pn.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !30
@@ -1317,7 +1317,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEEC2INS1_18PositiveConstraint4I
   store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !39
   %weak_count_.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i3, align 4, !tbaa !42
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib18PositiveConstraint4ImplEEE, i64 16), ptr %call.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib18PositiveConstraint4ImplEEE, i64 16), ptr %call.i.i, align 8, !tbaa !3
   %px_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i, align 8, !tbaa !56
   store ptr %call.i.i, ptr %pn.i, align 8, !tbaa !30
@@ -1656,7 +1656,7 @@ _ZN8QuantLib6MatrixD2Ev.exit40:                   ; preds = %lpad, %_ZNKSt14defa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18LmCorrelationModelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib18LmCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib18LmCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
   %arguments_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %arguments_, align 8, !tbaa !26
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2112,7 +2112,7 @@ unreachable:                                      ; preds = %invoke.cont38
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib35LmLinearExponentialCorrelationModelD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib35LmLinearExponentialCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib35LmLinearExponentialCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
   %pseudoSqrt_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %pseudoSqrt_, align 8, !tbaa !6
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2135,7 +2135,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib6MatrixD2Ev.exit3:                    ; preds = %_ZN8QuantLib6MatrixD2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i2
   store ptr null, ptr %corrMatrix_, align 8, !tbaa !6
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib18LmCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib18LmCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
   %arguments_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %arguments_.i, align 8, !tbaa !26
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2171,7 +2171,7 @@ _ZN8QuantLib18LmCorrelationModelD2Ev.exit:        ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib35LmLinearExponentialCorrelationModelD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib35LmLinearExponentialCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib35LmLinearExponentialCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
   %pseudoSqrt_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %pseudoSqrt_.i, align 8, !tbaa !6
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -2194,7 +2194,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib6MatrixD2Ev.exit3.i:                  ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i2.i, %_ZN8QuantLib6MatrixD2Ev.exit.i
   store ptr null, ptr %corrMatrix_.i, align 8, !tbaa !6
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib18LmCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib18LmCorrelationModelE, i64 16), ptr %this, align 8, !tbaa !3
   %arguments_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %arguments_.i.i, align 8, !tbaa !26
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2764,7 +2764,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !30
   %cmp.not.i.i = icmp eq ptr %0, null

@@ -55,7 +55,7 @@ $_ZTV36G1RegionsSmallerThanCommitSizeMapper = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(129) initializes((0, 16)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca %class.ThreadCritical, align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -159,7 +159,7 @@ define hidden noundef ptr @_ZN21G1RegionToSpaceMapper13create_mapperE13ReservedS
 8:                                                ; preds = %6
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 144, i8 noundef zeroext 5, i32 noundef 0) #8
   tail call void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV35G1RegionsLargerThanCommitSizeMapper, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV35G1RegionsLargerThanCommitSizeMapper, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = udiv i64 %3, %7
   store i64 %11, ptr %10, align 8
@@ -175,7 +175,7 @@ define hidden noundef ptr @_ZN21G1RegionToSpaceMapper13create_mapperE13ReservedS
 _ZN36G1RegionsSmallerThanCommitSizeMapperC2E13ReservedSpacemmmm8MEMFLAGS.exit: ; preds = %6
   %14 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 248, i8 noundef zeroext 5, i32 noundef 0) #8
   tail call void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(248) %14, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV36G1RegionsSmallerThanCommitSizeMapper, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV36G1RegionsSmallerThanCommitSizeMapper, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %16 = udiv i64 %7, %3
   store i64 %16, ptr %15, align 8
@@ -190,7 +190,7 @@ _ZN35G1RegionsLargerThanCommitSizeMapperC2E13ReservedSpacemmmm8MEMFLAGS.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN21G1RegionToSpaceMapperD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -215,7 +215,7 @@ declare void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapperD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -225,7 +225,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapperD2Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapperD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %2) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -457,10 +457,10 @@ declare void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapperD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV36G1RegionsSmallerThanCommitSizeMapper, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV36G1RegionsSmallerThanCommitSizeMapper, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZN5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -470,10 +470,10 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapperD2Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapperD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV36G1RegionsSmallerThanCommitSizeMapper, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV36G1RegionsSmallerThanCommitSizeMapper, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZN5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16

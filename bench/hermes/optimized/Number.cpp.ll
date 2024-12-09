@@ -1321,13 +1321,13 @@ if.else105:                                       ; preds = %if.end101
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds nuw i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds nuw i8, ptr %os, i64 40
   store ptr %n, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %Fmt.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp106, i64 8
   store ptr @.str.9, ptr %Fmt.i.i.i, align 8, !alias.scope !36
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiEEE, i64 16), ptr %ref.tmp106, align 8, !alias.scope !36
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJiEEE, i64 16), ptr %ref.tmp106, align 8, !alias.scope !36
   %Vals.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp106, i64 16
   store i32 %e.098, ptr %Vals.i.i, align 8, !alias.scope !36
   %call107 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp106) #12
@@ -1667,13 +1667,13 @@ if.else115:                                       ; preds = %if.end111
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds nuw i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds nuw i8, ptr %os, i64 40
   store ptr %n, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %Fmt.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp116, i64 8
   store ptr @.str.9, ptr %Fmt.i.i.i, align 8, !alias.scope !44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiEEE, i64 16), ptr %ref.tmp116, align 8, !alias.scope !44
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJiEEE, i64 16), ptr %ref.tmp116, align 8, !alias.scope !44
   %Vals.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp116, i64 16
   store i32 %sub, ptr %Vals.i.i, align 8, !alias.scope !44
   %call117 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp116) #12

@@ -1331,7 +1331,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i23.i, %_str
 
 256:                                              ; preds = %241
   %257 = load i32, ptr @my_uid, align 4
-  %258 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %258 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %259 = icmp ne i32 %257, %258
   %260 = icmp ne i32 %257, 0
   %or.cond3 = and i1 %260, %259

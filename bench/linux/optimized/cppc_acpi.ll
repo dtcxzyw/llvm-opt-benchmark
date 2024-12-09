@@ -365,7 +365,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr nocapture noundef readonly %
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %3, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %15 = call noalias align 8 dereferenceable_or_null(800) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 800) #14
   %16 = icmp eq ptr %15, null
   br i1 %16, label %219, label %17
@@ -728,7 +728,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcc_data_alloc(i32 noundef
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %8 = tail call noalias align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 136) #14
   store ptr %8, ptr %3, align 8
   %9 = icmp eq ptr %8, null

@@ -67,7 +67,7 @@ define dso_local void @_ZN4llvm25createX86MachObjectWriterEbjj(ptr dead_on_unwin
 _ZNSt10unique_ptrIN12_GLOBAL__N_119X86MachObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14, !noalias !4
   tail call void @_ZN4llvm24MCMachObjectTargetWriterC2Ebjj(ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #15, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_119X86MachObjectWriterE, i64 16), ptr %4, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_119X86MachObjectWriterE, i64 16), ptr %4, align 8, !noalias !4
   store ptr %4, ptr %0, align 8
   ret void
 }

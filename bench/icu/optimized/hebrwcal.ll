@@ -49,7 +49,7 @@ define void @_ZN6icu_7514HebrewCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef
 entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514HebrewCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514HebrewCalendarE, i64 16), ptr %this, align 8
   %call2 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
 
@@ -132,7 +132,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #2
 define void @_ZN6icu_7514HebrewCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %other) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %other)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514HebrewCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514HebrewCalendarE, i64 16), ptr %this, align 8
   ret void
 }
 

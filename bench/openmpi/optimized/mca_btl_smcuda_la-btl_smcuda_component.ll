@@ -92,32 +92,32 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @mca_btl_smcuda_component_open() #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 68), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 68), align 4
   %2 = and i32 %1, 12288
   %or.cond.i = icmp eq i32 %2, 0
   br i1 %or.cond.i, label %mca_btl_smcuda_component_verify.exit, label %3
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_btl_base_framework, i64 76), align 4
   %5 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %4) #14
   br i1 %5, label %6, label %mca_btl_smcuda_component_verify.exit
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_btl_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %7, ptr noundef nonnull @.str.19) #14
   br label %mca_btl_smcuda_component_verify.exit
 
 mca_btl_smcuda_component_verify.exit:             ; preds = %0, %3, %6
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 68), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 68), align 4
   %9 = and i32 %8, -12289
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 68), align 4
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 68), align 4
   %10 = tail call i32 @mca_btl_base_param_verify(ptr noundef nonnull @mca_btl_smcuda) #14
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %opal_obj_run_constructors.exit28
 
 11:                                               ; preds = %mca_btl_smcuda_component_verify.exit
-  store i64 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2312), align 8
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2312), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
   %13 = icmp slt i32 %12, 2
   br i1 %13, label %opal_next_poweroftwo_inclusive.exit, label %14
 
@@ -130,9 +130,9 @@ mca_btl_smcuda_component_verify.exit:             ; preds = %0, %3, %6
 
 opal_next_poweroftwo_inclusive.exit:              ; preds = %11, %14
   %.0.i = phi i32 [ %17, %14 ], [ 1, %11 ]
-  store i32 %.0.i, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 468), align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
+  store i32 %.0.i, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 468), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
   %20 = lshr i32 %19, 1
   %.not3 = icmp uge i32 %18, %20
   %21 = tail call i32 @llvm.umin.i32(i32 %18, i32 %20)
@@ -142,41 +142,41 @@ opal_next_poweroftwo_inclusive.exit:              ; preds = %11, %14
 
 23:                                               ; preds = %opal_next_poweroftwo_inclusive.exit
   %simplifycfg.merge = tail call i32 @llvm.umax.i32(i32 %21, i32 1)
-  store i32 %simplifycfg.merge, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 468), align 4
+  store i32 %simplifycfg.merge, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 468), align 4
   br label %24
 
 24:                                               ; preds = %opal_next_poweroftwo_inclusive.exit, %23
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 24), align 8
-  store i64 %25, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 8), align 8
-  store i64 %26, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 288), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 24), align 8
+  store i64 %25, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 8), align 8
+  store i64 %26, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 288), align 8
   %28 = icmp ugt i64 %27, %25
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %24
-  store i64 %27, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
+  store i64 %27, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
   br label %30
 
 30:                                               ; preds = %24, %29
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_btl_base_framework, i64 76), align 4
   %32 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %31) #14
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %30
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 288), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_btl_base_framework, i64 76), align 4
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 288), align 8
   %36 = trunc i64 %35 to i32
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 24), align 8
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 24), align 8
   %38 = trunc i64 %37 to i32
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
   %40 = trunc i64 %39 to i32
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %34, ptr noundef nonnull @.str.20, i32 noundef %36, i32 noundef %38, i32 noundef %40) #14
   br label %41
 
 41:                                               ; preds = %30, %33
   %42 = load i32, ptr @opal_class_init_epoch, align 4
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not4 = icmp eq i32 %42, %43
   br i1 %.not4, label %45, label %44
 
@@ -185,8 +185,8 @@ opal_next_poweroftwo_inclusive.exit:              ; preds = %11, %14
   br label %45
 
 45:                                               ; preds = %44, %41
-  store ptr @opal_mutex_t_class, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 352), align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 360), align 8
+  store ptr @opal_mutex_t_class, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 352), align 16
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 360), align 8
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %47 = load ptr, ptr %46, align 8
   %.not6.i = icmp eq ptr %47, null
@@ -195,7 +195,7 @@ opal_next_poweroftwo_inclusive.exit:              ; preds = %11, %14
 .lr.ph.i:                                         ; preds = %45, %.lr.ph.i
   %48 = phi ptr [ %50, %.lr.ph.i ], [ %47, %45 ]
   %.07.i = phi ptr [ %49, %.lr.ph.i ], [ %46, %45 ]
-  tail call void %48(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 352)) #14
+  tail call void %48(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 352)) #14
   %49 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %50, null
@@ -203,7 +203,7 @@ opal_next_poweroftwo_inclusive.exit:              ; preds = %11, %14
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %45
   %51 = load i32, ptr @opal_class_init_epoch, align 4
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not5 = icmp eq i32 %51, %52
   br i1 %.not5, label %54, label %53
 
@@ -212,8 +212,8 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %45
   br label %54
 
 54:                                               ; preds = %53, %opal_obj_run_constructors.exit
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 496), align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 504), align 8
+  store ptr @opal_free_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 496), align 16
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 504), align 8
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %56 = load ptr, ptr %55, align 8
   %.not6.i9 = icmp eq ptr %56, null
@@ -222,7 +222,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %45
 .lr.ph.i10:                                       ; preds = %54, %.lr.ph.i10
   %57 = phi ptr [ %59, %.lr.ph.i10 ], [ %56, %54 ]
   %.07.i11 = phi ptr [ %58, %.lr.ph.i10 ], [ %55, %54 ]
-  tail call void %57(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 496)) #14
+  tail call void %57(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 496)) #14
   %58 = getelementptr inbounds nuw i8, ptr %.07.i11, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not.i12 = icmp eq ptr %59, null
@@ -230,7 +230,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %45
 
 opal_obj_run_constructors.exit13:                 ; preds = %.lr.ph.i10, %54
   %60 = load i32, ptr @opal_class_init_epoch, align 4
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not6 = icmp eq i32 %60, %61
   br i1 %.not6, label %63, label %62
 
@@ -239,8 +239,8 @@ opal_obj_run_constructors.exit13:                 ; preds = %.lr.ph.i10, %54
   br label %63
 
 63:                                               ; preds = %62, %opal_obj_run_constructors.exit13
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 848), align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 856), align 8
+  store ptr @opal_free_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 848), align 16
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 856), align 8
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %65 = load ptr, ptr %64, align 8
   %.not6.i14 = icmp eq ptr %65, null
@@ -249,7 +249,7 @@ opal_obj_run_constructors.exit13:                 ; preds = %.lr.ph.i10, %54
 .lr.ph.i15:                                       ; preds = %63, %.lr.ph.i15
   %66 = phi ptr [ %68, %.lr.ph.i15 ], [ %65, %63 ]
   %.07.i16 = phi ptr [ %67, %.lr.ph.i15 ], [ %64, %63 ]
-  tail call void %66(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 848)) #14
+  tail call void %66(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 848)) #14
   %67 = getelementptr inbounds nuw i8, ptr %.07.i16, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not.i17 = icmp eq ptr %68, null
@@ -257,7 +257,7 @@ opal_obj_run_constructors.exit13:                 ; preds = %.lr.ph.i10, %54
 
 opal_obj_run_constructors.exit18:                 ; preds = %.lr.ph.i15, %63
   %69 = load i32, ptr @opal_class_init_epoch, align 4
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not7 = icmp eq i32 %69, %70
   br i1 %.not7, label %72, label %71
 
@@ -266,8 +266,8 @@ opal_obj_run_constructors.exit18:                 ; preds = %.lr.ph.i15, %63
   br label %72
 
 72:                                               ; preds = %71, %opal_obj_run_constructors.exit18
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1200), align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1208), align 8
+  store ptr @opal_free_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1200), align 16
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1208), align 8
   %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %74 = load ptr, ptr %73, align 8
   %.not6.i19 = icmp eq ptr %74, null
@@ -276,7 +276,7 @@ opal_obj_run_constructors.exit18:                 ; preds = %.lr.ph.i15, %63
 .lr.ph.i20:                                       ; preds = %72, %.lr.ph.i20
   %75 = phi ptr [ %77, %.lr.ph.i20 ], [ %74, %72 ]
   %.07.i21 = phi ptr [ %76, %.lr.ph.i20 ], [ %73, %72 ]
-  tail call void %75(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1200)) #14
+  tail call void %75(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1200)) #14
   %76 = getelementptr inbounds nuw i8, ptr %.07.i21, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not.i22 = icmp eq ptr %77, null
@@ -284,7 +284,7 @@ opal_obj_run_constructors.exit18:                 ; preds = %.lr.ph.i15, %63
 
 opal_obj_run_constructors.exit23:                 ; preds = %.lr.ph.i20, %72
   %78 = load i32, ptr @opal_class_init_epoch, align 4
-  %79 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not8 = icmp eq i32 %78, %79
   br i1 %.not8, label %81, label %80
 
@@ -293,8 +293,8 @@ opal_obj_run_constructors.exit23:                 ; preds = %.lr.ph.i20, %72
   br label %81
 
 81:                                               ; preds = %80, %opal_obj_run_constructors.exit23
-  store ptr @opal_free_list_t_class, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1920), align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1928), align 8
+  store ptr @opal_free_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1920), align 16
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1928), align 8
   %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %83 = load ptr, ptr %82, align 8
   %.not6.i24 = icmp eq ptr %83, null
@@ -303,7 +303,7 @@ opal_obj_run_constructors.exit23:                 ; preds = %.lr.ph.i20, %72
 .lr.ph.i25:                                       ; preds = %81, %.lr.ph.i25
   %84 = phi ptr [ %86, %.lr.ph.i25 ], [ %83, %81 ]
   %.07.i26 = phi ptr [ %85, %.lr.ph.i25 ], [ %82, %81 ]
-  tail call void %84(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1920)) #14
+  tail call void %84(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1920)) #14
   %85 = getelementptr inbounds nuw i8, ptr %.07.i26, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not.i27 = icmp eq ptr %86, null
@@ -321,80 +321,80 @@ define internal noundef i32 @mca_btl_smcuda_component_close() #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @smcuda_register() #0 {
-  store i64 134217728, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2392), align 8
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2392)) #14
-  store i32 8, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 280), align 8
-  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.3, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 280)) #14
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 284), align 4
-  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.4, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 284)) #14
-  store i32 64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 288), align 16
-  %4 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.5, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 288)) #14
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
-  %5 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.6, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292)) #14
-  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 304), align 16
-  store i32 4096, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
-  %6 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.8, ptr noundef null, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 464)) #14
-  store i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
-  %7 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.9, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472)) #14
-  store i32 120, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 468), align 4
-  %8 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.10, ptr noundef null, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 468)) #14
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 296), align 8
-  %9 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 296)) #14
-  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2400), align 16
-  %10 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2400)) #14
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds (i8, ptr @opal_accelerator_base_selected_component, i64 84), ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
+  store i64 134217728, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2392), align 8
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2392)) #14
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 280), align 8
+  %2 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.3, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 280)) #14
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 284), align 4
+  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.4, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 284)) #14
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 288), align 16
+  %4 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.5, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 288)) #14
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
+  %5 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.6, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 292)) #14
+  store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 304), align 16
+  store i32 4096, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
+  %6 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.8, ptr noundef null, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 464)) #14
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %7 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.9, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472)) #14
+  store i32 120, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 468), align 4
+  %8 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.10, ptr noundef null, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 468)) #14
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 296), align 8
+  %9 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 296)) #14
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2400), align 16
+  %10 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2400)) #14
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds nuw (i8, ptr @opal_accelerator_base_selected_component, i64 84), ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
   %.not = icmp eq i32 %bcmp, 0
   %. = select i1 %.not, i32 0, i32 65537
-  store i32 %., ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 56), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2384), align 16
-  %11 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.16, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2384)) #14
-  store i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2388), align 4
-  %12 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.17, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2388)) #14
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2376), align 8
-  %13 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.18, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2376)) #14
+  store i32 %., ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 56), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2384), align 16
+  %11 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.16, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2384)) #14
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2388), align 4
+  %12 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.17, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2388)) #14
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2376), align 8
+  %13 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @.str.18, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2376)) #14
   %14 = tail call i32 @opal_output_open(ptr noundef null) #14
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2376), align 8
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2376), align 8
   tail call void @opal_output_set_verbosity(i32 noundef %14, i32 noundef %15) #14
-  store i64 4096, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 8), align 8
-  store i64 4096, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 16), align 8
-  store i64 32768, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 24), align 8
-  store i64 65536, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 32), align 8
-  store i64 65536, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 40), align 8
-  store i64 65536, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 48), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 68), align 4
-  store i64 208, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 80), align 8
-  store i32 9000, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 64), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 60), align 4
+  store i64 4096, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 8), align 8
+  store i64 4096, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 16), align 8
+  store i64 32768, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 24), align 8
+  store i64 65536, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 32), align 8
+  store i64 65536, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 40), align 8
+  store i64 65536, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 48), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 68), align 4
+  store i64 208, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 80), align 8
+  store i32 9000, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 64), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 60), align 4
   %16 = tail call i32 @mca_btl_base_param_register(ptr noundef nonnull @mca_btl_smcuda_component, ptr noundef nonnull @mca_btl_smcuda) #14
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 288), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 288), align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %0
-  store i64 131072, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 288), align 8
+  store i64 131072, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 288), align 8
   br label %20
 
 20:                                               ; preds = %19, %0
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 68), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 68), align 4
   %22 = and i32 %21, 12288
   %or.cond.i = icmp eq i32 %22, 0
   br i1 %or.cond.i, label %mca_btl_smcuda_component_verify.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_btl_base_framework, i64 76), align 4
   %25 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %24) #14
   br i1 %25, label %26, label %mca_btl_smcuda_component_verify.exit
 
 26:                                               ; preds = %23
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_btl_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %27, ptr noundef nonnull @.str.19) #14
   br label %mca_btl_smcuda_component_verify.exit
 
 mca_btl_smcuda_component_verify.exit:             ; preds = %20, %23, %26
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 68), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 68), align 4
   %29 = and i32 %28, -12289
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 68), align 4
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 68), align 4
   %30 = tail call i32 @mca_btl_base_param_verify(ptr noundef nonnull @mca_btl_smcuda) #14
   ret i32 %30
 }
@@ -402,68 +402,68 @@ mca_btl_smcuda_component_verify.exit:             ; preds = %20, %23, %26
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @mca_btl_smcuda_component_init(ptr nocapture noundef writeonly initializes((0, 4)) %0, i1 zeroext %1, i1 zeroext %2) #0 {
   store i32 0, ptr %0, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 320), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 320), i8 0, i64 16, i1 false)
   %4 = tail call i32 @mca_btl_smcuda_accelerator_init() #14
   %.not = icmp ne i32 %4, 0
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 288), align 8
   %6 = icmp eq ptr %5, null
   %or.cond = select i1 %.not, i1 true, i1 %6
   br i1 %or.cond, label %backing_store_init.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = load i16, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 308), align 4
+  %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 308), align 4
   %9 = zext i16 %8 to i32
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 304), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 304), align 8
   %11 = add i32 %10, 1
   %12 = icmp slt i32 %11, 2
   br i1 %12, label %backing_store_init.exit.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %.sink.split.i, label %calc_sm_max_procs.exit
 
 .sink.split.i:                                    ; preds = %13
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 296), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 296), align 8
   %17 = add nuw nsw i32 %16, %11
   %18 = shl nuw nsw i32 %11, 1
   %19 = icmp slt i32 %16, 0
   %.sink.i = select i1 %19, i32 %18, i32 %17
-  store i32 %.sink.i, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
+  store i32 %.sink.i, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
   br label %calc_sm_max_procs.exit
 
 calc_sm_max_procs.exit:                           ; preds = %13, %.sink.split.i
   %20 = tail call i32 @opal_hwloc_base_get_topology() #14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2344), i8 0, i64 32, i1 false)
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %23 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2344), ptr noundef nonnull @.str.24, ptr noundef %21, ptr noundef %22) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2344), i8 0, i64 32, i1 false)
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 288), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
+  %23 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2344), ptr noundef nonnull @.str.24, ptr noundef %21, ptr noundef %22) #14
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread.i.i, label %25
 
 25:                                               ; preds = %calc_sm_max_procs.exit
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %28 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2352), ptr noundef nonnull @.str.25, ptr noundef %26, ptr noundef %27) #14
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 288), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
+  %28 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2352), ptr noundef nonnull @.str.25, ptr noundef %26, ptr noundef %27) #14
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %.thread.i.i, label %30
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %33 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2360), ptr noundef nonnull @.str.26, ptr noundef %31, ptr noundef %32) #14
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 288), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
+  %33 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2360), ptr noundef nonnull @.str.26, ptr noundef %31, ptr noundef %32) #14
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %.thread.i.i, label %35
 
 35:                                               ; preds = %30
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %38 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2368), ptr noundef nonnull @.str.27, ptr noundef %36, ptr noundef %37) #14
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 288), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
+  %38 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2368), ptr noundef nonnull @.str.27, ptr noundef %36, ptr noundef %37) #14
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %set_uniq_paths_for_init_rndv.exit.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %35, %30, %25, %calc_sm_max_procs.exit
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2344), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2344), align 8
   %.not21.i.i = icmp eq ptr %40, null
   br i1 %.not21.i.i, label %42, label %41
 
@@ -472,7 +472,7 @@ calc_sm_max_procs.exit:                           ; preds = %13, %.sink.split.i
   br label %42
 
 42:                                               ; preds = %41, %.thread.i.i
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2352), align 16
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2352), align 16
   %.not22.i.i = icmp eq ptr %43, null
   br i1 %.not22.i.i, label %45, label %44
 
@@ -481,7 +481,7 @@ calc_sm_max_procs.exit:                           ; preds = %13, %.sink.split.i
   br label %45
 
 45:                                               ; preds = %44, %42
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2360), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2360), align 8
   %.not23.i.i = icmp eq ptr %46, null
   br i1 %.not23.i.i, label %48, label %47
 
@@ -490,7 +490,7 @@ calc_sm_max_procs.exit:                           ; preds = %13, %.sink.split.i
   br label %48
 
 48:                                               ; preds = %47, %45
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2368), align 16
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2368), align 16
   %.not24.i.i = icmp eq ptr %49, null
   br i1 %.not24.i.i, label %set_uniq_paths_for_init_rndv.exit.i, label %50
 
@@ -519,10 +519,10 @@ backing_store_init.exit:                          ; preds = %set_uniq_paths_for_
   br i1 %.not10, label %56, label %backing_store_init.exit.thread
 
 56:                                               ; preds = %backing_store_init.exit
-  %57 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2312), align 8
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2312), align 8
   %58 = shl i64 %57, 3
   %59 = tail call noalias ptr @malloc(i64 noundef %58) #15
-  store ptr %59, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2288), align 16
+  store ptr %59, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2288), align 16
   %60 = icmp eq ptr %59, null
   br i1 %60, label %backing_store_init.exit.thread, label %61
 
@@ -534,15 +534,15 @@ backing_store_init.exit:                          ; preds = %set_uniq_paths_for_
 
 64:                                               ; preds = %61
   store ptr @mca_btl_smcuda, ptr %62, align 8
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2288), align 16
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2288), align 16
   store ptr @mca_btl_smcuda, ptr %65, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 476), align 4
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
-  store i64 1, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2304), align 16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 560), align 8
-  store ptr @mca_btl_smcuda_get_cuda, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda, i64 216), align 8
-  store ptr @btl_smcuda_control, ptr getelementptr inbounds (i8, ptr @mca_btl_base_active_message_trigger, i64 544), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_btl_base_active_message_trigger, i64 552), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 476), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2304), align 16
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 560), align 8
+  store ptr @mca_btl_smcuda_get_cuda, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda, i64 216), align 8
+  store ptr @btl_smcuda_control, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_base_active_message_trigger, i64 544), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_base_active_message_trigger, i64 552), align 8
   tail call void @opal_finalize_append_cleanup(ptr noundef nonnull @mca_btl_smcuda_component_fini, ptr noundef nonnull @.str.23, ptr noundef null) #14
   br label %backing_store_init.exit.thread
 
@@ -556,10 +556,10 @@ define i32 @mca_btl_smcuda_component_progress() #0 {
   %1 = alloca %struct.mca_btl_base_segment_t, align 8
   %2 = alloca ptr, align 8
   %3 = alloca %struct.mca_btl_base_receive_descriptor_t, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
-  %5 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
+  %5 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   %6 = icmp sgt i32 %5, 0
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 476), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 476), align 4
   %8 = icmp sgt i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit99
@@ -575,7 +575,7 @@ define i32 @mca_btl_smcuda_component_progress() #0 {
   br i1 %11, label %19, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -585,7 +585,7 @@ define i32 @mca_btl_smcuda_component_progress() #0 {
 
 18:                                               ; preds = %12
   tail call void @btl_smcuda_process_pending_sends(ptr noundef nonnull %15)
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 476), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 476), align 4
   br label %19
 
 19:                                               ; preds = %12, %18, %.lr.ph
@@ -597,7 +597,7 @@ define i32 @mca_btl_smcuda_component_progress() #0 {
 
 .loopexit99:                                      ; preds = %19, %0
   %23 = phi i32 [ %7, %0 ], [ %20, %19 ]
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
   %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 %23)
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph108, label %.preheader
@@ -620,7 +620,7 @@ define i32 @mca_btl_smcuda_component_progress() #0 {
 35:                                               ; preds = %.lr.ph108, %.loopexit
   %indvars.iv120 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next121, %.loopexit ]
   %.058106 = phi i32 [ 0, %.lr.ph108 ], [ %.2, %.loopexit ]
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
   %37 = getelementptr inbounds ptr, ptr %36, i64 %27
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw %struct.sm_fifo_t, ptr %38, i64 %indvars.iv120
@@ -731,8 +731,8 @@ sm_fifo_read.exit:                                ; preds = %opal_atomic_lock.ex
   ]
 
 92:                                               ; preds = %88
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
-  %94 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds ptr, ptr %93, i64 %95
   %97 = load ptr, ptr %96, align 8
@@ -750,7 +750,7 @@ sm_fifo_read.exit:                                ; preds = %opal_atomic_lock.ex
   %107 = load i8, ptr %106, align 4
   %108 = zext i8 %107 to i64
   %109 = getelementptr inbounds nuw %struct.mca_btl_active_message_callback_t, ptr @mca_btl_base_active_message_trigger, i64 %108
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
   %111 = sext i32 %102 to i64
   %112 = getelementptr inbounds ptr, ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8
@@ -765,15 +765,15 @@ sm_fifo_read.exit:                                ; preds = %opal_atomic_lock.ex
   %117 = load ptr, ptr %109, align 16
   call void %117(ptr noundef nonnull @mca_btl_smcuda, ptr noundef nonnull %3) #14
   fence release
-  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
   %119 = getelementptr inbounds ptr, ptr %118, i64 %111
   %120 = load ptr, ptr %119, align 8
-  %121 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
   %122 = add nsw i32 %121, -1
   %123 = and i32 %122, %4
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds %struct.sm_fifo_t, ptr %120, i64 %124
-  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
   %127 = getelementptr inbounds ptr, ptr %126, i64 %111
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 72
@@ -808,8 +808,8 @@ opal_atomic_lock.exit72:                          ; preds = %138, %132
   %141 = load ptr, ptr %100, align 8
   %142 = load ptr, ptr %125, align 8
   %143 = ptrtoint ptr %142 to i64
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
-  %145 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
+  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds ptr, ptr %144, i64 %146
   %148 = load ptr, ptr %147, align 8
@@ -840,11 +840,11 @@ sm_fifo_write.exit.thread:                        ; preds = %opal_atomic_lock.ex
   br label %add_pending.exit
 
 sm_fifo_write.exit:                               ; preds = %opal_atomic_lock.exit72
-  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
+  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
   %166 = getelementptr inbounds ptr, ptr %165, i64 %111
   %167 = load ptr, ptr %166, align 8
   %168 = load ptr, ptr %100, align 8
-  %169 = call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1920))
+  %169 = call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1920))
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 56
   store ptr %168, ptr %170, align 8
   %171 = load i8, ptr @opal_uses_threads, align 1
@@ -852,14 +852,14 @@ sm_fifo_write.exit:                               ; preds = %opal_atomic_lock.ex
   br i1 %172, label %176, label %opal_thread_add_fetch_32.exit.i
 
 opal_thread_add_fetch_32.exit.i:                  ; preds = %sm_fifo_write.exit
-  %173 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %173 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   %174 = add nsw i32 %173, 1
-  store volatile i32 %174, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
-  %175 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  store volatile i32 %174, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %175 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   br label %180
 
 176:                                              ; preds = %sm_fifo_write.exit
-  %177 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 1 monotonic, align 4
+  %177 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 1 monotonic, align 4
   %178 = getelementptr inbounds nuw i8, ptr %167, i64 96
   %179 = call i32 @pthread_mutex_lock(ptr noundef nonnull %178) #14
   %.pre123 = load i8, ptr @opal_uses_threads, align 1
@@ -1004,14 +1004,14 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
   br i1 %251, label %252, label %254
 
 252:                                              ; preds = %opal_free_list_return.exit
-  %253 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), i32 -1 monotonic, align 4
+  %253 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), i32 -1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
 254:                                              ; preds = %opal_free_list_return.exit
-  %255 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
+  %255 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
   %256 = add nsw i32 %255, -1
-  store volatile i32 %256, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
-  %257 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
+  store volatile i32 %256, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
+  %257 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %252, %254
@@ -1029,8 +1029,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %252, %254
 
 261:                                              ; preds = %88
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str) #14
-  %262 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
-  %263 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
+  %262 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
+  %263 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %264 = sext i32 %263 to i64
   %265 = getelementptr inbounds ptr, ptr %262, i64 %264
   %266 = load ptr, ptr %265, align 8
@@ -1044,16 +1044,16 @@ opal_thread_add_fetch_32.exit:                    ; preds = %252, %254
   %274 = or i64 %273, 4
   %275 = inttoptr i64 %274 to ptr
   fence release
-  %276 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
+  %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
   %277 = sext i32 %271 to i64
   %278 = getelementptr inbounds ptr, ptr %276, i64 %277
   %279 = load ptr, ptr %278, align 8
-  %280 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %280 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
   %281 = add nsw i32 %280, -1
   %282 = and i32 %281, %4
   %283 = sext i32 %282 to i64
   %284 = getelementptr inbounds %struct.sm_fifo_t, ptr %279, i64 %283
-  %285 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
+  %285 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
   %286 = getelementptr inbounds ptr, ptr %285, i64 %277
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 72
@@ -1087,8 +1087,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %252, %254
 opal_atomic_lock.exit77:                          ; preds = %297, %291
   %300 = load ptr, ptr %284, align 8
   %301 = ptrtoint ptr %300 to i64
-  %302 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
-  %303 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
+  %302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
+  %303 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %304 = sext i32 %303 to i64
   %305 = getelementptr inbounds ptr, ptr %302, i64 %304
   %306 = load ptr, ptr %305, align 8
@@ -1119,10 +1119,10 @@ sm_fifo_write.exit80.thread:                      ; preds = %opal_atomic_lock.ex
   br label %add_pending.exit82
 
 sm_fifo_write.exit80:                             ; preds = %opal_atomic_lock.exit77
-  %323 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
+  %323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1904), align 16
   %324 = getelementptr inbounds ptr, ptr %323, i64 %277
   %325 = load ptr, ptr %324, align 8
-  %326 = call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1920))
+  %326 = call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1920))
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 56
   store ptr %275, ptr %327, align 8
   %328 = load i8, ptr @opal_uses_threads, align 1
@@ -1130,14 +1130,14 @@ sm_fifo_write.exit80:                             ; preds = %opal_atomic_lock.ex
   br i1 %329, label %333, label %opal_thread_add_fetch_32.exit.i81
 
 opal_thread_add_fetch_32.exit.i81:                ; preds = %sm_fifo_write.exit80
-  %330 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %330 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   %331 = add nsw i32 %330, 1
-  store volatile i32 %331, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
-  %332 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  store volatile i32 %331, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %332 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   br label %337
 
 333:                                              ; preds = %sm_fifo_write.exit80
-  %334 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 1 monotonic, align 4
+  %334 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 1 monotonic, align 4
   %335 = getelementptr inbounds nuw i8, ptr %325, i64 96
   %336 = call i32 @pthread_mutex_lock(ptr noundef nonnull %335) #14
   %.pre124 = load i8, ptr @opal_uses_threads, align 1
@@ -1176,8 +1176,8 @@ add_pending.exit82:                               ; preds = %350, %337, %sm_fifo
 .loopexit:                                        ; preds = %87, %add_pending.exit, %add_pending.exit82
   %.2 = phi i32 [ %89, %add_pending.exit82 ], [ %89, %add_pending.exit ], [ %.1, %87 ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %353 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
-  %354 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 476), align 4
+  %353 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %354 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 476), align 4
   %355 = call i32 @llvm.smin.i32(i32 %353, i32 %354)
   %356 = sext i32 %355 to i64
   %357 = icmp slt i64 %indvars.iv.next121, %356
@@ -1334,7 +1334,7 @@ define void @btl_smcuda_process_pending_sends(ptr noundef %0) local_unnamed_addr
   store volatile i32 0, ptr %88, align 4
   %15 = load i8, ptr @opal_uses_threads, align 1
   %16 = trunc i8 %15 to i1
-  %17 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1944), align 8
+  %17 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1944), align 8
   br i1 %16, label %18, label %31
 
 18:                                               ; preds = %.critedge
@@ -1343,7 +1343,7 @@ define void @btl_smcuda_process_pending_sends(ptr noundef %0) local_unnamed_addr
   store volatile ptr %.08.i.i.i, ptr %19, align 8
   fence release
   %20 = ptrtoint ptr %.0.i to i64
-  %21 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1944), i64 %17, i64 %20 acquire monotonic, align 8
+  %21 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1944), i64 %17, i64 %20 acquire monotonic, align 8
   %22 = extractvalue { i64, i1 } %21, 1
   br i1 %22, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
@@ -1353,20 +1353,20 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %18, %opal_atomic_
   %.0.i.i.i = inttoptr i64 %24 to ptr
   store volatile ptr %.0.i.i.i, ptr %19, align 8
   fence release
-  %25 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1944), i64 %24, i64 %20 acquire monotonic, align 8
+  %25 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1944), i64 %24, i64 %20 acquire monotonic, align 8
   %26 = extractvalue { i64, i1 } %25, 1
   br i1 %26, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
 opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %18
   %.0.lcssa.i.i.i = phi ptr [ %.08.i.i.i, %18 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
-  %27 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1952)
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2024), align 8
+  %27 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1952)
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2024), align 8
   %.not.i.i = icmp eq i64 %28, 0
   %or.cond = select i1 %27, i1 true, i1 %.not.i.i
   br i1 %or.cond, label %opal_free_list_return.exit, label %29
 
 29:                                               ; preds = %opal_lifo_push_atomic.exit.i.i
-  %30 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2168), align 8
+  %30 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2168), align 8
   %.not.i.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
@@ -1377,23 +1377,23 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i32 0, ptr %34, align 8
   %35 = ptrtoint ptr %.0.i to i64
-  store volatile i64 %35, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1944), align 8
+  store volatile i64 %35, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1944), align 8
   %36 = load volatile ptr, ptr %33, align 8
-  %37 = icmp ne ptr %36, getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1952)
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2024), align 8
+  %37 = icmp ne ptr %36, getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1952)
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2024), align 8
   %.not.i4.i = icmp eq i64 %38, 0
   %or.cond32 = select i1 %37, i1 true, i1 %.not.i4.i
   br i1 %or.cond32, label %opal_free_list_return.exit, label %39
 
 39:                                               ; preds = %31
-  %40 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2168), align 8
+  %40 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2168), align 8
   %.not.i.i5.i = icmp eq i32 %40, 0
   br i1 %.not.i.i5.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 opal_free_list_return_mt.exit.sink.split.i:       ; preds = %39, %29
-  %41 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2172), align 4
+  %41 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2172), align 4
   %42 = add nsw i32 %41, 1
-  store volatile i32 %42, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2172), align 4
+  store volatile i32 %42, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2172), align 4
   br label %opal_free_list_return.exit
 
 opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atomic.exit.i.i, %29, %31, %39, %opal_free_list_return_mt.exit.sink.split.i
@@ -1450,25 +1450,25 @@ opal_list_remove_first.exit:                      ; preds = %49, %52
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %68
-  %72 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 -1 monotonic, align 4
+  %72 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 -1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
 73:                                               ; preds = %68
-  %74 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %74 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   %75 = add nsw i32 %74, -1
-  store volatile i32 %75, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
-  %76 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  store volatile i32 %75, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %76 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %71, %73
   fence release
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
   %78 = load i32, ptr %6, align 4
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds ptr, ptr %77, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %0, align 8
-  %83 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
   %84 = add nsw i32 %83, -1
   %85 = and i32 %84, %82
   %86 = sext i32 %85 to i64
@@ -1496,8 +1496,8 @@ opal_atomic_lock.exit:                            ; preds = %93, %opal_thread_ad
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %87, align 8
   %99 = ptrtoint ptr %98 to i64
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
-  %101 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds ptr, ptr %100, i64 %102
   %104 = load ptr, ptr %103, align 8
@@ -1516,7 +1516,7 @@ opal_atomic_lock.exit:                            ; preds = %93, %opal_thread_ad
 sm_fifo_write.exit:                               ; preds = %opal_atomic_lock.exit
   %113 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1920))
+  %115 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1920))
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
   store ptr %114, ptr %116, align 8
   %117 = load i8, ptr @opal_uses_threads, align 1
@@ -1524,14 +1524,14 @@ sm_fifo_write.exit:                               ; preds = %opal_atomic_lock.ex
   br i1 %118, label %122, label %opal_thread_add_fetch_32.exit.i
 
 opal_thread_add_fetch_32.exit.i:                  ; preds = %sm_fifo_write.exit
-  %119 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %119 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   %120 = add nsw i32 %119, 1
-  store volatile i32 %120, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
-  %121 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  store volatile i32 %120, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %121 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   br label %125
 
 122:                                              ; preds = %sm_fifo_write.exit
-  %123 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 1 monotonic, align 4
+  %123 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 1 monotonic, align 4
   %124 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #14
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %125
@@ -1563,7 +1563,7 @@ add_pending.exit:                                 ; preds = %125, %136
   store volatile i32 0, ptr %88, align 4
   %138 = load i8, ptr @opal_uses_threads, align 1
   %139 = trunc i8 %138 to i1
-  %140 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1944), align 8
+  %140 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1944), align 8
   br i1 %139, label %141, label %154
 
 141:                                              ; preds = %add_pending.exit
@@ -1572,7 +1572,7 @@ add_pending.exit:                                 ; preds = %125, %136
   store volatile ptr %.08.i.i.i22, ptr %142, align 8
   fence release
   %143 = ptrtoint ptr %.0.i to i64
-  %144 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1944), i64 %140, i64 %143 acquire monotonic, align 8
+  %144 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1944), i64 %140, i64 %143 acquire monotonic, align 8
   %145 = extractvalue { i64, i1 } %144, 1
   br i1 %145, label %opal_lifo_push_atomic.exit.i.i25, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i23
 
@@ -1582,20 +1582,20 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i23: ; preds = %141, %opal_atom
   %.0.i.i.i24 = inttoptr i64 %147 to ptr
   store volatile ptr %.0.i.i.i24, ptr %142, align 8
   fence release
-  %148 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1944), i64 %147, i64 %143 acquire monotonic, align 8
+  %148 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1944), i64 %147, i64 %143 acquire monotonic, align 8
   %149 = extractvalue { i64, i1 } %148, 1
   br i1 %149, label %opal_lifo_push_atomic.exit.i.i25, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i23
 
 opal_lifo_push_atomic.exit.i.i25:                 ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i23, %141
   %.0.lcssa.i.i.i26 = phi ptr [ %.08.i.i.i22, %141 ], [ %.0.i.i.i24, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i23 ]
-  %150 = icmp ne ptr %.0.lcssa.i.i.i26, getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1952)
-  %151 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2024), align 8
+  %150 = icmp ne ptr %.0.lcssa.i.i.i26, getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1952)
+  %151 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2024), align 8
   %.not.i.i27 = icmp eq i64 %151, 0
   %or.cond33 = select i1 %150, i1 true, i1 %.not.i.i27
   br i1 %or.cond33, label %opal_free_list_return.exit29, label %152, !llvm.loop !11
 
 152:                                              ; preds = %opal_lifo_push_atomic.exit.i.i25
-  %153 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2168), align 8
+  %153 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2168), align 8
   %.not.i.i.i28 = icmp eq i32 %153, 0
   br i1 %.not.i.i.i28, label %opal_free_list_return.exit29, label %opal_free_list_return_mt.exit.sink.split.i21, !llvm.loop !11
 
@@ -1606,23 +1606,23 @@ opal_lifo_push_atomic.exit.i.i25:                 ; preds = %opal_atomic_compare
   %157 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i32 0, ptr %157, align 8
   %158 = ptrtoint ptr %.0.i to i64
-  store volatile i64 %158, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1944), align 8
+  store volatile i64 %158, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1944), align 8
   %159 = load volatile ptr, ptr %156, align 8
-  %160 = icmp ne ptr %159, getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1952)
-  %161 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2024), align 8
+  %160 = icmp ne ptr %159, getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1952)
+  %161 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2024), align 8
   %.not.i4.i19 = icmp eq i64 %161, 0
   %or.cond34 = select i1 %160, i1 true, i1 %.not.i4.i19
   br i1 %or.cond34, label %opal_free_list_return.exit29, label %162, !llvm.loop !11
 
 162:                                              ; preds = %154
-  %163 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2168), align 8
+  %163 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2168), align 8
   %.not.i.i5.i20 = icmp eq i32 %163, 0
   br i1 %.not.i.i5.i20, label %opal_free_list_return.exit29, label %opal_free_list_return_mt.exit.sink.split.i21, !llvm.loop !11
 
 opal_free_list_return_mt.exit.sink.split.i21:     ; preds = %162, %152
-  %164 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2172), align 4
+  %164 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2172), align 4
   %165 = add nsw i32 %164, 1
-  store volatile i32 %165, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2172), align 4
+  store volatile i32 %165, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2172), align 4
   br label %opal_free_list_return.exit29, !llvm.loop !11
 
 opal_free_list_return.exit29:                     ; preds = %opal_free_list_return.exit, %66, %1, %opal_free_list_return_mt.exit.sink.split.i21, %162, %154, %152, %opal_lifo_push_atomic.exit.i.i25
@@ -1715,7 +1715,7 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
   br label %31
 
 31:                                               ; preds = %25, %28
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 176), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 176), align 8
   %33 = call i32 %32(ptr noundef nonnull %3) #14
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %35, label %34
@@ -1730,7 +1730,7 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
   br i1 %37, label %38, label %51
 
 38:                                               ; preds = %35
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2388), align 4
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2388), align 4
   %.not52 = icmp eq i32 %39, 0
   br i1 %.not52, label %41, label %40
 
@@ -1739,12 +1739,12 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
   br label %64
 
 41:                                               ; preds = %38
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %43 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %42) #14
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %41
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %46 = load i32, ptr %7, align 8
   %47 = load i32, ptr %3, align 4
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1757,18 +1757,18 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
   br label %144
 
 51:                                               ; preds = %35
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 192), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator, i64 192), align 8
   %53 = call i32 %52(ptr noundef nonnull %4, i32 noundef %36, i32 noundef %.sroa.2.0.copyload) #14
   %.not51 = icmp eq i32 %53, 0
   br i1 %.not51, label %64, label %54
 
 54:                                               ; preds = %51
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %56 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %55) #14
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %54
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %59 = load i32, ptr %7, align 8
   %60 = load i32, ptr %3, align 4
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1781,12 +1781,12 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
   br label %144
 
 64:                                               ; preds = %40, %51
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %66 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %65) #14
   br i1 %66, label %67, label %74
 
 67:                                               ; preds = %64
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %69 = load i32, ptr %7, align 8
   %70 = load i32, ptr %3, align 4
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1801,12 +1801,12 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
   br i1 %76, label %77, label %83
 
 77:                                               ; preds = %74
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %79 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %78) #14
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %77
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %81, ptr noundef nonnull @.str.35) #14
   br label %82
 
@@ -1817,13 +1817,13 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
 83:                                               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef %0, i32 noundef 4, ptr noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380)) #14
-  %86 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  call void %85(ptr noundef %0, i32 noundef 4, ptr noundef %9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380)) #14
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %87 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %86) #14
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %83
-  %89 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %90 = load i32, ptr %7, align 8
   %91 = load i32, ptr %3, align 4
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1846,22 +1846,22 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
   br label %101
 
 101:                                              ; preds = %98, %95
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %103 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %102) #14
   br i1 %103, label %104, label %144
 
 104:                                              ; preds = %101
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %105, ptr noundef nonnull @.str.37) #14
   br label %144
 
 106:                                              ; preds = %2
-  %107 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %108 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %107) #14
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %106
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %111 = load i32, ptr %7, align 8
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %113 = load i32, ptr %112, align 4
@@ -1871,18 +1871,18 @@ define internal void @btl_smcuda_control(ptr noundef %0, ptr nocapture noundef r
 114:                                              ; preds = %106, %109
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %116 = load ptr, ptr %115, align 8
-  tail call void %116(ptr noundef %0, i32 noundef 4, ptr noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380)) #14
+  tail call void %116(ptr noundef %0, i32 noundef 4, ptr noundef %9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380)) #14
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store i32 4, ptr %117, align 8
   br label %144
 
 118:                                              ; preds = %2
-  %119 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %120 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %119) #14
   br i1 %120, label %121, label %126
 
 121:                                              ; preds = %118
-  %122 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
+  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2380), align 4
   %123 = load i32, ptr %7, align 8
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %125 = load i32, ptr %124, align 4
@@ -1932,7 +1932,7 @@ declare void @opal_finalize_append_cleanup(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal void @mca_btl_smcuda_component_fini() #0 {
   tail call void @mca_btl_smcuda_accelerator_fini() #14
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 352), align 16
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 352), align 16
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1942,14 +1942,14 @@ define internal void @mca_btl_smcuda_component_fini() #0 {
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %5 = phi ptr [ %7, %.lr.ph.i ], [ %4, %0 ]
   %.07.i = phi ptr [ %6, %.lr.ph.i ], [ %3, %0 ]
-  tail call void %5(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 352)) #14
+  tail call void %5(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 352)) #14
   %6 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !12
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %38, label %9
 
@@ -1963,10 +1963,10 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
   br label %38
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = tail call i32 @unlink(ptr noundef nonnull %14) #14
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr @opal_uses_threads, align 1
   %19 = trunc i8 %18 to i1
@@ -1990,7 +1990,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %20, %23
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
@@ -2008,13 +2008,13 @@ opal_thread_add_fetch_32.exit:                    ; preds = %20, %23
   br i1 %.not.i6, label %opal_obj_run_destructors.exit7.loopexit, label %.lr.ph.i4, !llvm.loop !12
 
 opal_obj_run_destructors.exit7.loopexit:          ; preds = %.lr.ph.i4
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
   br label %opal_obj_run_destructors.exit7
 
 opal_obj_run_destructors.exit7:                   ; preds = %opal_obj_run_destructors.exit7.loopexit, %28
   %37 = phi ptr [ %.pre, %opal_obj_run_destructors.exit7.loopexit ], [ %29, %28 ]
   tail call void @free(ptr noundef %37) #14
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
   br label %38
 
 38:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit7, %11
@@ -2025,14 +2025,14 @@ opal_obj_run_destructors.exit7:                   ; preds = %opal_obj_run_destru
 define internal fastcc range(i32 -18, 1) i32 @create_rndv_file(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %.not = icmp eq i32 %0, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 292), align 4
   br i1 %.not, label %45, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
   %6 = tail call i32 @llvm.smin.i32(i32 %5, i32 %3)
   %7 = sext i32 %6 to i64
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 3
   %11 = add nuw nsw i64 %10, 640
@@ -2042,17 +2042,17 @@ define internal fastcc range(i32 -18, 1) i32 @create_rndv_file(i32 noundef range
   %15 = add nsw i64 %11, %14
   %16 = mul i64 %15, %7
   %17 = shl nsw i32 %3, 1
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 288), align 16
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 288), align 16
   %19 = add nsw i32 %18, %17
   %20 = sext i32 %19 to i64
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 336), align 16
   %22 = shl nsw i32 %12, 1
   %23 = sext i32 %22 to i64
   %24 = add i64 %21, %23
   %25 = mul i64 %24, %20
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 280), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 280), align 8
   %27 = sext i32 %26 to i64
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 344), align 8
   %29 = add i64 %28, %23
   %30 = mul i64 %29, %27
   %31 = add i64 %25, 4208
@@ -2067,10 +2067,10 @@ define internal fastcc range(i32 -18, 1) i32 @create_rndv_file(i32 noundef range
 38:                                               ; preds = %4
   %39 = sext i32 %3 to i64
   %40 = mul i64 %33, %39
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2392), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2392), align 8
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %40, i64 %41)
   store i64 %spec.store.select, ptr %2, align 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2344), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2344), align 8
   %43 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %spec.store.select, ptr noundef %42, i64 noundef 4208, i64 noundef 8) #14
   %44 = icmp eq ptr %43, null
   br i1 %44, label %create_and_attach.exit, label %55
@@ -2087,9 +2087,9 @@ create_and_attach.exit:                           ; preds = %38
   %50 = sext i32 %49 to i64
   %51 = add nsw i64 %48, %50
   store i64 %51, ptr %2, align 8
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2360), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2360), align 8
   %53 = tail call ptr @mca_common_sm_module_create_and_attach(i64 noundef %51, ptr noundef %52, i64 noundef 32, i64 noundef range(i64 -2147483648, 2147483648) %50) #14
-  store ptr %53, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
+  store ptr %53, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 416), align 16
   %54 = icmp eq ptr %53, null
   br i1 %54, label %create_and_attach.exit47, label %55
 
@@ -2099,7 +2099,7 @@ create_and_attach.exit47:                         ; preds = %45
 
 55:                                               ; preds = %45, %38
   %.0 = phi ptr [ %43, %38 ], [ %53, %45 ]
-  %.029.in = phi ptr [ getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2352), %38 ], [ getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2368), %45 ]
+  %.029.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2352), %38 ], [ getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2368), %45 ]
   %.029 = load ptr, ptr %.029.in, align 16
   %56 = tail call i32 (ptr, i32, ...) @open(ptr noundef %.029, i32 noundef 66, i32 noundef 384) #14
   %57 = icmp eq i32 %56, -1
@@ -2224,9 +2224,9 @@ declare ptr @mca_common_sm_module_create_and_attach(i64 noundef, ptr noundef, i6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mca_btl_smcuda_send_cuda_ipc_ack(ptr noundef %0) unnamed_addr #0 {
-  %2 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
+  %2 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
   %3 = shl nsw i32 %2, 1
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
   %5 = icmp sgt i32 %3, %4
   br i1 %5, label %6, label %8
 
@@ -2235,7 +2235,7 @@ define internal fastcc void @mca_btl_smcuda_send_cuda_ipc_ack(ptr noundef %0) un
   br label %8
 
 8:                                                ; preds = %6, %1
-  %9 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 496))
+  %9 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 496))
   %10 = icmp eq ptr %9, null
   br i1 %10, label %114, label %11
 
@@ -2256,26 +2256,26 @@ define internal fastcc void @mca_btl_smcuda_send_cuda_ipc_ack(ptr noundef %0) un
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %11
-  %22 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), i32 1 monotonic, align 4
+  %22 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
 23:                                               ; preds = %11
-  %24 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
+  %24 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
   %25 = add nsw i32 %24, 1
-  store volatile i32 %25, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
-  %26 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
+  store volatile i32 %25, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
+  %26 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %21, %23
   fence release
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %0, align 8
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 472), align 8
   %35 = add nsw i32 %34, -1
   %36 = and i32 %35, %33
   %37 = sext i32 %36 to i64
@@ -2310,8 +2310,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %21, %23
 
 opal_atomic_lock.exit:                            ; preds = %48, %42
   %51 = load ptr, ptr %12, align 8
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds ptr, ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8
@@ -2349,15 +2349,15 @@ sm_fifo_write.exit.thread:                        ; preds = %opal_atomic_lock.ex
 sm_fifo_write.exit:                               ; preds = %opal_atomic_lock.exit
   %78 = load ptr, ptr %12, align 8
   %79 = ptrtoint ptr %78 to i64
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 432), align 16
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 480), align 16
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds ptr, ptr %80, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = ptrtoint ptr %84 to i64
   %86 = sub nsw i64 %79, %85
   %87 = inttoptr i64 %86 to ptr
-  %88 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 1920))
+  %88 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 1920))
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
   store ptr %87, ptr %89, align 8
   %90 = load i8, ptr @opal_uses_threads, align 1
@@ -2365,14 +2365,14 @@ sm_fifo_write.exit:                               ; preds = %opal_atomic_lock.ex
   br i1 %91, label %95, label %opal_thread_add_fetch_32.exit.i
 
 opal_thread_add_fetch_32.exit.i:                  ; preds = %sm_fifo_write.exit
-  %92 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %92 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   %93 = add nsw i32 %92, 1
-  store volatile i32 %93, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
-  %94 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  store volatile i32 %93, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
+  %94 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), align 4
   br label %99
 
 95:                                               ; preds = %sm_fifo_write.exit
-  %96 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 1 monotonic, align 4
+  %96 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @mca_btl_smcuda_component, i64 2276), i32 1 monotonic, align 4
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %98 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %97) #14
   %.pre = load i8, ptr @opal_uses_threads, align 1

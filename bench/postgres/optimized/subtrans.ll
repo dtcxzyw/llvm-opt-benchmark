@@ -26,7 +26,7 @@ define dso_local void @SubTransSetParent(i32 noundef %0, i32 noundef %1) local_u
   %3 = lshr i32 %0, 11
   %4 = zext nneg i32 %3 to i64
   %5 = and i32 %0, 2047
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 8), align 8
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 8), align 8
   %7 = zext i16 %6 to i64
   %8 = and i64 %7, %4
   %9 = load ptr, ptr @SubTransCtlData, align 8
@@ -86,7 +86,7 @@ define dso_local i32 @SubTransGetParent(i32 noundef %0) local_unnamed_addr #0 {
   %14 = zext nneg i32 %6 to i64
   %15 = getelementptr i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = load i16, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 8), align 8
+  %17 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 8), align 8
   %18 = zext i16 %17 to i64
   %19 = and i64 %18, %5
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -135,7 +135,7 @@ SubTransGetParent.exit:                           ; preds = %5
   %17 = zext nneg i32 %9 to i64
   %18 = getelementptr i32, ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = load i16, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 8), align 8
+  %20 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 8), align 8
   %21 = zext i16 %20 to i64
   %22 = and i64 %21, %8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -211,13 +211,13 @@ SUBTRANSShmemBuffers.exit:                        ; preds = %0
 
 .thread:                                          ; preds = %SUBTRANSShmemBuffers.exit, %0
   %.ph = phi i32 [ %2, %0 ], [ %6, %SUBTRANSShmemBuffers.exit ]
-  store ptr @SubTransPagePrecedes, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 16), align 8
+  store ptr @SubTransPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 16), align 8
   br label %12
 
 8:                                                ; preds = %SUBTRANSShmemBuffers.exit
   call void @SetConfigOption(ptr noundef nonnull @.str.3, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 10) #5
   %.pr = load i32, ptr @subtransaction_buffers, align 4
-  store ptr @SubTransPagePrecedes, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 16), align 8
+  store ptr @SubTransPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 16), align 8
   %9 = icmp eq i32 %.pr, 0
   br i1 %9, label %10, label %12
 
@@ -295,7 +295,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
   %6 = lshr i64 %.sroa.0.0.copyload, 11
   %7 = and i64 %6, 2097151
-  %8 = load i16, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 8), align 8
+  %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 8), align 8
   %9 = zext i16 %8 to i64
   %10 = and i64 %9, %3
   %11 = load ptr, ptr @SubTransCtlData, align 8
@@ -309,7 +309,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %25
   %.030 = phi ptr [ %.1, %25 ], [ %14, %1 ]
   %.02029 = phi i64 [ %spec.select, %25 ], [ %3, %1 ]
-  %16 = load i16, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 8), align 8
+  %16 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 8), align 8
   %17 = zext i16 %16 to i64
   %18 = and i64 %.02029, %17
   %19 = load ptr, ptr @SubTransCtlData, align 8
@@ -336,7 +336,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %25, %1
   %.020.lcssa = phi i64 [ %3, %1 ], [ %7, %25 ]
   %.0.lcssa = phi ptr [ %14, %1 ], [ %.1, %25 ]
-  %28 = load i16, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 8), align 8
+  %28 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 8), align 8
   %29 = zext i16 %28 to i64
   %30 = and i64 %.020.lcssa, %29
   %31 = load ptr, ptr @SubTransCtlData, align 8
@@ -376,7 +376,7 @@ define dso_local void @ExtendSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = lshr i32 %0, 11
   %7 = zext nneg i32 %6 to i64
-  %8 = load i16, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 8), align 8
+  %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SubTransCtlData, i64 8), align 8
   %9 = zext i16 %8 to i64
   %10 = and i64 %9, %7
   %11 = load ptr, ptr @SubTransCtlData, align 8

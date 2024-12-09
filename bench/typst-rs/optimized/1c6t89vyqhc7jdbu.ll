@@ -56,9 +56,9 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit", %21
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 32), align 8, !noundef !5
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 32), align 8, !noundef !5
   %24 = add i64 %23, 1
-  store i64 %24, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 32), align 8
+  store i64 %24, ptr getelementptr inbounds nuw (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 32), align 8
   %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !alias.scope !16, !noalias !19, !noundef !5
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), align 8, !alias.scope !16, !noalias !19, !noundef !5
   %27 = icmp eq i64 %25, %26

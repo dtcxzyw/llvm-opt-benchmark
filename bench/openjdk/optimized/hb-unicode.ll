@@ -1153,7 +1153,7 @@ define hidden noundef zeroext i1 @_Z42_hb_unicode_is_emoji_Extended_Pictographic
   %33 = or disjoint i32 %31, %32
   %34 = lshr exact i32 %33, 3
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL12_hb_emoji_u8, i64 264), i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12_hb_emoji_u8, i64 264), i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = and i32 %0, 7

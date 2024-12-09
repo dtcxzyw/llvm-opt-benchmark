@@ -2415,16 +2415,16 @@ if.then18:                                        ; preds = %if.end17
 if.end20:                                         ; preds = %if.then18, %if.end17
   %.pre = phi i32 [ %.pre.pre, %if.then18 ], [ %6, %if.end17 ]
   %.pr = load i32, ptr %utf8_mode.i.i, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3536), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3540), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3544), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3548), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3552), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3568), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3556), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3560), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3564), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3572), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %cmdline, i8 0, i64 48, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %cmdline, i64 32
   store i32 -1, ptr %24, align 8
@@ -2447,25 +2447,25 @@ if.end28:                                         ; preds = %if.end20, %if.end60
   %inc129 = phi i32 [ 1, %if.end20 ], [ %inc, %if.end60 ]
   %locale_coerced.0128 = phi i32 [ 0, %if.end20 ], [ %locale_coerced.1, %if.end60 ]
   %28 = phi i32 [ %.pr, %if.end20 ], [ %75, %if.end60 ]
-  store i32 %27, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3536), align 8
   %29 = load i32, ptr %parse_argv.i.i, align 4
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3540), align 4
   %30 = load i32, ptr %isolated.i.i, align 4
-  store i32 %30, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
+  store i32 %30, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3544), align 8
   %31 = load i32, ptr %use_environment.i.i, align 4
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
+  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3548), align 4
   %32 = load i32, ptr %configure_locale.i.i, align 4
-  store i32 %32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
+  store i32 %32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3552), align 8
   %33 = load i32, ptr %dev_mode.i.i, align 4
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3568), align 8
   %34 = load i32, ptr %coerce_c_locale.i.i, align 4
-  store i32 %34, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
+  store i32 %34, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3556), align 4
   %35 = load i32, ptr %coerce_c_locale_warn.i.i, align 4
-  store i32 %35, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
+  store i32 %35, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3560), align 8
   %36 = load i32, ptr %utf8_mode.i.i, align 4
-  store i32 %36, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
+  store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3564), align 4
   %37 = load i32, ptr %allocator.i.i, align 4
-  store i32 %37, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
+  store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3572), align 4
   br i1 %tobool29.not, label %if.end36, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
@@ -2831,16 +2831,16 @@ done:                                             ; preds = %if.then48, %if.else
   %status.sroa.18.0 = phi i32 [ %tmp37.sroa.21.1.ph, %preconfig_read.exit.thread ], [ 0, %if.then48 ], [ 0, %if.else ], [ undef, %if.end60 ], [ %status.sroa.18.0.copyload52, %if.then30 ]
   %call70 = call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %call5) #17
   call void @PyMem_RawFree(ptr noundef nonnull %call5) #17
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
-  store i32 %16, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
-  store i32 %19, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
-  store i32 %20, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
-  store i32 %21, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
-  store i32 %22, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
-  store i32 %23, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3536), align 8
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3540), align 4
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3544), align 8
+  store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3548), align 4
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3552), align 8
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3568), align 8
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3556), align 4
+  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3560), align 8
+  store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3564), align 4
+  store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3572), align 4
   call void @_PyWideStringList_Clear(ptr noundef nonnull %cmdline) #17
   call void @_PyWideStringList_Clear(ptr noundef nonnull %xoptions.i.i) #17
   store i32 %status.sroa.0.0, ptr %agg.result, align 8
@@ -2891,7 +2891,7 @@ if.end:
   %8 = load i32, ptr %utf8_mode.i.i, align 4, !noalias !23
   %allocator.i.i = getelementptr inbounds nuw i8, ptr %src_config, i64 36
   %9 = load i32, ptr %allocator.i.i, align 4, !noalias !23
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 308), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 308), align 4
   %tobool.not = icmp eq i32 %10, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
 
@@ -2965,16 +2965,16 @@ if.end20:                                         ; preds = %if.then14, %if.then
 
 if.end22:                                         ; preds = %if.end20, %preconfig_set_global_vars.exit
   %config.sroa.18.0 = phi i32 [ %6, %preconfig_set_global_vars.exit ], [ %config.sroa.18.1, %if.end20 ]
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3540), align 4
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3544), align 8
-  store i32 %3, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3548), align 4
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
-  store i32 %5, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3568), align 8
-  store i32 %config.sroa.18.0, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3556), align 4
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3560), align 8
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3572), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3536), align 8
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3540), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3544), align 8
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3548), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3552), align 8
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3568), align 8
+  store i32 %config.sroa.18.0, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3556), align 4
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3560), align 8
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3564), align 4
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3572), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return
 

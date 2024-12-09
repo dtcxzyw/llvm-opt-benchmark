@@ -23,7 +23,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue220ComponentAtomicGroupE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue220ComponentAtomicGroupE, i64 16), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry

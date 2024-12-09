@@ -4937,7 +4937,7 @@ sw.bb:                                            ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -5004,7 +5004,7 @@ sw.bb8:                                           ; preds = %entry
 
 if.then.i64:                                      ; preds = %sw.bb8
   %exception.i65 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i65, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i65, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -5094,7 +5094,7 @@ sw.bb38:                                          ; preds = %entry
 
 if.then.i97:                                      ; preds = %sw.bb38
   %exception.i98 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i98, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i98, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i98, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -5251,7 +5251,7 @@ sw.bb89:                                          ; preds = %entry
 
 if.then.i161:                                     ; preds = %sw.bb89
   %exception.i162 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i162, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i162, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i162, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -5384,7 +5384,7 @@ sw.bb121:                                         ; preds = %entry
 
 if.then.i190:                                     ; preds = %sw.bb121
   %exception.i191 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i191, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i191, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i191, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -5508,7 +5508,7 @@ sw.bb153:                                         ; preds = %entry
 
 if.then.i216:                                     ; preds = %sw.bb153
   %exception.i217 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i217, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i217, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i217, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -5623,7 +5623,7 @@ sw.bb180:                                         ; preds = %entry
 
 if.then.i242:                                     ; preds = %sw.bb180
   %exception.i243 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i243, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i243, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i243, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -5879,7 +5879,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit: ; preds = %for.b
 
 if.then9:                                         ; preds = %for.body
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
@@ -5930,7 +5930,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit23: ; preds = %if.
 
 if.then20:                                        ; preds = %if.else16
   %exception21 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception21, align 8
   tail call void @__cxa_throw(ptr nonnull %exception21, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 

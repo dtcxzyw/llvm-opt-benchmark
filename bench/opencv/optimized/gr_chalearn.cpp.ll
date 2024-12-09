@@ -731,7 +731,7 @@ define hidden void @_ZN2cv8datasets14GR_chalearnImp15loadDatasetPartERKNSt7__cxx
   store i32 1, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store i32 1, ptr %68, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets14GR_chalearnObjELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets14GR_chalearnObjELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %55, align 8
   %69 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %49, ptr %69, align 8
   store ptr %55, ptr %41, align 8
@@ -2190,7 +2190,7 @@ define void @_ZN2cv8datasets11GR_chalearn6createEv(ptr dead_on_unwind noalias no
   %2 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets14GR_chalearnImpE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets14GR_chalearnImpE, i64 16), ptr %2, align 8
   %4 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %_ZN2cv3PtrINS_8datasets14GR_chalearnImpEED2Ev.exit unwind label %5
 
@@ -2228,7 +2228,7 @@ _ZN2cv3PtrINS_8datasets14GR_chalearnImpEED2Ev.exit: ; preds = %1
   store i32 1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets14GR_chalearnImpELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8datasets14GR_chalearnImpELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %18, align 8
   store ptr %2, ptr %0, align 8
@@ -2269,7 +2269,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8datasets7DatasetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets7DatasetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8datasets7DatasetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88

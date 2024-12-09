@@ -103,7 +103,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.6, ptr %_M_reason.i.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15
@@ -312,7 +312,7 @@ invoke.cont15:                                    ; preds = %_ZNKSt4lessINSt7__c
 if.then.i.i.i33:                                  ; preds = %invoke.cont15
   %cmp.i.not.i.i.i.i34 = icmp eq i8 %20, -1
   %exception.i.i.i.i.i35 = call ptr @__cxa_allocate_exception(i64 16) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i35, align 8
   %_M_reason.i.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i35, i64 8
   br i1 %cmp.i.not.i.i.i.i34, label %if.then.i.i.i.i38, label %if.else.i.i.i.i37
 
@@ -480,7 +480,7 @@ if.end47:                                         ; preds = %_ZNK9grpc_core12exp
 
 if.then.i.i86:                                    ; preds = %if.end47
   %exception.i.i.i87 = call ptr @__cxa_allocate_exception(i64 16) #14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i87, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i87, align 8
   %_M_reason.i.i.i.i88 = getelementptr inbounds nuw i8, ptr %exception.i.i.i87, i64 8
   store ptr @.str.6, ptr %_M_reason.i.i.i.i88, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i.i87, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #15

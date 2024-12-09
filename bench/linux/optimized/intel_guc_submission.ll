@@ -1747,7 +1747,7 @@ define dso_local i32 @intel_guc_submission_init(ptr noundef %0) local_unnamed_ad
   store i32 67108868, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr null, ptr %34, align 8
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %36 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %35, i32 noundef 3520, i64 noundef 32) #23
   %37 = icmp eq ptr %36, null
   br i1 %37, label %110, label %38
@@ -3941,7 +3941,7 @@ define internal fastcc range(i32 -15, -16) i32 @guc_send_invalidate_tlb(ptr noun
   %50 = phi ptr [ %35, %46 ], [ %4, %._crit_edge ]
   store i32 %49, ptr %16, align 4
   call void @add_wait_queue(ptr noundef %50, ptr noundef nonnull %5) #20
-  %51 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !64
+  %51 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !64
   %52 = and i32 %51, 2147483647
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %.thread
@@ -6649,7 +6649,7 @@ define internal fastcc i32 @guc_submission_send_busy_loop(ptr noundef %0, ptr no
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !64
+  %11 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !64
   %12 = and i32 %11, 2147483647
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %.thread
@@ -9237,7 +9237,7 @@ define internal void @guc_context_destroy(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @guc_create_virtual(ptr nocapture noundef readonly %0, i32 noundef %1, i64 %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(6256) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 6256) #23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread11, label %7
@@ -9694,7 +9694,7 @@ define internal fastcc void @__guc_context_set_preemption_timeout(ptr noundef %0
   store i32 %18, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %28, align 4
-  %29 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !64
+  %29 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !64
   %30 = and i32 %29, 2147483647
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %.thread

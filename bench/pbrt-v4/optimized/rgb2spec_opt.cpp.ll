@@ -451,8 +451,8 @@ entry:
 define dso_local void @_Z7cie_labPd(ptr nocapture noundef %p) local_unnamed_addr #8 {
 entry:
   %0 = load double, ptr @xyz_whitepoint, align 16
-  %1 = load double, ptr getelementptr inbounds (i8, ptr @xyz_whitepoint, i64 8), align 8
-  %2 = load double, ptr getelementptr inbounds (i8, ptr @xyz_whitepoint, i64 16), align 16
+  %1 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 8), align 8
+  %2 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 16), align 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -466,11 +466,11 @@ for.body:                                         ; preds = %entry, %for.body
   %4 = load double, ptr %arrayidx2, align 8
   %mul = fmul double %3, %4
   %add = fadd double %X.058, %mul
-  %arrayidx6 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds (i8, ptr @rgb_to_xyz, i64 24), i64 0, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 24), i64 0, i64 %indvars.iv
   %5 = load double, ptr %arrayidx6, align 8
   %mul7 = fmul double %3, %5
   %add8 = fadd double %Y.057, %mul7
-  %arrayidx12 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds (i8, ptr @rgb_to_xyz, i64 48), i64 0, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds nuw [3 x double], ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 48), i64 0, i64 %indvars.iv
   %6 = load double, ptr %arrayidx12, align 8
   %mul13 = fmul double %3, %6
   %add14 = fadd double %Z.056, %mul13
@@ -1487,7 +1487,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %for.body
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJM10ThreadPoolFviEPS3_iEEEEEE, i64 16), ptr %call.i4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJM10ThreadPoolFviEPS3_iEEEEEE, i64 16), ptr %call.i4, align 8
   %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 8
   store i32 %add, ptr %_M_func.i.i, align 4
   %1 = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
@@ -2178,7 +2178,7 @@ if.then.i:                                        ; preds = %_Z14RunningThreadsv
 _ZNSt8functionIFvllEEC2EOS1_.exit:                ; preds = %_Z14RunningThreadsv.exit, %if.then.i
   %prev.i.i = getelementptr inbounds nuw i8, ptr %loop, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %prev.i.i, i8 0, i64 21, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ParallelForLoop1D, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ParallelForLoop1D, i64 16), ptr %loop, align 8
   %func2.i = getelementptr inbounds nuw i8, ptr %loop, i64 32
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %loop, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %func2.i, i8 0, i64 24, i1 false)
@@ -2293,7 +2293,7 @@ if.then3.i.i14:                                   ; preds = %if.else.i.i12
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit16
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit16:          ; preds = %while.end, %if.else.i.i12, %if.then3.i.i14
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ParallelForLoop1D, i64 16), ptr %loop, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ParallelForLoop1D, i64 16), ptr %loop, align 8
   %_M_manager.i.i.i17 = getelementptr inbounds nuw i8, ptr %loop, i64 48
   %22 = load ptr, ptr %_M_manager.i.i.i17, align 8
   %tobool.not.i.i.i = icmp eq ptr %22, null
@@ -2322,7 +2322,7 @@ ehcleanup:                                        ; preds = %if.then3.i.i, %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17ParallelForLoop1DD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ParallelForLoop1D, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ParallelForLoop1D, i64 16), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2341,7 +2341,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvllEED2Ev.exit:                   ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ParallelJob, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ParallelJob, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2783,7 +2783,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #20
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17ParallelForLoop1DD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ParallelForLoop1D, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ParallelForLoop1D, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2823,7 +2823,7 @@ declare double @cbrt(double noundef) local_unnamed_addr #24
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11ParallelJobD2Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #14 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ParallelJob, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ParallelJob, i64 16), ptr %this, align 8
   ret void
 }
 

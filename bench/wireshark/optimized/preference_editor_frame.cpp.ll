@@ -95,9 +95,9 @@ define void @_ZN21PreferenceEditorFrameC2EP7QWidget(ptr noundef nonnull align 8 
   %6 = alloca %class.QString, align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21PreferenceEditorFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21PreferenceEditorFrame, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21PreferenceEditorFrame, i64 456), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21PreferenceEditorFrame, i64 456), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14
           to label %11 unwind label %37
@@ -336,7 +336,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %43
   %51 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 0, ptr %52, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 81, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -457,7 +457,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54:    ; preds = %93
   %101 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 0, ptr %102, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store i32 20, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
@@ -1049,9 +1049,9 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21PreferenceEditorFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21PreferenceEditorFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21PreferenceEditorFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21PreferenceEditorFrame, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21PreferenceEditorFrame, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

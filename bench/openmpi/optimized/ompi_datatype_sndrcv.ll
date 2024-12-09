@@ -59,7 +59,7 @@ define range(i32 0, 16) i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1
 
 35:                                               ; preds = %31
   %36 = load i32, ptr @opal_class_init_epoch, align 4
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not61 = icmp eq i32 %36, %37
   br i1 %.not61, label %39, label %38
 
@@ -143,7 +143,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i65, %opal_o
 
 80:                                               ; preds = %76
   %81 = load i32, ptr @opal_class_init_epoch, align 4
-  %82 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not60 = icmp eq i32 %81, %82
   br i1 %.not60, label %84, label %83
 
@@ -224,7 +224,7 @@ opal_obj_run_destructors.exit77:                  ; preds = %.lr.ph.i74, %opal_o
   %122 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #6
   store ptr %122, ptr %9, align 8
   %123 = load i32, ptr @opal_class_init_epoch, align 4
-  %124 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %124 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %123, %124
   br i1 %.not, label %126, label %125
 
@@ -267,7 +267,7 @@ opal_obj_run_constructors.exit82:                 ; preds = %.lr.ph.i79, %126
   store ptr %142, ptr %143, align 8
   %144 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %7, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %134, ptr noundef %0) #5
   %145 = load i32, ptr @opal_class_init_epoch, align 4
-  %146 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not57 = icmp eq i32 %145, %146
   br i1 %.not57, label %148, label %147
 

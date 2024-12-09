@@ -352,7 +352,7 @@ _ZN2cv3PtrINS_15line_descriptor16BinaryDescriptor14EDLineDetectorEEC2IS3_EEPT_.e
   store i32 1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 1, ptr %27, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptor14EDLineDetectorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptor14EDLineDetectorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %13, ptr %28, align 8
   %29 = load ptr, ptr %5, align 8
@@ -1179,7 +1179,7 @@ _ZN2cv3PtrINS_15line_descriptor16BinaryDescriptorEEC2IS2_EEPT_.exit: ; preds = %
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %3, ptr %23, align 8
   store ptr %7, ptr %6, align 8
@@ -1246,7 +1246,7 @@ _ZN2cv3PtrINS_15line_descriptor16BinaryDescriptorEEC2IS2_EEPT_.exit: ; preds = %
   store i32 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %25, align 8
   store ptr %9, ptr %8, align 8
@@ -1262,7 +1262,7 @@ _ZN2cv3PtrINS_15line_descriptor16BinaryDescriptorEEC2IS2_EEPT_.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv15line_descriptor16BinaryDescriptorC2ERKNS1_6ParamsE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv15line_descriptor16BinaryDescriptorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv15line_descriptor16BinaryDescriptorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1334,7 +1334,7 @@ define void @_ZN2cv15line_descriptor16BinaryDescriptorC2ERKNS1_6ParamsE(ptr noun
   store i32 1, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %34, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptor14EDLineDetectorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptor14EDLineDetectorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %18, ptr %35, align 8
   %36 = load ptr, ptr %7, align 8
@@ -2066,7 +2066,7 @@ _ZNSt6vectorIN2cv3PtrINS0_15line_descriptor16BinaryDescriptor14EDLineDetectorEEE
   store i32 1, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %83, i64 12
   store i32 1, ptr %96, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptor14EDLineDetectorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %83, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15line_descriptor16BinaryDescriptor14EDLineDetectorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %83, align 8
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %80, ptr %97, align 8
   %98 = load ptr, ptr %34, align 8
@@ -2314,7 +2314,7 @@ declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv15line_descriptor16BinaryDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv15line_descriptor16BinaryDescriptorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv15line_descriptor16BinaryDescriptorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176

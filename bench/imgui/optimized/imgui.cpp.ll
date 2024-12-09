@@ -11712,7 +11712,7 @@ while.body18.i:                                   ; preds = %if.end30.i, %entry
   br i1 %or.cond32.i, label %land.lhs.true25.i, label %if.end30.i
 
 land.lhs.true25.i:                                ; preds = %while.body18.i
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.64, i64 2), i64 %data.127.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.64, i64 2), i64 %data.127.i.idx
   %2 = load i8, ptr %gep, align 1
   %cmp28.i = icmp eq i8 %2, 35
   %spec.select19.i = select i1 %cmp28.i, i32 -1, i32 %crc.328.i
@@ -16109,7 +16109,7 @@ while.body18.i.i:                                 ; preds = %if.end30.i.i, %invo
   br i1 %or.cond32.i.i, label %land.lhs.true25.i.i, label %if.end30.i.i
 
 land.lhs.true25.i.i:                              ; preds = %while.body18.i.i
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.65, i64 2), i64 %data.127.i.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.65, i64 2), i64 %data.127.i.i.idx
   %27 = load i8, ptr %gep, align 1
   %cmp28.i.i = icmp eq i8 %27, 35
   %spec.select19.i.i = select i1 %cmp28.i.i, i32 %not.i.i, i32 %crc.328.i.i
@@ -24047,7 +24047,7 @@ while.body18.i.i.i:                               ; preds = %while.body18.i.i.i.
   br i1 %or.cond32.i.i.i, label %land.lhs.true25.i.i.i, label %if.end30.i.i.i
 
 land.lhs.true25.i.i.i:                            ; preds = %while.body18.i.i.i
-  %gep.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.594, i64 2), i64 %data.127.i.idx.i.i
+  %gep.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.594, i64 2), i64 %data.127.i.idx.i.i
   %298 = load i8, ptr %gep.i.i, align 1
   %cmp28.i.i.i = icmp eq i8 %298, 35
   %spec.select19.i.i.i = select i1 %cmp28.i.i.i, i32 -1, i32 %crc.328.i.i.i
@@ -36528,7 +36528,7 @@ while.body18.i.i.i:                               ; preds = %if.end30.i.i.i, %if
   br i1 %or.cond32.i.i.i, label %land.lhs.true25.i.i.i, label %if.end30.i.i.i
 
 land.lhs.true25.i.i.i:                            ; preds = %while.body18.i.i.i
-  %gep.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.442, i64 2), i64 %data.127.i.i.idx.i
+  %gep.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.442, i64 2), i64 %data.127.i.i.idx.i
   %860 = load i8, ptr %gep.i, align 1
   %cmp28.i.i.i = icmp eq i8 %860, 35
   %spec.select19.i.i.i = select i1 %cmp28.i.i.i, i32 %not.i.i.i1109, i32 %crc.328.i.i.i
@@ -36596,7 +36596,7 @@ while.body18.i.i89.i:                             ; preds = %if.end30.i.i98.i, %
   br i1 %or.cond32.i.i97.i, label %land.lhs.true25.i.i107.i, label %if.end30.i.i98.i
 
 land.lhs.true25.i.i107.i:                         ; preds = %while.body18.i.i89.i
-  %gep183.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.443, i64 2), i64 %data.127.i.i91.idx.i
+  %gep183.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.443, i64 2), i64 %data.127.i.i91.idx.i
   %870 = load i8, ptr %gep183.i, align 1
   %cmp28.i.i109.i = icmp eq i8 %870, 35
   %spec.select19.i.i110.i = select i1 %cmp28.i.i109.i, i32 %not.i.i82.i, i32 %crc.328.i.i90.i
@@ -37779,7 +37779,7 @@ while.body18.i.i.i.i:                             ; preds = %if.end.i.i, %if.end
   br i1 %or.cond32.i.i.i.i, label %land.lhs.true25.i.i.i.i, label %if.end30.i.i.i.i
 
 land.lhs.true25.i.i.i.i:                          ; preds = %while.body18.i.i.i.i
-  %gep.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.600, i64 2), i64 %data.127.i.i.idx.i.i
+  %gep.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.600, i64 2), i64 %data.127.i.i.idx.i.i
   %30 = load i8, ptr %gep.i.i, align 1
   %cmp28.i.i.i.i = icmp eq i8 %30, 35
   %spec.select19.i.i.i.i = select i1 %cmp28.i.i.i.i, i32 -1, i32 %crc.328.i.i.i.i
@@ -41241,7 +41241,7 @@ while.body18.i:                                   ; preds = %if.end30.i, %if.end
   br i1 %or.cond32.i, label %land.lhs.true25.i, label %if.end30.i
 
 land.lhs.true25.i:                                ; preds = %while.body18.i
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.78, i64 2), i64 %data.127.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.78, i64 2), i64 %data.127.i.idx
   %72 = load i8, ptr %gep, align 1
   %cmp28.i = icmp eq i8 %72, 35
   %spec.select19.i = select i1 %cmp28.i, i32 %not.i, i32 %crc.328.i
@@ -43547,7 +43547,7 @@ while.body18.i:                                   ; preds = %if.end30.i, %entry
   br i1 %or.cond32.i, label %land.lhs.true25.i, label %if.end30.i
 
 land.lhs.true25.i:                                ; preds = %while.body18.i
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.79, i64 2), i64 %data.127.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.79, i64 2), i64 %data.127.i.idx
   %2 = load i8, ptr %gep, align 1
   %cmp28.i = icmp eq i8 %2, 35
   %spec.select19.i = select i1 %cmp28.i, i32 %not.i, i32 %crc.328.i
@@ -43613,7 +43613,7 @@ while.body18.i:                                   ; preds = %if.end30.i, %entry
   br i1 %or.cond32.i, label %land.lhs.true25.i, label %if.end30.i
 
 land.lhs.true25.i:                                ; preds = %while.body18.i
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.79, i64 2), i64 %data.127.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.79, i64 2), i64 %data.127.i.idx
   %2 = load i8, ptr %gep, align 1
   %cmp28.i = icmp eq i8 %2, 35
   %spec.select19.i = select i1 %cmp28.i, i32 %not.i, i32 %crc.328.i
@@ -58069,7 +58069,7 @@ while.body18.i:                                   ; preds = %entry, %if.end30.i
   br i1 %or.cond32.i, label %land.lhs.true25.i, label %if.end30.i
 
 land.lhs.true25.i:                                ; preds = %while.body18.i
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.127, i64 2), i64 %data.127.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.127, i64 2), i64 %data.127.i.idx
   %30 = load i8, ptr %gep, align 1
   %cmp28.i = icmp eq i8 %30, 35
   %spec.select19.i = select i1 %cmp28.i, i32 -1, i32 %crc.328.i
@@ -66019,7 +66019,7 @@ while.body18.i.i.i:                               ; preds = %if.end30.i.i.i, %co
   br i1 %or.cond32.i.i.i, label %land.lhs.true25.i.i.i, label %if.end30.i.i.i
 
 land.lhs.true25.i.i.i:                            ; preds = %while.body18.i.i.i
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.293, i64 2), i64 %data.127.i.i.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.293, i64 2), i64 %data.127.i.i.i.idx
   %645 = load i8, ptr %gep, align 1
   %cmp28.i.i.i = icmp eq i8 %645, 35
   %spec.select19.i.i.i = select i1 %cmp28.i.i.i, i32 %not.i.i.i, i32 %crc.328.i.i.i
@@ -66259,7 +66259,7 @@ while.body18.i.i.i1419:                           ; preds = %if.end30.i.i.i1428,
   br i1 %or.cond32.i.i.i1427, label %land.lhs.true25.i.i.i1442, label %if.end30.i.i.i1428
 
 land.lhs.true25.i.i.i1442:                        ; preds = %while.body18.i.i.i1419
-  %gep2102 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.298, i64 2), i64 %data.127.i.i.i1421.idx
+  %gep2102 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.298, i64 2), i64 %data.127.i.i.i1421.idx
   %691 = load i8, ptr %gep2102, align 1
   %cmp28.i.i.i1444 = icmp eq i8 %691, 35
   %spec.select19.i.i.i1445 = select i1 %cmp28.i.i.i1444, i32 %not.i.i.i1418, i32 %crc.328.i.i.i1420
@@ -67791,7 +67791,7 @@ while.body18.i.i.i:                               ; preds = %if.end30.i.i.i, %if
   br i1 %or.cond32.i.i.i, label %land.lhs.true25.i.i.i, label %if.end30.i.i.i
 
 land.lhs.true25.i.i.i:                            ; preds = %while.body18.i.i.i
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.418, i64 2), i64 %data.127.i.i.i.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.418, i64 2), i64 %data.127.i.i.i.idx
   %95 = load i8, ptr %gep, align 1
   %cmp28.i.i.i = icmp eq i8 %95, 35
   %spec.select19.i.i.i = select i1 %cmp28.i.i.i, i32 %not.i.i.i, i32 %crc.328.i.i.i

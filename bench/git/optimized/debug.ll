@@ -60,9 +60,9 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %store, align 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %call2, align 8
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %2, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool5.not9 = icmp ne i8 %bf.clear.i, 0
   %tobool5.not = select i1 %tobool.not.i, i1 %tobool5.not9, i1 false
@@ -105,9 +105,9 @@ entry:
   %init_db = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %init_db, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %err) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not3 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not3, i1 false
@@ -131,9 +131,9 @@ entry:
   %transaction_prepare = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load ptr, ptr %transaction_prepare, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %transaction, ptr noundef %err) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not6 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not6, i1 false
@@ -161,9 +161,9 @@ entry:
   %transaction_finish = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load ptr, ptr %transaction_finish, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %transaction, ptr noundef %err) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i.i = icmp eq i32 %3, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not15.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool.not.i = select i1 %tobool.not.i.i, i1 %tobool.not15.i, i1 false
@@ -215,9 +215,9 @@ if.end5.i.i:                                      ; preds = %print_update.exit.i
   store i8 108, ptr %10, align 1
   %call.i.i = call ptr @oid_to_hex_r(ptr noundef nonnull %o.i.i, ptr noundef nonnull %old_oid.i) #6
   %call4.i.i = call ptr @oid_to_hex_r(ptr noundef nonnull %n.i.i, ptr noundef nonnull %12) #6
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i.i.i = icmp eq i32 %16, 0
-  %bf.load.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, 1
   %tobool8.not5.i.i = icmp ne i8 %bf.clear.i.i.i, 0
   %tobool8.not.i.i = select i1 %tobool.not.i.i.i, i1 %tobool8.not5.i.i, i1 false
@@ -240,9 +240,9 @@ print_update.exit.i:                              ; preds = %if.then9.i.i, %if.e
   br i1 %cmp.i, label %if.end5.i.i, label %do.body2.i, !llvm.loop !5
 
 do.body2.i:                                       ; preds = %print_update.exit.i, %do.end.i
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i11.i = icmp eq i32 %19, 0
-  %bf.load.i12.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i12.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i13.i = and i8 %bf.load.i12.i, 1
   %tobool4.not16.i = icmp ne i8 %bf.clear.i13.i, 0
   %tobool4.not.i = select i1 %tobool.not.i11.i, i1 %tobool4.not16.i, i1 false
@@ -250,8 +250,8 @@ do.body2.i:                                       ; preds = %print_update.exit.i
 
 print_transaction.exit:                           ; preds = %do.body2.i
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 86, ptr noundef nonnull @trace_refs, ptr noundef nonnull @.str.8) #6
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
-  %bf.load.i.pre = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
+  %bf.load.i.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %.pre9 = and i8 %bf.load.i.pre, 1
   %20 = icmp eq i32 %.pre, 0
   %21 = icmp ne i8 %.pre9, 0
@@ -301,9 +301,9 @@ entry:
   %pack_refs = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %pack_refs, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %opts) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not3 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not3, i1 false
@@ -326,9 +326,9 @@ entry:
   %create_symref = getelementptr inbounds nuw i8, ptr %1, i64 64
   %2 = load ptr, ptr %create_symref, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %ref_name, ptr noundef %target, ptr noundef %logmsg) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not6 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not6, i1 false
@@ -351,9 +351,9 @@ entry:
   %rename_ref = getelementptr inbounds nuw i8, ptr %1, i64 72
   %2 = load ptr, ptr %rename_ref, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not6 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not6, i1 false
@@ -376,9 +376,9 @@ entry:
   %copy_ref = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %copy_ref, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not6 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not6, i1 false
@@ -405,9 +405,9 @@ entry:
   tail call void @base_ref_iterator_init(ptr noundef %call2, ptr noundef nonnull @debug_ref_iterator_vtable, i32 noundef 1) #6
   %iter = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store ptr %call, ptr %iter, align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not6 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not6, i1 false
@@ -437,9 +437,9 @@ entry:
   %3 = load ptr, ptr %read_raw_ref, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %1, ptr noundef %refname, ptr noundef %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #6
   %cmp = icmp eq i32 %call2, 0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %4, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not17 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not17, i1 false
@@ -478,9 +478,9 @@ entry:
   %2 = load ptr, ptr %read_symbolic_ref, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, ptr noundef %referent) #6
   %tobool.not = icmp eq i32 %call, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool3.not12 = icmp ne i8 %bf.clear.i, 0
   %tobool3.not = select i1 %tobool.not.i, i1 %tobool3.not12, i1 false
@@ -515,9 +515,9 @@ entry:
   %reflog_iterator_begin = getelementptr inbounds nuw i8, ptr %1, i64 112
   %2 = load ptr, ptr %reflog_iterator_begin, align 8
   %call = tail call ptr %2(ptr noundef nonnull %0) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not2 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not2, i1 false
@@ -546,9 +546,9 @@ entry:
   %for_each_reflog_ent = getelementptr inbounds nuw i8, ptr %1, i64 120
   %2 = load ptr, ptr %for_each_reflog_ent, align 8
   %call = call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, ptr noundef nonnull @debug_print_reflog_ent, ptr noundef nonnull %dbg) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not5 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not5, i1 false
@@ -577,9 +577,9 @@ entry:
   %for_each_reflog_ent_reverse = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load ptr, ptr %for_each_reflog_ent_reverse, align 8
   %call = call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, ptr noundef nonnull @debug_print_reflog_ent, ptr noundef nonnull %dbg) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not5 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not5, i1 false
@@ -602,9 +602,9 @@ entry:
   %reflog_exists = getelementptr inbounds nuw i8, ptr %1, i64 136
   %2 = load ptr, ptr %reflog_exists, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %refname) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not4 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not4, i1 false
@@ -627,9 +627,9 @@ entry:
   %create_reflog = getelementptr inbounds nuw i8, ptr %1, i64 144
   %2 = load ptr, ptr %create_reflog, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, ptr noundef %err) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not4 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not4, i1 false
@@ -652,9 +652,9 @@ entry:
   %delete_reflog = getelementptr inbounds nuw i8, ptr %1, i64 152
   %2 = load ptr, ptr %delete_reflog, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %refname) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not4 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not4, i1 false
@@ -685,9 +685,9 @@ entry:
   %reflog_expire = getelementptr inbounds nuw i8, ptr %1, i64 160
   %2 = load ptr, ptr %reflog_expire, align 8
   %call = call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, i32 noundef %flags, ptr noundef nonnull @debug_reflog_expiry_prepare, ptr noundef nonnull @debug_reflog_expiry_should_prune_fn, ptr noundef nonnull @debug_reflog_expiry_cleanup, ptr noundef nonnull %prune) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not4 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not4, i1 false
@@ -719,9 +719,9 @@ entry:
   %2 = load ptr, ptr %1, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0) #6
   %tobool.not = icmp eq i32 %call, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i13 = icmp eq i32 %3, 0
-  %bf.load.i14 = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i15 = and i8 %bf.load.i14, 1
   %tobool7.not18 = icmp ne i8 %bf.clear.i15, 0
   %tobool7.not = select i1 %tobool.not.i13, i1 %tobool7.not18, i1 false
@@ -778,9 +778,9 @@ entry:
   %peel = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %peel, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %peeled) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not4 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not4, i1 false
@@ -806,9 +806,9 @@ entry:
   %abort = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %abort, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0) #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %3, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not3 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not3, i1 false
@@ -869,9 +869,9 @@ if.end6:                                          ; preds = %if.then3, %if.end
   %cb_data7 = getelementptr inbounds nuw i8, ptr %cb_data, i64 16
   %7 = load ptr, ptr %cb_data7, align 8
   %call8 = call i32 %6(ptr noundef %old_oid, ptr noundef %new_oid, ptr noundef %committer, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %msg, ptr noundef %7) #6
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %8, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool10.not13 = icmp ne i8 %bf.clear.i, 0
   %tobool10.not = select i1 %tobool.not.i, i1 %tobool10.not13, i1 false
@@ -896,9 +896,9 @@ declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal void @debug_reflog_expiry_prepare(ptr noundef %refname, ptr noundef %oid, ptr nocapture noundef readonly %cb_data) #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %0, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not3 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not3, i1 false
@@ -924,9 +924,9 @@ entry:
   %cb_data1 = getelementptr inbounds nuw i8, ptr %cb_data, i64 24
   %1 = load ptr, ptr %cb_data1, align 8
   %call = tail call i32 %0(ptr noundef %ooid, ptr noundef %noid, ptr noundef %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr noundef %1) #6
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %2, 0
-  %bf.load.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_refs, i64 12), align 4
+  %bf.load.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not5 = icmp ne i8 %bf.clear.i, 0
   %tobool.not = select i1 %tobool.not.i, i1 %tobool.not5, i1 false

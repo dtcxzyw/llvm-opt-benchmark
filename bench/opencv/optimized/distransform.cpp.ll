@@ -558,7 +558,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i:          ; preds = %.noexc108, %151
   store i32 0, ptr %14, align 4
   %195 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %155, ptr %195, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15DTColumnInvokerE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15DTColumnInvokerE, i64 16), ptr %15, align 8
   %196 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %19, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -620,7 +620,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i:          ; preds = %.noexc108, %151
   store i32 0, ptr %16, align 4
   %224 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %153, ptr %224, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12DTRowInvokerE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12DTRowInvokerE, i64 16), ptr %17, align 8
   %225 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %23, ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %17, i64 16

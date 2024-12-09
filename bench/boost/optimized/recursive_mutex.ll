@@ -238,7 +238,7 @@ define void @_ZN5boost6fibers15recursive_mutex6unlockEv(ptr noundef nonnull alig
           to label %8 unwind label %9
 
 8:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers10lock_errorE, i64 16), ptr %6, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers10lock_errorE, i64 16), ptr %6, align 8, !tbaa !28
   invoke void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN5boost6fibers10lock_errorE, ptr nonnull @_ZNSt12system_errorD2Ev) #22
           to label %20 unwind label %11
 
@@ -454,7 +454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !28
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %63, align 8, !tbaa !45
   %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

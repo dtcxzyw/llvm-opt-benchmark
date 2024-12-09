@@ -17631,7 +17631,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h10d0c4a57c3d23
 
 .backedge.i:                                      ; preds = %16, %.lr.ph.split.i
   %.not.i = icmp eq i64 %11, 0
-  %.0.i = select i1 %.not.i, ptr getelementptr inbounds (i8, ptr @anon.4758def437df510d04930db3bddfd63b.110.llvm.8873333117009505138, i64 24), ptr null
+  %.0.i = select i1 %.not.i, ptr getelementptr inbounds nuw (i8, ptr @anon.4758def437df510d04930db3bddfd63b.110.llvm.8873333117009505138, i64 24), ptr null
   %exitcond.not.i = icmp eq i64 %12, 2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i
 

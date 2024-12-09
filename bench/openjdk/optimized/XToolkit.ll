@@ -342,7 +342,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1) #13
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 8), align 8
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 8), align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %94, label %14
 
@@ -351,7 +351,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1) #13
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 16), align 8
+  store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 16), align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %94, label %20
 
@@ -360,7 +360,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1) #13
-  store ptr %24, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 24), align 8
+  store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 24), align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %94, label %26
 
@@ -369,7 +369,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #13
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 56), align 8
+  store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 56), align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %94, label %32
 
@@ -378,7 +378,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #13
-  store ptr %36, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 32), align 8
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 32), align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %94, label %38
 
@@ -387,7 +387,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 752
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #13
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 40), align 8
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 40), align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %94, label %44
 
@@ -396,7 +396,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 752
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.13) #13
-  store ptr %48, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 48), align 8
+  store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 48), align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %94, label %50
 
@@ -405,7 +405,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 752
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #13
-  store ptr %54, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 64), align 8
+  store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 64), align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %94, label %56
 
@@ -414,7 +414,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 752
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #13
-  store ptr %60, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 72), align 8
+  store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 72), align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %94, label %62
 
@@ -423,7 +423,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 264
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #13
-  store ptr %66, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 96), align 8
+  store ptr %66, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 96), align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %94, label %68
 
@@ -432,7 +432,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 264
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr %71(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #13
-  store ptr %72, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 104), align 8
+  store ptr %72, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 104), align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %94, label %74
 
@@ -449,7 +449,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 752
   %83 = load ptr, ptr %82, align 8
   %84 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %78, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.9) #13
-  store ptr %84, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 80), align 8
+  store ptr %84, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 80), align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %94, label %86
 
@@ -458,7 +458,7 @@ define void @Java_java_awt_Component_initIDs(ptr noundef %0, ptr noundef %1) loc
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 752
   %89 = load ptr, ptr %88, align 8
   %90 = tail call ptr %89(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #13
-  store ptr %90, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 88), align 8
+  store ptr %90, ptr getelementptr inbounds nuw (i8, ptr @componentIDs, i64 88), align 8
   %91 = load ptr, ptr %0, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 184
   %93 = load ptr, ptr %92, align 8
@@ -617,16 +617,16 @@ get_poll_timeout.exit.i.i:                        ; preds = %47, %43, %3
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i32, ptr %56, align 8
   store i32 %57, ptr @pollFds, align 16
-  store i16 64, ptr getelementptr inbounds (i8, ptr @pollFds, i64 4), align 4
+  store i16 64, ptr getelementptr inbounds nuw (i8, ptr @pollFds, i64 4), align 4
   %58 = load i32, ptr @awt_pipe_fds, align 4
-  store i32 %58, ptr getelementptr inbounds (i8, ptr @pollFds, i64 8), align 8
-  store i16 64, ptr getelementptr inbounds (i8, ptr @pollFds, i64 12), align 4
+  store i32 %58, ptr getelementptr inbounds nuw (i8, ptr @pollFds, i64 8), align 8
+  store i16 64, ptr getelementptr inbounds nuw (i8, ptr @pollFds, i64 12), align 4
   store i1 true, ptr @performPoll.pollFdsInited, align 4
   br label %59
 
 59:                                               ; preds = %54, %get_poll_timeout.exit.i.i
-  store i16 0, ptr getelementptr inbounds (i8, ptr @pollFds, i64 6), align 2
-  store i16 0, ptr getelementptr inbounds (i8, ptr @pollFds, i64 14), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @pollFds, i64 6), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @pollFds, i64 14), align 2
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 120
   %62 = load ptr, ptr %61, align 8
@@ -823,7 +823,7 @@ update_poll_timeout.exit.i.i:                     ; preds = %.sink.split.i.i.i, 
   br label %171
 
 171:                                              ; preds = %168, %update_poll_timeout.exit.i.i, %140
-  %172 = load i16, ptr getelementptr inbounds (i8, ptr @pollFds, i64 14), align 2
+  %172 = load i16, ptr getelementptr inbounds nuw (i8, ptr @pollFds, i64 14), align 2
   %.not40.i.i = icmp eq i16 %172, 0
   br i1 %.not40.i.i, label %187, label %173
 
@@ -857,7 +857,7 @@ update_poll_timeout.exit.i.i:                     ; preds = %.sink.split.i.i.i, 
   br label %187
 
 187:                                              ; preds = %184, %181, %171
-  %188 = load i16, ptr getelementptr inbounds (i8, ptr @pollFds, i64 6), align 2
+  %188 = load i16, ptr getelementptr inbounds nuw (i8, ptr @pollFds, i64 6), align 2
   %.not42.i.i = icmp eq i16 %188, 0
   br i1 %.not42.i.i, label %performPoll.exit.i, label %189
 
@@ -957,9 +957,9 @@ define void @Java_sun_awt_X11_XToolkit_awt_1toolkit_1init(ptr nocapture noundef 
   %10 = load i32, ptr @awt_pipe_fds, align 4
   %11 = or i32 %9, 2048
   %12 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %10, i32 noundef 4, i32 noundef %11) #13
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @awt_pipe_fds, i64 4), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @awt_pipe_fds, i64 4), align 4
   %14 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %13, i32 noundef 3, i32 noundef 0) #13
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @awt_pipe_fds, i64 4), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @awt_pipe_fds, i64 4), align 4
   %16 = or i32 %14, 2048
   %17 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %15, i32 noundef 4, i32 noundef %16) #13
   store i1 true, ptr @awt_pipe_inited, align 1
@@ -967,7 +967,7 @@ define void @Java_sun_awt_X11_XToolkit_awt_1toolkit_1init(ptr nocapture noundef 
 
 18:                                               ; preds = %4
   store i32 -1, ptr @awt_pipe_fds, align 4
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @awt_pipe_fds, i64 4), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @awt_pipe_fds, i64 4), align 4
   br label %awt_pipe_init.exit
 
 awt_pipe_init.exit:                               ; preds = %2, %7, %18
@@ -1087,7 +1087,7 @@ define void @Java_sun_awt_X11_XToolkit_wakeup_1poll(ptr nocapture noundef readno
   br i1 %or.cond.i, label %6, label %wakeUp.exit
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @awt_pipe_fds, i64 4), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @awt_pipe_fds, i64 4), align 4
   %8 = tail call i64 @write(i32 noundef %7, ptr noundef nonnull @wakeUp.wakeUp_char, i64 noundef 1) #13
   br label %wakeUp.exit
 
@@ -1234,7 +1234,7 @@ define hidden void @awt_output_flush() local_unnamed_addr #0 {
   br i1 %or.cond.i, label %82, label %wakeUp.exit
 
 82:                                               ; preds = %78
-  %83 = load i32, ptr getelementptr inbounds (i8, ptr @awt_pipe_fds, i64 4), align 4
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @awt_pipe_fds, i64 4), align 4
   %84 = tail call i64 @write(i32 noundef %83, ptr noundef nonnull @wakeUp.wakeUp_char, i64 noundef 1) #13
   br label %wakeUp.exit
 

@@ -46742,8 +46742,8 @@ _ZN3std3env3var17hd8d8765e41c3f485E.exit.i:       ; preds = %"_ZN4core3ptr42drop
 
 748:                                              ; preds = %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h627b8cf29dbea9f3E.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %41), !noalias !10328
-  %.val49.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6client11ZED_RPC_URL17h38e2bbda85ca57b1E, i64 8), align 8, !noalias !10328, !nonnull !16, !noundef !16
-  %.val50.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6client11ZED_RPC_URL17h38e2bbda85ca57b1E, i64 16), align 8, !noalias !10328, !noundef !16
+  %.val49.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client11ZED_RPC_URL17h38e2bbda85ca57b1E, i64 8), align 8, !noalias !10328, !nonnull !16, !noundef !16
+  %.val50.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client11ZED_RPC_URL17h38e2bbda85ca57b1E, i64 16), align 8, !noalias !10328, !noundef !16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30), !noalias !10349
   %749 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %749, align 8, !noalias !10349

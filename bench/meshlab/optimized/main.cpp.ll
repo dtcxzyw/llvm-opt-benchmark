@@ -746,7 +746,7 @@ _ZN7QStringD2Ev.exit96:                           ; preds = %_ZN7QStringD2Ev.exi
 
 119:                                              ; preds = %_ZN7QStringD2Ev.exit96, %2
   call void @_ZN12QApplicationC2ERiPPci(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %1, i32 noundef 331523)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18MeshLabApplication, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MeshLabApplication, i64 16), ptr %10, align 8
   %120 = call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.15) #22
   invoke void @_ZN7QLocaleC1ENS_8LanguageENS_7CountryE(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 1, i32 noundef 0)
           to label %121 unwind label %148
@@ -953,7 +953,7 @@ _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit: ; preds = %141
           to label %179 unwind label %256
 
 179:                                              ; preds = %178
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13FileOpenEater, i64 16), ptr %177, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13FileOpenEater, i64 16), ptr %177, align 8
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 16
   store ptr %140, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 24

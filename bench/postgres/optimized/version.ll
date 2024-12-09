@@ -196,7 +196,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 define dso_local void @old_9_3_check_for_line_data_type_usage(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.10) #6
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 24), align 8
   %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %3, ptr noundef nonnull @.str.12) #6
   %5 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.13) #6
   %6 = call zeroext i1 @check_for_data_types_usage(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %2)
@@ -225,7 +225,7 @@ declare void @check_ok() local_unnamed_addr #1
 define dso_local void @old_9_6_check_for_unknown_data_type_usage(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.16) #6
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 24), align 8
   %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %3, ptr noundef nonnull @.str.17) #6
   %5 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.18) #6
   %6 = call zeroext i1 @check_for_data_types_usage(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %2)
@@ -408,7 +408,7 @@ declare void @report_status(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 define dso_local void @old_11_check_for_sql_identifier_data_type_usage(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.28) #6
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 24), align 8
   %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %3, ptr noundef nonnull @.str.29) #6
   %5 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.30) #6
   %6 = call zeroext i1 @check_for_data_types_usage(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %2)

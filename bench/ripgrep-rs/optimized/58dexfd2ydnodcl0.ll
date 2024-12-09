@@ -3465,7 +3465,7 @@ define internal fastcc void @_ZN6ignore9gitignore19parse_excludes_file17h5da5b28
   %19 = alloca { { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, align 8
   %20 = alloca { i64, [2 x i64] }, align 8
   %21 = alloca { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, align 8
-  %22 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6ignore9gitignore19parse_excludes_file2RE17hd730b3ed8d79a082E, i64 16) acquire, align 8
+  %22 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6ignore9gitignore19parse_excludes_file2RE17hd730b3ed8d79a082E, i64 16) acquire, align 8
   %.not.i = icmp eq i32 %22, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h9e0cb772b3b40c94E.exit", label %23
 
@@ -3477,7 +3477,7 @@ define internal fastcc void @_ZN6ignore9gitignore19parse_excludes_file17h5da5b28
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
   call void @_ZN14regex_automata4meta5regex5Regex15create_captures17hbb34fe60473c8e7bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }) align 8 dereferenceable(40) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN6ignore9gitignore19parse_excludes_file2RE17hd730b3ed8d79a082E)
   %.val = load ptr, ptr @_ZN6ignore9gitignore19parse_excludes_file2RE17hd730b3ed8d79a082E, align 8, !nonnull !8, !noundef !8
-  %.val18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6ignore9gitignore19parse_excludes_file2RE17hd730b3ed8d79a082E, i64 8), align 8
+  %.val18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6ignore9gitignore19parse_excludes_file2RE17hd730b3ed8d79a082E, i64 8), align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !738)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !741
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8

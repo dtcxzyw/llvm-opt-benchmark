@@ -99,7 +99,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN28ShenandoahAdaptiveHeuristicsC2EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN20ShenandoahHeuristicsC2EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef %1) #11
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV28ShenandoahAdaptiveHeuristics, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV28ShenandoahAdaptiveHeuristics, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = tail call noundef double @_ZN2os11elapsedTimeEv() #11
   store double %4, ptr %3, align 8
@@ -142,7 +142,7 @@ declare void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN28ShenandoahAdaptiveHeuristicsD2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV28ShenandoahAdaptiveHeuristics, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV28ShenandoahAdaptiveHeuristics, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   tail call void @_ZN12TruncatedSeqD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -161,7 +161,7 @@ declare void @_ZN20ShenandoahHeuristicsD2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN28ShenandoahAdaptiveHeuristicsD0Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV28ShenandoahAdaptiveHeuristics, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV28ShenandoahAdaptiveHeuristics, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   tail call void @_ZN12TruncatedSeqD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296

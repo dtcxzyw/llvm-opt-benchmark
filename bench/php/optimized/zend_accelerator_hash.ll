@@ -130,7 +130,7 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
 
 17:                                               ; preds = %.loopexit, %15
   %18 = phi i64 [ %16, %15 ], [ %14, %.loopexit ]
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 360), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 360), align 8
   %20 = xor i64 %19, %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4
@@ -279,7 +279,7 @@ define hidden ptr @zend_accel_hash_find(ptr nocapture noundef readonly %0, ptr n
 
 7:                                                ; preds = %2, %5
   %8 = phi i64 [ %6, %5 ], [ %4, %2 ]
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 360), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 360), align 8
   %10 = xor i64 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
@@ -355,7 +355,7 @@ define hidden ptr @zend_accel_hash_find_entry(ptr nocapture noundef readonly %0,
 
 7:                                                ; preds = %2, %5
   %8 = phi i64 [ %6, %5 ], [ %4, %2 ]
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 360), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 360), align 8
   %10 = xor i64 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
@@ -429,7 +429,7 @@ define hidden range(i32 -1, 1) i32 @zend_accel_hash_unlink(ptr nocapture noundef
 
 7:                                                ; preds = %2, %5
   %8 = phi i64 [ %6, %5 ], [ %4, %2 ]
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 360), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 360), align 8
   %10 = xor i64 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4

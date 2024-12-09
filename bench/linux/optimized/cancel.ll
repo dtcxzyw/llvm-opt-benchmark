@@ -112,7 +112,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @io_try_cancel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !5
+  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !5
   %6 = and i32 %5, 16711936
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %._crit_edge

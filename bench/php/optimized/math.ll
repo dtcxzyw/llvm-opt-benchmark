@@ -634,7 +634,7 @@ define hidden void @zif_round(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 49:                                               ; preds = %47
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.1) #15
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %51 = icmp ne ptr %50, null
   call void @llvm.assume(i1 %51)
   br label %72
@@ -1768,7 +1768,7 @@ define hidden void @zif_log(ptr noundef %0, ptr nocapture noundef writeonly %1) 
 
 52:                                               ; preds = %50
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #15
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %54 = icmp ne ptr %53, null
   call void @llvm.assume(i1 %54)
   br label %62
@@ -3138,7 +3138,7 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
 
 36:                                               ; preds = %.thread181
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.6) #15
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %38 = icmp ne ptr %37, null
   call void @llvm.assume(i1 %38)
   br label %60
@@ -3151,7 +3151,7 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
 
 42:                                               ; preds = %39
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.6) #15
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %44 = icmp ne ptr %43, null
   call void @llvm.assume(i1 %44)
   br label %60
@@ -3167,7 +3167,7 @@ define hidden void @zif_base_convert(ptr noundef %0, ptr nocapture noundef write
   br i1 %.not150, label %51, label %54
 
 51:                                               ; preds = %45
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %53 = icmp ne ptr %52, null
   call void @llvm.assume(i1 %53)
   br label %60
@@ -4068,7 +4068,7 @@ define hidden void @zif_intdiv(ptr noundef %0, ptr nocapture noundef writeonly %
 26:                                               ; preds = %.thread130
   %27 = load ptr, ptr @zend_ce_division_by_zero_error, align 8
   %28 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %27, i64 noundef 0, ptr noundef nonnull @.str.13) #15
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %43
@@ -4083,7 +4083,7 @@ define hidden void @zif_intdiv(ptr noundef %0, ptr nocapture noundef writeonly %
 35:                                               ; preds = %31
   %36 = load ptr, ptr @zend_ce_arithmetic_error, align 8
   %37 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %36, i64 noundef 0, ptr noundef nonnull @.str.14) #15
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %43

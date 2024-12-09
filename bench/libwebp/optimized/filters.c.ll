@@ -27,13 +27,13 @@ define hidden void @VP8FiltersInit() local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   store ptr @NoneUnfilter_C, ptr @WebPUnfilters, align 16
-  store ptr @HorizontalUnfilter_C, ptr getelementptr inbounds (i8, ptr @WebPUnfilters, i64 8), align 8
-  store ptr @VerticalUnfilter_C, ptr getelementptr inbounds (i8, ptr @WebPUnfilters, i64 16), align 16
-  store ptr @GradientUnfilter_C, ptr getelementptr inbounds (i8, ptr @WebPUnfilters, i64 24), align 8
+  store ptr @HorizontalUnfilter_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUnfilters, i64 8), align 8
+  store ptr @VerticalUnfilter_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUnfilters, i64 16), align 16
+  store ptr @GradientUnfilter_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUnfilters, i64 24), align 8
   store ptr null, ptr @WebPFilters, align 16
-  store ptr @HorizontalFilter_C, ptr getelementptr inbounds (i8, ptr @WebPFilters, i64 8), align 8
-  store ptr @VerticalFilter_C, ptr getelementptr inbounds (i8, ptr @WebPFilters, i64 16), align 16
-  store ptr @GradientFilter_C, ptr getelementptr inbounds (i8, ptr @WebPFilters, i64 24), align 8
+  store ptr @HorizontalFilter_C, ptr getelementptr inbounds nuw (i8, ptr @WebPFilters, i64 8), align 8
+  store ptr @VerticalFilter_C, ptr getelementptr inbounds nuw (i8, ptr @WebPFilters, i64 16), align 16
+  store ptr @GradientFilter_C, ptr getelementptr inbounds nuw (i8, ptr @WebPFilters, i64 24), align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %VP8FiltersInit_body.exit, label %6
 

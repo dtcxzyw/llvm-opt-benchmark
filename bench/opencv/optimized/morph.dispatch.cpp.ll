@@ -510,7 +510,7 @@ define hidden void @_ZN2cv12cpu_baseline22getMorphologyRowFilterEiiii(ptr dead_o
   store i32 1, ptr %26, align 8, !noalias !4
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 1, ptr %27, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIhEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIhEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !noalias !4
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %28)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIhEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MinOpIhEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !4
@@ -522,7 +522,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIhEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpIhEENS1_13MorphRowNoVecEEE, i64 16), ptr %28, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpIhEENS1_13MorphRowNoVecEEE, i64 16), ptr %28, align 8, !noalias !4
   br label %92
 
 30:                                               ; preds = %81, %75, %69, %63, %57, %50, %44, %38, %32, %24, %87
@@ -539,7 +539,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIhEENS2_13M
   store i32 1, ptr %34, align 8, !noalias !9
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 1, ptr %35, align 4, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpItEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %33, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpItEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %33, align 8, !noalias !9
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %36)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpItEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MinOpItEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !9
@@ -551,7 +551,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpItEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc52
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpItEENS1_13MorphRowNoVecEEE, i64 16), ptr %36, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpItEENS1_13MorphRowNoVecEEE, i64 16), ptr %36, align 8, !noalias !9
   br label %92
 
 38:                                               ; preds = %23
@@ -563,7 +563,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpItEENS2_13M
   store i32 1, ptr %40, align 8, !noalias !14
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 1, ptr %41, align 4, !noalias !14
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIsEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %39, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIsEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %39, align 8, !noalias !14
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %42)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIsEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MinOpIsEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !14
@@ -575,7 +575,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIsEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc61
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpIsEENS1_13MorphRowNoVecEEE, i64 16), ptr %42, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpIsEENS1_13MorphRowNoVecEEE, i64 16), ptr %42, align 8, !noalias !14
   br label %92
 
 44:                                               ; preds = %23
@@ -587,7 +587,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIsEENS2_13M
   store i32 1, ptr %46, align 8, !noalias !19
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 1, ptr %47, align 4, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIfEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %45, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIfEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %45, align 8, !noalias !19
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %48)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIfEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MinOpIfEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !19
@@ -599,7 +599,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIfEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc70
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpIfEENS1_13MorphRowNoVecEEE, i64 16), ptr %48, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpIfEENS1_13MorphRowNoVecEEE, i64 16), ptr %48, align 8, !noalias !19
   br label %92
 
 50:                                               ; preds = %23
@@ -611,7 +611,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIfEENS2_13M
   store i32 1, ptr %52, align 8, !noalias !24
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 1, ptr %53, align 4, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIdEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %51, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIdEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %51, align 8, !noalias !24
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %54)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIdEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MinOpIdEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !24
@@ -623,7 +623,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIdEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc79
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpIdEENS1_13MorphRowNoVecEEE, i64 16), ptr %54, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MinOpIdEENS1_13MorphRowNoVecEEE, i64 16), ptr %54, align 8, !noalias !24
   br label %92
 
 56:                                               ; preds = %21
@@ -644,7 +644,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MinOpIdEENS2_13M
   store i32 1, ptr %59, align 8, !noalias !29
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 1, ptr %60, align 4, !noalias !29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIhEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %58, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIhEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %58, align 8, !noalias !29
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %61)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIhEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MaxOpIhEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !29
@@ -656,7 +656,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIhEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc88
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpIhEENS1_13MorphRowNoVecEEE, i64 16), ptr %61, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpIhEENS1_13MorphRowNoVecEEE, i64 16), ptr %61, align 8, !noalias !29
   br label %92
 
 63:                                               ; preds = %56
@@ -668,7 +668,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIhEENS2_13M
   store i32 1, ptr %65, align 8, !noalias !34
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 1, ptr %66, align 4, !noalias !34
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpItEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpItEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !34
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %67)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpItEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MaxOpItEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !34
@@ -680,7 +680,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpItEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc97
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpItEENS1_13MorphRowNoVecEEE, i64 16), ptr %67, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpItEENS1_13MorphRowNoVecEEE, i64 16), ptr %67, align 8, !noalias !34
   br label %92
 
 69:                                               ; preds = %56
@@ -692,7 +692,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpItEENS2_13M
   store i32 1, ptr %71, align 8, !noalias !39
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 1, ptr %72, align 4, !noalias !39
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIsEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %70, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIsEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %70, align 8, !noalias !39
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %73)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIsEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MaxOpIsEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !39
@@ -704,7 +704,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIsEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc106
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpIsEENS1_13MorphRowNoVecEEE, i64 16), ptr %73, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpIsEENS1_13MorphRowNoVecEEE, i64 16), ptr %73, align 8, !noalias !39
   br label %92
 
 75:                                               ; preds = %56
@@ -716,7 +716,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIsEENS2_13M
   store i32 1, ptr %77, align 8, !noalias !44
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i32 1, ptr %78, align 4, !noalias !44
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIfEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %76, align 8, !noalias !44
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIfEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %76, align 8, !noalias !44
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %79)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIfEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MaxOpIfEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !44
@@ -728,7 +728,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIfEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc115
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpIfEENS1_13MorphRowNoVecEEE, i64 16), ptr %79, align 8, !noalias !44
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpIfEENS1_13MorphRowNoVecEEE, i64 16), ptr %79, align 8, !noalias !44
   br label %92
 
 81:                                               ; preds = %56
@@ -740,7 +740,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIfEENS2_13M
   store i32 1, ptr %83, align 8, !noalias !49
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 1, ptr %84, align 4, !noalias !49
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIdEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %82, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIdEENS2_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %82, align 8, !noalias !49
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
   invoke void @_ZN2cv13BaseRowFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %85)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIdEENS2_13MorphRowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS3_5MaxOpIdEENS3_13MorphRowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !49
@@ -752,7 +752,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS2_5MaxOpIdEENS2_13MorphRowNoVecEEEED2Ev.exit: ; preds = %.noexc124
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpIdEENS1_13MorphRowNoVecEEE, i64 16), ptr %85, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5MaxOpIdEENS1_13MorphRowNoVecEEE, i64 16), ptr %85, align 8, !noalias !49
   br label %92
 
 87:                                               ; preds = %56, %23
@@ -913,7 +913,7 @@ define hidden void @_ZN2cv12cpu_baseline25getMorphologyColumnFilterEiiii(ptr dea
   store i32 1, ptr %26, align 8, !noalias !55
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 1, ptr %27, align 4, !noalias !55
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIhEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIhEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8, !noalias !55
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %28)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIhEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MinOpIhEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !55
@@ -925,7 +925,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIhEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpIhEENS1_16MorphColumnNoVecEEE, i64 16), ptr %28, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpIhEENS1_16MorphColumnNoVecEEE, i64 16), ptr %28, align 8, !noalias !55
   br label %92
 
 30:                                               ; preds = %81, %75, %69, %63, %57, %50, %44, %38, %32, %24, %87
@@ -942,7 +942,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIhEENS2_
   store i32 1, ptr %34, align 8, !noalias !60
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 1, ptr %35, align 4, !noalias !60
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpItEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %33, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpItEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %33, align 8, !noalias !60
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %36)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpItEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MinOpItEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !60
@@ -954,7 +954,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpItEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc52
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpItEENS1_16MorphColumnNoVecEEE, i64 16), ptr %36, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpItEENS1_16MorphColumnNoVecEEE, i64 16), ptr %36, align 8, !noalias !60
   br label %92
 
 38:                                               ; preds = %23
@@ -966,7 +966,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpItEENS2_
   store i32 1, ptr %40, align 8, !noalias !65
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 1, ptr %41, align 4, !noalias !65
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIsEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %39, align 8, !noalias !65
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIsEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %39, align 8, !noalias !65
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %42)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIsEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MinOpIsEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !65
@@ -978,7 +978,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIsEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc61
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpIsEENS1_16MorphColumnNoVecEEE, i64 16), ptr %42, align 8, !noalias !65
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpIsEENS1_16MorphColumnNoVecEEE, i64 16), ptr %42, align 8, !noalias !65
   br label %92
 
 44:                                               ; preds = %23
@@ -990,7 +990,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIsEENS2_
   store i32 1, ptr %46, align 8, !noalias !70
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 1, ptr %47, align 4, !noalias !70
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIfEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %45, align 8, !noalias !70
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIfEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %45, align 8, !noalias !70
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %48)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIfEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MinOpIfEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !70
@@ -1002,7 +1002,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIfEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc70
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpIfEENS1_16MorphColumnNoVecEEE, i64 16), ptr %48, align 8, !noalias !70
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpIfEENS1_16MorphColumnNoVecEEE, i64 16), ptr %48, align 8, !noalias !70
   br label %92
 
 50:                                               ; preds = %23
@@ -1014,7 +1014,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIfEENS2_
   store i32 1, ptr %52, align 8, !noalias !75
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 1, ptr %53, align 4, !noalias !75
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIdEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %51, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIdEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %51, align 8, !noalias !75
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %54)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIdEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MinOpIdEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !75
@@ -1026,7 +1026,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIdEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc79
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpIdEENS1_16MorphColumnNoVecEEE, i64 16), ptr %54, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MinOpIdEENS1_16MorphColumnNoVecEEE, i64 16), ptr %54, align 8, !noalias !75
   br label %92
 
 56:                                               ; preds = %21
@@ -1047,7 +1047,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MinOpIdEENS2_
   store i32 1, ptr %59, align 8, !noalias !80
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 1, ptr %60, align 4, !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIhEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %58, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIhEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %58, align 8, !noalias !80
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %61)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIhEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MaxOpIhEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !80
@@ -1059,7 +1059,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIhEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc88
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpIhEENS1_16MorphColumnNoVecEEE, i64 16), ptr %61, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpIhEENS1_16MorphColumnNoVecEEE, i64 16), ptr %61, align 8, !noalias !80
   br label %92
 
 63:                                               ; preds = %56
@@ -1071,7 +1071,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIhEENS2_
   store i32 1, ptr %65, align 8, !noalias !85
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 1, ptr %66, align 4, !noalias !85
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpItEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpItEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !85
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %67)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpItEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MaxOpItEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !85
@@ -1083,7 +1083,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpItEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc97
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpItEENS1_16MorphColumnNoVecEEE, i64 16), ptr %67, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpItEENS1_16MorphColumnNoVecEEE, i64 16), ptr %67, align 8, !noalias !85
   br label %92
 
 69:                                               ; preds = %56
@@ -1095,7 +1095,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpItEENS2_
   store i32 1, ptr %71, align 8, !noalias !90
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 1, ptr %72, align 4, !noalias !90
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIsEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %70, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIsEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %70, align 8, !noalias !90
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %73)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIsEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MaxOpIsEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !90
@@ -1107,7 +1107,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIsEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc106
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpIsEENS1_16MorphColumnNoVecEEE, i64 16), ptr %73, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpIsEENS1_16MorphColumnNoVecEEE, i64 16), ptr %73, align 8, !noalias !90
   br label %92
 
 75:                                               ; preds = %56
@@ -1119,7 +1119,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIsEENS2_
   store i32 1, ptr %77, align 8, !noalias !95
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i32 1, ptr %78, align 4, !noalias !95
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIfEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %76, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIfEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %76, align 8, !noalias !95
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %79)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIfEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MaxOpIfEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !95
@@ -1131,7 +1131,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIfEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc115
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpIfEENS1_16MorphColumnNoVecEEE, i64 16), ptr %79, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpIfEENS1_16MorphColumnNoVecEEE, i64 16), ptr %79, align 8, !noalias !95
   br label %92
 
 81:                                               ; preds = %56
@@ -1143,7 +1143,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIfEENS2_
   store i32 1, ptr %83, align 8, !noalias !100
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 1, ptr %84, align 4, !noalias !100
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIdEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %82, align 8, !noalias !100
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIdEENS2_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %82, align 8, !noalias !100
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
   invoke void @_ZN2cv16BaseColumnFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %85)
           to label %_ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIdEENS2_16MorphColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS3_5MaxOpIdEENS3_16MorphColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !100
@@ -1155,7 +1155,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBA
   br label %.body
 
 _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS2_5MaxOpIdEENS2_16MorphColumnNoVecEEEED2Ev.exit: ; preds = %.noexc124
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpIdEENS1_16MorphColumnNoVecEEE, i64 16), ptr %85, align 8, !noalias !100
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_5MaxOpIdEENS1_16MorphColumnNoVecEEE, i64 16), ptr %85, align 8, !noalias !100
   br label %92
 
 87:                                               ; preds = %56, %23
@@ -1319,7 +1319,7 @@ define hidden void @_ZN2cv12cpu_baseline19getMorphologyFilterEiiRKNS_3MatENS_6Po
   store i32 1, ptr %63, align 8, !noalias !105
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store i32 1, ptr %64, align 4, !noalias !105
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIhEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %62, align 8, !noalias !105
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIhEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %62, align 8, !noalias !105
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33), !noalias !105
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34), !noalias !105
@@ -1328,7 +1328,7 @@ define hidden void @_ZN2cv12cpu_baseline19getMorphologyFilterEiiRKNS_3MatENS_6Po
           to label %.noexc.i.i.i.i.i unwind label %119, !noalias !105
 
 .noexc.i.i.i.i.i:                                 ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %65, align 8, !noalias !105
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %65, align 8, !noalias !105
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 64
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 32
@@ -1486,7 +1486,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIhEENS2_10Morp
   store i32 1, ptr %123, align 8, !noalias !110
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 12
   store i32 1, ptr %124, align 4, !noalias !110
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpItEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %122, align 8, !noalias !110
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpItEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %122, align 8, !noalias !110
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30), !noalias !110
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31), !noalias !110
@@ -1495,7 +1495,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIhEENS2_10Morp
           to label %.noexc.i.i.i.i.i56 unwind label %179, !noalias !110
 
 .noexc.i.i.i.i.i56:                               ; preds = %.noexc72
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpItEENS1_10MorphNoVecEEE, i64 16), ptr %125, align 8, !noalias !110
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpItEENS1_10MorphNoVecEEE, i64 16), ptr %125, align 8, !noalias !110
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 64
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 32
@@ -1653,7 +1653,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpItEENS2_10Morp
   store i32 1, ptr %183, align 8, !noalias !115
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 12
   store i32 1, ptr %184, align 4, !noalias !115
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIsEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %182, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIsEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %182, align 8, !noalias !115
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !115
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28), !noalias !115
@@ -1662,7 +1662,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpItEENS2_10Morp
           to label %.noexc.i.i.i.i.i82 unwind label %239, !noalias !115
 
 .noexc.i.i.i.i.i82:                               ; preds = %.noexc98
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %185, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %185, align 8, !noalias !115
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 40
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 64
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 32
@@ -1820,7 +1820,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIsEENS2_10Morp
   store i32 1, ptr %243, align 8, !noalias !120
   %244 = getelementptr inbounds nuw i8, ptr %242, i64 12
   store i32 1, ptr %244, align 4, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIfEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %242, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIfEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %242, align 8, !noalias !120
   %245 = getelementptr inbounds nuw i8, ptr %242, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25), !noalias !120
@@ -1829,7 +1829,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIsEENS2_10Morp
           to label %.noexc.i.i.i.i.i108 unwind label %299, !noalias !120
 
 .noexc.i.i.i.i.i108:                              ; preds = %.noexc124
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %245, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %245, align 8, !noalias !120
   %246 = getelementptr inbounds nuw i8, ptr %242, i64 40
   %247 = getelementptr inbounds nuw i8, ptr %242, i64 64
   %248 = getelementptr inbounds nuw i8, ptr %242, i64 32
@@ -1987,7 +1987,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIfEENS2_10Morp
   store i32 1, ptr %303, align 8, !noalias !125
   %304 = getelementptr inbounds nuw i8, ptr %302, i64 12
   store i32 1, ptr %304, align 4, !noalias !125
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIdEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %302, align 8, !noalias !125
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIdEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %302, align 8, !noalias !125
   %305 = getelementptr inbounds nuw i8, ptr %302, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !125
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22), !noalias !125
@@ -1996,7 +1996,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIfEENS2_10Morp
           to label %.noexc.i.i.i.i.i134 unwind label %359, !noalias !125
 
 .noexc.i.i.i.i.i134:                              ; preds = %.noexc150
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %305, align 8, !noalias !125
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %305, align 8, !noalias !125
   %306 = getelementptr inbounds nuw i8, ptr %302, i64 40
   %307 = getelementptr inbounds nuw i8, ptr %302, i64 64
   %308 = getelementptr inbounds nuw i8, ptr %302, i64 32
@@ -2163,7 +2163,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIdEENS2_10Morp
   store i32 1, ptr %364, align 8, !noalias !130
   %365 = getelementptr inbounds nuw i8, ptr %363, i64 12
   store i32 1, ptr %365, align 4, !noalias !130
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIhEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %363, align 8, !noalias !130
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIhEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %363, align 8, !noalias !130
   %366 = getelementptr inbounds nuw i8, ptr %363, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !130
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19), !noalias !130
@@ -2172,7 +2172,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MinOpIdEENS2_10Morp
           to label %.noexc.i.i.i.i.i160 unwind label %420, !noalias !130
 
 .noexc.i.i.i.i.i160:                              ; preds = %.noexc176
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %366, align 8, !noalias !130
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %366, align 8, !noalias !130
   %367 = getelementptr inbounds nuw i8, ptr %363, i64 40
   %368 = getelementptr inbounds nuw i8, ptr %363, i64 64
   %369 = getelementptr inbounds nuw i8, ptr %363, i64 32
@@ -2330,7 +2330,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIhEENS2_10Morp
   store i32 1, ptr %424, align 8, !noalias !135
   %425 = getelementptr inbounds nuw i8, ptr %423, i64 12
   store i32 1, ptr %425, align 4, !noalias !135
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpItEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %423, align 8, !noalias !135
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpItEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %423, align 8, !noalias !135
   %426 = getelementptr inbounds nuw i8, ptr %423, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !135
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16), !noalias !135
@@ -2339,7 +2339,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIhEENS2_10Morp
           to label %.noexc.i.i.i.i.i186 unwind label %480, !noalias !135
 
 .noexc.i.i.i.i.i186:                              ; preds = %.noexc202
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpItEENS1_10MorphNoVecEEE, i64 16), ptr %426, align 8, !noalias !135
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpItEENS1_10MorphNoVecEEE, i64 16), ptr %426, align 8, !noalias !135
   %427 = getelementptr inbounds nuw i8, ptr %423, i64 40
   %428 = getelementptr inbounds nuw i8, ptr %423, i64 64
   %429 = getelementptr inbounds nuw i8, ptr %423, i64 32
@@ -2497,7 +2497,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpItEENS2_10Morp
   store i32 1, ptr %484, align 8, !noalias !140
   %485 = getelementptr inbounds nuw i8, ptr %483, i64 12
   store i32 1, ptr %485, align 4, !noalias !140
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIsEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %483, align 8, !noalias !140
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIsEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %483, align 8, !noalias !140
   %486 = getelementptr inbounds nuw i8, ptr %483, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !140
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13), !noalias !140
@@ -2506,7 +2506,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpItEENS2_10Morp
           to label %.noexc.i.i.i.i.i212 unwind label %540, !noalias !140
 
 .noexc.i.i.i.i.i212:                              ; preds = %.noexc228
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %486, align 8, !noalias !140
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %486, align 8, !noalias !140
   %487 = getelementptr inbounds nuw i8, ptr %483, i64 40
   %488 = getelementptr inbounds nuw i8, ptr %483, i64 64
   %489 = getelementptr inbounds nuw i8, ptr %483, i64 32
@@ -2664,7 +2664,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIsEENS2_10Morp
   store i32 1, ptr %544, align 8, !noalias !145
   %545 = getelementptr inbounds nuw i8, ptr %543, i64 12
   store i32 1, ptr %545, align 4, !noalias !145
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIfEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %543, align 8, !noalias !145
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIfEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %543, align 8, !noalias !145
   %546 = getelementptr inbounds nuw i8, ptr %543, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !145
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10), !noalias !145
@@ -2673,7 +2673,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIsEENS2_10Morp
           to label %.noexc.i.i.i.i.i238 unwind label %600, !noalias !145
 
 .noexc.i.i.i.i.i238:                              ; preds = %.noexc254
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %546, align 8, !noalias !145
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %546, align 8, !noalias !145
   %547 = getelementptr inbounds nuw i8, ptr %543, i64 40
   %548 = getelementptr inbounds nuw i8, ptr %543, i64 64
   %549 = getelementptr inbounds nuw i8, ptr %543, i64 32
@@ -2831,7 +2831,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIfEENS2_10Morp
   store i32 1, ptr %604, align 8, !noalias !150
   %605 = getelementptr inbounds nuw i8, ptr %603, i64 12
   store i32 1, ptr %605, align 4, !noalias !150
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIdEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %603, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIdEENS2_10MorphNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %603, align 8, !noalias !150
   %606 = getelementptr inbounds nuw i8, ptr %603, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !150
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7), !noalias !150
@@ -2840,7 +2840,7 @@ _ZN2cv3PtrINS_12cpu_baseline12_GLOBAL__N_111MorphFilterINS2_5MaxOpIfEENS2_10Morp
           to label %.noexc.i.i.i.i.i264 unwind label %660, !noalias !150
 
 .noexc.i.i.i.i.i264:                              ; preds = %.noexc280
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %606, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %606, align 8, !noalias !150
   %607 = getelementptr inbounds nuw i8, ptr %603, i64 40
   %608 = getelementptr inbounds nuw i8, ptr %603, i64 64
   %609 = getelementptr inbounds nuw i8, ptr %603, i64 32
@@ -4060,7 +4060,7 @@ _ZN2cv3PtrINS_16BaseColumnFilterEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %366, align 8, !noalias !170
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 12
   store i32 1, ptr %367, align 4, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12FilterEngineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %365, align 8, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12FilterEngineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %365, align 8, !noalias !170
   %368 = getelementptr inbounds nuw i8, ptr %365, i64 16
   invoke void @_ZN2cv12FilterEngineC1ERKNS_3PtrINS_10BaseFilterEEERKNS1_INS_13BaseRowFilterEEERKNS1_INS_16BaseColumnFilterEEEiiiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(304) %368, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %2, i32 noundef %2, i32 noundef %2, i32 noundef %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %370 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12FilterEngineESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit18.i.i.i.i.i, !noalias !170
@@ -14665,7 +14665,7 @@ declare void @_ZN2cv10BaseFilterD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIhEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -14692,7 +14692,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIhEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -15108,7 +15108,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpItEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpItEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpItEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15135,7 +15135,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpItEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpItEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpItEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -15445,7 +15445,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIsEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15472,7 +15472,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIsEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -15782,7 +15782,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIfEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15809,7 +15809,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIfEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -16120,7 +16120,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIdEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -16147,7 +16147,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIdEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -16458,7 +16458,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIhEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -16485,7 +16485,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIhEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIhEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -16795,7 +16795,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpItEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpItEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpItEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -16822,7 +16822,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpItEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpItEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpItEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -17132,7 +17132,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIsEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -17159,7 +17159,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIsEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIsEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -17469,7 +17469,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIfEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -17496,7 +17496,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIfEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIfEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -17807,7 +17807,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIdEENS1_10MorphNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -17834,7 +17834,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPhSaIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIdEENS1_10MorphNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOpIdEENS1_10MorphNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

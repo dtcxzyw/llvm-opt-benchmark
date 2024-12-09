@@ -176,7 +176,7 @@ if.end47:                                         ; preds = %if.else40, %regcomp
   %6 = load i32, ptr %pickaxe_opts, align 8
   %and.i = and i32 %6, 1
   %tobool.not.i36 = icmp eq i32 %and.i, 0
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp176.i = icmp sgt i32 %7, 0
   br i1 %tobool.not.i36, label %for.cond15.preheader.i, label %for.cond.preheader.i
 
@@ -188,7 +188,7 @@ for.cond15.preheader.i:                           ; preds = %if.end47
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %9 = sext i32 %8 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %9
   br i1 %cmp.i, label %for.body.i, label %for.cond5.preheader.i, !llvm.loop !5
@@ -213,7 +213,7 @@ for.body8.i:                                      ; preds = %for.cond5.preheader
   %14 = load ptr, ptr %arrayidx11.i, align 8
   call void @diff_free_filepair(ptr noundef %14) #9
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %16 = sext i32 %15 to i64
   %cmp7.i = icmp slt i64 %indvars.iv.next11.i, %16
   br i1 %cmp7.i, label %for.body8.i, label %if.end31.i, !llvm.loop !7
@@ -237,7 +237,7 @@ if.else26.i:                                      ; preds = %for.body18.i
 
 for.inc28.i:                                      ; preds = %if.else26.i, %if.then25.i
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %20 = sext i32 %19 to i64
   %cmp17.i = icmp slt i64 %indvars.iv.next14.i, %20
   br i1 %cmp17.i, label %for.body18.i, label %if.end31.i, !llvm.loop !8

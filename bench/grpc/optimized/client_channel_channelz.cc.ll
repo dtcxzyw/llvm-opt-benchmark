@@ -193,7 +193,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8channelz14SubchannelNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core8channelz14SubchannelNodeE, i64 16), ptr %this, align 8
   %connectivity_state_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %connectivity_state_, align 8
   %socket_mu_ = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -270,7 +270,7 @@ declare void @_ZN9grpc_core8channelz8BaseNodeD2Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core8channelz14SubchannelNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8channelz14SubchannelNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core8channelz14SubchannelNodeE, i64 16), ptr %this, align 8
   %trace_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   tail call void @_ZN9grpc_core8channelz12ChannelTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %trace_) #18
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -753,7 +753,7 @@ invoke.cont74:                                    ; preds = %_ZN9grpc_core12expe
 
 if.then.i.i:                                      ; preds = %invoke.cont74
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.11, ptr %_M_reason.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #21
@@ -775,7 +775,7 @@ call.i64.noexc:                                   ; preds = %if.then
           to label %.noexc67 unwind label %lpad80
 
 .noexc67:                                         ; preds = %call.i64.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 5))
           to label %invoke.cont81 unwind label %lpad.i65
 
 lpad.i65:                                         ; preds = %.noexc67
@@ -1510,7 +1510,7 @@ call.i185.noexc:                                  ; preds = %for.inc.i.i.i.i.i
           to label %.noexc191 unwind label %lpad260
 
 .noexc191:                                        ; preds = %call.i185.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp258, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp258, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 9))
           to label %invoke.cont261 unwind label %lpad.i189
 
 lpad.i189:                                        ; preds = %.noexc191

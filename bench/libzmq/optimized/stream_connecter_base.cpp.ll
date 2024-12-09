@@ -42,8 +42,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 256), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 256), ptr %0, align 8
   %_addr = getelementptr inbounds nuw i8, ptr %this, i64 1464
   store ptr %addr_, ptr %_addr, align 8
   %_s = getelementptr inbounds nuw i8, ptr %this, i64 1472
@@ -141,9 +141,9 @@ declare void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq23stream_connecter_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1544) initializes((0, 8), (1448, 1456)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 256), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 256), ptr %add.ptr, align 8
   %_reconnect_timer_started = getelementptr inbounds nuw i8, ptr %this, i64 1529
   %0 = load i8, ptr %_reconnect_timer_started, align 1
   %tobool = trunc i8 %0 to i1

@@ -593,9 +593,9 @@ entry:
   %ref.tmp = alloca %"class.rocksdb::SkipListFactory", align 8
   %ref.tmp38 = alloca %"class.std::allocator.134", align 1
   %new_cache = alloca %"class.std::shared_ptr.189", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb8MemTable13KeyComparatorE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb8MemTable13KeyComparatorE, i64 16), ptr %this, align 16
   %comparator.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %comparator.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %comparator.i, align 8
   %user_comparator_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %user_comparator_2.i.i = getelementptr inbounds nuw i8, ptr %cmp, i64 8
   %0 = load i64, ptr %user_comparator_2.i.i, align 8
@@ -666,7 +666,7 @@ invoke.cont23:                                    ; preds = %invoke.cont20
 
 invoke.cont28:                                    ; preds = %invoke.cont23
   store ptr %call.i29, ptr %range_del_table_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %ref.tmp, align 8
   %options_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %12 = load ptr, ptr %options_.i.i.i.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
@@ -990,7 +990,7 @@ invoke.cont71:                                    ; preds = %if.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !7
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i33, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb33FragmentedRangeTombstoneListCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i33, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb33FragmentedRangeTombstoneListCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i33, align 8, !noalias !7
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i33, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl.i.i.i.i.i.i, i8 0, i64 56, i1 false), !noalias !7
   store ptr %call5.i.i.i2.i.i.i.i33, ptr %_M_refcount.i.i.i, align 8, !alias.scope !7
@@ -1012,7 +1012,7 @@ call5.i.i.i2.i.i.i.i.noexc:                       ; preds = %invoke.cont78
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i34, align 8, !noalias !10
   %_M_weak_count.i.i.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i38, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i35, align 4, !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKSt10shared_ptrIN7rocksdb33FragmentedRangeTombstoneListCacheEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i38, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKSt10shared_ptrIN7rocksdb33FragmentedRangeTombstoneListCacheEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i38, align 8, !noalias !10
   %_M_impl.i.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i38, i64 16
   %55 = load ptr, ptr %new_cache, align 8, !noalias !10
   store ptr %55, ptr %_M_impl.i.i.i.i.i.i36, align 8, !noalias !10
@@ -1383,7 +1383,7 @@ declare void @_ZN7rocksdb15SkipListFactoryC1Em(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15SkipListFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %options_.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2249,7 +2249,7 @@ _ZNSt6vectorISt4pairIiN7rocksdb11InternalKeyEESaIS3_EED2Ev.exit: ; preds = %invo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD2Ev(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
   %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_) #31
   %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -2541,7 +2541,7 @@ _ZNKSt14default_deleteIN7rocksdb11MemTableRepEEclEPS1_.exit.i6: ; preds = %_ZNSt
 _ZNSt10unique_ptrIN7rocksdb11MemTableRepESt14default_deleteIS1_EED2Ev.exit9: ; preds = %_ZNSt10unique_ptrIN7rocksdb11MemTableRepESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN7rocksdb11MemTableRepEEclEPS1_.exit.i6
   store ptr null, ptr %table_, align 16
   %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %arena_, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %arena_, align 16
   %arena_.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i) #31
   %shards_.i = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -3210,7 +3210,7 @@ call.i41.noexc:                                   ; preds = %if.then40
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i41.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 69))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 69))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -4139,7 +4139,7 @@ define linkonce_odr void @_ZN7rocksdb16MemTableIteratorC2ERKNS_8MemTableERKNS_11
 invoke.cont6:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %this, align 8
   %bloom_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %bloom_, align 8
   %prefix_extractor_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -4147,9 +4147,9 @@ invoke.cont6:
   %1 = load ptr, ptr %prefix_extractor_2, align 8
   store ptr %1, ptr %prefix_extractor_, align 8
   %comparator_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb8MemTable13KeyComparatorE, i64 16), ptr %comparator_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb8MemTable13KeyComparatorE, i64 16), ptr %comparator_, align 8
   %comparator.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %comparator.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %comparator.i, align 8
   %user_comparator_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %user_comparator_2.i.i = getelementptr inbounds nuw i8, ptr %mem, i64 16
   %2 = load i64, ptr %user_comparator_2.i.i, align 16
@@ -4392,7 +4392,7 @@ invoke.cont13:                                    ; preds = %if.then12
           to label %.noexc7 unwind label %lpad15
 
 .noexc7:                                          ; preds = %invoke.cont13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %call14, align 8
   %bloom_.i = getelementptr inbounds nuw i8, ptr %call14, i64 40
   store ptr null, ptr %bloom_.i, align 8
   %prefix_extractor_.i = getelementptr inbounds nuw i8, ptr %call14, i64 48
@@ -4400,9 +4400,9 @@ invoke.cont13:                                    ; preds = %if.then12
   %20 = load ptr, ptr %prefix_extractor_2.i, align 8
   store ptr %20, ptr %prefix_extractor_.i, align 8
   %comparator_.i = getelementptr inbounds nuw i8, ptr %call14, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb8MemTable13KeyComparatorE, i64 16), ptr %comparator_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb8MemTable13KeyComparatorE, i64 16), ptr %comparator_.i, align 8
   %comparator.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %comparator.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %comparator.i.i, align 8
   %user_comparator_.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 72
   %user_comparator_2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %21 = load i64, ptr %user_comparator_2.i.i.i, align 16
@@ -4710,7 +4710,7 @@ if.then:                                          ; preds = %entry
           to label %.noexc unwind label %lpad3.body.thread
 
 .noexc:                                           ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %call2, align 8
   %bloom_.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store ptr null, ptr %bloom_.i, align 8
   %prefix_extractor_.i = getelementptr inbounds nuw i8, ptr %call2, i64 48
@@ -4718,9 +4718,9 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %prefix_extractor_2.i, align 8
   store ptr %2, ptr %prefix_extractor_.i, align 8
   %comparator_.i = getelementptr inbounds nuw i8, ptr %call2, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb8MemTable13KeyComparatorE, i64 16), ptr %comparator_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb8MemTable13KeyComparatorE, i64 16), ptr %comparator_.i, align 8
   %comparator.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %comparator.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %comparator.i.i, align 8
   %user_comparator_.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 72
   %user_comparator_2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %user_comparator_2.i.i.i, align 16
@@ -6108,7 +6108,7 @@ if.then221:                                       ; preds = %if.end218
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !57
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !57
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb33FragmentedRangeTombstoneListCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i, align 8, !noalias !57
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb33FragmentedRangeTombstoneListCacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i, align 8, !noalias !57
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl.i.i.i.i.i.i, i8 0, i64 56, i1 false), !noalias !57
   store ptr %call5.i.i.i2.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !57
@@ -6166,7 +6166,7 @@ call5.i.i.i2.i.i.i.i284.noexc:                    ; preds = %invoke.cont232
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i285, align 8, !noalias !60
   %_M_weak_count.i.i.i.i.i.i286 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i284289, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i286, align 4, !noalias !60
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKSt10shared_ptrIN7rocksdb33FragmentedRangeTombstoneListCacheEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i284289, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKSt10shared_ptrIN7rocksdb33FragmentedRangeTombstoneListCacheEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i284289, align 8, !noalias !60
   %_M_impl.i.i.i.i.i.i287 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i284289, i64 16
   %122 = load ptr, ptr %new_cache, align 8, !noalias !60
   store ptr %122, ptr %_M_impl.i.i.i.i.i.i287, align 8, !noalias !60
@@ -11685,7 +11685,7 @@ declare void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD0Ev(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
   %arena_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i) #31
   %shards_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -12412,7 +12412,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb16MemTableIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %this, align 8
   %arena_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 89
   %0 = load i8, ptr %arena_mode_, align 1
   %tobool = trunc i8 %0 to i1
@@ -12459,7 +12459,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %if.end, %_ZNKSt14de
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb16MemTableIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16MemTableIteratorE, i64 16), ptr %this, align 8
   %arena_mode_.i = getelementptr inbounds nuw i8, ptr %this, i64 89
   %0 = load i8, ptr %arena_mode_.i, align 1
   %tobool.i = trunc i8 %0 to i1

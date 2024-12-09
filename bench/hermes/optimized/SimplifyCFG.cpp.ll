@@ -1354,7 +1354,7 @@ _ZNSt10unique_ptrIN6hermes11SimplifyCFGESt14default_deleteIS1_EED2Ev.exit:
   store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !29
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 11, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes11SimplifyCFGE, i64 16), ptr %call.i, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes11SimplifyCFGE, i64 16), ptr %call.i, align 8, !noalias !29
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }

@@ -53,12 +53,12 @@ define internal range(i32 -1, 1) i32 @prte_mca_ras_slurm_component_query(ptr noc
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 228), align 4
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 228), align 4
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %5, %2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ras_base_framework, i64 76), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %9, 64
   br i1 %or.cond, label %10, label %17
 
@@ -85,16 +85,16 @@ define internal range(i32 -1, 1) i32 @prte_mca_ras_slurm_component_query(ptr noc
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ras_slurm_register() #1 {
-  store i32 30, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 224), align 8
-  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 224)) #4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 228), align 4
-  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 228)) #4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 232), align 8
-  %3 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 232)) #4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 240), align 8
-  %4 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 240)) #4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 241), align 1
-  %5 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_slurm_component, i64 241)) #4
+  store i32 30, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 224), align 8
+  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 224)) #4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 228), align 4
+  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 228)) #4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 232), align 8
+  %3 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 232)) #4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 240), align 8
+  %4 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 240)) #4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 241), align 1
+  %5 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 241)) #4
   ret i32 0
 }
 

@@ -964,7 +964,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %_ZN5Yosys5RTLIL7S
   br i1 %.not.i120, label %264, label %260
 
 260:                                              ; preds = %258
-  %261 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 1))
+  %261 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 1))
           to label %262 unwind label %268, !noalias !15
 
 262:                                              ; preds = %260
@@ -8577,7 +8577,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit726: ; preds = %_ZN5Yosys5RTLI
   br i1 %.not.i678, label %3503, label %3499
 
 3499:                                             ; preds = %3497
-  %3500 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 1))
+  %3500 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 1))
           to label %3501 unwind label %3508, !noalias !78
 
 3501:                                             ; preds = %3499
@@ -16514,7 +16514,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114EquivPurgePassE, i64 16), ptr @_ZN12_GLOBAL__N_114EquivPurgePassE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114EquivPurgePassE, i64 16), ptr @_ZN12_GLOBAL__N_114EquivPurgePassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

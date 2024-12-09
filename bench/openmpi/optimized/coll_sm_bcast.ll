@@ -46,7 +46,7 @@ define i32 @mca_coll_sm_bcast_intra(ptr noundef %0, i32 noundef %1, ptr noundef 
   %20 = getelementptr i8, ptr %.val135, i64 16
   %.val135.val = load i32, ptr %20, align 8
   %21 = load i32, ptr @opal_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not130 = icmp eq i32 %21, %22
   br i1 %.not130, label %24, label %23
 
@@ -73,7 +73,7 @@ define i32 @mca_coll_sm_bcast_intra(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %24
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %32, ptr %33, align 8
@@ -156,10 +156,10 @@ opal_convertor_get_packed_size.exit:              ; preds = %61, %73
   %82 = load i32, ptr %76, align 8
   %83 = add i32 %82, 1
   store i32 %83, ptr %76, align 8
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %85 = urem i32 %82, %84
   %86 = load ptr, ptr %77, align 8
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %88 = mul nsw i32 %87, %85
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %86, i64 %89
@@ -194,7 +194,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %61, %73
   %102 = add i32 %101, -1
   %103 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store volatile i32 %102, ptr %103, align 4
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 308), align 4
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 308), align 4
   %105 = mul i32 %104, %85
   %106 = add nsw i32 %85, 1
   %107 = mul nsw i32 %104, %106
@@ -207,7 +207,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %61, %73
   %.1115.us = phi i64 [ %132, %._crit_edge.us ], [ %.0114, %.loopexit ]
   %110 = load ptr, ptr %79, align 8
   %111 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %110, i64 %indvars.iv204
-  %112 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %113 = sext i32 %112 to i64
   store i64 %113, ptr %8, align 8
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -225,7 +225,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %61, %73
 121:                                              ; preds = %.lr.ph.us, %121
   %indvars.iv199 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next200, %121 ]
   %122 = load ptr, ptr %111, align 8
-  %123 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %124 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv199
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %125, align 8
@@ -251,7 +251,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %61, %73
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.split ], [ %108, %.loopexit ]
   %.1115 = phi i64 [ %146, %.split ], [ %.0114, %.loopexit ]
   %136 = load ptr, ptr %79, align 8
-  %137 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %138 = sext i32 %137 to i64
   store i64 %138, ptr %8, align 8
   %139 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %136, i64 %indvars.iv196, i32 1
@@ -321,10 +321,10 @@ opal_convertor_get_packed_size.exit142:           ; preds = %152, %164
 171:                                              ; preds = %257, %opal_convertor_get_packed_size.exit142
   %.2 = phi i64 [ 0, %opal_convertor_get_packed_size.exit142 ], [ %253, %257 ]
   %172 = load i32, ptr %167, align 8
-  %173 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %174 = urem i32 %172, %173
   %175 = load ptr, ptr %168, align 8
-  %176 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %176 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %177 = mul nsw i32 %176, %174
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i8, ptr %175, i64 %178
@@ -359,7 +359,7 @@ opal_convertor_get_packed_size.exit142:           ; preds = %152, %164
   %194 = phi i32 [ %172, %171 ], [ %183, %186 ], [ %191, %189 ]
   %195 = add i32 %194, 1
   store i32 %195, ptr %167, align 8
-  %196 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 308), align 4
+  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 308), align 4
   %197 = mul i32 %196, %174
   %198 = add nsw i32 %174, 1
   %199 = mul nsw i32 %196, %198
@@ -376,7 +376,7 @@ opal_convertor_get_packed_size.exit142:           ; preds = %152, %164
   %206 = load ptr, ptr %169, align 8
   %207 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %206, i64 %indvars.iv192
   %208 = load ptr, ptr %207, align 8
-  %209 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %209 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %210 = mul nsw i32 %209, %.val
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds i8, ptr %208, i64 %211
@@ -415,7 +415,7 @@ opal_convertor_get_packed_size.exit142:           ; preds = %152, %164
 222:                                              ; preds = %.loopexit154
   %223 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %224 = load ptr, ptr %223, align 8
-  %225 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %225 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %226 = mul nsw i32 %225, %.val
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds i8, ptr %224, i64 %227
@@ -431,7 +431,7 @@ opal_convertor_get_packed_size.exit142:           ; preds = %152, %164
 233:                                              ; preds = %222, %233
   %indvars.iv = phi i64 [ 0, %222 ], [ %indvars.iv.next, %233 ]
   %234 = load ptr, ptr %207, align 8
-  %235 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %235 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %236 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %237 = load ptr, ptr %236, align 8
   %238 = load i32, ptr %237, align 8
@@ -449,7 +449,7 @@ opal_convertor_get_packed_size.exit142:           ; preds = %152, %164
   %.0111 = phi i32 [ %205, %.loopexit154 ], [ %.val, %233 ]
   %244 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %245 = load ptr, ptr %244, align 8
-  %246 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %246 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %247 = mul nsw i32 %246, %.0111
   %248 = sext i32 %247 to i64
   %249 = getelementptr inbounds i8, ptr %245, i64 %248

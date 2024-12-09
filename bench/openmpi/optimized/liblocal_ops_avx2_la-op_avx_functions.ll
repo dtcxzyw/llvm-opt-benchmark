@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_max_int8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader134, label %19
@@ -46,7 +46,7 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -182,7 +182,7 @@ default.unreachable:                              ; preds = %.lr.ph151
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_max_uint8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader134, label %19
@@ -213,7 +213,7 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -349,7 +349,7 @@ default.unreachable:                              ; preds = %.lr.ph151
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_max_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader134, label %19
@@ -380,7 +380,7 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -518,7 +518,7 @@ default.unreachable:                              ; preds = %.lr.ph151
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_max_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader134, label %19
@@ -549,7 +549,7 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -687,7 +687,7 @@ default.unreachable:                              ; preds = %.lr.ph151
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_max_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader127, label %19
@@ -718,7 +718,7 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -856,7 +856,7 @@ default.unreachable:                              ; preds = %.lr.ph144
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_max_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader127, label %19
@@ -887,7 +887,7 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -1025,7 +1025,7 @@ default.unreachable:                              ; preds = %.lr.ph144
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_2buff_max_float_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %18, label %.preheader128
@@ -1056,7 +1056,7 @@ define internal void @ompi_op_avx_2buff_max_float_avx2(ptr nocapture noundef rea
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %18
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -1200,7 +1200,7 @@ default.unreachable:                              ; preds = %.lr.ph145
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_2buff_max_double_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %18, label %.preheader128
@@ -1231,7 +1231,7 @@ define internal void @ompi_op_avx_2buff_max_double_avx2(ptr nocapture noundef re
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %18
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -1375,7 +1375,7 @@ default.unreachable:                              ; preds = %.lr.ph145
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_min_int8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader134, label %19
@@ -1406,7 +1406,7 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -1542,7 +1542,7 @@ default.unreachable:                              ; preds = %.lr.ph151
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_min_uint8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader134, label %19
@@ -1573,7 +1573,7 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -1709,7 +1709,7 @@ default.unreachable:                              ; preds = %.lr.ph151
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_min_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader134, label %19
@@ -1740,7 +1740,7 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -1878,7 +1878,7 @@ default.unreachable:                              ; preds = %.lr.ph151
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_min_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader134, label %19
@@ -1909,7 +1909,7 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -2047,7 +2047,7 @@ default.unreachable:                              ; preds = %.lr.ph151
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_min_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader127, label %19
@@ -2078,7 +2078,7 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -2216,7 +2216,7 @@ default.unreachable:                              ; preds = %.lr.ph144
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_min_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader127, label %19
@@ -2247,7 +2247,7 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -2385,7 +2385,7 @@ default.unreachable:                              ; preds = %.lr.ph144
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_2buff_min_float_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %18, label %.preheader128
@@ -2416,7 +2416,7 @@ define internal void @ompi_op_avx_2buff_min_float_avx2(ptr nocapture noundef rea
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %18
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -2560,7 +2560,7 @@ default.unreachable:                              ; preds = %.lr.ph145
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_2buff_min_double_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %18, label %.preheader128
@@ -2591,7 +2591,7 @@ define internal void @ompi_op_avx_2buff_min_double_avx2(ptr nocapture noundef re
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %18
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -2735,7 +2735,7 @@ default.unreachable:                              ; preds = %.lr.ph145
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_sum_int8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -2766,7 +2766,7 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -2902,7 +2902,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_sum_uint8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -2933,7 +2933,7 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -3069,7 +3069,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_sum_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -3100,7 +3100,7 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -3238,7 +3238,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_sum_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -3269,7 +3269,7 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -3407,7 +3407,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_sum_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -3438,7 +3438,7 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -3576,7 +3576,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_sum_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -3607,7 +3607,7 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -3745,7 +3745,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_sum_int64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -3776,7 +3776,7 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -3914,7 +3914,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_sum_uint64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -3945,7 +3945,7 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -4083,7 +4083,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_2buff_add_float_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %18, label %.preheader89
@@ -4114,7 +4114,7 @@ define internal void @ompi_op_avx_2buff_add_float_avx2(ptr nocapture noundef rea
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %18
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -4250,7 +4250,7 @@ default.unreachable:                              ; preds = %.lr.ph106
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_2buff_add_double_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %18, label %.preheader89
@@ -4281,7 +4281,7 @@ define internal void @ompi_op_avx_2buff_add_double_avx2(ptr nocapture noundef re
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %18
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -4625,7 +4625,7 @@ default.unreachable:                              ; preds = %.lr.ph
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_prod_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -4656,7 +4656,7 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -4794,7 +4794,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_prod_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -4825,7 +4825,7 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx2(ptr noundef %0, ptr n
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -4963,7 +4963,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_prod_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -4994,7 +4994,7 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -5132,7 +5132,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_prod_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -5163,7 +5163,7 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx2(ptr noundef %0, ptr n
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -5301,7 +5301,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_2buff_mul_float_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %18, label %.preheader89
@@ -5332,7 +5332,7 @@ define internal void @ompi_op_avx_2buff_mul_float_avx2(ptr nocapture noundef rea
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %18
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -5468,7 +5468,7 @@ default.unreachable:                              ; preds = %.lr.ph106
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_2buff_mul_double_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %18, label %.preheader89
@@ -5499,7 +5499,7 @@ define internal void @ompi_op_avx_2buff_mul_double_avx2(ptr nocapture noundef re
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %18
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -5635,7 +5635,7 @@ default.unreachable:                              ; preds = %.lr.ph106
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_band_int8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -5666,7 +5666,7 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -5802,7 +5802,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_band_uint8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -5833,7 +5833,7 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -5969,7 +5969,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_band_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -6000,7 +6000,7 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -6136,7 +6136,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_band_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -6167,7 +6167,7 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx2(ptr noundef %0, ptr n
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -6303,7 +6303,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_band_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -6334,7 +6334,7 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -6470,7 +6470,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_band_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -6501,7 +6501,7 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx2(ptr noundef %0, ptr n
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -6637,7 +6637,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_band_int64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -6668,7 +6668,7 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -6804,7 +6804,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_band_uint64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -6835,7 +6835,7 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx2(ptr noundef %0, ptr n
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -6971,7 +6971,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bor_int8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -7002,7 +7002,7 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -7138,7 +7138,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bor_uint8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -7169,7 +7169,7 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -7305,7 +7305,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bor_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -7336,7 +7336,7 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -7472,7 +7472,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bor_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -7503,7 +7503,7 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -7639,7 +7639,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bor_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -7670,7 +7670,7 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -7806,7 +7806,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bor_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -7837,7 +7837,7 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -7973,7 +7973,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bor_int64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -8004,7 +8004,7 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -8140,7 +8140,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bor_uint64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -8171,7 +8171,7 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -8307,7 +8307,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bxor_int8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -8338,7 +8338,7 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx2(ptr noundef %0, ptr nou
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -8474,7 +8474,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -8505,7 +8505,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -8641,7 +8641,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bxor_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -8672,7 +8672,7 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -8808,7 +8808,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -8839,7 +8839,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx2(ptr noundef %0, ptr n
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -8975,7 +8975,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bxor_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -9006,7 +9006,7 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -9142,7 +9142,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -9173,7 +9173,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx2(ptr noundef %0, ptr n
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -9309,7 +9309,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bxor_int64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -9340,7 +9340,7 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx2(ptr noundef %0, ptr no
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -9476,7 +9476,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %2, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %8 = and i32 %7, 48
   %9 = icmp eq i32 %8, 48
   br i1 %9, label %.preheader88, label %19
@@ -9507,7 +9507,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx2(ptr noundef %0, ptr n
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %19
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
@@ -9643,7 +9643,7 @@ default.unreachable:                              ; preds = %.lr.ph105
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_max_int8_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader146, label %21
@@ -9821,7 +9821,7 @@ default.unreachable:                              ; preds = %.lr.ph168
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_max_uint8_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader146, label %21
@@ -9999,7 +9999,7 @@ default.unreachable:                              ; preds = %.lr.ph168
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_max_int16_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader146, label %21
@@ -10179,7 +10179,7 @@ default.unreachable:                              ; preds = %.lr.ph168
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_max_uint16_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader146, label %21
@@ -10359,7 +10359,7 @@ default.unreachable:                              ; preds = %.lr.ph168
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_max_int32_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader139, label %21
@@ -10539,7 +10539,7 @@ default.unreachable:                              ; preds = %.lr.ph161
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_max_uint32_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader139, label %21
@@ -10719,7 +10719,7 @@ default.unreachable:                              ; preds = %.lr.ph161
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_3buff_max_float_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %.preheader140
@@ -10753,7 +10753,7 @@ define internal void @ompi_op_avx_3buff_max_float_avx2(ptr nocapture noundef rea
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %20
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -10910,7 +10910,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_3buff_max_double_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %.preheader140
@@ -10944,7 +10944,7 @@ define internal void @ompi_op_avx_3buff_max_double_avx2(ptr nocapture noundef re
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %20
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -11101,7 +11101,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_min_int8_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader146, label %21
@@ -11279,7 +11279,7 @@ default.unreachable:                              ; preds = %.lr.ph168
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_min_uint8_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader146, label %21
@@ -11457,7 +11457,7 @@ default.unreachable:                              ; preds = %.lr.ph168
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_min_int16_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader146, label %21
@@ -11637,7 +11637,7 @@ default.unreachable:                              ; preds = %.lr.ph168
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_min_uint16_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader146, label %21
@@ -11817,7 +11817,7 @@ default.unreachable:                              ; preds = %.lr.ph168
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_min_int32_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader139, label %21
@@ -11997,7 +11997,7 @@ default.unreachable:                              ; preds = %.lr.ph161
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_min_uint32_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader139, label %21
@@ -12177,7 +12177,7 @@ default.unreachable:                              ; preds = %.lr.ph161
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_3buff_min_float_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %.preheader140
@@ -12211,7 +12211,7 @@ define internal void @ompi_op_avx_3buff_min_float_avx2(ptr nocapture noundef rea
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %20
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -12368,7 +12368,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_3buff_min_double_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %.preheader140
@@ -12402,7 +12402,7 @@ define internal void @ompi_op_avx_3buff_min_double_avx2(ptr nocapture noundef re
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %20
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -12559,7 +12559,7 @@ default.unreachable:                              ; preds = %.lr.ph162
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_sum_int8_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -12737,7 +12737,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_sum_uint8_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -12915,7 +12915,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_sum_int16_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -13095,7 +13095,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_sum_uint16_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -13275,7 +13275,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_sum_int32_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -13455,7 +13455,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_sum_uint32_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -13635,7 +13635,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_sum_int64_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -13815,7 +13815,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_sum_uint64_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -13995,7 +13995,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_3buff_add_float_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %.preheader101
@@ -14029,7 +14029,7 @@ define internal void @ompi_op_avx_3buff_add_float_avx2(ptr nocapture noundef rea
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %20
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -14178,7 +14178,7 @@ default.unreachable:                              ; preds = %.lr.ph123
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_3buff_add_double_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %.preheader101
@@ -14212,7 +14212,7 @@ define internal void @ompi_op_avx_3buff_add_double_avx2(ptr nocapture noundef re
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %20
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -14587,7 +14587,7 @@ default.unreachable:                              ; preds = %.lr.ph
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_prod_int16_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -14767,7 +14767,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_prod_uint16_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -14947,7 +14947,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_prod_int32_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -15127,7 +15127,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_prod_uint32_t_avx2(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -15307,7 +15307,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_3buff_mul_float_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %.preheader101
@@ -15341,7 +15341,7 @@ define internal void @ompi_op_avx_3buff_mul_float_avx2(ptr nocapture noundef rea
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %20
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -15490,7 +15490,7 @@ default.unreachable:                              ; preds = %.lr.ph123
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @ompi_op_avx_3buff_mul_double_avx2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %.preheader101
@@ -15524,7 +15524,7 @@ define internal void @ompi_op_avx_3buff_mul_double_avx2(ptr nocapture noundef re
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %20
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -15673,7 +15673,7 @@ default.unreachable:                              ; preds = %.lr.ph123
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_and_int8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -15707,7 +15707,7 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -15856,7 +15856,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_and_uint8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -15890,7 +15890,7 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -16039,7 +16039,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_and_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -16073,7 +16073,7 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -16222,7 +16222,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_and_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -16256,7 +16256,7 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -16405,7 +16405,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_and_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -16439,7 +16439,7 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -16588,7 +16588,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_and_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -16622,7 +16622,7 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -16771,7 +16771,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_and_int64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -16805,7 +16805,7 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -16954,7 +16954,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_and_uint64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -16988,7 +16988,7 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx2(ptr noundef %0, ptr no
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -17137,7 +17137,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_or_int8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -17171,7 +17171,7 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx2(ptr noundef %0, ptr nound
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -17320,7 +17320,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_or_uint8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -17354,7 +17354,7 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx2(ptr noundef %0, ptr noun
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -17503,7 +17503,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_or_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -17537,7 +17537,7 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx2(ptr noundef %0, ptr noun
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -17686,7 +17686,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_or_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -17720,7 +17720,7 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -17869,7 +17869,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_or_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -17903,7 +17903,7 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx2(ptr noundef %0, ptr noun
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -18052,7 +18052,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_or_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -18086,7 +18086,7 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -18235,7 +18235,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_or_int64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -18269,7 +18269,7 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx2(ptr noundef %0, ptr noun
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -18418,7 +18418,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_or_uint64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -18452,7 +18452,7 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -18601,7 +18601,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_xor_int8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -18635,7 +18635,7 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -18784,7 +18784,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_xor_uint8_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -18818,7 +18818,7 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -18967,7 +18967,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_xor_int16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -19001,7 +19001,7 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -19150,7 +19150,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_xor_uint16_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -19184,7 +19184,7 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -19333,7 +19333,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_xor_int32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -19367,7 +19367,7 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -19516,7 +19516,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_xor_uint32_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -19550,7 +19550,7 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -19699,7 +19699,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_xor_int64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -19733,7 +19733,7 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx2(ptr noundef %0, ptr nou
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
@@ -19882,7 +19882,7 @@ default.unreachable:                              ; preds = %.lr.ph122
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable
 define internal void @ompi_op_avx_3buff_xor_uint64_t_avx2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr %3, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   %9 = and i32 %8, 48
   %10 = icmp eq i32 %9, 48
   br i1 %10, label %.preheader100, label %21
@@ -19916,7 +19916,7 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx2(ptr noundef %0, ptr no
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_op_avx_component, i64 284), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_op_avx_component, i64 284), align 4
   br label %21
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6

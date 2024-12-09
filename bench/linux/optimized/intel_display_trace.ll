@@ -664,7 +664,7 @@ declare dso_local i32 @__SCT__tp_func_intel_pipe_enable(ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_pipe_enable(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_pipe_enable, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_pipe_enable, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -699,7 +699,7 @@ declare dso_local i32 @__SCT__tp_func_intel_pipe_disable(ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_pipe_disable(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_pipe_disable, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_pipe_disable, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -728,7 +728,7 @@ declare dso_local i32 @__SCT__tp_func_intel_pipe_crc(ptr noundef, ptr noundef, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_pipe_crc(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_pipe_crc, i64 72), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_pipe_crc, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -757,7 +757,7 @@ declare dso_local i32 @__SCT__tp_func_intel_cpu_fifo_underrun(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_cpu_fifo_underrun(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_cpu_fifo_underrun, i64 72), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_cpu_fifo_underrun, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -786,7 +786,7 @@ declare dso_local i32 @__SCT__tp_func_intel_pch_fifo_underrun(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_pch_fifo_underrun(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_pch_fifo_underrun, i64 72), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_pch_fifo_underrun, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -815,7 +815,7 @@ declare dso_local i32 @__SCT__tp_func_intel_memory_cxsr(ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_memory_cxsr(ptr nocapture readnone %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_memory_cxsr, i64 72), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_memory_cxsr, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -844,7 +844,7 @@ declare dso_local i32 @__SCT__tp_func_g4x_wm(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_g4x_wm(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_g4x_wm, i64 72), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_g4x_wm, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -873,7 +873,7 @@ declare dso_local i32 @__SCT__tp_func_vlv_wm(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_vlv_wm(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_vlv_wm, i64 72), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_vlv_wm, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -902,7 +902,7 @@ declare dso_local i32 @__SCT__tp_func_vlv_fifo_size(ptr noundef, ptr noundef, i3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_vlv_fifo_size(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_vlv_fifo_size, i64 72), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_vlv_fifo_size, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
@@ -931,7 +931,7 @@ declare dso_local i32 @__SCT__tp_func_intel_plane_update_noarm(ptr noundef, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_plane_update_noarm(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_plane_update_noarm, i64 72), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_plane_update_noarm, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -960,7 +960,7 @@ declare dso_local i32 @__SCT__tp_func_intel_plane_update_arm(ptr noundef, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_plane_update_arm(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_plane_update_arm, i64 72), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_plane_update_arm, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -989,7 +989,7 @@ declare dso_local i32 @__SCT__tp_func_intel_plane_disable_arm(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_plane_disable_arm(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_plane_disable_arm, i64 72), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_plane_disable_arm, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -1018,7 +1018,7 @@ declare dso_local i32 @__SCT__tp_func_intel_fbc_activate(ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_fbc_activate(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_fbc_activate, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_fbc_activate, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1047,7 +1047,7 @@ declare dso_local i32 @__SCT__tp_func_intel_fbc_deactivate(ptr noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_fbc_deactivate(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_fbc_deactivate, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_fbc_deactivate, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1076,7 +1076,7 @@ declare dso_local i32 @__SCT__tp_func_intel_fbc_nuke(ptr noundef, ptr noundef) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_fbc_nuke(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_fbc_nuke, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_fbc_nuke, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1105,7 +1105,7 @@ declare dso_local i32 @__SCT__tp_func_intel_crtc_vblank_work_start(ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_crtc_vblank_work_start(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_crtc_vblank_work_start, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_crtc_vblank_work_start, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1134,7 +1134,7 @@ declare dso_local i32 @__SCT__tp_func_intel_crtc_vblank_work_end(ptr noundef, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_crtc_vblank_work_end(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_crtc_vblank_work_end, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_crtc_vblank_work_end, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1163,7 +1163,7 @@ declare dso_local i32 @__SCT__tp_func_intel_pipe_update_start(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_pipe_update_start(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_pipe_update_start, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_pipe_update_start, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1192,7 +1192,7 @@ declare dso_local i32 @__SCT__tp_func_intel_pipe_update_vblank_evaded(ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_pipe_update_vblank_evaded(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_pipe_update_vblank_evaded, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_pipe_update_vblank_evaded, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1221,7 +1221,7 @@ declare dso_local i32 @__SCT__tp_func_intel_pipe_update_end(ptr noundef, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_pipe_update_end(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_pipe_update_end, i64 72), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_pipe_update_end, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1250,7 +1250,7 @@ declare dso_local i32 @__SCT__tp_func_intel_frontbuffer_invalidate(ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_frontbuffer_invalidate(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_frontbuffer_invalidate, i64 72), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_frontbuffer_invalidate, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1279,7 +1279,7 @@ declare dso_local i32 @__SCT__tp_func_intel_frontbuffer_flush(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_intel_frontbuffer_flush(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_intel_frontbuffer_flush, i64 72), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_intel_frontbuffer_flush, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 

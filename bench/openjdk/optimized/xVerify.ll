@@ -265,18 +265,18 @@ define hidden void @_ZN7XVerify12roots_strongEb(i1 noundef zeroext %0) local_unn
   %5 = alloca %class.XVerifyNMethodClosure, align 8
   %6 = alloca %class.XRootsIterator, align 8
   %7 = zext i1 %0 to i8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18XVerifyRootClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18XVerifyRootClosure, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23ClaimingCLDToOopClosureILi0EE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20XVerifyThreadClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23ClaimingCLDToOopClosureILi0EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20XVerifyThreadClosure, i64 16), ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21XVerifyNMethodClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21XVerifyNMethodClosure, i64 16), ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -313,7 +313,7 @@ declare void @_ZN14XRootsIterator5applyEP10OopClosureP10CLDClosureP13ThreadClosu
 define hidden void @_ZN7XVerify10roots_weakEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.XVerifyRootClosure, align 8
   %2 = alloca %class.XWeakRootsIterator, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18XVerifyRootClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18XVerifyRootClosure, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 1, ptr %3, align 8
   call void @_ZN26XWeakOopStorageSetIteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(576) %2) #8
@@ -354,10 +354,10 @@ define hidden void @_ZN7XVerify7objectsEb(i1 noundef zeroext %0) local_unnamed_a
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 16, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17XVerifyOopClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV17XVerifyOopClosure, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 %4, ptr %7, align 4
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ObjectToOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ObjectToOopClosure, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %8, align 8
   %9 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
@@ -417,10 +417,10 @@ define hidden void @_ZN7XVerify10after_markEv() local_unnamed_addr #0 align 2 {
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 16, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17XVerifyOopClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV17XVerifyOopClosure, i64 16), ptr %1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i8 0, ptr %15, align 4
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ObjectToOopClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ObjectToOopClosure, i64 16), ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %16, align 8
   %17 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
@@ -465,10 +465,10 @@ define hidden void @_ZN7XVerify21after_weak_processingEv() local_unnamed_addr #0
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 16, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17XVerifyOopClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV17XVerifyOopClosure, i64 16), ptr %1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i8 1, ptr %15, align 4
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ObjectToOopClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ObjectToOopClosure, i64 16), ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %16, align 8
   %17 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
@@ -493,7 +493,7 @@ define hidden void @_ZN16XVerifyViewsFlipC2EPK14XPageAllocator(ptr nocapture nou
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27XPageDebugMapOrUnmapClosureILb0EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27XPageDebugMapOrUnmapClosureILb0EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %7, align 8
   %8 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
@@ -515,7 +515,7 @@ define hidden void @_ZN16XVerifyViewsFlipD2Ev(ptr nocapture noundef nonnull read
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27XPageDebugMapOrUnmapClosureILb1EE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27XPageDebugMapOrUnmapClosureILb1EE, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
@@ -1313,7 +1313,7 @@ define linkonce_odr hidden void @_ZN20XVerifyThreadClosure9do_threadEP6Thread(pt
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV12XVerifyStack, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12XVerifyStack, i64 16), ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1374,7 +1374,7 @@ define linkonce_odr hidden void @_ZN12XVerifyStack13verify_framesEv(ptr noundef 
   %4 = alloca %class.StackFrameStream, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16

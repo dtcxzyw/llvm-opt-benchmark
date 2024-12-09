@@ -1294,7 +1294,7 @@ _ZN4NodenwEm.exit:                                ; preds = %38, %40
   %50 = load i32, ptr %49, align 8
   %51 = or i32 %50, 64
   store i32 %51, ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV10IfTrueNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV10IfTrueNode, i64 16), ptr %.0.i.i.i, align 8
   store i32 200, ptr %48, align 4
   br label %67
 
@@ -1328,7 +1328,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %53, %55
   %65 = load i32, ptr %64, align 8
   %66 = or i32 %65, 64
   store i32 %66, ptr %64, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11IfFalseNode, i64 16), ptr %.0.i.i.i7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11IfFalseNode, i64 16), ptr %.0.i.i.i7, align 8
   store i32 328, ptr %63, align 4
   br label %67
 

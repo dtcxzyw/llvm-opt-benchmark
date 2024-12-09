@@ -134,7 +134,7 @@ agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %38
   %52 = load ptr, ptr %14, align 8
   store ptr %52, ptr @storeline.tf, align 8
   %53 = load double, ptr %15, align 8
-  store double %53, ptr getelementptr inbounds (i8, ptr @storeline.tf, i64 24), align 8
+  store double %53, ptr getelementptr inbounds nuw (i8, ptr @storeline.tf, i64 24), align 8
   %54 = load ptr, ptr %16, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr %55(ptr noundef nonnull %54, ptr noundef nonnull @storeline.tf, i32 noundef 1) #15
@@ -230,7 +230,7 @@ agxbdisown.exit44:                                ; preds = %agxblen.exit.i42, %
   %98 = load ptr, ptr %14, align 8
   store ptr %98, ptr @storeline.tf, align 8
   %99 = load double, ptr %15, align 8
-  store double %99, ptr getelementptr inbounds (i8, ptr @storeline.tf, i64 24), align 8
+  store double %99, ptr getelementptr inbounds nuw (i8, ptr @storeline.tf, i64 24), align 8
   %100 = load ptr, ptr %16, align 8
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr %101(ptr noundef nonnull %100, ptr noundef nonnull @storeline.tf, i32 noundef 1) #15
@@ -332,7 +332,7 @@ agxbdisown.exit59:                                ; preds = %agxblen.exit.i57, %
   %144 = load ptr, ptr %14, align 8
   store ptr %144, ptr @storeline.tf, align 8
   %145 = load double, ptr %15, align 8
-  store double %145, ptr getelementptr inbounds (i8, ptr @storeline.tf, i64 24), align 8
+  store double %145, ptr getelementptr inbounds nuw (i8, ptr @storeline.tf, i64 24), align 8
   %146 = load ptr, ptr %16, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = tail call ptr %147(ptr noundef nonnull %146, ptr noundef nonnull @storeline.tf, i32 noundef 1) #15

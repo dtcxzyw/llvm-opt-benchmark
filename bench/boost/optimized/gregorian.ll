@@ -218,7 +218,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendarC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [23 x ptr], align 16
   %4 = alloca [35 x ptr], align 16
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN5boost6locale4util18gregorian_calendarE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5boost6locale4util18gregorian_calendarE, i64 16), ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %6, ptr %5, align 8, !tbaa !6
@@ -360,7 +360,7 @@ define hidden void @_ZN5boost6locale4util26install_gregorian_calendarERKSt6local
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8, !tbaa !27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4util15gregorian_facetE, i64 16), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4util15gregorian_facetE, i64 16), ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %8, ptr %7, align 8, !tbaa !6
@@ -532,7 +532,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar9from_
           to label %23 unwind label %25
 
 23:                                               ; preds = %22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %21, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %21, align 8, !tbaa !3
   invoke void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN5boost6locale15date_time_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #22
           to label %42 unwind label %25
 
@@ -601,7 +601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25
 define linkonce_odr hidden noundef ptr @_ZNK5boost6locale4util18gregorian_calendar5cloneEv(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #18
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN5boost6locale4util18gregorian_calendarE, i64 16), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5boost6locale4util18gregorian_calendarE, i64 16), ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
@@ -878,7 +878,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar9norma
           to label %26 unwind label %28
 
 26:                                               ; preds = %25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %24, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %24, align 8, !tbaa !3
   invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN5boost6locale15date_time_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #22
           to label %123 unwind label %28
 
@@ -1014,7 +1014,7 @@ _ZN5boost6locale4util12_GLOBAL__N_115internal_timegmEPK2tm.exit._crit_edge: ; pr
           to label %101 unwind label %103
 
 101:                                              ; preds = %100
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %99, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %99, align 8, !tbaa !3
   invoke void @__cxa_throw(ptr nonnull %99, ptr nonnull @_ZTIN5boost6locale15date_time_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #22
           to label %123 unwind label %103
 
@@ -1906,7 +1906,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar10set_
           to label %14 unwind label %16
 
 14:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %8, align 8, !tbaa !3
   invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN5boost6locale15date_time_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #22
           to label %46 unwind label %16
 
@@ -1966,7 +1966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16
           to label %30 unwind label %32
 
 30:                                               ; preds = %.noexc19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale15date_time_errorE, i64 16), ptr %8, align 8, !tbaa !3
   invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN5boost6locale15date_time_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #22
           to label %46 unwind label %32
 
@@ -2705,7 +2705,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6locale4util18gregorian
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendarD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN5boost6locale4util18gregorian_calendarE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5boost6locale4util18gregorian_calendarE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -2731,7 +2731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendarD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN5boost6locale4util18gregorian_calendarE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5boost6locale4util18gregorian_calendarE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -3107,7 +3107,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util15gregorian_facetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4util15gregorian_facetE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4util15gregorian_facetE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3134,7 +3134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util15gregorian_facetD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4util15gregorian_facetE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4util15gregorian_facetE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -713,7 +713,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12UniverseOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12UniverseOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -755,7 +755,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9sRegIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9sRegIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -797,7 +797,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9sRegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9sRegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -839,7 +839,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9sRegFOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9sRegFOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -881,7 +881,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9sRegDOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9sRegDOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -923,7 +923,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9sRegLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9sRegLOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -967,7 +967,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8immIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8immIOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1013,7 +1013,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10immI_0Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10immI_0Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1059,7 +1059,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10immI_1Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10immI_1Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1105,7 +1105,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11immI_M1Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11immI_M1Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1151,7 +1151,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10immI_2Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10immI_2Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1197,7 +1197,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10immI_4Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10immI_4Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1243,7 +1243,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10immI_8Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10immI_8Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1289,7 +1289,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immI2Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immI2Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1335,7 +1335,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immU7Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immU7Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1381,7 +1381,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immI8Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immI8Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1427,7 +1427,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immU8Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immU8Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1473,7 +1473,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10immI16Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10immI16Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1519,7 +1519,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10immU31Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10immU31Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -1565,7 +1565,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8immPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8immPOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %24, ptr %25, align 8
   br label %26
@@ -1611,7 +1611,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immP0Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immP0Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %24, ptr %25, align 8
   br label %26
@@ -1657,7 +1657,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8immNOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8immNOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %24, ptr %25, align 8
   br label %26
@@ -1703,7 +1703,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV13immNKlassOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV13immNKlassOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %24, ptr %25, align 8
   br label %26
@@ -1749,7 +1749,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immN0Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immN0Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %24, ptr %25, align 8
   br label %26
@@ -1795,7 +1795,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10immP31Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10immP31Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %24, ptr %25, align 8
   br label %26
@@ -1841,7 +1841,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8immLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8immLOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -1887,7 +1887,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immL8Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immL8Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -1933,7 +1933,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11immUL32Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11immUL32Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -1979,7 +1979,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10immL32Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10immL32Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -2025,7 +2025,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV13immL_Pow2Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV13immL_Pow2Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -2071,7 +2071,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV16immL_NotPow2Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV16immL_NotPow2Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -2117,7 +2117,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immL0Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immL0Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -2163,7 +2163,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immL1Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immL1Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -2209,7 +2209,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11immL_M1Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11immL_M1Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -2255,7 +2255,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV15immL_32bitsOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV15immL_32bitsOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -2301,7 +2301,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV15immI_Pow2M1Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV15immI_Pow2M1Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -2347,7 +2347,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load float, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immF0Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immF0Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store float %24, ptr %25, align 8
   br label %26
@@ -2393,7 +2393,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load float, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8immFOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8immFOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store float %24, ptr %25, align 8
   br label %26
@@ -2439,7 +2439,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load double, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9immD0Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9immD0Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store double %24, ptr %25, align 8
   br label %26
@@ -2485,7 +2485,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load double, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8immDOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8immDOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store double %24, ptr %25, align 8
   br label %26
@@ -2531,7 +2531,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11immI_16Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11immI_16Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -2577,7 +2577,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11immI_24Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11immI_24Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -2623,7 +2623,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12immI_255Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12immI_255Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -2669,7 +2669,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14immI_65535Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14immI_65535Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -2715,7 +2715,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12immL_255Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12immL_255Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -2761,7 +2761,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14immL_65535Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14immL_65535Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -2805,7 +2805,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8kRegOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8kRegOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -2847,7 +2847,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9rRegIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9rRegIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -2889,7 +2889,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rax_RegIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rax_RegIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -2931,7 +2931,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rbx_RegIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rbx_RegIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -2973,7 +2973,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rcx_RegIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rcx_RegIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3015,7 +3015,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rdx_RegIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rdx_RegIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3057,7 +3057,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rdi_RegIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rdi_RegIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3099,7 +3099,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV19no_rax_rdx_RegIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV19no_rax_rdx_RegIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3141,7 +3141,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV19no_rbp_r13_RegIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV19no_rbp_r13_RegIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3183,7 +3183,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12any_RegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12any_RegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3225,7 +3225,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9rRegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9rRegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3267,7 +3267,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9rRegNOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9rRegNOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3309,7 +3309,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV15no_rbp_RegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV15no_rbp_RegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3351,7 +3351,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rax_RegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rax_RegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3393,7 +3393,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rax_RegNOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rax_RegNOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3435,7 +3435,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rbx_RegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rbx_RegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3477,7 +3477,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rsi_RegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rsi_RegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3519,7 +3519,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rbp_RegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rbp_RegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3561,7 +3561,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rdi_RegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rdi_RegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3603,7 +3603,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12r15_RegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12r15_RegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3645,7 +3645,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9rRegLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9rRegLOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3687,7 +3687,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV19no_rax_rdx_RegLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV19no_rax_rdx_RegLOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3729,7 +3729,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rax_RegLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rax_RegLOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3771,7 +3771,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rcx_RegLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rcx_RegLOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3813,7 +3813,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12rdx_RegLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12rdx_RegLOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3855,7 +3855,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12r11_RegLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12r11_RegLOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3897,7 +3897,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV19no_rbp_r13_RegLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV19no_rbp_r13_RegLOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3939,7 +3939,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV13rFlagsRegOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV13rFlagsRegOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -3981,7 +3981,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14rFlagsRegUOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14rFlagsRegUOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4023,7 +4023,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV16rFlagsRegUCFOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV16rFlagsRegUCFOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4065,7 +4065,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8regFOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8regFOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4107,7 +4107,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11legRegFOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legRegFOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4149,7 +4149,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10vlRegFOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10vlRegFOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4191,7 +4191,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8regDOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8regDOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4233,7 +4233,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11legRegDOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legRegDOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4275,7 +4275,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10vlRegDOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10vlRegDOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4317,7 +4317,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12indirectOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12indirectOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4361,7 +4361,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14indOffset8Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14indOffset8Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -4407,7 +4407,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV15indOffset32Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV15indOffset32Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -4453,7 +4453,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV18indIndexOffsetOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV18indIndexOffsetOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -4497,7 +4497,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV12indIndexOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV12indIndexOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4541,7 +4541,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV17indIndexScaleOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV17indIndexScaleOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -4587,7 +4587,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV20indPosIndexScaleOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV20indPosIndexScaleOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -4635,7 +4635,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV23indIndexScaleOffsetOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV23indIndexScaleOffsetOper, i64 16), ptr %.0.i.i.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -4683,7 +4683,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV21indPosIndexOffsetOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV21indPosIndexOffsetOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -4731,7 +4731,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV26indPosIndexScaleOffsetOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV26indPosIndexScaleOffsetOper, i64 16), ptr %.0.i.i.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -4779,7 +4779,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV26indCompressedOopOffsetOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV26indCompressedOopOffsetOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -4823,7 +4823,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV18indirectNarrowOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV18indirectNarrowOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -4867,7 +4867,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV20indOffset8NarrowOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV20indOffset8NarrowOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -4913,7 +4913,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV21indOffset32NarrowOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV21indOffset32NarrowOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -4959,7 +4959,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV24indIndexOffsetNarrowOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV24indIndexOffsetNarrowOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -5003,7 +5003,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV18indIndexNarrowOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV18indIndexNarrowOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5047,7 +5047,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV23indIndexScaleNarrowOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV23indIndexScaleNarrowOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -5095,7 +5095,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV29indIndexScaleOffsetNarrowOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV29indIndexScaleOffsetNarrowOper, i64 16), ptr %.0.i.i.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -5143,7 +5143,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV27indPosIndexOffsetNarrowOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV27indPosIndexOffsetNarrowOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %24, ptr %25, align 8
   br label %26
@@ -5191,7 +5191,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV32indPosIndexScaleOffsetNarrowOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV32indPosIndexScaleOffsetNarrowOper, i64 16), ptr %.0.i.i.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -5237,7 +5237,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14stackSlotPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14stackSlotPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5279,7 +5279,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14stackSlotIOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14stackSlotIOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5321,7 +5321,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14stackSlotFOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14stackSlotFOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5363,7 +5363,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14stackSlotDOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14stackSlotDOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5405,7 +5405,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV14stackSlotLOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV14stackSlotLOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5449,7 +5449,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV9cmpOpOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV9cmpOpOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -5495,7 +5495,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV10cmpOpUOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV10cmpOpUOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -5541,7 +5541,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV12cmpOpUCFOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV12cmpOpUCFOper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -5587,7 +5587,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 296) (i8, ptr @_ZTV13cmpOpUCF2Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV13cmpOpUCF2Oper, i64 16), ptr %.0.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
@@ -5631,7 +5631,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV9rxmm0Oper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV9rxmm0Oper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5673,7 +5673,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV7vecOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV7vecOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5715,7 +5715,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV10legVecOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV10legVecOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5757,7 +5757,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8vecSOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecSOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5799,7 +5799,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11legVecSOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecSOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5841,7 +5841,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8vecDOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecDOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5883,7 +5883,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11legVecDOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecDOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5925,7 +5925,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8vecXOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecXOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -5967,7 +5967,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11legVecXOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecXOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -6009,7 +6009,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8vecYOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecYOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -6051,7 +6051,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11legVecYOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecYOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -6093,7 +6093,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8vecZOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecZOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -6135,7 +6135,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV11legVecZOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecZOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit
@@ -6177,7 +6177,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %17, %19
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %_ZN8MachOpernwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV15no_rax_RegPOper, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV15no_rax_RegPOper, i64 16), ptr %.0.i.i.i, align 8
   br label %23
 
 23:                                               ; preds = %22, %_ZN8MachOpernwEm.exit

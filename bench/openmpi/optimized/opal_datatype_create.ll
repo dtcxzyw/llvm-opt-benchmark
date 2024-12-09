@@ -103,10 +103,10 @@ define internal void @opal_datatype_destruct(ptr nocapture noundef initializes((
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @opal_datatype_create(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @opal_datatype_t_class, i64 56), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_datatype_t_class, i64 56), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #10
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @opal_datatype_t_class, i64 32), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_datatype_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %4, %5
   br i1 %.not.i, label %7, label %6
 

@@ -145,8 +145,8 @@ entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal14ProofGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i64 72), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i64 72), ptr %0, align 8
   %d_stack = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_stack, i8 0, i64 24, i1 false)
   %d_proof = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3241,9 +3241,9 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal22LazyTreeProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i64 72), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i64 72), ptr %add.ptr, align 8
   %d_name = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #22
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152

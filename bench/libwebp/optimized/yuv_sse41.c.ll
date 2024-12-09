@@ -375,7 +375,7 @@ define hidden void @VP8YuvToBgr32_SSE41(ptr nocapture noundef readonly %0, ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @WebPInitSamplersSSE41() local_unnamed_addr #1 {
   store ptr @YuvToRgbRow_SSE41, ptr @WebPSamplers, align 8
-  store ptr @YuvToBgrRow_SSE41, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 16), align 8
+  store ptr @YuvToBgrRow_SSE41, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 16), align 8
   ret void
 }
 

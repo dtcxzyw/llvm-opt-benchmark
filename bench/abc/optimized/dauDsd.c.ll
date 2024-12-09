@@ -2429,7 +2429,7 @@ define ptr @Dau_DsdToTruth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6
   br i1 %exitcond15.not.i.i, label %Dau_DsdTtElems.exit, label %.preheader.i, !llvm.loop !46
 
 Dau_DsdTtElems.exit:                              ; preds = %.loopexit.i.i, %2
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @Dau_DsdTtElems.pTtElems, i64 96), align 16
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Dau_DsdTtElems.pTtElems, i64 96), align 16
   %30 = load i8, ptr %0, align 1
   switch i8 %30, label %Dau_DsdIsConst1.exit.thread [
     i8 48, label %Dau_DsdIsConst0.exit
@@ -11744,7 +11744,7 @@ Abc_Clock.exit:                                   ; preds = %0, %19
   br i1 %exitcond15.not.i.i.i, label %Dau_DsdTtElems.exit.i, label %.preheader.i.i, !llvm.loop !46
 
 Dau_DsdTtElems.exit.i:                            ; preds = %.loopexit.i.i.i, %48
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @Dau_DsdTtElems.pTtElems, i64 96), align 16
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Dau_DsdTtElems.pTtElems, i64 96), align 16
   %73 = load i8, ptr %51, align 1
   switch i8 %73, label %Dau_DsdIsConst1.exit.thread.i [
     i8 48, label %Dau_DsdIsConst0.exit.i
@@ -12114,7 +12114,7 @@ Dau_DsdNormalize.exit:                            ; preds = %Abc_Clock.exit49, %
   br i1 %exitcond15.not.i.i.i88, label %Dau_DsdTtElems.exit.i59, label %.preheader.i.i79, !llvm.loop !46
 
 Dau_DsdTtElems.exit.i59:                          ; preds = %.loopexit.i.i.i86, %Dau_DsdNormalize.exit
-  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @Dau_DsdTtElems.pTtElems, i64 96), align 16
+  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Dau_DsdTtElems.pTtElems, i64 96), align 16
   %191 = load i8, ptr %15, align 16
   switch i8 %191, label %Dau_DsdIsConst1.exit.thread.i73 [
     i8 48, label %Dau_DsdIsConst0.exit.i71

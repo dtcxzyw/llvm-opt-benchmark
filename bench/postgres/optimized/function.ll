@@ -33,18 +33,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %2 = sext i32 %1 to i64
   %3 = shl nsw i64 %2, 3
   %4 = tail call ptr @pg_malloc(i64 noundef %3) #9
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %.04247 = phi i32 [ %14, %.lr.ph ], [ 0, %0 ]
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
   %8 = getelementptr %struct.DbInfo, ptr %7, i64 %indvars.iv, i32 1
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %9) #9
@@ -55,7 +55,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %14 = add i32 %13, %.04247
   tail call void @PQfinish(ptr noundef %10) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !5
@@ -67,8 +67,8 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 4
   %22 = tail call ptr @pg_malloc(i64 noundef %21) #9
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph63, label %._crit_edge64
 
@@ -77,7 +77,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %.161 = phi i32 [ %.3.lcssa, %._crit_edge58 ], [ 0, %._crit_edge ]
   %25 = getelementptr ptr, ptr %4, i64 %indvars.iv71
   %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
   %28 = getelementptr %struct.DbInfo, ptr %27, i64 %indvars.iv71, i32 4
   %29 = tail call i32 @PQntuples(ptr noundef %26) #9
   %30 = icmp sgt i32 %29, 0
@@ -92,11 +92,11 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %.04548 = phi i32 [ %40, %.lr.ph51 ], [ 0, %.lr.ph51.preheader ]
   %32 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %.04548, i32 noundef 0) #9
   %33 = tail call ptr @pg_strdup(ptr noundef %32) #9
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
   %35 = sext i32 %.249 to i64
   %36 = getelementptr %struct.LibraryInfo, ptr %34, i64 %35
   store ptr %33, ptr %36, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
   %38 = getelementptr %struct.LibraryInfo, ptr %37, i64 %35, i32 1
   store i32 %31, ptr %38, align 8
   %39 = add i32 %.249, 1
@@ -131,11 +131,11 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @pg_strdup(ptr noundef %54) #9
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
   %57 = sext i32 %.354 to i64
   %58 = getelementptr %struct.LibraryInfo, ptr %56, i64 %57
   store ptr %55, ptr %58, align 8
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
   %60 = getelementptr %struct.LibraryInfo, ptr %59, i64 %57, i32 1
   store i32 %44, ptr %60, align 8
   %61 = add i32 %.354, 1
@@ -153,7 +153,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
 ._crit_edge58:                                    ; preds = %62, %._crit_edge52
   %.3.lcssa = phi i32 [ %.2.lcssa, %._crit_edge52 ], [ %.4, %62 ]
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next72, %67
   br i1 %68, label %.lr.ph63, label %._crit_edge64, !llvm.loop !9
@@ -161,7 +161,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
 ._crit_edge64:                                    ; preds = %._crit_edge58, %._crit_edge
   %.1.lcssa = phi i32 [ 0, %._crit_edge ], [ %.3.lcssa, %._crit_edge58 ]
   tail call void @pg_free(ptr noundef %4) #9
-  store i32 %.1.lcssa, ptr getelementptr inbounds (i8, ptr @os_info, i64 48), align 8
+  store i32 %.1.lcssa, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 48), align 8
   ret void
 }
 
@@ -191,13 +191,13 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   %2 = alloca [2056 x i8], align 16
   %3 = tail call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef nonnull @.str.1) #9
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.2) #9
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 24), align 8
   %5 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef %4, ptr noundef nonnull @.str.4) #9
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 48), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 48), align 8
   %8 = sext i32 %7 to i64
   call void @pg_qsort(ptr noundef %6, i64 noundef %8, i64 noundef 16, ptr noundef nonnull @library_name_compare) #9
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 48), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 48), align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge.thread
 
@@ -209,7 +209,7 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %0 ]
   %.02232 = phi i32 [ %.1, %50 ], [ 0, %0 ]
   %.02331 = phi ptr [ %.124, %50 ], [ null, %0 ]
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
   %12 = getelementptr %struct.LibraryInfo, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
@@ -273,8 +273,8 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   br i1 %.not29, label %50, label %41
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
   %44 = getelementptr %struct.LibraryInfo, ptr %43, i64 %indvars.iv, i32 1
   %45 = load i32, ptr %44, align 8
   %46 = sext i32 %45 to i64
@@ -285,7 +285,7 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
 
 50:                                               ; preds = %40, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 48), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 48), align 8
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !10

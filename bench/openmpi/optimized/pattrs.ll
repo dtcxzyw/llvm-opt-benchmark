@@ -164,7 +164,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 34:                                               ; preds = %29
   %35 = load i32, ptr @pmix_class_init_epoch, align 4
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not173 = icmp eq i32 %35, %36
   br i1 %.not173, label %38, label %37
 
@@ -791,7 +791,7 @@ pmix_cmd_line_get_param.exit285:                  ; preds = %.lr.ph.i280
 308:                                              ; preds = %302
   call void @PMIx_Info_free(ptr noundef %.0134, i64 noundef 1) #12
   %309 = load i32, ptr @pmix_class_init_epoch, align 4
-  %310 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %310 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not182 = icmp eq i32 %309, %310
   br i1 %.not182, label %312, label %311
 
@@ -907,7 +907,7 @@ pmix_obj_run_destructors.exit299:                 ; preds = %.lr.ph.i296, %348
 
 364:                                              ; preds = %362, %360
   %365 = load i32, ptr @pmix_class_init_epoch, align 4
-  %366 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %366 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not184 = icmp eq i32 %365, %366
   br i1 %.not184, label %368, label %367
 
@@ -1275,7 +1275,7 @@ define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr n
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @myproc, i64 256), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @myproc, i64 256), align 4
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.65, ptr noundef nonnull @myproc, i32 noundef %6, i32 noundef %0, i64 noundef %1) #13
   br label %8
 

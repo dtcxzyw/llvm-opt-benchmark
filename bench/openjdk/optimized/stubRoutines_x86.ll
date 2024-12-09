@@ -221,7 +221,7 @@ _ZL15crc32c_multiplyjj.exit.i42:                  ; preds = %._crit_edge.i.i33, 
   br i1 %exitcond121, label %_ZL14crc32c_f_pow_nj.exit46, label %26, !llvm.loop !9
 
 _ZL14crc32c_f_pow_nj.exit46:                      ; preds = %_ZL15crc32c_multiplyjj.exit.i42
-  store i32 %.1.i43, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 4), align 4
+  store i32 %.1.i43, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 4), align 4
   br label %40
 
 40:                                               ; preds = %_ZL15crc32c_multiplyjj.exit.i60, %_ZL14crc32c_f_pow_nj.exit46
@@ -264,7 +264,7 @@ _ZL15crc32c_multiplyjj.exit.i60:                  ; preds = %._crit_edge.i.i51, 
   br i1 %exitcond122, label %_ZL14crc32c_f_pow_nj.exit64, label %40, !llvm.loop !9
 
 _ZL14crc32c_f_pow_nj.exit64:                      ; preds = %_ZL15crc32c_multiplyjj.exit.i60
-  store i32 %.1.i61, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 8), align 8
+  store i32 %.1.i61, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 8), align 8
   br label %54
 
 54:                                               ; preds = %_ZL15crc32c_multiplyjj.exit.i78, %_ZL14crc32c_f_pow_nj.exit64
@@ -307,7 +307,7 @@ _ZL15crc32c_multiplyjj.exit.i78:                  ; preds = %._crit_edge.i.i69, 
   br i1 %exitcond123, label %_ZL14crc32c_f_pow_nj.exit82, label %54, !llvm.loop !9
 
 _ZL14crc32c_f_pow_nj.exit82:                      ; preds = %_ZL15crc32c_multiplyjj.exit.i78
-  store i32 %.1.i79, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 12), align 4
+  store i32 %.1.i79, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 12), align 4
   br label %68
 
 68:                                               ; preds = %_ZL15crc32c_multiplyjj.exit.i96, %_ZL14crc32c_f_pow_nj.exit82
@@ -350,7 +350,7 @@ _ZL15crc32c_multiplyjj.exit.i96:                  ; preds = %._crit_edge.i.i87, 
   br i1 %exitcond124, label %_ZL14crc32c_f_pow_nj.exit100, label %68, !llvm.loop !9
 
 _ZL14crc32c_f_pow_nj.exit100:                     ; preds = %_ZL15crc32c_multiplyjj.exit.i96
-  store i32 %.1.i97, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 16), align 16
+  store i32 %.1.i97, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 16), align 16
   br label %82
 
 82:                                               ; preds = %_ZL15crc32c_multiplyjj.exit.i114, %_ZL14crc32c_f_pow_nj.exit100
@@ -393,7 +393,7 @@ _ZL15crc32c_multiplyjj.exit.i114:                 ; preds = %._crit_edge.i.i105,
   br i1 %exitcond125, label %_ZL14crc32c_f_pow_nj.exit118, label %82, !llvm.loop !9
 
 _ZL14crc32c_f_pow_nj.exit118:                     ; preds = %_ZL15crc32c_multiplyjj.exit.i114
-  store i32 %.1.i115, ptr getelementptr inbounds (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 20), align 4
+  store i32 %.1.i115, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 20), align 4
   br i1 %0, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZL14crc32c_f_pow_nj.exit118, %134

@@ -1032,7 +1032,7 @@ define hidden void @_ZN5ZMark5startEv(ptr noundef nonnull align 64 dereferenceab
   %7 = load ptr, ptr %0, align 64
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i8, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %6, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1109,7 +1109,7 @@ define hidden void @_ZNK5ZMark23verify_all_stacks_emptyEv(ptr noundef nonnull al
   %4 = load ptr, ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1360,11 +1360,11 @@ _ZN5ZMark9try_stealEP12ZMarkContext.exit:         ; preds = %67
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr @.str.24, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %3, align 8
   store ptr %0, ptr %30, align 8
   store i8 0, ptr %31, align 8
   store ptr null, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV22VM_ZMarkFlushOperation, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV22VM_ZMarkFlushOperation, i64 16), ptr %4, align 8
   store ptr %3, ptr %33, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %3) #15
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #15
@@ -1826,7 +1826,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %20, %30
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %36 = zext i1 %14 to i8
   store i8 %36, ptr %35, align 8
@@ -1861,7 +1861,7 @@ _ZNK7oopDesc5klassEv.exit11:                      ; preds = %38, %48
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 6592
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %52, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %55 = zext i1 %14 to i8
   store i8 %55, ptr %54, align 8
@@ -1902,7 +1902,7 @@ _ZNK7oopDesc5klassEv.exit13:                      ; preds = %61, %71
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 6592
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %75, ptr %76, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %77, align 8
   call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %74, ptr noundef nonnull %4, i32 noundef 3, i1 noundef zeroext false) #15
@@ -1970,7 +1970,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb1EL21ZGener
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 3216
@@ -1991,7 +1991,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb0EL21ZGener
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 6592
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 3216
   %11 = load i32, ptr %10, align 16
@@ -2019,7 +2019,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb0EL21ZGener
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 6592
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 3216
   %11 = load i32, ptr %10, align 16
@@ -2079,7 +2079,7 @@ _ZNK7oopDesc13is_stackChunkEv.exit:               ; preds = %16, %26
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6592
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EE, i64 16), ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 3216
   %40 = load i32, ptr %39, align 16
@@ -2119,7 +2119,7 @@ _ZN9ZIterator11oop_iterateI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOp
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %61, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional1EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional1EE, i64 16), ptr %5, align 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %63 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 3216
@@ -2159,7 +2159,7 @@ _ZN9ZIterator11oop_iterateI28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOp
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 6592
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %86, ptr %87, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EE, i64 16), ptr %6, align 8
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 3216
   %90 = load i32, ptr %89, align 16
@@ -2198,7 +2198,7 @@ _ZN9ZIterator11oop_iterateI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOp
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 6592
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %111, ptr %112, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EE, i64 16), ptr %7, align 8
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 3216
   %115 = load i32, ptr %114, align 16
@@ -2585,7 +2585,7 @@ _ZNK5ZMark8is_arrayE8zaddress.exit:               ; preds = %169, %179
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %201, %191
   %.0.i.i.i27 = phi ptr [ %200, %191 ], [ %202, %201 ]
-  %203 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %204 = icmp eq ptr %.0.i.i.i27, %203
   br i1 %204, label %205, label %_ZN5ZMark20follow_partial_arrayE15ZMarkStackEntryb.exit
 
@@ -3053,14 +3053,14 @@ define hidden noundef zeroext i1 @_ZN5ZMark5flushEv(ptr noundef nonnull align 64
   %3 = alloca %class.VM_ZMarkFlushOperation, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.24, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV22VM_ZMarkFlushOperation, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV22VM_ZMarkFlushOperation, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %8, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %2) #15
@@ -3124,7 +3124,7 @@ _ZN14ZMarkTerminate15set_resurrectedEb.exit:      ; preds = %1, %10, %.sink.spli
   %16 = load ptr, ptr %0, align 64
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %15, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3139,14 +3139,14 @@ _ZN14ZMarkTerminate15set_resurrectedEb.exit:      ; preds = %1, %10, %.sink.spli
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.24, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %2, align 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV22VM_ZMarkFlushOperation, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV22VM_ZMarkFlushOperation, i64 16), ptr %3, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %27, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %2) #15
@@ -3184,7 +3184,7 @@ define hidden void @_ZNK5ZMark26verify_worker_stacks_emptyEv(ptr noundef nonnull
   %4 = load ptr, ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3216,14 +3216,14 @@ define hidden noundef zeroext i1 @_ZN5ZMark19try_proactive_flushEv(ptr noundef n
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.24, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV22VM_ZMarkFlushOperation, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV22VM_ZMarkFlushOperation, i64 16), ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %16, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %2) #15
@@ -3374,9 +3374,9 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:
   %2 = load ptr, ptr %0, align 64
   %3 = call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #15
   call void @_ZN8ZWorkers3runEP5ZTask(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef nonnull %1) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ZMarkYoungRootsTask, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ZMarkYoungRootsTask, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1056
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ZMarkThreadClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ZMarkThreadClosure, i64 16), ptr %4, align 8
   call void @_ZN23ZThreadLocalAllocBuffer18publish_statisticsEv() #15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1016
@@ -3391,7 +3391,7 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19ZMarkYoungRootsTaskC2EP5ZMark(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.28) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ZMarkYoungRootsTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ZMarkYoungRootsTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3435,18 +3435,18 @@ define linkonce_odr hidden void @_ZN19ZMarkYoungRootsTaskC2EP5ZMark(ptr noundef 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1019
   store volatile i8 0, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ZMarkYoungOopClosure, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ZMarkYoungOopClosure, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store ptr %26, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i32 0, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20ZMarkYoungCLDClosure, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20ZMarkYoungCLDClosure, i64 16), ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ZMarkThreadClosure, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ZMarkThreadClosure, i64 16), ptr %30, align 8
   tail call void @_ZN23ZThreadLocalAllocBuffer16reset_statisticsEv() #15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV24ZMarkYoungNMethodClosure, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV24ZMarkYoungNMethodClosure, i64 16), ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %33 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
@@ -3466,9 +3466,9 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:
   %2 = load ptr, ptr %0, align 64
   %3 = call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #15
   call void @_ZN8ZWorkers3runEP5ZTask(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef nonnull %1) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17ZMarkOldRootsTask, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17ZMarkOldRootsTask, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 472
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ZMarkThreadClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ZMarkThreadClosure, i64 16), ptr %4, align 8
   call void @_ZN23ZThreadLocalAllocBuffer18publish_statisticsEv() #15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 432
@@ -3491,7 +3491,7 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17ZMarkOldRootsTaskC2EP5ZMark(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.31) #15
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17ZMarkOldRootsTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17ZMarkOldRootsTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3530,18 +3530,18 @@ define linkonce_odr hidden void @_ZN17ZMarkOldRootsTaskC2EP5ZMark(ptr noundef no
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 435
   store volatile i8 0, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV15ZMarkOopClosure, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV15ZMarkOopClosure, i64 16), ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %25, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i32 3, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23ClaimingCLDToOopClosureILi3EE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23ClaimingCLDToOopClosureILi3EE, i64 16), ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ZMarkThreadClosure, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ZMarkThreadClosure, i64 16), ptr %29, align 8
   tail call void @_ZN23ZThreadLocalAllocBuffer16reset_statisticsEv() #15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ZMarkNMethodClosure, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ZMarkNMethodClosure, i64 16), ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %32 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
@@ -3565,7 +3565,7 @@ define hidden void @_ZN5ZMark11mark_followEv(ptr noundef nonnull align 64 derefe
 
 11:                                               ; preds = %select.unfold, %1
   call void @_ZN16ZRestartableTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.33) #15
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9ZMarkTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9ZMarkTask, i64 16), ptr %2, align 8
   store ptr %0, ptr %3, align 8
   %12 = load ptr, ptr %0, align 64
   %13 = call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %12) #15
@@ -3597,7 +3597,7 @@ define hidden void @_ZN5ZMark11mark_followEv(ptr noundef nonnull align 64 derefe
 
 select.unfold:                                    ; preds = %26, %11
   %.0 = phi i1 [ false, %11 ], [ %27, %26 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9ZMarkTask, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9ZMarkTask, i64 16), ptr %2, align 8
   %28 = load ptr, ptr %3, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2600
   %30 = load volatile i64, ptr %29, align 8
@@ -3630,7 +3630,7 @@ define hidden noundef zeroext i1 @_ZN5ZMark7try_endEv(ptr noundef nonnull align 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.24, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3665,7 +3665,7 @@ define hidden noundef zeroext i1 @_ZN5ZMark3endEv(ptr noundef nonnull align 64 d
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.24, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30ZMarkFlushAndFreeStacksClosure, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3702,7 +3702,7 @@ _ZN5ZMark7try_endEv.exit:                         ; preds = %7
   %23 = load ptr, ptr %0, align 64
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i8, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29ZVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %13, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5415,7 +5415,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %2, %_ZN14ZReentrant
 
 20:                                               ; preds = %16
   %21 = tail call noundef i64 @_ZN8ZNMethod5colorEP7nmethod(ptr noundef nonnull %1) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV33ZUncoloredRootMarkYoungOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV33ZUncoloredRootMarkYoungOopClosure, i64 16), ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %21, ptr %22, align 8
   call void @_ZN8ZNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(ptr noundef nonnull %1, ptr noundef nonnull %3) #15
@@ -5952,7 +5952,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %2, %_ZN14ZReentrant
 18:                                               ; preds = %_ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit
   tail call void @_ZN8ZNMethod22nmethod_patch_barriersEP7nmethod(ptr noundef %1) #15
   %19 = tail call noundef i64 @_ZN8ZNMethod5colorEP7nmethod(ptr noundef %1) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV28ZUncoloredRootMarkOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV28ZUncoloredRootMarkOopClosure, i64 16), ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %19, ptr %20, align 8
   call void @_ZN8ZNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(ptr noundef %1, ptr noundef nonnull %3) #15
@@ -6097,7 +6097,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb1EL21ZGener
   %3 = alloca %class.ZMarkBarrierFollowOopClosure.81, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3216
@@ -6150,7 +6150,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb1EL21ZGener
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 3216
@@ -6167,7 +6167,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb1EL21ZGener
   %3 = alloca %class.ZMarkBarrierFollowOopClosure.81, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3216
@@ -6222,7 +6222,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb0EL21ZGener
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 6592
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 3216
   %9 = load i32, ptr %8, align 16
@@ -6266,7 +6266,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb0EL21ZGener
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 6592
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 3216
   %9 = load i32, ptr %8, align 16
@@ -6315,7 +6315,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6592
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 3216
   %14 = load i32, ptr %13, align 16
@@ -6381,7 +6381,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6592
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 3216
   %14 = load i32, ptr %13, align 16
@@ -6586,7 +6586,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6592
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 3216
   %15 = load i32, ptr %14, align 16
@@ -6766,7 +6766,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -6782,7 +6782,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -6798,7 +6798,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -6815,7 +6815,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %5 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = zext i32 %3 to i64
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %7, %9
   %11 = add i64 %10, %6
@@ -6832,7 +6832,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -7017,7 +7017,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread: ; preds = %84,
   %115 = ptrtoint ptr %2 to i64
   %116 = ptrtoint ptr %114 to i64
   %117 = sub i64 %115, %116
-  %118 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %119 = zext nneg i32 %118 to i64
   %120 = lshr i64 %117, %119
   %121 = trunc i64 %120 to i32
@@ -7795,7 +7795,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -7811,7 +7811,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -7827,7 +7827,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -7844,7 +7844,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %5 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = zext i32 %3 to i64
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %9 = zext nneg i32 %8 to i64
   %10 = shl i64 %7, %9
   %11 = add i64 %10, %6
@@ -7861,7 +7861,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = zext i32 %2 to i64
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %8 = zext nneg i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = add i64 %9, %5
@@ -8195,7 +8195,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6592
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 3216
   %15 = load i32, ptr %14, align 16
@@ -8514,7 +8514,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 6592
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 3216
   %16 = load i32, ptr %15, align 16
@@ -8595,7 +8595,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 6592
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %58, ptr %59, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 3216
   %62 = load i32, ptr %61, align 16
@@ -8612,7 +8612,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 6592
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %67, ptr %68, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 3216
   %71 = load i32, ptr %70, align 16
@@ -8660,7 +8660,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 6592
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 3216
   %16 = load i32, ptr %15, align 16
@@ -8869,7 +8869,7 @@ _ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit: ; preds = %.prehe
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 6592
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %132, ptr %133, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 3216
   %136 = load i32, ptr %135, align 16
@@ -8886,7 +8886,7 @@ _ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit: ; preds = %.prehe
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 6592
   %142 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %141, ptr %142, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 3216
   %145 = load i32, ptr %144, align 16
@@ -8959,7 +8959,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6592
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 3216
   %15 = load i32, ptr %14, align 16
@@ -9021,7 +9021,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 6592
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %44, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 3216
   %48 = load i32, ptr %47, align 16
@@ -9055,7 +9055,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6592
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 3216
   %15 = load i32, ptr %14, align 16
@@ -9245,7 +9245,7 @@ _ZN8ZBarrier29mark_barrier_on_old_oop_fieldEPV8zpointerb.exit: ; preds = %.prehe
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 6592
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %118, ptr %119, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 3216
   %122 = load i32, ptr %121, align 16
@@ -9286,7 +9286,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6592
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 3216
   %14 = load i32, ptr %13, align 16
@@ -9321,7 +9321,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6592
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 3216
   %14 = load i32, ptr %13, align 16
@@ -9836,7 +9836,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6592
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %25, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 3216
   %29 = load i32, ptr %28, align 16
@@ -9905,7 +9905,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6592
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %25, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 3216
   %29 = load i32, ptr %28, align 16
@@ -9992,7 +9992,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3216
@@ -10057,7 +10057,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3216
@@ -10144,7 +10144,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 3216
@@ -10213,7 +10213,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 3216
@@ -10489,7 +10489,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 3216
@@ -10569,7 +10569,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %56, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %58 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 3216
@@ -10585,7 +10585,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %64, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %66 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 3216
@@ -10628,7 +10628,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 3216
@@ -10719,7 +10719,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %63, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %65 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 3216
@@ -10735,7 +10735,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %73 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 3216
@@ -10807,7 +10807,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 3216
@@ -10868,7 +10868,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %42, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %44 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 3216
@@ -10899,7 +10899,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 3216
@@ -10971,7 +10971,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %51 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 3216
@@ -11011,7 +11011,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3216
@@ -11045,7 +11045,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3216
@@ -11552,7 +11552,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3216
@@ -11620,7 +11620,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3216
@@ -11715,7 +11715,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb0EL21ZGener
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 6592
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 3216
   %11 = load i32, ptr %10, align 16
@@ -11733,7 +11733,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb0EL21ZGener
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 6592
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 3216
   %9 = load i32, ptr %8, align 16
@@ -11782,7 +11782,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6592
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 3216
   %14 = load i32, ptr %13, align 16
@@ -11848,7 +11848,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6592
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 3216
   %14 = load i32, ptr %13, align 16
@@ -12036,7 +12036,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6592
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 3216
   %15 = load i32, ptr %14, align 16
@@ -12187,7 +12187,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6592
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 3216
   %15 = load i32, ptr %14, align 16
@@ -12489,7 +12489,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 6592
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 3216
   %16 = load i32, ptr %15, align 16
@@ -12570,7 +12570,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 6592
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %58, ptr %59, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 3216
   %62 = load i32, ptr %61, align 16
@@ -12587,7 +12587,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 6592
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %67, ptr %68, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 3216
   %71 = load i32, ptr %70, align 16
@@ -12631,7 +12631,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 6592
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 3216
   %16 = load i32, ptr %15, align 16
@@ -12823,7 +12823,7 @@ _ZN8ZBarrier31mark_barrier_on_young_oop_fieldEPV8zpointer.exit: ; preds = %.preh
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 6592
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %126, ptr %127, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 3216
   %130 = load i32, ptr %129, align 16
@@ -12840,7 +12840,7 @@ _ZN8ZBarrier31mark_barrier_on_young_oop_fieldEPV8zpointer.exit: ; preds = %.preh
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 6592
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %135, ptr %136, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 3216
   %139 = load i32, ptr %138, align 16
@@ -12913,7 +12913,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6592
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 3216
   %15 = load i32, ptr %14, align 16
@@ -12975,7 +12975,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 6592
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %44, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 3216
   %48 = load i32, ptr %47, align 16
@@ -13007,7 +13007,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6592
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 3216
   %15 = load i32, ptr %14, align 16
@@ -13180,7 +13180,7 @@ _ZN8ZBarrier31mark_barrier_on_young_oop_fieldEPV8zpointer.exit: ; preds = %.preh
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 6592
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %112, ptr %113, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 3216
   %116 = load i32, ptr %115, align 16
@@ -13221,7 +13221,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6592
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 3216
   %14 = load i32, ptr %13, align 16
@@ -13256,7 +13256,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollow
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6592
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 3216
   %14 = load i32, ptr %13, align 16
@@ -13754,7 +13754,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6592
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %25, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 3216
   %29 = load i32, ptr %28, align 16
@@ -13823,7 +13823,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6592
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %25, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional2EE, i64 16), ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 3216
   %29 = load i32, ptr %28, align 16

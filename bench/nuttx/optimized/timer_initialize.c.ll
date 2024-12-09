@@ -38,7 +38,7 @@ define void @timer_initialize() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %5, label %1, !llvm.loop !6
 
 5:                                                ; preds = %1
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @g_freetimers, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @g_freetimers, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @g_alloctimers, i8 0, i64 16, i1 false)
   ret void
 }

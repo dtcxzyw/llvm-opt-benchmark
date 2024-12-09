@@ -1386,7 +1386,7 @@ _ZNK2cv11_InputArray6getMatEi.exit54:             ; preds = %39, %42
   store i32 0, ptr %23, align 4
   %99 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %98, ptr %99, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow28CalcOpticalFlowSingleScaleSFINS_3VecIhLi3EEENS2_IfLi2EEEEE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow28CalcOpticalFlowSingleScaleSFINS_3VecIhLi3EEENS2_IfLi2EEEEE, i64 16), ptr %24, align 8
   %100 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %13, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -3312,7 +3312,7 @@ _ZNK2cv11_InputArray6getMatEi.exit72:             ; preds = %76, %79
   %208 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %207, ptr %208, align 4
   %209 = zext i1 %6 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow20CrossBilateralFilterINS_3VecIhLi3EEENS2_IfLi2EEEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv7optflow20CrossBilateralFilterINS_3VecIhLi3EEENS2_IfLi2EEEEE, i64 16), ptr %37, align 8
   %210 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %22, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %37, i64 16

@@ -11882,7 +11882,7 @@ default.unreachable:                              ; preds = %79
   br i1 %230, label %231, label %232
 
 231:                                              ; preds = %227
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5116.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.5e2b4e04b43ec7639b2553fb988c456f.8.llvm.14262932559051198107, i64 8), i64 24, i1 false), !noalias !2486
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5116.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.5e2b4e04b43ec7639b2553fb988c456f.8.llvm.14262932559051198107, i64 8), i64 24, i1 false), !noalias !2486
   br label %251
 
 232:                                              ; preds = %227

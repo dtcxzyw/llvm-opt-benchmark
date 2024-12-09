@@ -26,24 +26,24 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %1
   %opal_install_dirs.promoted = load ptr, ptr @opal_install_dirs, align 8
-  %.promoted = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 8), align 8
-  %.promoted109 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 16), align 8
-  %.promoted110 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 24), align 8
-  %.promoted111 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 32), align 8
-  %.promoted112 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 40), align 8
-  %.promoted113 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 48), align 8
-  %.promoted114 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
-  %.promoted115 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 64), align 8
-  %.promoted116 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 72), align 8
-  %.promoted117 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 80), align 8
-  %.promoted118 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 88), align 8
-  %.promoted119 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 96), align 8
-  %.promoted120 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 104), align 8
-  %.promoted121 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
-  %.promoted122 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
-  %.promoted123 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 128), align 8
-  %.041124 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_installdirs_base_framework, i64 112), align 8
-  %.not60125 = icmp eq ptr %.041124, getelementptr inbounds (i8, ptr @opal_installdirs_base_framework, i64 96)
+  %.promoted = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 8), align 8
+  %.promoted109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 16), align 8
+  %.promoted110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 24), align 8
+  %.promoted111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 32), align 8
+  %.promoted112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 40), align 8
+  %.promoted113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 48), align 8
+  %.promoted114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 56), align 8
+  %.promoted115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 64), align 8
+  %.promoted116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 72), align 8
+  %.promoted117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 80), align 8
+  %.promoted118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 88), align 8
+  %.promoted119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 96), align 8
+  %.promoted120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 104), align 8
+  %.promoted121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 112), align 8
+  %.promoted122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
+  %.promoted123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 128), align 8
+  %.041124 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_installdirs_base_framework, i64 112), align 8
+  %.not60125 = icmp eq ptr %.041124, getelementptr inbounds nuw (i8, ptr @opal_installdirs_base_framework, i64 96)
   br i1 %.not60125, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %123
@@ -88,7 +88,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond78, label %32, label %33
 
 32:                                               ; preds = %27
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 8), align 8
+  store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 8), align 8
   br label %33
 
 33:                                               ; preds = %32, %27
@@ -101,7 +101,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond80, label %38, label %39
 
 38:                                               ; preds = %33
-  store ptr %36, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 16), align 8
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 16), align 8
   br label %39
 
 39:                                               ; preds = %38, %33
@@ -114,7 +114,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond82, label %44, label %45
 
 44:                                               ; preds = %39
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 24), align 8
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 24), align 8
   br label %45
 
 45:                                               ; preds = %44, %39
@@ -127,7 +127,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond84, label %50, label %51
 
 50:                                               ; preds = %45
-  store ptr %48, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 32), align 8
+  store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 32), align 8
   br label %51
 
 51:                                               ; preds = %50, %45
@@ -140,7 +140,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond86, label %56, label %57
 
 56:                                               ; preds = %51
-  store ptr %54, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 40), align 8
+  store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 40), align 8
   br label %57
 
 57:                                               ; preds = %56, %51
@@ -153,7 +153,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond88, label %62, label %63
 
 62:                                               ; preds = %57
-  store ptr %60, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 48), align 8
+  store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 48), align 8
   br label %63
 
 63:                                               ; preds = %62, %57
@@ -166,7 +166,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond90, label %68, label %69
 
 68:                                               ; preds = %63
-  store ptr %66, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
+  store ptr %66, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 56), align 8
   br label %69
 
 69:                                               ; preds = %68, %63
@@ -179,7 +179,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond92, label %74, label %75
 
 74:                                               ; preds = %69
-  store ptr %72, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 64), align 8
+  store ptr %72, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 64), align 8
   br label %75
 
 75:                                               ; preds = %74, %69
@@ -192,7 +192,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond94, label %80, label %81
 
 80:                                               ; preds = %75
-  store ptr %78, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 72), align 8
+  store ptr %78, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 72), align 8
   br label %81
 
 81:                                               ; preds = %80, %75
@@ -205,7 +205,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond96, label %86, label %87
 
 86:                                               ; preds = %81
-  store ptr %84, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 80), align 8
+  store ptr %84, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 80), align 8
   br label %87
 
 87:                                               ; preds = %86, %81
@@ -218,7 +218,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond98, label %92, label %93
 
 92:                                               ; preds = %87
-  store ptr %90, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 88), align 8
+  store ptr %90, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 88), align 8
   br label %93
 
 93:                                               ; preds = %92, %87
@@ -231,7 +231,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond100, label %98, label %99
 
 98:                                               ; preds = %93
-  store ptr %96, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 96), align 8
+  store ptr %96, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 96), align 8
   br label %99
 
 99:                                               ; preds = %98, %93
@@ -244,7 +244,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond102, label %104, label %105
 
 104:                                              ; preds = %99
-  store ptr %102, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 104), align 8
+  store ptr %102, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 104), align 8
   br label %105
 
 105:                                              ; preds = %104, %99
@@ -257,7 +257,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond104, label %110, label %111
 
 110:                                              ; preds = %105
-  store ptr %108, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
+  store ptr %108, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 112), align 8
   br label %111
 
 111:                                              ; preds = %110, %105
@@ -270,7 +270,7 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond106, label %116, label %117
 
 116:                                              ; preds = %111
-  store ptr %114, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
+  store ptr %114, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
   br label %117
 
 117:                                              ; preds = %116, %111
@@ -283,68 +283,68 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
   br i1 %or.cond108, label %122, label %123
 
 122:                                              ; preds = %117
-  store ptr %120, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 128), align 8
+  store ptr %120, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 128), align 8
   br label %123
 
 123:                                              ; preds = %122, %117
   %124 = phi ptr [ %120, %122 ], [ %19, %117 ]
   %125 = getelementptr inbounds nuw i8, ptr %.041126, i64 16
   %.041 = load volatile ptr, ptr %125, align 8
-  %.not60 = icmp eq ptr %.041, getelementptr inbounds (i8, ptr @opal_installdirs_base_framework, i64 96)
+  %.not60 = icmp eq ptr %.041, getelementptr inbounds nuw (i8, ptr @opal_installdirs_base_framework, i64 96)
   br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %123, %.preheader
   %126 = phi ptr [ %opal_install_dirs.promoted, %.preheader ], [ %28, %123 ]
   %127 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %126) #4
   store ptr %127, ptr @opal_install_dirs, align 8
-  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 8), align 8
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 8), align 8
   %129 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %128) #4
-  store ptr %129, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 8), align 8
-  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 16), align 8
+  store ptr %129, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 8), align 8
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 16), align 8
   %131 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %130) #4
-  store ptr %131, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 16), align 8
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 24), align 8
+  store ptr %131, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 16), align 8
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 24), align 8
   %133 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %132) #4
-  store ptr %133, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 24), align 8
-  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 32), align 8
+  store ptr %133, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 24), align 8
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 32), align 8
   %135 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %134) #4
-  store ptr %135, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 32), align 8
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 40), align 8
+  store ptr %135, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 32), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 40), align 8
   %137 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %136) #4
-  store ptr %137, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 40), align 8
-  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 48), align 8
+  store ptr %137, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 40), align 8
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 48), align 8
   %139 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %138) #4
-  store ptr %139, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 48), align 8
-  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
+  store ptr %139, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 48), align 8
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 56), align 8
   %141 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %140) #4
-  store ptr %141, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 64), align 8
+  store ptr %141, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 56), align 8
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 64), align 8
   %143 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %142) #4
-  store ptr %143, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 64), align 8
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 72), align 8
+  store ptr %143, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 64), align 8
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 72), align 8
   %145 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %144) #4
-  store ptr %145, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 72), align 8
-  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 80), align 8
+  store ptr %145, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 72), align 8
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 80), align 8
   %147 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %146) #4
-  store ptr %147, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 80), align 8
-  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 88), align 8
+  store ptr %147, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 80), align 8
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 88), align 8
   %149 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %148) #4
-  store ptr %149, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 88), align 8
-  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 96), align 8
+  store ptr %149, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 88), align 8
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 96), align 8
   %151 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %150) #4
-  store ptr %151, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 96), align 8
-  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 104), align 8
+  store ptr %151, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 96), align 8
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 104), align 8
   %153 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %152) #4
-  store ptr %153, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 104), align 8
-  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
+  store ptr %153, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 104), align 8
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 112), align 8
   %155 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %154) #4
-  store ptr %155, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
-  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
+  store ptr %155, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 112), align 8
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
   %157 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %156) #4
-  store ptr %157, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
-  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 128), align 8
+  store ptr %157, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 128), align 8
   %159 = tail call ptr @opal_install_dirs_expand_setup(ptr noundef %158) #4
-  store ptr %159, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 128), align 8
+  store ptr %159, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 128), align 8
   br label %160
 
 160:                                              ; preds = %1, %._crit_edge
@@ -356,37 +356,37 @@ define internal i32 @opal_installdirs_base_open(i32 noundef %0) #0 {
 define internal i32 @opal_installdirs_base_close() #0 {
   %1 = load ptr, ptr @opal_install_dirs, align 8
   tail call void @free(ptr noundef %1) #4
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 8), align 8
   tail call void @free(ptr noundef %2) #4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 16), align 8
   tail call void @free(ptr noundef %3) #4
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 24), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 24), align 8
   tail call void @free(ptr noundef %4) #4
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 32), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 32), align 8
   tail call void @free(ptr noundef %5) #4
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 40), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 40), align 8
   tail call void @free(ptr noundef %6) #4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 48), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 48), align 8
   tail call void @free(ptr noundef %7) #4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 56), align 8
   tail call void @free(ptr noundef %8) #4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 64), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 64), align 8
   tail call void @free(ptr noundef %9) #4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 72), align 8
   tail call void @free(ptr noundef %10) #4
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 80), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 80), align 8
   tail call void @free(ptr noundef %11) #4
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 88), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 88), align 8
   tail call void @free(ptr noundef %12) #4
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 96), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 96), align 8
   tail call void @free(ptr noundef %13) #4
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 104), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 104), align 8
   tail call void @free(ptr noundef %14) #4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 112), align 8
   tail call void @free(ptr noundef %15) #4
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
   tail call void @free(ptr noundef %16) #4
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 128), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 128), align 8
   tail call void @free(ptr noundef %17) #4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) @opal_install_dirs, i8 0, i64 136, i1 false)
   %18 = tail call i32 @mca_base_framework_components_close(ptr noundef nonnull @opal_installdirs_base_framework, ptr noundef null) #4

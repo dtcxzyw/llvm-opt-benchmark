@@ -62,7 +62,7 @@ define range(i32 -1, 1) i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1
   br i1 %16, label %.lr.ph.split.us, label %.critedge
 
 .loopexit:                                        ; preds = %.lr.ph65, %.split56.us
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @random_globals, i64 28), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %49
 
@@ -123,7 +123,7 @@ define range(i32 -1, 1) i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1
   br label %.critedge
 
 48:                                               ; preds = %33
-  store i32 %20, ptr getelementptr inbounds (i8, ptr @random_globals, i64 28), align 4
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4
   br label %49
 
 49:                                               ; preds = %48, %.loopexit

@@ -700,15 +700,15 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   store ptr %24, ptr @dictionary.0, align 8
   %25 = tail call ptr @wmem_epan_scope() #14
   %26 = tail call noalias ptr @wmem_array_new(ptr noundef %25, i64 noundef 16) #14
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @unknown_vendor, i64 8), align 8
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @unknown_vendor, i64 8), align 8
   tail call void @wmem_array_set_null_terminator(ptr noundef %26) #14
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @unknown_vendor, i64 8), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @unknown_vendor, i64 8), align 8
   tail call void @wmem_array_bzero(ptr noundef %27) #14
   %28 = tail call ptr @wmem_epan_scope() #14
   %29 = tail call noalias ptr @wmem_array_new(ptr noundef %28, i64 noundef 16) #14
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @no_vnd, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @no_vnd, i64 8), align 8
   tail call void @wmem_array_set_null_terminator(ptr noundef %29) #14
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @no_vnd, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @no_vnd, i64 8), align 8
   tail call void @wmem_array_bzero(ptr noundef %30) #14
   %31 = load ptr, ptr @dictionary.1, align 8
   tail call void @wmem_tree_insert32(ptr noundef %31, i32 noundef 0, ptr noundef nonnull @no_vnd) #14
@@ -1851,7 +1851,7 @@ dictionary_load.exit:                             ; preds = %45, %._crit_edge222
   %574 = getelementptr inbounds nuw i8, ptr %2, i64 2232
   store ptr null, ptr %574, align 8
   %575 = getelementptr inbounds nuw i8, ptr %2, i64 2240
-  store ptr getelementptr inbounds (i8, ptr @unknown_avp, i64 28), ptr %575, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @unknown_avp, i64 28), ptr %575, align 16
   %576 = getelementptr inbounds nuw i8, ptr %2, i64 2248
   store ptr @.str.216, ptr %576, align 8
   %577 = getelementptr inbounds nuw i8, ptr %2, i64 2256

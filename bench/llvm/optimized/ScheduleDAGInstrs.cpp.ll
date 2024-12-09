@@ -310,7 +310,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -322,7 +322,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -355,7 +355,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -367,7 +367,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKjEED2Ev.exit
 
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -399,7 +399,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 define dso_local void @_ZN4llvm17ScheduleDAGInstrsC2ERNS_15MachineFunctionEPKNS_15MachineLoopInfoEb(ptr noundef nonnull align 8 dereferenceable(2624) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %3 to i8
   tail call void @_ZN4llvm11ScheduleDAGC2ERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) #23
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN4llvm17ScheduleDAGInstrsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN4llvm17ScheduleDAGInstrsE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -3434,7 +3434,7 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs18addChainDependencyEPNS_5SUni
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7UseTBAA, i64 128), align 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   %11 = trunc i8 %10 to i1
   %12 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b(ptr noundef nonnull align 8 dereferenceable(70) %6, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(70) %9, i1 noundef zeroext %11) #23
   br i1 %12, label %13, label %19
@@ -3880,7 +3880,7 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs20addChainDependenciesEPNS_5SU
   %20 = load ptr, ptr %1, align 8
   %21 = load ptr, ptr %10, align 8
   %22 = load ptr, ptr %19, align 8
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7UseTBAA, i64 128), align 8
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   %24 = trunc i8 %23 to i1
   %25 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b(ptr noundef nonnull align 8 dereferenceable(70) %20, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(70) %22, i1 noundef zeroext %24) #23
   br i1 %25, label %26, label %_ZN4llvm17ScheduleDAGInstrs18addChainDependencyEPNS_5SUnitES2_j.exit.i
@@ -4002,7 +4002,7 @@ _ZN4llvm9MapVectorINS_12PointerUnionIJPKNS_5ValueEPKNS_17PseudoSourceValueEEEENS
   %53 = load ptr, ptr %1, align 8
   %54 = load ptr, ptr %45, align 8
   %55 = load ptr, ptr %52, align 8
-  %56 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7UseTBAA, i64 128), align 8
+  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   %57 = trunc i8 %56 to i1
   %58 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b(ptr noundef nonnull align 8 dereferenceable(70) %53, ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(70) %55, i1 noundef zeroext %57) #23
   br i1 %58, label %59, label %_ZN4llvm17ScheduleDAGInstrs18addChainDependencyEPNS_5SUnitES2_j.exit.i
@@ -4768,7 +4768,7 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs15buildSchedGraphEPNS_9AAResul
   br i1 %.not403, label %39, label %36
 
 36:                                               ; preds = %6
-  %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL15EnableAASchedMI, i64 128), align 8
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 128), align 8
   %38 = trunc i8 %37 to i1
   br label %47
 
@@ -5768,7 +5768,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit: ; preds = %476, %_ZNK4llvm1
   %500 = add i32 %499, 1
   store i32 %500, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  %501 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10HugeRegion, i64 128), align 8
+  %501 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 128), align 8
   %.not157 = icmp ult i32 %500, %501
   br i1 %.not157, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread, label %502
 
@@ -5779,9 +5779,9 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit: ; preds = %476, %_ZNK4llvm1
   store i32 0, ptr %203, align 4
   %503 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 8), align 8
   %504 = icmp eq i16 %503, 0
-  %505 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10HugeRegion, i64 128), align 8
+  %505 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 128), align 8
   %506 = lshr i32 %505, 1
-  %507 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13ReductionSize, i64 128), align 8
+  %507 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 128), align 8
   %.0.i196 = select i1 %504, i32 %506, i32 %507
   call void @_ZN4llvm17ScheduleDAGInstrs21reduceHugeMemNodeMapsERNS0_12Value2SUsMapES2_j(ptr noundef nonnull align 8 dereferenceable(2624) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %31, i32 noundef %.0.i196)
   %508 = load ptr, ptr %201, align 8
@@ -6155,7 +6155,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit217.thread: ; preds = %642,
   %672 = load ptr, ptr %295, align 8
   %673 = load ptr, ptr %50, align 8
   %674 = load ptr, ptr %671, align 8
-  %675 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7UseTBAA, i64 128), align 8
+  %675 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   %676 = trunc i8 %675 to i1
   %677 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b(ptr noundef nonnull align 8 dereferenceable(70) %672, ptr noundef %673, ptr noundef nonnull align 8 dereferenceable(70) %674, i1 noundef zeroext %676) #23
   br i1 %677, label %678, label %_ZN4llvm17ScheduleDAGInstrs18addChainDependencyEPNS_5SUnitES2_j.exit.i.i
@@ -6206,7 +6206,7 @@ _ZN4llvm17ScheduleDAGInstrs20addChainDependenciesEPNS_5SUnitERNS0_12Value2SUsMap
   %691 = load ptr, ptr %295, align 8
   %692 = load ptr, ptr %50, align 8
   %693 = load ptr, ptr %690, align 8
-  %694 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7UseTBAA, i64 128), align 8
+  %694 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   %695 = trunc i8 %694 to i1
   %696 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b(ptr noundef nonnull align 8 dereferenceable(70) %691, ptr noundef %692, ptr noundef nonnull align 8 dereferenceable(70) %693, i1 noundef zeroext %695) #23
   br i1 %696, label %697, label %_ZN4llvm17ScheduleDAGInstrs18addChainDependencyEPNS_5SUnitES2_j.exit.i.i230
@@ -6257,7 +6257,7 @@ _ZN4llvm17ScheduleDAGInstrs20addChainDependenciesEPNS_5SUnitERNS0_12Value2SUsMap
   %710 = load ptr, ptr %295, align 8
   %711 = load ptr, ptr %50, align 8
   %712 = load ptr, ptr %709, align 8
-  %713 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7UseTBAA, i64 128), align 8
+  %713 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   %714 = trunc i8 %713 to i1
   %715 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b(ptr noundef nonnull align 8 dereferenceable(70) %710, ptr noundef %711, ptr noundef nonnull align 8 dereferenceable(70) %712, i1 noundef zeroext %714) #23
   br i1 %715, label %716, label %_ZN4llvm17ScheduleDAGInstrs18addChainDependencyEPNS_5SUnitES2_j.exit.i.i244
@@ -6308,7 +6308,7 @@ _ZN4llvm17ScheduleDAGInstrs20addChainDependenciesEPNS_5SUnitERNS0_12Value2SUsMap
   %729 = load ptr, ptr %295, align 8
   %730 = load ptr, ptr %50, align 8
   %731 = load ptr, ptr %728, align 8
-  %732 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7UseTBAA, i64 128), align 8
+  %732 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   %733 = trunc i8 %732 to i1
   %734 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b(ptr noundef nonnull align 8 dereferenceable(70) %729, ptr noundef %730, ptr noundef nonnull align 8 dereferenceable(70) %731, i1 noundef zeroext %733) #23
   br i1 %734, label %735, label %_ZN4llvm17ScheduleDAGInstrs18addChainDependencyEPNS_5SUnitES2_j.exit.i.i258
@@ -6449,7 +6449,7 @@ _ZN4llvm17ScheduleDAGInstrs20addChainDependenciesEPNS_5SUnitERNS0_12Value2SUsMap
   %789 = load ptr, ptr %295, align 8
   %790 = load ptr, ptr %50, align 8
   %791 = load ptr, ptr %788, align 8
-  %792 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7UseTBAA, i64 128), align 8
+  %792 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   %793 = trunc i8 %792 to i1
   %794 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b(ptr noundef nonnull align 8 dereferenceable(70) %789, ptr noundef %790, ptr noundef nonnull align 8 dereferenceable(70) %791, i1 noundef zeroext %793) #23
   br i1 %794, label %795, label %_ZN4llvm17ScheduleDAGInstrs18addChainDependencyEPNS_5SUnitES2_j.exit.i.i275
@@ -6500,7 +6500,7 @@ _ZN4llvm17ScheduleDAGInstrs20addChainDependenciesEPNS_5SUnitERNS0_12Value2SUsMap
   %808 = load ptr, ptr %295, align 8
   %809 = load ptr, ptr %50, align 8
   %810 = load ptr, ptr %807, align 8
-  %811 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7UseTBAA, i64 128), align 8
+  %811 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   %812 = trunc i8 %811 to i1
   %813 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr8mayAliasEPNS_9AAResultsERKS0_b(ptr noundef nonnull align 8 dereferenceable(70) %808, ptr noundef %809, ptr noundef nonnull align 8 dereferenceable(70) %810, i1 noundef zeroext %812) #23
   br i1 %813, label %814, label %_ZN4llvm17ScheduleDAGInstrs18addChainDependencyEPNS_5SUnitES2_j.exit.i.i289
@@ -6591,7 +6591,7 @@ _ZN4llvm17ScheduleDAGInstrs20addChainDependenciesEPNS_5SUnitERNS0_12Value2SUsMap
   %848 = load i32, ptr %84, align 8
   %849 = load i32, ptr %87, align 8
   %850 = add i32 %849, %848
-  %851 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10HugeRegion, i64 128), align 8
+  %851 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 128), align 8
   %.not162 = icmp ult i32 %850, %851
   br i1 %.not162, label %857, label %852
 
@@ -6599,10 +6599,10 @@ _ZN4llvm17ScheduleDAGInstrs20addChainDependenciesEPNS_5SUnitERNS0_12Value2SUsMap
   %853 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 8), align 8
   %854 = icmp eq i16 %853, 0
   %855 = lshr i32 %851, 1
-  %856 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13ReductionSize, i64 128), align 8
+  %856 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 128), align 8
   %.0.i298 = select i1 %854, i32 %855, i32 %856
   call void @_ZN4llvm17ScheduleDAGInstrs21reduceHugeMemNodeMapsERNS0_12Value2SUsMapES2_j(ptr noundef nonnull align 8 dereferenceable(2624) %0, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %24, i32 noundef %.0.i298)
-  %.pre466 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10HugeRegion, i64 128), align 8
+  %.pre466 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 128), align 8
   br label %857
 
 857:                                              ; preds = %852, %847
@@ -6617,7 +6617,7 @@ _ZN4llvm17ScheduleDAGInstrs20addChainDependenciesEPNS_5SUnitERNS0_12Value2SUsMap
   %863 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 8), align 8
   %864 = icmp eq i16 %863, 0
   %865 = lshr i32 %858, 1
-  %866 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13ReductionSize, i64 128), align 8
+  %866 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 128), align 8
   %.0.i299 = select i1 %864, i32 %865, i32 %866
   call void @_ZN4llvm17ScheduleDAGInstrs21reduceHugeMemNodeMapsERNS0_12Value2SUsMapES2_j(ptr noundef nonnull align 8 dereferenceable(2624) %0, ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %26, i32 noundef %.0.i299)
   br label %867
@@ -8155,7 +8155,7 @@ define dso_local void @_ZNK4llvm17ScheduleDAGInstrs17getGraphNodeLabelB5cxx11EPK
   store i32 1, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %0, ptr %9, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #23
@@ -9365,7 +9365,7 @@ define dso_local void @_ZN4llvm14SchedDFSResult12scheduleTreeEj(ptr nocapture no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17ScheduleDAGInstrsD2Ev(ptr noundef nonnull align 8 dereferenceable(2624) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN4llvm17ScheduleDAGInstrsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN4llvm17ScheduleDAGInstrsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2552
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %2) #23
   %4 = load ptr, ptr %2, align 8
@@ -11402,7 +11402,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -13033,10 +13033,10 @@ define internal void @_GLOBAL__sub_I_ScheduleDAGInstrs.cpp() #18 section ".text.
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL15EnableAASchedMI, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL15EnableAASchedMI, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL15EnableAASchedMI, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL15EnableAASchedMI) #23
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL15EnableAASchedMI, i64 176), align 8
@@ -13054,10 +13054,10 @@ define internal void @_GLOBAL__sub_I_ScheduleDAGInstrs.cpp() #18 section ".text.
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL7UseTBAA, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL7UseTBAA, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL7UseTBAA, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL7UseTBAA) #23
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL7UseTBAA, i64 176), align 8
@@ -13075,10 +13075,10 @@ define internal void @_GLOBAL__sub_I_ScheduleDAGInstrs.cpp() #18 section ".text.
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL10HugeRegion, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL10HugeRegion, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL10HugeRegion, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL10HugeRegion) #23
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL10HugeRegion, i64 176), align 8
@@ -13098,10 +13098,10 @@ define internal void @_GLOBAL__sub_I_ScheduleDAGInstrs.cpp() #18 section ".text.
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL13ReductionSize, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL13ReductionSize, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL13ReductionSize, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL13ReductionSize) #23
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ReductionSize, i64 176), align 8

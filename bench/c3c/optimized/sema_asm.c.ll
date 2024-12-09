@@ -63,7 +63,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   switch i32 %4, label %5 [
     i32 32, label %7
     i32 3, label %7

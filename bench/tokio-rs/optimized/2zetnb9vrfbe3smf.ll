@@ -147,7 +147,7 @@ define hidden void @_ZN20signal_hook_registry23register_sigaction_impl17h5cc06bb
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !4
   store ptr @anon.3f5780a7fef518180bd2fb61a12abd81.2.llvm.9993772341007493287, ptr %5, align 8, !noalias !4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.3f5780a7fef518180bd2fb61a12abd81.2.llvm.9993772341007493287, i64 20), ptr %9, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.3f5780a7fef518180bd2fb61a12abd81.2.llvm.9993772341007493287, i64 20), ptr %9, align 8, !noalias !4
   br label %10
 
 10:                                               ; preds = %12, %4
@@ -3416,7 +3416,7 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking25try_enter_blockin
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c13797fc0adf5e3E.llvm.9993772341007493287.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c13797fc0adf5e3E.llvm.9993772341007493287.exit": ; preds = %0, %2
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !199, !noalias !650, !noundef !19
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !199, !noalias !650, !noundef !19
   %.not.i.i = icmp eq i8 %.08.val.i, 2
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c13797fc0adf5e3E.llvm.9993772341007493287.exit.thread"
 
@@ -6364,8 +6364,8 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
   br label %.thread61.i
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h58a8df809a97188dE.exit.i": ; preds = %.noexc.i, %72
-  %.08.val.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4, !range !82, !noundef !19
-  %.08.val10.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 77), align 1
+  %.08.val.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 76), align 4, !range !82, !noundef !19
+  %.08.val10.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 77), align 1
   %84 = trunc nuw i8 %.08.val.i.i to i1
   %85 = icmp eq i8 %.08.val10.i.i, 0
   %spec.select.i.i.i.i.i.not.i = select i1 %84, i1 %85, i1 false

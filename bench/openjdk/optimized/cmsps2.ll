@@ -770,7 +770,7 @@ GenerateCSA.exit:                                 ; preds = %WriteNamedColorCSA.
   %306 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.84) #9
   %307 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.79) #9
   %308 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @RemoveCR.Buffer, ptr noundef nonnull readonly dereferenceable(1) %20, i64 noundef 2047) #9
-  store i8 0, ptr getelementptr inbounds (i8, ptr @RemoveCR.Buffer, i64 2047), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @RemoveCR.Buffer, i64 2047), align 1
   br label %309
 
 309:                                              ; preds = %312, %304
@@ -793,7 +793,7 @@ GenerateCSA.exit:                                 ; preds = %WriteNamedColorCSA.
 RemoveCR.exit.i.i:                                ; preds = %309
   %314 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.86, ptr noundef nonnull @RemoveCR.Buffer) #9
   %315 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @RemoveCR.Buffer, ptr noundef nonnull readonly dereferenceable(1) %21, i64 noundef 2047) #9
-  store i8 0, ptr getelementptr inbounds (i8, ptr @RemoveCR.Buffer, i64 2047), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @RemoveCR.Buffer, i64 2047), align 1
   br label %316
 
 316:                                              ; preds = %319, %RemoveCR.exit.i.i

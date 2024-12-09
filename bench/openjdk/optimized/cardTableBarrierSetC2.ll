@@ -179,7 +179,7 @@ _ZN4NodenwEm.exit.i:                              ; preds = %59, %57
 
 62:                                               ; preds = %_ZN4NodenwEm.exit.i
   call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, ptr noundef %41, ptr noundef %spec.select) #4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11CastP2XNode, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11CastP2XNode, i64 16), ptr %.0.i.i.i.i, align 8
   br label %_ZN8IdealKit6CastPXEP4NodeS1_.exit
 
 _ZN8IdealKit6CastPXEP4NodeS1_.exit:               ; preds = %_ZN4NodenwEm.exit.i, %62
@@ -221,7 +221,7 @@ _ZN4NodenwEm.exit.i27:                            ; preds = %84, %82
 
 87:                                               ; preds = %_ZN4NodenwEm.exit.i27
   call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i28, ptr noundef null, ptr noundef %63, ptr noundef %67) #4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12URShiftLNode, i64 16), ptr %.0.i.i.i.i28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12URShiftLNode, i64 16), ptr %.0.i.i.i.i28, align 8
   br label %_ZN8IdealKit8URShiftXEP4NodeS1_.exit
 
 _ZN8IdealKit8URShiftXEP4NodeS1_.exit:             ; preds = %_ZN4NodenwEm.exit.i27, %87
@@ -282,7 +282,7 @@ _ZN4NodenwEm.exit.i30:                            ; preds = %119, %117
 
 122:                                              ; preds = %_ZN4NodenwEm.exit.i30
   call void @_ZN4NodeC2EPS_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i31, ptr noundef null, ptr noundef %91, ptr noundef %.0.i, ptr noundef %88) #4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8AddPNode, i64 16), ptr %.0.i.i.i.i31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8AddPNode, i64 16), ptr %.0.i.i.i.i31, align 8
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 44
   store i32 512, ptr %123, align 4
   br label %_ZN8IdealKit4AddPEP4NodeS1_S1_.exit

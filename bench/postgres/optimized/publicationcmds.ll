@@ -1424,7 +1424,7 @@ define internal fastcc void @PublicationAddTables(i32 noundef %0, ptr noundef re
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not26 = icmp eq ptr %3, null
   %.sroa.0.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %.not26, label %.lr.ph.split.us.split, label %.lr.ph.split.split
@@ -1575,7 +1575,7 @@ define internal fastcc void @PublicationAddSchemas(i32 noundef %0, ptr noundef r
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not22 = icmp eq ptr %3, null
   %.sroa.0.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.2.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %.not22, label %.lr.ph.split.us.split, label %.lr.ph.split.split
@@ -1978,7 +1978,7 @@ InvalidatePublicationRels.exit.i:                 ; preds = %.critedge.i.i, %Inv
   %.sroa.247.0.insert.shift.i = shl nuw i64 %.sroa.247.0.insert.ext.i, 32
   %.sroa.046.0.insert.insert.i = or disjoint i64 %.sroa.247.0.insert.shift.i, 6104
   %.sroa.0.0.copyload.i = load i64, ptr @InvalidObjectAddress, align 4
-  %.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
+  %.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
   call void @EventTriggerCollectSimpleCommand(i64 %.sroa.046.0.insert.insert.i, i32 0, i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, ptr noundef %1) #8
   %170 = load ptr, ptr @object_access_hook, align 8
   %.not73.i = icmp eq ptr %170, null

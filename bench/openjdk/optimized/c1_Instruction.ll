@@ -949,7 +949,7 @@ _ZN10BlockBegin26number_of_exception_statesEv.exit: ; preds = %17, %20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6InvokeC2EN9Bytecodes4CodeEP9ValueTypeP11InstructionP13GrowableArrayIS5_EP8ciMethodP10ValueStack(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 20), (24, 60), (64, 108), (112, 144)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
@@ -999,7 +999,7 @@ _ZN10StateSplitC2EP9ValueTypeP10ValueStack.exit:  ; preds = %27, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %33, align 8
   store i32 8192, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV6Invoke, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV6Invoke, i64 16), ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2907,7 +2907,7 @@ _ZN10BlockBegin15add_predecessorEPS_.exit:        ; preds = %170, %174
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10BlockBeginC2Ei(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = load ptr, ptr @illegalType, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -2937,7 +2937,7 @@ define linkonce_odr hidden void @_ZN10BlockBeginC2Ei(ptr noundef nonnull align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %22, align 8
   store i32 8192, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV10BlockBegin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV10BlockBegin, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load ptr, ptr %5, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1808
@@ -3033,7 +3033,7 @@ define linkonce_odr hidden void @_ZN10BlockBeginC2Ei(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4GotoC2EP10BlockBeginb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr @illegalType, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
@@ -3064,7 +3064,7 @@ define linkonce_odr hidden void @_ZN4GotoC2EP10BlockBeginb(ptr noundef nonnull a
   store ptr null, ptr %23, align 8
   %24 = select i1 %2, i32 16, i32 0
   store i32 %24, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV4Goto, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTV4Goto, i64 16), ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %26 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14

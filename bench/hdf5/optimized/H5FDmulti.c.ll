@@ -208,7 +208,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config(ptr noun
 
 20:                                               ; preds = %18
   %21 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @H5FD_split_populate_config.meta_name_g, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 1024) #16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @H5FD_split_populate_config.meta_name_g, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @H5FD_split_populate_config.meta_name_g, i64 1023), align 1
   br label %26
 
 22:                                               ; preds = %18
@@ -217,7 +217,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config(ptr noun
 
 24:                                               ; preds = %15
   %25 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @H5FD_split_populate_config.meta_name_g, ptr noundef nonnull dereferenceable(8) @.str.61, i64 noundef 1024) #16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @H5FD_split_populate_config.meta_name_g, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @H5FD_split_populate_config.meta_name_g, i64 1023), align 1
   br label %26
 
 26:                                               ; preds = %20, %22, %24
@@ -233,7 +233,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config(ptr noun
 
 30:                                               ; preds = %28
   %31 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @H5FD_split_populate_config.raw_name_g, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @H5FD_split_populate_config.raw_name_g, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @H5FD_split_populate_config.raw_name_g, i64 1023), align 1
   br label %36
 
 32:                                               ; preds = %28
@@ -242,7 +242,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config(ptr noun
 
 34:                                               ; preds = %26
   %35 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @H5FD_split_populate_config.raw_name_g, ptr noundef nonnull dereferenceable(7) @.str.62, i64 noundef 1024) #16
-  store i8 0, ptr getelementptr inbounds (i8, ptr @H5FD_split_populate_config.raw_name_g, i64 1023), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @H5FD_split_populate_config.raw_name_g, i64 1023), align 1
   br label %36
 
 36:                                               ; preds = %30, %32, %34

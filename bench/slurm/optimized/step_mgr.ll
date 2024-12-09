@@ -434,7 +434,7 @@ define dso_local void @dump_step_desc(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp sgt i64 %3, -1
   %4 = and i64 %3, 9223372036854775807
   %spec.select69 = select i1 %.not, ptr @.str, ptr @.str.1
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %6 = and i64 %5, 2199023255552
   %.not55 = icmp eq i64 %6, 0
   br i1 %.not55, label %21, label %7
@@ -993,7 +993,7 @@ define dso_local void @signal_step_tasks(ptr noundef %0, i16 noundef zeroext %1,
   br label %22
 
 22:                                               ; preds = %3, %19
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %24 = and i64 %23, 2
   %.not12 = icmp eq i64 %24, 0
   br i1 %.not12, label %32, label %25
@@ -1249,7 +1249,7 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef initializes((0, 8)
   br i1 %.not423, label %49, label %51
 
 49:                                               ; preds = %46, %43
-  %50 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 752), align 8
+  %50 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 752), align 8
   br label %51
 
 51:                                               ; preds = %46, %49
@@ -1457,7 +1457,7 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef initializes((0, 8)
 162:                                              ; preds = %160
   %163 = getelementptr inbounds nuw i8, ptr %.0384, i64 552
   %164 = load i32, ptr %163, align 8
-  %165 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 660), align 4
+  %165 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 660), align 4
   %.not435 = icmp ult i32 %164, %165
   br i1 %.not435, label %166, label %528
 
@@ -1566,7 +1566,7 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef initializes((0, 8)
 
 216:                                              ; preds = %.sink.split, %210
   %217 = phi i32 [ %213, %210 ], [ %.492, %.sink.split ]
-  %218 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 664), align 8
+  %218 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 664), align 8
   %219 = zext i16 %218 to i32
   %220 = mul i32 %212, %219
   %221 = icmp ugt i32 %217, %220
@@ -1739,7 +1739,7 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef initializes((0, 8)
   %296 = phi ptr [ %293, %291 ], [ %288, %287 ]
   %storemerge = phi ptr [ %294, %291 ], [ %290, %287 ]
   store ptr %storemerge, ptr %281, align 8
-  %297 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %297 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %298 = and i64 %297, 2
   %.not446 = icmp eq i64 %298, 0
   br i1 %.not446, label %304, label %299
@@ -1783,7 +1783,7 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef initializes((0, 8)
   %322 = getelementptr inbounds nuw i8, ptr %232, i64 296
   %323 = load i32, ptr %322, align 8
   call void @gres_step_state_log(ptr noundef %319, i32 noundef %321, i32 noundef %323) #13
-  %324 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %324 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %325 = and i64 %324, 64
   %.not447 = icmp eq i64 %325, 0
   br i1 %.not447, label %333, label %326
@@ -1994,7 +1994,7 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef initializes((0, 8)
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 212
   %454 = load i32, ptr %453, align 4
   %455 = icmp ule i32 %449, %454
-  %456 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 314), align 2
+  %456 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 314), align 2
   %.not454 = icmp eq i16 %456, 0
   %or.cond = select i1 %455, i1 true, i1 %.not454
   br i1 %or.cond, label %switch.lookup, label %457
@@ -2044,7 +2044,7 @@ switch.lookup:                                    ; preds = %444, %451
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %478 = load i16, ptr %477, align 2
   %479 = icmp ne i16 %478, -2
-  %480 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 712), align 8
+  %480 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 712), align 8
   %.not457 = icmp eq ptr %480, null
   %or.cond473 = select i1 %479, i1 true, i1 %.not457
   br i1 %or.cond473, label %498, label %481
@@ -2387,7 +2387,7 @@ define internal fastcc noundef i32 @_build_ext_launcher_step(ptr noundef writeon
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %13 = load i32, ptr %12, align 8
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 660), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 660), align 4
   %.not103 = icmp ult i32 %13, %14
   br i1 %.not103, label %15, label %132
 
@@ -2467,7 +2467,7 @@ define internal fastcc noundef i32 @_build_ext_launcher_step(ptr noundef writeon
   %51 = phi ptr [ %48, %47 ], [ %45, %44 ]
   %storemerge = phi ptr [ %49, %47 ], [ %46, %44 ]
   store ptr %storemerge, ptr %37, align 8
-  %52 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %53 = and i64 %52, 2
   %.not105 = icmp eq i64 %53, 0
   br i1 %.not105, label %59, label %54
@@ -2638,7 +2638,7 @@ define internal fastcc range(i32 0, 2013) i32 @_test_step_desc_fields(ptr nocapt
 
 4:                                                ; preds = %1
   store i64 %3, ptr @_test_step_desc_fields.sched_update, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1072), align 8
   %6 = tail call ptr @xstrcasestr(ptr noundef %5, ptr noundef nonnull @.str.74) #13
   %.not7 = icmp eq ptr %6, null
   br i1 %.not7, label %.sink.split, label %7
@@ -3315,7 +3315,7 @@ define internal fastcc ptr @_pick_step_nodes(ptr noundef nonnull %0, ptr noundef
 
 192:                                              ; preds = %191
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %193 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %193 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %194 = and i16 %193, 16
   %.not.i = icmp eq i16 %194, 0
   br i1 %.not.i, label %_is_mem_resv.exit, label %_is_mem_resv.exit.thread
@@ -3424,7 +3424,7 @@ _is_mem_resv.exit:                                ; preds = %191, %192
   %240 = sext i32 %239 to i64
   %241 = getelementptr inbounds i32, ptr %238, i64 %240
   store i32 %237, ptr %241, align 4
-  %242 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %242 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %243 = and i64 %242, 2
   %.not525 = icmp eq i64 %243, 0
   br i1 %.not525, label %262, label %244
@@ -3475,7 +3475,7 @@ _is_mem_resv.exit:                                ; preds = %191, %192
   br i1 %.not529, label %287, label %269
 
 269:                                              ; preds = %268
-  %270 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %270 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %271 = and i64 %270, 2
   %.not532 = icmp eq i64 %271, 0
   br i1 %.not532, label %276, label %272
@@ -3527,7 +3527,7 @@ _is_mem_resv.exit:                                ; preds = %191, %192
 
 305:                                              ; preds = %287
   %306 = add nsw i32 %.0377656, 1
-  %307 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %307 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %308 = and i64 %307, 2
   %.not531 = icmp eq i64 %308, 0
   br i1 %.not531, label %320, label %309
@@ -3575,7 +3575,7 @@ _is_mem_resv.exit:                                ; preds = %191, %192
 
 331:                                              ; preds = %330
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %332 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %332 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %333 = and i16 %332, 16
   %.not.i577 = icmp eq i16 %333, 0
   br i1 %.not.i577, label %_is_mem_resv.exit579, label %334
@@ -3602,7 +3602,7 @@ _is_mem_resv.exit579:                             ; preds = %330, %331, %334
 
 339:                                              ; preds = %336
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %340 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %340 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %341 = and i16 %340, 16
   %.not.i581 = icmp eq i16 %341, 0
   br i1 %.not.i581, label %_is_mem_resv.exit587.thread, label %_is_mem_resv.exit587.thread.thread
@@ -3656,7 +3656,7 @@ _is_mem_resv.exit583:                             ; preds = %_is_mem_resv.exit57
 364:                                              ; preds = %361, %363
   %.0620 = phi i32 [ 2044, %363 ], [ 2016, %361 ]
   %.0617 = phi i32 [ %.0367, %363 ], [ %343, %361 ]
-  %365 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %365 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %366 = and i64 %365, 2
   %.not540 = icmp eq i64 %366, 0
   br i1 %.not540, label %_is_mem_resv.exit591, label %367
@@ -3705,7 +3705,7 @@ _is_mem_resv.exit587._crit_edge:                  ; preds = %_is_mem_resv.exit58
   br i1 %or.cond4, label %387, label %_is_mem_resv.exit591
 
 387:                                              ; preds = %384
-  %388 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %388 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %389 = and i64 %388, 2
   %.not538 = icmp eq i64 %389, 0
   br i1 %.not538, label %396, label %390
@@ -3767,7 +3767,7 @@ _is_mem_resv.exit591:                             ; preds = %_is_mem_resv.exit58
   br i1 %417, label %418, label %_step_test_gres.exit
 
 418:                                              ; preds = %415
-  %419 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %419 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %420 = and i64 %419, 2
   %.not27.i = icmp eq i64 %420, 0
   br i1 %.not27.i, label %425, label %421
@@ -3811,7 +3811,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br i1 %434, label %435, label %480
 
 435:                                              ; preds = %433
-  %436 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %436 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %437 = and i64 %436, 2
   %.not541 = icmp eq i64 %437, 0
   br i1 %.not541, label %444, label %438
@@ -3838,7 +3838,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br i1 %449, label %450, label %473
 
 450:                                              ; preds = %444, %447
-  %451 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %451 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %452 = and i64 %451, 2
   %.not542 = icmp eq i64 %452, 0
   br i1 %.not542, label %457, label %453
@@ -3880,7 +3880,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
 
 465:                                              ; preds = %463
   store i32 %.2622, ptr %5, align 4
-  %466 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %466 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %467 = and i64 %466, 2
   %.not545 = icmp eq i64 %467, 0
   br i1 %.not545, label %1024, label %468
@@ -3935,7 +3935,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
 
 493:                                              ; preds = %._crit_edge661
   store i32 2072, ptr %5, align 4
-  %494 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %494 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %495 = and i64 %494, 2
   %.not521 = icmp eq i64 %495, 0
   br i1 %.not521, label %500, label %496
@@ -4033,7 +4033,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
 
 531:                                              ; preds = %525
   store ptr null, ptr %20, align 8
-  %532 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %532 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %533 = and i64 %532, 2
   %.not458 = icmp eq i64 %533, 0
   br i1 %.not458, label %539, label %534
@@ -4055,7 +4055,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br i1 %.not459, label %554, label %542
 
 542:                                              ; preds = %539
-  %543 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %543 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %544 = and i64 %543, 2
   %.not518 = icmp eq i64 %544, 0
   br i1 %.not518, label %550, label %545
@@ -4091,7 +4091,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br i1 %.not460, label %558, label %570
 
 558:                                              ; preds = %554
-  %559 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %559 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %560 = and i64 %559, 2
   %.not461 = icmp eq i64 %560, 0
   br i1 %.not461, label %566, label %561
@@ -4132,7 +4132,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
 
 575:                                              ; preds = %574
   store i32 2016, ptr %5, align 4
-  %576 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %576 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %577 = and i64 %576, 2
   %.not467 = icmp eq i64 %577, 0
   br i1 %.not467, label %596, label %578
@@ -4148,7 +4148,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
 
 583:                                              ; preds = %581
   store i32 2044, ptr %5, align 4
-  %584 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %584 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %585 = and i64 %584, 2
   %.not466 = icmp eq i64 %585, 0
   br i1 %.not466, label %596, label %586
@@ -4160,7 +4160,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
 
 589:                                              ; preds = %581
   store i32 2016, ptr %5, align 4
-  %590 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %590 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %591 = and i64 %590, 2
   %.not465 = icmp eq i64 %591, 0
   br i1 %.not465, label %596, label %592
@@ -4214,7 +4214,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br i1 %613, label %614, label %627
 
 614:                                              ; preds = %610
-  %615 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %615 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %616 = and i64 %615, 2
   %.not516 = icmp eq i64 %616, 0
   br i1 %.not516, label %623, label %617
@@ -4315,7 +4315,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br i1 %660, label %661, label %670
 
 661:                                              ; preds = %656
-  %662 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %662 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %663 = and i64 %662, 2
   %.not515 = icmp eq i64 %663, 0
   br i1 %.not515, label %989, label %664
@@ -4362,7 +4362,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br label %685
 
 685:                                              ; preds = %675, %674
-  %686 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %686 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %687 = and i64 %686, 2
   %.not475 = icmp eq i64 %687, 0
   br i1 %.not475, label %705, label %688
@@ -4377,7 +4377,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   %693 = load ptr, ptr %523, align 8
   %.not476 = icmp eq ptr %693, null
   %.str.29. = select i1 %.not476, ptr @.str.29, ptr %693
-  %694 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %694 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %695 = and i64 %694, 2
   %.not477 = icmp eq i64 %695, 0
   br i1 %.not477, label %704, label %696
@@ -4487,7 +4487,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br i1 %754, label %755, label %769
 
 755:                                              ; preds = %753
-  %756 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %756 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %757 = and i64 %756, 2
   %.not486 = icmp eq i64 %757, 0
   br i1 %.not486, label %768, label %758
@@ -4541,7 +4541,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br i1 %783, label %784, label %794
 
 784:                                              ; preds = %782
-  %785 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %785 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %786 = and i64 %785, 2
   %.not514 = icmp eq i64 %786, 0
   br i1 %.not514, label %793, label %787
@@ -4568,7 +4568,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
 
 796:                                              ; preds = %794
   %797 = call i32 @bit_set_count(ptr noundef %651) #13
-  %798 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %798 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %799 = and i64 %798, 2
   %.not489 = icmp eq i64 %799, 0
   br i1 %.not489, label %805, label %800
@@ -4600,7 +4600,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br i1 %812, label %813, label %822
 
 813:                                              ; preds = %809
-  %814 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %814 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %815 = and i64 %814, 2
   %.not513 = icmp eq i64 %815, 0
   br i1 %.not513, label %821, label %816
@@ -4936,7 +4936,7 @@ _step_test_gres.exit:                             ; preds = %425, %415
   br label %970
 
 970:                                              ; preds = %.sink.split721, %966
-  %971 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %971 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %972 = and i64 %971, 2
   %.not510 = icmp eq i64 %972, 0
   br i1 %.not510, label %989, label %973
@@ -5191,14 +5191,14 @@ define internal fastcc void @_set_def_cpu_bind(ptr noundef nonnull %0) unnamed_a
   br i1 %or.cond62, label %31, label %21
 
 21:                                               ; preds = %16
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %23 = and i64 %22, 8
   %.not60 = icmp eq i64 %23, 0
   br i1 %.not60, label %105, label %24
 
 24:                                               ; preds = %21
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %2, i32 noundef %19) #13
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %26 = and i64 %25, 8
   %.not61 = icmp eq i64 %26, 0
   br i1 %.not61, label %105, label %27
@@ -5257,7 +5257,7 @@ define internal fastcc void @_set_def_cpu_bind(ptr noundef nonnull %0) unnamed_a
   %48 = load ptr, ptr %9, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 80
   store i16 %47, ptr %49, align 8
-  %50 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %51 = and i64 %50, 8
   %.not57 = icmp eq i64 %51, 0
   br i1 %.not57, label %105, label %52
@@ -5268,7 +5268,7 @@ define internal fastcc void @_set_def_cpu_bind(ptr noundef nonnull %0) unnamed_a
   %55 = load i16, ptr %54, align 8
   %56 = zext i16 %55 to i32
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %4, i32 noundef %56) #13
-  %57 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %58 = and i64 %57, 8
   %.not58 = icmp eq i64 %58, 0
   br i1 %.not58, label %105, label %59
@@ -5300,7 +5300,7 @@ define internal fastcc void @_set_def_cpu_bind(ptr noundef nonnull %0) unnamed_a
   %71 = load ptr, ptr %9, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 80
   store i16 %70, ptr %72, align 8
-  %73 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %74 = and i64 %73, 8
   %.not55 = icmp eq i64 %74, 0
   br i1 %.not55, label %105, label %75
@@ -5311,7 +5311,7 @@ define internal fastcc void @_set_def_cpu_bind(ptr noundef nonnull %0) unnamed_a
   %78 = load i16, ptr %77, align 8
   %79 = zext i16 %78 to i32
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %5, i32 noundef %79) #13
-  %80 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %80 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %81 = and i64 %80, 8
   %.not56 = icmp eq i64 %81, 0
   br i1 %.not56, label %105, label %82
@@ -5326,13 +5326,13 @@ define internal fastcc void @_set_def_cpu_bind(ptr noundef nonnull %0) unnamed_a
   br label %105
 
 86:                                               ; preds = %65, %.thread
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1424), align 8
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1424), align 8
   %88 = trunc i32 %87 to i16
   %89 = or i16 %32, %88
   %90 = load ptr, ptr %9, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 80
   store i16 %89, ptr %91, align 8
-  %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %93 = and i64 %92, 8
   %.not53 = icmp eq i64 %93, 0
   br i1 %.not53, label %105, label %94
@@ -5343,7 +5343,7 @@ define internal fastcc void @_set_def_cpu_bind(ptr noundef nonnull %0) unnamed_a
   %97 = load i16, ptr %96, align 8
   %98 = zext i16 %97 to i32
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %6, i32 noundef %98) #13
-  %99 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %99 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %100 = and i64 %99, 8
   %.not54 = icmp eq i64 %100, 0
   br i1 %.not54, label %105, label %101
@@ -5487,7 +5487,7 @@ define dso_local ptr @step_layout_create(ptr nocapture noundef %0, ptr noundef %
 
 47:                                               ; preds = %46
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %48 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %48 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %49 = and i16 %48, 16
   %.not.i = icmp eq i16 %49, 0
   br i1 %.not.i, label %_is_mem_resv.exit, label %_is_mem_resv.exit.thread
@@ -5635,7 +5635,7 @@ _is_mem_resv.exit:                                ; preds = %46, %47
   br i1 %.not.i161, label %_use_one_thread_per_core.exit, label %127
 
 127:                                              ; preds = %124
-  %128 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %128 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %129 = and i16 %128, 6
   %.not13.i = icmp eq i16 %129, 0
   br i1 %.not13.i, label %_use_one_thread_per_core.exit, label %130
@@ -5753,7 +5753,7 @@ _use_one_thread_per_core.exit:                    ; preds = %133, %130, %127, %1
 
 182:                                              ; preds = %181
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %183 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %183 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %184 = and i16 %183, 16
   %.not.i163 = icmp eq i16 %184, 0
   br i1 %.not.i163, label %_is_mem_resv.exit165, label %_is_mem_resv.exit165.thread
@@ -5792,7 +5792,7 @@ _is_mem_resv.exit165:                             ; preds = %181, %182
 
 200:                                              ; preds = %199
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %201 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %201 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %202 = and i16 %201, 16
   %.not.i167 = icmp eq i16 %202, 0
   br i1 %.not.i167, label %_is_mem_resv.exit169, label %_is_mem_resv.exit169.thread
@@ -6048,7 +6048,7 @@ define internal fastcc i32 @_step_alloc_lps(ptr noundef nonnull %0, ptr noundef 
 
 65:                                               ; preds = %64
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %66 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %66 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %67 = and i16 %66, 16
   %.not.i = icmp eq i16 %67, 0
   br i1 %.not.i, label %_is_mem_resv.exit, label %_is_mem_resv.exit.thread
@@ -6227,7 +6227,7 @@ thread-pre-split337:                              ; preds = %72, %_is_mem_resv.e
   br i1 %.not277, label %177, label %167
 
 167:                                              ; preds = %166
-  %168 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %168 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %169 = and i64 %168, 2
   %.not278 = icmp eq i64 %169, 0
   br i1 %.not278, label %177, label %170
@@ -6257,7 +6257,7 @@ thread-pre-split337:                              ; preds = %72, %_is_mem_resv.e
   br i1 %182, label %183, label %194
 
 183:                                              ; preds = %180
-  %184 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %184 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %185 = and i64 %184, 2
   %.not280 = icmp eq i64 %185, 0
   br i1 %.not280, label %193, label %186
@@ -6343,7 +6343,7 @@ thread-pre-split:                                 ; preds = %198, %201, %197, %2
   %220 = phi ptr [ %118, %.thread ], [ %118, %thread-pre-split ], [ %217, %216 ]
   %221 = phi ptr [ %119, %.thread ], [ %119, %thread-pre-split ], [ %217, %216 ]
   %.1225336 = phi i16 [ %205, %.thread ], [ %.1225, %thread-pre-split ], [ %.1225, %216 ]
-  %222 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %222 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %223 = and i64 %222, 2
   %.not285 = icmp eq i64 %223, 0
   br i1 %.not285, label %233, label %224
@@ -6482,7 +6482,7 @@ _modify_cpus_alloc_for_tpc.exit:                  ; preds = %272, %266, %241, %2
 
 303:                                              ; preds = %302
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %304 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %304 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %305 = and i16 %304, 16
   %.not.i313 = icmp eq i16 %305, 0
   br i1 %.not.i313, label %_is_mem_resv.exit315, label %_is_mem_resv.exit315.thread
@@ -6532,7 +6532,7 @@ _is_mem_resv.exit315:                             ; preds = %302, %303
 
 324:                                              ; preds = %323
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %325 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %325 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %326 = and i16 %325, 16
   %.not.i317 = icmp eq i16 %326, 0
   br i1 %.not.i317, label %_is_mem_resv.exit319, label %_is_mem_resv.exit319.thread
@@ -6601,7 +6601,7 @@ _is_mem_resv.exit319.thread371:                   ; preds = %_is_mem_resv.exit31
   br i1 %.not.i320, label %_use_one_thread_per_core.exit, label %353
 
 353:                                              ; preds = %350
-  %354 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %354 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %355 = and i16 %354, 6
   %.not13.i = icmp eq i16 %355, 0
   br i1 %.not13.i, label %_use_one_thread_per_core.exit, label %356
@@ -6757,7 +6757,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
 
 430:                                              ; preds = %.sink.split.i, %421
   %431 = phi i32 [ %376, %421 ], [ %.sink.i, %.sink.split.i ]
-  %432 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %432 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %433 = and i64 %432, 2
   %.not106.i = icmp eq i64 %433, 0
   br i1 %.not106.i, label %443, label %434
@@ -6899,7 +6899,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   br i1 %.not112.i, label %520, label %532
 
 520:                                              ; preds = %516
-  %521 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %521 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %522 = and i64 %521, 2
   %.not113.i = icmp eq i64 %522, 0
   br i1 %.not113.i, label %527, label %523
@@ -6948,7 +6948,7 @@ _use_one_thread_per_core.exit.thread:             ; preds = %342, %339, %359, %3
   br i1 %.not116.i, label %_pick_step_cores.exit.thread, label %_pick_step_cores.exit
 
 543:                                              ; preds = %535
-  %544 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %544 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %545 = and i64 %544, 2
   %.not117.i = icmp eq i64 %545, 0
   br i1 %.not117.i, label %560, label %546
@@ -7050,7 +7050,7 @@ _pick_step_cores.exit.thread:                     ; preds = %541, %451, %_pick_s
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  %593 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %593 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %594 = and i64 %593, 2
   %.not307 = icmp eq i64 %594, 0
   br i1 %.not307, label %710, label %595
@@ -7077,7 +7077,7 @@ _pick_step_cores.exit.thread:                     ; preds = %541, %451, %_pick_s
   br label %602
 
 602:                                              ; preds = %.sink.split, %338
-  %603 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %603 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %604 = and i64 %603, 8
   %.not300 = icmp eq i64 %604, 0
   br i1 %.not300, label %_dump_step_layout.exit, label %605
@@ -7260,7 +7260,7 @@ _dump_step_layout.exit:                           ; preds = %679, %._crit_edge51
   %680 = load i32, ptr %101, align 8
   %681 = and i32 %680, 64
   %.not301 = icmp eq i32 %681, 0
-  %682 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %682 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %683 = and i64 %682, 2
   %.not302 = icmp eq i64 %683, 0
   br i1 %.not301, label %691, label %684
@@ -7346,7 +7346,7 @@ _dump_step_layout.exit:                           ; preds = %679, %._crit_edge51
   %730 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %731 = load i32, ptr %730, align 8
   call void @gres_step_state_log(ptr noundef %727, i32 noundef %729, i32 noundef %731) #13
-  %732 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %732 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %733 = and i64 %732, 64
   %.not304 = icmp eq i64 %733, 0
   br i1 %.not304, label %741, label %734
@@ -7717,7 +7717,7 @@ define internal noundef i32 @_pack_job_steps(ptr noundef readonly %0, ptr nounde
   br i1 %.not33, label %28, label %find_step_record.exit.thread
 
 28:                                               ; preds = %24, %21, %17, %11
-  %29 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 904), align 8
+  %29 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 904), align 8
   %30 = and i16 %29, 1
   %.not34 = icmp eq i16 %30, 0
   br i1 %.not34, label %53, label %31
@@ -7979,7 +7979,7 @@ define internal range(i32 0, 2) i32 @_finish_step_comp(ptr noundef %0, ptr nocap
 25:                                               ; preds = %22
   store i32 8, ptr @_wake_pending_steps.config_start_count, align 4
   store i32 60, ptr @_wake_pending_steps.config_max_age, align 4
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1072), align 8
   %27 = tail call ptr @xstrcasestr(ptr noundef %26, ptr noundef nonnull @.str.141) #13
   %.not22.i = icmp eq ptr %27, null
   br i1 %.not22.i, label %34, label %28
@@ -7997,7 +7997,7 @@ define internal range(i32 0, 2) i32 @_finish_step_comp(ptr noundef %0, ptr nocap
   br label %34
 
 34:                                               ; preds = %32, %28, %25
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1072), align 8
   %36 = tail call ptr @xstrcasestr(ptr noundef %35, ptr noundef nonnull @.str.142) #13
   %.not23.i = icmp eq ptr %36, null
   br i1 %.not23.i, label %43, label %37
@@ -10530,7 +10530,7 @@ define dso_local void @rebuild_step_bitmaps(ptr noundef %0, ptr noundef %1) loca
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 2
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %13, label %9
@@ -11004,7 +11004,7 @@ define internal fastcc void @_internal_step_complete(ptr noundef %0, i32 noundef
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 946), align 2
+  %7 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 946), align 2
   %8 = and i16 %7, 4
   %.not = icmp eq i16 %8, 0
   br i1 %.not, label %12, label %9
@@ -11161,7 +11161,7 @@ define internal fastcc void @_step_dealloc_lps(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not128, label %24, label %17
 
 17:                                               ; preds = %10, %13
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %19 = and i64 %18, 2
   %.not152 = icmp eq i64 %19, 0
   br i1 %.not152, label %247, label %20
@@ -11194,7 +11194,7 @@ define internal fastcc void @_step_dealloc_lps(ptr noundef %0) unnamed_addr #0 {
 
 32:                                               ; preds = %31
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %33 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %33 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %34 = and i16 %33, 16
   %.not.i = icmp eq i16 %34, 0
   br i1 %.not.i, label %_is_mem_resv.exit, label %_is_mem_resv.exit.thread
@@ -11314,7 +11314,7 @@ _is_mem_resv.exit:                                ; preds = %31, %32
   br i1 %.not139, label %108, label %99
 
 99:                                               ; preds = %89
-  %100 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %100 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %101 = and i64 %100, 2
   %.not151 = icmp eq i64 %101, 0
   br i1 %.not151, label %219, label %102
@@ -11423,7 +11423,7 @@ _modify_cpus_alloc_for_tpc.exit:                  ; preds = %145, %134, %129, %1
 
 164:                                              ; preds = %163
   store i1 true, ptr @_is_mem_resv.mem_resv_tested, align 1
-  %165 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %165 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %166 = and i16 %165, 16
   %.not.i154 = icmp eq i16 %166, 0
   br i1 %.not.i154, label %_is_mem_resv.exit156, label %_is_mem_resv.exit156.thread
@@ -11454,7 +11454,7 @@ _is_mem_resv.exit156:                             ; preds = %163, %164
 176:                                              ; preds = %170
   %177 = sub nuw i64 %175, %172
   store i64 %177, ptr %174, align 8
-  %178 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %178 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %179 = and i64 %178, 2
   %.not146 = icmp eq i64 %179, 0
   br i1 %.not146, label %196, label %180
@@ -11484,7 +11484,7 @@ _is_mem_resv.exit156:                             ; preds = %163, %164
   br label %196
 
 196:                                              ; preds = %161, %_is_mem_resv.exit156, %167, %183, %180, %176, %192
-  %197 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %197 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %198 = and i64 %197, 2
   %.not147 = icmp eq i64 %198, 0
   br i1 %.not147, label %213, label %199
@@ -11768,7 +11768,7 @@ define internal noundef i32 @_mark_busy_nodes(ptr noundef %0, ptr noundef %1) #0
 
 19:                                               ; preds = %14
   tail call void @bit_or(ptr noundef %1, ptr noundef nonnull %16) #13
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %21 = and i64 %20, 2
   %.not15 = icmp eq i64 %21, 0
   br i1 %.not15, label %32, label %22
@@ -11777,7 +11777,7 @@ define internal noundef i32 @_mark_busy_nodes(ptr noundef %0, ptr noundef %1) #0
   %23 = load ptr, ptr %15, align 8
   %24 = tail call ptr @bitmap2node_name(ptr noundef %23) #13
   store ptr %24, ptr %3, align 8
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %26 = and i64 %25, 2
   %.not16 = icmp eq i64 %26, 0
   br i1 %.not16, label %31, label %27
@@ -12729,7 +12729,7 @@ define internal fastcc noundef zeroext i1 @_pick_step_core(ptr nocapture noundef
   br i1 %.not28, label %22, label %49
 
 22:                                               ; preds = %18
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %24 = and i64 %23, 2
   %.not29 = icmp eq i64 %24, 0
   br i1 %.not29, label %46, label %25
@@ -12763,7 +12763,7 @@ define internal fastcc noundef zeroext i1 @_pick_step_core(ptr nocapture noundef
   br label %40
 
 40:                                               ; preds = %28, %37
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %42 = and i64 %41, 2
   %.not27 = icmp eq i64 %42, 0
   br i1 %.not27, label %46, label %43
@@ -12914,7 +12914,7 @@ define internal noundef i32 @_pack_ctld_job_step_info(ptr noundef %0, ptr nocapt
 77:                                               ; preds = %66, %63
   %.0352 = phi i64 [ %65, %63 ], [ %76, %66 ]
   tail call void @pack_time(i64 noundef %.0352, ptr noundef %6) #13
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %.not427 = icmp eq ptr %78, null
   br i1 %.not427, label %83, label %79
 
@@ -13315,7 +13315,7 @@ define internal noundef i32 @_pack_ctld_job_step_info(ptr noundef %0, ptr nocapt
 285:                                              ; preds = %274, %271
   %.1 = phi i64 [ %273, %271 ], [ %284, %274 ]
   tail call void @pack_time(i64 noundef %.1, ptr noundef %6) #13
-  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %286 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %.not404 = icmp eq ptr %286, null
   br i1 %.not404, label %291, label %287
 

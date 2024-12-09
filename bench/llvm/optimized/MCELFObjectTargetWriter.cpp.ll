@@ -17,7 +17,7 @@ $_ZNK4llvm23MCELFObjectTargetWriter22getMemtagRelocsSectionERNS_9MCContextE = co
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr nocapture noundef nonnull align 8 dereferenceable(13) initializes((0, 12)) %0, i1 noundef zeroext %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4, i8 noundef zeroext %5) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm23MCELFObjectTargetWriterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm23MCELFObjectTargetWriterE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 9

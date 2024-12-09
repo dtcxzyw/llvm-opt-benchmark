@@ -1008,7 +1008,7 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @dma_max_mapping_size(ptr noundef %11) #12
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 11456, i64 noundef 16) #13
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit13, label %16
@@ -1184,7 +1184,7 @@ define internal i32 @shmem_get_pages(ptr noundef %0) #0 align 16 {
 .loopexit:                                        ; preds = %.thread, %32, %35
   tail call void @sg_free_table(ptr noundef nonnull %22) #12
   tail call void @kfree(ptr noundef nonnull %22) #12
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %132 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %131, i32 noundef 11456, i64 noundef 16) #13
   %133 = icmp eq ptr %132, null
   br i1 %133, label %.loopexit13, label %21

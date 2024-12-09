@@ -2814,7 +2814,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3spv11DisassembleERSoRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 {
   %3 = alloca %"class.spv::SpirvStream", align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11SpirvStreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11SpirvStreamE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2862,86 +2862,86 @@ define void @_ZN3spv11DisassembleERSoRKSt6vectorIjSaIjEE(ptr noundef nonnull ali
   br i1 %exitcond.not.i, label %_ZN3spvL23GLSLstd450GetDebugNamesEPPKc.exit, label %22, !llvm.loop !38
 
 _ZN3spvL23GLSLstd450GetDebugNamesEPPKc.exit:      ; preds = %22
-  store ptr @.str.163, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 8), align 8
-  store ptr @.str.164, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 16), align 16
-  store ptr @.str.165, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 24), align 8
-  store ptr @.str.166, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 32), align 16
-  store ptr @.str.167, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 40), align 8
-  store ptr @.str.168, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 48), align 16
-  store ptr @.str.169, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 56), align 8
-  store ptr @.str.170, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 64), align 16
-  store ptr @.str.171, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 72), align 8
-  store ptr @.str.172, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 80), align 16
-  store ptr @.str.173, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 88), align 8
-  store ptr @.str.174, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 96), align 16
-  store ptr @.str.175, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 104), align 8
-  store ptr @.str.176, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 112), align 16
-  store ptr @.str.177, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 120), align 8
-  store ptr @.str.178, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 128), align 16
-  store ptr @.str.179, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 136), align 8
-  store ptr @.str.180, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 144), align 16
-  store ptr @.str.181, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 152), align 8
-  store ptr @.str.182, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 160), align 16
-  store ptr @.str.183, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 168), align 8
-  store ptr @.str.184, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 176), align 16
-  store ptr @.str.185, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 184), align 8
-  store ptr @.str.186, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 192), align 16
-  store ptr @.str.187, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 200), align 8
-  store ptr @.str.188, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 208), align 16
-  store ptr @.str.189, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 216), align 8
-  store ptr @.str.190, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 224), align 16
-  store ptr @.str.191, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 232), align 8
-  store ptr @.str.192, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 240), align 16
-  store ptr @.str.193, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 248), align 8
-  store ptr @.str.194, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 256), align 16
-  store ptr @.str.195, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 264), align 8
-  store ptr @.str.196, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 272), align 16
-  store ptr @.str.197, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 280), align 8
-  store ptr @.str.198, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 288), align 16
-  store ptr @.str.199, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 296), align 8
-  store ptr @.str.200, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 312), align 8
-  store ptr @.str.201, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 304), align 16
-  store ptr @.str.202, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 320), align 16
-  store ptr @.str.203, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 336), align 16
-  store ptr @.str.204, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 328), align 8
-  store ptr @.str.205, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 344), align 8
-  store ptr @.str.206, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 360), align 8
-  store ptr @.str.207, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 352), align 16
-  store ptr @.str.208, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 368), align 16
-  store ptr @.str.209, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 384), align 16
-  store ptr @.str.210, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 392), align 8
-  store ptr @.str.211, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 400), align 16
-  store ptr @.str.212, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 408), align 8
-  store ptr @.str.213, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 416), align 16
-  store ptr @.str.214, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 424), align 8
-  store ptr @.str.215, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 432), align 16
-  store ptr @.str.216, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 440), align 8
-  store ptr @.str.217, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 448), align 16
-  store ptr @.str.218, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 456), align 8
-  store ptr @.str.219, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 464), align 16
-  store ptr @.str.220, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 472), align 8
-  store ptr @.str.221, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 480), align 16
-  store ptr @.str.222, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 488), align 8
-  store ptr @.str.223, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 496), align 16
-  store ptr @.str.224, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 504), align 8
-  store ptr @.str.225, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 512), align 16
-  store ptr @.str.226, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 520), align 8
-  store ptr @.str.227, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 528), align 16
-  store ptr @.str.228, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 536), align 8
-  store ptr @.str.229, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 544), align 16
-  store ptr @.str.230, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 552), align 8
-  store ptr @.str.231, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 560), align 16
-  store ptr @.str.232, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 568), align 8
-  store ptr @.str.233, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 576), align 16
-  store ptr @.str.234, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 584), align 8
-  store ptr @.str.235, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 592), align 16
-  store ptr @.str.236, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 600), align 8
-  store ptr @.str.237, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 608), align 16
-  store ptr @.str.238, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 616), align 8
-  store ptr @.str.239, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 624), align 16
-  store ptr @.str.240, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 632), align 8
-  store ptr @.str.241, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 640), align 16
-  store ptr @.str.242, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 648), align 8
+  store ptr @.str.163, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 8), align 8
+  store ptr @.str.164, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 16), align 16
+  store ptr @.str.165, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 24), align 8
+  store ptr @.str.166, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 32), align 16
+  store ptr @.str.167, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 40), align 8
+  store ptr @.str.168, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 48), align 16
+  store ptr @.str.169, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 56), align 8
+  store ptr @.str.170, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 64), align 16
+  store ptr @.str.171, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 72), align 8
+  store ptr @.str.172, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 80), align 16
+  store ptr @.str.173, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 88), align 8
+  store ptr @.str.174, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 96), align 16
+  store ptr @.str.175, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 104), align 8
+  store ptr @.str.176, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 112), align 16
+  store ptr @.str.177, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 120), align 8
+  store ptr @.str.178, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 128), align 16
+  store ptr @.str.179, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 136), align 8
+  store ptr @.str.180, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 144), align 16
+  store ptr @.str.181, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 152), align 8
+  store ptr @.str.182, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 160), align 16
+  store ptr @.str.183, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 168), align 8
+  store ptr @.str.184, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 176), align 16
+  store ptr @.str.185, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 184), align 8
+  store ptr @.str.186, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 192), align 16
+  store ptr @.str.187, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 200), align 8
+  store ptr @.str.188, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 208), align 16
+  store ptr @.str.189, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 216), align 8
+  store ptr @.str.190, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 224), align 16
+  store ptr @.str.191, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 232), align 8
+  store ptr @.str.192, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 240), align 16
+  store ptr @.str.193, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 248), align 8
+  store ptr @.str.194, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 256), align 16
+  store ptr @.str.195, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 264), align 8
+  store ptr @.str.196, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 272), align 16
+  store ptr @.str.197, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 280), align 8
+  store ptr @.str.198, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 288), align 16
+  store ptr @.str.199, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 296), align 8
+  store ptr @.str.200, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 312), align 8
+  store ptr @.str.201, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 304), align 16
+  store ptr @.str.202, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 320), align 16
+  store ptr @.str.203, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 336), align 16
+  store ptr @.str.204, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 328), align 8
+  store ptr @.str.205, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 344), align 8
+  store ptr @.str.206, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 360), align 8
+  store ptr @.str.207, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 352), align 16
+  store ptr @.str.208, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 368), align 16
+  store ptr @.str.209, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 384), align 16
+  store ptr @.str.210, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 392), align 8
+  store ptr @.str.211, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 400), align 16
+  store ptr @.str.212, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 408), align 8
+  store ptr @.str.213, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 416), align 16
+  store ptr @.str.214, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 424), align 8
+  store ptr @.str.215, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 432), align 16
+  store ptr @.str.216, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 440), align 8
+  store ptr @.str.217, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 448), align 16
+  store ptr @.str.218, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 456), align 8
+  store ptr @.str.219, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 464), align 16
+  store ptr @.str.220, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 472), align 8
+  store ptr @.str.221, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 480), align 16
+  store ptr @.str.222, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 488), align 8
+  store ptr @.str.223, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 496), align 16
+  store ptr @.str.224, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 504), align 8
+  store ptr @.str.225, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 512), align 16
+  store ptr @.str.226, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 520), align 8
+  store ptr @.str.227, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 528), align 16
+  store ptr @.str.228, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 536), align 8
+  store ptr @.str.229, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 544), align 16
+  store ptr @.str.230, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 552), align 8
+  store ptr @.str.231, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 560), align 16
+  store ptr @.str.232, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 568), align 8
+  store ptr @.str.233, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 576), align 16
+  store ptr @.str.234, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 584), align 8
+  store ptr @.str.235, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 592), align 16
+  store ptr @.str.236, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 600), align 8
+  store ptr @.str.237, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 608), align 16
+  store ptr @.str.238, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 616), align 8
+  store ptr @.str.239, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 624), align 16
+  store ptr @.str.240, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 632), align 8
+  store ptr @.str.241, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 640), align 16
+  store ptr @.str.242, ptr getelementptr inbounds nuw (i8, ptr @GlslStd450DebugNames, i64 648), align 8
   call void @_ZN3spv11SpirvStream8validateEv(ptr noundef nonnull align 8 dereferenceable(180) %3)
   call void @_ZN3spv11SpirvStream19processInstructionsEv(ptr noundef nonnull align 8 dereferenceable(180) %3)
   call void @_ZN3spv11SpirvStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %3) #19
@@ -2952,7 +2952,7 @@ declare void @_ZN3spv12ParameterizeEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3spv11SpirvStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(180) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv11SpirvStreamE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3spv11SpirvStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

@@ -5239,7 +5239,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %_ZN5clang7CodeGen12
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %45 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl13getDestructorEv(ptr noundef nonnull align 8 dereferenceable(144) %22) #13
   %46 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %44, i32 noundef 1, i64 noundef 72) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_122CallDelegatingCtorDtorE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_122CallDelegatingCtorDtorE, i64 16), ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %45, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -5339,7 +5339,7 @@ _ZN5clang7CodeGen12AggValueSlot7forAddrENS0_7AddressENS_10QualifiersENS1_14IsDes
   %50 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %49, i32 noundef 1, i64 noundef 24) #13
   %.lobit = lshr exact i16 %16, 1
   %51 = trunc nuw nsw i16 %.lobit to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112CallBaseDtorE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112CallBaseDtorE, i64 16), ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %13, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -6124,7 +6124,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EnterDtorCleanupsEPKN
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %20 = load ptr, ptr %6, align 8
   %21 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %19, i32 noundef 3, i64 noundef 16) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_125CallDtorDeleteConditionalE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_125CallDtorDeleteConditionalE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
   br label %_ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder3EndEv.exit
@@ -6191,7 +6191,7 @@ _ZN12_GLOBAL__N_121LoadThisForDtorDeleteERN5clang7CodeGen15CodeGenFunctionEPKNS0
 60:                                               ; preds = %23
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %62 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %61, i32 noundef 3, i64 noundef 8) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114CallDtorDeleteE, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114CallDtorDeleteE, i64 16), ptr %62, align 8
   br label %_ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder3EndEv.exit
 
 63:                                               ; preds = %3
@@ -6267,7 +6267,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit83:     ; preds = %63, %71
 108:                                              ; preds = %101
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %110 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %109, i32 noundef 3, i64 noundef 16) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118SanitizeDtorVTableE, i64 16), ptr %110, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118SanitizeDtorVTableE, i64 16), ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %1, ptr %111, align 8
   br label %112
@@ -6400,7 +6400,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %145, %153
   br i1 %.not159, label %.sink.split, label %190
 
 .sink.split:                                      ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %180
-  %.sink = phi ptr [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_123SanitizeDtorTrivialBaseE, i64 16), %180 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112CallBaseDtorE, i64 16), %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ]
+  %.sink = phi ptr [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_123SanitizeDtorTrivialBaseE, i64 16), %180 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112CallBaseDtorE, i64 16), %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ]
   %187 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %144, i32 noundef 3, i64 noundef 24) #13
   store ptr %.sink, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
@@ -6449,7 +6449,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %145, %153
 212:                                              ; preds = %205
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %214 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %213, i32 noundef 3, i64 noundef 16) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118SanitizeDtorVTableE, i64 16), ptr %214, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_118SanitizeDtorVTableE, i64 16), ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store ptr %1, ptr %215, align 8
   br label %216
@@ -6584,7 +6584,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit108:   ; preds = %253, %261
   br i1 %.not154, label %.sink.split183, label %294
 
 .sink.split183:                                   ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit108, %284
-  %.sink188 = phi ptr [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_123SanitizeDtorTrivialBaseE, i64 16), %284 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112CallBaseDtorE, i64 16), %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit108 ]
+  %.sink188 = phi ptr [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_123SanitizeDtorTrivialBaseE, i64 16), %284 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112CallBaseDtorE, i64 16), %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit108 ]
   %291 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %248, i32 noundef 3, i64 noundef 24) #13
   store ptr %.sink188, ptr %291, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
@@ -6677,7 +6677,7 @@ _ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thr
 
 336:                                              ; preds = %334
   %337 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %306, i32 noundef 3, i64 noundef 24) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_122SanitizeDtorFieldRangeE, i64 16), ptr %337, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_122SanitizeDtorFieldRangeE, i64 16), ptr %337, align 8
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
   store ptr %1, ptr %338, align 8
   %339 = getelementptr inbounds nuw i8, ptr %337, i64 16
@@ -6747,7 +6747,7 @@ _ZN5clang7CodeGen15CodeGenFunction14getCleanupKindENS_8QualType15DestructionKind
   %369 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %306, i32 noundef %367, i64 noundef 32) #13
   %370 = trunc nuw nsw i32 %367 to i8
   %371 = and i8 %370, 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112DestroyFieldE, i64 16), ptr %369, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112DestroyFieldE, i64 16), ptr %369, align 8
   %372 = getelementptr inbounds nuw i8, ptr %369, i64 8
   store ptr %.sroa.0133.0164, ptr %372, align 8
   %373 = getelementptr inbounds nuw i8, ptr %369, i64 16
@@ -6793,7 +6793,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
 
 389:                                              ; preds = %._crit_edge169
   %390 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %306, i32 noundef 3, i64 noundef 24) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_122SanitizeDtorFieldRangeE, i64 16), ptr %390, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_122SanitizeDtorFieldRangeE, i64 16), ptr %390, align 8
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
   store ptr %1, ptr %391, align 8
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 16
@@ -10573,7 +10573,7 @@ _ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
 define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21PushDestructorCleanupEPKNS_17CXXDestructorDeclENS_8QualTypeENS0_7AddressE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i64 %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %6 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %5, i32 noundef 3, i64 noundef 72) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113CallLocalDtorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113CallLocalDtorE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -10608,7 +10608,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21PushDestructorCleanup
   %18 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl13getDestructorEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %20 = tail call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %19, i32 noundef 3, i64 noundef 72) #13
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113CallLocalDtorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113CallLocalDtorE, i64 16), ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16

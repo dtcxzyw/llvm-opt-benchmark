@@ -369,7 +369,7 @@ define hidden i64 @crc32_x86_simd_update(i32 noundef %0, ptr noundef %1, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_startup_crc32_x86_intrin(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   tail call void @__cpu_indicator_init() #6
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @__cpu_model, i64 12), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %4 = and i32 %3, 256
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5

@@ -89,7 +89,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3tev10ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 64), (72, 256)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i32 @_ZNSt3__16thread20hardware_concurrencyEv() #15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10ThreadPoolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tev10ThreadPoolE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
@@ -124,7 +124,7 @@ declare noundef i32 @_ZNSt3__16thread20hardware_concurrencyEv() local_unnamed_ad
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3tev10ThreadPoolC2Emb(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 64), (72, 256)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10ThreadPoolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tev10ThreadPoolE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
@@ -431,7 +431,7 @@ _ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE16__destroy_vectorclB8ne190000Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3tev10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::unique_lock", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10ThreadPoolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tev10ThreadPoolE, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %3, ptr %2, align 8
@@ -1382,7 +1382,7 @@ declare void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZNSt3__125__throw_bad_function_callB8ne190000Ev() local_unnamed_addr #11 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt3__117bad_function_callE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__117bad_function_callE, i64 16), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTINSt3__117bad_function_callE, ptr nonnull @_ZNSt3__117bad_function_callD2Ev) #16
   unreachable
 }
@@ -1471,7 +1471,7 @@ define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12length_error, i64 16), ptr %0, align 8
   ret void
 }
 

@@ -899,7 +899,7 @@ define hidden noundef ptr @_ZN13StubGenerator17generate_libmFmodEv(ptr noundef n
   %472 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i8 0, ptr %472, align 4
   %473 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %473, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %473, align 8
   %474 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr null, ptr %474, align 8
   %475 = getelementptr inbounds nuw i8, ptr %65, i64 40
@@ -907,7 +907,7 @@ define hidden noundef ptr @_ZN13StubGenerator17generate_libmFmodEv(ptr noundef n
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %65, i64 21, i1 false)
   %476 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %477 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %477 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %477(ptr noundef nonnull align 8 dereferenceable(40) %473, ptr noundef nonnull align 8 dereferenceable(40) %476) #5
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %467, ptr noundef nonnull %4, i32 1) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
@@ -924,7 +924,7 @@ define hidden noundef ptr @_ZN13StubGenerator17generate_libmFmodEv(ptr noundef n
   %483 = getelementptr inbounds nuw i8, ptr %66, i64 20
   store i8 0, ptr %483, align 4
   %484 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %484, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %484, align 8
   %485 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store ptr null, ptr %485, align 8
   %486 = getelementptr inbounds nuw i8, ptr %66, i64 40
@@ -948,7 +948,7 @@ define hidden noundef ptr @_ZN13StubGenerator17generate_libmFmodEv(ptr noundef n
   %493 = getelementptr inbounds nuw i8, ptr %67, i64 20
   store i8 0, ptr %493, align 4
   %494 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %494, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %494, align 8
   %495 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr null, ptr %495, align 8
   %496 = getelementptr inbounds nuw i8, ptr %67, i64 40
@@ -967,7 +967,7 @@ define hidden noundef ptr @_ZN13StubGenerator17generate_libmFmodEv(ptr noundef n
   %502 = getelementptr inbounds nuw i8, ptr %68, i64 20
   store i8 0, ptr %502, align 4
   %503 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %503, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %503, align 8
   %504 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr null, ptr %504, align 8
   %505 = getelementptr inbounds nuw i8, ptr %68, i64 40
@@ -998,7 +998,7 @@ define hidden noundef ptr @_ZN13StubGenerator17generate_libmFmodEv(ptr noundef n
   %517 = getelementptr inbounds nuw i8, ptr %69, i64 20
   store i8 0, ptr %517, align 4
   %518 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %518, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %518, align 8
   %519 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr null, ptr %519, align 8
   %520 = getelementptr inbounds nuw i8, ptr %69, i64 40
@@ -1017,7 +1017,7 @@ define hidden noundef ptr @_ZN13StubGenerator17generate_libmFmodEv(ptr noundef n
   %526 = getelementptr inbounds nuw i8, ptr %70, i64 20
   store i8 0, ptr %526, align 4
   %527 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %527, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %527, align 8
   %528 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store ptr null, ptr %528, align 8
   %529 = getelementptr inbounds nuw i8, ptr %70, i64 40

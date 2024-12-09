@@ -93,7 +93,7 @@ $_ZGVZN9Verilated15defaultContextpEvE3s_s = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10Vmycpu_topC2EP16VerilatedContextPKc(ptr noundef nonnull align 64 dereferenceable(416) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN14VerilatedModelC2ER16VerilatedContext(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(608) %1)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
   %4 = tail call noalias noundef nonnull align 64 dereferenceable(19520) ptr @_ZnwmSt11align_val_t(i64 noundef 19520, i64 noundef 64) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -366,7 +366,7 @@ _ZTWN9Verilated3t_sE.exit5:                       ; preds = %18, %20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10Vmycpu_topD2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = icmp eq ptr %3, null
@@ -389,7 +389,7 @@ declare void @_ZdlPvmSt11align_val_t(ptr noundef, i64 noundef, i64 noundef) loca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10Vmycpu_topD0Ev(ptr noundef nonnull align 64 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = icmp eq ptr %3, null

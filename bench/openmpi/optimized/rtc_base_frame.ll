@@ -44,7 +44,7 @@ declare void @prte_rtc_base_get_avail_vals(ptr noundef) #0
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_rtc_base_open(i32 noundef %0) #1 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -53,8 +53,8 @@ define internal i32 @prte_rtc_base_open(i32 noundef %0) #1 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 48), align 8
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 48), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 56), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
@@ -77,15 +77,15 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prte_rtc_base_close() #1 {
-  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 264), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 264), align 8
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %36
-  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 264), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 264), align 8
   %4 = add i64 %3, -1
-  store volatile i64 %4, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 264), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 240), align 8
+  store volatile i64 %4, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 264), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 240), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load volatile ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -93,7 +93,7 @@ define internal i32 @prte_rtc_base_close() #1 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store volatile ptr %7, ptr %10, align 8
   %11 = load volatile ptr, ptr %8, align 8
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 240), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 240), align 8
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #8
   %13 = icmp eq i32 %12, 35
   br i1 %13, label %14, label %16
@@ -148,7 +148,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   br label %36
 
 36:                                               ; preds = %33, %35, %16
-  %37 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_rtc_base, i64 264), align 8
+  %37 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rtc_base, i64 264), align 8
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -196,7 +196,7 @@ define internal void @rcon(ptr noundef initializes((144, 160), (200, 212), (216,
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_value_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_value_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 

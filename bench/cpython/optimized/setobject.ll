@@ -2029,7 +2029,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds nuw i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFrozenSet_Type, i64 296), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFrozenSet_Type, i64 296), align 8
   %cmp1 = icmp ne ptr %0, %1
   %cmp2 = icmp eq ptr %kwds, null
   %or.cond = or i1 %cmp2, %cmp1
@@ -3273,7 +3273,7 @@ Py_XDECREF.exit:                                  ; preds = %Py_XINCREF.exit, %i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %Py_XDECREF.exit
-  %call2 = call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #10
+  %call2 = call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #10
   %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.7, ptr noundef %call2, ptr noundef nonnull %call) #10
   br label %return
 

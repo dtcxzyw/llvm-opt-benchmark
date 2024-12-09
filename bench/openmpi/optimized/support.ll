@@ -493,10 +493,10 @@ define dso_local range(i32 -64, 1) i32 @pmix_info_register_project_frameworks(pt
   ]
 
 7:                                                ; preds = %.lr.ph, %.lr.ph
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_info_component_map_t_class, i64 56), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_info_component_map_t_class, i64 56), align 8
   %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #24
   %10 = load i32, ptr @pmix_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_info_component_map_t_class, i64 32), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_info_component_map_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %10, %11
   br i1 %.not.i.i, label %13, label %12
 
@@ -1093,7 +1093,7 @@ pmix_info_show_path.exit:                         ; preds = %.critedge, %57
   call void @free(ptr noundef %.sink.i) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   %60 = load ptr, ptr @pmix_info_path_exec_prefix, align 8
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 8), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   %62 = call noalias ptr @strdup(ptr noundef %60) #18
   %63 = load i8, ptr %62, align 1
@@ -1117,7 +1117,7 @@ pmix_info_show_path.exit38:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i37) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   %72 = load ptr, ptr @pmix_info_path_bindir, align 8
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 16), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   %74 = call noalias ptr @strdup(ptr noundef %72) #18
   %75 = load i8, ptr %74, align 1
@@ -1141,7 +1141,7 @@ pmix_info_show_path.exit40:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i39) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   %84 = load ptr, ptr @pmix_info_path_sbindir, align 8
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 24), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   %86 = call noalias ptr @strdup(ptr noundef %84) #18
   %87 = load i8, ptr %86, align 1
@@ -1165,7 +1165,7 @@ pmix_info_show_path.exit42:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i41) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   %96 = load ptr, ptr @pmix_info_path_libdir, align 8
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 80), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 80), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   %98 = call noalias ptr @strdup(ptr noundef %96) #18
   %99 = load i8, ptr %98, align 1
@@ -1189,7 +1189,7 @@ pmix_info_show_path.exit44:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i43) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   %108 = load ptr, ptr @pmix_info_path_incdir, align 8
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 88), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   %110 = call noalias ptr @strdup(ptr noundef %108) #18
   %111 = load i8, ptr %110, align 1
@@ -1213,7 +1213,7 @@ pmix_info_show_path.exit46:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i45) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   %120 = load ptr, ptr @pmix_info_path_mandir, align 8
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 104), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 104), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   %122 = call noalias ptr @strdup(ptr noundef %120) #18
   %123 = load i8, ptr %122, align 1
@@ -1237,7 +1237,7 @@ pmix_info_show_path.exit48:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i47) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   %132 = load ptr, ptr @pmix_info_path_pkglibdir, align 8
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   %134 = call noalias ptr @strdup(ptr noundef %132) #18
   %135 = load i8, ptr %134, align 1
@@ -1261,7 +1261,7 @@ pmix_info_show_path.exit50:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i49) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   %144 = load ptr, ptr @pmix_info_path_libexecdir, align 8
-  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 32), align 8
+  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 32), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %146 = call noalias ptr @strdup(ptr noundef %144) #18
   %147 = load i8, ptr %146, align 1
@@ -1285,7 +1285,7 @@ pmix_info_show_path.exit52:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i51) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   %156 = load ptr, ptr @pmix_info_path_datarootdir, align 8
-  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 40), align 8
+  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 40), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %158 = call noalias ptr @strdup(ptr noundef %156) #18
   %159 = load i8, ptr %158, align 1
@@ -1309,7 +1309,7 @@ pmix_info_show_path.exit54:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i53) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   %168 = load ptr, ptr @pmix_info_path_datadir, align 8
-  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 48), align 8
+  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 48), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   %170 = call noalias ptr @strdup(ptr noundef %168) #18
   %171 = load i8, ptr %170, align 1
@@ -1333,7 +1333,7 @@ pmix_info_show_path.exit56:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i55) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   %180 = load ptr, ptr @pmix_info_path_sysconfdir, align 8
-  %181 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 56), align 8
+  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   %182 = call noalias ptr @strdup(ptr noundef %180) #18
   %183 = load i8, ptr %182, align 1
@@ -1357,7 +1357,7 @@ pmix_info_show_path.exit58:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i57) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   %192 = load ptr, ptr @pmix_info_path_sharedstatedir, align 8
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 64), align 8
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   %194 = call noalias ptr @strdup(ptr noundef %192) #18
   %195 = load i8, ptr %194, align 1
@@ -1381,7 +1381,7 @@ pmix_info_show_path.exit60:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i59) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %204 = load ptr, ptr @pmix_info_path_localstatedir, align 8
-  %205 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 72), align 8
+  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 72), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   %206 = call noalias ptr @strdup(ptr noundef %204) #18
   %207 = load i8, ptr %206, align 1
@@ -1405,7 +1405,7 @@ pmix_info_show_path.exit62:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i61) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %216 = load ptr, ptr @pmix_info_path_infodir, align 8
-  %217 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 96), align 8
+  %217 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 96), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   %218 = call noalias ptr @strdup(ptr noundef %216) #18
   %219 = load i8, ptr %218, align 1
@@ -1429,7 +1429,7 @@ pmix_info_show_path.exit64:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i63) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %228 = load ptr, ptr @pmix_info_path_pkgdatadir, align 8
-  %229 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 112), align 8
+  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 112), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   %230 = call noalias ptr @strdup(ptr noundef %228) #18
   %231 = load i8, ptr %230, align 1
@@ -1453,7 +1453,7 @@ pmix_info_show_path.exit66:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i65) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %240 = load ptr, ptr @pmix_info_path_pkglibdir, align 8
-  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
+  %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   %242 = call noalias ptr @strdup(ptr noundef %240) #18
   %243 = load i8, ptr %242, align 1
@@ -1477,7 +1477,7 @@ pmix_info_show_path.exit68:                       ; preds = %pmix_info_show_path
   call void @free(ptr noundef %.sink.i67) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %252 = load ptr, ptr @pmix_info_path_pkgincludedir, align 8
-  %253 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 128), align 8
+  %253 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 128), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   %254 = call noalias ptr @strdup(ptr noundef %252) #18
   %255 = load i8, ptr %254, align 1
@@ -1553,7 +1553,7 @@ pmix_info_show_path.exit72:                       ; preds = %272, %281
   br i1 %287, label %288, label %300
 
 288:                                              ; preds = %284
-  %289 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 16), align 8
+  %289 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %290 = call noalias ptr @strdup(ptr noundef %285) #18
   %291 = load i8, ptr %290, align 1
@@ -1585,7 +1585,7 @@ pmix_info_show_path.exit74:                       ; preds = %288, %297
   br i1 %303, label %304, label %316
 
 304:                                              ; preds = %300
-  %305 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 80), align 8
+  %305 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 80), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %306 = call noalias ptr @strdup(ptr noundef %301) #18
   %307 = load i8, ptr %306, align 1
@@ -1617,7 +1617,7 @@ pmix_info_show_path.exit76:                       ; preds = %304, %313
   br i1 %319, label %320, label %332
 
 320:                                              ; preds = %316
-  %321 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 88), align 8
+  %321 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %322 = call noalias ptr @strdup(ptr noundef %317) #18
   %323 = load i8, ptr %322, align 1
@@ -1649,7 +1649,7 @@ pmix_info_show_path.exit78:                       ; preds = %320, %329
   br i1 %335, label %336, label %348
 
 336:                                              ; preds = %332
-  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 104), align 8
+  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 104), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %338 = call noalias ptr @strdup(ptr noundef %333) #18
   %339 = load i8, ptr %338, align 1
@@ -1681,7 +1681,7 @@ pmix_info_show_path.exit80:                       ; preds = %336, %345
   br i1 %351, label %352, label %364
 
 352:                                              ; preds = %348
-  %353 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
+  %353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %354 = call noalias ptr @strdup(ptr noundef %349) #18
   %355 = load i8, ptr %354, align 1
@@ -1713,7 +1713,7 @@ pmix_info_show_path.exit82:                       ; preds = %352, %361
   br i1 %367, label %368, label %380
 
 368:                                              ; preds = %364
-  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 56), align 8
+  %369 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %370 = call noalias ptr @strdup(ptr noundef %365) #18
   %371 = load i8, ptr %370, align 1
@@ -1745,7 +1745,7 @@ pmix_info_show_path.exit84:                       ; preds = %368, %377
   br i1 %383, label %384, label %396
 
 384:                                              ; preds = %380
-  %385 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 8), align 8
+  %385 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %386 = call noalias ptr @strdup(ptr noundef %381) #18
   %387 = load i8, ptr %386, align 1
@@ -1777,7 +1777,7 @@ pmix_info_show_path.exit86:                       ; preds = %384, %393
   br i1 %399, label %400, label %412
 
 400:                                              ; preds = %396
-  %401 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 24), align 8
+  %401 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %402 = call noalias ptr @strdup(ptr noundef %397) #18
   %403 = load i8, ptr %402, align 1
@@ -1809,7 +1809,7 @@ pmix_info_show_path.exit88:                       ; preds = %400, %409
   br i1 %415, label %416, label %428
 
 416:                                              ; preds = %412
-  %417 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 32), align 8
+  %417 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 32), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %418 = call noalias ptr @strdup(ptr noundef %413) #18
   %419 = load i8, ptr %418, align 1
@@ -1841,7 +1841,7 @@ pmix_info_show_path.exit90:                       ; preds = %416, %425
   br i1 %431, label %432, label %444
 
 432:                                              ; preds = %428
-  %433 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 40), align 8
+  %433 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 40), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %434 = call noalias ptr @strdup(ptr noundef %429) #18
   %435 = load i8, ptr %434, align 1
@@ -1873,7 +1873,7 @@ pmix_info_show_path.exit92:                       ; preds = %432, %441
   br i1 %447, label %448, label %450
 
 448:                                              ; preds = %444
-  %449 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 48), align 8
+  %449 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 48), align 8
   call void @pmix_info_show_path(ptr noundef %445, ptr noundef %449)
   br label %482
 
@@ -1884,7 +1884,7 @@ pmix_info_show_path.exit92:                       ; preds = %432, %441
   br i1 %453, label %454, label %456
 
 454:                                              ; preds = %450
-  %455 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 64), align 8
+  %455 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 64), align 8
   call void @pmix_info_show_path(ptr noundef %451, ptr noundef %455)
   br label %482
 
@@ -1895,7 +1895,7 @@ pmix_info_show_path.exit92:                       ; preds = %432, %441
   br i1 %459, label %460, label %462
 
 460:                                              ; preds = %456
-  %461 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 72), align 8
+  %461 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 72), align 8
   call void @pmix_info_show_path(ptr noundef %457, ptr noundef %461)
   br label %482
 
@@ -1906,7 +1906,7 @@ pmix_info_show_path.exit92:                       ; preds = %432, %441
   br i1 %465, label %466, label %468
 
 466:                                              ; preds = %462
-  %467 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 96), align 8
+  %467 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 96), align 8
   call void @pmix_info_show_path(ptr noundef %463, ptr noundef %467)
   br label %482
 
@@ -1917,7 +1917,7 @@ pmix_info_show_path.exit92:                       ; preds = %432, %441
   br i1 %471, label %472, label %474
 
 472:                                              ; preds = %468
-  %473 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 112), align 8
+  %473 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 112), align 8
   call void @pmix_info_show_path(ptr noundef %469, ptr noundef %473)
   br label %482
 
@@ -1928,7 +1928,7 @@ pmix_info_show_path.exit92:                       ; preds = %432, %441
   br i1 %477, label %478, label %480
 
 478:                                              ; preds = %474
-  %479 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 128), align 8
+  %479 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 128), align 8
   call void @pmix_info_show_path(ptr noundef %475, ptr noundef %479)
   br label %482
 
@@ -1998,14 +1998,14 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i, %12, %1
 
 .preheader:                                       ; preds = %15, %pmix_cmd_line_get_param.exit
   %.03559.ph = phi ptr [ null, %pmix_cmd_line_get_param.exit ], [ %19, %15 ]
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_types, i64 128), align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %pmix_pointer_array_get_item.exit, label %.loopexit
 
 pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %41
   %25 = phi i32 [ %42, %41 ], [ %23, %.preheader ]
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %41 ], [ 0, %.preheader ]
-  %mca_types.val43 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
+  %mca_types.val43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_types, i64 152), align 8
   %26 = getelementptr inbounds nuw ptr, ptr %mca_types.val43, i64 %indvars.iv80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -2037,7 +2037,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %41
 
 pmix_info_show_mca_params.exit:                   ; preds = %33, %36, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_types, i64 128), align 8
   br label %41
 
 41:                                               ; preds = %pmix_pointer_array_get_item.exit, %pmix_info_show_mca_params.exit
@@ -2062,12 +2062,12 @@ pmix_info_show_mca_params.exit:                   ; preds = %33, %36, %.sink.spl
 .preheader70:                                     ; preds = %48, %pmix_info_show_mca_params.exit51
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %pmix_info_show_mca_params.exit51 ], [ 0, %48 ]
   %51 = phi ptr [ %74, %pmix_info_show_mca_params.exit51 ], [ %50, %48 ]
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_types, i64 128), align 8
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %pmix_pointer_array_get_item.exit48.lr.ph, label %.critedge
 
 pmix_pointer_array_get_item.exit48.lr.ph:         ; preds = %.preheader70
-  %mca_types.val45 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
+  %mca_types.val45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_types, i64 152), align 8
   %wide.trip.count = zext nneg i32 %52 to i64
   br label %pmix_pointer_array_get_item.exit48
 
@@ -2193,12 +2193,12 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @pmix_info_err_params() local_unnamed_addr #2 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 128), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_component_map, i64 128), align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %pmix_pointer_array_get_item.exit.lr.ph, label %._crit_edge.thread
 
 pmix_pointer_array_get_item.exit.lr.ph:           ; preds = %0
-  %pmix_component_map.val7 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 152), align 8
+  %pmix_component_map.val7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_component_map, i64 152), align 8
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %pmix_pointer_array_get_item.exit
 
@@ -2756,12 +2756,12 @@ define dso_local void @pmix_info_show_component_version(ptr nocapture noundef re
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_types, i64 128), align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %pmix_pointer_array_get_item.exit.lr.ph, label %.critedge
 
 pmix_pointer_array_get_item.exit.lr.ph:           ; preds = %.preheader
-  %mca_types.val48 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
+  %mca_types.val48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_types, i64 152), align 8
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %pmix_pointer_array_get_item.exit
 
@@ -2783,14 +2783,14 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %exitcond.not, label %.critedge, label %pmix_pointer_array_get_item.exit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %17, %4
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 128), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_component_map, i64 128), align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %pmix_pointer_array_get_item.exit50, label %.critedge
 
 pmix_pointer_array_get_item.exit50:               ; preds = %.loopexit, %98
   %23 = phi i32 [ %99, %98 ], [ %21, %.loopexit ]
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %98 ], [ 0, %.loopexit ]
-  %pmix_component_map.val47 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 152), align 8
+  %pmix_component_map.val47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_component_map, i64 152), align 8
   %24 = getelementptr inbounds nuw ptr, ptr %pmix_component_map.val47, i64 %indvars.iv67
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -2952,7 +2952,7 @@ pmix_info_show_failed_component.exit:             ; preds = %72, %82, %.sink.spl
   br i1 %.not, label %._crit_edge61._crit_edge, label %.critedge
 
 ._crit_edge61._crit_edge:                         ; preds = %._crit_edge61
-  %.pre71 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_component_map, i64 128), align 8
+  %.pre71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_component_map, i64 128), align 8
   br label %98
 
 98:                                               ; preds = %._crit_edge61._crit_edge, %28, %33, %pmix_pointer_array_get_item.exit50

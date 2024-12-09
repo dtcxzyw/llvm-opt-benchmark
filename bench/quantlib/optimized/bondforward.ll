@@ -762,7 +762,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !33
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !42
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -929,7 +929,7 @@ invoke.cont13:                                    ; preds = %if.else.i.i, %if.th
   %add.ptr.i.i = getelementptr inbounds i8, ptr %result, i64 %vbase.offset.i.i
   store ptr %17, ptr %add.ptr.i.i, align 8, !tbaa !33
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %result, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !33
   %_M_string.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 80
   %18 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %result, i64 96
@@ -950,7 +950,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont13
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %if.then.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !33
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #26
   %22 = getelementptr inbounds nuw i8, ptr %result, i64 112
@@ -1085,7 +1085,7 @@ invoke.cont7:                                     ; preds = %invoke.cont6
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !66
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !69
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib17ForwardTypePayoffEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib17ForwardTypePayoffEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !33
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !70
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !42
@@ -1865,7 +1865,7 @@ entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator.6", align 1
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17ForwardTypePayoffE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17ForwardTypePayoffE, i64 16), ptr %this, align 8, !tbaa !33
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %type, ptr %type_, align 8, !tbaa !84
   %strike_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2606,7 +2606,7 @@ entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp26 = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 256
   store i32 0, ptr %1, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -2618,7 +2618,7 @@ entry:
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 296
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 312
   store i32 0, ptr %3, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 320
@@ -2710,7 +2710,7 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !66
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !69
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib17ForwardTypePayoffEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib17ForwardTypePayoffEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !33
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !70
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !42
@@ -2729,7 +2729,7 @@ if.then.i.i.i18:                                  ; preds = %invoke.cont6
   br label %_ZN8QuantLib6HandleINS_18YieldTermStructureEEC2ERKS2_.exit
 
 _ZN8QuantLib6HandleINS_18YieldTermStructureEEC2ERKS2_.exit: ; preds = %invoke.cont6, %if.then.i.i.i18
-  invoke void @_ZN8QuantLib7ForwardC2ENS_10DayCounterENS_8CalendarENS_21BusinessDayConventionEjN5boost10shared_ptrINS_6PayoffEEERKNS_4DateESA_NS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib11BondForwardE, i64 8), ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i32 noundef %businessDayConvention, i32 noundef %settlementDays, ptr noundef nonnull %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %valueDate, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, ptr noundef nonnull %agg.tmp7)
+  invoke void @_ZN8QuantLib7ForwardC2ENS_10DayCounterENS_8CalendarENS_21BusinessDayConventionEjN5boost10shared_ptrINS_6PayoffEEERKNS_4DateESA_NS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib11BondForwardE, i64 8), ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i32 noundef %businessDayConvention, i32 noundef %settlementDays, ptr noundef nonnull %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %valueDate, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, ptr noundef nonnull %agg.tmp7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %_ZN8QuantLib6HandleINS_18YieldTermStructureEEC2ERKS2_.exit
@@ -2885,9 +2885,9 @@ terminate.lpad.i.i.i57:                           ; preds = %if.then.i.i.i.i.i61
   unreachable
 
 _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %_ZN8QuantLib8CalendarD2Ev.exit, %if.then.i.i.i51, %.noexc.i.i.i58, %if.then.i.i.i.i.i61
-  store ptr getelementptr inbounds inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 32), ptr %this, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 160), ptr %0, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 216), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 32), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 160), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 216), ptr %2, align 8, !tbaa !33
   %bond_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %47 = load ptr, ptr %bond, align 8, !tbaa !74
   store ptr %47, ptr %bond_, align 8, !tbaa !74
@@ -3457,7 +3457,7 @@ lpad28:                                           ; preds = %lor.end.i.i204, %_Z
 ehcleanup34:                                      ; preds = %lpad28, %lpad17
   %.pn3 = phi { ptr, i32 } [ %121, %lpad28 ], [ %120, %lpad17 ]
   call void @_ZN5boost10shared_ptrIN8QuantLib4BondEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %bond_) #26
-  call void @_ZN8QuantLib7ForwardD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib11BondForwardE, i64 8)) #26
+  call void @_ZN8QuantLib7ForwardD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib11BondForwardE, i64 8)) #26
   br label %ehcleanup36
 
 ehcleanup36:                                      ; preds = %ehcleanup34, %ehcleanup
@@ -4149,7 +4149,7 @@ declare void @_ZNK8QuantLib7Forward19performCalculationsEv(ptr noundef nonnull a
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !33
   %observables_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !14
@@ -5144,11 +5144,11 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib11BondForwardD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 32), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 32), ptr %this, align 8, !tbaa !33
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 240
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 160), ptr %add.ptr.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 160), ptr %add.ptr.i, align 8, !tbaa !33
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr %this, i64 296
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 216), ptr %add.ptr6.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib11BondForwardE, i64 216), ptr %add.ptr6.i, align 8, !tbaa !33
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -5189,7 +5189,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
 
 _ZN8QuantLib11BondForwardD2Ev.exit:               ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
   tail call void @_ZN8QuantLib7ForwardD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib11BondForwardE, i64 8)) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %add.ptr6.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %add.ptr6.i, align 8, !tbaa !33
   %observables_.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %7 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !14
@@ -5243,7 +5243,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i, %con
   unreachable
 
 _ZN8QuantLib8ObserverD2Ev.exit:                   ; preds = %for.cond.cleanup.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i, align 8, !tbaa !33
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %_M_parent.i.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 264
   %15 = load ptr, ptr %_M_parent.i.i.i.i.i2, align 8, !tbaa !13
@@ -5644,7 +5644,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeINSt7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !33
   %observers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !13
@@ -5665,7 +5665,7 @@ _ZNSt3setIPN8QuantLib8ObserverESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !33
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !13

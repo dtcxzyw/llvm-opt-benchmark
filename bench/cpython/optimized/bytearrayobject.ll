@@ -2718,7 +2718,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %if.then2, %if.then.
   %4 = load i8, ptr %arrayidx, align 1
   %conv.i = zext i8 %4 to i64
   %add.i = add nuw nsw i64 %conv.i, 5
-  %arrayidx.i = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3656), i64 0, i64 %add.i
+  %arrayidx.i = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3656), i64 0, i64 %add.i
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -2872,7 +2872,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %3 = load i8, ptr %arrayidx, align 1
   %conv.i = zext i8 %3 to i64
   %add.i = add nuw nsw i64 %conv.i, 5
-  %arrayidx.i = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3656), i64 0, i64 %add.i
+  %arrayidx.i = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3656), i64 0, i64 %add.i
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -3433,7 +3433,7 @@ if.end13:                                         ; preds = %lor.lhs.false
   %7 = load i8, ptr %arrayidx, align 1
   %conv.i = zext i8 %7 to i64
   %add.i = add nuw nsw i64 %conv.i, 5
-  %arrayidx.i = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3656), i64 0, i64 %add.i
+  %arrayidx.i = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3656), i64 0, i64 %add.i
   br label %return
 
 if.else:                                          ; preds = %entry, %_PyIndex_Check.exit
@@ -6668,7 +6668,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %if.end9.i
 if.end21.i:                                       ; preds = %PyByteArray_AS_STRING.exit.i
   %conv.i.i = zext i8 %11 to i64
   %add.i.i = add nuw nsw i64 %conv.i.i, 5
-  %arrayidx.i.i = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3656), i64 0, i64 %add.i.i
+  %arrayidx.i.i = getelementptr [262 x %struct._longobject], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3656), i64 0, i64 %add.i.i
   br label %exit
 
 exit:                                             ; preds = %if.end21.i, %PyByteArray_AS_STRING.exit.i, %_canresize.exit.thread.i, %if.then8.i, %if.then.i, %land.lhs.true11, %lor.lhs.false
@@ -11934,7 +11934,7 @@ if.end3:                                          ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal ptr @bytearrayiter_reduce(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #15
+  %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #15
   %it_seq = getelementptr inbounds nuw i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %cmp.not = icmp eq ptr %0, null

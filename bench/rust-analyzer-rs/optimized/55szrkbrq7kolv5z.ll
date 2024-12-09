@@ -46508,7 +46508,7 @@ define internal fastcc void @"_ZN7hir_def10item_scope13BUILTIN_SCOPE28_$u7b$$u7b
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = icmp eq i64 %5, -9223372036854775807
   call void @llvm.assume(i1 %6)
-  invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf3de8918f80612b2E.llvm.12542172245242916373"(ptr noundef nonnull @anon.9168b999b9c224f989ddd06513bde793.200, ptr noundef nonnull getelementptr inbounds (i8, ptr @anon.9168b999b9c224f989ddd06513bde793.200, i64 544), ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf3de8918f80612b2E.llvm.12542172245242916373"(ptr noundef nonnull @anon.9168b999b9c224f989ddd06513bde793.200, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.9168b999b9c224f989ddd06513bde793.200, i64 544), ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17h03d82e0e4068c941E.exit" unwind label %7, !noalias !14240
 
 7:                                                ; preds = %.noexc.i, %1

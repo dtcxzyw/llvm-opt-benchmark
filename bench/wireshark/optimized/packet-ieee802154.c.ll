@@ -2067,7 +2067,7 @@ define hidden i32 @ieee802154_dissect_header(ptr noundef %0, ptr noundef %1, ptr
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 152) #16
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @ieee802154_map, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ieee802154_map, i64 8), align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 144
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -2913,7 +2913,7 @@ dissect_ieee802154_fcf.exit:                      ; preds = %139, %141, %143
   store i16 %419, ptr %8, align 2
   %420 = getelementptr inbounds nuw i8, ptr %.0359, i64 2
   store i16 %411, ptr %420, align 2
-  %421 = load ptr, ptr getelementptr inbounds (i8, ptr @ieee802154_map, i64 8), align 8
+  %421 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ieee802154_map, i64 8), align 8
   %422 = call ptr @g_hash_table_lookup(ptr noundef %421, ptr noundef nonnull %8) #16
   %423 = getelementptr inbounds nuw i8, ptr %.0359, i64 8
   store ptr %422, ptr %423, align 8
@@ -5238,7 +5238,7 @@ ieee802154_long_addr_invalidate.exit.i.i:         ; preds = %183, %176
   store i16 %189, ptr %7, align 2
   %192 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %187, ptr %192, align 2
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @ieee802154_map, i64 8), align 8
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ieee802154_map, i64 8), align 8
   %194 = call ptr @g_hash_table_lookup(ptr noundef %193, ptr noundef nonnull %7) #16
   %.not.i24.i.i = icmp eq ptr %194, null
   br i1 %.not.i24.i.i, label %ieee802154_short_addr_invalidate.exit.i.i, label %195
@@ -6270,7 +6270,7 @@ define hidden range(i32 0, 2) i32 @ieee802154_short_addr_invalidate(i16 noundef 
   store i16 %1, ptr %4, align 2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %0, ptr %5, align 2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ieee802154_map, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ieee802154_map, i64 8), align 8
   %7 = call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef nonnull %4) #16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
@@ -6695,7 +6695,7 @@ declare void @register_init_routine(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @proto_init_ieee802154() #0 {
   %1 = tail call ptr @g_hash_table_new(ptr noundef nonnull @ieee802154_short_addr_hash, ptr noundef nonnull @ieee802154_short_addr_equal) #16
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @ieee802154_map, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @ieee802154_map, i64 8), align 8
   %2 = tail call ptr @g_hash_table_new(ptr noundef nonnull @ieee802154_long_addr_hash, ptr noundef nonnull @ieee802154_long_addr_equal) #16
   store ptr %2, ptr @ieee802154_map, align 8
   %3 = load i32, ptr @num_static_addrs, align 4
@@ -6771,7 +6771,7 @@ declare void @register_cleanup_routine(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @proto_cleanup_ieee802154() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ieee802154_map, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ieee802154_map, i64 8), align 8
   tail call void @g_hash_table_destroy(ptr noundef %1) #16
   %2 = load ptr, ptr @ieee802154_map, align 8
   tail call void @g_hash_table_destroy(ptr noundef %2) #16

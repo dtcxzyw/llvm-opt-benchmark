@@ -1053,7 +1053,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
   %op.0.i = phi ptr [ %3, %if.then.i ], [ %call3.i, %if.else.i ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %7 = and i64 %6, 512
   %tobool.not.i.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -1112,7 +1112,7 @@ if.end6.i36:                                      ; preds = %if.else.i47, %if.th
   %op.0.i37 = phi ptr [ %11, %if.then.i32 ], [ %call3.i48, %if.else.i47 ]
   %ob_type.i.i.i38 = getelementptr inbounds nuw i8, ptr %op.0.i37, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i38, align 8
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %15 = and i64 %14, 512
   %tobool.not.i.i39 = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i39, label %_PyObject_Init.exit.i44, label %if.then.i.i40
@@ -1175,7 +1175,7 @@ if.end6.i60:                                      ; preds = %if.else.i71, %if.th
   %op.0.i61 = phi ptr [ %19, %if.then.i56 ], [ %call3.i72, %if.else.i71 ]
   %ob_type.i.i.i62 = getelementptr inbounds nuw i8, ptr %op.0.i61, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i62, align 8
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %23 = and i64 %22, 512
   %tobool.not.i.i63 = icmp eq i64 %23, 0
   br i1 %tobool.not.i.i63, label %_PyObject_Init.exit.i68, label %if.then.i.i64
@@ -1269,7 +1269,7 @@ if.end6:                                          ; preds = %if.else, %if.then
   %op.0 = phi ptr [ %3, %if.then ], [ %call3, %if.else ]
   %ob_type.i.i = getelementptr inbounds nuw i8, ptr %op.0, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i, align 8
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %7 = and i64 %6, 512
   %tobool.not.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i, label %_PyObject_Init.exit, label %if.then.i
@@ -1545,7 +1545,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
   %op.0.i = phi ptr [ %10, %if.then.i ], [ %call3.i, %if.else.i ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %14 = and i64 %13, 512
   %tobool.not.i.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -2049,7 +2049,7 @@ if.then1.i131:                                    ; preds = %if.end.i128
   br label %do.end84
 
 do.end84:                                         ; preds = %if.end.i128, %if.then1.i131, %do.body81
-  %call86 = tail call ptr @PyNumber_Or(ptr noundef nonnull %call76, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #17
+  %call86 = tail call ptr @PyNumber_Or(ptr noundef nonnull %call76, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)) #17
   %cmp87 = icmp eq ptr %call86, null
   br i1 %cmp87, label %Error, label %do.body91
 
@@ -2146,7 +2146,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %tp_init = getelementptr inbounds nuw i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 296), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 296), align 8
   %cmp2 = icmp ne ptr %0, %1
   %cmp3 = icmp eq ptr %kwargs, null
   %or.cond = or i1 %cmp3, %cmp2
@@ -2238,13 +2238,13 @@ return:                                           ; preds = %lor.lhs.false4, %lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_PyFloat_InitState(ptr noundef readnone %interp) local_unnamed_addr #5 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %interp, %0
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3616), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3612), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3616), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3612), align 4
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2494,7 +2494,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack4(double noundef %x, ptr noca
 entry:
   %e = alloca i32, align 4
   %s = alloca [4 x i8], align 4
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3612), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3612), align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.else55
 
@@ -2636,7 +2636,7 @@ entry:
   %x.addr = alloca double, align 8
   %e = alloca i32, align 4
   store double %x, ptr %x.addr, align 8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3616), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3616), align 8
   %cmp = icmp eq i32 %0, 0
   %tobool.not = icmp eq i32 %le, 0
   br i1 %cmp, label %if.then, label %if.else83
@@ -2839,7 +2839,7 @@ return:                                           ; preds = %if.end19, %if.else,
 define dso_local double @PyFloat_Unpack4(ptr nocapture noundef readonly %data, i32 noundef %le) local_unnamed_addr #1 {
 entry:
   %buf = alloca [4 x i8], align 1
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3612), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3612), align 4
   %cmp = icmp eq i32 %0, 0
   %tobool.not = icmp eq i32 %le, 0
   br i1 %cmp, label %if.then, label %if.else33
@@ -2925,7 +2925,7 @@ return:                                           ; preds = %if.end47, %if.end17
 define dso_local double @PyFloat_Unpack8(ptr nocapture noundef readonly %data, i32 noundef %le) local_unnamed_addr #1 {
 entry:
   %buf = alloca [8 x i8], align 1
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3616), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3616), align 8
   %cmp = icmp eq i32 %0, 0
   %tobool.not = icmp eq i32 %le, 0
   br i1 %cmp, label %if.then, label %if.else54
@@ -3174,7 +3174,7 @@ if.end6.i:                                        ; preds = %if.else.i33, %if.th
   %op.0.i = phi ptr [ %13, %if.then.i27 ], [ %call3.i34, %if.else.i33 ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %17 = and i64 %16, 512
   %tobool.not.i.i = icmp eq i64 %17, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -3326,7 +3326,7 @@ if.end6.i:                                        ; preds = %if.else.i33, %if.th
   %op.0.i = phi ptr [ %13, %if.then.i27 ], [ %call3.i34, %if.else.i33 ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %17 = and i64 %16, 512
   %tobool.not.i.i = icmp eq i64 %17, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -3478,7 +3478,7 @@ if.end6.i:                                        ; preds = %if.else.i33, %if.th
   %op.0.i = phi ptr [ %13, %if.then.i27 ], [ %call3.i34, %if.else.i33 ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %17 = and i64 %16, 512
   %tobool.not.i.i = icmp eq i64 %17, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -3659,7 +3659,7 @@ if.end6.i:                                        ; preds = %if.else.i36, %if.th
   %op.0.i = phi ptr [ %16, %if.then.i30 ], [ %call3.i37, %if.else.i36 ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %20 = and i64 %19, 512
   %tobool.not.i.i = icmp eq i64 %20, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -3978,7 +3978,7 @@ if.end6.i:                                        ; preds = %if.else.i43, %if.th
   %op.0.i = phi ptr [ %14, %if.then.i37 ], [ %call3.i44, %if.else.i43 ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %18 = and i64 %17, 512
   %tobool.not.i.i = icmp eq i64 %18, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -4065,7 +4065,7 @@ if.end6.i53:                                      ; preds = %if.else.i64, %if.th
   %op.0.i54 = phi ptr [ %28, %if.then.i49 ], [ %call3.i65, %if.else.i64 ]
   %ob_type.i.i.i55 = getelementptr inbounds nuw i8, ptr %op.0.i54, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i55, align 8
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %32 = and i64 %31, 512
   %tobool.not.i.i56 = icmp eq i64 %32, 0
   br i1 %tobool.not.i.i56, label %_PyObject_Init.exit.i61, label %if.then.i.i57
@@ -4151,7 +4151,7 @@ if.then88:                                        ; preds = %if.end85
   br i1 %cmp89, label %if.then91, label %if.end93
 
 if.then91:                                        ; preds = %if.then88
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 96), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyComplex_Type, i64 96), align 8
   %nb_power = getelementptr inbounds nuw i8, ptr %38, i64 40
   %39 = load ptr, ptr %nb_power, align 8
   %call92 = tail call ptr %39(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef nonnull @_Py_NoneStruct) #17
@@ -4240,7 +4240,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
   %op.0.i = phi ptr [ %4, %if.then.i ], [ %call3.i, %if.else.i ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %8 = and i64 %7, 512
   %tobool.not.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -4319,7 +4319,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
   %op.0.i = phi ptr [ %6, %if.then.i ], [ %call3.i, %if.else.i ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %10 = and i64 %9, 512
   %tobool.not.i.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -4383,7 +4383,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
   %op.0.i = phi ptr [ %5, %if.then.i ], [ %call3.i, %if.else.i ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %9 = and i64 %8, 512
   %tobool.not.i.i = icmp eq i64 %9, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -4601,7 +4601,7 @@ if.end6.i:                                        ; preds = %if.else.i36, %if.th
   %op.0.i = phi ptr [ %17, %if.then.i30 ], [ %call3.i37, %if.else.i36 ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %21 = and i64 %20, 512
   %tobool.not.i.i = icmp eq i64 %21, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -4763,7 +4763,7 @@ if.end6.i:                                        ; preds = %if.else.i33, %if.th
   %op.0.i = phi ptr [ %14, %if.then.i27 ], [ %call3.i34, %if.else.i33 ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %18 = and i64 %17, 512
   %tobool.not.i.i = icmp eq i64 %18, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -4909,7 +4909,7 @@ if.end6.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
   %op.0.i.i.i = phi ptr [ %6, %if.then.i.i.i ], [ %call3.i.i.i, %if.else.i.i.i ]
   %ob_type.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i.i.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i.i, align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %10 = and i64 %9, 512
   %tobool.not.i.i.i.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i.i.i, label %_PyObject_Init.exit.i.i.i, label %if.then.i.i.i.i
@@ -5065,7 +5065,7 @@ if.end6.i.i:                                      ; preds = %if.else.i.i, %if.th
   %op.0.i.i = phi ptr [ %11, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
   %ob_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i, align 8
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %15 = and i64 %14, 512
   %tobool.not.i.i.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i.i, label %_PyObject_Init.exit.i.i, label %if.then.i.i.i
@@ -5123,7 +5123,7 @@ if.end6.i20.i:                                    ; preds = %if.else.i31.i, %if.
   %op.0.i21.i = phi ptr [ %20, %if.then.i16.i ], [ %call3.i32.i, %if.else.i31.i ]
   %ob_type.i.i.i22.i = getelementptr inbounds nuw i8, ptr %op.0.i21.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i22.i, align 8
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %24 = and i64 %23, 512
   %tobool.not.i.i23.i = icmp eq i64 %24, 0
   br i1 %tobool.not.i.i23.i, label %_PyObject_Init.exit.i28.i, label %if.then.i.i24.i
@@ -5182,7 +5182,7 @@ if.end6.i44.i:                                    ; preds = %if.else.i55.i, %if.
   %op.0.i45.i = phi ptr [ %29, %if.then.i40.i ], [ %call3.i56.i, %if.else.i55.i ]
   %ob_type.i.i.i46.i = getelementptr inbounds nuw i8, ptr %op.0.i45.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i46.i, align 8
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %33 = and i64 %32, 512
   %tobool.not.i.i47.i = icmp eq i64 %33, 0
   br i1 %tobool.not.i.i47.i, label %_PyObject_Init.exit.i52.i, label %if.then.i.i48.i
@@ -5327,7 +5327,7 @@ if.end6.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
   %op.0.i.i.i = phi ptr [ %44, %if.then.i.i66.i ], [ %call3.i.i.i, %if.else.i.i.i ]
   %ob_type.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i.i.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i.i, align 8
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %48 = and i64 %47, 512
   %tobool.not.i.i.i.i = icmp eq i64 %48, 0
   br i1 %tobool.not.i.i.i.i, label %_PyObject_Init.exit.i.i.i, label %if.then.i.i.i.i
@@ -5380,7 +5380,7 @@ define internal ptr @float_as_integer_ratio(ptr noundef %self, ptr nocapture rea
 entry:
   %exponent.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exponent.i)
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 96), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyLong_Type, i64 96), align 8
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %self.val.i, @PyFloat_Type
@@ -6021,7 +6021,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
   %op.0.i = phi ptr [ %33, %if.then.i ], [ %call3.i, %if.else.i ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %37 = and i64 %36, 512
   %tobool.not.i.i = icmp eq i64 %37, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -6336,7 +6336,7 @@ if.else4.i:                                       ; preds = %if.else.i
   br label %exit
 
 if.end5.i:                                        ; preds = %if.else.i, %if.end8
-  %r.0.in.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3616), %if.end8 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3612), %if.else.i ]
+  %r.0.in.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3616), %if.end8 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3612), %if.else.i ]
   %r.0.i = load i32, ptr %r.0.in.i, align 4
   switch i32 %r.0.i, label %sw.default.i [
     i32 0, label %sw.bb.i
@@ -6533,7 +6533,7 @@ if.end6.i.i:                                      ; preds = %if.else.i.i, %if.th
   %op.0.i.i = phi ptr [ %6, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
   %ob_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i, align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %10 = and i64 %9, 512
   %tobool.not.i.i.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i.i, label %_PyObject_Init.exit.i.i, label %if.then.i.i.i
@@ -6594,7 +6594,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
   %op.0.i = phi ptr [ %3, %if.then.i ], [ %call3.i, %if.else.i ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %7 = and i64 %6, 512
   %tobool.not.i.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i
@@ -6630,7 +6630,7 @@ entry:
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %spec.select = select i1 %cmp5, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %x
+  %spec.select = select i1 %cmp5, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), ptr %x
   %0 = getelementptr i8, ptr %spec.select, i64 8
   %x.val.i = load ptr, ptr %0, align 8
   %cmp.i9.i.not = icmp eq ptr %x.val.i, @PyUnicode_Type
@@ -6728,7 +6728,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
   %op.0.i = phi ptr [ %10, %if.then.i ], [ %call3.i, %if.else.i ]
   %ob_type.i.i.i = getelementptr inbounds nuw i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 168), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 168), align 8
   %14 = and i64 %13, 512
   %tobool.not.i.i = icmp eq i64 %14, 0
   br i1 %tobool.not.i.i, label %_PyObject_Init.exit.i, label %if.then.i.i

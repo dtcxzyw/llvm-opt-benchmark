@@ -32,7 +32,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 define hidden void @_ZN3dpx17RunLengthEncodingC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3dpx5CodecC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %this, align 8
   %buf = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %buf, align 8
   ret void
@@ -43,7 +43,7 @@ declare void @_ZN3dpx5CodecC2Ev(ptr noundef nonnull align 8 dereferenceable(16))
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3dpx17RunLengthEncodingD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %this, align 8
   %buf = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %buf, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -67,7 +67,7 @@ declare void @_ZN3dpx5CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(16))
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3dpx17RunLengthEncodingD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dpx17RunLengthEncodingE, i64 16), ptr %this, align 8
   %buf.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %tobool.not.i = icmp eq ptr %0, null

@@ -552,9 +552,9 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !18, !noalias !13
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !21, !noalias !13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly18ThreadPoolExecutor6ThreadESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i, align 64, !tbaa !22, !noalias !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly18ThreadPoolExecutor6ThreadESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i, align 64, !tbaa !22, !noalias !13
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 64, !tbaa !22, !noalias !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 64, !tbaa !22, !noalias !13
   %id.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 72
   %0 = atomicrmw add ptr @_ZN5folly18ThreadPoolExecutor6Thread6nextIdE, i64 1 seq_cst, align 8, !noalias !13
   store i64 %0, ptr %id.i.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !13
@@ -1364,8 +1364,8 @@ invoke.cont18:                                    ; preds = %call.i.noexc
   %16 = getelementptr inbounds nuw i8, ptr %call.i84, i64 192
   %17 = getelementptr inbounds nuw i8, ptr %call.i84, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false), !noalias !141
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_118MemoryIdlerTimeoutE, i64 16), ptr %call.i84, align 8, !tbaa !22, !noalias !141
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_118MemoryIdlerTimeoutE, i64 64), ptr %16, align 8, !tbaa !22, !noalias !141
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12_GLOBAL__N_118MemoryIdlerTimeoutE, i64 16), ptr %call.i84, align 8, !tbaa !22, !noalias !141
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12_GLOBAL__N_118MemoryIdlerTimeoutE, i64 64), ptr %16, align 8, !tbaa !22, !noalias !141
   %base_.i.i = getelementptr inbounds nuw i8, ptr %call.i84, i64 232
   store ptr %eventBase16.val, ptr %base_.i.i, align 8, !tbaa !144, !noalias !141
   %idled_.i.i = getelementptr inbounds nuw i8, ptr %call.i84, i64 240
@@ -2211,9 +2211,9 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !18, !noalias !190
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !21, !noalias !190
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly24IOThreadPoolExecutorBase8IOThreadESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i, align 64, !tbaa !22, !noalias !190
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly24IOThreadPoolExecutorBase8IOThreadESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i17.i.i.i.i, align 64, !tbaa !22, !noalias !190
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 64, !tbaa !22, !noalias !190
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 64, !tbaa !22, !noalias !190
   %id.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 72
   %0 = atomicrmw add ptr @_ZN5folly18ThreadPoolExecutor6Thread6nextIdE, i64 1 seq_cst, align 8, !noalias !190
   store i64 %0, ptr %id.i.i.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !190
@@ -2254,7 +2254,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt12__shared_ptrIN5folly24IOThreadPoolExecutorBase8IOThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly24IOThreadPoolExecutorBase8IOThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly24IOThreadPoolExecutorBase8IOThreadE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 64, !tbaa !22, !noalias !190
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly24IOThreadPoolExecutorBase8IOThreadE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 64, !tbaa !22, !noalias !190
   %shouldRun.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 128
   store i8 1, ptr %shouldRun.i.i.i.i.i.i.i.i, align 64, !tbaa !42, !noalias !190
   %pendingTasks.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i17.i.i.i.i, i64 136
@@ -3150,7 +3150,7 @@ invoke.cont:                                      ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %vbase.offset.i.i
   store ptr %7, ptr %add.ptr.i.i, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 496
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20GetThreadIdCollectorE, i64 16), ptr %8, align 16, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly20GetThreadIdCollectorE, i64 16), ptr %8, align 16, !tbaa !22
   %9 = load ptr, ptr %2, align 8
   store ptr %9, ptr %this, align 64, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %vtt, i64 64
@@ -3162,7 +3162,7 @@ invoke.cont:                                      ; preds = %entry
   %12 = getelementptr inbounds nuw i8, ptr %vtt, i64 72
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %3, align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly24IOThreadPoolExecutorBaseE, i64 368), ptr %8, align 16, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly24IOThreadPoolExecutorBaseE, i64 368), ptr %8, align 16, !tbaa !22
   %14 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %invoke.cont6, label %if.then.i.i
@@ -3223,7 +3223,7 @@ invoke.cont6:                                     ; preds = %if.then7.i.i.i, %in
   %24 = getelementptr inbounds nuw i8, ptr %vtt, i64 88
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %3, align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 376), ptr %8, align 16, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 376), ptr %8, align 16, !tbaa !22
   %isWaitForAll_ = getelementptr inbounds nuw i8, ptr %this, i64 504
   %26 = trunc i16 %options.coerce to i8
   %frombool = and i8 %26, 1
@@ -3261,7 +3261,7 @@ if.then:                                          ; preds = %invoke.cont9
 invoke.cont12:                                    ; preds = %if.then
   %28 = getelementptr inbounds nuw i8, ptr %call.i21, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %28, i8 0, i64 48, i1 false), !noalias !226
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %call.i21, align 8, !tbaa !22, !noalias !226
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %call.i21, align 8, !tbaa !22, !noalias !226
   %osThreadIds_.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 56
   store ptr %_M_single_bucket.i.i.i.i.i, ptr %osThreadIds_.i.i, align 8, !tbaa !229, !noalias !226
@@ -3515,22 +3515,22 @@ lpad:                                             ; preds = %entry
 define void @_ZN5folly20IOThreadPoolExecutorC1EmmSt10shared_ptrINS_13ThreadFactoryEEPNS_16EventBaseManagerENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(576) initializes((0, 8)) %this, i64 noundef %maxThreads, i64 noundef %minThreads, ptr nocapture noundef %threadFactory, ptr noundef %ebm, i16 %options.coerce) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.6", align 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly8ExecutorE, i64 16), ptr %this, align 64, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly8ExecutorE, i64 16), ptr %this, align 64, !tbaa !22
   %_M_refcount4.i.i = getelementptr inbounds nuw i8, ptr %threadFactory, i64 8
   %0 = load <2 x ptr>, ptr %threadFactory, align 8, !tbaa !49
   store ptr null, ptr %_M_refcount4.i.i, align 8, !tbaa !46
   store <2 x ptr> %0, ptr %agg.tmp, align 16, !tbaa !49
   store ptr null, ptr %threadFactory, align 8, !tbaa !222
-  invoke void @_ZN5folly18ThreadPoolExecutorC2EmmSt10shared_ptrINS_13ThreadFactoryEE(ptr noundef nonnull align 64 dereferenceable(481) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5folly20IOThreadPoolExecutorE, i64 16), i64 noundef %maxThreads, i64 noundef %minThreads, ptr noundef nonnull %agg.tmp)
+  invoke void @_ZN5folly18ThreadPoolExecutorC2EmmSt10shared_ptrINS_13ThreadFactoryEE(ptr noundef nonnull align 64 dereferenceable(481) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN5folly20IOThreadPoolExecutorE, i64 16), i64 noundef %maxThreads, i64 noundef %minThreads, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 488
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 496
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN5folly20IOThreadPoolExecutorE0_NS_24IOThreadPoolExecutorBaseE, i64 72), ptr %this, align 64, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN5folly20IOThreadPoolExecutorE0_NS_24IOThreadPoolExecutorBaseE, i64 288), ptr %1, align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly24IOThreadPoolExecutorBaseE, i64 368), ptr %2, align 16, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN5folly20IOThreadPoolExecutorE0_NS_24IOThreadPoolExecutorBaseE, i64 72), ptr %this, align 64, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN5folly20IOThreadPoolExecutorE0_NS_24IOThreadPoolExecutorBaseE, i64 288), ptr %1, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly24IOThreadPoolExecutorBaseE, i64 368), ptr %2, align 16, !tbaa !22
   %3 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %invoke.cont4, label %if.then.i.i
@@ -3580,9 +3580,9 @@ if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 72), ptr %this, align 64, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 296), ptr %1, align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 376), ptr %2, align 16, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 72), ptr %this, align 64, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 296), ptr %1, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 376), ptr %2, align 16, !tbaa !22
   %isWaitForAll_ = getelementptr inbounds nuw i8, ptr %this, i64 504
   %10 = trunc i16 %options.coerce to i8
   %frombool = and i8 %10, 1
@@ -3620,7 +3620,7 @@ if.then:                                          ; preds = %invoke.cont7
 invoke.cont10:                                    ; preds = %if.then
   %12 = getelementptr inbounds nuw i8, ptr %call.i20, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %12, i8 0, i64 48, i1 false), !noalias !236
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %call.i20, align 8, !tbaa !22, !noalias !236
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly22ThreadIdWorkerProviderE, i64 16), ptr %call.i20, align 8, !tbaa !22, !noalias !236
   %osThreadIds_.i.i = getelementptr inbounds nuw i8, ptr %call.i20, i64 8
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i20, i64 56
   store ptr %_M_single_bucket.i.i.i.i.i, ptr %osThreadIds_.i.i, align 8, !tbaa !229, !noalias !236
@@ -3679,7 +3679,7 @@ _ZNKSt14default_deleteIN5folly22ThreadIdWorkerProviderEEclEPS1_.exit.i22: ; pred
 _ZNSt10unique_ptrIN5folly22ThreadIdWorkerProviderESt14default_deleteIS1_EED2Ev.exit25: ; preds = %_ZNKSt14default_deleteIN5folly22ThreadIdWorkerProviderEEclEPS1_.exit.i22, %ehcleanup
   store ptr null, ptr %threadIdCollector_, align 8, !tbaa !49
   call void @_ZN5folly11ThreadLocalISt10shared_ptrINS_24IOThreadPoolExecutorBase8IOThreadEEvvED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %thisThread_) #34
-  call void @_ZN5folly18ThreadPoolExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(481) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5folly20IOThreadPoolExecutorE, i64 16)) #34
+  call void @_ZN5folly18ThreadPoolExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(481) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN5folly20IOThreadPoolExecutorE, i64 16)) #34
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %_ZNSt10unique_ptrIN5folly22ThreadIdWorkerProviderESt14default_deleteIS1_EED2Ev.exit25, %lpad
@@ -4251,7 +4251,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !22
   %_M_code = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !266
@@ -4408,7 +4408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !22
   %_M_code = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa !48
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4520,7 +4520,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !22
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #21
           to label %invoke.cont unwind label %lpad
 
@@ -4539,7 +4539,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #20 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !22
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #36
   unreachable
 }
@@ -4594,7 +4594,7 @@ entry:
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store ptr %4, ptr %add.ptr3, align 8, !tbaa !22
   %add.ptr4 = getelementptr inbounds nuw i8, ptr %this, i64 496
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 376), ptr %add.ptr4, align 16, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly20IOThreadPoolExecutorE, i64 376), ptr %add.ptr4, align 16, !tbaa !22
   invoke void @_ZN5folly18ThreadPoolExecutor28deregisterThreadPoolExecutorEPS0_(ptr noundef nonnull %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -5488,7 +5488,7 @@ if.then16:                                        ; preds = %if.end
   br i1 %cmp19.not, label %if.end44, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
-  %13 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) acquire, align 8
+  %13 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) acquire, align 8
   %tobool.not.i149 = icmp eq i64 %13, 0
   br i1 %tobool.not.i149, label %if.then.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit, !prof !82
 
@@ -5498,7 +5498,7 @@ if.then.i:                                        ; preds = %if.then20
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.then20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i) #34
-  %14 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) monotonic, align 8
+  %14 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) monotonic, align 8
   %atomic-temp.0.i.i.i = inttoptr i64 %14 to ptr
   %call1.i = call noundef i32 %atomic-temp.0.i.i.i(ptr noundef nonnull %cpu.i, ptr noundef null, ptr noundef null)
   %15 = load i32, ptr %cpu.i, align 4, !tbaa !48
@@ -6709,7 +6709,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18ThreadPoolExecutor6ThreadD2Ev(ptr noundef nonnull align 64 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %this, align 64, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %this, align 64, !tbaa !22
   %_M_refcount.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !46
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -6776,7 +6776,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt12__shared_ptr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly24IOThreadPoolExecutorBase8IOThreadD0Ev(ptr noundef nonnull align 64 dereferenceable(128) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %this, align 64, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %this, align 64, !tbaa !22
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6847,7 +6847,7 @@ declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18ThreadPoolExecutor6ThreadD0Ev(ptr noundef nonnull align 64 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %this, align 64, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly18ThreadPoolExecutor6ThreadE, i64 16), ptr %this, align 64, !tbaa !22
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6979,7 +6979,7 @@ declare void @_ZN5folly12AsyncTimeoutC2EPNS_9EventBaseE(ptr noundef nonnull alig
 define internal void @_ZN5folly12_GLOBAL__N_118MemoryIdlerTimeoutD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((192, 200)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %0, align 8, !tbaa !22
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %1 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -7053,7 +7053,7 @@ _ZN5folly9EventBase12LoopCallbackD2Ev.exit:       ; preds = %if.then.i.i, %_ZNSt
 define internal void @_ZN5folly12_GLOBAL__N_118MemoryIdlerTimeoutD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((192, 200)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %0, align 8, !tbaa !22
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %1 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !46
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -7329,7 +7329,7 @@ terminate.lpad:                                   ; preds = %if.end25, %invoke.c
 ; Function Attrs: inlinehint nounwind uwtable
 define internal void @_ZThn192_N5folly12_GLOBAL__N_118MemoryIdlerTimeoutD1Ev(ptr noundef initializes((0, 8)) %this) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %this, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %this, align 8, !tbaa !22
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !46
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -7403,7 +7403,7 @@ _ZN5folly12_GLOBAL__N_118MemoryIdlerTimeoutD2Ev.exit: ; preds = %if.then.i.i.i, 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal void @_ZThn192_N5folly12_GLOBAL__N_118MemoryIdlerTimeoutD0Ev(ptr noundef initializes((0, 8)) %this) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %this, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %this, align 8, !tbaa !22
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !46
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -7486,7 +7486,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9EventBase12LoopCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %this, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 16), ptr %this, align 8, !tbaa !22
   %_M_refcount.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !46
   %cmp.not.i.i = icmp eq ptr %0, null

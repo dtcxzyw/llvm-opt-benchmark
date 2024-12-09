@@ -1778,7 +1778,7 @@ define hidden void @"_ZN115_$LT$wayland_protocols..xdg..shell..generated..client
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load i64, ptr %74, align 8, !noalias !216, !noundef !5
-  %76 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols3xdg5shell9generated6client12__interfaces22XDG_TOPLEVEL_INTERFACE17he164b2fbdfe7cec6E, i64 8), align 8, !noalias !216, !noundef !5
+  %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols3xdg5shell9generated6client12__interfaces22XDG_TOPLEVEL_INTERFACE17he164b2fbdfe7cec6E, i64 8), align 8, !noalias !216, !noundef !5
   %.not.i.i = icmp eq i64 %75, %76
   br i1 %.not.i.i, label %77, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i"
 
@@ -2566,7 +2566,7 @@ define hidden void @"_ZN127_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
           to label %.noexc4 unwind label %8
 
 .noexc4:                                          ; preds = %.noexc
-  invoke void @_ZN5ahash12random_state11RandomState9from_keys17h5e44f12f3992ee40E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, i64 32), i64 noundef %15)
+  invoke void @_ZN5ahash12random_state11RandomState9from_keys17h5e44f12f3992ee40E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, i64 32), i64 noundef %15)
           to label %"_ZN75_$LT$ahash..random_state..RandomState$u20$as$u20$core..default..Default$GT$7default17h3cb130279aa3f5d2E.llvm.5405220595630156345.exit" unwind label %8
 
 16:                                               ; preds = %"_ZN75_$LT$ahash..random_state..RandomState$u20$as$u20$core..default..Default$GT$7default17h3cb130279aa3f5d2E.llvm.5405220595630156345.exit"
@@ -3378,7 +3378,7 @@ define hidden void @"_ZN135_$LT$wayland_protocols..xdg..activation..v1..generate
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load i64, ptr %70, align 8, !noalias !713, !noundef !5
-  %72 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols3xdg10activation2v19generated6client12__interfaces33XDG_ACTIVATION_TOKEN_V1_INTERFACE17h1438b4afcb16e11dE, i64 8), align 8, !noalias !713, !noundef !5
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols3xdg10activation2v19generated6client12__interfaces33XDG_ACTIVATION_TOKEN_V1_INTERFACE17h1438b4afcb16e11dE, i64 8), align 8, !noalias !713, !noundef !5
   %.not.i.i = icmp eq i64 %71, %72
   br i1 %.not.i.i, label %73, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i"
 
@@ -4962,7 +4962,7 @@ define hidden void @"_ZN153_$LT$wayland_protocols..xdg..decoration..zv1..generat
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load i64, ptr %70, align 8, !noalias !1069, !noundef !5
-  %72 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols3xdg10decoration3zv19generated6client12__interfaces37ZXDG_TOPLEVEL_DECORATION_V1_INTERFACE17ha172ad359b2027a7E, i64 8), align 8, !noalias !1069, !noundef !5
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols3xdg10decoration3zv19generated6client12__interfaces37ZXDG_TOPLEVEL_DECORATION_V1_INTERFACE17ha172ad359b2027a7E, i64 8), align 8, !noalias !1069, !noundef !5
   %.not.i.i = icmp eq i64 %71, %72
   br i1 %.not.i.i, label %73, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i"
 
@@ -7516,7 +7516,7 @@ define hidden noundef ptr @_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c
   br label %"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h47a39f4e0a7e5807E.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h47a39f4e0a7e5807E.exit": ; preds = %1, %3
-  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -17893,7 +17893,7 @@ define hidden void @_ZN5ahash12random_state11RandomState3new17h3799e6299548fd40E
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef i64 %7(ptr noundef nonnull align 1 %3)
-  tail call void @_ZN5ahash12random_state11RandomState9from_keys17h5e44f12f3992ee40E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, i64 32), i64 noundef %8)
+  tail call void @_ZN5ahash12random_state11RandomState9from_keys17h5e44f12f3992ee40E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, i64 32), i64 noundef %8)
   ret void
 }
 
@@ -26018,7 +26018,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156
   unreachable
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hb8e2179f19bbd494E.exit": ; preds = %0, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156345.exit
-  %.sroa.0.0.i.i.i2 = phi ptr [ %3, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156345.exit ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %0 ]
+  %.sroa.0.0.i.i.i2 = phi ptr [ %3, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156345.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %0 ]
   %6 = load i64, ptr %.sroa.0.0.i.i.i2, align 8, !noalias !7758, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !7758, !noundef !5
@@ -26332,7 +26332,7 @@ define hidden void @"_ZN75_$LT$ahash..random_state..RandomState$u20$as$u20$core.
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !noalias !7768, !nonnull !5
   %8 = tail call noundef i64 %7(ptr noundef nonnull align 1 %3), !noalias !7768
-  tail call void @_ZN5ahash12random_state11RandomState9from_keys17h5e44f12f3992ee40E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, i64 32), i64 noundef %8)
+  tail call void @_ZN5ahash12random_state11RandomState9from_keys17h5e44f12f3992ee40E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @anon.d448ed4bf542ec5d9a3ceaa2b3da6186.121.llvm.5405220595630156345, i64 32), i64 noundef %8)
   ret void
 }
 
@@ -26974,7 +26974,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h88eafc59ef37454bE.llvm.5405220595630156345.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156345.exit.i
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156345.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156345.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
   %7 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !7839, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !7839, !noundef !5
@@ -27006,7 +27006,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h88eafc59ef37454bE.llvm.5405220595630156345.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156345.exit.i
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156345.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156345.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
   %7 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !7856, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !7856, !noundef !5
@@ -27651,7 +27651,7 @@ define hidden void @"_ZN89_$LT$wayland_client..protocol..wl_display..WlDisplay$u
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %68 = load i64, ptr %67, align 8, !noalias !8018, !noundef !5
-  %69 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces21WL_REGISTRY_INTERFACE17h5478443972522fe0E, i64 8), align 8, !noalias !8018, !noundef !5
+  %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces21WL_REGISTRY_INTERFACE17h5478443972522fe0E, i64 8), align 8, !noalias !8018, !noundef !5
   %.not.i.i = icmp eq i64 %68, %69
   br i1 %.not.i.i, label %70, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i"
 
@@ -28121,7 +28121,7 @@ define hidden void @"_ZN89_$LT$wayland_client..protocol..wl_surface..WlSurface$u
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load i64, ptr %70, align 8, !noalias !8175, !noundef !5
-  %72 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces21WL_CALLBACK_INTERFACE17h41ec08868d3d3a8cE, i64 8), align 8, !noalias !8175, !noundef !5
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces21WL_CALLBACK_INTERFACE17h41ec08868d3d3a8cE, i64 8), align 8, !noalias !8175, !noundef !5
   %.not.i.i = icmp eq i64 %71, %72
   br i1 %.not.i.i, label %73, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i"
 
@@ -29844,7 +29844,7 @@ define hidden void @"_ZN95_$LT$wayland_client..protocol..wl_compositor..WlCompos
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load i64, ptr %42, align 8, !noalias !8456, !noundef !5
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces19WL_REGION_INTERFACE17h384085eb99b264f6E, i64 8), align 8, !noalias !8456, !noundef !5
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces19WL_REGION_INTERFACE17h384085eb99b264f6E, i64 8), align 8, !noalias !8456, !noundef !5
   %.not.i.i = icmp eq i64 %43, %44
   br i1 %.not.i.i, label %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i"
 
@@ -30232,7 +30232,7 @@ define hidden void @"_ZN95_$LT$wayland_client..protocol..wl_compositor..WlCompos
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load i64, ptr %42, align 8, !noalias !8589, !noundef !5
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces20WL_SURFACE_INTERFACE17h4f32d4dcc5583cb1E, i64 8), align 8, !noalias !8589, !noundef !5
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces20WL_SURFACE_INTERFACE17h4f32d4dcc5583cb1E, i64 8), align 8, !noalias !8589, !noundef !5
   %.not.i.i = icmp eq i64 %43, %44
   br i1 %.not.i.i, label %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i"
 
@@ -97513,7 +97513,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h7cc9a34dae58f97dE.exit161: ; preds = %_ZN
 480:                                              ; preds = %477
   %481 = getelementptr inbounds nuw i8, ptr %478, i64 8
   %482 = load i64, ptr %481, align 8, !noalias !26306, !noundef !5
-  %483 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces24WL_DATA_DEVICE_INTERFACE17h23c2f49db8ab1554E, i64 8), align 8, !noalias !26307, !noundef !5
+  %483 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces24WL_DATA_DEVICE_INTERFACE17h23c2f49db8ab1554E, i64 8), align 8, !noalias !26307, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %482, %483
   br i1 %.not.i.i.i.i, label %484, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i.i.i"
 
@@ -98128,7 +98128,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h7cc9a34dae58f97dE.exit161: ; preds = %_ZN
 682:                                              ; preds = %679
   %683 = getelementptr inbounds nuw i8, ptr %680, i64 8
   %684 = load i64, ptr %683, align 8, !noalias !26507, !noundef !5
-  %685 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp17primary_selection3zv19generated6client12__interfaces41ZWP_PRIMARY_SELECTION_DEVICE_V1_INTERFACE17ha2280aee75865aa5E, i64 8), align 8, !noalias !26508, !noundef !5
+  %685 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp17primary_selection3zv19generated6client12__interfaces41ZWP_PRIMARY_SELECTION_DEVICE_V1_INTERFACE17ha2280aee75865aa5E, i64 8), align 8, !noalias !26508, !noundef !5
   %.not.i.i.i.i187 = icmp eq i64 %684, %685
   br i1 %.not.i.i.i.i187, label %686, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i.i.i188"
 
@@ -103619,7 +103619,7 @@ _ZN4gpui8platform5linux7wayland6serial13SerialTracker3get17hd5e5117f3e322c47E.ll
 234:                                              ; preds = %231
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %236 = load i64, ptr %235, align 8, !noalias !27709, !noundef !5
-  %237 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp17primary_selection3zv19generated6client12__interfaces41ZWP_PRIMARY_SELECTION_SOURCE_V1_INTERFACE17h5ad7ee67df887cf0E, i64 8), align 8, !noalias !27710, !noundef !5
+  %237 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp17primary_selection3zv19generated6client12__interfaces41ZWP_PRIMARY_SELECTION_SOURCE_V1_INTERFACE17h5ad7ee67df887cf0E, i64 8), align 8, !noalias !27710, !noundef !5
   %.not.i.i.i.i26 = icmp eq i64 %236, %237
   br i1 %.not.i.i.i.i26, label %238, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i.i.i"
 
@@ -104796,7 +104796,7 @@ _ZN4gpui8platform5linux7wayland6serial13SerialTracker3get17hd5e5117f3e322c47E.ll
 234:                                              ; preds = %231
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %236 = load i64, ptr %235, align 8, !noalias !28044, !noundef !5
-  %237 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces24WL_DATA_SOURCE_INTERFACE17hc3fc548e63a4025dE, i64 8), align 8, !noalias !28045, !noundef !5
+  %237 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces24WL_DATA_SOURCE_INTERFACE17hc3fc548e63a4025dE, i64 8), align 8, !noalias !28045, !noundef !5
   %.not.i.i.i.i26 = icmp eq i64 %236, %237
   br i1 %.not.i.i.i.i26, label %238, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i.i.i"
 
@@ -109224,7 +109224,7 @@ _ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d0
 134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %136 = load i64, ptr %135, align 8, !noalias !29483, !noundef !5
-  %137 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces21WL_KEYBOARD_INTERFACE17h7448bbcabfbc4304E, i64 8), align 8, !noalias !29484, !noundef !5
+  %137 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces21WL_KEYBOARD_INTERFACE17h7448bbcabfbc4304E, i64 8), align 8, !noalias !29484, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %136, %137
   br i1 %.not.i.i.i.i, label %138, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i.i.i"
 
@@ -109871,7 +109871,7 @@ _ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d0
 353:                                              ; preds = %350
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %355 = load i64, ptr %354, align 8, !noalias !29704, !noundef !5
-  %356 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp10text_input3zv39generated6client12__interfaces27ZWP_TEXT_INPUT_V3_INTERFACE17hf8c1d9ca6009be84E, i64 8), align 8, !noalias !29705, !noundef !5
+  %356 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp10text_input3zv39generated6client12__interfaces27ZWP_TEXT_INPUT_V3_INTERFACE17hf8c1d9ca6009be84E, i64 8), align 8, !noalias !29705, !noundef !5
   %.not.i.i.i.i44 = icmp eq i64 %355, %356
   br i1 %.not.i.i.i.i44, label %357, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i.i.i45"
 
@@ -110471,7 +110471,7 @@ _ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d0
 540:                                              ; preds = %537
   %541 = getelementptr inbounds nuw i8, ptr %538, i64 8
   %542 = load i64, ptr %541, align 8, !noalias !29897, !noundef !5
-  %543 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces20WL_POINTER_INTERFACE17h3e68273d3d37baabE, i64 8), align 8, !noalias !29898, !noundef !5
+  %543 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces20WL_POINTER_INTERFACE17h3e68273d3d37baabE, i64 8), align 8, !noalias !29898, !noundef !5
   %.not.i.i.i.i94 = icmp eq i64 %542, %543
   br i1 %.not.i.i.i.i94, label %544, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i.i.i95"
 
@@ -111103,7 +111103,7 @@ _ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d0
 754:                                              ; preds = %751
   %755 = getelementptr inbounds nuw i8, ptr %752, i64 8
   %756 = load i64, ptr %755, align 8, !noalias !30109, !noundef !5
-  %757 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp12cursor_shape2v19generated6client12__interfaces35WP_CURSOR_SHAPE_DEVICE_V1_INTERFACE17h2231e8690584f022E, i64 8), align 8, !noalias !30110, !noundef !5
+  %757 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp12cursor_shape2v19generated6client12__interfaces35WP_CURSOR_SHAPE_DEVICE_V1_INTERFACE17h2231e8690584f022E, i64 8), align 8, !noalias !30110, !noundef !5
   %.not.i.i.i.i158 = icmp eq i64 %756, %757
   br i1 %.not.i.i.i.i158, label %758, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b5aa80e56c75824E.exit.i.i.i159"
 
@@ -126037,7 +126037,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156
   br label %.thread
 
 180:                                              ; preds = %.noexc, %173
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %175, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %173 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %175, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %173 ]
   %181 = load i64, ptr %.sroa.0.0.i.i.i2.i.i, align 8, !noalias !33439, !noundef !5
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i, i64 8
   %183 = load i64, ptr %182, align 8, !noalias !33439, !noundef !5

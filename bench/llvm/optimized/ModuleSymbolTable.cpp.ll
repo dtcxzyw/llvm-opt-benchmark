@@ -1204,7 +1204,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm6Target22createMCObjectFileInfo
 7:                                                ; preds = %4
   %8 = tail call noalias noundef nonnull dereferenceable(912) ptr @_Znwm(i64 noundef 912) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(912) %8, i8 0, i64 912, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm16MCObjectFileInfoE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm16MCObjectFileInfoE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
   store i8 0, ptr %9, align 1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -1282,7 +1282,7 @@ declare void @_ZN4llvm11MCAsmParser15setTargetParserERNS_17MCTargetAsmParserE(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm14RecordStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 1312) (i8, ptr @_ZTVN4llvm14RecordStreamerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 1312) (i8, ptr @_ZTVN4llvm14RecordStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load i32, ptr %3, align 8
@@ -1586,7 +1586,7 @@ switch.lookup:
   store i32 21, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %switch.idx.cast, ptr %14, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24

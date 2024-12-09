@@ -1889,7 +1889,7 @@ entry:
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %_ZN4node5http212Http2Session9CallbacksD2Ev.exit, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (i8, ptr @_ZN4node5http212Http2Session21callback_struct_savedE, i64 16), %entry ], [ %arraydestroy.element, %_ZN4node5http212Http2Session9CallbacksD2Ev.exit ]
+  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN4node5http212Http2Session21callback_struct_savedE, i64 16), %entry ], [ %arraydestroy.element, %_ZN4node5http212Http2Session9CallbacksD2Ev.exit ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -8
   %1 = load ptr, ptr %arraydestroy.element, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -2131,7 +2131,7 @@ _ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb0EEC2ERKS3_.exit: ; preds 
   store i32 1, ptr %flags_.i.i.i.i.i, align 8, !noalias !5
   %next_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !5
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0EE", i64 16), ptr %call.i.i.i, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0EE", i64 16), ptr %call.i.i.i, align 8, !noalias !5
   %callback_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
   store ptr %this, ptr %callback_.i.i.i.i, align 8, !noalias !5
   %12 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
@@ -2554,7 +2554,7 @@ if.end.i:
   %env_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   %1 = load ptr, ptr %env_.i.i, align 8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %1, ptr %obj.coerce, i32 noundef 16, double noundef -1.000000e+00) #28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http213Http2SettingsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http213Http2SettingsE, i64 16), ptr %this, align 8
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %session_, align 8
   %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %session) #28
@@ -4550,7 +4550,7 @@ if.then36:                                        ; preds = %do.end31
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then36
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %14, align 8
   %req_wrap.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %req_wrap2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i64, ptr %req_wrap2.i.i.i.i.i, align 8
@@ -4610,7 +4610,7 @@ if.end42:                                         ; preds = %do.end31
   %call45 = call { ptr, i64 } @uv_buf_init(ptr noundef %26, i32 noundef %conv44) #28
   %27 = extractvalue { ptr, i64 } %call45, 0
   %28 = extractvalue { ptr, i64 } %call45, 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
   %req_wrap.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %req_wrap.i, align 8
   %buf.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
@@ -4626,7 +4626,7 @@ if.end42:                                         ; preds = %do.end31
   br i1 %cmp.not.i.i33, label %_ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit42, label %_ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit42.thread
 
 _ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit42.thread: ; preds = %if.end42
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %30, align 8
   %req_wrap.i.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %req_wrap.i.i.i.i.i35, align 8
   store ptr null, ptr %req_wrap.i, align 8
@@ -4635,13 +4635,13 @@ _ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit
   %32 = load ptr, ptr %_M_finish.i.i22, align 8
   %incdec.ptr.i.i39 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %incdec.ptr.i.i39, ptr %_M_finish.i.i22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN4node5http218NgHttp2StreamWriteD2Ev.exit
 
 _ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit42: ; preds = %if.end42
   call void @_ZNSt6vectorIN4node5http218NgHttp2StreamWriteESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %outgoing_buffers_.i, ptr %30, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   %.pre81 = load ptr, ptr %req_wrap.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i44 = icmp eq ptr %.pre81, null
   br i1 %cmp.not.i.i44, label %_ZN4node5http218NgHttp2StreamWriteD2Ev.exit, label %if.then.i.i45
 
@@ -4670,7 +4670,7 @@ if.then53:                                        ; preds = %while.end
   %call59 = call { ptr, i64 } @uv_buf_init(ptr noundef nonnull @_ZN4node5http212_GLOBAL__N_114zero_bytes_256E, i32 noundef %conv58) #28
   %38 = extractvalue { ptr, i64 } %call59, 0
   %39 = extractvalue { ptr, i64 } %call59, 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp54, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp54, align 8
   %req_wrap.i46 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 8
   store ptr null, ptr %req_wrap.i46, align 8
   %buf.i47 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 16
@@ -4689,7 +4689,7 @@ if.then53:                                        ; preds = %while.end
   br i1 %cmp.not.i.i54, label %_ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit63, label %_ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit63.thread
 
 _ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit63.thread: ; preds = %if.then53
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %41, align 8
   %req_wrap.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 0, ptr %req_wrap.i.i.i.i.i56, align 8
   store ptr null, ptr %req_wrap.i46, align 8
@@ -4698,14 +4698,14 @@ _ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit
   %43 = load ptr, ptr %_M_finish.i.i52, align 8
   %incdec.ptr.i.i60 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %incdec.ptr.i.i60, ptr %_M_finish.i.i52, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp54, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp54, align 8
   br label %if.then.i
 
 _ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit63: ; preds = %if.then53
   %outgoing_buffers_.i62 = getelementptr inbounds nuw i8, ptr %user_data, i64 544
   call void @_ZNSt6vectorIN4node5http218NgHttp2StreamWriteESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %outgoing_buffers_.i62, ptr %41, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54)
   %.pre82 = load ptr, ptr %req_wrap.i46, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp54, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp54, align 8
   %cmp.not.i.i65 = icmp eq ptr %.pre82, null
   br i1 %cmp.not.i.i65, label %if.then.i, label %if.then.i.i66
 
@@ -4965,9 +4965,9 @@ _ZNK4node17BaseObjectPtrImplINS_5http210Http2StateELb0EE12pointer_dataEv.exit.i:
   %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 200), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 280), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 200), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 280), ptr %3, align 8
   %statistics_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %max_concurrent_streams = getelementptr inbounds nuw i8, ptr %this, i64 144
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -5211,7 +5211,7 @@ if.then4.i:                                       ; preds = %_ZNSt6vectorIhSaIhE
 for.body.i.i.i.i.i:                               ; preds = %if.then4.i, %_ZSt10_ConstructIN4node5http218NgHttp2StreamWriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZSt10_ConstructIN4node5http218NgHttp2StreamWriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %call5.i.i.i.i41, %if.then4.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructIN4node5http218NgHttp2StreamWriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %26, %if.then4.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %__cur.08.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %__cur.08.i.i.i.i.i, align 8
   %req_wrap.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   %req_wrap2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 8
   %28 = load ptr, ptr %req_wrap2.i.i.i.i.i.i.i, align 8
@@ -5614,11 +5614,11 @@ entry:
   %agg.tmp2.i.i.i14 = alloca %"struct.std::_Deque_iterator.36", align 8
   %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator.43", align 8
   %agg.tmp2.i.i.i = alloca %"struct.std::_Deque_iterator.43", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 200), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 200), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 280), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 280), ptr %add.ptr2, align 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i32, ptr %flags_.i, align 8
   %and.i = and i32 %0, 1
@@ -6081,7 +6081,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -6168,7 +6168,7 @@ if.then.i10:                                      ; preds = %_ZN4node13MemoryTra
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i8)
   %call.i.i11 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i11, align 8
   %retainer_.i.i.i12 = getelementptr inbounds nuw i8, ptr %call.i.i11, i64 8
   %is_root_node_.i.i.i13 = getelementptr inbounds nuw i8, ptr %call.i.i11, i64 24
   %size_.i.i.i14 = getelementptr inbounds nuw i8, ptr %call.i.i11, i64 40
@@ -6255,7 +6255,7 @@ if.then.i51:                                      ; preds = %_ZN4node13MemoryTra
   %sub.ptr.sub.i48 = sub i64 %sub.ptr.lhs.cast.i46, %sub.ptr.rhs.cast.i47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i49)
   %call.i.i52 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i52, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i52, align 8
   %retainer_.i.i.i53 = getelementptr inbounds nuw i8, ptr %call.i.i52, i64 8
   %is_root_node_.i.i.i54 = getelementptr inbounds nuw i8, ptr %call.i.i52, i64 24
   %size_.i.i.i55 = getelementptr inbounds nuw i8, ptr %call.i.i52, i64 40
@@ -6337,7 +6337,7 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit85: ; preds = %_ZN4node1
 if.then.i88:                                      ; preds = %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit85
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i86)
   %call.i.i89 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i89, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i89, align 8
   %retainer_.i.i.i90 = getelementptr inbounds nuw i8, ptr %call.i.i89, i64 8
   %is_root_node_.i.i.i91 = getelementptr inbounds nuw i8, ptr %call.i.i89, i64 24
   %size_.i.i.i92 = getelementptr inbounds nuw i8, ptr %call.i.i89, i64 40
@@ -6749,7 +6749,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #28
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 13))
   %session_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load i32, ptr %session_type_.i, align 8
   switch i32 %0, label %do.body.i [
@@ -7341,7 +7341,7 @@ if.end12:                                         ; preds = %do.end5
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #28, !noalias !84
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #28, !noalias !84
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #28, !noalias !84
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.51, i64 11)), !noalias !84
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.51, i64 11)), !noalias !84
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(112) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #28, !noalias !84
   %start_time.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store double %sub21, ptr %start_time.i.i, align 8, !noalias !84
@@ -7363,7 +7363,7 @@ if.end12:                                         ; preds = %do.end5
   store i32 1, ptr %flags_.i.i.i.i.i, align 8, !noalias !87
   %next_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 16
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !87
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0EE", i64 16), ptr %call.i.i.i6, align 8, !noalias !87
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0EE", i64 16), ptr %call.i.i.i6, align 8, !noalias !87
   %callback_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 24
   store i64 %13, ptr %callback_.i.i.i.i, align 8, !noalias !87
   %tail_.i.i = getelementptr inbounds nuw i8, ptr %12, i64 2448
@@ -7463,7 +7463,7 @@ if.end:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #28, !noalias !92
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #28, !noalias !92
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #28, !noalias !92
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.52, i64 12)), !noalias !92
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.52, i64 12)), !noalias !92
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #28, !noalias !92
   %start_time.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store double %sub13, ptr %start_time.i.i, align 8, !noalias !92
@@ -7485,7 +7485,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %flags_.i.i.i.i.i, align 8, !noalias !95
   %next_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 16
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !95
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session14EmitStatisticsEvE3$_0EE", i64 16), ptr %call.i.i.i6, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session14EmitStatisticsEvE3$_0EE", i64 16), ptr %call.i.i.i6, align 8, !noalias !95
   %callback_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i6, i64 24
   store i64 %11, ptr %callback_.i.i.i.i, align 8, !noalias !95
   %tail_.i.i = getelementptr inbounds nuw i8, ptr %10, i64 2448
@@ -7841,7 +7841,7 @@ _ZN4node5http29Http2Ping17DetachFromSessionEv.exit: ; preds = %while.body, %land
   store i32 1, ptr %flags_.i.i.i.i.i, align 8, !noalias !103
   %next_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !103
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0EE", i64 16), ptr %call.i.i.i, align 8, !noalias !103
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0EE", i64 16), ptr %call.i.i.i, align 8, !noalias !103
   %callback_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
   store i64 %39, ptr %callback_.i.i.i.i, align 8, !noalias !103
   %tail_.i.i = getelementptr inbounds nuw i8, ptr %53, i64 2448
@@ -9032,7 +9032,7 @@ do.end6:                                          ; preds = %do.body
 for.body.i.i.i.i.i:                               ; preds = %do.end6, %_ZSt8_DestroyIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEEEvPT_.exit.i.i.i.i.i ], [ %9, %do.end6 ]
   %value_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i, align 8
   %buf_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 48
   %11 = load ptr, ptr %buf_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
@@ -9045,7 +9045,7 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %name_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i, align 8
   %buf_.i.i1.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %buf_.i.i1.i.i.i.i.i.i.i, align 8
   %cmp.i.i2.i.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -9201,7 +9201,7 @@ if.end27:                                         ; preds = %if.then23, %if.end2
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %21, align 8
   %env_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %env_2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %header, i64 8
   %23 = load ptr, ptr %env_2.i.i.i.i.i, align 8
@@ -9211,7 +9211,7 @@ if.then.i.i:                                      ; preds = %if.end27
   store ptr null, ptr %buf_.i.i.i.i.i.i, align 8
   %internalizable_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 0, ptr %internalizable_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i, align 8
   %24 = load ptr, ptr %buf_.i.i, align 8
   store ptr %24, ptr %buf_.i.i.i.i.i.i, align 8
   store ptr null, ptr %buf_.i.i, align 8
@@ -9220,7 +9220,7 @@ if.then.i.i:                                      ; preds = %if.end27
   store ptr null, ptr %buf_.i8.i.i.i.i.i, align 8
   %internalizable_.i9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 56
   store i8 0, ptr %internalizable_.i9.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i, align 8
   %25 = load ptr, ptr %buf_.i1.i, align 8
   store ptr %25, ptr %buf_.i8.i.i.i.i.i, align 8
   store ptr null, ptr %buf_.i1.i, align 8
@@ -9261,7 +9261,7 @@ _ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE9push_backE
 cleanup:                                          ; preds = %_ZNK4node8NgHeaderINS_5http217Http2HeaderTraitsEE6lengthEv.exit, %lor.lhs.false, %lor.lhs.false15, %_ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE9push_backEOS4_.exit
   %retval.1 = phi i1 [ true, %_ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE9push_backEOS4_.exit ], [ false, %lor.lhs.false15 ], [ false, %lor.lhs.false ], [ false, %_ZNK4node8NgHeaderINS_5http217Http2HeaderTraitsEE6lengthEv.exit ]
   %value_.i = getelementptr inbounds nuw i8, ptr %header, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i, align 8
   %34 = load ptr, ptr %buf_.i1.i, align 8
   %cmp.i.i.i13 = icmp eq ptr %34, null
   br i1 %cmp.i.i.i13, label %_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i, label %if.end.i.i.i14
@@ -9273,7 +9273,7 @@ if.end.i.i.i14:                                   ; preds = %cleanup
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i: ; preds = %if.end.i.i.i14, %cleanup
   %name_.i = getelementptr inbounds nuw i8, ptr %header, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i, align 8
   %35 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i2.i = icmp eq ptr %35, null
   br i1 %cmp.i.i2.i, label %return, label %if.end.i.i3.i
@@ -9738,7 +9738,7 @@ for.body.i:                                       ; preds = %"_ZZN4node5http212H
   %__begin3.sroa.0.05.i = phi ptr [ %21, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZN4node5http212Http2Session18HandleHeadersFrameEPK13nghttp2_frameENK3$_0clERKNS_8NgHeaderINS0_17Http2HeaderTraitsEEEm.exit.i" ]
   %inc.i = add i64 %i.06.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp32.i.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp32.i.i.i, align 8
   store ptr null, ptr %buf_.i.i.i.i, align 8
   store i8 0, ptr %internalizable_.i.i.i.i, align 8
   %buf_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.05.i, i64 24
@@ -9754,7 +9754,7 @@ _ZN4node5http226Http2RcBufferPointerTraits3incEP13nghttp2_rcbuf.exit.i.i.i.i.i: 
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2ERKS3_.exit.i.i.i: ; preds = %_ZN4node5http226Http2RcBufferPointerTraits3incEP13nghttp2_rcbuf.exit.i.i.i.i.i, %for.body.i
   %call33.i.i.i = call ptr @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8External3NewINS1_12Http2SessionEEEN2v810MaybeLocalINS7_6StringEEEPT_S3_(ptr noundef nonnull %this, ptr noundef nonnull %agg.tmp32.i.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp32.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp32.i.i.i, align 8
   %24 = load ptr, ptr %buf_.i.i.i.i, align 8
   %cmp.i.i5.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.i.i5.i.i.i, label %_ZNK4node8NgHeaderINS_5http217Http2HeaderTraitsEE7GetNameEPNS1_12Http2SessionE.exit.i.i, label %if.end.i.i.i.i.i
@@ -9788,7 +9788,7 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit.i.i: ; preds 
   %arrayidx.i.i.i = getelementptr inbounds %"class.v8::Local.371", ptr %26, i64 %mul.i.i34
   store ptr %call33.i.i.i, ptr %arrayidx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp.i.i.i, align 8
   store ptr null, ptr %buf_.i.i5.i.i, align 8
   store i8 0, ptr %internalizable_.i.i6.i.i, align 8
   %buf_.i.i.i7.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.05.i, i64 48
@@ -9804,7 +9804,7 @@ _ZN4node5http226Http2RcBufferPointerTraits3incEP13nghttp2_rcbuf.exit.i.i.i9.i.i:
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2ERKS3_.exit.i10.i.i: ; preds = %_ZN4node5http226Http2RcBufferPointerTraits3incEP13nghttp2_rcbuf.exit.i.i.i9.i.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit.i.i
   %call.i.i.i = call ptr @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8External3NewINS1_12Http2SessionEEEN2v810MaybeLocalINS7_6StringEEEPT_S3_(ptr noundef nonnull %this, ptr noundef nonnull %agg.tmp.i.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp.i.i.i, align 8
   %28 = load ptr, ptr %buf_.i.i5.i.i, align 8
   %cmp.i.i2.i.i.i = icmp eq ptr %28, null
   br i1 %cmp.i.i2.i.i.i, label %_ZNK4node8NgHeaderINS_5http217Http2HeaderTraitsEE8GetValueEPNS1_12Http2SessionE.exit.i.i, label %if.end.i.i.i11.i.i
@@ -9888,7 +9888,7 @@ for.end.i:                                        ; preds = %"_ZZN4node5http212H
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.end.i, %_ZSt8_DestroyIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEEEvPT_.exit.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZSt8_DestroyIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEEEvPT_.exit.i.i.i.i.i.i.i ], [ %.pre.i, %for.end.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i.i.i, align 8
   %buf_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 48
   %38 = load ptr, ptr %buf_.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %38, null
@@ -9901,7 +9901,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
   %name_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i.i.i, align 8
   %buf_.i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 24
   %39 = load ptr, ptr %buf_.i.i1.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i2.i.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
@@ -10839,7 +10839,7 @@ _ZN4node5DebugIJRiEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %if.then, %if.end.
 for.body.i.i.i.i.i.i:                             ; preds = %_ZN4node5DebugIJRiEEEvPNS_9AsyncWrapEPKcDpOT_.exit, %_ZSt8_DestroyIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEEEvPT_.exit.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEEEvPT_.exit.i.i.i.i.i.i ], [ %10, %_ZN4node5DebugIJRiEEEvPNS_9AsyncWrapEPKcDpOT_.exit ]
   %value_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i.i, align 8
   %buf_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 48
   %11 = load ptr, ptr %buf_.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
@@ -10852,7 +10852,7 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %name_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i.i, align 8
   %buf_.i.i1.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %buf_.i.i1.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i2.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -11185,7 +11185,7 @@ if.then10:                                        ; preds = %_ZN4node17BaseObjec
   store i32 1, ptr %flags_.i.i.i.i.i, align 8, !noalias !123
   %next_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i13, i64 16
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !123
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0EE", i64 16), ptr %call.i.i.i13, align 8, !noalias !123
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0EE", i64 16), ptr %call.i.i.i13, align 8, !noalias !123
   %callback_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i13, i64 24
   store ptr %this, ptr %callback_.i.i.i.i, align 8, !noalias !123
   %28 = getelementptr inbounds nuw i8, ptr %call.i.i.i13, i64 32
@@ -12224,7 +12224,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %2, align 8
   %req_wrap.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %req_wrap2.i.i.i.i = getelementptr inbounds nuw i8, ptr %write, i64 8
   %4 = load i64, ptr %req_wrap2.i.i.i.i, align 8
@@ -12267,7 +12267,7 @@ entry:
   %call5 = tail call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef %conv) #28
   %3 = extractvalue { ptr, i64 } %call5, 0
   %4 = extractvalue { ptr, i64 } %call5, 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
   %req_wrap.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %req_wrap.i, align 8
   %buf.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
@@ -12286,7 +12286,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit, label %_ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit.thread
 
 _ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit.thread: ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %6, align 8
   %req_wrap.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %req_wrap.i.i.i.i.i, align 8
   %buf.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -12300,7 +12300,7 @@ _ZN4node5http212Http2Session18PushOutgoingBufferEONS0_18NgHttp2StreamWriteE.exit
   %outgoing_buffers_.i = getelementptr inbounds nuw i8, ptr %this, i64 544
   call void @_ZNSt6vectorIN4node5http218NgHttp2StreamWriteESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %outgoing_buffers_.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   %.pre = load ptr, ptr %req_wrap.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i5 = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i5, label %_ZN4node5http218NgHttp2StreamWriteD2Ev.exit, label %if.then.i.i6
 
@@ -12423,7 +12423,7 @@ if.end6:                                          ; preds = %if.then.i15, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node5http218NgHttp2StreamWriteD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %this, align 8
   %req_wrap = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %req_wrap, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -12497,7 +12497,7 @@ _ZN4node5http210Http2ScopeC2EPNS0_12Http2SessionE.exit: ; preds = %_ZN4node17Bas
   %6 = trunc i32 %options to i8
   %frombool.i.i = and i8 %6, 1
   store i8 %frombool.i.i, ptr %empty_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %prov, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %prov, align 8
   %read_callback.i = getelementptr inbounds nuw i8, ptr %prov, i64 16
   store ptr @_ZN4node5http211Http2Stream8Provider6Stream6OnReadEP15nghttp2_sessioniPhmPjP19nghttp2_data_sourcePv, ptr %read_callback.i, align 8
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -12546,7 +12546,7 @@ if.end.i10:                                       ; preds = %if.then14
 
 if.end16:                                         ; preds = %if.end.i10, %if.then14, %do.end10
   %stream.0 = phi ptr [ null, %do.end10 ], [ %call20.i, %if.end.i10 ], [ null, %if.then14 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %prov, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %prov, align 8
   store ptr null, ptr %provider_2.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %h2scope.sroa.0.0, null
   br i1 %cmp.i.not.i, label %_ZN4node5http210Http2ScopeD2Ev.exit, label %if.end.i11
@@ -12577,7 +12577,7 @@ declare i32 @nghttp2_submit_request(ptr noundef, ptr noundef, ptr noundef, i64 n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node5http211Http2Stream8Provider6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
   %provider_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %provider_.i, align 8
   ret void
@@ -13378,13 +13378,13 @@ if.end.i:
   store ptr %4, ptr %env_.i, align 8
   %default_listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %stream_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22EmitToJSStreamListenerE, i64 16), ptr %default_listener_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node22EmitToJSStreamListenerE, i64 16), ptr %default_listener_.i, align 8
   %previous_listener_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr null, ptr %previous_listener_.i.i, align 8
   store ptr %2, ptr %stream_.i.i.i.i, align 8
   store ptr %default_listener_.i, ptr %listener_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2StreamE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2StreamE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2StreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2StreamE, i64 248), ptr %2, align 8
   %statistics_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %statistics_, i8 0, i64 72, i1 false)
@@ -13450,7 +13450,7 @@ _ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEC2EPS2_.exit: ; preds =
   %stream_listener_ = getelementptr inbounds nuw i8, ptr %this, i64 344
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http219Http2StreamListenerE, i64 16), ptr %stream_listener_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http219Http2StreamListenerE, i64 16), ptr %stream_listener_, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #28
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
@@ -13549,7 +13549,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !129, !noalias !132
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !129, !noalias !132
   %env_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 8
   %env_2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %3 = load ptr, ptr %env_2.i.i.i.i.i.i.i, align 8, !alias.scope !132, !noalias !129
@@ -13558,7 +13558,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %buf_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
   %internalizable_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   store i8 0, ptr %internalizable_.i.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !132
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !132
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !132
   %buf_2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
   %4 = load ptr, ptr %buf_2.i.i.i.i.i.i.i.i, align 8, !alias.scope !132, !noalias !129
   store ptr %4, ptr %buf_.i.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !132
@@ -13567,7 +13567,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %buf_.i8.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 48
   %internalizable_.i9.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 56
   store i8 0, ptr %internalizable_.i9.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !132
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !132
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !132
   %buf_2.i10.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 48
   %5 = load ptr, ptr %buf_2.i10.i.i.i.i.i.i.i, align 8, !alias.scope !132, !noalias !129
   store ptr %5, ptr %buf_.i8.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !132
@@ -13584,9 +13584,9 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   store i8 0, ptr %flags_6.i.i.i.i.i.i.i, align 4, !alias.scope !132, !noalias !129
   store ptr null, ptr %env_2.i.i.i.i.i.i.i, align 8, !alias.scope !132, !noalias !129
   %value_.i.i.i3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i3.i.i.i.i, align 8, !alias.scope !132, !noalias !129
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i3.i.i.i.i, align 8, !alias.scope !132, !noalias !129
   %name_.i.i.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i4.i.i.i.i, align 8, !alias.scope !132, !noalias !129
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i4.i.i.i.i, align 8, !alias.scope !132, !noalias !129
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 72
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 72
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %2
@@ -13622,9 +13622,9 @@ declare noundef i32 @_ZN4node10StreamBase8ShutdownEN2v85LocalINS1_6ObjectEEE(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node5http211Http2StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8), (56, 64)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2StreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2StreamE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2StreamE, i64 248), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2StreamE, i64 248), ptr %add.ptr, align 8
   %provider_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %provider_type_.i, align 8
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -13657,7 +13657,7 @@ _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %entry, %if.end.i
 for.body.i.i.i.i:                                 ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit, %_ZSt8_DestroyIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEEEvPT_.exit.i.i.i.i ], [ %4, %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit ]
   %value_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i, align 8
   %buf_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 48
   %6 = load ptr, ptr %buf_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -13670,7 +13670,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %name_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i, align 8
   %buf_.i.i1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %7 = load ptr, ptr %buf_.i.i1.i.i.i.i.i.i, align 8
   %cmp.i.i2.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -13725,7 +13725,7 @@ delete.notnull.i:                                 ; preds = %land.lhs.true4.i
   br label %_ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EED2Ev.exit
 
 _ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EED2Ev.exit: ; preds = %_ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EED2Ev.exit, %land.lhs.true.i, %land.lhs.true4.i, %delete.notnull.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr, align 8
   %default_listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i) #28
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #28
@@ -14022,7 +14022,7 @@ cleanup.action:                                   ; preds = %entry, %_ZNK4node5h
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %sname) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %sname, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %sname, ptr noundef nonnull @.str.163, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.163, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %sname, ptr noundef nonnull @.str.163, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.163, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
   br label %cleanup.done
 
@@ -14456,7 +14456,7 @@ _ZN4node5http211Http2Stream8Provider6StreamC2EPS1_i.exit: ; preds = %if.end8
   %10 = trunc i32 %spec.select to i8
   %frombool.i.i = and i8 %10, 1
   store i8 %frombool.i.i, ptr %empty_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %prov, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %prov, align 8
   %read_callback.i = getelementptr inbounds nuw i8, ptr %prov, i64 16
   store ptr @_ZN4node5http211Http2Stream8Provider6Stream6OnReadEP15nghttp2_sessioniPhmPjP19nghttp2_data_sourcePv, ptr %read_callback.i, align 8
   %11 = load ptr, ptr %session_.i.i, align 8, !nonnull !13, !noundef !13
@@ -14481,7 +14481,7 @@ do.body23:                                        ; preds = %_ZN4node5http211Htt
   unreachable
 
 do.end27:                                         ; preds = %_ZN4node5http211Http2Stream8Provider6StreamC2EPS1_i.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %prov, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %prov, align 8
   store ptr null, ptr %provider_7.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %h2scope.sroa.0.0, null
   br i1 %cmp.i.not.i, label %_ZN4node5http210Http2ScopeD2Ev.exit, label %if.end.i15
@@ -14798,7 +14798,7 @@ _ZN4node5http211Http2Stream8Provider6StreamC2EPS1_i.exit: ; preds = %if.then9
   %provider_7.i.i = getelementptr inbounds nuw i8, ptr %prov, i64 8
   store ptr %this, ptr %provider_7.i.i, align 8
   store i8 0, ptr %empty_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %prov, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %prov, align 8
   %read_callback.i = getelementptr inbounds nuw i8, ptr %prov, i64 16
   store ptr @_ZN4node5http211Http2Stream8Provider6Stream6OnReadEP15nghttp2_sessioniPhmPjP19nghttp2_data_sourcePv, ptr %read_callback.i, align 8
   %12 = load ptr, ptr %session_.i.i, align 8, !nonnull !13, !noundef !13
@@ -14809,7 +14809,7 @@ _ZN4node5http211Http2Stream8Provider6StreamC2EPS1_i.exit: ; preds = %if.then9
   %id_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %15 = load i32, ptr %id_, align 8
   %call13 = call i32 @nghttp2_submit_data(ptr noundef %14, i8 noundef zeroext 1, i32 noundef %15, ptr noundef nonnull %provider_7.i.i) #28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %prov, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %prov, align 8
   store ptr null, ptr %provider_7.i.i, align 8
   br label %do.body22
 
@@ -15491,7 +15491,7 @@ _ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EPS1_.exit: ; preds = %for.body
   %agg.tmp12.sroa.0.0.copyload = load ptr, ptr %arrayidx, align 8
   %agg.tmp12.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %agg.tmp12.sroa.2.0.copyload = load i64, ptr %agg.tmp12.sroa.2.0.arrayidx.sroa_idx, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
   store i64 %agg.tmp.sroa.0.0, ptr %req_wrap2.i, align 8
   store ptr %agg.tmp12.sroa.0.0.copyload, ptr %buf.i, align 8
   store i64 %agg.tmp12.sroa.2.0.copyload, ptr %buf_.sroa.2.0.buf.sroa_idx.i, align 8
@@ -15502,7 +15502,7 @@ _ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EPS1_.exit: ; preds = %for.body
   br i1 %cmp.not.i.i, label %if.end.i.i11, label %if.end.i.i11.thread
 
 if.end.i.i11.thread:                              ; preds = %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EPS1_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %14, align 8
   %req_wrap.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %req_wrap2.i, align 8
   store i64 %16, ptr %req_wrap.i.i.i.i.i, align 8
@@ -15512,13 +15512,13 @@ if.end.i.i11.thread:                              ; preds = %_ZN4node17BaseObjec
   %17 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
   br label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev.exit
 
 if.end.i.i11:                                     ; preds = %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EPS1_.exit
   call void @_ZNSt5dequeIN4node5http218NgHttp2StreamWriteESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %queue_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   %.pre29 = load ptr, ptr %req_wrap2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i13 = icmp eq ptr %.pre29, null
   br i1 %cmp.not.i.i13, label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev.exit, label %if.then.i.i14
 
@@ -15649,7 +15649,7 @@ _ZNK4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE3lenEv.exit5: ;
 define linkonce_odr dso_local void @_ZN4node8NgHeaderINS_5http217Http2HeaderTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_, align 8
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -15662,7 +15662,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit: ; preds = %entry, %if.end.i.i
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_, align 8
   %buf_.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %buf_.i.i1, align 8
   %cmp.i.i2 = icmp eq ptr %1, null
@@ -15680,7 +15680,7 @@ _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit4: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node5http211Http2Stream8ProviderC2EPS1_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 8), (24, 25)) %this, ptr noundef %stream, i32 noundef %options) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
   %empty_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %empty_, align 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %stream, i64 200
@@ -15706,7 +15706,7 @@ do.end6:                                          ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4node5http211Http2Stream8ProviderC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 16), (24, 25)) %this, i32 noundef %options) unnamed_addr #19 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
   %empty_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %provider_2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %provider_2, align 8
@@ -15719,7 +15719,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4node5http211Http2Stream8ProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 16)) %this) unnamed_addr #19 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
   %provider_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %provider_, align 8
   ret void
@@ -15741,7 +15741,7 @@ entry:
   %0 = trunc i32 %options to i8
   %frombool.i = and i8 %0, 1
   store i8 %frombool.i, ptr %empty_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %this, align 8
   %read_callback = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr @_ZN4node5http211Http2Stream8Provider6Stream6OnReadEP15nghttp2_sessioniPhmPjP19nghttp2_data_sourcePv, ptr %read_callback, align 8
   ret void
@@ -16106,7 +16106,7 @@ _ZN4node17BaseObjectPtrImplINS_5http211Http2StreamELb0EED2Ev.exit: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node5http211Http2Stream8Provider6StreamC2EPS1_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 8), (24, 25)) %this, ptr noundef %stream, i32 noundef %options) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
   %empty_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %empty_.i, align 8
   %flags_.i.i = getelementptr inbounds nuw i8, ptr %stream, i64 200
@@ -16126,7 +16126,7 @@ _ZN4node5http211Http2Stream8ProviderC2EPS1_i.exit: ; preds = %entry
   %1 = trunc i32 %options to i8
   %frombool.i = and i8 %1, 1
   store i8 %frombool.i, ptr %empty_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %this, align 8
   %read_callback = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr @_ZN4node5http211Http2Stream8Provider6Stream6OnReadEP15nghttp2_sessioniPhmPjP19nghttp2_data_sourcePv, ptr %read_callback, align 8
   ret void
@@ -20622,7 +20622,7 @@ if.end.i:
   %env_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   %1 = load ptr, ptr %env_.i.i, align 8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %1, ptr %obj.coerce, i32 noundef 15, double noundef -1.000000e+00) #28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http29Http2PingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http29Http2PingE, i64 16), ptr %this, align 8
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %session_, align 8
   %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %session) #28
@@ -20900,7 +20900,7 @@ if.end:                                           ; preds = %if.else.i.i, %_ZNK4
 if.then.i.i:                                      ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i.i, align 8
   %retainer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %is_root_node_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
   %size_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
@@ -29035,9 +29035,9 @@ declare void @node_module_register(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node5http210Http2StateD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http210Http2StateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http210Http2StateE, i64 16), ptr %this, align 8
   %settings_buffer = getelementptr inbounds nuw i8, ptr %this, i64 368
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %settings_buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %settings_buffer, align 8
   %js_array_.i = getelementptr inbounds nuw i8, ptr %this, i64 408
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -29050,7 +29050,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit: ; preds = %entry, %if.end.i.i
   %options_buffer = getelementptr inbounds nuw i8, ptr %this, i64 312
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %options_buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %options_buffer, align 8
   %js_array_.i1 = getelementptr inbounds nuw i8, ptr %this, i64 352
   %1 = load ptr, ptr %js_array_.i1, align 8
   %cmp.i.i.i2 = icmp eq ptr %1, null
@@ -29063,7 +29063,7 @@ if.end.i.i3:                                      ; preds = %_ZN4node17AliasedBu
 
 _ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit4: ; preds = %_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit, %if.end.i.i3
   %session_stats_buffer = getelementptr inbounds nuw i8, ptr %this, i64 256
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %session_stats_buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %session_stats_buffer, align 8
   %js_array_.i5 = getelementptr inbounds nuw i8, ptr %this, i64 296
   %2 = load ptr, ptr %js_array_.i5, align 8
   %cmp.i.i.i6 = icmp eq ptr %2, null
@@ -29076,7 +29076,7 @@ if.end.i.i7:                                      ; preds = %_ZN4node17AliasedBu
 
 _ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit: ; preds = %_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit4, %if.end.i.i7
   %stream_stats_buffer = getelementptr inbounds nuw i8, ptr %this, i64 200
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %stream_stats_buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %stream_stats_buffer, align 8
   %js_array_.i8 = getelementptr inbounds nuw i8, ptr %this, i64 240
   %3 = load ptr, ptr %js_array_.i8, align 8
   %cmp.i.i.i9 = icmp eq ptr %3, null
@@ -29089,7 +29089,7 @@ if.end.i.i10:                                     ; preds = %_ZN4node17AliasedBu
 
 _ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit11: ; preds = %_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit, %if.end.i.i10
   %stream_state_buffer = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %stream_state_buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %stream_state_buffer, align 8
   %js_array_.i12 = getelementptr inbounds nuw i8, ptr %this, i64 184
   %4 = load ptr, ptr %js_array_.i12, align 8
   %cmp.i.i.i13 = icmp eq ptr %4, null
@@ -29102,7 +29102,7 @@ if.end.i.i14:                                     ; preds = %_ZN4node17AliasedBu
 
 _ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit15: ; preds = %_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit11, %if.end.i.i14
   %session_state_buffer = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %session_state_buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %session_state_buffer, align 8
   %js_array_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %5 = load ptr, ptr %js_array_.i16, align 8
   %cmp.i.i.i17 = icmp eq ptr %5, null
@@ -29115,7 +29115,7 @@ if.end.i.i18:                                     ; preds = %_ZN4node17AliasedBu
 
 _ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit19: ; preds = %_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit15, %if.end.i.i18
   %root_buffer = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 16), ptr %root_buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 16), ptr %root_buffer, align 8
   %js_array_.i20 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load ptr, ptr %js_array_.i20, align 8
   %cmp.i.i.i21 = icmp eq ptr %6, null
@@ -29231,7 +29231,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node5http218NgHttp2StreamWriteD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %this, align 8
   %req_wrap.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %req_wrap.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -29279,7 +29279,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node5http213Http2SettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http213Http2SettingsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http213Http2SettingsE, i64 16), ptr %this, align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %callback_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -29323,7 +29323,7 @@ _ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EED2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node5http213Http2SettingsD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http213Http2SettingsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http213Http2SettingsE, i64 16), ptr %this, align 8
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %callback_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -29517,7 +29517,7 @@ declare ptr @_ZN4node10StreamBase9GetObjectEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node5http29Http2PingD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http29Http2PingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http29Http2PingE, i64 16), ptr %this, align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %callback_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -29561,7 +29561,7 @@ _ZN4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EED2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node5http29Http2PingD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http29Http2PingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http29Http2PingE, i64 16), ptr %this, align 8
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %callback_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -30173,7 +30173,7 @@ _ZNSt5dequeIN4node5http218NgHttp2StreamWriteESaIS2_EE22_M_reserve_map_at_backEm.
   %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %9, align 8
   %req_wrap.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %req_wrap2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 8
   %10 = load i64, ptr %req_wrap2.i.i.i, align 8
@@ -30315,7 +30315,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %this, align 8
   %buf_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %buf_.i, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -30333,7 +30333,7 @@ _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE5resetEP13nghttp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %this, align 8
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -30371,7 +30371,7 @@ _ZNK4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE3lenEv.exit: ; 
 if.then.i:                                        ; preds = %_ZNK4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE3lenEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i1 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i1, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 40
@@ -31264,7 +31264,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.371", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -31739,7 +31739,7 @@ declare noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %this, align 8
   %js_array_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -31757,7 +31757,7 @@ _ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit: ; preds = %entry, %if.en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %this, align 8
   %js_array_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -31775,7 +31775,7 @@ _ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit: ; preds = %entry, %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIhN2v810Uint8ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 16), ptr %this, align 8
   %js_array_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -31796,7 +31796,7 @@ declare void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %this, align 8
   %js_array_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -31906,7 +31906,7 @@ declare void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %this, align 8
   %js_array_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -32014,7 +32014,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIhN2v810Uint8ArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 16), ptr %this, align 8
   %js_array_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -33091,7 +33091,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2v812BackingStoreESt14de
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -33708,7 +33708,7 @@ entry:
   %n = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %is_root_node_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %size_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -34470,7 +34470,7 @@ _ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS0_5http233Http2St
 
 "_ZZN4node5http211Http2Stream14EmitStatisticsEvEN3$_0D2Ev.exit": ; preds = %entry, %_ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS0_5http233Http2StreamPerformanceEntryTraitsEEEEclEPS5_.exit.i.i
   store ptr null, ptr %callback_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
@@ -34503,7 +34503,7 @@ _ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS0_5http233Http2St
 
 "_ZZN4node5http211Http2Stream14EmitStatisticsEvEN3$_0D2Ev.exit.i": ; preds = %_ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS0_5http233Http2StreamPerformanceEntryTraitsEEEEclEPS5_.exit.i.i.i, %entry
   store ptr null, ptr %callback_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
@@ -34546,7 +34546,7 @@ if.then.i:                                        ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -34688,7 +34688,7 @@ _ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS0_5http234Http2Se
 
 "_ZZN4node5http212Http2Session14EmitStatisticsEvEN3$_0D2Ev.exit": ; preds = %entry, %_ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS0_5http234Http2SessionPerformanceEntryTraitsEEEEclEPS5_.exit.i.i
   store ptr null, ptr %callback_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
@@ -34721,7 +34721,7 @@ _ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS0_5http234Http2Se
 
 "_ZZN4node5http212Http2Session14EmitStatisticsEvEN3$_0D2Ev.exit.i": ; preds = %_ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS0_5http234Http2SessionPerformanceEntryTraitsEEEEclEPS5_.exit.i.i.i, %entry
   store ptr null, ptr %callback_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
@@ -35246,7 +35246,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit"
 
 "_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit": ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %0, null
@@ -35277,7 +35277,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %"_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit.i"
 
 "_ZZN4node5http212Http2Session5CloseEjbEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %0, null
@@ -39453,7 +39453,7 @@ do.end5:                                          ; preds = %if.end.i, %if.then.
 define linkonce_odr dso_local ptr @_ZNK4node8NgHeaderINS_5http217Http2HeaderTraitsEE7GetNameEPNS1_12Http2SessionE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %allocator) unnamed_addr #4 comdat align 2 {
 if.end31:
   %agg.tmp32 = alloca %"class.node::NgRcBufPointer", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp32, align 8
   %buf_.i = getelementptr inbounds nuw i8, ptr %agg.tmp32, i64 8
   store ptr null, ptr %buf_.i, align 8
   %internalizable_.i = getelementptr inbounds nuw i8, ptr %agg.tmp32, i64 16
@@ -39471,7 +39471,7 @@ _ZN4node5http226Http2RcBufferPointerTraits3incEP13nghttp2_rcbuf.exit.i.i: ; pred
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2ERKS3_.exit: ; preds = %if.end31, %_ZN4node5http226Http2RcBufferPointerTraits3incEP13nghttp2_rcbuf.exit.i.i
   %call33 = call ptr @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8External3NewINS1_12Http2SessionEEEN2v810MaybeLocalINS7_6StringEEEPT_S3_(ptr noundef %allocator, ptr noundef nonnull %agg.tmp32)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp32, align 8
   %1 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i5 = icmp eq ptr %1, null
   br i1 %cmp.i.i5, label %return, label %if.end.i.i
@@ -39488,7 +39488,7 @@ return:                                           ; preds = %if.end.i.i, %_ZN4no
 define linkonce_odr dso_local ptr @_ZNK4node8NgHeaderINS_5http217Http2HeaderTraitsEE8GetValueEPNS1_12Http2SessionE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %allocator) unnamed_addr #4 comdat align 2 {
 entry:
   %agg.tmp = alloca %"class.node::NgRcBufPointer", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp, align 8
   %buf_.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store ptr null, ptr %buf_.i, align 8
   %internalizable_.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
@@ -39506,7 +39506,7 @@ _ZN4node5http226Http2RcBufferPointerTraits3incEP13nghttp2_rcbuf.exit.i.i: ; pred
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEC2ERKS3_.exit: ; preds = %entry, %_ZN4node5http226Http2RcBufferPointerTraits3incEP13nghttp2_rcbuf.exit.i.i
   %call = call ptr @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8External3NewINS1_12Http2SessionEEEN2v810MaybeLocalINS7_6StringEEEPT_S3_(ptr noundef %allocator, ptr noundef nonnull %agg.tmp)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %agg.tmp, align 8
   %1 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i2 = icmp eq ptr %1, null
   br i1 %cmp.i.i2, label %_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit, label %if.end.i.i
@@ -39704,9 +39704,9 @@ if.end54:                                         ; preds = %if.end45
   %call56 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %cached_data_.i.i = getelementptr inbounds nuw i8, ptr %call56, i64 8
   store ptr null, ptr %cached_data_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i64 16), ptr %call56, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i64 16), ptr %call56, align 8
   %ptr_.i = getelementptr inbounds nuw i8, ptr %call56, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %ptr_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %ptr_.i, align 8
   %buf_.i.i47 = getelementptr inbounds nuw i8, ptr %call56, i64 24
   store ptr null, ptr %buf_.i.i47, align 8
   %internalizable_.i.i = getelementptr inbounds nuw i8, ptr %call56, i64 32
@@ -39955,9 +39955,9 @@ declare i32 @nghttp2_rcbuf_is_static(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i64 16), ptr %this, align 8
   %ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %ptr_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %ptr_, align 8
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -39975,9 +39975,9 @@ _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE8ExternalE, i64 16), ptr %this, align 8
   %ptr_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %ptr_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %ptr_.i, align 8
   %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %buf_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -40071,7 +40071,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit"
 
 "_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit": ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
@@ -40102,7 +40102,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %"_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit.i"
 
 "_ZZN4node5http212Http2Session18MaybeScheduleWriteEvEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
@@ -40204,7 +40204,7 @@ _ZNKSt6vectorIN4node5http218NgHttp2StreamWriteESaIS2_EE12_M_check_lenEmPKc.exit:
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %add.ptr, align 8
   %req_wrap.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %req_wrap2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 8
   %3 = load i64, ptr %req_wrap2.i.i.i, align 8
@@ -40219,7 +40219,7 @@ _ZNKSt6vectorIN4node5http218NgHttp2StreamWriteESaIS2_EE12_M_check_lenEmPKc.exit:
 for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN4node5http218NgHttp2StreamWriteESaIS2_EE12_M_check_lenEmPKc.exit, %_ZSt10_ConstructIN4node5http218NgHttp2StreamWriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZSt10_ConstructIN4node5http218NgHttp2StreamWriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN4node5http218NgHttp2StreamWriteESaIS2_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructIN4node5http218NgHttp2StreamWriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %1, %_ZNKSt6vectorIN4node5http218NgHttp2StreamWriteESaIS2_EE12_M_check_lenEmPKc.exit ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %__cur.08.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %__cur.08.i.i.i.i.i, align 8
   %req_wrap.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   %req_wrap2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %req_wrap2.i.i.i.i.i.i.i, align 8
@@ -40261,7 +40261,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4node5http218NgHttp2StreamWriteES3_Sa
 for.body.i.i.i.i.i14:                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4node5http218NgHttp2StreamWriteES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN4node5http218NgHttp2StreamWriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i24
   %__cur.08.i.i.i.i.i15 = phi ptr [ %incdec.ptr1.i.i.i.i.i28, %_ZSt10_ConstructIN4node5http218NgHttp2StreamWriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i24 ], [ %incdec.ptr, %_ZSt34__uninitialized_move_if_noexcept_aIPN4node5http218NgHttp2StreamWriteES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %__first.addr.07.i.i.i.i.i16 = phi ptr [ %incdec.ptr.i.i.i.i.i27, %_ZSt10_ConstructIN4node5http218NgHttp2StreamWriteEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i24 ], [ %__position.coerce, %_ZSt34__uninitialized_move_if_noexcept_aIPN4node5http218NgHttp2StreamWriteES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %__cur.08.i.i.i.i.i15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %__cur.08.i.i.i.i.i15, align 8
   %req_wrap.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i15, i64 8
   %req_wrap2.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i16, i64 8
   %6 = load ptr, ptr %req_wrap2.i.i.i.i.i.i.i18, align 8
@@ -41031,7 +41031,7 @@ declare noundef i64 @_ZN2v815ArrayBufferView12CopyContentsEPvm(ptr noundef nonnu
 define linkonce_odr dso_local void @_ZN4node8NgHeaderINS_5http217Http2HeaderTraitsEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i, align 8
   %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %buf_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -41044,7 +41044,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit.i: ; preds = %if.end.i.i.i, %entry
   %name_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i, align 8
   %buf_.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %buf_.i.i1.i, align 8
   %cmp.i.i2.i = icmp eq ptr %1, null
@@ -41821,7 +41821,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit"
 
 "_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit": ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
@@ -41852,7 +41852,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %"_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit.i"
 
 "_ZZN4node5http211Http2Stream7DestroyEvEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
@@ -42363,17 +42363,17 @@ cleanup:                                          ; preds = %sw.epilog, %sw.defa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8NgHeaderINS_5http217Http2HeaderTraitsEEC2EPNS_11EnvironmentEiP13nghttp2_rcbufS7_h(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %env, i32 noundef %token, ptr noundef %name, ptr noundef %value, i8 noundef zeroext %flags) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %this, align 8
   %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %env, ptr %env_, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_, align 8
   %buf_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %buf_.i, align 8
   %internalizable_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 0, ptr %internalizable_.i, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_, align 8
   %buf_.i5 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %buf_.i5, align 8
   %internalizable_.i6 = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -42485,7 +42485,7 @@ _ZNKSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE12_M_check
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 72
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %add.ptr, align 8
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %env_2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 8
   %3 = load ptr, ptr %env_2.i.i.i, align 8
@@ -42494,7 +42494,7 @@ _ZNKSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE12_M_check
   %buf_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %internalizable_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   store i8 0, ptr %internalizable_.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i, align 8
   %buf_2.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   %4 = load ptr, ptr %buf_2.i.i.i.i, align 8
   store ptr %4, ptr %buf_.i.i.i.i, align 8
@@ -42503,7 +42503,7 @@ _ZNKSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE12_M_check
   %buf_.i8.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
   %internalizable_.i9.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 56
   store i8 0, ptr %internalizable_.i9.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i, align 8
   %buf_2.i10.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 48
   %5 = load ptr, ptr %buf_2.i10.i.i.i, align 8
   store ptr %5, ptr %buf_.i8.i.i.i, align 8
@@ -42527,7 +42527,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4nod
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1149)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1152)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !1149, !noalias !1152
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %__cur.07.i.i.i, align 8, !alias.scope !1149, !noalias !1152
   %env_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 8
   %env_2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
   %8 = load ptr, ptr %env_2.i.i.i.i.i.i.i, align 8, !alias.scope !1152, !noalias !1149
@@ -42536,7 +42536,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4nod
   %buf_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
   %internalizable_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   store i8 0, ptr %internalizable_.i.i.i.i.i.i.i.i, align 8, !alias.scope !1149, !noalias !1152
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i, align 8, !alias.scope !1149, !noalias !1152
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i, align 8, !alias.scope !1149, !noalias !1152
   %buf_2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
   %9 = load ptr, ptr %buf_2.i.i.i.i.i.i.i.i, align 8, !alias.scope !1152, !noalias !1149
   store ptr %9, ptr %buf_.i.i.i.i.i.i.i.i, align 8, !alias.scope !1149, !noalias !1152
@@ -42545,7 +42545,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4nod
   %buf_.i8.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 48
   %internalizable_.i9.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 56
   store i8 0, ptr %internalizable_.i9.i.i.i.i.i.i.i, align 8, !alias.scope !1149, !noalias !1152
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i, align 8, !alias.scope !1149, !noalias !1152
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i, align 8, !alias.scope !1149, !noalias !1152
   %buf_2.i10.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 48
   %10 = load ptr, ptr %buf_2.i10.i.i.i.i.i.i.i, align 8, !alias.scope !1152, !noalias !1149
   store ptr %10, ptr %buf_.i8.i.i.i.i.i.i.i, align 8, !alias.scope !1149, !noalias !1152
@@ -42562,9 +42562,9 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4nod
   store i8 0, ptr %flags_6.i.i.i.i.i.i.i, align 4, !alias.scope !1152, !noalias !1149
   store ptr null, ptr %env_2.i.i.i.i.i.i.i, align 8, !alias.scope !1152, !noalias !1149
   %value_.i.i.i3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i3.i.i.i.i, align 8, !alias.scope !1152, !noalias !1149
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i3.i.i.i.i, align 8, !alias.scope !1152, !noalias !1149
   %name_.i.i.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i4.i.i.i.i, align 8, !alias.scope !1152, !noalias !1149
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i4.i.i.i.i, align 8, !alias.scope !1152, !noalias !1149
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 72
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 72
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -42581,7 +42581,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4node
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i31, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN4node8NgHeaderINS0_5http217Http2HeaderTraitsEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1154)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1157)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %__cur.07.i.i.i13, align 8, !alias.scope !1154, !noalias !1157
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node8NgHeaderINS_5http217Http2HeaderTraitsEEE, i64 16), ptr %__cur.07.i.i.i13, align 8, !alias.scope !1154, !noalias !1157
   %env_.i.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 8
   %env_2.i.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 8
   %13 = load ptr, ptr %env_2.i.i.i.i.i.i.i16, align 8, !alias.scope !1157, !noalias !1154
@@ -42590,7 +42590,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4node
   %buf_.i.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 24
   %internalizable_.i.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
   store i8 0, ptr %internalizable_.i.i.i.i.i.i.i.i19, align 8, !alias.scope !1154, !noalias !1157
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i17, align 8, !alias.scope !1154, !noalias !1157
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i.i.i.i.i17, align 8, !alias.scope !1154, !noalias !1157
   %buf_2.i.i.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 24
   %14 = load ptr, ptr %buf_2.i.i.i.i.i.i.i.i20, align 8, !alias.scope !1157, !noalias !1154
   store ptr %14, ptr %buf_.i.i.i.i.i.i.i.i18, align 8, !alias.scope !1154, !noalias !1157
@@ -42599,7 +42599,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4node
   %buf_.i8.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 48
   %internalizable_.i9.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 56
   store i8 0, ptr %internalizable_.i9.i.i.i.i.i.i.i23, align 8, !alias.scope !1154, !noalias !1157
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i21, align 8, !alias.scope !1154, !noalias !1157
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i.i.i.i.i21, align 8, !alias.scope !1154, !noalias !1157
   %buf_2.i10.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 48
   %15 = load ptr, ptr %buf_2.i10.i.i.i.i.i.i.i24, align 8, !alias.scope !1157, !noalias !1154
   store ptr %15, ptr %buf_.i8.i.i.i.i.i.i.i22, align 8, !alias.scope !1154, !noalias !1157
@@ -42616,9 +42616,9 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4node
   store i8 0, ptr %flags_6.i.i.i.i.i.i.i28, align 4, !alias.scope !1157, !noalias !1154
   store ptr null, ptr %env_2.i.i.i.i.i.i.i16, align 8, !alias.scope !1157, !noalias !1154
   %value_.i.i.i3.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i3.i.i.i.i29, align 8, !alias.scope !1157, !noalias !1154
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %value_.i.i.i3.i.i.i.i29, align 8, !alias.scope !1157, !noalias !1154
   %name_.i.i.i4.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i4.i.i.i.i30, align 8, !alias.scope !1157, !noalias !1154
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEEE, i64 16), ptr %name_.i.i.i4.i.i.i.i30, align 8, !alias.scope !1157, !noalias !1154
   %incdec.ptr.i.i.i31 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 72
   %incdec.ptr1.i.i.i32 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 72
   %cmp.not.i.i.i33 = icmp eq ptr %incdec.ptr.i.i.i31, %0
@@ -43269,7 +43269,7 @@ return:                                           ; preds = %_ZNK4node17BaseObje
 define linkonce_odr dso_local void @_ZN4node5http210Http2StateC2EPNS_5RealmEN2v85LocalINS4_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef %realm, ptr %obj.coerce) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %realm, ptr %obj.coerce) #28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http210Http2StateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http210Http2StateE, i64 16), ptr %this, align 8
   %root_buffer = getelementptr inbounds nuw i8, ptr %this, i64 32
   %isolate_.i = getelementptr inbounds nuw i8, ptr %realm, i64 184
   %0 = load ptr, ptr %isolate_.i, align 8
@@ -43302,7 +43302,7 @@ define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIhN2v810Uint8Arra
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Global.66", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 16), ptr %this, align 8
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %isolate, ptr %isolate_, align 8
   %count_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -43393,7 +43393,7 @@ define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIdN2v812Float64Ar
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Global.69", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 16), ptr %this, align 8
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %isolate, ptr %isolate_, align 8
   %count_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -43513,7 +43513,7 @@ define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIjN2v811Uint32Arr
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Global.72", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 16), ptr %this, align 8
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %isolate, ptr %isolate_, align 8
   %count_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -43642,7 +43642,7 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #28
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
   tail call void @_ZN4node5http212Http2Session9CallbacksC2Eb(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4node5http212Http2Session21callback_struct_savedE, i1 noundef zeroext false)
-  tail call void @_ZN4node5http212Http2Session9CallbacksC2Eb(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZN4node5http212Http2Session21callback_struct_savedE, i64 8), i1 noundef zeroext true)
+  tail call void @_ZN4node5http212Http2Session9CallbacksC2Eb(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN4node5http212Http2Session21callback_struct_savedE, i64 8), i1 noundef zeroext true)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #28
   ret void
 }

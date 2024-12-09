@@ -467,7 +467,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -488,7 +488,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv9ExceptionC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_i(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -732,7 +732,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1781,7 +1781,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv9ExceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull align 8 dereferenceable(148) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -2601,7 +2601,7 @@ _ZNK2cv7details14TlsAbstraction7getDataEv.exit.thread: ; preds = %7, %_ZNK2cv7de
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv16TLSDataContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
   %2 = load atomic i8, ptr @_ZGVZN2cv7detailsL13getTlsStorageEvE8instance acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN2cv7detailsL13getTlsStorageEv.exit, !prof !10
@@ -2823,7 +2823,7 @@ _ZNSt6vectorIN2cv7details10TlsStorage11TlsSlotInfoESaIS3_EE9push_backEOS3_.exit:
 define void @_ZN2cv16TLSDataContainerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
@@ -4240,7 +4240,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv14getCoreTl
           to label %8 unwind label %11
 
 8:                                                ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_11CoreTLSDataEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_11CoreTLSDataEEE, i64 16), ptr %6, align 8
   store ptr %6, ptr @_ZZN2cvL17getCoreTlsDataTLSEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL17getCoreTlsDataTLSEvE8instance) #28
   br label %_ZN2cvL17getCoreTlsDataTLSEv.exit
@@ -4287,7 +4287,7 @@ define noundef i32 @_ZN2cv5utils11getThreadIDEv() local_unnamed_addr #3 personal
           to label %8 unwind label %11
 
 8:                                                ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEEE, i64 16), ptr %6, align 8
   store ptr %6, ptr @_ZZN2cv12_GLOBAL__N_114getThreadIDTLSEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv12_GLOBAL__N_114getThreadIDTLSEvE8instance) #28
   br label %_ZN2cv12_GLOBAL__N_114getThreadIDTLSEv.exit
@@ -4872,7 +4872,7 @@ define void @_ZN2cv5instr8NodeDataC2EPKcS3_iPvbNS0_4TYPEENS0_4IMPLE(ptr noundef 
           to label %12 unwind label %33
 
 12:                                               ; preds = %8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -4944,7 +4944,7 @@ define void @_ZN2cv5instr8NodeDataC2EPKcS3_iPvbNS0_4TYPEENS0_4IMPLE(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEED2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %0, align 8
   invoke void @_ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(105) %0)
           to label %2 unwind label %9
 
@@ -4988,7 +4988,7 @@ define void @_ZN2cv5instr8NodeDataC2ERS1_(ptr noundef nonnull align 8 dereferenc
           to label %4 unwind label %42
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5113,7 +5113,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv5instr8NodeDataD2Ev(ptr noundef nonnull align 8 dereferenceable(196) initializes((80, 88)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %2, align 8
   invoke void @_ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(105) %2)
           to label %3 unwind label %10
 
@@ -5269,7 +5269,7 @@ define void @_ZN2cv7details24setFPDenormalsIgnoreHintEbRNS0_20FPDenormalsModeSta
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = select i1 %0, i32 32768, i32 0
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15featuresEnabledE, i64 4), align 1
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15featuresEnabledE, i64 4), align 1
   %7 = trunc i8 %6 to i1
   %8 = select i1 %0, i32 32832, i32 0
   %spec.select = select i1 %7, i32 %8, i32 %5
@@ -5297,7 +5297,7 @@ declare void @llvm.x86.sse.ldmxcsr(ptr) #28
 ; Function Attrs: mustprogress nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN2cv7details20saveFPDenormalsStateERNS0_20FPDenormalsModeStateE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 8)) %0) local_unnamed_addr #29 {
   %2 = alloca i32, align 4
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15featuresEnabledE, i64 4), align 1
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL15featuresEnabledE, i64 4), align 1
   %4 = trunc i8 %3 to i1
   %spec.select = select i1 %4, i32 32832, i32 32768
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %2)
@@ -5351,51 +5351,51 @@ define linkonce_odr hidden void @_ZN2cv10HWFeatures10initializeEv(ptr noundef no
 
 11:                                               ; preds = %6, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @_ZN2cvL16g_hwFeatureNamesE, i8 0, i64 4096, i1 false)
-  store ptr @.str.71, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 8), align 8
-  store ptr @.str.72, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 16), align 16
-  store ptr @.str.73, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 24), align 8
-  store ptr @.str.74, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 32), align 16
-  store ptr @.str.75, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 40), align 8
-  store ptr @.str.76, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 48), align 16
-  store ptr @.str.77, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 56), align 8
-  store ptr @.str.78, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 64), align 16
-  store ptr @.str.79, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 72), align 8
-  store ptr @.str.80, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 80), align 16
-  store ptr @.str.81, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 88), align 8
-  store ptr @.str.82, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 96), align 16
-  store ptr @.str.83, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 104), align 8
-  store ptr @.str.84, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 112), align 16
-  store ptr @.str.85, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 120), align 8
-  store ptr @.str.86, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 128), align 16
-  store ptr @.str.87, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 136), align 8
-  store ptr @.str.88, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 144), align 16
-  store ptr @.str.89, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 152), align 8
-  store ptr @.str.90, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 160), align 16
-  store ptr @.str.91, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 168), align 8
-  store ptr @.str.92, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 176), align 16
-  store ptr @.str.93, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 184), align 8
-  store ptr @.str.94, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 192), align 16
-  store ptr @.str.95, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 200), align 8
-  store ptr @.str.96, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 208), align 16
-  store ptr @.str.97, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 216), align 8
-  store ptr @.str.98, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 800), align 16
-  store ptr @.str.99, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 808), align 8
-  store ptr @.str.100, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 816), align 16
-  store ptr @.str.101, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 824), align 8
-  store ptr @.str.102, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1600), align 16
-  store ptr @.str.103, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1608), align 8
-  store ptr @.str.104, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1200), align 16
-  store ptr @.str.105, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1360), align 16
-  store ptr @.str.106, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2056), align 8
-  store ptr @.str.107, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2048), align 16
-  store ptr @.str.108, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2064), align 16
-  store ptr @.str.109, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2072), align 8
-  store ptr @.str.110, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2080), align 16
-  store ptr @.str.111, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2088), align 8
-  store ptr @.str.112, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2096), align 16
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1680), align 16
-  store ptr @.str.114, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1840), align 16
-  store ptr @.str.115, ptr getelementptr inbounds (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1848), align 8
+  store ptr @.str.71, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 8), align 8
+  store ptr @.str.72, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 16), align 16
+  store ptr @.str.73, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 24), align 8
+  store ptr @.str.74, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 32), align 16
+  store ptr @.str.75, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 40), align 8
+  store ptr @.str.76, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 48), align 16
+  store ptr @.str.77, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 56), align 8
+  store ptr @.str.78, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 64), align 16
+  store ptr @.str.79, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 72), align 8
+  store ptr @.str.80, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 80), align 16
+  store ptr @.str.81, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 88), align 8
+  store ptr @.str.82, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 96), align 16
+  store ptr @.str.83, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 104), align 8
+  store ptr @.str.84, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 112), align 16
+  store ptr @.str.85, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 120), align 8
+  store ptr @.str.86, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 128), align 16
+  store ptr @.str.87, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 136), align 8
+  store ptr @.str.88, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 144), align 16
+  store ptr @.str.89, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 152), align 8
+  store ptr @.str.90, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 160), align 16
+  store ptr @.str.91, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 168), align 8
+  store ptr @.str.92, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 176), align 16
+  store ptr @.str.93, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 184), align 8
+  store ptr @.str.94, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 192), align 16
+  store ptr @.str.95, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 200), align 8
+  store ptr @.str.96, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 208), align 16
+  store ptr @.str.97, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 216), align 8
+  store ptr @.str.98, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 800), align 16
+  store ptr @.str.99, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 808), align 8
+  store ptr @.str.100, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 816), align 16
+  store ptr @.str.101, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 824), align 8
+  store ptr @.str.102, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1600), align 16
+  store ptr @.str.103, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1608), align 8
+  store ptr @.str.104, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1200), align 16
+  store ptr @.str.105, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1360), align 16
+  store ptr @.str.106, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2056), align 8
+  store ptr @.str.107, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2048), align 16
+  store ptr @.str.108, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2064), align 16
+  store ptr @.str.109, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2072), align 8
+  store ptr @.str.110, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2080), align 16
+  store ptr @.str.111, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2088), align 8
+  store ptr @.str.112, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 2096), align 16
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1680), align 16
+  store ptr @.str.114, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1840), align 16
+  store ptr @.str.115, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cvL16g_hwFeatureNamesE, i64 1848), align 8
   %12 = tail call { i32, i32, i32, i32 } asm "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #48, !srcloc !25
   %13 = extractvalue { i32, i32, i32, i32 } %12, 0
   %14 = and i32 %13, 3584
@@ -6493,14 +6493,14 @@ _ZSt4fillIPPvS0_EvT_S2_RKT0_.exit:                ; preds = %.lr.ph.i.i.i71, %.l
 define linkonce_odr hidden void @_ZN2cv7TLSDataINS_11CoreTLSDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_11CoreTLSDataEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_11CoreTLSDataEEE, i64 16), ptr %0, align 8
   invoke void @_ZN2cv16TLSDataContainer7releaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0)
           to label %4 unwind label %14
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, -1
@@ -6651,14 +6651,14 @@ _ZN2cv11CoreTLSDataD2Ev.exit:                     ; preds = %4, %23, %36, %_ZNSt
 define internal void @_ZN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEEE, i64 16), ptr %0, align 8
   invoke void @_ZN2cv16TLSDataContainer7releaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0)
           to label %4 unwind label %14
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, -1
@@ -7418,7 +7418,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEED0Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %0, align 8
   invoke void @_ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(105) %0)
           to label %2 unwind label %9
 
@@ -7575,14 +7575,14 @@ _ZNSt6vectorIPN2cv5instr11NodeDataTlsESaIS3_EE9push_backEOS3_.exit: ; preds = %_
 define linkonce_odr hidden void @_ZN2cv7TLSDataINS_5instr11NodeDataTlsEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_5instr11NodeDataTlsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_5instr11NodeDataTlsEEE, i64 16), ptr %0, align 8
   invoke void @_ZN2cv16TLSDataContainer7releaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0)
           to label %4 unwind label %14
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, -1

@@ -56,7 +56,7 @@ define hidden void @log_message_begin(ptr noundef %0, ptr noundef %1, i32 nounde
 fill_location_stamp.exit:                         ; preds = %5, %7
   %.0.i.i = phi ptr [ %spec.select.i.i, %7 ], [ @.str.8, %5 ]
   %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @location_stamp, i64 noundef 293, ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef nonnull %.0.i.i, i32 noundef %2) #8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @location_stamp, i64 292), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @location_stamp, i64 292), align 4
   br label %14
 
 14:                                               ; preds = %fill_location_stamp.exit, %3

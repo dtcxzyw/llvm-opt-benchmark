@@ -295,7 +295,7 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.persist_msg_t, align 8
   store ptr null, ptr %1, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.50, ptr noundef %5) #13
   %6 = load ptr, ptr %1, align 8
   %7 = call i32 (ptr, i32, ...) @open(ptr noundef %6, i32 noundef 0) #13
@@ -654,7 +654,7 @@ declare i32 @dbd_conn_send_recv_direct(i16 noundef zeroext, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @slurmdbd_agent_send(i16 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %5 = and i64 %4, 67108864
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %17, label %6
@@ -728,7 +728,7 @@ define range(i32 -1, 1) i32 @slurmdbd_agent_send(i16 noundef zeroext %0, ptr nou
   %40 = phi ptr [ %32, %29 ], [ %27, %24 ]
   %41 = tail call i32 @slurm_list_count(ptr noundef nonnull %40) #13
   store i32 %41, ptr %3, align 4
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 632), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 632), align 8
   %43 = lshr i32 %42, 1
   %.not32 = icmp ult i32 %41, %43
   br i1 %.not32, label %56, label %44
@@ -743,7 +743,7 @@ define range(i32 -1, 1) i32 @slurmdbd_agent_send(i16 noundef zeroext %0, ptr nou
 49:                                               ; preds = %44
   %50 = tail call i64 @time(ptr noundef null) #13
   store i64 %50, ptr @slurmdbd_agent_send.syslog_time, align 8
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 632), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 632), align 8
   %52 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6, i32 noundef %41, i32 noundef %51) #13
   tail call void (i32, ptr, ...) @syslog(i32 noundef 2, ptr noundef nonnull @.str.7) #13
   %53 = load ptr, ptr @slurmdbd_conn, align 8
@@ -755,7 +755,7 @@ define range(i32 -1, 1) i32 @slurmdbd_agent_send(i16 noundef zeroext %0, ptr nou
 56:                                               ; preds = %49, %44, %39
   call fastcc void @_max_dbd_msg_action(ptr noundef %3)
   %57 = load i32, ptr %3, align 4
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 632), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 632), align 8
   %59 = icmp ult i32 %57, %58
   br i1 %59, label %60, label %62
 
@@ -833,7 +833,7 @@ define internal fastcc void @_max_dbd_msg_action(ptr nocapture noundef nonnull %
   %3 = alloca i16, align 2
   %.b = load i1, ptr @max_dbd_msg_action, align 4
   %4 = load i32, ptr %0, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 632), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 632), align 8
   br i1 %.b, label %6, label %10
 
 6:                                                ; preds = %1
@@ -868,7 +868,7 @@ define internal fastcc void @_max_dbd_msg_action(ptr nocapture noundef nonnull %
 
 20:                                               ; preds = %12, %19, %10
   %21 = load i32, ptr %0, align 4
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 632), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 632), align 8
   %23 = add i32 %22, -1
   %.not9 = icmp ult i32 %21, %23
   br i1 %.not9, label %32, label %24
@@ -924,22 +924,22 @@ define i32 @slurmdbd_agent_queue_count() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @slurmdbd_agent_config_setup() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 632), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 632), align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %9
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 636), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 636), align 4
   %5 = shl i32 %4, 1
   %6 = load i32, ptr @node_record_count, align 4
   %7 = shl nsw i32 %6, 2
   %8 = add i32 %7, %5
   %spec.select = tail call i32 @llvm.umax.i32(i32 %8, i32 10000)
-  store i32 %spec.select, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 632), align 8
+  store i32 %spec.select, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 632), align 8
   br label %9
 
 9:                                                ; preds = %3, %0
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1248), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %11 = tail call ptr @slurm_xstrcasestr(ptr noundef %10, ptr noundef nonnull @.str.10) #13
   %.not5 = icmp eq ptr %11, null
   br i1 %.not5, label %23, label %12
@@ -1061,7 +1061,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %29, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %31 = and i64 %30, 2251799813685248
   %.not104 = icmp eq i64 %31, 0
   br i1 %.not104, label %41, label %32
@@ -1109,7 +1109,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   br i1 %.b106, label %54, label %68
 
 54:                                               ; preds = %53
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %56 = and i64 %55, 2251799813685248
   %.not107 = icmp eq i64 %56, 0
   br i1 %.not107, label %63, label %57
@@ -1163,7 +1163,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
 86:                                               ; preds = %79
   %87 = call i64 @time(ptr noundef null) #13
   store i64 %87, ptr @_agent.fail_time, align 8
-  %88 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %89 = and i64 %88, 2251799813685248
   %.not109 = icmp eq i64 %89, 0
   br i1 %.not109, label %96, label %90
@@ -1231,7 +1231,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   call fastcc void @_max_dbd_msg_action(ptr noundef %8)
   %121 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #13
   call void @slurm_diff_tv_str(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 20, ptr noundef nonnull @.str.23, i64 noundef 0, ptr noundef nonnull %15) #13
-  %122 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %123 = and i64 %122, 2251799813685248
   %.not144 = icmp eq i64 %123, 0
   br i1 %.not144, label %130, label %124
@@ -1281,7 +1281,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   br i1 %143, label %147, label %144
 
 144:                                              ; preds = %141
-  %145 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %146 = and i64 %145, 2251799813685248
   %.not113 = icmp eq i64 %146, 0
   br i1 %.not113, label %151, label %147
@@ -1538,7 +1538,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %257 = load i16, ptr %256, align 8
   %258 = icmp ne i16 %257, 1434
-  %259 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
+  %259 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 16), align 8
   %.not16.i = icmp eq i16 %259, 0
   %or.cond.i = select i1 %258, i1 true, i1 %.not16.i
   br i1 %or.cond.i, label %268, label %260
@@ -1760,7 +1760,7 @@ _get_return_code.exit.thread:                     ; preds = %290, %210, %_get_re
 350:                                              ; preds = %349, %346
   %351 = call i64 @time(ptr noundef null) #13
   store i64 %351, ptr @_agent.fail_time, align 8
-  %352 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %352 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %353 = and i64 %352, 2251799813685248
   %.not128 = icmp eq i64 %353, 0
   br i1 %.not128, label %375, label %354
@@ -1846,7 +1846,7 @@ _print_agent_list_msg_types.exit:                 ; preds = %363, %368, %371
 
 383:                                              ; preds = %.loopexit
   call fastcc void @_save_dbd_state()
-  %384 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %384 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %385 = and i64 %384, 4503599627370496
   %.not135 = icmp eq i64 %385, 0
   br i1 %.not135, label %392, label %386
@@ -1959,7 +1959,7 @@ define internal fastcc void @_save_dbd_state() unnamed_addr #0 {
   %6 = alloca i16, align 2
   %7 = alloca [10 x i8], align 1
   store ptr null, ptr %5, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.50, ptr noundef %8) #13
   %9 = load ptr, ptr %5, align 8
   %10 = call i32 @unlink(ptr noundef %9) #13
@@ -2247,7 +2247,7 @@ define internal fastcc i32 @_unpack_return_code(ptr noundef %0) unnamed_addr #0 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %18 = and i64 %17, 67108864
   %.not36 = icmp eq i64 %18, 0
   br i1 %.not36, label %27, label %19
@@ -2279,7 +2279,7 @@ define internal fastcc i32 @_unpack_return_code(ptr noundef %0) unnamed_addr #0 
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %36 = and i64 %35, 67108864
   %.not33 = icmp eq i64 %36, 0
   br i1 %.not33, label %49, label %37
@@ -2309,7 +2309,7 @@ define internal fastcc i32 @_unpack_return_code(ptr noundef %0) unnamed_addr #0 
   %51 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %52 = load i16, ptr %51, align 8
   %53 = icmp ne i16 %52, 1434
-  %54 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 16), align 8
+  %54 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 16), align 8
   %.not35 = icmp eq i16 %54, 0
   %or.cond = select i1 %53, i1 true, i1 %.not35
   br i1 %or.cond, label %61, label %55

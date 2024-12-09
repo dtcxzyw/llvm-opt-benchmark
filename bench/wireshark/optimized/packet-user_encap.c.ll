@@ -89,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_user_encap() local_unnamed_addr #0 {
   %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str) #3
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @user2_encap, i64 16), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @user2_encap, i64 16), align 8
   br label %2
 
 2:                                                ; preds = %0, %2

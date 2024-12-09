@@ -413,7 +413,7 @@ if.else:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb29TransactionDBMutexFactoryImplE, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb29TransactionDBMutexFactoryImplE, i64 16), ptr %call2, align 8
   invoke void @_ZNSt12__shared_ptrIN7rocksdb25TransactionDBMutexFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_29TransactionDBMutexFactoryImplEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %use_factory, ptr noundef nonnull %call2)
           to label %if.end unwind label %lpad
 
@@ -668,7 +668,7 @@ _ZNSt12__shared_ptrIN7rocksdb25TransactionDBMutexFactoryELN9__gnu_cxx12_Lock_pol
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb29TransactionDBMutexFactoryImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb29TransactionDBMutexFactoryImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i, align 8
   %_M_ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i.i.i, align 8
   store ptr %__p, ptr %this, align 8
@@ -3065,8 +3065,8 @@ define void @_ZN7rocksdb20RangeTreeLockManagerC2ESt10shared_ptrINS_25Transaction
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i64 224), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i64 224), ptr %0, align 8
   %ltm_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %mutex_factory.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mutex_factory.i, i8 0, i64 16, i1 false)
@@ -4589,9 +4589,9 @@ _ZNSt12_Vector_baseIN7rocksdb12DeadlockPathESaIS1_EED2Ev.exit: ; preds = %invoke
 define void @_ZN7rocksdb20RangeTreeLockManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(656) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %local_caches = alloca %"class.rocksdb::autovector.131", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i64 224), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i64 224), ptr %add.ptr, align 8
   store i64 0, ptr %local_caches, align 8
   %values_.i = getelementptr inbounds nuw i8, ptr %local_caches, i64 72
   %buf_.i = getelementptr inbounds nuw i8, ptr %local_caches, i64 8
@@ -5222,7 +5222,7 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont8.i.i.i.
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES2_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVSt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES2_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 16
   %6 = ptrtoint ptr %ltm_ to i64
   store i64 %6, ptr %_M_impl.i.i.i.i.i, align 8
@@ -5361,7 +5361,7 @@ invoke.cont22:                                    ; preds = %invoke.cont16
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !45
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !45
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVSt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES2_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i4.i.i.i.i.i, align 8, !noalias !45
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVSt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES2_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE", i64 16), ptr %call5.i.i.i4.i.i.i.i.i, align 8, !noalias !45
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i.i, i64 16
   %17 = ptrtoint ptr %ltm_ to i64
   store i64 %17, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !45
@@ -6822,7 +6822,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7rocksdb27RangeTreeLockTrackerFactory3GetEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb27RangeTreeLockTrackerFactoryE, i64 16), ptr @_ZZN7rocksdb27RangeTreeLockTrackerFactory3GetEvE8instance, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb27RangeTreeLockTrackerFactoryE, i64 16), ptr @_ZZN7rocksdb27RangeTreeLockTrackerFactory3GetEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb27RangeTreeLockTrackerFactory3GetEvE8instance) #24
   br label %_ZN7rocksdb27RangeTreeLockTrackerFactory3GetEv.exit
 
@@ -7958,7 +7958,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 define linkonce_odr noundef ptr @_ZNK7rocksdb27RangeTreeLockTrackerFactory6CreateEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20RangeTreeLockTrackerE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb20RangeTreeLockTrackerE, i64 16), ptr %call, align 8
   %range_list_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %range_list_.i, align 8
   ret ptr %call

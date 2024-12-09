@@ -276,9 +276,9 @@ UpdateSharedMemoryConfig.exit.i:                  ; preds = %91, %89, %87
 
 94:                                               ; preds = %UpdateSharedMemoryConfig.exit.i
   store i8 1, ptr @ExitOnAnyError, align 1
-  %95 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
+  %95 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   %96 = add i64 %95, 1
-  store i64 %96, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
+  store i64 %96, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   call void @ShutdownXLOG(i32 noundef 0, i64 noundef 0) #13
   call void @pgstat_report_checkpointer() #13
   call void @pgstat_report_wal(i1 noundef zeroext true) #13
@@ -353,9 +353,9 @@ HandleCheckpointerInterrupts.exit:                ; preds = %97, %99
   br i1 %.not51, label %136, label %141
 
 .thread72:                                        ; preds = %130
-  %132 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 16), align 8
+  %132 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 16), align 8
   %133 = add i64 %132, 1
-  store i64 %133, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 16), align 8
+  store i64 %133, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 16), align 8
   br label %141
 
 .thread:                                          ; preds = %130
@@ -368,15 +368,15 @@ HandleCheckpointerInterrupts.exit:                ; preds = %97, %99
   br i1 %spec.select60, label %.thread73, label %.thread71
 
 .thread73:                                        ; preds = %136
-  %137 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 24), align 8
+  %137 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 24), align 8
   %138 = add i64 %137, 1
-  store i64 %138, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 24), align 8
+  store i64 %138, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 24), align 8
   br label %141
 
 .thread71:                                        ; preds = %136
-  %139 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
+  %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   %140 = add i64 %139, 1
-  store i64 %140, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
+  store i64 %140, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   br label %141
 
 141:                                              ; preds = %.thread72, %.thread, %.thread73, %.thread71, %131
@@ -455,9 +455,9 @@ HandleCheckpointerInterrupts.exit:                ; preds = %97, %99
   br i1 %spec.select60, label %174, label %182
 
 174:                                              ; preds = %173
-  %175 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 32), align 8
+  %175 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 32), align 8
   %176 = add i64 %175, 1
-  store i64 %176, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 32), align 8
+  store i64 %176, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 32), align 8
   br label %182
 
 177:                                              ; preds = %165
@@ -503,9 +503,9 @@ UpdateSharedMemoryConfig.exit.i66:                ; preds = %189, %187, %185
 
 192:                                              ; preds = %UpdateSharedMemoryConfig.exit.i66
   store i8 1, ptr @ExitOnAnyError, align 1
-  %193 = load i64, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
+  %193 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   %194 = add i64 %193, 1
-  store i64 %194, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 8), align 8
+  store i64 %194, ptr getelementptr inbounds nuw (i8, ptr @PendingCheckpointerStats, i64 8), align 8
   call void @ShutdownXLOG(i32 noundef 0, i64 noundef 0) #13
   call void @pgstat_report_checkpointer() #13
   call void @pgstat_report_wal(i1 noundef zeroext true) #13

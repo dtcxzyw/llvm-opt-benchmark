@@ -99,38 +99,38 @@ define ptr @_ZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 8), align 8
-  store ptr @.str.2, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 16), align 16
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 16), align 16
   %12 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__17SdfValueTypeNamesE)
           to label %13 unwind label %36
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 24), align 8
-  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 32), align 16
+  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 24), align 8
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 32), align 16
   %16 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__17SdfValueTypeNamesE)
           to label %17 unwind label %36
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %19 = load i64, ptr %18, align 8
-  store i64 %19, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 40), align 8
-  store ptr @.str.4, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 48), align 16
+  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 40), align 8
+  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 48), align 16
   %20 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__17SdfValueTypeNamesE)
           to label %21 unwind label %36
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 216
   %23 = load i64, ptr %22, align 8
-  store i64 %23, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 56), align 8
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 64), align 16
+  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 56), align 8
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 64), align 16
   %24 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__17SdfValueTypeNamesE)
           to label %25 unwind label %36
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 360
   %27 = load i64, ptr %26, align 8
-  store i64 %27, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 72), align 8
+  store i64 %27, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 72), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map) #8
   br label %.preheader
 

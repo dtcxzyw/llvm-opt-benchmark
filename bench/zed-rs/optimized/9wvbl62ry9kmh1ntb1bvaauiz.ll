@@ -49138,7 +49138,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb34026e520eaab3eE.llvm.9209388363636740337.exit": ; preds = %31, %_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740337.exit
-  %.sroa.0.0.i.i.i81 = phi ptr [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740337.exit ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %31 ]
+  %.sroa.0.0.i.i.i81 = phi ptr [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740337.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %31 ]
   %36 = load i64, ptr %.sroa.0.0.i.i.i81, align 8, !noalias !15265, !noundef !11
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i81, i64 8
   %38 = load i64, ptr %37, align 8, !noalias !15265, !noundef !11
@@ -49188,7 +49188,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740
   unreachable
 
 .noexc.thread:                                    ; preds = %40, %.noexc
-  %.sroa.0.0.i.i.i4187 = phi ptr [ %43, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %40 ]
+  %.sroa.0.0.i.i.i4187 = phi ptr [ %43, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %40 ]
   %50 = load i64, ptr %.sroa.0.0.i.i.i4187, align 8, !noalias !15276, !noundef !11
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i4187, i64 8
   %52 = load i64, ptr %51, align 8, !noalias !15276, !noundef !11
@@ -49557,7 +49557,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb34026e520eaab3eE.llvm.9209388363636740337.exit": ; preds = %40, %_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740337.exit
-  %.sroa.0.0.i.i.i86 = phi ptr [ %42, %_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740337.exit ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %40 ]
+  %.sroa.0.0.i.i.i86 = phi ptr [ %42, %_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740337.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %40 ]
   %45 = load i64, ptr %.sroa.0.0.i.i.i86, align 8, !noalias !15353, !noundef !11
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i86, i64 8
   %47 = load i64, ptr %46, align 8, !noalias !15353, !noundef !11
@@ -49662,7 +49662,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740
   unreachable
 
 .noexc.thread:                                    ; preds = %49, %.noexc
-  %.sroa.0.0.i.i.i4692 = phi ptr [ %52, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %49 ]
+  %.sroa.0.0.i.i.i4692 = phi ptr [ %52, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %49 ]
   %76 = load i64, ptr %.sroa.0.0.i.i.i4692, align 8, !noalias !15377, !noundef !11
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i4692, i64 8
   %78 = load i64, ptr %77, align 8, !noalias !15377, !noundef !11
@@ -50340,7 +50340,7 @@ define hidden noundef ptr @_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137af
   br label %"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h44cab6390bd42821E.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h44cab6390bd42821E.exit": ; preds = %1, %3
-  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -101737,7 +101737,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb34026e520eaab3eE.llvm.9209388363636740337.exit": ; preds = %7, %_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740337.exit
-  %.sroa.0.0.i.i.i17 = phi ptr [ %17, %_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740337.exit ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %7 ]
+  %.sroa.0.0.i.i.i17 = phi ptr [ %17, %_ZN4core3ops8function6FnOnce9call_once17h7c9c6fd137afe649E.llvm.9209388363636740337.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %7 ]
   %20 = load i64, ptr %.sroa.0.0.i.i.i17, align 8, !noalias !27519, !noundef !11
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i17, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !27519, !noundef !11

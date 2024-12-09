@@ -9998,7 +9998,7 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp17, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
-  %6 = load float, ptr getelementptr inbounds (i8, ptr @stbir__srgb_uchar_to_linear_float, i64 4), align 4
+  %6 = load float, ptr getelementptr inbounds nuw (i8, ptr @stbir__srgb_uchar_to_linear_float, i64 4), align 4
   store float %6, ptr %decodep.pn.lcssa, align 4
   %7 = load i8, ptr %input.0.lcssa, align 1
   %conv21 = uitofp i8 %7 to float

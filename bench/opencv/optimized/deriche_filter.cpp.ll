@@ -339,7 +339,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit33: ; preds = %55, %58
   br label %.body
 
 89:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientDericheYColsE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientDericheYColsE, i64 16), ptr %13, align 8
   store ptr %60, ptr %28, align 8
   store ptr %65, ptr %29, align 8
   store double %2, ptr %30, align 8
@@ -394,7 +394,7 @@ _ZN2cv8ximgproc28ParallelGradientDericheYColsC2ERNS_3MatES3_dd.exit: ; preds = %
   %107 = getelementptr inbounds %"class.cv::Mat", ptr %106, i64 %.02566
   %108 = load ptr, ptr %8, align 8
   %109 = getelementptr inbounds %"class.cv::Mat", ptr %108, i64 %.02566
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientDericheYRowsE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientDericheYRowsE, i64 16), ptr %15, align 8
   store ptr %107, ptr %34, align 8
   store ptr %109, ptr %35, align 8
   store double %2, ptr %36, align 8
@@ -834,7 +834,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit33: ; preds = %55, %58
   br label %.body
 
 89:                                               ; preds = %68
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientDericheXRowsE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientDericheXRowsE, i64 16), ptr %13, align 8
   store ptr %60, ptr %28, align 8
   store ptr %65, ptr %29, align 8
   store double %2, ptr %30, align 8
@@ -889,7 +889,7 @@ _ZN2cv8ximgproc28ParallelGradientDericheXRowsC2ERNS_3MatES3_dd.exit: ; preds = %
   %107 = getelementptr inbounds %"class.cv::Mat", ptr %106, i64 %.02566
   %108 = load ptr, ptr %8, align 8
   %109 = getelementptr inbounds %"class.cv::Mat", ptr %108, i64 %.02566
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientDericheXColsE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc28ParallelGradientDericheXColsE, i64 16), ptr %15, align 8
   store ptr %107, ptr %34, align 8
   store ptr %109, ptr %35, align 8
   store double %2, ptr %36, align 8

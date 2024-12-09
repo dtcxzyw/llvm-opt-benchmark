@@ -501,7 +501,7 @@ define dso_local void @_ZN5clang6Parser24initializePragmaHandlersEv(ptr noundef 
   %95 = alloca %"class.std::allocator.80", align 1
   %96 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %95), !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %96, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %96, align 8, !noalias !4
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #20, !noalias !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %94), !noalias !4
@@ -516,7 +516,7 @@ define dso_local void @_ZN5clang6Parser24initializePragmaHandlersEv(ptr noundef 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94), !noalias !4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #20, !noalias !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %95), !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118PragmaAlignHandlerE, i64 16), ptr %96, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118PragmaAlignHandlerE, i64 16), ptr %96, align 8, !noalias !4
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %105 = load ptr, ptr %104, align 8
   store ptr %96, ptr %104, align 8
@@ -538,7 +538,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_118PragmaAlignHandlerESt14default_deleteIS1_EED2
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %111, ptr null, i64 0, ptr noundef %109) #20
   %112 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %93), !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %112, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %112, align 8, !noalias !7
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #20, !noalias !7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92), !noalias !7
@@ -553,7 +553,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_118PragmaAlignHandlerESt14default_deleteIS1_EED2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92), !noalias !7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #20, !noalias !7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %93), !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126PragmaGCCVisibilityHandlerE, i64 16), ptr %112, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126PragmaGCCVisibilityHandlerE, i64 16), ptr %112, align 8, !noalias !7
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %121 = load ptr, ptr %120, align 8
   store ptr %112, ptr %120, align 8
@@ -574,7 +574,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_126PragmaGCCVisibilityHandlerESt14default_delete
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %126, ptr nonnull @.str, i64 3, ptr noundef %125) #20
   %127 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %91), !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %127, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %127, align 8, !noalias !10
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #20, !noalias !10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90), !noalias !10
@@ -589,7 +589,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_126PragmaGCCVisibilityHandlerESt14default_delete
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90), !noalias !10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #20, !noalias !10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %91), !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120PragmaOptionsHandlerE, i64 16), ptr %127, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120PragmaOptionsHandlerE, i64 16), ptr %127, align 8, !noalias !10
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %136 = load ptr, ptr %135, align 8
   store ptr %127, ptr %135, align 8
@@ -610,7 +610,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120PragmaOptionsHandlerESt14default_deleteIS1_EE
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %141, ptr null, i64 0, ptr noundef %140) #20
   %142 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %89), !noalias !13
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %142, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %142, align 8, !noalias !13
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #20, !noalias !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88), !noalias !13
@@ -625,7 +625,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120PragmaOptionsHandlerESt14default_deleteIS1_EE
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %88), !noalias !13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #20, !noalias !13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %89), !noalias !13
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117PragmaPackHandlerE, i64 16), ptr %142, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117PragmaPackHandlerE, i64 16), ptr %142, align 8, !noalias !13
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %151 = load ptr, ptr %150, align 8
   store ptr %142, ptr %150, align 8
@@ -646,7 +646,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117PragmaPackHandlerESt14default_deleteIS1_EED2E
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %156, ptr null, i64 0, ptr noundef %155) #20
   %157 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %87), !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %157, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %157, align 8, !noalias !16
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #20, !noalias !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86), !noalias !16
@@ -661,7 +661,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117PragmaPackHandlerESt14default_deleteIS1_EED2E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86), !noalias !16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #20, !noalias !16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %87), !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121PragmaMSStructHandlerE, i64 16), ptr %157, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121PragmaMSStructHandlerE, i64 16), ptr %157, align 8, !noalias !16
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %166 = load ptr, ptr %165, align 8
   store ptr %157, ptr %165, align 8
@@ -682,7 +682,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121PragmaMSStructHandlerESt14default_deleteIS1_E
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %171, ptr null, i64 0, ptr noundef %170) #20
   %172 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !19
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %85), !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %172, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %172, align 8, !noalias !19
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #20, !noalias !19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84), !noalias !19
@@ -697,7 +697,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121PragmaMSStructHandlerESt14default_deleteIS1_E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84), !noalias !19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #20, !noalias !19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %85), !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_119PragmaUnusedHandlerE, i64 16), ptr %172, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_119PragmaUnusedHandlerE, i64 16), ptr %172, align 8, !noalias !19
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %181 = load ptr, ptr %180, align 8
   store ptr %172, ptr %180, align 8
@@ -718,7 +718,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119PragmaUnusedHandlerESt14default_deleteIS1_EED
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %186, ptr null, i64 0, ptr noundef %185) #20
   %187 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !22
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %83), !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %187, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %187, align 8, !noalias !22
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #20, !noalias !22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82), !noalias !22
@@ -733,7 +733,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119PragmaUnusedHandlerESt14default_deleteIS1_EED
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82), !noalias !22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #20, !noalias !22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %83), !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117PragmaWeakHandlerE, i64 16), ptr %187, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117PragmaWeakHandlerE, i64 16), ptr %187, align 8, !noalias !22
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %196 = load ptr, ptr %195, align 8
   store ptr %187, ptr %195, align 8
@@ -754,7 +754,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117PragmaWeakHandlerESt14default_deleteIS1_EED2E
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %201, ptr null, i64 0, ptr noundef %200) #20
   %202 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %81), !noalias !25
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %202, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %202, align 8, !noalias !25
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #20, !noalias !25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80), !noalias !25
@@ -769,7 +769,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117PragmaWeakHandlerESt14default_deleteIS1_EED2E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80), !noalias !25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #20, !noalias !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %81), !noalias !25
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_128PragmaRedefineExtnameHandlerE, i64 16), ptr %202, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_128PragmaRedefineExtnameHandlerE, i64 16), ptr %202, align 8, !noalias !25
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %211 = load ptr, ptr %210, align 8
   store ptr %202, ptr %210, align 8
@@ -790,7 +790,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaRedefineExtnameHandlerESt14default_dele
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %216, ptr null, i64 0, ptr noundef %215) #20
   %217 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !28
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %79), !noalias !28
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %217, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %217, align 8, !noalias !28
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #20, !noalias !28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78), !noalias !28
@@ -805,7 +805,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaRedefineExtnameHandlerESt14default_dele
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78), !noalias !28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #20, !noalias !28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %79), !noalias !28
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaFPContractHandlerE, i64 16), ptr %217, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaFPContractHandlerE, i64 16), ptr %217, align 8, !noalias !28
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %226 = load ptr, ptr %225, align 8
   store ptr %217, ptr %225, align 8
@@ -826,7 +826,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaFPContractHandlerESt14default_deleteIS1
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %231, ptr nonnull @.str.1, i64 4, ptr noundef %230) #20
   %232 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !31
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %77), !noalias !31
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %232, align 8, !noalias !31
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %232, align 8, !noalias !31
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #20, !noalias !31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76), !noalias !31
@@ -841,7 +841,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaFPContractHandlerESt14default_deleteIS1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76), !noalias !31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #20, !noalias !31
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %77), !noalias !31
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_129PragmaSTDC_FENV_ACCESSHandlerE, i64 16), ptr %232, align 8, !noalias !31
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_129PragmaSTDC_FENV_ACCESSHandlerE, i64 16), ptr %232, align 8, !noalias !31
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %241 = load ptr, ptr %240, align 8
   store ptr %232, ptr %240, align 8
@@ -862,7 +862,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_129PragmaSTDC_FENV_ACCESSHandlerESt14default_del
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %246, ptr nonnull @.str.1, i64 4, ptr noundef %245) #20
   %247 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !34
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %75), !noalias !34
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %247, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %247, align 8, !noalias !34
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #20, !noalias !34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74), !noalias !34
@@ -877,7 +877,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_129PragmaSTDC_FENV_ACCESSHandlerESt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74), !noalias !34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #20, !noalias !34
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %75), !noalias !34
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_128PragmaSTDC_FENV_ROUNDHandlerE, i64 16), ptr %247, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_128PragmaSTDC_FENV_ROUNDHandlerE, i64 16), ptr %247, align 8, !noalias !34
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %256 = load ptr, ptr %255, align 8
   store ptr %247, ptr %255, align 8
@@ -898,7 +898,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaSTDC_FENV_ROUNDHandlerESt14default_dele
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %261, ptr nonnull @.str.1, i64 4, ptr noundef %260) #20
   %262 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !37
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %73), !noalias !37
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %262, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %262, align 8, !noalias !37
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #20, !noalias !37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72), !noalias !37
@@ -913,7 +913,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaSTDC_FENV_ROUNDHandlerESt14default_dele
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72), !noalias !37
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #20, !noalias !37
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %73), !noalias !37
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_134PragmaSTDC_CX_LIMITED_RANGEHandlerE, i64 16), ptr %262, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_134PragmaSTDC_CX_LIMITED_RANGEHandlerE, i64 16), ptr %262, align 8, !noalias !37
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %271 = load ptr, ptr %270, align 8
   store ptr %262, ptr %270, align 8
@@ -934,10 +934,10 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_134PragmaSTDC_CX_LIMITED_RANGEHandlerESt14defaul
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %276, ptr nonnull @.str.1, i64 4, ptr noundef %275) #20
   %277 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %277, i8 0, i64 40, i1 false), !noalias !40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %277, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %277, align 8, !noalias !40
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %278) #20, !noalias !40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaSTDC_UnknownHandlerE, i64 16), ptr %277, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaSTDC_UnknownHandlerE, i64 16), ptr %277, align 8, !noalias !40
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %280 = load ptr, ptr %279, align 8
   store ptr %277, ptr %279, align 8
@@ -960,7 +960,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaSTDC_UnknownHandlerESt14default_deleteI
   %287 = load ptr, ptr %286, align 8
   %288 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19, !noalias !43
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %71), !noalias !43
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %288, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %288, align 8, !noalias !43
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #20, !noalias !43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70), !noalias !43
@@ -975,7 +975,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaSTDC_UnknownHandlerESt14default_deleteI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70), !noalias !43
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #20, !noalias !43
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %71), !noalias !43
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaClangSectionHandlerE, i64 16), ptr %288, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaClangSectionHandlerE, i64 16), ptr %288, align 8, !noalias !43
   %296 = getelementptr inbounds nuw i8, ptr %288, i64 40
   store ptr %287, ptr %296, align 8, !noalias !43
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -1008,7 +1008,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaClangSectionHandlerESt14default_deleteI
 310:                                              ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaClangSectionHandlerESt14default_deleteIS1_EED2Ev.exit
   %311 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !46
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %69), !noalias !46
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %311, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %311, align 8, !noalias !46
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #20, !noalias !46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68), !noalias !46
@@ -1023,7 +1023,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaClangSectionHandlerESt14default_deleteI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68), !noalias !46
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #20, !noalias !46
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %69), !noalias !46
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_128PragmaOpenCLExtensionHandlerE, i64 16), ptr %311, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_128PragmaOpenCLExtensionHandlerE, i64 16), ptr %311, align 8, !noalias !46
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %320 = load ptr, ptr %319, align 8
   store ptr %311, ptr %319, align 8
@@ -1063,7 +1063,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaOpenCLExtensionHandlerESt14default_dele
 
 336:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %67), !noalias !50
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %333, align 8, !noalias !50
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %333, align 8, !noalias !50
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #20, !noalias !50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66), !noalias !50
   %337 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 3, ptr nonnull @.str.134) #20, !noalias !50
@@ -1077,7 +1077,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaOpenCLExtensionHandlerESt14default_dele
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66), !noalias !50
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #20, !noalias !50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %67), !noalias !50
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_119PragmaOpenMPHandlerE, i64 16), ptr %333, align 8, !noalias !50
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_119PragmaOpenMPHandlerE, i64 16), ptr %333, align 8, !noalias !50
   %343 = load ptr, ptr %335, align 8
   store ptr %333, ptr %335, align 8
   %.not.i.i.i48 = icmp eq ptr %343, null
@@ -1085,7 +1085,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaOpenCLExtensionHandlerESt14default_dele
 
 344:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %65), !noalias !53
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %333, align 8, !noalias !53
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %333, align 8, !noalias !53
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #20, !noalias !53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64), !noalias !53
   %345 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 3, ptr nonnull @.str.134) #20, !noalias !53
@@ -1099,7 +1099,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaOpenCLExtensionHandlerESt14default_dele
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64), !noalias !53
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #20, !noalias !53
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %65), !noalias !53
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121PragmaNoOpenMPHandlerE, i64 16), ptr %333, align 8, !noalias !53
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121PragmaNoOpenMPHandlerE, i64 16), ptr %333, align 8, !noalias !53
   %351 = load ptr, ptr %335, align 8
   store ptr %333, ptr %335, align 8
   %.not.i.i.i51 = icmp eq ptr %351, null
@@ -1132,7 +1132,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119PragmaOpenMPHandlerESt14default_deleteIS1_EED
 
 367:                                              ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119PragmaOpenMPHandlerESt14default_deleteIS1_EED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %63), !noalias !56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %364, align 8, !noalias !56
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %364, align 8, !noalias !56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #20, !noalias !56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62), !noalias !56
   %368 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 3, ptr nonnull @.str.135) #20, !noalias !56
@@ -1146,7 +1146,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119PragmaOpenMPHandlerESt14default_deleteIS1_EED
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62), !noalias !56
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #20, !noalias !56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %63), !noalias !56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120PragmaOpenACCHandlerE, i64 16), ptr %364, align 8, !noalias !56
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120PragmaOpenACCHandlerE, i64 16), ptr %364, align 8, !noalias !56
   %374 = load ptr, ptr %366, align 8
   store ptr %364, ptr %366, align 8
   %.not.i.i.i54 = icmp eq ptr %374, null
@@ -1154,7 +1154,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119PragmaOpenMPHandlerESt14default_deleteIS1_EED
 
 375:                                              ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119PragmaOpenMPHandlerESt14default_deleteIS1_EED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %61), !noalias !59
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %364, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %364, align 8, !noalias !59
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #20, !noalias !59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60), !noalias !59
   %376 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 3, ptr nonnull @.str.135) #20, !noalias !59
@@ -1168,7 +1168,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119PragmaOpenMPHandlerESt14default_deleteIS1_EED
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60), !noalias !59
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #20, !noalias !59
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %61), !noalias !59
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaNoOpenACCHandlerE, i64 16), ptr %364, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaNoOpenACCHandlerE, i64 16), ptr %364, align 8, !noalias !59
   %382 = load ptr, ptr %366, align 8
   store ptr %364, ptr %366, align 8
   %.not.i.i.i57 = icmp eq ptr %382, null
@@ -1207,7 +1207,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120PragmaOpenACCHandlerESt14default_deleteIS1_EE
   %401 = load ptr, ptr %286, align 8
   %402 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19, !noalias !62
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %59), !noalias !62
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %402, align 8, !noalias !62
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %402, align 8, !noalias !62
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #20, !noalias !62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58), !noalias !62
@@ -1222,7 +1222,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120PragmaOpenACCHandlerESt14default_deleteIS1_EE
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58), !noalias !62
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #20, !noalias !62
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %59), !noalias !62
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120PragmaCommentHandlerE, i64 16), ptr %402, align 8, !noalias !62
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120PragmaCommentHandlerE, i64 16), ptr %402, align 8, !noalias !62
   %410 = getelementptr inbounds nuw i8, ptr %402, i64 40
   store ptr %401, ptr %410, align 8, !noalias !62
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -1248,7 +1248,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120PragmaCommentHandlerESt14default_deleteIS1_EE
 418:                                              ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_120PragmaCommentHandlerESt14default_deleteIS1_EED2Ev.exit, %394
   %419 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !65
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %57), !noalias !65
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %419, align 8, !noalias !65
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %419, align 8, !noalias !65
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #20, !noalias !65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56), !noalias !65
@@ -1263,7 +1263,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120PragmaCommentHandlerESt14default_deleteIS1_EE
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56), !noalias !65
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #20, !noalias !65
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %57), !noalias !65
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaFloatControlHandlerE, i64 16), ptr %419, align 8, !noalias !65
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaFloatControlHandlerE, i64 16), ptr %419, align 8, !noalias !65
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %428 = load ptr, ptr %427, align 8
   store ptr %419, ptr %427, align 8
@@ -1294,7 +1294,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaFloatControlHandlerESt14default_deleteI
   %440 = load ptr, ptr %286, align 8
   %441 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19, !noalias !68
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %55), !noalias !68
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %441, align 8, !noalias !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %441, align 8, !noalias !68
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #20, !noalias !68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54), !noalias !68
@@ -1309,7 +1309,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaFloatControlHandlerESt14default_deleteI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54), !noalias !68
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #20, !noalias !68
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55), !noalias !68
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_127PragmaDetectMismatchHandlerE, i64 16), ptr %441, align 8, !noalias !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_127PragmaDetectMismatchHandlerE, i64 16), ptr %441, align 8, !noalias !68
   %449 = getelementptr inbounds nuw i8, ptr %441, i64 40
   store ptr %440, ptr %449, align 8, !noalias !68
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -1332,7 +1332,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_127PragmaDetectMismatchHandlerESt14default_delet
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %456, ptr null, i64 0, ptr noundef %455) #20
   %457 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !71
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %53), !noalias !71
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %457, align 8, !noalias !71
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %457, align 8, !noalias !71
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #20, !noalias !71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52), !noalias !71
@@ -1347,7 +1347,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_127PragmaDetectMismatchHandlerESt14default_delet
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52), !noalias !71
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #20, !noalias !71
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53), !noalias !71
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaMSPointersToMembersE, i64 16), ptr %457, align 8, !noalias !71
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaMSPointersToMembersE, i64 16), ptr %457, align 8, !noalias !71
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %466 = load ptr, ptr %465, align 8
   store ptr %457, ptr %465, align 8
@@ -1368,7 +1368,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaMSPointersToMembersESt14default_deleteI
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %471, ptr null, i64 0, ptr noundef %470) #20
   %472 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !74
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %51), !noalias !74
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %472, align 8, !noalias !74
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %472, align 8, !noalias !74
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #20, !noalias !74
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !74
@@ -1383,7 +1383,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaMSPointersToMembersESt14default_deleteI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !74
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #20, !noalias !74
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51), !noalias !74
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_116PragmaMSVtorDispE, i64 16), ptr %472, align 8, !noalias !74
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_116PragmaMSVtorDispE, i64 16), ptr %472, align 8, !noalias !74
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %481 = load ptr, ptr %480, align 8
   store ptr %472, ptr %480, align 8
@@ -1404,7 +1404,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116PragmaMSVtorDispESt14default_deleteIS1_EED2Ev
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %486, ptr null, i64 0, ptr noundef %485) #20
   %487 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !77
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %49), !noalias !77
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %487, align 8, !noalias !77
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %487, align 8, !noalias !77
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #20, !noalias !77
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !77
@@ -1419,7 +1419,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116PragmaMSVtorDispESt14default_deleteIS1_EED2Ev
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48), !noalias !77
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #20, !noalias !77
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %49), !noalias !77
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %487, align 8, !noalias !77
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %487, align 8, !noalias !77
   %495 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %496 = load ptr, ptr %495, align 8
   store ptr %487, ptr %495, align 8
@@ -1440,7 +1440,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %501, ptr null, i64 0, ptr noundef %500) #20
   %502 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !80
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47), !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %502, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %502, align 8, !noalias !80
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #20, !noalias !80
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !80
@@ -1455,7 +1455,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46), !noalias !80
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #20, !noalias !80
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47), !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %502, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %502, align 8, !noalias !80
   %510 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %511 = load ptr, ptr %510, align 8
   store ptr %502, ptr %510, align 8
@@ -1476,7 +1476,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %516, ptr null, i64 0, ptr noundef %515) #20
   %517 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !83
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %45), !noalias !83
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %517, align 8, !noalias !83
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %517, align 8, !noalias !83
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #20, !noalias !83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44), !noalias !83
@@ -1491,7 +1491,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44), !noalias !83
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #20, !noalias !83
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %45), !noalias !83
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %517, align 8, !noalias !83
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %517, align 8, !noalias !83
   %525 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %526 = load ptr, ptr %525, align 8
   store ptr %517, ptr %525, align 8
@@ -1512,7 +1512,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %531, ptr null, i64 0, ptr noundef %530) #20
   %532 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !86
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43), !noalias !86
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %532, align 8, !noalias !86
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %532, align 8, !noalias !86
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #20, !noalias !86
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !86
@@ -1527,7 +1527,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !86
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #20, !noalias !86
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %43), !noalias !86
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %532, align 8, !noalias !86
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %532, align 8, !noalias !86
   %540 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %541 = load ptr, ptr %540, align 8
   store ptr %532, ptr %540, align 8
@@ -1548,7 +1548,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %546, ptr null, i64 0, ptr noundef %545) #20
   %547 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !89
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41), !noalias !89
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %547, align 8, !noalias !89
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %547, align 8, !noalias !89
   %548 = getelementptr inbounds nuw i8, ptr %547, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #20, !noalias !89
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !89
@@ -1563,7 +1563,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40), !noalias !89
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #20, !noalias !89
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41), !noalias !89
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %547, align 8, !noalias !89
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %547, align 8, !noalias !89
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %556 = load ptr, ptr %555, align 8
   store ptr %547, ptr %555, align 8
@@ -1584,7 +1584,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %561, ptr null, i64 0, ptr noundef %560) #20
   %562 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !92
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39), !noalias !92
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %562, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %562, align 8, !noalias !92
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #20, !noalias !92
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !92
@@ -1599,7 +1599,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38), !noalias !92
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #20, !noalias !92
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39), !noalias !92
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %562, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %562, align 8, !noalias !92
   %570 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %571 = load ptr, ptr %570, align 8
   store ptr %562, ptr %570, align 8
@@ -1620,7 +1620,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %576, ptr null, i64 0, ptr noundef %575) #20
   %577 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !95
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37), !noalias !95
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %577, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %577, align 8, !noalias !95
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #20, !noalias !95
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !95
@@ -1635,7 +1635,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !95
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #20, !noalias !95
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37), !noalias !95
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %577, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %577, align 8, !noalias !95
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %586 = load ptr, ptr %585, align 8
   store ptr %577, ptr %585, align 8
@@ -1656,7 +1656,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %591, ptr null, i64 0, ptr noundef %590) #20
   %592 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !98
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35), !noalias !98
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %592, align 8, !noalias !98
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %592, align 8, !noalias !98
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #20, !noalias !98
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !98
@@ -1671,7 +1671,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !98
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #20, !noalias !98
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35), !noalias !98
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %592, align 8, !noalias !98
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %592, align 8, !noalias !98
   %600 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %601 = load ptr, ptr %600, align 8
   store ptr %592, ptr %600, align 8
@@ -1692,7 +1692,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %606, ptr null, i64 0, ptr noundef %605) #20
   %607 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !101
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33), !noalias !101
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %607, align 8, !noalias !101
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %607, align 8, !noalias !101
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #20, !noalias !101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !101
@@ -1707,7 +1707,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32), !noalias !101
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #20, !noalias !101
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33), !noalias !101
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %607, align 8, !noalias !101
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %607, align 8, !noalias !101
   %615 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %616 = load ptr, ptr %615, align 8
   store ptr %607, ptr %615, align 8
@@ -1728,7 +1728,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %621, ptr null, i64 0, ptr noundef %620) #20
   %622 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !104
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31), !noalias !104
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %622, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %622, align 8, !noalias !104
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #20, !noalias !104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !104
@@ -1743,7 +1743,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30), !noalias !104
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #20, !noalias !104
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31), !noalias !104
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %622, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114PragmaMSPragmaE, i64 16), ptr %622, align 8, !noalias !104
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %631 = load ptr, ptr %630, align 8
   store ptr %622, ptr %630, align 8
@@ -1764,7 +1764,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114PragmaMSPragmaESt14default_deleteIS1_EED2Ev.e
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %636, ptr null, i64 0, ptr noundef %635) #20
   %637 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !107
   call void @_ZN5clang18EmptyPragmaHandlerC2EN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %637, ptr nonnull @.str.152, i64 14) #20, !noalias !107
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_128PragmaMSRuntimeChecksHandlerE, i64 16), ptr %637, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_128PragmaMSRuntimeChecksHandlerE, i64 16), ptr %637, align 8, !noalias !107
   %638 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %639 = load ptr, ptr %638, align 8
   store ptr %637, ptr %638, align 8
@@ -1785,7 +1785,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaMSRuntimeChecksHandlerESt14default_dele
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %644, ptr null, i64 0, ptr noundef %643) #20
   %645 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !110
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29), !noalias !110
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %645, align 8, !noalias !110
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %645, align 8, !noalias !110
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #20, !noalias !110
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !110
@@ -1800,7 +1800,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128PragmaMSRuntimeChecksHandlerESt14default_dele
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28), !noalias !110
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #20, !noalias !110
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29), !noalias !110
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124PragmaMSIntrinsicHandlerE, i64 16), ptr %645, align 8, !noalias !110
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124PragmaMSIntrinsicHandlerE, i64 16), ptr %645, align 8, !noalias !110
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %654 = load ptr, ptr %653, align 8
   store ptr %645, ptr %653, align 8
@@ -1821,7 +1821,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124PragmaMSIntrinsicHandlerESt14default_deleteIS
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %659, ptr null, i64 0, ptr noundef %658) #20
   %660 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !113
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27), !noalias !113
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %660, align 8, !noalias !113
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %660, align 8, !noalias !113
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #20, !noalias !113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !113
@@ -1836,7 +1836,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124PragmaMSIntrinsicHandlerESt14default_deleteIS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !113
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #20, !noalias !113
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27), !noalias !113
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaMSFenvAccessHandlerE, i64 16), ptr %660, align 8, !noalias !113
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125PragmaMSFenvAccessHandlerE, i64 16), ptr %660, align 8, !noalias !113
   %668 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %669 = load ptr, ptr %668, align 8
   store ptr %660, ptr %668, align 8
@@ -1872,7 +1872,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaMSFenvAccessHandlerESt14default_deleteI
   %681 = load ptr, ptr %286, align 8
   %682 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19, !noalias !116
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25), !noalias !116
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %682, align 8, !noalias !116
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %682, align 8, !noalias !116
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #20, !noalias !116
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !116
@@ -1887,7 +1887,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125PragmaMSFenvAccessHandlerESt14default_deleteI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !116
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #20, !noalias !116
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25), !noalias !116
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_132PragmaForceCUDAHostDeviceHandlerE, i64 16), ptr %682, align 8, !noalias !116
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_132PragmaForceCUDAHostDeviceHandlerE, i64 16), ptr %682, align 8, !noalias !116
   %690 = getelementptr inbounds nuw i8, ptr %682, i64 40
   store ptr %681, ptr %690, align 8, !noalias !116
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -1914,7 +1914,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_132PragmaForceCUDAHostDeviceHandlerESt14default_
   %699 = load ptr, ptr %286, align 8
   %700 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19, !noalias !119
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23), !noalias !119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %700, align 8, !noalias !119
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %700, align 8, !noalias !119
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #20, !noalias !119
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !119
@@ -1929,7 +1929,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_132PragmaForceCUDAHostDeviceHandlerESt14default_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !119
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #20, !noalias !119
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23), !noalias !119
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121PragmaOptimizeHandlerE, i64 16), ptr %700, align 8, !noalias !119
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121PragmaOptimizeHandlerE, i64 16), ptr %700, align 8, !noalias !119
   %708 = getelementptr inbounds nuw i8, ptr %700, i64 40
   store ptr %699, ptr %708, align 8, !noalias !119
   %709 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -1952,7 +1952,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121PragmaOptimizeHandlerESt14default_deleteIS1_E
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %715, ptr nonnull @.str.2, i64 5, ptr noundef %714) #20
   %716 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !122
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21), !noalias !122
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %716, align 8, !noalias !122
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %716, align 8, !noalias !122
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #20, !noalias !122
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !122
@@ -1967,7 +1967,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121PragmaOptimizeHandlerESt14default_deleteIS1_E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !122
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #20, !noalias !122
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21), !noalias !122
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121PragmaLoopHintHandlerE, i64 16), ptr %716, align 8, !noalias !122
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121PragmaLoopHintHandlerE, i64 16), ptr %716, align 8, !noalias !122
   %724 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %725 = load ptr, ptr %724, align 8
   store ptr %716, ptr %724, align 8
@@ -1988,7 +1988,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121PragmaLoopHintHandlerESt14default_deleteIS1_E
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %730, ptr nonnull @.str.2, i64 5, ptr noundef %729) #20
   %731 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !125
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19), !noalias !125
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %731, align 8, !noalias !125
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %731, align 8, !noalias !125
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #20, !noalias !125
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !125
@@ -2003,7 +2003,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121PragmaLoopHintHandlerESt14default_deleteIS1_E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !125
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #20, !noalias !125
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19), !noalias !125
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaUnrollHintHandlerE, i64 16), ptr %731, align 8, !noalias !125
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaUnrollHintHandlerE, i64 16), ptr %731, align 8, !noalias !125
   %739 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %740 = load ptr, ptr %739, align 8
   store ptr %731, ptr %739, align 8
@@ -2027,7 +2027,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaUnrollHintHandlerESt14default_deleteIS1
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %746, ptr nonnull @.str, i64 3, ptr noundef %747) #20
   %748 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17), !noalias !128
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %748, align 8, !noalias !128
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %748, align 8, !noalias !128
   %749 = getelementptr inbounds nuw i8, ptr %748, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #20, !noalias !128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !128
@@ -2042,7 +2042,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaUnrollHintHandlerESt14default_deleteIS1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !128
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #20, !noalias !128
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17), !noalias !128
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaUnrollHintHandlerE, i64 16), ptr %748, align 8, !noalias !128
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaUnrollHintHandlerE, i64 16), ptr %748, align 8, !noalias !128
   %756 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %757 = load ptr, ptr %756, align 8
   store ptr %748, ptr %756, align 8
@@ -2066,7 +2066,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaUnrollHintHandlerESt14default_deleteIS1
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %763, ptr nonnull @.str, i64 3, ptr noundef %764) #20
   %765 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !131
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15), !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %765, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %765, align 8, !noalias !131
   %766 = getelementptr inbounds nuw i8, ptr %765, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #20, !noalias !131
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !131
@@ -2081,7 +2081,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaUnrollHintHandlerESt14default_deleteIS1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !131
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #20, !noalias !131
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaUnrollHintHandlerE, i64 16), ptr %765, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaUnrollHintHandlerE, i64 16), ptr %765, align 8, !noalias !131
   %773 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %774 = load ptr, ptr %773, align 8
   store ptr %765, ptr %773, align 8
@@ -2102,7 +2102,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaUnrollHintHandlerESt14default_deleteIS1
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %779, ptr null, i64 0, ptr noundef %778) #20
   %780 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !134
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13), !noalias !134
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %780, align 8, !noalias !134
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %780, align 8, !noalias !134
   %781 = getelementptr inbounds nuw i8, ptr %780, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #20, !noalias !134
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !134
@@ -2117,7 +2117,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaUnrollHintHandlerESt14default_deleteIS1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !134
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #20, !noalias !134
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !134
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaUnrollHintHandlerE, i64 16), ptr %780, align 8, !noalias !134
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_123PragmaUnrollHintHandlerE, i64 16), ptr %780, align 8, !noalias !134
   %788 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %789 = load ptr, ptr %788, align 8
   store ptr %780, ptr %788, align 8
@@ -2138,7 +2138,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaUnrollHintHandlerESt14default_deleteIS1
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %794, ptr null, i64 0, ptr noundef %793) #20
   %795 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !137
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11), !noalias !137
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %795, align 8, !noalias !137
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %795, align 8, !noalias !137
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #20, !noalias !137
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !137
@@ -2153,7 +2153,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123PragmaUnrollHintHandlerESt14default_deleteIS1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !137
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #20, !noalias !137
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !137
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_115PragmaFPHandlerE, i64 16), ptr %795, align 8, !noalias !137
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_115PragmaFPHandlerE, i64 16), ptr %795, align 8, !noalias !137
   %803 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %804 = load ptr, ptr %803, align 8
   store ptr %795, ptr %803, align 8
@@ -2175,7 +2175,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115PragmaFPHandlerESt14default_deleteIS1_EED2Ev.
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %811 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #19, !noalias !140
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9), !noalias !140
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %811, align 8, !noalias !140
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %811, align 8, !noalias !140
   %812 = getelementptr inbounds nuw i8, ptr %811, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #20, !noalias !140
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !140
@@ -2190,7 +2190,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115PragmaFPHandlerESt14default_deleteIS1_EED2Ev.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !140
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #20, !noalias !140
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !140
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaAttributeHandlerE, i64 16), ptr %811, align 8, !noalias !140
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaAttributeHandlerE, i64 16), ptr %811, align 8, !noalias !140
   %819 = getelementptr inbounds nuw i8, ptr %811, i64 40
   store i32 0, ptr %819, align 4, !noalias !140
   %820 = getelementptr inbounds nuw i8, ptr %811, i64 44
@@ -2223,7 +2223,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122PragmaAttributeHandlerESt14default_deleteIS1_
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %832, ptr nonnull @.str.2, i64 5, ptr noundef %831) #20
   %833 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !143
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7), !noalias !143
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %833, align 8, !noalias !143
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %833, align 8, !noalias !143
   %834 = getelementptr inbounds nuw i8, ptr %833, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20, !noalias !143
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !143
@@ -2238,7 +2238,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122PragmaAttributeHandlerESt14default_deleteIS1_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !143
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20, !noalias !143
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !143
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126PragmaMaxTokensHereHandlerE, i64 16), ptr %833, align 8, !noalias !143
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126PragmaMaxTokensHereHandlerE, i64 16), ptr %833, align 8, !noalias !143
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %842 = load ptr, ptr %841, align 8
   store ptr %833, ptr %841, align 8
@@ -2259,7 +2259,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_126PragmaMaxTokensHereHandlerESt14default_delete
   call void @_ZN5clang12Preprocessor16AddPragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288) %847, ptr nonnull @.str.2, i64 5, ptr noundef %846) #20
   %848 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !146
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %848, align 8, !noalias !146
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %848, align 8, !noalias !146
   %849 = getelementptr inbounds nuw i8, ptr %848, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20, !noalias !146
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !146
@@ -2274,7 +2274,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_126PragmaMaxTokensHereHandlerESt14default_delete
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !146
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20, !noalias !146
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !146
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_127PragmaMaxTokensTotalHandlerE, i64 16), ptr %848, align 8, !noalias !146
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_127PragmaMaxTokensTotalHandlerE, i64 16), ptr %848, align 8, !noalias !146
   %856 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %857 = load ptr, ptr %856, align 8
   store ptr %848, ptr %856, align 8
@@ -2306,7 +2306,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_127PragmaMaxTokensTotalHandlerESt14default_delet
   %870 = load ptr, ptr %286, align 8
   %871 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19, !noalias !149
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !149
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %871, align 8, !noalias !149
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %871, align 8, !noalias !149
   %872 = getelementptr inbounds nuw i8, ptr %871, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20, !noalias !149
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !149
@@ -2321,7 +2321,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_127PragmaMaxTokensTotalHandlerESt14default_delet
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !149
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20, !noalias !149
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !149
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118PragmaRISCVHandlerE, i64 16), ptr %871, align 8, !noalias !149
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118PragmaRISCVHandlerE, i64 16), ptr %871, align 8, !noalias !149
   %879 = getelementptr inbounds nuw i8, ptr %871, i64 40
   store ptr %870, ptr %879, align 8, !noalias !149
   %880 = getelementptr inbounds nuw i8, ptr %0, i64 968
@@ -8968,7 +8968,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %3) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.63, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.63, i64 11))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   %.not.i = icmp eq i64 %9, 4
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread24
@@ -25152,7 +25152,7 @@ _ZN5clanglsERKNS_19StreamingDiagnosticEi.exit:    ; preds = %2, %_ZNK5clang19Str
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122PragmaAttributeHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaAttributeHandlerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaAttributeHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN5clang16AttributeFactory11reclaimPoolERNS_13AttributePoolE(ptr noundef nonnull align 8 dereferenceable(1312) %3, ptr noundef nonnull align 8 dereferenceable(72) %2) #20
@@ -25186,7 +25186,7 @@ _ZN5clang16ParsedAttributesD2Ev.exit:             ; preds = %_ZN5clang13Attribut
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122PragmaAttributeHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaAttributeHandlerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaAttributeHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN5clang16AttributeFactory11reclaimPoolERNS_13AttributePoolE(ptr noundef nonnull align 8 dereferenceable(1312) %3, ptr noundef nonnull align 8 dereferenceable(72) %2) #20

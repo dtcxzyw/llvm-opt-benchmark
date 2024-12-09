@@ -65,7 +65,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 4), align 4
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 4), align 4
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -74,7 +74,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not10, label %6, label %5
 
 5:                                                ; preds = %3
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 8), align 8
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 8), align 8
   br label %6
 
 6:                                                ; preds = %5, %3
@@ -83,7 +83,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not11, label %9, label %8
 
 8:                                                ; preds = %6
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 12), align 4
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 12), align 4
   br label %9
 
 9:                                                ; preds = %8, %6
@@ -92,7 +92,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not12, label %12, label %11
 
 11:                                               ; preds = %9
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 16), align 16
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 16), align 16
   br label %12
 
 12:                                               ; preds = %11, %9
@@ -101,7 +101,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not13, label %15, label %14
 
 14:                                               ; preds = %12
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 20), align 4
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 20), align 4
   br label %15
 
 15:                                               ; preds = %14, %12
@@ -110,7 +110,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not14, label %18, label %17
 
 17:                                               ; preds = %15
-  store i32 %16, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 24), align 8
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 24), align 8
   br label %18
 
 18:                                               ; preds = %17, %15
@@ -119,7 +119,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not15, label %21, label %20
 
 20:                                               ; preds = %18
-  store i32 %19, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 28), align 4
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 28), align 4
   br label %21
 
 21:                                               ; preds = %20, %18
@@ -128,7 +128,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not16, label %24, label %23
 
 23:                                               ; preds = %21
-  store i32 %22, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 32), align 16
+  store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 32), align 16
   br label %24
 
 24:                                               ; preds = %23, %21
@@ -137,7 +137,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not17, label %27, label %26
 
 26:                                               ; preds = %24
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 36), align 4
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 36), align 4
   br label %27
 
 27:                                               ; preds = %26, %24
@@ -146,7 +146,7 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   br i1 %.not18, label %30, label %29
 
 29:                                               ; preds = %27
-  store i32 %28, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 40), align 8
+  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 40), align 8
   br label %30
 
 30:                                               ; preds = %29, %27
@@ -161,8 +161,8 @@ define hidden void @_Z16basic_types_initv() local_unnamed_addr #0 {
   store i32 %.23, ptr @LogBitsPerHeapOop, align 4
   store i32 %.24, ptr @BytesPerHeapOop, align 4
   store i32 %.25, ptr @BitsPerHeapOop, align 4
-  store i32 %.24, ptr getelementptr inbounds (i8, ptr @_type2aelembytes, i64 48), align 16
-  store i32 %.24, ptr getelementptr inbounds (i8, ptr @_type2aelembytes, i64 52), align 4
+  store i32 %.24, ptr getelementptr inbounds nuw (i8, ptr @_type2aelembytes, i64 48), align 16
+  store i32 %.24, ptr getelementptr inbounds nuw (i8, ptr @_type2aelembytes, i64 52), align 4
   ret void
 }
 

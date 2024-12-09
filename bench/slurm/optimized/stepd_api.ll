@@ -354,7 +354,7 @@ define range(i32 -1, -2147483648) i32 @stepd_connect(ptr noundef %0, ptr noundef
 
 65:                                               ; preds = %62
   %66 = call i32 @getuid() #12
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), align 8
   %.not7.i.i = icmp eq i32 %66, %67
   br i1 %.not7.i.i, label %68, label %_handle_stray_socket.exit.i
 

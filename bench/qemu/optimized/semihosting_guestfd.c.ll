@@ -26,8 +26,8 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store i32 0, ptr getelementptr inbounds (i8, ptr @console_in_gf, i64 8), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @console_out_gf, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @console_in_gf, i64 8), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @console_out_gf, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then

@@ -1931,7 +1931,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit136.i: ; preds = %513, %_Z
   store i8 0, ptr %565, align 8
   %566 = getelementptr inbounds nuw i8, ptr %110, i64 25
   store i8 0, ptr %566, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %110, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %110, align 8
   %567 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %561, ptr noundef nonnull align 4 dereferenceable(8) %562, ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull %110)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition20GetMetadataByDictKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenESA_PT_.exit.i unwind label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i.i
 
@@ -2092,7 +2092,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit147.i: ; preds = %582, %_Z
   store i8 0, ptr %632, align 8
   %633 = getelementptr inbounds nuw i8, ptr %109, i64 25
   store i8 0, ptr %633, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %109, align 8
   %634 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %628, ptr noundef nonnull align 4 dereferenceable(8) %629, ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull %109)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition20GetMetadataByDictKeyIiEEbRKNS_7TfTokenES4_PT_.exit.i unwind label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i151.i
 
@@ -2348,7 +2348,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   store i8 0, ptr %738, align 8
   %739 = getelementptr inbounds nuw i8, ptr %108, i64 25
   store i8 0, ptr %739, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %108, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %108, align 8
   %740 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %734, ptr noundef nonnull align 4 dereferenceable(8) %735, ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef nonnull align 8 dereferenceable(8) %161, ptr noundef nonnull %108)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition20GetMetadataByDictKeyIdEEbRKNS_7TfTokenES4_PT_.exit.i unwind label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i183.i
 
@@ -2509,7 +2509,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit194.i: ; preds = %755, %_Z
   store i8 0, ptr %805, align 8
   %806 = getelementptr inbounds nuw i8, ptr %107, i64 25
   store i8 0, ptr %806, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %107, align 8
   %807 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %801, ptr noundef nonnull align 4 dereferenceable(8) %802, ptr noundef nonnull align 8 dereferenceable(8) %162, ptr noundef nonnull align 8 dereferenceable(8) %163, ptr noundef nonnull %107)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition20GetMetadataByDictKeyIdEEbRKNS_7TfTokenES4_PT_.exit204.i unwind label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i198.i
 
@@ -2670,7 +2670,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit210.i: ; preds = %822, %_Z
   store i8 0, ptr %872, align 8
   %873 = getelementptr inbounds nuw i8, ptr %106, i64 25
   store i8 0, ptr %873, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %106, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %106, align 8
   %874 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %868, ptr noundef nonnull align 4 dereferenceable(8) %869, ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull %106)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition20GetMetadataByDictKeyIdEEbRKNS_7TfTokenES4_PT_.exit220.i unwind label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8.i214.i
 
@@ -3600,7 +3600,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   store i8 0, ptr %1204, align 8
   %1205 = getelementptr inbounds nuw i8, ptr %65, i64 25
   store i8 0, ptr %1205, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_14SdfVariabilityEEE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_14SdfVariabilityEEE, i64 16), ptr %65, align 8
   %1206 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1200, ptr noundef nonnull align 4 dereferenceable(8) %1201, ptr noundef nonnull align 8 dereferenceable(8) %1196, ptr noundef nonnull %65)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_14SdfVariabilityEEEbRKNS_7TfTokenEPT_.exit.i unwind label %1664
 
@@ -3687,7 +3687,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   store i8 0, ptr %1238, align 8
   %1239 = getelementptr inbounds nuw i8, ptr %61, i64 25
   store i8 0, ptr %1239, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_14SdfVariabilityEEE, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_14SdfVariabilityEEE, i64 16), ptr %61, align 8
   %1240 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1234, ptr noundef nonnull align 4 dereferenceable(8) %1235, ptr noundef nonnull align 8 dereferenceable(8) %1227, ptr noundef nonnull %61)
           to label %.noexc9.i.i unwind label %1245
 
@@ -3801,7 +3801,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   store i8 0, ptr %1279, align 8
   %1280 = getelementptr inbounds nuw i8, ptr %57, i64 25
   store i8 0, ptr %1280, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %57, align 8
   %1281 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1275, ptr noundef nonnull align 4 dereferenceable(8) %1276, ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull %57)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_12VtDictionaryEEEbRKNS_7TfTokenEPT_.exit.i unwind label %1702
 
@@ -4039,7 +4039,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataB
   store i8 0, ptr %1366, align 8
   %1367 = getelementptr inbounds nuw i8, ptr %54, i64 25
   store i8 0, ptr %1367, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %54, align 8
   %1368 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1362, ptr noundef nonnull align 4 dereferenceable(8) %1363, ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull %54)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataByDictKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenESB_PT_.exit.i unwind label %1730
 
@@ -4132,7 +4132,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataB
   store i8 0, ptr %1398, align 8
   %1399 = getelementptr inbounds nuw i8, ptr %51, i64 25
   store i8 0, ptr %1399, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %51, align 8
   %1400 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1394, ptr noundef nonnull align 4 dereferenceable(8) %1395, ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull %51)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataByDictKeyIiEEbRKNS_7TfTokenES5_PT_.exit.i unwind label %1748
 
@@ -4274,7 +4274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit166.i: ; preds = %_Z
   store i8 0, ptr %1440, align 8
   %1441 = getelementptr inbounds nuw i8, ptr %47, i64 25
   store i8 0, ptr %1441, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %47, align 8
   %1442 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1436, ptr noundef nonnull align 4 dereferenceable(8) %1437, ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull %47)
           to label %.noexc9.i172.i unwind label %1447
 
@@ -4552,7 +4552,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit197.i: ; preds = %1528, %_
   store i8 0, ptr %1548, align 8
   %1549 = getelementptr inbounds nuw i8, ptr %43, i64 25
   store i8 0, ptr %1549, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %43, align 8
   %1550 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1544, ptr noundef nonnull align 4 dereferenceable(8) %1545, ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %43)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath15HasFieldDictKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenESB_PT_.exit.i.i.i unwind label %1551
 
@@ -4686,7 +4686,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit211.i: ; preds = %1581, %_
   store i8 0, ptr %1600, align 8
   %1601 = getelementptr inbounds nuw i8, ptr %39, i64 25
   store i8 0, ptr %1601, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %39, align 8
   %1602 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1596, ptr noundef nonnull align 4 dereferenceable(8) %1597, ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef nonnull %39)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath15HasFieldDictKeyIiEEbRKNS_7TfTokenES5_PT_.exit.i.i.i unwind label %1603
 
@@ -6821,7 +6821,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   store i8 0, ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %80, i64 25
   store i8 0, ptr %291, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %80, align 8
   %292 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %286, ptr noundef nonnull align 4 dereferenceable(8) %287, ptr noundef nonnull align 8 dereferenceable(8) %282, ptr noundef nonnull %80)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7TfTokenEEEbRKS3_PT_.exit unwind label %1433
 
@@ -6945,7 +6945,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   store i8 0, ptr %332, align 8
   %333 = getelementptr inbounds nuw i8, ptr %76, i64 25
   store i8 0, ptr %333, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %76, align 8
   %334 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %328, ptr noundef nonnull align 4 dereferenceable(8) %329, ptr noundef nonnull align 8 dereferenceable(8) %321, ptr noundef nonnull %76)
           to label %.noexc9.i unwind label %339
 
@@ -7185,7 +7185,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   store i8 0, ptr %422, align 8
   %423 = getelementptr inbounds nuw i8, ptr %71, i64 25
   store i8 0, ptr %423, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %71, align 8
   %424 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %418, ptr noundef nonnull align 4 dereferenceable(8) %419, ptr noundef nonnull align 8 dereferenceable(8) %414, ptr noundef nonnull %71)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenEPT_.exit unwind label %1460
 
@@ -7295,7 +7295,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   store i8 0, ptr %457, align 8
   %458 = getelementptr inbounds nuw i8, ptr %67, i64 25
   store i8 0, ptr %458, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %67, align 8
   %459 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %453, ptr noundef nonnull align 4 dereferenceable(8) %454, ptr noundef nonnull align 8 dereferenceable(8) %446, ptr noundef nonnull %67)
           to label %.noexc9.i203 unwind label %464
 
@@ -7547,7 +7547,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   store i8 0, ptr %535, align 8
   %536 = getelementptr inbounds nuw i8, ptr %60, i64 25
   store i8 0, ptr %536, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %60, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %60, align 8
   %537 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %531, ptr noundef nonnull align 4 dereferenceable(8) %532, ptr noundef nonnull align 8 dereferenceable(8) %527, ptr noundef nonnull %60)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_7VtArrayINS_7TfTokenEEEEEbRKS4_PT_.exit unwind label %1468
 
@@ -7719,7 +7719,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   store i8 0, ptr %592, align 8
   %593 = getelementptr inbounds nuw i8, ptr %56, i64 25
   store i8 0, ptr %593, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7VtArrayINS_7TfTokenEEEEE, i64 16), ptr %56, align 8
   %594 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %588, ptr noundef nonnull align 4 dereferenceable(8) %589, ptr noundef nonnull align 8 dereferenceable(8) %581, ptr noundef nonnull %56)
           to label %.noexc9.i253 unwind label %599
 
@@ -7883,7 +7883,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   store i8 0, ptr %650, align 8
   %651 = getelementptr inbounds nuw i8, ptr %53, i64 25
   store i8 0, ptr %651, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %53, align 8
   %652 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %646, ptr noundef nonnull align 4 dereferenceable(8) %647, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull %53)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataINS_12VtDictionaryEEEbRKNS_7TfTokenEPT_.exit unwind label %1526
 
@@ -8123,7 +8123,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataB
   store i8 0, ptr %739, align 8
   %740 = getelementptr inbounds nuw i8, ptr %50, i64 25
   store i8 0, ptr %740, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %50, align 8
   %741 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %735, ptr noundef nonnull align 4 dereferenceable(8) %736, ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull %50)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataByDictKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenESB_PT_.exit unwind label %1554
 
@@ -8216,7 +8216,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataB
   store i8 0, ptr %771, align 8
   %772 = getelementptr inbounds nuw i8, ptr %47, i64 25
   store i8 0, ptr %772, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %47, align 8
   %773 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %767, ptr noundef nonnull align 4 dereferenceable(8) %768, ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull %47)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataByDictKeyIiEEbRKNS_7TfTokenES5_PT_.exit unwind label %1572
 
@@ -8358,7 +8358,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit308: ; preds = %794,
   store i8 0, ptr %813, align 8
   %814 = getelementptr inbounds nuw i8, ptr %43, i64 25
   store i8 0, ptr %814, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %43, align 8
   %815 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %809, ptr noundef nonnull align 4 dereferenceable(8) %810, ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull %43)
           to label %.noexc9.i314 unwind label %820
 
@@ -8636,7 +8636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit339: ; preds = %_ZN32pxrIn
   store i8 0, ptr %921, align 8
   %922 = getelementptr inbounds nuw i8, ptr %39, i64 25
   store i8 0, ptr %922, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %39, align 8
   %923 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %917, ptr noundef nonnull align 4 dereferenceable(8) %918, ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull %39)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath15HasFieldDictKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_7TfTokenESB_PT_.exit.i.i unwind label %924
 
@@ -8770,7 +8770,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit353: ; preds = %_ZN32pxrIn
   store i8 0, ptr %973, align 8
   %974 = getelementptr inbounds nuw i8, ptr %35, i64 25
   store i8 0, ptr %974, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIiEE, i64 16), ptr %35, align 8
   %975 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %969, ptr noundef nonnull align 4 dereferenceable(8) %970, ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull %35)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath15HasFieldDictKeyIiEEbRKNS_7TfTokenES5_PT_.exit.i.i unwind label %976
 
@@ -9037,7 +9037,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataI
   store i8 0, ptr %1067, align 8
   %1068 = getelementptr inbounds nuw i8, ptr %28, i64 25
   store i8 0, ptr %1068, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %28, align 8
   %1069 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1063, ptr noundef nonnull align 4 dereferenceable(8) %1064, ptr noundef nonnull align 8 dereferenceable(8) %1059, ptr noundef nonnull %28)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetMetadataIdEEbRKNS_7TfTokenEPT_.exit unwind label %1397
 
@@ -9124,7 +9124,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   store i8 0, ptr %1101, align 8
   %1102 = getelementptr inbounds nuw i8, ptr %24, i64 25
   store i8 0, ptr %1102, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %24, align 8
   %1103 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1097, ptr noundef nonnull align 4 dereferenceable(8) %1098, ptr noundef nonnull align 8 dereferenceable(8) %1090, ptr noundef nonnull %24)
           to label %.noexc9.i418 unwind label %1107
 
@@ -9210,7 +9210,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataB
   store i8 0, ptr %1137, align 8
   %1138 = getelementptr inbounds nuw i8, ptr %21, i64 25
   store i8 0, ptr %1138, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %21, align 8
   %1139 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1133, ptr noundef nonnull align 4 dereferenceable(8) %1134, ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull %21)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataByDictKeyIdEEbRKNS_7TfTokenES5_PT_.exit unwind label %1654
 
@@ -9310,7 +9310,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit437: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1172, align 8
   %1173 = getelementptr inbounds nuw i8, ptr %17, i64 25
   store i8 0, ptr %1173, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %17, align 8
   %1174 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1168, ptr noundef nonnull align 4 dereferenceable(8) %1169, ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull %17)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath15HasFieldDictKeyIdEEbRKNS_7TfTokenES5_PT_.exit.i.i unwind label %1175
 
@@ -9437,7 +9437,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataB
   store i8 0, ptr %1221, align 8
   %1222 = getelementptr inbounds nuw i8, ptr %14, i64 25
   store i8 0, ptr %1222, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %14, align 8
   %1223 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1217, ptr noundef nonnull align 4 dereferenceable(8) %1218, ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull %14)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataByDictKeyIdEEbRKNS_7TfTokenES5_PT_.exit463 unwind label %1690
 
@@ -9537,7 +9537,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit469: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1256, align 8
   %1257 = getelementptr inbounds nuw i8, ptr %10, i64 25
   store i8 0, ptr %1257, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %10, align 8
   %1258 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1252, ptr noundef nonnull align 4 dereferenceable(8) %1253, ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef nonnull %10)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath15HasFieldDictKeyIdEEbRKNS_7TfTokenES5_PT_.exit.i.i481 unwind label %1259
 
@@ -9664,7 +9664,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataB
   store i8 0, ptr %1305, align 8
   %1306 = getelementptr inbounds nuw i8, ptr %7, i64 25
   store i8 0, ptr %1306, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %7, align 8
   %1307 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1301, ptr noundef nonnull align 4 dereferenceable(8) %1302, ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull %7)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property20GetMetadataByDictKeyIdEEbRKNS_7TfTokenES5_PT_.exit498 unwind label %1726
 
@@ -9764,7 +9764,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit504: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1340, align 8
   %1341 = getelementptr inbounds nuw i8, ptr %3, i64 25
   store i8 0, ptr %1341, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %3, align 8
   %1342 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %1336, ptr noundef nonnull align 4 dereferenceable(8) %1337, ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull %3)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition13_LayerAndPath15HasFieldDictKeyIdEEbRKNS_7TfTokenES5_PT_.exit.i.i516 unwind label %1343
 
@@ -11056,7 +11056,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   store i8 0, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 0, ptr %63, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenEEE, i64 16), ptr %5, align 8
   %64 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %55, ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5)
   %65 = load i8, ptr %62, align 8
   %66 = trunc i8 %65 to i1
@@ -11676,7 +11676,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   store i8 0, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 0, ptr %63, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %5, align 8
   %64 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %55, ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5)
   %65 = load i8, ptr %62, align 8
   %66 = trunc i8 %65 to i1
@@ -12120,7 +12120,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   store i8 0, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 0, ptr %63, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIbEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIbEE, i64 16), ptr %5, align 8
   %64 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %55, ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5)
   %65 = load i8, ptr %62, align 8
   %66 = trunc i8 %65 to i1
@@ -12485,7 +12485,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   store i8 0, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 0, ptr %63, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_12VtDictionaryEEE, i64 16), ptr %5, align 8
   %64 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %55, ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5)
   %65 = load i8, ptr %62, align 8
   %66 = trunc i8 %65 to i1
@@ -13922,7 +13922,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
   store i8 0, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 0, ptr %63, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %5, align 8
   %64 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %55, ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5)
   %65 = load i8, ptr %62, align 8
   %66 = trunc i8 %65 to i1
@@ -14260,7 +14260,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   store i8 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 25
   store i8 0, ptr %28, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %3, align 8
   %29 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %20, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %3)
   %30 = load i8, ptr %27, align 8
   %31 = trunc i8 %30 to i1
@@ -14339,7 +14339,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   store i8 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 25
   store i8 0, ptr %28, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueIdEE, i64 16), ptr %3, align 8
   %29 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %20, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %3)
   %30 = load i8, ptr %27, align 8
   %31 = trunc i8 %30 to i1

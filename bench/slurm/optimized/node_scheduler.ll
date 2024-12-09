@@ -230,7 +230,7 @@ define dso_local void @set_initial_job_alias_list(ptr noundef %0) local_unnamed_
   br i1 %.not25, label %32, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %27 = call i32 @xstrcmp(ptr noundef %26, ptr noundef nonnull %24) #13
   %.not26 = icmp eq i32 %27, 0
   br i1 %.not26, label %32, label %28
@@ -396,7 +396,7 @@ define dso_local void @set_job_node_addrs(ptr nocapture noundef %0, ptr noundef 
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %18 = tail call i32 @xstrcmp(ptr noundef nonnull %1, ptr noundef %17) #13
   %.not20 = icmp eq i32 %18, 0
   br i1 %.not20, label %thread-pre-split, label %23
@@ -497,7 +497,7 @@ define dso_local void @set_job_features_use(ptr noundef %0) local_unnamed_addr #
 define dso_local void @deallocate_nodes(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %8 = and i64 %7, 268435456
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %13, label %9
@@ -901,7 +901,7 @@ define dso_local void @find_feature_nodes(ptr noundef %0, i1 noundef zeroext %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %52 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %53 = and i64 %52, 140737488355328
   %.not.i = icmp eq i64 %53, 0
   br i1 %.not.i, label %_log_feature_nodes.exit, label %54
@@ -931,7 +931,7 @@ switch.lookup:                                    ; preds = %54
   %64 = load ptr, ptr %14, align 8
   %65 = call ptr @bitmap2node_name(ptr noundef %64) #13
   store ptr %65, ptr %4, align 8
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %67 = and i64 %66, 140737488355328
   %.not14.i = icmp eq i64 %67, 0
   br i1 %.not14.i, label %82, label %68
@@ -1930,7 +1930,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph, %129
   %204 = load ptr, ptr %25, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 88
   %206 = load ptr, ptr %205, align 8
-  %207 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 842), align 2
+  %207 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 842), align 2
   %208 = call double @assoc_mgr_tres_weighted(ptr noundef nonnull %22, ptr noundef %206, i16 noundef zeroext %207, i1 noundef zeroext true) #13
   %209 = fptoui double %208 to i64
   %210 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -1985,9 +1985,9 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph, %129
   br i1 %.not345, label %240, label %232
 
 232:                                              ; preds = %227
-  %233 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 582), align 2
+  %233 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 582), align 2
   %234 = zext i16 %233 to i64
-  %235 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %235 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %236 = zext i16 %235 to i64
   %237 = add nuw nsw i64 %234, %236
   %238 = sub i64 %229, %237
@@ -2419,9 +2419,9 @@ thread-pre-split:                                 ; preds = %240, %221
   br label %418
 
 418:                                              ; preds = %417, %415, %408
-  %419 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 60), align 4
+  %419 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 60), align 4
   %420 = add i32 %419, 1
-  store i32 %420, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 60), align 4
+  store i32 %420, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 60), align 4
   call void @job_set_alloc_tres(ptr noundef nonnull %0, i1 noundef zeroext false) #13
   call void @acct_policy_job_begin(ptr noundef nonnull %0, i1 noundef zeroext false) #13
   call void @job_claim_resv(ptr noundef nonnull %0) #13
@@ -2478,7 +2478,7 @@ thread-pre-split:                                 ; preds = %240, %221
   br i1 %.not367, label %445, label %449
 
 445:                                              ; preds = %442
-  %446 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 946), align 2
+  %446 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 946), align 2
   %447 = and i16 %446, 1
   %.not368 = icmp eq i16 %447, 0
   br i1 %.not368, label %449, label %448
@@ -2781,9 +2781,9 @@ _first_array_task.exit.thread:                    ; preds = %55, %38, %49, %36
   br label %_first_array_task.exit
 
 _first_array_task.exit:                           ; preds = %55, %51, %_first_array_task.exit.thread, %29
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 60), align 4
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 60), align 4
   %60 = add i32 %59, 1
-  store i32 %60, ptr getelementptr inbounds (i8, ptr @slurmctld_diag_stats, i64 60), align 4
+  store i32 %60, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_diag_stats, i64 60), align 4
   tail call void @job_set_alloc_tres(ptr noundef nonnull %0, i1 noundef zeroext false) #13
   tail call void @acct_policy_job_begin(ptr noundef nonnull %0, i1 noundef zeroext false) #13
   %61 = load ptr, ptr @acct_db_conn, align 8
@@ -4788,7 +4788,7 @@ define internal fastcc i32 @_get_req_features(ptr nocapture noundef readonly %0,
   %50 = load ptr, ptr @avail_node_bitmap, align 8
   call void @bit_and(ptr noundef %48, ptr noundef %50) #13
   %51 = load ptr, ptr @avail_node_bitmap, align 8
-  %52 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %53 = and i64 %52, 16384
   %.not313 = icmp eq i64 %53, 0
   br i1 %.not313, label %72, label %54
@@ -4804,7 +4804,7 @@ define internal fastcc i32 @_get_req_features(ptr nocapture noundef readonly %0,
   store ptr %58, ptr %21, align 8
   %59 = load ptr, ptr %17, align 8
   call void @bit_and_not(ptr noundef %58, ptr noundef %59) #13
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %61 = and i64 %60, 16384
   %.not315 = icmp eq i64 %61, 0
   br i1 %.not315, label %68, label %62
@@ -5861,13 +5861,13 @@ define internal fastcc void @_preempt_jobs(ptr noundef %0, i1 noundef zeroext %1
 
 7:                                                ; preds = %4
   store i8 0, ptr @preempt_send_user_signal, align 1
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 800), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 800), align 8
   %9 = tail call ptr @xstrcasestr(ptr noundef %8, ptr noundef nonnull @.str.54) #13
   %.not19 = icmp eq ptr %9, null
   br i1 %.not19, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1248), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %12 = tail call ptr @xstrcasestr(ptr noundef %11, ptr noundef nonnull @.str.55) #13
   %.not20 = icmp eq ptr %12, null
   br i1 %.not20, label %14, label %13
@@ -5908,7 +5908,7 @@ define internal fastcc void @_preempt_jobs(ptr noundef %0, i1 noundef zeroext %1
   ]
 
 23:                                               ; preds = %20
-  %24 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %24 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), align 4
   %.not22.us = icmp sgt i16 %24, -1
   br i1 %.not22.us, label %.outer.backedge.us, label %25
 
@@ -5966,7 +5966,7 @@ define internal fastcc void @_preempt_jobs(ptr noundef %0, i1 noundef zeroext %1
   br i1 %.not21, label %.outer._crit_edge, label %39, !llvm.loop !39
 
 45:                                               ; preds = %39
-  %46 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %46 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), align 4
   %.not22 = icmp sgt i16 %46, -1
   br i1 %.not22, label %.outer.backedge, label %47
 
@@ -6257,7 +6257,7 @@ define dso_local void @launch_prolog(ptr noundef %0) local_unnamed_addr #0 {
   %.094.lcssa = phi i16 [ 0, %1 ], [ %.195, %23 ]
   %.0.lcssa = phi i16 [ %6, %1 ], [ %spec.select, %23 ]
   %28 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 144, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3048, ptr noundef nonnull @__func__.launch_prolog) #13
-  %29 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 946), align 2
+  %29 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 946), align 2
   %30 = and i16 %29, 3
   %or.cond116 = icmp eq i16 %30, 1
   br i1 %or.cond116, label %31, label %39
@@ -6615,7 +6615,7 @@ setup_cred_arg.exit:                              ; preds = %221, %224
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 48
   store i64 %254, ptr %256, align 8
   %257 = load i32, ptr %46, align 8
-  %258 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %258 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %259 = call i32 @job_complete(i32 noundef %257, i32 noundef %258, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0) #13
   br label %283
 
@@ -6638,7 +6638,7 @@ setup_cred_arg.exit:                              ; preds = %221, %224
   store ptr %28, ptr %270, align 8
   %271 = getelementptr inbounds nuw i8, ptr %261, i64 48
   store i16 %.094.lcssa, ptr %271, align 8
-  %272 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 946), align 2
+  %272 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 946), align 2
   %273 = and i16 %272, 4
   %.not110 = icmp eq i16 %273, 0
   br i1 %.not110, label %280, label %274
@@ -7081,7 +7081,7 @@ define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef ze
   %83 = getelementptr inbounds nuw i8, ptr %31, i64 14
   %84 = load i8, ptr %83, align 2
   %85 = zext i8 %84 to i32
-  %86 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %87 = and i64 %86, 140737488355328
   %.not93 = icmp eq i64 %87, 0
   br i1 %.not93, label %106, label %88
@@ -7094,7 +7094,7 @@ define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef ze
   store ptr %91, ptr %8, align 8
   %92 = call ptr @bitmap2node_name(ptr noundef %.073110) #13
   store ptr %92, ptr %9, align 8
-  %93 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %93 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %94 = and i64 %93, 140737488355328
   %.not94 = icmp eq i64 %94, 0
   br i1 %.not94, label %105, label %95
@@ -7155,7 +7155,7 @@ define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef ze
 
 115:                                              ; preds = %114, %112
   store ptr null, ptr %6, align 8
-  %116 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %116 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %117 = and i64 %116, 140737488355328
   %.not85 = icmp eq i64 %117, 0
   br i1 %.not85, label %131, label %118
@@ -7163,7 +7163,7 @@ define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef ze
 118:                                              ; preds = %115
   %119 = call ptr @bitmap2node_name(ptr noundef %2) #13
   store ptr %119, ptr %10, align 8
-  %120 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %120 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %121 = and i64 %120, 140737488355328
   %.not86 = icmp eq i64 %121, 0
   br i1 %.not86, label %130, label %122

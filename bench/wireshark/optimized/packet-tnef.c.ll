@@ -420,9 +420,9 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i16 16, ptr %5, align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @dissect_mapiprops.di, i64 28), align 4
-  store ptr @dissect_mapiprops.call_data, ptr getelementptr inbounds (i8, ptr @dissect_mapiprops.di, i64 72), align 8
-  store ptr @.str.176, ptr getelementptr inbounds (i8, ptr @dissect_mapiprops.di, i64 80), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @dissect_mapiprops.di, i64 28), align 4
+  store ptr @dissect_mapiprops.call_data, ptr getelementptr inbounds nuw (i8, ptr @dissect_mapiprops.di, i64 72), align 8
+  store ptr @.str.176, ptr getelementptr inbounds nuw (i8, ptr @dissect_mapiprops.di, i64 80), align 8
   %70 = load i32, ptr @hf_tnef_mapi_props_count, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %70, ptr noundef %69, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #4
   %72 = call i32 @tvb_reported_length_remaining(ptr noundef %69, i32 noundef 4) #4

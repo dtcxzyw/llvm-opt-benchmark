@@ -87,7 +87,7 @@ define noundef i32 @acct_gather_interconnect_init() local_unnamed_addr #0 {
 
 10:                                               ; preds = %7
   store i32 0, ptr @g_context_num, align 4
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 112), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 112), align 8
   %.not13 = icmp eq ptr %11, null
   br i1 %.not13, label %.sink.split, label %12
 
@@ -250,7 +250,7 @@ define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr 
   unreachable
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 376)) #6
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #6
   %.not38 = icmp eq i32 %11, 0
   br i1 %.not38, label %14, label %12
 
@@ -261,7 +261,7 @@ define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr 
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 328)) #6
+  %15 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 328)) #6
   %.not39 = icmp eq i32 %15, 0
   br i1 %.not39, label %19, label %16
 
@@ -272,7 +272,7 @@ define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr 
   br label %19
 
 19:                                               ; preds = %16, %14
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 376)) #6
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #6
   %.not40 = icmp eq i32 %20, 0
   br i1 %.not40, label %23, label %21
 
@@ -567,7 +567,7 @@ define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
   unreachable
 
 32:                                               ; preds = %._crit_edge
-  %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 376)) #6
+  %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #6
   %.not21 = icmp eq i32 %33, 0
   br i1 %.not21, label %36, label %34
 
@@ -578,7 +578,7 @@ define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
   unreachable
 
 36:                                               ; preds = %32
-  %37 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 328), ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 376)) #6
+  %37 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 328), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #6
   %.not22 = icmp eq i32 %37, 0
   br i1 %.not22, label %41, label %38
 
@@ -589,7 +589,7 @@ define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
   br label %41
 
 41:                                               ; preds = %38, %36
-  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 376)) #6
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #6
   %.not23 = icmp eq i32 %42, 0
   br i1 %.not23, label %6, label %43, !llvm.loop !10
 

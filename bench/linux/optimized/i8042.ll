@@ -1038,7 +1038,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
 150:                                              ; preds = %141
   %151 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8042_lock) #10
   store i32 0, ptr @i8042_aux_irq_delivered, align 8
-  tail call void @__init_swait_queue_head(ptr noundef nonnull getelementptr inbounds (i8, ptr @i8042_aux_irq_delivered, i64 8), ptr noundef nonnull @.str.24, ptr noundef nonnull @init_completion.__key) #10
+  tail call void @__init_swait_queue_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @i8042_aux_irq_delivered, i64 8), ptr noundef nonnull @.str.24, ptr noundef nonnull @init_completion.__key) #10
   store i1 true, ptr @i8042_irq_being_tested, align 1
   store i8 -91, ptr %3, align 1
   %152 = call fastcc i32 @__i8042_command(ptr noundef nonnull %3, i32 noundef 4307)
@@ -1151,7 +1151,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   br label %212
 
 212:                                              ; preds = %211, %188
-  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %214 = call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %213, i32 noundef 3520, i64 noundef 1096) #13
   %215 = icmp eq ptr %214, null
   br i1 %215, label %i8042_create_aux_port.exit, label %i8042_create_aux_port.exit.thread
@@ -1167,7 +1167,7 @@ i8042_create_aux_port.exit.thread:                ; preds = %212
   store ptr @i8042_stop, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %214, i64 1088
   store ptr @i8042_mutex, ptr %220, align 8
-  store ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 16), ptr %214, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @i8042_ports, i64 16), ptr %214, align 8
   %221 = load ptr, ptr @i8042_platform_device, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %223 = getelementptr inbounds nuw i8, ptr %214, i64 408
@@ -1180,10 +1180,10 @@ i8042_create_aux_port.exit.thread:                ; preds = %212
   %229 = call i64 @strscpy(ptr noundef nonnull %228, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
   %230 = getelementptr inbounds nuw i8, ptr %214, i64 232
   store ptr @i8042_port_close, ptr %230, align 8
-  store ptr %214, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 16), align 16
-  store i8 -1, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 30), align 2
+  store ptr %214, ptr getelementptr inbounds nuw (i8, ptr @i8042_ports, i64 16), align 16
+  store i8 -1, ptr getelementptr inbounds nuw (i8, ptr @i8042_ports, i64 30), align 2
   %231 = load i32, ptr @i8042_aux_irq, align 4
-  store i32 %231, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 24), align 8
+  store i32 %231, ptr getelementptr inbounds nuw (i8, ptr @i8042_ports, i64 24), align 8
   br label %.loopexit33
 
 232:                                              ; preds = %235
@@ -1251,7 +1251,7 @@ i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.
   br i1 %261, label %262, label %.preheader
 
 262:                                              ; preds = %.thread27
-  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %263 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %264 = call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %263, i32 noundef 3520, i64 noundef 1096) #13
   %265 = icmp eq ptr %264, null
   br i1 %265, label %.thread32, label %266
@@ -1291,7 +1291,7 @@ i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.
   call void @set_primary_fwnode(ptr noundef nonnull %281, ptr noundef %289) #10
   store ptr %264, ptr @i8042_ports, align 16
   %290 = load i32, ptr @i8042_kbd_irq, align 4
-  store i32 %290, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 8), align 8
+  store i32 %290, ptr getelementptr inbounds nuw (i8, ptr @i8042_ports, i64 8), align 8
   %291 = load ptr, ptr @i8042_platform_device, align 8
   %292 = call i32 @request_threaded_irq(i32 noundef %290, ptr noundef nonnull @i8042_interrupt, ptr noundef null, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef %291) #10
   %293 = icmp eq i32 %292, 0
@@ -1645,7 +1645,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @i8042_create_aux_port(i32 
   %3 = add i32 %2, 2
   %4 = sext i32 %3 to i64
   %5 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %4
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 1096) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %38, label %9
@@ -2390,7 +2390,7 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i8042_port_close(ptr noundef readnone %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 16), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @i8042_ports, i64 16), align 16
   %3 = icmp eq ptr %2, %0
   %4 = select i1 %3, ptr @.str.32, ptr @.str.33
   %5 = select i1 %3, i8 -33, i8 -17
@@ -2719,7 +2719,7 @@ i8042_command.exit.thread:                        ; preds = %24, %i8042_command.
   br i1 %49, label %69, label %66
 
 50:                                               ; preds = %42
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 16), align 16
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @i8042_ports, i64 16), align 16
   %52 = icmp eq ptr %51, null
   br i1 %52, label %69, label %53
 
@@ -3098,7 +3098,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @i8042_platform_init() unna
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #10
   store i8 -33, ptr %1, align 1
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 88), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_platform, i64 88), align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %10, label %4
 
@@ -3427,7 +3427,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @i8042_pnp_init() unnamed_a
 
 27:                                               ; preds = %26, %24
   %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62) #11
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 88), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_platform, i64 88), align 8
   %30 = icmp eq i32 %29, 2
   br i1 %30, label %31, label %122
 

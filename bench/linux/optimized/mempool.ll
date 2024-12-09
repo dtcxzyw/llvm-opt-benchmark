@@ -308,7 +308,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mempool_init(ptr noundef initial
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @mempool_create(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_node_trace(ptr noundef %5, i32 noundef 3520, i32 noundef -1, i64 noundef 72) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %12, label %8

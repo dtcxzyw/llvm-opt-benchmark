@@ -223,9 +223,9 @@ if.end19.i.i:                                     ; preds = %if.else.i.i, %if.th
 if.end50.i.i:                                     ; preds = %.noexc35.i
   %arrayidx46.i.i = getelementptr inbounds nuw i8, ptr %call.i25.i, i64 8
   %15 = load i32, ptr %arrayidx46.i.i, align 8
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL11dataVersion, i64 3), align 1
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL11dataVersion, i64 2), align 1
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL11dataVersion, i64 1), align 1
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL11dataVersion, i64 3), align 1
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL11dataVersion, i64 2), align 1
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL11dataVersion, i64 1), align 1
   %19 = load i8, ptr @_ZL11dataVersion, align 1
   %20 = load i8, ptr %normUnicodeVersion.i.i, align 1
   %conv.i27.i = zext i8 %20 to i32
@@ -705,7 +705,7 @@ if.then13:                                        ; preds = %if.end11
 
 if.end15:                                         ; preds = %if.then13, %if.end11
   %srcLength.addr.0 = phi i32 [ %call14, %if.then13 ], [ %srcLength, %if.end11 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s1, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %s1, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call16 = invoke noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %s1, i32 noundef %srcLength.addr.0)
@@ -785,7 +785,7 @@ if.end49:                                         ; preds = %invoke.cont39.if.en
   br i1 %cmp.i114, label %invoke.cont55, label %cleanup240
 
 invoke.cont55:                                    ; preds = %if.end49
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s2, align 8
   %fUnion2.i116 = getelementptr inbounds nuw i8, ptr %s2, i64 8
   store i16 2, ptr %fUnion2.i116, align 8
   %doNFKC = getelementptr inbounds nuw i8, ptr %profile, i64 125
@@ -802,7 +802,7 @@ invoke.cont59:                                    ; preds = %if.then57
           to label %invoke.cont61 unwind label %lpad58.loopexit.split-lp
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %fn2, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %fn2, i64 8
   store ptr %call60, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %fn2, i64 16

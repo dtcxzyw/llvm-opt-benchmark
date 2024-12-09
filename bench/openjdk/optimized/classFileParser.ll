@@ -476,7 +476,7 @@ define hidden void @_ZN15ClassFileParser27parse_constant_pool_entriesEPK15ClassF
   %11 = alloca i32, align 4
   %12 = alloca %class.constantPoolHandle, align 8
   %13 = alloca %class.constantPoolHandle, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15ClassFileStream, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15ClassFileStream, i64 16), ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(34) %15, i64 34, i1 false)
@@ -2225,7 +2225,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit294.thread: ; p
   br i1 %430, label %431, label %475
 
 431:                                              ; preds = %427
-  %432 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %432 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %.not247 = icmp eq ptr %397, %432
   br i1 %.not247, label %435, label %433
 
@@ -2273,7 +2273,7 @@ _ZN9Signature14is_void_methodEPK6Symbol.exit.thread: ; preds = %435, %_ZN9Signat
   %456 = getelementptr inbounds nuw i64, ptr %321, i64 %455
   %457 = load ptr, ptr %456, align 8
   %458 = icmp eq i32 %449, 8
-  %459 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %459 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %.not246 = icmp eq ptr %457, %459
   br i1 %458, label %460, label %463
 
@@ -2294,7 +2294,7 @@ _ZN9Signature14is_void_methodEPK6Symbol.exit.thread: ; preds = %435, %_ZN9Signat
   br label %.loopexit
 
 466:                                              ; preds = %322
-  %467 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3480), align 8
+  %467 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3480), align 8
   %468 = getelementptr inbounds nuw i64, ptr %321, i64 %indvars.iv
   %469 = load i32, ptr %468, align 4
   %470 = sext i32 %469 to i64
@@ -2475,7 +2475,7 @@ _ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit: ; preds = %33
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %62 = load i64, ptr %61, align 8
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %65) #23
@@ -2531,12 +2531,12 @@ define hidden void @_ZNK15ClassFileParser24verify_legal_method_nameEPK6SymbolP10
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %21 = icmp eq ptr %1, %20
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
   %24 = icmp eq ptr %1, %23
   br i1 %24, label %.critedge, label %.critedge24
 
@@ -2590,7 +2590,7 @@ _ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit: ; preds = %25
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %50 = load i64, ptr %49, align 8
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %53) #23
@@ -2786,7 +2786,7 @@ _ZN15ClassFileParser23verify_unqualified_nameEPKcji.exit: ; preds = %20
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %43 = load i64, ptr %42, align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %46) #23
@@ -2863,7 +2863,7 @@ define hidden void @_ZNK15ClassFileParser21throwIllegalSignatureEPKcPK6SymbolS4_
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   %17 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2) #23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -3154,7 +3154,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %103, %_ZNK15ClassLo
   br i1 %.not69, label %131, label %138
 
 131:                                              ; preds = %127
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
   %133 = load ptr, ptr %34, align 8
   %134 = tail call noundef ptr @_ZNK6Symbol22as_klass_external_nameEv(ptr noundef nonnull align 4 dereferenceable(8) %133) #23
   %135 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %.045) #23
@@ -3619,7 +3619,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %_ZNK15
   br i1 %3, label %61, label %89
 
 61:                                               ; preds = %57
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 864), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 864), align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %64, label %89
 
@@ -3691,7 +3691,7 @@ _ZNK15ClassFileStream6get_u2EP10JavaThread.exit:  ; preds = %_ZNK15ClassFileStre
   br i1 %.not224, label %248, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
 
 89:                                               ; preds = %61, %57
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 928), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 928), align 8
   %91 = icmp eq ptr %60, %90
   br i1 %91, label %92, label %94
 
@@ -3704,7 +3704,7 @@ _ZNK15ClassFileStream6get_u2EP10JavaThread.exit:  ; preds = %_ZNK15ClassFileStre
   br label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
 
 94:                                               ; preds = %89
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 936), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 936), align 8
   %96 = icmp eq ptr %60, %95
   br i1 %96, label %97, label %99
 
@@ -3722,7 +3722,7 @@ _ZNK15ClassFileStream6get_u2EP10JavaThread.exit:  ; preds = %_ZNK15ClassFileStre
   br i1 %101, label %102, label %234
 
 102:                                              ; preds = %99
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 952), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 952), align 8
   %104 = icmp eq ptr %60, %103
   br i1 %104, label %105, label %138
 
@@ -3799,7 +3799,7 @@ _ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10Ja
   br i1 %.not10.i, label %248, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
 
 138:                                              ; preds = %102
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 968), align 8
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 968), align 8
   %140 = icmp eq ptr %60, %139
   br i1 %140, label %141, label %158
 
@@ -3839,7 +3839,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit165.thread: ; preds = %
   br label %248
 
 158:                                              ; preds = %138
-  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 976), align 8
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 976), align 8
   %160 = icmp eq ptr %60, %159
   br i1 %160, label %161, label %179
 
@@ -3889,7 +3889,7 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit: ; preds = %_ZNK15ClassFileStr
   br i1 %.not218, label %248, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
 
 179:                                              ; preds = %158
-  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1008), align 8
+  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1008), align 8
   %181 = icmp eq ptr %60, %180
   br i1 %181, label %182, label %199
 
@@ -3936,7 +3936,7 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit170: ; preds = %_ZNK15ClassFile
   br i1 %.not217, label %248, label %_ZNK15ClassFileStream6get_u2EP10JavaThread.exit.thread
 
 199:                                              ; preds = %179
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1016), align 8
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1016), align 8
   %201 = icmp eq ptr %60, %200
   br i1 %201, label %202, label %220
 
@@ -4509,7 +4509,7 @@ _ZL15check_symbol_atPK12ConstantPooli.exit74:     ; preds = %64
 
 _ZL15check_symbol_atPK12ConstantPooli.exit77:     ; preds = %.lr.ph, %90, %97
   %.0.i76 = phi ptr [ %99, %97 ], [ null, %.lr.ph ], [ null, %90 ]
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 736), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 736), align 8
   %101 = icmp eq ptr %.0.i76, %100
   br i1 %101, label %102, label %104
 
@@ -4519,7 +4519,7 @@ _ZL15check_symbol_atPK12ConstantPooli.exit77:     ; preds = %.lr.ph, %90, %97
 
 104:                                              ; preds = %_ZL15check_symbol_atPK12ConstantPooli.exit77
   %105 = getelementptr inbounds nuw i8, ptr %.05983, i64 2
-  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 744), align 8
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 744), align 8
   %107 = icmp eq ptr %.0.i76, %106
   br i1 %107, label %108, label %118
 
@@ -4565,7 +4565,7 @@ _ZL15check_symbol_atPK12ConstantPooli.exit77:     ; preds = %.lr.ph, %90, %97
   br i1 %128, label %129, label %141
 
 129:                                              ; preds = %125
-  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3656), align 8
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3656), align 8
   %131 = icmp eq ptr %.060, %130
   br i1 %131, label %132, label %141
 
@@ -5644,7 +5644,7 @@ _ZL22has_illegal_visibilityi.exit:                ; preds = %15
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i64, ptr %29, align 8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %33) #23
@@ -7834,7 +7834,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit: ; preds = %_Z
   %84 = zext i16 %68 to i64
   %85 = getelementptr inbounds nuw i64, ptr %61, i64 %84
   %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
   %88 = icmp eq ptr %64, %87
   br i1 %88, label %89, label %100
 
@@ -7867,7 +7867,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit: ; preds = %_Z
 
 102:                                              ; preds = %89, %100, %95
   %.0408 = phi i32 [ %98, %95 ], [ %37, %100 ], [ 8, %89 ]
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %104 = icmp eq ptr %64, %103
   %brmerge.not = and i1 %2, %104
   br i1 %brmerge.not, label %105, label %106
@@ -8042,7 +8042,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit587: ; preds = %_ZN
   %165 = zext i16 %142 to i64
   %166 = getelementptr inbounds nuw i64, ptr %61, i64 %165
   %167 = load ptr, ptr %166, align 8
-  %168 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 872), align 8
+  %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 872), align 8
   %169 = icmp eq ptr %167, %168
   br i1 %169, label %170, label %372
 
@@ -8306,7 +8306,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   %282 = zext i16 %257 to i64
   %283 = getelementptr inbounds nuw i64, ptr %61, i64 %282
   %284 = load ptr, ptr %283, align 8
-  %285 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 888), align 8
+  %285 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 888), align 8
   %286 = icmp eq ptr %284, %285
   br i1 %286, label %287, label %289
 
@@ -8317,7 +8317,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   br i1 %.not661, label %365, label %.loopexit670
 
 289:                                              ; preds = %281
-  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 896), align 8
+  %290 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 896), align 8
   %291 = icmp eq ptr %284, %290
   br i1 %291, label %292, label %322
 
@@ -8379,7 +8379,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   br i1 %324, label %325, label %.thread620
 
 325:                                              ; preds = %322
-  %326 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 904), align 8
+  %326 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 904), align 8
   %327 = icmp eq ptr %284, %326
   br i1 %327, label %328, label %355
 
@@ -8437,7 +8437,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit605: ; preds = %_ZN
   br i1 %.not656, label %.thread620, label %356
 
 356:                                              ; preds = %355
-  %357 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 920), align 8
+  %357 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 920), align 8
   %358 = icmp eq ptr %284, %357
   br i1 %358, label %359, label %.thread620
 
@@ -8510,7 +8510,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606: ; preds = %
   br i1 %.not662, label %509, label %.loopexit670
 
 372:                                              ; preds = %164
-  %373 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 880), align 8
+  %373 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 880), align 8
   %374 = icmp eq ptr %167, %373
   br i1 %374, label %375, label %380
 
@@ -8528,7 +8528,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606: ; preds = %
   br i1 %.not642, label %509, label %.loopexit670
 
 380:                                              ; preds = %372
-  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 912), align 8
+  %381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 912), align 8
   %382 = icmp eq ptr %167, %381
   br i1 %382, label %383, label %400
 
@@ -8560,13 +8560,13 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606: ; preds = %
   %396 = getelementptr inbounds nuw i8, ptr %387, i64 %395
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 %395
   store ptr %397, ptr %24, align 8
-  %398 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 352), align 8
+  %398 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 352), align 8
   %399 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %398) #23
   %spec.select = select i1 %399, i32 %389, i32 -1
   br label %509
 
 400:                                              ; preds = %380
-  %401 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 928), align 8
+  %401 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 928), align 8
   %402 = icmp eq ptr %167, %401
   br i1 %402, label %403, label %407
 
@@ -8583,7 +8583,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606: ; preds = %
   br label %509
 
 407:                                              ; preds = %400
-  %408 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 936), align 8
+  %408 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 936), align 8
   %409 = icmp eq ptr %167, %408
   br i1 %409, label %410, label %412
 
@@ -8601,7 +8601,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606: ; preds = %
   br i1 %414, label %415, label %507
 
 415:                                              ; preds = %412
-  %416 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 952), align 8
+  %416 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 952), align 8
   %417 = icmp eq ptr %167, %416
   br i1 %417, label %418, label %425
 
@@ -8628,7 +8628,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit606: ; preds = %
   br i1 %.not641, label %509, label %.loopexit670
 
 425:                                              ; preds = %415
-  %426 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 968), align 8
+  %426 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 968), align 8
   %427 = icmp eq ptr %167, %426
   br i1 %427, label %428, label %445
 
@@ -8668,7 +8668,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   br label %509
 
 445:                                              ; preds = %425
-  %446 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 976), align 8
+  %446 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 976), align 8
   %447 = icmp eq ptr %167, %446
   br i1 %447, label %448, label %457
 
@@ -8697,7 +8697,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   br i1 %.not639, label %509, label %.loopexit670
 
 457:                                              ; preds = %445
-  %458 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 984), align 8
+  %458 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 984), align 8
   %459 = icmp eq ptr %167, %458
   br i1 %459, label %460, label %465
 
@@ -8717,7 +8717,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   br i1 %.not638, label %509, label %.loopexit670
 
 465:                                              ; preds = %457
-  %466 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 992), align 8
+  %466 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 992), align 8
   %467 = icmp eq ptr %167, %466
   br i1 %467, label %468, label %477
 
@@ -8746,7 +8746,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   br i1 %.not637, label %509, label %.loopexit670
 
 477:                                              ; preds = %465
-  %478 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1000), align 8
+  %478 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1000), align 8
   %479 = icmp eq ptr %167, %478
   br i1 %479, label %480, label %485
 
@@ -8766,7 +8766,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   br i1 %.not636, label %509, label %.loopexit670
 
 485:                                              ; preds = %477
-  %486 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1008), align 8
+  %486 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1008), align 8
   %487 = icmp eq ptr %167, %486
   br i1 %487, label %488, label %493
 
@@ -8786,7 +8786,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit607.thread: ; preds = %
   br i1 %.not635, label %509, label %.loopexit670
 
 493:                                              ; preds = %485
-  %494 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1016), align 8
+  %494 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1016), align 8
   %495 = icmp eq ptr %167, %494
   br i1 %495, label %496, label %505
 
@@ -9172,12 +9172,12 @@ _ZN6Method8set_codeEPh.exit:                      ; preds = %583, %587
   br i1 %641, label %642, label %.loopexit670
 
 642:                                              ; preds = %639
-  %643 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3200), align 8
+  %643 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3200), align 8
   %644 = icmp eq ptr %64, %643
   br i1 %644, label %645, label %.loopexit670
 
 645:                                              ; preds = %642
-  %646 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %646 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %647 = icmp eq ptr %86, %646
   br i1 %647, label %648, label %.loopexit670
 
@@ -9250,7 +9250,7 @@ define hidden void @_ZNK15ClassFileParser29verify_legal_method_modifiersEibPK6Sy
   %15 = load i16, ptr %14, align 4
   %16 = icmp ult i16 %15, 49
   %17 = icmp ugt i16 %15, 60
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %19 = icmp eq ptr %3, %18
   br i1 %2, label %20, label %37
 
@@ -9337,7 +9337,7 @@ define hidden void @_ZNK15ClassFileParser29verify_legal_method_modifiersEibPK6Sy
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %58 = load i64, ptr %57, align 8
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   %60 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #23
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
@@ -9375,12 +9375,12 @@ define hidden void @_ZNK15ClassFileParser32verify_legal_name_with_signatureEPK6S
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
   %10 = icmp eq ptr %1, %9
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %.not = icmp ne ptr %2, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %14 = load i16, ptr %13, align 4
@@ -10695,7 +10695,7 @@ define hidden void @_ZNK15ClassFileParser28verify_legal_class_modifiersEiP10Java
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %18) #23
@@ -10767,7 +10767,7 @@ define hidden void @_ZNK15ClassFileParser28verify_legal_class_modifiersEiP10Java
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %51 = load i64, ptr %50, align 8
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %54) #23
@@ -11465,7 +11465,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit189: ; preds = %_ZN
   %161 = zext i16 %137 to i64
   %162 = getelementptr inbounds nuw i64, ptr %41, i64 %161
   %163 = load ptr, ptr %162, align 8
-  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 952), align 8
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 952), align 8
   %165 = icmp eq ptr %163, %164
   br i1 %165, label %166, label %199
 
@@ -11542,7 +11542,7 @@ _ZN15ClassFileParser33parse_generic_signature_attributeEPK15ClassFileStreamP10Ja
   br i1 %.not10.i, label %286, label %_ZN15MetadataFactory9new_arrayIP15RecordComponentEEP5ArrayIT_EP15ClassLoaderDataiS4_P10JavaThread.exit.thread
 
 199:                                              ; preds = %160
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 968), align 8
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 968), align 8
   %201 = icmp eq ptr %163, %200
   br i1 %201, label %202, label %213
 
@@ -11571,7 +11571,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit191: ; preds = %204
   br i1 %212, label %.sink.split, label %_ZN15MetadataFactory9new_arrayIP15RecordComponentEEP5ArrayIT_EP15ClassLoaderDataiS4_P10JavaThread.exit.thread
 
 213:                                              ; preds = %199
-  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 976), align 8
+  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 976), align 8
   %215 = icmp eq ptr %163, %214
   br i1 %215, label %216, label %234
 
@@ -11621,7 +11621,7 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit: ; preds = %_ZNK15ClassFileStr
   br i1 %.not260, label %286, label %_ZN15MetadataFactory9new_arrayIP15RecordComponentEEP5ArrayIT_EP15ClassLoaderDataiS4_P10JavaThread.exit.thread
 
 234:                                              ; preds = %213
-  %235 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1008), align 8
+  %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1008), align 8
   %236 = icmp eq ptr %163, %235
   br i1 %236, label %237, label %248
 
@@ -11650,7 +11650,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit194: ; preds = %239
   br i1 %247, label %.sink.split, label %_ZN15MetadataFactory9new_arrayIP15RecordComponentEEP5ArrayIT_EP15ClassLoaderDataiS4_P10JavaThread.exit.thread
 
 248:                                              ; preds = %234
-  %249 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1016), align 8
+  %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1016), align 8
   %250 = icmp eq ptr %163, %249
   br i1 %250, label %251, label %269
 
@@ -12503,7 +12503,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %_ZNK15
   %76 = zext i16 %53 to i64
   %77 = getelementptr inbounds nuw i64, ptr %27, i64 %76
   %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 832), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 832), align 8
   %80 = icmp eq ptr %78, %79
   br i1 %80, label %81, label %116
 
@@ -12590,7 +12590,7 @@ _ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP1
   br i1 %.not429, label %.critedge, label %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit.thread
 
 116:                                              ; preds = %75
-  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 944), align 8
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 944), align 8
   %118 = icmp eq ptr %78, %117
   br i1 %118, label %119, label %150
 
@@ -12675,7 +12675,7 @@ _ZN15ClassFileParser48parse_classfile_source_debug_extension_attributeEPK15Class
   br i1 %.not427, label %.critedge, label %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit.thread
 
 150:                                              ; preds = %116
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 840), align 8
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 840), align 8
   %152 = icmp eq ptr %78, %151
   br i1 %152, label %153, label %171
 
@@ -12722,7 +12722,7 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit: ; preds = %_ZNK15ClassFileStr
   br i1 %.not426, label %.critedge, label %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit.thread
 
 171:                                              ; preds = %150
-  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 928), align 8
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 928), align 8
   %173 = icmp eq ptr %78, %172
   br i1 %173, label %174, label %177
 
@@ -12739,7 +12739,7 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit: ; preds = %_ZNK15ClassFileStr
   br label %.critedge
 
 177:                                              ; preds = %171
-  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 936), align 8
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 936), align 8
   %179 = icmp eq ptr %78, %178
   br i1 %179, label %180, label %182
 
@@ -12757,7 +12757,7 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit: ; preds = %_ZNK15ClassFileStr
   br i1 %184, label %185, label %412
 
 185:                                              ; preds = %182
-  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 952), align 8
+  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 952), align 8
   %187 = icmp eq ptr %78, %186
   br i1 %187, label %188, label %226
 
@@ -12855,7 +12855,7 @@ _ZN15ClassFileParser35parse_classfile_signature_attributeEPK15ClassFileStreamP10
   br i1 %.not425, label %.critedge, label %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit.thread
 
 226:                                              ; preds = %185
-  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 968), align 8
+  %227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 968), align 8
   %228 = icmp eq ptr %78, %227
   br i1 %228, label %229, label %246
 
@@ -12895,7 +12895,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit348.thread: ; preds = %
   br label %.critedge
 
 246:                                              ; preds = %226
-  %247 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 976), align 8
+  %247 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 976), align 8
   %248 = icmp eq ptr %78, %247
   br i1 %248, label %249, label %267
 
@@ -12945,7 +12945,7 @@ _ZNK15ClassFileStream7skip_u1EiP10JavaThread.exit351: ; preds = %_ZNK15ClassFile
   br i1 %.not423, label %.critedge, label %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit.thread
 
 267:                                              ; preds = %246
-  %268 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1024), align 8
+  %268 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1024), align 8
   %269 = icmp eq ptr %78, %268
   br i1 %269, label %270, label %309
 
@@ -13042,7 +13042,7 @@ _ZNK15ClassFileParser14check_propertyEbPKcP10JavaThread.exit: ; preds = %290, %2
   br label %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit.thread
 
 309:                                              ; preds = %267
-  %310 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1032), align 8
+  %310 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1032), align 8
   %311 = icmp eq ptr %78, %310
   %312 = icmp ugt i16 %183, 50
   %or.cond = and i1 %312, %311
@@ -13063,7 +13063,7 @@ _ZNK15ClassFileParser14check_propertyEbPKcP10JavaThread.exit: ; preds = %290, %2
   br i1 %.not419, label %.critedge, label %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit.thread
 
 318:                                              ; preds = %309
-  %319 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1008), align 8
+  %319 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1008), align 8
   %320 = icmp eq ptr %78, %319
   br i1 %320, label %321, label %326
 
@@ -13083,7 +13083,7 @@ _ZNK15ClassFileParser14check_propertyEbPKcP10JavaThread.exit: ; preds = %290, %2
   br i1 %.not418, label %.critedge, label %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit.thread
 
 326:                                              ; preds = %318
-  %327 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1016), align 8
+  %327 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1016), align 8
   %328 = icmp eq ptr %78, %327
   br i1 %328, label %329, label %338
 
@@ -13116,7 +13116,7 @@ _ZNK15ClassFileParser14check_propertyEbPKcP10JavaThread.exit: ; preds = %290, %2
   br i1 %339, label %340, label %410
 
 340:                                              ; preds = %338
-  %341 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 848), align 8
+  %341 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 848), align 8
   %342 = icmp eq ptr %78, %341
   br i1 %342, label %343, label %352
 
@@ -13144,7 +13144,7 @@ _ZNK15ClassFileParser14check_propertyEbPKcP10JavaThread.exit: ; preds = %290, %2
   br i1 %.not416, label %.critedge, label %_ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP10JavaThread.exit.thread
 
 352:                                              ; preds = %340
-  %353 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 856), align 8
+  %353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 856), align 8
   %354 = icmp eq ptr %78, %353
   br i1 %354, label %355, label %383
 
@@ -13224,7 +13224,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit362: ; preds = %_ZN
   br i1 %384, label %385, label %408
 
 385:                                              ; preds = %383
-  %386 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 960), align 8
+  %386 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 960), align 8
   %387 = icmp eq ptr %78, %386
   br i1 %387, label %388, label %393
 
@@ -13245,7 +13245,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit362: ; preds = %_ZN
   br i1 %.not410, label %406, label %394
 
 394:                                              ; preds = %393
-  %395 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1040), align 8
+  %395 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1040), align 8
   %396 = icmp eq ptr %78, %395
   br i1 %396, label %397, label %406
 
@@ -13873,7 +13873,7 @@ define hidden noundef ptr @_ZN15ClassFileParser17parse_super_classEP12ConstantPo
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %11 = icmp ne ptr %9, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %13 = load i8, ptr %12, align 8
@@ -14379,12 +14379,12 @@ define hidden void @_ZN15ClassFileParser21set_precomputed_flagsEP13InstanceKlass
   br label %23
 
 23:                                               ; preds = %14, %15, %19, %2
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
   %25 = tail call noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr noundef %24) #23
   br i1 %25, label %26, label %_ZNK5Klass13is_subtype_ofEPS_.exit.thread15
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
@@ -14415,7 +14415,7 @@ _ZNK5Klass13is_subtype_ofEPS_.exit.thread15:      ; preds = %34, %_ZNK5Klass13is
 39:                                               ; preds = %_ZNK5Klass13is_subtype_ofEPS_.exit.thread15
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
   %43 = icmp eq ptr %41, %42
   br i1 %43, label %44, label %53
 
@@ -14501,7 +14501,7 @@ define hidden void @_ZN15ClassFileParser24check_super_class_accessEPK13InstanceK
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %26, align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1744), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1744), align 8
   %.not53 = icmp eq ptr %28, %29
   br i1 %.not53, label %30, label %60
 
@@ -14542,7 +14542,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %30, %35
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %54 = load i64, ptr %53, align 8
   store i64 %54, ptr %52, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
   %56 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #23
   %57 = load ptr, ptr %18, align 8
   %58 = tail call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %57) #23
@@ -14581,7 +14581,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %30, %35
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(196) %6) #23
   %84 = icmp eq ptr %79, %83
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
   %86 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #23
   %87 = load i32, ptr %8, align 4
   %88 = and i32 %87, 1024
@@ -14607,7 +14607,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %30, %35
   br label %101
 
 99:                                               ; preds = %62
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i32 noundef 4310, ptr noundef %100, ptr noundef nonnull @.str.161, ptr noundef nonnull %73) #23
   br label %101
 
@@ -14716,7 +14716,7 @@ define hidden void @_ZN15ClassFileParser28check_super_interface_accessEPK13Insta
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(464) %14) #23
   %47 = icmp eq ptr %42, %46
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
   %49 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #23
   %50 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %14) #23
   br i1 %47, label %.thread, label %52
@@ -14738,7 +14738,7 @@ define hidden void @_ZN15ClassFileParser28check_super_interface_accessEPK13Insta
   br label %61
 
 59:                                               ; preds = %25
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i32 noundef 4358, ptr noundef %60, ptr noundef nonnull @.str.165, ptr noundef nonnull %36) #23
   br label %61
 
@@ -14792,7 +14792,7 @@ define hidden void @_ZN15ClassFileParser20verify_class_versionEttP6SymbolP10Java
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1288), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1288), align 8
   %23 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #23
   %24 = zext i16 %2 to i32
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, i32 noundef 4518, ptr noundef %22, ptr noundef nonnull @.str.169, ptr noundef %23, i32 noundef %16, i32 noundef %24, i32 noundef 68) #23
@@ -14813,7 +14813,7 @@ define hidden void @_ZN15ClassFileParser20verify_class_versionEttP6SymbolP10Java
   br i1 %.not, label %34, label %31
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1288), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1288), align 8
   %33 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3) #23
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, i32 noundef 4533, ptr noundef %32, ptr noundef nonnull @.str.170, ptr noundef %33, i32 noundef %16, i32 noundef 65535, i32 noundef 68, i32 noundef 65535) #23
   br label %39
@@ -15157,9 +15157,9 @@ switch.early.test:                                ; preds = %26
   store i8 0, ptr %13, align 1
   store i32 1, ptr %16, align 8
   store i32 %39, ptr %11, align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 8
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
-  %. = select i1 %21, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3632), ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3640)
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %. = select i1 %21, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3632), ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3640)
   %.sink = load ptr, ptr %., align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %6, ptr noundef %40, ptr noundef %.sink, ptr noundef %41, ptr noundef nonnull %7, ptr noundef %38) #23
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -16054,7 +16054,7 @@ _ZN19OopMapBlocksBuilder4copyEP11OopMapBlock.exit: ; preds = %_ZN13InstanceKlass
   %375 = zext i16 %373 to i64
   %376 = getelementptr inbounds nuw i64, ptr %374, i64 %375
   %377 = load ptr, ptr %376, align 8
-  %378 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %378 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %.not.i129 = icmp eq ptr %377, %378
   br i1 %.not.i129, label %.loopexit.i, label %379
 
@@ -16125,7 +16125,7 @@ _ZL27check_final_method_overridePK13InstanceKlassP10JavaThread.exit.thread: ; pr
   %420 = load ptr, ptr %419, align 8
   %421 = getelementptr inbounds nuw i8, ptr %414, i64 8
   %422 = load i64, ptr %421, align 8
-  %423 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
+  %423 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1320), align 8
   %424 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #23
   %425 = load ptr, ptr %412, align 8
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
@@ -16495,7 +16495,7 @@ define internal fastcc void @_ZL27check_illegal_static_methodPK13InstanceKlassP1
   %21 = zext i16 %19 to i64
   %22 = getelementptr inbounds nuw i64, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
   %.not = icmp eq ptr %23, %24
   br i1 %.not, label %44, label %25
 
@@ -16510,7 +16510,7 @@ define internal fastcc void @_ZL27check_illegal_static_methodPK13InstanceKlassP1
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1376), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1376), align 8
   %37 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %23) #23
   %38 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %0) #23
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef %1, ptr noundef nonnull @.str.4, i32 noundef 4440, ptr noundef %36, ptr noundef nonnull @.str.220, ptr noundef %37, ptr noundef %38) #23
@@ -16675,7 +16675,7 @@ define hidden void @_ZN15ClassFileParserC2EP15ClassFileStreamP6SymbolP15ClassLoa
   br i1 %.not, label %33, label %35
 
 33:                                               ; preds = %7
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8584), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8584), align 8
   br label %35
 
 35:                                               ; preds = %7, %33
@@ -17035,7 +17035,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit: ; preds = %125
   br i1 %.not91, label %156, label %135
 
 135:                                              ; preds = %133
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8584), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8584), align 8
   %.not92 = icmp eq ptr %134, %136
   br i1 %.not92, label %155, label %137
 
@@ -17059,7 +17059,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit: ; preds = %125
   %150 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %151 = load i64, ptr %150, align 8
   store i64 %151, ptr %149, align 8
-  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
   %153 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %134) #23
   %154 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %122) #23
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i32 noundef 5777, ptr noundef %152, ptr noundef nonnull @.str.188, ptr noundef %153, ptr noundef %154) #23
@@ -17229,7 +17229,7 @@ define hidden void @_ZN15ClassFileParser26post_process_parsed_streamEPK15ClassFi
   %5 = alloca %class.FieldLayoutBuilder, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %10, label %21
 
@@ -17280,7 +17280,7 @@ _ZNK15ClassFileParser14check_propertyEbPKcP10JavaThread.exit: ; preds = %10, %18
   br i1 %.not58, label %39, label %33
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %35 = icmp eq ptr %29, %34
   br i1 %35, label %_ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit, label %36
 
@@ -17336,7 +17336,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %58, %60
   br label %66
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit.thread:       ; preds = %39, %_ZNK15ClassLoaderData12class_loaderEv.exit
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %63 = icmp eq ptr %29, %62
   br i1 %63, label %64, label %66
 
@@ -18320,14 +18320,14 @@ declare noundef ptr @_ZN12ConstantPool8allocateEP15ClassLoaderDataiP10JavaThread
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9LogStreamC2ILN8LogLevel4typeE2ELN6LogTag4typeE16ELS4_118ELS4_0ELS4_0ELS4_0ELS4_0EEERK13LogTargetImplIXT_EXT0_EXT1_EXT2_EXT3_EXT4_EXT5_EE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false) #23
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 2, ptr %4, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_118ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -18393,7 +18393,7 @@ define hidden noundef zeroext i1 @_ZNK15ClassFileParser21is_instance_ref_klassEv
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 368), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 368), align 8
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %_ZNK15ClassFileParser35is_java_lang_ref_Reference_subclassEv.exit, label %10
 
@@ -18418,7 +18418,7 @@ define hidden noundef zeroext i1 @_ZNK15ClassFileParser35is_java_lang_ref_Refere
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 368), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 368), align 8
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %14, label %10
 
@@ -19815,7 +19815,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #23
   ret void

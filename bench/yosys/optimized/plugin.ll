@@ -624,7 +624,7 @@ define linkonce_odr void @_ZN5Yosys10PluginPassC2Ev(ptr noundef nonnull align 8 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys10PluginPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys10PluginPassE, i64 16), ptr %0, align 8
   ret void
 
 9:                                                ; preds = %1

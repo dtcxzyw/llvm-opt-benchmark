@@ -89,7 +89,7 @@ define internal i32 @pcie_pme_probe(ptr noundef %0) #1 align 16 {
   ]
 
 8:                                                ; preds = %1, %1
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 56) #10
   %11 = icmp eq ptr %10, null
   br i1 %11, label %38, label %12

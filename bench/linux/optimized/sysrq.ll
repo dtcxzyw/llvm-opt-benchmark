@@ -615,7 +615,7 @@ declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #10
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @sysrq_handle_term(i8 zeroext %0) #2 align 16 {
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #18
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1112), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1112), align 8
   %3 = getelementptr i8, ptr %2, i64 -1112
   %4 = icmp eq ptr %3, @init_task
   br i1 %4, label %.loopexit, label %.preheader
@@ -677,7 +677,7 @@ define internal void @moom_callback(ptr nocapture readnone %0) #2 align 16 {
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 56, i1 false)
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %9, label %6
 
@@ -727,7 +727,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @sysrq_handle_kill(i8 zeroext %0) #2 align 16 {
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #18
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1112), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1112), align 8
   %3 = getelementptr i8, ptr %2, i64 -1112
   %4 = icmp eq ptr %3, @init_task
   br i1 %4, label %.loopexit, label %.preheader
@@ -824,7 +824,7 @@ declare dso_local void @normalize_rt_tasks() local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @sysrq_handle_showregs(i8 zeroext %0) #2 align 16 {
-  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !14
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !14
   %3 = and i32 %2, 983040
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %5
@@ -1323,7 +1323,7 @@ thread-pre-split:                                 ; preds = %37, %35
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @sysrq_connect(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #2 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(376) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 376) #21
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7

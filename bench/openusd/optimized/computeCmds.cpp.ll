@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__14HgiComputeCmdsC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7HgiCmdsC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__14HgiComputeCmdsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__14HgiComputeCmdsE, i64 16), ptr %0, align 8
   ret void
 }
 

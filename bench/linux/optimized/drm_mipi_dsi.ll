@@ -184,7 +184,7 @@ define dso_local ptr @mipi_dsi_device_register_full(ptr noundef %0, ptr noundef 
   br label %64
 
 20:                                               ; preds = %10
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %22 = tail call noalias noundef align 8 dereferenceable_or_null(808) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 808) #16
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
@@ -356,8 +356,8 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 define dso_local noundef i32 @mipi_dsi_host_register(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @host_lock) #14
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @host_list, i64 8), align 8
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @host_list, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @host_list, i64 8), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @host_list, i64 8), align 8
   store ptr @host_list, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8

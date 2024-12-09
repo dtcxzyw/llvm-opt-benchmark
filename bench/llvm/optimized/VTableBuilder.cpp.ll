@@ -1162,7 +1162,7 @@ define dso_local void @_ZN5clang20ItaniumVTableContextC2ERNS_10ASTContextENS0_21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang20ItaniumVTableContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang20ItaniumVTableContextE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1178,7 +1178,7 @@ define dso_local void @_ZN5clang20ItaniumVTableContextC2ERNS_10ASTContextENS0_21
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang20ItaniumVTableContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(140) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang20ItaniumVTableContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang20ItaniumVTableContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1252,7 +1252,7 @@ _ZN4llvm8DenseMapIPKN5clang13CXXRecordDeclESt10unique_ptrIKNS1_12VTableLayoutESt
   %34 = zext i32 %33 to i64
   %35 = mul nuw nsw i64 %34, 24
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %31, i64 noundef %35, i64 noundef 8) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang17VTableContextBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang17VTableContextBaseE, i64 16), ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load i32, ptr %37, align 8
@@ -4649,7 +4649,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_15ASTRecordLayo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang22MicrosoftVTableContextD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang22MicrosoftVTableContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang22MicrosoftVTableContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
@@ -4766,7 +4766,7 @@ _ZN4llvm8DenseMapISt4pairIPKN5clang13CXXRecordDeclENS2_9CharUnitsEESt10unique_pt
   %52 = zext i32 %51 to i64
   %53 = mul nuw nsw i64 %52, 48
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %49, i64 noundef %53, i64 noundef 8) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang17VTableContextBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang17VTableContextBaseE, i64 16), ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8
@@ -9438,7 +9438,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit62.i.i:           ; preds = %2263, %2261
 .lr.ph.i10.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit62.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i.i ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit62.i.i ]
   store ptr @.str.22, ptr %1952, align 8, !alias.scope !136
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %6, align 8, !alias.scope !136
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %6, align 8, !alias.scope !136
   %2269 = trunc nuw i64 %indvars.iv.i.i to i32
   store i32 %2269, ptr %1953, align 8, !alias.scope !136
   %2270 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %2174, ptr noundef nonnull align 8 dereferenceable(16) %6) #26
@@ -10197,7 +10197,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit120.i.i:          ; preds = %2594, %2592
   %2600 = load ptr, ptr %14, align 8
   %2601 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %2600, i64 %indvars.iv214.i.i
   store ptr @.str.22, ptr %1972, align 8, !alias.scope !158
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %15, align 8, !alias.scope !158
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %15, align 8, !alias.scope !158
   %2602 = trunc nuw i64 %indvars.iv214.i.i to i32
   store i32 %2602, ptr %1973, align 8, !alias.scope !158
   %2603 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %2174, ptr noundef nonnull align 8 dereferenceable(16) %15) #26
@@ -11977,7 +11977,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit82.us:            ; preds = %268, %265, %.lr.ph1
   %271 = load i64, ptr %270, align 8
   %272 = getelementptr inbounds nuw i8, ptr %.sroa.090.0108.us, i64 64
   store ptr @.str.12, ptr %201, align 8, !alias.scope !185
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %12, align 8, !alias.scope !185
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %12, align 8, !alias.scope !185
   store i64 %271, ptr %202, align 8, !alias.scope !185
   %273 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %12) #26
   %274 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %272) #26
@@ -12011,7 +12011,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit82:               ; preds = %.lr.ph111, %_ZN4llv
   %287 = load i64, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %.sroa.090.0108, i64 64
   store ptr @.str.12, ptr %201, align 8, !alias.scope !185
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %12, align 8, !alias.scope !185
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %12, align 8, !alias.scope !185
   store i64 %287, ptr %202, align 8, !alias.scope !185
   %289 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %12) #26
   %290 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %288) #26
@@ -13032,7 +13032,7 @@ declare noundef i32 @_ZNK5clang13CXXMethodDecl23size_overridden_methodsEv(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang17VTableContextBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang17VTableContextBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang17VTableContextBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
@@ -15368,7 +15368,7 @@ _ZN4llvm16DenseMapIteratorIN5clang13BaseSubobjectENS1_12VTableLayout20AddressPoi
 270:                                              ; preds = %.lr.ph842, %_ZN4llvm11raw_ostreamlsEPKc.exit376
   %indvars.iv = phi i64 [ 0, %.lr.ph842 ], [ %713, %_ZN4llvm11raw_ostreamlsEPKc.exit376 ]
   store ptr @.str.22, ptr %252, align 8, !alias.scope !222
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %19, align 8, !alias.scope !222
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %19, align 8, !alias.scope !222
   %271 = trunc nuw i64 %indvars.iv to i32
   store i32 %271, ptr %253, align 8, !alias.scope !222
   %272 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %19) #26
@@ -17488,7 +17488,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit514:              ; preds = %1194, %1196
   %1203 = load ptr, ptr %33, align 8
   %1204 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %1203, i64 %indvars.iv906
   store ptr @.str.22, ptr %1067, align 8, !alias.scope !250
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %34, align 8, !alias.scope !250
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %34, align 8, !alias.scope !250
   %1205 = trunc nuw i64 %indvars.iv906 to i32
   store i32 %1205, ptr %1068, align 8, !alias.scope !250
   %1206 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %34) #26
@@ -18351,7 +18351,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit647:              ; preds = %1584, %1586
   %1594 = load i64, ptr %1593, align 8
   %1595 = getelementptr inbounds nuw i8, ptr %.sroa.0659.0870, i64 40
   store ptr @.str.12, ptr %1590, align 8, !alias.scope !261
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %44, align 8, !alias.scope !261
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %44, align 8, !alias.scope !261
   store i64 %1594, ptr %1591, align 8, !alias.scope !261
   %1596 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %44) #26
   %1597 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1595) #26

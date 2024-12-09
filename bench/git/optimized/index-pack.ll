@@ -448,7 +448,7 @@ if.then77:                                        ; preds = %if.else74
   %call80 = call i64 @strtoul(ptr noundef nonnull %add.ptr79, ptr noundef nonnull %c, i32 noundef 10) #23
   %conv81 = trunc i64 %call80 to i32
   %21 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv81) #25, !srcloc !5
-  store i32 %21, ptr getelementptr inbounds (i8, ptr @input_buffer, i64 4), align 4
+  store i32 %21, ptr getelementptr inbounds nuw (i8, ptr @input_buffer, i64 4), align 4
   %22 = load ptr, ptr %c, align 8
   %23 = load i8, ptr %22, align 1
   %cmp84.not = icmp eq i8 %23, 44
@@ -465,7 +465,7 @@ if.end88:                                         ; preds = %if.then77
   %call90 = call i64 @strtoul(ptr noundef nonnull %add.ptr89, ptr noundef nonnull %c, i32 noundef 10) #23
   %conv91 = trunc i64 %call90 to i32
   %25 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv91) #25, !srcloc !5
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @input_buffer, i64 8), align 8
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @input_buffer, i64 8), align 8
   %26 = load ptr, ptr %c, align 8
   %27 = load i8, ptr %26, align 1
   %tobool93.not = icmp eq i8 %27, 0
@@ -1029,7 +1029,7 @@ if.else5.i:                                       ; preds = %if.end288
 open_pack_file.exit:                              ; preds = %if.then2.i, %if.else.i86, %if.else5.i
   %storemerge.i = phi i32 [ %call6.i83, %if.else5.i ], [ %call4.i, %if.else.i86 ], [ %.pre.i, %if.then2.i ]
   %pack_name.addr.1.i = phi ptr [ %pack_name.0.lcssa, %if.else5.i ], [ %pack_name.0.lcssa, %if.else.i86 ], [ %call3.i88, %if.then2.i ]
-  store i32 %storemerge.i, ptr getelementptr inbounds (i8, ptr @nothread_data, i64 8), align 8
+  store i32 %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @nothread_data, i64 8), align 8
   %88 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds nuw i8, ptr %88, i64 256
   %89 = load ptr, ptr %hash_algo.i, align 8
@@ -6092,13 +6092,13 @@ entry:
   br i1 %cmp.not, label %for.cond.preheader, label %for.end31
 
 for.cond.preheader:                               ; preds = %entry
-  %pos.024 = load ptr, ptr getelementptr inbounds (i8, ptr @done_head, i64 8), align 8
+  %pos.024 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @done_head, i64 8), align 8
   %cmp1.not25 = icmp eq ptr %pos.024, @done_head
   br i1 %cmp1.not25, label %for.cond11.preheader, label %for.body
 
 for.cond11.preheader:                             ; preds = %for.inc, %for.cond.preheader
   %base_cache_used.promoted29 = phi i64 [ %0, %for.cond.preheader ], [ %base_cache_used.promoted2940, %for.inc ]
-  %pos.133 = load ptr, ptr getelementptr inbounds (i8, ptr @work_head, i64 8), align 8
+  %pos.133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @work_head, i64 8), align 8
   %cmp12.not34 = icmp eq ptr %pos.133, @work_head
   br i1 %cmp12.not34, label %for.end31, label %for.body13
 

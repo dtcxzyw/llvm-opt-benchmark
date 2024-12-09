@@ -939,7 +939,7 @@ while.body.i:                                     ; preds = %if.then13.i, %if.en
 
 land.lhs.true.i:                                  ; preds = %while.body.i
   %5 = load ptr, ptr %interp.i, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i = icmp eq ptr %5, %6
   br i1 %cmp.i.not.i, label %if.then.i, label %if.end.i
 
@@ -1093,7 +1093,7 @@ lor.lhs.false:                                    ; preds = %if.end10
 lor.lhs.false18:                                  ; preds = %lor.lhs.false
   %interp = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %interp, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %8, %9
   br i1 %cmp.i.not, label %if.else, label %if.then21
 

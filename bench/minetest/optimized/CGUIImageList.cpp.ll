@@ -95,8 +95,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !16
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %0, align 8, !tbaa !3
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
   %Texture = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -186,9 +186,9 @@ if.end16:                                         ; preds = %delete.notnull.i21,
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui13CGUIImageListD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8), (48, 56)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i, align 8, !tbaa !3
   %Driver.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Driver.i, align 8, !tbaa !6
   %tobool.not.i = icmp eq ptr %0, null
@@ -249,9 +249,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Driver.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Driver.i.i, align 8, !tbaa !6
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -308,9 +308,9 @@ _ZN3irr3gui13CGUIImageListD1Ev.exit:              ; preds = %delete.notnull.i21.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui13CGUIImageListD0Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8), (48, 56)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Driver.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Driver.i.i, align 8, !tbaa !6
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -375,9 +375,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Driver.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Driver.i.i.i, align 8, !tbaa !6
   %tobool.not.i.i.i = icmp eq ptr %4, null

@@ -433,7 +433,7 @@ define hidden noundef i32 @_ZN5zxing6qrcode7Version13buildVersionsEv() local_unn
   store ptr %86, ptr %85, align 8
   %88 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 0, ptr %88, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %41, align 8
   %89 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 1, ptr %89, align 4
   %90 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -637,7 +637,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit:      ; preds = %_ZNSt6vectorIN5zxin
   store ptr %175, ptr %174, align 8
   %177 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i32 0, ptr %177, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %130, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %130, align 8
   %178 = getelementptr inbounds nuw i8, ptr %130, i64 12
   store i32 2, ptr %178, align 4
   %179 = getelementptr inbounds nuw i8, ptr %130, i64 16
@@ -841,7 +841,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit416:   ; preds = %_ZNSt6vectorIN5zxin
   store ptr %264, ptr %263, align 8
   %266 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store i32 0, ptr %266, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %219, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %219, align 8
   %267 = getelementptr inbounds nuw i8, ptr %219, i64 12
   store i32 3, ptr %267, align 4
   %268 = getelementptr inbounds nuw i8, ptr %219, i64 16
@@ -1045,7 +1045,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit447:   ; preds = %_ZNSt6vectorIN5zxin
   store ptr %353, ptr %352, align 8
   %355 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i32 0, ptr %355, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %308, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %308, align 8
   %356 = getelementptr inbounds nuw i8, ptr %308, i64 12
   store i32 4, ptr %356, align 4
   %357 = getelementptr inbounds nuw i8, ptr %308, i64 16
@@ -1301,7 +1301,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i484: ; preds = %.noexc485
   store ptr %459, ptr %453, align 8
   %460 = getelementptr inbounds nuw i8, ptr %397, i64 8
   store i32 0, ptr %460, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %397, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %397, align 8
   %461 = getelementptr inbounds nuw i8, ptr %397, i64 12
   store i32 5, ptr %461, align 4
   %462 = getelementptr inbounds nuw i8, ptr %397, i64 16
@@ -1537,7 +1537,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit511:   ; preds = %_ZNSt6vectorIN5zxin
   store ptr %563, ptr %562, align 8
   %565 = getelementptr inbounds nuw i8, ptr %518, i64 8
   store i32 0, ptr %565, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %518, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %518, align 8
   %566 = getelementptr inbounds nuw i8, ptr %518, i64 12
   store i32 6, ptr %566, align 4
   %567 = getelementptr inbounds nuw i8, ptr %518, i64 16
@@ -1793,7 +1793,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i552: ; preds = %.noexc553
   store ptr %669, ptr %663, align 8
   %670 = getelementptr inbounds nuw i8, ptr %607, i64 8
   store i32 0, ptr %670, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %607, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %607, align 8
   %671 = getelementptr inbounds nuw i8, ptr %607, i64 12
   store i32 7, ptr %671, align 4
   %672 = getelementptr inbounds nuw i8, ptr %607, i64 16
@@ -2107,7 +2107,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i592: ; preds = %.noexc593
   store ptr %798, ptr %792, align 8
   %799 = getelementptr inbounds nuw i8, ptr %728, i64 8
   store i32 0, ptr %799, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %728, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %728, align 8
   %800 = getelementptr inbounds nuw i8, ptr %728, i64 12
   store i32 8, ptr %800, align 4
   %801 = getelementptr inbounds nuw i8, ptr %728, i64 16
@@ -2421,7 +2421,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i632: ; preds = %.noexc633
   store ptr %927, ptr %921, align 8
   %928 = getelementptr inbounds nuw i8, ptr %857, i64 8
   store i32 0, ptr %928, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %857, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %857, align 8
   %929 = getelementptr inbounds nuw i8, ptr %857, i64 12
   store i32 9, ptr %929, align 4
   %930 = getelementptr inbounds nuw i8, ptr %857, i64 16
@@ -2761,7 +2761,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i675: ; preds = %.noexc676
   store ptr %1064, ptr %1058, align 8
   %1065 = getelementptr inbounds nuw i8, ptr %986, i64 8
   store i32 0, ptr %1065, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %986, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %986, align 8
   %1066 = getelementptr inbounds nuw i8, ptr %986, i64 12
   store i32 10, ptr %1066, align 4
   %1067 = getelementptr inbounds nuw i8, ptr %986, i64 16
@@ -3075,7 +3075,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i715: ; preds = %.noexc716
   store ptr %1193, ptr %1187, align 8
   %1194 = getelementptr inbounds nuw i8, ptr %1123, i64 8
   store i32 0, ptr %1194, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1123, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1123, align 8
   %1195 = getelementptr inbounds nuw i8, ptr %1123, i64 12
   store i32 11, ptr %1195, align 4
   %1196 = getelementptr inbounds nuw i8, ptr %1123, i64 16
@@ -3415,7 +3415,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i758: ; preds = %.noexc759
   store ptr %1330, ptr %1324, align 8
   %1331 = getelementptr inbounds nuw i8, ptr %1252, i64 8
   store i32 0, ptr %1331, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1252, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1252, align 8
   %1332 = getelementptr inbounds nuw i8, ptr %1252, i64 12
   store i32 12, ptr %1332, align 4
   %1333 = getelementptr inbounds nuw i8, ptr %1252, i64 16
@@ -3729,7 +3729,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i798: ; preds = %.noexc799
   store ptr %1459, ptr %1453, align 8
   %1460 = getelementptr inbounds nuw i8, ptr %1389, i64 8
   store i32 0, ptr %1460, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1389, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1389, align 8
   %1461 = getelementptr inbounds nuw i8, ptr %1389, i64 12
   store i32 13, ptr %1461, align 4
   %1462 = getelementptr inbounds nuw i8, ptr %1389, i64 16
@@ -4069,7 +4069,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i841: ; preds = %.noexc842
   store ptr %1596, ptr %1590, align 8
   %1597 = getelementptr inbounds nuw i8, ptr %1518, i64 8
   store i32 0, ptr %1597, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1518, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1518, align 8
   %1598 = getelementptr inbounds nuw i8, ptr %1518, i64 12
   store i32 14, ptr %1598, align 4
   %1599 = getelementptr inbounds nuw i8, ptr %1518, i64 16
@@ -4409,7 +4409,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i884: ; preds = %.noexc885
   store ptr %1733, ptr %1727, align 8
   %1734 = getelementptr inbounds nuw i8, ptr %1655, i64 8
   store i32 0, ptr %1734, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1655, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1655, align 8
   %1735 = getelementptr inbounds nuw i8, ptr %1655, i64 12
   store i32 15, ptr %1735, align 4
   %1736 = getelementptr inbounds nuw i8, ptr %1655, i64 16
@@ -4749,7 +4749,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i927: ; preds = %.noexc928
   store ptr %1870, ptr %1864, align 8
   %1871 = getelementptr inbounds nuw i8, ptr %1792, i64 8
   store i32 0, ptr %1871, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1792, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1792, align 8
   %1872 = getelementptr inbounds nuw i8, ptr %1792, i64 12
   store i32 16, ptr %1872, align 4
   %1873 = getelementptr inbounds nuw i8, ptr %1792, i64 16
@@ -5089,7 +5089,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i970: ; preds = %.noexc971
   store ptr %2007, ptr %2001, align 8
   %2008 = getelementptr inbounds nuw i8, ptr %1929, i64 8
   store i32 0, ptr %2008, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1929, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %1929, align 8
   %2009 = getelementptr inbounds nuw i8, ptr %1929, i64 12
   store i32 17, ptr %2009, align 4
   %2010 = getelementptr inbounds nuw i8, ptr %1929, i64 16
@@ -5429,7 +5429,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1013: ; preds = %.noexc1014
   store ptr %2144, ptr %2138, align 8
   %2145 = getelementptr inbounds nuw i8, ptr %2066, i64 8
   store i32 0, ptr %2145, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2066, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2066, align 8
   %2146 = getelementptr inbounds nuw i8, ptr %2066, i64 12
   store i32 18, ptr %2146, align 4
   %2147 = getelementptr inbounds nuw i8, ptr %2066, i64 16
@@ -5769,7 +5769,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1056: ; preds = %.noexc1057
   store ptr %2281, ptr %2275, align 8
   %2282 = getelementptr inbounds nuw i8, ptr %2203, i64 8
   store i32 0, ptr %2282, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2203, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2203, align 8
   %2283 = getelementptr inbounds nuw i8, ptr %2203, i64 12
   store i32 19, ptr %2283, align 4
   %2284 = getelementptr inbounds nuw i8, ptr %2203, i64 16
@@ -6109,7 +6109,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1099: ; preds = %.noexc1100
   store ptr %2418, ptr %2412, align 8
   %2419 = getelementptr inbounds nuw i8, ptr %2340, i64 8
   store i32 0, ptr %2419, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2340, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2340, align 8
   %2420 = getelementptr inbounds nuw i8, ptr %2340, i64 12
   store i32 20, ptr %2420, align 4
   %2421 = getelementptr inbounds nuw i8, ptr %2340, i64 16
@@ -6423,7 +6423,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1139: ; preds = %.noexc1140
   store ptr %2547, ptr %2541, align 8
   %2548 = getelementptr inbounds nuw i8, ptr %2477, i64 8
   store i32 0, ptr %2548, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2477, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2477, align 8
   %2549 = getelementptr inbounds nuw i8, ptr %2477, i64 12
   store i32 21, ptr %2549, align 4
   %2550 = getelementptr inbounds nuw i8, ptr %2477, i64 16
@@ -6711,7 +6711,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1174: ; preds = %.noexc1175
   store ptr %2667, ptr %2666, align 8
   %2669 = getelementptr inbounds nuw i8, ptr %2606, i64 8
   store i32 0, ptr %2669, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2606, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2606, align 8
   %2670 = getelementptr inbounds nuw i8, ptr %2606, i64 12
   store i32 22, ptr %2670, align 4
   %2671 = getelementptr inbounds nuw i8, ptr %2606, i64 16
@@ -7051,7 +7051,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1219: ; preds = %.noexc1220
   store ptr %2805, ptr %2799, align 8
   %2806 = getelementptr inbounds nuw i8, ptr %2727, i64 8
   store i32 0, ptr %2806, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2727, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2727, align 8
   %2807 = getelementptr inbounds nuw i8, ptr %2727, i64 12
   store i32 23, ptr %2807, align 4
   %2808 = getelementptr inbounds nuw i8, ptr %2727, i64 16
@@ -7391,7 +7391,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1262: ; preds = %.noexc1263
   store ptr %2942, ptr %2936, align 8
   %2943 = getelementptr inbounds nuw i8, ptr %2864, i64 8
   store i32 0, ptr %2943, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2864, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %2864, align 8
   %2944 = getelementptr inbounds nuw i8, ptr %2864, i64 12
   store i32 24, ptr %2944, align 4
   %2945 = getelementptr inbounds nuw i8, ptr %2864, i64 16
@@ -7731,7 +7731,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1305: ; preds = %.noexc1306
   store ptr %3079, ptr %3073, align 8
   %3080 = getelementptr inbounds nuw i8, ptr %3001, i64 8
   store i32 0, ptr %3080, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3001, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3001, align 8
   %3081 = getelementptr inbounds nuw i8, ptr %3001, i64 12
   store i32 25, ptr %3081, align 4
   %3082 = getelementptr inbounds nuw i8, ptr %3001, i64 16
@@ -8071,7 +8071,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1348: ; preds = %.noexc1349
   store ptr %3216, ptr %3210, align 8
   %3217 = getelementptr inbounds nuw i8, ptr %3138, i64 8
   store i32 0, ptr %3217, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3138, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3138, align 8
   %3218 = getelementptr inbounds nuw i8, ptr %3138, i64 12
   store i32 26, ptr %3218, align 4
   %3219 = getelementptr inbounds nuw i8, ptr %3138, i64 16
@@ -8411,7 +8411,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1391: ; preds = %.noexc1392
   store ptr %3353, ptr %3347, align 8
   %3354 = getelementptr inbounds nuw i8, ptr %3275, i64 8
   store i32 0, ptr %3354, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3275, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3275, align 8
   %3355 = getelementptr inbounds nuw i8, ptr %3275, i64 12
   store i32 27, ptr %3355, align 4
   %3356 = getelementptr inbounds nuw i8, ptr %3275, i64 16
@@ -8751,7 +8751,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1434: ; preds = %.noexc1435
   store ptr %3490, ptr %3484, align 8
   %3491 = getelementptr inbounds nuw i8, ptr %3412, i64 8
   store i32 0, ptr %3491, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3412, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3412, align 8
   %3492 = getelementptr inbounds nuw i8, ptr %3412, i64 12
   store i32 28, ptr %3492, align 4
   %3493 = getelementptr inbounds nuw i8, ptr %3412, i64 16
@@ -9091,7 +9091,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1477: ; preds = %.noexc1478
   store ptr %3627, ptr %3621, align 8
   %3628 = getelementptr inbounds nuw i8, ptr %3549, i64 8
   store i32 0, ptr %3628, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3549, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3549, align 8
   %3629 = getelementptr inbounds nuw i8, ptr %3549, i64 12
   store i32 29, ptr %3629, align 4
   %3630 = getelementptr inbounds nuw i8, ptr %3549, i64 16
@@ -9431,7 +9431,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1520: ; preds = %.noexc1521
   store ptr %3764, ptr %3758, align 8
   %3765 = getelementptr inbounds nuw i8, ptr %3686, i64 8
   store i32 0, ptr %3765, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3686, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3686, align 8
   %3766 = getelementptr inbounds nuw i8, ptr %3686, i64 12
   store i32 30, ptr %3766, align 4
   %3767 = getelementptr inbounds nuw i8, ptr %3686, i64 16
@@ -9771,7 +9771,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1563: ; preds = %.noexc1564
   store ptr %3901, ptr %3895, align 8
   %3902 = getelementptr inbounds nuw i8, ptr %3823, i64 8
   store i32 0, ptr %3902, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3823, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3823, align 8
   %3903 = getelementptr inbounds nuw i8, ptr %3823, i64 12
   store i32 31, ptr %3903, align 4
   %3904 = getelementptr inbounds nuw i8, ptr %3823, i64 16
@@ -10085,7 +10085,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1603: ; preds = %.noexc1604
   store ptr %4030, ptr %4024, align 8
   %4031 = getelementptr inbounds nuw i8, ptr %3960, i64 8
   store i32 0, ptr %4031, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3960, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %3960, align 8
   %4032 = getelementptr inbounds nuw i8, ptr %3960, i64 12
   store i32 32, ptr %4032, align 4
   %4033 = getelementptr inbounds nuw i8, ptr %3960, i64 16
@@ -10425,7 +10425,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1646: ; preds = %.noexc1647
   store ptr %4167, ptr %4161, align 8
   %4168 = getelementptr inbounds nuw i8, ptr %4089, i64 8
   store i32 0, ptr %4168, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4089, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4089, align 8
   %4169 = getelementptr inbounds nuw i8, ptr %4089, i64 12
   store i32 33, ptr %4169, align 4
   %4170 = getelementptr inbounds nuw i8, ptr %4089, i64 16
@@ -10765,7 +10765,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1689: ; preds = %.noexc1690
   store ptr %4304, ptr %4298, align 8
   %4305 = getelementptr inbounds nuw i8, ptr %4226, i64 8
   store i32 0, ptr %4305, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4226, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4226, align 8
   %4306 = getelementptr inbounds nuw i8, ptr %4226, i64 12
   store i32 34, ptr %4306, align 4
   %4307 = getelementptr inbounds nuw i8, ptr %4226, i64 16
@@ -11105,7 +11105,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1732: ; preds = %.noexc1733
   store ptr %4441, ptr %4435, align 8
   %4442 = getelementptr inbounds nuw i8, ptr %4363, i64 8
   store i32 0, ptr %4442, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4363, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4363, align 8
   %4443 = getelementptr inbounds nuw i8, ptr %4363, i64 12
   store i32 35, ptr %4443, align 4
   %4444 = getelementptr inbounds nuw i8, ptr %4363, i64 16
@@ -11445,7 +11445,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1775: ; preds = %.noexc1776
   store ptr %4578, ptr %4572, align 8
   %4579 = getelementptr inbounds nuw i8, ptr %4500, i64 8
   store i32 0, ptr %4579, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4500, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4500, align 8
   %4580 = getelementptr inbounds nuw i8, ptr %4500, i64 12
   store i32 36, ptr %4580, align 4
   %4581 = getelementptr inbounds nuw i8, ptr %4500, i64 16
@@ -11785,7 +11785,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1818: ; preds = %.noexc1819
   store ptr %4715, ptr %4709, align 8
   %4716 = getelementptr inbounds nuw i8, ptr %4637, i64 8
   store i32 0, ptr %4716, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4637, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4637, align 8
   %4717 = getelementptr inbounds nuw i8, ptr %4637, i64 12
   store i32 37, ptr %4717, align 4
   %4718 = getelementptr inbounds nuw i8, ptr %4637, i64 16
@@ -12125,7 +12125,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1861: ; preds = %.noexc1862
   store ptr %4852, ptr %4846, align 8
   %4853 = getelementptr inbounds nuw i8, ptr %4774, i64 8
   store i32 0, ptr %4853, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4774, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4774, align 8
   %4854 = getelementptr inbounds nuw i8, ptr %4774, i64 12
   store i32 38, ptr %4854, align 4
   %4855 = getelementptr inbounds nuw i8, ptr %4774, i64 16
@@ -12465,7 +12465,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1904: ; preds = %.noexc1905
   store ptr %4989, ptr %4983, align 8
   %4990 = getelementptr inbounds nuw i8, ptr %4911, i64 8
   store i32 0, ptr %4990, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4911, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %4911, align 8
   %4991 = getelementptr inbounds nuw i8, ptr %4911, i64 12
   store i32 39, ptr %4991, align 4
   %4992 = getelementptr inbounds nuw i8, ptr %4911, i64 16
@@ -12805,7 +12805,7 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit.i1947: ; preds = %.noexc1948
   store ptr %5126, ptr %5120, align 8
   %5127 = getelementptr inbounds nuw i8, ptr %5048, i64 8
   store i32 0, ptr %5127, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %5048, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %5048, align 8
   %5128 = getelementptr inbounds nuw i8, ptr %5048, i64 12
   store i32 40, ptr %5128, align 4
   %5129 = getelementptr inbounds nuw i8, ptr %5048, i64 16
@@ -15769,14 +15769,14 @@ define hidden noundef range(i32 -1, -2147483648) i32 @_ZN5zxing6qrcode7Version22
 
 9:                                                ; preds = %2
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @.str)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 3, ptr %10, align 8
   %11 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %12 unwind label %14
 
 12:                                               ; preds = %9
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   br label %20
@@ -15784,7 +15784,7 @@ define hidden noundef range(i32 -1, -2147483648) i32 @_ZN5zxing6qrcode7Version22
 14:                                               ; preds = %9
   %15 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #19
   resume { ptr, i32 } %15
@@ -15803,7 +15803,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandler
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing18ReaderErrorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   ret void
@@ -15838,7 +15838,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version33getProvisionalVersionForDim
 7:                                                ; preds = %2
   %.sink16.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.2)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18FormatErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18FormatErrorHandlerE, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 6, ptr %8, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -15861,14 +15861,14 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version33getProvisionalVersionForDim
 
 18:                                               ; preds = %12
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @.str)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 3, ptr %19, align 8
   %20 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %21 unwind label %23
 
 21:                                               ; preds = %18
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
   br label %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit
@@ -15877,7 +15877,7 @@ common.resume:                                    ; preds = %10, %38, %23
   %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %10 ], [ %.sink.sroa.gep17, %38 ], [ %.sink.sroa.gep18, %23 ]
   %.sink = phi ptr [ %4, %10 ], [ %5, %38 ], [ %3, %23 ]
   %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %39, %38 ], [ %24, %23 ]
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.sroa.phi) #19
   resume { ptr, i32 } %common.resume.op
 
@@ -15906,7 +15906,7 @@ _ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit: ; preds
 
 35:                                               ; preds = %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.3)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18FormatErrorHandlerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18FormatErrorHandlerE, i64 16), ptr %5, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 6, ptr %36, align 8
   %37 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
@@ -15920,7 +15920,7 @@ _ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit: ; preds
 .sink.split:                                      ; preds = %35, %7
   %.sink16.sroa.phi = phi ptr [ %.sink16.sroa.gep, %7 ], [ %.sink16.sroa.gep19, %35 ]
   %.sink16 = phi ptr [ %4, %7 ], [ %5, %35 ]
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink16, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink16.sroa.phi) #19
   br label %40
 
@@ -15931,7 +15931,7 @@ _ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing18FormatErrorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   ret void
@@ -15948,14 +15948,14 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12
 
 7:                                                ; preds = %2
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @.str)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 3, ptr %8, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %10 unwind label %12
 
 10:                                               ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   br label %21
@@ -15963,7 +15963,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12
 12:                                               ; preds = %7
   %13 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   resume { ptr, i32 } %13
@@ -15985,7 +15985,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12
 define hidden void @_ZN5zxing6qrcode7VersionC2EiPSt6vectorIiSaIiEEPNS0_8ECBlocksES7_S7_S7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 52)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16047,7 +16047,7 @@ define hidden void @_ZN5zxing6qrcode7VersionC2EiPSt6vectorIiSaIiEEPNS0_8ECBlocks
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5zxing6qrcode7VersionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -16195,14 +16195,14 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %15
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 3, ptr %16, align 8
   %17 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %18 unwind label %20
 
 18:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #19
   br label %29
@@ -16210,7 +16210,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
 20:                                               ; preds = %.noexc
   %21 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
   br label %.body
@@ -16244,7 +16244,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %52, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %53, %52 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #19
   resume { ptr, i32 } %eh.lpad-body
@@ -16282,14 +16282,14 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
           to label %.noexc29 unwind label %.loopexit.split-lp
 
 .noexc29:                                         ; preds = %47
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %2, align 8
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 3, ptr %48, align 8
   %49 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2)
           to label %50 unwind label %52
 
 50:                                               ; preds = %.noexc29
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %2, align 8
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #19
   br label %60
@@ -16297,7 +16297,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
 52:                                               ; preds = %.noexc29
   %53 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %2, align 8
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #19
   br label %.body
@@ -16320,7 +16320,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge, %60, %29
   %.0 = phi ptr [ %., %29 ], [ %.26, %60 ], [ null, %._crit_edge ], [ null, %1 ]
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #19
   ret ptr %.0
@@ -16352,14 +16352,14 @@ define hidden void @_ZN5zxing6qrcode7Version22buildFixedPatternValueERNS_12Error
 
 11:                                               ; preds = %3
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 3, ptr %12, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %14 unwind label %16
 
 14:                                               ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
   br label %_ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit
@@ -16371,7 +16371,7 @@ common.resume:                                    ; preds = %40, %.loopexit, %43
 16:                                               ; preds = %11
   %17 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #19
   br label %common.resume
@@ -16828,14 +16828,14 @@ define hidden void @_ZN5zxing6qrcode7Version25buildFixedPatternTemplateERNS_12Er
 
 10:                                               ; preds = %3
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 3, ptr %11, align 8
   %12 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %13 unwind label %15
 
 13:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   br label %_ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit
@@ -16847,7 +16847,7 @@ common.resume:                                    ; preds = %30, %.loopexit, %35
 15:                                               ; preds = %10
   %16 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #19
   br label %common.resume
@@ -17099,14 +17099,14 @@ define hidden void @_ZN5zxing6qrcode7Version20buildFunctionPatternERNS_12ErrorHa
 
 10:                                               ; preds = %3
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 3, ptr %11, align 8
   %12 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %13 unwind label %15
 
 13:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   br label %_ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit
@@ -17118,7 +17118,7 @@ common.resume:                                    ; preds = %30, %.loopexit, %35
 15:                                               ; preds = %10
   %16 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #19
   br label %common.resume
@@ -17459,7 +17459,7 @@ declare void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing18ReaderErrorHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
@@ -17495,7 +17495,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing18FormatErrorHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18

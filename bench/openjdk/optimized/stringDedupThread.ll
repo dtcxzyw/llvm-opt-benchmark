@@ -52,7 +52,7 @@ $_ZNK10JavaThread8print_onEP12outputStream = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17StringDedupThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1800) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN10JavaThreadC2EPFvPS_S0_Em8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef nonnull @_ZN17StringDedupThread12thread_entryEP10JavaThreadS1_, i64 noundef 0, i8 noundef zeroext 2) #4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV17StringDedupThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV17StringDedupThread, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -79,7 +79,7 @@ define hidden void @_ZN17StringDedupThread10initializeEv() local_unnamed_addr #0
 6:                                                ; preds = %0
   %7 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1800, i8 noundef zeroext 2, i32 noundef 0) #4
   call void @_ZN10JavaThreadC2EPFvPS_S0_Em8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(1800) %7, ptr noundef nonnull @_ZN17StringDedupThread12thread_entryEP10JavaThreadS1_, i64 noundef 0, i8 noundef zeroext 2) #4
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV17StringDedupThread, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV17StringDedupThread, i64 16), ptr %7, align 8
   call void @_ZN10JavaThread27vm_exit_on_osthread_failureEPS_(ptr noundef nonnull %7) #4
   call void @_ZN10JavaThread21start_internal_daemonEPS_S0_6Handle14ThreadPriority(ptr noundef nonnull %2, ptr noundef nonnull %7, ptr %3, i32 noundef 5) #4
   br label %8

@@ -457,8 +457,8 @@ define hidden void @zend_register_enum_ce() local_unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 384
   store ptr @zend_implement_backed_enum, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @zend_enum_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store ptr null, ptr getelementptr inbounds (i8, ptr @zend_enum_object_handlers, i64 24), align 8
-  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds (i8, ptr @zend_enum_object_handlers, i64 184), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @zend_enum_object_handlers, i64 24), align 8
+  store ptr @zend_objects_not_comparable, ptr getelementptr inbounds nuw (i8, ptr @zend_enum_object_handlers, i64 184), align 8
   ret void
 }
 
@@ -673,7 +673,7 @@ define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr nounde
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %19 = ptrtoint ptr %13 to i64
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
@@ -700,7 +700,7 @@ define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr nounde
   br i1 %.not116, label %42, label %32
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %34 = ptrtoint ptr %31 to i64
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
@@ -898,7 +898,7 @@ define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr nounde
   br i1 %143, label %144, label %150
 
 144:                                              ; preds = %141
-  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %146 = ptrtoint ptr %140 to i64
   %147 = getelementptr inbounds i8, ptr %145, i64 %146
   %148 = load ptr, ptr %147, align 8
@@ -966,7 +966,7 @@ define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr nocapture noundef w
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %23 = ptrtoint ptr %17 to i64
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
@@ -1049,7 +1049,7 @@ define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr nocapture noundef w
   br i1 %.not66, label %74, label %64
 
 64:                                               ; preds = %62
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %66 = ptrtoint ptr %63 to i64
   %67 = getelementptr inbounds i8, ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8
@@ -1126,7 +1126,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
   unreachable
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %3, 7
   %10 = and i64 %9, -8
@@ -1157,7 +1157,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %7, ptr %27, align 8
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   br label %28
 
 28:                                               ; preds = %18, %16
@@ -1175,7 +1175,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
   %35 = getelementptr inbounds nuw i8, ptr %.0283, i64 64
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0283, i64 40
-  store ptr getelementptr inbounds (i8, ptr @arginfo_class_UnitEnum_cases, i64 32), ptr %36, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @arginfo_class_UnitEnum_cases, i64 32), ptr %36, align 8
   tail call fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef 62, ptr noundef %.0283)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load i32, ptr %37, align 8
@@ -1194,7 +1194,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
   unreachable
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %46 = load ptr, ptr %45, align 8
   %47 = add i64 %41, 7
   %48 = and i64 %47, -8
@@ -1225,7 +1225,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
   store ptr %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %45, ptr %65, align 8
-  store ptr %60, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   br label %66
 
 66:                                               ; preds = %56, %54
@@ -1247,7 +1247,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
   %75 = getelementptr inbounds nuw i8, ptr %.0282, i64 36
   store i32 1, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %.0282, i64 40
-  store ptr getelementptr inbounds (i8, ptr @arginfo_class_BackedEnum_from, i64 32), ptr %76, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @arginfo_class_BackedEnum_from, i64 32), ptr %76, align 8
   tail call fastcc void @zend_enum_register_func(ptr noundef nonnull %0, i32 noundef 63, ptr noundef %.0282)
   %77 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 1, i64 152) #16, !srcloc !5
   %78 = extractvalue { i64, i64 } %77, 0
@@ -1260,7 +1260,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
   unreachable
 
 81:                                               ; preds = %66
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %83 = load ptr, ptr %82, align 8
   %84 = add i64 %78, 7
   %85 = and i64 %84, -8
@@ -1291,7 +1291,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store ptr %82, ptr %102, align 8
-  store ptr %97, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  store ptr %97, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   br label %103
 
 103:                                              ; preds = %93, %91
@@ -1313,7 +1313,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
   %112 = getelementptr inbounds nuw i8, ptr %.0, i64 36
   store i32 1, ptr %112, align 4
   %113 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @arginfo_class_BackedEnum_tryFrom, i64 32), ptr %113, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @arginfo_class_BackedEnum_tryFrom, i64 32), ptr %113, align 8
   tail call fastcc void @zend_enum_register_func(ptr noundef nonnull %0, i32 noundef 65, ptr noundef %.0)
   br label %114
 
@@ -1354,7 +1354,7 @@ define internal void @zend_enum_cases_func(ptr nocapture noundef readonly %0, pt
   br i1 %.not44, label %29, label %19
 
 19:                                               ; preds = %16
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %21 = ptrtoint ptr %18 to i64
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
@@ -1420,7 +1420,7 @@ define internal void @zend_enum_cases_func(ptr nocapture noundef readonly %0, pt
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %53
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %60 = icmp ne ptr %59, null
   tail call void @llvm.assume(i1 %60)
   br label %.loopexit
@@ -1455,7 +1455,7 @@ define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef
   %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   store i8 1, ptr %2, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 984), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1465,7 +1465,7 @@ define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef
   %14 = zext i1 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 %14, ptr %15, align 8
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 992), align 8
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 992), align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %47
 
@@ -1482,7 +1482,7 @@ define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef
   unreachable
 
 24:                                               ; preds = %18
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   %26 = load ptr, ptr %25, align 8
   %27 = add i64 %21, 7
   %28 = and i64 %27, -8
@@ -1513,7 +1513,7 @@ define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef
   store ptr %43, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %25, ptr %45, align 8
-  store ptr %40, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 336), align 8
+  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 336), align 8
   br label %46
 
 46:                                               ; preds = %36, %34
@@ -1659,7 +1659,7 @@ switch.edge:
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %29 = ptrtoint ptr %23 to i64
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
@@ -1724,7 +1724,7 @@ zend_enum_register_props.exit:                    ; preds = %35, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 984), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 140
   %58 = load i8, ptr %57, align 4
   %59 = zext i8 %58 to i32
@@ -1789,7 +1789,7 @@ define void @zend_enum_add_case(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %25 = ptrtoint ptr %19 to i64
   %26 = getelementptr inbounds i8, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
@@ -1968,7 +1968,7 @@ define ptr @zend_enum_get_case(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not29, label %19, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %11 = ptrtoint ptr %8 to i64
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
@@ -2056,7 +2056,7 @@ define ptr @zend_enum_get_case_cstr(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not29.i, label %28, label %18
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 488), align 8
   %20 = ptrtoint ptr %17 to i64
   %21 = getelementptr inbounds i8, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
@@ -2232,7 +2232,7 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
 26:                                               ; preds = %3
   %27 = icmp eq i32 %12, 6
   tail call void @llvm.assume(i1 %27)
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
@@ -2439,7 +2439,7 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
   br label %109
 
 109:                                              ; preds = %94, %100, %108, %107, %95
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %111 = icmp ne ptr %110, null
   call void @llvm.assume(i1 %111)
   br label %128

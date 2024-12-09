@@ -881,7 +881,7 @@ define internal noundef zeroext i16 @gmr1_ie_rr_pkt_freq_prm(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @gmr1_ie_rr_pkt_imm_ass_2_prm(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gmr1_ie_rr, i64 104), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gmr1_ie_rr, i64 104), align 8
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 5, i32 noundef %8, ptr noundef null, ptr noundef nonnull @.str.222) #7
   %10 = load i32, ptr @hf_rr_pkt_imm_ass_2_prm_ac_spare1, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
@@ -910,7 +910,7 @@ define internal noundef zeroext i16 @gmr1_ie_rr_pkt_imm_ass_2_prm(ptr noundef %0
   %34 = load i32, ptr @hf_rr_pkt_imm_ass_2_prm_ac_mac_slot_alloc, align 4
   %35 = add i32 %3, 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0) #7
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gmr1_ie_rr, i64 104), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ett_gmr1_ie_rr, i64 104), align 8
   %38 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 5, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.223) #7
   %39 = load i32, ptr @hf_rr_pkt_imm_ass_2_prm_d_chan_mcs_cmd, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
@@ -1038,7 +1038,7 @@ declare ptr @try_val_to_str_idx(i32 noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_gmr1_rr() local_unnamed_addr #1 {
   store ptr @ett_msg_ccch, ptr @proto_register_gmr1_rr.ett, align 16
-  store ptr @ett_rr_pd, ptr getelementptr inbounds (i8, ptr @proto_register_gmr1_rr.ett, i64 8), align 8
+  store ptr @ett_rr_pd, ptr getelementptr inbounds nuw (i8, ptr @proto_register_gmr1_rr.ett, i64 8), align 8
   br label %1
 
 1:                                                ; preds = %0, %1

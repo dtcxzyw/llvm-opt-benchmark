@@ -553,7 +553,7 @@ define noundef ptr @_ZN5faiss20read_VectorTransformEPNS_8IOReaderE(ptr noundef %
           to label %_ZN5faiss20RandomRotationMatrixC2Ev.exit unwind label %113
 
 _ZN5faiss20RandomRotationMatrixC2Ev.exit:         ; preds = %111
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20RandomRotationMatrixE, i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss20RandomRotationMatrixE, i64 16), ptr %112, align 8
   br label %628
 
 113:                                              ; preds = %111
@@ -2096,7 +2096,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit468:            ; preds = %814, %816, %818, %8
   store i32 0, ptr %918, align 4
   %919 = getelementptr inbounds nuw i8, ptr %916, i64 16
   store i8 1, ptr %919, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss24RemapDimensionsTransformE, i64 16), ptr %916, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss24RemapDimensionsTransformE, i64 16), ptr %916, align 8
   %920 = getelementptr inbounds nuw i8, ptr %916, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %920, i8 0, i64 24, i1 false)
   %921 = load ptr, ptr %0, align 8
@@ -3113,7 +3113,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
@@ -6429,7 +6429,7 @@ define noundef ptr @_ZN5faiss10read_indexEPNS_8IOReaderEi(ptr noundef %0, i32 no
           to label %_ZN5faiss11IndexFlatIPC2Ev.exit unwind label %225
 
 _ZN5faiss11IndexFlatIPC2Ev.exit:                  ; preds = %223
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexFlatIPE, i64 16), ptr %224, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss11IndexFlatIPE, i64 16), ptr %224, align 8
   br label %240
 
 225:                                              ; preds = %223
@@ -6450,7 +6450,7 @@ _ZN5faiss11IndexFlatIPC2Ev.exit:                  ; preds = %223
           to label %_ZN5faiss11IndexFlatL2C2Ev.exit unwind label %234
 
 _ZN5faiss11IndexFlatL2C2Ev.exit:                  ; preds = %231
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %232, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %232, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %233, i8 0, i64 24, i1 false)
   br label %240
@@ -6467,7 +6467,7 @@ _ZN5faiss11IndexFlatL2C2Ev.exit:                  ; preds = %231
           to label %_ZN5faiss9IndexFlatC2Ev.exit unwind label %238
 
 _ZN5faiss9IndexFlatC2Ev.exit:                     ; preds = %236
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexFlatE, i64 16), ptr %237, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss9IndexFlatE, i64 16), ptr %237, align 8
   br label %240
 
 238:                                              ; preds = %236
@@ -11227,9 +11227,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit1931:                ; preds = %.loopexit1961, %.lo
           to label %2732 unwind label %2769
 
 2732:                                             ; preds = %2730
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17IndexIVFFlatDedupE, i64 16), ptr %2731, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss17IndexIVFFlatDedupE, i64 16), ptr %2731, align 8
   %2733 = getelementptr inbounds nuw i8, ptr %2731, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17IndexIVFFlatDedupE, i64 296), ptr %2733, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss17IndexIVFFlatDedupE, i64 296), ptr %2733, align 8
   %2734 = getelementptr inbounds nuw i8, ptr %2731, i64 264
   %2735 = getelementptr inbounds nuw i8, ptr %2731, i64 312
   store ptr %2735, ptr %2734, align 8
@@ -13236,7 +13236,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
   store i32 1, ptr %3759, align 4
   %3760 = getelementptr inbounds nuw i8, ptr %3754, i64 32
   store float 0.000000e+00, ptr %3760, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss28IndexIVFIndependentQuantizerE, i64 16), ptr %3754, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss28IndexIVFIndependentQuantizerE, i64 16), ptr %3754, align 8
   %3761 = getelementptr inbounds nuw i8, ptr %3754, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %3761, i8 0, i64 24, i1 false)
   %3762 = getelementptr inbounds nuw i8, ptr %3754, i64 64
@@ -13711,7 +13711,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
   %3996 = getelementptr inbounds nuw i8, ptr %3988, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3996, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %3995, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_5IndexEEE, i64 16), ptr %3988, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_5IndexEEE, i64 16), ptr %3988, align 8
   %3997 = getelementptr inbounds nuw i8, ptr %3988, i64 80
   %3998 = getelementptr inbounds nuw i8, ptr %3988, i64 128
   store ptr %3998, ptr %3997, align 8
@@ -13739,7 +13739,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
   store i32 1, ptr %4009, align 4
   %4010 = getelementptr inbounds nuw i8, ptr %4004, i64 32
   store float 0.000000e+00, ptr %4010, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss18IndexIDMapTemplateINS_5IndexEEE, i64 16), ptr %4004, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss18IndexIDMapTemplateINS_5IndexEEE, i64 16), ptr %4004, align 8
   %4011 = getelementptr inbounds nuw i8, ptr %4004, i64 40
   %4012 = getelementptr inbounds nuw i8, ptr %4004, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4012, i8 0, i64 24, i1 false)
@@ -18028,7 +18028,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
 
 20:                                               ; preds = %.thread
   %21 = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %21, align 8
   call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
   unreachable
 
@@ -19966,7 +19966,7 @@ define linkonce_odr void @_ZN5faiss19MultiIndexQuantizerC2Ev(ptr noundef nonnull
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %7, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19MultiIndexQuantizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss19MultiIndexQuantizerE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZN5faiss16ProductQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %8)
           to label %9 unwind label %10
@@ -21571,7 +21571,7 @@ define internal fastcc void @_ZN5faissL8read_NSGEPNS_3NSGEPNS_8IOReaderE(ptr nou
   store i32 1, ptr %228, align 8, !noalias !35
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 12
   store i32 1, ptr %229, align 4, !noalias !35
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5faiss3nsg5GraphIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %227, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5faiss3nsg5GraphIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %227, align 8, !noalias !35
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 24
   store i32 %225, ptr %230, align 8, !noalias !35
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 28
@@ -22486,7 +22486,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %361, %363, %365, %3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5faiss15IndexPQFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5faiss13IndexFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15IndexPQFastScanE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss15IndexPQFastScanE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   invoke void @_ZN5faiss16ProductQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -22511,7 +22511,7 @@ declare void @_ZN5faiss22IndexRowwiseMinMaxFP16C1Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss11IndexFlatIPD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -22528,7 +22528,7 @@ _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss11IndexFlatIPD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -24883,7 +24883,7 @@ declare void @_ZN5faiss10IndexIVFPQ16precompute_tableEv(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss19IndexIDMap2TemplateINS_5IndexEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_5IndexEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_5IndexEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
@@ -24920,7 +24920,7 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss19IndexIDMap2TemplateINS_5IndexEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_5IndexEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_5IndexEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
@@ -25184,7 +25184,7 @@ declare void @_ZN5faiss13IndexFastScanC2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss13IndexFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss13IndexFastScanE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #24
@@ -25348,7 +25348,7 @@ define noundef nonnull ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr nou
           to label %70 unwind label %98
 
 70:                                               ; preds = %68
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15IndexBinaryFlatE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss15IndexBinaryFlatE, i64 16), ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 56
@@ -25876,7 +25876,7 @@ _ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEC2Ev.exit: ; preds = %330
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %333, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %332, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEE, i64 16), ptr %331, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEE, i64 16), ptr %331, align 8
   %334 = getelementptr inbounds nuw i8, ptr %331, i64 72
   %335 = getelementptr inbounds nuw i8, ptr %331, i64 120
   store ptr %335, ptr %334, align 8
@@ -25896,7 +25896,7 @@ _ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEC2Ev.exit: ; preds = %330
           to label %_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2Ev.exit unwind label %374
 
 _ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2Ev.exit: ; preds = %340
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEE, i64 16), ptr %341, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEE, i64 16), ptr %341, align 8
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 32
   %343 = getelementptr inbounds nuw i8, ptr %341, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %343, i8 0, i64 24, i1 false)
@@ -28818,7 +28818,7 @@ declare void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
@@ -28855,7 +28855,7 @@ _ZNSt13unordered_mapIllSt4hashIlESt8equal_toIlESaISt4pairIKllEEED2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8

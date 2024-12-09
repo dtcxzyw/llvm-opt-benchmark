@@ -696,7 +696,7 @@ define dso_local void @_ZN5clang5index20createIndexingActionESt10shared_ptrINS0_
   %7 = load ptr, ptr %6, align 8, !noalias !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !7
   tail call void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %4) #14, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_111IndexActionE, i64 16), ptr %4, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_111IndexActionE, i64 16), ptr %4, align 8, !noalias !7
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr %5, ptr %8, align 8, !noalias !7
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -1148,7 +1148,7 @@ define dso_local void @_ZN5clang5index19indexMacrosCallbackERNS0_17IndexDataCons
   store i32 1, ptr %6, align 8, !noalias !24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5clang5index15IndexingContextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5clang5index15IndexingContextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !24
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 10, i1 false), !noalias !24
@@ -1210,7 +1210,7 @@ _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsume
 _ZNSt10shared_ptrIN5clang5index15IndexingContextEED2Ev.exit: ; preds = %_ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit.thread.i.i.i.i.i.i.i, %_ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit.i.i.i.i.i.i.i, %30
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !24
   %32 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13, !noalias !25
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_116IndexPPCallbacksE, i64 16), ptr %32, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_116IndexPPCallbacksE, i64 16), ptr %32, align 8, !noalias !25
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %8, ptr %33, align 8, !noalias !25
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -1926,7 +1926,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_pt
   %6 = alloca %"struct.clang::index::IndexingOptions", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_116IndexASTConsumerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_116IndexASTConsumerE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %1, align 8
   store ptr %9, ptr %8, align 8
@@ -1997,7 +1997,7 @@ _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsume
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 1, ptr %44, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5clang5index15IndexingContextELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5clang5index15IndexingContextELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %42, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %14, ptr %45, align 8
   store ptr %42, ptr %41, align 8
@@ -2195,7 +2195,7 @@ _ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit: ; preds = %_ZNSt10shared_ptr
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit, %73, %76
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_116IndexPPCallbacksE, i64 16), ptr %69, align 8, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_116IndexPPCallbacksE, i64 16), ptr %69, align 8, !noalias !33
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %.val, ptr %78, align 8, !noalias !33
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -2209,7 +2209,7 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
   %82 = ptrtoint ptr %81 to i64
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13, !noalias !36
   %84 = ptrtoint ptr %69 to i64
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %83, align 8, !noalias !36
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %83, align 8, !noalias !36
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i64 %84, ptr %85, align 8, !noalias !36
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 16

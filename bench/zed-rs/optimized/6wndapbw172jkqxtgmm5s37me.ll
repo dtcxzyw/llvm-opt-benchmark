@@ -706,7 +706,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h60659201ef1
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %34
-  %7 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24) acquire, align 8
+  %7 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -734,7 +734,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h60659201ef1
   unreachable
 
 13:                                               ; preds = %.backedge
-  %14 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24), i32 0, i32 2 acquire acquire, align 4
+  %14 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %14, 1
   br i1 %.sroa.18.0.in.i, label %20, label %.backedge.backedge
 
@@ -762,7 +762,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h60659201ef1
 
 20:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store ptr getelementptr inbounds (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24), ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %21, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !34, !noundef !4
@@ -808,12 +808,12 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h60659201ef1
   resume { ptr, i32 } %28
 
 32:                                               ; preds = %.backedge
-  %33 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24), i32 2, i32 3 monotonic acquire, align 4
+  %33 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %33, 1
   br i1 %.sroa.18.0.in.i12, label %34, label %.backedge.backedge
 
 34:                                               ; preds = %32, %.backedge
-  %35 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %35 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -10360,7 +10360,7 @@ define hidden void @_ZN4call4room4Room3new17h1ab50d254767ad6dE(ptr dead_on_unwin
   br i1 %128, label %_ZN4call4room4Room12mute_on_join17h74294626f8c21bc5E.exit, label %129
 
 129:                                              ; preds = %.noexc48
-  %130 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24) acquire, align 8, !noalias !2344
+  %130 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24) acquire, align 8, !noalias !2344
   %131 = icmp eq i32 %130, 4
   br i1 %131, label %_ZN3std4sync4once4Once9call_once17h8c7e7613b184c313E.exit.i, label %132
 
@@ -11360,7 +11360,7 @@ define noundef zeroext i1 @_ZN4call4room4Room12mute_on_join17h74294626f8c21bc5E(
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %1
-  %10 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24) acquire, align 8
+  %10 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17IMPERSONATE_LOGIN17ha5c0ccc898f91e0fE, i64 24) acquire, align 8
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %_ZN3std4sync4once4Once9call_once17h8c7e7613b184c313E.exit, label %12
 

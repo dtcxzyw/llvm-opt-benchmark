@@ -1289,7 +1289,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm17createDwarfEHPassENS_15C
   store ptr @_ZN12_GLOBAL__N_124DwarfEHPrepareLegacyPass2IDE, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 2, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_124DwarfEHPrepareLegacyPassE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_124DwarfEHPrepareLegacyPassE, i64 16), ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %0, ptr %6, align 4
   ret ptr %2
@@ -1775,7 +1775,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   store ptr @_ZN12_GLOBAL__N_124DwarfEHPrepareLegacyPass2IDE, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 2, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_124DwarfEHPrepareLegacyPassE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_124DwarfEHPrepareLegacyPassE, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 2, ptr %5, align 4
   ret ptr %1

@@ -57,7 +57,7 @@ define void @_ZN9grpc_core8ResolverC2Ev(ptr nocapture noundef nonnull writeonly 
 entry:
   %refs_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8ResolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core8ResolverE, i64 16), ptr %this, align 8
   ret void
 }
 

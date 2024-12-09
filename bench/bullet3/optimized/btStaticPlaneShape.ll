@@ -35,7 +35,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN18btStaticPlaneShapeC2ERK9btVector3f(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %planeNormal, float noundef %planeConstant) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18btStaticPlaneShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18btStaticPlaneShape, i64 16), ptr %this, align 8
   %nrm.sroa.0.0.copyload.i = load <2 x float>, ptr %planeNormal, align 4
   %nrm.sroa.6.0.this.sroa_idx.i = getelementptr inbounds nuw i8, ptr %planeNormal, i64 8
   %nrm.sroa.6.0.copyload.i = load <2 x float>, ptr %nrm.sroa.6.0.this.sroa_idx.i, align 4

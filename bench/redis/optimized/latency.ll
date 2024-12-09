@@ -139,7 +139,7 @@ declare i64 @zmalloc_get_smap_bytes_by_field(ptr noundef, i64 noundef) local_unn
 define dso_local void @latencyMonitorInit() local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @dictCreate(ptr noundef nonnull @latencyTimeSeriesDictType) #14
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   ret void
 }
 
@@ -148,7 +148,7 @@ declare ptr @dictCreate(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @latencyAddSample(ptr noundef %event, i64 noundef %latency) local_unnamed_addr #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call = tail call ptr @dictFetchValue(ptr noundef %0, ptr noundef %event) #14
   %call1 = tail call i64 @time(ptr noundef null) #14
   %cmp = icmp eq ptr %call, null
@@ -157,7 +157,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias dereferenceable_or_null(1288) ptr @zmalloc(i64 noundef 1288) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1288) %call2, i8 0, i64 1288, i1 false)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call3 = tail call noalias ptr @zstrdup(ptr noundef %event) #14
   %call4 = tail call i32 @dictAdd(ptr noundef %1, ptr noundef %call3, ptr noundef nonnull %call2) #14
   br label %if.end
@@ -239,7 +239,7 @@ declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @latencyResetEvent(ptr noundef readonly %event_to_reset) local_unnamed_addr #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call = tail call ptr @dictGetSafeIterator(ptr noundef %0) #14
   %call15 = tail call ptr @dictNext(ptr noundef %call) #14
   %cmp.not6 = icmp eq ptr %call15, null
@@ -253,7 +253,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %call18.us = phi ptr [ %call1.us, %while.body.us ], [ %call15, %while.body.lr.ph ]
   %resets.07.us = phi i32 [ %inc.us, %while.body.us ], [ 0, %while.body.lr.ph ]
   %call2.us = tail call ptr @dictGetKey(ptr noundef nonnull %call18.us) #14
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call6.us = tail call i32 @dictDelete(ptr noundef %1, ptr noundef %call2.us) #14
   %inc.us = add nuw nsw i32 %resets.07.us, 1
   %call1.us = tail call ptr @dictNext(ptr noundef %call) #14
@@ -269,7 +269,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call6 = tail call i32 @dictDelete(ptr noundef %2, ptr noundef %call2) #14
   %inc = add nsw i32 %resets.07, 1
   br label %if.end
@@ -302,7 +302,7 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @analyzeLatencyForEvent(ptr noundef %event, ptr nocapture noundef initializes((0, 32)) %ls) local_unnamed_addr #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call = tail call ptr @dictFetchValue(ptr noundef %0, ptr noundef %event) #14
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -466,14 +466,14 @@ define dso_local ptr @createLatencyReport() local_unnamed_addr #2 {
 entry:
   %ls = alloca %struct.latencyStats, align 8
   %call = tail call ptr @sdsempty() #14
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %ht_used = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx2, align 8
   %add = sub i64 0, %2
   %cmp = icmp eq i64 %1, %add
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5352), align 8
   %cmp3 = icmp eq i64 %3, 0
   %or.cond67 = select i1 %cmp, i1 %cmp3, i1 false
   br i1 %or.cond67, label %if.then, label %if.end
@@ -552,7 +552,7 @@ if.end16:                                         ; preds = %if.then14, %if.end1
   br i1 %tobool.not, label %if.then24, label %if.end42
 
 if.then24:                                        ; preds = %if.end16
-  %9 = load double, ptr getelementptr inbounds (i8, ptr @server, i64 2152), align 8
+  %9 = load double, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2152), align 8
   %cmp25 = fcmp olt double %9, 1.000000e+01
   br i1 %cmp25, label %if.then27, label %if.else
 
@@ -589,13 +589,13 @@ if.end42:                                         ; preds = %if.end40, %if.end16
   br i1 %tobool44.not, label %if.then45, label %if.end59
 
 if.then45:                                        ; preds = %if.end42
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2216), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2216), align 8
   %cmp46 = icmp slt i64 %10, 0
   br i1 %cmp46, label %if.end57, label %if.else50
 
 if.else50:                                        ; preds = %if.then45
   %div51 = udiv i64 %10, 1000
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5352), align 8
   %cmp52 = icmp sgt i64 %div51, %11
   %spec.select = select i1 %cmp52, i32 1, i32 %advise_slowlog_tuning.0.ph
   %inc55 = zext i1 %cmp52 to i32
@@ -759,7 +759,7 @@ if.end142:                                        ; preds = %if.then140, %if.els
   br i1 %tobool143.not, label %if.end146, label %if.then144
 
 if.then144:                                       ; preds = %if.end142
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5352), align 8
   %mul = mul i64 %13, 1000
   %call145 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %report.4, ptr noundef nonnull @.str.28, i64 noundef %mul) #14
   br label %if.end146
@@ -770,7 +770,7 @@ if.end146:                                        ; preds = %if.then144, %if.end
   br i1 %tobool147.not, label %if.end151, label %if.then148
 
 if.then148:                                       ; preds = %if.end146
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5352), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5352), align 8
   %mul149 = mul i64 %14, 1000
   %call150 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %report.5, ptr noundef nonnull @.str.29, i64 noundef %mul149) #14
   br label %if.end151
@@ -841,7 +841,7 @@ if.then177:                                       ; preds = %if.end175
 if.end179:                                        ; preds = %if.then177, %if.end175
   %report.13 = phi ptr [ %call178, %if.then177 ], [ %report.12, %if.end175 ]
   %tobool180.not = icmp ne i32 %advise_relax_fsync_policy.0.ph, 0
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3908), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3908), align 4
   %cmp182 = icmp eq i32 %15, 1
   %or.cond74 = select i1 %tobool180.not, i1 %cmp182, i1 false
   br i1 %or.cond74, label %if.then184, label %if.end186
@@ -862,7 +862,7 @@ if.then188:                                       ; preds = %if.end186
 if.end190:                                        ; preds = %if.then188, %if.end186
   %report.15 = phi ptr [ %call189, %if.then188 ], [ %report.14, %if.end186 ]
   %tobool191.not = icmp ne i32 %advise_hz.0.ph, 0
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 52), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 52), align 4
   %cmp193 = icmp slt i32 %16, 100
   %or.cond75 = select i1 %tobool191.not, i1 %cmp193, i1 false
   br i1 %or.cond75, label %if.then195, label %if.end197
@@ -1347,14 +1347,14 @@ declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local void @latencyCommandReplyWithLatestEvents(ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %ht_used = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx2, align 8
   %add = add i64 %2, %1
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %add) #14
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %3) #14
   %call312 = tail call ptr @dictNext(ptr noundef %call) #14
   %cmp.not13 = icmp eq ptr %call312, null
@@ -1538,7 +1538,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %if.then, label %if.else7
 
 if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %arrayidx2, align 8
   %ptr3 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1603,7 +1603,7 @@ land.lhs.true13:                                  ; preds = %if.else7
   br i1 %cmp15, label %if.then16, label %if.else28
 
 if.then16:                                        ; preds = %land.lhs.true13
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %arrayidx18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %arrayidx18, align 8
   %ptr19 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1752,7 +1752,7 @@ if.then59:                                        ; preds = %land.lhs.true56
   br i1 %cmp61, label %if.then62, label %for.body
 
 if.then62:                                        ; preds = %if.then59
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call.i69 = tail call ptr @dictGetSafeIterator(ptr noundef %28) #14
   %call15.i = tail call ptr @dictNext(ptr noundef %call.i69) #14
   %cmp.not6.i = icmp eq ptr %call15.i, null
@@ -1762,7 +1762,7 @@ while.body.us.i:                                  ; preds = %if.then62, %while.b
   %call18.us.i = phi ptr [ %call1.us.i, %while.body.us.i ], [ %call15.i, %if.then62 ]
   %resets.07.us.i = phi i32 [ %inc.us.i, %while.body.us.i ], [ 0, %if.then62 ]
   %call2.us.i = tail call ptr @dictGetKey(ptr noundef nonnull %call18.us.i) #14
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5360), align 8
   %call6.us.i = tail call i32 @dictDelete(ptr noundef %29, ptr noundef %call2.us.i) #14
   %inc.us.i = add nuw nsw i32 %resets.07.us.i, 1
   %call1.us.i = tail call ptr @dictNext(ptr noundef %call.i69) #14
@@ -1818,7 +1818,7 @@ if.then84:                                        ; preds = %land.lhs.true80
 if.then88:                                        ; preds = %if.then84
   store i32 0, ptr %command_with_data, align 4
   %call89 = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #14
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 80), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 80), align 8
   call void @latencyAllCommandsFillCDF(ptr noundef nonnull %c, ptr noundef %38, ptr noundef nonnull %command_with_data)
   %39 = load i32, ptr %command_with_data, align 4
   %conv90 = sext i32 %39 to i64
@@ -1885,7 +1885,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom = sext i32 %type to i64
-  %arrayidx = getelementptr inbounds [4 x %struct.durationStats], ptr getelementptr inbounds (i8, ptr @server, i64 3600), i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x %struct.durationStats], ptr getelementptr inbounds nuw (i8, ptr @server, i64 3600), i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %arrayidx, align 8

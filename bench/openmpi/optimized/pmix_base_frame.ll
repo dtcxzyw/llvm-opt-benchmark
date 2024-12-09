@@ -55,8 +55,8 @@ define internal noundef i32 @opal_pmix_base_frame_register(i32 %0) #0 {
   %2 = tail call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @opal_pmix_base_async_modex) #3
   store i8 1, ptr @opal_pmix_collect_all_data, align 1
   %3 = tail call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @opal_pmix_collect_all_data) #3
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @opal_pmix_base, i64 8), align 8
-  %4 = tail call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_pmix_base, i64 8)) #3
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @opal_pmix_base, i64 8), align 8
+  %4 = tail call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opal_pmix_base, i64 8)) #3
   ret i32 0
 }
 
@@ -65,7 +65,7 @@ define internal i32 @opal_pmix_base_frame_open(i32 noundef %0) #0 {
   %2 = tail call i32 @mca_base_framework_components_open(ptr noundef nonnull @opal_pmix_base_framework, i32 noundef %0) #3
   %3 = load ptr, ptr @opal_sync_event_base, align 8
   store ptr %3, ptr @opal_pmix_base, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @opal_pmix_base_framework, i64 76), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_pmix_base_framework, i64 76), align 4
   store i32 %4, ptr @opal_pmix_verbose_output, align 4
   store ptr @opal_get_proc_hostname_using_pmix, ptr @opal_get_proc_hostname, align 8
   ret i32 %2
@@ -101,7 +101,7 @@ define internal ptr @opal_get_proc_hostname_using_pmix(ptr noundef readonly %0) 
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %15 = tail call noalias ptr @strdup(ptr noundef %14) #3
   br label %38
 

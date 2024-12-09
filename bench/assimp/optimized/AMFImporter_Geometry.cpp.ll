@@ -223,7 +223,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp14ASSIMP_
   %call3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #18
   %mNodeElement_Cur = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load ptr, ptr %mNodeElement_Cur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call3, align 8
   %Type.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store i32 7, ptr %Type.i.i, align 8
   %ID.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 16
@@ -236,7 +236,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp14ASSIMP_
   store ptr %Child.i.i, ptr %Child.i.i, align 8
   %_M_size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7AMFMesh, i64 16), ptr %call3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7AMFMesh, i64 16), ptr %call3, align 8
   %7 = load ptr, ptr %node, align 8
   %tobool.not.i4 = icmp eq ptr %7, null
   br i1 %tobool.not.i4, label %if.then17, label %if.then5
@@ -365,7 +365,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #18
   %mNodeElement_Cur = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %mNodeElement_Cur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call, align 8
   %Type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 14, ptr %Type.i.i, align 8
   %ID.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -378,7 +378,7 @@ entry:
   store ptr %Child.i.i, ptr %Child.i.i, align 8
   %_M_size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AMFVertices, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AMFVertices, i64 16), ptr %call, align 8
   %1 = load ptr, ptr %node, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.then, label %if.end
@@ -524,7 +524,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %mNodeElement_Cur = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %mNodeElement_Cur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call, align 8
   %Type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 15, ptr %Type.i.i, align 8
   %ID.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -537,7 +537,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr %Child.i.i, ptr %Child.i.i, align 8
   %_M_size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9AMFVolume, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9AMFVolume, i64 16), ptr %call, align 8
   %MaterialID.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %MaterialID.i) #19
   %Type.i = getelementptr inbounds nuw i8, ptr %call, i64 112
@@ -859,7 +859,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #18
   %mNodeElement_Cur = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %mNodeElement_Cur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call, align 8
   %Type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 13, ptr %Type.i.i, align 8
   %ID.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -872,7 +872,7 @@ entry:
   store ptr %Child.i.i, ptr %Child.i.i, align 8
   %_M_size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9AMFVertex, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9AMFVertex, i64 16), ptr %call, align 8
   %1 = load ptr, ptr %node, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end11.thread, label %if.end.i
@@ -1000,7 +1000,7 @@ if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #18
   %mNodeElement_Cur = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %mNodeElement_Cur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call2, align 8
   %Type.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store i32 2, ptr %Type.i.i, align 8
   %ID.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
@@ -1013,7 +1013,7 @@ if.then:                                          ; preds = %entry
   store ptr %Child.i.i, ptr %Child.i.i, align 8
   %_M_size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14AMFCoordinates, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14AMFCoordinates, i64 16), ptr %call2, align 8
   %Coordinate.i = getelementptr inbounds nuw i8, ptr %call2, i64 80
   store float 0.000000e+00, ptr %Coordinate.i, align 4
   %y.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 84
@@ -1275,7 +1275,7 @@ if.else35:                                        ; preds = %entry
   %38 = load ptr, ptr %mNodeElement_Cur36, align 8
   %Child = getelementptr inbounds nuw i8, ptr %38, i64 56
   %call38 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call38, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call38, align 8
   %Type.i.i87 = getelementptr inbounds nuw i8, ptr %call38, i64 8
   store i32 2, ptr %Type.i.i87, align 8
   %ID.i.i88 = getelementptr inbounds nuw i8, ptr %call38, i64 16
@@ -1288,7 +1288,7 @@ if.else35:                                        ; preds = %entry
   store ptr %Child.i.i90, ptr %Child.i.i90, align 8
   %_M_size.i.i.i.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %call38, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i92, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14AMFCoordinates, i64 16), ptr %call38, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14AMFCoordinates, i64 16), ptr %call38, align 8
   %Coordinate.i93 = getelementptr inbounds nuw i8, ptr %call38, i64 80
   store float 0.000000e+00, ptr %Coordinate.i93, align 4
   %y.i.i94 = getelementptr inbounds nuw i8, ptr %call38, i64 84
@@ -1343,7 +1343,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #18
   %mNodeElement_Cur = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %mNodeElement_Cur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %call, align 8
   %Type.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 10, ptr %Type.i.i, align 8
   %ID.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -1356,7 +1356,7 @@ entry:
   store ptr %Child.i.i, ptr %Child.i.i, align 8
   %_M_size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11AMFTriangle, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11AMFTriangle, i64 16), ptr %call, align 8
   %1 = load ptr, ptr %node, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.else86, label %if.then
@@ -1726,7 +1726,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7AMFMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
@@ -1748,7 +1748,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7AMFMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
@@ -1771,7 +1771,7 @@ _ZN7AMFMeshD2Ev.exit:                             ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18AMFNodeElementBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child, align 8
   %cmp.not4.i.i.i = icmp eq ptr %0, %Child
@@ -1793,7 +1793,7 @@ _ZNSt7__cxx114listIP18AMFNodeElementBaseSaIS2_EED2Ev.exit: ; preds = %while.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18AMFNodeElementBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
@@ -1819,7 +1819,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11AMFVerticesD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
@@ -1841,7 +1841,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11AMFVerticesD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
@@ -1864,7 +1864,7 @@ _ZN11AMFVerticesD2Ev.exit:                        ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9AMFVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
@@ -1886,7 +1886,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9AMFVertexD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
@@ -1909,7 +1909,7 @@ _ZN9AMFVertexD2Ev.exit:                           ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AMFCoordinatesD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
@@ -1931,7 +1931,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AMFCoordinatesD0Ev(ptr noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
@@ -1954,12 +1954,12 @@ _ZN14AMFCoordinatesD2Ev.exit:                     ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9AMFVolumeD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9AMFVolume, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9AMFVolume, i64 16), ptr %this, align 8
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Type) #19
   %MaterialID = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %MaterialID) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
@@ -1981,12 +1981,12 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9AMFVolumeD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9AMFVolume, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9AMFVolume, i64 16), ptr %this, align 8
   %Type.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Type.i) #19
   %MaterialID.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %MaterialID.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i
@@ -2009,7 +2009,7 @@ _ZN9AMFVolumeD2Ev.exit:                           ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11AMFTriangleD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Child.i
@@ -2031,7 +2031,7 @@ _ZN18AMFNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11AMFTriangleD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AMFNodeElementBase, i64 16), ptr %this, align 8
   %Child.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Child.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Child.i.i

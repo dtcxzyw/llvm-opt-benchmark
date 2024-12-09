@@ -155,7 +155,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN24btCollisionWorldImporterC2EP16btCollisionWorld(ptr noundef nonnull writeonly align 8 dereferenceable(1336) initializes((0, 20), (28, 36), (40, 49), (60, 68), (72, 81), (92, 100), (104, 113), (124, 132), (136, 145), (156, 164), (168, 177), (188, 196), (200, 209), (220, 228), (232, 241), (252, 260), (264, 273), (284, 292), (296, 305), (316, 324), (328, 337), (348, 356), (360, 369), (380, 388), (392, 401), (412, 420), (424, 433), (444, 452), (456, 465), (476, 484), (488, 497), (508, 516), (520, 529), (540, 548), (552, 561), (572, 580), (584, 593), (604, 612), (616, 625), (636, 644), (648, 657), (668, 676), (680, 689), (700, 708), (712, 721), (732, 740), (744, 753), (764, 772), (776, 785), (796, 804), (808, 817), (828, 836), (840, 849), (860, 868), (872, 881), (892, 900), (904, 913), (924, 932), (936, 945), (956, 964), (968, 977), (988, 996), (1000, 1009), (1020, 1028), (1032, 1041), (1052, 1060), (1064, 1073), (1084, 1092), (1096, 1105), (1116, 1124), (1128, 1137), (1148, 1156), (1160, 1169), (1180, 1188), (1192, 1201), (1212, 1220), (1224, 1233), (1244, 1252), (1256, 1265), (1276, 1284), (1288, 1297), (1308, 1316), (1320, 1329)) %this, ptr noundef %world) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont37:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24btCollisionWorldImporter, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24btCollisionWorldImporter, i64 16), ptr %this, align 8
   %m_collisionWorld = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %world, ptr %m_collisionWorld, align 8
   %m_verboseMode = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1326,7 +1326,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24btCollisionWorldImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(1336) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24btCollisionWorldImporter, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24btCollisionWorldImporter, i64 16), ptr %this, align 8
   %m_bodyMap = getelementptr inbounds nuw i8, ptr %this, i64 1208
   tail call void @_ZN9btHashMapI9btHashPtrP17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_bodyMap) #25
   %m_shapeMap = getelementptr inbounds nuw i8, ptr %this, i64 1080
@@ -7923,7 +7923,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %call.i, align 8
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 8, ptr %m_shapeType.i, align 8
   %m_localScaling.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
@@ -9066,7 +9066,7 @@ invoke.cont:
   store float 1.000000e+00, ptr %arrayidx5.i.i.i, align 4
   %arrayidx7.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 20
   store float 0.000000e+00, ptr %arrayidx7.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %call.i, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -9307,7 +9307,7 @@ invoke.cont:
   store i32 0, ptr %m_size.i.i13.i.i, align 4
   %m_capacity.i.i14.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   store i32 0, ptr %m_capacity.i.i14.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17btTriangleInfoMap, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btTriangleInfoMap, i64 16), ptr %call, align 8
   %m_convexEpsilon.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   store float 0.000000e+00, ptr %m_convexEpsilon.i, align 8
   %m_planarEpsilon.i = getelementptr inbounds nuw i8, ptr %call, i64 140

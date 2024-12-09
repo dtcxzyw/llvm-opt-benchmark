@@ -340,9 +340,9 @@ define hidden void @_Z9pickPointiiiiPv(i32 noundef %0, i32 noundef %1, i32 nound
   br i1 %.not, label %19, label %64
 
 19:                                               ; preds = %5
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @src, i64 8), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 8), align 8
   %21 = add nsw i32 %20, 2
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @src, i64 12), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 12), align 4
   %23 = add nsw i32 %22, 2
   call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %9, i32 noundef %21, i32 noundef %23, i32 noundef 0)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #8

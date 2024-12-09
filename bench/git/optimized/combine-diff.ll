@@ -840,7 +840,7 @@ for.inc292.us:                                    ; preds = %for.body279.us
 
 for.body279.lr.ph.split:                          ; preds = %for.body279.lr.ph
   %idxprom.i = sext i32 %70 to i64
-  %gep332 = getelementptr [3 x %struct.git_hash_algo], ptr getelementptr inbounds (i8, ptr @hash_algos, i64 16), i64 0, i64 %idxprom.i
+  %gep332 = getelementptr [3 x %struct.git_hash_algo], ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 16), i64 0, i64 %idxprom.i
   %algop.0.val.i = load i64, ptr %gep332, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
   %..i.i = select i1 %cmp.i.i, i64 32, i64 20
@@ -2538,7 +2538,7 @@ while.cond.preheader.i.i:                         ; preds = %for.body.i
   br i1 %cmp86.not122.i.i, label %intersect_paths.exit.i, label %while.body.i.i
 
 for.cond.preheader.i.i:                           ; preds = %for.body.i
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp1125.i.i = icmp sgt i32 %20, 0
   br i1 %cmp1125.i.i, label %for.body.i.i, label %intersect_paths.exit.i
 
@@ -2666,7 +2666,7 @@ if.end83.i.i:                                     ; preds = %if.then69.i.i, %lan
 for.inc.i.i:                                      ; preds = %if.end83.i.i, %for.body.i.i
   %tail.1.i.i = phi ptr [ %tail.0127.i.i, %for.body.i.i ], [ %call15.i.i, %if.end83.i.i ]
   %indvars.iv.next139.i.i = add nuw nsw i64 %indvars.iv138.i.i, 1
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %47 = sext i32 %46 to i64
   %cmp1.i.i = icmp slt i64 %indvars.iv.next139.i.i, %47
   br i1 %cmp1.i.i, label %for.body.i.i, label %intersect_paths.exit.i, !llvm.loop !64
@@ -2682,7 +2682,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
   %tail.2124.i.i = phi ptr [ %tail.2.ph.i.i, %while.condthread-pre-split.i.i ], [ %curr.addr.i.i, %while.cond.preheader.i.i ]
   %i.1123.i.i = phi i32 [ %i.1.ph.i.i, %while.condthread-pre-split.i.i ], [ 0, %while.cond.preheader.i.i ]
   %48 = phi ptr [ %.pr.i.i, %while.condthread-pre-split.i.i ], [ %paths.041.i, %while.cond.preheader.i.i ]
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp89.not.i.i = icmp slt i32 %i.1123.i.i, %49
   br i1 %cmp89.not.i.i, label %cond.false.i.i, label %for.body103.lr.ph.i.i
 
@@ -3849,8 +3849,8 @@ declare ptr @diff_get_color(i32 noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dump_quoted_path(ptr noundef %head, ptr noundef %prefix, ptr noundef %path, ptr noundef %line_prefix, ptr noundef %c_meta, ptr noundef %c_reset) unnamed_addr #0 {
 entry:
-  store i64 0, ptr getelementptr inbounds (i8, ptr @dump_quoted_path.buf, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_quoted_path.buf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @dump_quoted_path.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dump_quoted_path.buf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -3868,7 +3868,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   tail call void @quote_two_c_style(ptr noundef nonnull @dump_quoted_path.buf, ptr noundef %prefix, ptr noundef %path, i32 noundef 0) #13
   %call.i3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %c_reset) #15
   tail call void @strbuf_add(ptr noundef nonnull @dump_quoted_path.buf, ptr noundef %c_reset, i64 noundef %call.i3) #13
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_quoted_path.buf, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dump_quoted_path.buf, i64 16), align 8
   %call = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) %1)
   ret void
 }

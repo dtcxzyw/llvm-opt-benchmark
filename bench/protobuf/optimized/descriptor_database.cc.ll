@@ -906,7 +906,7 @@ ehcleanup44.i:                                    ; preds = %ehcleanup42.i, %lpa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf24SimpleDescriptorDatabaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf24SimpleDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf24SimpleDescriptorDatabaseE, i64 16), ptr %this, align 8
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf19FileDescriptorProtoESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE9EmptyNodeEvE10empty_nodeB5cxx11, ptr %index_, align 8
   %rightmost_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -933,7 +933,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf24SimpleDescriptorDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf24SimpleDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf24SimpleDescriptorDatabaseE, i64 16), ptr %this, align 8
   %files_to_delete_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %files_to_delete_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -5487,7 +5487,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf8internal17ParseNoReflectionESt17
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf25EncodedDescriptorDatabaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf25EncodedDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf25EncodedDescriptorDatabaseE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
   %by_name_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
@@ -5528,7 +5528,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf25EncodedDescriptorDatabaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf25EncodedDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf25EncodedDescriptorDatabaseE, i64 16), ptr %this, align 8
   %files_to_delete_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %files_to_delete_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5584,7 +5584,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf22DescriptorPoolDatabaseC2ERKNS0_14DescriptorPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(96) %pool) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf22DescriptorPoolDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf22DescriptorPoolDatabaseE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %pool, ptr %pool_, align 8
   ret void
@@ -5842,7 +5842,7 @@ declare void @_ZNK6google8protobuf14DescriptorPool17FindAllExtensionsEPKNS0_10De
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf24MergedDescriptorDatabaseC2EPNS0_18DescriptorDatabaseES3_(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %source1, ptr noundef %source2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EE12_M_check_lenEmPKc.exit.i.i:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i64 16), ptr %this, align 8
   %sources_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sources_, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -5890,7 +5890,7 @@ _ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev.exit: ; preds =
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf24MergedDescriptorDatabaseC2ERKSt6vectorIPNS0_18DescriptorDatabaseESaIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sources) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i64 16), ptr %this, align 8
   %sources_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %sources, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5943,7 +5943,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf24MergedDescriptorDatabaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i64 16), ptr %this, align 8
   %sources_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %sources_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

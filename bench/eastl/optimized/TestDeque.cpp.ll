@@ -19466,7 +19466,7 @@ invoke.cont568:                                   ; preds = %invoke.cont566
   %mnPtrArraySize.i3480 = getelementptr inbounds nuw i8, ptr %d573, i64 8
   %mAllocator.i3481 = getelementptr inbounds nuw i8, ptr %d573, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %d573, i8 0, i64 80, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i3481, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i3481, align 8
   %inc.i.i3482 = add i64 %671, 2
   store i64 %inc.i.i3482, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %673 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -65393,7 +65393,7 @@ entry:
   store i64 %inc2.i.i, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   %mAllocator.i.i = getelementptr inbounds nuw i8, ptr %x, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %x, i8 0, i64 80, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i, align 8
   %inc.i.i.i = add i64 %8, 2
   store i64 %inc.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %10 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8

@@ -565,7 +565,7 @@ invoke.cont204:                                   ; preds = %for.end167
   %m_origin3.i302 = getelementptr inbounds nuw i8, ptr %input, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i302, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i301, i64 16, i1 false)
   store float 0x43ABC16D60000000, ptr %m_maximumDistanceSquared.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawE20btIntermediateResult, i64 16), ptr %res, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawE20btIntermediateResult, i64 16), ptr %res, align 8
   %m_hasResult.i = getelementptr inbounds nuw i8, ptr %res, i64 44
   store i8 0, ptr %m_hasResult.i, align 4
   %fneg.i303 = fneg float %minNorm.sroa.0.0.lcssa
@@ -637,170 +637,170 @@ init:                                             ; preds = %init.check
   store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 4), align 4
   store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 8), align 8
   store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 12), align 4
-  store float 0x3FE727CC00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 16), align 16
-  store float 0xBFE0D2BD40000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 20), align 4
-  store float 0xBFDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 24), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 28), align 4
-  store float 0xBFD1B05740000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 32), align 16
-  store float 0xBFEB388440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 36), align 4
-  store float 0xBFDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 40), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 44), align 4
-  store float 0xBFEC9F2340000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 48), align 16
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 52), align 4
-  store float 0xBFDC9F2FE0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 56), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 60), align 4
-  store float 0xBFD1B05740000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 64), align 16
-  store float 0x3FEB388440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 68), align 4
-  store float 0xBFDC9F40A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 72), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 76), align 4
-  store float 0x3FE727CC00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 80), align 16
-  store float 0x3FE0D2BD40000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 84), align 4
-  store float 0xBFDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 88), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 92), align 4
-  store float 0x3FD1B05740000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 96), align 16
-  store float 0xBFEB388440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 100), align 4
-  store float 0x3FDC9F40A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 104), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 108), align 4
-  store float 0xBFE727CC00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 112), align 16
-  store float 0xBFE0D2BD40000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 116), align 4
-  store float 0x3FDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 120), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 124), align 4
-  store float 0xBFE727CC00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 128), align 16
-  store float 0x3FE0D2BD40000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 132), align 4
-  store float 0x3FDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 136), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 140), align 4
-  store float 0x3FD1B05740000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 144), align 16
-  store float 0x3FEB388440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 148), align 4
-  store float 0x3FDC9F3C80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 152), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 156), align 4
-  store float 0x3FEC9F2340000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 160), align 16
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 164), align 4
-  store float 0x3FDC9F2FE0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 168), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 172), align 4
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 176), align 16
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 180), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 184), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 188), align 4
-  store float 0x3FDB387E00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 192), align 16
-  store float 0xBFD3C6D620000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 196), align 4
-  store float 0xBFEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 200), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 204), align 4
-  store float 0xBFC4CB5BC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 208), align 16
-  store float 0xBFDFFFEB00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 212), align 4
-  store float 0xBFEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 216), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 220), align 4
-  store float 0x3FD0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 224), align 16
-  store float 0xBFE9E36D20000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 228), align 4
-  store float 0xBFE0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 232), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 236), align 4
-  store float 0x3FDB387E00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 240), align 16
-  store float 0x3FD3C6D620000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 244), align 4
-  store float 0xBFEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 248), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 252), align 4
-  store float 0x3FEB388220000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 256), align 16
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 260), align 4
-  store float 0xBFE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 264), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 268), align 4
-  store float 0xBFE0D2C7C0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 272), align 16
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 276), align 4
-  store float 0xBFEB388A80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 280), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 284), align 4
-  store float 0xBFE605A700000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 288), align 16
-  store float 0xBFDFFFF360000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 292), align 4
-  store float 0xBFE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 296), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 300), align 4
-  store float 0xBFC4CB5BC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 304), align 16
-  store float 0x3FDFFFEB00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 308), align 4
-  store float 0xBFEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 312), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 316), align 4
-  store float 0xBFE605A700000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 320), align 16
-  store float 0x3FDFFFF360000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 324), align 4
-  store float 0xBFE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 328), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 332), align 4
-  store float 0x3FD0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 336), align 16
-  store float 0x3FE9E36D20000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 340), align 4
-  store float 0xBFE0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 344), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 348), align 4
-  store float 0x3FEE6F1120000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 352), align 16
-  store float 0x3FD3C6DE80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 356), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 360), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 364), align 4
-  store float 0x3FEE6F1120000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 368), align 16
-  store float 0xBFD3C6DE80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 372), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 376), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 380), align 4
-  store float 0x3FE2CF24A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 384), align 16
-  store float 0xBFE9E377A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 388), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 392), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 396), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 400), align 16
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 404), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 408), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 412), align 4
-  store float 0xBFE2CF24A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 416), align 16
-  store float 0xBFE9E377A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 420), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 424), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 428), align 4
-  store float 0xBFEE6F1120000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 432), align 16
-  store float 0xBFD3C6DE80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 436), align 4
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 440), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 444), align 4
-  store float 0xBFEE6F1120000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 448), align 16
-  store float 0x3FD3C6DE80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 452), align 4
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 456), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 460), align 4
-  store float 0xBFE2CF24A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 464), align 16
-  store float 0x3FE9E377A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 468), align 4
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 472), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 476), align 4
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 480), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 484), align 4
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 488), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 492), align 4
-  store float 0x3FE2CF24A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 496), align 16
-  store float 0x3FE9E377A0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 500), align 4
-  store float -0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 504), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 508), align 4
-  store float 0x3FE605A700000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 512), align 16
-  store float 0xBFDFFFF360000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 516), align 4
-  store float 0x3FE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 520), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 524), align 4
-  store float 0xBFD0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 528), align 16
-  store float 0xBFE9E36D20000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 532), align 4
-  store float 0x3FE0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 536), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 540), align 4
-  store float 0xBFEB388220000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 544), align 16
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 548), align 4
-  store float 0x3FE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 552), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 556), align 4
-  store float 0xBFD0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 560), align 16
-  store float 0x3FE9E36D20000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 564), align 4
-  store float 0x3FE0D2D880000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 568), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 572), align 4
-  store float 0x3FE605A700000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 576), align 16
-  store float 0x3FDFFFF360000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 580), align 4
-  store float 0x3FE0D2D440000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 584), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 588), align 4
-  store float 0x3FE0D2C7C0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 592), align 16
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 596), align 4
-  store float 0x3FEB388A80000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 600), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 604), align 4
-  store float 0x3FC4CB5BC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 608), align 16
-  store float 0xBFDFFFEB00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 612), align 4
-  store float 0x3FEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 616), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 620), align 4
-  store float 0xBFDB387E00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 624), align 16
-  store float 0xBFD3C6D620000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 628), align 4
-  store float 0x3FEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 632), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 636), align 4
-  store float 0xBFDB387E00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 640), align 16
-  store float 0x3FD3C6D620000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 644), align 4
-  store float 0x3FEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 648), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 652), align 4
-  store float 0x3FC4CB5BC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 656), align 16
-  store float 0x3FDFFFEB00000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 660), align 4
-  store float 0x3FEB388EC0000000, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 664), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 668), align 4
+  store float 0x3FE727CC00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 16), align 16
+  store float 0xBFE0D2BD40000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 20), align 4
+  store float 0xBFDC9F3C80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 24), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 28), align 4
+  store float 0xBFD1B05740000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 32), align 16
+  store float 0xBFEB388440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 36), align 4
+  store float 0xBFDC9F3C80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 40), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 44), align 4
+  store float 0xBFEC9F2340000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 48), align 16
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 52), align 4
+  store float 0xBFDC9F2FE0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 56), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 60), align 4
+  store float 0xBFD1B05740000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 64), align 16
+  store float 0x3FEB388440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 68), align 4
+  store float 0xBFDC9F40A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 72), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 76), align 4
+  store float 0x3FE727CC00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 80), align 16
+  store float 0x3FE0D2BD40000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 84), align 4
+  store float 0xBFDC9F3C80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 88), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 92), align 4
+  store float 0x3FD1B05740000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 96), align 16
+  store float 0xBFEB388440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 100), align 4
+  store float 0x3FDC9F40A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 104), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 108), align 4
+  store float 0xBFE727CC00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 112), align 16
+  store float 0xBFE0D2BD40000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 116), align 4
+  store float 0x3FDC9F3C80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 120), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 124), align 4
+  store float 0xBFE727CC00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 128), align 16
+  store float 0x3FE0D2BD40000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 132), align 4
+  store float 0x3FDC9F3C80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 136), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 140), align 4
+  store float 0x3FD1B05740000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 144), align 16
+  store float 0x3FEB388440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 148), align 4
+  store float 0x3FDC9F3C80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 152), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 156), align 4
+  store float 0x3FEC9F2340000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 160), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 164), align 4
+  store float 0x3FDC9F2FE0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 168), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 172), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 176), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 180), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 184), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 188), align 4
+  store float 0x3FDB387E00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 192), align 16
+  store float 0xBFD3C6D620000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 196), align 4
+  store float 0xBFEB388EC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 200), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 204), align 4
+  store float 0xBFC4CB5BC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 208), align 16
+  store float 0xBFDFFFEB00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 212), align 4
+  store float 0xBFEB388EC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 216), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 220), align 4
+  store float 0x3FD0D2D880000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 224), align 16
+  store float 0xBFE9E36D20000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 228), align 4
+  store float 0xBFE0D2D880000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 232), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 236), align 4
+  store float 0x3FDB387E00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 240), align 16
+  store float 0x3FD3C6D620000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 244), align 4
+  store float 0xBFEB388EC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 248), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 252), align 4
+  store float 0x3FEB388220000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 256), align 16
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 260), align 4
+  store float 0xBFE0D2D440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 264), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 268), align 4
+  store float 0xBFE0D2C7C0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 272), align 16
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 276), align 4
+  store float 0xBFEB388A80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 280), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 284), align 4
+  store float 0xBFE605A700000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 288), align 16
+  store float 0xBFDFFFF360000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 292), align 4
+  store float 0xBFE0D2D440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 296), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 300), align 4
+  store float 0xBFC4CB5BC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 304), align 16
+  store float 0x3FDFFFEB00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 308), align 4
+  store float 0xBFEB388EC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 312), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 316), align 4
+  store float 0xBFE605A700000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 320), align 16
+  store float 0x3FDFFFF360000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 324), align 4
+  store float 0xBFE0D2D440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 328), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 332), align 4
+  store float 0x3FD0D2D880000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 336), align 16
+  store float 0x3FE9E36D20000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 340), align 4
+  store float 0xBFE0D2D880000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 344), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 348), align 4
+  store float 0x3FEE6F1120000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 352), align 16
+  store float 0x3FD3C6DE80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 356), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 360), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 364), align 4
+  store float 0x3FEE6F1120000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 368), align 16
+  store float 0xBFD3C6DE80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 372), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 376), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 380), align 4
+  store float 0x3FE2CF24A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 384), align 16
+  store float 0xBFE9E377A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 388), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 392), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 396), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 400), align 16
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 404), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 408), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 412), align 4
+  store float 0xBFE2CF24A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 416), align 16
+  store float 0xBFE9E377A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 420), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 424), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 428), align 4
+  store float 0xBFEE6F1120000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 432), align 16
+  store float 0xBFD3C6DE80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 436), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 440), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 444), align 4
+  store float 0xBFEE6F1120000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 448), align 16
+  store float 0x3FD3C6DE80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 452), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 456), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 460), align 4
+  store float 0xBFE2CF24A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 464), align 16
+  store float 0x3FE9E377A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 468), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 472), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 476), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 480), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 484), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 488), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 492), align 4
+  store float 0x3FE2CF24A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 496), align 16
+  store float 0x3FE9E377A0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 500), align 4
+  store float -0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 504), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 508), align 4
+  store float 0x3FE605A700000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 512), align 16
+  store float 0xBFDFFFF360000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 516), align 4
+  store float 0x3FE0D2D440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 520), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 524), align 4
+  store float 0xBFD0D2D880000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 528), align 16
+  store float 0xBFE9E36D20000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 532), align 4
+  store float 0x3FE0D2D880000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 536), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 540), align 4
+  store float 0xBFEB388220000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 544), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 548), align 4
+  store float 0x3FE0D2D440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 552), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 556), align 4
+  store float 0xBFD0D2D880000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 560), align 16
+  store float 0x3FE9E36D20000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 564), align 4
+  store float 0x3FE0D2D880000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 568), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 572), align 4
+  store float 0x3FE605A700000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 576), align 16
+  store float 0x3FDFFFF360000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 580), align 4
+  store float 0x3FE0D2D440000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 584), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 588), align 4
+  store float 0x3FE0D2C7C0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 592), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 596), align 4
+  store float 0x3FEB388A80000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 600), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 604), align 4
+  store float 0x3FC4CB5BC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 608), align 16
+  store float 0xBFDFFFEB00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 612), align 4
+  store float 0x3FEB388EC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 616), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 620), align 4
+  store float 0xBFDB387E00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 624), align 16
+  store float 0xBFD3C6D620000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 628), align 4
+  store float 0x3FEB388EC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 632), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 636), align 4
+  store float 0xBFDB387E00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 640), align 16
+  store float 0x3FD3C6D620000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 644), align 4
+  store float 0x3FEB388EC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 648), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 652), align 4
+  store float 0x3FC4CB5BC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 656), align 16
+  store float 0x3FDFFFEB00000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 660), align 4
+  store float 0x3FEB388EC0000000, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 664), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections, i64 668), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN33btMinkowskiPenetrationDepthSolver24getPenetrationDirectionsEvE22sPenetrationDirections) #10
   br label %init.end
 

@@ -949,7 +949,7 @@ define dso_local void @software_node_unregister(ptr noundef readnone %0) #1 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @swnode_register(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 208) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %59, label %7
@@ -1104,7 +1104,7 @@ define dso_local ptr @fwnode_create_software_node(ptr noundef %0, ptr noundef %1
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %.thread10
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 24) #14
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread11, label %17

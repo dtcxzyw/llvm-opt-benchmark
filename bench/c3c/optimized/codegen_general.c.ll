@@ -289,7 +289,7 @@ declare i32 @type_size(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @type_is_homogenous_base_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   switch i32 %4, label %35 [
     i32 8, label %5
     i32 1, label %17
@@ -313,12 +313,12 @@ define dso_local zeroext i1 @type_is_homogenous_base_type(ptr nocapture noundef 
   ]
 
 7:                                                ; preds = %5
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 275), align 1
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 275), align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %36
 
 10:                                               ; preds = %7, %5, %5
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %12 = trunc i8 %11 to i1
   %13 = xor i1 %12, true
   br label %36
@@ -405,7 +405,7 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @type_homogenous_aggregate_small_enough(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   switch i32 %3, label %20 [
     i32 8, label %4
     i32 1, label %18
@@ -427,7 +427,7 @@ define dso_local zeroext i1 @type_homogenous_aggregate_small_enough(ptr noundef 
   ]
 
 6:                                                ; preds = %4
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 275), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 275), align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %.thread
 
@@ -689,7 +689,7 @@ thread-pre-split:                                 ; preds = %49, %98
   br i1 %103, label %type_homogenous_aggregate_small_enough.exit, label %104
 
 104:                                              ; preds = %101
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   switch i32 %105, label %122 [
     i32 8, label %106
     i32 1, label %120
@@ -711,7 +711,7 @@ thread-pre-split:                                 ; preds = %49, %98
   ]
 
 108:                                              ; preds = %106
-  %109 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 275), align 1
+  %109 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 275), align 1
   %110 = trunc i8 %109 to i1
   br i1 %110, label %111, label %.thread.i
 
@@ -755,7 +755,7 @@ define dso_local i32 @type_alloca_alignment(ptr noundef %0) local_unnamed_addr #
   br i1 %3, label %4, label %13
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   %.off = add i32 %5, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %6, label %13
@@ -784,12 +784,12 @@ declare i32 @type_abi_alignment(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @codegen_setup_object_names(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @module_create_object_file_name(ptr noundef %0) #4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 228), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 228), align 4
   %7 = icmp eq i32 %6, 1
   %8 = select i1 %7, ptr @.str.7, ptr @.str.8
   %9 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %8, ptr noundef %5) #4
   store ptr %9, ptr %1, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 128), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 128), align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
 
@@ -802,14 +802,14 @@ define dso_local void @codegen_setup_object_names(ptr noundef %0, ptr nocapture 
   %14 = tail call ptr @get_object_extension() #4
   %15 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.9, ptr noundef %5, ptr noundef %14) #4
   store ptr %15, ptr %3, align 8
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 163), align 1
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 163), align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %13
   %19 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.10, ptr noundef %5) #4
   store ptr %19, ptr %2, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 136), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 136), align 8
   %.not15 = icmp eq ptr %20, null
   br i1 %.not15, label %23, label %21
 
@@ -819,7 +819,7 @@ define dso_local void @codegen_setup_object_names(ptr noundef %0, ptr nocapture 
   br label %23
 
 23:                                               ; preds = %18, %21, %13
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 112), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 112), align 8
   %.not16 = icmp eq ptr %24, null
   br i1 %.not16, label %28, label %25
 

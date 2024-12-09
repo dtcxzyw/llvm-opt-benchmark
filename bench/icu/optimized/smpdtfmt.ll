@@ -712,7 +712,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7516SimpleDateFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(832) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fSymbols = getelementptr inbounds nuw i8, ptr %this, i64 768
   %0 = load ptr, ptr %fSymbols, align 8
   %isnull = icmp eq ptr %0, null
@@ -881,17 +881,17 @@ define void @_ZN6icu_7516SimpleDateFormatC2ER10UErrorCode(ptr noundef nonnull al
 invoke.cont5:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fPattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fPattern, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   store i16 2, ptr %fUnion2.i, align 8
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i5 = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i5, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i6 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i6, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -1286,7 +1286,7 @@ invoke.cont83:                                    ; preds = %if.end82
           to label %invoke.cont85 unwind label %lpad55
 
 invoke.cont85:                                    ; preds = %invoke.cont83
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %timePattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %timePattern, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %timePattern, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %or.cond = icmp ult i32 %timeStyle, 4
@@ -2166,18 +2166,18 @@ define void @_ZN6icu_7516SimpleDateFormatC2ERKNS_13UnicodeStringER10UErrorCode(p
 entry:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %entry
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i7, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -2590,18 +2590,18 @@ define void @_ZN6icu_7516SimpleDateFormatC2ERKNS_13UnicodeStringES3_R10UErrorCod
 entry:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %entry
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i9 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i9, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -2786,10 +2786,10 @@ entry:
   br i1 %or.cond, label %if.end, label %cleanup.cont153
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %nsName, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %nsName, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %nsName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ovrField, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ovrField, align 8
   %fUnion2.i48 = getelementptr inbounds nuw i8, ptr %ovrField, i64 8
   store i16 2, ptr %fUnion2.i48, align 8
   %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %str, i64 12
@@ -3320,18 +3320,18 @@ define void @_ZN6icu_7516SimpleDateFormatC2ERKNS_13UnicodeStringERKNS_6LocaleER1
 entry:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %entry
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i7, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -3495,18 +3495,18 @@ define void @_ZN6icu_7516SimpleDateFormatC2ERKNS_13UnicodeStringES3_RKNS_6Locale
 entry:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %entry
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i10 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i10, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -3674,18 +3674,18 @@ define void @_ZN6icu_7516SimpleDateFormatC2ERKNS_13UnicodeStringEPNS_17DateForma
 entry:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %entry
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i6 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i6, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -3850,18 +3850,18 @@ define void @_ZN6icu_7516SimpleDateFormatC2ERKNS_13UnicodeStringERKNS_17DateForm
 entry:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %entry
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i7, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -4050,17 +4050,17 @@ define void @_ZN6icu_7516SimpleDateFormatC2ENS_10DateFormat6EStyleES2_RKNS_6Loca
 invoke.cont5:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fPattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fPattern, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   store i16 2, ptr %fUnion2.i, align 8
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i6 = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i6, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i7, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -4189,18 +4189,18 @@ define void @_ZN6icu_7516SimpleDateFormatC2ERKNS_6LocaleER10UErrorCode(ptr nound
 entry:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %fPattern, ptr noundef nonnull @_ZN6icu_75L15gDefaultPatternE)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %entry
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i14 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i14, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -4422,17 +4422,17 @@ define void @_ZN6icu_7516SimpleDateFormatC2ERKS0_(ptr noundef nonnull align 8 de
 invoke.cont5:
   %status.i = alloca i32, align 4
   tail call void @_ZN6icu_7510DateFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(352) %other)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds nuw i8, ptr %this, i64 352
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fPattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fPattern, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   store i16 2, ptr %fUnion2.i, align 8
   %fDateOverride = getelementptr inbounds nuw i8, ptr %this, i64 416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fDateOverride, align 8
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i16 2, ptr %fUnion2.i7, align 8
   %fTimeOverride = getelementptr inbounds nuw i8, ptr %this, i64 480
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fTimeOverride, align 8
   %fUnion2.i8 = getelementptr inbounds nuw i8, ptr %this, i64 488
   store i16 2, ptr %fUnion2.i8, align 8
   %fLocale = getelementptr inbounds nuw i8, ptr %this, i64 544
@@ -5074,7 +5074,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 define linkonce_odr void @_ZN6icu_7515SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, i32 noundef %min, i32 noundef %max, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %compiledPattern = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, i32 noundef %min, i32 noundef %max, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -6017,7 +6017,7 @@ cond.end185:                                      ; preds = %if.else176, %cond.t
   br label %sw.epilog717
 
 if.else188:                                       ; preds = %cond.end106
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %monthNumber, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %monthNumber, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %monthNumber, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %add = add nsw i32 %value.3, 1
@@ -6259,7 +6259,7 @@ sw.bb298:                                         ; preds = %if.end23
   %90 = ashr i16 %5, 5
   %shr.i.i.le769 = sext i16 %90 to i32
   %cond.i.le682 = select i1 %cmp.i.i.le825, i32 %6, i32 %shr.i.i.le769
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %separator, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %separator, align 8
   %fUnion2.i399 = getelementptr inbounds nuw i8, ptr %separator, i64 8
   store i16 2, ptr %fUnion2.i399, align 8
   %91 = load ptr, ptr %fSymbols666, align 8
@@ -7156,7 +7156,7 @@ _ZN6icu_75L23fixNumberFormatForDatesERNS_12NumberFormatE.exit.i: ; preds = %if.t
 _ZN6icu_75L24createSharedNumberFormatEPNS_12NumberFormatE.exit: ; preds = %_ZN6icu_75L23fixNumberFormatForDatesERNS_12NumberFormatE.exit.i
   %softRefCount.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518SharedNumberFormatE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518SharedNumberFormatE, i64 16), ptr %call.i, align 8
   %ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %call, ptr %ptr.i.i, align 8
   br label %return
@@ -7213,7 +7213,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   store i32 0, ptr %localStatus, align 4
   call void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(408) %data, i8 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %data, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %data, align 8
   %quantity.i = getelementptr inbounds nuw i8, ptr %data, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -7319,7 +7319,7 @@ terminate.lpad.i17:                               ; preds = %lpad7
   unreachable
 
 if.end:                                           ; preds = %_ZN6icu_756number12SimpleNumberD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523UnicodeStringAppendableE, i64 16), ptr %appendable, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523UnicodeStringAppendableE, i64 16), ptr %appendable, align 8
   %str.i = getelementptr inbounds nuw i8, ptr %appendable, i64 8
   store ptr %appendTo, ptr %str.i, align 8
   %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6icu_756number15FormattedNumber8appendToERNS_10AppendableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %result, ptr noundef nonnull align 8 dereferenceable(8) %appendable, ptr noundef nonnull align 4 dereferenceable(4) %localStatus)
@@ -7381,7 +7381,7 @@ dynamic_cast.end:                                 ; preds = %if.end23
   br i1 %cmp24.not, label %if.then33, label %if.then25
 
 if.then25:                                        ; preds = %dynamic_cast.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos, align 8
   %fField.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds nuw i8, ptr %pos, i64 12
@@ -7405,7 +7405,7 @@ lpad26:                                           ; preds = %if.then25
   br label %common.resume
 
 if.then33:                                        ; preds = %dynamic_cast.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %pos34, align 8
   %fField.i26 = getelementptr inbounds nuw i8, ptr %pos34, i64 8
   store i32 -1, ptr %fField.i26, align 8
   %fBeginIndex.i27 = getelementptr inbounds nuw i8, ptr %pos34, i64 12
@@ -7576,7 +7576,7 @@ if.then3:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %compiledPattern.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %monthPattern, i32 noundef 1, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -7938,7 +7938,7 @@ _ZN6icu_75L23fixNumberFormatForDatesERNS_12NumberFormatE.exit.i: ; preds = %if.t
 invoke.cont13:                                    ; preds = %_ZN6icu_75L23fixNumberFormatForDatesERNS_12NumberFormatE.exit.i
   %softRefCount.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518SharedNumberFormatE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518SharedNumberFormatE, i64 16), ptr %call.i, align 8
   %ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %formatToAdopt, ptr %ptr.i.i, align 8
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %fields, i64 8
@@ -9269,7 +9269,7 @@ entry:
   %monthStatus1379 = alloca i32, align 4
   call void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %number)
   store i32 0, ptr %status, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %pos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %pos, align 8
   %index.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds nuw i8, ptr %pos, i64 12
@@ -9278,7 +9278,7 @@ entry:
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %temp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp = icmp eq i32 %call, 38
@@ -11226,7 +11226,7 @@ if.end1123:                                       ; preds = %invoke.cont1115, %i
 invoke.cont1127:                                  ; preds = %if.end195, %invoke.cont1127
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont1127 ], [ 0, %if.end195 ]
   %arrayctor.cur.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr, align 16
   %fUnion2.i564 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr, i64 8
   store i16 2, ptr %fUnion2.i564, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -11752,7 +11752,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516SimpleDateFormat13matchLit
 entry:
   %ch.addr.i = alloca i16, align 2
   %literal = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %literal, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %literal, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %literal, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = load i32, ptr %patternOffset, align 4
@@ -12490,7 +12490,7 @@ declare void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 der
 define noundef i32 @_ZNK6icu_7516SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i32 noundef %field, ptr noundef %data, i32 noundef %dataCount, ptr noundef nonnull align 8 dereferenceable(618) %cal) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bestMatchName = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %bestMatchName, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %bestMatchName, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %bestMatchName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp13 = icmp sgt i32 %dataCount, 0
@@ -12793,7 +12793,7 @@ entry:
   %ref.tmp = alloca %"class.icu_75::SimpleFormatter", align 8
   %cmp = icmp eq i32 %field, 7
   %spec.select = zext i1 %cmp to i32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %bestMatchName, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %bestMatchName, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %bestMatchName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp250 = icmp sgt i32 %dataCount, %spec.select
@@ -12845,9 +12845,9 @@ invoke.cont:                                      ; preds = %for.body
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select31 = select i1 %cmp3, i32 %2, i32 %bestMatch.054
   store i32 0, ptr %status, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %leapMonthName, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %leapMonthName, align 8
   store i16 2, ptr %fUnion2.i33, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %compiledPattern.i, align 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %monthPattern, i32 noundef 1, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont10 unwind label %lpad.i
@@ -13039,7 +13039,7 @@ entry:
 define noundef i32 @_ZNK6icu_7516SimpleDateFormat14checkIntSuffixERKNS_13UnicodeStringEiia(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i32 noundef %patLoc, i8 noundef signext %isNegative) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %suf = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %suf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %suf, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %suf, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %text, i64 8
@@ -13239,7 +13239,7 @@ entry:
   %oldPrefix = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldPrefix, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oldPrefix, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %oldPrefix, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = icmp ne ptr %fmt, null

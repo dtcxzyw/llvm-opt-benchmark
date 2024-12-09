@@ -3164,7 +3164,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   br i1 %79, label %97, label %80
 
 80:                                               ; preds = %76
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %82 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %81, i32 noundef 3520, i64 noundef 104) #22
   %83 = icmp eq ptr %82, null
   br i1 %83, label %97, label %84
@@ -4005,7 +4005,7 @@ __skb_put.exit:                                   ; preds = %232
 344:                                              ; preds = %343, %328
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !62
   %345 = load i32, ptr %243, align 8
-  %346 = call i8 asm "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @softnet_data, i64 98)) #21, !srcloc !63
+  %346 = call i8 asm "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @softnet_data, i64 98)) #21, !srcloc !63
   %347 = icmp eq i8 %346, 0
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %349 = load ptr, ptr %348, align 8

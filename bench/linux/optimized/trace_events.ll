@@ -1628,7 +1628,7 @@ define dso_local i32 @trace_set_clr_event(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ftrace_trace_arrays, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ftrace_trace_arrays, i64 8), align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 156
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 1
@@ -2028,7 +2028,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   br i1 %225, label %237, label %226
 
 226:                                              ; preds = %223
-  %227 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %228 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %227, i32 noundef 3264, i64 noundef 32) #22
   %229 = icmp eq ptr %228, null
   br i1 %229, label %230, label %231, !prof !9
@@ -2498,7 +2498,7 @@ define dso_local ptr @trace_get_event_file(ptr noundef %0, ptr nocapture noundef
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ftrace_trace_arrays, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ftrace_trace_arrays, i64 8), align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 156
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 1
@@ -3402,7 +3402,7 @@ define internal noundef range(i32 -19, 1) i32 @event_trace_enable_again() #4 sec
   br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ftrace_trace_arrays, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ftrace_trace_arrays, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 156
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 1
@@ -3435,7 +3435,7 @@ define dso_local noundef range(i32 -19, 1) i32 @event_trace_init() local_unnamed
   br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ftrace_trace_arrays, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ftrace_trace_arrays, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 156
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 1
@@ -3538,7 +3538,7 @@ define internal fastcc void @event_trace_enable() unnamed_addr #4 section ".init
   br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ftrace_trace_arrays, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ftrace_trace_arrays, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 156
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 1
@@ -4740,7 +4740,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @event_create_dir(ptr nound
 
 40:                                               ; preds = %35, %.preheader
   %41 = phi ptr [ null, %.preheader ], [ %33, %35 ]
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %43 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %42, i32 noundef 3264, i64 noundef 48) #22
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %.thread11, label %44
@@ -4750,7 +4750,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @event_create_dir(ptr nound
   br i1 %45, label %46, label %66
 
 46:                                               ; preds = %44
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %48 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3264, i64 noundef 40) #22
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread12, label %50
@@ -4765,7 +4765,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @event_create_dir(ptr nound
   br i1 %54, label %60, label %55
 
 55:                                               ; preds = %50
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %57 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %56, i32 noundef 3520, i64 noundef 16) #22
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr %57, ptr %58, align 8
@@ -6475,7 +6475,7 @@ declare dso_local ptr @eventfs_create_events_dir(ptr noundef, ptr noundef, ptr n
 define internal range(i32 -2147483648, 1) i32 @system_tr_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 48) #22
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
@@ -7173,7 +7173,7 @@ define internal ptr @p_start(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   tail call void @mutex_lock(ptr noundef nonnull @event_mutex) #19
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !156
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !156
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !157
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load volatile ptr, ptr %5, align 8
@@ -7192,7 +7192,7 @@ define internal ptr @p_start(ptr nocapture noundef readonly %0, ptr noundef %1) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @p_stop(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !158
-  %3 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !159
+  %3 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !159
   %4 = icmp ult i8 %3, 2
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i8 %3, 0
@@ -7309,7 +7309,7 @@ define internal ptr @np_start(ptr nocapture noundef readonly %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   tail call void @mutex_lock(ptr noundef nonnull @event_mutex) #19
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !156
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !156
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !157
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load volatile ptr, ptr %5, align 8

@@ -4886,9 +4886,9 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   store i32 1, ptr %251, align 8, !noalias !56
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 12
   store i32 1, ptr %252, align 4, !noalias !56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %250, align 8, !noalias !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %250, align 8, !noalias !56
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i64 16), ptr %253, align 8, !noalias !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i64 16), ptr %253, align 8, !noalias !56
   %254 = load ptr, ptr %235, align 8, !noalias !56
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8, !noalias !56
@@ -4941,9 +4941,9 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_114GcsStorageToolEED2Ev.exit: ; preds = %.noexc.
   store i32 1, ptr %272, align 8, !noalias !59
   %273 = getelementptr inbounds nuw i8, ptr %271, i64 12
   store i32 1, ptr %273, align 4, !noalias !59
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %271, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %271, align 8, !noalias !59
   %274 = getelementptr inbounds nuw i8, ptr %271, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i64 16), ptr %274, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i64 16), ptr %274, align 8, !noalias !59
   %275 = load ptr, ptr %235, align 8, !noalias !59
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %277 = load ptr, ptr %276, align 8, !noalias !59
@@ -5000,9 +5000,9 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_114AwsStorageToolEED2Ev.exit: ; preds = %.noexc.
   store i32 1, ptr %296, align 8, !noalias !62
   %297 = getelementptr inbounds nuw i8, ptr %295, i64 12
   store i32 1, ptr %297, align 4, !noalias !62
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %295, align 8, !noalias !62
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %295, align 8, !noalias !62
   %298 = getelementptr inbounds nuw i8, ptr %295, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i64 16), ptr %298, align 8, !noalias !62
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i64 16), ptr %298, align 8, !noalias !62
   %299 = load ptr, ptr %235, align 8, !noalias !62
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %301 = load ptr, ptr %300, align 8, !noalias !62
@@ -5165,7 +5165,7 @@ _ZNO5vcpkg9ExpectedTINS_7ZipToolENS_15LocalizedStringEE5errorEv.exit: ; preds = 
 365:                                              ; preds = %363
   %366 = getelementptr inbounds nuw i8, ptr %364, i64 16
   store ptr %233, ptr %366, align 8, !noalias !71
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i64 16), ptr %364, align 8, !noalias !71
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i64 16), ptr %364, align 8, !noalias !71
   %367 = getelementptr inbounds nuw i8, ptr %364, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %367, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0846.01077) #26, !noalias !71
   %368 = load ptr, ptr %361, align 8
@@ -5321,7 +5321,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123FilesReadBinaryProviderESt14default_deleteIS1
 .noexc249:                                        ; preds = %404
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 16
   store ptr %233, ptr %406, align 8, !noalias !80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i64 16), ptr %405, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i64 16), ptr %405, align 8, !noalias !80
   %407 = getelementptr inbounds nuw i8, ptr %405, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %407, ptr noundef nonnull align 8 dereferenceable(32) %237)
           to label %.noexc.i unwind label %421, !noalias !80
@@ -5505,7 +5505,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121HttpGetBinaryProviderESt14default_deleteIS1_E
 _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14GcsStorageToolEvEERKS_IT_E.exit.i: ; preds = %468, %465, %.noexc286
   %470 = getelementptr inbounds nuw i8, ptr %462, i64 16
   store ptr %233, ptr %470, align 8, !noalias !88
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %462, align 8, !noalias !88
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %462, align 8, !noalias !88
   %471 = getelementptr inbounds nuw i8, ptr %462, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %471, ptr noundef nonnull align 8 dereferenceable(32) %237)
           to label %.noexc.i280 unwind label %513, !noalias !88
@@ -5748,7 +5748,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121ObjectStorageProviderESt14default_deleteIS1_E
 _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14AwsStorageToolEvEERKS_IT_E.exit.i: ; preds = %560, %557, %.noexc325
   %562 = getelementptr inbounds nuw i8, ptr %554, i64 16
   store ptr %233, ptr %562, align 8, !noalias !96
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %554, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %554, align 8, !noalias !96
   %563 = getelementptr inbounds nuw i8, ptr %554, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %563, ptr noundef nonnull align 8 dereferenceable(32) %237)
           to label %.noexc.i317 unwind label %605, !noalias !96
@@ -5991,7 +5991,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121ObjectStorageProviderESt14default_deleteIS1_E
 _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEEC2IKNS0_14CosStorageToolEvEERKS_IT_E.exit.i: ; preds = %652, %649, %.noexc366
   %654 = getelementptr inbounds nuw i8, ptr %646, i64 16
   store ptr %233, ptr %654, align 8, !noalias !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %646, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %646, align 8, !noalias !104
   %655 = getelementptr inbounds nuw i8, ptr %646, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %655, ptr noundef nonnull align 8 dereferenceable(32) %237)
           to label %.noexc.i358 unwind label %697, !noalias !104
@@ -6216,7 +6216,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121ObjectStorageProviderESt14default_deleteIS1_E
 .noexc400:                                        ; preds = %733
   %745 = getelementptr inbounds nuw i8, ptr %744, i64 16
   store ptr %233, ptr %745, align 8, !noalias !112
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i64 16), ptr %744, align 8, !noalias !112
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i64 16), ptr %744, align 8, !noalias !112
   %746 = getelementptr inbounds nuw i8, ptr %744, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %746, ptr noundef nonnull align 8 dereferenceable(32) %237)
           to label %.noexc.i399 unwind label %756, !noalias !112
@@ -6392,7 +6392,7 @@ _ZN5vcpkg9ExpectedTINS_7ZipToolENS_15LocalizedStringEED2Ev.exit: ; preds = %_ZNS
           to label %804 unwind label %305
 
 804:                                              ; preds = %802
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i64 16), ptr %803, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i64 16), ptr %803, align 8, !noalias !120
   %805 = getelementptr inbounds nuw i8, ptr %803, i64 8
   store ptr %233, ptr %805, align 8, !noalias !120
   %806 = getelementptr inbounds nuw i8, ptr %803, i64 16
@@ -6508,7 +6508,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124FilesWriteBinaryProviderESt14default_deleteIS
 
 .noexc452:                                        ; preds = %848
   %.sroa.gep915 = getelementptr inbounds nuw i8, ptr %16, i64 440
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i64 16), ptr %849, align 8, !noalias !129
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i64 16), ptr %849, align 8, !noalias !129
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 8
   store ptr %233, ptr %850, align 8, !noalias !129
   %851 = getelementptr inbounds nuw i8, ptr %849, i64 16
@@ -6659,7 +6659,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121HTTPPutBinaryProviderESt14default_deleteIS1_E
 905:                                              ; preds = %903, %900, %.noexc483
   %906 = phi ptr [ %.pre1152, %903 ], [ %893, %900 ], [ %893, %.noexc483 ]
   %907 = phi ptr [ %.pre, %903 ], [ %892, %900 ], [ %892, %.noexc483 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i64 16), ptr %896, align 8, !noalias !137
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i64 16), ptr %896, align 8, !noalias !137
   %908 = getelementptr inbounds nuw i8, ptr %896, i64 8
   store ptr %907, ptr %908, align 8, !noalias !137
   %909 = getelementptr inbounds nuw i8, ptr %896, i64 16
@@ -6800,7 +6800,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteI
 962:                                              ; preds = %960, %957, %.noexc512
   %963 = phi ptr [ %.pre1154, %960 ], [ %950, %957 ], [ %950, %.noexc512 ]
   %964 = phi ptr [ %.pre1153, %960 ], [ %949, %957 ], [ %949, %.noexc512 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i64 16), ptr %953, align 8, !noalias !145
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i64 16), ptr %953, align 8, !noalias !145
   %965 = getelementptr inbounds nuw i8, ptr %953, i64 8
   store ptr %964, ptr %965, align 8, !noalias !145
   %966 = getelementptr inbounds nuw i8, ptr %953, i64 16
@@ -6941,7 +6941,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteI
 1019:                                             ; preds = %1017, %1014, %.noexc543
   %1020 = phi ptr [ %.pre1156, %1017 ], [ %1007, %1014 ], [ %1007, %.noexc543 ]
   %1021 = phi ptr [ %.pre1155, %1017 ], [ %1006, %1014 ], [ %1006, %.noexc543 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i64 16), ptr %1010, align 8, !noalias !153
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i64 16), ptr %1010, align 8, !noalias !153
   %1022 = getelementptr inbounds nuw i8, ptr %1010, i64 8
   store ptr %1021, ptr %1022, align 8, !noalias !153
   %1023 = getelementptr inbounds nuw i8, ptr %1010, i64 16
@@ -7066,7 +7066,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_125ObjectStoragePushProviderESt14default_deleteI
   %1074 = trunc i8 %1067 to i1
   %1075 = getelementptr inbounds nuw i8, ptr %1, i64 728
   %1076 = select i1 %1074, ptr %1075, ptr null
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i64 16), ptr %1073, align 8, !noalias !161
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i64 16), ptr %1073, align 8, !noalias !161
   %1077 = getelementptr inbounds nuw i8, ptr %1073, i64 8
   store ptr %233, ptr %1077, align 8, !noalias !161
   %1078 = getelementptr inbounds nuw i8, ptr %1073, i64 16
@@ -7708,7 +7708,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123NugetReadBinaryProviderESt14default_deleteIS1
           to label %.noexc671 unwind label %.loopexit.split-lp
 
 .noexc671:                                        ; preds = %1299
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg20IWriteBinaryProviderE, i64 16), ptr %1300, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg20IWriteBinaryProviderE, i64 16), ptr %1300, align 8, !noalias !186
   %1301 = getelementptr inbounds nuw i8, ptr %1300, i64 8
   invoke fastcc void @_ZN12_GLOBAL__N_123NugetBaseBinaryProviderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(176) %1301, ptr noundef nonnull align 8 dereferenceable(176) %26)
           to label %1304 unwind label %1302, !noalias !186
@@ -7720,7 +7720,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123NugetReadBinaryProviderESt14default_deleteIS1
   br label %.body614
 
 1304:                                             ; preds = %.noexc671
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i64 16), ptr %1300, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i64 16), ptr %1300, align 8, !noalias !186
   %1305 = getelementptr inbounds nuw i8, ptr %1300, i64 184
   %1306 = load ptr, ptr %.sroa.gep875, align 8, !noalias !186
   store ptr %1306, ptr %1305, align 8, !noalias !186
@@ -9753,7 +9753,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg23BinaryConfigParserStateC2Ev(ptr n
           to label %.noexc2 unwind label %20
 
 .noexc2:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.176, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.176, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.176, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.176, i64 3))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %10
 
 10:                                               ; preds = %.noexc2
@@ -16769,13 +16769,13 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_123NugetReadBinaryP
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg19IReadBinaryProviderE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg19IReadBinaryProviderE, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke fastcc void @_ZN12_GLOBAL__N_123NugetBaseBinaryProviderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %9 unwind label %12
 
 9:                                                ; preds = %3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 16, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 200
@@ -17766,7 +17766,7 @@ declare void @llvm.trap() #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114GcsStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   ret void
@@ -17774,7 +17774,7 @@ define internal void @_ZN12_GLOBAL__N_114GcsStorageToolD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114GcsStorageToolD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
@@ -21251,7 +21251,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114AwsStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   ret void
@@ -21259,7 +21259,7 @@ define internal void @_ZN12_GLOBAL__N_114AwsStorageToolD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114AwsStorageToolD0Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
@@ -21675,7 +21675,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114CosStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   ret void
@@ -21683,7 +21683,7 @@ define internal void @_ZN12_GLOBAL__N_114CosStorageToolD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114CosStorageToolD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
@@ -22000,7 +22000,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_123FilesReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   ret void
@@ -22008,7 +22008,7 @@ define internal void @_ZN12_GLOBAL__N_123FilesReadBinaryProviderD2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_123FilesReadBinaryProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
@@ -23389,7 +23389,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121HttpGetBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -24257,7 +24257,7 @@ _ZNSt12__shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolELN9__gnu_cxx12_Lock_pol
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121ObjectStorageProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
@@ -24341,7 +24341,7 @@ _ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev.exit: ; preds = %1,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121ObjectStorageProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val.i = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i, null
@@ -24709,7 +24709,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_117GHABinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -24721,7 +24721,7 @@ define internal void @_ZN12_GLOBAL__N_117GHABinaryProviderD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_117GHABinaryProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -24898,7 +24898,7 @@ _ZNO5vcpkg8OptionalIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13val
           to label %69 unwind label %.body27, !noalias !591
 
 69:                                               ; preds = %67
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %68, ptr noundef nonnull @.str.119, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.119, i64 5)) #26, !noalias !591
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %68, ptr noundef nonnull @.str.119, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.119, i64 5)) #26, !noalias !591
   store ptr null, ptr %6, align 8, !noalias !591
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef 5)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body27, !noalias !591
@@ -25612,7 +25612,7 @@ declare void @_ZN5vcpkg4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_124FilesWriteBinaryProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25646,7 +25646,7 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_124FilesWriteBinaryProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -25990,7 +25990,7 @@ _ZNSt12_Vector_baseIN5vcpkg11UrlTemplateESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Des
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121HTTPPutBinaryProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -26222,7 +26222,7 @@ declare void @_ZN5vcpkg8put_fileERKNS_18ReadOnlyFilesystemENS_10StringViewERKSt6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
@@ -26463,7 +26463,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_125ObjectStoragePushProvide
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121GHABinaryPushProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -26473,7 +26473,7 @@ define internal void @_ZN12_GLOBAL__N_121GHABinaryPushProviderD2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121GHABinaryPushProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -26891,7 +26891,7 @@ _ZNK12_GLOBAL__N_121GHABinaryPushProvider19reserve_cache_entryERKNSt7__cxx1112ba
           to label %.noexc48 unwind label %214
 
 .noexc48:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull @.str.130, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.130, i64 38))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull @.str.130, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.130, i64 38))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %158
 
 158:                                              ; preds = %.noexc48
@@ -27715,7 +27715,7 @@ _ZN5vcpkg4PathC2ERKS0_.exit11:                    ; preds = %_ZN5vcpkg4PathC2ERK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_123NugetReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -27733,7 +27733,7 @@ define internal void @_ZN12_GLOBAL__N_123NugetReadBinaryProviderD2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_123NugetReadBinaryProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -29061,7 +29061,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR5vcpkg4Path6native
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_123NugetBinaryPushProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216

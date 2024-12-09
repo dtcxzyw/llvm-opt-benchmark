@@ -162,7 +162,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -170,7 +170,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 21, i1 false)
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %85 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(40) %81, ptr noundef nonnull align 8 dereferenceable(40) %84) #6
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull %2, i32 0) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
@@ -287,14 +287,14 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   %144 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %145 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %144, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %145, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i32 0, ptr %147, align 8
   call void @_ZN14MacroAssembler6movdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %141, i32 0, ptr noundef nonnull %22) #6
   %148 = load ptr, ptr %35, align 8
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6_coeff, i64 16), i32 noundef 7) #6
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL6_coeff, i64 16), i32 noundef 7) #6
   %149 = load ptr, ptr %24, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
@@ -306,7 +306,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   %154 = load ptr, ptr %35, align 8
   call void @_ZN9Assembler5addsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %154, i32 1, i32 5) #6
   %155 = load ptr, ptr %35, align 8
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6_coeff, i64 32), i32 noundef 7) #6
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL6_coeff, i64 32), i32 noundef 7) #6
   %156 = load ptr, ptr %26, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8
@@ -335,7 +335,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
 
 168:                                              ; preds = %166, %165
   %169 = load ptr, ptr %35, align 8
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL5_log2, i64 8), i32 noundef 7) #6
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL5_log2, i64 8), i32 noundef 7) #6
   %170 = load ptr, ptr %28, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8
@@ -418,7 +418,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   %209 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %209, align 4
   %210 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %210, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -437,7 +437,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   %218 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %219, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -562,7 +562,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   %280 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %280, align 4
   %281 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %281, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -595,7 +595,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   %296 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %296, align 4
   %297 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %297, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %297, align 8
   %298 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %298, align 8
   %299 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -616,7 +616,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   %306 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %306, align 4
   %307 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -637,7 +637,7 @@ define hidden noundef ptr @_ZN13StubGenerator16generate_libmLogEv(ptr noundef no
   %316 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %316, align 4
   %317 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %317, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %318, align 8
   %319 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -908,7 +908,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %96 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %97, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -916,7 +916,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 21, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %101 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %101(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef nonnull align 8 dereferenceable(40) %100) #6
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %91, ptr noundef nonnull %2, i32 0) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
@@ -1065,14 +1065,14 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %178 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %178, align 4
   %179 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %179, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store i32 0, ptr %181, align 8
   call void @_ZN14MacroAssembler6movdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %173, i32 0, ptr noundef nonnull %28) #6
   %182 = load ptr, ptr %45, align 8
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12_coeff_log10, i64 16), i32 noundef 7) #6
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL12_coeff_log10, i64 16), i32 noundef 7) #6
   %183 = load ptr, ptr %30, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load ptr, ptr %184, align 8
@@ -1084,7 +1084,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %188 = load ptr, ptr %45, align 8
   call void @_ZN9Assembler5addsdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %188, i32 1, i32 5) #6
   %189 = load ptr, ptr %45, align 8
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12_coeff_log10, i64 32), i32 noundef 7) #6
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL12_coeff_log10, i64 32), i32 noundef 7) #6
   %190 = load ptr, ptr %32, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %192 = load ptr, ptr %191, align 8
@@ -1098,7 +1098,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %196 = load ptr, ptr %45, align 8
   call void @_ZN9Assembler6pshufdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %196, i32 5, i32 1, i32 noundef 68) #6
   %197 = load ptr, ptr %45, align 8
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL11_log2_log10, i64 8), i32 noundef 7) #6
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL11_log2_log10, i64 8), i32 noundef 7) #6
   %198 = load ptr, ptr %34, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %200 = load ptr, ptr %199, align 8
@@ -1114,7 +1114,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %205 = load ptr, ptr %45, align 8
   call void @_ZN9Assembler5mulpdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %205, i32 4, i32 5) #6
   %206 = load ptr, ptr %45, align 8
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL8_LOG10_E, i64 8), i32 noundef 7) #6
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL8_LOG10_E, i64 8), i32 noundef 7) #6
   %207 = load ptr, ptr %36, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %209 = load ptr, ptr %208, align 8
@@ -1180,7 +1180,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %239 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i8 0, ptr %239, align 4
   %240 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %240, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %240, align 8
   %241 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %241, align 8
   %242 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -1199,7 +1199,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %248 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i8 0, ptr %248, align 4
   %249 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %249, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr null, ptr %250, align 8
   %251 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -1340,7 +1340,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %319 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 0, ptr %319, align 4
   %320 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %320, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %320, align 8
   %321 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -1373,7 +1373,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %335 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i8 0, ptr %335, align 4
   %336 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %336, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %336, align 8
   %337 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr null, ptr %337, align 8
   %338 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -1394,7 +1394,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %345 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i8 0, ptr %345, align 4
   %346 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %346, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %346, align 8
   %347 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %347, align 8
   %348 = getelementptr inbounds nuw i8, ptr %43, i64 40
@@ -1415,7 +1415,7 @@ define hidden noundef ptr @_ZN13StubGenerator18generate_libmLog10Ev(ptr noundef 
   %355 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i8 0, ptr %355, align 4
   %356 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %356, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %356, align 8
   %357 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr null, ptr %357, align 8
   %358 = getelementptr inbounds nuw i8, ptr %44, i64 40

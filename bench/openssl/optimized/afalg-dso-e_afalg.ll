@@ -446,7 +446,7 @@ sw.bb2.i:                                         ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %sw.bb2.i, %sw.bb1.i, %entry
-  %retval.0.i.ph = phi ptr [ @cbc_handle, %entry ], [ getelementptr inbounds (i8, ptr @cbc_handle, i64 16), %sw.bb1.i ], [ getelementptr inbounds (i8, ptr @cbc_handle, i64 32), %sw.bb2.i ]
+  %retval.0.i.ph = phi ptr [ @cbc_handle, %entry ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 16), %sw.bb1.i ], [ getelementptr inbounds nuw (i8, ptr @cbc_handle, i64 32), %sw.bb2.i ]
   %_hidden = getelementptr inbounds nuw i8, ptr %retval.0.i.ph, i64 8
   %0 = load ptr, ptr %_hidden, align 8
   %cmp1 = icmp eq ptr %0, null

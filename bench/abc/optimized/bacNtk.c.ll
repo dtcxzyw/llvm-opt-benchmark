@@ -246,8 +246,8 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @Bac_NameToRanges(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  store ptr @Bac_NameToRanges.pArray, ptr getelementptr inbounds (i8, ptr @Bac_NameToRanges.Bits, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @Bac_NameToRanges.Bits, i64 4), align 4
+  store ptr @Bac_NameToRanges.pArray, ptr getelementptr inbounds nuw (i8, ptr @Bac_NameToRanges.Bits, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @Bac_NameToRanges.Bits, i64 4), align 4
   store i32 10, ptr @Bac_NameToRanges.Bits, align 8
   br label %2
 

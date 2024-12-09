@@ -30811,7 +30811,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
 .critedge20:                                      ; preds = %35, %33, %54
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !5201
   store ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.223, ptr %4, align 8, !noalias !5201
-  store ptr getelementptr inbounds (i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.223, i64 12), ptr %14, align 8, !noalias !5201
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.223, i64 12), ptr %14, align 8, !noalias !5201
   br label %56
 
 56:                                               ; preds = %58, %.critedge20
@@ -30836,7 +30836,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !5201
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !5215
   store ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.223, ptr %3, align 8, !noalias !5215
-  store ptr getelementptr inbounds (i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.223, i64 12), ptr %15, align 8, !noalias !5215
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.223, i64 12), ptr %15, align 8, !noalias !5215
   br label %64
 
 64:                                               ; preds = %66, %63

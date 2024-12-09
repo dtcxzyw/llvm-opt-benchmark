@@ -375,7 +375,7 @@ define dso_local i32 @vp_find_vqs(ptr noundef initializes((960, 968)) %0, i32 no
 
 63:                                               ; preds = %59, %55
   %64 = phi i1 [ %62, %59 ], [ false, %55 ]
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %66 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %65, i32 noundef 3264, i64 noundef 32) #12
   %67 = icmp eq ptr %66, null
   br i1 %67, label %vp_setup_vq.exit.thread, label %69
@@ -663,7 +663,7 @@ define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968))
 
 145:                                              ; preds = %141, %137
   %146 = phi i1 [ %144, %141 ], [ false, %137 ]
-  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %148 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %147, i32 noundef 3264, i64 noundef 32) #12
   %149 = icmp eq ptr %148, null
   br i1 %149, label %vp_setup_vq.exit.thread, label %151
@@ -1007,7 +1007,7 @@ declare dso_local i32 @ioread8(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtio_pci_probe(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(1128) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 1128) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %47, label %6

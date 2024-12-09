@@ -30,7 +30,7 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %13
   ]
 
 19:                                               ; preds = %ompi_comm_remote_size.exit
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %21 = sext i32 %1 to i64
   %22 = tail call i32 %20(ptr noundef %0, i64 noundef %21, ptr noundef %2, i32 noundef %6, i32 noundef -19, i32 noundef 4, ptr noundef nonnull %7) #1
   br label %.loopexit
@@ -49,7 +49,7 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %13
 .lr.ph:                                           ; preds = %23, %34
   %.02534 = phi ptr [ %36, %34 ], [ %3, %23 ]
   %.02633 = phi i32 [ %35, %34 ], [ 0, %23 ]
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %33 = tail call i32 %32(ptr noundef %.02534, i64 noundef %29, ptr noundef %5, i32 noundef %.02633, i32 noundef -19, ptr noundef %7, ptr noundef null) #1
   %.not32 = icmp eq i32 %33, 0
   br i1 %.not32, label %34, label %.loopexit

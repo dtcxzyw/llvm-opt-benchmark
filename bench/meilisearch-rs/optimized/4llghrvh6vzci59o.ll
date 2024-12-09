@@ -19872,7 +19872,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc379, %
   br i1 %135, label %136, label %.thread519
 
 136:                                              ; preds = %133
-  %137 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents6enrich22enrich_documents_batch10__CALLSITE17h278f1e08a35f5facE, i64 16) monotonic, align 8
+  %137 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents6enrich22enrich_documents_batch10__CALLSITE17h278f1e08a35f5facE, i64 16) monotonic, align 8
   switch i8 %137, label %138 [
     i8 0, label %.thread519
     i8 1, label %.thread515
@@ -20318,7 +20318,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc379, %
   br i1 %281, label %282, label %.thread542
 
 282:                                              ; preds = %278
-  %283 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents6enrich22enrich_documents_batch10__CALLSITE17hd69e010e6e88f1aaE, i64 16) monotonic, align 8
+  %283 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents6enrich22enrich_documents_batch10__CALLSITE17hd69e010e6e88f1aaE, i64 16) monotonic, align 8
   switch i8 %283, label %284 [
     i8 0, label %.thread542
     i8 1, label %.thread539
@@ -22258,7 +22258,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc512, %
   br i1 %116, label %117, label %.thread776
 
 117:                                              ; preds = %114
-  %118 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract19extract_word_docids19extract_word_docids10__CALLSITE17h87050c936c9a2d81E, i64 16) monotonic, align 8
+  %118 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract19extract_word_docids19extract_word_docids10__CALLSITE17h87050c936c9a2d81E, i64 16) monotonic, align 8
   switch i8 %118, label %119 [
     i8 0, label %.thread776
     i8 1, label %.thread772
@@ -25312,7 +25312,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc50, %.
   br i1 %41, label %42, label %.thread87
 
 42:                                               ; preds = %39
-  %43 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract24data_from_obkv_documents10__CALLSITE17h511a5843b685fea4E, i64 16) monotonic, align 8
+  %43 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract24data_from_obkv_documents10__CALLSITE17h511a5843b685fea4E, i64 16) monotonic, align 8
   switch i8 %43, label %44 [
     i8 0, label %.thread87
     i8 1, label %.thread83
@@ -25756,7 +25756,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc124, %
   br i1 %52, label %53, label %.thread185
 
 53:                                               ; preds = %50
-  %54 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract27extract_facet_number_docids27extract_facet_number_docids10__CALLSITE17heab01b01d5d054beE, i64 16) monotonic, align 8
+  %54 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract27extract_facet_number_docids27extract_facet_number_docids10__CALLSITE17heab01b01d5d054beE, i64 16) monotonic, align 8
   switch i8 %54, label %55 [
     i8 0, label %.thread185
     i8 1, label %.thread181
@@ -26712,7 +26712,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc273, %
   br i1 %96, label %97, label %.thread467
 
 97:                                               ; preds = %94
-  %98 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract27extract_facet_string_docids27extract_facet_string_docids10__CALLSITE17h43683bc156ecbbcbE, i64 16) monotonic, align 8
+  %98 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract27extract_facet_string_docids27extract_facet_string_docids10__CALLSITE17h43683bc156ecbbcbE, i64 16) monotonic, align 8
   switch i8 %98, label %99 [
     i8 0, label %.thread467
     i8 1, label %.thread463
@@ -28379,7 +28379,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc195, %
   br i1 %63, label %64, label %.thread330
 
 64:                                               ; preds = %61
-  %65 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract29extract_fid_word_count_docids29extract_fid_word_count_docids10__CALLSITE17h054397a4b9a2bb34E, i64 16) monotonic, align 8
+  %65 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract29extract_fid_word_count_docids29extract_fid_word_count_docids10__CALLSITE17h054397a4b9a2bb34E, i64 16) monotonic, align 8
   switch i8 %65, label %66 [
     i8 0, label %.thread330
     i8 1, label %.thread326
@@ -29705,7 +29705,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc291, %
   br i1 %119, label %120, label %.thread487
 
 120:                                              ; preds = %117
-  %121 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids10__CALLSITE17h95c909705db4d406E, i64 16) monotonic, align 8
+  %121 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids10__CALLSITE17h95c909705db4d406E, i64 16) monotonic, align 8
   switch i8 %121, label %122 [
     i8 0, label %.thread487
     i8 1, label %.thread483
@@ -30297,7 +30297,7 @@ default.unreachable:                              ; preds = %267
   br i1 %300, label %301, label %.thread495
 
 301:                                              ; preds = %298
-  %302 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids10__CALLSITE17hd75ed6ea7ce2b0b8E, i64 16) monotonic, align 8
+  %302 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids10__CALLSITE17hd75ed6ea7ce2b0b8E, i64 16) monotonic, align 8
   switch i8 %302, label %303 [
     i8 0, label %.thread495
     i8 1, label %.thread491
@@ -30690,7 +30690,7 @@ _ZN10rayon_core8registry9in_worker17hf99fa101aa0e3a4cE.exit: ; preds = %.noexc33
   br i1 %406, label %407, label %.thread503
 
 407:                                              ; preds = %404
-  %408 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids10__CALLSITE17h01238de189264486E, i64 16) monotonic, align 8
+  %408 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids10__CALLSITE17h01238de189264486E, i64 16) monotonic, align 8
   switch i8 %408, label %409 [
     i8 0, label %.thread503
     i8 1, label %.thread499
@@ -30980,7 +30980,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit304: ; preds = %.noexc303
   br i1 %508, label %509, label %.thread511
 
 509:                                              ; preds = %506
-  %510 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids10__CALLSITE17ha6a57486b9197192E, i64 16) monotonic, align 8
+  %510 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids10__CALLSITE17ha6a57486b9197192E, i64 16) monotonic, align 8
   switch i8 %510, label %511 [
     i8 0, label %.thread511
     i8 1, label %.thread507
@@ -32156,7 +32156,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc449, %
   br i1 %130, label %131, label %.thread704
 
 131:                                              ; preds = %128
-  %132 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents9transform9Transform14read_documents10__CALLSITE17h192dfe70c14b6b65E, i64 16) monotonic, align 8
+  %132 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents9transform9Transform14read_documents10__CALLSITE17h192dfe70c14b6b65E, i64 16) monotonic, align 8
   switch i8 %132, label %133 [
     i8 0, label %.thread704
     i8 1, label %.thread700
@@ -34980,7 +34980,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc583, %
   br i1 %137, label %138, label %.thread816
 
 138:                                              ; preds = %135
-  %139 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents9transform9Transform18output_from_sorter10__CALLSITE17hd22b76323d3dfe6aE, i64 16) monotonic, align 8
+  %139 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents9transform9Transform18output_from_sorter10__CALLSITE17hd22b76323d3dfe6aE, i64 16) monotonic, align 8
   switch i8 %139, label %140 [
     i8 0, label %.thread816
     i8 1, label %.thread812
@@ -39516,7 +39516,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc114, %
   br i1 %44, label %45, label %.thread128
 
 45:                                               ; preds = %42
-  %46 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update8settings8Settings7reindex10__CALLSITE17h37ad32bf5f8d6dd6E, i64 16) monotonic, align 8
+  %46 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update8settings8Settings7reindex10__CALLSITE17h37ad32bf5f8d6dd6E, i64 16) monotonic, align 8
   switch i8 %46, label %47 [
     i8 0, label %.thread128
     i8 1, label %.thread124
@@ -40100,7 +40100,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc140, %
   br i1 %42, label %43, label %.thread181
 
 43:                                               ; preds = %40
-  %44 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli9documents6reader29DocumentsBatchReader$LT$R$GT$11from_reader10__CALLSITE17hb4b87a6307ac1dc2E", i64 16) monotonic, align 8
+  %44 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli9documents6reader29DocumentsBatchReader$LT$R$GT$11from_reader10__CALLSITE17hb4b87a6307ac1dc2E", i64 16) monotonic, align 8
   switch i8 %44, label %45 [
     i8 0, label %.thread181
     i8 1, label %.thread177
@@ -80973,7 +80973,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN97_$LT$meilisearch..m
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", i64 8) acquire, align 8, !noalias !25211
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", i64 8) acquire, align 8, !noalias !25211
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hc8d6811378af208dE.exit, label %7
 
@@ -80982,7 +80982,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN97_$LT$meilisearch..m
   store ptr %4, ptr %3, align 8, !noalias !25211
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25211
   store ptr %3, ptr %2, align 8, !noalias !25211
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h6b22b48569af470fE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h6b22b48569af470fE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25211
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25211
   br label %_ZN3std4sync4once4Once9call_once17hc8d6811378af208dE.exit
@@ -81003,7 +81003,7 @@ define void @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u2
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", i64 8) acquire, align 8, !noalias !25214
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", i64 8) acquire, align 8, !noalias !25214
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb62e334a984d87adE.exit", label %7
 
@@ -81012,7 +81012,7 @@ define void @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u2
   store ptr %4, ptr %3, align 8, !noalias !25214
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25214
   store ptr %3, ptr %2, align 8, !noalias !25214
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h6b22b48569af470fE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h6b22b48569af470fE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h9083b11b902f6596E", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25214
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25214
   br label %"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb62e334a984d87adE.exit"
@@ -81033,7 +81033,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN102_$LT$meilisearch..
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25217
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25217
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hbac9971db078de68E.llvm.1929265744411185926.exit, label %7
 
@@ -81042,7 +81042,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN102_$LT$meilisearch..
   store ptr %4, ptr %3, align 8, !noalias !25217
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25217
   store ptr %3, ptr %2, align 8, !noalias !25217
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hf2e6617671a5b399E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hf2e6617671a5b399E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25217
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25217
   br label %_ZN3std4sync4once4Once9call_once17hbac9971db078de68E.llvm.1929265744411185926.exit
@@ -81063,7 +81063,7 @@ define void @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUE
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25221
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25221
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1795dc0b4ac39593E.exit", label %7
 
@@ -81072,7 +81072,7 @@ define void @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUE
   store ptr %4, ptr %3, align 8, !noalias !25221
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25221
   store ptr %3, ptr %2, align 8, !noalias !25221
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hf2e6617671a5b399E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hf2e6617671a5b399E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfbe20d0bb8aea881E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25221
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25221
   br label %"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1795dc0b4ac39593E.exit"
@@ -81093,7 +81093,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$meilisearch..m
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25225
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25225
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hd7dc83b71d3fcd19E.llvm.1929265744411185926.exit, label %7
 
@@ -81102,7 +81102,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$meilisearch..m
   store ptr %4, ptr %3, align 8, !noalias !25225
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25225
   store ptr %3, ptr %2, align 8, !noalias !25225
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hd0e9f9d18dbb4a9cE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hd0e9f9d18dbb4a9cE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25225
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25225
   br label %_ZN3std4sync4once4Once9call_once17hd7dc83b71d3fcd19E.llvm.1929265744411185926.exit
@@ -81123,7 +81123,7 @@ define void @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25229
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25229
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b3eaa41329dd31aE.exit", label %7
 
@@ -81132,7 +81132,7 @@ define void @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u
   store ptr %4, ptr %3, align 8, !noalias !25229
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25229
   store ptr %3, ptr %2, align 8, !noalias !25229
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hd0e9f9d18dbb4a9cE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hd0e9f9d18dbb4a9cE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdfe140f91eb7c8a0E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25229
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25229
   br label %"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b3eaa41329dd31aE.exit"
@@ -81153,7 +81153,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN96_$LT$meilisearch..m
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25233
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25233
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17he6ee672fb3b5e1b4E.llvm.1929265744411185926.exit, label %7
 
@@ -81162,7 +81162,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN96_$LT$meilisearch..m
   store ptr %4, ptr %3, align 8, !noalias !25233
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25233
   store ptr %3, ptr %2, align 8, !noalias !25233
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h07f72301c6403ddfE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h07f72301c6403ddfE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25233
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25233
   br label %_ZN3std4sync4once4Once9call_once17he6ee672fb3b5e1b4E.llvm.1929265744411185926.exit
@@ -81183,7 +81183,7 @@ define void @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25237
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25237
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17heeca0f4a9356bb14E.exit", label %7
 
@@ -81192,7 +81192,7 @@ define void @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20
   store ptr %4, ptr %3, align 8, !noalias !25237
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25237
   store ptr %3, ptr %2, align 8, !noalias !25237
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h07f72301c6403ddfE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h07f72301c6403ddfE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h0472d9c118f138f3E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25237
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25237
   br label %"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17heeca0f4a9356bb14E.exit"
@@ -81213,7 +81213,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$meilisearch..m
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25241
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25241
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hd4e9b0ad9ad442f9E.llvm.1929265744411185926.exit, label %7
 
@@ -81222,7 +81222,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$meilisearch..m
   store ptr %4, ptr %3, align 8, !noalias !25241
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25241
   store ptr %3, ptr %2, align 8, !noalias !25241
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hcf6482c9172d6dbcE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hcf6482c9172d6dbcE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25241
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25241
   br label %_ZN3std4sync4once4Once9call_once17hd4e9b0ad9ad442f9E.llvm.1929265744411185926.exit
@@ -81243,7 +81243,7 @@ define void @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25245
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25245
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h77a59c93f4787114E.exit", label %7
 
@@ -81252,7 +81252,7 @@ define void @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20
   store ptr %4, ptr %3, align 8, !noalias !25245
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25245
   store ptr %3, ptr %2, align 8, !noalias !25245
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hcf6482c9172d6dbcE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hcf6482c9172d6dbcE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hfc94f3d7bc7d0e38E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25245
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25245
   br label %"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h77a59c93f4787114E.exit"
@@ -81273,7 +81273,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN94_$LT$meilisearch..m
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25249
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25249
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hcbcc0c023041de6bE.llvm.1929265744411185926.exit, label %7
 
@@ -81282,7 +81282,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN94_$LT$meilisearch..m
   store ptr %4, ptr %3, align 8, !noalias !25249
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25249
   store ptr %3, ptr %2, align 8, !noalias !25249
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hda47b06063a88e5eE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hda47b06063a88e5eE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25249
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25249
   br label %_ZN3std4sync4once4Once9call_once17hcbcc0c023041de6bE.llvm.1929265744411185926.exit
@@ -81303,7 +81303,7 @@ define void @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$a
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25253
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25253
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h486e3dfd60c69e50E.exit", label %7
 
@@ -81312,7 +81312,7 @@ define void @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$a
   store ptr %4, ptr %3, align 8, !noalias !25253
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25253
   store ptr %3, ptr %2, align 8, !noalias !25253
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hda47b06063a88e5eE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hda47b06063a88e5eE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h32f8e38a48fa5c7dE.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25253
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25253
   br label %"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h486e3dfd60c69e50E.exit"
@@ -81333,7 +81333,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN104_$LT$meilisearch..
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", i64 8) acquire, align 8, !noalias !25257
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", i64 8) acquire, align 8, !noalias !25257
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h3d43446b27221f09E.exit, label %7
 
@@ -81342,7 +81342,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN104_$LT$meilisearch..
   store ptr %4, ptr %3, align 8, !noalias !25257
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25257
   store ptr %3, ptr %2, align 8, !noalias !25257
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h878dd4f834fe02adE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h878dd4f834fe02adE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25257
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25257
   br label %_ZN3std4sync4once4Once9call_once17h3d43446b27221f09E.exit
@@ -81363,7 +81363,7 @@ define void @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SE
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", i64 8) acquire, align 8, !noalias !25260
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", i64 8) acquire, align 8, !noalias !25260
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3cac091dfdcd560fE.exit", label %7
 
@@ -81372,7 +81372,7 @@ define void @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SE
   store ptr %4, ptr %3, align 8, !noalias !25260
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25260
   store ptr %3, ptr %2, align 8, !noalias !25260
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h878dd4f834fe02adE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h878dd4f834fe02adE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h1aac8980cd34b8d5E", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25260
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25260
   br label %"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3cac091dfdcd560fE.exit"
@@ -81393,7 +81393,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$meilisearch..m
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25263
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25263
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h9f7f7fc81dcaeacbE.llvm.1929265744411185926.exit, label %7
 
@@ -81402,7 +81402,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$meilisearch..m
   store ptr %4, ptr %3, align 8, !noalias !25263
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25263
   store ptr %3, ptr %2, align 8, !noalias !25263
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h98cf2cd98653bb00E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h98cf2cd98653bb00E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25263
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25263
   br label %_ZN3std4sync4once4Once9call_once17h9f7f7fc81dcaeacbE.llvm.1929265744411185926.exit
@@ -81423,7 +81423,7 @@ define void @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$la
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25267
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25267
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref17hae6a9b7ed44a9382E.exit", label %7
 
@@ -81432,7 +81432,7 @@ define void @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$la
   store ptr %4, ptr %3, align 8, !noalias !25267
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25267
   store ptr %3, ptr %2, align 8, !noalias !25267
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h98cf2cd98653bb00E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h98cf2cd98653bb00E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha4001e3e9f5b2d04E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25267
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25267
   br label %"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref17hae6a9b7ed44a9382E.exit"
@@ -81453,7 +81453,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$meilisearch..m
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25271
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25271
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hc680c71e2c0ecb78E.llvm.1929265744411185926.exit, label %7
 
@@ -81462,7 +81462,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$meilisearch..m
   store ptr %4, ptr %3, align 8, !noalias !25271
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25271
   store ptr %3, ptr %2, align 8, !noalias !25271
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h388f675bf2ee21f1E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h388f675bf2ee21f1E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25271
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25271
   br label %_ZN3std4sync4once4Once9call_once17hc680c71e2c0ecb78E.llvm.1929265744411185926.exit
@@ -81483,7 +81483,7 @@ define void @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25275
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25275
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref17h80f034314569f5acE.exit", label %7
 
@@ -81492,7 +81492,7 @@ define void @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20
   store ptr %4, ptr %3, align 8, !noalias !25275
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25275
   store ptr %3, ptr %2, align 8, !noalias !25275
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h388f675bf2ee21f1E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h388f675bf2ee21f1E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h193a211a5b9a648dE.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25275
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25275
   br label %"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref17h80f034314569f5acE.exit"
@@ -81513,7 +81513,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$meilisearch..m
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25279
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25279
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hd9632be2fa99eaebE.llvm.1929265744411185926.exit, label %7
 
@@ -81522,7 +81522,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$meilisearch..m
   store ptr %4, ptr %3, align 8, !noalias !25279
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25279
   store ptr %3, ptr %2, align 8, !noalias !25279
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hae5b42f61d59860cE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hae5b42f61d59860cE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25279
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25279
   br label %_ZN3std4sync4once4Once9call_once17hd9632be2fa99eaebE.llvm.1929265744411185926.exit
@@ -81543,7 +81543,7 @@ define void @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25283
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", i64 8) acquire, align 8, !noalias !25283
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9c66876fb01c60a5E.exit", label %7
 
@@ -81552,7 +81552,7 @@ define void @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20
   store ptr %4, ptr %3, align 8, !noalias !25283
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !25283
   store ptr %3, ptr %2, align 8, !noalias !25283
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hae5b42f61d59860cE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hae5b42f61d59860cE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2aaa06a066348871E.llvm.1929265744411185926", i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.78eae7f224e6343d741e2d2fcd8941ab.457.llvm.1929265744411185926)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !25283
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !25283
   br label %"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9c66876fb01c60a5E.exit"

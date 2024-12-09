@@ -987,7 +987,7 @@ _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal
   br i1 %279, label %280, label %284
 
 280:                                              ; preds = %_ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade6passes10CycleFoundE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade6passes10CycleFoundE, i64 16), ptr %7, align 8
   invoke void @_ZN3ade11throw_errorINS_6passes10CycleFoundEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
           to label %281 unwind label %282
 
@@ -1311,7 +1311,7 @@ declare void @_ZN3ade4Node8outEdgesEv(ptr dead_on_unwind writable sret(%"struct.
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN3ade11throw_errorINS_6passes10CycleFoundEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade6passes10CycleFoundE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade6passes10CycleFoundE, i64 16), ptr %2, align 8
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN3ade6passes10CycleFoundE, ptr nonnull @_ZN3ade6passes10CycleFoundD2Ev) #19
   unreachable
 }

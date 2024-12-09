@@ -151,7 +151,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv10MediaFrame4PrivEEE
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv10MediaFrame4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv10MediaFrame4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %24, align 8
   store ptr %6, ptr %5, align 8

@@ -412,7 +412,7 @@ define void @_ZN2cv6stereo14StereoBinaryBM6createEii(ptr dead_on_unwind noalias 
   store i32 1, ptr %5, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6stereo18StereoBinaryBMImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6stereo18StereoBinaryBMImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN2cv6stereo18StereoBinaryBMImplC2Eii(ptr noundef nonnull align 8 dereferenceable(263584) %7, i32 noundef %1, i32 noundef %2)
           to label %_ZN2cv3PtrINS_6stereo18StereoBinaryBMImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6stereo18StereoBinaryBMImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !4
@@ -502,13 +502,13 @@ declare void @llvm.trap() #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv6stereo18StereoBinaryBMImplC2Eii(ptr noundef nonnull align 8 dereferenceable(263584) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv6stereo14StereoBinaryBME, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 344) (i8, ptr @_ZTVN2cv6stereo14StereoBinaryBME, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN2cv6stereo8MatchingC2Eiii(ptr noundef nonnull align 8 dereferenceable(262448) %4, i32 noundef %1, i32 noundef 4, i32 noundef 6)
           to label %5 unwind label %37
 
 5:                                                ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv6stereo18StereoBinaryBMImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 344) (i8, ptr @_ZTVN2cv6stereo18StereoBinaryBMImplE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 262456
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 262460
@@ -1965,7 +1965,7 @@ _ZN2cv4Mat_IiE6createEii.exit121:                 ; preds = %_ZN2cv4Mat_IiE6crea
   store i32 2, ptr %278, align 4
   %279 = sext i32 %275 to i64
   %280 = getelementptr inbounds i8, ptr %277, i64 %279
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo16PrefilterInvokerE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo16PrefilterInvokerE, i64 16), ptr %33, align 8
   %281 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %27, ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -2187,7 +2187,7 @@ _ZN2cv4Mat_IiE6createEii.exit121:                 ; preds = %_ZN2cv4Mat_IiE6crea
   %372 = load double, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %374 = load i32, ptr %373, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching7makeMapE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching7makeMapE, i64 16), ptr %6, align 8
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 263408
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -3447,7 +3447,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching28hammingDistanceBlockMat
   %95 = load ptr, ptr %83, align 8
   %96 = load i32, ptr %0, align 8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching15hammingDistanceE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching15hammingDistanceE, i64 16), ptr %17, align 8
   %98 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %100 = load ptr, ptr %99, align 8
@@ -3828,7 +3828,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching15blockAgregationERKNS_3M
   store i32 0, ptr %11, align 4
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %57, ptr %64, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching12agregateCostE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching12agregateCostE, i64 16), ptr %12, align 8
   %65 = sdiv i32 %2, 2
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %65, ptr %66, align 8
@@ -3951,7 +3951,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching15Median1x9FilterIhEEvRKN
   store i32 0, ptr %8, align 4
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %11, ptr %38, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching9Median1x9IhEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching9Median1x9IhEE, i64 16), ptr %9, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4027,7 +4027,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo8Matching15Median9x1FilterIhEEvRKN
   store i32 0, ptr %6, align 4
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %9, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching9Median9x1IhEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6stereo8Matching9Median9x1IhEE, i64 16), ptr %7, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8

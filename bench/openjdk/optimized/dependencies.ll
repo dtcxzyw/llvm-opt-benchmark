@@ -6142,7 +6142,7 @@ _ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread: ; preds = %._
   store i32 0, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %47, i8 0, i64 36, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %4, align 8
   %48 = load i32, ptr %6, align 8
   %.not71 = icmp eq i32 %48, 0
   br i1 %.not71, label %._crit_edge, label %_ZN28AbstractClassHierarchyWalker11participantEj.exit.lr.ph
@@ -6916,7 +6916,7 @@ define hidden noundef ptr @_ZN12Dependencies43check_abstract_with_unique_concret
   br label %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit
 
 _ZN21ConcreteSubtypeFinderC2EP5Klass.exit:        ; preds = %3, %7
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 512
@@ -6958,7 +6958,7 @@ _ZN21ConcreteSubtypeFinderC2EP5Klass.exit:        ; preds = %3, %7
   br label %27
 
 27:                                               ; preds = %21, %20
-  %28 = phi ptr [ %.pre, %21 ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), %20 ]
+  %28 = phi ptr [ %.pre, %21 ], [ getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), %20 ]
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
@@ -6977,7 +6977,7 @@ _ZN21ConcreteSubtypeFinderC2EP5Klass.exit:        ; preds = %3, %7
   br label %38
 
 38:                                               ; preds = %32, %31
-  %39 = phi ptr [ %.pre4, %32 ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), %31 ]
+  %39 = phi ptr [ %.pre4, %32 ], [ getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %.010.i) #19
@@ -7207,7 +7207,7 @@ define hidden noundef ptr @_ZN12Dependencies28check_unique_concrete_methodEP13In
   br label %_ZN20ConcreteMethodFinderC2EP6MethodP5Klass.exit
 
 _ZN20ConcreteMethodFinderC2EP6MethodP5Klass.exit: ; preds = %3, %13
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %16 = load i16, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -7263,7 +7263,7 @@ _ZN20ConcreteMethodFinderC2EP6MethodP5Klass.exit: ; preds = %3, %13
   br label %46
 
 46:                                               ; preds = %40, %39
-  %47 = phi ptr [ %.pre, %40 ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), %39 ]
+  %47 = phi ptr [ %.pre, %40 ], [ getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), %39 ]
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
@@ -7282,7 +7282,7 @@ _ZN20ConcreteMethodFinderC2EP6MethodP5Klass.exit: ; preds = %3, %13
   br label %57
 
 57:                                               ; preds = %51, %50
-  %58 = phi ptr [ %.pre27, %51 ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), %50 ]
+  %58 = phi ptr [ %.pre27, %51 ], [ getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), %50 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = call noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %.010.i) #19
@@ -7345,7 +7345,7 @@ define hidden noundef ptr @_ZN12Dependencies16find_witness_AMEEP13InstanceKlassP
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 0, i64 36, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -7393,7 +7393,7 @@ define hidden noundef ptr @_ZN12Dependencies16find_witness_AMEEP13InstanceKlassP
   br label %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit
 
 _ZN21ConcreteSubtypeFinderC2EP5Klass.exit:        ; preds = %32, %41
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %6, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 512
@@ -7584,7 +7584,7 @@ define hidden noundef ptr @_ZN12Dependencies27find_unique_concrete_methodEP13Ins
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 0, i64 36, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ConcreteMethodFinder, i64 16), ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -7834,7 +7834,7 @@ define hidden noundef ptr @_ZN12Dependencies28check_unique_concrete_methodEP13In
   store i32 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 0, i64 36, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26LinkedConcreteMethodFinder, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV26LinkedConcreteMethodFinder, i64 16), ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %2, ptr %25, align 8
   %26 = load ptr, ptr %11, align 8
@@ -7948,7 +7948,7 @@ _ZN26LinkedConcreteMethodFinderC2EP13InstanceKlassP6MethodS3_.exit: ; preds = %_
   br label %77
 
 77:                                               ; preds = %71, %70
-  %78 = phi ptr [ %.pre9, %71 ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26LinkedConcreteMethodFinder, i64 16), %70 ]
+  %78 = phi ptr [ %.pre9, %71 ], [ getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV26LinkedConcreteMethodFinder, i64 16), %70 ]
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(52) %6, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit
@@ -7967,7 +7967,7 @@ _ZN26LinkedConcreteMethodFinderC2EP13InstanceKlassP6MethodS3_.exit: ; preds = %_
   br label %88
 
 88:                                               ; preds = %82, %81
-  %89 = phi ptr [ %.pre10, %82 ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26LinkedConcreteMethodFinder, i64 16), %81 ]
+  %89 = phi ptr [ %.pre10, %82 ], [ getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV26LinkedConcreteMethodFinder, i64 16), %81 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(52) %6, ptr noundef %.010.i) #19
@@ -8016,7 +8016,7 @@ define hidden noundef ptr @_ZN12Dependencies27find_unique_concrete_methodEP13Ins
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %28, i8 0, i64 36, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26LinkedConcreteMethodFinder, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV26LinkedConcreteMethodFinder, i64 16), ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %2, ptr %29, align 8
   %30 = load ptr, ptr %15, align 8
@@ -8415,14 +8415,14 @@ define hidden void @_ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass(p
 
 9:                                                ; preds = %7
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %10) #19
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 2, ptr %11, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE36ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
   call void @_ZN12Dependencies9DepStream16print_dependencyEP12outputStreamP5Klassb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %3, ptr noundef nonnull %1, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #19
   br label %12
@@ -8531,7 +8531,7 @@ _ZN12Dependencies9DepStream12context_typeEv.exit14: ; preds = %_ZN12Dependencies
   br label %_ZN21ConcreteSubtypeFinderC2EP5Klass.exit.i
 
 _ZN21ConcreteSubtypeFinderC2EP5Klass.exit.i:      ; preds = %39, %_ZN12Dependencies9DepStream12context_typeEv.exit14
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), ptr %5, align 8
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 164
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 512
@@ -8573,7 +8573,7 @@ _ZN21ConcreteSubtypeFinderC2EP5Klass.exit.i:      ; preds = %39, %_ZN12Dependenc
   br label %59
 
 59:                                               ; preds = %53, %52
-  %60 = phi ptr [ %.pre.i, %53 ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), %52 ]
+  %60 = phi ptr [ %.pre.i, %53 ], [ getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), %52 ]
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   br label %_ZN12Dependencies43check_abstract_with_unique_concrete_subtypeEP13InstanceKlassP5KlassP17NewKlassDepChange.exit
@@ -8592,7 +8592,7 @@ _ZN21ConcreteSubtypeFinderC2EP5Klass.exit.i:      ; preds = %39, %_ZN12Dependenc
   br label %70
 
 70:                                               ; preds = %64, %63
-  %71 = phi ptr [ %.pre4.i, %64 ], [ getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), %63 ]
+  %71 = phi ptr [ %.pre4.i, %64 ], [ getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21ConcreteSubtypeFinder, i64 16), %63 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %.010.i.i) #19
@@ -8685,14 +8685,14 @@ _ZN12Dependencies17check_evol_methodEP6Method.exit: ; preds = %33, %_ZN12Depende
 
 106:                                              ; preds = %104
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %107) #19
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 2, ptr %108, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE36ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
   call void @_ZN12Dependencies9DepStream16print_dependencyEP12outputStreamP5Klassb(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %3, ptr noundef nonnull %.0, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #19
   br label %109
@@ -8750,14 +8750,14 @@ _ZN12Dependencies27check_valid_dependency_typeENS_7DepTypeE.exit: ; preds = %2
 
 20:                                               ; preds = %18
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %21) #19
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 2, ptr %22, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE36ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
   call void @_ZN12Dependencies9DepStream16print_dependencyEP12outputStreamP5Klassb(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %3, ptr noundef nonnull %14, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #19
   br label %23
@@ -9033,14 +9033,14 @@ _ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange
 
 122:                                              ; preds = %120
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %123) #19
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 2, ptr %124, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE36ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
   call void @_ZN12Dependencies9DepStream16print_dependencyEP12outputStreamP5Klassb(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %3, ptr noundef nonnull %.0, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #19
   br label %125
@@ -9463,7 +9463,7 @@ _ZN9DepChange13ContextStream4nextEv.exit:         ; preds = %select.unfold, %._c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14KlassDepChangeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
 select.unfold.preheader:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14KlassDepChange, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14KlassDepChange, i64 16), ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %2, null
@@ -9631,7 +9631,7 @@ declare void @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17CallSiteDepChangeC2E6HandleS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr %1, ptr %2) unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17CallSiteDepChange, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17CallSiteDepChange, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11306,7 +11306,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -11325,7 +11325,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -11344,7 +11344,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -11363,7 +11363,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -11382,7 +11382,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -11410,7 +11410,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -11896,7 +11896,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #19
   ret void

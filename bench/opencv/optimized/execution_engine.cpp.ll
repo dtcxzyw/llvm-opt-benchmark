@@ -898,7 +898,7 @@ define hidden void @_ZN3ade15ExecutionEngine16createExecutableERKNS_5GraphE(ptr 
           to label %21 unwind label %26
 
 21:                                               ; preds = %19
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN3ade14ExecutableImplE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN3ade14ExecutableImplE, i64 16), ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
   store ptr %20, ptr %4, align 8
@@ -2152,7 +2152,7 @@ define hidden noundef zeroext i1 @_ZNK3ade15ExecutionEngine15LazyPassWrapper7isF
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3ade15ExecutionEngine15LazyPassWrapperC2EPS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3ade15ExecutionEngine15LazyPassWrapperE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ade15ExecutionEngine15LazyPassWrapperE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16

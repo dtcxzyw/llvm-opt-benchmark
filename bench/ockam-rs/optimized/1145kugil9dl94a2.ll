@@ -103654,7 +103654,7 @@ define noundef nonnull ptr @_ZN9ockam_api9cli_state7storage23projects_repository
   br i1 %21, label %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread94
 
 22:                                               ; preds = %19
-  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9ockam_api9cli_state7storage23projects_repository_sql20ProjectsSqlxDatabase3new10__CALLSITE17h8b2e84650351373fE, i64 16) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9ockam_api9cli_state7storage23projects_repository_sql20ProjectsSqlxDatabase3new10__CALLSITE17h8b2e84650351373fE, i64 16) monotonic, align 8
   switch i8 %23, label %24 [
     i8 0, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread94
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread

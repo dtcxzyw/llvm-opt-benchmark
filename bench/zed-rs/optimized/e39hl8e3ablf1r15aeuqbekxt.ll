@@ -12006,7 +12006,7 @@ define internal fastcc void @_ZN10serde_json3ser6to_vec17h02303e91d7c78825E(ptr 
   %18 = load ptr, ptr %17, align 8, !alias.scope !2137, !noalias !2138, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i64, ptr %19, align 8, !alias.scope !2137, !noalias !2138, !noundef !4
-  invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h03ab5915183408a9E.llvm.1342728808529887919"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 1 @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, i64 1))
+  invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h03ab5915183408a9E.llvm.1342728808529887919"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 1 @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, i64 1))
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %16
@@ -12020,7 +12020,7 @@ define internal fastcc void @_ZN10serde_json3ser6to_vec17h02303e91d7c78825E(ptr 
 
 _ZN10serde_json3ser18format_escaped_str17hf6f09f78a671e31cE.exit.thread.i.i.i: ; preds = %.noexc3
   %24 = load ptr, ptr %3, align 8, !alias.scope !2139, !noalias !2148, !nonnull !4, !align !1032, !noundef !4
-  invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h03ab5915183408a9E.llvm.1342728808529887919"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull readonly align 1 @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, i64 1))
+  invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h03ab5915183408a9E.llvm.1342728808529887919"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull readonly align 1 @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, i64 1))
           to label %.thread unwind label %30
 
 .thread:                                          ; preds = %_ZN10serde_json3ser18format_escaped_str17hf6f09f78a671e31cE.exit.thread.i.i.i
@@ -26041,7 +26041,7 @@ _ZN4core3ops8function6FnOnce9call_once17h600074faa4325cbcE.llvm.8772044941243984
   unreachable
 
 11:                                               ; preds = %.noexc, %2
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %8, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %8, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
   %12 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !5594, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !5594, !noundef !4
@@ -26298,7 +26298,7 @@ _ZN4core3ops8function6FnOnce9call_once17h600074faa4325cbcE.llvm.8772044941243984
   unreachable
 
 11:                                               ; preds = %.noexc, %2
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %8, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %8, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %2 ]
   %12 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !5651, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !5651, !noundef !4
@@ -33136,7 +33136,7 @@ define hidden noundef ptr @_ZN4core3ops8function6FnOnce9call_once17h600074faa432
   br label %"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4f90f774f427485aE.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4f90f774f427485aE.exit": ; preds = %1, %3
-  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -65585,7 +65585,7 @@ _ZN4core3ops8function6FnOnce9call_once17h600074faa4325cbcE.llvm.8772044941243984
   unreachable
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h0c94b2f10f4d61b1E.exit": ; preds = %0, %_ZN4core3ops8function6FnOnce9call_once17h600074faa4325cbcE.llvm.877204494124398451.exit
-  %.sroa.0.0.i.i.i2 = phi ptr [ %3, %_ZN4core3ops8function6FnOnce9call_once17h600074faa4325cbcE.llvm.877204494124398451.exit ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %0 ]
+  %.sroa.0.0.i.i.i2 = phi ptr [ %3, %_ZN4core3ops8function6FnOnce9call_once17h600074faa4325cbcE.llvm.877204494124398451.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %0 ]
   %6 = load i64, ptr %.sroa.0.0.i.i.i2, align 8, !noalias !17376, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !17376, !noundef !4
@@ -127964,7 +127964,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %9
 570:                                              ; preds = %566
   %571 = load ptr, ptr %217, align 8, !alias.scope !33433, !noalias !33434, !nonnull !4, !noundef !4
   %572 = load i64, ptr %218, align 8, !alias.scope !33433, !noalias !33434, !noundef !4
-  invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h03ab5915183408a9E.llvm.1342728808529887919"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 1 @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, i64 1))
+  invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h03ab5915183408a9E.llvm.1342728808529887919"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 1 @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, i64 1))
           to label %.noexc.i unwind label %.loopexit327, !noalias !33421
 
 .noexc.i:                                         ; preds = %570
@@ -127977,7 +127977,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %9
 
 _ZN10serde_json3ser18format_escaped_str17hf6f09f78a671e31cE.exit.thread.i.i.i.i: ; preds = %.noexc3.i
   %575 = load ptr, ptr %4, align 8, !alias.scope !33435, !noalias !33444, !nonnull !4, !align !1032, !noundef !4
-  invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h03ab5915183408a9E.llvm.1342728808529887919"(ptr noalias noundef nonnull align 8 dereferenceable(24) %575, ptr noundef nonnull readonly align 1 @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, i64 1))
+  invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h03ab5915183408a9E.llvm.1342728808529887919"(ptr noalias noundef nonnull align 8 dereferenceable(24) %575, ptr noundef nonnull readonly align 1 @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.d4541af8f859f7f56cebd59c331d2734.21.llvm.1342728808529887919, i64 1))
           to label %.thread.i unwind label %.loopexit327, !noalias !33421
 
 .thread.i:                                        ; preds = %_ZN10serde_json3ser18format_escaped_str17hf6f09f78a671e31cE.exit.thread.i.i.i.i
@@ -159863,7 +159863,7 @@ default.unreachable7:                             ; preds = %3
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.525.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.9d03637af66879b119a0e8676174f730.133.llvm.7317464949808959923, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.525.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.9d03637af66879b119a0e8676174f730.133.llvm.7317464949808959923, i64 8), i64 24, i1 false)
   br label %51
 
 38:                                               ; preds = %33

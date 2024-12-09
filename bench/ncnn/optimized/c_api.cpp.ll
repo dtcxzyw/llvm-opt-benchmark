@@ -193,7 +193,7 @@ define hidden noundef ptr @ncnn_allocator_create_pool_allocator() local_unnamed_
           to label %3 unwind label %7
 
 3:                                                ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV19PoolAllocator_c_api, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV19PoolAllocator_c_api, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %1, ptr %4, align 8
   store ptr %2, ptr %1, align 8
@@ -243,7 +243,7 @@ define hidden noundef ptr @ncnn_allocator_create_unlocked_pool_allocator() local
           to label %3 unwind label %7
 
 3:                                                ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV27UnlockedPoolAllocator_c_api, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV27UnlockedPoolAllocator_c_api, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %1, ptr %4, align 8
   store ptr %2, ptr %1, align 8
@@ -1858,7 +1858,7 @@ define hidden noundef ptr @ncnn_datareader_create() local_unnamed_addr #1 person
           to label %3 unwind label %7
 
 3:                                                ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV16DataReader_c_api, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV16DataReader_c_api, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %4, align 8
   store ptr %2, ptr %1, align 8
@@ -1897,7 +1897,7 @@ define hidden noundef ptr @ncnn_datareader_create_from_stdio(ptr noundef %0) loc
           to label %4 unwind label %8
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV25DataReaderFromStdio_c_api, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV25DataReaderFromStdio_c_api, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %5, align 8
   store ptr %3, ptr %2, align 8
@@ -1936,7 +1936,7 @@ define hidden noundef ptr @ncnn_datareader_create_from_memory(ptr noundef %0) lo
           to label %4 unwind label %8
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV26DataReaderFromMemory_c_api, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV26DataReaderFromMemory_c_api, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %5, align 8
   store ptr %3, ptr %2, align 8
@@ -1994,7 +1994,7 @@ define hidden noundef ptr @ncnn_modelbin_create_from_datareader(ptr nocapture no
           to label %5 unwind label %10
 
 5:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV28ModelBinFromDataReader_c_api, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV28ModelBinFromDataReader_c_api, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %6, align 8
   store ptr %3, ptr %2, align 8
@@ -2238,7 +2238,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
           to label %78 unwind label %112
 
 78:                                               ; preds = %76
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV26ModelBinFromMatArray_c_api, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV26ModelBinFromMatArray_c_api, i64 16), ptr %75, align 8
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr %74, ptr %79, align 8
   store ptr %75, ptr %74, align 8
@@ -2494,7 +2494,7 @@ define hidden noundef ptr @ncnn_layer_create() local_unnamed_addr #1 personality
           to label %3 unwind label %13
 
 3:                                                ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV11Layer_c_api, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV11Layer_c_api, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store ptr %1, ptr %4, align 8
   store ptr %2, ptr %1, align 8

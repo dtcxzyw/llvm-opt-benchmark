@@ -1026,7 +1026,7 @@ invoke.cont11:                                    ; preds = %if.then10
   br i1 %cmp.i, label %invoke.cont14, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont11
-  invoke void @_ZN5folly6detail18internalJoinAppendINS_5RangeIPKcEEN9__gnu_cxx17__normal_iteratorIPKN8facebook5velox4exec13TypeSignatureESt6vectorISB_SaISB_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_T0_SP_RT1_(ptr nonnull @.str.13, ptr nonnull getelementptr inbounds (i8, ptr @.str.13, i64 1), ptr %4, ptr %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke void @_ZN5folly6detail18internalJoinAppendINS_5RangeIPKcEEN9__gnu_cxx17__normal_iteratorIPKN8facebook5velox4exec13TypeSignatureESt6vectorISB_SaISB_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_T0_SP_RT1_(ptr nonnull @.str.13, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.13, i64 1), ptr %4, ptr %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont14 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.end.i.i
@@ -2355,7 +2355,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 define void @_ZN8facebook5velox4exec17FunctionSignatureC2ESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_17SignatureVariableESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEENS1_13TypeSignatureESt6vectorISK_SaISK_EESL_IbSaIbEEb(ptr noundef nonnull align 8 dereferenceable(225) initializes((0, 64)) %this, ptr noundef %variables, ptr noundef %returnType, ptr nocapture noundef %argumentTypes, ptr nocapture noundef %constantArguments, i1 noundef zeroext %variableArity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %usedVariables.i = alloca %"class.std::unordered_set", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 16), ptr %this, align 8
   %variables_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %variables, align 8
   store ptr %0, ptr %variables_, align 8
@@ -2875,7 +2875,7 @@ _ZNRSt8optionalIN8facebook5velox4exec13TypeSignatureEE5valueEv.exit: ; preds = %
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !22
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec17FunctionSignatureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec17FunctionSignatureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !22
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox4exec17FunctionSignatureEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_17SignatureVariableESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SB_EEERNS2_13TypeSignatureESt6vectorISL_SaISL_EESN_IbSaIbEERbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(96) %returnType_, ptr noundef nonnull align 8 dereferenceable(24) %argumentTypes_, ptr noundef nonnull align 8 dereferenceable(40) %constantArguments_, ptr noundef nonnull align 1 dereferenceable(1) %variableArity_)
           to label %_ZSt11make_sharedIN8facebook5velox4exec17FunctionSignatureEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_17SignatureVariableESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SB_EEERNS2_13TypeSignatureESt6vectorISL_SaISL_EESN_IbSaIbEERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESV_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec17FunctionSignatureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !22
@@ -3180,7 +3180,7 @@ _ZNRSt8optionalIN8facebook5velox4exec13TypeSignatureEE5valueEv.exit8: ; preds = 
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !25
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec26AggregateFunctionSignatureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec26AggregateFunctionSignatureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !25
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZSt10_ConstructIN8facebook5velox4exec26AggregateFunctionSignatureEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_17SignatureVariableESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SB_EEERNS2_13TypeSignatureESM_St6vectorISL_SaISL_EESN_IbSaIbEERbEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(96) %returnType_, ptr noundef nonnull align 8 dereferenceable(96) %intermediateType_, ptr noundef nonnull align 8 dereferenceable(24) %argumentTypes_, ptr noundef nonnull align 8 dereferenceable(40) %constantArguments_, ptr noundef nonnull align 1 dereferenceable(1) %variableArity_)
           to label %_ZSt11make_sharedIN8facebook5velox4exec26AggregateFunctionSignatureEJSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_17SignatureVariableESt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SB_EEERNS2_13TypeSignatureESM_St6vectorISL_SaISL_EESN_IbSaIbEERbEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESV_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox4exec26AggregateFunctionSignatureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !25
@@ -3726,7 +3726,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec17FunctionSignatureD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 16), ptr %this, align 8
   %constantArguments_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %constantArguments_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3873,7 +3873,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec26AggregateFunctionSignatureD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec26AggregateFunctionSignatureE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4exec26AggregateFunctionSignatureE, i64 16), ptr %this, align 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
@@ -3923,7 +3923,7 @@ _ZN8facebook5velox4exec13TypeSignatureD2Ev.exit:  ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec26AggregateFunctionSignatureD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec26AggregateFunctionSignatureE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4exec26AggregateFunctionSignatureE, i64 16), ptr %this, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i = trunc i8 %0 to i1
@@ -4772,8 +4772,8 @@ invoke.cont2:                                     ; preds = %init
   %3 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %kind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i8 3, ptr %kind_.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 16), ptr %call, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox8DateTypeE, i64 160), ptr %3, align 8
   invoke void @_ZNSt10shared_ptrIKN8facebook5velox8DateTypeEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8facebook5velox8DateType3getEvE5kType, ptr noundef nonnull %call)
           to label %invoke.cont3 unwind label %lpad
 
@@ -4844,7 +4844,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EEC2I
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i, align 8
   %_M_ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i.i.i, align 8
   store ptr %call.i.i.i, ptr %_M_refcount.i, align 8
@@ -5117,7 +5117,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.28, ptr nonnull getelementptr inbounds (i8, ptr @.str.28, i64 4))
+  %call = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.28, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 4))
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -5134,7 +5134,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %call14 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.29, ptr nonnull getelementptr inbounds (i8, ptr @.str.29, i64 4))
+  %call14 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull @.str.29, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 4))
           to label %invoke.cont13 unwind label %lpad11
 
 invoke.cont13:                                    ; preds = %invoke.cont9
@@ -8513,7 +8513,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIN
   br label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec17SignatureVariableESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S9_EEED2Ev.exit
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec17SignatureVariableESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S9_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec26AggregateFunctionSignatureE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4exec26AggregateFunctionSignatureE, i64 16), ptr %this, align 8
   %intermediateType_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   invoke void @_ZN8facebook5velox4exec13TypeSignatureC2EOS2_(ptr noundef nonnull align 8 dereferenceable(96) %intermediateType_, ptr noundef nonnull align 8 dereferenceable(96) %intermediateType)
           to label %invoke.cont8 unwind label %lpad7

@@ -259,7 +259,7 @@ _ZN16MetaspaceClosure7do_pushEPNS_3RefE.exit:     ; preds = %6, %34
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN16MetaspaceClosureD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16MetaspaceClosure, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16MetaspaceClosure, i64 16), ptr %0, align 8
   ret void
 }
 

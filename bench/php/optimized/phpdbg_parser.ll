@@ -357,31 +357,31 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br label %219
 
 90:                                               ; preds = %79
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 80
   %93 = load ptr, ptr %92, align 8
   br label %219
 
 94:                                               ; preds = %79
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8
   call void @phpdbg_stack_push(ptr noundef %95, ptr noundef nonnull %.2487) #12
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 80
   %98 = load ptr, ptr %97, align 8
   br label %219
 
 99:                                               ; preds = %79
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8
   call void @phpdbg_stack_push(ptr noundef %100, ptr noundef nonnull %.2487) #12
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %103 = load ptr, ptr %102, align 8
   br label %219
 
 104:                                              ; preds = %79
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8
   call void @phpdbg_stack_push(ptr noundef %105, ptr noundef nonnull %.2487) #12
-  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 80
   %108 = load ptr, ptr %107, align 8
   br label %219
@@ -413,7 +413,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.57280.0.copyload286 = load ptr, ptr %.sroa.57280.0..sroa_idx285, align 8
   %111 = getelementptr inbounds nuw i8, ptr %.2487, i64 8
   %112 = load i64, ptr %111, align 8
-  store i64 %112, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1552), align 8
+  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1552), align 8
   br label %219
 
 113:                                              ; preds = %79
@@ -713,7 +713,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
 200:                                              ; preds = %79
   %201 = getelementptr inbounds nuw i8, ptr %.2487, i64 8
   %202 = load i64, ptr %201, align 8
-  store i64 %202, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1552), align 8
+  store i64 %202, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1552), align 8
   br label %219
 
 203:                                              ; preds = %79
@@ -859,9 +859,9 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.2558 = phi ptr [ %4, %253 ], [ %4, %263 ], [ %259, %260 ], [ %4, %256 ]
   %.0461 = phi ptr [ @.str, %253 ], [ @.str, %263 ], [ %259, %260 ], [ %4, %256 ]
   %.0 = phi i1 [ true, %253 ], [ true, %263 ], [ %262, %260 ], [ false, %256 ]
-  %265 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %265 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %266 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %265, ptr noundef nonnull @.str.42, ptr noundef nonnull %.0461) #12
-  %.04.i = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  %.04.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8
   %.not5.i = icmp eq ptr %.04.i, null
   br i1 %.not5.i, label %yyerror.exit.thread, label %.lr.ph.i
 
@@ -882,9 +882,9 @@ yyerror.exit.thread:                              ; preds = %264
 .loopexit:                                        ; preds = %18, %12, %yyerror.exit.thread, %yyerror.exit
   %.0556 = phi ptr [ %.2558, %yyerror.exit ], [ %.2558, %yyerror.exit.thread ], [ %4, %12 ], [ %4, %18 ]
   %.2477 = phi ptr [ %.1476, %yyerror.exit ], [ %.1476, %yyerror.exit.thread ], [ %.0475, %12 ], [ %.0475, %18 ]
-  %268 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %268 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %269 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %268, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #12
-  %.04.i545 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 832), align 8
+  %.04.i545 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8
   %.not5.i546 = icmp eq ptr %.04.i545, null
   br i1 %.not5.i546, label %.thread578, label %.lr.ph.i547
 
@@ -1199,7 +1199,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_do_parse(ptr noundef %0, ptr noundef %
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 776), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 776), align 8
   %.not5 = icmp eq ptr %5, null
   br i1 %.not5, label %7, label %6
 
@@ -1209,7 +1209,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_do_parse(ptr noundef %0, ptr noundef %
 
 7:                                                ; preds = %6, %4
   %8 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #12
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 776), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 776), align 8
   tail call void @phpdbg_init_lexer(ptr noundef %0, ptr noundef nonnull %1) #12
   %9 = tail call i32 @phpdbg_parse()
   br label %10

@@ -512,8 +512,8 @@ define dso_local void @sema_analyze_stage(ptr noundef %0, i32 noundef %1) local_
   br i1 %9, label %10, label %32
 
 10:                                               ; preds = %4
-  store ptr getelementptr inbounds (i8, ptr @global_context, i64 400), ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
-  store ptr getelementptr inbounds (i8, ptr @global_context, i64 400), ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 400), ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 524696), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 400), ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 524688), align 8
   %11 = load i16, ptr %3, align 8
   %12 = add i16 %11, 32
   %13 = and i16 %12, 2016
@@ -586,7 +586,7 @@ define dso_local void @sema_analyze_stage(ptr noundef %0, i32 noundef %1) local_
   br label %30
 
 30:                                               ; preds = %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %10
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %4, label %32, !llvm.loop !10
 
@@ -628,24 +628,24 @@ define dso_local void @sema_analysis_run() local_unnamed_addr #0 {
   %7 = load ptr, ptr @kw_std, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
   %9 = trunc i64 %8 to i32
-  store i64 0, ptr getelementptr inbounds (i8, ptr @global_context, i64 320), align 8
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @global_context, i64 328), align 8
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @global_context, i64 336), align 8
-  store ptr getelementptr inbounds (i8, ptr @global_context, i64 320), ptr getelementptr inbounds (i8, ptr @global_context, i64 144), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @global_context, i64 152), i8 0, i64 120, i1 false)
-  %10 = load i16, ptr getelementptr inbounds (i8, ptr @global_context, i64 168), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 320), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 328), align 8
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 336), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 320), ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @global_context, i64 152), i8 0, i64 120, i1 false)
+  %10 = load i16, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 168), align 8
   %11 = and i16 %10, -2017
   %12 = or disjoint i16 %11, 384
-  store i16 %12, ptr getelementptr inbounds (i8, ptr @global_context, i64 168), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
-  tail call void @htable_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_context, i64 184), i32 noundef 4096) #10
+  store i16 %12, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 168), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
+  tail call void @htable_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_context, i64 184), i32 noundef 4096) #10
   tail call void @type_func_prototype_init(i32 noundef 65536) #10
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %18
 
 14:                                               ; preds = %0
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %.not49 = icmp eq i32 %15, 0
   br i1 %.not49, label %17, label %16
 
@@ -669,8 +669,8 @@ define dso_local void @sema_analysis_run() local_unnamed_addr #0 {
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %24, ptr %25, align 8
   %26 = tail call ptr @compiler_find_or_create_module(ptr noundef nonnull %19, ptr noundef null) #10
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %.not50 = icmp eq ptr %27, null
   br i1 %.not50, label %.preheader74.preheader, label %28
 
@@ -873,7 +873,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   br i1 %95, label %96, label %.loopexit.i
 
 96:                                               ; preds = %.preheader74
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %.not.i56 = icmp eq ptr %97, null
   br i1 %.not.i56, label %.loopexit.i, label %98
 
@@ -889,7 +889,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
 
 .lr.ph.i59:                                       ; preds = %.lr.ph.i59, %.lr.ph.preheader.i57
   %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.preheader.i57 ], [ %indvars.iv.next.i61, %.lr.ph.i59 ]
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i60
   %103 = load ptr, ptr %102, align 8
   tail call void @sema_analyze_stage(ptr noundef %103, i32 noundef range(i32 0, 13) %.04476)
@@ -898,7 +898,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   br i1 %exitcond.not.i62, label %.loopexit.i, label %.lr.ph.i59, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %.lr.ph.i59, %98, %96, %.preheader74
-  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %.not24.i = icmp eq ptr %104, null
   br i1 %.not24.i, label %._crit_edge.i, label %105
 
@@ -914,7 +914,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
 
 .lr.ph27.i:                                       ; preds = %.lr.ph27.i, %.lr.ph27.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next32.i, %.lr.ph27.i ]
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv31.i
   %110 = load ptr, ptr %109, align 8
   tail call void @sema_analyze_stage(ptr noundef %110, i32 noundef range(i32 0, 13) %.04476)
@@ -923,7 +923,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   br i1 %exitcond35.not.i, label %._crit_edge.i, label %.lr.ph27.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph27.i, %105, %.loopexit.i
-  %111 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %.not.i.i55 = icmp eq i32 %111, 0
   br i1 %.not.i.i55, label %93, label %112
 
@@ -932,7 +932,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   unreachable
 
 .preheader:                                       ; preds = %93, %._crit_edge
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %.not51 = icmp eq ptr %113, null
   br i1 %.not51, label %.critedge80, label %114
 
@@ -976,7 +976,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   br i1 %.1, label %.preheader, label %.critedge80
 
 .critedge80:                                      ; preds = %.preheader, %114, %._crit_edge
-  %126 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %.not.i63 = icmp eq i32 %126, 0
   br i1 %.not.i63, label %halt_on_error.exit, label %127
 
@@ -987,15 +987,15 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
 halt_on_error.exit:                               ; preds = %.critedge80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 248), align 8
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 248), align 8
   %.not.i64 = icmp eq ptr %128, null
-  %129 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 200), align 8
+  %129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 200), align 8
   %130 = icmp eq i32 %129, 0
   %or.cond.i = select i1 %.not.i64, i1 %130, i1 false
   br i1 %or.cond.i, label %131, label %132
 
 131:                                              ; preds = %halt_on_error.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @global_context, i64 352), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @global_context, i64 352), i8 0, i64 16, i1 false)
   br label %assign_panicfn.exit
 
 132:                                              ; preds = %halt_on_error.exit
@@ -1017,7 +1017,7 @@ halt_on_error.exit:                               ; preds = %.critedge80
   unreachable
 
 143:                                              ; preds = %132
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %145 = call ptr @sema_find_decl_in_modules(ptr noundef %144, ptr noundef nonnull %138, ptr noundef nonnull %140) #10
   %.not39.i = icmp eq ptr %145, null
   br i1 %.not39.i, label %146, label %151
@@ -1075,11 +1075,11 @@ halt_on_error.exit:                               ; preds = %.critedge80
   unreachable
 
 178:                                              ; preds = %172
-  store ptr %145, ptr getelementptr inbounds (i8, ptr @global_context, i64 352), align 8
+  store ptr %145, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 352), align 8
   %179 = load i64, ptr %156, align 8
   %180 = or i64 %179, 1073741824
   store i64 %180, ptr %156, align 8
-  %181 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 200), align 8
+  %181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 200), align 8
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %assign_panicfn.exit, label %183
 
@@ -1099,13 +1099,13 @@ halt_on_error.exit:                               ; preds = %.critedge80
   unreachable
 
 191:                                              ; preds = %183
-  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %192 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %193 = call ptr @sema_find_decl_in_modules(ptr noundef %192, ptr noundef nonnull %186, ptr noundef nonnull %188) #10
   %.not45.i = icmp eq ptr %193, null
   br i1 %.not45.i, label %194, label %195
 
 194:                                              ; preds = %191
-  store ptr null, ptr getelementptr inbounds (i8, ptr @global_context, i64 360), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 360), align 8
   br label %assign_panicfn.exit
 
 195:                                              ; preds = %191
@@ -1140,7 +1140,7 @@ halt_on_error.exit:                               ; preds = %.critedge80
   unreachable
 
 214:                                              ; preds = %201
-  store ptr %193, ptr getelementptr inbounds (i8, ptr @global_context, i64 360), align 8
+  store ptr %193, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 360), align 8
   br label %assign_panicfn.exit
 
 assign_panicfn.exit:                              ; preds = %131, %178, %194, %214
@@ -1148,20 +1148,20 @@ assign_panicfn.exit:                              ; preds = %131, %178, %194, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %215 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
+  %215 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
   %216 = trunc i8 %215 to i1
   br i1 %216, label %217, label %assign_testfn.exit
 
 217:                                              ; preds = %assign_panicfn.exit
-  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 264), align 8
+  %218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 264), align 8
   %.not.i65 = icmp eq ptr %218, null
-  %219 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 200), align 8
+  %219 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 200), align 8
   %220 = icmp eq i32 %219, 0
   %or.cond.i66 = select i1 %.not.i65, i1 %220, i1 false
   br i1 %or.cond.i66, label %221, label %222
 
 221:                                              ; preds = %217
-  store ptr null, ptr getelementptr inbounds (i8, ptr @global_context, i64 384), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 384), align 8
   br label %assign_testfn.exit
 
 222:                                              ; preds = %217
@@ -1183,7 +1183,7 @@ assign_panicfn.exit:                              ; preds = %131, %178, %194, %2
   unreachable
 
 233:                                              ; preds = %222
-  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %235 = call ptr @sema_find_decl_in_modules(ptr noundef %234, ptr noundef nonnull %228, ptr noundef nonnull %230) #10
   %.not16.i = icmp eq ptr %235, null
   br i1 %.not16.i, label %236, label %241
@@ -1226,7 +1226,7 @@ assign_panicfn.exit:                              ; preds = %131, %178, %194, %2
   unreachable
 
 259:                                              ; preds = %250
-  store ptr %235, ptr getelementptr inbounds (i8, ptr @global_context, i64 384), align 8
+  store ptr %235, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 384), align 8
   %260 = load i64, ptr %242, align 8
   %261 = or i64 %260, 1073741824
   store i64 %261, ptr %242, align 8
@@ -1237,20 +1237,20 @@ assign_testfn.exit:                               ; preds = %assign_panicfn.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %262 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
+  %262 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
   %263 = trunc i8 %262 to i1
   br i1 %263, label %264, label %assign_benchfn.exit
 
 264:                                              ; preds = %assign_testfn.exit
-  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 256), align 8
+  %265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 256), align 8
   %.not.i68 = icmp eq ptr %265, null
-  %266 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 200), align 8
+  %266 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 200), align 8
   %267 = icmp eq i32 %266, 0
   %or.cond.i69 = select i1 %.not.i68, i1 %267, i1 false
   br i1 %or.cond.i69, label %268, label %269
 
 268:                                              ; preds = %264
-  store ptr null, ptr getelementptr inbounds (i8, ptr @global_context, i64 392), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 392), align 8
   br label %assign_benchfn.exit
 
 269:                                              ; preds = %264
@@ -1272,7 +1272,7 @@ assign_testfn.exit:                               ; preds = %assign_panicfn.exit
   unreachable
 
 280:                                              ; preds = %269
-  %281 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %281 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %282 = call ptr @sema_find_decl_in_modules(ptr noundef %281, ptr noundef nonnull %275, ptr noundef nonnull %277) #10
   %.not16.i72 = icmp eq ptr %282, null
   br i1 %.not16.i72, label %283, label %288
@@ -1315,7 +1315,7 @@ assign_testfn.exit:                               ; preds = %assign_panicfn.exit
   unreachable
 
 306:                                              ; preds = %297
-  store ptr %282, ptr getelementptr inbounds (i8, ptr @global_context, i64 392), align 8
+  store ptr %282, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 392), align 8
   %307 = load i64, ptr %289, align 8
   %308 = or i64 %307, 1073741824
   store i64 %308, ptr %289, align 8
@@ -1324,7 +1324,7 @@ assign_testfn.exit:                               ; preds = %assign_panicfn.exit
 assign_benchfn.exit:                              ; preds = %assign_testfn.exit, %268, %306
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %309 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 212), align 4
+  %309 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 212), align 4
   %.not52 = icmp eq i32 %309, 0
   br i1 %.not52, label %311, label %310
 
@@ -1365,7 +1365,7 @@ declare double @bench_mark() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_context_init(ptr nocapture noundef writeonly initializes((0, 304)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %.critedge.i, label %4
 
@@ -1398,7 +1398,7 @@ define dso_local void @sema_context_init(ptr nocapture noundef writeonly initial
 
 global_context_acquire_locals_list.exit:          ; preds = %.critedge.i, %11, %16
   %.014.i = phi ptr [ %10, %.critedge.i ], [ null, %11 ], [ %15, %16 ]
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %.not.i5 = icmp eq ptr %18, null
   br i1 %.not.i5, label %.critedge.i8, label %19
 
@@ -1451,7 +1451,7 @@ global_context_acquire_locals_list.exit9:         ; preds = %.critedge.i8, %26, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @global_context_acquire_locals_list() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %2
 
@@ -1530,7 +1530,7 @@ define dso_local void @sema_context_destroy(ptr nocapture noundef readonly %0) l
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %11
 
@@ -1579,7 +1579,7 @@ generic_context_release_locals_list.exit:         ; preds = %13, %17
   %32 = add i32 %31, 1
   store i32 %32, ptr %.1.i.i, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %34 = load i32, ptr %.1.i.i, align 4
   %35 = add i32 %34, -1
   %36 = zext i32 %35 to i64
@@ -1587,7 +1587,7 @@ generic_context_release_locals_list.exit:         ; preds = %13, %17
   store ptr %6, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %.not.i.i3 = icmp eq ptr %40, null
   br i1 %.not.i.i3, label %41, label %44
 
@@ -1636,7 +1636,7 @@ generic_context_release_locals_list.exit9:        ; preds = %46, %50
   %65 = add i32 %64, 1
   store i32 %65, ptr %.1.i.i7, align 4
   %66 = getelementptr inbounds nuw i8, ptr %.1.i.i7, i64 8
-  store ptr %66, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  store ptr %66, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %67 = load i32, ptr %.1.i.i7, align 4
   %68 = add i32 %67, -1
   %69 = zext i32 %68 to i64
@@ -1650,7 +1650,7 @@ generic_context_release_locals_list.exit9:        ; preds = %46, %50
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @generic_context_release_locals_list(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %6
 
@@ -1699,7 +1699,7 @@ define dso_local void @generic_context_release_locals_list(ptr noundef %0) local
   %28 = add i32 %27, 1
   store i32 %28, ptr %.1.i, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %30 = load i32, ptr %.1.i, align 4
   %31 = add i32 %30, -1
   %32 = zext i32 %31 to i64
@@ -1716,7 +1716,7 @@ define dso_local noundef ptr @context_transform_for_eval(ptr noundef readonly %0
   br i1 %6, label %43, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %.critedge.i.i, label %9
 
@@ -1749,7 +1749,7 @@ define dso_local noundef ptr @context_transform_for_eval(ptr noundef readonly %0
 
 global_context_acquire_locals_list.exit.i:        ; preds = %21, %16, %.critedge.i.i
   %.014.i.i = phi ptr [ %15, %.critedge.i.i ], [ null, %16 ], [ %20, %21 ]
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 96), align 8
   %.not.i5.i = icmp eq ptr %23, null
   br i1 %.not.i5.i, label %.critedge.i8.i, label %24
 

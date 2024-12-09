@@ -507,9 +507,9 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7519TransliterationRuleC2ERKNS_13UnicodeStringEiiS3_iiPPNS_14UnicodeFunctorEiaaPKNS_23TransliterationRuleDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (40, 50), (104, 112), (128, 136)) %this, ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef %anteContextPos, i32 noundef %postContextPos, ptr noundef nonnull align 8 dereferenceable(64) %outputStr, i32 noundef %cursorPosition, i32 noundef %cursorOffset, ptr noundef %segs, i32 noundef %segsCount, i8 noundef signext %anchorStart, i8 noundef signext %anchorEnd, ptr noundef %theData, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519TransliterationRuleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519TransliterationRuleE, i64 16), ptr %this, align 8
   %pattern = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pattern, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i16 2, ptr %fUnion2.i, align 8
   %segments = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -799,7 +799,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7519TransliterationRuleC2ERS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(136) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519TransliterationRuleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519TransliterationRuleE, i64 16), ptr %this, align 8
   %anteContext = getelementptr inbounds nuw i8, ptr %this, i64 8
   %key = getelementptr inbounds nuw i8, ptr %this, i64 16
   %postContext = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -925,7 +925,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7519TransliterationRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519TransliterationRuleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519TransliterationRuleE, i64 16), ptr %this, align 8
   %segments = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %segments, align 8
   invoke void @uprv_free_75(ptr noundef %0)
@@ -1431,10 +1431,10 @@ invoke.cont:
   %quoteBuf = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %str, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %str, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %quoteBuf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %quoteBuf, align 8
   %fUnion2.i26 = getelementptr inbounds nuw i8, ptr %quoteBuf, i64 8
   store i16 2, ptr %fUnion2.i26, align 8
   %anteContext = getelementptr inbounds nuw i8, ptr %this, i64 8

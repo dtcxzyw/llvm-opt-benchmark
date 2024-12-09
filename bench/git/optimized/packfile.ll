@@ -3264,7 +3264,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %sizep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry1.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %get_delta_base_cache_entry.exit.thread.i, label %get_delta_base_cache_entry.exit.i
 
@@ -3931,7 +3931,7 @@ if.else73:                                        ; preds = %if.then63
 if.end76:                                         ; preds = %get_delta_base_oid.exit, %if.else73, %if.end61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry1.i.i99)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i100)
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool.not.i.i101 = icmp eq ptr %86, null
   br i1 %tobool.not.i.i101, label %in_delta_base_cache.exit.thread, label %in_delta_base_cache.exit
 
@@ -4014,9 +4014,9 @@ entry:
   %base_oid = alloca %struct.object_id, align 4
   %oi = alloca %struct.object_info, align 8
   store ptr null, ptr %w_curs, align 8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @write_pack_access_log.pack_access, i64 8), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @write_pack_access_log.pack_access, i64 8), align 8
   %tobool.not.i.i = icmp eq i32 %0, 0
-  %bf.load.i.i = load i8, ptr getelementptr inbounds (i8, ptr @write_pack_access_log.pack_access, i64 12), align 4
+  %bf.load.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @write_pack_access_log.pack_access, i64 12), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not1.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool.not.i = select i1 %tobool.not.i.i, i1 %tobool.not1.i, i1 false
@@ -4042,7 +4042,7 @@ for.cond:                                         ; preds = %if.end69, %write_pa
   %delta_stack.0 = phi ptr [ %delta_stack.1, %if.end69 ], [ %small_delta_stack, %write_pack_access_log.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry1.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool.not.i77 = icmp eq ptr %2, null
   br i1 %tobool.not.i77, label %get_delta_base_cache_entry.exit.thread, label %get_delta_base_cache_entry.exit
 
@@ -4623,7 +4623,7 @@ if.then138:                                       ; preds = %if.end136
   %80 = load i32, ptr %type, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry1.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i.i)
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool.not.i.i.i = icmp eq ptr %81, null
   br i1 %tobool.not.i.i.i, label %in_delta_base_cache.exit.thread.i, label %in_delta_base_cache.exit.i
 
@@ -4711,7 +4711,7 @@ for.end.i:                                        ; preds = %if.end3.i, %for.bod
   %prev3.i.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 40
   store ptr %91, ptr %prev3.i.i, align 8
   store ptr %lru10.i, ptr getelementptr inbounds nuw (i8, ptr @delta_base_cache_lru, i64 8), align 8
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @delta_base_cache, i64 8), align 8
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @delta_base_cache, i64 8), align 8
   %tobool11.not.i = icmp eq ptr %92, null
   br i1 %tobool11.not.i, label %if.then12.i, label %if.end13.i
 

@@ -196,7 +196,7 @@ declare dso_local i32 @atomic_dec_and_mutex_lock(ptr noundef, ptr noundef) local
 define dso_local ptr @get_callchain_entry(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !18
   %3 = inttoptr i64 %2 to ptr
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !19
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !19
   %5 = zext i32 %4 to i64
   %6 = and i64 %5, 15728640
   %7 = icmp ne i64 %6, 0
@@ -239,7 +239,7 @@ define dso_local ptr @get_callchain_entry(ptr nocapture noundef writeonly initia
   br label %45
 
 31:                                               ; preds = %21
-  %32 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
+  %32 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %34 = sext i32 %32 to i64
   %35 = getelementptr [0 x ptr], ptr %33, i64 0, i64 %34
@@ -280,7 +280,7 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
   store i64 0, ptr %9, align 8, !annotation !25
   %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !18
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !19
+  %12 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !19
   %13 = zext i32 %12 to i64
   %14 = and i64 %13, 15728640
   %15 = icmp ne i64 %14, 0
@@ -311,7 +311,7 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
   br label %.thread4.sink.split
 
 33:                                               ; preds = %28
-  %34 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
+  %34 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %36 = sext i32 %34 to i64
   %37 = getelementptr [0 x ptr], ptr %35, i64 0, i64 %36

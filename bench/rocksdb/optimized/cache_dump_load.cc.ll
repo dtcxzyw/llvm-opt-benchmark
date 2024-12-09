@@ -188,7 +188,7 @@ if.end:                                           ; preds = %invoke.cont2
           to label %invoke.cont3 unwind label %lpad1
 
 invoke.cont3:                                     ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ToFileCacheDumpWriterE, i64 16), ptr %call4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ToFileCacheDumpWriterE, i64 16), ptr %call4, align 8
   %file_writer_.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %4 = load i64, ptr %file_writer, align 8
   store i64 %4, ptr %file_writer_.i, align 8
@@ -279,7 +279,7 @@ if.end:                                           ; preds = %invoke.cont2
           to label %invoke.cont3 unwind label %lpad1
 
 invoke.cont3:                                     ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23FromFileCacheDumpReaderE, i64 16), ptr %call4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23FromFileCacheDumpReaderE, i64 16), ptr %call4, align 8
   %file_reader_.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %3 = load i64, ptr %file_reader, align 8
   store i64 %3, ptr %file_reader_.i, align 8
@@ -370,7 +370,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define void @_ZN7rocksdb21NewDefaultCacheDumperERKNS_16CacheDumpOptionsERKSt10shared_ptrINS_5CacheEEOSt10unique_ptrINS_15CacheDumpWriterESt14default_deleteIS9_EEPS8_INS_11CacheDumperESA_ISE_EE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %dump_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cache, ptr nocapture noundef nonnull align 8 dereferenceable(8) %writer, ptr nocapture noundef %cache_dumper) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15CacheDumperImplE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15CacheDumperImplE, i64 16), ptr %call, align 8
   %options_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i64, ptr %dump_options, align 8
   store i64 %0, ptr %options_.i, align 8
@@ -438,7 +438,7 @@ _ZNSt10unique_ptrIN7rocksdb11CacheDumperESt14default_deleteIS1_EE5resetEPS1_.exi
 define void @_ZN7rocksdb27NewDefaultCacheDumpedLoaderERKNS_16CacheDumpOptionsERKNS_22BlockBasedTableOptionsERKSt10shared_ptrINS_14SecondaryCacheEEOSt10unique_ptrINS_15CacheDumpReaderESt14default_deleteISC_EEPSB_INS_17CacheDumpedLoaderESD_ISH_EE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %dump_options, ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %toptions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %secondary_cache, ptr nocapture noundef nonnull align 8 dereferenceable(8) %reader, ptr nocapture noundef %cache_dump_loader) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21CacheDumpedLoaderImplE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21CacheDumpedLoaderImplE, i64 16), ptr %call, align 8
   %options_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i64, ptr %dump_options, align 8
   store i64 %0, ptr %options_.i, align 8
@@ -513,7 +513,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21ToFileCacheDumpWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ToFileCacheDumpWriterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ToFileCacheDumpWriterE, i64 16), ptr %this, align 8
   %file_writer_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_writer_.i, align 8, !noalias !10
   store ptr null, ptr %file_writer_.i, align 8, !noalias !10
@@ -540,7 +540,7 @@ _ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21ToFileCacheDumpWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ToFileCacheDumpWriterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ToFileCacheDumpWriterE, i64 16), ptr %this, align 8
   %file_writer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_writer_.i.i, align 8, !noalias !13
   store ptr null, ptr %file_writer_.i.i, align 8, !noalias !13
@@ -1108,7 +1108,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb23FromFileCacheDumpReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23FromFileCacheDumpReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23FromFileCacheDumpReaderE, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %buffer_, align 8
   %isnull = icmp eq ptr %0, null
@@ -1137,7 +1137,7 @@ _ZNSt10unique_ptrIN7rocksdb22RandomAccessFileReaderESt14default_deleteIS1_EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb23FromFileCacheDumpReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23FromFileCacheDumpReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23FromFileCacheDumpReaderE, i64 16), ptr %this, align 8
   %buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %buffer_.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -1929,7 +1929,7 @@ _ZN7rocksdb21FSRandomAccessFilePtrD2Ev.exit:      ; preds = %_ZNSt6vectorISt10sh
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb32FSRandomAccessFileTracingWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb32FSRandomAccessFileTracingWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb32FSRandomAccessFileTracingWrapperE, i64 16), ptr %this, align 8
   %file_name_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_name_) #17
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2006,7 +2006,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEED2Ev.exit
 
 _ZNSt10shared_ptrIN7rocksdb8IOTracerEED2Ev.exit:  ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
   %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %11, null
@@ -2021,7 +2021,7 @@ _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds 
 
 _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEED2Ev.exit
   store ptr null, ptr %guard_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
   %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %13 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i1 = icmp eq ptr %13, null
@@ -2042,7 +2042,7 @@ _ZN7rocksdb30FSRandomAccessFileOwnerWrapperD2Ev.exit: ; preds = %_ZNSt10unique_p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb30FSRandomAccessFileOwnerWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
   %guard_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %guard_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2057,7 +2057,7 @@ _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i: ; preds = 
 
 _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i
   store ptr null, ptr %guard_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
   %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -2078,7 +2078,7 @@ _ZN7rocksdb25FSRandomAccessFileWrapperD2Ev.exit:  ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb30FSRandomAccessFileOwnerWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
   %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2093,7 +2093,7 @@ _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds 
 
 _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %guard_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
   %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
@@ -2315,7 +2315,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
   %guard_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %guard_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2336,7 +2336,7 @@ _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
   %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

@@ -120,7 +120,7 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %_ZN7OptoReg8as_VMRe
   %2 = load ptr, ptr %1, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
-  %5 = sub i32 %4, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %5 = sub i32 %4, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not = icmp eq i32 %5, -1
   br i1 %.not, label %10, label %6
 
@@ -175,7 +175,7 @@ _ZN7OptoReg8as_VMRegEi.exit.i:                    ; preds = %14, %4
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
-  %9 = sub i32 %8, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %9 = sub i32 %8, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not.i = icmp eq i32 %9, -1
   br i1 %.not.i, label %14, label %10
 
@@ -1211,7 +1211,7 @@ define hidden noundef zeroext i1 @_ZN10C2Compiler22is_intrinsic_supportedE13vmIn
   br i1 %186, label %239, label %240
 
 187:                                              ; preds = %3
-  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 432), align 8
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 432), align 8
   %189 = icmp eq ptr %188, null
   br i1 %189, label %240, label %239
 

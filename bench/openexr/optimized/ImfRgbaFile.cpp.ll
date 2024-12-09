@@ -1192,7 +1192,7 @@ declare void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef, i32 n
 define void @_ZN7Imf_3_214RgbaOutputFileC2EPKcRKNS_6HeaderENS_12RgbaChannelsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef %rgbaChannels, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_toYca = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
@@ -1409,7 +1409,7 @@ declare void @_ZN7Imf_3_26HeaderD1Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN7Imf_3_214RgbaOutputFileC2ERNS_7OStreamERKNS_6HeaderENS_12RgbaChannelsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef %rgbaChannels, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_toYca = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
@@ -1476,7 +1476,7 @@ declare void @_ZN7Imf_3_210OutputFileC1ERNS_7OStreamERKNS_6HeaderEi(ptr noundef 
 define void @_ZN7Imf_3_214RgbaOutputFileC2EPKcRKN9Imath_3_23BoxINS3_4Vec2IiEEEES9_NS_12RgbaChannelsEfNS5_IfEEfNS_9LineOrderENS_11CompressionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %name, ptr noundef nonnull align 4 dereferenceable(16) %displayWindow, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow, i32 noundef %rgbaChannels, float noundef %pixelAspectRatio, ptr noundef nonnull %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_toYca = getelementptr inbounds nuw i8, ptr %this, i64 16
   %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
@@ -1554,7 +1554,7 @@ declare void @_ZN7Imf_3_26HeaderC1ERKN9Imath_3_23BoxINS1_4Vec2IiEEEES7_fRKNS3_If
 define void @_ZN7Imf_3_214RgbaOutputFileC2EPKciiNS_12RgbaChannelsEfN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %name, i32 noundef %width, i32 noundef %height, i32 noundef %rgbaChannels, float noundef %pixelAspectRatio, ptr noundef nonnull %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
   %_outputFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_toYca = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
@@ -1620,7 +1620,7 @@ declare void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_214RgbaOutputFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i64 16), ptr %this, align 8
   %_toYca = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_toYca, align 8
   %isnull = icmp eq ptr %0, null
@@ -3281,7 +3281,7 @@ entry:
 define void @_ZN7Imf_3_213RgbaInputFileC2EiPKci(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, i32 noundef %partNumber, ptr noundef %name, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.5", align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
   %_multiPartFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN7Imf_3_218MultiPartInputFileC1EPKcib(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef %name, i32 noundef %numThreads, i1 noundef zeroext true)
@@ -3451,7 +3451,7 @@ entry:
 define void @_ZN7Imf_3_213RgbaInputFileC2EiRNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, i32 noundef %partNumber, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.5", align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
   %_multiPartFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN7Imf_3_218MultiPartInputFileC1ERNS_7IStreamEib(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads, i1 noundef zeroext true)
@@ -3621,7 +3621,7 @@ entry:
 define void @_ZN7Imf_3_213RgbaInputFileC2EiPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, i32 noundef %partNumber, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %layerName, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
   %_multiPartFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN7Imf_3_218MultiPartInputFileC1EPKcib(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef %name, i32 noundef %numThreads, i1 noundef zeroext true)
@@ -3773,7 +3773,7 @@ entry:
 define void @_ZN7Imf_3_213RgbaInputFileC2EiRNS_7IStreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, i32 noundef %partNumber, ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 8 dereferenceable(32) %layerName, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
   %_multiPartFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   invoke void @_ZN7Imf_3_218MultiPartInputFileC1ERNS_7IStreamEib(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads, i1 noundef zeroext true)
@@ -4071,7 +4071,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_213RgbaInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i64 16), ptr %this, align 8
   %_inputPart = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_inputPart, align 8
   %tobool.not = icmp eq ptr %0, null

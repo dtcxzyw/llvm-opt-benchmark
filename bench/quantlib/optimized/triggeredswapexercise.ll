@@ -70,8 +70,8 @@ define void @_ZN8QuantLib21TriggeredSwapExerciseC2ERKSt6vectorIdSaIdEES5_S3_(ptr
 entry:
   %ref.tmp6 = alloca %"class.std::vector.5", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 16), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 144), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 144), ptr %0, align 8, !tbaa !3
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %rateTimes, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
@@ -850,8 +850,8 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 define linkonce_odr void @_ZN8QuantLib21TriggeredSwapExerciseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 16), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 144), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 144), ptr %1, align 8, !tbaa !3
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %rateTimes_2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1143,9 +1143,9 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21TriggeredSwapExerciseD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 16), ptr %this, align 8, !tbaa !3
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 144), ptr %add.ptr, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib21TriggeredSwapExerciseE, i64 144), ptr %add.ptr, align 8, !tbaa !3
   %firstAliveRate_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %firstAliveRate_.i, align 8, !tbaa !32
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

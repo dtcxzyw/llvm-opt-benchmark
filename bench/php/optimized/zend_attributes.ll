@@ -2104,7 +2104,7 @@ register_class_SensitiveParameter.exit:           ; preds = %register_class_Allo
   store ptr %289, ptr @zend_ce_sensitive_parameter, align 8
   %313 = call ptr @zend_mark_internal_attribute(ptr noundef nonnull %289)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @attributes_object_handlers_sensitive_parameter_value, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 192, i1 false)
-  store ptr @attributes_sensitive_parameter_value_get_properties_for, ptr getelementptr inbounds (i8, ptr @attributes_object_handlers_sensitive_parameter_value, i64 192), align 8
+  store ptr @attributes_sensitive_parameter_value_get_properties_for, ptr getelementptr inbounds nuw (i8, ptr @attributes_object_handlers_sensitive_parameter_value, i64 192), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

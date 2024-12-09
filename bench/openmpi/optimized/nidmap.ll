@@ -63,7 +63,7 @@ define noundef i32 @prte_util_nidmap_create(ptr nocapture noundef readonly %0, p
   br label %147
 
 19:                                               ; preds = %14
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 792), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8
   %21 = shl i32 %20, 2
   %22 = sext i32 %21 to i64
   %23 = call noalias ptr @malloc(i64 noundef %22) #12
@@ -599,7 +599,7 @@ define noundef i32 @prte_util_decode_nidmap(ptr noundef %0) local_unnamed_addr #
 
 85:                                               ; preds = %76, %82
   call void @PMIx_Byte_object_destruct(ptr noundef nonnull %7) #11
-  %86 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
+  %86 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4
   %87 = and i8 %86, 4
   %.not128 = icmp eq i8 %87, 0
   br i1 %.not128, label %88, label %204
@@ -815,14 +815,14 @@ pmix_pointer_array_get_item.exit153.thread:       ; preds = %149, %152, %pmix_po
   br i1 %.not129, label %._crit_edge, label %101, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %197, %.preheader
-  %200 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 792), align 8
+  %200 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8
   %201 = getelementptr inbounds nuw i8, ptr %89, i64 460
   %202 = load i32, ptr %201, align 4
   %.not130 = icmp eq i32 %200, %202
   br i1 %.not130, label %204, label %203
 
 203:                                              ; preds = %._crit_edge
-  store i32 %202, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 792), align 8
+  store i32 %202, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8
   call void @prte_rml_compute_routing_tree() #11
   br label %204
 

@@ -852,7 +852,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   unreachable
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %12 = tail call noalias align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 328) #9
   %13 = icmp eq ptr %12, null
   br i1 %13, label %557, label %14
@@ -875,7 +875,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   ]
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %22 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 152) #9
   %23 = icmp eq ptr %22, null
   br i1 %23, label %542, label %24
@@ -961,7 +961,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   br label %557
 
 76:                                               ; preds = %69
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %78 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %77, i32 noundef 3520, i64 noundef 152) #9
   %79 = icmp eq ptr %78, null
   br i1 %79, label %542, label %80
@@ -972,7 +972,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %83 = inttoptr i64 %82 to ptr
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %83, ptr %84, align 8
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %86 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %85, i32 noundef 3520, i64 noundef 152) #9
   %87 = icmp eq ptr %86, null
   br i1 %87, label %542, label %88
@@ -1541,7 +1541,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %432 = inttoptr i64 %431 to ptr
   %433 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %432, ptr %433, align 8
-  %434 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %434 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %435 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %434, i32 noundef 3520, i64 noundef 152) #9
   %436 = icmp eq ptr %435, null
   br i1 %436, label %542, label %437
@@ -1793,7 +1793,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 328) #9
   %9 = icmp eq ptr %8, null
   br i1 %9, label %167, label %10
@@ -1973,7 +1973,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   br i1 %110, label %167, label %111
 
 111:                                              ; preds = %108
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %113 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %112, i32 noundef 3520, i64 noundef 152) #9
   %114 = icmp eq ptr %113, null
   br i1 %114, label %166, label %115
@@ -2080,7 +2080,7 @@ define dso_local noundef ptr @assoc_array_clear(ptr noundef %0, ptr noundef %1) 
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 328) #9
   %8 = icmp eq ptr %7, null
   br i1 %8, label %17, label %9
@@ -2340,7 +2340,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   br i1 %7, label %305, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 328) #9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %305, label %12
@@ -2407,7 +2407,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %53 = phi ptr [ %49, %42 ], [ %20, %19 ]
   %54 = phi ptr [ %48, %42 ], [ %21, %19 ]
   %55 = phi ptr [ %51, %42 ], [ %22, %19 ]
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %57 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %56, i32 noundef 3520, i64 noundef 152) #9
   %58 = icmp eq ptr %57, null
   br i1 %58, label %303, label %59

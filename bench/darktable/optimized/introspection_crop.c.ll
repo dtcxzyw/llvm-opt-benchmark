@@ -481,7 +481,7 @@ define void @commit_params(ptr noundef readonly %0, ptr nocapture noundef readon
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %4
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !58
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !58
   %14 = tail call i32 @dt_dev_modulegroups_get_activated(ptr noundef %13) #23
   %15 = icmp eq i32 %14, 9999
   br i1 %15, label %24, label %16
@@ -570,7 +570,7 @@ define void @commit_params(ptr noundef readonly %0, ptr nocapture noundef readon
 ; Function Attrs: nounwind uwtable
 define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, 0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !58
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !58
   br i1 %3, label %5, label %12
 
 5:                                                ; preds = %2
@@ -587,7 +587,7 @@ define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %13 = tail call i32 @dt_dev_modulegroups_get_activated(ptr noundef %4) #23
   %14 = icmp ne i32 %13, 9999
   %15 = zext i1 %14 to i32
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !58
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2032
   store i32 %15, ptr %17, align 16, !tbaa !79
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -601,16 +601,16 @@ define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %24 = phi ptr [ %19, %12 ], [ %8, %5 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %26 = load ptr, ptr %25, align 8, !tbaa !82
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !83
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !83
   %28 = and i32 %27, 2
   %29 = icmp ne i32 %28, 0
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3208), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3208), align 8
   %31 = icmp ne i32 %30, 0
   %32 = select i1 %29, i1 %31, i1 false
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %23
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !84
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !84
   %35 = and i32 %34, 1048576
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %38, label %37
@@ -620,7 +620,7 @@ define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %38
 
 38:                                               ; preds = %37, %33, %23
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !85
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !85
   tail call void @dt_control_signal_connect(ptr noundef %39, i32 noundef 21, ptr noundef nonnull @_event_preview_updated_callback, ptr noundef nonnull %0) #23
   br i1 %3, label %72, label %40
 
@@ -723,13 +723,13 @@ define internal void @_event_preview_updated_callback(ptr nocapture readnone %0,
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 132
   store i32 1, ptr %7, align 4, !tbaa !90
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !83
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !83
   %9 = and i32 %8, 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %6
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !84
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !84
   %13 = and i32 %12, 1048576
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %16, label %15
@@ -739,7 +739,7 @@ define internal void @_event_preview_updated_callback(ptr nocapture readnone %0,
   br label %16
 
 16:                                               ; preds = %15, %11, %6
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !85
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !85
   tail call void @dt_control_signal_disconnect(ptr noundef %17, ptr noundef nonnull @_event_preview_updated_callback, ptr noundef nonnull %1) #23
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 0, ptr %18, align 8, !tbaa !91
@@ -754,7 +754,7 @@ define internal fastcc void @_commit_box(ptr noundef %0, ptr nocapture noundef %
   %4 = alloca float, align 4
   %5 = alloca float, align 4
   %6 = alloca [4 x float], align 16
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load i32, ptr %8, align 8, !tbaa !94
   %10 = icmp eq i32 %9, 0
@@ -937,7 +937,7 @@ define internal fastcc void @_commit_box(ptr noundef %0, ptr nocapture noundef %
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %124, %119, %114, %109
-  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !58
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !58
   call void @dt_dev_add_history_item(ptr noundef %130, ptr noundef nonnull %0, i32 noundef 1) #23
   br label %131
 
@@ -1006,7 +1006,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   %5 = load ptr, ptr %4, align 16, !tbaa !80
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %7 = load ptr, ptr %6, align 8, !tbaa !82
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load i32, ptr %9, align 8, !tbaa !94
   %11 = add nsw i32 %10, 1
@@ -1136,7 +1136,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   %101 = fadd reassoc nsz arcp contract afn double %100, -1.000000e-01
   %102 = fptrunc double %101 to float
   tail call void @dt_bauhaus_slider_set_soft_max(ptr noundef %96, float noundef %102) #23
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 120
   %105 = load i32, ptr %104, align 8, !tbaa !94
   %106 = add nsw i32 %105, -1
@@ -1153,7 +1153,7 @@ define internal fastcc void @_aspect_apply(ptr noundef %0, i32 noundef %1) unnam
   %6 = load ptr, ptr %5, align 16, !tbaa !80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #23
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !58
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2616
   call void @dt_dev_get_processed_size(ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %4) #23
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1558,7 +1558,7 @@ define internal fastcc float @_aspect_ratio_get(ptr noundef %0, ptr noundef %1) 
   store i32 0, ptr %3, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #23
   store i32 0, ptr %4, align 4, !tbaa !21
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !58
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !58
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2616
   call void @dt_dev_get_processed_size(ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef nonnull %4) #23
   %16 = load i32, ptr %3, align 4, !tbaa !21
@@ -2155,7 +2155,7 @@ define internal void @_event_aspect_presets_changed(ptr noundef %0, ptr noundef 
   %176 = load i32, ptr %12, align 4, !tbaa !117
   %177 = tail call i32 @llvm.abs.i32(i32 %176, i1 true)
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.11, i32 noundef %177) #23
-  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 120
   %180 = load i32, ptr %179, align 8, !tbaa !94
   %181 = icmp eq i32 %180, 0
@@ -2195,7 +2195,7 @@ define internal void @_event_aspect_presets_changed(ptr noundef %0, ptr noundef 
   br i1 %201, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %197, %183
-  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 120
   %204 = load i32, ptr %203, align 8, !tbaa !94
   %205 = add nsw i32 %204, 1
@@ -2217,7 +2217,7 @@ define internal void @_event_aspect_presets_changed(ptr noundef %0, ptr noundef 
   br label %228
 
 217:                                              ; preds = %193
-  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 120
   %220 = load i32, ptr %219, align 8, !tbaa !94
   %221 = add nsw i32 %220, 1
@@ -2234,7 +2234,7 @@ define internal void @_event_aspect_presets_changed(ptr noundef %0, ptr noundef 
   br label %228
 
 228:                                              ; preds = %226, %217, %.loopexit
-  %229 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 120
   %231 = load i32, ptr %230, align 8, !tbaa !94
   %232 = add nsw i32 %231, -1
@@ -2889,7 +2889,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 
 42:                                               ; preds = %41, %33
   tail call fastcc void @_aspect_apply(ptr noundef nonnull %0, i32 noundef 5)
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1448
   %45 = load double, ptr %44, align 8, !tbaa !142
   %46 = select i1 %25, double 1.500000e+00, double 2.500000e+00
@@ -2984,7 +2984,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %117 = fmul reassoc nsz arcp contract afn float %116, %3
   %118 = fpext float %117 to double
   tail call void @cairo_rectangle(ptr noundef %1, double noundef %106, double noundef %110, double noundef %114, double noundef %118) #23
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1424
   %121 = load double, ptr %120, align 8, !tbaa !144
   %122 = fmul reassoc nsz arcp contract afn double %121, 5.000000e-01
@@ -3006,7 +3006,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br i1 %25, label %530, label %134
 
 134:                                              ; preds = %133
-  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !148
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !148
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 896
   %137 = load i32, ptr %136, align 8, !tbaa !149
   %138 = icmp eq i32 %137, 0
@@ -3022,12 +3022,12 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #23
   store i8 0, ptr %8, align 16, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #23
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !156
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !156
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 336
   %146 = load ptr, ptr %145, align 8, !tbaa !157
   %147 = tail call ptr @pango_font_description_copy_static(ptr noundef %146) #23
   tail call void @pango_font_description_set_weight(ptr noundef %147, i32 noundef 700) #23
-  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 1448
   %150 = load double, ptr %149, align 8, !tbaa !142
   %151 = fmul reassoc nsz arcp contract afn double %150, 1.638400e+04
@@ -3056,7 +3056,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %168 = load i32, ptr %167, align 4, !tbaa !163
   %169 = sitofp i32 %168 to float
-  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 1448
   %172 = load double, ptr %171, align 8, !tbaa !142
   %173 = fmul reassoc nsz arcp contract afn double %172, 1.800000e+01
@@ -3148,7 +3148,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br label %231
 
 231:                                              ; preds = %221, %139, %134
-  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 1448
   %234 = load double, ptr %233, align 8, !tbaa !142
   %235 = fmul reassoc nsz arcp contract afn double %234, 2.000000e+00
@@ -3188,7 +3188,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 
 263:                                              ; preds = %255, %246, %231
   %264 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %231 ], [ %262, %255 ], [ 0.000000e+00, %246 ]
-  %265 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 1424
   %267 = load double, ptr %266, align 8, !tbaa !144
   %268 = fmul reassoc nsz arcp contract afn double %267, 5.000000e-01
@@ -3203,7 +3203,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %277 = load double, ptr %276, align 8, !tbaa !147
   %278 = fmul reassoc nsz arcp contract afn double %277, %269
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef %272, double noundef %275, double noundef %278, double noundef %264) #23
-  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 1448
   %281 = load double, ptr %280, align 8, !tbaa !142
   %282 = fmul reassoc nsz arcp contract afn double %281, 3.000000e+01
@@ -3303,7 +3303,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %367 = load float, ptr %299, align 4, !tbaa !109
   %368 = fmul reassoc nsz arcp contract afn float %367, %3
   call void @dt_guides_draw(ptr noundef %1, float noundef %362, float noundef %364, float noundef %366, float noundef %368, float noundef %6) #23
-  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %369 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 1424
   %371 = load double, ptr %370, align 8, !tbaa !144
   %372 = fmul reassoc nsz arcp contract afn double %371, 5.000000e-01
@@ -3714,7 +3714,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #23
   %23 = call i32 @dt_dev_get_preview_size(ptr noundef nonnull %16, ptr noundef nonnull %7, ptr noundef nonnull %8) #23
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1448
   %26 = load double, ptr %25, align 8, !tbaa !142
   %27 = fmul reassoc nsz arcp contract afn double %26, 3.000000e+01
@@ -3788,7 +3788,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
 85:                                               ; preds = %50, %45, %41, %36, %22
   %86 = phi i32 [ 16, %22 ], [ 16, %36 ], [ 16, %41 ], [ 16, %45 ], [ %84, %50 ]
   %87 = call fastcc i32 @_set_max_clip(ptr noundef nonnull %0), !range !143
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !148
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !148
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 896
   %90 = load i32, ptr %89, align 8, !tbaa !149
   %91 = icmp eq i32 %90, 0
@@ -4093,7 +4093,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
 
 322:                                              ; preds = %320, %308, %126, %122
   call fastcc void @_aspect_apply(ptr noundef nonnull %0, i32 noundef %102)
-  %323 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 120
   %325 = load i32, ptr %324, align 8, !tbaa !94
   %326 = add nsw i32 %325, 1
@@ -4148,7 +4148,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   %367 = fadd reassoc nsz arcp contract afn double %366, -1.000000e-01
   %368 = fptrunc double %367 to float
   call void @dt_bauhaus_slider_set_soft_max(ptr noundef %362, float noundef %368) #23
-  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %369 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 120
   %371 = load i32, ptr %370, align 8, !tbaa !94
   %372 = add nsw i32 %371, -1
@@ -4198,7 +4198,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
 382:                                              ; preds = %380, %379, %378, %377, %376, %375, %374, %373
   %383 = phi i32 [ 96, %375 ], [ 134, %377 ], [ 14, %379 ], [ 12, %380 ], [ 136, %378 ], [ 16, %376 ], [ 138, %374 ], [ 70, %373 ]
   call void @dt_control_change_cursor(i32 noundef %383) #23
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !148
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !148
   br label %384
 
 384:                                              ; preds = %382, %373
@@ -4211,7 +4211,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   call void @dt_control_change_cursor(i32 noundef 52) #23
   %388 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i32 0, ptr %388, align 8, !tbaa !100
-  %389 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !148
+  %389 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !148
   %390 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #23
   call void @dt_control_hinter_message(ptr noundef %389, ptr noundef %390) #23
   br label %391
@@ -4305,7 +4305,7 @@ define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef %0, float noundef
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %21
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !58
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !58
   call void @dt_dev_add_history_item(ptr noundef %29, ptr noundef nonnull %0, i32 noundef 1) #23
   br label %30
 
@@ -4349,7 +4349,7 @@ define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef %0, float noundef
   br label %56
 
 56:                                               ; preds = %54, %47
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !93
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !93
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1448
   %59 = load double, ptr %58, align 8, !tbaa !142
   %60 = fmul reassoc nsz arcp contract afn double %59, 3.000000e+01
@@ -4546,15 +4546,15 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 56), align 8, !tbaa !126
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 144), align 16, !tbaa !126
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 232), align 8, !tbaa !126
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 320), align 16, !tbaa !126
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 408), align 8, !tbaa !126
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 496), align 16, !tbaa !126
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 584), align 8, !tbaa !126
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 672), align 16, !tbaa !126
-  store ptr @introspection_init.f6, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 600), align 8, !tbaa !126
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 56), align 8, !tbaa !126
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 144), align 16, !tbaa !126
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 232), align 8, !tbaa !126
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 320), align 16, !tbaa !126
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 408), align 8, !tbaa !126
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 496), align 16, !tbaa !126
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 584), align 8, !tbaa !126
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 672), align 16, !tbaa !126
+  store ptr @introspection_init.f6, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 600), align 8, !tbaa !126
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -4682,11 +4682,11 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
 16:                                               ; preds = %13
   %17 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.58) #23
   %18 = icmp eq i32 %17, 0
-  %19 = select i1 %18, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 440), ptr null
+  %19 = select i1 %18, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), ptr null
   br label %20
 
 20:                                               ; preds = %16, %13, %10, %7, %4, %1
-  %21 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 88), %4 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 176), %7 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 264), %10 ], [ getelementptr inbounds (i8, ptr @introspection_linear, i64 352), %13 ], [ %19, %16 ]
+  %21 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %4 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %10 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %13 ], [ %19, %16 ]
   ret ptr %21
 }
 

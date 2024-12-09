@@ -1931,7 +1931,7 @@ _ZN10CmdExtract11CheckUnpVerER7ArchivePKw.exit.thread: ; preds = %306
   br i1 %331, label %332, label %416
 
 332:                                              ; preds = %_ZN10CmdExtract11CheckUnpVerER7ArchivePKw.exit.thread
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16RarCheckPassword, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16RarCheckPassword, i64 16), ptr %18, align 8
   %333 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr null, ptr %333, align 8
   br i1 %309, label %334, label %350
@@ -3401,7 +3401,7 @@ declare void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16RarCheckPassword, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16RarCheckPassword, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

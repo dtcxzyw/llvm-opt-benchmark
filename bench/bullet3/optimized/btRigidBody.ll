@@ -47,7 +47,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN11btRigidBodyC2ERKNS_27btRigidBodyConstructionInfoE(ptr noundef nonnull align 8 dereferenceable(744) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %constructionInfo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
   tail call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 624
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
@@ -413,7 +413,7 @@ define dso_local void @_ZN11btRigidBodyC2EfP13btMotionStateP16btCollisionShapeRK
 invoke.cont18:
   %cinfo = alloca %"struct.btRigidBody::btRigidBodyConstructionInfo", align 8
   tail call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 624
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
@@ -2993,7 +2993,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11btRigidBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3031,7 +3031,7 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %entry, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11btRigidBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(744) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

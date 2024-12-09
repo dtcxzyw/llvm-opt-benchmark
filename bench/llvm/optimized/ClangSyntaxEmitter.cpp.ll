@@ -2266,13 +2266,13 @@ define internal void @"_ZN4llvm12function_refIFvRKN12_GLOBAL__N_19Hierarchy8Node
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %20, align 8, !alias.scope !44
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %21, align 8, !alias.scope !44
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %21, align 8, !alias.scope !44
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %.val11.val.val.i, ptr %22, align 8
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %.val11.val.val17.i, ptr %.sroa.28.0..sroa_idx.i, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %23, align 8, !alias.scope !44
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %23, align 8, !alias.scope !44
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %.val10.val.val.i, ptr %24, align 8
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -2330,25 +2330,25 @@ _ZN12_GLOBAL__N_112lastConcreteERKNS_9Hierarchy8NodeTypeE.exit.i: ; preds = %tai
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 1, ptr %40, align 8, !alias.scope !49
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %41, align 8, !alias.scope !49
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %41, align 8, !alias.scope !49
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %.val15.val.val.i, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %.val15.val.val21.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %43, align 8, !alias.scope !49
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %43, align 8, !alias.scope !49
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %.val14.val.val.i, ptr %44, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 %.val14.val.val20.i, ptr %.sroa.22.0..sroa_idx.i, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %45, align 8, !alias.scope !49
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %45, align 8, !alias.scope !49
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %.val11.val.val.i, ptr %46, align 8
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i64 %.val11.val.val17.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %47, align 8, !alias.scope !49
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %47, align 8, !alias.scope !49
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr %.val10.val.val.i, ptr %48, align 8
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -2853,17 +2853,17 @@ _ZL8printDocN4llvm9StringRefERNS_11raw_ostreamE.exit.i: ; preds = %_ZNK4llvm9Str
   %133 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 1, ptr %133, align 8, !alias.scope !69
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %134, align 8, !alias.scope !69
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %134, align 8, !alias.scope !69
   %135 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %.val30.val.val.i, ptr %135, align 8
   %.sroa.286.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %.val30.val.val36.i, ptr %.sroa.286.0..sroa_idx.i, align 8
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIPKcEE, i64 16), ptr %136, align 8, !alias.scope !69
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIPKcEE, i64 16), ptr %136, align 8, !alias.scope !69
   %137 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %126, ptr %137, align 8, !alias.scope !69
   %138 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %138, align 8, !alias.scope !69
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %138, align 8, !alias.scope !69
   %139 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr %.val31.val.val.i, ptr %139, align 8
   %.sroa.288.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -2905,13 +2905,13 @@ _ZL8printDocN4llvm9StringRefERNS_11raw_ostreamE.exit.i: ; preds = %_ZNK4llvm9Str
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 1, ptr %151, align 8, !alias.scope !74
   %152 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %152, align 8, !alias.scope !74
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %152, align 8, !alias.scope !74
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %.val28.val.val.i, ptr %153, align 8
   %.sroa.282.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 %.val28.val.val34.i, ptr %.sroa.282.0..sroa_idx.i, align 8
   %154 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %154, align 8, !alias.scope !74
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %154, align 8, !alias.scope !74
   %155 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %.val29.val.val.i, ptr %155, align 8
   %.sroa.284.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -2931,13 +2931,13 @@ _ZL8printDocN4llvm9StringRefERNS_11raw_ostreamE.exit.i: ; preds = %_ZNK4llvm9Str
   %159 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 1, ptr %159, align 8, !alias.scope !79
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %160, align 8, !alias.scope !79
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %160, align 8, !alias.scope !79
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %.val28.val.val.i, ptr %161, align 8
   %.sroa.278.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 %.val28.val.val34.i, ptr %.sroa.278.0..sroa_idx.i, align 8
   %162 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %162, align 8, !alias.scope !79
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %162, align 8, !alias.scope !79
   %163 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %.val29.val.val.i, ptr %163, align 8
   %.sroa.280.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -3026,11 +3026,11 @@ _ZL8printDocN4llvm9StringRefERNS_11raw_ostreamE.exit.i: ; preds = %_ZNK4llvm9Str
   store ptr %175, ptr %176, align 8, !alias.scope !84
   store i64 3, ptr %.sroa.2.0..sroa_idx.i.i.i.i56.i, align 8, !alias.scope !84
   store i8 1, ptr %177, align 8, !alias.scope !84
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRPKcEE, i64 16), ptr %178, align 8, !alias.scope !84
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRPKcEE, i64 16), ptr %178, align 8, !alias.scope !84
   store ptr %15, ptr %179, align 8, !alias.scope !84
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %180, align 8, !alias.scope !84
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %180, align 8, !alias.scope !84
   store ptr %13, ptr %181, align 8, !alias.scope !84
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNS_9StringRefEEE, i64 16), ptr %182, align 8, !alias.scope !84
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNS_9StringRefEEE, i64 16), ptr %182, align 8, !alias.scope !84
   store ptr %12, ptr %183, align 8, !alias.scope !84
   store ptr %182, ptr %175, align 8, !alias.scope !84
   store ptr %180, ptr %.sroa.2.0..sroa_idx.i.i.i57.i, align 8, !alias.scope !84

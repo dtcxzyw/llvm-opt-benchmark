@@ -1398,7 +1398,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_json_encode_double(ptr noundef %0, double noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [1077 x i8], align 16
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 32), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 32), align 8
   %6 = trunc i64 %5 to i32
   %7 = call ptr @zend_gcvt(double noundef %1, i32 noundef %6, i8 noundef signext 46, i8 noundef signext 101, ptr noundef nonnull %4) #7
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
@@ -1823,7 +1823,7 @@ define hidden range(i32 -1, 1) i32 @php_json_encode_zval(ptr noundef %0, ptr nou
   br i1 %174, label %175, label %203
 
 175:                                              ; preds = %171, %160
-  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not175.i = icmp eq ptr %176, null
   br i1 %.not175.i, label %177, label %182
 
@@ -1881,7 +1881,7 @@ define hidden range(i32 -1, 1) i32 @php_json_encode_zval(ptr noundef %0, ptr nou
   br label %php_json_encode_serializable_object.exit
 
 203:                                              ; preds = %171
-  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not171.i = icmp eq ptr %204, null
   br i1 %.not171.i, label %226, label %205
 

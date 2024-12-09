@@ -98,14 +98,14 @@ define hidden void @_ZN5boost6locale10impl_posix14create_collateERKSt6localeSt10
   store ptr null, ptr %2, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %13, align 8, !tbaa !10
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIcEE, i64 16), ptr %8, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIcEE, i64 16), ptr %8, align 8, !tbaa !13
   %14 = invoke noundef ptr @_ZNSt6locale5facet15_S_get_c_localeEv()
           to label %15 unwind label %43
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %14, ptr %16, align 8, !tbaa !15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIcEE, i64 16), ptr %8, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIcEE, i64 16), ptr %8, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %9, ptr %17, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -190,14 +190,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %38, %36
   store ptr null, ptr %2, align 8, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 0, ptr %51, align 8, !tbaa !10
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIwEE, i64 16), ptr %46, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIwEE, i64 16), ptr %46, align 8, !tbaa !13
   %52 = invoke noundef ptr @_ZNSt6locale5facet15_S_get_c_localeEv()
           to label %53 unwind label %81
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %52, ptr %54, align 8, !tbaa !23
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIwEE, i64 16), ptr %46, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIwEE, i64 16), ptr %46, align 8, !tbaa !13
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store ptr %47, ptr %55, align 8, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -543,7 +543,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale10impl_posix8collatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIcEE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIcEE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %.not.i.i = icmp eq ptr %3, null
@@ -594,7 +594,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   br label %_ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIcEE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIcEE, i64 16), ptr %0, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt6locale5facet19_S_destroy_c_localeERP15__locale_struct(ptr noundef nonnull align 8 dereferenceable(8) %25)
           to label %_ZNSt7__cxx117collateIcED2Ev.exit unwind label %26
@@ -613,7 +613,7 @@ _ZNSt7__cxx117collateIcED2Ev.exit:                ; preds = %_ZNSt12__shared_ptr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale10impl_posix8collatorIcED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIcEE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIcEE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %.not.i.i.i = icmp eq ptr %3, null
@@ -664,7 +664,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %21, %19
   br label %_ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 _ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %9, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIcEE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIcEE, i64 16), ptr %0, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt6locale5facet19_S_destroy_c_localeERP15__locale_struct(ptr noundef nonnull align 8 dereferenceable(8) %25)
           to label %_ZN5boost6locale10impl_posix8collatorIcED2Ev.exit unwind label %26
@@ -1289,7 +1289,7 @@ declare void @_ZNSt6locale5_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale10impl_posix8collatorIwED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIwEE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIwEE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %.not.i.i = icmp eq ptr %3, null
@@ -1340,7 +1340,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   br label %_ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIwEE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIwEE, i64 16), ptr %0, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt6locale5facet19_S_destroy_c_localeERP15__locale_struct(ptr noundef nonnull align 8 dereferenceable(8) %25)
           to label %_ZNSt7__cxx117collateIwED2Ev.exit unwind label %26
@@ -1359,7 +1359,7 @@ _ZNSt7__cxx117collateIwED2Ev.exit:                ; preds = %_ZNSt12__shared_ptr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale10impl_posix8collatorIwED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIwEE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost6locale10impl_posix8collatorIwEE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1410,7 +1410,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %21, %19
   br label %_ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 _ZNSt12__shared_ptrIP15__locale_structLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %9, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIwEE, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVNSt7__cxx117collateIwEE, i64 16), ptr %0, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt6locale5facet19_S_destroy_c_localeERP15__locale_struct(ptr noundef nonnull align 8 dereferenceable(8) %25)
           to label %_ZN5boost6locale10impl_posix8collatorIwED2Ev.exit unwind label %26

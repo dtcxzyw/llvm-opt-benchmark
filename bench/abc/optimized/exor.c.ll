@@ -465,7 +465,7 @@ define noundef i32 @ReduceEsopCover() local_unnamed_addr #4 {
 1:                                                ; preds = %68, %0
   %.048 = phi i32 [ 0, %0 ], [ %.149, %68 ]
   %.047 = phi i32 [ 0, %0 ], [ %.1, %68 ]
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4
   switch i32 %2, label %7 [
     i32 2, label %3
     i32 1, label %6
@@ -505,7 +505,7 @@ define noundef i32 @ReduceEsopCover() local_unnamed_addr #4 {
   %28 = add nsw i32 %26, %27
   %29 = tail call i32 @IterativelyApplyExorLink3(i8 noundef signext 3) #17
   %30 = add nsw i32 %28, %29
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 56), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 56), align 8
   %32 = icmp sgt i32 %31, 0
   %33 = zext i1 %32 to i32
   %34 = icmp sgt i32 %.048, %33
@@ -544,7 +544,7 @@ define noundef i32 @ReduceEsopCover() local_unnamed_addr #4 {
   %65 = add nsw i32 %63, %64
   %66 = tail call i32 @IterativelyApplyExorLink4(i8 noundef signext 3) #17
   %67 = add nsw i32 %65, %66
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 56), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 56), align 8
   br label %68
 
 68:                                               ; preds = %35, %7
@@ -558,7 +558,7 @@ define noundef i32 @ReduceEsopCover() local_unnamed_addr #4 {
 
 71:                                               ; preds = %68
   store i32 1, ptr @s_fDecreaseLiterals, align 4
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4
   switch i32 %72, label %77 [
     i32 2, label %73
     i32 1, label %76
@@ -617,8 +617,8 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  store i32 0, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 32), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 40), align 8
   %10 = getelementptr i8, ptr %0, i64 4
   %.val6291 = load i32, ptr %10, align 4
   %11 = icmp sgt i32 %.val6291, 0
@@ -693,12 +693,12 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
   br i1 %.not57, label %.loopexit, label %.preheader77
 
 .preheader77:                                     ; preds = %.critedge2
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 8), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph88, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph88, %.preheader77
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph90, label %.loopexit
 
@@ -712,7 +712,7 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv105
   store i32 0, ptr %46, align 4
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 8), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next106, %48
   br i1 %49, label %.lr.ph88, label %.preheader, !llvm.loop !14
@@ -723,7 +723,7 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
   %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv108
   store i32 0, ptr %52, align 4
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next109, %54
   br i1 %55, label %50, label %.loopexit, !llvm.loop !15
@@ -811,26 +811,26 @@ ComputeQCost.exit:                                ; preds = %.critedge.i, %66, %
   %.0.i.i = phi i16 [ 2, %67 ], [ 18, %75 ], [ %83, %76 ], [ 1, %.critedge.i ], [ 1, %66 ], [ 5, %68 ], [ 6, %70 ], [ 14, %72 ], [ 16, %74 ]
   %84 = getelementptr inbounds nuw i8, ptr %36, i64 6
   store i16 %.0.i.i, ptr %84, align 2
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 48), align 8
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8
   %86 = add nsw i32 %85, 1
-  store i32 %86, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 48), align 8
+  store i32 %86, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8
   %87 = trunc i32 %85 to i8
   %88 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store i8 %87, ptr %88, align 1
-  %89 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 48), align 8
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8
   %90 = icmp eq i32 %89, 256
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %ComputeQCost.exit
-  store i32 1, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 48), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8
   br label %92
 
 92:                                               ; preds = %91, %ComputeQCost.exit
   %93 = tail call i32 @CheckForCloseCubes(ptr noundef nonnull %36, i32 noundef 1) #17
   %.val = load i32, ptr %17, align 4
-  %94 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 32), align 8
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 32), align 8
   %95 = add nsw i32 %94, %.val
-  store i32 %95, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 32), align 8
+  store i32 %95, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 32), align 8
   %.val.i64 = load i32, ptr %17, align 4
   %96 = icmp sgt i32 %.val.i64, 0
   br i1 %96, label %.lr.ph.i69, label %.critedge.i65
@@ -902,9 +902,9 @@ ComputeQCost.exit:                                ; preds = %.critedge.i, %66, %
 
 ComputeQCost.exit76:                              ; preds = %.critedge.i65, %102, %103, %104, %106, %108, %110, %111, %112
   %.0.i.i67 = phi i32 [ 2, %103 ], [ 18, %111 ], [ %118, %112 ], [ 1, %.critedge.i65 ], [ 1, %102 ], [ 5, %104 ], [ 6, %106 ], [ 14, %108 ], [ 16, %110 ]
-  %119 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 40), align 8
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 40), align 8
   %120 = add nsw i32 %119, %.0.i.i67
-  store i32 %120, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 40), align 8
+  store i32 %120, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 40), align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %.val62 = load i32, ptr %10, align 4
   %121 = sext i32 %.val62 to i64
@@ -960,7 +960,7 @@ define range(i32 0, 2) i32 @Exorcism(ptr nocapture noundef readonly %0, i32 noun
   %17 = add nuw nsw i64 %13, %16
   %18 = trunc i64 %17 to i32
   store i32 %1, ptr @g_CoverInfo, align 8
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 8), align 8
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8
   %19 = sext i32 %2 to i64
   %20 = and i32 %2, 31
   %21 = lshr i64 %19, 5
@@ -968,9 +968,9 @@ define range(i32 0, 2) i32 @Exorcism(ptr nocapture noundef readonly %0, i32 noun
   %23 = zext i1 %22 to i64
   %24 = add nuw nsw i64 %21, %23
   %25 = trunc i64 %24 to i32
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 4), align 4
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 48), align 8
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 4), align 4
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 48), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %26 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #17
   %27 = icmp slt i32 %26, 0
@@ -990,7 +990,7 @@ Abc_Clock.exit:                                   ; preds = %4, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %32 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %32, align 4
-  store i32 %.val, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 20), align 4
+  store i32 %.val, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 20), align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %33 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #17
   %34 = icmp slt i32 %33, 0
@@ -1009,8 +1009,8 @@ Abc_Clock.exit42:                                 ; preds = %Abc_Clock.exit, %35
   %.0.i41 = phi i64 [ %41, %35 ], [ -1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %42 = add i64 %.0.i41, %.0.i.neg
-  store i64 %42, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 80), align 8
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
+  store i64 %42, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 80), align 8
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %51, label %44
 
@@ -1019,13 +1019,13 @@ Abc_Clock.exit42:                                 ; preds = %Abc_Clock.exit, %35
   %46 = fdiv float %45, 1.000000e+06
   %47 = fpext float %46 to double
   %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %47)
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 20), align 4
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 20), align 4
   %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %49)
   br label %51
 
 51:                                               ; preds = %44, %Abc_Clock.exit42
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 20), align 4
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 60), align 4
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 20), align 4
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 60), align 4
   %54 = icmp sgt i32 %52, %53
   br i1 %54, label %55, label %57
 
@@ -1035,9 +1035,9 @@ Abc_Clock.exit42:                                 ; preds = %Abc_Clock.exit, %35
 
 57:                                               ; preds = %51
   %58 = add nsw i32 %52, 33
-  store i32 %58, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 16), align 8
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 8), align 8
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
+  store i32 %58, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 16), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 8), align 8
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 12), align 4
   %61 = call i32 @AllocateCover(i32 noundef %58, i32 noundef %59, i32 noundef %60) #17
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %64
@@ -1048,7 +1048,7 @@ Abc_Clock.exit42:                                 ; preds = %Abc_Clock.exit, %35
 
 64:                                               ; preds = %57
   %65 = load i32, ptr @g_CoverInfo, align 8
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 4), align 4
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 4), align 4
   %67 = call i32 @AllocateCubeSets(i32 noundef %65, i32 noundef %66) #17
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %70
@@ -1058,7 +1058,7 @@ Abc_Clock.exit42:                                 ; preds = %Abc_Clock.exit, %35
   br label %123
 
 70:                                               ; preds = %64
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 16), align 8
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 16), align 8
   %72 = mul nsw i32 %71, %71
   %73 = udiv i32 %72, 20
   %74 = call i32 @AllocateQueques(i32 noundef %73) #17
@@ -1070,7 +1070,7 @@ Abc_Clock.exit42:                                 ; preds = %Abc_Clock.exit, %35
   br label %123
 
 77:                                               ; preds = %70
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4
   %.not31 = icmp eq i32 %78, 0
   br i1 %.not31, label %Abc_Clock.exit44, label %79
 
@@ -1085,7 +1085,7 @@ Abc_Clock.exit44:                                 ; preds = %79, %77
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %84 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4
   %.not32 = icmp eq i32 %85, 0
   br i1 %.not32, label %87, label %86
 
@@ -1095,7 +1095,7 @@ Abc_Clock.exit44:                                 ; preds = %79, %77
 
 87:                                               ; preds = %86, %Abc_Clock.exit44
   call void @AddCubesToStartingCover(ptr noundef nonnull %0)
-  %88 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4
   %.not33 = icmp eq i32 %88, 0
   br i1 %.not33, label %90, label %89
 
@@ -1140,8 +1140,8 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %.0.i47 = phi i64 [ %106, %100 ], [ -1, %Abc_Clock.exit46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %107 = add i64 %.0.i47, %.0.i45.neg
-  store i64 %107, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 88), align 8
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
+  store i64 %107, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 88), align 8
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4
   %.not35 = icmp eq i32 %108, 0
   br i1 %.not35, label %116, label %109
 
@@ -1150,7 +1150,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %111 = fdiv float %110, 1.000000e+06
   %112 = fpext float %111 to double
   %113 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, double noundef %112)
-  %114 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8
   %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %114)
   br label %116
 
@@ -1159,7 +1159,7 @@ Abc_Clock.exit48:                                 ; preds = %Abc_Clock.exit46, %
   %117 = select i1 %.not36, ptr @.str.14, ptr %3
   %strcpy = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %117)
   %118 = call i32 @WriteResultIntoFile(ptr noundef nonnull %10) #17
-  %119 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4
   %.not37 = icmp eq i32 %119, 0
   br i1 %.not37, label %122, label %120
 
@@ -1195,10 +1195,10 @@ declare void @DelocateQueques(...) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_ExorcismMain(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @g_CoverInfo, i8 0, i64 96, i1 false)
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 56), align 8
-  store i32 %5, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 52), align 4
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 60), align 4
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 64), align 8
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 56), align 8
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 52), align 4
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 60), align 4
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 64), align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %9
 

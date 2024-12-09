@@ -197,7 +197,7 @@ define dso_local noundef zeroext i1 @_ZN21cmParseDelphiCoverage16LoadCoverageDat
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %43 = load ptr, ptr %15, align 8
   %44 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 16), ptr %3, align 8
   store ptr %43, ptr %16, align 8
   store ptr %44, ptr %17, align 8
   %45 = invoke noundef zeroext i1 @_ZN21cmParseDelphiCoverage10HTMLParser9ParseFileEPKc(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %42)
@@ -281,7 +281,7 @@ define dso_local noundef zeroext i1 @_ZN21cmParseDelphiCoverage14ReadDelphiHTMLE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16

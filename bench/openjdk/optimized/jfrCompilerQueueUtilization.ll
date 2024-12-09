@@ -98,14 +98,14 @@ define hidden void @_ZN27JfrCompilerQueueUtilization11send_eventsEv() local_unna
 6:                                                ; preds = %4
   %7 = tail call noundef ptr @_ZN13CompileBroker16c1_compile_queueEv() #7
   store ptr %7, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, align 16
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 8), align 8
-  store ptr @_ZN13CompileBroker19get_c1_thread_countEv, ptr getelementptr inbounds (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 16), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 24), i8 0, i64 16, i1 false)
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 8), align 8
+  store ptr @_ZN13CompileBroker19get_c1_thread_countEv, ptr getelementptr inbounds nuw (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 16), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 24), i8 0, i64 16, i1 false)
   %8 = tail call noundef ptr @_ZN13CompileBroker16c2_compile_queueEv() #7
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 40), align 8
-  store i64 2, ptr getelementptr inbounds (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 48), align 16
-  store ptr @_ZN13CompileBroker19get_c2_thread_countEv, ptr getelementptr inbounds (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 56), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 64), i8 0, i64 16, i1 false)
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 40), align 8
+  store i64 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 48), align 16
+  store ptr @_ZN13CompileBroker19get_c2_thread_countEv, ptr getelementptr inbounds nuw (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 56), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries, i64 64), i8 0, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN27JfrCompilerQueueUtilization11send_eventsEvE20compilerQueueEntries) #7
   br label %9
 
@@ -250,7 +250,7 @@ declare noundef ptr @_ZN13CompileBroker16c2_compile_queueEv() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN13CompileBroker19get_c2_thread_countEv() #0 comdat align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load volatile i32, ptr %2, align 8
   ret i32 %3

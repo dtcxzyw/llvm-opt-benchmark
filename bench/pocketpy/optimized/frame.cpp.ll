@@ -201,7 +201,7 @@ define void @_ZN4pkpy10FastLocals11to_namedictEv(ptr dead_on_unwind noalias writ
   store i32 1, ptr %5, align 8, !noalias !7
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy12NameDictImplIPNS0_8PyObjectEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4pkpy12NameDictImplIPNS0_8PyObjectEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !7
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %7, align 8, !noalias !7
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 18

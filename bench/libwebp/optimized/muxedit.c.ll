@@ -344,13 +344,13 @@ GetImageData.exit:                                ; preds = %13, %27
   %31 = tail call i32 @VP8LCheckSignature(ptr noundef %28, i64 noundef %30) #7
   %.fr = freeze i32 %31
   %.not = icmp eq i32 %.fr, 0
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 72), align 8
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 60), align 4
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 72), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 60), align 4
   %spec.select = select i1 %.not, i32 %33, i32 %32
   br i1 %.not17, label %41, label %34
 
 34:                                               ; preds = %GetImageData.exit
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 48), align 16
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 48), align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @ChunkInit(ptr noundef nonnull %5) #7
   %36 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %1, i32 noundef %35) #7
@@ -459,7 +459,7 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br i1 %.not49, label %28, label %56
 
 28:                                               ; preds = %26
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 36), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 36), align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = load i32, ptr %30, align 8
@@ -525,7 +525,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -3, 2) i32 @CreateFrameData(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 44), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 44), align 4
   %6 = zext i32 %5 to i64
   %7 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %6) #7
   %8 = icmp eq ptr %7, null
@@ -659,7 +659,7 @@ define i32 @WebPMuxSetAnimationParams(ptr noundef %0, ptr noundef readonly %1) l
   br i1 %or.cond18, label %MuxDeleteAllNamedData.exit.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 24), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 24), align 8
   %13 = call i32 @ChunkGetIdFromTag(i32 noundef %12) #7
   switch i32 %13, label %14 [
     i32 3, label %MuxDeleteAllNamedData.exit.thread
@@ -891,7 +891,7 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly %1) local_unna
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 40), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 40), align 8
   %13 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef %12, ptr noundef nonnull %5) #7
   %.not.i = icmp eq i32 %13, 1
   br i1 %.not.i, label %14, label %MuxCleanup.exit.thread
@@ -947,7 +947,7 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly %1) local_unna
   br label %43
 
 43:                                               ; preds = %40, %34, %30, %19, %14
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 28), align 4
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 28), align 4
   %45 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef %44, ptr noundef nonnull %6) #7
   %.not23.i = icmp eq i32 %45, 1
   br i1 %.not23.i, label %46, label %MuxCleanup.exit.thread
@@ -961,7 +961,7 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly %1) local_unna
   br i1 %or.cond.i, label %51, label %.loopexit
 
 51:                                               ; preds = %46
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 24), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 24), align 8
   %53 = call i32 @ChunkGetIdFromTag(i32 noundef %52) #7
   switch i32 %53, label %54 [
     i32 3, label %MuxCleanup.exit.thread
@@ -1147,7 +1147,7 @@ MuxDeleteAllNamedData.exit.thread82.i:            ; preds = %92, %82
 
 115:                                              ; preds = %113
   %116 = load i32, ptr %114, align 8
-  %117 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 36), align 4
+  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 36), align 4
   %118 = icmp eq i32 %116, %117
   %119 = or i32 %.2.i, 2
   %spec.select66.i = select i1 %118, i32 %119, i32 %.2.i

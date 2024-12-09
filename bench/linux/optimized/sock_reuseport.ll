@@ -157,7 +157,7 @@ define dso_local range(i32 -2147483648, 1) i32 @reuseport_alloc(ptr noundef %0, 
   br label %.thread
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %19 = tail call noalias align 8 dereferenceable_or_null(1072) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 2336, i64 noundef 1072) #9
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21
@@ -297,7 +297,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @reuseport_resurrect(ptr no
   br i1 %56, label %57, label %74
 
 57:                                               ; preds = %55
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %59 = tail call noalias align 8 dereferenceable_or_null(1072) ptr @kmalloc_trace(ptr noundef %58, i32 noundef 2336, i64 noundef 1072) #9
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.thread16, label %61
@@ -1183,7 +1183,7 @@ define dso_local ptr @reuseport_select_sock(ptr noundef %0, i32 noundef %1, ptr 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %117, i64 124
   %126 = load volatile i32, ptr %125, align 4
-  %127 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !21
+  %127 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !21
   %128 = icmp eq i32 %126, %127
   br i1 %128, label %.thread11, label %129
 
@@ -1299,7 +1299,7 @@ define dso_local ptr @reuseport_migrate_sock(ptr noundef %0, ptr noundef %1, ptr
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 124
   %61 = load volatile i32, ptr %60, align 4
-  %62 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !21
+  %62 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !21
   %63 = icmp eq i32 %61, %62
   br i1 %63, label %.thread11, label %64
 

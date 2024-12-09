@@ -195,7 +195,7 @@ _ZNK5boost4urls6detail8path_ref8alias_ofERKS2_.exit: ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %24, i8 0, i64 37, i1 false), !alias.scope !13
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterINS0_21segments_encoded_base8iteratorEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterINS0_21segments_encoded_base8iteratorEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !13
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, i64 80, i1 false)
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 128
@@ -306,7 +306,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN5boost4urls20segments
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %14, i8 0, i64 37, i1 false), !alias.scope !29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterINS0_21segments_encoded_base8iteratorEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !29
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterINS0_21segments_encoded_base8iteratorEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !29
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0, i64 80, i1 false)
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 128
@@ -394,7 +394,7 @@ define linkonce_odr hidden void @_ZN5boost4urls20segments_encoded_ref6assignIPKN
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %11, i8 0, i64 37, i1 false), !alias.scope !32
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPKNS0_15pct_string_viewEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !32
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPKNS0_15pct_string_viewEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !32
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %1, ptr %12, align 8, !tbaa !35, !alias.scope !32
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -474,7 +474,7 @@ define void @_ZN5boost4urls20segments_encoded_ref6insertENS0_21segments_encoded_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %12, i8 0, i64 37, i1 false), !alias.scope !47, !noalias !44
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPKNS0_15pct_string_viewEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !47, !noalias !44
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPKNS0_15pct_string_viewEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !47, !noalias !44
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %3, ptr %13, align 8, !tbaa !35, !alias.scope !47, !noalias !44
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -527,7 +527,7 @@ define void @_ZN5boost4urls20segments_encoded_ref5eraseENS0_21segments_encoded_b
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #12
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %10, i8 0, i64 37, i1 false), !alias.scope !51
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPNS_4core17basic_string_viewIcEEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !51
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPNS_4core17basic_string_viewIcEEEE, i64 16), ptr %7, align 8, !tbaa !16, !alias.scope !51
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %5, ptr %11, align 8, !tbaa !54, !alias.scope !51
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -604,7 +604,7 @@ define void @_ZN5boost4urls20segments_encoded_ref7replaceENS0_21segments_encoded
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %14, i8 0, i64 37, i1 false), !alias.scope !64, !noalias !61
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPKNS0_15pct_string_viewEEE, i64 16), ptr %8, align 8, !tbaa !16, !alias.scope !64, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail21segments_encoded_iterIPKNS0_15pct_string_viewEEE, i64 16), ptr %8, align 8, !tbaa !16, !alias.scope !64, !noalias !61
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %4, ptr %15, align 8, !tbaa !35, !alias.scope !64, !noalias !61
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 56

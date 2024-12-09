@@ -464,7 +464,7 @@ define dso_local void @_ZN5vcpkg28format_filesystem_call_errorERKSt10error_codeN
           to label %.noexc24 unwind label %38
 
 .noexc24:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 2))
           to label %.critedge23 unwind label %16
 
 16:                                               ; preds = %.noexc24
@@ -10532,7 +10532,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem28create_or_get_te
           to label %.noexc10 unwind label %21
 
 .noexc10:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.27, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.27, i64 4))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %10
 
 10:                                               ; preds = %.noexc10
@@ -11241,7 +11241,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem24take_exclusive_f
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %"struct.vcpkg::StringView", align 8
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30, !noalias !109
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 16), ptr %8, align 8, !noalias !109
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 16), ptr %8, align 8, !noalias !109
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #28, !noalias !109
   %10 = invoke i32 (ptr, i32, ...) @open64(ptr noundef readonly %9, i32 noundef 66, i32 noundef 420)
           to label %11 unwind label %17, !noalias !109
@@ -11406,7 +11406,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem28try_take_exclusi
   %9 = alloca %"struct.vcpkg::StringView", align 8
   %10 = alloca %"struct.vcpkg::LocalizedString", align 8
   %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30, !noalias !113
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 16), ptr %11, align 8, !noalias !113
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 16), ptr %11, align 8, !noalias !113
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #28, !noalias !113
   %13 = invoke i32 (ptr, i32, ...) @open64(ptr noundef readonly %12, i32 noundef 66, i32 noundef 420)
           to label %14 unwind label %20, !noalias !113
@@ -13777,7 +13777,7 @@ _ZN5vcpkg11MessageSink7printlnEONS_15LocalizedStringE.exit: ; preds = %.noexc
 define linkonce_odr dso_local void @_ZN5vcpkg14RealFilesystem17ExclusiveFileLockD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.vcpkg::LineInfo", align 8
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1

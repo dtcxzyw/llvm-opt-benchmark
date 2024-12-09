@@ -311,7 +311,7 @@ define ptr @gres_sock_list_create(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %brmerge.i.i, label %170, label %162
 
 162:                                              ; preds = %159
-  %163 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %163 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %164 = and i64 %163, 1
   %.not33.i.i = icmp eq i64 %164, 0
   br i1 %.not33.i.i, label %_can_use_gres_exc_topo.exit.thread.i, label %165
@@ -333,7 +333,7 @@ define ptr @gres_sock_list_create(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %brmerge34.not.i.i, label %172, label %_can_use_gres_exc_topo.exit.thread3.i
 
 172:                                              ; preds = %170
-  %173 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %173 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %174 = and i64 %173, 1
   %.not32.i.i = icmp eq i64 %174, 0
   br i1 %.not32.i.i, label %_can_use_gres_exc_topo.exit.thread.i, label %175
@@ -417,7 +417,7 @@ _can_use_gres_exc_topo.exit.thread3._crit_edge.i: ; preds = %_can_use_gres_exc_t
   %.1316.i = phi i64 [ %.0315.i, %203 ], [ %.0315.i, %199 ], [ %.0315.i, %197 ], [ %.0315.i, %196 ], [ %210, %206 ]
   %213 = load i32, ptr %59, align 8
   %214 = call zeroext i1 @gres_id_shared(i32 noundef %213) #5
-  %215 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %215 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %.not372.i = icmp sgt i16 %215, -1
   %or.cond397.i = select i1 %214, i1 %.not372.i, i1 false
   br i1 %or.cond397.i, label %216, label %220
@@ -1185,7 +1185,7 @@ _handle_gres_exc_by_type.exit.us.i:               ; preds = %483
   %539 = load i64, ptr %538, align 8
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %storemerge.i, i64 %539)
   %.sink.i.i = select i1 %.not26.i.i128, i64 %539, i64 %spec.select.i.i
-  %540 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %540 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %541 = and i64 %540, 1
   %.not32.i.i132 = icmp eq i64 %541, 0
   br i1 %.not32.i.i132, label %_handle_gres_exc_by_type.exit.i, label %542
@@ -1322,7 +1322,7 @@ _build_sock_gres_by_type.exit:                    ; preds = %._crit_edge.i127, %
 
 599:                                              ; preds = %594, %589
   %.sink.i.i145 = phi i64 [ %598, %594 ], [ %spec.select.i.i144, %589 ]
-  %600 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %600 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %601 = and i64 %600, 1
   %.not25.i.i146 = icmp eq i64 %601, 0
   br i1 %.not25.i.i146, label %_handle_gres_exc_basic.exit.i, label %602
@@ -1383,7 +1383,7 @@ _build_sock_gres_basic.exit.thread:               ; preds = %_handle_gres_exc_ba
 .loopexit:                                        ; preds = %614, %.loopexit.sink.split, %35, %_build_sock_gres_basic.exit.thread, %61
   %.092 = phi ptr [ null, %61 ], [ null, %_build_sock_gres_basic.exit.thread ], [ %36, %35 ], [ null, %.loopexit.sink.split ], [ %36, %614 ]
   call void @slurm_list_iterator_destroy(ptr noundef %37) #5
-  %619 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %619 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %620 = and i64 %619, 64
   %.not119 = icmp eq i64 %620, 0
   br i1 %.not119, label %695, label %621

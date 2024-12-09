@@ -489,7 +489,7 @@ declare noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13get
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noalias noundef nonnull ptr @_ZN5clang21CreateMicrosoftCXXABIERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %0) local_unnamed_addr #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #14
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_115MicrosoftCXXABIE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_115MicrosoftCXXABIE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -767,7 +767,7 @@ declare noundef nonnull align 8 dereferenceable(1304) ptr @_ZNK5clang10ASTContex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABID2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_115MicrosoftCXXABIE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_115MicrosoftCXXABIE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1124,7 +1124,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121MSHIPNumberingContextESt14default_deleteIS1_E
   store i32 0, ptr %19, align 4, !noalias !13
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i32 0, ptr %20, align 8, !noalias !13
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_121MSHIPNumberingContextE, i64 16), ptr %15, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_121MSHIPNumberingContextE, i64 16), ptr %15, align 8, !noalias !13
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 56
   tail call void @_ZN5clang29createItaniumNumberingContextEPNS_13MangleContextE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.441") align 8 %21, ptr noundef %14) #12, !noalias !13
   br label %37
@@ -1150,7 +1150,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122MSSYCLNumberingContextESt14default_deleteIS1_
   store i32 0, ptr %32, align 4, !noalias !16
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i32 0, ptr %33, align 8, !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_122MSSYCLNumberingContextE, i64 16), ptr %28, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_122MSSYCLNumberingContextE, i64 16), ptr %28, align 8, !noalias !16
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 56
   tail call void @_ZN5clang29createItaniumNumberingContextEPNS_13MangleContextE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.441") align 8 %34, ptr noundef %27) #12, !noalias !16
   br label %37
@@ -1158,7 +1158,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122MSSYCLNumberingContextESt14default_deleteIS1_
 _ZNSt10unique_ptrIN12_GLOBAL__N_125MicrosoftNumberingContextESt14default_deleteIS1_EED2Ev.exit: ; preds = %22
   %35 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14, !noalias !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %35, i8 0, i64 56, i1 false), !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %35, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %35, align 8, !noalias !19
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %36, i8 0, i64 20, i1 false), !noalias !19
   br label %37
@@ -1643,7 +1643,7 @@ declare void @_ZN5clang29createItaniumNumberingContextEPNS_13MangleContextE(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121MSHIPNumberingContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_121MSHIPNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_121MSHIPNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1658,7 +1658,7 @@ _ZNKSt14default_deleteIN5clang22MangleNumberingContextEEclEPS1_.exit.i: ; preds 
 
 _ZNSt10unique_ptrIN5clang22MangleNumberingContextESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5clang22MangleNumberingContextEEclEPS1_.exit.i
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1671,7 +1671,7 @@ _ZNSt10unique_ptrIN5clang22MangleNumberingContextESt14default_deleteIS1_EED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_121MSHIPNumberingContextD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_121MSHIPNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_121MSHIPNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -1686,7 +1686,7 @@ _ZNKSt14default_deleteIN5clang22MangleNumberingContextEEclEPS1_.exit.i.i: ; pred
 
 _ZN12_GLOBAL__N_121MSHIPNumberingContextD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5clang22MangleNumberingContextEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1875,7 +1875,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_121MSHIPNumberingContext23getDevice
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1888,7 +1888,7 @@ define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD2Ev(ptr nocap
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD0Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2218,7 +2218,7 @@ declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122MSSYCLNumberingContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_122MSSYCLNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_122MSSYCLNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2233,7 +2233,7 @@ _ZNKSt14default_deleteIN5clang22MangleNumberingContextEEclEPS1_.exit.i: ; preds 
 
 _ZNSt10unique_ptrIN5clang22MangleNumberingContextESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5clang22MangleNumberingContextEEclEPS1_.exit.i
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2246,7 +2246,7 @@ _ZNSt10unique_ptrIN5clang22MangleNumberingContextESt14default_deleteIS1_EED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122MSSYCLNumberingContextD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_122MSSYCLNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_122MSSYCLNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -2261,7 +2261,7 @@ _ZNKSt14default_deleteIN5clang22MangleNumberingContextEEclEPS1_.exit.i.i: ; pred
 
 _ZN12_GLOBAL__N_122MSSYCLNumberingContextD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5clang22MangleNumberingContextEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32

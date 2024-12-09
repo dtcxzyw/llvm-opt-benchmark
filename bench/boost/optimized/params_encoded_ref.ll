@@ -173,7 +173,7 @@ _ZNK5boost4urls6detail9query_ref8alias_ofERKS2_.exit: ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false), !alias.scope !14
   store i8 %25, ptr %27, align 8, !tbaa !17, !alias.scope !14
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterINS0_19params_encoded_base8iteratorEEE, i64 16), ptr %5, align 8, !tbaa !20, !alias.scope !14
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterINS0_19params_encoded_base8iteratorEEE, i64 16), ptr %5, align 8, !tbaa !20, !alias.scope !14
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !14
   %.sroa.5.0..sroa_idx3.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 208
@@ -232,7 +232,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost4urls18params_e
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !alias.scope !22
   store i8 %12, ptr %14, align 8, !tbaa !17, !alias.scope !22
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterIPKNS0_14param_pct_viewEEE, i64 16), ptr %6, align 8, !tbaa !20, !alias.scope !22
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterIPKNS0_14param_pct_viewEEE, i64 16), ptr %6, align 8, !tbaa !20, !alias.scope !22
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %1, ptr %15, align 8, !tbaa !25, !alias.scope !22
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -291,7 +291,7 @@ define void @_ZN5boost4urls18params_encoded_ref6assignESt16initializer_listINS0_
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !alias.scope !29
   store i8 %12, ptr %14, align 8, !tbaa !17, !alias.scope !29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterIPKNS0_14param_pct_viewEEE, i64 16), ptr %6, align 8, !tbaa !20, !alias.scope !29
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterIPKNS0_14param_pct_viewEEE, i64 16), ptr %6, align 8, !tbaa !20, !alias.scope !29
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %1, ptr %15, align 8, !tbaa !25, !alias.scope !29
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -372,7 +372,7 @@ define void @_ZN5boost4urls18params_encoded_ref6insertENS0_19params_encoded_base
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false), !alias.scope !38, !noalias !35
   store i8 %13, ptr %15, align 8, !tbaa !17, !alias.scope !38, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterIPKNS0_14param_pct_viewEEE, i64 16), ptr %7, align 8, !tbaa !20, !alias.scope !38, !noalias !35
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterIPKNS0_14param_pct_viewEEE, i64 16), ptr %7, align 8, !tbaa !20, !alias.scope !38, !noalias !35
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %3, ptr %16, align 8, !tbaa !25, !alias.scope !38, !noalias !35
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -630,7 +630,7 @@ define void @_ZN5boost4urls18params_encoded_ref7replaceENS0_19params_encoded_bas
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !alias.scope !73, !noalias !70
   store i8 %15, ptr %17, align 8, !tbaa !17, !alias.scope !73, !noalias !70
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterIPKNS0_14param_pct_viewEEE, i64 16), ptr %8, align 8, !tbaa !20, !alias.scope !73, !noalias !70
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterIPKNS0_14param_pct_viewEEE, i64 16), ptr %8, align 8, !tbaa !20, !alias.scope !73, !noalias !70
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %4, ptr %18, align 8, !tbaa !25, !alias.scope !73, !noalias !70
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -675,7 +675,7 @@ define void @_ZN5boost4urls18params_encoded_ref5unsetENS0_19params_encoded_base8
   %11 = add i64 %10, -1
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %12, i8 0, i64 33, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail24param_encoded_value_iterE, i64 16), ptr %6, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail24param_encoded_value_iterE, i64 16), ptr %6, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %11, ptr %13, align 8, !tbaa !78
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -725,7 +725,7 @@ define void @_ZN5boost4urls18params_encoded_ref3setENS0_19params_encoded_base8it
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !83
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %14, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail24param_encoded_value_iterE, i64 16), ptr %7, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail24param_encoded_value_iterE, i64 16), ptr %7, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %12, ptr %15, align 8, !tbaa !78
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -855,7 +855,7 @@ _ZN5boost4urls18params_encoded_ref6appendERKNS0_14param_pct_viewE.exit: ; preds 
   store i64 %.sroa.2.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !83, !noalias !97
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %44, i8 0, i64 17, i1 false), !noalias !97
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail24param_encoded_value_iterE, i64 16), ptr %13, align 8, !tbaa !20, !noalias !97
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail24param_encoded_value_iterE, i64 16), ptr %13, align 8, !tbaa !20, !noalias !97
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 %42, ptr %45, align 8, !tbaa !78, !noalias !97
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 56

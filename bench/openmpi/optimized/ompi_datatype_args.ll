@@ -1285,7 +1285,7 @@ define internal fastcc ptr @__ompi_datatype_create_from_packed_description(ptr n
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %53 = trunc nuw nsw i64 %indvars.iv to i32
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 32), align 16
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 32), align 16
   store ptr %54, ptr %52, align 8
   br label %371
 

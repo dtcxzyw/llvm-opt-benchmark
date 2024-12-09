@@ -48,7 +48,7 @@ define void @prte_iof_hnp_recv(i32 noundef %0, ptr noundef %1, ptr noundef %2, i
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %10, 64
   br i1 %or.cond, label %11, label %19
 
@@ -92,7 +92,7 @@ define void @prte_iof_hnp_recv(i32 noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %151
 
 27:                                               ; preds = %23
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond89 = icmp ult i32 %28, 64
   br i1 %or.cond89, label %29, label %37
 
@@ -245,7 +245,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds nuw i8, ptr %46, i64 392
   store i64 %97, ptr %98, align 8
-  %99 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond90 = icmp ult i32 %99, 64
   br i1 %or.cond90, label %100, label %109
 
@@ -264,14 +264,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   br label %109
 
 109:                                              ; preds = %105, %100, %95
-  %.06399 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 464), align 8
-  %.not77100 = icmp eq ptr %.06399, getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 344)
+  %.06399 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_iof_hnp_component, i64 464), align 8
+  %.not77100 = icmp eq ptr %.06399, getelementptr inbounds nuw (i8, ptr @prte_mca_iof_hnp_component, i64 344)
   br i1 %.not77100, label %._crit_edge, label %.lr.ph
 
 110:                                              ; preds = %.lr.ph
   %111 = getelementptr inbounds nuw i8, ptr %.063101, i64 120
   %.063 = load ptr, ptr %111, align 8
-  %.not77 = icmp eq ptr %.063, getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 344)
+  %.not77 = icmp eq ptr %.063, getelementptr inbounds nuw (i8, ptr @prte_mca_iof_hnp_component, i64 344)
   br i1 %.not77, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %109, %110
@@ -284,17 +284,17 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   %114 = call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_iof_proc_t_class)
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 144
   call void @PMIx_Xfer_procid(ptr noundef nonnull %115, ptr noundef nonnull %6) #9
-  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 472), align 8
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_iof_hnp_component, i64 472), align 8
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 128
   store ptr %116, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 120
   store volatile ptr %114, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 120
-  store ptr getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 344), ptr %119, align 8
-  store ptr %114, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 472), align 8
-  %120 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 488), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @prte_mca_iof_hnp_component, i64 344), ptr %119, align 8
+  store ptr %114, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_iof_hnp_component, i64 472), align 8
+  %120 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_iof_hnp_component, i64 488), align 8
   %121 = add i64 %120, 1
-  store volatile i64 %121, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 488), align 8
+  store volatile i64 %121, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_iof_hnp_component, i64 488), align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge

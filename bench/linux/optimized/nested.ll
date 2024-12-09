@@ -39,7 +39,7 @@ define dso_local noundef ptr @intel_nested_domain_alloc(ptr noundef %0, ptr noun
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @intel_iommu_ops, i64 136), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @intel_iommu_ops, i64 136), align 8
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %12, label %58
 
@@ -80,7 +80,7 @@ define dso_local noundef ptr @intel_nested_domain_alloc(ptr noundef %0, ptr noun
   br label %58
 
 31:                                               ; preds = %24
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %33 = call noalias noundef align 8 dereferenceable_or_null(248) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 4197824, i64 noundef 248) #8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %58, label %35

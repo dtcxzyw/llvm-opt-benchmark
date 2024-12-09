@@ -1264,7 +1264,7 @@ if.end.i20:                                       ; preds = %if.then10
 if.else:                                          ; preds = %if.end7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i)
   store ptr %self, ptr %self.addr.i, align 8
-  %call.i22 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56344), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
+  %call.i22 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56344), ptr noundef nonnull %self.addr.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i)
   %tobool13.not = icmp eq ptr %call.i22, null
   br i1 %tobool13.not, label %return, label %land.lhs.true
@@ -3207,7 +3207,7 @@ if.end:                                           ; preds = %if.end.i.i, %if.els
   br i1 %tobool.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %call5 = tail call ptr @PyUnicode_Replace(ptr noundef %decoded.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25496), ptr noundef nonnull %2, i64 noundef -1) #6
+  %call5 = tail call ptr @PyUnicode_Replace(ptr noundef %decoded.0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25496), ptr noundef nonnull %2, i64 noundef -1) #6
   %3 = load i64, ptr %decoded.0, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i77.not = icmp eq i64 %4, 0
@@ -3496,7 +3496,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp4.i, label %_io_StringIO_newlines_get_impl.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end3.i
-  %call.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52896)) #6
+  %call.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52896)) #6
   br label %_io_StringIO_newlines_get_impl.exit
 
 _io_StringIO_newlines_get_impl.exit:              ; preds = %if.then.i, %if.then2.i, %if.end3.i, %if.end7.i

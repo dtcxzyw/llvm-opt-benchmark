@@ -134,7 +134,7 @@ define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr
   tail call void @gtk_box_pack_start(ptr noundef %22, ptr noundef %20, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
   %23 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef 80) #16
   %24 = tail call i64 @g_signal_connect_data(ptr noundef %23, ptr noundef nonnull @.str.6, ptr noundef nonnull @button_clicked, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !19
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1448
   %27 = load double, ptr %26, align 8, !tbaa !28
   %28 = fmul reassoc nsz arcp contract afn double %27, 1.000000e+01
@@ -210,7 +210,7 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal void @button_clicked(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !12
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !19
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !19
   %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = tail call ptr @dt_ui_main_window(ptr noundef %6) #16
   %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #16
@@ -319,7 +319,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #16
   store i32 0, ptr %17, align 4, !tbaa !6
   call void @dt_image_full_path(i32 noundef %2, ptr noundef nonnull %16, i64 noundef 4096, ptr noundef nonnull %17) #16
-  %19 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #16
+  %19 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #16
   %20 = call i32 @g_file_test(ptr noundef %1, i32 noundef 20) #16
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %26
@@ -419,7 +419,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull %16) #16
   %77 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #16
   call void (ptr, ...) @dt_control_log(ptr noundef %77, ptr noundef nonnull %16) #16
-  %78 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #16
+  %78 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #16
   br label %112
 
 79:                                               ; preds = %73
@@ -464,7 +464,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %107 = call ptr @g_list_insert_sorted(ptr noundef %106, ptr noundef %85, ptr noundef nonnull @sort_pos) #16
   store ptr %107, ptr %105, align 8, !tbaa !49
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %18) #16
-  %108 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #16
+  %108 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #16
   %109 = call i32 @dt_imageio_export(i32 noundef %2, ptr noundef nonnull %15, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %7, i32 noundef %8, i32 noundef 1, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %5, i32 noundef %6, ptr noundef %13) #16
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull %15) #16
   %110 = sext i32 %5 to i64

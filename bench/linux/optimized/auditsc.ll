@@ -359,7 +359,7 @@ define internal fastcc i32 @audit_filter_task(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @audit_alloc_context(i32 noundef range(i32 1, 0) %0) unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(1008) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1008) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
@@ -1139,7 +1139,7 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
   %282 = load i64, ptr %281, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %7, i8 0, i64 96, i1 false), !annotation !5
-  %283 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
+  %283 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %284 = tail call noalias align 8 dereferenceable_or_null(7501) ptr @kmalloc_trace(ptr noundef %283, i32 noundef 3264, i64 noundef 7501) #13
   %285 = icmp eq ptr %284, null
   br i1 %285, label %286, label %287
@@ -1934,7 +1934,7 @@ audit_log_pid_context.exit.thread:                ; preds = %audit_log_pid_conte
   br label %764
 
 722:                                              ; preds = %717
-  %723 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %723 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %724 = call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %723, i32 noundef 3264, i64 noundef 128) #13
   %725 = icmp eq ptr %724, null
   br i1 %725, label %768, label %726
@@ -2942,7 +2942,7 @@ define dso_local void @__audit_getname(ptr noundef %0) local_unnamed_addr #0 ali
   br label %23
 
 17:                                               ; preds = %9
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %19 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3392, i64 noundef 112) #13
   %20 = icmp eq ptr %19, null
   br i1 %20, label %audit_alloc_name.exit.thread, label %21
@@ -3269,7 +3269,7 @@ define dso_local void @__audit_inode(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %170
 
 164:                                              ; preds = %.loopexit29
-  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %166 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %165, i32 noundef 3392, i64 noundef 112) #13
   %167 = icmp eq ptr %166, null
   br i1 %167, label %audit_alloc_name.exit.thread, label %168
@@ -3944,7 +3944,7 @@ define dso_local void @__audit_inode_child(ptr noundef %0, ptr noundef %1, i8 no
   br label %224
 
 218:                                              ; preds = %210
-  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %220 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %219, i32 noundef 3392, i64 noundef 112) #13
   %221 = icmp eq ptr %220, null
   br i1 %221, label %audit_alloc_name.exit.thread, label %222
@@ -4038,7 +4038,7 @@ audit_alloc_name.exit:                            ; preds = %224, %236
   br label %279
 
 273:                                              ; preds = %265
-  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %275 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %274, i32 noundef 3392, i64 noundef 112) #13
   %276 = icmp eq ptr %275, null
   br i1 %276, label %audit_alloc_name.exit.thread, label %277
@@ -4447,7 +4447,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__audit_sockaddr(i32 noundef %0,
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %12 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 128) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
@@ -4572,7 +4572,7 @@ define dso_local noundef range(i32 -12, 1) i32 @audit_signal_info_syscall(ptr no
   br i1 %42, label %43, label %50
 
 43:                                               ; preds = %39, %35
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %45 = tail call noalias align 8 dereferenceable_or_null(600) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 2336, i64 noundef 600) #13
   %46 = icmp eq ptr %45, null
   br i1 %46, label %89, label %47
@@ -4654,7 +4654,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__audit_log_bprm_fcaps(ptr nocap
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1976
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 144) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %59, label %12
@@ -6859,7 +6859,7 @@ declare dso_local ptr @audit_tree_lookup(ptr noundef) local_unnamed_addr #2
 define internal fastcc noundef range(i32 0, 2) i32 @grow_tree_refs(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 256) #13
   store ptr %5, ptr %2, align 8
   %6 = icmp eq ptr %5, null

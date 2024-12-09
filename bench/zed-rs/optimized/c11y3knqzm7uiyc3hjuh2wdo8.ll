@@ -4189,7 +4189,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9df09a517b193acdE.exit.i.i.i: ; preds =
           to label %.body.i unwind label %699, !noalias !609
 
 704:                                              ; preds = %.noexc.i.i, %.loopexit
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %694, %.noexc.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %.loopexit ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %694, %.noexc.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %.loopexit ]
   %705 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !610, !noundef !5
   %706 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %707 = load i64, ptr %706, align 8, !noalias !610, !noundef !5
@@ -4306,7 +4306,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9df09a517b193acdE.exit.i.i: ; preds = %
   unreachable
 
 739:                                              ; preds = %.noexc255.i, %731
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %733, %.noexc255.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %731 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %733, %.noexc255.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %731 ]
   %740 = load i64, ptr %.sroa.0.0.i.i.i2.i.i, align 8, !noalias !620, !noundef !5
   %741 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i, i64 8
   %742 = load i64, ptr %741, align 8, !noalias !620, !noundef !5

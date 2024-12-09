@@ -415,7 +415,7 @@ define void @_ZN6marisa6Keyset16append_key_blockEv(ptr nocapture noundef nonnull
 23:                                               ; preds = %8
   store ptr null, ptr %2, align 8
   %24 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @.str, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -504,7 +504,7 @@ _ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit: ; preds = %.loopexit.i, %._c
 
 63:                                               ; preds = %_ZN6marisa12scoped_arrayINS0_INS_3KeyEEEED2Ev.exit
   %64 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr @.str, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -534,7 +534,7 @@ define void @_ZN6marisa6Keyset9push_backEPKc(ptr nocapture noundef nonnull align
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -579,7 +579,7 @@ define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr nocapture noundef nonnull ali
 
 7:                                                ; preds = %4
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -597,7 +597,7 @@ define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr nocapture noundef nonnull ali
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @.str, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1034,7 +1034,7 @@ define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr nocapture noundef nonnu
 24:                                               ; preds = %9
   store ptr null, ptr %3, align 8
   %25 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @.str, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -1110,7 +1110,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %.loopexit.i, %._cri
 
 57:                                               ; preds = %_ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit
   %58 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr @.str, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -1186,7 +1186,7 @@ define void @_ZN6marisa6Keyset17append_base_blockEv(ptr nocapture noundef nonnul
 22:                                               ; preds = %8
   store ptr null, ptr %2, align 8
   %23 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @.str, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -1271,7 +1271,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit:      ; preds = %.loopexit.i, %._cri
 
 60:                                               ; preds = %57
   %61 = tail call ptr @__cxa_allocate_exception(i64 32) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr @.str, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 16

@@ -11878,7 +11878,7 @@ lpad36:                                           ; preds = %invoke.cont42, %inv
   unreachable
 
 while.end52:                                      ; preds = %while.cond22
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %swapped_oneof, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %swapped_oneof, align 8
   %slots_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %swapped_oneof, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %message_factory_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -12259,7 +12259,7 @@ lpad36:                                           ; preds = %invoke.cont42, %inv
   unreachable
 
 while.end52:                                      ; preds = %while.cond22
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %swapped_oneof, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %swapped_oneof, align 8
   %slots_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %swapped_oneof, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %message_factory_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -39424,7 +39424,7 @@ invoke.cont58:                                    ; preds = %for.inc.i29.i.i.i, 
   store i8 0, ptr %uses_codegen, align 1
   %should_profile_driven_cluster_aux_subtable = getelementptr inbounds nuw i8, ptr %ref.tmp60, i64 2
   store i8 0, ptr %should_profile_driven_cluster_aux_subtable, align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZNK6google8protobuf10Reflection18CreateTcParseTableEvE24ReflectionOptionProvider, i64 16), ptr %ref.tmp61, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZNK6google8protobuf10Reflection18CreateTcParseTableEvE24ReflectionOptionProvider, i64 16), ptr %ref.tmp61, align 8
   %ref_.i = getelementptr inbounds nuw i8, ptr %ref.tmp61, i64 8
   store ptr %this, ptr %ref_.i, align 8
   invoke void @_ZN6google8protobuf8internal17TailCallTableInfoC1EPKNS0_10DescriptorERKSt6vectorIPKNS0_15FieldDescriptorESaIS9_EERKNS2_14MessageOptionsERKNS2_14OptionProviderERKS6_IiSaIiEESN_(ptr noundef nonnull align 8 dereferenceable(132) %table_info, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(24) %fields, ptr noundef nonnull align 1 dereferenceable(3) %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(24) %has_bit_indices, ptr noundef nonnull align 8 dereferenceable(24) %inlined_string_indices)

@@ -1861,7 +1861,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13Growa
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14compiledVFrameC2EPK5framePK11RegisterMapP10JavaThreadP7nmethod(ptr noundef nonnull align 8 dereferenceable(5076) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   tail call void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5064) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #12
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5072
@@ -1894,7 +1894,7 @@ declare noundef ptr @_ZN7nmethod13scope_desc_atEPh(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14compiledVFrameC2EPK5framePK11RegisterMapP10JavaThreadP9ScopeDesci(ptr noundef nonnull align 8 dereferenceable(5076) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   tail call void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5064) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #12
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   store ptr %4, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 5072
@@ -1933,7 +1933,7 @@ _ZN14compiledVFrameC2EPK5framePK11RegisterMapP10JavaThreadP9ScopeDesci.exit: ; p
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5048
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5076) %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %13) #12
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %9, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 5064
   store ptr %8, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 5072
@@ -2133,7 +2133,7 @@ define hidden noundef ptr @_ZNK14compiledVFrame6senderEv(ptr noundef nonnull ali
   %21 = load i32, ptr %20, align 8
   %22 = add nsw i32 %21, 1
   call void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5076) %14, ptr noundef nonnull %2, ptr noundef nonnull %15, ptr noundef %17) #12
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV14compiledVFrame, i64 16), ptr %14, align 8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 5064
   store ptr %19, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 5072

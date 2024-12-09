@@ -1060,7 +1060,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   store i8 1, ptr %20, align 8, !noalias !16
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %21, align 1, !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %19, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %19, align 8, !noalias !16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 22, ptr %22, align 8, !noalias !16
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -1094,7 +1094,7 @@ _ZN4llvm22IndexedInstrProfReader9hasFormatERKNS_12MemoryBufferE.exit: ; preds = 
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit4: ; preds = %_ZN4llvm22IndexedInstrProfReader9hasFormatERKNS_12MemoryBufferE.exit
   %32 = tail call noalias noundef nonnull dereferenceable(488) ptr @_Znwm(i64 noundef 488) #22
   store ptr null, ptr %1, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -1106,7 +1106,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit4: ; pre
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull %37, i64 noundef 1) #21
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 104
   store i64 0, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm22IndexedInstrProfReaderE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm22IndexedInstrProfReaderE, i64 16), ptr %32, align 8
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 112
   store i64 %18, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 120
@@ -1221,7 +1221,7 @@ _ZN4llvm18RawInstrProfReaderIjE9hasFormatERKNS_12MemoryBufferE.exit.thread: ; pr
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit30: ; preds = %_ZN4llvm18RawInstrProfReaderIjE9hasFormatERKNS_12MemoryBufferE.exit.thread
   %83 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #22
   store ptr null, ptr %1, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %83, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 0, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -1233,7 +1233,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit30: ; pr
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef nonnull %88, i64 noundef 1) #21
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 104
   store i64 0, ptr %89, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm19TextInstrProfReaderE, i64 16), ptr %83, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm19TextInstrProfReaderE, i64 16), ptr %83, align 8
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 112
   store i64 %18, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 120
@@ -1249,7 +1249,7 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %_ZN4llvm18RawInstrP
   store i8 1, ptr %94, align 8, !noalias !25
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %95, align 1, !noalias !25
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %93, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %93, align 8, !noalias !25
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 2, ptr %96, align 8, !noalias !25
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
@@ -1308,7 +1308,7 @@ _ZNSt10unique_ptrIN4llvm14InstrProfErrorESt14default_deleteIS1_EED2Ev.exit:
   store i8 1, ptr %5, align 8, !noalias !37
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 33
   store i8 1, ptr %6, align 1, !noalias !37
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %3, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %3, align 8, !noalias !37
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %4, ptr %7, align 8, !noalias !37
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1687,7 +1687,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %_ZN4llvm22Index
   store i8 1, ptr %18, align 8, !noalias !57
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %19, align 1, !noalias !57
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %17, align 8, !noalias !57
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %17, align 8, !noalias !57
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 3, ptr %20, align 8, !noalias !57
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1705,7 +1705,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %_ZN4llvm22Index
   store ptr null, ptr %1, align 8, !noalias !63
   %27 = load i64, ptr %2, align 8, !noalias !63
   store ptr null, ptr %2, align 8, !noalias !63
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %26, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %26, align 8, !noalias !63
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 0, ptr %28, align 8, !noalias !63
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1717,7 +1717,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %_ZN4llvm22Index
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %32, i64 noundef 1) #21, !noalias !63
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 104
   store i64 0, ptr %33, align 8, !noalias !63
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm22IndexedInstrProfReaderE, i64 16), ptr %26, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm22IndexedInstrProfReaderE, i64 16), ptr %26, align 8, !noalias !63
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 112
   store i64 %15, ptr %34, align 8, !noalias !63
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 120
@@ -2008,7 +2008,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit6: ; preds = %_ZNK4llvm9StringRe
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %105, align 1, !noalias !79
   store ptr %101, ptr %5, align 8, !noalias !79
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %102, align 8, !noalias !79
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %102, align 8, !noalias !79
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i32 %103, ptr %106, align 8, !noalias !79
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -2121,7 +2121,7 @@ define dso_local void @_ZN4llvm19TextInstrProfReader25readTemporalProfTraceDataE
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 33
   store i8 1, ptr %45, align 1, !noalias !96
   store ptr %18, ptr %17, align 8, !noalias !96
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %43, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %43, align 8, !noalias !96
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 1, ptr %46, align 8, !noalias !96
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -2164,7 +2164,7 @@ define dso_local void @_ZN4llvm19TextInstrProfReader25readTemporalProfTraceDataE
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 33
   store i8 1, ptr %60, align 1, !noalias !105
   store ptr %20, ptr %15, align 8, !noalias !105
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %58, align 8, !noalias !105
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %58, align 8, !noalias !105
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 9, ptr %61, align 8, !noalias !105
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -2200,7 +2200,7 @@ define dso_local void @_ZN4llvm19TextInstrProfReader25readTemporalProfTraceDataE
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 1, ptr %74, align 1, !noalias !114
   store ptr %22, ptr %14, align 8, !noalias !114
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %72, align 8, !noalias !114
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %72, align 8, !noalias !114
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 1, ptr %75, align 8, !noalias !114
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -2260,7 +2260,7 @@ _ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit:  ; preds = %77
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %100, align 1, !noalias !123
   store ptr %24, ptr %12, align 8, !noalias !123
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %98, align 8, !noalias !123
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %98, align 8, !noalias !123
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 9, ptr %101, align 8, !noalias !123
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 16
@@ -2299,7 +2299,7 @@ _ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit:  ; preds = %77
   %114 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 1, ptr %114, align 1, !noalias !133
   store ptr %26, ptr %11, align 8, !noalias !133
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %112, align 8, !noalias !133
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %112, align 8, !noalias !133
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i32 1, ptr %115, align 8, !noalias !133
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 16
@@ -2332,7 +2332,7 @@ _ZN4llvm19TemporalProfTraceTyC2ESt16initializer_listImEm.exit: ; preds = %105
   store i8 4, ptr %91, align 8, !noalias !142
   store i8 1, ptr %92, align 1, !noalias !142
   store ptr %29, ptr %9, align 8, !noalias !142
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %121, align 8, !noalias !142
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %121, align 8, !noalias !142
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i32 9, ptr %122, align 8, !noalias !142
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -2363,7 +2363,7 @@ _ZN4llvm19TemporalProfTraceTyC2ESt16initializer_listImEm.exit: ; preds = %105
   store i8 4, ptr %86, align 8, !noalias !151
   store i8 1, ptr %87, align 1, !noalias !151
   store ptr %31, ptr %8, align 8, !noalias !151
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %131, align 8, !noalias !151
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %131, align 8, !noalias !151
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i32 1, ptr %132, align 8, !noalias !151
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -2579,7 +2579,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %12, %3
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %21, align 1, !noalias !164
   store ptr %17, ptr %4, align 8, !noalias !164
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %18, align 8, !noalias !164
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %18, align 8, !noalias !164
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %19, ptr %22, align 8, !noalias !164
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -2607,7 +2607,7 @@ define linkonce_odr hidden void @_ZN4llvm15InstrProfReader5errorENS_15instrprof_
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %13, align 1, !noalias !170
   store ptr %3, ptr %5, align 8, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %11, align 8, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %11, align 8, !noalias !170
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %2, ptr %14, align 8, !noalias !170
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -2873,7 +2873,7 @@ define dso_local void @_ZN4llvm19TextInstrProfReader20readValueProfileDataERNS_1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #21
   %74 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %74, ptr noundef nonnull align 1 dereferenceable(1) %26) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.11, i64 32))
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 9, ptr %75, align 8, !noalias !190
@@ -2886,7 +2886,7 @@ define dso_local void @_ZN4llvm19TextInstrProfReader20readValueProfileDataERNS_1
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 33
   store i8 1, ptr %80, align 1, !noalias !196
   store ptr %25, ptr %19, align 8, !noalias !196
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %78, align 8, !noalias !196
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %78, align 8, !noalias !196
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 9, ptr %81, align 8, !noalias !196
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -3035,7 +3035,7 @@ define dso_local void @_ZN4llvm19TextInstrProfReader20readValueProfileDataERNS_1
   %128 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 1, ptr %128, align 1, !noalias !215
   store ptr %37, ptr %16, align 8, !noalias !215
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %126, align 8, !noalias !215
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %126, align 8, !noalias !215
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 8, ptr %129, align 8, !noalias !215
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 16
@@ -3074,7 +3074,7 @@ define dso_local void @_ZN4llvm19TextInstrProfReader20readValueProfileDataERNS_1
   %140 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 1, ptr %140, align 1, !noalias !224
   store ptr %39, ptr %14, align 8, !noalias !224
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %138, align 8, !noalias !224
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %138, align 8, !noalias !224
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i32 9, ptr %141, align 8, !noalias !224
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 16
@@ -3114,7 +3114,7 @@ define dso_local void @_ZN4llvm19TextInstrProfReader20readValueProfileDataERNS_1
   store i8 4, ptr %87, align 8, !noalias !236
   store i8 1, ptr %88, align 1, !noalias !236
   store ptr %41, ptr %13, align 8, !noalias !236
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %150, align 8, !noalias !236
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %150, align 8, !noalias !236
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store i32 8, ptr %151, align 8, !noalias !236
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 16
@@ -3242,7 +3242,7 @@ _ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit:  ; preds = %175
   store i8 4, ptr %91, align 8, !noalias !254
   store i8 1, ptr %92, align 1, !noalias !254
   store ptr %43, ptr %6, align 8, !noalias !254
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %181, align 8, !noalias !254
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %181, align 8, !noalias !254
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i32 9, ptr %182, align 8, !noalias !254
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 16
@@ -3273,7 +3273,7 @@ _ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit:  ; preds = %175
   store i8 4, ptr %89, align 8, !noalias !263
   store i8 1, ptr %90, align 1, !noalias !263
   store ptr %45, ptr %4, align 8, !noalias !263
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %189, align 8, !noalias !263
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %189, align 8, !noalias !263
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 9, ptr %190, align 8, !noalias !263
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
@@ -3578,7 +3578,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %49
   %62 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 1, ptr %62, align 1, !noalias !287
   store ptr %17, ptr %16, align 8, !noalias !287
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %60, align 8, !noalias !287
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %60, align 8, !noalias !287
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 1, ptr %63, align 8, !noalias !287
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -3639,7 +3639,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread83: ; preds = %_ZNK4llvm9StringR
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %83, align 1, !noalias !300
   store ptr %79, ptr %12, align 8, !noalias !300
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %80, align 8, !noalias !300
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %80, align 8, !noalias !300
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 %81, ptr %84, align 8, !noalias !300
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -3680,7 +3680,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm9StringRef
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 1, ptr %100, align 1, !noalias !309
   store ptr %20, ptr %11, align 8, !noalias !309
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %98, align 8, !noalias !309
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %98, align 8, !noalias !309
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 8, ptr %101, align 8, !noalias !309
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 16
@@ -3704,7 +3704,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm9StringRef
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #21
   %106 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %106, ptr noundef nonnull align 1 dereferenceable(1) %23) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.14, i64 36))
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 9, ptr %107, align 8, !noalias !315
@@ -3717,7 +3717,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm9StringRef
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %112, align 1, !noalias !321
   store ptr %22, ptr %9, align 8, !noalias !321
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %110, align 8, !noalias !321
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %110, align 8, !noalias !321
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i32 9, ptr %113, align 8, !noalias !321
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -3754,7 +3754,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm9StringRef
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %127, align 1, !noalias !330
   store ptr %24, ptr %8, align 8, !noalias !330
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %125, align 8, !noalias !330
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %125, align 8, !noalias !330
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i32 8, ptr %128, align 8, !noalias !330
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 16
@@ -4301,7 +4301,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm18RawInstrProfReaderIjEC2ESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS3_EEPKNS_19InstrProfCorrelatorESt8functionIFvNS_5ErrorEEE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat($_ZN4llvm18RawInstrProfReaderIjEC5ESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS3_EEPKNS_19InstrProfCorrelatorESt8functionIFvNS_5ErrorEEE) align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4313,7 +4313,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderIjEC2ESt10unique_ptrINS_12Memo
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %9, i64 noundef 1) #21
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18RawInstrProfReaderIjEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18RawInstrProfReaderIjEE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load i64, ptr %1, align 8
   store i64 %12, ptr %11, align 8
@@ -4403,7 +4403,7 @@ _ZN4llvm18RawInstrProfReaderIjE9hasFormatERKNS_12MemoryBufferE.exit.thread: ; pr
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %26, align 1, !noalias !354
   store ptr %5, ptr %4, align 8, !noalias !354
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %24, align 8, !noalias !354
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %24, align 8, !noalias !354
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 3, ptr %27, align 8, !noalias !354
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -4435,7 +4435,7 @@ _ZN4llvm18RawInstrProfReaderIjE9hasFormatERKNS_12MemoryBufferE.exit.thread: ; pr
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %38, align 1, !noalias !363
   store ptr %7, ptr %3, align 8, !noalias !363
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %36, align 8, !noalias !363
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %36, align 8, !noalias !363
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 4, ptr %39, align 8, !noalias !363
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -4534,7 +4534,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit133:               ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %47, align 1, !noalias !392
   store ptr %10, ptr %9, align 8, !noalias !392
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %45, align 8, !noalias !392
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %45, align 8, !noalias !392
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 24, ptr %48, align 8, !noalias !392
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -4578,7 +4578,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit133:               ; preds = %3
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %69, align 1, !noalias !401
   store ptr %16, ptr %8, align 8, !noalias !401
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %67, align 8, !noalias !401
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %67, align 8, !noalias !401
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 4, ptr %70, align 8, !noalias !401
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -4721,7 +4721,7 @@ _ZN4llvm5ErrorD2Ev.exit._crit_edge:               ; preds = %_ZN4llvm5ErrorD2Ev.
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %161, align 1, !noalias !410
   store ptr %18, ptr %7, align 8, !noalias !410
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %159, align 8, !noalias !410
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %159, align 8, !noalias !410
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store i32 4, ptr %162, align 8, !noalias !410
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 16
@@ -4766,7 +4766,7 @@ _ZN4llvm5ErrorD2Ev.exit._crit_edge:               ; preds = %_ZN4llvm5ErrorD2Ev.
   %180 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %180, align 1, !noalias !419
   store ptr %20, ptr %6, align 8, !noalias !419
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %178, align 8, !noalias !419
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %178, align 8, !noalias !419
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i32 11, ptr %181, align 8, !noalias !419
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 16
@@ -5009,7 +5009,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %36, %3
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 33
   store i8 1, ptr %53, align 1, !noalias !439
   store ptr %49, ptr %20, align 8, !noalias !439
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %50, align 8, !noalias !439
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %50, align 8, !noalias !439
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %51, ptr %54, align 8, !noalias !439
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -5071,7 +5071,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %36, %3
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 1, ptr %77, align 1, !noalias !449
   store ptr %73, ptr %16, align 8, !noalias !449
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %74, align 8, !noalias !449
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %74, align 8, !noalias !449
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 %75, ptr %78, align 8, !noalias !449
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
@@ -5133,7 +5133,7 @@ _ZN4llvm5ErrorD2Ev.exit23:                        ; preds = %61
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %100, align 1, !noalias !459
   store ptr %96, ptr %12, align 8, !noalias !459
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %97, align 8, !noalias !459
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %97, align 8, !noalias !459
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 %98, ptr %101, align 8, !noalias !459
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
@@ -5195,7 +5195,7 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %123, align 1, !noalias !469
   store ptr %119, ptr %8, align 8, !noalias !469
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %120, align 8, !noalias !469
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %120, align 8, !noalias !469
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i32 %121, ptr %124, align 8, !noalias !469
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -5257,7 +5257,7 @@ _ZN4llvm5ErrorD2Ev.exit29:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %146 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %146, align 1, !noalias !479
   store ptr %142, ptr %4, align 8, !noalias !479
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %143, align 8, !noalias !479
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %143, align 8, !noalias !479
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i32 %144, ptr %147, align 8, !noalias !479
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 16
@@ -5371,7 +5371,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderIjE14readNextHeaderEPKc(ptr de
   store i8 1, ptr %17, align 8, !noalias !486
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %18, align 1, !noalias !486
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %16, align 8, !noalias !486
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %16, align 8, !noalias !486
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 1, ptr %19, align 8, !noalias !486
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -5394,7 +5394,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderIjE14readNextHeaderEPKc(ptr de
   store ptr @.str.21, ptr %6, align 8, !noalias !492
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %26, align 8, !noalias !492
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %24, align 8, !noalias !492
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %24, align 8, !noalias !492
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 9, ptr %27, align 8, !noalias !492
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -5418,7 +5418,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderIjE14readNextHeaderEPKc(ptr de
   store ptr @.str.22, ptr %5, align 8, !noalias !498
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 3, ptr %35, align 8, !noalias !498
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %33, align 8, !noalias !498
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %33, align 8, !noalias !498
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 9, ptr %36, align 8, !noalias !498
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -5444,7 +5444,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderIjE14readNextHeaderEPKc(ptr de
   store i8 1, ptr %45, align 8, !noalias !504
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %46, align 1, !noalias !504
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %44, align 8, !noalias !504
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %44, align 8, !noalias !504
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 3, ptr %47, align 8, !noalias !504
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -5640,7 +5640,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderIjE13readRawCountsERNS_15Instr
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #21
   %39 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %11) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 26))
   call void @llvm.experimental.noalias.scope.decl(metadata !522)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 9, ptr %40, align 8, !noalias !522
@@ -5653,7 +5653,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderIjE13readRawCountsERNS_15Instr
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %45, align 1, !noalias !528
   store ptr %10, ptr %9, align 8, !noalias !528
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %43, align 8, !noalias !528
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %43, align 8, !noalias !528
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 9, ptr %46, align 8, !noalias !528
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -5705,7 +5705,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit38:                ; preds = %48
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %68, align 1, !noalias !547
   store ptr %13, ptr %8, align 8, !noalias !547
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %66, align 8, !noalias !547
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %66, align 8, !noalias !547
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 9, ptr %69, align 8, !noalias !547
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -5764,7 +5764,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit83:                ; preds = %71
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %95, align 1, !noalias !571
   store ptr %16, ptr %7, align 8, !noalias !571
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %93, align 8, !noalias !571
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %93, align 8, !noalias !571
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 9, ptr %96, align 8, !noalias !571
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
@@ -5825,7 +5825,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit128:               ; preds = %98
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %125, align 1, !noalias !595
   store ptr %22, ptr %6, align 8, !noalias !595
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %123, align 8, !noalias !595
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %123, align 8, !noalias !595
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 9, ptr %126, align 8, !noalias !595
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -6096,7 +6096,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   store ptr %26, ptr %28, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !603)
   %254 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !606
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %254, align 8, !noalias !606
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %254, align 8, !noalias !606
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i32 25, ptr %255, align 8, !noalias !606
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 16
@@ -6373,7 +6373,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit29:                ; preds = %63
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %86, align 1, !noalias !640
   store ptr %12, ptr %8, align 8, !noalias !640
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %84, align 8, !noalias !640
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %84, align 8, !noalias !640
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i32 9, ptr %87, align 8, !noalias !640
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -6432,7 +6432,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit74:                ; preds = %89
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %113, align 1, !noalias !664
   store ptr %15, ptr %7, align 8, !noalias !664
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %111, align 8, !noalias !664
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %111, align 8, !noalias !664
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i32 9, ptr %114, align 8, !noalias !664
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 16
@@ -6486,7 +6486,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit119:               ; preds = %116
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %136, align 1, !noalias !688
   store ptr %21, ptr %6, align 8, !noalias !688
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %134, align 8, !noalias !688
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %134, align 8, !noalias !688
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i32 9, ptr %137, align 8, !noalias !688
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 16
@@ -6921,7 +6921,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   %.01623 = phi ptr [ %27, %.lr.ph ], [ %22, %21 ]
   %25 = load i8, ptr %.01623, align 1
   store ptr @.str.47, ptr %19, align 8, !alias.scope !717
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJhEEE, i64 16), ptr %4, align 8, !alias.scope !717
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJhEEE, i64 16), ptr %4, align 8, !alias.scope !717
   store i8 %25, ptr %20, align 8, !alias.scope !717
   %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   %27 = getelementptr inbounds nuw i8, ptr %.01623, i64 1
@@ -7274,7 +7274,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderIjE12createSymtabERNS_15InstrP
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %40, align 1, !noalias !728
   store ptr %36, ptr %6, align 8, !noalias !728
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %37, align 8, !noalias !728
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %37, align 8, !noalias !728
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %38, ptr %41, align 8, !noalias !728
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -7501,7 +7501,7 @@ _ZNSt10unique_ptrIN4llvm14InstrProfErrorESt14default_deleteIS1_EED2Ev.exit: ; pr
   %storemerge.i.i = phi i8 [ 3, %9 ], [ 1, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 %storemerge.i.i, ptr %10, align 8, !noalias !744
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %5, align 8, !noalias !744
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %5, align 8, !noalias !744
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %6, ptr %11, align 8, !noalias !744
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7549,7 +7549,7 @@ define internal fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS
   store ptr @.str.49, ptr %9, align 8, !noalias !750
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 3, ptr %27, align 8, !noalias !750
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %25, align 8, !noalias !750
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %25, align 8, !noalias !750
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 9, ptr %28, align 8, !noalias !750
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -7574,7 +7574,7 @@ define internal fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS
   store ptr @.str.50, ptr %8, align 8, !noalias !756
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 3, ptr %37, align 8, !noalias !756
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %35, align 8, !noalias !756
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %35, align 8, !noalias !756
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 9, ptr %38, align 8, !noalias !756
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -7598,7 +7598,7 @@ define internal fastcc void @_ZL21readBinaryIdsInternalRKN4llvm12MemoryBufferENS
   store ptr @.str.51, ptr %7, align 8, !noalias !762
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %49, align 8, !noalias !762
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %47, align 8, !noalias !762
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %47, align 8, !noalias !762
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 9, ptr %50, align 8, !noalias !762
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -7658,7 +7658,7 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit:           ; preds = %_ZNSt6vectorIN4llvm
   store ptr @.str.52, ptr %6, align 8, !noalias !769
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %73, align 8, !noalias !769
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %71, align 8, !noalias !769
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %71, align 8, !noalias !769
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 9, ptr %74, align 8, !noalias !769
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -7770,7 +7770,7 @@ declare void @_ZN4llvm13ValueProfData13deserializeToERNS_15InstrProfRecordEPNS_1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm18RawInstrProfReaderImEC2ESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS3_EEPKNS_19InstrProfCorrelatorESt8functionIFvNS_5ErrorEEE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat($_ZN4llvm18RawInstrProfReaderImEC5ESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS3_EEPKNS_19InstrProfCorrelatorESt8functionIFvNS_5ErrorEEE) align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7782,7 +7782,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderImEC2ESt10unique_ptrINS_12Memo
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %9, i64 noundef 1) #21
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18RawInstrProfReaderImEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18RawInstrProfReaderImEE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load i64, ptr %1, align 8
   store i64 %12, ptr %11, align 8
@@ -7872,7 +7872,7 @@ _ZN4llvm18RawInstrProfReaderImE9hasFormatERKNS_12MemoryBufferE.exit.thread: ; pr
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %26, align 1, !noalias !778
   store ptr %5, ptr %4, align 8, !noalias !778
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %24, align 8, !noalias !778
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %24, align 8, !noalias !778
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 3, ptr %27, align 8, !noalias !778
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -7904,7 +7904,7 @@ _ZN4llvm18RawInstrProfReaderImE9hasFormatERKNS_12MemoryBufferE.exit.thread: ; pr
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 1, ptr %38, align 1, !noalias !787
   store ptr %7, ptr %3, align 8, !noalias !787
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %36, align 8, !noalias !787
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %36, align 8, !noalias !787
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 4, ptr %39, align 8, !noalias !787
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -8003,7 +8003,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit133:               ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %47, align 1, !noalias !816
   store ptr %10, ptr %9, align 8, !noalias !816
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %45, align 8, !noalias !816
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %45, align 8, !noalias !816
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 24, ptr %48, align 8, !noalias !816
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -8047,7 +8047,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit133:               ; preds = %3
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %69, align 1, !noalias !825
   store ptr %16, ptr %8, align 8, !noalias !825
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %67, align 8, !noalias !825
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %67, align 8, !noalias !825
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 4, ptr %70, align 8, !noalias !825
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -8190,7 +8190,7 @@ _ZN4llvm5ErrorD2Ev.exit._crit_edge:               ; preds = %_ZN4llvm5ErrorD2Ev.
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %161, align 1, !noalias !834
   store ptr %18, ptr %7, align 8, !noalias !834
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %159, align 8, !noalias !834
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %159, align 8, !noalias !834
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store i32 4, ptr %162, align 8, !noalias !834
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 16
@@ -8235,7 +8235,7 @@ _ZN4llvm5ErrorD2Ev.exit._crit_edge:               ; preds = %_ZN4llvm5ErrorD2Ev.
   %180 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %180, align 1, !noalias !843
   store ptr %20, ptr %6, align 8, !noalias !843
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %178, align 8, !noalias !843
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %178, align 8, !noalias !843
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i32 11, ptr %181, align 8, !noalias !843
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 16
@@ -8478,7 +8478,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %36, %3
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 33
   store i8 1, ptr %53, align 1, !noalias !863
   store ptr %49, ptr %20, align 8, !noalias !863
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %50, align 8, !noalias !863
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %50, align 8, !noalias !863
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %51, ptr %54, align 8, !noalias !863
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -8540,7 +8540,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %36, %3
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 1, ptr %77, align 1, !noalias !873
   store ptr %73, ptr %16, align 8, !noalias !873
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %74, align 8, !noalias !873
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %74, align 8, !noalias !873
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 %75, ptr %78, align 8, !noalias !873
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
@@ -8602,7 +8602,7 @@ _ZN4llvm5ErrorD2Ev.exit23:                        ; preds = %61
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %100, align 1, !noalias !883
   store ptr %96, ptr %12, align 8, !noalias !883
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %97, align 8, !noalias !883
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %97, align 8, !noalias !883
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 %98, ptr %101, align 8, !noalias !883
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
@@ -8664,7 +8664,7 @@ _ZN4llvm5ErrorD2Ev.exit26:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %123, align 1, !noalias !893
   store ptr %119, ptr %8, align 8, !noalias !893
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %120, align 8, !noalias !893
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %120, align 8, !noalias !893
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i32 %121, ptr %124, align 8, !noalias !893
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -8726,7 +8726,7 @@ _ZN4llvm5ErrorD2Ev.exit29:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %146 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %146, align 1, !noalias !903
   store ptr %142, ptr %4, align 8, !noalias !903
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %143, align 8, !noalias !903
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %143, align 8, !noalias !903
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i32 %144, ptr %147, align 8, !noalias !903
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 16
@@ -8840,7 +8840,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderImE14readNextHeaderEPKc(ptr de
   store i8 1, ptr %17, align 8, !noalias !910
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %18, align 1, !noalias !910
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %16, align 8, !noalias !910
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %16, align 8, !noalias !910
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 1, ptr %19, align 8, !noalias !910
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -8863,7 +8863,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderImE14readNextHeaderEPKc(ptr de
   store ptr @.str.21, ptr %6, align 8, !noalias !916
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %26, align 8, !noalias !916
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %24, align 8, !noalias !916
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %24, align 8, !noalias !916
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 9, ptr %27, align 8, !noalias !916
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -8887,7 +8887,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderImE14readNextHeaderEPKc(ptr de
   store ptr @.str.22, ptr %5, align 8, !noalias !922
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 3, ptr %35, align 8, !noalias !922
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %33, align 8, !noalias !922
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %33, align 8, !noalias !922
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 9, ptr %36, align 8, !noalias !922
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -8913,7 +8913,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderImE14readNextHeaderEPKc(ptr de
   store i8 1, ptr %45, align 8, !noalias !928
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %46, align 1, !noalias !928
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %44, align 8, !noalias !928
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %44, align 8, !noalias !928
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 3, ptr %47, align 8, !noalias !928
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -9109,7 +9109,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderImE13readRawCountsERNS_15Instr
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #21
   %39 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %11) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 26))
   call void @llvm.experimental.noalias.scope.decl(metadata !945)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 9, ptr %40, align 8, !noalias !945
@@ -9122,7 +9122,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderImE13readRawCountsERNS_15Instr
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %45, align 1, !noalias !951
   store ptr %10, ptr %9, align 8, !noalias !951
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %43, align 8, !noalias !951
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %43, align 8, !noalias !951
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 9, ptr %46, align 8, !noalias !951
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -9173,7 +9173,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit38:                ; preds = %48
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %67, align 1, !noalias !970
   store ptr %13, ptr %8, align 8, !noalias !970
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %65, align 8, !noalias !970
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %65, align 8, !noalias !970
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 9, ptr %68, align 8, !noalias !970
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -9232,7 +9232,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit83:                ; preds = %70
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %94, align 1, !noalias !994
   store ptr %16, ptr %7, align 8, !noalias !994
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %92, align 8, !noalias !994
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %92, align 8, !noalias !994
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i32 9, ptr %95, align 8, !noalias !994
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 16
@@ -9293,7 +9293,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit128:               ; preds = %97
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %124, align 1, !noalias !1018
   store ptr %22, ptr %6, align 8, !noalias !1018
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %122, align 8, !noalias !1018
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %122, align 8, !noalias !1018
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i32 9, ptr %125, align 8, !noalias !1018
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 16
@@ -9564,7 +9564,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   store ptr %26, ptr %28, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1025)
   %253 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !1028
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %253, align 8, !noalias !1028
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %253, align 8, !noalias !1028
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   store i32 25, ptr %254, align 8, !noalias !1028
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 16
@@ -9840,7 +9840,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit29:                ; preds = %63
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %85, align 1, !noalias !1062
   store ptr %12, ptr %8, align 8, !noalias !1062
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %83, align 8, !noalias !1062
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %83, align 8, !noalias !1062
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 9, ptr %86, align 8, !noalias !1062
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -9899,7 +9899,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit74:                ; preds = %88
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %112, align 1, !noalias !1086
   store ptr %15, ptr %7, align 8, !noalias !1086
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %110, align 8, !noalias !1086
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %110, align 8, !noalias !1086
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i32 9, ptr %113, align 8, !noalias !1086
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -9953,7 +9953,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit119:               ; preds = %115
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %135, align 1, !noalias !1110
   store ptr %21, ptr %6, align 8, !noalias !1110
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %133, align 8, !noalias !1110
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %133, align 8, !noalias !1110
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store i32 9, ptr %136, align 8, !noalias !1110
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 16
@@ -10662,7 +10662,7 @@ define weak_odr void @_ZN4llvm18RawInstrProfReaderImE12createSymtabERNS_15InstrP
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %40, align 1, !noalias !1146
   store ptr %36, ptr %6, align 8, !noalias !1146
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %37, align 8, !noalias !1146
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %37, align 8, !noalias !1146
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %38, ptr %41, align 8, !noalias !1146
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -12439,15 +12439,15 @@ define dso_local void @_ZN4llvm20IndexedMemProfReader11deserializeEPKhm(ptr dead
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 1, ptr %16, align 8, !alias.scope !1194
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %17, align 8, !alias.scope !1194
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %17, align 8, !alias.scope !1194
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @_ZN4llvm7memprofL23MaximumSupportedVersionE, ptr %18, align 8, !alias.scope !1194
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %19, align 8, !alias.scope !1194
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %19, align 8, !alias.scope !1194
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @_ZN4llvm7memprofL23MinimumSupportedVersionE, ptr %20, align 8, !alias.scope !1194
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %21, align 8, !alias.scope !1194
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %21, align 8, !alias.scope !1194
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %6, ptr %22, align 8, !alias.scope !1194
   store ptr %21, ptr %14, align 8, !alias.scope !1194
@@ -12462,7 +12462,7 @@ define dso_local void @_ZN4llvm20IndexedMemProfReader11deserializeEPKhm(ptr dead
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %25, align 1, !noalias !1202
   store ptr %7, ptr %5, align 8, !noalias !1202
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %23, align 8, !noalias !1202
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %23, align 8, !noalias !1202
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 5, ptr %26, align 8, !noalias !1202
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -12549,7 +12549,7 @@ define dso_local void @_ZN4llvm22IndexedInstrProfReader10readHeaderEv(ptr dead_o
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %42, align 1, !noalias !1211
   store ptr %8, ptr %7, align 8, !noalias !1211
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %40, align 8, !noalias !1211
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %40, align 8, !noalias !1211
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 8, ptr %43, align 8, !noalias !1211
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -12617,7 +12617,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %74, align 1, !noalias !1223
   store ptr %11, ptr %6, align 8, !noalias !1223
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %72, align 8, !noalias !1223
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %72, align 8, !noalias !1223
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 6, ptr %75, align 8, !noalias !1223
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -12634,7 +12634,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %80 = getelementptr inbounds i8, ptr %28, i64 %79
   %81 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22, !noalias !1226
   %82 = load i64, ptr %54, align 8, !noalias !1226
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %81, align 8, !noalias !1226
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %81, align 8, !noalias !1226
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 48
@@ -12721,7 +12721,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %100, %97, %77
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %119, align 1, !noalias !1235
   store ptr %13, ptr %5, align 8, !noalias !1235
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %117, align 8, !noalias !1235
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %117, align 8, !noalias !1235
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 4, ptr %120, align 8, !noalias !1235
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 16
@@ -13011,7 +13011,7 @@ _ZNSt10unique_ptrIN4llvm30InstrProfReaderItaniumRemapperINS0_30OnDiskIterableCha
 
 232:                                              ; preds = %.loopexit
   %233 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !1240
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_127InstrProfReaderNullRemapperE, i64 16), ptr %233, align 8, !noalias !1240
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_127InstrProfReaderNullRemapperE, i64 16), ptr %233, align 8, !noalias !1240
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   store ptr %81, ptr %234, align 8, !noalias !1240
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -13104,7 +13104,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
   %4 = load i64, ptr %1, align 8
   store ptr null, ptr %1, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -13213,7 +13213,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %38, %41
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %54, align 1, !noalias !1259
   store ptr %45, ptr %9, align 8, !noalias !1259
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %52, align 8, !noalias !1259
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %52, align 8, !noalias !1259
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %46, ptr %55, align 8, !noalias !1259
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -13302,7 +13302,7 @@ _ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %76, %79
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %92, align 1, !noalias !1268
   store ptr %83, ptr %5, align 8, !noalias !1268
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %90, align 8, !noalias !1268
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %90, align 8, !noalias !1268
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i32 %84, ptr %93, align 8, !noalias !1268
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
@@ -13491,7 +13491,7 @@ define dso_local void @_ZN4llvm22IndexedInstrProfReader18getInstrProfRecordENS_9
 46:                                               ; preds = %43
   call void @llvm.experimental.noalias.scope.decl(metadata !1285)
   %47 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !1288
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %47, align 8, !noalias !1288
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %47, align 8, !noalias !1288
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %45, ptr %48, align 8, !noalias !1288
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -13570,7 +13570,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i:                       ; preds = %67, %_ZNSt10unique_
 80:                                               ; preds = %77
   call void @llvm.experimental.noalias.scope.decl(metadata !1306)
   %81 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !1309
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %81, align 8, !noalias !1309
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %81, align 8, !noalias !1309
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 %79, ptr %82, align 8, !noalias !1309
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -13748,7 +13748,7 @@ _ZN4llvm5ErrorD2Ev.exit30:                        ; preds = %134, %135
   %142 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %142, align 1, !noalias !1322
   store ptr %16, ptr %9, align 8, !noalias !1322
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %140, align 8, !noalias !1322
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %140, align 8, !noalias !1322
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i32 15, ptr %143, align 8, !noalias !1322
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 16
@@ -13779,7 +13779,7 @@ _ZN4llvm5ErrorD2Ev.exit32:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %154 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %154, align 1, !noalias !1334
   store ptr %18, ptr %8, align 8, !noalias !1334
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %152, align 8, !noalias !1334
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %152, align 8, !noalias !1334
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store i32 13, ptr %155, align 8, !noalias !1334
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 16
@@ -13842,7 +13842,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   store ptr @.str.37, ptr %16, align 8, !noalias !1343
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 3, ptr %24, align 8, !noalias !1343
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %22, align 8, !noalias !1343
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %22, align 8, !noalias !1343
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 14, ptr %25, align 8, !noalias !1343
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -13920,7 +13920,7 @@ _ZN4llvm22OnDiskChainedHashTableINS_7memprof17RecordLookupTraitEE4findERKmPS2_.e
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 33
   store i8 11, ptr %57, align 1, !alias.scope !1355
   %58 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !1360
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %58, align 8, !noalias !1360
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %58, align 8, !noalias !1360
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 13, ptr %59, align 8, !noalias !1360
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -13982,7 +13982,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 11, ptr %86, align 1, !alias.scope !1371, !noalias !1368
   %87 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !1376
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %87, align 8, !noalias !1376
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %87, align 8, !noalias !1376
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i32 15, ptr %88, align 8, !noalias !1376
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -14068,7 +14068,7 @@ _ZN4llvm5ErrorD2Ev.exit.i6:                       ; preds = %108
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 11, ptr %124, align 1, !alias.scope !1387, !noalias !1384
   %125 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !1392
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %125, align 8, !noalias !1392
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %125, align 8, !noalias !1392
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i32 15, ptr %126, align 8, !noalias !1392
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 16
@@ -14094,7 +14094,7 @@ _ZN4llvm5ErrorD2Ev.exit18.i:                      ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 11, ptr %136, align 1, !alias.scope !1400, !noalias !1384
   %137 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22, !noalias !1405
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %137, align 8, !noalias !1405
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %137, align 8, !noalias !1405
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i32 15, ptr %138, align 8, !noalias !1405
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
@@ -14216,15 +14216,15 @@ _ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZN4llvm22OnDiskCha
   %187 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i8 1, ptr %187, align 8, !alias.scope !1416
   %188 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %188, align 8, !alias.scope !1416
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %188, align 8, !alias.scope !1416
   %189 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr @_ZN4llvm7memprofL23MaximumSupportedVersionE, ptr %189, align 8, !alias.scope !1416
   %190 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %190, align 8, !alias.scope !1416
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %190, align 8, !alias.scope !1416
   %191 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr @_ZN4llvm7memprofL23MinimumSupportedVersionE, ptr %191, align 8, !alias.scope !1416
   %192 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS_7memprof14IndexedVersionEEE, i64 16), ptr %192, align 8, !alias.scope !1416
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS_7memprof14IndexedVersionEEE, i64 16), ptr %192, align 8, !alias.scope !1416
   %193 = getelementptr inbounds nuw i8, ptr %19, i64 80
   store ptr %1, ptr %193, align 8, !alias.scope !1416
   store ptr %192, ptr %185, align 8, !alias.scope !1416
@@ -14239,7 +14239,7 @@ _ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZN4llvm22OnDiskCha
   %196 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %196, align 1, !noalias !1424
   store ptr %19, ptr %4, align 8, !noalias !1424
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %194, align 8, !noalias !1424
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %194, align 8, !noalias !1424
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store i32 5, ptr %197, align 8, !noalias !1424
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 16
@@ -14318,7 +14318,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %25, %20
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %34, align 1, !noalias !1440
   store ptr %30, ptr %9, align 8, !noalias !1440
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %31, align 8, !noalias !1440
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %31, align 8, !noalias !1440
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %32, ptr %35, align 8, !noalias !1440
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -14550,7 +14550,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %25, %20
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %34, align 1, !noalias !1460
   store ptr %30, ptr %9, align 8, !noalias !1460
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %31, align 8, !noalias !1460
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %31, align 8, !noalias !1460
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %32, ptr %35, align 8, !noalias !1460
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -14805,7 +14805,7 @@ _ZN4llvm15InstrProfReader5errorEONS_5ErrorE.exit: ; preds = %18, %22
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %31, align 1, !noalias !1478
   store ptr %27, ptr %6, align 8, !noalias !1478
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %28, align 8, !noalias !1478
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %28, align 8, !noalias !1478
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %29, ptr %32, align 8, !noalias !1478
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -15023,7 +15023,7 @@ declare void @_ZNK4llvm15InstrProfRecord16accumulateCountsERNS_17CountSumOrPerce
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm19TextInstrProfReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm19TextInstrProfReaderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm19TextInstrProfReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -15044,7 +15044,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm19TextInstrProfReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm19TextInstrProfReaderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm19TextInstrProfReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -15204,7 +15204,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm22IndexedInstrProfReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(484) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm22IndexedInstrProfReaderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm22IndexedInstrProfReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN4llvm20IndexedMemProfReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -15427,7 +15427,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm22IndexedInstrProfReader14getPr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18RawInstrProfReaderIjED2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18RawInstrProfReaderIjEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18RawInstrProfReaderIjEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -15524,7 +15524,7 @@ define linkonce_odr hidden void @_ZN4llvm18RawInstrProfReaderIjED0Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18RawInstrProfReaderImED2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18RawInstrProfReaderImEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18RawInstrProfReaderImEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -16138,7 +16138,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !1550
   %155 = load ptr, ptr %2, align 8, !noalias !1553
   store ptr null, ptr %2, align 8, !noalias !1553
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
@@ -16304,7 +16304,7 @@ define linkonce_odr hidden void @_ZN4llvm15InstrProfSymtab13addSymbolNameENS_9St
   store ptr @.str.45, ptr %7, align 8, !noalias !1574
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %12, align 8, !noalias !1574
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %10, align 8, !noalias !1574
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %10, align 8, !noalias !1574
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 9, ptr %13, align 8, !noalias !1574
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -16511,7 +16511,7 @@ declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm15InstrProfReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm15InstrProfReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #21
@@ -30131,7 +30131,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorImLj6EEELb0EE13destroy_rangeEP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -30181,7 +30181,7 @@ _ZNSt10unique_ptrIN4llvm30OnDiskIterableChainedHashTableINS0_20InstrProfLookupTr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -30246,7 +30246,7 @@ define linkonce_odr void @_ZN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChai
   store i8 1, ptr %12, align 8, !noalias !1868
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %13, align 1, !noalias !1868
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %11, align 8, !noalias !1868
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %11, align 8, !noalias !1868
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 1, ptr %14, align 8, !noalias !1868
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -30289,7 +30289,7 @@ define linkonce_odr void @_ZN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChai
   store ptr @.str.67, ptr %4, align 8, !noalias !1874
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 3, ptr %36, align 8, !noalias !1874
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %34, align 8, !noalias !1874
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %34, align 8, !noalias !1874
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 9, ptr %37, align 8, !noalias !1874
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -30327,7 +30327,7 @@ define linkonce_odr void @_ZN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChai
   store i8 1, ptr %18, align 8, !noalias !1880
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %19, align 1, !noalias !1880
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %17, align 8, !noalias !1880
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %17, align 8, !noalias !1880
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 13, ptr %20, align 8, !noalias !1880
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -30360,7 +30360,7 @@ define linkonce_odr void @_ZN4llvm20InstrProfReaderIndexINS_30OnDiskIterableChai
   store ptr @.str.67, ptr %6, align 8, !noalias !1886
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %34, align 8, !noalias !1886
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %32, align 8, !noalias !1886
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %32, align 8, !noalias !1886
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 9, ptr %35, align 8, !noalias !1886
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -30721,7 +30721,7 @@ _ZN4llvm22OnDiskChainedHashTableINS_20InstrProfLookupTraitEE11find_hashedERKNS_9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -30750,7 +30750,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm30InstrProfReaderItaniumRemapperINS_30OnDiskIterableChainedHashTableINS_20InstrProfLookupTraitEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40

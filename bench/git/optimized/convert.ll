@@ -1668,8 +1668,8 @@ land.lhs.true21:                                  ; preds = %if.end19
 if.then24:                                        ; preds = %land.lhs.true21
   %15 = load i64, ptr %dst_len, align 8
   %call25 = call ptr @reencode_string_len(ptr noundef nonnull %call11, i64 noundef %15, ptr noundef nonnull %enc, ptr noundef nonnull @.str.31, ptr noundef nonnull %re_src_len) #21
-  %trace_default_key.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
-  %trace_default_key.val39 = load i8, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 12), align 4
+  %trace_default_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8
+  %trace_default_key.val39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_default_key.val, 0
   %bf.clear.i = and i8 %trace_default_key.val39, 1
   %tobool27.not43 = icmp ne i8 %bf.clear.i, 0
@@ -3704,8 +3704,8 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   call void @strbuf_addchars(ptr noundef nonnull %trace, i32 noundef 10, i64 noundef 1) #21
-  %trace_encoding.coe.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_encoding.coe, i64 8), align 8
-  %trace_encoding.coe.val14 = load i8, ptr getelementptr inbounds (i8, ptr @trace_encoding.coe, i64 12), align 4
+  %trace_encoding.coe.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_encoding.coe, i64 8), align 8
+  %trace_encoding.coe.val14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_encoding.coe, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_encoding.coe.val, 0
   %bf.clear.i = and i8 %trace_encoding.coe.val14, 1
   %tobool24.not15 = icmp ne i8 %bf.clear.i, 0

@@ -43,7 +43,7 @@ declare dso_local zeroext i1 @psmouse_matches_pnp_id(ptr noundef, ptr noundef) l
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -12, 1) i32 @focaltech_init(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [3 x i8], align 1
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(76) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 76) #9
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null

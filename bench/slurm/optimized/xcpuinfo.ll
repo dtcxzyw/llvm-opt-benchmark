@@ -193,7 +193,7 @@ define range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, ptr nounde
 53:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 244), align 4
   %55 = and i32 %54, 8192
   %.not.i = icmp eq i32 %55, 0
   br i1 %.not.i, label %56, label %_remove_ecores.exit
@@ -407,7 +407,7 @@ define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr nocapture noundef writeo
   store i32 2, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 3, ptr %39, align 4
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1072), align 8
   %41 = call ptr @xstrcasestr(ptr noundef %40, ptr noundef nonnull @.str.11) #11
   %.not118 = icmp eq ptr %41, null
   br i1 %.not118, label %46, label %42
@@ -422,7 +422,7 @@ define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr nocapture noundef writeo
   br label %46
 
 46:                                               ; preds = %42, %45, %37
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 244), align 4
   %48 = zext i32 %47 to i64
   %49 = and i64 %48, 2048
   %.not119 = icmp eq i64 %49, 0

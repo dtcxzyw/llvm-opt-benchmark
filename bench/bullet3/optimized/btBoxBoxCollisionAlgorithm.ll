@@ -28,7 +28,7 @@ $_ZN26btBoxBoxCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectArray
 define dso_local void @_ZN26btBoxBoxCollisionAlgorithmC2EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %mf, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26btBoxBoxCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btBoxBoxCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %m_ownManifold, align 8
   %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -87,7 +87,7 @@ declare void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN26btBoxBoxCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26btBoxBoxCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btBoxBoxCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %m_ownManifold, align 8
   %tobool = trunc i8 %0 to i1
@@ -135,7 +135,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN26btBoxBoxCollisionAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV26btBoxBoxCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26btBoxBoxCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_ownManifold.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %m_ownManifold.i, align 8
   %tobool.i = trunc i8 %0 to i1

@@ -145,26 +145,26 @@ define range(i32 -1, 1) i32 @H5_init_library() local_unnamed_addr #0 {
 6:                                                ; preds = %3
   store i8 1, ptr @H5_libinit_g, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) @H5_debug_g, i8 0, i64 344, i1 false)
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 16), align 8
-  store ptr @.str.1, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 32), align 8
-  store ptr @.str.2, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 48), align 8
-  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 64), align 8
-  store ptr @.str.4, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 80), align 8
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 96), align 8
-  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 112), align 8
-  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 128), align 8
-  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 144), align 8
-  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 160), align 8
-  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 176), align 8
-  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 192), align 8
-  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 208), align 8
-  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 224), align 8
-  store ptr @.str.14, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 240), align 8
-  store ptr @.str.15, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 256), align 8
-  store ptr @.str.16, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 272), align 8
-  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 288), align 8
-  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 304), align 8
-  store ptr @.str.19, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 320), align 8
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), align 8
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 32), align 8
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 48), align 8
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 64), align 8
+  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 80), align 8
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 96), align 8
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 112), align 8
+  store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 128), align 8
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 144), align 8
+  store ptr @.str.9, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 160), align 8
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 176), align 8
+  store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 192), align 8
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 208), align 8
+  store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 224), align 8
+  store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 240), align 8
+  store ptr @.str.15, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 256), align 8
+  store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 272), align 8
+  store ptr @.str.17, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 288), align 8
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 304), align 8
+  store ptr @.str.19, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 320), align 8
   %.b7 = load i1, ptr @H5_dont_atexit_g, align 1
   br i1 %.b7, label %.preheader, label %7
 
@@ -354,7 +354,7 @@ define void @H5_term_library() #0 {
   br label %61
 
 61:                                               ; preds = %56, %.critedge
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 336), align 8
   %.not5262 = icmp eq ptr %62, null
   br i1 %.not5262, label %._crit_edge, label %.lr.ph
 
@@ -362,12 +362,12 @@ define void @H5_term_library() #0 {
   %63 = phi ptr [ %69, %.lr.ph ], [ %62, %61 ]
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 @fclose(ptr noundef %64)
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 336), align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
+  store ptr %68, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 336), align 8
   call void @free(ptr noundef nonnull %63) #21
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 336), align 8
   %.not52 = icmp eq ptr %69, null
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
@@ -523,7 +523,7 @@ switch.early.test:                                ; preds = %6
 42:                                               ; preds = %41
   store ptr %.04478, ptr @H5_debug_g, align 8
   %43 = zext i1 %15 to i8
-  store i8 %43, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 8), align 8
+  store i8 %43, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 8), align 8
   br label %.loopexit
 
 44:                                               ; preds = %41
@@ -534,7 +534,7 @@ switch.early.test:                                ; preds = %6
 45:                                               ; preds = %44
   store ptr %.04478, ptr @H5_debug_g, align 8
   %46 = zext i1 %15 to i8
-  store i8 %46, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 9), align 1
+  store i8 %46, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1
   br label %.loopexit
 
 47:                                               ; preds = %44
@@ -550,7 +550,7 @@ switch.early.test:                                ; preds = %6
   %.14876 = phi i64 [ 0, %.preheader ], [ %51, %49 ]
   %.idx = shl nuw nsw i64 %.14876, 4
   %.offs = or disjoint i64 %.idx, 8
-  %50 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 16), i64 %.offs
+  %50 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.offs
   store ptr %48, ptr %50, align 8
   %51 = add nuw nsw i64 %.14876, 1
   %exitcond87.not = icmp eq i64 %51, 20
@@ -563,7 +563,7 @@ switch.early.test:                                ; preds = %6
 
 .preheader69:                                     ; preds = %47, %52
   %.24975 = phi i64 [ %53, %52 ], [ 0, %47 ]
-  %54 = getelementptr inbounds nuw [20 x %struct.anon], ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 16), i64 0, i64 %.24975
+  %54 = getelementptr inbounds nuw [20 x %struct.anon], ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 0, i64 %.24975
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %2) #25
   %.not66 = icmp eq i32 %56, 0
@@ -604,10 +604,10 @@ switch.early.test:                                ; preds = %6
 
 75:                                               ; preds = %69
   store ptr %68, ptr %71, align 8
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 336), align 8
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %76, ptr %77, align 8
-  store ptr %71, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 336), align 8
+  store ptr %71, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 336), align 8
   br label %78
 
 78:                                               ; preds = %75, %65

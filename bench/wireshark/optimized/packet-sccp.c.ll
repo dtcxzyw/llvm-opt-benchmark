@@ -2362,14 +2362,14 @@ switch.lookup:                                    ; preds = %19
   br label %62
 
 62:                                               ; preds = %59, %52
-  store i32 0, ptr getelementptr inbounds (i8, ptr @no_assoc, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @no_assoc, i64 8), align 8
-  store i8 -1, ptr getelementptr inbounds (i8, ptr @no_assoc, i64 12), align 4
-  store i8 -1, ptr getelementptr inbounds (i8, ptr @no_assoc, i64 13), align 1
-  store i32 0, ptr getelementptr inbounds (i8, ptr @no_assoc, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @no_assoc, i64 20), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @no_assoc, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @no_assoc, i64 48), i8 0, i64 24, i1 false)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @no_assoc, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @no_assoc, i64 8), align 8
+  store i8 -1, ptr getelementptr inbounds nuw (i8, ptr @no_assoc, i64 12), align 4
+  store i8 -1, ptr getelementptr inbounds nuw (i8, ptr @no_assoc, i64 13), align 1
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @no_assoc, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @no_assoc, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @no_assoc, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @no_assoc, i64 48), i8 0, i64 24, i1 false)
   switch i8 %54, label %465 [
     i8 1, label %63
     i8 2, label %80

@@ -140,13 +140,13 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @Init_sym() local_unnamed_addr #0 {
   %1 = alloca i8, align 1
   %2 = tail call i64 @rb_ident_hash_new() #18
-  store i64 %2, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 24), align 8
+  store i64 %2, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 24), align 8
   tail call void @rb_gc_register_mark_object(i64 noundef %2) #18
   %3 = tail call i64 @rb_obj_hide(i64 noundef %2) #18
   %4 = tail call ptr @rb_st_init_table_with_size(ptr noundef nonnull @symhash, i64 noundef 1000) #18
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %5 = tail call i64 @rb_ary_hidden_new(i64 noundef 0) #18
-  store i64 %5, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
+  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 16), align 8
   tail call void @rb_gc_register_mark_object(i64 noundef %5) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   %6 = tail call nonnull ptr @rb_usascii_encoding() #18
@@ -472,7 +472,7 @@ define dso_local i64 @rb_id_attrset(i64 noundef %0) local_unnamed_addr #0 {
 
 rb_vm_lock_enter.exit.i:                          ; preds = %24, %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %26 = call i32 @rb_st_lookup(ptr noundef %25, i64 noundef %21, ptr noundef nonnull %2) #18
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %lookup_str_sym_with_lock.exit.i, label %27
@@ -560,7 +560,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %6, %1
 10:                                               ; preds = %rb_vm_lock_enter.exit.i
   %11 = lshr i64 %.0.in.i.i, 9
   %12 = and i64 %11, 8388607
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 16), align 8
   %14 = inttoptr i64 %13 to ptr
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 8192
@@ -685,7 +685,7 @@ next_id_base_with_lock.exit.thread:               ; preds = %24, %next_id_base_w
   store i64 %.sink, ptr %21, align 8
   %36 = lshr i32 %.0.i20, 9
   %37 = zext nneg i32 %36 to i64
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 16), align 8
   %39 = inttoptr i64 %38 to ptr
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 8192
@@ -725,7 +725,7 @@ set_id_entry.exit:                                ; preds = %48, %51
   call void @rb_ary_store(i64 noundef %.0.i22, i64 noundef %55, i64 noundef %26) #18
   %56 = or disjoint i64 %55, 1
   call void @rb_ary_store(i64 noundef %.0.i22, i64 noundef %56, i64 noundef %19) #18
-  %57 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 24), align 8
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 24), align 8
   %58 = call i64 @rb_hash_delete_entry(i64 noundef %57, i64 noundef %26) #18
   br label %59
 
@@ -1151,7 +1151,7 @@ is_special_global_name.exit.i:                    ; preds = %49, %.preheader.i.i
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %113 = load ptr, ptr %112, align 8
-  %114 = tail call i32 %113(ptr noundef nonnull %2, ptr noundef nonnull @rb_sym_constant_char_p.cname, ptr noundef nonnull getelementptr inbounds (i8, ptr @rb_sym_constant_char_p.cname, i64 15)) #18
+  %114 = tail call i32 %113(ptr noundef nonnull %2, ptr noundef nonnull @rb_sym_constant_char_p.cname, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rb_sym_constant_char_p.cname, i64 15)) #18
   store i32 %114, ptr @rb_sym_constant_char_p.ctype_titlecase, align 4
   br label %115
 
@@ -1352,7 +1352,7 @@ define hidden void @rb_free_static_symid_str() local_unnamed_addr #0 {
   br label %rb_vm_lock_enter.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %0, %3
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   call void @rb_st_free_table(ptr noundef %4) #18
   %5 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i1 = icmp eq ptr %5, null
@@ -1386,7 +1386,7 @@ define dso_local i64 @rb_intern3(ptr noundef %0, i64 noundef %1, ptr noundef %2)
 
 rb_vm_lock_enter.exit.i:                          ; preds = %9, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %11 = call i32 @rb_st_lookup(ptr noundef %10, i64 noundef %7, ptr noundef nonnull %4) #18
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %lookup_str_sym_with_lock.exit.i, label %12
@@ -1478,7 +1478,7 @@ define dso_local i64 @rb_intern_str(i64 noundef %0) local_unnamed_addr #0 {
 
 rb_vm_lock_enter.exit.i:                          ; preds = %5, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %7 = call i32 @rb_st_lookup(ptr noundef %6, i64 noundef %0, ptr noundef nonnull %2) #18
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %lookup_str_sym_with_lock.exit.i, label %8
@@ -1554,7 +1554,7 @@ define hidden void @rb_gc_free_dsymbol(i64 noundef %0) local_unnamed_addr #0 {
 rb_vm_lock_enter.exit:                            ; preds = %7, %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %6, ptr %2, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %11 = call i32 @rb_st_delete(ptr noundef %10, ptr noundef nonnull %2, ptr noundef null) #18
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %unregister_sym.exit
@@ -1578,7 +1578,7 @@ RSTRING_PTR.exit.i:                               ; preds = %17, %12
 
 unregister_sym.exit:                              ; preds = %rb_vm_lock_enter.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 24), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 24), align 8
   %19 = call i64 @rb_hash_delete_entry(i64 noundef %18, i64 noundef %6) #18
   %20 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7 = icmp eq ptr %20, null
@@ -1610,7 +1610,7 @@ define dso_local i64 @rb_str_intern(i64 noundef %0) local_unnamed_addr #0 {
 
 rb_vm_lock_enter.exit:                            ; preds = %1, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %9 = call i32 @rb_st_lookup(ptr noundef %8, i64 noundef %0, ptr noundef nonnull %4) #18
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %lookup_str_sym_with_lock.exit.thread, label %10
@@ -1821,9 +1821,9 @@ rb_obj_write.exit:                                ; preds = %4, %16
   %19 = ashr i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %19, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   tail call void @rb_st_add_direct(ptr noundef %21, i64 noundef %1, i64 noundef %8) #18
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 24), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 24), align 8
   %23 = tail call i64 @rb_hash_aset(i64 noundef %22, i64 noundef %1, i64 noundef 20) #18
   %24 = load i16, ptr @ruby_symbol__create_semaphore, align 2
   %.not = icmp eq i16 %24, 0
@@ -1873,7 +1873,7 @@ define internal fastcc noundef i64 @dsymbol_check(i64 noundef %0) unnamed_addr #
   store i64 0, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %7, ptr %2, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %11 = call i32 @rb_st_delete(ptr noundef %10, ptr noundef nonnull %2, ptr noundef null) #18
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %unregister_sym.exit
@@ -2061,11 +2061,11 @@ define dso_local noundef i64 @rb_sym_all_symbols() local_unnamed_addr #0 {
   br label %rb_vm_lock_enter.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %0, %3
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = call i64 @rb_ary_new_capa(i64 noundef %6) #18
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %9 = call i32 @rb_st_foreach(ptr noundef %8, ptr noundef nonnull @symbols_i, i64 noundef %7) #18
   %10 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3 = icmp eq ptr %10, null
@@ -2397,7 +2397,7 @@ define internal fastcc i64 @lookup_str_id(i64 noundef %0) unnamed_addr #0 {
   br label %rb_vm_lock_enter.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %1, %5
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %7 = call i32 @rb_st_lookup(ptr noundef %6, i64 noundef %0, ptr noundef nonnull %2) #18
   %8 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i13 = icmp eq ptr %8, null
@@ -2606,7 +2606,7 @@ sym_check_asciionly.exit:                         ; preds = %35, %31, %rb_enc_as
 
 rb_vm_lock_enter.exit.i:                          ; preds = %42, %sym_check_asciionly.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %44 = call i32 @rb_st_lookup(ptr noundef %43, i64 noundef %.1, ptr noundef nonnull %2) #18
   %.not.i.i46 = icmp eq i32 %44, 0
   br i1 %.not.i.i46, label %lookup_str_sym_with_lock.exit.i, label %45
@@ -2679,7 +2679,7 @@ define dso_local range(i64 1, 0) i64 @rb_check_symbol_cstr(ptr noundef %0, i64 n
 
 rb_vm_lock_enter.exit.i:                          ; preds = %9, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   %11 = call i32 @rb_st_lookup(ptr noundef %10, i64 noundef %7, ptr noundef nonnull %4) #18
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %lookup_str_sym_with_lock.exit.i, label %12
@@ -3596,11 +3596,11 @@ RSTRING_PTR.exit:                                 ; preds = %9, %15
   br label %rb_vm_lock_enter.exit
 
 rb_vm_lock_enter.exit:                            ; preds = %17, %21
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 8), align 8
   call void @rb_st_add_direct(ptr noundef %22, i64 noundef %7, i64 noundef %19) #18
   %23 = lshr i64 %.0.in.i, 9
   %24 = and i64 %23, 8388607
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 16), align 8
   %26 = inttoptr i64 %25 to ptr
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 8192
@@ -3681,7 +3681,7 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %5
 9:                                                ; preds = %rb_vm_lock_enter.exit
   %10 = lshr i32 %0, 9
   %11 = zext nneg i32 %10 to i64
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @ruby_global_symbols, i64 16), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ruby_global_symbols, i64 16), align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 8192

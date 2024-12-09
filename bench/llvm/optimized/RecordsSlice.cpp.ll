@@ -2365,7 +2365,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread55:       ; preds = %41, %_ZN4llvmneENS_
   %45 = load i8, ptr %44, align 1
   %46 = and i8 %45, 1
   %47 = xor i8 %46, 1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm5MachO15SymbolConverterE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm5MachO15SymbolConverterE, i64 16), ptr %8, align 8
   store ptr %9, ptr %19, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 4 dereferenceable(24) %43, i64 24, i1 false)
   store i8 %47, ptr %21, align 8
@@ -6028,7 +6028,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN4llvm5MachO13InterfaceFi
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN4llvm5MachO13InterfaceFileESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN4llvm5MachO13InterfaceFileESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %10, align 8
   %11 = load ptr, ptr %4, align 8

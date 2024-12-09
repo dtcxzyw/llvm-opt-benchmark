@@ -155,7 +155,7 @@ $_ZTV17LogStreamImplBase = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahControlThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1868) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 982
   %3 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %2) #10, !srcloc !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1112
@@ -170,7 +170,7 @@ define hidden void @_ZN23ShenandoahControlThreadC2Ev(ptr noundef nonnull align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %10, i32 noundef 39, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef 39, ptr noundef nonnull @.str.13, i1 noundef zeroext true) #10
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV23ShenandoahControlThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV23ShenandoahControlThread, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %13 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %12) #10, !srcloc !6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1860
@@ -460,11 +460,11 @@ default.unreachable:                              ; preds = %95
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %131 = load i64, ptr %130, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %9, i1 noundef zeroext false) #10
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %35) #10
   store i32 3, ptr %36, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %9, align 8
   %132 = load ptr, ptr %32, align 8
   call void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(30352) %132, ptr noundef nonnull %9) #10
   %133 = load i8, ptr @ShenandoahPacing, align 1
@@ -951,7 +951,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23ShenandoahControlThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1868) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1520
@@ -962,7 +962,7 @@ define linkonce_odr hidden void @_ZN23ShenandoahControlThreadD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23ShenandoahControlThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1868) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1520
@@ -1190,7 +1190,7 @@ declare void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20ShenandoahControllerD2Ev(ptr noundef nonnull align 8 dereferenceable(1728) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1520
@@ -1271,7 +1271,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #10
   ret void

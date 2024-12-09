@@ -135,7 +135,7 @@ define internal i32 @ntrig_probe(ptr noundef %0, ptr nocapture noundef readonly 
   br label %11
 
 11:                                               ; preds = %7, %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(38) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 38) #10
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
@@ -259,7 +259,7 @@ define internal i32 @ntrig_probe(ptr noundef %0, ptr nocapture noundef readonly 
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
   %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %90 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %89, i32 noundef 3264, i64 noundef 8) #10
   %91 = icmp eq ptr %90, null
   br i1 %91, label %135, label %92

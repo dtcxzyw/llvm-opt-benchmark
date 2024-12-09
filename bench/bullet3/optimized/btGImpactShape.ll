@@ -282,9 +282,9 @@ invoke.cont:
   store float 1.000000e+00, ptr %arrayidx5.i.i, align 8
   %arrayidx7.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 84
   store float 0.000000e+00, ptr %arrayidx7.i2.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGImpactMeshShapePart, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22btGImpactMeshShapePart, i64 16), ptr %this, align 8
   %m_primitive_manager = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN22btGImpactMeshShapePart23TrimeshPrimitiveManagerE, i64 16), ptr %m_primitive_manager, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN22btGImpactMeshShapePart23TrimeshPrimitiveManagerE, i64 16), ptr %m_primitive_manager, align 8
   %m_scale.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %m_meshInterface.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %m_part.i = getelementptr inbounds nuw i8, ptr %this, i64 224
@@ -320,7 +320,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22btGImpactMeshShapePartD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -358,7 +358,7 @@ _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22btGImpactMeshShapePartD0Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
   %m_data.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -1259,7 +1259,7 @@ declare noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22btGImpactCompoundShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22btGImpactCompoundShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22btGImpactCompoundShape, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1320,7 +1320,7 @@ _ZN20btAlignedObjectArrayI11btTransformED2Ev.exit: ; preds = %_ZN20btAlignedObje
   store i32 0, ptr %m_size.i.i.i6, align 4
   %m_capacity.i.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i32 0, ptr %m_capacity.i.i.i8, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %8 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -2191,7 +2191,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18btGImpactMeshShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18btGImpactMeshShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18btGImpactMeshShape, i64 16), ptr %this, align 8
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 196
   %0 = load i32, ptr %m_size.i, align 4
   %tobool.not3 = icmp eq i32 %0, 0
@@ -2245,7 +2245,7 @@ _ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit: ; preds = %if.the
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i, align 4
   store i32 0, ptr %m_capacity.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %7 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -2633,7 +2633,7 @@ declare void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23btGImpactShapeInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
   %m_data.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null

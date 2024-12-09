@@ -363,7 +363,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %50
-  %53 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @bl_info, i64 336), i64 noundef %38, i64 noundef %20)
+  %53 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bl_info, i64 336), i64 noundef %38, i64 noundef %20)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %82
 
@@ -372,7 +372,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %55
-  %58 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @bl_info, i64 504), i64 noundef %25, i64 noundef %5)
+  %58 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bl_info, i64 504), i64 noundef %25, i64 noundef %5)
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %80
 
@@ -391,7 +391,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %65
-  %69 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @bl_info, i64 168), i64 noundef %24, i64 noundef %66)
+  %69 = tail call fastcc i32 @vgt_balloon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bl_info, i64 168), i64 noundef %24, i64 noundef %66)
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %77
 
@@ -414,12 +414,12 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
 
 78:                                               ; preds = %77, %62
   %79 = phi i32 [ %63, %62 ], [ %69, %77 ]
-  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @bl_info, i64 504))
+  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bl_info, i64 504))
   br label %80
 
 80:                                               ; preds = %78, %57
   %81 = phi i32 [ %58, %57 ], [ %79, %78 ]
-  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @bl_info, i64 336))
+  tail call fastcc void @vgt_deballoon_space(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bl_info, i64 336))
   br label %82
 
 82:                                               ; preds = %80, %52

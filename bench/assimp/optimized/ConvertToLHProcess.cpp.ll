@@ -912,7 +912,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @_ZN6Assimp14FlipUVsProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp14FlipUVsProcessE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp14FlipUVsProcessE, i64 16), ptr %this, align 8
   ret void
 }
 

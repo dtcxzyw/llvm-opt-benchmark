@@ -964,7 +964,7 @@ _ZNSt10shared_ptrIN2cv2ml9TrainDataEED2Ev.exit:   ; preds = %1, %20, %33, %_ZNSt
 define hidden void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::Mat", align 8
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN2cv2ml10DTreesImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 520) (i8, ptr @_ZTVN2cv2ml10DTreesImplE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1008,7 +1008,7 @@ define hidden void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN2cv2ml10DTreesImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 520) (i8, ptr @_ZTVN2cv2ml10DTreesImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -1496,7 +1496,7 @@ define hidden void @_ZN2cv2ml10DTreesImpl13startTrainingERKNS_3PtrINS0_9TrainDat
   store i32 1, ptr %48, align 8, !noalias !6
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 1, ptr %49, align 4, !noalias !6
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml10DTreesImpl8WorkDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %47, align 8, !noalias !6
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml10DTreesImpl8WorkDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %47, align 8, !noalias !6
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   invoke void @_ZN2cv2ml10DTreesImpl8WorkDataC2ERKNS_3PtrINS0_9TrainDataEEE(ptr noundef nonnull align 8 dereferenceable(284) %50, ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %_ZN2cvL7makePtrINS_2ml10DTreesImpl8WorkDataEJNS_3PtrINS1_9TrainDataEEEEEENS4_IT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10DTreesImpl8WorkDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !6
@@ -13874,7 +13874,7 @@ define void @_ZN2cv2ml6DTrees6createEv(ptr dead_on_unwind noalias nocapture writ
   store i32 1, ptr %3, align 8, !noalias !148
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !148
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml10DTreesImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !148
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml10DTreesImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !148
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 dereferenceable(448) %5)
           to label %_ZN2cv3PtrINS_2ml10DTreesImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10DTreesImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !148
@@ -13990,7 +13990,7 @@ define linkonce_odr hidden void @_ZN2cv9Algorithm4loadINS_2ml6DTreesEEENS_3PtrIT
   store i32 1, ptr %35, align 8, !noalias !156
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !noalias !156
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml10DTreesImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !156
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml10DTreesImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !156
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   invoke void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 dereferenceable(448) %37)
           to label %39 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml10DTreesImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, !noalias !156

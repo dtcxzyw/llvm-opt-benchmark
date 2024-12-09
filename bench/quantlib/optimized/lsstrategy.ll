@@ -82,7 +82,7 @@ entry:
   %rebateTimes = alloca %"class.std::vector.16", align 8
   %controlTimes = alloca %"class.std::vector.16", align 8
   %basisSizes = alloca %"class.std::vector.11", align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib33LongstaffSchwartzExerciseStrategyE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib33LongstaffSchwartzExerciseStrategyE, i64 16), ptr %this, align 8, !tbaa !3
   %basisSystem_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %basisSystem_, align 8, !tbaa !6
   %0 = load ptr, ptr %basisSystem, align 8, !tbaa !10
@@ -1888,7 +1888,7 @@ entry:
   %ref.tmp.i40 = alloca %"class.std::unique_ptr.3", align 8
   %ref.tmp.i33 = alloca %"class.std::unique_ptr.3", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib33LongstaffSchwartzExerciseStrategyE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib33LongstaffSchwartzExerciseStrategyE, i64 16), ptr %this, align 8, !tbaa !3
   %basisSystem_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %basisSystem_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %basisSystem_2, align 8, !tbaa !10
@@ -2689,7 +2689,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib33LongstaffSchwartzExerciseStrategyE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib33LongstaffSchwartzExerciseStrategyE, i64 16), ptr %this, align 8, !tbaa !3
   %exerciseIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load ptr, ptr %exerciseIndex_, align 8, !tbaa !19
   %tobool.not.i.i.i = icmp eq ptr %0, null

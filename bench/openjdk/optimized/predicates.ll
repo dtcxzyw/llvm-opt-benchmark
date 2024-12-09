@@ -698,7 +698,7 @@ _ZN16RuntimePredicate15is_success_projEP4NodeN14Deoptimization11DeoptReasonE.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN36TemplateAssertionPredicateExpression5cloneEP4NodeP14PhaseIdealLoop(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.CloneStrategy, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13CloneStrategy, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV13CloneStrategy, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -804,7 +804,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %52, %54
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN36TemplateAssertionPredicateExpression22clone_and_replace_initEP4NodeS1_P14PhaseIdealLoop(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ReplaceInitAndCloneStrideStrategy, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV33ReplaceInitAndCloneStrideStrategy, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV33ReplaceInitAndCloneStrideStrategy, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -818,7 +818,7 @@ define hidden noundef ptr @_ZN36TemplateAssertionPredicateExpression22clone_and_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN36TemplateAssertionPredicateExpression33clone_and_replace_init_and_strideEP4NodeS1_S1_P14PhaseIdealLoop(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.ReplaceInitAndStrideStrategy, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV28ReplaceInitAndStrideStrategy, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV28ReplaceInitAndStrideStrategy, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16

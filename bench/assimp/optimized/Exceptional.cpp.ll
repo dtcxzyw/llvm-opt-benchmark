@@ -35,7 +35,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #5
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15DeadlyErrorBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15DeadlyErrorBase, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry

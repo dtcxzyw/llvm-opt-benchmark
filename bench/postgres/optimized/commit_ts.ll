@@ -93,7 +93,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %.lcssa = phi i1 [ false, %19 ], [ true, %._crit_edge.loopexit.split.loop.exit ], [ false, %28 ]
   %30 = sub i32 %.0.lcssa, %.030
   %31 = getelementptr i32, ptr %2, i64 %24
-  %32 = load i16, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 8), align 8
+  %32 = load i16, ptr getelementptr inbounds nuw (i8, ptr @CommitTsCtlData, i64 8), align 8
   %33 = zext i16 %32 to i64
   %34 = and i64 %33, %22
   %35 = load ptr, ptr @CommitTsCtlData, align 8
@@ -316,7 +316,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   br label %63
 
 63:                                               ; preds = %62, %52
-  %64 = load i16, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 8), align 8
+  %64 = load i16, ptr getelementptr inbounds nuw (i8, ptr @CommitTsCtlData, i64 8), align 8
   %65 = zext i16 %64 to i64
   %66 = and i64 %65, %5
   %67 = load ptr, ptr @CommitTsCtlData, align 8
@@ -594,13 +594,13 @@ CommitTsShmemBuffers.exit:                        ; preds = %0
 
 .thread:                                          ; preds = %CommitTsShmemBuffers.exit, %0
   %.ph = phi i32 [ %3, %0 ], [ %7, %CommitTsShmemBuffers.exit ]
-  store ptr @CommitTsPagePrecedes, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 16), align 8
+  store ptr @CommitTsPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @CommitTsCtlData, i64 16), align 8
   br label %13
 
 9:                                                ; preds = %CommitTsShmemBuffers.exit
   call void @SetConfigOption(ptr noundef nonnull @.str.4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 10) #9
   %.pr = load i32, ptr @commit_timestamp_buffers, align 4
-  store ptr @CommitTsPagePrecedes, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 16), align 8
+  store ptr @CommitTsPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @CommitTsCtlData, i64 16), align 8
   %10 = icmp eq i32 %.pr, 0
   br i1 %10, label %11, label %13
 
@@ -736,7 +736,7 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
   br i1 %35, label %46, label %36
 
 36:                                               ; preds = %32
-  %37 = load i16, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 8), align 8
+  %37 = load i16, ptr getelementptr inbounds nuw (i8, ptr @CommitTsCtlData, i64 8), align 8
   %38 = zext i16 %37 to i64
   %39 = and i64 %38, %16
   %40 = load ptr, ptr @CommitTsCtlData, align 8
@@ -874,7 +874,7 @@ define dso_local void @ExtendCommitTs(i32 noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %7
   %13 = zext nneg i32 %9 to i64
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 8), align 8
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @CommitTsCtlData, i64 8), align 8
   %15 = zext i16 %14 to i64
   %16 = and i64 %15, %13
   %17 = load ptr, ptr @CommitTsCtlData, align 8
@@ -1030,7 +1030,7 @@ define dso_local void @commit_ts_redo(ptr nocapture noundef readonly %0) local_u
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = load ptr, ptr %8, align 8
   %.0.copyload = load i64, ptr %9, align 1
-  %10 = load i16, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 8), align 8
+  %10 = load i16, ptr getelementptr inbounds nuw (i8, ptr @CommitTsCtlData, i64 8), align 8
   %11 = zext i16 %10 to i64
   %12 = and i64 %.0.copyload, %11
   %13 = load ptr, ptr @CommitTsCtlData, align 8

@@ -44,7 +44,7 @@ $_ZN7rocksdb30StatusOnlyTraceExecutionResultD0Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7rocksdb17TraceRecordResultC2ENS_9TraceTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, i8 noundef signext %trace_type) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17TraceRecordResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb17TraceRecordResultE, i64 16), ptr %this, align 8
   %trace_type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %trace_type, ptr %trace_type_, align 8
   ret void
@@ -63,7 +63,7 @@ define void @_ZN7rocksdb20TraceExecutionResultC2EmmNS_9TraceTypeE(ptr nocapture 
 entry:
   %trace_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %trace_type, ptr %trace_type_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20TraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb20TraceExecutionResultE, i64 16), ptr %this, align 8
   %ts_start_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %start_timestamp, ptr %ts_start_, align 8
   %ts_end_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -96,7 +96,7 @@ entry:
   store i64 %start_timestamp, ptr %ts_start_.i, align 8
   %ts_end_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %end_timestamp, ptr %ts_end_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %state_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %state_.i.i, align 8
@@ -177,7 +177,7 @@ entry:
   store i64 %start_timestamp, ptr %ts_start_.i, align 8
   %ts_end_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %end_timestamp, ptr %ts_end_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %state_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %state_.i.i, align 8
@@ -265,7 +265,7 @@ entry:
   store i64 %start_timestamp, ptr %ts_start_.i, align 8
   %ts_end_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %end_timestamp, ptr %ts_end_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %state_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %state_.i.i, align 8
@@ -328,7 +328,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb31SingleValueTraceExecutionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i64 16), ptr %this, align 8
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %value_) #12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_) #12
@@ -396,7 +396,7 @@ entry:
   store i64 %start_timestamp, ptr %ts_start_.i, align 8
   %ts_end_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %end_timestamp, ptr %ts_end_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb31MultiValuesTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb31MultiValuesTraceExecutionResultE, i64 16), ptr %this, align 8
   %multi_status_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %multi_status, align 8
   store ptr %0, ptr %multi_status_, align 8
@@ -427,7 +427,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb31MultiValuesTraceExecutionResultD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb31MultiValuesTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb31MultiValuesTraceExecutionResultE, i64 16), ptr %this, align 8
   %multi_status_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %multi_status_, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -579,7 +579,7 @@ entry:
   store i64 %start_timestamp, ptr %ts_start_.i, align 8
   %ts_end_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %end_timestamp, ptr %ts_end_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i64 16), ptr %this, align 8
   %valid_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 %frombool, ptr %valid_, align 8
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -686,7 +686,7 @@ entry:
   store i64 %start_timestamp, ptr %ts_start_.i, align 8
   %ts_end_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %end_timestamp, ptr %ts_end_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i64 16), ptr %this, align 8
   %valid_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 %frombool, ptr %valid_, align 8
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -839,7 +839,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %ehcleanup13, %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb28IteratorTraceExecutionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (56, 72), (152, 168)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr @.str, ptr %key_, align 8
   %size_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -959,7 +959,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb30StatusOnlyTraceExecutionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i64 16), ptr %this, align 8
   %state_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -977,7 +977,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb30StatusOnlyTraceExecutionResultD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i64 16), ptr %this, align 8
   %state_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

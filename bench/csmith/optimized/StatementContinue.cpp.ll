@@ -100,7 +100,7 @@ define dso_local noundef ptr @_ZN17StatementContinue11make_randomER9CGContext(pt
           to label %20 unwind label %23
 
 20:                                               ; preds = %19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %17, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %14, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -144,7 +144,7 @@ declare void @_ZN7FactMgr15create_cfg_edgeEPK9StatementS2_bb(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17StatementContinueC2EP5BlockRK10ExpressionRKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(192) %3) unnamed_addr #3 align 2 {
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 6, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -161,7 +161,7 @@ define dso_local void @_ZN17StatementContinueC2ERKS_(ptr noundef nonnull align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %4, ptr noundef %6)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -175,7 +175,7 @@ define dso_local void @_ZN17StatementContinueC2ERKS_(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17StatementContinueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -198,7 +198,7 @@ declare void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17StatementContinueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

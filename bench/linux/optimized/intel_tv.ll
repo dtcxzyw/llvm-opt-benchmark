@@ -126,7 +126,7 @@ define dso_local void @intel_tv_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %35, label %36, label %108
 
 36:                                               ; preds = %18
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %38 = tail call noalias noundef align 8 dereferenceable_or_null(392) ptr @kmalloc_trace(ptr noundef %37, i32 noundef 3520, i64 noundef 392) #11
   %39 = icmp eq ptr %38, null
   br i1 %39, label %108, label %40

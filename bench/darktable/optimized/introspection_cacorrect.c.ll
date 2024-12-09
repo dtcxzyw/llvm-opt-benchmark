@@ -4041,7 +4041,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br label %3213
 
 3208:                                             ; preds = %3197, %.loopexit360
-  %3209 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !56
+  %3209 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !56
   %3210 = and i32 %3209, 33554432
   %3211 = icmp eq i32 %3210, 0
   br i1 %3211, label %3213, label %3212
@@ -4065,7 +4065,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %3221, label %3227, label %3222
 
 3222:                                             ; preds = %3216, %3213
-  %3223 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !56
+  %3223 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !56
   %3224 = and i32 %3223, 33554432
   %3225 = icmp eq i32 %3224, 0
   br i1 %3225, label %.loopexit352, label %3226
@@ -4692,7 +4692,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %3683, label %3684, label %3690
 
 3684:                                             ; preds = %3682
-  %3685 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !56
+  %3685 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !56
   %3686 = and i32 %3685, 33554432
   %3687 = icmp eq i32 %3686, 0
   br i1 %3687, label %3689, label %3688
@@ -5214,7 +5214,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %4057, label %.preheader349, label %.loopexit350
 
 4059:                                             ; preds = %3880
-  %4060 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !56
+  %4060 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !56
   %4061 = and i32 %4060, 33554432
   %4062 = icmp eq i32 %4061, 0
   br i1 %4062, label %.loopexit350, label %4063
@@ -5706,7 +5706,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %4409, label %.preheader347, label %.loopexit348
 
 4411:                                             ; preds = %4232
-  %4412 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !56
+  %4412 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !56
   %4413 = and i32 %4412, 33554432
   %4414 = icmp eq i32 %4413, 0
   br i1 %4414, label %.loopexit348, label %4415
@@ -9731,12 +9731,12 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 56), align 8, !tbaa !169
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 144), align 16, !tbaa !169
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 232), align 8, !tbaa !169
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 320), align 16, !tbaa !169
-  store ptr @introspection_init.f1, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 160), align 16, !tbaa !169
-  store ptr @introspection_init.f2, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 248), align 8, !tbaa !169
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 56), align 8, !tbaa !169
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 144), align 16, !tbaa !169
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 232), align 8, !tbaa !169
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 320), align 16, !tbaa !169
+  store ptr @introspection_init.f1, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 160), align 16, !tbaa !169
+  store ptr @introspection_init.f2, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 248), align 8, !tbaa !169
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -9774,7 +9774,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
 4:                                                ; preds = %1
   %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.11) #23
   %6 = icmp eq i32 %5, 0
-  %7 = select i1 %6, ptr getelementptr inbounds (i8, ptr @introspection_linear, i64 88), ptr null
+  %7 = select i1 %6, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), ptr null
   br label %8
 
 8:                                                ; preds = %4, %1

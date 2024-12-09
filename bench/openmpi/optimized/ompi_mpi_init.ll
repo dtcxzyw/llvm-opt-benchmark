@@ -292,7 +292,7 @@ ompi_mpi_thread_level.exit:                       ; preds = %31, %33
   br label %60
 
 60:                                               ; preds = %56, %53
-  %61 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 408), align 8
   %62 = trunc i8 %61 to i1
   br i1 %62, label %.loopexit120, label %63
 
@@ -336,9 +336,9 @@ ompi_mpi_thread_level.exit:                       ; preds = %31, %33
 
 .loopexit120:                                     ; preds = %.lr.ph123, %.preheader119, %69, %66, %60
   %.069 = phi i1 [ false, %60 ], [ true, %69 ], [ false, %66 ], [ false, %.preheader119 ], [ false, %.lr.ph123 ]
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 32), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 32), align 8
   %82 = call i32 %81(ptr noundef nonnull @ompi_mpi_comm_world) #6
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 32), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 32), align 8
   %84 = call i32 %83(ptr noundef nonnull @ompi_mpi_comm_self) #6
   %85 = load i8, ptr @ompi_ftmpi_enabled, align 1
   %86 = trunc i8 %85 to i1
@@ -382,15 +382,15 @@ ompi_mpi_thread_level.exit:                       ; preds = %31, %33
   br i1 %105, label %106, label %111
 
 106:                                              ; preds = %103
-  %107 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 220), align 4
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 220), align 4
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 340), align 4
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %110 = call i32 @ompi_show_all_mca_params(i32 noundef %107, i32 noundef %108, ptr noundef %109) #6
   br label %111
 
 111:                                              ; preds = %106, %103
   call void @ompi_rte_wait_for_debugger() #6
-  %112 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
+  %112 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 408), align 8
   %113 = trunc i8 %112 to i1
   br i1 %113, label %.loopexit, label %114
 

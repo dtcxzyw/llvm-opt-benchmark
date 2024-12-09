@@ -8783,7 +8783,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7a208c9124b704d3E.exit.i: ; preds = %33
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4cf75104de4aa9e7E.llvm.10398213392211133803.exit.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7a208c9124b704d3E.exit.i, %33
-  %.sroa.0.0.i.i.i8.i = phi ptr [ %37, %_ZN4core3ops8function6FnOnce9call_once17h7a208c9124b704d3E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %33 ]
+  %.sroa.0.0.i.i.i8.i = phi ptr [ %37, %_ZN4core3ops8function6FnOnce9call_once17h7a208c9124b704d3E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %33 ]
   %40 = load i64, ptr %.sroa.0.0.i.i.i8.i, align 8, !noalias !2824, !noundef !9
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i8.i, i64 8
   %42 = load i64, ptr %41, align 8, !noalias !2824, !noundef !9
@@ -12421,7 +12421,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7a208c9124b704d3E.exit: ; preds = %7
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4cf75104de4aa9e7E.llvm.10398213392211133803.exit": ; preds = %7, %_ZN4core3ops8function6FnOnce9call_once17h7a208c9124b704d3E.exit
-  %.sroa.0.0.i.i.i19 = phi ptr [ %17, %_ZN4core3ops8function6FnOnce9call_once17h7a208c9124b704d3E.exit ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %7 ]
+  %.sroa.0.0.i.i.i19 = phi ptr [ %17, %_ZN4core3ops8function6FnOnce9call_once17h7a208c9124b704d3E.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %7 ]
   %20 = load i64, ptr %.sroa.0.0.i.i.i19, align 8, !noalias !3834, !noundef !9
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i19, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !3834, !noundef !9

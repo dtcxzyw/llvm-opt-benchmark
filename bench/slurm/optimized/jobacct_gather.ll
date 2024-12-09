@@ -544,7 +544,7 @@ define range(i32 -1, 1) i32 @jobacct_gather_init() local_unnamed_addr #0 {
   br i1 %.not16, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 456), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 456), align 8
   %.not17 = icmp eq ptr %9, null
   br i1 %.not17, label %10, label %11
 
@@ -559,7 +559,7 @@ define range(i32 -1, 1) i32 @jobacct_gather_init() local_unnamed_addr #0 {
   br i1 %.not18, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 456), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 456), align 8
   %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %14) #10
   store i32 0, ptr @plugin_inited, align 4
   br label %34
@@ -592,18 +592,18 @@ define range(i32 -1, 1) i32 @jobacct_gather_init() local_unnamed_addr #0 {
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %24
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 912), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 912), align 8
   %28 = tail call i32 @xstrcasecmp(ptr noundef %27, ptr noundef nonnull @.str.5) #10
   %.not21 = icmp eq i32 %28, 0
   br i1 %.not21, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 456), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 456), align 8
   tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.6, ptr noundef %30) #10
   br label %31
 
 31:                                               ; preds = %29, %26
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 72), align 8
   %.not22 = icmp eq ptr %32, null
   br i1 %.not22, label %33, label %34
 
@@ -683,7 +683,7 @@ define i32 @jobacct_gather_fini() local_unnamed_addr #0 {
   unreachable
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 168)) #10
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 168)) #10
   %.not35 = icmp eq i32 %13, 0
   br i1 %.not35, label %16, label %14
 
@@ -694,7 +694,7 @@ define i32 @jobacct_gather_fini() local_unnamed_addr #0 {
   unreachable
 
 16:                                               ; preds = %12
-  %17 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 120)) #10
+  %17 = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 120)) #10
   %.not36 = icmp eq i32 %17, 0
   br i1 %.not36, label %21, label %18
 
@@ -705,7 +705,7 @@ define i32 @jobacct_gather_fini() local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %18, %16
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 168)) #10
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 168)) #10
   %.not37 = icmp eq i32 %22, 0
   br i1 %.not37, label %25, label %23
 
@@ -1031,7 +1031,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %20
   br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 168)) #10
+  %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 168)) #10
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %30, label %28
 
@@ -1042,7 +1042,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %20
   unreachable
 
 30:                                               ; preds = %26
-  %31 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 120), ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 168)) #10
+  %31 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 120), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 168)) #10
   %.not14 = icmp eq i32 %31, 0
   br i1 %.not14, label %35, label %32
 
@@ -1053,7 +1053,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %20
   br label %35
 
 35:                                               ; preds = %32, %30
-  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @acct_gather_profile_timer, i64 168)) #10
+  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 168)) #10
   %.not15 = icmp eq i32 %36, 0
   br i1 %.not15, label %39, label %37
 
@@ -1171,7 +1171,7 @@ define i32 @jobacct_gather_endpoll() local_unnamed_addr #0 {
 
 18:                                               ; preds = %17, %15
   store ptr null, ptr @task_list, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 8), align 8
   %20 = tail call i32 (...) %19() #10
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @task_list_lock) #10
   %.not18 = icmp eq i32 %21, 0
@@ -1309,7 +1309,7 @@ jobacctinfo_create.exit:                          ; preds = %17, %24
   br label %50
 
 50:                                               ; preds = %46, %42
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 16), align 8
   %52 = call i32 %51(i32 noundef %0, ptr noundef nonnull %1) #10
   %53 = load ptr, ptr @task_list, align 8
   call void @list_push(ptr noundef %53, ptr noundef nonnull %.0.i) #10
@@ -1854,7 +1854,7 @@ define range(i32 -1, 1) i32 @jobacct_gather_set_mem_limit(ptr nocapture noundef 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) @jobacct_step_id, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %12 = shl i64 %1, 20
   store i64 %12, ptr @jobacct_mem_limit, align 8
-  %13 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1504), align 8
+  %13 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1504), align 8
   %14 = uitofp i16 %13 to double
   %15 = fdiv double %14, 1.000000e+02
   %16 = uitofp i64 %12 to double

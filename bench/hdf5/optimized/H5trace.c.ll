@@ -8337,7 +8337,7 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not, label %128, label %10
 
 10:                                               ; preds = %3
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 9), align 1
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %15
 
@@ -8346,7 +8346,7 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   br label %15
 
 15:                                               ; preds = %13, %10
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 8), align 8
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 8), align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %28
 
@@ -8375,7 +8375,7 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
 
 28:                                               ; preds = %20, %24, %15
   %.b = load i1, ptr @H5_trace.is_first_invocation, align 1
-  %.pre46 = load i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 9), align 1
+  %.pre46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1
   br i1 %.b, label %34, label %29
 
 29:                                               ; preds = %28
@@ -8386,7 +8386,7 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   store i1 true, ptr @H5_trace.is_first_invocation, align 1
   %32 = call i32 @H5_timer_init(ptr noundef nonnull @H5_trace.running_timer) #9
   %33 = call i32 @H5_timer_start(ptr noundef nonnull @H5_trace.running_timer) #9
-  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 9), align 1
+  %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1
   br label %34
 
 34:                                               ; preds = %31, %29, %28
@@ -8412,7 +8412,7 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not36, label %70, label %45
 
 45:                                               ; preds = %42
-  %46 = load i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 9), align 1
+  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %60
 
@@ -8465,7 +8465,7 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   br label %77
 
 77:                                               ; preds = %75, %72
-  %78 = load i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 9), align 1
+  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1
   %79 = trunc i8 %78 to i1
   br i1 %79, label %80, label %89
 
@@ -8507,7 +8507,7 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not35, label %.critedge, label %101
 
 101:                                              ; preds = %99
-  %102 = load i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 9), align 1
+  %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1
   %103 = trunc i8 %102 to i1
   br i1 %103, label %104, label %117
 
@@ -8538,7 +8538,7 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   %120 = call i32 @fputs(ptr noundef %119, ptr noundef nonnull %9)
   %121 = call i32 @fflush(ptr noundef nonnull %9)
   %122 = call i32 @H5RS_decr(ptr noundef %40) #9
-  %123 = load i8, ptr getelementptr inbounds (i8, ptr @H5_debug_g, i64 9), align 1
+  %123 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1
   %124 = trunc i8 %123 to i1
   br i1 %124, label %125, label %128
 

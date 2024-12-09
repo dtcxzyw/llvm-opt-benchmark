@@ -498,7 +498,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %18 = load ptr, ptr %vfn.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %call39) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %iDoTheExportThing, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %iDoTheExportThing, align 8
   %mSceneOwned.i = getelementptr inbounds nuw i8, ptr %iDoTheExportThing, i64 488
   %19 = load i8, ptr %mSceneOwned.i, align 8
   %tobool.i = trunc i8 %19 to i1
@@ -641,7 +641,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyExportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyExportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -751,7 +751,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
   %ref.tmp7 = alloca %"class.std::locale", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %this, align 8
   %mOutput = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %mOutput)
   %mProperties = getelementptr inbounds nuw i8, ptr %this, i64 400
@@ -784,7 +784,7 @@ call.i.noexc:                                     ; preds = %invoke.cont3
           to label %.noexc unwind label %lpad4
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %endstr, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %endstr, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 1))
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -949,7 +949,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Assimp13XFileExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %this, align 8
   %mSceneOwned = getelementptr inbounds nuw i8, ptr %this, i64 488
   %0 = load i8, ptr %mSceneOwned, align 8
   %tobool = trunc i8 %0 to i1
@@ -989,7 +989,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Assimp13XFileExporterD0Ev(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %this, align 8
   %mSceneOwned.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %0 = load i8, ptr %mSceneOwned.i, align 8
   %tobool.i = trunc i8 %0 to i1

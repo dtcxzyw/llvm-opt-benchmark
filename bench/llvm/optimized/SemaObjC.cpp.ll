@@ -814,7 +814,7 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %_ZNK5clang4Type5get
 
 87:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %4, align 8
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2730, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7033,7 +7033,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %2
   %86 = load ptr, ptr %0, align 8
   %87 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %3, align 8
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4019, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 16

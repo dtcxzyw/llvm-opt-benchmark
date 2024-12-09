@@ -8325,7 +8325,7 @@ multicolor.exit.i:                                ; preds = %1005, %939
   br label %1028
 
 agxblen.exit.i.i.i:                               ; preds = %1028
-  %.val.i.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  %.val.i.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
   %1034 = zext i8 %.val.i.i.i.i to i64
   %1035 = load i64, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 16), align 8
@@ -8338,7 +8338,7 @@ agxblen.exit.i.i.i:                               ; preds = %1028
 
 1039:                                             ; preds = %agxblen.exit.i.i.i
   call fastcc void @agxbmore(ptr noundef nonnull @default_pencolor.buf, i64 noundef 7)
-  %.val.i25.pre.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  %.val.i25.pre.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   br label %1040
 
 1040:                                             ; preds = %1039, %agxblen.exit.i.i.i
@@ -8350,9 +8350,9 @@ agxblen.exit.i.i.i:                               ; preds = %1028
   %1042 = zext i8 %.val.i25.i.i.i to i64
   %1043 = getelementptr inbounds nuw [31 x i8], ptr @default_pencolor.buf, i64 0, i64 %1042
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %1043, ptr noundef nonnull readonly align 1 dereferenceable(7) %.str.17.sink.i, i64 7, i1 false)
-  %1044 = load i8, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  %1044 = load i8, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   %1045 = add i8 %1044, 7
-  store i8 %1045, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  store i8 %1045, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   br label %agxbput.exit.i
 
 1046:                                             ; preds = %1040
@@ -8378,7 +8378,7 @@ agxbput.exit.i:                                   ; preds = %1046, %1041
   br i1 %.not10.i, label %agxbsizeof.exit.i.i14.i, label %.lr.ph.i138
 
 agxbsizeof.exit.i.i14.i:                          ; preds = %.lr.ph.i138, %agxbput.exit.i
-  %.val.i.i.i11.i = load i8, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  %.val.i.i.i11.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   %.not.i.i.i12.i = icmp eq i8 %.val.i.i.i11.i, -1
   %1055 = load i64, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 8), align 8
   %1056 = load i64, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 16), align 8
@@ -8390,7 +8390,7 @@ agxbsizeof.exit.i.i14.i:                          ; preds = %.lr.ph.i138, %agxbp
 
 1058:                                             ; preds = %agxbsizeof.exit.i.i14.i
   call fastcc void @agxbmore(ptr noundef nonnull @default_pencolor.buf, i64 noundef 1)
-  %.val.i15.pre.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  %.val.i15.pre.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   br label %1059
 
 1059:                                             ; preds = %1058, %agxbsizeof.exit.i.i14.i
@@ -8402,9 +8402,9 @@ agxbsizeof.exit.i.i14.i:                          ; preds = %.lr.ph.i138, %agxbp
   %1061 = zext i8 %.val.i15.i.i.i to i64
   %1062 = getelementptr inbounds nuw [31 x i8], ptr @default_pencolor.buf, i64 0, i64 %1061
   store i8 0, ptr %1062, align 1
-  %1063 = load i8, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  %1063 = load i8, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   %1064 = add i8 %1063, 1
-  store i8 %1064, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  store i8 %1064, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   br label %agxbputc.exit.i.i
 
 1065:                                             ; preds = %1059
@@ -8415,7 +8415,7 @@ agxbsizeof.exit.i.i14.i:                          ; preds = %.lr.ph.i138, %agxbp
   %1069 = load i64, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 8), align 8
   %1070 = add i64 %1069, 1
   store i64 %1070, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 8), align 8
-  %.val.i.pr.i.i = load i8, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  %.val.i.pr.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   br label %agxbputc.exit.i.i
 
 agxbputc.exit.i.i:                                ; preds = %1065, %1060
@@ -8424,7 +8424,7 @@ agxbputc.exit.i.i:                                ; preds = %1065, %1060
   br i1 %.not.i3.i.i, label %1071, label %agxbclear.exit.thread.i.i
 
 agxbclear.exit.thread.i.i:                        ; preds = %agxbputc.exit.i.i
-  store i8 0, ptr getelementptr inbounds (i8, ptr @default_pencolor.buf, i64 31), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @default_pencolor.buf, i64 31), align 1
   br label %default_pencolor.exit
 
 1071:                                             ; preds = %agxbputc.exit.i.i
@@ -9472,7 +9472,7 @@ style_token.exit.thread:                          ; preds = %.preheader.i, %.pre
   br i1 %11, label %style_token.exit.thread._crit_edge, label %20
 
 style_token.exit.thread._crit_edge:               ; preds = %style_token.exit.thread
-  %.val.i.i30.pr.pre75.pre = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i.i30.pr.pre75.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %44
 
 style_token.exit:                                 ; preds = %3, %3
@@ -9507,11 +9507,11 @@ agxbputc.exit40.backedge:                         ; preds = %17, %14
 
 22:                                               ; preds = %20
   %23 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %0) #28
-  store ptr null, ptr getelementptr inbounds (i8, ptr @parse_style.parse, i64 504), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @parse_style.parse, i64 504), align 8
   br label %109
 
 agxbsizeof.exit.i:                                ; preds = %20
-  %.val.i.i = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   %.not.i.i = icmp eq i8 %.val.i.i, -1
   %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 8), align 8
   %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 16), align 8
@@ -9523,7 +9523,7 @@ agxbsizeof.exit.i:                                ; preds = %20
 
 27:                                               ; preds = %agxbsizeof.exit.i
   tail call fastcc void @agxbmore(ptr noundef nonnull @parse_style.ps_xb, i64 noundef 1)
-  %.val.i15.pre.i = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i15.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %28
 
 28:                                               ; preds = %27, %agxbsizeof.exit.i
@@ -9535,9 +9535,9 @@ agxbsizeof.exit.i:                                ; preds = %20
   %30 = zext i8 %.val.i15.i to i64
   %31 = getelementptr inbounds nuw [31 x i8], ptr @parse_style.ps_xb, i64 0, i64 %30
   store i8 0, ptr %31, align 1
-  %32 = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   %33 = add i8 %32, 1
-  store i8 %33, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  store i8 %33, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 8), align 8
   br label %agxbputc.exit
 
@@ -9549,7 +9549,7 @@ agxbsizeof.exit.i:                                ; preds = %20
   %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 8), align 8
   %39 = add i64 %38, 1
   store i64 %39, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 8), align 8
-  %.val.i.pr = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i.pr = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %agxbputc.exit
 
 agxbputc.exit:                                    ; preds = %29, %34
@@ -9582,7 +9582,7 @@ agxblen.exit.i29:                                 ; preds = %44
 
 51:                                               ; preds = %agxblen.exit.i29
   tail call fastcc void @agxbmore(ptr noundef nonnull @parse_style.ps_xb, i64 noundef %10)
-  %.val.i25.pre.i = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i25.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %52
 
 52:                                               ; preds = %51, %agxblen.exit.i29
@@ -9595,9 +9595,9 @@ agxblen.exit.i29:                                 ; preds = %44
   %55 = getelementptr inbounds nuw [31 x i8], ptr @parse_style.ps_xb, i64 0, i64 %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %.0.i, i64 %10, i1 false)
   %56 = trunc i64 %10 to i8
-  %57 = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   %58 = add i8 %57, %56
-  store i8 %58, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  store i8 %58, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %agxbput_n.exit
 
 59:                                               ; preds = %52
@@ -9608,7 +9608,7 @@ agxblen.exit.i29:                                 ; preds = %44
   %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 8), align 8
   %64 = add i64 %63, %10
   store i64 %64, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 8), align 8
-  %.val.i.i30.pr.pre = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i.i30.pr.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %agxbput_n.exit
 
 agxbput_n.exit:                                   ; preds = %44, %59, %53
@@ -9624,7 +9624,7 @@ agxbput_n.exit:                                   ; preds = %44, %59, %53
 
 68:                                               ; preds = %agxbput_n.exit
   tail call fastcc void @agxbmore(ptr noundef nonnull @parse_style.ps_xb, i64 noundef 1)
-  %.val.i15.pre.i37 = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i15.pre.i37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %69
 
 69:                                               ; preds = %68, %agxbput_n.exit
@@ -9636,9 +9636,9 @@ agxbput_n.exit:                                   ; preds = %44, %59, %53
   %71 = zext i8 %.val.i15.i38 to i64
   %72 = getelementptr inbounds nuw [31 x i8], ptr @parse_style.ps_xb, i64 0, i64 %71
   store i8 0, ptr %72, align 1
-  %73 = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   %74 = add i8 %73, 1
-  store i8 %74, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  store i8 %74, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %agxbputc.exit40.outer.backedge
 
 agxbputc.exit40.outer.backedge:                   ; preds = %70, %75
@@ -9664,7 +9664,7 @@ style_token.exit.thread47:                        ; preds = %3
   br label %109
 
 agxbsizeof.exit.i.i:                              ; preds = %style_token.exit.thread47
-  %.val.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 8), align 8
   %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 16), align 8
@@ -9676,7 +9676,7 @@ agxbsizeof.exit.i.i:                              ; preds = %style_token.exit.th
 
 87:                                               ; preds = %agxbsizeof.exit.i.i
   tail call fastcc void @agxbmore(ptr noundef nonnull @parse_style.ps_xb, i64 noundef 1)
-  %.val.i15.pre.i.i = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i15.pre.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %88
 
 88:                                               ; preds = %87, %agxbsizeof.exit.i.i
@@ -9688,9 +9688,9 @@ agxbsizeof.exit.i.i:                              ; preds = %style_token.exit.th
   %90 = zext i8 %.val.i15.i.i to i64
   %91 = getelementptr inbounds nuw [31 x i8], ptr @parse_style.ps_xb, i64 0, i64 %90
   store i8 0, ptr %91, align 1
-  %92 = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %92 = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   %93 = add i8 %92, 1
-  store i8 %93, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  store i8 %93, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %agxbputc.exit.i
 
 94:                                               ; preds = %88
@@ -9701,7 +9701,7 @@ agxbsizeof.exit.i.i:                              ; preds = %style_token.exit.th
   %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 8), align 8
   %99 = add i64 %98, 1
   store i64 %99, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 8), align 8
-  %.val.i.pr.i = load i8, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  %.val.i.pr.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %agxbputc.exit.i
 
 agxbputc.exit.i:                                  ; preds = %94, %89
@@ -9710,7 +9710,7 @@ agxbputc.exit.i:                                  ; preds = %94, %89
   br i1 %.not.i3.i, label %100, label %agxbclear.exit.thread.i
 
 agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
-  store i8 0, ptr getelementptr inbounds (i8, ptr @parse_style.ps_xb, i64 31), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @parse_style.ps_xb, i64 31), align 1
   br label %agxbuse.exit
 
 100:                                              ; preds = %agxbputc.exit.i

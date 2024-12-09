@@ -89,9 +89,9 @@ $_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObject
 define void @_ZN19GsmMapSummaryDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   tail call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19GsmMapSummaryDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19GsmMapSummaryDialog, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19GsmMapSummaryDialog, i64 528), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19GsmMapSummaryDialog, i64 528), ptr %5, align 8
   %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
           to label %7 unwind label %19
 
@@ -523,9 +523,9 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WiresharkDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 528), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WiresharkDialog, i64 528), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -564,9 +564,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19GsmMapSummaryDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19GsmMapSummaryDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19GsmMapSummaryDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19GsmMapSummaryDialog, i64 528), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19GsmMapSummaryDialog, i64 528), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -577,8 +577,8 @@ define void @_ZN19GsmMapSummaryDialogD2Ev(ptr noundef nonnull align 8 dereferenc
   br label %7
 
 7:                                                ; preds = %6, %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 528), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WiresharkDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WiresharkDialog, i64 528), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %9, null
@@ -2997,7 +2997,7 @@ _ZN7QStringD2Ev.exit624:                          ; preds = %_ZN7QStringD2Ev.exi
   %874 = getelementptr [256 x i32], ptr @gsm_map_stat, i64 0, i64 %indvars.iv
   %875 = load i32, ptr %874, align 4
   %876 = add i32 %875, %.01171364
-  %877 = getelementptr [256 x i32], ptr getelementptr inbounds (i8, ptr @gsm_map_stat, i64 1024), i64 0, i64 %indvars.iv
+  %877 = getelementptr [256 x i32], ptr getelementptr inbounds nuw (i8, ptr @gsm_map_stat, i64 1024), i64 0, i64 %indvars.iv
   %878 = load i32, ptr %877, align 4
   %879 = add i32 %878, %.01161365
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3067,10 +3067,10 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i639:   ; preds = %_ZN7QStringD2Ev.exi
   %indvars.iv1374 = phi i64 [ %indvars.iv.next1375, %.preheader ], [ 0, %873 ]
   %.01141368 = phi i32 [ %903, %.preheader ], [ 0, %873 ]
   %.01151367 = phi i32 [ %900, %.preheader ], [ 0, %873 ]
-  %898 = getelementptr [256 x i32], ptr getelementptr inbounds (i8, ptr @gsm_map_stat, i64 2048), i64 0, i64 %indvars.iv1374
+  %898 = getelementptr [256 x i32], ptr getelementptr inbounds nuw (i8, ptr @gsm_map_stat, i64 2048), i64 0, i64 %indvars.iv1374
   %899 = load i32, ptr %898, align 4
   %900 = add i32 %899, %.01151367
-  %901 = getelementptr [256 x i32], ptr getelementptr inbounds (i8, ptr @gsm_map_stat, i64 3072), i64 0, i64 %indvars.iv1374
+  %901 = getelementptr [256 x i32], ptr getelementptr inbounds nuw (i8, ptr @gsm_map_stat, i64 3072), i64 0, i64 %indvars.iv1374
   %902 = load i32, ptr %901, align 4
   %903 = add i32 %902, %.01141368
   %indvars.iv.next1375 = add nuw nsw i64 %indvars.iv1374, 1

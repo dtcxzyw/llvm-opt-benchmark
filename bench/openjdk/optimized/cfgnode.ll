@@ -2648,7 +2648,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %796
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %833, ptr noundef null, ptr noundef nonnull %826, ptr noundef %805) #10
   %836 = getelementptr inbounds nuw i8, ptr %833, i64 44
   store i32 192, ptr %836, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8CmpINode, i64 16), ptr %833, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8CmpINode, i64 16), ptr %833, align 8
   br label %837
 
 837:                                              ; preds = %835, %832
@@ -2659,7 +2659,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %796
 
 841:                                              ; preds = %837
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %839, ptr noundef null, ptr noundef %838) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %839, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %839, align 8
   %842 = getelementptr inbounds nuw i8, ptr %839, i64 52
   store i32 3, ptr %842, align 4
   %843 = getelementptr inbounds nuw i8, ptr %839, i64 44
@@ -2697,7 +2697,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %796
   %862 = load i32, ptr %861, align 8
   %863 = or i32 %862, 64
   store i32 %863, ptr %861, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV10IfTrueNode, i64 16), ptr %855, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV10IfTrueNode, i64 16), ptr %855, align 8
   store i32 200, ptr %860, align 4
   br label %864
 
@@ -2718,7 +2718,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %796
   %873 = load i32, ptr %872, align 8
   %874 = or i32 %873, 64
   store i32 %874, ptr %872, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11IfFalseNode, i64 16), ptr %866, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11IfFalseNode, i64 16), ptr %866, align 8
   store i32 328, ptr %871, align 4
   br label %875
 
@@ -2732,7 +2732,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %796
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %877, ptr noundef null, ptr noundef nonnull %826, ptr noundef %811) #10
   %880 = getelementptr inbounds nuw i8, ptr %877, i64 44
   store i32 192, ptr %880, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8CmpINode, i64 16), ptr %877, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8CmpINode, i64 16), ptr %877, align 8
   br label %881
 
 881:                                              ; preds = %879, %875
@@ -2743,7 +2743,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %796
 
 885:                                              ; preds = %881
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %883, ptr noundef null, ptr noundef %882) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %883, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %883, align 8
   %886 = getelementptr inbounds nuw i8, ptr %883, i64 52
   store i32 1, ptr %886, align 4
   %887 = getelementptr inbounds nuw i8, ptr %883, i64 44
@@ -2779,7 +2779,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %796
   %904 = load i32, ptr %903, align 8
   %905 = or i32 %904, 64
   store i32 %905, ptr %903, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV10IfTrueNode, i64 16), ptr %897, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV10IfTrueNode, i64 16), ptr %897, align 8
   store i32 200, ptr %902, align 4
   br label %906
 
@@ -2800,7 +2800,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %796
   %915 = load i32, ptr %914, align 8
   %916 = or i32 %915, 64
   store i32 %916, ptr %914, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11IfFalseNode, i64 16), ptr %908, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11IfFalseNode, i64 16), ptr %908, align 8
   store i32 328, ptr %913, align 4
   br label %917
 
@@ -4510,7 +4510,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %42
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
   call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %269, ptr noundef null, ptr noundef %274) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %269, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %269, align 8
   %275 = getelementptr inbounds nuw i8, ptr %269, i64 52
   store i32 %258, ptr %275, align 4
   %276 = getelementptr inbounds nuw i8, ptr %269, i64 44
@@ -4649,7 +4649,7 @@ _ZN4NodenwEm.exit:                                ; preds = %22, %24
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %2, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %3, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -4781,7 +4781,7 @@ define linkonce_odr hidden void @_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii(ptr n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4986,7 +4986,7 @@ _ZN4NodenwEm.exit:                                ; preds = %42, %44
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %6, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %.0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -8689,7 +8689,7 @@ _ZNK7PhiNode14is_diamond_phiEv.exit.thread:       ; preds = %320, %306, %311, %3
 
 579:                                              ; preds = %.thread862
   tail call void @_ZN4NodeC2EPS_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %577, ptr noundef null, ptr noundef %.4401861866, ptr noundef %.1410867, ptr noundef %.1412) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8AddPNode, i64 16), ptr %577, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8AddPNode, i64 16), ptr %577, align 8
   %580 = getelementptr inbounds nuw i8, ptr %577, i64 44
   store i32 512, ptr %580, align 4
   br label %.critedge
@@ -10413,7 +10413,7 @@ define linkonce_odr hidden void @_ZN10CastPPNodeC2EP4NodeS1_PK4TypeN18Constraint
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %4, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10493,7 +10493,7 @@ _ZN4Node8init_reqEjPS_.exit.i:                    ; preds = %24, %13, %6
   br label %_ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit
 
 _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit: ; preds = %_ZN4Node8init_reqEjPS_.exit.i, %32, %43
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10CastPPNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10CastPPNode, i64 16), ptr %0, align 8
   store i32 2068, ptr %8, align 4
   ret void
 }
@@ -10504,7 +10504,7 @@ define linkonce_odr hidden void @_ZN15CheckCastPPNodeC2EP4NodeS1_PK4TypeN18Const
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %4, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10584,7 +10584,7 @@ _ZN4Node8init_reqEjPS_.exit.i:                    ; preds = %24, %13, %6
   br label %_ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit
 
 _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit: ; preds = %_ZN4Node8init_reqEjPS_.exit.i, %32, %43
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15CheckCastPPNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15CheckCastPPNode, i64 16), ptr %0, align 8
   store i32 84, ptr %8, align 4
   ret void
 }
@@ -10751,7 +10751,7 @@ _ZN4NodenwEm.exit:                                ; preds = %106, %108
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef null, ptr noundef %114) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10Conv2BNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10Conv2BNode, i64 16), ptr %.0.i.i.i, align 8
   br label %115
 
 115:                                              ; preds = %111, %_ZN4NodenwEm.exit
@@ -10798,7 +10798,7 @@ _ZN4NodenwEm.exit47:                              ; preds = %131, %133
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i46, ptr noundef null, ptr noundef %139, ptr noundef %140) #10
   %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i46, i64 44
   store i32 2048, ptr %141, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8XorINode, i64 16), ptr %.0.i.i.i46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8XorINode, i64 16), ptr %.0.i.i.i46, align 8
   br label %142
 
 142:                                              ; preds = %115, %136, %_ZN4NodenwEm.exit47, %85, %80, %78, %60, %63, %9
@@ -11012,7 +11012,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 133:                                              ; preds = %130
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %131, ptr noundef null, ptr noundef %.070) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8AbsFNode, i64 16), ptr %131, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8AbsFNode, i64 16), ptr %131, align 8
   br label %134
 
 134:                                              ; preds = %133, %130
@@ -11033,7 +11033,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %136, ptr noundef null, ptr noundef %141, ptr noundef %144) #10
   %145 = getelementptr inbounds nuw i8, ptr %136, i64 44
   store i32 64, ptr %145, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubFNode, i64 16), ptr %136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubFNode, i64 16), ptr %136, align 8
   br label %207
 
 146:                                              ; preds = %127
@@ -11048,7 +11048,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 152:                                              ; preds = %149
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %150, ptr noundef null, ptr noundef %.070) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8AbsDNode, i64 16), ptr %150, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8AbsDNode, i64 16), ptr %150, align 8
   br label %153
 
 153:                                              ; preds = %152, %149
@@ -11069,7 +11069,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %155, ptr noundef null, ptr noundef %160, ptr noundef %163) #10
   %164 = getelementptr inbounds nuw i8, ptr %155, i64 44
   store i32 64, ptr %164, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubDNode, i64 16), ptr %155, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubDNode, i64 16), ptr %155, align 8
   br label %207
 
 165:                                              ; preds = %146
@@ -11088,7 +11088,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 173:                                              ; preds = %170
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %171, ptr noundef null, ptr noundef %.070) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8AbsINode, i64 16), ptr %171, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8AbsINode, i64 16), ptr %171, align 8
   br label %174
 
 174:                                              ; preds = %173, %170
@@ -11109,7 +11109,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %176, ptr noundef null, ptr noundef %181, ptr noundef %184) #10
   %185 = getelementptr inbounds nuw i8, ptr %176, i64 44
   store i32 64, ptr %185, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %176, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %176, align 8
   br label %207
 
 186:                                              ; preds = %168, %165
@@ -11128,7 +11128,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 194:                                              ; preds = %191
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %192, ptr noundef null, ptr noundef %.070) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8AbsLNode, i64 16), ptr %192, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8AbsLNode, i64 16), ptr %192, align 8
   br label %195
 
 195:                                              ; preds = %194, %191
@@ -11149,7 +11149,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %197, ptr noundef null, ptr noundef %202, ptr noundef %205) #10
   %206 = getelementptr inbounds nuw i8, ptr %197, i64 44
   store i32 64, ptr %206, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubLNode, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubLNode, i64 16), ptr %197, align 8
   br label %207
 
 207:                                              ; preds = %switch.hole_check, %52, %134, %174, %195, %153, %138, %135, %157, %154, %178, %175, %199, %196, %186, %189, %107, %.critedge, %124, %83, %76, %48, %32
@@ -11308,7 +11308,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %35
 
 103:                                              ; preds = %100
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %101, ptr noundef null, ptr noundef %57, ptr noundef nonnull %59) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV13CmpLTMaskNode, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV13CmpLTMaskNode, i64 16), ptr %101, align 8
   br label %104
 
 104:                                              ; preds = %103, %100
@@ -11323,7 +11323,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %35
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %108, ptr noundef null, ptr noundef %107, ptr noundef %.037) #10
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 44
   store i32 4096, ptr %111, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV8AndINode, i64 16), ptr %108, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV8AndINode, i64 16), ptr %108, align 8
   br label %112
 
 112:                                              ; preds = %110, %104
@@ -11338,7 +11338,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %35
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %116, ptr noundef null, ptr noundef %115, ptr noundef %67) #10
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 44
   store i32 2048, ptr %119, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8AddINode, i64 16), ptr %116, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8AddINode, i64 16), ptr %116, align 8
   br label %_ZNK10RegionNode14has_unique_phiEv.exit.thread
 
 _ZNK10RegionNode14has_unique_phiEv.exit.thread:   ; preds = %33, %3, %112, %118, %96, %79, %53, %49, %46, %41, %38, %_ZNK10RegionNode14has_unique_phiEv.exit
@@ -11727,7 +11727,7 @@ define linkonce_odr hidden void @_ZN11EncodePNodeC2EP4NodePK4Type(ptr noundef no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV19EncodeNarrowPtrNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV19EncodeNarrowPtrNode, i64 16), ptr %0, align 8
   store i32 516, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -11769,7 +11769,7 @@ define linkonce_odr hidden void @_ZN11EncodePNodeC2EP4NodePK4Type(ptr noundef no
   br label %_ZN19EncodeNarrowPtrNodeC2EP4NodePK4Type.exit
 
 _ZN19EncodeNarrowPtrNodeC2EP4NodePK4Type.exit:    ; preds = %3, %10, %21
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11EncodePNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11EncodePNode, i64 16), ptr %0, align 8
   store i32 1540, ptr %5, align 4
   ret void
 }
@@ -11780,7 +11780,7 @@ define linkonce_odr hidden void @_ZN16EncodePKlassNodeC2EP4NodePK4Type(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV19EncodeNarrowPtrNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV19EncodeNarrowPtrNode, i64 16), ptr %0, align 8
   store i32 516, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -11822,7 +11822,7 @@ define linkonce_odr hidden void @_ZN16EncodePKlassNodeC2EP4NodePK4Type(ptr nound
   br label %_ZN19EncodeNarrowPtrNodeC2EP4NodePK4Type.exit
 
 _ZN19EncodeNarrowPtrNodeC2EP4NodePK4Type.exit:    ; preds = %3, %10, %21
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV16EncodePKlassNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV16EncodePKlassNode, i64 16), ptr %0, align 8
   store i32 2564, ptr %5, align 4
   ret void
 }
@@ -11833,7 +11833,7 @@ define linkonce_odr hidden void @_ZN11DecodeNNodeC2EP4NodePK4Type(ptr noundef no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV19DecodeNarrowPtrNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV19DecodeNarrowPtrNode, i64 16), ptr %0, align 8
   store i32 260, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -11875,7 +11875,7 @@ define linkonce_odr hidden void @_ZN11DecodeNNodeC2EP4NodePK4Type(ptr noundef no
   br label %_ZN19DecodeNarrowPtrNodeC2EP4NodePK4Type.exit
 
 _ZN19DecodeNarrowPtrNodeC2EP4NodePK4Type.exit:    ; preds = %3, %10, %21
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11DecodeNNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11DecodeNNode, i64 16), ptr %0, align 8
   store i32 772, ptr %5, align 4
   ret void
 }
@@ -11886,7 +11886,7 @@ define linkonce_odr hidden void @_ZN16DecodeNKlassNodeC2EP4NodePK4Type(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV19DecodeNarrowPtrNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV19DecodeNarrowPtrNode, i64 16), ptr %0, align 8
   store i32 260, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -11928,7 +11928,7 @@ define linkonce_odr hidden void @_ZN16DecodeNKlassNodeC2EP4NodePK4Type(ptr nound
   br label %_ZN19DecodeNarrowPtrNodeC2EP4NodePK4Type.exit
 
 _ZN19DecodeNarrowPtrNodeC2EP4NodePK4Type.exit:    ; preds = %3, %10, %21
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV16DecodeNKlassNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV16DecodeNKlassNode, i64 16), ptr %0, align 8
   store i32 1284, ptr %5, align 4
   ret void
 }
@@ -12165,7 +12165,7 @@ _ZN4NodenwEm.exit:                                ; preds = %123, %125
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %130 = load ptr, ptr %129, align 8
   call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i45, ptr noundef null, ptr noundef %107, ptr noundef %108) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV13VectorBoxNode, i64 16), ptr %.0.i.i.i45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV13VectorBoxNode, i64 16), ptr %.0.i.i.i45, align 8
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i45, i64 56
   store ptr %104, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %.0.i.i.i45, i64 64
@@ -12368,7 +12368,7 @@ _ZN4NodenwEm.exit:                                ; preds = %81, %83
   %92 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 56
   store ptr %1, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i40, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 64
   store ptr null, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 72
@@ -12547,7 +12547,7 @@ _ZN4NodenwEm.exit45:                              ; preds = %187, %189
   %198 = getelementptr inbounds nuw i8, ptr %.0.i.i.i44, i64 56
   store ptr %1, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %.0.i.i.i44, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i44, align 8
   %200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i44, i64 64
   store ptr null, ptr %200, align 8
   %201 = getelementptr inbounds nuw i8, ptr %.0.i.i.i44, i64 72
@@ -13867,7 +13867,7 @@ declare noundef zeroext i1 @_ZN7Matcher20match_rule_supportedEi(i32 noundef) loc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10RegionNodeC2Ej(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1) unnamed_addr #2 comdat align 2 {
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) #10
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56

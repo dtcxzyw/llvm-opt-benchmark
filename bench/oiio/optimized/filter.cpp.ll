@@ -689,7 +689,7 @@ if.then:                                          ; preds = %_ZNSt11char_traitsI
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store float %width, ptr %m_w.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox1DE, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox1DE, i64 16), ptr %call2, align 8
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i28: ; preds = %entry
@@ -701,7 +701,7 @@ if.then6:                                         ; preds = %_ZNSt11char_traitsI
   %call7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i33 = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store float %width, ptr %m_w.i.i33, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle1DE, i64 16), ptr %call7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle1DE, i64 16), ptr %call7, align 8
   %m_rad_inv.i = getelementptr inbounds nuw i8, ptr %call7, i64 12
   %div.i = fdiv float 2.000000e+00, %width
   store float %div.i, ptr %m_rad_inv.i, align 4
@@ -716,7 +716,7 @@ if.then14:                                        ; preds = %_ZNSt11char_traitsI
   %call15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i51 = getelementptr inbounds nuw i8, ptr %call15, i64 8
   store float %width, ptr %m_w.i.i51, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian1DE, i64 16), ptr %call15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian1DE, i64 16), ptr %call15, align 8
   %m_rad_inv.i52 = getelementptr inbounds nuw i8, ptr %call15, i64 12
   %div.i53 = fdiv float 2.000000e+00, %width
   store float %div.i53, ptr %m_rad_inv.i52, align 4
@@ -731,7 +731,7 @@ if.then22:                                        ; preds = %_ZNSt11char_traitsI
   %call23 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i71 = getelementptr inbounds nuw i8, ptr %call23, i64 8
   store float %width, ptr %m_w.i.i71, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian1DE, i64 16), ptr %call23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian1DE, i64 16), ptr %call23, align 8
   %m_rad_inv.i72 = getelementptr inbounds nuw i8, ptr %call23, i64 12
   %div.i73 = fdiv float 2.000000e+00, %width
   store float %div.i73, ptr %m_rad_inv.i72, align 4
@@ -751,7 +751,7 @@ if.then33:                                        ; preds = %_ZNSt11char_traitsI
   %call34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i108 = getelementptr inbounds nuw i8, ptr %call34, i64 8
   store float 4.000000e+00, ptr %m_w.i.i108, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom1DE, i64 16), ptr %call34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom1DE, i64 16), ptr %call34, align 8
   %m_scale.i = getelementptr inbounds nuw i8, ptr %call34, i64 12
   %div.i109 = fdiv float 4.000000e+00, %width
   store float %div.i109, ptr %m_scale.i, align 4
@@ -766,7 +766,7 @@ if.then41:                                        ; preds = %_ZNSt11char_traitsI
   %call42 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i127 = getelementptr inbounds nuw i8, ptr %call42, i64 8
   store float %width, ptr %m_w.i.i127, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris1DE, i64 16), ptr %call42, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris1DE, i64 16), ptr %call42, align 8
   %m_rad_inv.i128 = getelementptr inbounds nuw i8, ptr %call42, i64 12
   %div.i129 = fdiv float 2.000000e+00, %width
   store float %div.i129, ptr %m_rad_inv.i128, align 4
@@ -781,7 +781,7 @@ if.then49:                                        ; preds = %_ZNSt11char_traitsI
   %call50 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i147 = getelementptr inbounds nuw i8, ptr %call50, i64 8
   store float %width, ptr %m_w.i.i147, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc1DE, i64 16), ptr %call50, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc1DE, i64 16), ptr %call50, align 8
   %m_rad.i = getelementptr inbounds nuw i8, ptr %call50, i64 12
   %div.i148 = fmul float %width, 5.000000e-01
   store float %div.i148, ptr %m_rad.i, align 4
@@ -806,7 +806,7 @@ if.then65:                                        ; preds = %_ZNSt11char_traitsI
   %call66 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i200 = getelementptr inbounds nuw i8, ptr %call66, i64 8
   store float %width, ptr %m_w.i.i200, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_1DE, i64 16), ptr %call66, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_1DE, i64 16), ptr %call66, align 8
   %m_scale.i201 = getelementptr inbounds nuw i8, ptr %call66, i64 12
   %div.i202 = fdiv float 6.000000e+00, %width
   store float %div.i202, ptr %m_scale.i201, align 4
@@ -821,7 +821,7 @@ if.then73:                                        ; preds = %_ZNSt11char_traitsI
   %call74 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i220 = getelementptr inbounds nuw i8, ptr %call74, i64 8
   store float %width, ptr %m_w.i.i220, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell1DE, i64 16), ptr %call74, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell1DE, i64 16), ptr %call74, align 8
   %m_rad_inv.i221 = getelementptr inbounds nuw i8, ptr %call74, i64 12
   %div.i222 = fdiv float 2.000000e+00, %width
   store float %div.i222, ptr %m_rad_inv.i221, align 4
@@ -841,7 +841,7 @@ if.then85:                                        ; preds = %_ZNSt11char_traitsI
   %call86 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   %m_w.i.i257 = getelementptr inbounds nuw i8, ptr %call86, i64 8
   store float %width, ptr %m_w.i.i257, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline1DE, i64 16), ptr %call86, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline1DE, i64 16), ptr %call86, align 8
   %m_wscale.i = getelementptr inbounds nuw i8, ptr %call86, i64 12
   %div.i258 = fdiv float 4.000000e+00, %width
   store float %div.i258, ptr %m_wscale.i, align 4
@@ -856,7 +856,7 @@ if.then93:                                        ; preds = %_ZNSt11char_traitsI
   %call94 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %m_w.i.i276 = getelementptr inbounds nuw i8, ptr %call94, i64 8
   store float %width, ptr %m_w.i.i276, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic1DE, i64 16), ptr %call94, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic1DE, i64 16), ptr %call94, align 8
   %m_a.i = getelementptr inbounds nuw i8, ptr %call94, i64 12
   store float 0.000000e+00, ptr %m_a.i, align 4
   %m_rad_inv.i277 = getelementptr inbounds nuw i8, ptr %call94, i64 16
@@ -877,7 +877,7 @@ if.then101:                                       ; preds = %_ZNSt11char_traitsI
   %m_rad_inv.i.i = getelementptr inbounds nuw i8, ptr %call102, i64 16
   %div.i.i = fdiv float 2.000000e+00, %width
   store float %div.i.i, ptr %m_rad_inv.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys1DE, i64 16), ptr %call102, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys1DE, i64 16), ptr %call102, align 8
   store float -5.000000e-01, ptr %m_a.i.i, align 4
   br label %return
 
@@ -894,7 +894,7 @@ if.then109:                                       ; preds = %_ZNSt11char_traitsI
   %m_rad_inv.i.i315 = getelementptr inbounds nuw i8, ptr %call110, i64 16
   %div.i.i316 = fdiv float 2.000000e+00, %width
   store float %div.i.i316, ptr %m_rad_inv.i.i315, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon1DE, i64 16), ptr %call110, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon1DE, i64 16), ptr %call110, align 8
   store float -7.500000e-01, ptr %m_a.i.i314, align 4
   br label %return
 
@@ -911,7 +911,7 @@ if.then117:                                       ; preds = %_ZNSt11char_traitsI
   %m_rad_inv.i.i336 = getelementptr inbounds nuw i8, ptr %call118, i64 16
   %div.i.i337 = fdiv float 2.000000e+00, %width
   store float %div.i.i337, ptr %m_rad_inv.i.i336, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman1DE, i64 16), ptr %call118, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman1DE, i64 16), ptr %call118, align 8
   store float -1.000000e+00, ptr %m_a.i.i335, align 4
   br label %return
 
@@ -995,7 +995,7 @@ if.then:                                          ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i, align 8
   %m_h.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 12
   store float %height, ptr %m_h.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox2DE, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_011FilterBox2DE, i64 16), ptr %call2, align 8
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45: ; preds = %entry
@@ -1009,7 +1009,7 @@ if.then6:                                         ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i50, align 8
   %m_h.i.i51 = getelementptr inbounds nuw i8, ptr %call7, i64 12
   store float %height, ptr %m_h.i.i51, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle2DE, i64 16), ptr %call7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterTriangle2DE, i64 16), ptr %call7, align 8
   %m_wrad_inv.i = getelementptr inbounds nuw i8, ptr %call7, i64 16
   %div.i = fdiv float 2.000000e+00, %width
   store float %div.i, ptr %m_wrad_inv.i, align 8
@@ -1029,7 +1029,7 @@ if.then14:                                        ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i69, align 8
   %m_h.i.i70 = getelementptr inbounds nuw i8, ptr %call15, i64 12
   store float %height, ptr %m_h.i.i70, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian2DE, i64 16), ptr %call15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterGaussian2DE, i64 16), ptr %call15, align 8
   %m_wrad_inv.i71 = getelementptr inbounds nuw i8, ptr %call15, i64 16
   %div.i72 = fdiv float 2.000000e+00, %width
   store float %div.i72, ptr %m_wrad_inv.i71, align 8
@@ -1049,7 +1049,7 @@ if.then22:                                        ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i92, align 8
   %m_h.i.i93 = getelementptr inbounds nuw i8, ptr %call23, i64 12
   store float %height, ptr %m_h.i.i93, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian2DE, i64 16), ptr %call23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_021FilterSharpGaussian2DE, i64 16), ptr %call23, align 8
   %m_wrad_inv.i94 = getelementptr inbounds nuw i8, ptr %call23, i64 16
   %div.i95 = fdiv float 2.000000e+00, %width
   store float %div.i95, ptr %m_wrad_inv.i94, align 8
@@ -1074,7 +1074,7 @@ if.then33:                                        ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i132, align 8
   %m_h.i.i133 = getelementptr inbounds nuw i8, ptr %call34, i64 12
   store float %height, ptr %m_h.i.i133, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom2DE, i64 16), ptr %call34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_018FilterCatmullRom2DE, i64 16), ptr %call34, align 8
   %m_wscale.i = getelementptr inbounds nuw i8, ptr %call34, i64 16
   %div.i134 = fdiv float 4.000000e+00, %width
   store float %div.i134, ptr %m_wscale.i, align 8
@@ -1094,7 +1094,7 @@ if.then41:                                        ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i153, align 8
   %m_h.i.i154 = getelementptr inbounds nuw i8, ptr %call42, i64 12
   store float %height, ptr %m_h.i.i154, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris2DE, i64 16), ptr %call42, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_022FilterBlackmanHarris2DE, i64 16), ptr %call42, align 8
   %m_wrad_inv.i155 = getelementptr inbounds nuw i8, ptr %call42, i64 16
   %div.i156 = fdiv float 2.000000e+00, %width
   store float %div.i156, ptr %m_wrad_inv.i155, align 8
@@ -1114,7 +1114,7 @@ if.then49:                                        ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i176, align 8
   %m_h.i.i177 = getelementptr inbounds nuw i8, ptr %call50, i64 12
   store float %height, ptr %m_h.i.i177, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc2DE, i64 16), ptr %call50, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterSinc2DE, i64 16), ptr %call50, align 8
   %m_wrad.i = getelementptr inbounds nuw i8, ptr %call50, i64 16
   %div.i178 = fmul float %width, 5.000000e-01
   store float %div.i178, ptr %m_wrad.i, align 8
@@ -1144,7 +1144,7 @@ if.then65:                                        ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i231, align 8
   %m_h.i.i232 = getelementptr inbounds nuw i8, ptr %call66, i64 12
   store float %height, ptr %m_h.i.i232, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_2DE, i64 16), ptr %call66, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_017FilterLanczos3_2DE, i64 16), ptr %call66, align 8
   %m_wscale.i233 = getelementptr inbounds nuw i8, ptr %call66, i64 16
   %div.i234 = fdiv float 6.000000e+00, %width
   store float %div.i234, ptr %m_wscale.i233, align 8
@@ -1169,7 +1169,7 @@ if.then77:                                        ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i271, align 8
   %m_h.i.i272 = getelementptr inbounds nuw i8, ptr %call78, i64 12
   store float %height, ptr %m_h.i.i272, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_023FilterRadialLanczos3_2DE, i64 16), ptr %call78, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_023FilterRadialLanczos3_2DE, i64 16), ptr %call78, align 8
   %m_wscale.i273 = getelementptr inbounds nuw i8, ptr %call78, i64 16
   %div.i274 = fdiv float 6.000000e+00, %width
   store float %div.i274, ptr %m_wscale.i273, align 8
@@ -1189,7 +1189,7 @@ if.then85:                                        ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i294, align 8
   %m_h.i.i295 = getelementptr inbounds nuw i8, ptr %call86, i64 12
   store float %height, ptr %m_h.i.i295, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell2DE, i64 16), ptr %call86, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_016FilterMitchell2DE, i64 16), ptr %call86, align 8
   %m_wrad_inv.i296 = getelementptr inbounds nuw i8, ptr %call86, i64 16
   %div.i297 = fdiv float 2.000000e+00, %width
   store float %div.i297, ptr %m_wrad_inv.i296, align 8
@@ -1214,7 +1214,7 @@ if.then97:                                        ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i334, align 8
   %m_h.i.i335 = getelementptr inbounds nuw i8, ptr %call98, i64 12
   store float %height, ptr %m_h.i.i335, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline2DE, i64 16), ptr %call98, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_015FilterBSpline2DE, i64 16), ptr %call98, align 8
   %m_wscale.i336 = getelementptr inbounds nuw i8, ptr %call98, i64 16
   %div.i337 = fdiv float 4.000000e+00, %width
   store float %div.i337, ptr %m_wscale.i336, align 8
@@ -1234,7 +1234,7 @@ if.then105:                                       ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i357, align 8
   %m_h.i.i358 = getelementptr inbounds nuw i8, ptr %call106, i64 12
   store float %height, ptr %m_h.i.i358, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterDisk2DE, i64 16), ptr %call106, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterDisk2DE, i64 16), ptr %call106, align 8
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i371: ; preds = %entry
@@ -1248,7 +1248,7 @@ if.then113:                                       ; preds = %_ZNSt11char_traitsI
   store float %width, ptr %m_w.i.i376, align 8
   %m_h.i.i377 = getelementptr inbounds nuw i8, ptr %call114, i64 12
   store float %height, ptr %m_h.i.i377, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic2DE, i64 16), ptr %call114, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterCubic2DE, i64 16), ptr %call114, align 8
   %m_a.i = getelementptr inbounds nuw i8, ptr %call114, i64 16
   store float 0.000000e+00, ptr %m_a.i, align 8
   %m_wrad_inv.i378 = getelementptr inbounds nuw i8, ptr %call114, i64 20
@@ -1277,7 +1277,7 @@ if.then121:                                       ; preds = %_ZNSt11char_traitsI
   %m_hrad_inv.i.i = getelementptr inbounds nuw i8, ptr %call122, i64 24
   %div2.i.i = fdiv float 2.000000e+00, %height
   store float %div2.i.i, ptr %m_hrad_inv.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys2DE, i64 16), ptr %call122, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_012FilterKeys2DE, i64 16), ptr %call122, align 8
   store float -5.000000e-01, ptr %m_a.i.i, align 8
   br label %return
 
@@ -1299,7 +1299,7 @@ if.then129:                                       ; preds = %_ZNSt11char_traitsI
   %m_hrad_inv.i.i421 = getelementptr inbounds nuw i8, ptr %call130, i64 24
   %div2.i.i422 = fdiv float 2.000000e+00, %height
   store float %div2.i.i422, ptr %m_hrad_inv.i.i421, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon2DE, i64 16), ptr %call130, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_013FilterSimon2DE, i64 16), ptr %call130, align 8
   store float -7.500000e-01, ptr %m_a.i.i418, align 8
   br label %return
 
@@ -1321,7 +1321,7 @@ if.then137:                                       ; preds = %_ZNSt11char_traitsI
   %m_hrad_inv.i.i445 = getelementptr inbounds nuw i8, ptr %call138, i64 24
   %div2.i.i446 = fdiv float 2.000000e+00, %height
   store float %div2.i.i446, ptr %m_hrad_inv.i.i445, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman2DE, i64 16), ptr %call138, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_014FilterRifman2DE, i64 16), ptr %call138, align 8
   store float -1.000000e+00, ptr %m_a.i.i442, align 8
   br label %return
 

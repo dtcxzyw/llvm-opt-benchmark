@@ -406,9 +406,9 @@ _ZN2cv3PtrINS_6detail12NoSeamFinderEED2Ev.exit:   ; preds = %2
   store i32 1, ptr %6, align 8, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12NoSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12NoSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12NoSeamFinderE, i64 16), ptr %8, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12NoSeamFinderE, i64 16), ptr %8, align 8, !noalias !4
   br label %_ZN2cv3PtrINS_6detail12DpSeamFinderEED2Ev.exit
 
 _ZN2cv3PtrINS_6detail17VoronoiSeamFinderEED2Ev.exit: ; preds = %2
@@ -417,11 +417,11 @@ _ZN2cv3PtrINS_6detail17VoronoiSeamFinderEED2Ev.exit: ; preds = %2
   store i32 1, ptr %10, align 8, !noalias !9
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %11, align 4, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17VoronoiSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17VoronoiSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !9
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, i8 0, i64 96, i1 false), !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail17VoronoiSeamFinderE, i64 16), ptr %12, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail17VoronoiSeamFinderE, i64 16), ptr %12, align 8, !noalias !9
   br label %_ZN2cv3PtrINS_6detail12DpSeamFinderEED2Ev.exit
 
 14:                                               ; preds = %2
@@ -430,7 +430,7 @@ _ZN2cv3PtrINS_6detail17VoronoiSeamFinderEED2Ev.exit: ; preds = %2
   store i32 1, ptr %16, align 8, !noalias !14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 1, ptr %17, align 4, !noalias !14
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12DpSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12DpSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8, !noalias !14
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   invoke void @_ZN2cv6detail12DpSeamFinderC1ENS1_12CostFunctionE(ptr noundef nonnull align 8 dereferenceable(1056) %18, i32 noundef 0)
           to label %_ZN2cv3PtrINS_6detail12DpSeamFinderEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail12DpSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !14
@@ -2048,7 +2048,7 @@ declare void @_ZN2cvltERKNS_3MatES2_(ptr dead_on_unwind writable sret(%"class.cv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv6detail12DpSeamFinderC2ENS1_12CostFunctionE(ptr noundef nonnull align 8 dereferenceable(1056) initializes((0, 36)) %0, i32 noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12DpSeamFinderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12DpSeamFinderE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2124,7 +2124,7 @@ define void @_ZN2cv6detail12DpSeamFinderC2ENS1_12CostFunctionE(ptr noundef nonnu
 define void @_ZN2cv6detail12DpSeamFinderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1056) initializes((0, 8), (12, 36)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12DpSeamFinderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12DpSeamFinderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -15257,7 +15257,7 @@ _ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vect
 define void @_ZN2cv6detail18GraphCutSeamFinderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEff(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull %1, float noundef %2, float noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.18) #28
@@ -15310,7 +15310,7 @@ define void @_ZN2cv6detail18GraphCutSeamFinderC2ENSt7__cxx1112basic_stringIcSt11
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %26, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinder4ImplE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinder4ImplE, i64 16), ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false)
@@ -15353,7 +15353,7 @@ define void @_ZN2cv6detail18GraphCutSeamFinderC2ENSt7__cxx1112basic_stringIcSt11
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 1, ptr %44, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail18GraphCutSeamFinder4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail18GraphCutSeamFinder4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %31, align 8
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %24, ptr %45, align 8
   store ptr %24, ptr %7, align 8
@@ -15614,12 +15614,12 @@ _ZNSt10shared_ptrIN2cv6detail18PairwiseSeamFinderEED2Ev.exit: ; preds = %1, %20,
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6detail18GraphCutSeamFinderC2Eiff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, float noundef %2, float noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinder4ImplE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinder4ImplE, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
@@ -15665,7 +15665,7 @@ define void @_ZN2cv6detail18GraphCutSeamFinderC2Eiff(ptr nocapture noundef nonnu
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %26, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail18GraphCutSeamFinder4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail18GraphCutSeamFinder4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %5, ptr %27, align 8
   store ptr %13, ptr %12, align 8
@@ -15677,7 +15677,7 @@ define void @_ZN2cv6detail18GraphCutSeamFinderC2Eiff(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv6detail18GraphCutSeamFinderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -15775,7 +15775,7 @@ define void @_ZN2cv6detail18GraphCutSeamFinder4findERKSt6vectorINS_4UMatESaIS3_E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6detail18PairwiseSeamFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail18PairwiseSeamFinderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail18PairwiseSeamFinderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -15878,7 +15878,7 @@ define linkonce_odr hidden void @_ZN2cv6detail17VoronoiSeamFinderD0Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6detail12DpSeamFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12DpSeamFinderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12DpSeamFinderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %4 = load ptr, ptr %3, align 8

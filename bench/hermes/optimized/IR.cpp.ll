@@ -5261,14 +5261,14 @@ sw.bb:                                            ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 8))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.108, i64 8))
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #26
   %call.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.109, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.109, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.109, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.109, i64 11))
   br label %return
 
 sw.bb4:                                           ; preds = %entry
@@ -5285,14 +5285,14 @@ sw.bb6:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #26
   %call.i7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.112, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.112, i64 6))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.112, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.112, i64 6))
   br label %return
 
 sw.epilog:                                        ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #26
   %call.i10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 8))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.108, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.108, i64 8))
   br label %return
 
 return:                                           ; preds = %sw.epilog, %sw.bb6, %sw.bb4, %sw.bb2, %sw.bb
@@ -5428,7 +5428,7 @@ entry:
   %1 = load ptr, ptr %parent_.i, align 8
   %Ctx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load ptr, ptr %Ctx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %Indent.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   store i32 0, ptr %Indent.i, align 8
   %sm_.i = getelementptr inbounds nuw i8, ptr %D, i64 16
@@ -5477,7 +5477,7 @@ entry:
   store i32 0, ptr %Counter.i10.i, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6hermes9IRVisitorINS_9IRPrinterEvE5visitERKNS_5ValueE(ptr noundef nonnull align 1 dereferenceable(1) %D, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %ScopeNamer.i = getelementptr inbounds nuw i8, ptr %D, i64 152
   %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef %7)
@@ -6240,7 +6240,7 @@ entry:
   %2 = load ptr, ptr %parent_.i.i, align 8
   %Ctx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load ptr, ptr %Ctx.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %Indent.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   store i32 0, ptr %Indent.i, align 8
   %sm_.i = getelementptr inbounds nuw i8, ptr %D, i64 16
@@ -6289,7 +6289,7 @@ entry:
   store i32 0, ptr %Counter.i10.i, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6hermes9IRVisitorINS_9IRPrinterEvE5visitERKNS_5ValueE(ptr noundef nonnull align 1 dereferenceable(1) %D, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %ScopeNamer.i = getelementptr inbounds nuw i8, ptr %D, i64 152
   %8 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef %8)
@@ -9954,7 +9954,7 @@ entry:
   %0 = load ptr, ptr %parent_.i, align 8
   %Ctx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %Ctx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %Indent.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   store i32 0, ptr %Indent.i, align 8
   %sm_.i = getelementptr inbounds nuw i8, ptr %D, i64 16
@@ -10003,7 +10003,7 @@ entry:
   store i32 0, ptr %Counter.i10.i, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN6hermes9IRVisitorINS_9IRPrinterEvE5visitERKNS_5ValueE(ptr noundef nonnull align 1 dereferenceable(1) %D, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %ScopeNamer.i = getelementptr inbounds nuw i8, ptr %D, i64 152
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef %6)
@@ -10055,7 +10055,7 @@ entry:
   %D = alloca %"struct.hermes::IRPrinter", align 8
   %Ctx.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %Ctx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %Indent.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   store i32 0, ptr %Indent.i, align 8
   %sm_.i = getelementptr inbounds nuw i8, ptr %D, i64 16
@@ -10103,7 +10103,7 @@ entry:
   %Counter.i10.i = getelementptr inbounds nuw i8, ptr %D, i64 200
   store i32 0, ptr %Counter.i10.i, align 8
   call void @_ZN6hermes9IRVisitorINS_9IRPrinterEvE5visitERKNS_5ValueE(ptr noundef nonnull align 1 dereferenceable(1) %D, ptr noundef nonnull align 8 dereferenceable(40) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %ScopeNamer.i = getelementptr inbounds nuw i8, ptr %D, i64 152
   %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef %5)

@@ -22095,7 +22095,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17h1301172cd85e2204E.exit: ; preds = 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !5589
   store ptr @anon.b39596380d6f3ffd3d9d41061f2d749f.406, ptr %8, align 8, !noalias !5589
   %1655 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.b39596380d6f3ffd3d9d41061f2d749f.406, i64 6), ptr %1655, align 8, !noalias !5589
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.b39596380d6f3ffd3d9d41061f2d749f.406, i64 6), ptr %1655, align 8, !noalias !5589
   br label %1656
 
 1656:                                             ; preds = %1658, %1654

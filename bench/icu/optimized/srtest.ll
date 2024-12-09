@@ -34,7 +34,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #0 personality ptr @__gx
 entry:
   %scriptRun = alloca %"class.icu_75::ScriptRun", align 8
   %0 = load i32, ptr @testLength, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ScriptRunE, i64 16), ptr %scriptRun, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759ScriptRunE, i64 16), ptr %scriptRun, align 8
   %charArray.i.i = getelementptr inbounds nuw i8, ptr %scriptRun, i64 16
   store ptr @testChars, ptr %charArray.i.i, align 8
   %charStart.i.i.i = getelementptr inbounds nuw i8, ptr %scriptRun, i64 8

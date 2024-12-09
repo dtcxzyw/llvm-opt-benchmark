@@ -95,9 +95,9 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
   %14 = alloca %"class.QMetaObject::Connection", align 8
   %15 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN10QScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16OverlayScrollBar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16OverlayScrollBar, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16OverlayScrollBar, i64 472), ptr %16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16OverlayScrollBar, i64 472), ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   invoke void @_ZN10QScrollBarC1EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef %1, ptr noundef nonnull %0)
           to label %18 unwind label %55
@@ -128,7 +128,7 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
           to label %29 unwind label %59
 
 29:                                               ; preds = %28
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13OsbProxyStyle, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13OsbProxyStyle, i64 16), ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %27, ptr %30, align 8
   invoke void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %27)
@@ -144,7 +144,7 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
           to label %34 unwind label %61
 
 34:                                               ; preds = %33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13OsbProxyStyle, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13OsbProxyStyle, i64 16), ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %32, ptr %35, align 8
   invoke void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef nonnull align 8 dereferenceable(196) %0)
@@ -430,9 +430,9 @@ declare void @_ZN10QScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16OverlayScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(196) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16OverlayScrollBar, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16OverlayScrollBar, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16OverlayScrollBar, i64 472), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16OverlayScrollBar, i64 472), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

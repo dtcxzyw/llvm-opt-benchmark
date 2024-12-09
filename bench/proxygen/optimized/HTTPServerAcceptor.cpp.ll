@@ -1571,13 +1571,13 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN8proxygen16HTTPCodecFactoryEED2Ev.exit
 
 _ZNSt10shared_ptrIN8proxygen16HTTPCodecFactoryEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i64 472), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i64 472), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i64 528), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i64 528), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1856
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i64 616), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTPServerAcceptorE, i64 616), ptr %add.ptr3, align 8
   %serverOptions_ = getelementptr inbounds nuw i8, ptr %this, i64 1928
   store ptr %options, ptr %serverOptions_, align 8
   %completionCallback_ = getelementptr inbounds nuw i8, ptr %this, i64 1936
@@ -4865,7 +4865,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6wangle16SSLContextConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6wangle16SSLContextConfigE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6wangle16SSLContextConfigE, i64 16), ptr %this, align 8
   %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   %0 = load i8, ptr %hasValue.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
@@ -5573,7 +5573,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyE
 entry:
   %ref.tmp = alloca %"class.folly::OptionalEmptyException", align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.6)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #15
           to label %invoke.cont unwind label %lpad
 
@@ -5609,7 +5609,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN5folly22OptionalEmptyExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -6353,7 +6353,7 @@ unreachable:                                      ; preds = %invoke.cont9
 define linkonce_odr void @_ZN6wangle16SSLContextConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(433) %this, ptr noundef nonnull align 8 dereferenceable(433) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6wangle16SSLContextConfigE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6wangle16SSLContextConfigE, i64 16), ptr %this, align 8
   %certificates = getelementptr inbounds nuw i8, ptr %this, i64 8
   %certificates2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16

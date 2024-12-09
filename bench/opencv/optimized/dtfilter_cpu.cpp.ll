@@ -996,7 +996,7 @@ define hidden void @_ZN2cv8ximgproc11DTFilterCPU6createERKNS_11_InputArrayEddii(
           to label %8 unwind label %38
 
 8:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPUE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPUE, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 -1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -1062,7 +1062,7 @@ _ZN2cv3PtrINS_8ximgproc11DTFilterCPUEEC2IS2_EEPT_.exit: ; preds = %8
   store i32 1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %36, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8ximgproc11DTFilterCPUELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8ximgproc11DTFilterCPUELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %7, ptr %37, align 8
   store ptr %21, ptr %20, align 8
@@ -1469,7 +1469,7 @@ _ZNK2cv11_InputArray6getMatEi.exit15:             ; preds = %19, %22
           to label %59 unwind label %106
 
 59:                                               ; preds = %58
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPUE, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPUE, i64 16), ptr %57, align 8
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i32 -1, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 28
@@ -1531,7 +1531,7 @@ _ZNK2cv11_InputArray6getMatEi.exit15:             ; preds = %19, %22
   store i32 1, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %72, i64 12
   store i32 1, ptr %88, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8ximgproc11DTFilterCPUELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8ximgproc11DTFilterCPUELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %72, align 8
   %89 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %57, ptr %89, align 8
   store ptr %72, ptr %71, align 8
@@ -1738,7 +1738,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU5init_INS_3VecIhLi1
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %13, align 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1795,7 +1795,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #21
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %17, align 8
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1958,7 +1958,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit42:               ; preds = %103
 139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %26, align 8
   %140 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 520
@@ -1990,7 +1990,7 @@ _ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEED2Ev.exit:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %25, align 8
   %151 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
@@ -2162,7 +2162,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU5init_INS_3VecIfLi1
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %13, align 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2219,7 +2219,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #21
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %17, align 8
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -2382,7 +2382,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit42:               ; preds = %103
 139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %26, align 8
   %140 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 520
@@ -2414,7 +2414,7 @@ _ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEED2Ev.exit:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %25, align 8
   %151 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
@@ -2586,7 +2586,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU5init_INS_3VecIhLi2
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %13, align 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2643,7 +2643,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #21
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %17, align 8
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -2806,7 +2806,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit42:               ; preds = %103
 139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %26, align 8
   %140 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 520
@@ -2838,7 +2838,7 @@ _ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEED2Ev.exit:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %25, align 8
   %151 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
@@ -3010,7 +3010,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU5init_INS_3VecIfLi2
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %13, align 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3067,7 +3067,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #21
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %17, align 8
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -3230,7 +3230,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit42:               ; preds = %103
 139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %26, align 8
   %140 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 520
@@ -3262,7 +3262,7 @@ _ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEED2Ev.exit:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %25, align 8
   %151 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
@@ -3434,7 +3434,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU5init_INS_3VecIhLi3
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %13, align 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3491,7 +3491,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #21
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %17, align 8
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -3654,7 +3654,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit42:               ; preds = %103
 139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %26, align 8
   %140 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 520
@@ -3686,7 +3686,7 @@ _ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEED2Ev.exit:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %25, align 8
   %151 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
@@ -3858,7 +3858,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU5init_INS_3VecIfLi3
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %13, align 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3915,7 +3915,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #21
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %17, align 8
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -4078,7 +4078,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit42:               ; preds = %103
 139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %26, align 8
   %140 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 520
@@ -4110,7 +4110,7 @@ _ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEED2Ev.exit:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %25, align 8
   %151 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
@@ -4282,7 +4282,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU5init_INS_3VecIhLi4
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %13, align 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -4339,7 +4339,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #21
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %17, align 8
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -4502,7 +4502,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit42:               ; preds = %103
 139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %26, align 8
   %140 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 520
@@ -4534,7 +4534,7 @@ _ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEED2Ev.exit:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %25, align 8
   %151 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
@@ -4706,7 +4706,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU5init_INS_3VecIfLi4
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %13, align 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -4763,7 +4763,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #21
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU21ComputeIDTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %17, align 8
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -4926,7 +4926,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit42:               ; preds = %103
 139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %26, align 8
   %140 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 520
@@ -4958,7 +4958,7 @@ _ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEED2Ev.exit:
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %25, align 8
   %151 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
@@ -5410,7 +5410,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIhL
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %14, align 8
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -5420,7 +5420,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIhL
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store float 1.000000e+00, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %15, align 8
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %12, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -5515,7 +5515,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
   %147 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -5547,7 +5547,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7_S7_.exit: ; preds = %144
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
   %163 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %18, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -5640,14 +5640,14 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7
 205:                                              ; preds = %ldexp.i.i.noexc78, %184, %199, %190
   %206 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
   br label %.body74
 
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7_S7_.exit76._crit_edge: ; preds = %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7_S7_.exit76, %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7_S7_.exit76.preheader
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   br label %.loopexit.sink.split
 
@@ -5655,7 +5655,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7
   %.pn59 = phi { ptr, i32 } [ %206, %205 ], [ %183, %182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %19) #21
   br label %.body
@@ -5748,11 +5748,11 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %.v58 = select i1 %241, i64 520, i64 712
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 %.v58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %26, align 8
   store ptr %11, ptr %220, align 8
   store ptr %242, ptr %221, align 8
   store i32 %.04587, ptr %222, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi1EEEEE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi1EEEEE, i64 16), ptr %27, align 8
   store ptr %11, ptr %223, align 8
   store ptr %243, ptr %224, align 8
   store i32 %.04587, ptr %225, align 8
@@ -6030,7 +6030,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIfL
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %14, align 8
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -6040,7 +6040,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIfL
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store float 1.000000e+00, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %15, align 8
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %12, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -6135,7 +6135,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
   %147 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -6167,7 +6167,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7_S7_.exit: ; preds = %144
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
   %163 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %18, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -6260,14 +6260,14 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7
 205:                                              ; preds = %ldexp.i.i.noexc78, %184, %199, %190
   %206 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
   br label %.body74
 
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7_S7_.exit76._crit_edge: ; preds = %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7_S7_.exit76, %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7_S7_.exit76.preheader
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %20, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   br label %.loopexit.sink.split
 
@@ -6275,7 +6275,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7
   %.pn59 = phi { ptr, i32 } [ %206, %205 ], [ %183, %182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %19) #21
   br label %.body
@@ -6368,11 +6368,11 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %.v58 = select i1 %241, i64 520, i64 712
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 %.v58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %26, align 8
   store ptr %11, ptr %220, align 8
   store ptr %242, ptr %221, align 8
   store i32 %.04587, ptr %222, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi1EEEEE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi1EEEEE, i64 16), ptr %27, align 8
   store ptr %11, ptr %223, align 8
   store ptr %243, ptr %224, align 8
   store i32 %.04587, ptr %225, align 8
@@ -6650,7 +6650,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIhL
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %14, align 8
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -6660,7 +6660,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIhL
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store float 1.000000e+00, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %15, align 8
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %12, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -6755,7 +6755,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
   %147 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -6787,7 +6787,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7_S7_.exit: ; preds = %144
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
   %163 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %18, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -6880,14 +6880,14 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7
 205:                                              ; preds = %ldexp.i.i.noexc78, %184, %199, %190
   %206 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
   br label %.body74
 
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7_S7_.exit76._crit_edge: ; preds = %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7_S7_.exit76, %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7_S7_.exit76.preheader
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   br label %.loopexit.sink.split
 
@@ -6895,7 +6895,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7
   %.pn59 = phi { ptr, i32 } [ %206, %205 ], [ %183, %182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %19) #21
   br label %.body
@@ -6988,11 +6988,11 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %.v58 = select i1 %241, i64 520, i64 712
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 %.v58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %26, align 8
   store ptr %11, ptr %220, align 8
   store ptr %242, ptr %221, align 8
   store i32 %.04587, ptr %222, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi2EEEEE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi2EEEEE, i64 16), ptr %27, align 8
   store ptr %11, ptr %223, align 8
   store ptr %243, ptr %224, align 8
   store i32 %.04587, ptr %225, align 8
@@ -7270,7 +7270,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIfL
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %14, align 8
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7280,7 +7280,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIfL
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store float 1.000000e+00, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %15, align 8
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %12, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -7375,7 +7375,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
   %147 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -7407,7 +7407,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7_S7_.exit: ; preds = %144
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
   %163 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %18, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -7500,14 +7500,14 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7
 205:                                              ; preds = %ldexp.i.i.noexc78, %184, %199, %190
   %206 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
   br label %.body74
 
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7_S7_.exit76._crit_edge: ; preds = %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7_S7_.exit76, %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7_S7_.exit76.preheader
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %20, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   br label %.loopexit.sink.split
 
@@ -7515,7 +7515,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7
   %.pn59 = phi { ptr, i32 } [ %206, %205 ], [ %183, %182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %19) #21
   br label %.body
@@ -7608,11 +7608,11 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %.v58 = select i1 %241, i64 520, i64 712
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 %.v58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %26, align 8
   store ptr %11, ptr %220, align 8
   store ptr %242, ptr %221, align 8
   store i32 %.04587, ptr %222, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi2EEEEE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi2EEEEE, i64 16), ptr %27, align 8
   store ptr %11, ptr %223, align 8
   store ptr %243, ptr %224, align 8
   store i32 %.04587, ptr %225, align 8
@@ -7890,7 +7890,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIhL
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %14, align 8
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7900,7 +7900,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIhL
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store float 1.000000e+00, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %15, align 8
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %12, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -7995,7 +7995,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
   %147 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -8027,7 +8027,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7_S7_.exit: ; preds = %144
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
   %163 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %18, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -8120,14 +8120,14 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7
 205:                                              ; preds = %ldexp.i.i.noexc78, %184, %199, %190
   %206 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
   br label %.body74
 
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7_S7_.exit76._crit_edge: ; preds = %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7_S7_.exit76, %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7_S7_.exit76.preheader
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   br label %.loopexit.sink.split
 
@@ -8135,7 +8135,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7
   %.pn59 = phi { ptr, i32 } [ %206, %205 ], [ %183, %182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %19) #21
   br label %.body
@@ -8228,11 +8228,11 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %.v58 = select i1 %241, i64 520, i64 712
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 %.v58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %26, align 8
   store ptr %11, ptr %220, align 8
   store ptr %242, ptr %221, align 8
   store i32 %.04587, ptr %222, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi3EEEEE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi3EEEEE, i64 16), ptr %27, align 8
   store ptr %11, ptr %223, align 8
   store ptr %243, ptr %224, align 8
   store i32 %.04587, ptr %225, align 8
@@ -8510,7 +8510,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIfL
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %14, align 8
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -8520,7 +8520,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIfL
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store float 1.000000e+00, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %15, align 8
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %12, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -8615,7 +8615,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
   %147 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -8647,7 +8647,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7_S7_.exit: ; preds = %144
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
   %163 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %18, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -8740,14 +8740,14 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7
 205:                                              ; preds = %ldexp.i.i.noexc78, %184, %199, %190
   %206 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
   br label %.body74
 
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7_S7_.exit76._crit_edge: ; preds = %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7_S7_.exit76, %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7_S7_.exit76.preheader
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %20, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   br label %.loopexit.sink.split
 
@@ -8755,7 +8755,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7
   %.pn59 = phi { ptr, i32 } [ %206, %205 ], [ %183, %182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %19) #21
   br label %.body
@@ -8848,11 +8848,11 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %.v58 = select i1 %241, i64 520, i64 712
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 %.v58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %26, align 8
   store ptr %11, ptr %220, align 8
   store ptr %242, ptr %221, align 8
   store i32 %.04587, ptr %222, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi3EEEEE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi3EEEEE, i64 16), ptr %27, align 8
   store ptr %11, ptr %223, align 8
   store ptr %243, ptr %224, align 8
   store i32 %.04587, ptr %225, align 8
@@ -9130,7 +9130,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIhL
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %14, align 8
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -9140,7 +9140,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIhL
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store float 1.000000e+00, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %15, align 8
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %12, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -9235,7 +9235,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
   %147 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -9267,7 +9267,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7_S7_.exit: ; preds = %144
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
   %163 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %18, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -9360,14 +9360,14 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
 205:                                              ; preds = %ldexp.i.i.noexc78, %184, %199, %190
   %206 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
   br label %.body74
 
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7_S7_.exit76._crit_edge: ; preds = %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7_S7_.exit76, %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7_S7_.exit76.preheader
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   br label %.loopexit.sink.split
 
@@ -9375,7 +9375,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
   %.pn59 = phi { ptr, i32 } [ %206, %205 ], [ %183, %182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %19) #21
   br label %.body
@@ -9468,11 +9468,11 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %.v58 = select i1 %241, i64 520, i64 712
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 %.v58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %26, align 8
   store ptr %11, ptr %220, align 8
   store ptr %242, ptr %221, align 8
   store i32 %.04587, ptr %222, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi4EEEEE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi4EEEEE, i64 16), ptr %27, align 8
   store ptr %11, ptr %223, align 8
   store ptr %243, ptr %224, align 8
   store i32 %.04587, ptr %225, align 8
@@ -9750,7 +9750,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIfL
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %14, align 8
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -9760,7 +9760,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU7filter_INS_3VecIfL
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store float 1.000000e+00, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterNC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %15, align 8
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %12, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -9855,7 +9855,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 144:                                              ; preds = %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
   %147 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %11, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -9887,7 +9887,7 @@ ldexp.i.i.noexc:                                  ; preds = %118
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7_S7_.exit: ; preds = %144
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
   %163 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %18, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -9980,14 +9980,14 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
 205:                                              ; preds = %ldexp.i.i.noexc78, %184, %199, %190
   %206 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
   br label %.body74
 
 _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7_S7_.exit76._crit_edge: ; preds = %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7_S7_.exit76, %_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7_S7_.exit76.preheader
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %20, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   br label %.loopexit.sink.split
 
@@ -9995,7 +9995,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
   %.pn59 = phi { ptr, i32 } [ %206, %205 ], [ %183, %182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %20) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %19, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %151) #21
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %19) #21
   br label %.body
@@ -10088,11 +10088,11 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %.v58 = select i1 %241, i64 520, i64 712
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 %.v58
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterRF_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %26, align 8
   store ptr %11, ptr %220, align 8
   store ptr %242, ptr %221, align 8
   store i32 %.04587, ptr %222, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi4EEEEE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU17FilterRF_vertPassINS_3VecIfLi4EEEEE, i64 16), ptr %27, align 8
   store ptr %11, ptr %223, align 8
   store ptr %243, ptr %224, align 8
   store i32 %.04587, ptr %225, align 8
@@ -10285,7 +10285,7 @@ _ZN2cv8ximgproc11DTFilterCPU20getWorkRangeByThreadERKNS_5RangeES4_i.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPUD2Ev(ptr noundef nonnull align 8 dereferenceable(812) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPUE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPUE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 712
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -10308,7 +10308,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPUD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(812) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPUE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPUE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 712
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -10457,7 +10457,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10600,7 +10600,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10654,7 +10654,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10710,7 +10710,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -10745,7 +10745,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -11010,7 +11010,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -11148,7 +11148,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -11293,7 +11293,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11436,7 +11436,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11490,7 +11490,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11546,7 +11546,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -11581,7 +11581,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -11826,7 +11826,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -11956,7 +11956,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -12097,7 +12097,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12240,7 +12240,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12294,7 +12294,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12350,7 +12350,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -12385,7 +12385,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -12658,7 +12658,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -12802,7 +12802,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -12957,7 +12957,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13100,7 +13100,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13154,7 +13154,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13210,7 +13210,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -13245,7 +13245,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -13514,7 +13514,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -13656,7 +13656,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -13809,7 +13809,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13952,7 +13952,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14006,7 +14006,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14062,7 +14062,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -14097,7 +14097,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -14372,7 +14372,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -14517,7 +14517,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -14673,7 +14673,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14816,7 +14816,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14870,7 +14870,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14926,7 +14926,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -14961,7 +14961,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -15232,7 +15232,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -15375,7 +15375,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -15529,7 +15529,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15672,7 +15672,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15726,7 +15726,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15782,7 +15782,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -15817,7 +15817,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -16092,7 +16092,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -16237,7 +16237,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIhLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -16393,7 +16393,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16536,7 +16536,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16590,7 +16590,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEEC2ERS1_RNS_3MatE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(812) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16646,7 +16646,7 @@ ldexp.i.i.noexc:                                  ; preds = %12
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -16681,7 +16681,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -16952,7 +16952,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
@@ -17095,7 +17095,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %3 = alloca %"class.cv::_OutputArray", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_ParBodyINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 520
@@ -17437,7 +17437,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16prepareSrcImg_ICI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
@@ -17655,7 +17655,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #21
@@ -18383,7 +18383,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16prepareSrcImg_ICI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
@@ -18609,7 +18609,7 @@ _ZNSt6vectorIN2cv3VecIfLi2EEESaIS2_EED2Ev.exit45: ; preds = %_ZNSt6vectorIN2cv3V
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #21
@@ -19400,7 +19400,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16prepareSrcImg_ICI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
@@ -19659,7 +19659,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit41: ; preds = %._crit_edge53, %110
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #21
@@ -20784,7 +20784,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16prepareSrcImg_ICI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
@@ -21044,7 +21044,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit41: ; preds = %._crit_edge53, %110
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
   tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #21

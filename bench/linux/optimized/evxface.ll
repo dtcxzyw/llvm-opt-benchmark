@@ -384,7 +384,7 @@ define dso_local i32 @acpi_install_sci_handler(ptr noundef %0, ptr noundef %1) #
   %7 = and i64 %6, 512
   %8 = icmp eq i64 %7, 0
   %9 = select i1 %8, i32 2080, i32 3264
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %11 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %10, i32 noundef %9, i64 noundef 24) #6
   %12 = icmp eq ptr %11, null
   br i1 %12, label %35, label %13
@@ -650,7 +650,7 @@ define internal fastcc i32 @acpi_ev_install_gpe_handler(ptr noundef %0, i32 noun
   %17 = and i64 %16, 512
   %18 = icmp eq i64 %17, 0
   %19 = select i1 %18, i32 2336, i32 3520
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %21 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %20, i32 noundef %19, i64 noundef 32) #6
   %22 = icmp eq ptr %21, null
   br i1 %22, label %60, label %23

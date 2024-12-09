@@ -719,7 +719,7 @@ if.then370:                                       ; preds = %if.end364
   br label %if.end371
 
 if.end371:                                        ; preds = %if.then370, %if.end364
-  call void @cache_tree_free(ptr noundef nonnull getelementptr inbounds (i8, ptr @the_index, i64 32)) #9
+  call void @cache_tree_free(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @the_index, i64 32)) #9
   %32 = load i32, ptr @nr_trees, align 4
   %cmp37343 = icmp sgt i32 %32, 0
   br i1 %cmp37343, label %for.body375, label %for.end382

@@ -108,7 +108,7 @@ define internal i32 @linear_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   br label %38
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %11 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3264, i64 noundef 16) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15

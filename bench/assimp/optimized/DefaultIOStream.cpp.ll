@@ -29,7 +29,7 @@ $_ZTIN6Assimp8IOStreamE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6Assimp15DefaultIOStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp15DefaultIOStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp15DefaultIOStreamE, i64 16), ptr %this, align 8
   %mFile = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %tobool.not = icmp eq ptr %0, null

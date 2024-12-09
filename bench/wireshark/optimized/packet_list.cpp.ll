@@ -833,7 +833,7 @@ define noundef zeroext i1 @_ZN10PacketList4thawEb(ptr noundef nonnull align 8 de
   tail call void @_ZN10PacketList23applyRecentColumnWidthsEv(ptr noundef nonnull align 8 dereferenceable(464) %0)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 371
   store i8 1, ptr %19, align 1
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.i, label %_ZN10PacketList19setColumnVisibilityEv.exit
 
@@ -843,7 +843,7 @@ define noundef zeroext i1 @_ZN10PacketList4thawEb(ptr noundef nonnull align 8 de
   %.not.i = icmp eq i32 %22, 0
   tail call void @_ZN9QTreeView15setColumnHiddenEib(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %.04.i, i1 noundef zeroext %.not.i)
   %23 = add nuw nsw i32 %.04.i, 1
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %25 = icmp slt i32 %23, %24
   br i1 %25, label %.lr.ph.i, label %_ZN10PacketList19setColumnVisibilityEv.exit, !llvm.loop !4
 
@@ -1049,7 +1049,7 @@ define void @packet_list_recent_write_all(ptr nocapture noundef %0) local_unname
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10PacketList11writeRecentEP8_IO_FILE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63) #21
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1091,7 +1091,7 @@ define void @_ZN10PacketList11writeRecentEP8_IO_FILE(ptr nocapture nonnull readn
 
 24:                                               ; preds = %17, %21
   %25 = add nuw nsw i32 %.021, 1
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %27 = icmp slt i32 %25, %26
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
@@ -1195,9 +1195,9 @@ define void @_ZN10PacketListC2EP7QWidget(ptr noundef nonnull align 8 dereference
   %29 = alloca %"class.QMetaObject::Connection", align 8
   %30 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10PacketList, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10PacketList, i64 16), ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10PacketList, i64 816), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10PacketList, i64 816), ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1263,7 +1263,7 @@ define void @_ZN10PacketListC2EP7QWidget(ptr noundef nonnull align 8 dereference
           to label %61 unwind label %175
 
 61:                                               ; preds = %60
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 516), align 4
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 516), align 4
   %63 = icmp ne i32 %62, 0
   invoke void @_ZN9QTreeView17setSortingEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext %63)
           to label %64 unwind label %175
@@ -2106,13 +2106,13 @@ define void @_ZN10PacketList14columnsChangedEv(ptr noundef nonnull align 8 deref
 6:                                                ; preds = %1
   %7 = load ptr, ptr @prefs, align 8
   %8 = tail call i32 @g_list_length(ptr noundef %7)
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 304
   tail call void @col_cleanup(ptr noundef nonnull %10)
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 304
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   tail call void @build_column_format_array(ptr noundef nonnull %12, i32 noundef %13, i32 noundef 0)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 237
   store i8 1, ptr %14, align 1
@@ -2122,7 +2122,7 @@ define void @_ZN10PacketList14columnsChangedEv(ptr noundef nonnull align 8 deref
   tail call void @_ZN10PacketList23applyRecentColumnWidthsEv(ptr noundef nonnull align 8 dereferenceable(464) %0)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 371
   store i8 1, ptr %17, align 1
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph.i, label %_ZN10PacketList19setColumnVisibilityEv.exit
 
@@ -2132,7 +2132,7 @@ define void @_ZN10PacketList14columnsChangedEv(ptr noundef nonnull align 8 deref
   %.not.i = icmp eq i32 %20, 0
   tail call void @_ZN9QTreeView15setColumnHiddenEib(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %.04.i, i1 noundef zeroext %.not.i)
   %21 = add nuw nsw i32 %.04.i, 1
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %23 = icmp slt i32 %21, %22
   br i1 %23, label %.lr.ph.i, label %_ZN10PacketList19setColumnVisibilityEv.exit, !llvm.loop !4
 
@@ -2234,7 +2234,7 @@ _ZN17QArrayDataPointerIP7QActionED2Ev.exit:       ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21RelatedPacketDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21RelatedPacketDelegate, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21RelatedPacketDelegate, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2349,9 +2349,9 @@ declare void @_ZN9QTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10PacketListD2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10PacketList, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10PacketList, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10PacketList, i64 816), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10PacketList, i64 816), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2411,7 +2411,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i: ; preds = %_ZN5QListI11QMode
 
 _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN5QListI11QModelIndexED2Ev.exit, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21RelatedPacketDelegate, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21RelatedPacketDelegate, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %25 = load ptr, ptr %24, align 8
   %.not.i.i5 = icmp eq ptr %25, null
@@ -2776,7 +2776,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58:    ; preds = %_ZN7QStringD2Ev.exi
 
 _ZN7QStringD2Ev.exit60:                           ; preds = %_ZN7QStringD2Ev.exit56, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58, %115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  %117 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 84), align 4
+  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 84), align 4
   switch i32 %117, label %_ZN7QStringD2Ev.exit81 [
     i32 2, label %190
     i32 1, label %138
@@ -2841,7 +2841,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i66:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit68
 
 138:                                              ; preds = %_ZN7QStringD2Ev.exit60
-  %.sroa.014.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 72), align 8
+  %.sroa.014.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 72), align 8
   %139 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.014.0.copyload)
           to label %140 unwind label %176
 
@@ -2851,7 +2851,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i66:    ; preds = %_ZN7QStringD2Ev.exi
   %142 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %143 = extractvalue { i64, i64 } %139, 1
   store i64 %143, ptr %142, align 8
-  %.sroa.012.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 78), align 2
+  %.sroa.012.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 78), align 2
   %144 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.012.0.copyload)
           to label %145 unwind label %176
 
@@ -2998,7 +2998,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i87:    ; preds = %_ZN7QStringD2Ev.exi
   br label %.body
 
 190:                                              ; preds = %_ZN7QStringD2Ev.exit60
-  %.sroa.010.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 72), align 8
+  %.sroa.010.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 72), align 8
   %191 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.010.0.copyload)
           to label %192 unwind label %176
 
@@ -3008,7 +3008,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i87:    ; preds = %_ZN7QStringD2Ev.exi
   %194 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %195 = extractvalue { i64, i64 } %191, 1
   store i64 %195, ptr %194, align 8
-  %.sroa.08.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 78), align 2
+  %.sroa.08.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 78), align 2
   %196 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.08.0.copyload)
           to label %197 unwind label %176
 
@@ -3227,14 +3227,14 @@ _ZN7QStringD2Ev.exit81:                           ; preds = %_ZN7QStringD2Ev.exi
   %.sroa.0.0 = phi ptr [ null, %_ZN7QStringD2Ev.exit60 ], [ %165, %_ZN7QStringD2Ev.exit77 ], [ %165, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i79 ], [ %230, %_ZN7QStringD2Ev.exit109 ], [ %230, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i111 ], [ %.sroa.0.0.ph, %_ZN7QStringD2Ev.exit81.sink.split ]
   %.sroa.11.0 = phi ptr [ null, %_ZN7QStringD2Ev.exit60 ], [ %167, %_ZN7QStringD2Ev.exit77 ], [ %167, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i79 ], [ %232, %_ZN7QStringD2Ev.exit109 ], [ %232, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i111 ], [ %.sroa.11.0.ph, %_ZN7QStringD2Ev.exit81.sink.split ]
   %.sroa.17.0 = phi i64 [ 0, %_ZN7QStringD2Ev.exit60 ], [ %169, %_ZN7QStringD2Ev.exit77 ], [ %169, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i79 ], [ %234, %_ZN7QStringD2Ev.exit109 ], [ %234, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i111 ], [ %.sroa.17.0.ph, %_ZN7QStringD2Ev.exit81.sink.split ]
-  %264 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 100), align 4
+  %264 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 100), align 4
   switch i32 %264, label %_ZN7QStringD2Ev.exit149 [
     i32 2, label %324
     i32 1, label %265
   ]
 
 265:                                              ; preds = %_ZN7QStringD2Ev.exit81
-  %.sroa.06.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 88), align 8
+  %.sroa.06.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 88), align 8
   %266 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.06.0.copyload)
           to label %267 unwind label %176
 
@@ -3244,7 +3244,7 @@ _ZN7QStringD2Ev.exit81:                           ; preds = %_ZN7QStringD2Ev.exi
   %269 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %270 = extractvalue { i64, i64 } %266, 1
   store i64 %270, ptr %269, align 8
-  %.sroa.04.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 94), align 2
+  %.sroa.04.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 94), align 2
   %271 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.04.0.copyload)
           to label %272 unwind label %176
 
@@ -3407,7 +3407,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i155:   ; preds = %_ZN7QStringD2Ev.exi
   br label %.body
 
 324:                                              ; preds = %_ZN7QStringD2Ev.exit81
-  %.sroa.02.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 88), align 8
+  %.sroa.02.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 88), align 8
   %325 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.02.0.copyload)
           to label %326 unwind label %176
 
@@ -3417,7 +3417,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i155:   ; preds = %_ZN7QStringD2Ev.exi
   %328 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %329 = extractvalue { i64, i64 } %325, 1
   store i64 %329, ptr %328, align 8
-  %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 94), align 2
+  %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 94), align 2
   %330 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.0.0.copyload)
           to label %331 unwind label %176
 
@@ -3654,7 +3654,7 @@ _ZN7QStringD2Ev.exit149.sink.split:               ; preds = %_ZN17QArrayDataPoin
 _ZN7QStringD2Ev.exit149:                          ; preds = %_ZN7QStringD2Ev.exit149.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i186, %_ZN7QStringD2Ev.exit184, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i147, %_ZN7QStringD2Ev.exit145, %_ZN7QStringD2Ev.exit81
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 372
   store i8 1, ptr %407, align 4
-  %408 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 492), align 4
+  %408 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 492), align 4
   %.not = icmp eq i32 %408, 0
   %.not.i.i.i.i223 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not, label %449, label %409
@@ -4700,7 +4700,7 @@ define void @_ZNK10PacketList7drawRowEP8QPainterRK20QStyleOptionViewItemRK11QMod
   %5 = alloca %class.QLine, align 4
   %6 = alloca %class.QColor, align 4
   tail call void @_ZNK9QTreeView7drawRowEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 484), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 484), align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %25, label %8
 
@@ -9297,7 +9297,7 @@ define void @_ZN10PacketList15drawNearOverlayEv(ptr noundef nonnull align 8 dere
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i32, ptr %27, align 8
   %.not64 = icmp ne i32 %28, 4
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 512), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 512), align 8
   %.not65 = icmp eq i32 %29, 0
   %or.cond77 = select i1 %.not64, i1 true, i1 %.not65
   br i1 %or.cond77, label %280, label %30
@@ -9351,7 +9351,7 @@ define void @_ZN10PacketList15drawNearOverlayEv(ptr noundef nonnull align 8 dere
   %65 = sitofp i32 %64 to double
   %66 = call double @llvm.fmuladd.f64(double %65, double %39, double 2.000000e+00)
   %67 = fptosi double %66 to i32
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 32), align 8
   %69 = icmp ne i32 %68, 0
   %70 = icmp sgt i32 %.sroa.speculated, 0
   %or.cond = select i1 %69, i1 %70, i1 false
@@ -9967,7 +9967,7 @@ define void @_ZN10PacketList14drawFarOverlayEv(ptr noundef nonnull align 8 deref
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %.not37 = icmp ne i32 %17, 4
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 512), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 512), align 8
   %.not38 = icmp eq i32 %18, 0
   %or.cond44 = select i1 %.not37, i1 true, i1 %.not38
   br i1 %or.cond44, label %104, label %19
@@ -10024,7 +10024,7 @@ define void @_ZN10PacketList14drawFarOverlayEv(ptr noundef nonnull align 8 deref
   br i1 %55, label %.thread, label %57
 
 57:                                               ; preds = %56
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 32), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 32), align 8
   %59 = icmp ne i32 %58, 0
   %60 = icmp sgt i32 %54, 0
   %or.cond = and i1 %60, %59
@@ -12453,7 +12453,7 @@ declare void @_ZN17QAbstractItemView11resizeEventEP12QResizeEvent(ptr noundef no
 define void @_ZN10PacketList19setColumnVisibilityEv(ptr noundef nonnull align 8 dereferenceable(464) initializes((371, 372)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 371
   store i8 1, ptr %2, align 1
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -12463,7 +12463,7 @@ define void @_ZN10PacketList19setColumnVisibilityEv(ptr noundef nonnull align 8 
   %.not = icmp eq i32 %5, 0
   tail call void @_ZN9QTreeView15setColumnHiddenEib(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.04, i1 noundef zeroext %.not)
   %6 = add nuw nsw i32 %.04, 1
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %8 = icmp slt i32 %6, %7
   br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
@@ -12769,7 +12769,7 @@ declare void @build_column_format_array(ptr noundef, i32 noundef, i32 noundef) l
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10PacketList23applyRecentColumnWidthsEv(ptr noundef nonnull align 8 dereferenceable(464) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.QByteArray, align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -12778,7 +12778,7 @@ define void @_ZN10PacketList23applyRecentColumnWidthsEv(ptr noundef nonnull alig
   tail call void @_ZN9QTreeView15setColumnHiddenEib(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.04, i1 noundef zeroext false)
   tail call void @_ZN10PacketList20setRecentColumnWidthEi(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %.04)
   %5 = add nuw nsw i32 %.04, 1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %7 = icmp slt i32 %5, %6
   br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !178
 
@@ -12823,10 +12823,10 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %._crit_edge, %_ZN17
 define void @_ZN10PacketList13fieldsChangedEP13_capture_file(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @prefs, align 8
   %4 = tail call i32 @g_list_length(ptr noundef %3)
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 304
   tail call void @col_cleanup(ptr noundef nonnull %5)
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   tail call void @build_column_format_array(ptr noundef nonnull %5, i32 noundef %6, i32 noundef 0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -12838,12 +12838,12 @@ declare void @_ZNK11QHeaderView9saveStateEv(ptr dead_on_unwind writable sret(%cl
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10PacketList18preferencesChangedEv(ptr noundef nonnull align 8 dereferenceable(464) %0) local_unnamed_addr #0 align 2 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 508), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 508), align 4
   %.not = icmp eq i32 %2, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.sink = select i1 %.not, ptr null, ptr %3
   tail call void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0, ptr noundef %.sink)
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 512), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 512), align 8
   %.not2 = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load i32, ptr %5, align 8
@@ -12870,7 +12870,7 @@ define void @_ZN10PacketList18preferencesChangedEv(ptr noundef nonnull align 8 d
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %.sink.split, %10, %7
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 504), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 504), align 8
   %13 = icmp ult i32 %12, 4
   %spec.select = select i1 %13, i32 %12, i32 1
   tail call void @_ZN17QAbstractItemView16setTextElideModeEN2Qt13TextElideModeE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %spec.select)
@@ -14167,7 +14167,7 @@ define void @_ZN10PacketList14setCaptureFileEP13_capture_file(ptr noundef nonnul
   %14 = tail call noundef zeroext i1 @_ZN11QHeaderView12restoreStateERK10QByteArray(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 371
   store i8 1, ptr %15, align 1
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.i, label %_ZN10PacketList19setColumnVisibilityEv.exit
 
@@ -14177,7 +14177,7 @@ define void @_ZN10PacketList14setCaptureFileEP13_capture_file(ptr noundef nonnul
   %.not.i = icmp eq i32 %18, 0
   tail call void @_ZN9QTreeView15setColumnHiddenEib(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %.04.i, i1 noundef zeroext %.not.i)
   %19 = add nuw nsw i32 %.04.i, 1
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %21 = icmp slt i32 %19, %20
   br i1 %21, label %.lr.ph.i, label %_ZN10PacketList19setColumnVisibilityEv.exit, !llvm.loop !4
 
@@ -14380,7 +14380,7 @@ define void @_ZN10PacketList17scrollViewChangedEb(ptr noundef nonnull align 8 de
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 36), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 36), align 4
   %.not = icmp eq i32 %7, 0
   %brmerge.not = and i1 %1, %.not
   br i1 %brmerge.not, label %9, label %8
@@ -15314,7 +15314,7 @@ define void @_ZN10PacketList25columnVisibilityTriggeredEv(ptr noundef nonnull al
   call void @set_column_visible(i32 noundef %6, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 371
   store i8 1, ptr %10, align 1
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph.i, label %_ZN10PacketList19setColumnVisibilityEv.exit
 
@@ -15324,7 +15324,7 @@ define void @_ZN10PacketList25columnVisibilityTriggeredEv(ptr noundef nonnull al
   %.not.i = icmp eq i32 %13, 0
   call void @_ZN9QTreeView15setColumnHiddenEib(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %.04.i, i1 noundef zeroext %.not.i)
   %14 = add nuw nsw i32 %.04.i, 1
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %16 = icmp slt i32 %14, %15
   br i1 %16, label %.lr.ph.i, label %_ZN10PacketList19setColumnVisibilityEv.exit, !llvm.loop !4
 
@@ -15527,7 +15527,7 @@ _ZN5QListIiED2Ev.exit:                            ; preds = %.loopexit.split-lp,
 
 46:                                               ; preds = %44, %43
   %.1 = phi ptr [ %.0, %43 ], [ %45, %44 ]
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 176), align 8
   %48 = invoke ptr @g_list_nth_data(ptr noundef %47, i32 noundef %33)
           to label %49 unwind label %.loopexit.split-lp.loopexit
 
@@ -15580,12 +15580,12 @@ _ZN5QListIiED2Ev.exit:                            ; preds = %.loopexit.split-lp,
 
 68:                                               ; preds = %66
   store ptr %.0, ptr @prefs, align 8
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 176), align 8
   invoke void @g_list_free(ptr noundef %69)
           to label %70 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 70:                                               ; preds = %68
-  store ptr %.043, ptr getelementptr inbounds (i8, ptr @recent, i64 176), align 8
+  store ptr %.043, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 176), align 8
   %71 = invoke noundef zeroext i1 @_ZN10PacketList4thawEb(ptr noundef nonnull align 8 dereferenceable(464) %0, i1 noundef zeroext true)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -16243,7 +16243,7 @@ define void @_ZN10PacketList25vScrollBarActionTriggeredEi(ptr noundef nonnull al
   br i1 %16, label %17, label %_ZN10PacketList17scrollViewChangedEb.exit
 
 17:                                               ; preds = %2
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 36), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 36), align 4
   %.not.i = icmp eq i32 %18, 0
   %brmerge.not.i = and i1 %11, %.not.i
   br i1 %brmerge.not.i, label %_ZN10PacketList17scrollViewChangedEb.exit, label %19
@@ -18216,19 +18216,19 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN10PacketListC1EP7QWid
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load ptr, ptr %10, align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 520), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 520), align 8
   %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 2147483647)
   %13 = zext nneg i32 %12 to i64
   store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @_ZN16PacketListRecord15col_text_cache_E, i64 56), align 8
   tail call void @_ZN6QCacheIj5QListI7QStringEE4trimEx(ptr noundef nonnull align 8 dereferenceable(72) @_ZN16PacketListRecord15col_text_cache_E, i64 noundef %13) #21
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 516), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 516), align 4
   %15 = tail call noundef zeroext i1 @_ZNK9QTreeView16isSortingEnabledEv(ptr noundef nonnull align 8 dereferenceable(40) %.val)
   %16 = icmp eq i32 %14, 0
   %.not.i.i.i = xor i1 %16, %15
   br i1 %.not.i.i.i, label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit", label %17
 
 17:                                               ; preds = %9
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 516), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 516), align 4
   %19 = icmp ne i32 %18, 0
   tail call void @_ZN9QTreeView17setSortingEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %.val, i1 noundef zeroext %19)
   br label %"_ZN9QtPrivate7FunctorIZN10PacketListC1EP7QWidgetE3$_0Li0EE4callINS_4ListIJEEEvEEvRS4_PvPSA_.exit"

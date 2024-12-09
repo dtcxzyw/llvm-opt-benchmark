@@ -29560,7 +29560,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h2703cfc2acf74dedE.exit: ; preds = %"_Z
   %40 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %41 = tail call noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19background_executor17h3fe740b22560de6dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %40)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  %42 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !6629
+  %42 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !6629
   %43 = icmp eq i32 %42, 4
   br i1 %43, label %_ZN3std4sync4once4Once9call_once17h0fea688aee6ad746E.llvm.9466122436212619921.exit, label %44
 
@@ -29569,7 +29569,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h2703cfc2acf74dedE.exit: ; preds = %"_Z
   store ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, ptr %7, align 8, !noalias !6629
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !6629
   store ptr %7, ptr %6, align 8, !noalias !6629
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.162.llvm.9466122436212619921)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.162.llvm.9466122436212619921)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !6629
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !6629
   br label %_ZN3std4sync4once4Once9call_once17h0fea688aee6ad746E.llvm.9466122436212619921.exit
@@ -29965,7 +29965,7 @@ default.unreachable17:                            ; preds = %29, %2
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 1, ptr %10, align 1
-  %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !6691
+  %11 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48) acquire, align 8, !noalias !6691
   %12 = icmp eq i32 %11, 4
   br i1 %12, label %.thread, label %13
 
@@ -29974,7 +29974,7 @@ default.unreachable17:                            ; preds = %29, %2
   store ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, ptr %6, align 8, !noalias !6691
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !6691
   store ptr %6, ptr %5, align 8, !noalias !6691
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.162.llvm.9466122436212619921)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hefe7ecc220e10994E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN13terminal_view11persistence11TERMINAL_DB17hcb4b23295c3eadbfE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.162.llvm.9466122436212619921)
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %13

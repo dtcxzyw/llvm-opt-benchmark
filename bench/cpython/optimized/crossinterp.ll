@@ -3584,7 +3584,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyXI_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %interp, %0
   br i1 %cmp.i.not, label %if.then, label %if.end
 
@@ -4045,7 +4045,7 @@ Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %
   br i1 %cmp.not.i.i, label %_xidregistry_fini.exit, label %while.body.i.i, !llvm.loop !17
 
 _xidregistry_fini.exit:                           ; preds = %Py_XDECREF.exit.i.i, %_fini_not_shareable_error_type.exit, %if.end.i
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %interp, %9
   br i1 %cmp.i.not, label %if.then, label %if.end
 
@@ -4103,7 +4103,7 @@ if.end:                                           ; preds = %Py_XDECREF.exit.i.i
 define hidden void @_PyXI_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @PyExc_BaseException, align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_PyExc_InterpreterError, i64 256), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_PyExc_InterpreterError, i64 256), align 8
   %call.i = tail call i32 @_PyStaticType_InitBuiltin(ptr noundef %interp, ptr noundef nonnull @_PyExc_InterpreterError) #13
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %init_exceptions.exit
@@ -4805,7 +4805,7 @@ if.else.i:                                        ; preds = %Py_DECREF.exit.i28.
   br i1 %cmp.i37.i, label %_format_TracebackException.exit.i, label %if.end.i38.i
 
 if.end.i38.i:                                     ; preds = %if.else.i
-  %call1.i39.i = call ptr @PyUnicode_Join(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull %call.i36.i) #13
+  %call1.i39.i = call ptr @PyUnicode_Join(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25216), ptr noundef nonnull %call.i36.i) #13
   %41 = load i64, ptr %call.i36.i, align 8
   %42 = and i64 %41, 2147483648
   %cmp.i16.not.i.i = icmp eq i64 %42, 0

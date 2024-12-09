@@ -290,10 +290,10 @@ _ZN20CompressedReadStream8read_intEv.exit13:      ; preds = %35, %.preheader.i.i
   %storemerge.i.i12 = add nsw i32 %storemerge.in.i.i10, 1
   store i32 %storemerge.i.i12, ptr %4, align 4
   %65 = sext i32 %.0.i.i11 to i64
-  %66 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %65
+  %66 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %65
   %67 = ptrtoint ptr %66 to i64
   %68 = trunc i64 %67 to i16
-  %69 = sub i16 %68, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %69 = sub i16 %68, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %69, ptr %70, align 2
   br label %71
@@ -465,10 +465,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.loopexit.loopexit.
   %.0.i.i11.i = phi i32 [ %62, %57 ], [ %71, %.preheader.i.i3.i ], [ %81, %.loopexit.loopexit.i.i9.i ]
   %storemerge.i.i12.i = add nsw i32 %storemerge.in.i.i10.i, 1
   %85 = sext i32 %.0.i.i11.i to i64
-  %86 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %85
+  %86 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %85
   %87 = ptrtoint ptr %86 to i64
   %88 = trunc i64 %87 to i16
-  %89 = sub i16 %88, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %89 = sub i16 %88, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
@@ -590,10 +590,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i27:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i29 = phi i32 [ %130, %125 ], [ %139, %.preheader.i.i3.i20 ], [ %149, %.loopexit.loopexit.i.i9.i26 ]
   %storemerge.i.i12.i30 = add nsw i32 %storemerge.in.i.i10.i28, 1
   %153 = sext i32 %.0.i.i11.i29 to i64
-  %154 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %153
+  %154 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %153
   %155 = ptrtoint ptr %154 to i64
   %156 = trunc i64 %155 to i16
-  %157 = sub i16 %156, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %157 = sub i16 %156, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream4nextEv.exit.backedge
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i27, %_ZN20CompressedReadStream8read_intEv.exit.i15, %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -702,10 +702,10 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i64
-  %46 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %45
+  %46 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %45
   %47 = ptrtoint ptr %46 to i64
   %48 = trunc i64 %47 to i32
-  %49 = sub i32 %48, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %49 = sub i32 %48, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %50 = load i32, ptr %6, align 4
   %51 = add nsw i32 %.sink35.i.i.i, 6
   %.not.i.i.i3 = icmp sgt i32 %51, %50
@@ -940,10 +940,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i112: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i114 = phi i32 [ %47, %42 ], [ %56, %.preheader.i.i3.i105 ], [ %66, %.loopexit.loopexit.i.i9.i111 ]
   %storemerge.i.i12.i115 = add nsw i32 %storemerge.in.i.i10.i113, 1
   %70 = sext i32 %.0.i.i11.i114 to i64
-  %71 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %70
+  %71 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %70
   %72 = ptrtoint ptr %71 to i64
   %73 = trunc i64 %72 to i16
-  %74 = sub i16 %73, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %74 = sub i16 %73, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream7is_doneEv.exit15.thread
 
 _ZN12OopMapStream7is_doneEv.exit15.thread:        ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i112, %_ZN20CompressedReadStream8read_intEv.exit.i100, %_ZN12OopMapStream4nextEv.exit22
@@ -1075,10 +1075,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i136: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i138 = phi i32 [ %120, %115 ], [ %129, %.preheader.i.i3.i129 ], [ %139, %.loopexit.loopexit.i.i9.i135 ]
   %storemerge.i.i12.i139 = add nsw i32 %storemerge.in.i.i10.i137, 1
   %143 = sext i32 %.0.i.i11.i138 to i64
-  %144 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %143
+  %144 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %143
   %145 = ptrtoint ptr %144 to i64
   %146 = trunc i64 %145 to i16
-  %147 = sub i16 %146, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %147 = sub i16 %146, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream4nextEv.exit22.backedge
 
 _ZN12OopMapStream4nextEv.exit22.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i136, %_ZN20CompressedReadStream8read_intEv.exit.i124, %82
@@ -1213,10 +1213,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i160: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i162 = phi i32 [ %197, %192 ], [ %206, %.preheader.i.i3.i153 ], [ %216, %.loopexit.loopexit.i.i9.i159 ]
   %storemerge.i.i12.i163 = add nsw i32 %storemerge.in.i.i10.i161, 1
   %220 = sext i32 %.0.i.i11.i162 to i64
-  %221 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %220
+  %221 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %220
   %222 = ptrtoint ptr %221 to i64
   %223 = trunc i64 %222 to i16
-  %224 = sub i16 %223, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %224 = sub i16 %223, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream7is_doneEv.exit27.thread
 
 _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i160, %_ZN20CompressedReadStream8read_intEv.exit.i148, %_ZN12OopMapStream4nextEv.exit43
@@ -1240,14 +1240,14 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
   %228 = load ptr, ptr %8, align 8
   %229 = lshr i32 %.sroa.0253.0.insert.ext255, 2
   %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %230
+  %231 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %230
   %232 = ptrtoint ptr %231 to i64
   %233 = trunc i64 %232 to i32
-  %234 = sub i32 %233, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %234 = sub i32 %233, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %235 = icmp ne i32 %234, -1
-  %.not.i.i.i10.i = icmp ult ptr %231, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i.i10.i = icmp ult ptr %231, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %236 = select i1 %235, i1 %.not.i.i.i10.i, i1 false
-  %237 = sub i32 %233, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %237 = sub i32 %233, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %238 = mul nsw i32 %156, %237
   %.0.i.i11.i = select i1 %236, i32 0, i32 %238
   br label %239
@@ -1259,14 +1259,14 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
   %241 = lshr i32 %.sroa.01.0.copyload.i, 2
   %242 = and i32 %241, 16383
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %243
+  %244 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %243
   %245 = ptrtoint ptr %244 to i64
   %246 = trunc i64 %245 to i32
-  %247 = sub i32 %246, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %247 = sub i32 %246, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %248 = icmp ne i32 %247, -1
-  %.not.i.i.i.i = icmp ult ptr %244, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i.i.i = icmp ult ptr %244, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %249 = select i1 %248, i1 %.not.i.i.i.i, i1 false
-  %250 = sub i32 %246, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %250 = sub i32 %246, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %251 = mul nsw i32 %250, %156
   %.0.i.i.i = select i1 %249, i32 0, i32 %251
   %252 = icmp sgt i32 %.0.i.i.i, %.0.i.i11.i
@@ -1428,10 +1428,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i184: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i186 = phi i32 [ %309, %304 ], [ %318, %.preheader.i.i3.i177 ], [ %328, %.loopexit.loopexit.i.i9.i183 ]
   %storemerge.i.i12.i187 = add nsw i32 %storemerge.in.i.i10.i185, 1
   %332 = sext i32 %.0.i.i11.i186 to i64
-  %333 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %332
+  %333 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %332
   %334 = ptrtoint ptr %333 to i64
   %335 = trunc i64 %334 to i16
-  %336 = sub i16 %335, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %336 = sub i16 %335, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream4nextEv.exit43.backedge
 
 _ZN12OopMapStream4nextEv.exit43.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i184, %_ZN20CompressedReadStream8read_intEv.exit.i172, %270
@@ -1563,10 +1563,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i208: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i210 = phi i32 [ %383, %378 ], [ %392, %.preheader.i.i3.i201 ], [ %402, %.loopexit.loopexit.i.i9.i207 ]
   %storemerge.i.i12.i211 = add nsw i32 %storemerge.in.i.i10.i209, 1
   %406 = sext i32 %.0.i.i11.i210 to i64
-  %407 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %406
+  %407 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %406
   %408 = ptrtoint ptr %407 to i64
   %409 = trunc i64 %408 to i16
-  %410 = sub i16 %409, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %410 = sub i16 %409, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream7is_doneEv.exit48.thread
 
 _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i208, %_ZN20CompressedReadStream8read_intEv.exit.i196, %_ZN12OopMapStream4nextEv.exit66
@@ -1607,14 +1607,14 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   %.not.i = icmp eq i16 %423, 3
   %425 = lshr i32 %.sroa.0.0.insert.ext237, 2
   %426 = zext nneg i32 %425 to i64
-  %427 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %426
+  %427 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %426
   %428 = ptrtoint ptr %427 to i64
   %429 = trunc i64 %428 to i32
-  %430 = sub i32 %429, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %430 = sub i32 %429, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %431 = icmp ne i32 %430, -1
-  %.not.i.i.i21.i = icmp ult ptr %427, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i.i21.i = icmp ult ptr %427, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %432 = select i1 %431, i1 %.not.i.i.i21.i, i1 false
-  %433 = sub i32 %429, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %433 = sub i32 %429, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %434 = mul nsw i32 %156, %433
   %.0.i.i22.i = select i1 %432, i32 0, i32 %434
   br i1 %.not.i, label %.preheader.split.us.i, label %.preheader.split.i
@@ -1635,14 +1635,14 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   %439 = lshr i32 %.sroa.01.0.copyload.us.i, 2
   %440 = and i32 %439, 16383
   %441 = zext nneg i32 %440 to i64
-  %442 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %441
+  %442 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %441
   %443 = ptrtoint ptr %442 to i64
   %444 = trunc i64 %443 to i32
-  %445 = sub i32 %444, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %445 = sub i32 %444, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %446 = icmp ne i32 %445, -1
-  %.not.i.i.i.us.i = icmp ult ptr %442, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i.i.us.i = icmp ult ptr %442, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %447 = select i1 %446, i1 %.not.i.i.i.us.i, i1 false
-  %448 = sub i32 %444, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %448 = sub i32 %444, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %449 = mul nsw i32 %448, %156
   %.0.i.i.us.i = select i1 %447, i32 0, i32 %449
   %450 = icmp sgt i32 %.0.i.i.us.i, %.0.i.i22.i
@@ -1805,10 +1805,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i232: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i234 = phi i32 [ %506, %501 ], [ %515, %.preheader.i.i3.i225 ], [ %525, %.loopexit.loopexit.i.i9.i231 ]
   %storemerge.i.i12.i235 = add nsw i32 %storemerge.in.i.i10.i233, 1
   %529 = sext i32 %.0.i.i11.i234 to i64
-  %530 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %529
+  %530 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %529
   %531 = ptrtoint ptr %530 to i64
   %532 = trunc i64 %531 to i16
-  %533 = sub i16 %532, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %533 = sub i16 %532, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream4nextEv.exit66.backedge
 
 _ZN12OopMapStream4nextEv.exit66.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i232, %_ZN20CompressedReadStream8read_intEv.exit.i220, %467
@@ -1846,12 +1846,12 @@ define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readon
 12:                                               ; preds = %7
   %13 = lshr i16 %.sroa.0.0.extract.trunc, 2
   %14 = zext nneg i16 %13 to i64
-  %15 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %14
+  %15 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %14
   %16 = ptrtoint ptr %15 to i64
   %17 = trunc i64 %16 to i32
-  %18 = sub i32 %17, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %18 = sub i32 %17, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %19 = icmp ne i32 %18, -1
-  %.not.i = icmp ult ptr %15, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i = icmp ult ptr %15, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %20 = select i1 %19, i1 %.not.i, i1 false
   %21 = load ptr, ptr @tty, align 8
   %22 = icmp eq i32 %11, 1
@@ -1864,7 +1864,7 @@ define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readon
   br label %69
 
 26:                                               ; preds = %12
-  %27 = sub i32 %17, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %27 = sub i32 %17, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %28 = mul nsw i32 %6, %27
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str.4, i32 noundef %23, i32 noundef %29, i32 noundef %28) #19
@@ -1875,12 +1875,12 @@ define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readon
   %.sroa.12.0.extract.trunc = zext nneg i32 %.sroa.12.0.extract.shift to i64
   %sext = shl nuw i64 %.sroa.12.0.extract.trunc, 48
   %31 = ashr exact i64 %sext, 48
-  %32 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %31
+  %32 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %31
   %33 = ptrtoint ptr %32 to i64
   %34 = trunc i64 %33 to i32
-  %35 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %35 = sub i32 %34, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %36 = icmp ne i32 %35, -1
-  %.not.i10 = icmp ult ptr %32, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i10 = icmp ult ptr %32, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %37 = select i1 %36, i1 %.not.i10, i1 false
   br i1 %37, label %38, label %48
 
@@ -1888,10 +1888,10 @@ define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readon
   %39 = load ptr, ptr @tty, align 8
   %40 = lshr i16 %.sroa.0.0.extract.trunc, 2
   %41 = zext nneg i16 %40 to i64
-  %42 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %41
+  %42 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %41
   %43 = ptrtoint ptr %42 to i64
   %44 = trunc i64 %43 to i32
-  %45 = sub i32 %44, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %45 = sub i32 %44, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %46 = mul nsw i32 %6, %45
   %47 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull @.str.5, i32 noundef %47, i32 noundef %35, i32 noundef %46) #19
@@ -1900,27 +1900,27 @@ define hidden void @_ZN10OopMapSort5printEv(ptr nocapture noundef nonnull readon
 48:                                               ; preds = %30
   %49 = lshr i16 %.sroa.0.0.extract.trunc, 2
   %50 = zext nneg i16 %49 to i64
-  %51 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %50
+  %51 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %50
   %52 = ptrtoint ptr %51 to i64
   %53 = trunc i64 %52 to i32
-  %54 = sub i32 %53, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %54 = sub i32 %53, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %55 = icmp ne i32 %54, -1
-  %.not.i11 = icmp ult ptr %51, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i11 = icmp ult ptr %51, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %56 = select i1 %55, i1 %.not.i11, i1 false
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %48
   %58 = load ptr, ptr @tty, align 8
-  %59 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %59 = sub i32 %34, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %60 = mul nsw i32 %6, %59
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef nonnull @.str.6, i32 noundef %61, i32 noundef %60, i32 noundef %54) #19
   br label %69
 
 62:                                               ; preds = %48
-  %63 = sub i32 %53, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %63 = sub i32 %53, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %64 = mul nsw i32 %6, %63
-  %65 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %65 = sub i32 %34, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %66 = mul nsw i32 %6, %65
   %67 = load ptr, ptr @tty, align 8
   %68 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2002,14 +2002,14 @@ define hidden void @_ZN6OopMap7set_xxxEP9VMRegImplN11OopMapValue9oop_typesES1_(p
   %5 = alloca %class.OopMapValue, align 2
   %6 = ptrtoint ptr %1 to i64
   %7 = trunc i64 %6 to i32
-  %8 = sub i32 %7, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %8 = sub i32 %7, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %9 = shl i32 %8, 2
   %10 = or i32 %9, %2
   %11 = trunc i32 %10 to i16
   store i16 %11, ptr %5, align 2
   %12 = ptrtoint ptr %3 to i64
   %13 = trunc i64 %12 to i16
-  %14 = sub i16 %13, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %14 = sub i16 %13, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %14, ptr %15, align 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2048,7 +2048,7 @@ define hidden void @_ZN6OopMap7set_oopEP9VMRegImpl(ptr nocapture noundef nonnull
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i16
-  %.tr = sub i16 %5, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %.tr = sub i16 %5, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   %6 = shl i16 %.tr, 2
   store i16 %6, ptr %3, align 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -2074,7 +2074,7 @@ define hidden void @_ZN6OopMap13set_narrowoopEP9VMRegImpl(ptr nocapture noundef 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i16
-  %.tr = sub i16 %5, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %.tr = sub i16 %5, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   %6 = shl i16 %.tr, 2
   %7 = or disjoint i16 %6, 1
   store i16 %7, ptr %3, align 2
@@ -2101,13 +2101,13 @@ define hidden void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr nocapture no
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %5 = ptrtoint ptr %1 to i64
   %6 = trunc i64 %5 to i16
-  %.tr = sub i16 %6, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %.tr = sub i16 %6, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   %7 = shl i16 %.tr, 2
   %8 = or disjoint i16 %7, 2
   store i16 %8, ptr %4, align 2
   %9 = ptrtoint ptr %2 to i64
   %10 = trunc i64 %9 to i16
-  %11 = sub i16 %10, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %11 = sub i16 %10, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %11, ptr %12, align 2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2128,7 +2128,7 @@ define hidden void @_ZN6OopMap15set_derived_oopEP9VMRegImplS1_(ptr nocapture nou
   %6 = icmp eq ptr %1, %2
   %7 = ptrtoint ptr %1 to i64
   %8 = trunc i64 %7 to i16
-  %.tr.i = sub i16 %8, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %.tr.i = sub i16 %8, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   %9 = shl i16 %.tr.i, 2
   br i1 %6, label %10, label %20
 
@@ -2157,7 +2157,7 @@ define hidden void @_ZN6OopMap15set_derived_oopEP9VMRegImplS1_(ptr nocapture nou
   store i16 %21, ptr %4, align 2
   %22 = ptrtoint ptr %2 to i64
   %23 = trunc i64 %22 to i16
-  %24 = sub i16 %23, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %24 = sub i16 %23, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %24, ptr %25, align 2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2242,11 +2242,11 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosure27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17ProcessDerivedOop, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17ProcessDerivedOop, i64 16), ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13AddDerivedOop, i64 16), ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16IgnoreDerivedOop, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13AddDerivedOop, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16IgnoreDerivedOop, i64 16), ptr %7, align 8
   switch i32 %3, label %17 [
     i32 1, label %_ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopClosure27DerivedPointerIterationMode.exit
     i32 0, label %15
@@ -2294,11 +2294,11 @@ define hidden void @_ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopC
   %7 = alloca %class.AddDerivedOop, align 8
   %8 = alloca %class.IgnoreDerivedOop, align 8
   %9 = alloca %class.OopMapDo, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17ProcessDerivedOop, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17ProcessDerivedOop, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13AddDerivedOop, i64 16), ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16IgnoreDerivedOop, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13AddDerivedOop, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16IgnoreDerivedOop, i64 16), ptr %8, align 8
   switch i32 %4, label %13 [
     i32 1, label %15
     i32 0, label %11
@@ -2476,7 +2476,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 61:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
   %62 = lshr i16 %.sroa.26.247, 2
   %63 = zext nneg i16 %62 to i64
-  %64 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %63
+  %64 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %63
   %65 = load ptr, ptr %2, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
@@ -2703,7 +2703,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 60:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
   %61 = lshr i16 %.sroa.26.246, 2
   %62 = zext nneg i16 %61 to i64
-  %63 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %62
+  %63 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %62
   %64 = load ptr, ptr %3, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
@@ -2937,10 +2937,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i.i:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i.i = phi i32 [ %50, %45 ], [ %59, %.preheader.i.i3.i.i ], [ %69, %.loopexit.loopexit.i.i9.i.i ]
   %storemerge.i.i12.i.i = add nsw i32 %storemerge.in.i.i10.i.i, 1
   %73 = sext i32 %.0.i.i11.i.i to i64
-  %74 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %73
+  %74 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %73
   %75 = ptrtoint ptr %74 to i64
   %76 = trunc i64 %75 to i16
-  %77 = sub i16 %76, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %77 = sub i16 %76, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream7is_doneEv.exit.thread.i
 
 _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i.i, %_ZN12OopMapStream4nextEv.exit.i
@@ -2954,15 +2954,15 @@ _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedRead
 
 80:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread.i
   %81 = sext i16 %.sroa.30.251.i to i64
-  %82 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %81
+  %82 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %81
   %83 = lshr i16 %.sroa.26.250.i, 2
   %84 = zext nneg i16 %83 to i64
-  %85 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %84
+  %85 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %84
   %86 = ptrtoint ptr %85 to i64
   %87 = trunc i64 %86 to i32
-  %88 = sub i32 %87, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %88 = sub i32 %87, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %89 = icmp ne i32 %88, -1
-  %.not.i.i.i = icmp ult ptr %85, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i.i = icmp ult ptr %85, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %90 = select i1 %89, i1 %.not.i.i.i, i1 false
   br i1 %90, label %91, label %106
 
@@ -2989,7 +2989,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedRead
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i
 
 106:                                              ; preds = %80
-  %107 = sub i32 %87, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %107 = sub i32 %87, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %108 = mul nsw i32 %107, %7
   %109 = load ptr, ptr %8, align 8
   %110 = icmp eq ptr %109, null
@@ -3045,7 +3045,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i: ; pre
   %.0.i.i = phi ptr [ %131, %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i ], [ %134, %_ZNK11RegisterMap7in_contEv.exit.thread.i.i ], [ %103, %100 ], [ %105, %104 ]
   %135 = ptrtoint ptr %82 to i64
   %136 = trunc i64 %135 to i32
-  %137 = sub i32 %136, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %137 = sub i32 %136, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %138 = sdiv i32 %137, 64
   %139 = sext i32 %137 to i64
   %140 = getelementptr inbounds [609 x ptr], ptr %2, i64 0, i64 %139
@@ -3165,10 +3165,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i28.i: ; preds = %.loopexit.loopexit
   %.0.i.i11.i30.i = phi i32 [ %186, %181 ], [ %195, %.preheader.i.i3.i21.i ], [ %205, %.loopexit.loopexit.i.i9.i27.i ]
   %storemerge.i.i12.i31.i = add nsw i32 %storemerge.in.i.i10.i29.i, 1
   %209 = sext i32 %.0.i.i11.i30.i to i64
-  %210 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %209
+  %210 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %209
   %211 = ptrtoint ptr %210 to i64
   %212 = trunc i64 %211 to i16
-  %213 = sub i16 %212, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %213 = sub i16 %212, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream4nextEv.exit.i.backedge
 
 _ZN12OopMapStream4nextEv.exit.i.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i28.i, %_ZN20CompressedReadStream8read_intEv.exit.i16.i, %148
@@ -3205,7 +3205,7 @@ define hidden void @_ZNK11OopMapValue8print_onEP12outputStream(ptr nocapture nou
   %3 = load i16, ptr %0, align 2
   %4 = lshr i16 %3, 2
   %5 = zext nneg i16 %4 to i64
-  %6 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %5
+  %6 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %5
   tail call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %1) #19
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11) #19
   %7 = load i16, ptr %0, align 2
@@ -3213,7 +3213,7 @@ define hidden void @_ZNK11OopMapValue8print_onEP12outputStream(ptr nocapture nou
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %11
+  %12 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %11
   switch i16 %8, label %default.unreachable5 [
     i16 0, label %13
     i16 1, label %14
@@ -3379,10 +3379,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.loopexit.loopexit.
   %.0.i.i11.i = phi i32 [ %44, %39 ], [ %53, %.preheader.i.i3.i ], [ %63, %.loopexit.loopexit.i.i9.i ]
   %storemerge.i.i12.i = add nsw i32 %storemerge.in.i.i10.i, 1
   %67 = sext i32 %.0.i.i11.i to i64
-  %68 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %67
+  %68 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %67
   %69 = ptrtoint ptr %68 to i64
   %70 = trunc i64 %69 to i16
-  %71 = sub i16 %70, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %71 = sub i16 %70, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
@@ -3500,10 +3500,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i25:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i27 = phi i32 [ %109, %104 ], [ %118, %.preheader.i.i3.i18 ], [ %128, %.loopexit.loopexit.i.i9.i24 ]
   %storemerge.i.i12.i28 = add nsw i32 %storemerge.in.i.i10.i26, 1
   %132 = sext i32 %.0.i.i11.i27 to i64
-  %133 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %132
+  %133 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %132
   %134 = ptrtoint ptr %133 to i64
   %135 = trunc i64 %134 to i16
-  %136 = sub i16 %135, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %136 = sub i16 %135, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream4nextEv.exit.backedge
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i25, %_ZN20CompressedReadStream8read_intEv.exit.i13, %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -3648,10 +3648,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.loopexit.loopexit.
   %.0.i.i11.i = phi i32 [ %47, %42 ], [ %56, %.preheader.i.i3.i ], [ %66, %.loopexit.loopexit.i.i9.i ]
   %storemerge.i.i12.i = add nsw i32 %storemerge.in.i.i10.i, 1
   %70 = sext i32 %.0.i.i11.i to i64
-  %71 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %70
+  %71 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %70
   %72 = ptrtoint ptr %71 to i64
   %73 = trunc i64 %72 to i16
-  %74 = sub i16 %73, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %74 = sub i16 %73, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
@@ -3769,10 +3769,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i25:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i27 = phi i32 [ %112, %107 ], [ %121, %.preheader.i.i3.i18 ], [ %131, %.loopexit.loopexit.i.i9.i24 ]
   %storemerge.i.i12.i28 = add nsw i32 %storemerge.in.i.i10.i26, 1
   %135 = sext i32 %.0.i.i11.i27 to i64
-  %136 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %135
+  %136 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %135
   %137 = ptrtoint ptr %136 to i64
   %138 = trunc i64 %137 to i16
-  %139 = sub i16 %138, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %139 = sub i16 %138, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream4nextEv.exit.backedge
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i25, %_ZN20CompressedReadStream8read_intEv.exit.i13, %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -5308,10 +5308,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.loopexit.loopexit.
   %.0.i.i11.i = phi i32 [ %54, %49 ], [ %63, %.preheader.i.i3.i ], [ %73, %.loopexit.loopexit.i.i9.i ]
   %storemerge.i.i12.i = add nsw i32 %storemerge.in.i.i10.i, 1
   %77 = sext i32 %.0.i.i11.i to i64
-  %78 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %77
+  %78 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %77
   %79 = ptrtoint ptr %78 to i64
   %80 = trunc i64 %79 to i16
-  %81 = sub i16 %80, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %81 = sub i16 %80, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
@@ -5326,12 +5326,12 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 83:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
   %84 = lshr i16 %.sroa.26177.2186, 2
   %85 = zext nneg i16 %84 to i64
-  %86 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %85
+  %86 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %85
   %87 = ptrtoint ptr %86 to i64
   %88 = trunc i64 %87 to i32
-  %89 = sub i32 %88, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %89 = sub i32 %88, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %90 = icmp ne i32 %89, -1
-  %.not.i.i = icmp ult ptr %86, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i = icmp ult ptr %86, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %91 = select i1 %90, i1 %.not.i.i, i1 false
   br i1 %91, label %92, label %107
 
@@ -5358,7 +5358,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
 
 107:                                              ; preds = %83
-  %108 = sub i32 %88, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %108 = sub i32 %88, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %109 = mul nsw i32 %10, %108
   %110 = load ptr, ptr %11, align 8
   %111 = icmp eq ptr %110, null
@@ -5435,12 +5435,12 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
 
 141:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
   %142 = sext i16 %.sroa.30178.2187 to i64
-  %143 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %142
+  %143 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %142
   %144 = ptrtoint ptr %143 to i64
   %145 = trunc i64 %144 to i32
-  %146 = sub i32 %145, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %146 = sub i32 %145, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %147 = icmp ne i32 %146, -1
-  %.not.i.i36 = icmp ult ptr %143, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i36 = icmp ult ptr %143, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %148 = select i1 %147, i1 %.not.i.i36, i1 false
   br i1 %148, label %149, label %164
 
@@ -5467,7 +5467,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit48
 
 164:                                              ; preds = %141
-  %165 = sub i32 %145, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %165 = sub i32 %145, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %166 = mul nsw i32 %10, %165
   %167 = load ptr, ptr %11, align 8
   %168 = icmp eq ptr %167, null
@@ -5654,10 +5654,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i94:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i96 = phi i32 [ %241, %236 ], [ %250, %.preheader.i.i3.i87 ], [ %260, %.loopexit.loopexit.i.i9.i93 ]
   %storemerge.i.i12.i97 = add nsw i32 %storemerge.in.i.i10.i95, 1
   %264 = sext i32 %.0.i.i11.i96 to i64
-  %265 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %264
+  %265 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %264
   %266 = ptrtoint ptr %265 to i64
   %267 = trunc i64 %266 to i16
-  %268 = sub i16 %267, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i16)
+  %268 = sub i16 %267, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
   br label %_ZN12OopMapStream4nextEv.exit.backedge
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i94, %_ZN20CompressedReadStream8read_intEv.exit.i82, %_ZN13SkipNullValue11should_skipEPv.exit.thread
@@ -5794,12 +5794,12 @@ _ZN12OopMapStream7is_doneEv.exit55.thread:        ; preds = %_ZN20CompressedRead
 330:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit55.thread
   %331 = lshr i16 %.sroa.26.2201, 2
   %332 = zext nneg i16 %331 to i64
-  %333 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %332
+  %333 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %332
   %334 = ptrtoint ptr %333 to i64
   %335 = trunc i64 %334 to i32
-  %336 = sub i32 %335, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %336 = sub i32 %335, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %337 = icmp ne i32 %336, -1
-  %.not.i.i57 = icmp ult ptr %333, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i57 = icmp ult ptr %333, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %338 = select i1 %337, i1 %.not.i.i57, i1 false
   br i1 %338, label %339, label %354
 
@@ -5826,7 +5826,7 @@ _ZN12OopMapStream7is_doneEv.exit55.thread:        ; preds = %_ZN20CompressedRead
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit69
 
 354:                                              ; preds = %330
-  %355 = sub i32 %335, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %355 = sub i32 %335, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %356 = mul nsw i32 %273, %355
   %357 = load ptr, ptr %274, align 8
   %358 = icmp eq ptr %357, null

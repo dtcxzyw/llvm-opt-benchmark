@@ -46,13 +46,13 @@ $_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5eraseERKS
 define void @_ZN3zmq8router_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(2180) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3zmq21routing_socket_base_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(1912) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8router_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8router_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8router_tE, i64 392), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8router_tE, i64 392), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 1464
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8router_tE, i64 424), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8router_tE, i64 424), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1472
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8router_tE, i64 480), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8router_tE, i64 480), ptr %add.ptr3, align 8
   %_fq = getelementptr inbounds nuw i8, ptr %this, i64 1912
   invoke void @_ZN3zmq4fq_tC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %_fq)
           to label %invoke.cont unwind label %lpad
@@ -165,13 +165,13 @@ declare void @_ZN3zmq21routing_socket_base_tD2Ev(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq8router_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2180) initializes((0, 8), (1448, 1456), (1464, 1480)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8router_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8router_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8router_tE, i64 392), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8router_tE, i64 392), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 1464
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8router_tE, i64 424), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8router_tE, i64 424), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1472
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8router_tE, i64 480), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8router_tE, i64 480), ptr %add.ptr3, align 8
   %_anonymous_pipes = getelementptr inbounds nuw i8, ptr %this, i64 2112
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2152
   %0 = load i64, ptr %_M_node_count.i.i, align 8

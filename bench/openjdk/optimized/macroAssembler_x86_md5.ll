@@ -131,7 +131,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %105, align 4
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %106, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -149,7 +149,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %114, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -167,7 +167,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %121 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %121, align 4
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %122, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -185,7 +185,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %129 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %130, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -206,7 +206,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %137 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %137, align 4
   %138 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %138, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -232,7 +232,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %145 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %145, align 4
   %146 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %146, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -258,7 +258,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %153 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %153, align 4
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -284,7 +284,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %161 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %161, align 4
   %162 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %162, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -310,7 +310,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %169 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %169, align 4
   %170 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %170, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -336,7 +336,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %177 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %177, align 4
   %178 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %178, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -362,7 +362,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %185 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %185, align 4
   %186 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %186, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -388,7 +388,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %193 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %193, align 4
   %194 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %194, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -414,7 +414,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %201 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %201, align 4
   %202 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %202, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -440,7 +440,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %209 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %209, align 4
   %210 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %210, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -466,7 +466,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %217 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %217, align 4
   %218 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %218, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %218, align 8
   %219 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -492,7 +492,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %225 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %225, align 4
   %226 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %226, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %226, align 8
   %227 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -518,7 +518,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %233 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %233, align 4
   %234 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %234, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %234, align 8
   %235 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %235, align 8
   %236 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -544,7 +544,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %241 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %241, align 4
   %242 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
   %243 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %243, align 8
   %244 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -570,7 +570,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %249 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %249, align 4
   %250 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %250, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %250, align 8
   %251 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %251, align 8
   %252 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -596,7 +596,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %257 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %257, align 4
   %258 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %258, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %258, align 8
   %259 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %259, align 8
   %260 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -623,7 +623,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %265 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %265, align 4
   %266 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
   %267 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -651,7 +651,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %273 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %273, align 4
   %274 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %274, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %274, align 8
   %275 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %275, align 8
   %276 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -679,7 +679,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %281 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %281, align 4
   %282 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %282, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -707,7 +707,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %289 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %289, align 4
   %290 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %290, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %291, align 8
   %292 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -735,7 +735,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %297 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %297, align 4
   %298 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %298, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %298, align 8
   %299 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %299, align 8
   %300 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -763,7 +763,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %305 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 0, ptr %305, align 4
   %306 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %306, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %306, align 8
   %307 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -791,7 +791,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %313 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %313, align 4
   %314 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %314, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %314, align 8
   %315 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %315, align 8
   %316 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -819,7 +819,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %321 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i8 0, ptr %321, align 4
   %322 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %322, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %322, align 8
   %323 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %323, align 8
   %324 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -847,7 +847,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %329 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i8 0, ptr %329, align 4
   %330 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %330, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %330, align 8
   %331 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr null, ptr %331, align 8
   %332 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -875,7 +875,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %337 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i8 0, ptr %337, align 4
   %338 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %338, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %338, align 8
   %339 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %339, align 8
   %340 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -903,7 +903,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %345 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i8 0, ptr %345, align 4
   %346 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %346, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %346, align 8
   %347 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr null, ptr %347, align 8
   %348 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -931,7 +931,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %353 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 0, ptr %353, align 4
   %354 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %354, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %354, align 8
   %355 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %355, align 8
   %356 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -959,7 +959,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %361 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i8 0, ptr %361, align 4
   %362 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %362, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %362, align 8
   %363 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr null, ptr %363, align 8
   %364 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -987,7 +987,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %369 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i8 0, ptr %369, align 4
   %370 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %370, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %370, align 8
   %371 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %371, align 8
   %372 = getelementptr inbounds nuw i8, ptr %43, i64 40
@@ -1015,7 +1015,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %377 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i8 0, ptr %377, align 4
   %378 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %378, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %378, align 8
   %379 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr null, ptr %379, align 8
   %380 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -1043,7 +1043,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %385 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i8 0, ptr %385, align 4
   %386 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %386, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %386, align 8
   %387 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr null, ptr %387, align 8
   %388 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -1070,7 +1070,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %393 = getelementptr inbounds nuw i8, ptr %46, i64 20
   store i8 0, ptr %393, align 4
   %394 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %394, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %394, align 8
   %395 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store ptr null, ptr %395, align 8
   %396 = getelementptr inbounds nuw i8, ptr %46, i64 40
@@ -1095,7 +1095,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %401 = getelementptr inbounds nuw i8, ptr %47, i64 20
   store i8 0, ptr %401, align 4
   %402 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %402, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %402, align 8
   %403 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr null, ptr %403, align 8
   %404 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -1120,7 +1120,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %409 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i8 0, ptr %409, align 4
   %410 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %410, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %410, align 8
   %411 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr null, ptr %411, align 8
   %412 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -1145,7 +1145,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %417 = getelementptr inbounds nuw i8, ptr %49, i64 20
   store i8 0, ptr %417, align 4
   %418 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %418, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %418, align 8
   %419 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr null, ptr %419, align 8
   %420 = getelementptr inbounds nuw i8, ptr %49, i64 40
@@ -1170,7 +1170,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %425 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i8 0, ptr %425, align 4
   %426 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %426, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %426, align 8
   %427 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr null, ptr %427, align 8
   %428 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -1195,7 +1195,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %433 = getelementptr inbounds nuw i8, ptr %51, i64 20
   store i8 0, ptr %433, align 4
   %434 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %434, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %434, align 8
   %435 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr null, ptr %435, align 8
   %436 = getelementptr inbounds nuw i8, ptr %51, i64 40
@@ -1220,7 +1220,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %441 = getelementptr inbounds nuw i8, ptr %52, i64 20
   store i8 0, ptr %441, align 4
   %442 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %442, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %442, align 8
   %443 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr null, ptr %443, align 8
   %444 = getelementptr inbounds nuw i8, ptr %52, i64 40
@@ -1245,7 +1245,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %449 = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i8 0, ptr %449, align 4
   %450 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %450, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %450, align 8
   %451 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store ptr null, ptr %451, align 8
   %452 = getelementptr inbounds nuw i8, ptr %53, i64 40
@@ -1270,7 +1270,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %457 = getelementptr inbounds nuw i8, ptr %54, i64 20
   store i8 0, ptr %457, align 4
   %458 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %458, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %458, align 8
   %459 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store ptr null, ptr %459, align 8
   %460 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -1295,7 +1295,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %465 = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i8 0, ptr %465, align 4
   %466 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %466, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %466, align 8
   %467 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr null, ptr %467, align 8
   %468 = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -1320,7 +1320,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %473 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i8 0, ptr %473, align 4
   %474 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %474, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %474, align 8
   %475 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr null, ptr %475, align 8
   %476 = getelementptr inbounds nuw i8, ptr %56, i64 40
@@ -1345,7 +1345,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %481 = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i8 0, ptr %481, align 4
   %482 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %482, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %482, align 8
   %483 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr null, ptr %483, align 8
   %484 = getelementptr inbounds nuw i8, ptr %57, i64 40
@@ -1370,7 +1370,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %489 = getelementptr inbounds nuw i8, ptr %58, i64 20
   store i8 0, ptr %489, align 4
   %490 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %490, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %490, align 8
   %491 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store ptr null, ptr %491, align 8
   %492 = getelementptr inbounds nuw i8, ptr %58, i64 40
@@ -1395,7 +1395,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %497 = getelementptr inbounds nuw i8, ptr %59, i64 20
   store i8 0, ptr %497, align 4
   %498 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %498, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %498, align 8
   %499 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr null, ptr %499, align 8
   %500 = getelementptr inbounds nuw i8, ptr %59, i64 40
@@ -1420,7 +1420,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %505 = getelementptr inbounds nuw i8, ptr %60, i64 20
   store i8 0, ptr %505, align 4
   %506 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %506, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %506, align 8
   %507 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr null, ptr %507, align 8
   %508 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -1445,7 +1445,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %513 = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i8 0, ptr %513, align 4
   %514 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %514, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %514, align 8
   %515 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr null, ptr %515, align 8
   %516 = getelementptr inbounds nuw i8, ptr %61, i64 40
@@ -1471,7 +1471,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %521 = getelementptr inbounds nuw i8, ptr %62, i64 20
   store i8 0, ptr %521, align 4
   %522 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %522, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %522, align 8
   %523 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr null, ptr %523, align 8
   %524 = getelementptr inbounds nuw i8, ptr %62, i64 40
@@ -1497,7 +1497,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %529 = getelementptr inbounds nuw i8, ptr %63, i64 20
   store i8 0, ptr %529, align 4
   %530 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %530, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %530, align 8
   %531 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store ptr null, ptr %531, align 8
   %532 = getelementptr inbounds nuw i8, ptr %63, i64 40
@@ -1523,7 +1523,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %537 = getelementptr inbounds nuw i8, ptr %64, i64 20
   store i8 0, ptr %537, align 4
   %538 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %538, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %538, align 8
   %539 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store ptr null, ptr %539, align 8
   %540 = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -1549,7 +1549,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %545 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i8 0, ptr %545, align 4
   %546 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %546, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %546, align 8
   %547 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr null, ptr %547, align 8
   %548 = getelementptr inbounds nuw i8, ptr %65, i64 40
@@ -1575,7 +1575,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %553 = getelementptr inbounds nuw i8, ptr %66, i64 20
   store i8 0, ptr %553, align 4
   %554 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %554, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %554, align 8
   %555 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store ptr null, ptr %555, align 8
   %556 = getelementptr inbounds nuw i8, ptr %66, i64 40
@@ -1601,7 +1601,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %561 = getelementptr inbounds nuw i8, ptr %67, i64 20
   store i8 0, ptr %561, align 4
   %562 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %562, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %562, align 8
   %563 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr null, ptr %563, align 8
   %564 = getelementptr inbounds nuw i8, ptr %67, i64 40
@@ -1627,7 +1627,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %569 = getelementptr inbounds nuw i8, ptr %68, i64 20
   store i8 0, ptr %569, align 4
   %570 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %570, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %570, align 8
   %571 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr null, ptr %571, align 8
   %572 = getelementptr inbounds nuw i8, ptr %68, i64 40
@@ -1653,7 +1653,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %577 = getelementptr inbounds nuw i8, ptr %69, i64 20
   store i8 0, ptr %577, align 4
   %578 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %578, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %578, align 8
   %579 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr null, ptr %579, align 8
   %580 = getelementptr inbounds nuw i8, ptr %69, i64 40
@@ -1679,7 +1679,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %585 = getelementptr inbounds nuw i8, ptr %70, i64 20
   store i8 0, ptr %585, align 4
   %586 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %586, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %586, align 8
   %587 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store ptr null, ptr %587, align 8
   %588 = getelementptr inbounds nuw i8, ptr %70, i64 40
@@ -1705,7 +1705,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %593 = getelementptr inbounds nuw i8, ptr %71, i64 20
   store i8 0, ptr %593, align 4
   %594 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %594, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %594, align 8
   %595 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr null, ptr %595, align 8
   %596 = getelementptr inbounds nuw i8, ptr %71, i64 40
@@ -1731,7 +1731,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %601 = getelementptr inbounds nuw i8, ptr %72, i64 20
   store i8 0, ptr %601, align 4
   %602 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %602, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %602, align 8
   %603 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store ptr null, ptr %603, align 8
   %604 = getelementptr inbounds nuw i8, ptr %72, i64 40
@@ -1757,7 +1757,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %609 = getelementptr inbounds nuw i8, ptr %73, i64 20
   store i8 0, ptr %609, align 4
   %610 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %610, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %610, align 8
   %611 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr null, ptr %611, align 8
   %612 = getelementptr inbounds nuw i8, ptr %73, i64 40
@@ -1783,7 +1783,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %617 = getelementptr inbounds nuw i8, ptr %74, i64 20
   store i8 0, ptr %617, align 4
   %618 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %618, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %618, align 8
   %619 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store ptr null, ptr %619, align 8
   %620 = getelementptr inbounds nuw i8, ptr %74, i64 40
@@ -1809,7 +1809,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %625 = getelementptr inbounds nuw i8, ptr %75, i64 20
   store i8 0, ptr %625, align 4
   %626 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %626, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %626, align 8
   %627 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store ptr null, ptr %627, align 8
   %628 = getelementptr inbounds nuw i8, ptr %75, i64 40
@@ -1835,7 +1835,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %633 = getelementptr inbounds nuw i8, ptr %76, i64 20
   store i8 0, ptr %633, align 4
   %634 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %634, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %634, align 8
   %635 = getelementptr inbounds nuw i8, ptr %76, i64 32
   store ptr null, ptr %635, align 8
   %636 = getelementptr inbounds nuw i8, ptr %76, i64 40
@@ -1861,7 +1861,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %641 = getelementptr inbounds nuw i8, ptr %77, i64 20
   store i8 0, ptr %641, align 4
   %642 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %642, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %642, align 8
   %643 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr null, ptr %643, align 8
   %644 = getelementptr inbounds nuw i8, ptr %77, i64 40
@@ -1891,7 +1891,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %653 = getelementptr inbounds nuw i8, ptr %79, i64 20
   store i8 0, ptr %653, align 4
   %654 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %654, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %654, align 8
   %655 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store ptr null, ptr %655, align 8
   %656 = getelementptr inbounds nuw i8, ptr %79, i64 40
@@ -1909,7 +1909,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %661 = getelementptr inbounds nuw i8, ptr %80, i64 20
   store i8 0, ptr %661, align 4
   %662 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %662, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %662, align 8
   %663 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store ptr null, ptr %663, align 8
   %664 = getelementptr inbounds nuw i8, ptr %80, i64 40
@@ -1927,7 +1927,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %669 = getelementptr inbounds nuw i8, ptr %81, i64 20
   store i8 0, ptr %669, align 4
   %670 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %670, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %670, align 8
   %671 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store ptr null, ptr %671, align 8
   %672 = getelementptr inbounds nuw i8, ptr %81, i64 40
@@ -1945,7 +1945,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %677 = getelementptr inbounds nuw i8, ptr %82, i64 20
   store i8 0, ptr %677, align 4
   %678 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %678, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %678, align 8
   %679 = getelementptr inbounds nuw i8, ptr %82, i64 32
   store ptr null, ptr %679, align 8
   %680 = getelementptr inbounds nuw i8, ptr %82, i64 40
@@ -1963,7 +1963,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %685 = getelementptr inbounds nuw i8, ptr %83, i64 20
   store i8 0, ptr %685, align 4
   %686 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %686, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %686, align 8
   %687 = getelementptr inbounds nuw i8, ptr %83, i64 32
   store ptr null, ptr %687, align 8
   %688 = getelementptr inbounds nuw i8, ptr %83, i64 40
@@ -1981,7 +1981,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %693 = getelementptr inbounds nuw i8, ptr %84, i64 20
   store i8 0, ptr %693, align 4
   %694 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %694, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %694, align 8
   %695 = getelementptr inbounds nuw i8, ptr %84, i64 32
   store ptr null, ptr %695, align 8
   %696 = getelementptr inbounds nuw i8, ptr %84, i64 40
@@ -1999,7 +1999,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %701 = getelementptr inbounds nuw i8, ptr %85, i64 20
   store i8 0, ptr %701, align 4
   %702 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %702, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %702, align 8
   %703 = getelementptr inbounds nuw i8, ptr %85, i64 32
   store ptr null, ptr %703, align 8
   %704 = getelementptr inbounds nuw i8, ptr %85, i64 40
@@ -2017,7 +2017,7 @@ define hidden void @_ZN14MacroAssembler8fast_md5E8Register7AddressS1_S1_b(ptr no
   %709 = getelementptr inbounds nuw i8, ptr %86, i64 20
   store i8 0, ptr %709, align 4
   %710 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %710, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %710, align 8
   %711 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr null, ptr %711, align 8
   %712 = getelementptr inbounds nuw i8, ptr %86, i64 40

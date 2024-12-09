@@ -110,7 +110,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory11quantifiers4inst15TriggerDatabaseC2ERNS0_3EnvERNS2_16QuantifiersStateERNS2_27QuantifiersInferenceManagerERNS2_19QuantifiersRegistryERNS2_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 1 %env, ptr noundef nonnull align 1 %qs, ptr noundef nonnull align 1 %qim, ptr noundef nonnull align 1 %qr, ptr noundef nonnull align 1 %tr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst15TriggerDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst15TriggerDatabaseE, i64 16), ptr %this, align 8
   %d_trie = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal6theory11quantifiers4inst11TriggerTrieC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_trie)
   %d_qs = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -133,7 +133,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers4inst15TriggerDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst15TriggerDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst15TriggerDatabaseE, i64 16), ptr %this, align 8
   %d_trie = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal6theory11quantifiers4inst11TriggerTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_trie) #16
   ret void
@@ -145,7 +145,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers4inst11TriggerTrieD1Ev(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers4inst15TriggerDatabaseD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst15TriggerDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst15TriggerDatabaseE, i64 16), ptr %this, align 8
   %d_trie.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal6theory11quantifiers4inst11TriggerTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_trie.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17

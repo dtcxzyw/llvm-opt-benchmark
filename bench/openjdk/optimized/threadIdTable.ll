@@ -265,7 +265,7 @@ define hidden noundef ptr @_ZN13ThreadIdTable10add_threadElP10JavaThread(i64 nou
   br i1 %18, label %19, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i
 
 19:                                               ; preds = %14
-  %20 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %20 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %21 = or i64 %20, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i
 
@@ -498,7 +498,7 @@ define hidden noundef range(i64 1, -9223372036854775807) i64 @_ZN13ThreadIdTable
   br i1 %7, label %8, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i
 
 8:                                                ; preds = %0
-  %9 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %10 = or i64 %9, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i
 
@@ -779,7 +779,7 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8GrowTask4doneEP6Thre
   br i1 %84, label %85, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
 85:                                               ; preds = %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8GrowTask4doneEP6Thread.exit
-  %86 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %86 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %87 = or i64 %86, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
@@ -896,7 +896,7 @@ define hidden noundef ptr @_ZN13ThreadIdTable18find_thread_by_tidEl(i64 noundef 
   br i1 %12, label %13, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i
 
 13:                                               ; preds = %1
-  %14 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %14 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %15 = or i64 %14, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i
 
@@ -1497,7 +1497,7 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node11create_nodeEPv
   br i1 %23, label %24, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i
 
 24:                                               ; preds = %20
-  %25 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %25 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %26 = or i64 %25, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i
 
@@ -1687,7 +1687,7 @@ define linkonce_odr hidden noundef ptr @_ZN19ConcurrentHashTableI19ThreadIdTable
   br i1 %11, label %12, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i
 
 12:                                               ; preds = %8
-  %13 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %13 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %14 = or i64 %13, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i
 

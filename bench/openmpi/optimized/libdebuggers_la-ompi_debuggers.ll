@@ -44,7 +44,7 @@ define void @ompi_debugger_setup_dlls() local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.stat, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
   store ptr %7, ptr @ompi_debugger_dll_path, align 8
   %8 = tail call i32 @mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull @ompi_debugger_dll_path) #5
   %9 = load ptr, ptr @ompi_debugger_dll_path, align 8

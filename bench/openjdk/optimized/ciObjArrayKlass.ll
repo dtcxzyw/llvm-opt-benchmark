@@ -92,7 +92,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ciObjArrayKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN12ciArrayKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #7
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15ciObjArrayKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV15ciObjArrayKlass, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -129,7 +129,7 @@ declare void @_ZN12ciArrayKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ciObjArrayKlassC2EP8ciSymbolP7ciKlassi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN12ciArrayKlassC2EP8ciSymboli9BasicType(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %3, i8 noundef zeroext 12) #7
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15ciObjArrayKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV15ciObjArrayKlass, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %5, align 8
   %6 = icmp eq i32 %3, 1

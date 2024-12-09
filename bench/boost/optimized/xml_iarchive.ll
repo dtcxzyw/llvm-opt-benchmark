@@ -520,7 +520,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_iarchiveINS0_12xml_iarchiveEE
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive18basic_xml_iarchiveINS0_12xml_iarchiveEEC2Ej(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1) unnamed_addr #1 comdat($_ZN5boost7archive18basic_xml_iarchiveINS0_12xml_iarchiveEEC5Ej) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5boost7archive6detail14basic_iarchiveC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive18basic_xml_iarchiveINS0_12xml_iarchiveEEE, i64 16), ptr %0, align 8, !tbaa !67
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive18basic_xml_iarchiveINS0_12xml_iarchiveEEE, i64 16), ptr %0, align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8, !tbaa !34
   ret void
@@ -812,7 +812,7 @@ define weak_odr void @_ZN5boost7archive17xml_iarchive_implINS0_12xml_iarchiveEE4
 
 35:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %7, align 8, !tbaa !67
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %7, align 8, !tbaa !67
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 4, ptr %36, align 8, !tbaa !79
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive9iterators18dataflow_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(12) %7) #20
@@ -901,7 +901,7 @@ declare i64 @mbrtowc(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_u
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7archive9iterators18dataflow_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #4 comdat {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %2, align 8, !tbaa !67
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %2, align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !79
@@ -1031,7 +1031,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEm.exit: ; preds = %
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %7, align 8, !tbaa !67
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %7, align 8, !tbaa !67
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 4, ptr %38, align 8, !tbaa !79
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive9iterators18dataflow_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(12) %7) #20
@@ -1220,7 +1220,7 @@ define weak_odr void @_ZN5boost7archive17xml_iarchive_implINS0_12xml_iarchiveEEC
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %8, align 8, !tbaa !34
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive17xml_iarchive_implINS0_12xml_iarchiveEEE, i64 16), ptr %0, align 8, !tbaa !67
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive17xml_iarchive_implINS0_12xml_iarchiveEEE, i64 16), ptr %0, align 8, !tbaa !67
   %9 = invoke noalias noundef nonnull dereferenceable(576) ptr @_Znwm(i64 noundef 576) #23
           to label %10 unwind label %15
 
@@ -1272,7 +1272,7 @@ declare void @_ZN5boost7archive21basic_text_iprimitiveISiED2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5boost7archive17xml_iarchive_implINS0_12xml_iarchiveEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat($_ZN5boost7archive17xml_iarchive_implINS0_12xml_iarchiveEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive17xml_iarchive_implINS0_12xml_iarchiveEEE, i64 16), ptr %0, align 8, !tbaa !67
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive17xml_iarchive_implINS0_12xml_iarchiveEEE, i64 16), ptr %0, align 8, !tbaa !67
   %2 = tail call noundef i32 @_ZSt19uncaught_exceptionsv() #21
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %14

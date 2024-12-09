@@ -51,9 +51,9 @@ define void @_ZN3zmq11ws_engine_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tE
 entry:
   %frombool = zext i1 %client_ to i8
   tail call void @_ZN3zmq20stream_engine_base_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tEb(ptr noundef nonnull align 8 dereferenceable(1689) %this, i32 noundef %fd_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, ptr noundef nonnull align 8 dereferenceable(68) %endpoint_uri_pair_, i1 noundef zeroext true)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11ws_engine_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq11ws_engine_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11ws_engine_tE, i64 208), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq11ws_engine_tE, i64 208), ptr %add.ptr, align 8
   %_client = getelementptr inbounds nuw i8, ptr %this, i64 1689
   store i8 %frombool, ptr %_client, align 1
   %_address = getelementptr inbounds nuw i8, ptr %this, i64 1696
@@ -151,9 +151,9 @@ declare void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq11ws_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(25696) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11ws_engine_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq11ws_engine_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11ws_engine_tE, i64 208), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq11ws_engine_tE, i64 208), ptr %add.ptr, align 8
   %_close_msg = getelementptr inbounds nuw i8, ptr %this, i64 25632
   %call = invoke noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %_close_msg)
           to label %invoke.cont unwind label %terminate.lpad

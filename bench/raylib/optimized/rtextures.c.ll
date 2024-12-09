@@ -8418,7 +8418,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   call void %132(ptr noundef %133, ptr noundef nonnull %19, i32 noundef 24) #49
   %134 = load ptr, ptr %0, align 8
   %135 = load ptr, ptr %126, align 8
-  call void %134(ptr noundef %135, ptr noundef nonnull getelementptr inbounds (i8, ptr @stbi_write_jpg_core.std_dc_luminance_nrcodes, i64 1), i32 noundef 16) #49
+  call void %134(ptr noundef %135, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @stbi_write_jpg_core.std_dc_luminance_nrcodes, i64 1), i32 noundef 16) #49
   %136 = load ptr, ptr %0, align 8
   %137 = load ptr, ptr %126, align 8
   call void %136(ptr noundef %137, ptr noundef nonnull @stbi_write_jpg_core.std_dc_luminance_values, i32 noundef 12) #49
@@ -8430,7 +8430,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   %138 = load ptr, ptr %0, align 8
   %139 = load ptr, ptr %126, align 8
-  call void %138(ptr noundef %139, ptr noundef nonnull getelementptr inbounds (i8, ptr @stbi_write_jpg_core.std_ac_luminance_nrcodes, i64 1), i32 noundef 16) #49
+  call void %138(ptr noundef %139, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @stbi_write_jpg_core.std_ac_luminance_nrcodes, i64 1), i32 noundef 16) #49
   %140 = load ptr, ptr %0, align 8
   %141 = load ptr, ptr %126, align 8
   call void %140(ptr noundef %141, ptr noundef nonnull @stbi_write_jpg_core.std_ac_luminance_values, i32 noundef 162) #49
@@ -8442,7 +8442,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   %142 = load ptr, ptr %0, align 8
   %143 = load ptr, ptr %126, align 8
-  call void %142(ptr noundef %143, ptr noundef nonnull getelementptr inbounds (i8, ptr @stbi_write_jpg_core.std_dc_chrominance_nrcodes, i64 1), i32 noundef 16) #49
+  call void %142(ptr noundef %143, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @stbi_write_jpg_core.std_dc_chrominance_nrcodes, i64 1), i32 noundef 16) #49
   %144 = load ptr, ptr %0, align 8
   %145 = load ptr, ptr %126, align 8
   call void %144(ptr noundef %145, ptr noundef nonnull @stbi_write_jpg_core.std_dc_chrominance_values, i32 noundef 12) #49
@@ -8454,7 +8454,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture no
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %146 = load ptr, ptr %0, align 8
   %147 = load ptr, ptr %126, align 8
-  call void %146(ptr noundef %147, ptr noundef nonnull getelementptr inbounds (i8, ptr @stbi_write_jpg_core.std_ac_chrominance_nrcodes, i64 1), i32 noundef 16) #49
+  call void %146(ptr noundef %147, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @stbi_write_jpg_core.std_ac_chrominance_nrcodes, i64 1), i32 noundef 16) #49
   %148 = load ptr, ptr %0, align 8
   %149 = load ptr, ptr %126, align 8
   call void %148(ptr noundef %149, ptr noundef nonnull @stbi_write_jpg_core.std_ac_chrominance_values, i32 noundef 162) #49
@@ -27829,12 +27829,12 @@ stbi__getn.exit.thread:                           ; preds = %517, %stbi__getn.ex
   %600 = trunc nuw i32 %599 to i8
   store i8 %600, ptr @stbi__parse_png_file.invalid_chunk, align 16
   %601 = trunc i32 %66 to i8
-  store i8 %601, ptr getelementptr inbounds (i8, ptr @stbi__parse_png_file.invalid_chunk, i64 1), align 1
+  store i8 %601, ptr getelementptr inbounds nuw (i8, ptr @stbi__parse_png_file.invalid_chunk, i64 1), align 1
   %602 = lshr i32 %68, 8
   %603 = trunc nuw i32 %602 to i8
-  store i8 %603, ptr getelementptr inbounds (i8, ptr @stbi__parse_png_file.invalid_chunk, i64 2), align 2
+  store i8 %603, ptr getelementptr inbounds nuw (i8, ptr @stbi__parse_png_file.invalid_chunk, i64 2), align 2
   %604 = trunc i32 %68 to i8
-  store i8 %604, ptr getelementptr inbounds (i8, ptr @stbi__parse_png_file.invalid_chunk, i64 3), align 1
+  store i8 %604, ptr getelementptr inbounds nuw (i8, ptr @stbi__parse_png_file.invalid_chunk, i64 3), align 1
   store ptr @stbi__parse_png_file.invalid_chunk, ptr @stbi__g_failure_reason, align 8
   br label %.loopexit
 

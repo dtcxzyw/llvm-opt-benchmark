@@ -144,7 +144,7 @@ define linkonce_odr hidden void @_ZN5boost6locale19mb2_iconv_converterC2ERKNSt7_
   %11 = alloca i64, align 8
   %12 = alloca [2 x i32], align 8
   %13 = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale19mb2_iconv_converterE, i64 16), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale19mb2_iconv_converterE, i64 16), ptr %0, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store ptr %15, ptr %14, align 8, !tbaa !13
@@ -536,7 +536,7 @@ declare void @_ZN5boost6locale4util14base_converterD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale19mb2_iconv_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale19mb2_iconv_converterE, i64 16), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale19mb2_iconv_converterE, i64 16), ptr %0, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
@@ -597,7 +597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale19mb2_iconv_converterD0Ev(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale19mb2_iconv_converterE, i64 16), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale19mb2_iconv_converterE, i64 16), ptr %0, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %.not.i.i.i = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
@@ -671,7 +671,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6locale19mb2_iconv_conv
 define linkonce_odr hidden noundef ptr @_ZNK5boost6locale19mb2_iconv_converter5cloneEv(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(1080) ptr @_Znwm(i64 noundef 1080) #18
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale19mb2_iconv_converterE, i64 16), ptr %3, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale19mb2_iconv_converterE, i64 16), ptr %3, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, ptr noundef nonnull align 8 dereferenceable(1024) %5, i64 1024, i1 false), !tbaa.struct !28

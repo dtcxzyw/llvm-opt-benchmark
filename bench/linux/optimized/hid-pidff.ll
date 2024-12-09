@@ -67,7 +67,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %8, label %1456, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(1112) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 1112) #7
   %12 = icmp eq ptr %11, null
   br i1 %12, label %1456, label %13

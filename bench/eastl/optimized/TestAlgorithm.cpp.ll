@@ -13852,7 +13852,7 @@ while.cond15.i:                                   ; preds = %if.then11.i, %if.en
 
 while.body19.i:                                   ; preds = %while.cond15.i
   %incdec.ptr20.i = getelementptr inbounds nuw i8, ptr %p2.0.i, i64 1
-  %cmp21.i = icmp eq ptr %incdec.ptr20.i, getelementptr inbounds (i8, ptr @.str.255, i64 5)
+  %cmp21.i = icmp eq ptr %incdec.ptr20.i, getelementptr inbounds nuw (i8, ptr @.str.255, i64 5)
   br i1 %cmp21.i, label %invoke.cont3997.loopexit, label %if.end.i7333
 
 if.end.i7333:                                     ; preds = %while.body19.i
@@ -13951,7 +13951,7 @@ while.cond15.i7389:                               ; preds = %if.then11.i7386, %i
 
 while.body19.i7393:                               ; preds = %while.cond15.i7389
   %incdec.ptr20.i7394 = getelementptr inbounds nuw i8, ptr %p2.0.i7391, i64 1
-  %cmp21.i7395 = icmp eq ptr %incdec.ptr20.i7394, getelementptr inbounds (i8, ptr @.str.48, i64 4)
+  %cmp21.i7395 = icmp eq ptr %incdec.ptr20.i7394, getelementptr inbounds nuw (i8, ptr @.str.48, i64 4)
   br i1 %cmp21.i7395, label %invoke.cont4018, label %if.end.i7396
 
 if.end.i7396:                                     ; preds = %while.body19.i7393
@@ -14123,7 +14123,7 @@ while.cond15.i7478:                               ; preds = %if.then11.i7477, %i
 
 while.body20.i:                                   ; preds = %while.cond15.i7478
   %incdec.ptr21.i = getelementptr inbounds nuw i8, ptr %p2.0.i7479, i64 1
-  %cmp22.i = icmp eq ptr %incdec.ptr21.i, getelementptr inbounds (i8, ptr @.str.255, i64 5)
+  %cmp22.i = icmp eq ptr %incdec.ptr21.i, getelementptr inbounds nuw (i8, ptr @.str.255, i64 5)
   br i1 %cmp22.i, label %invoke.cont4048, label %if.end.i7481
 
 if.end.i7481:                                     ; preds = %while.body20.i
@@ -14181,7 +14181,7 @@ while.cond15.i7500:                               ; preds = %if.then11.i7498, %i
 
 while.body20.i7507:                               ; preds = %while.cond15.i7500
   %incdec.ptr21.i7508 = getelementptr inbounds nuw i8, ptr %p2.0.i7502, i64 1
-  %cmp22.i7509.not.not = icmp ne ptr %incdec.ptr21.i7508, getelementptr inbounds (i8, ptr @.str.48, i64 4)
+  %cmp22.i7509.not.not = icmp ne ptr %incdec.ptr21.i7508, getelementptr inbounds nuw (i8, ptr @.str.48, i64 4)
   br i1 %cmp22.i7509.not.not, label %if.end.i7510, label %invoke.cont4059
 
 if.end.i7510:                                     ; preds = %while.body20.i7507
@@ -15168,7 +15168,7 @@ if.then13.i.i.i:                                  ; preds = %land.rhs.i.i.i8219
 
 while.cond17.i.i.i:                               ; preds = %if.then13.i.i.i, %if.end.i.i.i
   %cur1.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i10.i.i.i, %if.end.i.i.i ], [ %incdec.ptr.i4.i.i.i, %if.then13.i.i.i ]
-  %p2.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i11.i.i.i, %if.end.i.i.i ], [ getelementptr inbounds (i8, ptr @.str.278, i64 3), %if.then13.i.i.i ]
+  %p2.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i11.i.i.i, %if.end.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @.str.278, i64 3), %if.then13.i.i.i ]
   %incdec.ptr.i10.i.i.i = getelementptr inbounds i8, ptr %cur1.sroa.0.0.i.i.i, i64 -1
   %1618 = load i8, ptr %incdec.ptr.i10.i.i.i, align 1, !noalias !559
   %incdec.ptr.i11.i.i.i = getelementptr inbounds i8, ptr %p2.sroa.0.0.i.i.i, i64 -1
@@ -15226,7 +15226,7 @@ for.body.i.i.preheader.i.i:                       ; preds = %for.inc.i.i.i, %for
   br label %for.body.i.i.i.i8243
 
 for.body.i.i.i.i8243:                             ; preds = %for.inc.i.i.i.i, %for.body.i.i.preheader.i.i
-  %agg.tmp8.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.inc.i.i.i.i ], [ getelementptr inbounds (i8, ptr @.str.278, i64 4), %for.body.i.i.preheader.i.i ]
+  %agg.tmp8.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.inc.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @.str.278, i64 4), %for.body.i.i.preheader.i.i ]
   %1624 = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i ], [ %1623, %for.body.i.i.preheader.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1624, i64 -1
   %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8.sroa.0.0.i.i.i, i64 -1
@@ -15298,7 +15298,7 @@ if.then13.i.i.i8278:                              ; preds = %land.rhs.i.i.i8272
 
 while.cond17.i.i.i8280:                           ; preds = %if.then13.i.i.i8278, %if.end.i.i.i8288
   %cur1.sroa.0.0.i.i.i8281 = phi ptr [ %incdec.ptr.i10.i.i.i8283, %if.end.i.i.i8288 ], [ %incdec.ptr.i4.i.i.i8273, %if.then13.i.i.i8278 ]
-  %p2.sroa.0.0.i.i.i8282 = phi ptr [ %incdec.ptr.i11.i.i.i8284, %if.end.i.i.i8288 ], [ getelementptr inbounds (i8, ptr @.str.48, i64 3), %if.then13.i.i.i8278 ]
+  %p2.sroa.0.0.i.i.i8282 = phi ptr [ %incdec.ptr.i11.i.i.i8284, %if.end.i.i.i8288 ], [ getelementptr inbounds nuw (i8, ptr @.str.48, i64 3), %if.then13.i.i.i8278 ]
   %incdec.ptr.i10.i.i.i8283 = getelementptr inbounds i8, ptr %cur1.sroa.0.0.i.i.i8281, i64 -1
   %1632 = load i8, ptr %incdec.ptr.i10.i.i.i8283, align 1, !noalias !568
   %incdec.ptr.i11.i.i.i8284 = getelementptr inbounds i8, ptr %p2.sroa.0.0.i.i.i8282, i64 -1
@@ -15356,7 +15356,7 @@ for.body.i.i.preheader.i.i8322:                   ; preds = %for.inc.i.i.i8333, 
   br label %for.body.i.i.i.i8325
 
 for.body.i.i.i.i8325:                             ; preds = %for.inc.i.i.i.i8343, %for.body.i.i.preheader.i.i8322
-  %agg.tmp8.sroa.0.0.i.i.i8326 = phi ptr [ %incdec.ptr.i1.i.i.i.i8328, %for.inc.i.i.i.i8343 ], [ getelementptr inbounds (i8, ptr @.str.48, i64 4), %for.body.i.i.preheader.i.i8322 ]
+  %agg.tmp8.sroa.0.0.i.i.i8326 = phi ptr [ %incdec.ptr.i1.i.i.i.i8328, %for.inc.i.i.i.i8343 ], [ getelementptr inbounds nuw (i8, ptr @.str.48, i64 4), %for.body.i.i.preheader.i.i8322 ]
   %1638 = phi ptr [ %incdec.ptr.i.i.i.i.i8327, %for.inc.i.i.i.i8343 ], [ %1637, %for.body.i.i.preheader.i.i8322 ]
   %incdec.ptr.i.i.i.i.i8327 = getelementptr inbounds i8, ptr %1638, i64 -1
   %incdec.ptr.i1.i.i.i.i8328 = getelementptr inbounds i8, ptr %agg.tmp8.sroa.0.0.i.i.i8326, i64 -1
@@ -15568,7 +15568,7 @@ while.cond15.i.i.i:                               ; preds = %if.then11.i.i.i, %i
 
 while.body20.i.i.i:                               ; preds = %while.cond15.i.i.i
   %incdec.ptr21.i.i.i = getelementptr inbounds nuw i8, ptr %p2.0.i.i.i, i64 1
-  %cmp22.i.i.i8470 = icmp eq ptr %incdec.ptr21.i.i.i, getelementptr inbounds (i8, ptr @.str.278, i64 4)
+  %cmp22.i.i.i8470 = icmp eq ptr %incdec.ptr21.i.i.i, getelementptr inbounds nuw (i8, ptr @.str.278, i64 4)
   br i1 %cmp22.i.i.i8470, label %land.rhs.i.preheader.i.i8465.preheader, label %if.end.i.i.i8471
 
 if.end.i.i.i8471:                                 ; preds = %while.body20.i.i.i
@@ -15721,7 +15721,7 @@ while.cond15.i.i.i8519:                           ; preds = %if.then11.i.i.i8517
 
 while.body20.i.i.i8524:                           ; preds = %while.cond15.i.i.i8519
   %incdec.ptr21.i.i.i8525 = getelementptr inbounds nuw i8, ptr %p2.0.i.i.i8521, i64 1
-  %cmp22.i.i.i8526 = icmp eq ptr %incdec.ptr21.i.i.i8525, getelementptr inbounds (i8, ptr @.str.48, i64 4)
+  %cmp22.i.i.i8526 = icmp eq ptr %incdec.ptr21.i.i.i8525, getelementptr inbounds nuw (i8, ptr @.str.48, i64 4)
   br i1 %cmp22.i.i.i8526, label %land.rhs.i.preheader.i.i8511.preheader, label %if.end.i.i.i8527
 
 if.end.i.i.i8527:                                 ; preds = %while.body20.i.i.i8524

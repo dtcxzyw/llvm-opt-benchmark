@@ -467,7 +467,7 @@ invoke.cont:                                      ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_root.i.i, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_spare_leaf.i.i, i8 0, i64 16, i1 false)
   %m_checker.i = getelementptr inbounds nuw i8, ptr %this, i64 648
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13hilbert_basis12value_index27checkerE, i64 16), ptr %m_checker.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13hilbert_basis12value_index27checkerE, i64 16), ptr %m_checker.i, align 8
   %hb.i.i = getelementptr inbounds nuw i8, ptr %this, i64 656
   %m_value.i.i = getelementptr inbounds nuw i8, ptr %this, i64 664
   store i32 0, ptr %m_value.i.i, align 8
@@ -496,7 +496,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_root.i.i11, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_spare_leaf.i.i12, i8 0, i64 16, i1 false)
   %m_checker.i13 = getelementptr inbounds nuw i8, ptr %this, i64 1296
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13hilbert_basis12value_index27checkerE, i64 16), ptr %m_checker.i13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13hilbert_basis12value_index27checkerE, i64 16), ptr %m_checker.i13, align 8
   %hb.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 1304
   %m_value.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 1312
   store i32 0, ptr %m_value.i.i15, align 8
@@ -1952,7 +1952,7 @@ call.i.i.i.i.noexc:                               ; preds = %_ZNK8rational8is_in
 
 if.then.i:                                        ; preds = %call.i.i.i.i.noexc, %invoke.cont
   %exception.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
           to label %.noexc unwind label %lpad3
 
@@ -2052,7 +2052,7 @@ call.i.i.i.i.noexc24:                             ; preds = %_ZNK8rational8is_in
 
 if.then.i20:                                      ; preds = %call.i.i.i.i.noexc24, %for.body
   %exception.i21 = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i21, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i21, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
           to label %.noexc26 unwind label %lpad.loopexit.split-lp
 
@@ -2608,7 +2608,7 @@ call.i.i.i.i.noexc:                               ; preds = %_ZNK8rational8is_in
 
 if.then.i:                                        ; preds = %call.i.i.i.i.noexc, %invoke.cont
   %exception.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
           to label %.noexc unwind label %lpad3
 
@@ -2708,7 +2708,7 @@ call.i.i.i.i.noexc24:                             ; preds = %_ZNK8rational8is_in
 
 if.then.i20:                                      ; preds = %call.i.i.i.i.noexc24, %for.body
   %exception.i21 = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i21, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i21, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
           to label %.noexc26 unwind label %lpad.loopexit.split-lp
 
@@ -4197,7 +4197,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i97
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %exception.i.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -4213,7 +4213,7 @@ land.lhs.true10.i.i:                              ; preds = %if.end.i.i
 
 if.then15.i.i:                                    ; preds = %land.lhs.true10.i.i
   %exception16.i.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
   call void @__cxa_throw(ptr nonnull %exception16.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -4447,7 +4447,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %exception.i.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -4463,7 +4463,7 @@ land.lhs.true10.i.i:                              ; preds = %if.end.i.i22
 
 if.then15.i.i:                                    ; preds = %land.lhs.true10.i.i
   %exception16.i.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
   call void @__cxa_throw(ptr nonnull %exception16.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -5065,7 +5065,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i281,
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i278) #24
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -5675,7 +5675,7 @@ land.lhs.true10.i.i:                              ; preds = %if.end.i.i33
 
 if.then15.i.i.invoke:                             ; preds = %land.lhs.true10.i.i, %land.lhs.true.i.i
   %exception.i.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
           to label %if.then15.i.i.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6434,7 +6434,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i370,
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i367) #24
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -6947,7 +6947,7 @@ land.lhs.true.i:                                  ; preds = %for.body
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %exception.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
   call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -6963,7 +6963,7 @@ land.lhs.true10.i:                                ; preds = %if.end.i
 
 if.then15.i:                                      ; preds = %land.lhs.true10.i
   %exception16.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i, align 8
   call void @__cxa_throw(ptr nonnull %exception16.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7547,7 +7547,7 @@ land.lhs.true.i.i:                                ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7563,7 +7563,7 @@ land.lhs.true10.i.i:                              ; preds = %if.end.i.i36
 
 if.then15.i.i:                                    ; preds = %land.lhs.true10.i.i
   %exception16.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception16.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7594,7 +7594,7 @@ land.lhs.true.i.i51:                              ; preds = %for.end
 
 if.then.i.i55:                                    ; preds = %land.lhs.true.i.i51
   %exception.i.i56 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i56, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i56, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i56, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7610,7 +7610,7 @@ land.lhs.true10.i.i45:                            ; preds = %if.end.i.i43
 
 if.then15.i.i49:                                  ; preds = %land.lhs.true10.i.i45
   %exception16.i.i50 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i50, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i50, align 8
   tail call void @__cxa_throw(ptr nonnull %exception16.i.i50, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7642,7 +7642,7 @@ land.lhs.true.i.i74:                              ; preds = %for.body30
 
 if.then.i.i78:                                    ; preds = %land.lhs.true.i.i74
   %exception.i.i79 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i79, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i79, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i79, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7658,7 +7658,7 @@ land.lhs.true10.i.i68:                            ; preds = %if.end.i.i66
 
 if.then15.i.i72:                                  ; preds = %land.lhs.true10.i.i68
   %exception16.i.i73 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i73, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i73, align 8
   tail call void @__cxa_throw(ptr nonnull %exception16.i.i73, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7755,7 +7755,7 @@ if.end.i.i19:                                     ; preds = %for.body
 
 if.then4.i.i:                                     ; preds = %if.end.i.i19
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7773,7 +7773,7 @@ _Z3absRK13checked_int64ILb1EE.exit:               ; preds = %for.body, %if.end5.
 
 if.then.i:                                        ; preds = %_Z3absRK13checked_int64ILb1EE.exit
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7789,7 +7789,7 @@ if.end.i.i24:                                     ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29:                                   ; preds = %if.end.i.i24
   %exception.i.i30 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i30, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -7808,7 +7808,7 @@ _Z3absRK13checked_int64ILb1EE.exit31:             ; preds = %_ZN13checked_int64I
 
 if.then.i46:                                      ; preds = %_Z3absRK13checked_int64ILb1EE.exit31
   %exception.i47 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i47, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -8013,7 +8013,7 @@ if.then12:                                        ; preds = %for.body.i.i.i40, %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_root.i.i43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_spare_leaf.i.i, i8 0, i64 16, i1 false)
   %m_checker.i = getelementptr inbounds nuw i8, ptr %call13, i64 616
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13hilbert_basis12value_index27checkerE, i64 16), ptr %m_checker.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13hilbert_basis12value_index27checkerE, i64 16), ptr %m_checker.i, align 8
   %hb.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 624
   %m_value.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 632
   store i32 0, ptr %m_value.i.i, align 4
@@ -8644,7 +8644,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNK13hilbert_basis
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -8660,7 +8660,7 @@ land.lhs.true10.i.i:                              ; preds = %if.end.i.i30
 
 if.then15.i.i:                                    ; preds = %land.lhs.true10.i.i
   %exception16.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception16.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -9134,7 +9134,7 @@ for.end:                                          ; preds = %_ZNK6vectorI13check
 
 if.then.i.i:                                      ; preds = %for.end
   %exception.i.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -9405,7 +9405,7 @@ land.lhs.true.i.i:                                ; preds = %for.end
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -10518,7 +10518,7 @@ if.end.i.i:                                       ; preds = %if.then24
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -10555,7 +10555,7 @@ if.then33:                                        ; preds = %for.end
 
 if.then.i.i:                                      ; preds = %if.then33
   %exception.i.i42 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i42, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i42, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i42, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -10568,7 +10568,7 @@ if.else41:                                        ; preds = %for.end
 
 if.then.i.i47:                                    ; preds = %if.else41
   %exception.i.i48 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i48, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i48, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -11218,7 +11218,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -11296,7 +11296,7 @@ invoke.cont4:                                     ; preds = %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #24
   ret void
@@ -11615,7 +11615,7 @@ for.end:                                          ; preds = %for.body, %_ZNK6vec
   store i32 0, ptr %m_type.i.i.i, align 8
   %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %m_ref.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %call.i, align 8
   %m_nodes.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %m_initial_buffer.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %m_initial_buffer.i.i.i, ptr %m_nodes.i.i, align 8
@@ -11629,7 +11629,7 @@ for.end:                                          ; preds = %for.body, %_ZNK6vec
   store i32 0, ptr %m_type.i.i.i8, align 8
   %m_ref.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i7, i64 12
   store i32 0, ptr %m_ref.i.i.i9, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %call.i7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %call.i7, align 8
   %m_nodes.i.i10 = getelementptr inbounds nuw i8, ptr %call.i7, i64 16
   %m_initial_buffer.i.i.i11 = getelementptr inbounds nuw i8, ptr %call.i7, i64 32
   store ptr %m_initial_buffer.i.i.i11, ptr %m_nodes.i.i10, align 8
@@ -11643,7 +11643,7 @@ for.end:                                          ; preds = %for.body, %_ZNK6vec
   store i32 1, ptr %m_type.i.i.i15, align 8
   %m_ref.i.i.i16 = getelementptr inbounds nuw i8, ptr %call.i14, i64 12
   store i32 0, ptr %m_ref.i.i.i16, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4leafE, i64 16), ptr %call.i14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4leafE, i64 16), ptr %call.i14, align 8
   store ptr %call.i14, ptr %m_spare_leaf, align 8
   ret void
 }
@@ -11690,7 +11690,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -11734,7 +11734,7 @@ declare noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %this, align 8
   %m_nodes = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_nodes, align 8
   %m_initial_buffer.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -11761,7 +11761,7 @@ _ZN6bufferISt4pairI13checked_int64ILb1EEPN9heap_trieIS2_N13hilbert_basis12value_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %this, align 8
   %m_nodes.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_nodes.i, align 8
   %m_initial_buffer.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -12179,7 +12179,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i123,
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -12303,7 +12303,7 @@ if.then17.i139:                                   ; preds = %lor.lhs.false.i148,
           to label %invoke.cont.i144 unwind label %cleanup.action.i141
 
 invoke.cont.i144:                                 ; preds = %if.then17.i139
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i140, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i140, align 8
   %m_msg.i.i145 = getelementptr inbounds nuw i8, ptr %exception.i140, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i145, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i128) #24
   invoke void @__cxa_throw(ptr nonnull %exception.i140, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -12655,7 +12655,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -12894,7 +12894,7 @@ if.end.i.i8:                                      ; preds = %for.body
 
 if.then4.i.i:                                     ; preds = %if.end.i.i8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -12912,7 +12912,7 @@ _Z3absRK13checked_int64ILb1EE.exit:               ; preds = %for.body, %if.end5.
 
 if.then.i:                                        ; preds = %_Z3absRK13checked_int64ILb1EE.exit
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -13033,7 +13033,7 @@ if.then3:                                         ; preds = %if.then
   store i32 1, ptr %m_type.i.i.i, align 8
   %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %m_ref.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4leafE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4leafE, i64 16), ptr %call.i, align 8
   store ptr %call.i, ptr %m_spare_leaf, align 8
   br label %if.end8
 
@@ -13043,7 +13043,7 @@ if.else:                                          ; preds = %if.then
   store i32 0, ptr %m_type.i.i.i5, align 8
   %m_ref.i.i.i6 = getelementptr inbounds nuw i8, ptr %call.i4, i64 12
   store i32 0, ptr %m_ref.i.i.i6, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %call.i4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9heap_trieI13checked_int64ILb1EEN13hilbert_basis12value_index26key_leENS1_9hash_procEjE4trieE, i64 16), ptr %call.i4, align 8
   %m_nodes.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 16
   %m_initial_buffer.i.i.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 32
   store ptr %m_initial_buffer.i.i.i, ptr %m_nodes.i.i, align 8
@@ -13389,7 +13389,7 @@ if.end.i.i8:                                      ; preds = %for.body
 
 if.then4.i.i:                                     ; preds = %if.end.i.i8
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -13407,7 +13407,7 @@ _Z3absRK13checked_int64ILb1EE.exit:               ; preds = %for.body, %if.end5.
 
 if.then.i:                                        ; preds = %_Z3absRK13checked_int64ILb1EE.exit
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -13559,7 +13559,7 @@ land.lhs.true.i.i:                                ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -13575,7 +13575,7 @@ land.lhs.true10.i.i:                              ; preds = %if.end.i.i
 
 if.then15.i.i:                                    ; preds = %land.lhs.true10.i.i
   %exception16.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception16.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception16.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -14365,7 +14365,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -14446,7 +14446,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -14809,7 +14809,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -14970,7 +14970,7 @@ if.then17:                                        ; preds = %if.else
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -15275,7 +15275,7 @@ if.end.i.i19.i38:                                 ; preds = %for.body.i35
 
 if.then4.i.i.i68:                                 ; preds = %if.end.i.i19.i38
   %exception.i.i.i69 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i69, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i69, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i69, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15293,7 +15293,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i42:           ; preds = %if.end5.i.i.i40, %f
 
 if.then.i.i66:                                    ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i42
   %exception.i.i67 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i67, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i67, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i67, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15309,7 +15309,7 @@ if.end.i.i24.i51:                                 ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i64:                               ; preds = %if.end.i.i24.i51
   %exception.i.i30.i65 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i65, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i30.i65, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15328,7 +15328,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i55:         ; preds = %if.end5.i.i26.i53, 
 
 if.then.i46.i62:                                  ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i55
   %exception.i47.i63 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i63, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i63, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i47.i63, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15430,7 +15430,7 @@ if.end.i.i19.i:                                   ; preds = %for.body.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i19.i
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15448,7 +15448,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i:             ; preds = %if.end5.i.i.i, %for
 
 if.then.i.i:                                      ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15464,7 +15464,7 @@ if.end.i.i24.i:                                   ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i:                                 ; preds = %if.end.i.i24.i
   %exception.i.i30.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i30.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15483,7 +15483,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i:           ; preds = %if.end5.i.i26.i, %_
 
 if.then.i46.i:                                    ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i
   %exception.i47.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i47.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15614,7 +15614,7 @@ if.end.i.i19.i40:                                 ; preds = %for.body.i37
 
 if.then4.i.i.i70:                                 ; preds = %if.end.i.i19.i40
   %exception.i.i.i71 = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i71, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i71, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i.i71, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15632,7 +15632,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i44:           ; preds = %if.end5.i.i.i42, %f
 
 if.then.i.i68:                                    ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i44
   %exception.i.i69 = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i69, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i69, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i69, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15648,7 +15648,7 @@ if.end.i.i24.i53:                                 ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i66:                               ; preds = %if.end.i.i24.i53
   %exception.i.i30.i67 = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i67, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i67, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i30.i67, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15667,7 +15667,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i57:         ; preds = %if.end5.i.i26.i55, 
 
 if.then.i46.i64:                                  ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i57
   %exception.i47.i65 = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i65, align 8
   call void @__cxa_throw(ptr nonnull %exception.i47.i65, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15761,7 +15761,7 @@ if.end.i.i19.i:                                   ; preds = %for.body.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i19.i
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15779,7 +15779,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i:             ; preds = %if.end5.i.i.i, %for
 
 if.then.i.i:                                      ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
   %exception.i.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15795,7 +15795,7 @@ if.end.i.i24.i:                                   ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i:                                 ; preds = %if.end.i.i24.i
   %exception.i.i30.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
   call void @__cxa_throw(ptr nonnull %exception.i.i30.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -15814,7 +15814,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i:           ; preds = %if.end5.i.i26.i, %_
 
 if.then.i46.i:                                    ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i
   %exception.i47.i = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
   call void @__cxa_throw(ptr nonnull %exception.i47.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16008,7 +16008,7 @@ if.end.i.i19.i91:                                 ; preds = %for.body.i88
 
 if.then4.i.i.i121:                                ; preds = %if.end.i.i19.i91
   %exception.i.i.i122 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i122, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i122, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i122, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16026,7 +16026,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i95:           ; preds = %if.end5.i.i.i93, %f
 
 if.then.i.i119:                                   ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i95
   %exception.i.i120 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i120, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i120, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i120, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16042,7 +16042,7 @@ if.end.i.i24.i104:                                ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i117:                              ; preds = %if.end.i.i24.i104
   %exception.i.i30.i118 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i118, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i118, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i30.i118, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16061,7 +16061,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i108:        ; preds = %if.end5.i.i26.i106,
 
 if.then.i46.i115:                                 ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i108
   %exception.i47.i116 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i116, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i116, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i47.i116, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16155,7 +16155,7 @@ if.end.i.i19.i:                                   ; preds = %for.body.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i19.i
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16173,7 +16173,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i:             ; preds = %if.end5.i.i.i, %for
 
 if.then.i.i:                                      ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16189,7 +16189,7 @@ if.end.i.i24.i:                                   ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i:                                 ; preds = %if.end.i.i24.i
   %exception.i.i30.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i30.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16208,7 +16208,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i:           ; preds = %if.end5.i.i26.i, %_
 
 if.then.i46.i:                                    ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i
   %exception.i47.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i47.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16379,7 +16379,7 @@ if.end.i.i19.i:                                   ; preds = %for.body.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i19.i
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16397,7 +16397,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i:             ; preds = %if.end5.i.i.i, %for
 
 if.then.i.i:                                      ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16413,7 +16413,7 @@ if.end.i.i24.i:                                   ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i:                                 ; preds = %if.end.i.i24.i
   %exception.i.i30.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i30.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16432,7 +16432,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i:           ; preds = %if.end5.i.i26.i, %_
 
 if.then.i46.i:                                    ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i
   %exception.i47.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i47.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16503,7 +16503,7 @@ if.end.i.i19.i41:                                 ; preds = %for.body.i38
 
 if.then4.i.i.i71:                                 ; preds = %if.end.i.i19.i41
   %exception.i.i.i72 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i72, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i72, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i72, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16521,7 +16521,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i45:           ; preds = %if.end5.i.i.i43, %f
 
 if.then.i.i69:                                    ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i45
   %exception.i.i70 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i70, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i70, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i70, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16537,7 +16537,7 @@ if.end.i.i24.i54:                                 ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i67:                               ; preds = %if.end.i.i24.i54
   %exception.i.i30.i68 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i68, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i68, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i30.i68, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16556,7 +16556,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i58:         ; preds = %if.end5.i.i26.i56, 
 
 if.then.i46.i65:                                  ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i58
   %exception.i47.i66 = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i66, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i66, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i47.i66, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16695,7 +16695,7 @@ if.end.i.i19.i:                                   ; preds = %for.body.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i19.i
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16713,7 +16713,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i:             ; preds = %if.end5.i.i.i, %for
 
 if.then.i.i:                                      ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16729,7 +16729,7 @@ if.end.i.i24.i:                                   ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i:                                 ; preds = %if.end.i.i24.i
   %exception.i.i30.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i30.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16748,7 +16748,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i:           ; preds = %if.end5.i.i26.i, %_
 
 if.then.i46.i:                                    ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i
   %exception.i47.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i47.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16848,7 +16848,7 @@ if.end.i.i19.i:                                   ; preds = %for.body.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i19.i
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16866,7 +16866,7 @@ _Z3absRK13checked_int64ILb1EE.exit.i:             ; preds = %if.end5.i.i.i, %for
 
 if.then.i.i:                                      ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16882,7 +16882,7 @@ if.end.i.i24.i:                                   ; preds = %_ZN13checked_int64I
 
 if.then4.i.i29.i:                                 ; preds = %if.end.i.i24.i
   %exception.i.i30.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i.i30.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i30.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16901,7 +16901,7 @@ _Z3absRK13checked_int64ILb1EE.exit31.i:           ; preds = %if.end5.i.i26.i, %_
 
 if.then.i46.i:                                    ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i
   %exception.i47.i = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception.i47.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i47.i, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
   unreachable
 
@@ -16961,7 +16961,7 @@ if.then17:                                        ; preds = %if.else
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
@@ -17253,7 +17253,7 @@ invoke.cont18:                                    ; preds = %land.rhs.i.i
 
 if.then19:                                        ; preds = %_ZN8rationalD2Ev.exit27, %invoke.cont18
   %exception = call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13checked_int64ILb1EE18overflow_exceptionE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN13checked_int64ILb1EE18overflow_exceptionE, ptr nonnull @_ZN13checked_int64ILb1EE18overflow_exceptionD2Ev) #26
           to label %unreachable unwind label %lpad17
 

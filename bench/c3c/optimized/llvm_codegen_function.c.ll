@@ -1209,7 +1209,7 @@ llvm_append_xxlizer.exit:                         ; preds = %expand_.exit.i, %10
   %288 = load i32, ptr %287, align 8
   %289 = and i32 %288, 8192
   %.not.i.i.i = icmp eq i32 %289, 0
-  %290 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
+  %290 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
   %.not165.i.i.i = icmp eq i32 %290, 0
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %.not165.i.i.i
   br i1 %or.cond.i.i.i, label %301, label %291
@@ -1524,7 +1524,7 @@ define dso_local void @llvm_emit_dynamic_functions(ptr noundef %0, ptr noundef r
   br i1 %.not203, label %.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 48), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
   %16 = icmp eq i32 %15, 4
   br i1 %16, label %17, label %96
 
@@ -1970,7 +1970,7 @@ define dso_local void @llvm_emit_function_decl(ptr noundef %0, ptr noundef %1) l
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 524704), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 524704), align 8
   %9 = zext i16 %6 to i64
   %10 = add nuw nsw i64 %9, 4294967295
   %11 = and i64 %10, 4294967295

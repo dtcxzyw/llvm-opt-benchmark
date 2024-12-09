@@ -67,7 +67,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19InstanceMirrorKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN13InstanceKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) #5
-  store ptr getelementptr inbounds inrange(-16, 328) (i8, ptr @_ZTV19InstanceMirrorKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTV19InstanceMirrorKlass, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -152,7 +152,7 @@ _ZN19InstanceMirrorKlass13instance_sizeEP5Klass.exit: ; preds = %9, %21
   store ptr %0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.0.i, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14ClassAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14ClassAllocator, i64 16), ptr %4, align 8
   %28 = call noundef ptr @_ZNK12MemAllocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret ptr %28

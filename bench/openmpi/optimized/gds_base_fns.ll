@@ -42,12 +42,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noalias ptr @pmix_gds_base_get_available_modules() local_unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 272), align 8
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 272), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 280), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 280), align 8
   %5 = tail call noalias ptr @strdup(ptr noundef %4) #7
   br label %6
 
@@ -62,10 +62,10 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define ptr @pmix_gds_base_assign_module(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 272), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 272), align 8
   %5 = trunc i8 %4 to i1
-  %.01216 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 240), align 8
-  %.not17 = icmp ne ptr %.01216, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.01216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 240), align 8
+  %.not17 = icmp ne ptr %.01216, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   %or.cond.not = select i1 %5, i1 %.not17, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %.loopexit
 
@@ -110,7 +110,7 @@ define ptr @pmix_gds_base_assign_module(ptr noundef %0, i64 noundef %1) local_un
   %.1 = phi i32 [ %.019, %.lr.ph ], [ %21, %23 ], [ %.019, %20 ], [ %.019, %11 ]
   %26 = getelementptr inbounds nuw i8, ptr %.01220, i64 120
   %.012 = load ptr, ptr %26, align 8
-  %.not = icmp eq ptr %.012, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.not = icmp eq ptr %.012, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %25, %2
@@ -120,13 +120,13 @@ define ptr @pmix_gds_base_assign_module(ptr noundef %0, i64 noundef %1) local_un
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_gds_base_setup_fork(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 272), align 8
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 272), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2
-  %.01013 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 240), align 8
-  %.not14 = icmp eq ptr %.01013, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.01013 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 240), align 8
+  %.not14 = icmp eq ptr %.01013, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %12
@@ -148,7 +148,7 @@ define noundef i32 @pmix_gds_base_setup_fork(ptr noundef %0, ptr noundef %1) loc
 12:                                               ; preds = %10, %10, %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.01015, i64 120
   %.010 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %.010, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.not = icmp eq ptr %.010, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %10, %12, %.preheader, %2
@@ -181,7 +181,7 @@ define i32 @pmix_gds_base_store_modex(ptr nocapture noundef readnone %0, ptr nou
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 488
@@ -194,7 +194,7 @@ define i32 @pmix_gds_base_store_modex(ptr nocapture noundef readnone %0, ptr nou
 29:                                               ; preds = %21, %16, %5
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %31 = load i8, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 120
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 480
@@ -248,7 +248,7 @@ define i32 @pmix_gds_base_store_modex(ptr nocapture noundef readnone %0, ptr nou
 72:                                               ; preds = %.lr.ph290, %429
   %.183289 = phi ptr [ null, %.lr.ph290 ], [ %.284, %429 ]
   %73 = load i32, ptr @pmix_class_init_epoch, align 4
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 32), align 8
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_buffer_t_class, i64 32), align 8
   %.not = icmp eq i32 %73, %74
   br i1 %.not, label %76, label %75
 
@@ -275,7 +275,7 @@ define i32 @pmix_gds_base_store_modex(ptr nocapture noundef readnone %0, ptr nou
   br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 120
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 480
@@ -310,7 +310,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
   %101 = call ptr @PMIx_Data_type_string(i16 noundef zeroext 2) #7
   call void (i32, ptr, ...) @pmix_output(i32 noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef %100, ptr noundef %101) #7
   %.pre = load i8, ptr %52, align 8
-  %.pre328 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %.pre328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   br label %102
 
 102:                                              ; preds = %96, %91, %pmix_obj_run_constructors.exit
@@ -409,7 +409,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
   br i1 %147, label %148, label %156
 
 148:                                              ; preds = %143
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 120
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 488
@@ -421,7 +421,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
 
 156:                                              ; preds = %148, %143, %141
   %157 = load i8, ptr %52, align 8
-  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 120
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 480
@@ -509,7 +509,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
   br i1 %200, label %201, label %209
 
 201:                                              ; preds = %196
-  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 120
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 488
@@ -521,7 +521,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
 
 209:                                              ; preds = %201, %196, %194
   %210 = load i8, ptr %52, align 8
-  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 120
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 480
@@ -604,7 +604,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
   br i1 %249, label %250, label %258
 
 250:                                              ; preds = %245
-  %251 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %251 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 120
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 488
@@ -616,7 +616,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
 
 258:                                              ; preds = %250, %245, %243
   %259 = load i8, ptr %52, align 8
-  %260 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %260 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 120
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 480
@@ -635,7 +635,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
 
 .lr.ph287:                                        ; preds = %266, %390
   %273 = load i32, ptr @pmix_class_init_epoch, align 4
-  %274 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 32), align 8
+  %274 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_buffer_t_class, i64 32), align 8
   %.not108 = icmp eq i32 %273, %274
   br i1 %.not108, label %276, label %275
 
@@ -662,7 +662,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %76
   br i1 %.not.i150, label %pmix_obj_run_constructors.exit151, label %.lr.ph.i148, !llvm.loop !7
 
 pmix_obj_run_constructors.exit151:                ; preds = %.lr.ph.i148, %276
-  %282 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %282 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 120
   %284 = load ptr, ptr %283, align 8
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 480
@@ -697,7 +697,7 @@ pmix_obj_run_constructors.exit151:                ; preds = %.lr.ph.i148, %276
   %301 = call ptr @PMIx_Data_type_string(i16 noundef zeroext 40) #7
   call void (i32, ptr, ...) @pmix_output(i32 noundef %290, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef %300, ptr noundef %301) #7
   %.pre329 = load i8, ptr %62, align 8
-  %.pre330 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %.pre330 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   br label %302
 
 302:                                              ; preds = %296, %291, %pmix_obj_run_constructors.exit151
@@ -872,7 +872,7 @@ pmix_obj_run_destructors.exit171:                 ; preds = %.lr.ph.i168, %360
   br i1 %373, label %374, label %382
 
 374:                                              ; preds = %369
-  %375 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 120
   %377 = load ptr, ptr %376, align 8
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 488
@@ -884,7 +884,7 @@ pmix_obj_run_destructors.exit171:                 ; preds = %.lr.ph.i168, %360
 
 382:                                              ; preds = %374, %369, %pmix_obj_run_destructors.exit171
   %383 = load i8, ptr %52, align 8
-  %384 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %384 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 120
   %386 = load ptr, ptr %385, align 8
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 480
@@ -944,7 +944,7 @@ pmix_obj_run_destructors.exit176:                 ; preds = %.lr.ph.i173, %pmix_
   br i1 %412, label %413, label %421
 
 413:                                              ; preds = %408
-  %414 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %414 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 120
   %416 = load ptr, ptr %415, align 8
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 488
@@ -956,7 +956,7 @@ pmix_obj_run_destructors.exit176:                 ; preds = %.lr.ph.i173, %pmix_
 
 421:                                              ; preds = %413, %408, %406
   %422 = load i8, ptr %30, align 8
-  %423 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %423 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 120
   %425 = load ptr, ptr %424, align 8
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 480
@@ -1053,7 +1053,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 488
@@ -1067,7 +1067,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 0
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 480
@@ -1076,7 +1076,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
 
 36:                                               ; preds = %27
   store i8 %35, ptr %28, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 120
   %39 = load ptr, ptr %38, align 8
   br label %42
@@ -1116,7 +1116,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
   br i1 %55, label %56, label %64
 
 56:                                               ; preds = %51
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 488
@@ -1129,7 +1129,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
 64:                                               ; preds = %56, %51, %49
   %65 = load i8, ptr %28, align 8
   %66 = icmp eq i8 %65, 0
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 120
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 480
@@ -1138,7 +1138,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
 
 72:                                               ; preds = %64
   store i8 %71, ptr %28, align 8
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 120
   %75 = load ptr, ptr %74, align 8
   br label %78
@@ -1180,7 +1180,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
   br i1 %93, label %94, label %102
 
 94:                                               ; preds = %89
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 120
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 488
@@ -1194,7 +1194,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %104 = load i8, ptr %103, align 8
   %105 = icmp eq i8 %104, 0
-  %106 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 120
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 480
@@ -1203,7 +1203,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
 
 111:                                              ; preds = %102
   store i8 %110, ptr %103, align 8
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 120
   %114 = load ptr, ptr %113, align 8
   br label %117
@@ -1268,7 +1268,7 @@ define i32 @pmix_gds_base_modex_unpack_kval(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 488
@@ -1281,7 +1281,7 @@ define i32 @pmix_gds_base_modex_unpack_kval(i32 noundef %0, ptr noundef %1, ptr 
 22:                                               ; preds = %14, %9, %7
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %24 = load i8, ptr %23, align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 480
@@ -1331,7 +1331,7 @@ define i32 @pmix_gds_base_modex_unpack_kval(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %55, label %56, label %64
 
 56:                                               ; preds = %51
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 488
@@ -1343,7 +1343,7 @@ define i32 @pmix_gds_base_modex_unpack_kval(i32 noundef %0, ptr noundef %1, ptr 
 
 64:                                               ; preds = %56, %51, %45
   %65 = load i8, ptr %23, align 8
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 120
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 480
@@ -1390,7 +1390,7 @@ define i32 @pmix_gds_base_modex_unpack_kval(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %89, label %90, label %98
 
 90:                                               ; preds = %85
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 120
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 488
@@ -1403,7 +1403,7 @@ define i32 @pmix_gds_base_modex_unpack_kval(i32 noundef %0, ptr noundef %1, ptr 
 98:                                               ; preds = %90, %85, %83
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %100 = load i8, ptr %99, align 8
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 120
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 480

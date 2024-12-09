@@ -156,7 +156,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev23MixingColorSpaceManagerEE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImplC2ERNS_23MixingColorSpaceManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %mixing) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16MixingSliderImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16MixingSliderImplE, i64 16), ptr %this, align 8
   %m_mixing = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %mixing, ptr %m_mixing, align 8
   %m_sliderMinEdge = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -525,7 +525,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23MixingColorSpaceManagerEEC2INS0_27Mixi
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplEPFvPNS0_23MixingColorSpaceManagerEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplEPFvPNS0_23MixingColorSpaceManagerEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 16
   store ptr @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl7DeleterEPNS_23MixingColorSpaceManagerE, ptr %_M_impl.i.i.i.i.i, align 8
   %_M_ptr.i.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 24
@@ -569,7 +569,7 @@ entry:
   %ref.tmp = alloca [2 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp2 = alloca %"class.std::allocator.6", align 1
   %ref.tmp5 = alloca %"class.std::allocator.6", align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplE, i64 16), ptr %this, align 8
   %m_config = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %config, align 8
   store ptr %0, ptr %m_config, align 8
@@ -598,7 +598,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %m_slider = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16MixingSliderImplE, i64 16), ptr %m_slider, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16MixingSliderImplE, i64 16), ptr %m_slider, align 8
   %m_mixing.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %this, ptr %m_mixing.i, align 8
   %m_sliderMinEdge.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -3748,7 +3748,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

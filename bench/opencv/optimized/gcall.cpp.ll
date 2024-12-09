@@ -611,7 +611,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GCall4PrivEEET_.exi
   store i32 1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %19, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GCall4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv5GCall4PrivELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %4, ptr %20, align 8
   store ptr %7, ptr %6, align 8

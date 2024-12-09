@@ -217,7 +217,7 @@ entry:
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %_ZN10CipherTestD2Ev.exit, %entry
-  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 416), %entry ], [ %arraydestroy.element, %_ZN10CipherTestD2Ev.exit ]
+  %arraydestroy.elementPast = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 416), %entry ], [ %arraydestroy.element, %_ZN10CipherTestD2Ev.exit ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   %expected.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -24
   %1 = load ptr, ptr %expected.i, align 8
@@ -4145,15 +4145,15 @@ declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr 
 define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str, ptr @_ZL12kCipherTests, align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 8), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 8), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31
-  store ptr %call5.i.i.i.i2.i.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 8), align 8
+  store ptr %call5.i.i.i.i2.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 8), align 8
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i, i64 96
-  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 24), align 8
+  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 24), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %call5.i.i.i.i2.i.i, ptr noundef nonnull align 8 dereferenceable(96) @constinit.9, i64 96, i1 false)
-  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 16), align 16
-  store ptr @.str.1, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 32), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 40), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 16), align 16
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 32), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 40), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i13.i = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31
           to label %invoke.cont10.i unwind label %lpad.i14.i
 
@@ -4163,13 +4163,13 @@ lpad.i14.i:                                       ; preds = %entry
   br label %ehcleanup124.i
 
 invoke.cont10.i:                                  ; preds = %entry
-  store ptr %call5.i.i.i.i2.i13.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 40), align 8
+  store ptr %call5.i.i.i.i2.i13.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 40), align 8
   %add.ptr.i1.i18.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i13.i, i64 96
-  store ptr %add.ptr.i1.i18.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 56), align 8
+  store ptr %add.ptr.i1.i18.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 56), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %call5.i.i.i.i2.i13.i, ptr noundef nonnull align 8 dereferenceable(96) @constinit.2, i64 96, i1 false)
-  store ptr %add.ptr.i1.i18.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 48), align 16
-  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 64), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 72), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i18.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 48), align 16
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 64), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 72), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i21.i = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %invoke.cont19.i unwind label %lpad.i22.i
 
@@ -4179,13 +4179,13 @@ lpad.i22.i:                                       ; preds = %invoke.cont10.i
   br label %ehcleanup124.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont10.i
-  store ptr %call5.i.i.i.i2.i21.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 72), align 8
+  store ptr %call5.i.i.i.i2.i21.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 72), align 8
   %add.ptr.i1.i26.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i21.i, i64 48
-  store ptr %add.ptr.i1.i26.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 88), align 8
+  store ptr %add.ptr.i1.i26.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 88), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5.i.i.i.i2.i21.i, ptr noundef nonnull align 8 dereferenceable(48) @constinit.4, i64 48, i1 false)
-  store ptr %add.ptr.i1.i26.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 80), align 16
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 96), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 104), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i26.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 80), align 16
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 96), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 104), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i29.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %invoke.cont28.i unwind label %lpad.i30.i
 
@@ -4195,15 +4195,15 @@ lpad.i30.i:                                       ; preds = %invoke.cont19.i
   br label %ehcleanup124.i
 
 invoke.cont28.i:                                  ; preds = %invoke.cont19.i
-  store ptr %call5.i.i.i.i2.i29.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 104), align 8
+  store ptr %call5.i.i.i.i2.i29.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 104), align 8
   %add.ptr.i1.i34.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i29.i, i64 16
-  store ptr %add.ptr.i1.i34.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 120), align 8
+  store ptr %add.ptr.i1.i34.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 120), align 8
   store i64 50331804, ptr %call5.i.i.i.i2.i29.i, align 8
   %ref.tmp21.sroa.2.0.call5.i.i.i.i2.i29.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i29.i, i64 8
   store i32 0, ptr %ref.tmp21.sroa.2.0.call5.i.i.i.i2.i29.sroa_idx.i, align 8
-  store ptr %add.ptr.i1.i34.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 112), align 16
-  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 128), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 136), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i34.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 112), align 16
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 128), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 136), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i37.i = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %invoke.cont37.i unwind label %lpad.i38.i
 
@@ -4213,13 +4213,13 @@ lpad.i38.i:                                       ; preds = %invoke.cont28.i
   br label %ehcleanup124.i
 
 invoke.cont37.i:                                  ; preds = %invoke.cont28.i
-  store ptr %call5.i.i.i.i2.i37.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 136), align 8
+  store ptr %call5.i.i.i.i2.i37.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 136), align 8
   %add.ptr.i1.i42.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i37.i, i64 48
-  store ptr %add.ptr.i1.i42.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 152), align 8
+  store ptr %add.ptr.i1.i42.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 152), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5.i.i.i.i2.i37.i, ptr noundef nonnull align 8 dereferenceable(48) @constinit.7, i64 48, i1 false)
-  store ptr %add.ptr.i1.i42.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 144), align 16
-  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 160), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 168), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i42.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 144), align 16
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 160), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 168), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i45.i = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31
           to label %invoke.cont46.i unwind label %lpad.i46.i
 
@@ -4229,13 +4229,13 @@ lpad.i46.i:                                       ; preds = %invoke.cont37.i
   br label %ehcleanup124.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont37.i
-  store ptr %call5.i.i.i.i2.i45.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 168), align 8
+  store ptr %call5.i.i.i.i2.i45.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 168), align 8
   %add.ptr.i1.i50.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i45.i, i64 96
-  store ptr %add.ptr.i1.i50.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 184), align 8
+  store ptr %add.ptr.i1.i50.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 184), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %call5.i.i.i.i2.i45.i, ptr noundef nonnull align 8 dereferenceable(96) @constinit.9, i64 96, i1 false)
-  store ptr %add.ptr.i1.i50.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 176), align 16
-  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 192), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 200), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i50.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 176), align 16
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 192), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 200), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i53.i = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31
           to label %invoke.cont55.i unwind label %lpad.i54.i
 
@@ -4245,13 +4245,13 @@ lpad.i54.i:                                       ; preds = %invoke.cont46.i
   br label %ehcleanup124.i
 
 invoke.cont55.i:                                  ; preds = %invoke.cont46.i
-  store ptr %call5.i.i.i.i2.i53.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 200), align 8
+  store ptr %call5.i.i.i.i2.i53.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 200), align 8
   %add.ptr.i1.i58.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i53.i, i64 96
-  store ptr %add.ptr.i1.i58.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 216), align 8
+  store ptr %add.ptr.i1.i58.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 216), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %call5.i.i.i.i2.i53.i, ptr noundef nonnull align 8 dereferenceable(96) @constinit.11, i64 96, i1 false)
-  store ptr %add.ptr.i1.i58.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 208), align 16
-  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 224), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 232), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i58.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 208), align 16
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 224), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 232), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i61.i = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #31
           to label %invoke.cont64.i unwind label %lpad.i62.i
 
@@ -4261,13 +4261,13 @@ lpad.i62.i:                                       ; preds = %invoke.cont55.i
   br label %ehcleanup124.i
 
 invoke.cont64.i:                                  ; preds = %invoke.cont55.i
-  store ptr %call5.i.i.i.i2.i61.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 232), align 8
+  store ptr %call5.i.i.i.i2.i61.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 232), align 8
   %add.ptr.i1.i66.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i61.i, i64 128
-  store ptr %add.ptr.i1.i66.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 248), align 8
+  store ptr %add.ptr.i1.i66.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 248), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call5.i.i.i.i2.i61.i, ptr noundef nonnull align 8 dereferenceable(128) @constinit.13, i64 128, i1 false)
-  store ptr %add.ptr.i1.i66.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 240), align 16
-  store ptr @.str.14, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 256), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 264), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i66.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 240), align 16
+  store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 256), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 264), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i69.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %invoke.cont73.i unwind label %lpad.i70.i
 
@@ -4277,13 +4277,13 @@ lpad.i70.i:                                       ; preds = %invoke.cont64.i
   br label %ehcleanup124.i
 
 invoke.cont73.i:                                  ; preds = %invoke.cont64.i
-  store ptr %call5.i.i.i.i2.i69.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 264), align 8
+  store ptr %call5.i.i.i.i2.i69.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 264), align 8
   %add.ptr.i1.i74.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i69.i, i64 32
-  store ptr %add.ptr.i1.i74.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 280), align 8
+  store ptr %add.ptr.i1.i74.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 280), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i69.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit.15, i64 32, i1 false)
-  store ptr %add.ptr.i1.i74.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 272), align 16
-  store ptr @.str.16, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 288), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 296), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i74.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 272), align 16
+  store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 288), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 296), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i77.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %invoke.cont84.i unwind label %lpad.i78.i
 
@@ -4293,15 +4293,15 @@ lpad.i78.i:                                       ; preds = %invoke.cont73.i
   br label %ehcleanup124.i
 
 invoke.cont84.i:                                  ; preds = %invoke.cont73.i
-  store ptr %call5.i.i.i.i2.i77.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 296), align 8
+  store ptr %call5.i.i.i.i2.i77.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 296), align 8
   %add.ptr.i1.i82.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i77.i, i64 16
-  store ptr %add.ptr.i1.i82.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 312), align 8
+  store ptr %add.ptr.i1.i82.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 312), align 8
   store i64 50331708, ptr %call5.i.i.i.i2.i77.i, align 8
   %ref.tmp75.sroa.2.0.call5.i.i.i.i2.i77.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i77.i, i64 8
   store i32 0, ptr %ref.tmp75.sroa.2.0.call5.i.i.i.i2.i77.sroa_idx.i, align 8
-  store ptr %add.ptr.i1.i82.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 304), align 16
-  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 320), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 328), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i82.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 304), align 16
+  store ptr @.str.17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 320), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 328), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i85.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %invoke.cont95.i unwind label %lpad.i86.i
 
@@ -4311,15 +4311,15 @@ lpad.i86.i:                                       ; preds = %invoke.cont84.i
   br label %ehcleanup124.i
 
 invoke.cont95.i:                                  ; preds = %invoke.cont84.i
-  store ptr %call5.i.i.i.i2.i85.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 328), align 8
+  store ptr %call5.i.i.i.i2.i85.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 328), align 8
   %add.ptr.i1.i90.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i85.i, i64 16
-  store ptr %add.ptr.i1.i90.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 344), align 8
+  store ptr %add.ptr.i1.i90.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 344), align 8
   store i64 50331695, ptr %call5.i.i.i.i2.i85.i, align 8
   %ref.tmp86.sroa.2.0.call5.i.i.i.i2.i85.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i85.i, i64 8
   store i32 0, ptr %ref.tmp86.sroa.2.0.call5.i.i.i.i2.i85.sroa_idx.i, align 8
-  store ptr %add.ptr.i1.i90.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 336), align 16
-  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 352), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 360), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i90.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 336), align 16
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 352), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 360), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i93.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %invoke.cont104.i unwind label %lpad.i94.i
 
@@ -4329,13 +4329,13 @@ lpad.i94.i:                                       ; preds = %invoke.cont95.i
   br label %ehcleanup124.i
 
 invoke.cont104.i:                                 ; preds = %invoke.cont95.i
-  store ptr %call5.i.i.i.i2.i93.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 360), align 8
+  store ptr %call5.i.i.i.i2.i93.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 360), align 8
   %add.ptr.i1.i98.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i93.i, i64 32
-  store ptr %add.ptr.i1.i98.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 376), align 8
+  store ptr %add.ptr.i1.i98.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 376), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i93.i, ptr noundef nonnull align 8 dereferenceable(32) @constinit.19, i64 32, i1 false)
-  store ptr %add.ptr.i1.i98.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 368), align 16
-  store ptr @.str.20, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 384), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 392), i8 0, i64 24, i1 false)
+  store ptr %add.ptr.i1.i98.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 368), align 16
+  store ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 384), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 392), i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i101.i = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
           to label %__cxx_global_var_init.exit unwind label %lpad.i102.i
 
@@ -4346,7 +4346,7 @@ lpad.i102.i:                                      ; preds = %invoke.cont104.i
 
 ehcleanup124.i:                                   ; preds = %lpad.i102.i, %lpad.i94.i, %lpad.i86.i, %lpad.i78.i, %lpad.i70.i, %lpad.i62.i, %lpad.i54.i, %lpad.i46.i, %lpad.i38.i, %lpad.i30.i, %lpad.i22.i, %lpad.i14.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %0, %lpad.i14.i ], [ %1, %lpad.i22.i ], [ %2, %lpad.i30.i ], [ %3, %lpad.i38.i ], [ %4, %lpad.i46.i ], [ %5, %lpad.i54.i ], [ %6, %lpad.i62.i ], [ %7, %lpad.i70.i ], [ %8, %lpad.i78.i ], [ %9, %lpad.i86.i ], [ %10, %lpad.i94.i ], [ %11, %lpad.i102.i ]
-  %arrayinit.endOfInit.0.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 32), %lpad.i14.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 64), %lpad.i22.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 96), %lpad.i30.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 128), %lpad.i38.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 160), %lpad.i46.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 192), %lpad.i54.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 224), %lpad.i62.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 256), %lpad.i70.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 288), %lpad.i78.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 320), %lpad.i86.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 352), %lpad.i94.i ], [ getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 384), %lpad.i102.i ]
+  %arrayinit.endOfInit.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 32), %lpad.i14.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 64), %lpad.i22.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 96), %lpad.i30.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 128), %lpad.i38.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 160), %lpad.i46.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 192), %lpad.i54.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 224), %lpad.i62.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 256), %lpad.i70.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 288), %lpad.i78.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 320), %lpad.i86.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 352), %lpad.i94.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 384), %lpad.i102.i ]
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN10CipherTestD2Ev.exit.i, %ehcleanup124.i
@@ -4369,11 +4369,11 @@ eh.resume.i:                                      ; preds = %_ZN10CipherTestD2Ev
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
 
 __cxx_global_var_init.exit:                       ; preds = %invoke.cont104.i
-  store ptr %call5.i.i.i.i2.i101.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 392), align 8
+  store ptr %call5.i.i.i.i2.i101.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 392), align 8
   %add.ptr.i1.i106.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i101.i, i64 64
-  store ptr %add.ptr.i1.i106.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 408), align 8
+  store ptr %add.ptr.i1.i106.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 408), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call5.i.i.i.i2.i101.i, ptr noundef nonnull align 8 dereferenceable(64) @constinit.21, i64 64, i1 false)
-  store ptr %add.ptr.i1.i106.i, ptr getelementptr inbounds (i8, ptr @_ZL12kCipherTests, i64 400), align 16
+  store ptr %add.ptr.i1.i106.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 400), align 16
   %13 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #27
   ret void
 }

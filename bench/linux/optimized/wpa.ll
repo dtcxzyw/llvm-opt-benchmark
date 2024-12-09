@@ -2502,7 +2502,7 @@ define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %62, i64 6, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %63, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %65 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %64, i32 noundef 2080, i64 noundef 16) #11
   %66 = icmp eq ptr %65, null
   br i1 %66, label %89, label %67

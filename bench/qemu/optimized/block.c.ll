@@ -1059,11 +1059,11 @@ for.body11:                                       ; preds = %do.end, %for.body11
 do.body15:                                        ; preds = %for.body11, %do.end
   %bs_list = getelementptr inbounds nuw i8, ptr %call1, i64 16648
   store ptr null, ptr %bs_list, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @all_bdrv_states, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @all_bdrv_states, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call1, i64 16656
   store ptr %2, ptr %tql_prev, align 8
   store ptr %call1, ptr %2, align 8
-  store ptr %bs_list, ptr getelementptr inbounds (i8, ptr @all_bdrv_states, i64 8), align 8
+  store ptr %bs_list, ptr getelementptr inbounds nuw (i8, ptr @all_bdrv_states, i64 8), align 8
   ret ptr %call1
 }
 
@@ -3246,11 +3246,11 @@ if.end18.i:                                       ; preds = %if.end15.i
   tail call void @pstrcpy(ptr noundef nonnull %node_name19.i, i32 noundef 32, ptr noundef nonnull %node_name.addr.0.i) #31
   %node_list.i = getelementptr inbounds nuw i8, ptr %bs, i64 16632
   store ptr null, ptr %node_list.i, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @graph_bdrv_states, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @graph_bdrv_states, i64 8), align 8
   %tql_prev.i = getelementptr inbounds nuw i8, ptr %bs, i64 16640
   store ptr %0, ptr %tql_prev.i, align 8
   store ptr %bs, ptr %0, align 8
-  store ptr %node_list.i, ptr getelementptr inbounds (i8, ptr @graph_bdrv_states, i64 8), align 8
+  store ptr %node_list.i, ptr getelementptr inbounds nuw (i8, ptr @graph_bdrv_states, i64 8), align 8
   br label %out.i
 
 out.i:                                            ; preds = %if.end18.i, %if.then17.i, %if.then14.i, %if.then10.i
@@ -3591,7 +3591,7 @@ if.then13.i:                                      ; preds = %do.body10.i
   br label %if.end21.i
 
 if.else18.i:                                      ; preds = %do.body10.i
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @graph_bdrv_states, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @graph_bdrv_states, i64 8), align 8
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else18.i, %if.then13.i
@@ -3615,7 +3615,7 @@ if.then35.i:                                      ; preds = %do.body32.i
   br label %if.end44.i
 
 if.else41.i:                                      ; preds = %do.body32.i
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @all_bdrv_states, i64 8), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @all_bdrv_states, i64 8), align 8
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.else41.i, %if.then35.i
@@ -7322,7 +7322,7 @@ while.cond.i:                                     ; preds = %if.then8.i, %while.
 
 if.end.i.i:                                       ; preds = %while.cond.i
   %incdec.ptr.i.i = getelementptr i8, ptr %option_name.0.i, i64 8
-  %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, getelementptr inbounds (i8, ptr @strong_options.global_options, i64 16)
+  %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, getelementptr inbounds nuw (i8, ptr @strong_options.global_options, i64 16)
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end4.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
@@ -7341,7 +7341,7 @@ if.end4.i.i:                                      ; preds = %if.then2.i.i, %if.e
   br i1 %tobool5.not.i.i, label %while.end.i, label %land.lhs.true6.i.i
 
 land.lhs.true6.i.i:                               ; preds = %if.end4.i.i, %land.lhs.true.i.i
-  %curopt.addr.09.i.i = phi ptr [ %curopt.addr.0.i.i, %if.end4.i.i ], [ getelementptr inbounds (i8, ptr @strong_options.global_options, i64 16), %land.lhs.true.i.i ]
+  %curopt.addr.09.i.i = phi ptr [ %curopt.addr.0.i.i, %if.end4.i.i ], [ getelementptr inbounds nuw (i8, ptr @strong_options.global_options, i64 16), %land.lhs.true.i.i ]
   %19 = load ptr, ptr %curopt.addr.09.i.i, align 8
   %tobool7.not.i.i = icmp eq ptr %19, null
   br i1 %tobool7.not.i.i, label %while.end.i, label %while.body.i
@@ -17250,7 +17250,7 @@ if.end4:                                          ; preds = %do.end
   br i1 %tobool.not, label %out, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @bdrv_qcow2, i64 32), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bdrv_qcow2, i64 32), align 8
   %call8 = tail call ptr @qemu_opts_create(ptr noundef %2, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #31
   %call9 = tail call zeroext i1 @qemu_opt_set_number(ptr noundef %call8, ptr noundef nonnull @.str.17, i64 noundef %call2, ptr noundef nonnull @error_abort) #31
   %call10 = tail call i32 @bdrv_create(ptr noundef nonnull @bdrv_qcow2, ptr noundef nonnull %call5, ptr noundef %call8, ptr noundef nonnull %errp) #31

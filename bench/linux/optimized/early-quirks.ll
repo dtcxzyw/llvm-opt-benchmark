@@ -105,7 +105,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef range(i
 10:                                               ; preds = %3
   %11 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 0) #4
   %12 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 2) #4
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @early_qrk, i64 24), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @early_qrk, i64 24), align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
 
@@ -351,7 +351,7 @@ define internal void @intel_remapping_check(i32 noundef %0, i32 noundef %1, i32 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @intel_graphics_quirks(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @intel_graphics_stolen_res, i64 8), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @intel_graphics_stolen_res, i64 8), align 8
   %5 = load i64, ptr @intel_graphics_stolen_res, align 8
   %6 = add i64 %4, 1
   %7 = icmp eq i64 %6, %5
@@ -533,7 +533,7 @@ define internal fastcc void @intel_graphics_stolen(i32 noundef %0, i32 noundef %
   %14 = add i64 %6, -1
   %15 = add i64 %14, %9
   store i64 %9, ptr @intel_graphics_stolen_res, align 8
-  store i64 %15, ptr getelementptr inbounds (i8, ptr @intel_graphics_stolen_res, i64 8), align 8
+  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @intel_graphics_stolen_res, i64 8), align 8
   %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef nonnull @intel_graphics_stolen_res) #6
   tail call void @e820__range_add(i64 noundef %9, i64 noundef %6, i32 noundef 2) #4
   %17 = load ptr, ptr @e820_table, align 8

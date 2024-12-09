@@ -722,7 +722,7 @@ _ZN5boost6detail12shared_countC2IN8QuantLib13UnitOfMeasure4DataEEEPT_.exit: ; pr
   store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !30
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !32
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib13UnitOfMeasure4DataEEE, i64 16), ptr %call.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib13UnitOfMeasure4DataEEE, i64 16), ptr %call.i, align 8, !tbaa !26
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %p, ptr %px_.i.i, align 8, !tbaa !33
   %5 = load ptr, ptr %pn, align 8, !tbaa !9

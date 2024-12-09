@@ -2885,7 +2885,7 @@ tohex.exit35.i.i.i.i:                             ; preds = %231, %229, %tohex.e
 url_decode.exit.i.i.i:                            ; preds = %.preheader.i.i230.i.i
   store i8 0, ptr %.021.i.i.i.i, align 1
   %243 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %64) #15
-  %244 = load i8, ptr getelementptr inbounds (i8, ptr @base64_decode.decode_table, i64 66), align 2
+  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @base64_decode.decode_table, i64 66), align 2
   %.not.i.i232.i.i = icmp eq i8 %244, 1
   br i1 %.not.i.i232.i.i, label %.loopexit.i.i.i.i, label %245
 

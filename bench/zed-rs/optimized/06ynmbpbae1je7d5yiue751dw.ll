@@ -133,7 +133,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514
   br i1 %9, label %16, label %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread
 
 _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread: ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit
-  %.sroa.0.0.i.i.i5 = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %3 ]
+  %.sroa.0.0.i.i.i5 = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %3 ]
   %10 = load ptr, ptr %.sroa.0.0.i.i.i5, align 8, !noalias !18, !noundef !16
   store ptr %6, ptr %.sroa.0.0.i.i.i5, align 8, !noalias !18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !22
@@ -200,7 +200,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514
   br i1 %9, label %16, label %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread
 
 _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread: ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit
-  %.sroa.0.0.i.i.i5 = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %3 ]
+  %.sroa.0.0.i.i.i5 = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %3 ]
   %10 = load ptr, ptr %.sroa.0.0.i.i.i5, align 8, !noalias !72, !noundef !16
   store ptr %6, ptr %.sroa.0.0.i.i.i5, align 8, !noalias !72
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !76
@@ -267,7 +267,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514
   br i1 %9, label %16, label %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread
 
 _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread: ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit
-  %.sroa.0.0.i.i.i5 = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %3 ]
+  %.sroa.0.0.i.i.i5 = phi ptr [ %8, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %3 ]
   %10 = load ptr, ptr %.sroa.0.0.i.i.i5, align 8, !noalias !126, !noundef !16
   store ptr %6, ptr %.sroa.0.0.i.i.i5, align 8, !noalias !126
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5), !noalias !130
@@ -332,7 +332,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514
   br i1 %7, label %17, label %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread
 
 _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread: ; preds = %2, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit
-  %.sroa.0.0.i.i.i3 = phi ptr [ %6, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %2 ]
+  %.sroa.0.0.i.i.i3 = phi ptr [ %6, %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %2 ]
   %8 = load ptr, ptr %.sroa.0.0.i.i.i3, align 8, !noalias !179, !noundef !16
   store ptr %4, ptr %.sroa.0.0.i.i.i3, align 8, !noalias !179
   %9 = invoke { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17hfd8a6f9044d408c6E.llvm.495310588694779438"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
@@ -3474,7 +3474,7 @@ define hidden noundef ptr @_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3
   br label %"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2d1f575cef21ea0fE.exit"
 
 "_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2d1f575cef21ea0fE.exit": ; preds = %1, %3
-  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -26011,7 +26011,7 @@ define hidden void @_ZN9async_std4task7builder7Builder5spawn17h048cf2d49ad62364E
           to label %.noexc.i unwind label %43, !noalias !6928
 
 .noexc.i:                                         ; preds = %40
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9async_std2rt7RUNTIME17h3b9619001a345850E, i64 8), align 8, !range !899, !noalias !6928, !noundef !16
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9async_std2rt7RUNTIME17h3b9619001a345850E, i64 8), align 8, !range !899, !noalias !6928, !noundef !16
   %42 = trunc nuw i8 %41 to i1
   tail call void @llvm.assume(i1 %42)
   br label %53
@@ -26096,7 +26096,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514
   br i1 %67, label %70, label %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread.i
 
 _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread.i: ; preds = %.noexc, %60
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %66, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %60 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %66, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %60 ]
   %.val.i = load ptr, ptr %.sroa.0.0.i.i.i2.i, align 8, !noundef !16
   %68 = icmp eq ptr %.val.i, null
   br i1 %68, label %70, label %69
@@ -26332,7 +26332,7 @@ define hidden void @_ZN9async_std4task7builder7Builder5spawn17h3eac9ee283221f19E
           to label %.noexc.i unwind label %43, !noalias !6991
 
 .noexc.i:                                         ; preds = %40
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9async_std2rt7RUNTIME17h3b9619001a345850E, i64 8), align 8, !range !899, !noalias !6991, !noundef !16
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9async_std2rt7RUNTIME17h3b9619001a345850E, i64 8), align 8, !range !899, !noalias !6991, !noundef !16
   %42 = trunc nuw i8 %41 to i1
   tail call void @llvm.assume(i1 %42)
   br label %53
@@ -26417,7 +26417,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514
   br i1 %67, label %70, label %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread.i
 
 _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread.i: ; preds = %.noexc, %60
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %66, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %60 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %66, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %60 ]
   %.val.i = load ptr, ptr %.sroa.0.0.i.i.i2.i, align 8, !noundef !16
   %68 = icmp eq ptr %.val.i, null
   br i1 %68, label %70, label %69
@@ -26653,7 +26653,7 @@ define hidden void @_ZN9async_std4task7builder7Builder5spawn17h6af13006e316bba1E
           to label %.noexc.i unwind label %43, !noalias !7054
 
 .noexc.i:                                         ; preds = %40
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9async_std2rt7RUNTIME17h3b9619001a345850E, i64 8), align 8, !range !899, !noalias !7054, !noundef !16
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9async_std2rt7RUNTIME17h3b9619001a345850E, i64 8), align 8, !range !899, !noalias !7054, !noundef !16
   %42 = trunc nuw i8 %41 to i1
   tail call void @llvm.assume(i1 %42)
   br label %53
@@ -26738,7 +26738,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514
   br i1 %67, label %70, label %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread.i
 
 _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread.i: ; preds = %.noexc, %60
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %66, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %60 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %66, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %60 ]
   %.val.i = load ptr, ptr %.sroa.0.0.i.i.i2.i, align 8, !noundef !16
   %68 = icmp eq ptr %.val.i, null
   br i1 %68, label %70, label %69
@@ -26974,7 +26974,7 @@ define hidden void @_ZN9async_std4task7builder7Builder5spawn17h89fb5ebeb49c9f96E
           to label %.noexc.i unwind label %43, !noalias !7117
 
 .noexc.i:                                         ; preds = %40
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9async_std2rt7RUNTIME17h3b9619001a345850E, i64 8), align 8, !range !899, !noalias !7117, !noundef !16
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9async_std2rt7RUNTIME17h3b9619001a345850E, i64 8), align 8, !range !899, !noalias !7117, !noundef !16
   %42 = trunc nuw i8 %41 to i1
   tail call void @llvm.assume(i1 %42)
   br label %53
@@ -27059,7 +27059,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514
   br i1 %67, label %70, label %_ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread.i
 
 _ZN4core3ops8function6FnOnce9call_once17hbcee9c5f81b3d427E.llvm.4131538278782514096.exit.thread.i: ; preds = %.noexc, %60
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %66, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %60 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %66, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %60 ]
   %.val.i = load ptr, ptr %.sroa.0.0.i.i.i2.i, align 8, !noundef !16
   %68 = icmp eq ptr %.val.i, null
   br i1 %68, label %70, label %69

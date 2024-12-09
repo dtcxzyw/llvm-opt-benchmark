@@ -378,7 +378,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusReconstructC2ERNS0_3EnvEPNS2_11TermDbSygusERNS2_15SygusStatisticsE(ptr noundef nonnull align 8 dereferenceable(720) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %tds, ptr noundef nonnull align 1 %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4expr11NotifyMatchE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4expr11NotifyMatchE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4cvc58internal13NodeConverterC2Eb(ptr noundef nonnull align 8 dereferenceable(233) %0, i1 noundef zeroext true)
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 248
@@ -386,9 +386,9 @@ entry:
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 64), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 144), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 64), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 144), ptr %1, align 8
   %d_tds = getelementptr inbounds nuw i8, ptr %this, i64 264
   store ptr %tds, ptr %d_tds, align 8
   %d_stats = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -775,7 +775,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers15RConsObl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal13NodeConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal13NodeConverterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal13NodeConverterE, i64 16), ptr %this, align 8
   %d_tcache = getelementptr inbounds nuw i8, ptr %this, i64 176
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -1665,7 +1665,7 @@ call.i366.noexc:                                  ; preds = %invoke.cont142
           to label %.noexc371 unwind label %lpad146
 
 .noexc371:                                        ; preds = %call.i366.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 59))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 59))
           to label %invoke.cont147 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc371
@@ -17571,11 +17571,11 @@ declare void @_ZN4cvc58internal4expr9MatchTrie5clearEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers16SygusReconstructD2Ev(ptr noundef nonnull align 8 dereferenceable(720) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 64), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 64), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 144), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i64 144), ptr %add.ptr2, align 8
   %d_poolTrie = getelementptr inbounds nuw i8, ptr %this, i64 640
   tail call void @_ZN4cvc58internal4expr9MatchTrieD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %d_poolTrie) #21
   %d_pool = getelementptr inbounds nuw i8, ptr %this, i64 584

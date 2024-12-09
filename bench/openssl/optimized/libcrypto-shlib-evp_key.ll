@@ -20,7 +20,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %call = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @prompt_string, ptr noundef nonnull dereferenceable(1) %prompt, i64 noundef 79) #7
-  store i8 0, ptr getelementptr inbounds (i8, ptr @prompt_string, i64 79), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prompt_string, i64 79), align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

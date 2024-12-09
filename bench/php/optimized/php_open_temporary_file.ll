@@ -29,12 +29,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_get_temporary_directory() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 512), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 512), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %30
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 120), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 120), align 8
   %.not25 = icmp eq ptr %3, null
   br i1 %.not25, label %17, label %4
 
@@ -95,7 +95,7 @@ define ptr @php_get_temporary_directory() local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %12, %.thread.thread, %21, %28
   %.sink33 = phi ptr [ %29, %28 ], [ %27, %21 ], [ %16, %.thread.thread ], [ %13, %12 ]
-  store ptr %.sink33, ptr getelementptr inbounds (i8, ptr @core_globals, i64 512), align 8
+  store ptr %.sink33, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 512), align 8
   br label %30
 
 30:                                               ; preds = %.sink.split, %0

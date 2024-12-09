@@ -365,7 +365,7 @@ define dso_local noundef ptr @acpi_ds_create_walk_state(i16 noundef zeroext %0, 
   %7 = and i64 %6, 512
   %8 = icmp eq i64 %7, 0
   %9 = select i1 %8, i32 2336, i32 3520
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %11 = call noalias noundef align 8 dereferenceable_or_null(1128) ptr @kmalloc_trace(ptr noundef %10, i32 noundef %9, i64 noundef 1128) #8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %24, label %13

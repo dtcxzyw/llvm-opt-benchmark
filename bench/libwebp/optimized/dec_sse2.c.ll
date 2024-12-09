@@ -35,25 +35,25 @@ define hidden void @VP8DspInitSSE2() local_unnamed_addr #0 {
   store ptr @SimpleHFilter16_SSE2, ptr @VP8SimpleHFilter16, align 8
   store ptr @SimpleVFilter16i_SSE2, ptr @VP8SimpleVFilter16i, align 8
   store ptr @SimpleHFilter16i_SSE2, ptr @VP8SimpleHFilter16i, align 8
-  store ptr @TM4_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 8), align 8
-  store ptr @VE4_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 16), align 8
-  store ptr @RD4_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 32), align 8
-  store ptr @VR4_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 40), align 8
-  store ptr @LD4_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 48), align 8
-  store ptr @VL4_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma4, i64 56), align 8
+  store ptr @TM4_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 8), align 8
+  store ptr @VE4_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 16), align 8
+  store ptr @RD4_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 32), align 8
+  store ptr @VR4_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 40), align 8
+  store ptr @LD4_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 48), align 8
+  store ptr @VL4_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma4, i64 56), align 8
   store ptr @DC16_SSE2, ptr @VP8PredLuma16, align 8
-  store ptr @TM16_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 8), align 8
-  store ptr @VE16_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 16), align 8
-  store ptr @HE16_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 24), align 8
-  store ptr @DC16NoTop_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 32), align 8
-  store ptr @DC16NoLeft_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 40), align 8
-  store ptr @DC16NoTopLeft_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredLuma16, i64 48), align 8
+  store ptr @TM16_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 8), align 8
+  store ptr @VE16_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 16), align 8
+  store ptr @HE16_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 24), align 8
+  store ptr @DC16NoTop_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 32), align 8
+  store ptr @DC16NoLeft_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 40), align 8
+  store ptr @DC16NoTopLeft_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredLuma16, i64 48), align 8
   store ptr @DC8uv_SSE2, ptr @VP8PredChroma8, align 8
-  store ptr @TM8uv_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 8), align 8
-  store ptr @VE8uv_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 16), align 8
-  store ptr @DC8uvNoTop_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 32), align 8
-  store ptr @DC8uvNoLeft_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 40), align 8
-  store ptr @DC8uvNoTopLeft_SSE2, ptr getelementptr inbounds (i8, ptr @VP8PredChroma8, i64 48), align 8
+  store ptr @TM8uv_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 8), align 8
+  store ptr @VE8uv_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 16), align 8
+  store ptr @DC8uvNoTop_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 32), align 8
+  store ptr @DC8uvNoLeft_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 40), align 8
+  store ptr @DC8uvNoTopLeft_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8PredChroma8, i64 48), align 8
   ret void
 }
 

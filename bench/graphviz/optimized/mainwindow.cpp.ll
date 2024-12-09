@@ -948,9 +948,9 @@ define void @_ZN11CMainWindowC2EPPc(ptr noundef nonnull align 8 dereferenceable(
   %21 = alloca %class.QString, align 8
   %22 = alloca %class.QString, align 8
   tail call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11CMainWindow, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11CMainWindow, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11CMainWindow, i64 456), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11CMainWindow, i64 456), ptr %23, align 8
   %24 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
           to label %25 unwind label %.loopexit.split-lp
 

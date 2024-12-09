@@ -3812,14 +3812,14 @@ if.end13.i.i:                                     ; preds = %rcu_read_auto_unloc
   %ua.0.i.i = phi ptr [ %unit_attention.i.i, %rcu_read_auto_unlock.exit.i ], [ %unit_attention4.i.i, %if.else.i.i ]
   %asc.i.i = getelementptr inbounds nuw i8, ptr %ua.0.i.i, i64 1
   %15 = load i8, ptr %asc.i.i, align 1
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @sense_code_REPORTED_LUNS_CHANGED, i64 1), align 1
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sense_code_REPORTED_LUNS_CHANGED, i64 1), align 1
   %cmp16.i.i = icmp eq i8 %15, %16
   br i1 %cmp16.i.i, label %land.lhs.true.i.i, label %scsi_target_emulate_report_luns.exit.thread
 
 land.lhs.true.i.i:                                ; preds = %if.end13.i.i
   %ascq.i.i = getelementptr inbounds nuw i8, ptr %ua.0.i.i, i64 2
   %17 = load i8, ptr %ascq.i.i, align 1
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @sense_code_REPORTED_LUNS_CHANGED, i64 2), align 1
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sense_code_REPORTED_LUNS_CHANGED, i64 2), align 1
   %cmp20.i.i = icmp eq i8 %17, %18
   br i1 %cmp20.i.i, label %if.then22.i.i, label %scsi_target_emulate_report_luns.exit.thread
 

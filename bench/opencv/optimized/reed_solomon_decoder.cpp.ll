@@ -78,7 +78,7 @@ declare void @_ZN5zxing12ErrorHandlerC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing12ErrorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   ret void
@@ -171,7 +171,7 @@ define hidden void @_ZN5zxing18ReedSolomonDecoder6decodeENS_8ArrayRefIiEEiRNS_12
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %5, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
@@ -195,7 +195,7 @@ define hidden void @_ZN5zxing18ReedSolomonDecoder6decodeENS_8ArrayRefIiEEiRNS_12
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %5, align 8
   %35 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %_ZN5zxing8ArrayRefIiED2Ev.exit, label %36
@@ -231,7 +231,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %31, %36, %41
 50:                                               ; preds = %30
   %51 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %5, align 8
   %52 = load ptr, ptr %23, align 8
   %.not.i86 = icmp eq ptr %52, null
   br i1 %.not.i86, label %_ZN5zxing8ArrayRefIiED2Ev.exit87, label %53
@@ -269,7 +269,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit87:                 ; preds = %50, %53, %58
 .noexc:                                           ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 0, ptr %66, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %68 = sext i32 %2 to i64
   %69 = icmp slt i32 %2, 0
@@ -369,7 +369,7 @@ _ZN5zxing8ArrayRefIiEC2Ei.exit.thread:            ; preds = %_ZNSt6vectorIiSaIiE
   %100 = load ptr, ptr %0, align 8
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %101, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %6, align 8
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %103 = load i32, ptr %66, align 8
   %104 = add i32 %103, 1
@@ -383,7 +383,7 @@ _ZN5zxing8ArrayRefIiEC2Ei.exit.thread:            ; preds = %_ZNSt6vectorIiSaIiE
   %107 = load i32, ptr %106, align 8
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %6, align 8
   %109 = load ptr, ptr %102, align 8
   %.not.i96 = icmp eq ptr %109, null
   br i1 %.not.i96, label %_ZN5zxing8ArrayRefIiED2Ev.exit97, label %110
@@ -435,7 +435,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit97:                 ; preds = %105, %110, %115
           to label %131 unwind label %149
 
 131:                                              ; preds = %129
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %8, align 8
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %132) #10
   br label %_ZNSt6vectorIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EED2Ev.exit
@@ -443,7 +443,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit97:                 ; preds = %105, %110, %115
 133:                                              ; preds = %99
   %134 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %6, align 8
   %135 = load ptr, ptr %102, align 8
   %.not.i98 = icmp eq ptr %135, null
   br i1 %.not.i98, label %_ZN5zxing8ArrayRefIiED2Ev.exit99, label %136
@@ -482,7 +482,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit99:                 ; preds = %133, %136, %141
 149:                                              ; preds = %129
   %150 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %8, align 8
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %151) #10
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit113
@@ -689,7 +689,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit115:   ; preds = %212, %214, %219
           to label %244 unwind label %288
 
 244:                                              ; preds = %243
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %18, align 8
   %245 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %246 = load ptr, ptr %245, align 8
   %.not.i118 = icmp eq ptr %246, null
@@ -773,7 +773,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit121:   ; preds = %_ZN5zxing8ArrayRefI
 288:                                              ; preds = %243
   %289 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %18, align 8
   %290 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %291 = load ptr, ptr %290, align 8
   %.not.i122 = icmp eq ptr %291, null
@@ -878,7 +878,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit123:                ; preds = %288, %292, %297
           to label %341 unwind label %343
 
 341:                                              ; preds = %339
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %19, align 8
   %342 = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %342) #10
   br label %.loopexit
@@ -886,7 +886,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit123:                ; preds = %288, %292, %297
 343:                                              ; preds = %339
   %344 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %19, align 8
   %345 = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %345) #10
   br label %459
@@ -947,7 +947,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit123:                ; preds = %288, %292, %297
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit127
 
 _ZN5zxing8ArrayRefIiED2Ev.exit127:                ; preds = %379, %374, %.loopexit, %227
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %14, align 8
   %383 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %384 = load ptr, ptr %383, align 8
   %.not.i128 = icmp eq ptr %384, null
@@ -1146,7 +1146,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit143:   ; preds = %_ZN5zxing8ArrayRefI
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit125:   ; preds = %466, %461, %459, %308, %303, %301, %240
   %.pn70.pn = phi { ptr, i32 } [ %241, %240 ], [ %.pn66, %301 ], [ %.pn66, %303 ], [ %.pn66, %308 ], [ %.pn70, %459 ], [ %.pn70, %461 ], [ %.pn70, %466 ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %14, align 8
   %470 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %471 = load ptr, ptr %470, align 8
   %.not.i146 = icmp eq ptr %471, null
@@ -1304,7 +1304,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN5zxing8ArrayRefIiEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1346,7 +1346,7 @@ declare void @_ZN5zxing13GenericGFPolyC1ERNS_9GenericGFENS_8ArrayRefIiEERNS_12Er
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing8ArrayRefIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1681,7 +1681,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit96: ; preds = %128, %130, %135
           to label %.critedge65 unwind label %167
 
 .critedge65:                                      ; preds = %142
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %10, align 8
   %144 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %144) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1756,7 +1756,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit98:    ; preds = %.critedge65, %145, 
 167:                                              ; preds = %142
   %168 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %10, align 8
   %169 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %169) #10
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit154
@@ -2323,7 +2323,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140:   ; preds = %_ZN5zxing3RefINS_13
           to label %425 unwind label %427
 
 425:                                              ; preds = %423
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %20, align 8
   %426 = getelementptr inbounds nuw i8, ptr %20, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %426) #10
   br label %.critedge69
@@ -2331,7 +2331,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit140:   ; preds = %_ZN5zxing3RefINS_13
 427:                                              ; preds = %423
   %428 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %20, align 8
   %429 = getelementptr inbounds nuw i8, ptr %20, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %429) #10
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit142
@@ -2522,7 +2522,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit156:   ; preds = %_ZN5zxing3RefINS_13
           to label %515 unwind label %517
 
 515:                                              ; preds = %513
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %21, align 8
   %516 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %516) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -2531,7 +2531,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit156:   ; preds = %_ZN5zxing3RefINS_13
 517:                                              ; preds = %513
   %518 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %21, align 8
   %519 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %519) #10
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit158
@@ -3082,7 +3082,7 @@ define hidden void @_ZN5zxing18ReedSolomonDecoder18findErrorLocationsENS_3RefINS
   %9 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br i1 %8, label %12, label %34
 
@@ -3101,7 +3101,7 @@ _ZN5zxing8ArrayRefIiEC2EPNS_5ArrayIiEE.exit:      ; preds = %12
   store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %10, align 8
   store ptr %9, ptr %18, align 8
@@ -3123,7 +3123,7 @@ _ZN5zxing8ArrayRefIiEC2EPNS_5ArrayIiEE.exit:      ; preds = %12
 25:                                               ; preds = %_ZN5zxing8ArrayRefIiEC2EPNS_5ArrayIiEE.exit
   %26 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
   %27 = load i32, ptr %10, align 8
   %28 = add i32 %27, -1
   store i32 %28, ptr %10, align 8
@@ -3259,12 +3259,12 @@ _ZN5zxing8ArrayRefIiEC2EPNS_5ArrayIiEE.exit32:    ; preds = %_ZNSt6vectorIiSaIiE
           to label %76 unwind label %81
 
 76:                                               ; preds = %74
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %5, align 8
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #10
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %78, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %79, align 8
   %.pre = load i32, ptr %10, align 8
@@ -3274,7 +3274,7 @@ _ZN5zxing8ArrayRefIiEC2EPNS_5ArrayIiEE.exit32:    ; preds = %_ZNSt6vectorIiSaIiE
 81:                                               ; preds = %74
   %82 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %5, align 8
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #10
   br label %95
@@ -3282,7 +3282,7 @@ _ZN5zxing8ArrayRefIiEC2EPNS_5ArrayIiEE.exit32:    ; preds = %_ZNSt6vectorIiSaIiE
 _ZN5zxing8ArrayRefIiEC2ERKS1_.exit:               ; preds = %72
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %84, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %86 = load i32, ptr %10, align 8
   %87 = add i32 %86, 1
@@ -3344,7 +3344,7 @@ define hidden void @_ZN5zxing18ReedSolomonDecoder19findErrorMagnitudesENS_3RefIN
   %17 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %sext = shl i64 %14, 30
   %20 = ashr i64 %sext, 32
@@ -3517,7 +3517,7 @@ _ZN5zxing8ArrayRefIiEC2EPNS_5ArrayIiEE.exit.thread: ; preds = %_ZNSt6vectorIiSaI
   %.not = icmp eq i32 %83, 0
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %85, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not, label %_ZN5zxing8ArrayRefIiEC2ERKS1_.exit, label %87
 
@@ -3683,7 +3683,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing8ArrayRefIiED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3715,7 +3715,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing5ArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -3731,7 +3731,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing5ArrayIiED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing5ArrayIiEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

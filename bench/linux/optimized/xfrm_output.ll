@@ -1890,7 +1890,7 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   br i1 %244, label %.thread12, label %245
 
 245:                                              ; preds = %241
-  %246 = tail call i16 asm sideeffect "movw %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) getelementptr inbounds (i8, ptr @softnet_data, i64 96)) #8, !srcloc !36
+  %246 = tail call i16 asm sideeffect "movw %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) getelementptr inbounds nuw (i8, ptr @softnet_data, i64 96)) #8, !srcloc !36
   %247 = icmp eq i16 %246, 0
   br i1 %247, label %248, label %.thread12
 

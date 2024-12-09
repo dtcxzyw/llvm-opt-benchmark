@@ -793,7 +793,7 @@ define internal void @acpi_ev_asynch_execute_gpe_method(ptr noundef %0) #0 align
   %19 = and i64 %18, 512
   %20 = icmp eq i64 %19, 0
   %21 = select i1 %20, i32 2336, i32 3520
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %23 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %22, i32 noundef %21, i64 noundef 88) #6
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %25

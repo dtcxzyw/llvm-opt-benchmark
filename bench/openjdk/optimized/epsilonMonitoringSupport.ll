@@ -47,7 +47,7 @@ define hidden void @_ZN24EpsilonMonitoringSupportC2EP11EpsilonHeap(ptr nocapture
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(480) %1) #7
   tail call void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull @.str, i32 noundef 1, i32 noundef 1, i64 noundef 0, i64 noundef %7, i64 noundef %11) #7
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25EpsilonGenerationCounters, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25EpsilonGenerationCounters, i64 16), ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %1, ptr %12, align 8
   store ptr %3, ptr %0, align 8

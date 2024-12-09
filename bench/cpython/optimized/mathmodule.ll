@@ -3088,7 +3088,7 @@ if.then1.i51:                                     ; preds = %if.end.i48
   br label %return
 
 if.end15:                                         ; preds = %for.body
-  %cmp16 = icmp eq ptr %res.032, getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)
+  %cmp16 = icmp eq ptr %res.032, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)
   br i1 %cmp16, label %if.then17, label %do.body19
 
 if.then17:                                        ; preds = %if.end15
@@ -3145,7 +3145,7 @@ Py_DECREF.exit:                                   ; preds = %do.end23, %if.then1
   br i1 %cmp24, label %return, label %for.inc
 
 for.inc:                                          ; preds = %Py_DECREF.exit, %if.end.i39, %if.then1.i42, %if.then17
-  %res.1 = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), %if.then17 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), %if.then1.i42 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), %if.end.i39 ], [ %call22, %Py_DECREF.exit ]
+  %res.1 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848), %if.then17 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848), %if.then1.i42 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848), %if.end.i39 ], [ %call22, %Py_DECREF.exit ]
   %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %nargs
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !11
@@ -3903,7 +3903,7 @@ Py_DECREF.exit146:                                ; preds = %if.end105, %if.then
   ]
 
 do.body113:                                       ; preds = %Py_DECREF.exit146
-  %call117 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %a.1.lcssa, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848)) #16
+  %call117 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %a.1.lcssa, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848)) #16
   %26 = load i64, ptr %a.1.lcssa, align 8
   %27 = and i64 %26, 2147483648
   %cmp.i255.not = icmp eq i64 %27, 0
@@ -4041,7 +4041,7 @@ if.then1.i51:                                     ; preds = %if.end.i48
   br label %return
 
 if.end15:                                         ; preds = %for.body
-  %cmp16 = icmp eq ptr %res.036, getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816)
+  %cmp16 = icmp eq ptr %res.036, getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816)
   br i1 %cmp16, label %if.then17, label %do.body19
 
 if.then17:                                        ; preds = %if.end15
@@ -4180,7 +4180,7 @@ Py_DECREF.exit:                                   ; preds = %do.end23, %if.then1
   br i1 %cmp24, label %return, label %for.inc
 
 for.inc:                                          ; preds = %Py_DECREF.exit, %if.end.i39, %if.then1.i42, %if.then17
-  %res.1 = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.then17 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.then1.i42 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.end.i39 ], [ %retval.0.i, %Py_DECREF.exit ]
+  %res.1 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.then17 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.then1.i42 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.end.i39 ], [ %retval.0.i, %Py_DECREF.exit ]
   %inc = add nuw nsw i64 %i.038, 1
   %exitcond.not = icmp eq i64 %inc, %nargs
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !15
@@ -6088,7 +6088,7 @@ entry:
   br i1 %cmp.i13.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 96), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 96), align 8
   %nb_int = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load ptr, ptr %nb_int, align 8
   %call1 = tail call ptr %2(ptr noundef nonnull %x) #16
@@ -6228,7 +6228,7 @@ skip_optional_kwonly:                             ; preds = %if.end.thread, %if.
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
   %cmp1.i = icmp eq ptr %start.0, null
-  %spec.select.i = select i1 %cmp1.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), ptr %start.0
+  %spec.select.i = select i1 %cmp1.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848), ptr %start.0
   %6 = load i32, ptr %spec.select.i, align 8
   %add.i.i = add i32 %6, 1
   %cmp.i369.i = icmp eq i32 %add.i.i, 0

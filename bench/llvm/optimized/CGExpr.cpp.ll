@@ -884,7 +884,7 @@ $_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupINS0_15CodeGenFunction15Ca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -896,7 +896,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -3796,7 +3796,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit: ; preds = %274, %282
 323:                                              ; preds = %321
   %324 = getelementptr inbounds nuw i8, ptr %1, i64 2216
   %325 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %324, i32 noundef 11, i64 noundef 24) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %325, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %327 = and i64 %.sroa.0.0.copyload533, -8
   %328 = inttoptr i64 %327 to ptr
@@ -3809,7 +3809,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit: ; preds = %274, %282
   %331 = call i64 @_ZN5clang7CodeGen19DominatingLLVMValue4saveERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %320)
   %332 = getelementptr inbounds nuw i8, ptr %1, i64 2216
   %333 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %332, i32 noundef 11, i64 noundef 40) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupINS0_15CodeGenFunction15CallLifetimeEndEJNS0_10RawAddressEPN4llvm5ValueEEEE, i64 16), ptr %333, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupINS0_15CodeGenFunction15CallLifetimeEndEJNS0_10RawAddressEPN4llvm5ValueEEEE, i64 16), ptr %333, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store i64 %331, ptr %334, align 8
   %335 = getelementptr inbounds nuw i8, ptr %333, i64 16
@@ -4866,7 +4866,7 @@ _ZN5clang7CodeGen15CodeGenFunction38pushCleanupAfterFullExprWithActiveFlagINS1_1
   %.sroa.3.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %8, ptr %.sroa.3.0..0..sroa_idx.i, align 4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction15CallLifetimeEndE, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = and i64 %.sroa.015.0.copyload, -8
   %18 = inttoptr i64 %17 to ptr
@@ -4898,7 +4898,7 @@ _ZN5clang7CodeGen15CodeGenFunction38pushCleanupAfterFullExprWithActiveFlagINS1_1
   %.sroa.3.0..0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %25, ptr %.sroa.3.0..0..sroa_idx.i5, align 4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupINS0_15CodeGenFunction15CallLifetimeEndEJNS0_10RawAddressEPN4llvm5ValueEEEE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen12EHScopeStack18ConditionalCleanupINS0_15CodeGenFunction15CallLifetimeEndEJNS0_10RawAddressEPN4llvm5ValueEEEE, i64 16), ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 %21, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -7470,7 +7470,7 @@ _ZN5clang7CodeGen15CodeGenFunction19isVptrCheckRequiredENS1_13TypeCheckKindENS_8
   store i32 1, ptr %264, align 4
   %265 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %265, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %34, align 8
   %266 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store ptr %33, ptr %266, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
@@ -8697,7 +8697,7 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %.l
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !279
 
 ._crit_edge:                                      ; preds = %86, %_ZN4llvm9StringRefC2EPKc.exit
-  %88 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 128), align 8
+  %88 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 128), align 8
   %89 = trunc i8 %88 to i1
   br i1 %89, label %90, label %.loopexit155
 
@@ -10752,7 +10752,7 @@ _ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread: ; preds = %92, %_ZNK5clang4Dec
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   %112 = getelementptr inbounds nuw i8, ptr %38, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull %112, i64 noundef 64) #22, !noalias !321
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.84, i64 20)), !noalias !321
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.84, i64 20)), !noalias !321
   %113 = load i32, ptr %70, align 4, !noalias !321
   %114 = and i32 %113, 256
   %.not.i.i = icmp eq i32 %114, 0
@@ -30369,7 +30369,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction13EmitTrapCheckEPN4llvm
   %26 = zext i32 %2 to i64
   %27 = load ptr, ptr %19, align 8
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
-  %29 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 128), align 8
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 128), align 8
   %30 = trunc i8 %29 to i1
   %.pre64 = load ptr, ptr %14, align 8
   br i1 %30, label %93, label %31
@@ -30570,7 +30570,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   %123 = load ptr, ptr %14, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
-  %126 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 128), align 8
+  %126 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 128), align 8
   %127 = trunc i8 %126 to i1
   br i1 %127, label %128, label %_ZNK4llvm8Function4sizeEv.exit
 
@@ -31142,7 +31142,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16EmitCfiCheckStubEv(pt
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %23, i64 noundef 16) #22
   call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(100) %5, i32 noundef 42, ptr noundef nonnull align 8 dereferenceable(23096) %21, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 %22, ptr noundef null, i32 noundef 0) #22
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %5, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 98
   %25 = load i8, ptr %24, align 2
   %26 = and i8 %25, -29
@@ -31155,7 +31155,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16EmitCfiCheckStubEv(pt
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 18848
   %.sroa.0.0.copyload.i = load i64, ptr %31, align 8
   call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(100) %6, i32 noundef 42, ptr noundef nonnull align 8 dereferenceable(23096) %21, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.copyload.i, ptr noundef null, i32 noundef 0) #22
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %6, align 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 98
   %33 = load i8, ptr %32, align 2
   %34 = and i8 %33, -29
@@ -31167,7 +31167,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16EmitCfiCheckStubEv(pt
   store i32 %38, ptr %36, align 4
   %.sroa.0.0.copyload.i28 = load i64, ptr %31, align 8
   call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(100) %7, i32 noundef 42, ptr noundef nonnull align 8 dereferenceable(23096) %21, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.copyload.i28, ptr noundef null, i32 noundef 0) #22
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %7, align 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 98
   %40 = load i8, ptr %39, align 2
   %41 = and i8 %40, -29
@@ -31430,7 +31430,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16EmitCfiCheckFailEv(pt
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 18848
   %.sroa.0.0.copyload.i = load i64, ptr %32, align 8
   call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(100) %10, i32 noundef 42, ptr noundef nonnull align 8 dereferenceable(23096) %31, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.copyload.i, ptr noundef null, i32 noundef 0) #22
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %10, align 8
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 98
   %34 = load i8, ptr %33, align 2
   %35 = and i8 %34, -29
@@ -31446,7 +31446,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16EmitCfiCheckFailEv(pt
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 18848
   %.sroa.0.0.copyload.i39 = load i64, ptr %43, align 8
   call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(100) %11, i32 noundef 42, ptr noundef nonnull align 8 dereferenceable(23096) %42, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.copyload.i39, ptr noundef null, i32 noundef 0) #22
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %11, align 8
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 98
   %45 = load i8, ptr %44, align 2
   %46 = and i8 %45, -29
@@ -37637,7 +37637,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %17, %23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
   %34 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %8) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.118, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.118, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.118, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.118, i64 11))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %36 = load ptr, ptr %35, align 8
@@ -43786,7 +43786,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -44316,10 +44316,10 @@ define internal void @_GLOBAL__sub_I_CGExpr.cpp() #17 section ".text.startup" {
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL29ClSanitizeDebugDeoptimization, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL29ClSanitizeDebugDeoptimization, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL29ClSanitizeDebugDeoptimization, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL29ClSanitizeDebugDeoptimization) #22
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL29ClSanitizeDebugDeoptimization, i64 176), align 8
@@ -44334,10 +44334,10 @@ define internal void @_GLOBAL__sub_I_CGExpr.cpp() #17 section ".text.startup" {
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL21ClSanitizeGuardChecks, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL21ClSanitizeGuardChecks, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL21ClSanitizeGuardChecks, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL21ClSanitizeGuardChecks) #22
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL21ClSanitizeGuardChecks, i64 176), align 8

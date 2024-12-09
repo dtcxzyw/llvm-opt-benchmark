@@ -237,7 +237,7 @@ entry:
 if.end:                                           ; preds = %entry
   %skip_list = getelementptr inbounds nuw i8, ptr %this, i64 2432
   %comparator = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %iter, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %iter, align 8
   %column_family_id_.i = getelementptr inbounds nuw i8, ptr %iter, i64 8
   store i32 %column_family_id, ptr %column_family_id_.i, align 8
   %skip_list_iter_.i = getelementptr inbounds nuw i8, ptr %iter, i64 16
@@ -1930,7 +1930,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb19WriteBatchWithIndexC2EPKNS_10ComparatorEmbmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef %default_index_comparator, i64 noundef %reserved_bytes, i1 noundef zeroext %overwrite_key, i64 noundef %max_bytes, i64 noundef %protection_bytes_per_key) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19WriteBatchWithIndexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19WriteBatchWithIndexE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(2528) ptr @_Znwm(i64 noundef 2528) #25
   invoke void @_ZN7rocksdb19WriteBatchWithIndex3RepC2EPKNS_10ComparatorEmmbm(ptr noundef nonnull align 16 dereferenceable(2520) %call, ptr noundef %default_index_comparator, i64 noundef %reserved_bytes, i64 noundef %max_bytes, i1 noundef zeroext %overwrite_key, i64 noundef %protection_bytes_per_key)
           to label %invoke.cont3 unwind label %lpad2
@@ -1964,7 +1964,7 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i64 [ %0, %cond.true ], [ 0, %entry ]
   tail call void @_ZN7rocksdb10WriteBatchC2Emmmm(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %reserved_bytes, i64 noundef %max_bytes, i64 noundef %protection_bytes_per_key, i64 noundef %cond)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18ReadableWriteBatchE, i64 16), ptr %this, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb18ReadableWriteBatchE, i64 16), ptr %this, align 16
   %comparator = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr %index_comparator, ptr %comparator, align 16
   %cf_comparators_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -2079,7 +2079,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb19WriteBatchWithIndexD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19WriteBatchWithIndexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19WriteBatchWithIndexE, i64 16), ptr %this, align 8
   %rep = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2118,7 +2118,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7rocksdb19WriteBatchWithIndexC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19WriteBatchWithIndexE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19WriteBatchWithIndexE, i64 16), ptr %this, align 8
   %rep = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rep2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %rep2, align 8
@@ -2186,7 +2186,7 @@ invoke.cont:
   %0 = load ptr, ptr %rep, align 8
   %skip_list = getelementptr inbounds nuw i8, ptr %0, i64 2432
   %comparator = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call, align 8
   %column_family_id_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %column_family_id_.i, align 8
   %skip_list_iter_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -2214,7 +2214,7 @@ invoke.cont8:                                     ; preds = %entry
   %0 = load ptr, ptr %rep, align 8
   %skip_list = getelementptr inbounds nuw i8, ptr %0, i64 2432
   %comparator = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call, align 8
   %column_family_id_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %call2, ptr %column_family_id_.i, align 8
   %skip_list_iter_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -2256,7 +2256,7 @@ invoke.cont:                                      ; preds = %if.then
   %1 = load ptr, ptr %iterate_lower_bound, align 8
   %iterate_upper_bound = getelementptr inbounds nuw i8, ptr %read_options, i64 104
   %2 = load ptr, ptr %iterate_upper_bound, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call9, align 8
   %column_family_id_.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store i32 %call2, ptr %column_family_id_.i, align 8
   %skip_list_iter_.i = getelementptr inbounds nuw i8, ptr %call9, i64 16
@@ -2289,7 +2289,7 @@ invoke.cont11:                                    ; preds = %if.else
   %4 = load ptr, ptr %rep13, align 8
   %skip_list15 = getelementptr inbounds nuw i8, ptr %4, i64 2432
   %comparator21 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call9, align 8
   %column_family_id_.i7 = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store i32 %call12, ptr %column_family_id_.i7, align 8
   %skip_list_iter_.i8 = getelementptr inbounds nuw i8, ptr %call9, i64 16
@@ -2343,7 +2343,7 @@ invoke.cont:
   %0 = load ptr, ptr %rep, align 8
   %skip_list = getelementptr inbounds nuw i8, ptr %0, i64 2432
   %comparator = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16WBWIIteratorImplE, i64 16), ptr %call, align 8
   %column_family_id_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %column_family_id_.i, align 8
   %skip_list_iter_.i = getelementptr inbounds nuw i8, ptr %call, i64 16

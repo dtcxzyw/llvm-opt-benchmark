@@ -72,8 +72,8 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  tail call fastcc void @clear_state(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_state, i64 8))
-  %call4 = tail call fastcc i32 @init_state(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_state, i64 8))
+  tail call fastcc void @clear_state(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_state, i64 8))
+  %call4 = tail call fastcc i32 @init_state(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_state, i64 8))
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %if.then8, label %if.end10
 
@@ -94,7 +94,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %return
 
 if.end10:                                         ; preds = %if.end3
-  %call11 = tail call fastcc i32 @init_module(ptr noundef %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @global_state, i64 8))
+  %call11 = tail call fastcc i32 @init_module(ptr noundef %call, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_state, i64 8))
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then18, label %if.end21
 
@@ -483,7 +483,7 @@ if.else4.i:                                       ; preds = %if.end
   br label %get_module_state.exit
 
 get_module_state.exit:                            ; preds = %if.end, %if.then3.i, %if.else4.i
-  %retval.0.i = phi ptr [ null, %if.then3.i ], [ %call5.i, %if.else4.i ], [ getelementptr inbounds (i8, ptr @global_state, i64 8), %if.end ]
+  %retval.0.i = phi ptr [ null, %if.then3.i ], [ %call5.i, %if.else4.i ], [ getelementptr inbounds nuw (i8, ptr @global_state, i64 8), %if.end ]
   %call2 = tail call fastcc i32 @init_state(ptr noundef %retval.0.i)
   %cmp3 = icmp slt i32 %call2, 0
   br i1 %cmp3, label %if.then6, label %if.end8
@@ -588,7 +588,7 @@ get_module_state.exit:                            ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %get_module_state.exit
-  %retval.0.i7 = phi ptr [ %call5.i, %get_module_state.exit ], [ getelementptr inbounds (i8, ptr @global_state, i64 8), %entry ]
+  %retval.0.i7 = phi ptr [ %call5.i, %get_module_state.exit ], [ getelementptr inbounds nuw (i8, ptr @global_state, i64 8), %entry ]
   %1 = load i64, ptr %retval.0.i7, align 8
   %call1 = tail call double @_PyTime_AsSecondsDouble(i64 noundef %1) #4
   %call2 = tail call ptr @PyFloat_FromDouble(double noundef %call1) #4
@@ -611,7 +611,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @basic__clear_globals(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  tail call fastcc void @clear_state(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_state, i64 8))
+  tail call fastcc void @clear_state(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @global_state, i64 8))
   store i32 -1, ptr @global_state, align 8
   ret ptr @_Py_NoneStruct
 }
@@ -657,7 +657,7 @@ get_module_state.exit:                            ; preds = %entry
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %get_module_state.exit
-  %retval.0.i7 = phi ptr [ %call5.i, %get_module_state.exit ], [ getelementptr inbounds (i8, ptr @global_state, i64 8), %entry ]
+  %retval.0.i7 = phi ptr [ %call5.i, %get_module_state.exit ], [ getelementptr inbounds nuw (i8, ptr @global_state, i64 8), %entry ]
   tail call fastcc void @clear_state(ptr noundef nonnull %retval.0.i7)
   br label %if.end
 

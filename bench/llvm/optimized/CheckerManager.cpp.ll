@@ -748,7 +748,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
 
 61:                                               ; preds = %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i, %40
   %.030.i = phi ptr [ %..i, %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i ], [ %2, %40 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %12, align 8
   store ptr %16, ptr %29, align 8
   store i8 1, ptr %30, align 8
   store i8 0, ptr %31, align 1
@@ -1139,7 +1139,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
 
 60:                                               ; preds = %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i, %39
   %.021.i = phi ptr [ %..i, %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i ], [ %2, %39 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %11, align 8
   store ptr %14, ptr %28, align 8
   store i8 1, ptr %29, align 8
   store i8 0, ptr %30, align 1
@@ -1499,7 +1499,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
 
 60:                                               ; preds = %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i, %39
   %.021.i = phi ptr [ %..i, %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i ], [ %2, %39 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %12, align 8
   store ptr %15, ptr %28, align 8
   store i8 1, ptr %29, align 8
   store i8 0, ptr %30, align 1
@@ -1854,7 +1854,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
 
 61:                                               ; preds = %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i, %40
   %.021.i = phi ptr [ %..i, %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i ], [ %1, %40 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %14, align 8
   store ptr %16, ptr %29, align 8
   store i8 1, ptr %30, align 8
   store i8 0, ptr %31, align 1
@@ -2068,7 +2068,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
 
 62:                                               ; preds = %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i, %41
   %.021.i = phi ptr [ %..i, %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i ], [ %1, %41 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %13, align 8
   store ptr %15, ptr %28, align 8
   store i8 1, ptr %29, align 8
   store i8 0, ptr %30, align 1
@@ -2339,7 +2339,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
 
 74:                                               ; preds = %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i, %53
   %.021.i = phi ptr [ %..i, %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i ], [ %1, %53 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %9, align 8
   store ptr %28, ptr %40, align 8
   store i8 1, ptr %41, align 8
   store i8 0, ptr %42, align 1
@@ -2526,7 +2526,7 @@ define dso_local void @_ZN5clang4ento14CheckerManager25runCheckersForEndFunction
   %7 = alloca ptr, align 8
   %8 = alloca %"class.clang::ento::NodeBuilder", align 8
   %9 = alloca %"class.clang::ento::CheckerContext", align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2752,7 +2752,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
 
 71:                                               ; preds = %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i, %50
   %.021.i = phi ptr [ %..i, %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i ], [ %2, %50 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %9, align 8
   store ptr %28, ptr %40, align 8
   store i8 1, ptr %41, align 8
   store i8 0, ptr %42, align 1
@@ -3012,7 +3012,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
 
 74:                                               ; preds = %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i, %53
   %.021.i = phi ptr [ %..i, %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i ], [ %2, %53 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %10, align 8
   store ptr %30, ptr %42, align 8
   store i8 1, ptr %43, align 8
   store i8 0, ptr %44, align 1
@@ -3454,7 +3454,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
 
 58:                                               ; preds = %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i, %37
   %.021.i = phi ptr [ %..i, %_ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i ], [ %1, %37 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %12, align 8
   store ptr %14, ptr %27, align 8
   store i8 1, ptr %28, align 8
   store i8 0, ptr %29, align 1
@@ -3783,7 +3783,7 @@ define dso_local void @_ZN5clang4ento14CheckerManager22runCheckersForEvalCallERN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 20, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull %19, i64 noundef 4) #17
   %39 = load ptr, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %10, align 8
   store ptr %39, ptr %21, align 8
   store i8 1, ptr %22, align 8
   store i8 0, ptr %23, align 1
@@ -3852,7 +3852,7 @@ _ZN5clang4ento11NodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_1
 
 ._crit_edge:                                      ; preds = %63, %_ZN5clang4ento11NodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEb.exit
   %65 = load ptr, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %13, align 8
   store ptr %65, ptr %32, align 8
   store i8 1, ptr %33, align 8
   store i8 0, ptr %34, align 1
@@ -4010,7 +4010,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %41, %43
   store i32 1, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %9, align 8
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %8, ptr %51, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
@@ -4024,7 +4024,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %41, %43
   store i32 1, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %11, align 8
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %10, ptr %57, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef null, i64 noundef 0, i32 noundef 0) #17

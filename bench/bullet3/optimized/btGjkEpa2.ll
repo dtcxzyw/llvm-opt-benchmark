@@ -2287,7 +2287,7 @@ invoke.cont5:
   %gjk = alloca %"struct.gjkepa2_impl::GJK", align 8
   %ref.tmp8 = alloca %class.btVector3, align 4
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %shape1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %shape1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %shape1, align 8
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %shape1, i64 8
   store i32 8, ptr %m_shapeType.i, align 8
   %m_localScaling.i = getelementptr inbounds nuw i8, ptr %shape1, i64 32

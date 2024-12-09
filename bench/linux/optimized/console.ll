@@ -49,7 +49,7 @@ define dso_local void @pm_vt_switch_required(ptr noundef %0, i1 noundef zeroext 
   br label %24
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 32) #4
   %17 = icmp eq ptr %16, null
   br i1 %17, label %24, label %18

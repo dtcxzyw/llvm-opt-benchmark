@@ -494,7 +494,7 @@ invoke.cont:
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_121ConnectionExpireAlarmE, i64 16), ptr %call3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12_GLOBAL__N_121ConnectionExpireAlarmE, i64 16), ptr %call3, align 8
   %connection_store_.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store ptr %this, ptr %connection_store_.i, align 8
   %vtable = load ptr, ptr %alarm_factory, align 8

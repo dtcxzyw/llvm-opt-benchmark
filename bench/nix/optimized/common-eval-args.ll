@@ -3007,7 +3007,7 @@ define void @_ZN3nix11MixEvalArgsC1Ev(ptr noundef nonnull align 8 dereferenceabl
   %57 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %58 = alloca %"class.std::allocator", align 1
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix4ArgsE, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix4ArgsE, i64 16), ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -3051,13 +3051,13 @@ define void @_ZN3nix11MixEvalArgsC1Ev(ptr noundef nonnull align 8 dereferenceabl
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  invoke void @_ZN3nix9MixRepairC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %81, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix11MixEvalArgsE, i64 24))
+  invoke void @_ZN3nix9MixRepairC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %81, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix11MixEvalArgsE, i64 24))
           to label %82 unwind label %502
 
 82:                                               ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11MixEvalArgsE, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11MixEvalArgsE, i64 120), ptr %59, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11MixEvalArgsE, i64 216), ptr %81, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix11MixEvalArgsE, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix11MixEvalArgsE, i64 120), ptr %59, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix11MixEvalArgsE, i64 216), ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %83, ptr %84, align 8
@@ -5054,7 +5054,7 @@ define linkonce_odr void @_ZN3nix9MixRepairC2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix4ArgsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix4ArgsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -5160,7 +5160,7 @@ define noundef ptr @_ZN3nix11MixEvalArgs11getAutoArgsERNS_9EvalStateE(ptr nounde
 
 42:                                               ; preds = %37
   %43 = call ptr @__cxa_allocate_exception(i64 8) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %43, align 8
   call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
   unreachable
 
@@ -5185,7 +5185,7 @@ define noundef ptr @_ZN3nix11MixEvalArgs11getAutoArgsERNS_9EvalStateE(ptr nounde
 
 52:                                               ; preds = %44
   %53 = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr @.str.37, ptr %54, align 8
   call void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #26
@@ -13251,10 +13251,10 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3nix11MixEvalArgsC1EvE3$_5
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nix12evalSettingsE, i64 792), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3nix12evalSettingsE, i64 792), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(139) getelementptr inbounds (i8, ptr @_ZN3nix12evalSettingsE, i64 792), ptr noundef nonnull align 1 dereferenceable(1) %2)
+  call void %5(ptr noundef nonnull align 8 dereferenceable(139) getelementptr inbounds nuw (i8, ptr @_ZN3nix12evalSettingsE, i64 792), ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   ret void
 }
@@ -14525,7 +14525,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN3nix14AddCompletionsEmSt17ba
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %12, align 8
-  invoke void @_ZN3nix9openStoreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS5_S5_St4lessIS5_ESaISt4pairIS6_S5_EEE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.90") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 552), ptr noundef nonnull align 8 dereferenceable(48) %6)
+  invoke void @_ZN3nix9openStoreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS5_S5_St4lessIS5_ESaISt4pairIS6_S5_EEE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.90") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN3nix8settingsE, i64 552), ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %13 unwind label %55
 
 13:                                               ; preds = %4

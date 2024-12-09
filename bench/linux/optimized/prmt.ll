@@ -44,7 +44,7 @@ define dso_local void @init_prmt() local_unnamed_addr #0 section ".init.text" al
 
 8:                                                ; preds = %4
   %9 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %5) #13
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 264), align 8
   %11 = and i64 %10, 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %16, label %13
@@ -135,7 +135,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef reado
   br label %49
 
 43:                                               ; preds = %10
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %45 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3264, i64 noundef 8) #15
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %45, ptr %46, align 8
@@ -225,7 +225,7 @@ declare dso_local i32 @acpi_install_address_space_handler(ptr noundef, i8 nounde
 define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 %0, i64 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #4 align 16 {
   %7 = alloca %struct.prm_context_buffer, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #12
-  %8 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
+  %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 264), align 8
   %9 = and i64 %8, 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %16
@@ -492,9 +492,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal fastcc i64 @efi_pa_va_lookup(i64 noundef %0) unnamed_addr #6 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 216), align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 224), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 216), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 224), align 8
   %5 = icmp ne ptr %2, null
   %6 = getelementptr i8, ptr %2, i64 %3
   %7 = icmp ule ptr %6, %4

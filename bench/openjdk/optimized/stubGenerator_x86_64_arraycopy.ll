@@ -353,7 +353,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -361,7 +361,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 21, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %84 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(40) %83) #8
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %74, i32 7, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
@@ -378,7 +378,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %91, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -408,7 +408,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %103 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -427,7 +427,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %112 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %112, align 4
   %113 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %113, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -456,7 +456,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %126 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %126, align 4
   %127 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %127, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -475,7 +475,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %135 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -504,7 +504,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %149 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -523,7 +523,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %158 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %158, align 4
   %159 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %159, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -552,7 +552,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %172 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -571,7 +571,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_disjoint_byte_copyEbPPhP
   %181 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %181, align 4
   %182 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %182, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -720,7 +720,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -739,7 +739,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -766,7 +766,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %92, align 4
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -785,7 +785,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %101, align 4
   %102 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %102, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -810,7 +810,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS
   %113 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %114, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -829,7 +829,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS
   %122 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %122, align 4
   %123 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %123, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -852,7 +852,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS
   %133 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %133, align 4
   %134 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %134, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -871,7 +871,7 @@ define hidden noundef ptr @_ZN13StubGenerator27generate_conjoint_byte_copyEbPhPS
   %142 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %142, align 4
   %143 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %143, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -1029,7 +1029,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -1037,7 +1037,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 21, i1 false)
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %78 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %78 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(40) %77) #8
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %68, i32 7, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
@@ -1054,7 +1054,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
   %84 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %84, align 4
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %85, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1084,7 +1084,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
   %97 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %97, align 4
   %98 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1103,7 +1103,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
   %106 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -1132,7 +1132,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
   %120 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %120, align 4
   %121 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %121, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -1151,7 +1151,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
   %129 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %130, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -1180,7 +1180,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
   %143 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %144, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -1199,7 +1199,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_disjoint_short_copyEbPPh
   %152 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -1338,7 +1338,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_conjoint_short_copyEbPhP
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -1357,7 +1357,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_conjoint_short_copyEbPhP
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1382,7 +1382,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_conjoint_short_copyEbPhP
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %86, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1401,7 +1401,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_conjoint_short_copyEbPhP
   %94 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %95, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -1424,7 +1424,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_conjoint_short_copyEbPhP
   %105 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %105, align 4
   %106 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %106, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1443,7 +1443,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_conjoint_short_copyEbPhP
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %114, align 4
   %115 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %115, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1613,7 +1613,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbb
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1621,7 +1621,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbb
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 21, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %88 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %88 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull align 8 dereferenceable(40) %87) #8
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %78, i32 7, ptr noundef nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -1638,7 +1638,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbb
   %94 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %95, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1668,7 +1668,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbb
   %107 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %107, align 4
   %108 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -1687,7 +1687,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbb
   %116 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -1716,7 +1716,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbb
   %130 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %131, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -1735,7 +1735,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_disjoint_int_oop_copyEbb
   %139 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %139, align 4
   %140 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %140, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -1898,7 +1898,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_conjoint_int_oop_copyEbb
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1917,7 +1917,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_conjoint_int_oop_copyEbb
   %87 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %88, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -1940,7 +1940,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_conjoint_int_oop_copyEbb
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %98, align 4
   %99 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %99, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1959,7 +1959,7 @@ define hidden noundef ptr @_ZN13StubGenerator30generate_conjoint_int_oop_copyEbb
   %107 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %107, align 4
   %108 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2130,7 +2130,7 @@ define hidden noundef ptr @_ZN13StubGenerator31generate_disjoint_long_oop_copyEb
   %75 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2138,7 +2138,7 @@ define hidden noundef ptr @_ZN13StubGenerator31generate_disjoint_long_oop_copyEb
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 21, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %80 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(40) %79) #8
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %70, i32 7, ptr noundef nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -2155,7 +2155,7 @@ define hidden noundef ptr @_ZN13StubGenerator31generate_disjoint_long_oop_copyEb
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2185,7 +2185,7 @@ define hidden noundef ptr @_ZN13StubGenerator31generate_disjoint_long_oop_copyEb
   %99 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %99, align 4
   %100 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %100, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2207,7 +2207,7 @@ define hidden noundef ptr @_ZN13StubGenerator31generate_disjoint_long_oop_copyEb
   %111 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2385,7 +2385,7 @@ define hidden noundef ptr @_ZN13StubGenerator31generate_conjoint_long_oop_copyEb
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %74, align 4
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -2407,7 +2407,7 @@ define hidden noundef ptr @_ZN13StubGenerator31generate_conjoint_long_oop_copyEb
   %86 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2563,7 +2563,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2582,7 +2582,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %72 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2601,7 +2601,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %81 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2622,7 +2622,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %92 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %92, align 4
   %93 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2639,7 +2639,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %100 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -2656,7 +2656,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %108 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -2673,7 +2673,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %116 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -2690,7 +2690,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %127 = load ptr, ptr %41, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 21, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %129 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %129(ptr noundef nonnull align 8 dereferenceable(40) %93, ptr noundef nonnull align 8 dereferenceable(40) %128) #8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 21, i1 false)
@@ -2821,7 +2821,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %193 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %193, align 4
   %194 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %194, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -2840,7 +2840,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %202 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %202, align 4
   %203 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %203, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -2859,7 +2859,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_checkcast_copyEPKcPPhb(p
   %211 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %211, align 4
   %212 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %212, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -3198,7 +3198,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %149 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -3225,7 +3225,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %162 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %162, align 4
   %163 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %163, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %164, align 8
   %165 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -3261,7 +3261,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %179 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %180 = getelementptr inbounds nuw i8, ptr %32, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %179, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %180, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -3269,7 +3269,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %32, i64 21, i1 false)
   %183 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %184 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %184 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(40) %180, ptr noundef nonnull align 8 dereferenceable(40) %183) #8
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %176, i32 7, ptr noundef nonnull %22) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
@@ -3282,7 +3282,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %188 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %189 = getelementptr inbounds nuw i8, ptr %33, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %188, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %189, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -3324,7 +3324,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %208 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %208, align 4
   %209 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %209, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %209, align 8
   %210 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -3348,7 +3348,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %218 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i8 0, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %219, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -3390,7 +3390,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %238 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i8 0, ptr %238, align 4
   %239 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %239, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %239, align 8
   %240 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr null, ptr %240, align 8
   %241 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -3414,7 +3414,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %248 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 0, ptr %248, align 4
   %249 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %249, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %250, align 8
   %251 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -3452,7 +3452,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %266 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i8 0, ptr %266, align 4
   %267 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %267, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr null, ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -3476,7 +3476,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %276 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i8 0, ptr %276, align 4
   %277 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %277, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %277, align 8
   %278 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr null, ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -3544,7 +3544,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %311 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i8 0, ptr %311, align 4
   %312 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %312, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %312, align 8
   %313 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr null, ptr %313, align 8
   %314 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -3577,7 +3577,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %329 = getelementptr inbounds nuw i8, ptr %51, i64 20
   store i8 0, ptr %329, align 4
   %330 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %330, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %330, align 8
   %331 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr null, ptr %331, align 8
   %332 = getelementptr inbounds nuw i8, ptr %51, i64 40
@@ -3617,7 +3617,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %348 = getelementptr inbounds nuw i8, ptr %54, i64 20
   store i8 0, ptr %348, align 4
   %349 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %349, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %349, align 8
   %350 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store ptr null, ptr %350, align 8
   %351 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -3650,7 +3650,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %367 = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i8 0, ptr %367, align 4
   %368 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %368, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %368, align 8
   %369 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr null, ptr %369, align 8
   %370 = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -3683,7 +3683,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %385 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i8 0, ptr %385, align 4
   %386 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %386, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %386, align 8
   %387 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr null, ptr %387, align 8
   %388 = getelementptr inbounds nuw i8, ptr %56, i64 40
@@ -3709,7 +3709,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %396 = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i8 0, ptr %396, align 4
   %397 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %397, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %397, align 8
   %398 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr null, ptr %398, align 8
   %399 = getelementptr inbounds nuw i8, ptr %57, i64 40
@@ -3748,7 +3748,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %412 = getelementptr inbounds nuw i8, ptr %58, i64 20
   store i8 0, ptr %412, align 4
   %413 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %413, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %413, align 8
   %414 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store ptr null, ptr %414, align 8
   %415 = getelementptr inbounds nuw i8, ptr %58, i64 40
@@ -3767,7 +3767,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %421 = getelementptr inbounds nuw i8, ptr %59, i64 20
   store i8 0, ptr %421, align 4
   %422 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %422, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %422, align 8
   %423 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr null, ptr %423, align 8
   %424 = getelementptr inbounds nuw i8, ptr %59, i64 40
@@ -3987,7 +3987,7 @@ define hidden void @_ZN13StubGenerator18array_overlap_testEPhP5LabelN7Address11S
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -3995,7 +3995,7 @@ define hidden void @_ZN13StubGenerator18array_overlap_testEPhP5LabelN7Address11S
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %22 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %21) #8
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 0, ptr noundef nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
@@ -4124,7 +4124,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -4146,7 +4146,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -4168,7 +4168,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -4190,7 +4190,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %100 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -4214,7 +4214,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %112 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %112, align 4
   %113 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %113, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -4236,7 +4236,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %124 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -4258,7 +4258,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %136 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %136, align 4
   %137 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %137, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -4280,7 +4280,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %148 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %148, align 4
   %149 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %149, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %149, align 8
   %150 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -4302,7 +4302,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %160 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %160, align 4
   %161 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %161, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -4324,7 +4324,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %172 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -4346,7 +4346,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %184 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -4368,7 +4368,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %196 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %196, align 4
   %197 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -4408,7 +4408,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %217 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %217, align 4
   %218 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %218, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %218, align 8
   %219 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -4430,7 +4430,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %229 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %229, align 4
   %230 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %230, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %231, align 8
   %232 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -4454,7 +4454,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %241 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %241, align 4
   %242 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
   %243 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %243, align 8
   %244 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -4476,7 +4476,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %253 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %253, align 4
   %254 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %254, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %254, align 8
   %255 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %255, align 8
   %256 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -4498,7 +4498,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %265 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %265, align 4
   %266 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
   %267 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -4520,7 +4520,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %277 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %277, align 4
   %278 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %278, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %279, align 8
   %280 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -4554,7 +4554,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %294 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %294, align 4
   %295 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %295, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %295, align 8
   %296 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %296, align 8
   %297 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -4576,7 +4576,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %306 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %306, align 4
   %307 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -4598,7 +4598,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %318 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %318, align 4
   %319 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %319, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %319, align 8
   %320 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %320, align 8
   %321 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -4620,7 +4620,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %330 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %330, align 4
   %331 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %331, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %331, align 8
   %332 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %332, align 8
   %333 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -4642,7 +4642,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %342 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 0, ptr %342, align 4
   %343 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %343, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %343, align 8
   %344 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %344, align 8
   %345 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -4664,7 +4664,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %354 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %354, align 4
   %355 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %355, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %355, align 8
   %356 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %356, align 8
   %357 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -4686,7 +4686,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %366 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i8 0, ptr %366, align 4
   %367 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %367, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %367, align 8
   %368 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %368, align 8
   %369 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -4708,7 +4708,7 @@ define hidden void @_ZN13StubGenerator18copy_bytes_forwardE8RegisterS0_S0_S0_S0_
   %378 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i8 0, ptr %378, align 4
   %379 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %379, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %379, align 8
   %380 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr null, ptr %380, align 8
   %381 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -4818,7 +4818,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -4840,7 +4840,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -4862,7 +4862,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -4884,7 +4884,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %100 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -4908,7 +4908,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %112 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %112, align 4
   %113 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %113, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -4930,7 +4930,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %124 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -4952,7 +4952,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %136 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %136, align 4
   %137 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %137, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -4974,7 +4974,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %148 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %148, align 4
   %149 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %149, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %149, align 8
   %150 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -4996,7 +4996,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %160 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %160, align 4
   %161 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %161, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -5018,7 +5018,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %172 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -5040,7 +5040,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %184 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -5062,7 +5062,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %196 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %196, align 4
   %197 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -5102,7 +5102,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %217 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %217, align 4
   %218 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %218, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %218, align 8
   %219 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -5124,7 +5124,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %229 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %229, align 4
   %230 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %230, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %231, align 8
   %232 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -5148,7 +5148,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %241 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %241, align 4
   %242 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
   %243 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %243, align 8
   %244 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -5170,7 +5170,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %253 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %253, align 4
   %254 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %254, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %254, align 8
   %255 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %255, align 8
   %256 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -5192,7 +5192,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %265 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %265, align 4
   %266 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
   %267 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -5214,7 +5214,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %277 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %277, align 4
   %278 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %278, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %279, align 8
   %280 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -5248,7 +5248,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %294 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %294, align 4
   %295 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %295, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %295, align 8
   %296 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %296, align 8
   %297 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -5270,7 +5270,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %306 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %306, align 4
   %307 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -5292,7 +5292,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %318 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %318, align 4
   %319 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %319, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %319, align 8
   %320 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %320, align 8
   %321 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -5314,7 +5314,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %330 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %330, align 4
   %331 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %331, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %331, align 8
   %332 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %332, align 8
   %333 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -5336,7 +5336,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %342 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 0, ptr %342, align 4
   %343 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %343, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %343, align 8
   %344 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %344, align 8
   %345 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -5358,7 +5358,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %354 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %354, align 4
   %355 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %355, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %355, align 8
   %356 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %356, align 8
   %357 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -5380,7 +5380,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %366 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i8 0, ptr %366, align 4
   %367 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %367, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %367, align 8
   %368 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %368, align 8
   %369 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -5402,7 +5402,7 @@ define hidden void @_ZN13StubGenerator19copy_bytes_backwardE8RegisterS0_S0_S0_S0
   %378 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i8 0, ptr %378, align 4
   %379 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %379, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %379, align 8
   %380 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr null, ptr %380, align 8
   %381 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -5706,7 +5706,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %167 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %167, align 4
   %168 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %168, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %169, align 8
   %170 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -5725,7 +5725,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %176 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 0, ptr %176, align 4
   %177 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %177, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -5768,7 +5768,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %196 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %196, align 4
   %197 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -5787,7 +5787,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %205 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %205, align 4
   %206 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %206, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %206, align 8
   %207 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %207, align 8
   %208 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -5810,7 +5810,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %214 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %214, align 4
   %215 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %215, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -5829,7 +5829,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %223 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %223, align 4
   %224 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %224, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %224, align 8
   %225 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -5852,7 +5852,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %232 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %232, align 4
   %233 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %233, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %233, align 8
   %234 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %234, align 8
   %235 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -5871,7 +5871,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %241 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %241, align 4
   %242 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %242, align 8
   %243 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %243, align 8
   %244 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -5894,7 +5894,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %250 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %250, align 4
   %251 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %251, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %251, align 8
   %252 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %252, align 8
   %253 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -5913,7 +5913,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %259 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %259, align 4
   %260 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %260, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %260, align 8
   %261 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %261, align 8
   %262 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -5936,7 +5936,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %268 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %268, align 4
   %269 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %269, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %270, align 8
   %271 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -5955,7 +5955,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %277 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %277, align 4
   %278 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %278, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %279, align 8
   %280 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -5978,7 +5978,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %286 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %286, align 4
   %287 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %287, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %287, align 8
   %288 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %288, align 8
   %289 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -5997,7 +5997,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %295 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %295, align 4
   %296 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %296, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %296, align 8
   %297 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %297, align 8
   %298 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -6117,7 +6117,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %350 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %350, align 4
   %351 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %351, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %351, align 8
   %352 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %352, align 8
   %353 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -6136,7 +6136,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %359 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %359, align 4
   %360 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %360, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %360, align 8
   %361 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -6179,7 +6179,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %379 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %379, align 4
   %380 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %380, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %380, align 8
   %381 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %381, align 8
   %382 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -6187,7 +6187,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 21, i1 false)
   %383 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %384 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %384 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %384(ptr noundef nonnull align 8 dereferenceable(40) %380, ptr noundef nonnull align 8 dereferenceable(40) %383) #8
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %374, i32 1, ptr noundef nonnull %17, i32 noundef 2) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
@@ -6204,7 +6204,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %390 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %390, align 4
   %391 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %391, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %391, align 8
   %392 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %392, align 8
   %393 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -6232,7 +6232,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %400 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %400, align 4
   %401 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %401, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %401, align 8
   %402 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %402, align 8
   %403 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -6256,7 +6256,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %410 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %410, align 4
   %411 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %411, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %411, align 8
   %412 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %412, align 8
   %413 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -6284,7 +6284,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %420 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %420, align 4
   %421 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %421, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %421, align 8
   %422 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %422, align 8
   %423 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -6308,7 +6308,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_disjoint_copy_avx3_maske
   %430 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %430, align 4
   %431 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %431, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %431, align 8
   %432 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %432, align 8
   %433 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -6493,7 +6493,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %63 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -6512,7 +6512,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %72 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -6566,7 +6566,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %98 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %98, align 4
   %99 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %99, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -6585,7 +6585,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %107 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %107, align 4
   %108 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -6619,7 +6619,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %122 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %122, align 4
   %123 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %123, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -6638,7 +6638,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %131 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %131, align 4
   %132 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %132, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -6670,7 +6670,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %145 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %145, align 4
   %146 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %146, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %146, align 8
   %147 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -6689,7 +6689,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %154 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %154, align 4
   %155 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %155, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -6733,7 +6733,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %174 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %174, align 4
   %175 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %175, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -6752,7 +6752,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %183 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %183, align 4
   %184 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %184, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -6787,7 +6787,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %198 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %198, align 4
   %199 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %199, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %200, align 8
   %201 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -6806,7 +6806,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %207 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %207, align 4
   %208 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %208, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %208, align 8
   %209 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %209, align 8
   %210 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -6838,7 +6838,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %221 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %221, align 4
   %222 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %222, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %222, align 8
   %223 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -6857,7 +6857,7 @@ define hidden void @_ZN13StubGenerator28arraycopy_avx3_special_casesE11XMMRegist
   %230 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %230, align 4
   %231 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %231, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %231, align 8
   %232 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %232, align 8
   %233 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -6905,7 +6905,7 @@ define hidden void @_ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegis
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -6924,7 +6924,7 @@ define hidden void @_ZN13StubGenerator17copy32_masked_avxE8RegisterS0_11XMMRegis
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -6976,7 +6976,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -6995,7 +6995,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -7018,7 +7018,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -7037,7 +7037,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %58 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -7064,7 +7064,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %69 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -7083,7 +7083,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %78 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -7107,7 +7107,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %88 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -7126,7 +7126,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %97, align 4
   %98 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -7151,7 +7151,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %108 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %109, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -7159,7 +7159,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %20, i64 21, i1 false)
   %112 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %113 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %113 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %113(ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(40) %112) #8
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %103, i32 %4, ptr noundef nonnull %11, i32 noundef 2) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
@@ -7176,7 +7176,7 @@ define hidden void @_ZN13StubGenerator10copy64_avxE8RegisterS0_S0_11XMMRegisterb
   %119 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %119, align 4
   %120 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %120, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -7224,7 +7224,7 @@ define hidden void @_ZN13StubGenerator17copy64_masked_avxE8RegisterS0_11XMMRegis
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -7243,7 +7243,7 @@ define hidden void @_ZN13StubGenerator17copy64_masked_avxE8RegisterS0_11XMMRegis
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -7279,7 +7279,7 @@ define hidden void @_ZN13StubGenerator17copy64_masked_avxE8RegisterS0_11XMMRegis
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -7298,7 +7298,7 @@ define hidden void @_ZN13StubGenerator17copy64_masked_avxE8RegisterS0_11XMMRegis
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -7332,7 +7332,7 @@ define hidden void @_ZN13StubGenerator17copy64_masked_avxE8RegisterS0_11XMMRegis
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -7351,7 +7351,7 @@ define hidden void @_ZN13StubGenerator17copy64_masked_avxE8RegisterS0_11XMMRegis
   %87 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %88, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -7476,7 +7476,7 @@ define hidden void @_ZN13StubGenerator20arraycopy_avx3_largeE8RegisterS0_S0_S0_S
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -7495,7 +7495,7 @@ define hidden void @_ZN13StubGenerator20arraycopy_avx3_largeE8RegisterS0_S0_S0_S
   %72 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -7593,7 +7593,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -7613,7 +7613,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -7633,7 +7633,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %61 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -7653,7 +7653,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %71 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %71, align 4
   %72 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -7673,7 +7673,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %81 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -7693,7 +7693,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %91 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %92, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -7713,7 +7713,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %101 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %101, align 4
   %102 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %102, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -7733,7 +7733,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %111 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -7752,7 +7752,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %120 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %120, align 4
   %121 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %121, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -7760,7 +7760,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 21, i1 false)
   %124 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %125 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %125 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %125(ptr noundef nonnull align 8 dereferenceable(40) %121, ptr noundef nonnull align 8 dereferenceable(40) %124) #8
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %115, i32 %4, ptr noundef nonnull %14, i32 noundef 2) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
@@ -7778,7 +7778,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %132 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %133, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -7803,7 +7803,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %143 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %144, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -7828,7 +7828,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %154 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %154, align 4
   %155 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %155, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -7852,7 +7852,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %164 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %164, align 4
   %165 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %165, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %165, align 8
   %166 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %166, align 8
   %167 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -7871,7 +7871,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %173 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %173, align 4
   %174 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %174, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -7890,7 +7890,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %182 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %182, align 4
   %183 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -7909,7 +7909,7 @@ define hidden void @_ZN13StubGenerator12copy256_avx3E8RegisterS0_S0_11XMMRegiste
   %191 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %191, align 4
   %192 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %192, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -8022,7 +8022,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %76 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 0, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -8041,7 +8041,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %85 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i8 0, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %86, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr null, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -8074,7 +8074,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %100 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i8 0, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -8082,7 +8082,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %38)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 21, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %105 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %105(ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef nonnull align 8 dereferenceable(40) %104) #8
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %95, i32 %1, ptr noundef nonnull %38, i32 noundef 2) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %38)
@@ -8099,7 +8099,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %111 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i8 0, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %112, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr null, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -8136,7 +8136,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %126 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 0, ptr %126, align 4
   %127 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %127, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -8155,7 +8155,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %135 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -8188,7 +8188,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %150 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %151, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -8212,7 +8212,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %160 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %160, align 4
   %161 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %161, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -8240,7 +8240,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %170 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %170, align 4
   %171 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -8264,7 +8264,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %180 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %180, align 4
   %181 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %181, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -8301,7 +8301,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %195 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %195, align 4
   %196 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %196, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -8320,7 +8320,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %204 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %204, align 4
   %205 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %205, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %205, align 8
   %206 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %206, align 8
   %207 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -8347,7 +8347,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %215 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %215, align 4
   %216 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %216, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -8371,7 +8371,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %225 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %225, align 4
   %226 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %226, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %226, align 8
   %227 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -8399,7 +8399,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %235 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %235, align 4
   %236 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %236, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %236, align 8
   %237 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %237, align 8
   %238 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -8423,7 +8423,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %245 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %245, align 4
   %246 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %246, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %246, align 8
   %247 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -8451,7 +8451,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %255 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %255, align 4
   %256 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %256, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %257, align 8
   %258 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -8475,7 +8475,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %265 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %265, align 4
   %266 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %266, align 8
   %267 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -8512,7 +8512,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %280 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %280, align 4
   %281 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %281, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -8531,7 +8531,7 @@ define hidden void @_ZN13StubGenerator32arraycopy_avx3_special_cases_256E11XMMRe
   %289 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %289, align 4
   %290 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %290, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %291, align 8
   %292 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -8756,7 +8756,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %136 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i8 0, ptr %136, align 4
   %137 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %137, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr null, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -8801,7 +8801,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %157 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 0, ptr %157, align 4
   %158 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %158, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %35, i64 40
@@ -8820,7 +8820,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %166 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %166, align 4
   %167 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %167, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -8855,7 +8855,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %182 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %182, align 4
   %183 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -8874,7 +8874,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %191 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %191, align 4
   %192 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %192, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -8897,7 +8897,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %200 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %200, align 4
   %201 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %201, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %201, align 8
   %202 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -8916,7 +8916,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %209 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %209, align 4
   %210 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %210, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -8939,7 +8939,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %218 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %219, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -8958,7 +8958,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %227 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %227, align 4
   %228 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %228, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %228, align 8
   %229 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -8981,7 +8981,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %236 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %236, align 4
   %237 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %237, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %237, align 8
   %238 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %238, align 8
   %239 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -9000,7 +9000,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %245 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %245, align 4
   %246 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %246, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %246, align 8
   %247 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -9023,7 +9023,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %254 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %254, align 4
   %255 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %255, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %255, align 8
   %256 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -9042,7 +9042,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %263 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %263, align 4
   %264 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %264, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %264, align 8
   %265 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %265, align 8
   %266 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -9065,7 +9065,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %272 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %272, align 4
   %273 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %273, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %273, align 8
   %274 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %274, align 8
   %275 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -9084,7 +9084,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %281 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %281, align 4
   %282 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %282, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -9120,7 +9120,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %296 = getelementptr inbounds nuw i8, ptr %49, i64 20
   store i8 0, ptr %296, align 4
   %297 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %297, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %297, align 8
   %298 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr null, ptr %298, align 8
   %299 = getelementptr inbounds nuw i8, ptr %49, i64 40
@@ -9165,7 +9165,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %317 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %317, align 4
   %318 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %318, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %318, align 8
   %319 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %319, align 8
   %320 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -9184,7 +9184,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %326 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %326, align 4
   %327 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %327, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %327, align 8
   %328 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %328, align 8
   %329 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -9219,7 +9219,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %342 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %342, align 4
   %343 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %343, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %343, align 8
   %344 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %344, align 8
   %345 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -9227,7 +9227,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 21, i1 false)
   %346 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %347 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %347 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %347(ptr noundef nonnull align 8 dereferenceable(40) %343, ptr noundef nonnull align 8 dereferenceable(40) %346) #8
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %337, i32 1, ptr noundef nonnull %18, i32 noundef 2) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18)
@@ -9244,7 +9244,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %353 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %353, align 4
   %354 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %354, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %354, align 8
   %355 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %355, align 8
   %356 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -9272,7 +9272,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %363 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %363, align 4
   %364 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %364, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %364, align 8
   %365 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -9296,7 +9296,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %373 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %373, align 4
   %374 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %374, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %374, align 8
   %375 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %375, align 8
   %376 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -9324,7 +9324,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %383 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %383, align 4
   %384 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %384, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %384, align 8
   %385 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %385, align 8
   %386 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -9348,7 +9348,7 @@ define hidden noundef ptr @_ZN13StubGenerator34generate_conjoint_copy_avx3_maske
   %393 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %393, align 4
   %394 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %394, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %394, align 8
   %395 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %395, align 8
   %396 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -9514,7 +9514,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %77 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -9533,7 +9533,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %86 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -9577,7 +9577,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %107 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %107, align 4
   %108 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -9596,7 +9596,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %116 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -9622,7 +9622,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %126 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i8 0, ptr %126, align 4
   %127 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %127, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr null, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -9641,7 +9641,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %135 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %136, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -9673,7 +9673,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %149 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i8 0, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -9692,7 +9692,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %158 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %158, align 4
   %159 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %159, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -9738,7 +9738,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %179 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %179, align 4
   %180 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %180, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -9757,7 +9757,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %188, align 4
   %189 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %189, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -9791,7 +9791,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %203 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %203, align 4
   %204 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %204, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %205, align 8
   %206 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -9810,7 +9810,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %212 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %212, align 4
   %213 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %213, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -9842,7 +9842,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %226 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %226, align 4
   %227 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %227, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %228, align 8
   %229 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -9861,7 +9861,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %235 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %235, align 4
   %236 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %236, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %236, align 8
   %237 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %237, align 8
   %238 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -9905,7 +9905,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %255 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %255, align 4
   %256 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %256, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %257, align 8
   %258 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -9924,7 +9924,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %264 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %264, align 4
   %265 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %265, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %265, align 8
   %266 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %266, align 8
   %267 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -9959,7 +9959,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %279 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %279, align 4
   %280 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %280, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %280, align 8
   %281 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -9978,7 +9978,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %288 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %288, align 4
   %289 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %289, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %289, align 8
   %290 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -10010,7 +10010,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %302 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %302, align 4
   %303 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %303, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %303, align 8
   %304 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %304, align 8
   %305 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -10029,7 +10029,7 @@ define hidden void @_ZN13StubGenerator37arraycopy_avx3_special_cases_conjointE11
   %311 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %311, align 4
   %312 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %312, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %312, align 8
   %313 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %313, align 8
   %314 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -10064,7 +10064,7 @@ define hidden void @_ZN13StubGenerator10copy32_avxE8RegisterS0_S0_11XMMRegisteri
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -10083,7 +10083,7 @@ define hidden void @_ZN13StubGenerator10copy32_avxE8RegisterS0_S0_11XMMRegisteri
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -10273,7 +10273,7 @@ default.unreachable84:                            ; preds = %.split77.us
   store i32 -1, ptr %40, align 4
   store i32 %46, ptr %41, align 8
   store i8 0, ptr %42, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %43, align 8
   store ptr null, ptr %44, align 8
   store i32 0, ptr %45, align 8
   call void @_ZN9Assembler4movwE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %6, i32 0) #8
@@ -10290,7 +10290,7 @@ default.unreachable84:                            ; preds = %.split77.us
   store i32 -1, ptr %32, align 4
   store i32 %48, ptr %33, align 8
   store i8 0, ptr %34, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %35, align 8
   store ptr null, ptr %36, align 8
   store i32 0, ptr %37, align 8
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %7, i32 0) #8
@@ -10307,7 +10307,7 @@ default.unreachable84:                            ; preds = %.split77.us
   store i32 -1, ptr %24, align 4
   store i32 %50, ptr %25, align 8
   store i8 0, ptr %26, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %27, align 8
   store ptr null, ptr %28, align 8
   store i32 0, ptr %29, align 8
   call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %8, i32 0) #8
@@ -10342,7 +10342,7 @@ default.unreachable84:                            ; preds = %.split77.us
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -10363,7 +10363,7 @@ default.unreachable84:                            ; preds = %.split77.us
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -10384,7 +10384,7 @@ default.unreachable84:                            ; preds = %.split77.us
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -10429,7 +10429,7 @@ define hidden void @_ZN13StubGenerator22arraycopy_range_checksE8RegisterS0_S0_S0
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -10457,7 +10457,7 @@ define hidden void @_ZN13StubGenerator22arraycopy_range_checksE8RegisterS0_S0_S0
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 40

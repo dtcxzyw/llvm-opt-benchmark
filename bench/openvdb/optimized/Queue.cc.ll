@@ -967,7 +967,7 @@ entry:
   store i32 %1, ptr %mId.i.i, align 8
   %mNotify.i.i = getelementptr inbounds nuw i8, ptr %task, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mNotify.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 16), ptr %task, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 16), ptr %task, align 8
   %mGrids.i = getelementptr inbounds nuw i8, ptr %task, i64 48
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %grids, i64 8
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -1194,7 +1194,7 @@ catch.i:                                          ; preds = %lpad16.i, %lpad.i2
 try.cont.i:                                       ; preds = %catch.i, %invoke.cont25.i
   %exception.i = call ptr @__cxa_allocate_exception(i64 40) #21
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception.i, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg.i) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #31
           to label %unreachable.i unwind label %lpad27.i
 
@@ -1430,7 +1430,7 @@ _ZN3tbb6detail2d110task_arena10initializeEv.exit.i.i: ; preds = %_ZN3tbb6detail2
 call.i.i.i.noexc.i:                               ; preds = %_ZN3tbb6detail2d110task_arena10initializeEv.exit.i.i
   %47 = getelementptr inbounds nuw i8, ptr %call.i.i.i18.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %call.i.i.i18.i, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %call.i.i.i18.i, align 64
   %m_allocator.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18.i, i64 64
   %48 = load i64, ptr %alloc.i.i.i, align 8
   store i64 %48, ptr %m_allocator.i.i.i.i.i, align 64
@@ -1659,9 +1659,9 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (88, 96)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 16), ptr %this, align 8
   %mMetadata = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_07MetaMapE, i64 16), ptr %mMetadata, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_07MetaMapE, i64 16), ptr %mMetadata, align 8
   %mMeta.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -1851,7 +1851,7 @@ if.then.i.i.i1:                                   ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %28 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %28, null
@@ -1905,7 +1905,7 @@ declare void @llvm.trap() #14
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %eType, ptr noundef %msg) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #21
   %tobool.not = icmp eq ptr %eType, null
@@ -2009,7 +2009,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #21
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
@@ -2019,7 +2019,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #21
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
@@ -2245,7 +2245,7 @@ terminate.lpad:                                   ; preds = %lpad7
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 16), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2288,7 +2288,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_012RuntimeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #21
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
@@ -2519,7 +2519,7 @@ if.end26:                                         ; preds = %if.end.thread, %if.
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 12), (16, 48)) %this, ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 16), ptr %this, align 8
   %mId.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mId2.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %mId2.i, align 8
@@ -2569,7 +2569,7 @@ common.resume:                                    ; preds = %lpad.i.i, %if.then.
   resume { ptr, i32 } %common.resume.op
 
 _ZN7openvdb5v11_02io12_GLOBAL__N_14TaskC2ERKS3_.exit: ; preds = %entry, %invoke.cont.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 16), ptr %this, align 8
   %mGrids = getelementptr inbounds nuw i8, ptr %this, i64 48
   %mGrids2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2731,7 +2731,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_012RuntimeErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #21
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
@@ -4377,7 +4377,7 @@ declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(p
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_ED2Ev(ptr noundef nonnull align 64 dereferenceable(216) initializes((0, 8), (72, 80), (160, 168)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %this, align 64
   %m_func = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_func) #21
   ret void
@@ -4386,7 +4386,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_ED0Ev(ptr noundef nonnull align 64 dereferenceable(216) initializes((0, 8), (72, 80), (160, 168)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %this, align 64
   %m_func.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_func.i) #21
   tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %this, i64 noundef 64) #29
@@ -4427,7 +4427,7 @@ declare void @_ZN3tbb6detail2r19terminateERNS0_2d115task_arena_baseE(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_07MetaMapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_07MetaMapE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_07MetaMapE, i64 16), ptr %this, align 8
   %mMeta = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -4448,7 +4448,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7o
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_07MetaMapD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_07MetaMapE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_07MetaMapE, i64 16), ptr %this, align 8
   %mMeta.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

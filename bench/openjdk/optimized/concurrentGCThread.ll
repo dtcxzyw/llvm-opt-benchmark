@@ -54,7 +54,7 @@ $_ZN6Thread14oops_do_framesEP10OopClosureP14NMethodClosure = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV18ConcurrentGCThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV18ConcurrentGCThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 916
   store volatile i8 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 917

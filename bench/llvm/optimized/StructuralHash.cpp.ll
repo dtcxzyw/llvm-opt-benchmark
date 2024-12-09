@@ -64,7 +64,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %16, %18
   %24 = tail call noundef i64 @_ZN4llvm14StructuralHashERKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(857) %2, i1 noundef zeroext %23) #4
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.1, ptr %25, align 8, !alias.scope !4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %5, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %5, align 8, !alias.scope !4
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %24, ptr %26, align 8, !alias.scope !4
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5) #4
@@ -190,7 +190,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %86, %88
   %93 = trunc i8 %92 to i1
   %94 = call noundef i64 @_ZN4llvm14StructuralHashERKNS_8FunctionEb(ptr noundef nonnull align 8 dereferenceable(136) %45, i1 noundef zeroext %93) #4
   store ptr @.str.1, ptr %40, align 8, !alias.scope !7
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %6, align 8, !alias.scope !7
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %6, align 8, !alias.scope !7
   store i64 %94, ptr %41, align 8, !alias.scope !7
   %95 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %6) #4
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24

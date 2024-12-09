@@ -35690,7 +35690,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ide9runnables21has_runnable_doc_t
   %86 = extractvalue { ptr, i64 } %84, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !7565
   store ptr @anon.d0b3e66b1aeb3253f3d66638e2bca2a6.390, ptr %3, align 8, !noalias !7565
-  store ptr getelementptr inbounds (i8, ptr @anon.d0b3e66b1aeb3253f3d66638e2bca2a6.390, i64 96), ptr %25, align 8, !noalias !7565
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.d0b3e66b1aeb3253f3d66638e2bca2a6.390, i64 96), ptr %25, align 8, !noalias !7565
   %87 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41dd983b14bcdff2E.llvm.1684962189325099908"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc63.i.i unwind label %.loopexit.split-lp.i.i, !noalias !7509
 

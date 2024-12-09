@@ -1000,7 +1000,7 @@ declare void @_ZN5JVMCI6event2EPKcz(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2720), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2720), align 8
   %3 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %2, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %0) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1061,7 +1061,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1049, label %30, label %1478
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2472), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2472), align 8
   %32 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %31, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %33 = load ptr, ptr %4, align 8
   %.not1050 = icmp eq ptr %33, null
@@ -1121,7 +1121,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1052, label %58, label %1478
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2488), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2488), align 8
   %60 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %59, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %61 = load ptr, ptr %4, align 8
   %.not1053 = icmp eq ptr %61, null
@@ -1195,7 +1195,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1057, label %92, label %1478
 
 92:                                               ; preds = %89
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2496), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2496), align 8
   %94 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %93, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %95 = load ptr, ptr %4, align 8
   %.not1058 = icmp eq ptr %95, null
@@ -1269,7 +1269,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1062, label %126, label %1478
 
 126:                                              ; preds = %123
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2480), align 8
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2480), align 8
   %128 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %127, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %129 = load ptr, ptr %4, align 8
   %.not1063 = icmp eq ptr %129, null
@@ -1364,7 +1364,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1070, label %169, label %1478
 
 169:                                              ; preds = %166
-  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2464), align 8
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2464), align 8
   %171 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %170, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %172 = load ptr, ptr %4, align 8
   %.not1071 = icmp eq ptr %172, null
@@ -1424,7 +1424,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1073, label %197, label %1478
 
 197:                                              ; preds = %194
-  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2520), align 8
+  %198 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2520), align 8
   %199 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %198, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %200 = load ptr, ptr %4, align 8
   %.not1074 = icmp eq ptr %200, null
@@ -1484,7 +1484,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1076, label %225, label %1478
 
 225:                                              ; preds = %222
-  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2744), align 8
+  %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2744), align 8
   %227 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %226, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %228 = load ptr, ptr %4, align 8
   %.not1077 = icmp eq ptr %228, null
@@ -1565,7 +1565,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1082, label %262, label %1478
 
 262:                                              ; preds = %259
-  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2448), align 8
+  %263 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2448), align 8
   %264 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %263, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %265 = load ptr, ptr %4, align 8
   %.not1083 = icmp eq ptr %265, null
@@ -1639,7 +1639,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1087, label %296, label %1478
 
 296:                                              ; preds = %293
-  %297 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2456), align 8
+  %297 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2456), align 8
   %298 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %297, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %299 = load ptr, ptr %4, align 8
   %.not1088 = icmp eq ptr %299, null
@@ -1713,7 +1713,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1092, label %330, label %1478
 
 330:                                              ; preds = %327
-  %331 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2424), align 8
+  %331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2424), align 8
   %332 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %331, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %333 = load ptr, ptr %4, align 8
   %.not1093 = icmp eq ptr %333, null
@@ -1780,7 +1780,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1096, label %361, label %1478
 
 361:                                              ; preds = %358
-  %362 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2432), align 8
+  %362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2432), align 8
   %363 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %362, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %364 = load ptr, ptr %4, align 8
   %.not1097 = icmp eq ptr %364, null
@@ -1847,7 +1847,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1100, label %392, label %1478
 
 392:                                              ; preds = %389
-  %393 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2584), align 8
+  %393 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2584), align 8
   %394 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %393, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %395 = load ptr, ptr %4, align 8
   %.not1101 = icmp eq ptr %395, null
@@ -1935,7 +1935,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1107, label %432, label %1478
 
 432:                                              ; preds = %429
-  %433 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2592), align 8
+  %433 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2592), align 8
   %434 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %433, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %435 = load ptr, ptr %4, align 8
   %.not1108 = icmp eq ptr %435, null
@@ -2009,7 +2009,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1112, label %466, label %1478
 
 466:                                              ; preds = %463
-  %467 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2600), align 8
+  %467 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2600), align 8
   %468 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %467, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %469 = load ptr, ptr %4, align 8
   %.not1113 = icmp eq ptr %469, null
@@ -2111,7 +2111,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1121, label %512, label %1478
 
 512:                                              ; preds = %509
-  %513 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2576), align 8
+  %513 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2576), align 8
   %514 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %513, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %515 = load ptr, ptr %4, align 8
   %.not1122 = icmp eq ptr %515, null
@@ -2185,7 +2185,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1126, label %546, label %1478
 
 546:                                              ; preds = %543
-  %547 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2728), align 8
+  %547 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2728), align 8
   %548 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %547, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %549 = load ptr, ptr %4, align 8
   %.not1127 = icmp eq ptr %549, null
@@ -2301,7 +2301,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1137, label %598, label %1478
 
 598:                                              ; preds = %595
-  %599 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2736), align 8
+  %599 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2736), align 8
   %600 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %599, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %601 = load ptr, ptr %4, align 8
   %.not1138 = icmp eq ptr %601, null
@@ -2375,7 +2375,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1142, label %632, label %1478
 
 632:                                              ; preds = %629
-  %633 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2616), align 8
+  %633 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2616), align 8
   %634 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %633, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %635 = load ptr, ptr %4, align 8
   %.not1143 = icmp eq ptr %635, null
@@ -2442,7 +2442,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1146, label %663, label %1478
 
 663:                                              ; preds = %660
-  %664 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2608), align 8
+  %664 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2608), align 8
   %665 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %664, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %666 = load ptr, ptr %4, align 8
   %.not1147 = icmp eq ptr %666, null
@@ -2491,7 +2491,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1148, label %688, label %1478
 
 688:                                              ; preds = %683, %667
-  %689 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2624), align 8
+  %689 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2624), align 8
   %690 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %689, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %691 = load ptr, ptr %4, align 8
   %.not1149 = icmp eq ptr %691, null
@@ -2558,7 +2558,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1152, label %719, label %1478
 
 719:                                              ; preds = %716
-  %720 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2512), align 8
+  %720 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2512), align 8
   %721 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %720, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %722 = load ptr, ptr %4, align 8
   %.not1153 = icmp eq ptr %722, null
@@ -2618,7 +2618,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1155, label %747, label %1478
 
 747:                                              ; preds = %744
-  %748 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2528), align 8
+  %748 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2528), align 8
   %749 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %748, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %750 = load ptr, ptr %4, align 8
   %.not1156 = icmp eq ptr %750, null
@@ -2678,7 +2678,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1158, label %775, label %1478
 
 775:                                              ; preds = %772
-  %776 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2536), align 8
+  %776 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2536), align 8
   %777 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %776, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %778 = load ptr, ptr %4, align 8
   %.not1159 = icmp eq ptr %778, null
@@ -2738,7 +2738,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1161, label %803, label %1478
 
 803:                                              ; preds = %800
-  %804 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2656), align 8
+  %804 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2656), align 8
   %805 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %804, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %806 = load ptr, ptr %4, align 8
   %.not1162 = icmp eq ptr %806, null
@@ -2798,7 +2798,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1164, label %831, label %1478
 
 831:                                              ; preds = %828
-  %832 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2664), align 8
+  %832 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2664), align 8
   %833 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %832, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %834 = load ptr, ptr %4, align 8
   %.not1165 = icmp eq ptr %834, null
@@ -2858,7 +2858,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1167, label %859, label %1478
 
 859:                                              ; preds = %856
-  %860 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2544), align 8
+  %860 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2544), align 8
   %861 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %860, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %862 = load ptr, ptr %4, align 8
   %.not1168 = icmp eq ptr %862, null
@@ -2967,7 +2967,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1177, label %908, label %1478
 
 908:                                              ; preds = %905
-  %909 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2552), align 8
+  %909 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2552), align 8
   %910 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %909, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %911 = load ptr, ptr %4, align 8
   %.not1178 = icmp eq ptr %911, null
@@ -3027,7 +3027,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1180, label %936, label %1478
 
 936:                                              ; preds = %933
-  %937 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2560), align 8
+  %937 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2560), align 8
   %938 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %937, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %939 = load ptr, ptr %4, align 8
   %.not1181 = icmp eq ptr %939, null
@@ -3087,7 +3087,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1183, label %964, label %1478
 
 964:                                              ; preds = %961
-  %965 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2768), align 8
+  %965 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2768), align 8
   %966 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %965, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %967 = load ptr, ptr %4, align 8
   %.not1184 = icmp eq ptr %967, null
@@ -3136,7 +3136,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1185, label %989, label %1478
 
 989:                                              ; preds = %984, %968
-  %990 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2760), align 8
+  %990 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2760), align 8
   %991 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %990, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %992 = load ptr, ptr %4, align 8
   %.not1186 = icmp eq ptr %992, null
@@ -3185,7 +3185,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1187, label %1014, label %1478
 
 1014:                                             ; preds = %1009, %993
-  %1015 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2408), align 8
+  %1015 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2408), align 8
   %1016 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1015, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1017 = load ptr, ptr %4, align 8
   %.not1188 = icmp eq ptr %1017, null
@@ -3234,7 +3234,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1189, label %1039, label %1478
 
 1039:                                             ; preds = %1034, %1018
-  %1040 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2416), align 8
+  %1040 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2416), align 8
   %1041 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1040, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1042 = load ptr, ptr %4, align 8
   %.not1190 = icmp eq ptr %1042, null
@@ -3283,7 +3283,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1191, label %1064, label %1478
 
 1064:                                             ; preds = %1059, %1043
-  %1065 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %1065 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %1066 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1065, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1067 = load ptr, ptr %4, align 8
   %.not1192 = icmp eq ptr %1067, null
@@ -3332,7 +3332,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1193, label %1089, label %1478
 
 1089:                                             ; preds = %1084, %1068
-  %1090 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 48), align 8
+  %1090 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 48), align 8
   %1091 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1090, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1092 = load ptr, ptr %4, align 8
   %.not1194 = icmp eq ptr %1092, null
@@ -3381,7 +3381,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1195, label %1114, label %1478
 
 1114:                                             ; preds = %1109, %1093
-  %1115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
+  %1115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
   %1116 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1115, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1117 = load ptr, ptr %4, align 8
   %.not1196 = icmp eq ptr %1117, null
@@ -3430,7 +3430,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1197, label %1139, label %1478
 
 1139:                                             ; preds = %1134, %1118
-  %1140 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8936), align 8
+  %1140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8936), align 8
   %1141 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1140, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1142 = load ptr, ptr %4, align 8
   %.not1198 = icmp eq ptr %1142, null
@@ -3479,7 +3479,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1199, label %1164, label %1478
 
 1164:                                             ; preds = %1159, %1143
-  %1165 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1056), align 8
+  %1165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1056), align 8
   %1166 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1165, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1167 = load ptr, ptr %4, align 8
   %.not1200 = icmp eq ptr %1167, null
@@ -3528,7 +3528,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1201, label %1189, label %1478
 
 1189:                                             ; preds = %1184, %1168
-  %1190 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1112), align 8
+  %1190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1112), align 8
   %1191 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1190, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1192 = load ptr, ptr %4, align 8
   %.not1202 = icmp eq ptr %1192, null
@@ -3577,7 +3577,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1203, label %1214, label %1478
 
 1214:                                             ; preds = %1209, %1193
-  %1215 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
+  %1215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   %1216 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1215, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1217 = load ptr, ptr %4, align 8
   %.not1204 = icmp eq ptr %1217, null
@@ -3626,7 +3626,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1205, label %1239, label %1478
 
 1239:                                             ; preds = %1234, %1218
-  %1240 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %1240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   %1241 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1240, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1242 = load ptr, ptr %4, align 8
   %.not1206 = icmp eq ptr %1242, null
@@ -3675,7 +3675,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1207, label %1264, label %1478
 
 1264:                                             ; preds = %1259, %1243
-  %1265 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1328), align 8
+  %1265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1328), align 8
   %1266 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1265, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1267 = load ptr, ptr %4, align 8
   %.not1208 = icmp eq ptr %1267, null
@@ -3724,7 +3724,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1209, label %1289, label %1478
 
 1289:                                             ; preds = %1284, %1268
-  %1290 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %1290 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   %1291 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1290, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1292 = load ptr, ptr %4, align 8
   %.not1210 = icmp eq ptr %1292, null
@@ -3773,7 +3773,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1211, label %1314, label %1478
 
 1314:                                             ; preds = %1309, %1293
-  %1315 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
+  %1315 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
   %1316 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1315, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1317 = load ptr, ptr %4, align 8
   %.not1212 = icmp eq ptr %1317, null
@@ -3822,7 +3822,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1213, label %1339, label %1478
 
 1339:                                             ; preds = %1334, %1318
-  %1340 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2752), align 8
+  %1340 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2752), align 8
   %1341 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1340, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1342 = load ptr, ptr %4, align 8
   %.not1214 = icmp eq ptr %1342, null
@@ -3871,7 +3871,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1215, label %1364, label %1478
 
 1364:                                             ; preds = %1359, %1343
-  %1365 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1368), align 8
+  %1365 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1368), align 8
   %1366 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1365, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1367 = load ptr, ptr %4, align 8
   %.not1216 = icmp eq ptr %1367, null
@@ -3920,7 +3920,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1217, label %1389, label %1478
 
 1389:                                             ; preds = %1384, %1368
-  %1390 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1216), align 8
+  %1390 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1216), align 8
   %1391 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1390, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1392 = load ptr, ptr %4, align 8
   %.not1218 = icmp eq ptr %1392, null
@@ -3969,7 +3969,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1219, label %1414, label %1478
 
 1414:                                             ; preds = %1409, %1393
-  %1415 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1408), align 8
+  %1415 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1408), align 8
   %1416 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1415, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1417 = load ptr, ptr %4, align 8
   %.not1220 = icmp eq ptr %1417, null
@@ -4050,7 +4050,7 @@ define hidden void @_ZN12HotSpotJVMCI15compute_offsetsEP10JavaThread(ptr noundef
   br i1 %.not1225, label %1451, label %1478
 
 1451:                                             ; preds = %1448
-  %1452 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 136), align 8
+  %1452 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 136), align 8
   %1453 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %1452, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #13
   %1454 = load ptr, ptr %4, align 8
   %.not1226 = icmp eq ptr %1454, null
@@ -10825,7 +10825,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %128 = load i64, ptr %127, align 8
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2720), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2720), align 8
   %130 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %129) #13
   %131 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not = icmp eq ptr %131, null
@@ -10912,7 +10912,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 172:                                              ; preds = %153, %171, %132
   %173 = phi ptr [ %158, %153 ], [ %157, %171 ], [ %.pre, %132 ]
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI12Architecture18_wordKind_field_idE, ptr noundef %173, ptr noundef %130, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i1 noundef zeroext false)
-  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2472), align 8
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2472), align 8
   %175 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %174) #13
   %176 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2044 = icmp eq ptr %176, null
@@ -10999,7 +10999,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 217:                                              ; preds = %198, %216, %177
   %218 = phi ptr [ %203, %198 ], [ %202, %216 ], [ %.pre2673, %177 ]
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI29HotSpotResolvedObjectTypeImpl22_klassPointer_field_idE, ptr noundef %218, ptr noundef %175, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i1 noundef zeroext false)
-  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2488), align 8
+  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2488), align 8
   %220 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %219) #13
   %221 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2050 = icmp eq ptr %221, null
@@ -11090,7 +11090,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType14_kind_field_idE, ptr noundef %264, ptr noundef %220, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i1 noundef zeroext false)
   %265 = load ptr, ptr @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType20_primitives_field_idE, ptr noundef %265, ptr noundef %220, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i1 noundef zeroext true)
-  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2496), align 8
+  %266 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2496), align 8
   %267 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %266) #13
   %268 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2056 = icmp eq ptr %268, null
@@ -11181,7 +11181,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl16_holder_field_idE, ptr noundef %311, ptr noundef %267, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i1 noundef zeroext false)
   %312 = load ptr, ptr @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI28HotSpotResolvedJavaFieldImpl16_offset_field_idE, ptr noundef %312, ptr noundef %267, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i1 noundef zeroext false)
-  %313 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2480), align 8
+  %313 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2480), align 8
   %314 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %313) #13
   %315 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2062 = icmp eq ptr %315, null
@@ -11355,7 +11355,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 401:                                              ; preds = %366, %386, %364
-  %402 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2464), align 8
+  %402 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2464), align 8
   %403 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %402) #13
   %404 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2074 = icmp eq ptr %404, null
@@ -11442,7 +11442,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 445:                                              ; preds = %426, %444, %405
   %446 = phi ptr [ %431, %426 ], [ %430, %444 ], [ %.pre2677, %405 ]
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI29HotSpotResolvedJavaMethodImpl22_methodHandle_field_idE, ptr noundef %446, ptr noundef %403, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.15, i1 noundef zeroext false)
-  %447 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2520), align 8
+  %447 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2520), align 8
   %448 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %447) #13
   %449 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2080 = icmp eq ptr %449, null
@@ -11529,7 +11529,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 490:                                              ; preds = %471, %489, %450
   %491 = phi ptr [ %476, %471 ], [ %475, %489 ], [ %.pre2678, %450 ]
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI17HotSpotMethodData27_methodDataPointer_field_idE, ptr noundef %491, ptr noundef %448, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.15, i1 noundef zeroext false)
-  %492 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2744), align 8
+  %492 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2744), align 8
   %493 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %492) #13
   %494 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2086 = icmp eq ptr %494, null
@@ -11622,7 +11622,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI13InstalledCode17_version_field_idE, ptr noundef %538, ptr noundef %493, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i1 noundef zeroext false)
   %539 = load ptr, ptr @_ZN8JNIJVMCI13InstalledCode6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI13InstalledCode14_name_field_idE, ptr noundef %539, ptr noundef %493, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i1 noundef zeroext false)
-  %540 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2448), align 8
+  %540 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2448), align 8
   %541 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %540) #13
   %542 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2092 = icmp eq ptr %542, null
@@ -11713,7 +11713,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI20HotSpotInstalledCode19_codeStart_field_idE, ptr noundef %585, ptr noundef %541, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.15, i1 noundef zeroext false)
   %586 = load ptr, ptr @_ZN8JNIJVMCI20HotSpotInstalledCode6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI20HotSpotInstalledCode18_codeSize_field_idE, ptr noundef %586, ptr noundef %541, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.27, i1 noundef zeroext false)
-  %587 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2456), align 8
+  %587 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2456), align 8
   %588 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %587) #13
   %589 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2098 = icmp eq ptr %589, null
@@ -11881,7 +11881,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 672:                                              ; preds = %637, %657, %635
-  %673 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2424), align 8
+  %673 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2424), align 8
   %674 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %673) #13
   %675 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2110 = icmp eq ptr %675, null
@@ -11970,7 +11970,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI19HotSpotCompiledCode20_targetCode_field_idE, ptr noundef %717, ptr noundef %674, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i1 noundef zeroext false)
   %718 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotCompiledCode6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI19HotSpotCompiledCode21_dataSection_field_idE, ptr noundef %718, ptr noundef %674, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.49, i1 noundef zeroext false)
-  %719 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2432), align 8
+  %719 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2432), align 8
   %720 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %719) #13
   %721 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2116 = icmp eq ptr %721, null
@@ -12059,7 +12059,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI22HotSpotCompiledNmethod36_installationFailureMessage_field_idE, ptr noundef %763, ptr noundef %720, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.39, i1 noundef zeroext false)
   %764 = load ptr, ptr @_ZN8JNIJVMCI22HotSpotCompiledNmethod6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI22HotSpotCompiledNmethod12_id_field_idE, ptr noundef %764, ptr noundef %720, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.27, i1 noundef zeroext false)
-  %765 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2584), align 8
+  %765 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2584), align 8
   %766 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %765) #13
   %767 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2122 = icmp eq ptr %767, null
@@ -12231,7 +12231,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 852:                                              ; preds = %817, %837, %815
-  %853 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2592), align 8
+  %853 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2592), align 8
   %854 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %853) #13
   %855 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2134 = icmp eq ptr %855, null
@@ -12399,7 +12399,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 938:                                              ; preds = %903, %923, %901
-  %939 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2600), align 8
+  %939 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2600), align 8
   %940 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %939) #13
   %941 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2146 = icmp eq ptr %941, null
@@ -12575,7 +12575,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 1028:                                             ; preds = %993, %1013, %991
-  %1029 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2576), align 8
+  %1029 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2576), align 8
   %1030 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1029) #13
   %1031 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2158 = icmp eq ptr %1031, null
@@ -12666,7 +12666,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI31HotSpotCompilationRequestResult15_retry_field_idE, ptr noundef %1074, ptr noundef %1030, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.44, i1 noundef zeroext false)
   %1075 = load ptr, ptr @_ZN8JNIJVMCI31HotSpotCompilationRequestResult6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI31HotSpotCompilationRequestResult26_inlinedBytecodes_field_idE, ptr noundef %1075, ptr noundef %1030, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.27, i1 noundef zeroext false)
-  %1076 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2728), align 8
+  %1076 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2728), align 8
   %1077 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1076) #13
   %1078 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2164 = icmp eq ptr %1078, null
@@ -12769,7 +12769,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI13BytecodeFrame29_AFTER_EXCEPTION_BCI_field_idE, ptr noundef %1127, ptr noundef %1077, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.27, i1 noundef zeroext true)
   %1128 = load ptr, ptr @_ZN8JNIJVMCI13BytecodeFrame6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI13BytecodeFrame32_INVALID_FRAMESTATE_BCI_field_idE, ptr noundef %1128, ptr noundef %1077, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.27, i1 noundef zeroext true)
-  %1129 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2736), align 8
+  %1129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2736), align 8
   %1130 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1129) #13
   %1131 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2170 = icmp eq ptr %1131, null
@@ -12860,7 +12860,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI16BytecodePosition16_method_field_idE, ptr noundef %1174, ptr noundef %1130, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.74, i1 noundef zeroext false)
   %1175 = load ptr, ptr @_ZN8JNIJVMCI16BytecodePosition6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI16BytecodePosition13_bci_field_idE, ptr noundef %1175, ptr noundef %1130, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.27, i1 noundef zeroext false)
-  %1176 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2616), align 8
+  %1176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2616), align 8
   %1177 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1176) #13
   %1178 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2176 = icmp eq ptr %1178, null
@@ -12955,9 +12955,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 1223:                                             ; preds = %1219
   %1224 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %1225 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
+  %1225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
   %1226 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1225) #13
-  %1227 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
+  %1227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
   %1228 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1227) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1224, ptr noundef nonnull @.str.112, ptr noundef %1177, ptr noundef %1226, ptr noundef %1228) #13
   br label %1281
@@ -12965,9 +12965,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1229:                                             ; preds = %1219
   %1230 = load ptr, ptr @_ZN8JNIJVMCI12JavaConstant20_forPrimitive_methodE, align 8
   %1231 = load ptr, ptr @_ZN8JNIJVMCI12JavaConstant6_classE, align 8
-  %1232 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
+  %1232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
   %1233 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1232) #13
-  %1234 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
+  %1234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
   %1235 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1234) #13
   %1236 = load ptr, ptr %0, align 8
   %1237 = getelementptr inbounds nuw i8, ptr %1236, i64 904
@@ -12986,9 +12986,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond49, label %1252, label %1245
 
 1245:                                             ; preds = %1240
-  %1246 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
+  %1246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
   %1247 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1246) #13
-  %1248 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
+  %1248 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
   %1249 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1248) #13
   %1250 = load ptr, ptr @_ZN8JNIJVMCI12JavaConstant20_forPrimitive_methodE, align 8
   %1251 = ptrtoint ptr %1250 to i64
@@ -13002,9 +13002,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1253:                                             ; preds = %1252
   %1254 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1254, align 1
-  %1255 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
+  %1255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
   %1256 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1255) #13
-  %1257 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
+  %1257 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
   %1258 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1257) #13
   %1259 = ptrtoint ptr %1230 to i64
   %1260 = load ptr, ptr @_ZN8JNIJVMCI12JavaConstant20_forPrimitive_methodE, align 8
@@ -13039,15 +13039,15 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 1275:                                             ; preds = %1270, %1272, %1267
   %1276 = load ptr, ptr @tty, align 8
-  %1277 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
+  %1277 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2960), align 8
   %1278 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1277) #13
-  %1279 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
+  %1279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2968), align 8
   %1280 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1279) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1276, ptr noundef nonnull @.str.122, ptr noundef %1177, ptr noundef %1278, ptr noundef %1280) #13
   br label %5080
 
 1281:                                             ; preds = %1229, %1262, %1223
-  %1282 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2608), align 8
+  %1282 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2608), align 8
   %1283 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1282) #13
   %1284 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2188 = icmp eq ptr %1284, null
@@ -13131,7 +13131,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %1325
 
 1325:                                             ; preds = %1306, %1324, %1285
-  %1326 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2624), align 8
+  %1326 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2624), align 8
   %1327 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1326) #13
   %1328 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2194 = icmp eq ptr %1328, null
@@ -13220,7 +13220,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI17PrimitiveConstant14_kind_field_idE, ptr noundef %1370, ptr noundef %1327, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i1 noundef zeroext false)
   %1371 = load ptr, ptr @_ZN8JNIJVMCI17PrimitiveConstant6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI17PrimitiveConstant19_primitive_field_idE, ptr noundef %1371, ptr noundef %1327, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.15, i1 noundef zeroext false)
-  %1372 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2512), align 8
+  %1372 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2512), align 8
   %1373 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1372) #13
   %1374 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2200 = icmp eq ptr %1374, null
@@ -13307,7 +13307,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1415:                                             ; preds = %1396, %1414, %1375
   %1416 = phi ptr [ %1401, %1396 ], [ %1400, %1414 ], [ %.pre2692, %1375 ]
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI25HotSpotObjectConstantImpl20_compressed_field_idE, ptr noundef %1416, ptr noundef %1373, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.44, i1 noundef zeroext false)
-  %1417 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2528), align 8
+  %1417 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2528), align 8
   %1418 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1417) #13
   %1419 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2206 = icmp eq ptr %1419, null
@@ -13471,7 +13471,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 1500:                                             ; preds = %1465, %1485, %1463
-  %1501 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2536), align 8
+  %1501 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2536), align 8
   %1502 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1501) #13
   %1503 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2218 = icmp eq ptr %1503, null
@@ -13635,7 +13635,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 1584:                                             ; preds = %1549, %1569, %1547
-  %1585 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2656), align 8
+  %1585 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2656), align 8
   %1586 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1585) #13
   %1587 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2230 = icmp eq ptr %1587, null
@@ -13722,7 +13722,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1628:                                             ; preds = %1609, %1627, %1588
   %1629 = phi ptr [ %1614, %1609 ], [ %1613, %1627 ], [ %.pre2695, %1588 ]
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI8JavaKind18_typeChar_field_idE, ptr noundef %1629, ptr noundef %1586, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i1 noundef zeroext false)
-  %1630 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2664), align 8
+  %1630 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2664), align 8
   %1631 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1630) #13
   %1632 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2236 = icmp eq ptr %1632, null
@@ -13809,7 +13809,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1673:                                             ; preds = %1654, %1672, %1633
   %1674 = phi ptr [ %1659, %1654 ], [ %1658, %1672 ], [ %.pre2696, %1633 ]
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI9ValueKind22_platformKind_field_idE, ptr noundef %1674, ptr noundef %1631, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.13, i1 noundef zeroext false)
-  %1675 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2544), align 8
+  %1675 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2544), align 8
   %1676 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1675) #13
   %1677 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2242 = icmp eq ptr %1677, null
@@ -13910,7 +13910,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI26HotSpotStackFrameReference16_locals_field_idE, ptr noundef %1725, ptr noundef %1676, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, i1 noundef zeroext false)
   %1726 = load ptr, ptr @_ZN8JNIJVMCI26HotSpotStackFrameReference6_classE, align 8
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI26HotSpotStackFrameReference24_localIsVirtual_field_idE, ptr noundef %1726, ptr noundef %1676, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, i1 noundef zeroext false)
-  %1727 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2552), align 8
+  %1727 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2552), align 8
   %1728 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1727) #13
   %1729 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2248 = icmp eq ptr %1729, null
@@ -13997,7 +13997,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1770:                                             ; preds = %1751, %1769, %1730
   %1771 = phi ptr [ %1756, %1751 ], [ %1755, %1769 ], [ %.pre2698, %1730 ]
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI19HotSpotConstantPool28_constantPoolHandle_field_idE, ptr noundef %1771, ptr noundef %1728, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.15, i1 noundef zeroext false)
-  %1772 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2560), align 8
+  %1772 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2560), align 8
   %1773 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1772) #13
   %1774 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2254 = icmp eq ptr %1774, null
@@ -14090,9 +14090,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 1818:                                             ; preds = %1815
   %1819 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %1820 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
+  %1820 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
   %1821 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1820) #13
-  %1822 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
+  %1822 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
   %1823 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1822) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1819, ptr noundef nonnull @.str.112, ptr noundef %1773, ptr noundef %1821, ptr noundef %1823) #13
   br label %1876
@@ -14100,9 +14100,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1824:                                             ; preds = %1815
   %1825 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime21_compileMethod_methodE, align 8
   %1826 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime6_classE, align 8
-  %1827 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
+  %1827 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
   %1828 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1827) #13
-  %1829 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
+  %1829 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
   %1830 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1829) #13
   %1831 = load ptr, ptr %0, align 8
   %1832 = getelementptr inbounds nuw i8, ptr %1831, i64 264
@@ -14121,9 +14121,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond75, label %1847, label %1840
 
 1840:                                             ; preds = %1835
-  %1841 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
+  %1841 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
   %1842 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1841) #13
-  %1843 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
+  %1843 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
   %1844 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1843) #13
   %1845 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime21_compileMethod_methodE, align 8
   %1846 = ptrtoint ptr %1845 to i64
@@ -14137,9 +14137,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1848:                                             ; preds = %1847
   %1849 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1849, align 1
-  %1850 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
+  %1850 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
   %1851 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1850) #13
-  %1852 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
+  %1852 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
   %1853 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1852) #13
   %1854 = ptrtoint ptr %1825 to i64
   %1855 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime21_compileMethod_methodE, align 8
@@ -14174,9 +14174,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 1870:                                             ; preds = %1865, %1867, %1862
   %1871 = load ptr, ptr @tty, align 8
-  %1872 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
+  %1872 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2792), align 8
   %1873 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1872) #13
-  %1874 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
+  %1874 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2800), align 8
   %1875 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1874) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1871, ptr noundef nonnull @.str.117, ptr noundef %1773, ptr noundef %1873, ptr noundef %1875) #13
   br label %5080
@@ -14188,9 +14188,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 1878:                                             ; preds = %1876
   %1879 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %1880 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
+  %1880 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
   %1881 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1880) #13
-  %1882 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1882 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1883 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1882) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1879, ptr noundef nonnull @.str.112, ptr noundef %1773, ptr noundef %1881, ptr noundef %1883) #13
   br label %1936
@@ -14198,9 +14198,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1884:                                             ; preds = %1876
   %1885 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime21_isGCSupported_methodE, align 8
   %1886 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime6_classE, align 8
-  %1887 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
+  %1887 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
   %1888 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1887) #13
-  %1889 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1889 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1890 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1889) #13
   %1891 = load ptr, ptr %0, align 8
   %1892 = getelementptr inbounds nuw i8, ptr %1891, i64 264
@@ -14219,9 +14219,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond77, label %1907, label %1900
 
 1900:                                             ; preds = %1895
-  %1901 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
+  %1901 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
   %1902 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1901) #13
-  %1903 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1903 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1904 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1903) #13
   %1905 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime21_isGCSupported_methodE, align 8
   %1906 = ptrtoint ptr %1905 to i64
@@ -14235,9 +14235,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1908:                                             ; preds = %1907
   %1909 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1909, align 1
-  %1910 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
+  %1910 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
   %1911 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1910) #13
-  %1912 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1912 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1913 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1912) #13
   %1914 = ptrtoint ptr %1885 to i64
   %1915 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime21_isGCSupported_methodE, align 8
@@ -14272,9 +14272,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 1930:                                             ; preds = %1925, %1927, %1922
   %1931 = load ptr, ptr @tty, align 8
-  %1932 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
+  %1932 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2808), align 8
   %1933 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1932) #13
-  %1934 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1934 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1935 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1934) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1931, ptr noundef nonnull @.str.117, ptr noundef %1773, ptr noundef %1933, ptr noundef %1935) #13
   br label %5080
@@ -14286,9 +14286,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 1938:                                             ; preds = %1936
   %1939 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %1940 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
+  %1940 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
   %1941 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1940) #13
-  %1942 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1942 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1943 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1942) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1939, ptr noundef nonnull @.str.112, ptr noundef %1773, ptr noundef %1941, ptr noundef %1943) #13
   br label %1996
@@ -14296,9 +14296,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1944:                                             ; preds = %1936
   %1945 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime28_isIntrinsicSupported_methodE, align 8
   %1946 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime6_classE, align 8
-  %1947 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
+  %1947 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
   %1948 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1947) #13
-  %1949 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1949 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1950 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1949) #13
   %1951 = load ptr, ptr %0, align 8
   %1952 = getelementptr inbounds nuw i8, ptr %1951, i64 264
@@ -14317,9 +14317,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond79, label %1967, label %1960
 
 1960:                                             ; preds = %1955
-  %1961 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
+  %1961 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
   %1962 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1961) #13
-  %1963 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1963 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1964 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1963) #13
   %1965 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime28_isIntrinsicSupported_methodE, align 8
   %1966 = ptrtoint ptr %1965 to i64
@@ -14333,9 +14333,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 1968:                                             ; preds = %1967
   %1969 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %1969, align 1
-  %1970 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
+  %1970 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
   %1971 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1970) #13
-  %1972 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1972 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1973 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1972) #13
   %1974 = ptrtoint ptr %1945 to i64
   %1975 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime28_isIntrinsicSupported_methodE, align 8
@@ -14370,9 +14370,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 1990:                                             ; preds = %1985, %1987, %1982
   %1991 = load ptr, ptr @tty, align 8
-  %1992 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
+  %1992 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2816), align 8
   %1993 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1992) #13
-  %1994 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %1994 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %1995 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1994) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1991, ptr noundef nonnull @.str.117, ptr noundef %1773, ptr noundef %1993, ptr noundef %1995) #13
   br label %5080
@@ -14384,9 +14384,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 1998:                                             ; preds = %1996
   %1999 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2000 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
+  %2000 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
   %2001 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2000) #13
-  %2002 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2002 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2003 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2002) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1999, ptr noundef nonnull @.str.112, ptr noundef %1773, ptr noundef %2001, ptr noundef %2003) #13
   br label %2056
@@ -14394,9 +14394,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2004:                                             ; preds = %1996
   %2005 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime25_bootstrapFinished_methodE, align 8
   %2006 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime6_classE, align 8
-  %2007 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
+  %2007 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
   %2008 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2007) #13
-  %2009 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2009 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2010 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2009) #13
   %2011 = load ptr, ptr %0, align 8
   %2012 = getelementptr inbounds nuw i8, ptr %2011, i64 264
@@ -14415,9 +14415,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond81, label %2027, label %2020
 
 2020:                                             ; preds = %2015
-  %2021 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
+  %2021 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
   %2022 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2021) #13
-  %2023 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2023 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2024 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2023) #13
   %2025 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime25_bootstrapFinished_methodE, align 8
   %2026 = ptrtoint ptr %2025 to i64
@@ -14431,9 +14431,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2028:                                             ; preds = %2027
   %2029 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2029, align 1
-  %2030 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
+  %2030 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
   %2031 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2030) #13
-  %2032 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2032 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2033 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2032) #13
   %2034 = ptrtoint ptr %2005 to i64
   %2035 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime25_bootstrapFinished_methodE, align 8
@@ -14468,9 +14468,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2050:                                             ; preds = %2045, %2047, %2042
   %2051 = load ptr, ptr @tty, align 8
-  %2052 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
+  %2052 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2952), align 8
   %2053 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2052) #13
-  %2054 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2054 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2055 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2054) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2051, ptr noundef nonnull @.str.117, ptr noundef %1773, ptr noundef %2053, ptr noundef %2055) #13
   br label %5080
@@ -14482,9 +14482,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2058:                                             ; preds = %2056
   %2059 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2060 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
+  %2060 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
   %2061 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2060) #13
-  %2062 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2062 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2063 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2062) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2059, ptr noundef nonnull @.str.112, ptr noundef %1773, ptr noundef %2061, ptr noundef %2063) #13
   br label %2116
@@ -14492,9 +14492,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2064:                                             ; preds = %2056
   %2065 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime16_shutdown_methodE, align 8
   %2066 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime6_classE, align 8
-  %2067 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
+  %2067 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
   %2068 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2067) #13
-  %2069 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2069 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2070 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2069) #13
   %2071 = load ptr, ptr %0, align 8
   %2072 = getelementptr inbounds nuw i8, ptr %2071, i64 264
@@ -14513,9 +14513,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond83, label %2087, label %2080
 
 2080:                                             ; preds = %2075
-  %2081 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
+  %2081 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
   %2082 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2081) #13
-  %2083 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2083 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2084 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2083) #13
   %2085 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime16_shutdown_methodE, align 8
   %2086 = ptrtoint ptr %2085 to i64
@@ -14529,9 +14529,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2088:                                             ; preds = %2087
   %2089 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2089, align 1
-  %2090 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
+  %2090 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
   %2091 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2090) #13
-  %2092 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2092 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2093 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2092) #13
   %2094 = ptrtoint ptr %2065 to i64
   %2095 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime16_shutdown_methodE, align 8
@@ -14566,9 +14566,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2110:                                             ; preds = %2105, %2107, %2102
   %2111 = load ptr, ptr @tty, align 8
-  %2112 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
+  %2112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3192), align 8
   %2113 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2112) #13
-  %2114 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %2114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %2115 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2114) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2111, ptr noundef nonnull @.str.117, ptr noundef %1773, ptr noundef %2113, ptr noundef %2115) #13
   br label %5080
@@ -14580,9 +14580,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2118:                                             ; preds = %2116
   %2119 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2120 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
+  %2120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
   %2121 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2120) #13
-  %2122 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
+  %2122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
   %2123 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2122) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2119, ptr noundef nonnull @.str.112, ptr noundef %1773, ptr noundef %2121, ptr noundef %2123) #13
   br label %2176
@@ -14590,9 +14590,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2124:                                             ; preds = %2116
   %2125 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime15_runtime_methodE, align 8
   %2126 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime6_classE, align 8
-  %2127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
+  %2127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
   %2128 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2127) #13
-  %2129 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
+  %2129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
   %2130 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2129) #13
   %2131 = load ptr, ptr %0, align 8
   %2132 = getelementptr inbounds nuw i8, ptr %2131, i64 904
@@ -14611,9 +14611,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond85, label %2147, label %2140
 
 2140:                                             ; preds = %2135
-  %2141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
+  %2141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
   %2142 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2141) #13
-  %2143 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
+  %2143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
   %2144 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2143) #13
   %2145 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime15_runtime_methodE, align 8
   %2146 = ptrtoint ptr %2145 to i64
@@ -14627,9 +14627,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2148:                                             ; preds = %2147
   %2149 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2149, align 1
-  %2150 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
+  %2150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
   %2151 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2150) #13
-  %2152 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
+  %2152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
   %2153 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2152) #13
   %2154 = ptrtoint ptr %2125 to i64
   %2155 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime15_runtime_methodE, align 8
@@ -14664,9 +14664,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2170:                                             ; preds = %2165, %2167, %2162
   %2171 = load ptr, ptr @tty, align 8
-  %2172 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
+  %2172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2888), align 8
   %2173 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2172) #13
-  %2174 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
+  %2174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2896), align 8
   %2175 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2174) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2171, ptr noundef nonnull @.str.122, ptr noundef %1773, ptr noundef %2173, ptr noundef %2175) #13
   br label %5080
@@ -14678,9 +14678,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2178:                                             ; preds = %2176
   %2179 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2180 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
+  %2180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
   %2181 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2180) #13
-  %2182 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
+  %2182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
   %2183 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2182) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2179, ptr noundef nonnull @.str.112, ptr noundef %1773, ptr noundef %2181, ptr noundef %2183) #13
   br label %2236
@@ -14688,9 +14688,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2184:                                             ; preds = %2176
   %2185 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime19_getCompiler_methodE, align 8
   %2186 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime6_classE, align 8
-  %2187 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
+  %2187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
   %2188 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2187) #13
-  %2189 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
+  %2189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
   %2190 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2189) #13
   %2191 = load ptr, ptr %0, align 8
   %2192 = getelementptr inbounds nuw i8, ptr %2191, i64 264
@@ -14709,9 +14709,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond87, label %2207, label %2200
 
 2200:                                             ; preds = %2195
-  %2201 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
+  %2201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
   %2202 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2201) #13
-  %2203 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
+  %2203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
   %2204 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2203) #13
   %2205 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime19_getCompiler_methodE, align 8
   %2206 = ptrtoint ptr %2205 to i64
@@ -14725,9 +14725,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2208:                                             ; preds = %2207
   %2209 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2209, align 1
-  %2210 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
+  %2210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
   %2211 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2210) #13
-  %2212 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
+  %2212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
   %2213 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2212) #13
   %2214 = ptrtoint ptr %2185 to i64
   %2215 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime19_getCompiler_methodE, align 8
@@ -14762,9 +14762,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2230:                                             ; preds = %2225, %2227, %2222
   %2231 = load ptr, ptr @tty, align 8
-  %2232 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
+  %2232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2904), align 8
   %2233 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2232) #13
-  %2234 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
+  %2234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2912), align 8
   %2235 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2234) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2231, ptr noundef nonnull @.str.117, ptr noundef %1773, ptr noundef %2233, ptr noundef %2235) #13
   br label %5080
@@ -14776,9 +14776,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2238:                                             ; preds = %2236
   %2239 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2240 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
+  %2240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
   %2241 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2240) #13
-  %2242 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
+  %2242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
   %2243 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2242) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2239, ptr noundef nonnull @.str.112, ptr noundef %1773, ptr noundef %2241, ptr noundef %2243) #13
   br label %2296
@@ -14786,9 +14786,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2244:                                             ; preds = %2236
   %2245 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime25_exceptionToString_methodE, align 8
   %2246 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime6_classE, align 8
-  %2247 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
+  %2247 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
   %2248 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2247) #13
-  %2249 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
+  %2249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
   %2250 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2249) #13
   %2251 = load ptr, ptr %0, align 8
   %2252 = getelementptr inbounds nuw i8, ptr %2251, i64 904
@@ -14807,9 +14807,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond89, label %2267, label %2260
 
 2260:                                             ; preds = %2255
-  %2261 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
+  %2261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
   %2262 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2261) #13
-  %2263 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
+  %2263 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
   %2264 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2263) #13
   %2265 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime25_exceptionToString_methodE, align 8
   %2266 = ptrtoint ptr %2265 to i64
@@ -14823,9 +14823,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2268:                                             ; preds = %2267
   %2269 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2269, align 1
-  %2270 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
+  %2270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
   %2271 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2270) #13
-  %2272 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
+  %2272 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
   %2273 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2272) #13
   %2274 = ptrtoint ptr %2245 to i64
   %2275 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime25_exceptionToString_methodE, align 8
@@ -14860,9 +14860,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2290:                                             ; preds = %2285, %2287, %2282
   %2291 = load ptr, ptr @tty, align 8
-  %2292 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
+  %2292 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2920), align 8
   %2293 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2292) #13
-  %2294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
+  %2294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2928), align 8
   %2295 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2294) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2291, ptr noundef nonnull @.str.122, ptr noundef %1773, ptr noundef %2293, ptr noundef %2295) #13
   br label %5080
@@ -14874,9 +14874,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2298:                                             ; preds = %2296
   %2299 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2300 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
+  %2300 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
   %2301 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2300) #13
-  %2302 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
+  %2302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
   %2303 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2302) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2299, ptr noundef nonnull @.str.112, ptr noundef %1773, ptr noundef %2301, ptr noundef %2303) #13
   br label %2356
@@ -14884,9 +14884,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2304:                                             ; preds = %2296
   %2305 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime23_postTranslation_methodE, align 8
   %2306 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime6_classE, align 8
-  %2307 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
+  %2307 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
   %2308 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2307) #13
-  %2309 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
+  %2309 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
   %2310 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2309) #13
   %2311 = load ptr, ptr %0, align 8
   %2312 = getelementptr inbounds nuw i8, ptr %2311, i64 904
@@ -14905,9 +14905,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond91, label %2327, label %2320
 
 2320:                                             ; preds = %2315
-  %2321 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
+  %2321 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
   %2322 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2321) #13
-  %2323 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
+  %2323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
   %2324 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2323) #13
   %2325 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime23_postTranslation_methodE, align 8
   %2326 = ptrtoint ptr %2325 to i64
@@ -14921,9 +14921,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2328:                                             ; preds = %2327
   %2329 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2329, align 1
-  %2330 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
+  %2330 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
   %2331 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2330) #13
-  %2332 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
+  %2332 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
   %2333 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2332) #13
   %2334 = ptrtoint ptr %2305 to i64
   %2335 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotJVMCIRuntime23_postTranslation_methodE, align 8
@@ -14958,15 +14958,15 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2350:                                             ; preds = %2345, %2347, %2342
   %2351 = load ptr, ptr @tty, align 8
-  %2352 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
+  %2352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2936), align 8
   %2353 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2352) #13
-  %2354 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
+  %2354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
   %2355 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2354) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2351, ptr noundef nonnull @.str.122, ptr noundef %1773, ptr noundef %2353, ptr noundef %2355) #13
   br label %5080
 
 2356:                                             ; preds = %2304, %2337, %2298
-  %2357 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2768), align 8
+  %2357 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2768), align 8
   %2358 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2357) #13
   %2359 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2314 = icmp eq ptr %2359, null
@@ -15127,7 +15127,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 2439:                                             ; preds = %2404, %2424, %2402
-  %2440 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2760), align 8
+  %2440 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2760), align 8
   %2441 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2440) #13
   %2442 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2326 = icmp eq ptr %2442, null
@@ -15211,7 +15211,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %2483
 
 2483:                                             ; preds = %2464, %2482, %2443
-  %2484 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2408), align 8
+  %2484 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2408), align 8
   %2485 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2484) #13
   %2486 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2332 = icmp eq ptr %2486, null
@@ -15295,7 +15295,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %2527
 
 2527:                                             ; preds = %2508, %2526, %2487
-  %2528 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2416), align 8
+  %2528 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2416), align 8
   %2529 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2528) #13
   %2530 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2338 = icmp eq ptr %2530, null
@@ -15385,9 +15385,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2573:                                             ; preds = %2571
   %2574 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2575 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
+  %2575 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
   %2576 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2575) #13
-  %2577 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2577 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2578 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2577) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2574, ptr noundef nonnull @.str.112, ptr noundef %2529, ptr noundef %2576, ptr noundef %2578) #13
   br label %2631
@@ -15395,9 +15395,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2579:                                             ; preds = %2571
   %2580 = load ptr, ptr @_ZN8JNIJVMCI5JVMCI18_getRuntime_methodE, align 8
   %2581 = load ptr, ptr @_ZN8JNIJVMCI5JVMCI6_classE, align 8
-  %2582 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
+  %2582 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
   %2583 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2582) #13
-  %2584 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2584 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2585 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2584) #13
   %2586 = load ptr, ptr %0, align 8
   %2587 = getelementptr inbounds nuw i8, ptr %2586, i64 904
@@ -15416,9 +15416,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond103, label %2602, label %2595
 
 2595:                                             ; preds = %2590
-  %2596 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
+  %2596 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
   %2597 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2596) #13
-  %2598 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2598 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2599 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2598) #13
   %2600 = load ptr, ptr @_ZN8JNIJVMCI5JVMCI18_getRuntime_methodE, align 8
   %2601 = ptrtoint ptr %2600 to i64
@@ -15432,9 +15432,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2603:                                             ; preds = %2602
   %2604 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2604, align 1
-  %2605 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
+  %2605 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
   %2606 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2605) #13
-  %2607 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2607 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2608 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2607) #13
   %2609 = ptrtoint ptr %2580 to i64
   %2610 = load ptr, ptr @_ZN8JNIJVMCI5JVMCI18_getRuntime_methodE, align 8
@@ -15469,9 +15469,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2625:                                             ; preds = %2620, %2622, %2617
   %2626 = load ptr, ptr @tty, align 8
-  %2627 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
+  %2627 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2864), align 8
   %2628 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2627) #13
-  %2629 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2629 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2630 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2629) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2626, ptr noundef nonnull @.str.122, ptr noundef %2529, ptr noundef %2628, ptr noundef %2630) #13
   br label %5080
@@ -15483,9 +15483,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2633:                                             ; preds = %2631
   %2634 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2635 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
+  %2635 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
   %2636 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2635) #13
-  %2637 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2637 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2638 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2637) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2634, ptr noundef nonnull @.str.112, ptr noundef %2529, ptr noundef %2636, ptr noundef %2638) #13
   br label %2691
@@ -15493,9 +15493,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2639:                                             ; preds = %2631
   %2640 = load ptr, ptr @_ZN8JNIJVMCI5JVMCI25_initializeRuntime_methodE, align 8
   %2641 = load ptr, ptr @_ZN8JNIJVMCI5JVMCI6_classE, align 8
-  %2642 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
+  %2642 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
   %2643 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2642) #13
-  %2644 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2644 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2645 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2644) #13
   %2646 = load ptr, ptr %0, align 8
   %2647 = getelementptr inbounds nuw i8, ptr %2646, i64 904
@@ -15514,9 +15514,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond105, label %2662, label %2655
 
 2655:                                             ; preds = %2650
-  %2656 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
+  %2656 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
   %2657 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2656) #13
-  %2658 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2658 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2659 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2658) #13
   %2660 = load ptr, ptr @_ZN8JNIJVMCI5JVMCI25_initializeRuntime_methodE, align 8
   %2661 = ptrtoint ptr %2660 to i64
@@ -15530,9 +15530,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2663:                                             ; preds = %2662
   %2664 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2664, align 1
-  %2665 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
+  %2665 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
   %2666 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2665) #13
-  %2667 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2667 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2668 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2667) #13
   %2669 = ptrtoint ptr %2640 to i64
   %2670 = load ptr, ptr @_ZN8JNIJVMCI5JVMCI25_initializeRuntime_methodE, align 8
@@ -15567,15 +15567,15 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2685:                                             ; preds = %2680, %2682, %2677
   %2686 = load ptr, ptr @tty, align 8
-  %2687 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
+  %2687 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2880), align 8
   %2688 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2687) #13
-  %2689 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
+  %2689 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2872), align 8
   %2690 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2689) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2686, ptr noundef nonnull @.str.122, ptr noundef %2529, ptr noundef %2688, ptr noundef %2690) #13
   br label %5080
 
 2691:                                             ; preds = %2639, %2672, %2633
-  %2692 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %2692 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %2693 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2692) #13
   %2694 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2356 = icmp eq ptr %2694, null
@@ -15659,7 +15659,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %2735
 
 2735:                                             ; preds = %2716, %2734, %2695
-  %2736 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 48), align 8
+  %2736 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 48), align 8
   %2737 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2736) #13
   %2738 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2362 = icmp eq ptr %2738, null
@@ -15743,7 +15743,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %2779
 
 2779:                                             ; preds = %2760, %2778, %2739
-  %2780 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
+  %2780 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
   %2781 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2780) #13
   %2782 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2368 = icmp eq ptr %2782, null
@@ -15833,9 +15833,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2825:                                             ; preds = %2823
   %2826 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2827 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
+  %2827 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
   %2828 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2827) #13
-  %2829 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
+  %2829 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
   %2830 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2829) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2826, ptr noundef nonnull @.str.112, ptr noundef %2781, ptr noundef %2828, ptr noundef %2830) #13
   br label %2883
@@ -15843,9 +15843,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2831:                                             ; preds = %2823
   %2832 = load ptr, ptr @_ZN8JNIJVMCI5Class15_getName_methodE, align 8
   %2833 = load ptr, ptr @_ZN8JNIJVMCI5Class6_classE, align 8
-  %2834 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
+  %2834 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
   %2835 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2834) #13
-  %2836 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
+  %2836 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
   %2837 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2836) #13
   %2838 = load ptr, ptr %0, align 8
   %2839 = getelementptr inbounds nuw i8, ptr %2838, i64 264
@@ -15864,9 +15864,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond113, label %2854, label %2847
 
 2847:                                             ; preds = %2842
-  %2848 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
+  %2848 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
   %2849 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2848) #13
-  %2850 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
+  %2850 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
   %2851 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2850) #13
   %2852 = load ptr, ptr @_ZN8JNIJVMCI5Class15_getName_methodE, align 8
   %2853 = ptrtoint ptr %2852 to i64
@@ -15880,9 +15880,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2855:                                             ; preds = %2854
   %2856 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2856, align 1
-  %2857 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
+  %2857 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
   %2858 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2857) #13
-  %2859 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
+  %2859 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
   %2860 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2859) #13
   %2861 = ptrtoint ptr %2832 to i64
   %2862 = load ptr, ptr @_ZN8JNIJVMCI5Class15_getName_methodE, align 8
@@ -15917,15 +15917,15 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2877:                                             ; preds = %2872, %2874, %2869
   %2878 = load ptr, ptr @tty, align 8
-  %2879 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
+  %2879 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2944), align 8
   %2880 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2879) #13
-  %2881 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
+  %2881 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
   %2882 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2881) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2878, ptr noundef nonnull @.str.117, ptr noundef %2781, ptr noundef %2880, ptr noundef %2882) #13
   br label %5080
 
 2883:                                             ; preds = %2831, %2864, %2825
-  %2884 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8936), align 8
+  %2884 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8936), align 8
   %2885 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2884) #13
   %2886 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2380 = icmp eq ptr %2886, null
@@ -16015,9 +16015,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2929:                                             ; preds = %2927
   %2930 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2931 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
+  %2931 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
   %2932 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2931) #13
-  %2933 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
+  %2933 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
   %2934 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2933) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2930, ptr noundef nonnull @.str.112, ptr noundef %2885, ptr noundef %2932, ptr noundef %2934) #13
   br label %2987
@@ -16025,9 +16025,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2935:                                             ; preds = %2927
   %2936 = load ptr, ptr @_ZN8JNIJVMCI9VMSupport23_encodeThrowable_methodE, align 8
   %2937 = load ptr, ptr @_ZN8JNIJVMCI9VMSupport6_classE, align 8
-  %2938 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
+  %2938 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
   %2939 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2938) #13
-  %2940 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
+  %2940 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
   %2941 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2940) #13
   %2942 = load ptr, ptr %0, align 8
   %2943 = getelementptr inbounds nuw i8, ptr %2942, i64 904
@@ -16046,9 +16046,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond117, label %2958, label %2951
 
 2951:                                             ; preds = %2946
-  %2952 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
+  %2952 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
   %2953 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2952) #13
-  %2954 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
+  %2954 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
   %2955 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2954) #13
   %2956 = load ptr, ptr @_ZN8JNIJVMCI9VMSupport23_encodeThrowable_methodE, align 8
   %2957 = ptrtoint ptr %2956 to i64
@@ -16062,9 +16062,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2959:                                             ; preds = %2958
   %2960 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2960, align 1
-  %2961 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
+  %2961 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
   %2962 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2961) #13
-  %2963 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
+  %2963 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
   %2964 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2963) #13
   %2965 = ptrtoint ptr %2936 to i64
   %2966 = load ptr, ptr @_ZN8JNIJVMCI9VMSupport23_encodeThrowable_methodE, align 8
@@ -16099,9 +16099,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2981:                                             ; preds = %2976, %2978, %2973
   %2982 = load ptr, ptr @tty, align 8
-  %2983 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
+  %2983 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9072), align 8
   %2984 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2983) #13
-  %2985 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
+  %2985 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9080), align 8
   %2986 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2985) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2982, ptr noundef nonnull @.str.122, ptr noundef %2885, ptr noundef %2984, ptr noundef %2986) #13
   br label %5080
@@ -16113,9 +16113,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 2989:                                             ; preds = %2987
   %2990 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %2991 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
+  %2991 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
   %2992 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2991) #13
-  %2993 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
+  %2993 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
   %2994 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2993) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2990, ptr noundef nonnull @.str.112, ptr noundef %2885, ptr noundef %2992, ptr noundef %2994) #13
   br label %3047
@@ -16123,9 +16123,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 2995:                                             ; preds = %2987
   %2996 = load ptr, ptr @_ZN8JNIJVMCI9VMSupport31_decodeAndThrowThrowable_methodE, align 8
   %2997 = load ptr, ptr @_ZN8JNIJVMCI9VMSupport6_classE, align 8
-  %2998 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
+  %2998 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
   %2999 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2998) #13
-  %3000 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
+  %3000 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
   %3001 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3000) #13
   %3002 = load ptr, ptr %0, align 8
   %3003 = getelementptr inbounds nuw i8, ptr %3002, i64 904
@@ -16144,9 +16144,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond119, label %3018, label %3011
 
 3011:                                             ; preds = %3006
-  %3012 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
+  %3012 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
   %3013 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3012) #13
-  %3014 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
+  %3014 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
   %3015 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3014) #13
   %3016 = load ptr, ptr @_ZN8JNIJVMCI9VMSupport31_decodeAndThrowThrowable_methodE, align 8
   %3017 = ptrtoint ptr %3016 to i64
@@ -16160,9 +16160,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 3019:                                             ; preds = %3018
   %3020 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3020, align 1
-  %3021 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
+  %3021 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
   %3022 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3021) #13
-  %3023 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
+  %3023 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
   %3024 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3023) #13
   %3025 = ptrtoint ptr %2996 to i64
   %3026 = load ptr, ptr @_ZN8JNIJVMCI9VMSupport31_decodeAndThrowThrowable_methodE, align 8
@@ -16197,15 +16197,15 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 3041:                                             ; preds = %3036, %3038, %3033
   %3042 = load ptr, ptr @tty, align 8
-  %3043 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
+  %3043 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9088), align 8
   %3044 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3043) #13
-  %3045 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
+  %3045 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9112), align 8
   %3046 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3045) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3042, ptr noundef nonnull @.str.122, ptr noundef %2885, ptr noundef %3044, ptr noundef %3046) #13
   br label %5080
 
 3047:                                             ; preds = %2995, %3028, %2989
-  %3048 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1056), align 8
+  %3048 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1056), align 8
   %3049 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3048) #13
   %3050 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2398 = icmp eq ptr %3050, null
@@ -16366,7 +16366,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3130:                                             ; preds = %3095, %3115, %3093
-  %3131 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1112), align 8
+  %3131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1112), align 8
   %3132 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3131) #13
   %3133 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2410 = icmp eq ptr %3133, null
@@ -16527,7 +16527,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3213:                                             ; preds = %3178, %3198, %3176
-  %3214 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
+  %3214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1200), align 8
   %3215 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3214) #13
   %3216 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2422 = icmp eq ptr %3216, null
@@ -16688,7 +16688,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3296:                                             ; preds = %3261, %3281, %3259
-  %3297 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %3297 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   %3298 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3297) #13
   %3299 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2434 = icmp eq ptr %3299, null
@@ -16849,7 +16849,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3379:                                             ; preds = %3344, %3364, %3342
-  %3380 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1328), align 8
+  %3380 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1328), align 8
   %3381 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3380) #13
   %3382 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2446 = icmp eq ptr %3382, null
@@ -17010,7 +17010,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3462:                                             ; preds = %3427, %3447, %3425
-  %3463 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %3463 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   %3464 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3463) #13
   %3465 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2458 = icmp eq ptr %3465, null
@@ -17171,7 +17171,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3545:                                             ; preds = %3510, %3530, %3508
-  %3546 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
+  %3546 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
   %3547 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3546) #13
   %3548 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2470 = icmp eq ptr %3548, null
@@ -17332,7 +17332,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3628:                                             ; preds = %3593, %3613, %3591
-  %3629 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2752), align 8
+  %3629 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2752), align 8
   %3630 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3629) #13
   %3631 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2482 = icmp eq ptr %3631, null
@@ -17493,7 +17493,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3711:                                             ; preds = %3676, %3696, %3674
-  %3712 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1368), align 8
+  %3712 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1368), align 8
   %3713 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3712) #13
   %3714 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2494 = icmp eq ptr %3714, null
@@ -17654,7 +17654,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3794:                                             ; preds = %3759, %3779, %3757
-  %3795 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1216), align 8
+  %3795 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1216), align 8
   %3796 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3795) #13
   %3797 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2506 = icmp eq ptr %3797, null
@@ -17815,7 +17815,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3877:                                             ; preds = %3842, %3862, %3840
-  %3878 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1408), align 8
+  %3878 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1408), align 8
   %3879 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3878) #13
   %3880 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2518 = icmp eq ptr %3880, null
@@ -17985,7 +17985,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 3964:                                             ; preds = %3929, %3949, %3927
-  %3965 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 136), align 8
+  %3965 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 136), align 8
   %3966 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %3965) #13
   %3967 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2530 = icmp eq ptr %3967, null
@@ -18072,7 +18072,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4008:                                             ; preds = %3989, %4007, %3968
   %4009 = phi ptr [ %3994, %3989 ], [ %3993, %4007 ], [ %.pre2701, %3968 ]
   tail call void @_ZN8JNIJVMCI19initialize_field_idEP7JNIEnv_RP9_jfieldIDP7_jclassPKcS8_S8_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) @_ZN8JNIJVMCI9Throwable23_detailMessage_field_idE, ptr noundef %4009, ptr noundef %3966, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.39, i1 noundef zeroext false)
-  %4010 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
+  %4010 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
   %4011 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4010) #13
   %4012 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2536 = icmp eq ptr %4012, null
@@ -18151,7 +18151,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 4050:                                             ; preds = %4015, %4035, %4013
-  %4051 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2488), align 8
+  %4051 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2488), align 8
   %4052 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4051) #13
   %4053 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2542 = icmp eq ptr %4053, null
@@ -18159,9 +18159,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 4054:                                             ; preds = %4050
   %4055 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %4056 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4056 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4057 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4056) #13
-  %4058 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
+  %4058 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
   %4059 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4058) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4055, ptr noundef nonnull @.str.112, ptr noundef %4052, ptr noundef %4057, ptr noundef %4059) #13
   br label %4112
@@ -18169,9 +18169,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4060:                                             ; preds = %4050
   %4061 = load ptr, ptr @_ZN8JNIJVMCI50_HotSpotResolvedPrimitiveType_fromMetaspace_methodE, align 8
   %4062 = load ptr, ptr @_ZN8JNIJVMCI28HotSpotResolvedPrimitiveType6_classE, align 8
-  %4063 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4063 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4064 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4063) #13
-  %4065 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
+  %4065 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
   %4066 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4065) #13
   %4067 = load ptr, ptr %0, align 8
   %4068 = getelementptr inbounds nuw i8, ptr %4067, i64 904
@@ -18190,9 +18190,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond169, label %4083, label %4076
 
 4076:                                             ; preds = %4071
-  %4077 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4077 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4078 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4077) #13
-  %4079 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
+  %4079 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
   %4080 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4079) #13
   %4081 = load ptr, ptr @_ZN8JNIJVMCI50_HotSpotResolvedPrimitiveType_fromMetaspace_methodE, align 8
   %4082 = ptrtoint ptr %4081 to i64
@@ -18206,9 +18206,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4084:                                             ; preds = %4083
   %4085 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4085, align 1
-  %4086 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4086 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4087 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4086) #13
-  %4088 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
+  %4088 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
   %4089 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4088) #13
   %4090 = ptrtoint ptr %4061 to i64
   %4091 = load ptr, ptr @_ZN8JNIJVMCI50_HotSpotResolvedPrimitiveType_fromMetaspace_methodE, align 8
@@ -18243,15 +18243,15 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 4106:                                             ; preds = %4101, %4103, %4098
   %4107 = load ptr, ptr @tty, align 8
-  %4108 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4109 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4108) #13
-  %4110 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
+  %4110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
   %4111 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4110) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4107, ptr noundef nonnull @.str.122, ptr noundef %4052, ptr noundef %4109, ptr noundef %4111) #13
   br label %5080
 
 4112:                                             ; preds = %4060, %4093, %4054
-  %4113 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2472), align 8
+  %4113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2472), align 8
   %4114 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4113) #13
   %4115 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2548 = icmp eq ptr %4115, null
@@ -18259,9 +18259,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 4116:                                             ; preds = %4112
   %4117 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %4118 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4119 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4118) #13
-  %4120 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
+  %4120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
   %4121 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4120) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4117, ptr noundef nonnull @.str.112, ptr noundef %4114, ptr noundef %4119, ptr noundef %4121) #13
   br label %4174
@@ -18269,9 +18269,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4122:                                             ; preds = %4112
   %4123 = load ptr, ptr @_ZN8JNIJVMCI51_HotSpotResolvedObjectTypeImpl_fromMetaspace_methodE, align 8
   %4124 = load ptr, ptr @_ZN8JNIJVMCI29HotSpotResolvedObjectTypeImpl6_classE, align 8
-  %4125 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4126 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4125) #13
-  %4127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
+  %4127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
   %4128 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4127) #13
   %4129 = load ptr, ptr %0, align 8
   %4130 = getelementptr inbounds nuw i8, ptr %4129, i64 904
@@ -18290,9 +18290,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond171, label %4145, label %4138
 
 4138:                                             ; preds = %4133
-  %4139 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4140 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4139) #13
-  %4141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
+  %4141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
   %4142 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4141) #13
   %4143 = load ptr, ptr @_ZN8JNIJVMCI51_HotSpotResolvedObjectTypeImpl_fromMetaspace_methodE, align 8
   %4144 = ptrtoint ptr %4143 to i64
@@ -18306,9 +18306,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4146:                                             ; preds = %4145
   %4147 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4147, align 1
-  %4148 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4149 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4148) #13
-  %4150 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
+  %4150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
   %4151 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4150) #13
   %4152 = ptrtoint ptr %4123 to i64
   %4153 = load ptr, ptr @_ZN8JNIJVMCI51_HotSpotResolvedObjectTypeImpl_fromMetaspace_methodE, align 8
@@ -18343,15 +18343,15 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 4168:                                             ; preds = %4163, %4165, %4160
   %4169 = load ptr, ptr @tty, align 8
-  %4170 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4171 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4170) #13
-  %4172 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
+  %4172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2848), align 8
   %4173 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4172) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4169, ptr noundef nonnull @.str.122, ptr noundef %4114, ptr noundef %4171, ptr noundef %4173) #13
   br label %5080
 
 4174:                                             ; preds = %4122, %4155, %4116
-  %4175 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2552), align 8
+  %4175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2552), align 8
   %4176 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4175) #13
   %4177 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2554 = icmp eq ptr %4177, null
@@ -18359,9 +18359,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 4178:                                             ; preds = %4174
   %4179 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %4180 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4181 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4180) #13
-  %4182 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
+  %4182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
   %4183 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4182) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4179, ptr noundef nonnull @.str.112, ptr noundef %4176, ptr noundef %4181, ptr noundef %4183) #13
   br label %4236
@@ -18369,9 +18369,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4184:                                             ; preds = %4174
   %4185 = load ptr, ptr @_ZN8JNIJVMCI41_HotSpotConstantPool_fromMetaspace_methodE, align 8
   %4186 = load ptr, ptr @_ZN8JNIJVMCI19HotSpotConstantPool6_classE, align 8
-  %4187 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4188 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4187) #13
-  %4189 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
+  %4189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
   %4190 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4189) #13
   %4191 = load ptr, ptr %0, align 8
   %4192 = getelementptr inbounds nuw i8, ptr %4191, i64 904
@@ -18390,9 +18390,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond173, label %4207, label %4200
 
 4200:                                             ; preds = %4195
-  %4201 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4202 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4201) #13
-  %4203 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
+  %4203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
   %4204 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4203) #13
   %4205 = load ptr, ptr @_ZN8JNIJVMCI41_HotSpotConstantPool_fromMetaspace_methodE, align 8
   %4206 = ptrtoint ptr %4205 to i64
@@ -18406,9 +18406,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4208:                                             ; preds = %4207
   %4209 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4209, align 1
-  %4210 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4211 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4210) #13
-  %4212 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
+  %4212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
   %4213 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4212) #13
   %4214 = ptrtoint ptr %4185 to i64
   %4215 = load ptr, ptr @_ZN8JNIJVMCI41_HotSpotConstantPool_fromMetaspace_methodE, align 8
@@ -18443,15 +18443,15 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 4230:                                             ; preds = %4225, %4227, %4222
   %4231 = load ptr, ptr @tty, align 8
-  %4232 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4233 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4232) #13
-  %4234 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
+  %4234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2840), align 8
   %4235 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4234) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4231, ptr noundef nonnull @.str.122, ptr noundef %4176, ptr noundef %4233, ptr noundef %4235) #13
   br label %5080
 
 4236:                                             ; preds = %4184, %4217, %4178
-  %4237 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2464), align 8
+  %4237 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2464), align 8
   %4238 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4237) #13
   %4239 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   %.not2560 = icmp eq ptr %4239, null
@@ -18459,9 +18459,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 4240:                                             ; preds = %4236
   %4241 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %4242 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4243 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4242) #13
-  %4244 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
+  %4244 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
   %4245 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4244) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4241, ptr noundef nonnull @.str.112, ptr noundef %4238, ptr noundef %4243, ptr noundef %4245) #13
   br label %4298
@@ -18469,9 +18469,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4246:                                             ; preds = %4236
   %4247 = load ptr, ptr @_ZN8JNIJVMCI51_HotSpotResolvedJavaMethodImpl_fromMetaspace_methodE, align 8
   %4248 = load ptr, ptr @_ZN8JNIJVMCI29HotSpotResolvedJavaMethodImpl6_classE, align 8
-  %4249 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4250 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4249) #13
-  %4251 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
+  %4251 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
   %4252 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4251) #13
   %4253 = load ptr, ptr %0, align 8
   %4254 = getelementptr inbounds nuw i8, ptr %4253, i64 904
@@ -18490,9 +18490,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %or.cond175, label %4269, label %4262
 
 4262:                                             ; preds = %4257
-  %4263 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4263 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4264 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4263) #13
-  %4265 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
+  %4265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
   %4266 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4265) #13
   %4267 = load ptr, ptr @_ZN8JNIJVMCI51_HotSpotResolvedJavaMethodImpl_fromMetaspace_methodE, align 8
   %4268 = ptrtoint ptr %4267 to i64
@@ -18506,9 +18506,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 4270:                                             ; preds = %4269
   %4271 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4271, align 1
-  %4272 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4272 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4273 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4272) #13
-  %4274 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
+  %4274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
   %4275 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4274) #13
   %4276 = ptrtoint ptr %4247 to i64
   %4277 = load ptr, ptr @_ZN8JNIJVMCI51_HotSpotResolvedJavaMethodImpl_fromMetaspace_methodE, align 8
@@ -18543,9 +18543,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 
 4292:                                             ; preds = %4287, %4289, %4284
   %4293 = load ptr, ptr @tty, align 8
-  %4294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %4294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
   %4295 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4294) #13
-  %4296 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
+  %4296 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2832), align 8
   %4297 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %4296) #13
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4293, ptr noundef nonnull @.str.122, ptr noundef %4238, ptr noundef %4295, ptr noundef %4297) #13
   br label %5080
@@ -18560,7 +18560,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4303 = getelementptr inbounds nuw i8, ptr %4302, i64 48
   %4304 = load ptr, ptr %4303, align 8
   %4305 = tail call noundef ptr %4304(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.129) #13
-  store ptr %4305, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 32), align 16
+  store ptr %4305, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 32), align 16
   %4306 = load ptr, ptr %0, align 8
   %4307 = getelementptr inbounds nuw i8, ptr %4306, i64 1824
   %4308 = load ptr, ptr %4307, align 8
@@ -18591,17 +18591,17 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 4320:                                             ; preds = %4301
-  %4321 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 32), align 16
+  %4321 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 32), align 16
   %4322 = load ptr, ptr %0, align 8
   %4323 = getelementptr inbounds nuw i8, ptr %4322, i64 168
   %4324 = load ptr, ptr %4323, align 8
   %4325 = tail call noundef ptr %4324(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4321) #13
-  store ptr %4325, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 32), align 16
+  store ptr %4325, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 32), align 16
   %4326 = load ptr, ptr %0, align 8
   %4327 = getelementptr inbounds nuw i8, ptr %4326, i64 752
   %4328 = load ptr, ptr %4327, align 8
   %4329 = tail call noundef ptr %4328(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4325, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.44) #13
-  store ptr %4329, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 32), align 16
+  store ptr %4329, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 32), align 16
   %4330 = load ptr, ptr %0, align 8
   %4331 = getelementptr inbounds nuw i8, ptr %4330, i64 1824
   %4332 = load ptr, ptr %4331, align 8
@@ -18642,13 +18642,13 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %4385
 
 4348:                                             ; preds = %4344
-  %4349 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 32), align 16
-  %4350 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 32), align 16
+  %4349 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 32), align 16
+  %4350 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 32), align 16
   %4351 = load ptr, ptr %0, align 8
   %4352 = getelementptr inbounds nuw i8, ptr %4351, i64 264
   %4353 = load ptr, ptr %4352, align 8
   %4354 = tail call noundef ptr %4353(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4350, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.132) #13
-  store ptr %4354, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 32), align 16
+  store ptr %4354, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 32), align 16
   %.not2569 = icmp eq ptr %4349, %4354
   br i1 %.not2569, label %4385, label %4355
 
@@ -18673,7 +18673,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4364 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4364, align 1
   %4365 = ptrtoint ptr %4349 to i64
-  %4366 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 32), align 16
+  %4366 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 32), align 16
   %4367 = ptrtoint ptr %4366 to i64
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.132, i64 noundef %4365, i64 noundef %4367) #15
   unreachable
@@ -18724,7 +18724,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4390 = getelementptr inbounds nuw i8, ptr %4389, i64 48
   %4391 = load ptr, ptr %4390, align 8
   %4392 = tail call noundef ptr %4391(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.135) #13
-  store ptr %4392, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 64), align 16
+  store ptr %4392, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 64), align 16
   %4393 = load ptr, ptr %0, align 8
   %4394 = getelementptr inbounds nuw i8, ptr %4393, i64 1824
   %4395 = load ptr, ptr %4394, align 8
@@ -18755,17 +18755,17 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 4407:                                             ; preds = %4388
-  %4408 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 64), align 16
+  %4408 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 64), align 16
   %4409 = load ptr, ptr %0, align 8
   %4410 = getelementptr inbounds nuw i8, ptr %4409, i64 168
   %4411 = load ptr, ptr %4410, align 8
   %4412 = tail call noundef ptr %4411(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4408) #13
-  store ptr %4412, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 64), align 16
+  store ptr %4412, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 64), align 16
   %4413 = load ptr, ptr %0, align 8
   %4414 = getelementptr inbounds nuw i8, ptr %4413, i64 752
   %4415 = load ptr, ptr %4414, align 8
   %4416 = tail call noundef ptr %4415(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4412, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.137) #13
-  store ptr %4416, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 64), align 16
+  store ptr %4416, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 64), align 16
   %4417 = load ptr, ptr %0, align 8
   %4418 = getelementptr inbounds nuw i8, ptr %4417, i64 1824
   %4419 = load ptr, ptr %4418, align 8
@@ -18806,13 +18806,13 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %4472
 
 4435:                                             ; preds = %4431
-  %4436 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 64), align 16
-  %4437 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 64), align 16
+  %4436 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 64), align 16
+  %4437 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 64), align 16
   %4438 = load ptr, ptr %0, align 8
   %4439 = getelementptr inbounds nuw i8, ptr %4438, i64 264
   %4440 = load ptr, ptr %4439, align 8
   %4441 = tail call noundef ptr %4440(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4437, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.138) #13
-  store ptr %4441, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 64), align 16
+  store ptr %4441, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 64), align 16
   %.not2577 = icmp eq ptr %4436, %4441
   br i1 %.not2577, label %4472, label %4442
 
@@ -18837,7 +18837,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4451 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4451, align 1
   %4452 = ptrtoint ptr %4436 to i64
-  %4453 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 64), align 16
+  %4453 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 64), align 16
   %4454 = ptrtoint ptr %4453 to i64
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.138, i64 noundef %4452, i64 noundef %4454) #15
   unreachable
@@ -18888,7 +18888,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4477 = getelementptr inbounds nuw i8, ptr %4476, i64 48
   %4478 = load ptr, ptr %4477, align 8
   %4479 = tail call noundef ptr %4478(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.139) #13
-  store ptr %4479, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 40), align 8
+  store ptr %4479, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 40), align 8
   %4480 = load ptr, ptr %0, align 8
   %4481 = getelementptr inbounds nuw i8, ptr %4480, i64 1824
   %4482 = load ptr, ptr %4481, align 8
@@ -18919,17 +18919,17 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 4494:                                             ; preds = %4475
-  %4495 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 40), align 8
+  %4495 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 40), align 8
   %4496 = load ptr, ptr %0, align 8
   %4497 = getelementptr inbounds nuw i8, ptr %4496, i64 168
   %4498 = load ptr, ptr %4497, align 8
   %4499 = tail call noundef ptr %4498(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4495) #13
-  store ptr %4499, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 40), align 8
+  store ptr %4499, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 40), align 8
   %4500 = load ptr, ptr %0, align 8
   %4501 = getelementptr inbounds nuw i8, ptr %4500, i64 752
   %4502 = load ptr, ptr %4501, align 8
   %4503 = tail call noundef ptr %4502(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4499, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.85) #13
-  store ptr %4503, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 40), align 8
+  store ptr %4503, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 40), align 8
   %4504 = load ptr, ptr %0, align 8
   %4505 = getelementptr inbounds nuw i8, ptr %4504, i64 1824
   %4506 = load ptr, ptr %4505, align 8
@@ -18970,13 +18970,13 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %4559
 
 4522:                                             ; preds = %4518
-  %4523 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 40), align 8
-  %4524 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 40), align 8
+  %4523 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 40), align 8
+  %4524 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 40), align 8
   %4525 = load ptr, ptr %0, align 8
   %4526 = getelementptr inbounds nuw i8, ptr %4525, i64 264
   %4527 = load ptr, ptr %4526, align 8
   %4528 = tail call noundef ptr %4527(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4524, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.141) #13
-  store ptr %4528, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 40), align 8
+  store ptr %4528, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 40), align 8
   %.not2585 = icmp eq ptr %4523, %4528
   br i1 %.not2585, label %4559, label %4529
 
@@ -19001,7 +19001,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4538 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4538, align 1
   %4539 = ptrtoint ptr %4523 to i64
-  %4540 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 40), align 8
+  %4540 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 40), align 8
   %4541 = ptrtoint ptr %4540 to i64
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.141, i64 noundef %4539, i64 noundef %4541) #15
   unreachable
@@ -19052,7 +19052,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4564 = getelementptr inbounds nuw i8, ptr %4563, i64 48
   %4565 = load ptr, ptr %4564, align 8
   %4566 = tail call noundef ptr %4565(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.142) #13
-  store ptr %4566, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 72), align 8
+  store ptr %4566, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 72), align 8
   %4567 = load ptr, ptr %0, align 8
   %4568 = getelementptr inbounds nuw i8, ptr %4567, i64 1824
   %4569 = load ptr, ptr %4568, align 8
@@ -19083,17 +19083,17 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 4581:                                             ; preds = %4562
-  %4582 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 72), align 8
+  %4582 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 72), align 8
   %4583 = load ptr, ptr %0, align 8
   %4584 = getelementptr inbounds nuw i8, ptr %4583, i64 168
   %4585 = load ptr, ptr %4584, align 8
   %4586 = tail call noundef ptr %4585(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4582) #13
-  store ptr %4586, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 72), align 8
+  store ptr %4586, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 72), align 8
   %4587 = load ptr, ptr %0, align 8
   %4588 = getelementptr inbounds nuw i8, ptr %4587, i64 752
   %4589 = load ptr, ptr %4588, align 8
   %4590 = tail call noundef ptr %4589(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4586, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.144) #13
-  store ptr %4590, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 72), align 8
+  store ptr %4590, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 72), align 8
   %4591 = load ptr, ptr %0, align 8
   %4592 = getelementptr inbounds nuw i8, ptr %4591, i64 1824
   %4593 = load ptr, ptr %4592, align 8
@@ -19134,13 +19134,13 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %4646
 
 4609:                                             ; preds = %4605
-  %4610 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 72), align 8
-  %4611 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 72), align 8
+  %4610 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 72), align 8
+  %4611 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 72), align 8
   %4612 = load ptr, ptr %0, align 8
   %4613 = getelementptr inbounds nuw i8, ptr %4612, i64 264
   %4614 = load ptr, ptr %4613, align 8
   %4615 = tail call noundef ptr %4614(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4611, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.145) #13
-  store ptr %4615, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 72), align 8
+  store ptr %4615, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 72), align 8
   %.not2593 = icmp eq ptr %4610, %4615
   br i1 %.not2593, label %4646, label %4616
 
@@ -19165,7 +19165,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4625 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4625, align 1
   %4626 = ptrtoint ptr %4610 to i64
-  %4627 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 72), align 8
+  %4627 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 72), align 8
   %4628 = ptrtoint ptr %4627 to i64
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.145, i64 noundef %4626, i64 noundef %4628) #15
   unreachable
@@ -19216,7 +19216,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4651 = getelementptr inbounds nuw i8, ptr %4650, i64 48
   %4652 = load ptr, ptr %4651, align 8
   %4653 = tail call noundef ptr %4652(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.146) #13
-  store ptr %4653, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 80), align 16
+  store ptr %4653, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 80), align 16
   %4654 = load ptr, ptr %0, align 8
   %4655 = getelementptr inbounds nuw i8, ptr %4654, i64 1824
   %4656 = load ptr, ptr %4655, align 8
@@ -19247,17 +19247,17 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 4668:                                             ; preds = %4649
-  %4669 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 80), align 16
+  %4669 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 80), align 16
   %4670 = load ptr, ptr %0, align 8
   %4671 = getelementptr inbounds nuw i8, ptr %4670, i64 168
   %4672 = load ptr, ptr %4671, align 8
   %4673 = tail call noundef ptr %4672(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4669) #13
-  store ptr %4673, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 80), align 16
+  store ptr %4673, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 80), align 16
   %4674 = load ptr, ptr %0, align 8
   %4675 = getelementptr inbounds nuw i8, ptr %4674, i64 752
   %4676 = load ptr, ptr %4675, align 8
   %4677 = tail call noundef ptr %4676(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4673, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.27) #13
-  store ptr %4677, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 80), align 16
+  store ptr %4677, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 80), align 16
   %4678 = load ptr, ptr %0, align 8
   %4679 = getelementptr inbounds nuw i8, ptr %4678, i64 1824
   %4680 = load ptr, ptr %4679, align 8
@@ -19298,13 +19298,13 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %4733
 
 4696:                                             ; preds = %4692
-  %4697 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 80), align 16
-  %4698 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 80), align 16
+  %4697 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 80), align 16
+  %4698 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 80), align 16
   %4699 = load ptr, ptr %0, align 8
   %4700 = getelementptr inbounds nuw i8, ptr %4699, i64 264
   %4701 = load ptr, ptr %4700, align 8
   %4702 = tail call noundef ptr %4701(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4698, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.148) #13
-  store ptr %4702, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 80), align 16
+  store ptr %4702, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 80), align 16
   %.not2601 = icmp eq ptr %4697, %4702
   br i1 %.not2601, label %4733, label %4703
 
@@ -19329,7 +19329,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4712 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4712, align 1
   %4713 = ptrtoint ptr %4697 to i64
-  %4714 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 80), align 16
+  %4714 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 80), align 16
   %4715 = ptrtoint ptr %4714 to i64
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.148, i64 noundef %4713, i64 noundef %4715) #15
   unreachable
@@ -19380,7 +19380,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4738 = getelementptr inbounds nuw i8, ptr %4737, i64 48
   %4739 = load ptr, ptr %4738, align 8
   %4740 = tail call noundef ptr %4739(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.149) #13
-  store ptr %4740, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 88), align 8
+  store ptr %4740, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 88), align 8
   %4741 = load ptr, ptr %0, align 8
   %4742 = getelementptr inbounds nuw i8, ptr %4741, i64 1824
   %4743 = load ptr, ptr %4742, align 8
@@ -19411,17 +19411,17 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 4755:                                             ; preds = %4736
-  %4756 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 88), align 8
+  %4756 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 88), align 8
   %4757 = load ptr, ptr %0, align 8
   %4758 = getelementptr inbounds nuw i8, ptr %4757, i64 168
   %4759 = load ptr, ptr %4758, align 8
   %4760 = tail call noundef ptr %4759(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4756) #13
-  store ptr %4760, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 88), align 8
+  store ptr %4760, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 88), align 8
   %4761 = load ptr, ptr %0, align 8
   %4762 = getelementptr inbounds nuw i8, ptr %4761, i64 752
   %4763 = load ptr, ptr %4762, align 8
   %4764 = tail call noundef ptr %4763(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4760, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.15) #13
-  store ptr %4764, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 88), align 8
+  store ptr %4764, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 88), align 8
   %4765 = load ptr, ptr %0, align 8
   %4766 = getelementptr inbounds nuw i8, ptr %4765, i64 1824
   %4767 = load ptr, ptr %4766, align 8
@@ -19462,13 +19462,13 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %4820
 
 4783:                                             ; preds = %4779
-  %4784 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 88), align 8
-  %4785 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 88), align 8
+  %4784 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 88), align 8
+  %4785 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 88), align 8
   %4786 = load ptr, ptr %0, align 8
   %4787 = getelementptr inbounds nuw i8, ptr %4786, i64 264
   %4788 = load ptr, ptr %4787, align 8
   %4789 = tail call noundef ptr %4788(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4785, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.151) #13
-  store ptr %4789, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 88), align 8
+  store ptr %4789, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 88), align 8
   %.not2609 = icmp eq ptr %4784, %4789
   br i1 %.not2609, label %4820, label %4790
 
@@ -19493,7 +19493,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4799 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4799, align 1
   %4800 = ptrtoint ptr %4784 to i64
-  %4801 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 88), align 8
+  %4801 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 88), align 8
   %4802 = ptrtoint ptr %4801 to i64
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.151, i64 noundef %4800, i64 noundef %4802) #15
   unreachable
@@ -19544,7 +19544,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4825 = getelementptr inbounds nuw i8, ptr %4824, i64 48
   %4826 = load ptr, ptr %4825, align 8
   %4827 = tail call noundef ptr %4826(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.152) #13
-  store ptr %4827, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 48), align 16
+  store ptr %4827, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 48), align 16
   %4828 = load ptr, ptr %0, align 8
   %4829 = getelementptr inbounds nuw i8, ptr %4828, i64 1824
   %4830 = load ptr, ptr %4829, align 8
@@ -19575,17 +19575,17 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 4842:                                             ; preds = %4823
-  %4843 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 48), align 16
+  %4843 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 48), align 16
   %4844 = load ptr, ptr %0, align 8
   %4845 = getelementptr inbounds nuw i8, ptr %4844, i64 168
   %4846 = load ptr, ptr %4845, align 8
   %4847 = tail call noundef ptr %4846(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4843) #13
-  store ptr %4847, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 48), align 16
+  store ptr %4847, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 48), align 16
   %4848 = load ptr, ptr %0, align 8
   %4849 = getelementptr inbounds nuw i8, ptr %4848, i64 752
   %4850 = load ptr, ptr %4849, align 8
   %4851 = tail call noundef ptr %4850(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4847, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.154) #13
-  store ptr %4851, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 48), align 16
+  store ptr %4851, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 48), align 16
   %4852 = load ptr, ptr %0, align 8
   %4853 = getelementptr inbounds nuw i8, ptr %4852, i64 1824
   %4854 = load ptr, ptr %4853, align 8
@@ -19626,13 +19626,13 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %4907
 
 4870:                                             ; preds = %4866
-  %4871 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 48), align 16
-  %4872 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 48), align 16
+  %4871 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 48), align 16
+  %4872 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 48), align 16
   %4873 = load ptr, ptr %0, align 8
   %4874 = getelementptr inbounds nuw i8, ptr %4873, i64 264
   %4875 = load ptr, ptr %4874, align 8
   %4876 = tail call noundef ptr %4875(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4872, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.155) #13
-  store ptr %4876, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 48), align 16
+  store ptr %4876, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 48), align 16
   %.not2617 = icmp eq ptr %4871, %4876
   br i1 %.not2617, label %4907, label %4877
 
@@ -19657,7 +19657,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4886 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4886, align 1
   %4887 = ptrtoint ptr %4871 to i64
-  %4888 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 48), align 16
+  %4888 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 48), align 16
   %4889 = ptrtoint ptr %4888 to i64
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.155, i64 noundef %4887, i64 noundef %4889) #15
   unreachable
@@ -19708,7 +19708,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4912 = getelementptr inbounds nuw i8, ptr %4911, i64 48
   %4913 = load ptr, ptr %4912, align 8
   %4914 = tail call noundef ptr %4913(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.156) #13
-  store ptr %4914, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 56), align 8
+  store ptr %4914, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 56), align 8
   %4915 = load ptr, ptr %0, align 8
   %4916 = getelementptr inbounds nuw i8, ptr %4915, i64 1824
   %4917 = load ptr, ptr %4916, align 8
@@ -19739,17 +19739,17 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %5080
 
 4929:                                             ; preds = %4910
-  %4930 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 56), align 8
+  %4930 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 56), align 8
   %4931 = load ptr, ptr %0, align 8
   %4932 = getelementptr inbounds nuw i8, ptr %4931, i64 168
   %4933 = load ptr, ptr %4932, align 8
   %4934 = tail call noundef ptr %4933(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4930) #13
-  store ptr %4934, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 56), align 8
+  store ptr %4934, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 56), align 8
   %4935 = load ptr, ptr %0, align 8
   %4936 = getelementptr inbounds nuw i8, ptr %4935, i64 752
   %4937 = load ptr, ptr %4936, align 8
   %4938 = tail call noundef ptr %4937(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4934, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.158) #13
-  store ptr %4938, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 56), align 8
+  store ptr %4938, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI11_box_fieldsE, i64 56), align 8
   %4939 = load ptr, ptr %0, align 8
   %4940 = getelementptr inbounds nuw i8, ptr %4939, i64 1824
   %4941 = load ptr, ptr %4940, align 8
@@ -19790,13 +19790,13 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br label %4994
 
 4957:                                             ; preds = %4953
-  %4958 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 56), align 8
-  %4959 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 56), align 8
+  %4958 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 56), align 8
+  %4959 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI12_box_classesE, i64 56), align 8
   %4960 = load ptr, ptr %0, align 8
   %4961 = getelementptr inbounds nuw i8, ptr %4960, i64 264
   %4962 = load ptr, ptr %4961, align 8
   %4963 = tail call noundef ptr %4962(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4959, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.159) #13
-  store ptr %4963, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 56), align 8
+  store ptr %4963, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 56), align 8
   %.not2625 = icmp eq ptr %4958, %4963
   br i1 %.not2625, label %4994, label %4964
 
@@ -19821,7 +19821,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   %4973 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4973, align 1
   %4974 = ptrtoint ptr %4958 to i64
-  %4975 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 56), align 8
+  %4975 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8JNIJVMCI17_box_constructorsE, i64 56), align 8
   %4976 = ptrtoint ptr %4975 to i64
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.159, i64 noundef %4974, i64 noundef %4976) #15
   unreachable
@@ -19924,9 +19924,9 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
 5026:                                             ; preds = %5024
   %5027 = load ptr, ptr %117, align 8
   %5028 = load ptr, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %5029 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2440), align 8
+  %5029 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2440), align 8
   %5030 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %5029) #13
-  %5031 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2440), align 8
+  %5031 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2440), align 8
   %5032 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %5031, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %5027) #13
   %5033 = getelementptr inbounds nuw i8, ptr %5027, i64 8
   %5034 = load ptr, ptr %5033, align 8
@@ -19994,7 +19994,7 @@ define hidden void @_ZN8JNIJVMCI14initialize_idsEP7JNIEnv_(ptr noundef %0) local
   br i1 %5074, label %5043, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %5071, %5037
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ThrowableInitDumper, i64 16), ptr %116, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19ThrowableInitDumper, i64 16), ptr %116, align 8
   %5075 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %5028, ptr %5075, align 8
   call void @_ZN9vmSymbols10symbols_doEP13SymbolClosure(ptr noundef nonnull %116) #13
@@ -38784,7 +38784,7 @@ define linkonce_odr hidden void @_ZN19ThrowableInitDumper9do_symbolEPP6Symbol(pt
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 56), align 8
   %21 = tail call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %9, ptr noundef %20) #13
   br i1 %21, label %22, label %.loopexit
 
@@ -38805,7 +38805,7 @@ define linkonce_odr hidden void @_ZN19ThrowableInitDumper9do_symbolEPP6Symbol(pt
 .lr.ph:                                           ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %.pre36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   br label %33
 
 33:                                               ; preds = %.lr.ph, %82
@@ -38841,12 +38841,12 @@ define linkonce_odr hidden void @_ZN19ThrowableInitDumper9do_symbolEPP6Symbol(pt
   %55 = zext i16 %54 to i64
   %56 = getelementptr inbounds nuw i64, ptr %44, i64 %55
   %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %59 = icmp eq ptr %57, %58
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %52
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
   %62 = icmp eq ptr %57, %61
   br i1 %62, label %63, label %82
 
@@ -38885,7 +38885,7 @@ define linkonce_odr hidden void @_ZN19ThrowableInitDumper9do_symbolEPP6Symbol(pt
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %80) #13
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %70, ptr noundef nonnull @.str.112, ptr noundef %.1, ptr noundef %71, ptr noundef %81) #13
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %.pre45 = load i32, ptr %28, align 8
   br label %82
 
@@ -38966,7 +38966,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -38985,7 +38985,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -39004,7 +39004,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -39023,7 +39023,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -39042,7 +39042,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -39070,7 +39070,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -39279,7 +39279,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
   %10 = ptrtoint ptr %2 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %12, %14
   %16 = trunc i64 %15 to i32
@@ -39307,7 +39307,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
@@ -39340,7 +39340,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1B
   %19 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = zext i32 %13 to i64
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %23 = zext nneg i32 %22 to i64
   %24 = shl i64 %21, %23
   %25 = add i64 %24, %20
@@ -39354,7 +39354,7 @@ _ZN12G1BarrierSet19write_ref_field_preILm286822E9narrowOopEEvPT0_.exit.i.i: ; pr
   %29 = ptrtoint ptr %2 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %33 = zext nneg i32 %32 to i64
   %34 = lshr i64 %31, %33
   %35 = trunc i64 %34 to i32
@@ -39399,7 +39399,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
@@ -39515,7 +39515,7 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %2, %7, %13, %_Z
   %59 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %60 = ptrtoint ptr %59 to i64
   %61 = zext i32 %56 to i64
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %63 = zext nneg i32 %62 to i64
   %64 = shl i64 %61, %63
   %65 = add i64 %64, %60
@@ -39567,7 +39567,7 @@ _ZN20ShenandoahBarrierSet12satb_barrierILm286822E9narrowOopEEvPT0_.exit: ; preds
   %101 = ptrtoint ptr %1 to i64
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %105 = zext nneg i32 %104 to i64
   %106 = lshr i64 %103, %105
   %107 = trunc i64 %106 to i32

@@ -355,8 +355,8 @@ $_ZTIN2cv10CFormatterE = comdat any
 @__const._ZNK2cv10CFormatter6formatERKNS_3MatE.braces = private unnamed_addr constant [5 x i8] c"\00\00,\00\00", align 1
 @.str.22 = private unnamed_addr constant [2 x i8] c"{\00", align 1
 @.str.23 = private unnamed_addr constant [2 x i8] c"}\00", align 1
-@switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE = private unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv15MatlabFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12CSVFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv15PythonFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv14NumpyFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10CFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16)], align 8
-@switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE.3 = private unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv15MatlabFormatterE, i64 16), ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv12CSVFormatterE, i64 16), ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv15PythonFormatterE, i64 16), ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv14NumpyFormatterE, i64 16), ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv10CFormatterE, i64 16)], align 8
+@switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE = private unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv15MatlabFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12CSVFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv15PythonFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv14NumpyFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10CFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16)], align 8
+@switch.table._ZN2cv9Formatter3getENS0_10FormatTypeE.3 = private unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv15MatlabFormatterE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv12CSVFormatterE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv15PythonFormatterE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv14NumpyFormatterE, i64 16), ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv10CFormatterE, i64 16)], align 8
 
 @_ZN2cv9FormattedD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv9FormattedD2Ev
 @_ZN2cv9FormatterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv9FormatterD2Ev
@@ -407,8 +407,8 @@ switch.lookup:                                    ; preds = %2
   br label %_ZN2cv3PtrINS_15MatlabFormatterEED2Ev.exit
 
 _ZN2cv3PtrINS_15MatlabFormatterEED2Ev.exit:       ; preds = %2, %switch.lookup
-  %.sink57 = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16DefaultFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %2 ]
-  %.sink = phi ptr [ %switch.load59, %switch.lookup ], [ getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv16DefaultFormatterE, i64 16), %2 ]
+  %.sink57 = phi ptr [ %switch.load, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16DefaultFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), %2 ]
+  %.sink = phi ptr [ %switch.load59, %switch.lookup ], [ getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv16DefaultFormatterE, i64 16), %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -532,7 +532,7 @@ define linkonce_odr hidden void @_ZNK2cv16DefaultFormatter6formatERKNS_3MatE(ptr
   store i32 1, ptr %19, align 8, !noalias !5
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %20, align 4, !noalias !5
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !5
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   invoke void @_ZSt10_ConstructIN2cv13FormattedImplEJRA2_KcS4_RKNS0_3MatERKPcRKbSC_RKiEEvPT_DpOT0_(ptr noundef nonnull %21, ptr noundef nonnull align 1 dereferenceable(2) @.str, ptr noundef nonnull align 1 dereferenceable(2) @.str.1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %_ZN2cv3PtrINS_13FormattedImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !5
@@ -731,7 +731,7 @@ define linkonce_odr hidden void @_ZN2cv13FormattedImplC2ENSt7__cxx1112basic_stri
   %10 = alloca %"class.std::allocator.41", align 1
   %11 = zext i1 %5 to i8
   %12 = zext i1 %6 to i8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv13FormattedImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv13FormattedImplE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #18
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1607,7 +1607,7 @@ define linkonce_odr hidden void @_ZNK2cv15MatlabFormatter6formatERKNS_3MatE(ptr 
   store i32 1, ptr %19, align 8, !noalias !12
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %20, align 4, !noalias !12
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !12
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   invoke void @_ZSt10_ConstructIN2cv13FormattedImplEJRA1_KcS4_RKNS0_3MatERKPcRKbSC_RKiEEvPT_DpOT0_(ptr noundef nonnull %21, ptr noundef nonnull align 1 dereferenceable(1) @.str.10, ptr noundef nonnull align 1 dereferenceable(1) @.str.10, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %_ZN2cv3PtrINS_13FormattedImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !12
@@ -1815,7 +1815,7 @@ define linkonce_odr hidden void @_ZNK2cv12CSVFormatter6formatERKNS_3MatE(ptr dea
   store i32 1, ptr %27, align 8, !noalias !17
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 1, ptr %28, align 4, !noalias !17
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !noalias !17
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   invoke void @_ZSt10_ConstructIN2cv13FormattedImplEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKNS0_3MatERKPcRKbSH_RKiEEvPT_DpOT0_(ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %_ZN2cv3PtrINS_13FormattedImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !17
@@ -2030,7 +2030,7 @@ define linkonce_odr hidden void @_ZNK2cv15PythonFormatter6formatERKNS_3MatE(ptr 
   store i32 1, ptr %25, align 8, !noalias !22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %26, align 4, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !22
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   invoke void @_ZSt10_ConstructIN2cv13FormattedImplEJRA2_KcS4_RKNS0_3MatERKPcRKbSC_RKiEEvPT_DpOT0_(ptr noundef nonnull %27, ptr noundef nonnull align 1 dereferenceable(2) @.str, ptr noundef nonnull align 1 dereferenceable(2) @.str.1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %23)
           to label %_ZN2cv3PtrINS_13FormattedImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !22
@@ -2163,7 +2163,7 @@ define linkonce_odr hidden void @_ZNK2cv14NumpyFormatter6formatERKNS_3MatE(ptr d
   store i32 1, ptr %31, align 8, !noalias !27
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 1, ptr %32, align 4, !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27, align 8, !noalias !27
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
   invoke void @_ZSt10_ConstructIN2cv13FormattedImplEJRA8_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_3MatERKPcRKbSK_RKiEEvPT_DpOT0_(ptr noundef nonnull %33, ptr noundef nonnull align 1 dereferenceable(8) @.str.20, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %30)
           to label %_ZN2cv3PtrINS_13FormattedImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !27
@@ -2359,7 +2359,7 @@ define linkonce_odr hidden void @_ZNK2cv10CFormatter6formatERKNS_3MatE(ptr dead_
   store i32 1, ptr %19, align 8, !noalias !32
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %20, align 4, !noalias !32
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !32
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !32
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   invoke void @_ZSt10_ConstructIN2cv13FormattedImplEJRA2_KcS4_RKNS0_3MatERKPcRKbSC_RKiEEvPT_DpOT0_(ptr noundef nonnull %21, ptr noundef nonnull align 1 dereferenceable(2) @.str.22, ptr noundef nonnull align 1 dereferenceable(2) @.str.23, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %_ZN2cv3PtrINS_13FormattedImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv13FormattedImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit16.i.i.i.i.i, !noalias !32

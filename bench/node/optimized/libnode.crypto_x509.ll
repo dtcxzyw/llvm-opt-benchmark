@@ -323,7 +323,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4node6crypto11ManagedX509C2EOSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cert) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
   %cert_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %cert, align 8
   store i64 %0, ptr %cert_, align 8
@@ -334,7 +334,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6crypto11ManagedX509C2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %that) unnamed_addr #4 align 2 {
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit.i:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
   %cert_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %cert_, align 8
   %cert_.i.i = getelementptr inbounds nuw i8, ptr %that, i64 8
@@ -396,7 +396,7 @@ if.then.i:                                        ; preds = %entry
   %conv = sext i32 %call2 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -2138,7 +2138,7 @@ if.end8.sink.split.i.i.i.i40:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit49
 
 _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit49: ; preds = %if.end33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i37, %if.end8.sink.split.i.i.i.i40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %epkey, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %epkey, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %epkey, i64 24
   %54 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %54, null
@@ -3473,7 +3473,7 @@ do.end51:                                         ; preds = %do.body39
   %40 = inttoptr i64 %add1.i.i to ptr
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %arrayidx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %ref.tmp56, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %ref.tmp56, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp56, i64 24
   %42 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %42, null
@@ -3714,7 +3714,7 @@ do.end51:                                         ; preds = %do.body39
   %40 = inttoptr i64 %add1.i.i to ptr
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %arrayidx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %ref.tmp56, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %ref.tmp56, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp56, i64 24
   %42 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %42, null
@@ -3997,7 +3997,7 @@ define dso_local noundef ptr @_ZN4node6crypto15X509Certificate3NewEPNS_11Environ
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.292", align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %call, align 8
   %cert_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i64, ptr %cert, align 8
   store i64 %0, ptr %cert_.i, align 8
@@ -4007,7 +4007,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto11ManagedX509ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4node6crypto11ManagedX509ELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call, ptr %agg.tmp, align 8
@@ -4633,7 +4633,7 @@ entry:
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %0, ptr %object.coerce) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto15X509CertificateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto15X509CertificateE, i64 16), ptr %this, align 8
   %cert_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %cert, align 8
   store ptr %1, ptr %cert_, align 8
@@ -5086,7 +5086,7 @@ define dso_local void @_ZNK4node6crypto15X509Certificate17CloneForMessagingEv(pt
 entry:
   %cert_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto15X509Certificate27X509CertificateTransferDataE, i64 16), ptr %call.i, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto15X509Certificate27X509CertificateTransferDataE, i64 16), ptr %call.i, align 8, !noalias !14
   %data_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %cert_, align 8, !noalias !14
   store ptr %0, ptr %data_.i.i, align 8, !noalias !14
@@ -6768,7 +6768,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto15X509Certificate27X509CertificateTransferDataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto15X509Certificate27X509CertificateTransferDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto15X509Certificate27X509CertificateTransferDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6849,7 +6849,7 @@ _ZNSt10shared_ptrIN4node6crypto11ManagedX509EED2Ev.exit: ; preds = %entry, %_ZN9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto15X509Certificate27X509CertificateTransferDataD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto15X509Certificate27X509CertificateTransferDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto15X509Certificate27X509CertificateTransferDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -6969,7 +6969,7 @@ declare i16 @_ZN4node6worker12TransferData21FinalizeTransferWriteEN2v85LocalINS2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto11ManagedX509D2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
   %cert_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %cert_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -6987,7 +6987,7 @@ _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto11ManagedX509D0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
   %cert_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %cert_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -7017,7 +7017,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto15X509CertificateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto15X509CertificateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto15X509CertificateE, i64 16), ptr %this, align 8
   %issuer_cert_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %issuer_cert_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -7109,7 +7109,7 @@ _ZNSt10shared_ptrIN4node6crypto11ManagedX509EED2Ev.exit: ; preds = %_ZN4node17Ba
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6crypto15X509CertificateD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto15X509CertificateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto15X509CertificateE, i64 16), ptr %this, align 8
   %issuer_cert_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %issuer_cert_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -8285,7 +8285,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.290", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds nuw i8, ptr %this, i64 16

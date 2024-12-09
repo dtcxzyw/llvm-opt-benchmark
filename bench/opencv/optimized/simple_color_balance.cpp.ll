@@ -179,7 +179,7 @@ define void @_ZN2cv6xphoto14createSimpleWBEv(ptr dead_on_unwind noalias nocaptur
   store i32 1, ptr %3, align 8, !noalias !4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6xphoto12SimpleWBImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6xphoto12SimpleWBImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN2cv3PtrINS_6xphoto12SimpleWBImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6xphoto12SimpleWBImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !4
@@ -191,7 +191,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6xphoto12SimpleWBImplE
   resume { ptr, i32 } %6
 
 _ZN2cv3PtrINS_6xphoto12SimpleWBImplEED2Ev.exit:   ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN2cv6xphoto12SimpleWBImplE, i64 16), ptr %5, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN2cv6xphoto12SimpleWBImplE, i64 16), ptr %5, align 8, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store float 0.000000e+00, ptr %7, align 8, !noalias !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 28

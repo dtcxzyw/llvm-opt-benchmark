@@ -86,7 +86,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8PSOldGenC2E13ReservedSpacemmmPKci(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV8PSOldGen, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV8PSOldGen, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN14PSVirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(49) %8) #7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112

@@ -156,7 +156,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv4gapi9serializeERKNS_12GComputationE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::gapi::s11n::ByteMemoryOutStream", align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -323,7 +323,7 @@ declare void @_ZN2cv4gapi4s11n29vector_of_strings_deserializeB5cxx11ERNS1_8IIStr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv4gapi9serializeERKSt6vectorINS_4util7variantIJNS2_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISA_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::gapi::s11n::ByteMemoryOutStream", align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -363,7 +363,7 @@ declare void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINS_4util7var
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv4gapi9serializeERKSt6vectorINS_7GRunArgESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::gapi::s11n::ByteMemoryOutStream", align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -403,7 +403,7 @@ declare void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINS_7GRunArgE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv4gapi9serializeERKSt6vectorINS_11GCompileArgESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::gapi::s11n::ByteMemoryOutStream", align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -443,7 +443,7 @@ declare void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINS_11GCompil
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv4gapi9serializeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::gapi::s11n::ByteMemoryOutStream", align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv4gapi4s11n19ByteMemoryOutStreamE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)

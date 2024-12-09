@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @mca_rcache_base_vma_tree_init(ptr noundef initializes((16, 24)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_interval_tree_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_interval_tree_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 

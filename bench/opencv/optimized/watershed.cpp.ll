@@ -625,7 +625,7 @@ _ZL4helpPPc.exit146:                              ; preds = %.noexc144
   br label %409
 
 229:                                              ; preds = %221
-  %230 = load ptr, ptr getelementptr inbounds (i8, ptr @markerMask, i64 64), align 8
+  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @markerMask, i64 64), align 8
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
   %232 = load i32, ptr %231, align 4
   %233 = load i32, ptr %230, align 4
@@ -1241,11 +1241,11 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   br i1 %13, label %50, label %14
 
 14:                                               ; preds = %5
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 12), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 12), align 4
   %16 = icmp slt i32 %1, %15
   %17 = icmp sgt i32 %2, -1
   %or.cond.not58 = and i1 %17, %16
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 8), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 8), align 8
   %.not = icmp slt i32 %2, %18
   %or.cond28 = select i1 %or.cond.not58, i1 %.not, i1 false
   br i1 %or.cond28, label %19, label %50

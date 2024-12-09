@@ -115,7 +115,7 @@ define internal noundef range(i32 -22, 1) i32 @arp_constructor(ptr nocapture nou
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @arp_tbl, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @arp_tbl, i64 8), align 8
   %12 = zext i32 %11 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 4 %2, i64 %12, i1 false)
   br label %13
@@ -535,7 +535,7 @@ define dso_local void @arp_send(i32 noundef %0, i32 noundef %1, i32 noundef %2, 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store i64 0, ptr %17, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 256), i32 2) #14
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 256), i32 2) #14
           to label %19 [label %18], !srcloc !9
 
 18:                                               ; preds = %16
@@ -600,7 +600,7 @@ define internal fastcc void @arp_send_dst(i32 noundef range(i32 1, 3) %0, i32 no
   %36 = ptrtoint ptr %7 to i64
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store i64 %36, ptr %37, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 256), i32 2) #14
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 256), i32 2) #14
           to label %39 [label %38], !srcloc !9
 
 38:                                               ; preds = %26
@@ -770,7 +770,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @arp_xmit(ptr noundef %0) #1 align 16 {
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 256), i32 2) #14
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 256), i32 2) #14
           to label %3 [label %2], !srcloc !9
 
 2:                                                ; preds = %1
@@ -830,7 +830,7 @@ define dso_local i32 @arp_invalidate(ptr noundef %0, i32 noundef %1, i1 noundef 
 
 27:                                               ; preds = %25, %21
   %28 = phi i32 [ %26, %25 ], [ -6, %21 ]
-  call void @_raw_write_lock_bh(ptr noundef nonnull getelementptr inbounds (i8, ptr @arp_tbl, i64 560)) #14
+  call void @_raw_write_lock_bh(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arp_tbl, i64 560)) #14
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %30 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %29, i32 -1, ptr nonnull elementtype(i32) %29) #14, !srcloc !5
   %31 = icmp eq i32 %30, 1
@@ -851,7 +851,7 @@ define dso_local i32 @arp_invalidate(ptr noundef %0, i32 noundef %1, i1 noundef 
 
 .thread4:                                         ; preds = %32, %34, %35
   %36 = call zeroext i1 @neigh_remove_one(ptr noundef nonnull %5, ptr noundef nonnull @arp_tbl) #14
-  call void @_raw_write_unlock_bh(ptr noundef nonnull getelementptr inbounds (i8, ptr @arp_tbl, i64 560)) #14
+  call void @_raw_write_unlock_bh(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arp_tbl, i64 560)) #14
   br label %.thread
 
 .thread:                                          ; preds = %17, %19, %.thread4, %20, %3
@@ -1402,7 +1402,7 @@ define dso_local void @arp_init() local_unnamed_addr #9 section ".init.text" ali
   tail call void @neigh_table_init(i32 noundef 0, ptr noundef nonnull @arp_tbl) #14
   tail call void @dev_add_pack(ptr noundef nonnull @arp_packet_type) #14
   %1 = tail call i32 @register_pernet_subsys(ptr noundef nonnull @arp_net_ops) #14
-  %2 = tail call i32 @neigh_sysctl_register(ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @arp_tbl, i64 88), ptr noundef null) #14
+  %2 = tail call i32 @neigh_sysctl_register(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @arp_tbl, i64 88), ptr noundef null) #14
   %3 = tail call i32 @register_netdevice_notifier(ptr noundef nonnull @arp_netdev_notifier) #14
   ret void
 }
@@ -2515,7 +2515,7 @@ define internal noundef range(i32 0, 2) i32 @arp_rcv(ptr noundef %0, ptr nocaptu
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %59 = load ptr, ptr %58, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 240), i32 2) #14
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 240), i32 2) #14
           to label %61 [label %60], !srcloc !9
 
 60:                                               ; preds = %56

@@ -198,7 +198,7 @@ define dso_local void @_ZNK4llvm14DWARFUnitIndex6Header4dumpERNS_11raw_ostreamE(
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str, ptr %6, align 8, !alias.scope !4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjjEEE, i64 16), ptr %3, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjjEEE, i64 16), ptr %3, align 8, !alias.scope !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i32, ptr %5, align 4, !noalias !4
   store i32 %8, ptr %7, align 8, !alias.scope !4
@@ -695,7 +695,7 @@ define dso_local void @_ZNK4llvm14DWARFUnitIndex4dumpERNS_11raw_ostreamE(ptr noc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str, ptr %13, align 8, !alias.scope !31
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjjEEE, i64 16), ptr %3, align 8, !alias.scope !31
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjjEEE, i64 16), ptr %3, align 8, !alias.scope !31
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %10, ptr %14, align 8, !alias.scope !31
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -827,7 +827,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %59, %61
   %68 = getelementptr inbounds nuw i32, ptr %67, i64 %42
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   store ptr @.str.12, ptr %37, align 8, !alias.scope !37
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %5, align 8, !alias.scope !37
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %5, align 8, !alias.scope !37
   %69 = load i32, ptr %68, align 4, !noalias !37
   store i32 %69, ptr %38, align 8, !alias.scope !37
   %70 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -969,7 +969,7 @@ _ZN4llvm11raw_ostreamlsEc.exit65:                 ; preds = %116, %118
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   store ptr @.str.16, ptr %122, align 8, !alias.scope !42
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %6, align 8, !alias.scope !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %6, align 8, !alias.scope !42
   %140 = load i64, ptr %139, align 8, !noalias !42
   store i64 %140, ptr %123, align 8, !alias.scope !42
   store i32 %.pre, ptr %124, align 8, !alias.scope !42
@@ -995,7 +995,7 @@ _ZN4llvm11raw_ostreamlsEc.exit65:                 ; preds = %116, %118
   %152 = load i64, ptr %151, align 8
   %153 = add i64 %152, %149
   store ptr @.str.17, ptr %129, align 8, !alias.scope !45
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmEEE, i64 16), ptr %7, align 8, !alias.scope !45
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmEEE, i64 16), ptr %7, align 8, !alias.scope !45
   store i64 %153, ptr %130, align 8, !alias.scope !45
   store i64 %149, ptr %131, align 8, !alias.scope !45
   br label %160
@@ -1007,7 +1007,7 @@ _ZN4llvm11raw_ostreamlsEc.exit65:                 ; preds = %116, %118
   %158 = trunc i64 %157 to i32
   %159 = add i32 %158, %155
   store ptr @.str.18, ptr %126, align 8, !alias.scope !48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjEEE, i64 16), ptr %8, align 8, !alias.scope !48
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjEEE, i64 16), ptr %8, align 8, !alias.scope !48
   store i32 %159, ptr %127, align 8, !alias.scope !48
   store i32 %155, ptr %128, align 4, !alias.scope !48
   br label %160

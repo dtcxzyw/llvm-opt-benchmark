@@ -159,7 +159,7 @@ define noundef i64 @_Z17fast_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture no
   store i8 %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
   unreachable
 }
@@ -260,7 +260,7 @@ define noundef i64 @_Z17fast_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture no
   store i8 %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
   unreachable
 }
@@ -349,7 +349,7 @@ define noundef i64 @_Z19logged_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture 
   store i8 %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
   unreachable
 }
@@ -438,7 +438,7 @@ define noundef i64 @_Z19logged_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture 
   store i8 %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
   unreachable
 }
@@ -527,7 +527,7 @@ define noundef i64 @_Z17fast_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture no
   store i8 %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
   unreachable
 }
@@ -616,7 +616,7 @@ define noundef i64 @_Z17fast_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture no
   store i8 %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
   unreachable
 }
@@ -705,7 +705,7 @@ define noundef i64 @_Z19logged_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture 
   store i8 %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
   unreachable
 }
@@ -794,7 +794,7 @@ define noundef i64 @_Z19logged_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture 
   store i8 %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %2, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15trap_breakpoint, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI15trap_breakpoint, ptr nonnull @_ZN15trap_breakpointD2Ev) #14
   unreachable
 }

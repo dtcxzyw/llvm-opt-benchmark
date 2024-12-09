@@ -6681,7 +6681,7 @@ define void @_ZN7base_db6change10FileChange5apply17h3e7fe7fca5386fb5E(ptr noalia
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %27
-  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7base_db6change10FileChange5apply10__CALLSITE17h08cbae3e572d75d6E, i64 16) monotonic, align 8
+  %31 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7base_db6change10FileChange5apply10__CALLSITE17h08cbae3e572d75d6E, i64 16) monotonic, align 8
   switch i8 %31, label %32 [
     i8 0, label %.thread
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread

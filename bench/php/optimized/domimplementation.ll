@@ -50,7 +50,7 @@ define hidden void @zim_DOMImplementation_hasFeature(ptr nocapture noundef reado
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %18
@@ -96,7 +96,7 @@ define hidden void @zim_DOMImplementation_createDocumentType(ptr nocapture nound
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %55
@@ -108,7 +108,7 @@ define hidden void @zim_DOMImplementation_createDocumentType(ptr nocapture nound
 
 19:                                               ; preds = %16
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.2) #5
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %21 = icmp ne ptr %20, null
   call void @llvm.assume(i1 %21)
   br label %55
@@ -241,7 +241,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %117
@@ -265,7 +265,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %30) #5
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %117
@@ -279,7 +279,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
 
 38:                                               ; preds = %33
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.8) #5
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
   br label %117
@@ -292,7 +292,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
 
 44:                                               ; preds = %41
   call void @php_dom_throw_error(i32 noundef 4, i32 noundef 1) #5
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   call void @llvm.assume(i1 %46)
   br label %117
@@ -351,7 +351,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
 
 69:                                               ; preds = %67, %65
   call void @php_dom_throw_error(i32 noundef %.042, i32 noundef 1) #5
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %117
@@ -374,7 +374,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
 
 77:                                               ; preds = %75, %73
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #5
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %79 = icmp ne ptr %78, null
   call void @llvm.assume(i1 %79)
   br label %117
@@ -426,7 +426,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   %99 = load ptr, ptr %9, align 8
   call void %98(ptr noundef %99) #5
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #5
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %101 = icmp ne ptr %100, null
   call void @llvm.assume(i1 %101)
   br label %117
@@ -493,7 +493,7 @@ define hidden void @zim_DOMImplementation_getFeature(ptr nocapture noundef reado
   br label %12
 
 12:                                               ; preds = %2, %11
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   ret void

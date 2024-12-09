@@ -678,7 +678,7 @@ declare ptr @uhash_setKeyDeleter_75(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7510GenderInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510GenderInfoE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510GenderInfoE, i64 16), ptr %this, align 8
   ret void
 }
 

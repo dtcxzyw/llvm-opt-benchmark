@@ -89,7 +89,7 @@ define hidden void @_ZN6ciTypeC2E9BasicType(ptr nocapture noundef nonnull writeo
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTV6ciType, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTV6ciType, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %1, ptr %5, align 8
   ret void
@@ -101,7 +101,7 @@ define hidden void @_ZN6ciTypeC2EP5Klass(ptr nocapture noundef nonnull writeonly
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTV6ciType, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTV6ciType, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 4
@@ -349,7 +349,7 @@ define hidden void @_ZN15ciReturnAddressC2Ei(ptr nocapture noundef nonnull write
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 15, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTV15ciReturnAddress, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTV15ciReturnAddress, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %1, ptr %6, align 4
   ret void

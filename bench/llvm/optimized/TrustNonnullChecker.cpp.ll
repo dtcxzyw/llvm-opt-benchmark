@@ -208,7 +208,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %35 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 0, ptr %36, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_119TrustNonnullCheckerE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_119TrustNonnullCheckerE, i64 16), ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %38 = call fastcc i64 @_ZN5clangL18getKeywordSelectorIJcEEENS_8SelectorERNS_10ASTContextEDpPKT_(ptr noundef nonnull readonly align 8 dereferenceable(23096) %3, ptr noundef nonnull @.str)
   store i64 %38, ptr %37, align 8

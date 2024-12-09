@@ -41,9 +41,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @sema_verror_range(i64 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @str_vprintf(ptr noundef %1, ptr noundef %2) #8
   tail call fastcc void @print_error(i64 %0, ptr noundef %4, i32 noundef 0)
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %6 = add i32 %5, 1
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   ret void
 }
 
@@ -79,12 +79,12 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 10:                                               ; preds = %3
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i16
   %11 = tail call ptr @source_file_by_id(i16 noundef zeroext %.sroa.0.0.extract.trunc) #8
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 156), align 4
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 156), align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %10
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 155), align 1
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 155), align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %21
 
@@ -278,9 +278,9 @@ define dso_local void @sema_error_at(i64 %0, ptr noundef %1, ...) local_unnamed_
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call ptr @str_vprintf(ptr noundef %1, ptr noundef nonnull %3) #8
   call fastcc void @print_error(i64 %0, ptr noundef %4, i32 noundef 0)
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %6 = add i32 %5, 1
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -298,9 +298,9 @@ define dso_local void @sema_error_at_after(i64 %0, ptr noundef %1, ...) local_un
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.insert, 65536
   %8 = call ptr @str_vprintf(ptr noundef %1, ptr noundef nonnull %3) #8
   call fastcc void @print_error(i64 %.sroa.0.0.insert.insert, ptr noundef %8, i32 noundef 0)
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %10 = add i32 %9, 1
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -329,9 +329,9 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_error(ptr nocapture noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %5 = add i32 %4, 1
-  store i32 %5, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8

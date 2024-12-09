@@ -498,7 +498,7 @@ define dso_local void @_ZN4llvm18CodeGenSchedModelsC2ERNS_12RecordKeeperERKNS_13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %11, i8 0, i64 68, i1 false)
   tail call void @_ZN4llvm9SetTheory16addFieldExpanderENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr nonnull @.str, i64 6, ptr nonnull @.str.1, i64 6) #20
   %13 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_18InstrsOpE, i64 16), ptr %13, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_18InstrsOpE, i64 16), ptr %13, align 8, !noalias !4
   store ptr %13, ptr %5, align 8
   call void @_ZN4llvm9SetTheory11addOperatorENS_9StringRefESt10unique_ptrINS0_8OperatorESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr nonnull @.str.2, i64 6, ptr noundef nonnull %5) #20
   %14 = load ptr, ptr %5, align 8
@@ -516,7 +516,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_18InstrsOpESt14default_deleteIS1_EED2Ev.exit: ; 
   store ptr null, ptr %5, align 8
   %18 = load ptr, ptr %7, align 8
   %19 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_111InstRegexOpE, i64 16), ptr %19, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_111InstRegexOpE, i64 16), ptr %19, align 8, !noalias !7
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %18, ptr %20, align 8, !noalias !7
   store ptr %19, ptr %6, align 8
@@ -10120,7 +10120,7 @@ define dso_local void @_ZN4llvm18CodeGenSchedModels9genRWNameB5cxx11ENS_8ArrayRe
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   %7 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %6) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.50, i64 1))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.50, i64 1))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   %8 = getelementptr inbounds i32, ptr %2, i64 %3
   %.not13 = icmp eq i64 %3, 0

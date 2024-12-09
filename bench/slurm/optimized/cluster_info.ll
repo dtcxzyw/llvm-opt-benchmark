@@ -22,7 +22,7 @@ define range(i32 -1, 1) i32 @slurm_get_cluster_info(ptr noundef writeonly %0, pt
   br i1 %.not7, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 368), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 368), align 8
   %9 = tail call ptr @xstrstr(ptr noundef %8, ptr noundef nonnull @.str) #3
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %28, label %10

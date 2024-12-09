@@ -152,7 +152,7 @@ $_ZZN4llvm8hexdigitEjbE3LUT = comdat any
 define dso_local noundef nonnull ptr @_ZN4llvm18createELFAsmParserEv() local_unnamed_addr #0 {
   %1 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
   tail call void @_ZN4llvm20MCAsmParserExtensionC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %1) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112ELFAsmParserE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112ELFAsmParserE, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 1, ptr %2, align 8
   ret ptr %1

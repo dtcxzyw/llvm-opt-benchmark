@@ -34,7 +34,7 @@ $_ZTIN3gmx21AbstractOptionSectionE = comdat any
 define void @_ZNK3gmx13OptionSection13createStorageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_120OptionSectionStorageESt14default_deleteIS2_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #6, !noalias !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_120OptionSectionStorageE, i64 16), ptr %2, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx12_GLOBAL__N_120OptionSectionStorageE, i64 16), ptr %2, align 8, !noalias !4
   store ptr %2, ptr %0, align 8
   ret void
 }

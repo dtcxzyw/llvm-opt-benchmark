@@ -92,12 +92,12 @@ define hidden void @_ZN14JfrTypeManager13write_threadsER19JfrCheckpointWriter(pt
   %2 = alloca %class.JfrThreadGroupConstant, align 8
   %3 = alloca %class.JfrThreadConstantSet, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV20JfrThreadConstantSet, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV20JfrThreadConstantSet, i64 16), ptr %3, align 8
   tail call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %0, i32 noundef 179) #8
   call void @_ZN20JfrThreadConstantSet9serializeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(73) %0) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV22JfrThreadGroupConstant, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV22JfrThreadGroupConstant, i64 16), ptr %2, align 8
   call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %0, i32 noundef 180) #8
   call void @_ZN22JfrThreadGroupConstant9serializeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(73) %0) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -121,7 +121,7 @@ define hidden void @_ZN14JfrTypeManager18create_thread_blobEP10JavaThreadmP7oopD
   call void @_ZN19JfrCheckpointWriterC1EP6Threadb17JfrCheckpointType23JfrCheckpointBufferKind(ptr noundef nonnull align 8 dereferenceable(73) %5, ptr noundef %1, i1 noundef zeroext true, i32 noundef 8, i32 noundef 1) #8
   call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %5, i32 noundef 179) #8
   call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %5, i32 noundef 1) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17JfrThreadConstant, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17JfrThreadConstant, i64 16), ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -203,7 +203,7 @@ define hidden void @_ZN14JfrTypeManager16write_checkpointEP6ThreadmP7oopDesc(ptr
   br label %19
 
 19:                                               ; preds = %.split8, %.split
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17JfrThreadConstant, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17JfrThreadConstant, i64 16), ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -363,49 +363,49 @@ _ZN13JfrLinkedListI25JfrSerializerRegistration11JfrCHeapObjE7iterateI16InvokeOnR
 define hidden noundef zeroext i1 @_ZN14JfrTypeManager10initializeEv() local_unnamed_addr #0 align 2 {
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN27SerializerRegistrationGuard16_mutex_semaphoreE) #8
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV23FlagValueOriginConstant, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV23FlagValueOriginConstant, i64 16), ptr %1, align 8
   %2 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 198, i1 noundef zeroext true, ptr noundef nonnull %1)
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV27MonitorInflateCauseConstant, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV27MonitorInflateCauseConstant, i64 16), ptr %3, align 8
   %4 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 200, i1 noundef zeroext true, ptr noundef nonnull %3)
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV15GCCauseConstant, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV15GCCauseConstant, i64 16), ptr %5, align 8
   %6 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 187, i1 noundef zeroext true, ptr noundef nonnull %5)
   %7 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14GCNameConstant, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14GCNameConstant, i64 16), ptr %7, align 8
   %8 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 186, i1 noundef zeroext true, ptr noundef nonnull %7)
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14GCWhenConstant, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14GCWhenConstant, i64 16), ptr %9, align 8
   %10 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 188, i1 noundef zeroext true, ptr noundef nonnull %9)
   %11 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV26GCThresholdUpdaterConstant, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV26GCThresholdUpdaterConstant, i64 16), ptr %11, align 8
   %12 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 191, i1 noundef zeroext true, ptr noundef nonnull %11)
   %13 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV20MetadataTypeConstant, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV20MetadataTypeConstant, i64 16), ptr %13, align 8
   %14 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 193, i1 noundef zeroext true, ptr noundef nonnull %13)
   %15 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV27MetaspaceObjectTypeConstant, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV27MetaspaceObjectTypeConstant, i64 16), ptr %15, align 8
   %16 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 194, i1 noundef zeroext true, ptr noundef nonnull %15)
   %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21ReferenceTypeConstant, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21ReferenceTypeConstant, i64 16), ptr %17, align 8
   %18 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 192, i1 noundef zeroext true, ptr noundef nonnull %17)
   %19 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21NarrowOopModeConstant, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21NarrowOopModeConstant, i64 16), ptr %19, align 8
   %20 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 195, i1 noundef zeroext true, ptr noundef nonnull %19)
   %21 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV20CodeBlobTypeConstant, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV20CodeBlobTypeConstant, i64 16), ptr %21, align 8
   %22 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 199, i1 noundef zeroext true, ptr noundef nonnull %21)
   %23 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV23VMOperationTypeConstant, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV23VMOperationTypeConstant, i64 16), ptr %23, align 8
   %24 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 196, i1 noundef zeroext true, ptr noundef nonnull %23)
   %25 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV19ThreadStateConstant, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV19ThreadStateConstant, i64 16), ptr %25, align 8
   %26 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 185, i1 noundef zeroext true, ptr noundef nonnull %25)
   %27 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV16BytecodeConstant, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV16BytecodeConstant, i64 16), ptr %27, align 8
   %28 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 173, i1 noundef zeroext true, ptr noundef nonnull %27)
   %29 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV20CompilerTypeConstant, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV20CompilerTypeConstant, i64 16), ptr %29, align 8
   %30 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 174, i1 noundef zeroext true, ptr noundef nonnull %29)
   %31 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %32 = icmp sgt i32 %31, 1
@@ -413,14 +413,14 @@ define hidden noundef zeroext i1 @_ZN14JfrTypeManager10initializeEv() local_unna
 
 33:                                               ; preds = %0
   %34 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV15NMTTypeConstant, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV15NMTTypeConstant, i64 16), ptr %34, align 8
   %35 = tail call fastcc noundef zeroext i1 @_ZL20register_static_type9JfrTypeIdbP13JfrSerializer(i32 noundef 214, i1 noundef zeroext true, ptr noundef nonnull %34)
   br label %36
 
 36:                                               ; preds = %33, %0
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 88), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 88), align 8
   %40 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %39, ptr null, ptr null, i1 noundef zeroext false, ptr noundef %38) #8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load ptr, ptr %41, align 8

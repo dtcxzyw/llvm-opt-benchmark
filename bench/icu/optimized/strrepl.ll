@@ -535,10 +535,10 @@ entry:
 define void @_ZN6icu_7514StringReplacerC2ERKNS_13UnicodeStringEiPKNS_23TransliterationRuleDataE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 26)) %this, ptr noundef nonnull align 8 dereferenceable(64) %theOutput, i32 noundef %theCursorPos, ptr noundef %theData) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 112), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 112), ptr %0, align 8
   %output = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %output, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %output, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %output, ptr noundef nonnull align 8 dereferenceable(64) %theOutput)
@@ -575,10 +575,10 @@ declare void @_ZN6icu_7514UnicodeFunctorD2Ev(ptr noundef nonnull align 8 derefer
 define void @_ZN6icu_7514StringReplacerC2ERKNS_13UnicodeStringEPKNS_23TransliterationRuleDataE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 26)) %this, ptr noundef nonnull align 8 dereferenceable(64) %theOutput, ptr noundef %theData) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 112), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 112), ptr %0, align 8
   %output = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %output, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %output, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %output, ptr noundef nonnull align 8 dereferenceable(64) %theOutput)
@@ -607,10 +607,10 @@ lpad3:                                            ; preds = %invoke.cont
 define void @_ZN6icu_7514StringReplacerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 26)) %this, ptr noundef nonnull align 8 dereferenceable(96) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 112), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 112), ptr %0, align 8
   %output = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %output, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %output, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
   %output3 = getelementptr inbounds nuw i8, ptr %other, i64 16
@@ -647,9 +647,9 @@ lpad5:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7514StringReplacerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 112), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514StringReplacerE, i64 112), ptr %add.ptr, align 8
   %output = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %output) #15
   tail call void @_ZN6icu_7514UnicodeFunctorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
@@ -746,7 +746,7 @@ if.then:                                          ; preds = %entry
   br label %if.end97
 
 if.else:                                          ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buf, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store i8 0, ptr %isComplex, align 1
@@ -968,7 +968,7 @@ if.end72:                                         ; preds = %invoke.cont69, %inv
           to label %invoke.cont84 unwind label %lpad.loopexit.split-lp
 
 invoke.cont84:                                    ; preds = %if.end72
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
   %fUnion2.i106 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i106, align 8
   %add83 = add nsw i32 %sub76, %destLimit.3
@@ -981,7 +981,7 @@ invoke.cont84:                                    ; preds = %if.end72
 
 invoke.cont92:                                    ; preds = %invoke.cont84
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp91, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp91, align 8
   %fUnion2.i107 = getelementptr inbounds nuw i8, ptr %ref.tmp91, i64 8
   store i16 2, ptr %fUnion2.i107, align 8
   %add90 = add nsw i32 %sub76, %limit
@@ -1163,7 +1163,7 @@ if.then4.i:                                       ; preds = %if.else.i
   br label %_ZN6icu_7513UnicodeString8truncateEi.exit
 
 _ZN6icu_7513UnicodeString8truncateEi.exit:        ; preds = %if.then.i, %if.else.i, %if.then4.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %quoteBuf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %quoteBuf, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %quoteBuf, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cursorPos = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -1281,7 +1281,7 @@ if.then19:                                        ; preds = %invoke.cont16
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont22:                                    ; preds = %invoke.cont16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buf, align 8
   store i16 2, ptr %fUnion2.i30, align 8
   %vtable = load ptr, ptr %call17, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24

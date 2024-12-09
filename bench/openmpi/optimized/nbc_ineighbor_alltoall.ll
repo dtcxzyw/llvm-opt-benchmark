@@ -56,10 +56,10 @@ define internal fastcc i32 @nbc_neighbor_alltoall_init(ptr noundef %0, i32 nound
   %19 = getelementptr i8, ptr %5, i64 56
   %.val100 = load i64, ptr %19, align 8
   %20 = sub nsw i64 %.val100, %.val99
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #5
   %23 = load i32, ptr @opal_class_init_epoch, align 4
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i = icmp eq i32 %23, %24
   br i1 %.not.i, label %26, label %25
 

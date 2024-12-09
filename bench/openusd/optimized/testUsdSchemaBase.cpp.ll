@@ -218,11 +218,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnon
           to label %42 unwind label %122
 
 42:                                               ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12Usd_TestBase, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV12Usd_TestBase, i64 16), ptr %36, align 8
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i32 44, ptr %43, align 8
   %puts.i.i.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15Usd_TestDerived, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15Usd_TestDerived, i64 16), ptr %36, align 8
   store i32 42, ptr %43, align 8
   %puts.i.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -294,7 +294,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i: ; preds = %67, %54
           to label %78 unwind label %124
 
 78:                                               ; preds = %76
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12Usd_TestBase, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV12Usd_TestBase, i64 16), ptr %38, align 8
   %79 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i32 44, ptr %79, align 8
   %puts.i6.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
@@ -447,7 +447,7 @@ _ZL30TestEnsureParentCtorForCopyingv.exit:        ; preds = %113, %116
           to label %.noexc24.i unwind label %375
 
 .noexc24.i:                                       ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 19))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %130
 
 130:                                              ; preds = %.noexc24.i
@@ -489,7 +489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %140 unwind label %.body
 
 140:                                              ; preds = %138
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %139, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 2)) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %139, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 2)) #13
   store ptr null, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 2)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29.i unwind label %.body

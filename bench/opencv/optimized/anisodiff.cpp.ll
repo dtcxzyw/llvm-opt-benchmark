@@ -372,7 +372,7 @@ _ZNK2cv11_InputArray6getMatEi.exit93:             ; preds = %108, %111
           to label %139 unwind label %168
 
 139:                                              ; preds = %137
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc6ADBodyE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc6ADBodyE, i64 16), ptr %29, align 8
   store ptr %24, ptr %129, align 8
   store ptr %25, ptr %130, align 8
   store ptr %81, ptr %131, align 8

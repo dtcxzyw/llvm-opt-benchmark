@@ -238,7 +238,7 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal void @button_clicked(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !21
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !28
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !28
   %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = tail call ptr @dt_ui_main_window(ptr noundef %6) #13
   %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #13
@@ -385,7 +385,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   call void @dt_variables_set_max_width_height(ptr noundef %21, i32 noundef %22, i32 noundef %24) #13
   %25 = load ptr, ptr %20, align 8, !tbaa !41
   call void @dt_variables_set_upscale(ptr noundef %25, i32 noundef %8) #13
-  %26 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #13
+  %26 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #13
   %27 = icmp sgt i32 %6, 1
   %28 = getelementptr i8, ptr %15, i64 -1
   br i1 %27, label %.preheader2, label %.preheader4
@@ -515,7 +515,7 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   br label %103
 
 99:                                               ; preds = %94
-  %100 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #13
+  %100 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #13
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.23, ptr noundef nonnull %15) #13
   %101 = sext i32 %5 to i64
   %102 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.24, i64 noundef %101, i32 noundef 5) #13
@@ -528,19 +528,19 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %105, label %106, label %124
 
 106:                                              ; preds = %103
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !55
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !55
   %108 = call ptr @dt_image_cache_get(ptr noundef %107, i32 noundef %2, i8 noundef signext 114) #13
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 1448
   %110 = load i64, ptr %109, align 8, !tbaa !56
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 1456
   %112 = load i64, ptr %111, align 16, !tbaa !66
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 120), align 8, !tbaa !55
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !55
   call void @dt_image_cache_read_release(ptr noundef %113, ptr noundef %108) #13
   %114 = icmp sgt i64 %112, %110
   br i1 %114, label %115, label %124
 
 115:                                              ; preds = %106
-  %116 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #13
+  %116 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #13
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.25, ptr noundef nonnull %15) #13
   %117 = sext i32 %5 to i64
   %118 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.26, i64 noundef %117, i32 noundef 5) #13
@@ -554,11 +554,11 @@ define noundef range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 no
   %122 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %121, i32 noundef 5) #13
   call void (ptr, ...) @dt_control_log(ptr noundef %122, ptr noundef %65) #13
   call void @g_free(ptr noundef %65) #13
-  %123 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #13
+  %123 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #13
   br label %133
 
 124:                                              ; preds = %106, %103
-  %125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @darktable, i64 2832)) #13
+  %125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @darktable, i64 2832)) #13
   %126 = call i32 @dt_imageio_export(i32 noundef %2, ptr noundef nonnull %15, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %7, i32 noundef %8, i32 noundef 1, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %5, i32 noundef %6, ptr noundef %13) #13
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %130, label %128

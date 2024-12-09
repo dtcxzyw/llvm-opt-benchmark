@@ -45,7 +45,7 @@ define hidden void @zim_DOMText___construct(ptr nocapture noundef readonly %0, p
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %26
@@ -58,7 +58,7 @@ define hidden void @zim_DOMText___construct(ptr nocapture noundef readonly %0, p
 
 16:                                               ; preds = %13
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #6
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %26
@@ -197,7 +197,7 @@ define hidden void @zim_DOMText_splitText(ptr nocapture noundef readonly %0, ptr
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %75
@@ -217,7 +217,7 @@ define hidden void @zim_DOMText_splitText(ptr nocapture noundef readonly %0, ptr
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %22) #6
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %75
@@ -230,7 +230,7 @@ define hidden void @zim_DOMText_splitText(ptr nocapture noundef readonly %0, ptr
 
 29:                                               ; preds = %25
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.3) #6
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
   call void @llvm.assume(i1 %31)
   br label %75
@@ -293,7 +293,7 @@ define hidden void @zim_DOMText_splitText(ptr nocapture noundef readonly %0, ptr
 
 64:                                               ; preds = %52
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #6
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %66 = icmp ne ptr %65, null
   call void @llvm.assume(i1 %66)
   br label %75
@@ -346,7 +346,7 @@ define hidden void @zim_DOMText_isWhitespaceInElementContent(ptr nocapture nound
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #6
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %27
@@ -366,7 +366,7 @@ define hidden void @zim_DOMText_isWhitespaceInElementContent(ptr nocapture nound
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %18) #6
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
   br label %27

@@ -5683,7 +5683,7 @@ define dso_local void @fib_select_multipath(ptr nocapture noundef %0, i32 nounde
   %62 = and i32 %61, 24
   %63 = icmp eq i32 %62, 0
   %64 = select i1 %63, i32 %59, i32 0
-  %65 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @arp_tbl, i64 584), align 8
+  %65 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @arp_tbl, i64 584), align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %67 = ptrtoint ptr %57 to i64
   %68 = lshr i64 %67, 32

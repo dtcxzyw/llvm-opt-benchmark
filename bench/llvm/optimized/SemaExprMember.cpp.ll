@@ -2409,7 +2409,7 @@ define internal fastcc noundef zeroext i1 @_ZL24LookupMemberExprInRecordRN5clang
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_11SourceRangeEEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_11SourceRangeEEEE, i64 16), ptr %11, align 8
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 4906, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -2478,7 +2478,7 @@ define internal fastcc noundef zeroext i1 @_ZL24LookupMemberExprInRecordRN5clang
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %69, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_128RecordMemberExprValidatorCCCE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_128RecordMemberExprValidatorCCCE, i64 16), ptr %13, align 8
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %71 = load ptr, ptr %23, align 16
   %72 = call noundef ptr @_ZNK5clang4Type15getAsRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %71) #17
@@ -3256,7 +3256,7 @@ _ZNK5clang14ObjCObjectType8isObjCIdEv.exit570.thread: ; preds = %328, %_ZNK5clan
   %354 = inttoptr i64 %353 to ptr
   store ptr %354, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJPNS_4ExprEEEE, i64 16), ptr %10, align 8
   %355 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 4906, ptr %355, align 8
   %356 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3277,7 +3277,7 @@ _ZNK5clang14ObjCObjectType8isObjCIdEv.exit570.thread: ; preds = %328, %_ZNK5clan
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %361, i8 1, i64 5, i1 false)
   %363 = getelementptr inbounds nuw i8, ptr %29, i64 14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %362, i8 0, i64 19, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_12ObjCIvarDeclEEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_12ObjCIvarDeclEEE, i64 16), ptr %29, align 8
   %364 = load i8, ptr %3, align 1
   %365 = and i8 %364, 1
   store i8 %365, ptr %363, align 2
@@ -9072,7 +9072,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128RecordMemberExprValidatorCCCESt14default_dele
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_128RecordMemberExprValidatorCCCE, i64 16), ptr %2, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_128RecordMemberExprValidatorCCCE, i64 16), ptr %2, align 8, !noalias !54
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !noalias !54
@@ -12432,7 +12432,7 @@ _ZNSt10unique_ptrIN5clang13DeclFilterCCCINS0_12ObjCIvarDeclEEESt14default_delete
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_12ObjCIvarDeclEEE, i64 16), ptr %2, align 8, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang13DeclFilterCCCINS_12ObjCIvarDeclEEE, i64 16), ptr %2, align 8, !noalias !64
   store ptr %2, ptr %0, align 8
   ret void
 }

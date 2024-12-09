@@ -734,7 +734,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3ade5GraphEEET_.exit: ;
   store i32 1, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 1, ptr %75, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3ade5GraphELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3ade5GraphELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %63, align 8
   %76 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %60, ptr %76, align 8
   store ptr %63, ptr %62, align 8
@@ -2655,7 +2655,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__n
   store i32 1, ptr %852, align 8, !noalias !91
   %853 = getelementptr inbounds nuw i8, ptr %851, i64 12
   store i32 1, ptr %853, align 4, !noalias !91
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5gimpl7GIslandESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %851, align 8, !noalias !91
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5gimpl7GIslandESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %851, align 8, !noalias !91
   %854 = getelementptr inbounds nuw i8, ptr %851, i64 16
   invoke void @_ZN2cv5gimpl7GIslandC1ERKNS_4gapi8GBackendEOSt13unordered_setIN3ade6HandleINS7_4NodeEEENS7_12HandleHasherIS9_EESt8equal_toISA_ESaISA_EESH_SH_ONS_4util8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(248) %854, ptr noundef nonnull align 8 dereferenceable(16) %270, ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(40) %42)
           to label %856 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5gimpl7GIslandESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !91
@@ -3536,7 +3536,7 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4Dat
           to label %.noexc57 unwind label %1202
 
 .noexc57:                                         ; preds = %.noexc56
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEEE, i64 16), ptr %1188, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEEE, i64 16), ptr %1188, align 8, !noalias !104
   %1189 = getelementptr inbounds nuw i8, ptr %1188, i64 8
   store ptr %1183, ptr %1189, align 8, !noalias !104
   %1190 = getelementptr inbounds nuw i8, ptr %1188, i64 16
@@ -22732,7 +22732,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   store i32 1, ptr %2529, align 8, !noalias !531
   %2530 = getelementptr inbounds nuw i8, ptr %2528, i64 12
   store i32 1, ptr %2530, align 4, !noalias !531
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5gimpl7GIslandESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2528, align 8, !noalias !531
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5gimpl7GIslandESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2528, align 8, !noalias !531
   %2531 = getelementptr inbounds nuw i8, ptr %2528, i64 16
   invoke void @_ZN2cv5gimpl7GIslandC1ERKNS_4gapi8GBackendEOSt13unordered_setIN3ade6HandleINS7_4NodeEEENS7_12HandleHasherIS9_EESt8equal_toISA_ESaISA_EESH_SH_ONS_4util8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(248) %2531, ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(64) %92, ptr noundef nonnull align 8 dereferenceable(64) %1900, ptr noundef nonnull align 8 dereferenceable(64) %1911, ptr noundef nonnull align 8 dereferenceable(40) %97)
           to label %2533 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5gimpl7GIslandESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !531
@@ -22756,7 +22756,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5gimpl7GIslandESaIvELN
           to label %.noexc166 unwind label %2782
 
 .noexc166:                                        ; preds = %2535
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE11NodeCreatedE, i64 16), ptr %2537, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE11NodeCreatedE, i64 16), ptr %2537, align 8
   %2538 = getelementptr inbounds nuw i8, ptr %2537, i64 8
   %2539 = load ptr, ptr %106, align 8
   store ptr %2539, ptr %2538, align 8
@@ -31920,7 +31920,7 @@ define linkonce_odr hidden void @_ZN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE7NewLi
   %8 = alloca %class.Preserved, align 8
   %9 = alloca %"class.ade::Handle.226", align 8
   %10 = alloca %"class.ade::Handle.226", align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE7NewLinkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE7NewLinkE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3ade5Graph4linkERKNS_6HandleINS_4NodeEEES5_(ptr dead_on_unwind nonnull writable sret(%"class.ade::Handle.226") align 8 %11, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -33436,7 +33436,7 @@ _ZN3ade10TypedGraphIJN2cv5gimpl13DesyncIslEdgeEEE8metadataERKNS_6HandleINS_4Edge
   br i1 %61, label %_ZNK2cv4util8optionalINS_5gimpl13DesyncIslEdgeEE5valueEv.exit, label %62
 
 62:                                               ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl13DesyncIslEdgeEEE8metadataERKNS_6HandleINS_4EdgeEEE.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4util19bad_optional_accessE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4util19bad_optional_accessE, i64 16), ptr %6, align 8
   invoke void @_ZN2cv4util11throw_errorINS0_19bad_optional_accessEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %6) #24
           to label %63 unwind label %64
 
@@ -33459,7 +33459,7 @@ _ZNK2cv4util8optionalINS_5gimpl13DesyncIslEdgeEE5valueEv.exit: ; preds = %_ZN3ad
   %67 = call noundef i64 @_ZNSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS4_(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !673)
   %68 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !673
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl13DesyncIslEdgeEEE, i64 16), ptr %68, align 8, !noalias !673
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl13DesyncIslEdgeEEE, i64 16), ptr %68, align 8, !noalias !673
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i32, ptr %66, align 8, !noalias !673
   store i32 %70, ptr %69, align 8, !noalias !673
@@ -34083,7 +34083,7 @@ define linkonce_odr hidden void @_ZN3ade7details8Metadata14MetadataHolderIN2cv5g
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK3ade7details8Metadata14MetadataHolderIN2cv5gimpl13DesyncIslEdgeEE5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl13DesyncIslEdgeEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl13DesyncIslEdgeEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -34095,7 +34095,7 @@ define linkonce_odr hidden void @_ZNK3ade7details8Metadata14MetadataHolderIN2cv5
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN2cv4util11throw_errorINS0_19bad_optional_accessEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #7 comdat {
   %2 = tail call ptr @__cxa_allocate_exception(i64 8) #22
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4util19bad_optional_accessE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4util19bad_optional_accessE, i64 16), ptr %2, align 8
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN2cv4util19bad_optional_accessE, ptr nonnull @_ZN2cv4util19bad_optional_accessD2Ev) #24
   unreachable
 }
@@ -34129,7 +34129,7 @@ define linkonce_odr hidden void @_ZN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE8DropL
   %6 = alloca %"class.ade::Handle", align 8
   %7 = alloca %"class.ade::Handle.226", align 8
   %8 = alloca %"class.ade::Handle", align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE8DropLinkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE8DropLinkE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %2, align 8
   store ptr %10, ptr %9, align 8
@@ -35442,7 +35442,7 @@ define linkonce_odr hidden void @_ZN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE8DropN
   %6 = alloca %"struct.ade::util::Range::MapRange.199", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.71", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE8DropNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE8DropNodeE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %1, align 8
   store ptr %10, ptr %9, align 8
@@ -35868,7 +35868,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN3ade5Graph8metadataE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -35948,7 +35948,7 @@ _ZN2cv5gimpl11IslandModelD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -36030,7 +36030,7 @@ _ZN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEED2Ev.exit: ; p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEE5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN2cv5gimpl11IslandModelEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8

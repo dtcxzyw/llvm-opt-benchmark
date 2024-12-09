@@ -181,7 +181,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef %1) local_
 24:                                               ; preds = %21
   %25 = load ptr, ptr %1, align 8
   %26 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 47) #22
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 8), align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %29, label %27
 
@@ -195,7 +195,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef %1) local_
 
 sub_0:                                            ; preds = %29, %27
   %storemerge = phi ptr [ %30, %29 ], [ %28, %27 ]
-  store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
+  store ptr %storemerge, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 8), align 8
   %31 = load i8, ptr %storemerge, align 1
   %.not402 = icmp eq i8 %31, 105
   br i1 %.not402, label %sub_1, label %.tail.thread
@@ -234,7 +234,7 @@ sub_1:                                            ; preds = %sub_0
           to label %48 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 8), align 8
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.45, ptr noundef %47, ptr noundef %49) #23
   tail call void @exit(i32 noundef 0) #24
   unreachable
@@ -1254,7 +1254,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   %storemerge255 = phi ptr [ @.str.42, %477 ], [ %482, %479 ]
   %.0177 = phi ptr [ %478, %477 ], [ %480, %479 ]
   store ptr %storemerge255, ptr @emess_dat, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %.b231 = load i1, ptr @_ZL10very_verby, align 4
   br i1 %.b231, label %485, label %634
 
@@ -1288,9 +1288,9 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
           to label %.noexc273 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc273:                                        ; preds = %.noexc272
-  %492 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  %492 = load i32, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %493 = add nsw i32 %492, 1
-  store i32 %493, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  store i32 %493, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %494 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1000, ptr noundef %.0177)
   store ptr %494, ptr %10, align 8
   %.not4855.i = icmp eq ptr %494, null
@@ -1338,9 +1338,9 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
           to label %.noexc274 unwind label %.loopexit340
 
 .noexc274:                                        ; preds = %.backedge.i
-  %510 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  %510 = load i32, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %511 = add nsw i32 %510, 1
-  store i32 %511, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  store i32 %511, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %512 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1000, ptr noundef %.0177)
   store ptr %512, ptr %10, align 8
   %.not48.i = icmp eq ptr %512, null
@@ -1550,33 +1550,33 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   %604 = fadd double %603, -1.000000e+00
   %605 = fmul double %604, 1.000000e+02
   %606 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, double noundef %603, double noundef %605)
-  %607 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 8), align 8
+  %607 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 8), align 8
   %608 = fadd double %607, -1.000000e+00
   %609 = fmul double %608, 1.000000e+02
   %610 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, double noundef %607, double noundef %609)
-  %611 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 16), align 8
+  %611 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 16), align 8
   %612 = fadd double %611, -1.000000e+00
   %613 = fmul double %612, 1.000000e+02
   %614 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, double noundef %611, double noundef %613)
-  %615 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 24), align 8
+  %615 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 24), align 8
   %616 = fmul double %615, 0x404CA5DC1A63C1F8
   %617 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, double noundef %616)
-  %618 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 32), align 8
+  %618 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 32), align 8
   %619 = fmul double %618, 0x404CA5DC1A63C1F8
   %620 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, double noundef %619)
   %621 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63)
-  %622 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 40), align 8
+  %622 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 40), align 8
   %623 = invoke ptr @proj_rtodms2(ptr noundef nonnull %11, i64 noundef 40, double noundef %622, i32 noundef 0, i32 noundef 0)
           to label %.noexc293 unwind label %.loopexit340
 
 .noexc293:                                        ; preds = %.noexc292
   %624 = load ptr, ptr @stdout, align 8
   %625 = call i32 @fputs(ptr noundef %623, ptr noundef %624)
-  %626 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 40), align 8
+  %626 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 40), align 8
   %627 = fmul double %626, 0x404CA5DC1A63C1F8
   %628 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, double noundef %627)
-  %629 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 48), align 8
-  %630 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 56), align 8
+  %629 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 48), align 8
+  %630 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 56), align 8
   %631 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.65, double noundef %629, double noundef %630)
   %632 = load ptr, ptr @stdout, align 8
   %633 = call i32 @fflush(ptr noundef %632)
@@ -1604,7 +1604,7 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc274, %.noexc2
 635:                                              ; preds = %.backedge.i298, %634
   %636 = phi i32 [ %.pre434, %.backedge.i298 ], [ 0, %634 ]
   %637 = add nsw i32 %636, 1
-  store i32 %637, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  store i32 %637, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %.b28.i = load i1, ptr @_ZL6bin_in, align 4
   br i1 %.b28.i, label %638, label %640
 
@@ -1663,7 +1663,7 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc274, %.noexc2
   br label %.backedge.i298
 
 .backedge.i298:                                   ; preds = %774, %719, %653, %652
-  %.pre434 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  %.pre434 = load i32, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   br label %635, !llvm.loop !14
 
 656:                                              ; preds = %.loopexit.i295
@@ -1938,12 +1938,12 @@ _ZL8vprocessP8_IO_FILE.exit:                      ; preds = %.noexc274, %.noexc2
 
 762:                                              ; preds = %761
   %763 = load double, ptr @_ZL4facs, align 8
-  %764 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 8), align 8
-  %765 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 16), align 8
-  %766 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 24), align 8
+  %764 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 8), align 8
+  %765 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 16), align 8
+  %766 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 24), align 8
   %767 = fmul double %766, 0x404CA5DC1A63C1F8
-  %768 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 48), align 8
-  %769 = load double, ptr getelementptr inbounds (i8, ptr @_ZL4facs, i64 56), align 8
+  %768 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 48), align 8
+  %769 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL4facs, i64 56), align 8
   %770 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, double noundef %763, double noundef %764, double noundef %765, double noundef %767, double noundef %768, double noundef %769)
   br label %774
 

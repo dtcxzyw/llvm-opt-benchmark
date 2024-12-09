@@ -155,8 +155,8 @@ define void @_ZN3g2o11EdgeXYPriorC2Ev(ptr noundef nonnull align 16 dereferenceab
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 2, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_13VertexPointXYEEEE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_13VertexPointXYEEEE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_13VertexPointXYEEEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_13VertexPointXYEEEE, i64 264), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -199,8 +199,8 @@ define void @_ZN3g2o11EdgeXYPriorC2Ev(ptr noundef nonnull align 16 dereferenceab
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %5, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o11EdgeXYPriorE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o11EdgeXYPriorE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o11EdgeXYPriorE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o11EdgeXYPriorE, i64 264), ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double 1.000000e+00, ptr %26, align 16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 200

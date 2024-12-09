@@ -601,7 +601,7 @@ define dso_local i32 @drm_gem_handle_create_tail(ptr noundef %0, ptr noundef %1,
   tail call void @_raw_spin_unlock(ptr noundef nonnull %24) #11
   %27 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @radix_tree_preloads) #12, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
-  %28 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !24
+  %28 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !24
   %29 = icmp ult i8 %28, 2
   tail call void @llvm.assume(i1 %29)
   %30 = icmp eq i8 %28, 0
@@ -2407,7 +2407,7 @@ define dso_local i32 @drm_gem_lock_reservations(ptr nocapture noundef readonly %
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i16 0, ptr %10, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @reservation_ww_class, i64 24), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @reservation_ww_class, i64 24), align 8
   %12 = trunc i32 %11 to i16
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 22
   store i16 %12, ptr %13, align 2

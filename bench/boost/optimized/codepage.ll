@@ -366,7 +366,7 @@ define weak_odr void @_ZN5boost6locale4conv6detail16make_utf_encoderIcEESt10uniq
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIcEE, i64 16), ptr %5, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIcEE, i64 16), ptr %5, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %8, align 8, !tbaa !12
   %9 = load ptr, ptr %1, align 8, !tbaa !14
@@ -399,7 +399,7 @@ _ZN5boost6locale4conv4impl12iconv_to_utfIcED2Ev.exit.thread: ; preds = %.noexc
   br label %20
 
 _ZN5boost6locale4conv4impl12iconv_to_utfIcED2Ev.exit: ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIcEE, i64 16), ptr %13, align 8, !tbaa !10, !noalias !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIcEE, i64 16), ptr %13, align 8, !tbaa !10, !noalias !20
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %18, align 8, !tbaa !12, !noalias !20
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -421,7 +421,7 @@ _ZN5boost6locale4conv4impl12iconv_to_utfIcED2Ev.exit: ; preds = %12
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIcEE, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIcEE, i64 16), ptr %6, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl12uconv_to_utfIcE4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2)
@@ -435,7 +435,7 @@ _ZN5boost6locale4conv4impl12iconv_to_utfIcED2Ev.exit: ; preds = %12
           to label %.thread unwind label %36
 
 .thread:                                          ; preds = %27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIcEE, i64 16), ptr %28, align 8, !tbaa !10, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIcEE, i64 16), ptr %28, align 8, !tbaa !10, !noalias !27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %24, align 8, !tbaa !32, !noalias !27
   store ptr null, ptr %24, align 8, !tbaa !32, !noalias !27
@@ -862,7 +862,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv21invalid_charset_errorE, i64 16), ptr %0, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv21invalid_charset_errorE, i64 16), ptr %0, align 8, !tbaa !10
   ret void
 
 13:                                               ; preds = %2
@@ -905,7 +905,7 @@ define weak_odr void @_ZN5boost6locale4conv6detail16make_utf_decoderIcEESt10uniq
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIcEE, i64 16), ptr %5, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIcEE, i64 16), ptr %5, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %8, align 8, !tbaa !12
   %9 = load ptr, ptr %1, align 8, !tbaa !14
@@ -938,7 +938,7 @@ _ZN5boost6locale4conv4impl14iconv_from_utfIcED2Ev.exit.thread: ; preds = %.noexc
   br label %20
 
 _ZN5boost6locale4conv4impl14iconv_from_utfIcED2Ev.exit: ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIcEE, i64 16), ptr %13, align 8, !tbaa !10, !noalias !44
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIcEE, i64 16), ptr %13, align 8, !tbaa !10, !noalias !44
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %18, align 8, !tbaa !12, !noalias !44
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -960,7 +960,7 @@ _ZN5boost6locale4conv4impl14iconv_from_utfIcED2Ev.exit: ; preds = %12
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIcEE, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIcEE, i64 16), ptr %6, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl14uconv_from_utfIcE4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2)
@@ -974,7 +974,7 @@ _ZN5boost6locale4conv4impl14iconv_from_utfIcED2Ev.exit: ; preds = %12
           to label %.thread unwind label %36
 
 .thread:                                          ; preds = %27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIcEE, i64 16), ptr %28, align 8, !tbaa !10, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIcEE, i64 16), ptr %28, align 8, !tbaa !10, !noalias !49
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %24, align 8, !tbaa !32, !noalias !49
   store ptr null, ptr %24, align 8, !tbaa !32, !noalias !49
@@ -1367,7 +1367,7 @@ define weak_odr void @_ZN5boost6locale4conv6to_utfIcEENSt7__cxx1112basic_stringI
   %6 = alloca %"class.boost::locale::conv::impl::iconv_to_utf", align 8
   %7 = alloca %"class.boost::locale::conv::impl::uconv_to_utf", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIcEE, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIcEE, i64 16), ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %8, align 8, !tbaa !12
   %9 = load ptr, ptr %3, align 8, !tbaa !14
@@ -1415,7 +1415,7 @@ _ZN5boost6locale4conv4impl12iconv_to_utfIcED2Ev.exit.thread: ; preds = %_ZN5boos
 20:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIcEE, i64 16), ptr %7, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIcEE, i64 16), ptr %7, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl12uconv_to_utfIcE4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4)
@@ -1621,7 +1621,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013Unic
           to label %47 unwind label %48
 
 47:                                               ; preds = %44
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %46, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %46, align 8, !tbaa !10
   invoke void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTIN5boost6locale4conv16conversion_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #25
           to label %57 unwind label %50
 
@@ -1661,7 +1661,7 @@ define weak_odr void @_ZN5boost6locale4conv8from_utfIcEENSt7__cxx1112basic_strin
   %6 = alloca %"class.boost::locale::conv::impl::iconv_from_utf", align 8
   %7 = alloca %"class.boost::locale::conv::impl::uconv_from_utf", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIcEE, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIcEE, i64 16), ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %8, align 8, !tbaa !12
   %9 = load ptr, ptr %3, align 8, !tbaa !14
@@ -1709,7 +1709,7 @@ _ZN5boost6locale4conv4impl14iconv_from_utfIcED2Ev.exit.thread: ; preds = %_ZN5bo
 20:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIcEE, i64 16), ptr %7, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIcEE, i64 16), ptr %7, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl14uconv_from_utfIcE4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4)
@@ -1915,7 +1915,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013Unic
           to label %47 unwind label %48
 
 47:                                               ; preds = %44
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %46, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %46, align 8, !tbaa !10
   invoke void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTIN5boost6locale4conv16conversion_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #25
           to label %57 unwind label %50
 
@@ -1972,7 +1972,7 @@ define weak_odr void @_ZN5boost6locale4conv6detail16make_utf_encoderIwEESt10uniq
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIwEE, i64 16), ptr %5, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIwEE, i64 16), ptr %5, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %8, align 8, !tbaa !12
   %9 = load ptr, ptr %1, align 8, !tbaa !14
@@ -2005,7 +2005,7 @@ _ZN5boost6locale4conv4impl12iconv_to_utfIwED2Ev.exit.thread: ; preds = %.noexc
   br label %20
 
 _ZN5boost6locale4conv4impl12iconv_to_utfIwED2Ev.exit: ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIwEE, i64 16), ptr %13, align 8, !tbaa !10, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIwEE, i64 16), ptr %13, align 8, !tbaa !10, !noalias !72
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %18, align 8, !tbaa !12, !noalias !72
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2027,7 +2027,7 @@ _ZN5boost6locale4conv4impl12iconv_to_utfIwED2Ev.exit: ; preds = %12
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIwEE, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIwEE, i64 16), ptr %6, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl12uconv_to_utfIwE4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2)
@@ -2041,7 +2041,7 @@ _ZN5boost6locale4conv4impl12iconv_to_utfIwED2Ev.exit: ; preds = %12
           to label %.thread unwind label %36
 
 .thread:                                          ; preds = %27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIwEE, i64 16), ptr %28, align 8, !tbaa !10, !noalias !79
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIwEE, i64 16), ptr %28, align 8, !tbaa !10, !noalias !79
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %24, align 8, !tbaa !32, !noalias !79
   store ptr null, ptr %24, align 8, !tbaa !32, !noalias !79
@@ -2348,7 +2348,7 @@ define weak_odr void @_ZN5boost6locale4conv6detail16make_utf_decoderIwEESt10uniq
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIwEE, i64 16), ptr %5, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIwEE, i64 16), ptr %5, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %8, align 8, !tbaa !12
   %9 = load ptr, ptr %1, align 8, !tbaa !14
@@ -2381,7 +2381,7 @@ _ZN5boost6locale4conv4impl14iconv_from_utfIwED2Ev.exit.thread: ; preds = %.noexc
   br label %20
 
 _ZN5boost6locale4conv4impl14iconv_from_utfIwED2Ev.exit: ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIwEE, i64 16), ptr %13, align 8, !tbaa !10, !noalias !89
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIwEE, i64 16), ptr %13, align 8, !tbaa !10, !noalias !89
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %10, ptr %18, align 8, !tbaa !12, !noalias !89
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2403,7 +2403,7 @@ _ZN5boost6locale4conv4impl14iconv_from_utfIwED2Ev.exit: ; preds = %12
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIwEE, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIwEE, i64 16), ptr %6, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl14uconv_from_utfIwE4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2)
@@ -2417,7 +2417,7 @@ _ZN5boost6locale4conv4impl14iconv_from_utfIwED2Ev.exit: ; preds = %12
           to label %.thread unwind label %36
 
 .thread:                                          ; preds = %27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIwEE, i64 16), ptr %28, align 8, !tbaa !10, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIwEE, i64 16), ptr %28, align 8, !tbaa !10, !noalias !96
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %24, align 8, !tbaa !32, !noalias !96
   store ptr null, ptr %24, align 8, !tbaa !32, !noalias !96
@@ -2723,7 +2723,7 @@ define weak_odr void @_ZN5boost6locale4conv6to_utfIwEENSt7__cxx1112basic_stringI
   %6 = alloca %"class.boost::locale::conv::impl::iconv_to_utf.49", align 8
   %7 = alloca %"class.boost::locale::conv::impl::uconv_to_utf.58", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIwEE, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12iconv_to_utfIwEE, i64 16), ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %8, align 8, !tbaa !12
   %9 = load ptr, ptr %3, align 8, !tbaa !14
@@ -2771,7 +2771,7 @@ _ZN5boost6locale4conv4impl12iconv_to_utfIwED2Ev.exit.thread: ; preds = %_ZN5boos
 20:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIwEE, i64 16), ptr %7, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl12uconv_to_utfIwEE, i64 16), ptr %7, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl12uconv_to_utfIwE4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4)
@@ -2931,7 +2931,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4conv4impl12uconv_to_utfIwE7con
           to label %30 unwind label %31
 
 30:                                               ; preds = %27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %29, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %29, align 8, !tbaa !10
   invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTIN5boost6locale4conv16conversion_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #25
           to label %40 unwind label %33
 
@@ -2971,7 +2971,7 @@ define weak_odr void @_ZN5boost6locale4conv8from_utfIwEENSt7__cxx1112basic_strin
   %6 = alloca %"class.boost::locale::conv::impl::iconv_from_utf.76", align 8
   %7 = alloca %"class.boost::locale::conv::impl::uconv_from_utf.86", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIwEE, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14iconv_from_utfIwEE, i64 16), ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %8, align 8, !tbaa !12
   %9 = load ptr, ptr %3, align 8, !tbaa !14
@@ -3019,7 +3019,7 @@ _ZN5boost6locale4conv4impl14iconv_from_utfIwED2Ev.exit.thread: ; preds = %_ZN5bo
 20:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIwEE, i64 16), ptr %7, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl14uconv_from_utfIwEE, i64 16), ptr %7, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl14uconv_from_utfIwE4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4)
@@ -3187,7 +3187,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013Unic
           to label %39 unwind label %40
 
 39:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %38, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %38, align 8, !tbaa !10
   invoke void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTIN5boost6locale4conv16conversion_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #25
           to label %49 unwind label %42
 
@@ -3243,7 +3243,7 @@ define void @_ZN5boost6locale4conv7betweenEPKcS3_RKNSt7__cxx1112basic_stringIcSt
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13iconv_betweenE, i64 16), ptr %7, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13iconv_betweenE, i64 16), ptr %7, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %12, align 8, !tbaa !12
   %13 = load ptr, ptr %3, align 8, !tbaa !14
@@ -3301,7 +3301,7 @@ _ZN5boost6locale4conv4impl13iconv_betweenD2Ev.exit.thread: ; preds = %_ZN5boost6
 29:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13uconv_betweenE, i64 16), ptr %8, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13uconv_betweenE, i64 16), ptr %8, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %31 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl13uconv_between4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5)
@@ -3809,7 +3809,7 @@ _ZNK5boost6locale8impl_icu17icu_std_converterIcLi1EE3stdB5cxx11ERKN6icu_7013Unic
           to label %47 unwind label %48
 
 47:                                               ; preds = %44
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %46, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %46, align 8, !tbaa !10
   invoke void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTIN5boost6locale4conv16conversion_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #25
           to label %57 unwind label %50
 
@@ -4018,7 +4018,7 @@ define void @_ZN5boost6locale4conv6detail21make_narrow_converterERKNSt7__cxx1112
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13iconv_betweenE, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13iconv_betweenE, i64 16), ptr %6, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %12, align 8, !tbaa !12
   %13 = load ptr, ptr %2, align 8, !tbaa !14
@@ -4052,7 +4052,7 @@ _ZN5boost6locale4conv4impl13iconv_betweenD2Ev.exit.thread: ; preds = %.noexc
   br label %25
 
 _ZN5boost6locale4conv4impl13iconv_betweenD2Ev.exit: ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13iconv_betweenE, i64 16), ptr %18, align 8, !tbaa !10, !noalias !118
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13iconv_betweenE, i64 16), ptr %18, align 8, !tbaa !10, !noalias !118
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %15, ptr %23, align 8, !tbaa !12, !noalias !118
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -4074,7 +4074,7 @@ _ZN5boost6locale4conv4impl13iconv_betweenD2Ev.exit: ; preds = %17
 
 28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13uconv_betweenE, i64 16), ptr %7, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13uconv_betweenE, i64 16), ptr %7, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = invoke noundef zeroext i1 @_ZN5boost6locale4conv4impl13uconv_between4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS1_11method_typeE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %3)
@@ -4088,7 +4088,7 @@ _ZN5boost6locale4conv4impl13iconv_betweenD2Ev.exit: ; preds = %17
           to label %.thread unwind label %41
 
 .thread:                                          ; preds = %32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13uconv_betweenE, i64 16), ptr %33, align 8, !tbaa !10, !noalias !123
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv4impl13uconv_betweenE, i64 16), ptr %33, align 8, !tbaa !10, !noalias !123
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %29, align 8, !tbaa !32, !noalias !123
   store ptr null, ptr %29, align 8, !tbaa !32, !noalias !123
@@ -4892,7 +4892,7 @@ _ZN5boost6locale4conv4impl15iconverter_base4convEPPKcPmPPcS7_.exit: ; preds = %.
           to label %31 unwind label %32
 
 31:                                               ; preds = %29
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %30, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %30, align 8, !tbaa !10
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTIN5boost6locale4conv16conversion_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #25
           to label %82 unwind label %.loopexit.split-lp
 
@@ -5007,7 +5007,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 
 .invoke71.sink.split:                             ; preds = %65, %50
   %.sink = phi ptr [ %51, %50 ], [ %66, %65 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %.sink, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %.sink, align 8, !tbaa !10
   br label %.invoke71
 
 .invoke71:                                        ; preds = %.invoke71.sink.split, %61
@@ -5090,7 +5090,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4conv16conversion_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %0, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %0, align 8, !tbaa !10
   ret void
 }
 
@@ -5741,7 +5741,7 @@ _ZN5boost6locale4conv4impl15iconverter_base4convEPPKcPmPPcS7_.exit: ; preds = %.
           to label %31 unwind label %32
 
 31:                                               ; preds = %29
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %30, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %30, align 8, !tbaa !10
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTIN5boost6locale4conv16conversion_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #25
           to label %84 unwind label %.loopexit.split-lp
 
@@ -5857,7 +5857,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6appendEPKwm.exit: ; preds 
 
 .invoke71.sink.split:                             ; preds = %66, %51
   %.sink = phi ptr [ %52, %51 ], [ %67, %66 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %.sink, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %.sink, align 8, !tbaa !10
   br label %.invoke71
 
 .invoke71:                                        ; preds = %.invoke71.sink.split, %62
@@ -6126,7 +6126,7 @@ _ZN5boost6locale4conv4impl15iconverter_base4convEPPKcPmPPcS7_.exit: ; preds = %.
           to label %32 unwind label %33
 
 32:                                               ; preds = %30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %31, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %31, align 8, !tbaa !10
   invoke void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTIN5boost6locale4conv16conversion_errorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #25
           to label %83 unwind label %.loopexit.split-lp
 
@@ -6241,7 +6241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 
 .invoke71.sink.split:                             ; preds = %66, %51
   %.sink = phi ptr [ %52, %51 ], [ %67, %66 ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %.sink, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6locale4conv16conversion_errorE, i64 16), ptr %.sink, align 8, !tbaa !10
   br label %.invoke71
 
 .invoke71:                                        ; preds = %.invoke71.sink.split, %62

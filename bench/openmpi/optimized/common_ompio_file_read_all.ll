@@ -1217,7 +1217,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %.not795, label %581, label %574
 
 574:                                              ; preds = %564
-  %575 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %575 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %576 = load ptr, ptr %29, align 8
   %577 = getelementptr inbounds nuw i32, ptr %576, i64 %indvars.iv1476
   %578 = load i32, ptr %577, align 4
@@ -1354,7 +1354,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %634 = call i32 @ompi_datatype_create_hindexed(i32 noundef %633, ptr noundef nonnull %.5614, ptr noundef %.5, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %12) #10
   %.val820 = load ptr, ptr %12, align 8
   %635 = call i32 @opal_datatype_commit(ptr noundef %.val820) #10
-  %636 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %636 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %637 = inttoptr i64 %.1 to ptr
   %638 = load ptr, ptr %12, align 8
   %639 = load ptr, ptr %40, align 8
@@ -1381,7 +1381,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %647, label %648, label %653
 
 648:                                              ; preds = %645
-  %649 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %649 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %650 = load i32, ptr %32, align 8
   %651 = sext i32 %650 to i64
   %652 = call i32 %649(i64 noundef %651, ptr noundef %.1618, ptr noundef null) #10
@@ -1389,7 +1389,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %.not792, label %653, label %.loopexit1032
 
 653:                                              ; preds = %648, %645
-  %654 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %654 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %655 = call i32 %654(ptr noundef nonnull %11, ptr noundef null) #10
   %.not793 = icmp eq i32 %655, 0
   br i1 %.not793, label %._crit_edge1198.thread, label %.loopexit1032

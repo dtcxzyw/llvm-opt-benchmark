@@ -98,7 +98,7 @@ define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_ha
   %52 = and i64 %51, 512
   %53 = icmp eq i64 %52, 0
   %54 = select i1 %53, i32 2336, i32 3520
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %56 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %55, i32 noundef %54, i64 noundef 32) #9
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %62

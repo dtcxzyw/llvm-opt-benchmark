@@ -123,7 +123,7 @@ define void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind noalias writable sret(%"cla
           to label %.noexc13 unwind label %8
 
 .noexc13:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %6
 
 6:                                                ; preds = %.noexc13
@@ -215,7 +215,7 @@ define void @_Z9PrintSuitB5cxx11tc(ptr dead_on_unwind noalias writable sret(%"cl
           to label %.noexc16 unwind label %9
 
 .noexc16:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %7
 
 7:                                                ; preds = %.noexc16
@@ -1188,7 +1188,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
           to label %36 unwind label %85
 
 36:                                               ; preds = %34
-  %37 = load i8, ptr getelementptr inbounds (i8, ptr @cardSuit, i64 1), align 1
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cardSuit, i64 1), align 1
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %35, i8 noundef zeroext %37)
           to label %39 unwind label %85
 
@@ -1205,7 +1205,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
           to label %47 unwind label %85
 
 47:                                               ; preds = %45
-  %48 = load i8, ptr getelementptr inbounds (i8, ptr @cardSuit, i64 2), align 1
+  %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cardSuit, i64 2), align 1
   %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %46, i8 noundef zeroext %48)
           to label %50 unwind label %85
 
@@ -1223,7 +1223,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
           to label %59 unwind label %85
 
 59:                                               ; preds = %57
-  %60 = load i8, ptr getelementptr inbounds (i8, ptr @cardSuit, i64 3), align 1
+  %60 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cardSuit, i64 3), align 1
   %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %58, i8 noundef zeroext %60)
           to label %62 unwind label %85
 
@@ -2138,7 +2138,7 @@ define void @_Z7TopMoveB5cxx11bRK8moveType(ptr dead_on_unwind noalias writable s
           to label %.noexc6 unwind label %30
 
 .noexc6:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.27, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.27, i64 6))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %28
 
 28:                                               ; preds = %.noexc6

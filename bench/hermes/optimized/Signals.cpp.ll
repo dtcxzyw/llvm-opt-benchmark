@@ -480,7 +480,7 @@ if.end:                                           ; preds = %_ZN4llvh3sys15Smart
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %_ZL17CreateSigAltStackv.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL11OldAltStack, i64 8), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL11OldAltStack, i64 8), align 8
   %and.i = and i32 %4, 1
   %tobool.not.i6 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i6, label %lor.lhs.false2.i, label %_ZL17CreateSigAltStackv.exit
@@ -488,7 +488,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %5 = load ptr, ptr @_ZL11OldAltStack, align 8
   %tobool3.not.i = icmp eq ptr %5, null
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL11OldAltStack, i64 16), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL11OldAltStack, i64 16), align 8
   %cmp4.not.i = icmp ult i64 %6, %add.i
   %or.cond.i = select i1 %tobool3.not.i, i1 true, i1 %cmp4.not.i
   br i1 %or.cond.i, label %if.end.i, label %_ZL17CreateSigAltStackv.exit
@@ -792,7 +792,7 @@ entry:
 define hidden void @_ZN4llvh3sys28PrintStackTraceOnErrorSignalENS_9StringRefEb(ptr %Argv0.coerce0, i64 %Argv0.coerce1, i1 noundef zeroext %DisableCrashReporting) local_unnamed_addr #0 {
 entry:
   store ptr %Argv0.coerce0, ptr @_ZL5Argv0, align 8
-  store i64 %Argv0.coerce1, ptr getelementptr inbounds (i8, ptr @_ZL5Argv0, i64 8), align 8
+  store i64 %Argv0.coerce1, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Argv0, i64 8), align 8
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i

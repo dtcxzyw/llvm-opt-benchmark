@@ -550,11 +550,11 @@ invoke.cont:                                      ; preds = %if.end
   %fields_.i = getelementptr inbounds nuw i8, ptr %call8, i64 136
   store ptr null, ptr %fields_.i, align 8
   %fields_by_name_.i = getelementptr inbounds nuw i8, ptr %call8, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_by_name_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_by_name_.i, align 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %fields_by_number_.i = getelementptr inbounds nuw i8, ptr %call8, i64 176
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_by_number_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_by_number_.i, align 8
   %slots_.i.i.i.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %call8, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i2.i, i8 0, i64 24, i1 false)
   store ptr %call8, ptr %msg, align 8, !alias.scope !4
@@ -956,7 +956,7 @@ if.end:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.end
   %values_.i = getelementptr inbounds nuw i8, ptr %call8, i64 112
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %values_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %values_.i, align 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %call8, ptr %enoom, align 8, !alias.scope !12
@@ -2577,7 +2577,7 @@ if.then.i.i196:                                   ; preds = %_ZN4absl12lts_20230
 do.body164:                                       ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit195
   %55 = load ptr, ptr %0, align 8
   store ptr %55, ptr %group, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %agg.tmp.sroa.0.0.insert.ext = zext nneg i32 %shr to i64
   %agg.tmp.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp.sroa.0.0.insert.ext, 4294967296
@@ -3832,7 +3832,7 @@ if.then.i.i14:                                    ; preds = %invoke.cont16
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i18, align 8, !noalias !124
   %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %value, i64 32
   %17 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i19, align 8, !noalias !124
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i16, align 8, !noalias !124
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i16, align 8, !noalias !124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i.i.i.i17, i8 0, i64 24, i1 false)
   store ptr %14, ptr %fields_.i.i.i.i.i15, align 8
   %slots_.i.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -4096,7 +4096,7 @@ if.then.i.i36:                                    ; preds = %if.then22
   %58 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i40, align 8, !noalias !128
   %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %value, i64 32
   %59 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i41, align 8, !noalias !128
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i38, align 8, !noalias !128
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i38, align 8, !noalias !128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i.i.i.i39, i8 0, i64 24, i1 false)
   store ptr %56, ptr %fields_.i.i.i.i.i37, align 8
   %slots_.i.i.i.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -6784,7 +6784,7 @@ entry:
   %_status = alloca %"class.absl::lts_20230802::Status", align 8
   store ptr %desc, ptr %msg, align 8
   %fields_.i = getelementptr inbounds nuw i8, ptr %msg, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_.i, align 8
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   invoke void @_ZN6google8protobuf13json_internal14UntypedMessage6DecodeERNS0_2io16CodedInputStreamESt8optionalIiE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %_status, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef nonnull align 8 dereferenceable(80) %stream, i64 0)
@@ -6832,7 +6832,7 @@ do.end:                                           ; preds = %invoke.cont4
   %10 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !294
   %compressed_tuple_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 32
   %11 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !294
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_.i, align 8, !noalias !294
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_.i, align 8, !noalias !294
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %8, ptr %fields_.i.i.i.i, align 8
   %slots_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -9044,7 +9044,7 @@ if.then:                                          ; preds = %for.end.i
   %17 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !319
   %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 32
   %18 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !319
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !319
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !319
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %15, ptr %fields_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3, i64 24
@@ -9406,7 +9406,7 @@ entry:
   %4 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !323
   %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__vars, i64 32
   %5 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !323
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !323
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !323
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %2, ptr %fields_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9695,7 +9695,7 @@ _ZNKSt6vectorIN6google8protobuf13json_internal14UntypedMessageESaIS3_EE12_M_chec
   %6 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !326
   %compressed_tuple_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 32
   %7 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i, align 8, !noalias !326
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i, align 8, !noalias !326
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i, align 8, !noalias !326
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %4, ptr %fields_.i.i.i, align 8
   %slots_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
@@ -9723,7 +9723,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN6goo
   %11 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !332, !noalias !334
   %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
   %12 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !332, !noalias !334
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i.i.i, align 8, !alias.scope !332, !noalias !334
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i.i.i, align 8, !alias.scope !332, !noalias !334
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !332, !noalias !329
   store ptr %9, ptr %fields_.i.i.i.i.i.i.i, align 8, !alias.scope !329, !noalias !332
   %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
@@ -9759,7 +9759,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   %16 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !341, !noalias !343
   %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
   %17 = load i64, ptr %compressed_tuple_.i.i.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !341, !noalias !343
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i.i.i16, align 8, !alias.scope !341, !noalias !343
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %fields_3.i.i.i.i.i.i.i16, align 8, !alias.scope !341, !noalias !343
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i17, i8 0, i64 24, i1 false), !alias.scope !341, !noalias !338
   store ptr %14, ptr %fields_.i.i.i.i.i.i.i15, align 8, !alias.scope !338, !noalias !341
   %slots_.i.i.i.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 16

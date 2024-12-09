@@ -591,7 +591,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr nocapture noundef readonly %
 
 118:                                              ; preds = %170, %115
   %119 = phi i32 [ 0, %115 ], [ %176, %170 ]
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %121 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %120, i32 noundef 3520, i64 noundef 88) #14
   %122 = icmp eq ptr %121, null
   br i1 %122, label %.thread52, label %123
@@ -1120,7 +1120,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_getnullheader(
   br label %26
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %12 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 16) #14
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %25
@@ -2905,7 +2905,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(3136) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 3136) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   store ptr %6, ptr %7, align 8
@@ -3084,7 +3084,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
   br i1 %122, label %.thread, label %123
 
 123:                                              ; preds = %121
-  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %125 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %124, i32 noundef 3520, i64 noundef 64) #14
   %126 = icmp eq ptr %125, null
   br i1 %126, label %.thread, label %127

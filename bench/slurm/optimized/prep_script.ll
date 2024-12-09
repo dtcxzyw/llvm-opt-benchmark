@@ -22,7 +22,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br i1 %1, label %2, label %20
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 936), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 936), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %4
 
@@ -32,7 +32,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 936), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 936), align 8
   %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %8) #5
   br label %11
 
@@ -42,7 +42,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
 
 11:                                               ; preds = %7, %10, %2
   %.1 = phi i32 [ -1, %7 ], [ 0, %10 ], [ 0, %2 ]
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 336), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 336), align 8
   %.not3 = icmp eq ptr %12, null
   br i1 %.not3, label %20, label %13
 
@@ -52,7 +52,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 336), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 336), align 8
   %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %17) #5
   br label %20
 

@@ -5879,7 +5879,7 @@ define internal fastcc ptr @find_tt(ptr nocapture noundef readonly %0) unnamed_a
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %42 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %41, i32 noundef 2336, i64 noundef 64) #23
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
@@ -6956,7 +6956,7 @@ define internal fastcc noundef ptr @ehci_qh_alloc(ptr nocapture noundef readonly
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(144) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 2336, i64 noundef 144) #23
   %7 = icmp eq ptr %6, null
   br i1 %7, label %39, label %8
@@ -12385,7 +12385,7 @@ define internal fastcc i32 @iso_stream_schedule(ptr nocapture noundef %0, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @iso_stream_alloc() unnamed_addr #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %2 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 2336, i64 noundef 128) #23
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4, !prof !41

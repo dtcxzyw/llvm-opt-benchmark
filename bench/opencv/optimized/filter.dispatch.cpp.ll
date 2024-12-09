@@ -4102,7 +4102,7 @@ define hidden void @_ZN2cv12cpu_baseline18getLinearRowFilterEiiRKNS_3MatEii(ptr 
   store i32 1, ptr %57, align 8, !noalias !19
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 12
   store i32 1, ptr %58, align 4, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline18SymmRowSmallFilterIhiNS1_17SymmRowSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %56, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline18SymmRowSmallFilterIhiNS1_17SymmRowSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %56, align 8, !noalias !19
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
   invoke void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_17SymmRowSmallNoVecEEC2ERKNS_3MatEiiRKS2_(ptr noundef nonnull align 8 dereferenceable(120) %59, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %_ZN2cv3PtrINS_12cpu_baseline18SymmRowSmallFilterIhiNS1_17SymmRowSmallNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline18SymmRowSmallFilterIhiNS2_17SymmRowSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !19
@@ -4134,7 +4134,7 @@ _ZN2cv3PtrINS_12cpu_baseline18SymmRowSmallFilterIhiNS1_17SymmRowSmallNoVecEEEED2
   store i32 1, ptr %67, align 8, !noalias !24
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 12
   store i32 1, ptr %68, align 4, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline18SymmRowSmallFilterIffNS1_17SymmRowSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %66, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline18SymmRowSmallFilterIffNS1_17SymmRowSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %66, align 8, !noalias !24
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
   invoke void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_17SymmRowSmallNoVecEEC2ERKNS_3MatEiiRKS2_(ptr noundef nonnull align 8 dereferenceable(120) %69, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %_ZN2cv3PtrINS_12cpu_baseline18SymmRowSmallFilterIffNS1_17SymmRowSmallNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline18SymmRowSmallFilterIffNS2_17SymmRowSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, !noalias !24
@@ -4166,7 +4166,7 @@ _ZN2cv3PtrINS_12cpu_baseline18SymmRowSmallFilterIffNS1_17SymmRowSmallNoVecEEEED2
   store i32 1, ptr %76, align 8, !noalias !29
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 12
   store i32 1, ptr %77, align 4, !noalias !29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIhiNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %75, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIhiNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %75, align 8, !noalias !29
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   invoke void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %78, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %_ZN2cv3PtrINS_12cpu_baseline9RowFilterIhiNS1_8RowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIhiNS2_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !29
@@ -4197,7 +4197,7 @@ _ZN2cv3PtrINS_12cpu_baseline9RowFilterIhiNS1_8RowNoVecEEEED2Ev.exit: ; preds = %
   store i32 1, ptr %85, align 8, !noalias !34
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store i32 1, ptr %86, align 4, !noalias !34
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIhfNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %84, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIhfNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %84, align 8, !noalias !34
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
   invoke void @_ZN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %87, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %_ZN2cv3PtrINS_12cpu_baseline9RowFilterIhfNS1_8RowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIhfNS2_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !34
@@ -4228,7 +4228,7 @@ _ZN2cv3PtrINS_12cpu_baseline9RowFilterIhfNS1_8RowNoVecEEEED2Ev.exit: ; preds = %
   store i32 1, ptr %94, align 8, !noalias !39
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 12
   store i32 1, ptr %95, align 4, !noalias !39
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIhdNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %93, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIhdNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %93, align 8, !noalias !39
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !39
   invoke void @_ZN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %96, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -4261,7 +4261,7 @@ _ZN2cv3PtrINS_12cpu_baseline9RowFilterIhdNS1_8RowNoVecEEEED2Ev.exit: ; preds = %
   store i32 1, ptr %103, align 8, !noalias !44
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i32 1, ptr %104, align 4, !noalias !44
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterItfNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %102, align 8, !noalias !44
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterItfNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %102, align 8, !noalias !44
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7), !noalias !44
   invoke void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %105, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -4454,7 +4454,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline9RowFilterItdNS1_8
   store i32 1, ptr %5, align 8, !noalias !49
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !49
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterItdNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterItdNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !49
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !49
   invoke void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %7, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %.0.val, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -4560,7 +4560,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline9RowFilterIsfNS1_8
   store i32 1, ptr %5, align 8, !noalias !52
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !52
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIsfNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !52
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIsfNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !52
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %7, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %.0.val, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %_ZNSt10shared_ptrIN2cv12cpu_baseline9RowFilterIsfNS1_8RowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIsfNS2_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !52
@@ -4665,7 +4665,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline9RowFilterIsdNS1_8
   store i32 1, ptr %5, align 8, !noalias !55
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !55
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIsdNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIsdNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !55
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !55
   invoke void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %7, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %.0.val, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -4771,7 +4771,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline9RowFilterIffNS1_8
   store i32 1, ptr %5, align 8, !noalias !58
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !58
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIffNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !58
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIffNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !58
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %7, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %.0.val, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %_ZNSt10shared_ptrIN2cv12cpu_baseline9RowFilterIffNS1_8RowNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIffNS2_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !58
@@ -4876,7 +4876,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline9RowFilterIfdNS1_8
   store i32 1, ptr %5, align 8, !noalias !61
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !61
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIfdNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIfdNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !61
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !61
   invoke void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %7, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %.0.val, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -4983,7 +4983,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline9RowFilterIddNS1_8
   store i32 1, ptr %5, align 8, !noalias !64
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIddNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline9RowFilterIddNS1_8RowNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !64
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !64
   invoke void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %7, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %.0.val, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -5204,7 +5204,7 @@ define hidden void @_ZN2cv12cpu_baseline21getLinearColumnFilterEiiRKNS_3MatEiidi
   store i32 1, ptr %79, align 8, !noalias !67
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 12
   store i32 1, ptr %80, align 4, !noalias !67
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_13FixedPtCastExIihEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %78, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_13FixedPtCastExIihEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %78, align 8, !noalias !67
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19), !noalias !67
   invoke void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(128) %81, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, double noundef %6, ptr noundef nonnull align 4 dereferenceable(8) %23, ptr noundef nonnull align 1 dereferenceable(1) %19)
@@ -5237,7 +5237,7 @@ _ZN2cv3PtrINS_12cpu_baseline12ColumnFilterINS1_13FixedPtCastExIihEENS1_11ColumnN
   store i32 1, ptr %88, align 8, !noalias !72
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 12
   store i32 1, ptr %89, align 4, !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIfhEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %87, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIfhEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %87, align 8, !noalias !72
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17), !noalias !72
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18), !noalias !72
@@ -5272,7 +5272,7 @@ _ZN2cv3PtrINS_12cpu_baseline12ColumnFilterINS1_4CastIfhEENS1_11ColumnNoVecEEEED2
   store i32 1, ptr %97, align 8, !noalias !77
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store i32 1, ptr %98, align 4, !noalias !77
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIdhEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %96, align 8, !noalias !77
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIdhEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %96, align 8, !noalias !77
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15), !noalias !77
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16), !noalias !77
@@ -5307,7 +5307,7 @@ _ZN2cv3PtrINS_12cpu_baseline12ColumnFilterINS1_4CastIdhEENS1_11ColumnNoVecEEEED2
   store i32 1, ptr %106, align 8, !noalias !82
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 12
   store i32 1, ptr %107, align 4, !noalias !82
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIftEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %105, align 8, !noalias !82
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIftEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %105, align 8, !noalias !82
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13), !noalias !82
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14), !noalias !82
@@ -5462,7 +5462,7 @@ _ZN2cv3PtrINS_12cpu_baseline12ColumnFilterINS1_4CastIftEENS1_11ColumnNoVecEEEED2
   store i32 1, ptr %165, align 8, !noalias !87
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 12
   store i32 1, ptr %166, align 4, !noalias !87
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline21SymmColumnSmallFilterINS1_13FixedPtCastExIihEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %164, align 8, !noalias !87
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline21SymmColumnSmallFilterINS1_13FixedPtCastExIihEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %164, align 8, !noalias !87
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
   invoke void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(132) %167, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, double noundef %6, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 1 dereferenceable(1) %30)
           to label %_ZN2cv3PtrINS_12cpu_baseline21SymmColumnSmallFilterINS1_13FixedPtCastExIihEENS1_11ColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline21SymmColumnSmallFilterINS2_13FixedPtCastExIihEENS2_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !87
@@ -5495,7 +5495,7 @@ _ZN2cv3PtrINS_12cpu_baseline21SymmColumnSmallFilterINS1_13FixedPtCastExIihEENS1_
   store i32 1, ptr %176, align 8, !noalias !92
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 12
   store i32 1, ptr %177, align 4, !noalias !92
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline21SymmColumnSmallFilterINS1_4CastIisEENS1_20SymmColumnSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %175, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline21SymmColumnSmallFilterINS1_4CastIisEENS1_20SymmColumnSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %175, align 8, !noalias !92
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 16
   invoke void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(124) %178, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, double noundef %6, i32 noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %32)
           to label %_ZN2cv3PtrINS_12cpu_baseline21SymmColumnSmallFilterINS1_4CastIisEENS1_20SymmColumnSmallNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline21SymmColumnSmallFilterINS2_4CastIisEENS2_20SymmColumnSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !92
@@ -5527,7 +5527,7 @@ _ZN2cv3PtrINS_12cpu_baseline21SymmColumnSmallFilterINS1_4CastIisEENS1_20SymmColu
   store i32 1, ptr %186, align 8, !noalias !97
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 12
   store i32 1, ptr %187, align 4, !noalias !97
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline21SymmColumnSmallFilterINS1_4CastIffEENS1_20SymmColumnSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %185, align 8, !noalias !97
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline21SymmColumnSmallFilterINS1_4CastIffEENS1_20SymmColumnSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %185, align 8, !noalias !97
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 16
   invoke void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(124) %188, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, double noundef %6, i32 noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef nonnull align 1 dereferenceable(1) %34)
           to label %_ZN2cv3PtrINS_12cpu_baseline21SymmColumnSmallFilterINS1_4CastIffEENS1_20SymmColumnSmallNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline21SymmColumnSmallFilterINS2_4CastIffEENS2_20SymmColumnSmallNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !97
@@ -5566,7 +5566,7 @@ _ZN2cv3PtrINS_12cpu_baseline21SymmColumnSmallFilterINS1_4CastIffEENS1_20SymmColu
   store i32 1, ptr %199, align 8, !noalias !102
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 12
   store i32 1, ptr %200, align 4, !noalias !102
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_13FixedPtCastExIihEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %198, align 8, !noalias !102
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_13FixedPtCastExIihEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %198, align 8, !noalias !102
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 16
   invoke void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(132) %201, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, double noundef %6, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr noundef nonnull align 1 dereferenceable(1) %36)
           to label %_ZN2cv3PtrINS_12cpu_baseline16SymmColumnFilterINS1_13FixedPtCastExIihEENS1_11ColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS2_13FixedPtCastExIihEENS2_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !102
@@ -5597,7 +5597,7 @@ _ZN2cv3PtrINS_12cpu_baseline16SymmColumnFilterINS1_13FixedPtCastExIihEENS1_11Col
   store i32 1, ptr %208, align 8, !noalias !107
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 12
   store i32 1, ptr %209, align 4, !noalias !107
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIfhEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %207, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIfhEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %207, align 8, !noalias !107
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 16
   invoke void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(124) %210, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %4, double noundef %6, i32 noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %_ZN2cv3PtrINS_12cpu_baseline16SymmColumnFilterINS1_4CastIfhEENS1_11ColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS2_4CastIfhEENS2_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !107
@@ -5628,7 +5628,7 @@ _ZN2cv3PtrINS_12cpu_baseline16SymmColumnFilterINS1_4CastIfhEENS1_11ColumnNoVecEE
   store i32 1, ptr %217, align 8, !noalias !112
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 12
   store i32 1, ptr %218, align 4, !noalias !112
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIdhEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %216, align 8, !noalias !112
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIdhEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %216, align 8, !noalias !112
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11), !noalias !112
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12), !noalias !112
@@ -5663,7 +5663,7 @@ _ZN2cv3PtrINS_12cpu_baseline16SymmColumnFilterINS1_4CastIdhEENS1_11ColumnNoVecEE
   store i32 1, ptr %226, align 8, !noalias !117
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 12
   store i32 1, ptr %227, align 4, !noalias !117
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIftEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %225, align 8, !noalias !117
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIftEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %225, align 8, !noalias !117
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9), !noalias !117
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10), !noalias !117
@@ -5859,7 +5859,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12ColumnFilterINS1
   store i32 1, ptr %6, align 8, !noalias !122
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !122
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIdtEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !122
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIdtEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !122
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !122
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !122
@@ -5969,7 +5969,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12ColumnFilterINS1
   store i32 1, ptr %6, align 8, !noalias !125
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !125
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIfsEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !125
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIfsEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !125
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !125
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !125
@@ -6079,7 +6079,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12ColumnFilterINS1
   store i32 1, ptr %6, align 8, !noalias !128
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !128
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIdsEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !128
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIdsEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !128
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !128
@@ -6189,7 +6189,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12ColumnFilterINS1
   store i32 1, ptr %6, align 8, !noalias !131
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIffEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIffEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !131
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !131
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !131
@@ -6299,7 +6299,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline12ColumnFilterINS1
   store i32 1, ptr %6, align 8, !noalias !134
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !134
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIddEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !134
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline12ColumnFilterINS1_4CastIddEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !134
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !134
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !134
@@ -6409,7 +6409,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline16SymmColumnFilter
   store i32 1, ptr %6, align 8, !noalias !137
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !137
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIdtEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !137
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIdtEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !137
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !137
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !137
@@ -6519,7 +6519,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline16SymmColumnFilter
   store i32 1, ptr %6, align 8, !noalias !140
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !140
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIisEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !140
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIisEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !140
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !140
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !140
@@ -6627,7 +6627,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline16SymmColumnFilter
   store i32 1, ptr %6, align 8, !noalias !143
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !143
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIfsEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !143
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIfsEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !143
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(124) %8, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %.0.val, double noundef %.0.val1, i32 noundef %.0.val3, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZNSt10shared_ptrIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIfsEENS1_11ColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS2_4CastIfsEENS2_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i, !noalias !143
@@ -6733,7 +6733,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline16SymmColumnFilter
   store i32 1, ptr %6, align 8, !noalias !146
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !146
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIdsEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !146
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIdsEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !146
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !146
@@ -6841,7 +6841,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline16SymmColumnFilter
   store i32 1, ptr %6, align 8, !noalias !149
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !149
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIffEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !149
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIffEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !149
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(124) %8, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %.0.val, double noundef %.0.val1, i32 noundef %.0.val3, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZNSt10shared_ptrIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIffEENS1_11ColumnNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS2_4CastIffEENS2_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i, !noalias !149
@@ -6947,7 +6947,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline16SymmColumnFilter
   store i32 1, ptr %6, align 8, !noalias !152
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !152
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIddEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !152
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline16SymmColumnFilterINS1_4CastIddEENS1_11ColumnNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !152
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !152
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !152
@@ -7187,7 +7187,7 @@ define hidden void @_ZN2cv12cpu_baseline15getLinearFilterEiiRKNS_3MatENS_6Point_
   store i32 1, ptr %84, align 8, !noalias !155
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 12
   store i32 1, ptr %85, align 4, !noalias !155
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIfhEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %83, align 8, !noalias !155
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIfhEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %83, align 8, !noalias !155
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 16
   invoke void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS0_11FilterNoVecEEC2ERKNS_3MatENS_6Point_IiEEdRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(102) %86, ptr noundef nonnull align 8 dereferenceable(96) %17, i64 %55, double noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %_ZN2cv3PtrINS_12cpu_baseline8Filter2DIhNS1_4CastIfhEENS1_11FilterNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS2_4CastIfhEENS2_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !155
@@ -7218,7 +7218,7 @@ _ZN2cv3PtrINS_12cpu_baseline8Filter2DIhNS1_4CastIfhEENS1_11FilterNoVecEEEED2Ev.e
   store i32 1, ptr %93, align 8, !noalias !160
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 12
   store i32 1, ptr %94, align 4, !noalias !160
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIftEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %92, align 8, !noalias !160
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIftEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %92, align 8, !noalias !160
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12), !noalias !160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13), !noalias !160
@@ -7253,7 +7253,7 @@ _ZN2cv3PtrINS_12cpu_baseline8Filter2DIhNS1_4CastIftEENS1_11FilterNoVecEEEED2Ev.e
   store i32 1, ptr %102, align 8, !noalias !165
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store i32 1, ptr %103, align 4, !noalias !165
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIfsEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %101, align 8, !noalias !165
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIfsEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %101, align 8, !noalias !165
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
   invoke void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS0_11FilterNoVecEEC2ERKNS_3MatENS_6Point_IiEEdRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(102) %104, ptr noundef nonnull align 8 dereferenceable(96) %17, i64 %55, double noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %_ZN2cv3PtrINS_12cpu_baseline8Filter2DIhNS1_4CastIfsEENS1_11FilterNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS2_4CastIfsEENS2_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i, !noalias !165
@@ -7284,7 +7284,7 @@ _ZN2cv3PtrINS_12cpu_baseline8Filter2DIhNS1_4CastIfsEENS1_11FilterNoVecEEEED2Ev.e
   store i32 1, ptr %111, align 8, !noalias !170
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 12
   store i32 1, ptr %112, align 4, !noalias !170
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIffEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %110, align 8, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIffEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %110, align 8, !noalias !170
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10), !noalias !170
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11), !noalias !170
@@ -7318,7 +7318,7 @@ _ZN2cv3PtrINS_12cpu_baseline8Filter2DIhNS1_4CastIffEENS1_11FilterNoVecEEEED2Ev.e
   store i32 1, ptr %119, align 8, !noalias !175
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 12
   store i32 1, ptr %120, align 4, !noalias !175
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIddEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %118, align 8, !noalias !175
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIhNS1_4CastIddEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %118, align 8, !noalias !175
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !175
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9), !noalias !175
@@ -7628,7 +7628,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline8Filter2DItNS1_4Ca
   store i32 1, ptr %6, align 8, !noalias !180
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !180
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DItNS1_4CastIftEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !180
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DItNS1_4CastIftEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !180
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !180
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !180
@@ -7738,7 +7738,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline8Filter2DItNS1_4Ca
   store i32 1, ptr %6, align 8, !noalias !183
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !183
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DItNS1_4CastIffEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !183
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DItNS1_4CastIffEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !183
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !183
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !183
@@ -7848,7 +7848,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline8Filter2DItNS1_4Ca
   store i32 1, ptr %6, align 8, !noalias !186
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !186
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DItNS1_4CastIddEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DItNS1_4CastIddEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !186
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !186
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !186
@@ -7958,7 +7958,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline8Filter2DIsNS1_4Ca
   store i32 1, ptr %6, align 8, !noalias !189
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !189
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIsNS1_4CastIfsEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !189
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIsNS1_4CastIfsEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !189
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !189
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !189
@@ -8068,7 +8068,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline8Filter2DIsNS1_4Ca
   store i32 1, ptr %6, align 8, !noalias !192
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !192
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIsNS1_4CastIffEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !192
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIsNS1_4CastIffEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !192
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !192
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !192
@@ -8178,7 +8178,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline8Filter2DIsNS1_4Ca
   store i32 1, ptr %6, align 8, !noalias !195
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !195
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIsNS1_4CastIddEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !195
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIsNS1_4CastIddEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !195
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !195
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !195
@@ -8286,7 +8286,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline8Filter2DIfNS1_4Ca
   store i32 1, ptr %6, align 8, !noalias !198
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !198
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIfNS1_4CastIffEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !198
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIfNS1_4CastIffEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !198
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS0_11FilterNoVecEEC2ERKNS_3MatENS_6Point_IiEEdRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(102) %8, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %.0.val, double noundef %.0.val1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %_ZNSt10shared_ptrIN2cv12cpu_baseline8Filter2DIfNS1_4CastIffEENS1_11FilterNoVecEEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIfNS2_4CastIffEENS2_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i, !noalias !198
@@ -8392,7 +8392,7 @@ define internal fastcc void @_ZN2cvL7makePtrINS_12cpu_baseline8Filter2DIdNS1_4Ca
   store i32 1, ptr %6, align 8, !noalias !201
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !201
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIdNS1_4CastIddEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !201
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12cpu_baseline8Filter2DIdNS1_4CastIddEENS1_11FilterNoVecEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !201
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !201
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !201
@@ -8498,7 +8498,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN2cv13BaseRowFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv13BaseRowFilterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv13BaseRowFilterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8522,7 +8522,7 @@ declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN2cv16BaseColumnFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv16BaseColumnFilterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv16BaseColumnFilterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8548,7 +8548,7 @@ define hidden void @_ZN2cv16BaseColumnFilter5resetEv(ptr nocapture nonnull readn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN2cv10BaseFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv10BaseFilterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv10BaseFilterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 -1, i64 16, i1 false)
   ret void
@@ -8572,7 +8572,7 @@ define hidden void @_ZN2cv10BaseFilter5resetEv(ptr nocapture nonnull readnone al
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN2cv12FilterEngineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) initializes((0, 108), (112, 304)) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv12FilterEngineE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv12FilterEngineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -8600,7 +8600,7 @@ define hidden void @_ZN2cv12FilterEngineC2Ev(ptr nocapture noundef nonnull write
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv12FilterEngineC2ERKNS_3PtrINS_10BaseFilterEEERKNS1_INS_13BaseRowFilterEEERKNS1_INS_16BaseColumnFilterEEEiiiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 108), (112, 304)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv12FilterEngineE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv12FilterEngineE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -9572,7 +9572,7 @@ _ZNSt10shared_ptrIN2cv10BaseFilterEED2Ev.exit:    ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv12FilterEngineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv12FilterEngineE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv12FilterEngineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -11055,7 +11055,7 @@ _ZNK2cv11_InputArray6getMatEi.exit106:            ; preds = %38, %41
   store i32 1, ptr %226, align 8
   %227 = getelementptr inbounds nuw i8, ptr %211, i64 12
   store i32 1, ptr %227, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12FilterEngineELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %211, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12FilterEngineELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %211, align 8
   %228 = getelementptr inbounds nuw i8, ptr %211, i64 16
   store ptr %207, ptr %228, align 8
   store ptr %211, ptr %210, align 8
@@ -12168,7 +12168,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %20, %23
   store i32 1, ptr %44, align 8, !noalias !239
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 1, ptr %45, align 4, !noalias !239
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12FilterEngineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !noalias !239
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12FilterEngineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !noalias !239
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   invoke void @_ZN2cv12FilterEngineC2ERKNS_3PtrINS_10BaseFilterEEERKNS1_INS_13BaseRowFilterEEERKNS1_INS_16BaseColumnFilterEEEiiiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(304) %46, ptr noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %16, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, i32 noundef %24, i32 noundef %25, i32 noundef %24, i32 noundef %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN2cv3PtrINS_13BaseRowFilterEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12FilterEngineESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit18.i.i.i.i.i, !noalias !239
@@ -14194,7 +14194,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %3, ptr %8, align 4
   %9 = and i32 %3, 3
@@ -14231,7 +14231,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #26
   resume { ptr, i32 } %.pn
@@ -14249,7 +14249,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowS
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -14339,7 +14339,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_17SymmRowSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -14347,7 +14347,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_17SymmRowSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -15088,7 +15088,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %437
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -15096,7 +15096,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -15256,7 +15256,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEC2ERKNS_3MatEiRKS2_(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %3, ptr %8, align 4
   %9 = and i32 %3, 3
@@ -15293,7 +15293,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #26
   resume { ptr, i32 } %.pn
@@ -15311,7 +15311,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowS
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -15401,7 +15401,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_17SymmRowSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -15409,7 +15409,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_17SymmRowSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -16078,7 +16078,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %370
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -16086,7 +16086,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -16246,7 +16246,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -16336,7 +16336,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -16344,7 +16344,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -16505,7 +16505,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -16595,7 +16595,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -16603,7 +16603,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -16763,7 +16763,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -16853,7 +16853,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -16861,7 +16861,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -17024,7 +17024,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -17114,7 +17114,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -17122,7 +17122,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -17282,7 +17282,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -17372,7 +17372,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -17380,7 +17380,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -17540,7 +17540,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -17630,7 +17630,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -17638,7 +17638,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -17798,7 +17798,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -17888,7 +17888,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -17896,7 +17896,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -18056,7 +18056,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -18146,7 +18146,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -18154,7 +18154,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -18311,7 +18311,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -18401,7 +18401,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -18409,7 +18409,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -18569,7 +18569,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecE
   store i32 -1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #26
   %11 = load i32, ptr %1, align 8
@@ -18659,7 +18659,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -18667,7 +18667,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -18824,7 +18824,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedP
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -18924,7 +18924,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -18932,7 +18932,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -19142,7 +19142,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfh
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -19235,7 +19235,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -19243,7 +19243,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -19448,7 +19448,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdh
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -19540,7 +19540,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -19548,7 +19548,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -19750,7 +19750,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIft
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -19843,7 +19843,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIft
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -19851,7 +19851,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIft
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -20053,7 +20053,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdt
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -20145,7 +20145,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -20153,7 +20153,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -20355,7 +20355,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfs
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -20448,7 +20448,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfs
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -20456,7 +20456,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfs
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -20658,7 +20658,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIds
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -20750,7 +20750,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -20758,7 +20758,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -20960,7 +20960,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -21053,7 +21053,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -21061,7 +21061,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -21253,7 +21253,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdd
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -21345,7 +21345,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -21353,7 +21353,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -21541,7 +21541,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline21SymmColumnSmallFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline21SymmColumnSmallFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 3
@@ -21573,7 +21573,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #26
   resume { ptr, i32 } %.pn
@@ -21584,7 +21584,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -21592,7 +21592,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -21834,7 +21834,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %120
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -21842,7 +21842,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13Fi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -22156,7 +22156,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 3
@@ -22188,7 +22188,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #26
   resume { ptr, i32 } %.pn
@@ -22202,7 +22202,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -22235,7 +22235,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -22246,7 +22246,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -22254,7 +22254,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -22492,7 +22492,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -22586,7 +22586,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -22594,7 +22594,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -22844,7 +22844,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %104
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -22852,7 +22852,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -23049,7 +23049,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEC2ERKNS_3MatEidiRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 3
@@ -23081,7 +23081,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #26
   resume { ptr, i32 } %.pn
@@ -23095,7 +23095,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -23128,7 +23128,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -23139,7 +23139,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -23147,7 +23147,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -23379,7 +23379,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -23472,7 +23472,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -23480,7 +23480,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -23714,7 +23714,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %88
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -23722,7 +23722,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_20SymmColumnSmallNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -23910,7 +23910,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13Fi
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -23943,7 +23943,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13Fi
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_13FixedPtCastExIihEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -24015,7 +24015,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -24048,7 +24048,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -24059,7 +24059,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -24067,7 +24067,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -24372,7 +24372,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -24405,7 +24405,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -24416,7 +24416,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -24424,7 +24424,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdhEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -24729,7 +24729,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -24762,7 +24762,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -24773,7 +24773,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -24781,7 +24781,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIftEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -25096,7 +25096,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -25129,7 +25129,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -25140,7 +25140,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -25148,7 +25148,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdtEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -25463,7 +25463,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -25496,7 +25496,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -25514,7 +25514,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #26
   %13 = load i32, ptr %1, align 8
@@ -25608,7 +25608,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -25616,7 +25616,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -25866,7 +25866,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %104
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -25874,7 +25874,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIisEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -26071,7 +26071,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -26104,7 +26104,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -26115,7 +26115,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -26123,7 +26123,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIfsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -26438,7 +26438,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -26471,7 +26471,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -26482,7 +26482,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -26490,7 +26490,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIdsEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -26805,7 +26805,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -26838,7 +26838,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -26849,7 +26849,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -26857,7 +26857,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIffEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -27152,7 +27152,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.18", align 1
   tail call void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEC2ERKNS_3MatEidRKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %4, ptr %10, align 8
   %11 = and i32 %4, 3
@@ -27185,7 +27185,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 19:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #26
   resume { ptr, i32 } %.pn
@@ -27196,7 +27196,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   ret void
@@ -27204,7 +27204,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(132) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline12ColumnFilterINS0_4CastIddEENS0_11ColumnNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
@@ -27500,7 +27500,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -27635,7 +27635,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -27671,7 +27671,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -27926,7 +27926,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -28061,7 +28061,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -28097,7 +28097,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -28362,7 +28362,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -28497,7 +28497,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -28533,7 +28533,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -28798,7 +28798,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -28933,7 +28933,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -28969,7 +28969,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -29223,7 +29223,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -29357,7 +29357,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(106) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -29393,7 +29393,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(106) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -29647,7 +29647,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -29782,7 +29782,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -29818,7 +29818,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -30083,7 +30083,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -30218,7 +30218,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -30254,7 +30254,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -30508,7 +30508,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -30642,7 +30642,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(106) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -30678,7 +30678,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(106) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -30932,7 +30932,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -31067,7 +31067,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -31103,7 +31103,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -31368,7 +31368,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -31503,7 +31503,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -31539,7 +31539,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -31793,7 +31793,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -31927,7 +31927,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(106) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -31963,7 +31963,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(106) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -32217,7 +32217,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -32352,7 +32352,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -32388,7 +32388,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(102) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -32641,7 +32641,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS
   %8 = alloca %"class.std::allocator.18", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -32775,7 +32775,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS0_11FilterNoVecEED2Ev(ptr noundef nonnull align 8 dereferenceable(106) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -32811,7 +32811,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIhSaIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS0_11FilterNoVecEED0Ev(ptr noundef nonnull align 8 dereferenceable(106) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS0_11FilterNoVecEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

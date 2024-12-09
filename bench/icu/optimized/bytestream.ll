@@ -59,7 +59,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7520CheckedArrayByteSinkC2EPci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) initializes((0, 29)) %this, ptr noundef %outbuf, i32 noundef %capacity) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520CheckedArrayByteSinkE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7520CheckedArrayByteSinkE, i64 16), ptr %this, align 8
   %outbuf_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %outbuf, ptr %outbuf_, align 8
   %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 16

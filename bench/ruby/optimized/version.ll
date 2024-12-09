@@ -96,7 +96,7 @@ define hidden void @Init_ruby_description(ptr nocapture noundef readonly %0) loc
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   %17 = select i1 %16, ptr @.str.14, ptr @.str.11
-  %18 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull @define_ruby_description.desc, i64 noundef 80, ptr noundef nonnull @.str.15, i32 noundef 54, ptr noundef nonnull @ruby_description, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %17, ptr noundef nonnull getelementptr inbounds (i8, ptr @ruby_description, i64 54)) #4
+  %18 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull @define_ruby_description.desc, i64 noundef 80, ptr noundef nonnull @.str.15, i32 noundef 54, ptr noundef nonnull @ruby_description, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %17, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ruby_description, i64 54)) #4
   %19 = sext i32 %18 to i64
   %20 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @define_ruby_description.desc, i64 noundef %19) #4
   %21 = tail call i64 @rb_obj_freeze(i64 noundef %20) #4
@@ -128,7 +128,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %0
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, ptr @.str.14, ptr @.str.11
-  %10 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull @define_ruby_description.desc, i64 noundef 80, ptr noundef nonnull @.str.15, i32 noundef 54, ptr noundef nonnull @ruby_description, ptr noundef nonnull @.str.10, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @ruby_description, i64 54)) #4
+  %10 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull @define_ruby_description.desc, i64 noundef 80, ptr noundef nonnull @.str.15, i32 noundef 54, ptr noundef nonnull @ruby_description, ptr noundef nonnull @.str.10, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ruby_description, i64 54)) #4
   %11 = sext i32 %10 to i64
   %12 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @define_ruby_description.desc, i64 noundef %11) #4
   %13 = tail call i64 @rb_obj_freeze(i64 noundef %12) #4

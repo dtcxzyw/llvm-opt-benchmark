@@ -639,7 +639,7 @@ define dso_local noundef range(i32 -12, 1) i32 @usb_hub_clear_tt_buffer(ptr noca
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 2080, i64 noundef 40) #20
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -5224,7 +5224,7 @@ define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr noc
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %59, ptr noundef nonnull @.str.47) #18
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %61 = tail call noalias align 8 dereferenceable_or_null(552) ptr @kmalloc_trace(ptr noundef %60, i32 noundef 3520, i64 noundef 552) #20
   %62 = icmp eq ptr %61, null
   br i1 %62, label %402, label %63
@@ -5348,7 +5348,7 @@ define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr noc
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #19
   store i16 0, ptr %3, align 2, !annotation !22
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #19
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %130 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %129, i32 noundef 3264, i64 noundef 8) #20
   %131 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr %130, ptr %131, align 8
@@ -5356,7 +5356,7 @@ define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr noc
   br i1 %132, label %.thread28, label %133
 
 133:                                              ; preds = %125
-  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %135 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %134, i32 noundef 3264, i64 noundef 8) #20
   %136 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store ptr %135, ptr %136, align 8
@@ -5366,7 +5366,7 @@ define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr noc
 138:                                              ; preds = %133
   %139 = getelementptr inbounds nuw i8, ptr %61, i64 48
   tail call void @__mutex_init(ptr noundef nonnull %139, ptr noundef nonnull @.str.90, ptr noundef nonnull @hub_configure.__key) #19
-  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %141 = tail call noalias align 8 dereferenceable_or_null(15) ptr @kmalloc_trace(ptr noundef %140, i32 noundef 3520, i64 noundef 15) #20
   %142 = getelementptr inbounds nuw i8, ptr %61, i64 144
   store ptr %141, ptr %142, align 8
@@ -7656,7 +7656,7 @@ hub_power_on.exit:                                ; preds = %.preheader, %155
   br i1 %626, label %627, label %643
 
 627:                                              ; preds = %623
-  %628 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %628 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %629 = call noalias align 8 dereferenceable_or_null(10) ptr @kmalloc_trace(ptr noundef %628, i32 noundef 3264, i64 noundef 10) #20
   %630 = icmp eq ptr %629, null
   br i1 %630, label %643, label %631
@@ -9026,7 +9026,7 @@ define internal fastcc i32 @hub_port_init(ptr noundef %0, ptr noundef %1, i32 no
   %17 = load i32, ptr %16, align 4
   %18 = load i32, ptr %1, align 8
   %19 = icmp eq ptr %4, null
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %21 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3072, i64 noundef 64) #20
   %22 = icmp eq ptr %21, null
   br i1 %22, label %439, label %23
@@ -10155,7 +10155,7 @@ define internal fastcc void @usb_req_set_sel(ptr noundef %0) unnamed_addr #1 ali
   br i1 %37, label %58, label %38
 
 38:                                               ; preds = %14
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %40 = tail call noalias align 8 dereferenceable_or_null(6) ptr @kmalloc_trace(ptr noundef %39, i32 noundef 3072, i64 noundef 6) #20
   %41 = icmp eq ptr %40, null
   br i1 %41, label %58, label %42

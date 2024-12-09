@@ -29,8 +29,8 @@ define void @mca_rcache_base_mem_cb(ptr noundef %0, i64 noundef %1, ptr nocaptur
   br i1 %or.cond3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.026 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 32), align 8
-  %.not27 = icmp eq ptr %.026, getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 16)
+  %.026 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_base_modules, i64 32), align 8
+  %.not27 = icmp eq ptr %.026, getelementptr inbounds nuw (i8, ptr @mca_rcache_base_modules, i64 16)
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %28
@@ -51,10 +51,10 @@ define void @mca_rcache_base_mem_cb(ptr noundef %0, i64 noundef %1, ptr nocaptur
   br i1 %3, label %15, label %20
 
 15:                                               ; preds = %14
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %17 = tail call i32 @getpid() #7
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @msg, i64 noundef 512, ptr noundef nonnull @.str, ptr noundef %16, i32 noundef %17, ptr noundef %0, i64 noundef %1) #7
-  store i8 0, ptr getelementptr inbounds (i8, ptr @msg, i64 511), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @msg, i64 511), align 1
   %19 = sext i32 %18 to i64
   tail call fastcc void @opal_best_effort_write(i64 noundef %19)
   br label %27
@@ -64,7 +64,7 @@ define void @mca_rcache_base_mem_cb(ptr noundef %0, i64 noundef %1, ptr nocaptur
   %22 = getelementptr inbounds nuw i8, ptr %.028, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 84
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %26 = tail call i32 (ptr, ptr, i32, ...) %21(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull %24, ptr noundef %25, ptr noundef %0, i64 noundef %1) #7
   br label %27
 
@@ -75,7 +75,7 @@ define void @mca_rcache_base_mem_cb(ptr noundef %0, i64 noundef %1, ptr nocaptur
 28:                                               ; preds = %.lr.ph, %12
   %29 = getelementptr inbounds nuw i8, ptr %.028, i64 16
   %.0 = load volatile ptr, ptr %29, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @mca_rcache_base_modules, i64 16)
+  %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @mca_rcache_base_modules, i64 16)
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %28, %.preheader, %4

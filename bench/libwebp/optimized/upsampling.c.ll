@@ -38,17 +38,17 @@ define hidden void @WebPInitUpsamplers() local_unnamed_addr #0 {
   br i1 %.not1, label %WebPInitUpsamplers_body.exit, label %5
 
 5:                                                ; preds = %2
-  store ptr @UpsampleRgbaLinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 8), align 8
-  store ptr @UpsampleBgraLinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 24), align 8
-  store ptr @UpsampleRgbaLinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 56), align 8
-  store ptr @UpsampleBgraLinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 64), align 16
+  store ptr @UpsampleRgbaLinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 8), align 8
+  store ptr @UpsampleBgraLinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 24), align 8
+  store ptr @UpsampleRgbaLinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 56), align 8
+  store ptr @UpsampleBgraLinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 64), align 16
   store ptr @UpsampleRgbLinePair_C, ptr @WebPUpsamplers, align 16
-  store ptr @UpsampleBgrLinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 16), align 16
-  store ptr @UpsampleArgbLinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 32), align 16
-  store ptr @UpsampleRgba4444LinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 40), align 8
-  store ptr @UpsampleRgb565LinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 48), align 16
-  store ptr @UpsampleArgbLinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 72), align 8
-  store ptr @UpsampleRgba4444LinePair_C, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 80), align 16
+  store ptr @UpsampleBgrLinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 16), align 16
+  store ptr @UpsampleArgbLinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 32), align 16
+  store ptr @UpsampleRgba4444LinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 40), align 8
+  store ptr @UpsampleRgb565LinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 48), align 16
+  store ptr @UpsampleArgbLinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 72), align 8
+  store ptr @UpsampleRgba4444LinePair_C, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 80), align 16
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %WebPInitUpsamplers_body.exit, label %6
 
@@ -593,17 +593,17 @@ define hidden void @WebPInitYUV444Converters() local_unnamed_addr #0 {
   br i1 %.not1, label %WebPInitYUV444Converters_body.exit, label %5
 
 5:                                                ; preds = %2
-  store ptr @WebPYuv444ToRgba_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 8), align 8
-  store ptr @WebPYuv444ToBgra_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 24), align 8
+  store ptr @WebPYuv444ToRgba_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 8), align 8
+  store ptr @WebPYuv444ToBgra_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 24), align 8
   store ptr @WebPYuv444ToRgb_C, ptr @WebPYUV444Converters, align 16
-  store ptr @WebPYuv444ToBgr_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 16), align 16
-  store ptr @WebPYuv444ToArgb_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 32), align 16
-  store ptr @WebPYuv444ToRgba4444_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 40), align 8
-  store ptr @WebPYuv444ToRgb565_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 48), align 16
-  store ptr @WebPYuv444ToRgba_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 56), align 8
-  store ptr @WebPYuv444ToBgra_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 64), align 16
-  store ptr @WebPYuv444ToArgb_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 72), align 8
-  store ptr @WebPYuv444ToRgba4444_C, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 80), align 16
+  store ptr @WebPYuv444ToBgr_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 16), align 16
+  store ptr @WebPYuv444ToArgb_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 32), align 16
+  store ptr @WebPYuv444ToRgba4444_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 40), align 8
+  store ptr @WebPYuv444ToRgb565_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 48), align 16
+  store ptr @WebPYuv444ToRgba_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 56), align 8
+  store ptr @WebPYuv444ToBgra_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 64), align 16
+  store ptr @WebPYuv444ToArgb_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 72), align 8
+  store ptr @WebPYuv444ToRgba4444_C, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 80), align 16
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %WebPInitYUV444Converters_body.exit, label %6
 

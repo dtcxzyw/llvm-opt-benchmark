@@ -210,7 +210,7 @@ proto_item_is_hidden.exit:                        ; preds = %2
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 1
   %.not = icmp ne i32 %8, 0
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 420), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 420), align 4
   %10 = icmp eq i32 %9, 0
   %or.cond = select i1 %.not, i1 %10, i1 false
   br i1 %or.cond, label %103, label %proto_item_is_hidden.exit.thread
@@ -962,7 +962,7 @@ proto_item_is_hidden.exit:                        ; preds = %127
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, 1
   %.not148 = icmp ne i32 %131, 0
-  %132 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 420), align 4
+  %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 420), align 4
   %133 = icmp eq i32 %132, 0
   %or.cond166 = select i1 %.not148, i1 %133, i1 false
   br i1 %or.cond166, label %134, label %proto_item_is_hidden.exit.thread

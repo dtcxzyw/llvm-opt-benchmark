@@ -18153,7 +18153,7 @@ define internal fastcc void @"_ZN64_$LT$lsp..LanguageServerBinary$u20$as$u20$cor
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.525, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.2b3f11ae85ba4fffcae25b43c2433dfd.34.llvm.13196489250334621223, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.525, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.2b3f11ae85ba4fffcae25b43c2433dfd.34.llvm.13196489250334621223, i64 8), i64 24, i1 false)
   br label %40
 
 33:                                               ; preds = %28
@@ -32685,7 +32685,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcc9e1feef4da45d1E.exit.i.i.i: ; preds =
           to label %8 unwind label %32
 
 21:                                               ; preds = %.noexc5, %9
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %12, %.noexc5 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %9 ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %12, %.noexc5 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %9 ]
   %22 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !10944, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %24 = load i64, ptr %23, align 8, !noalias !10944, !noundef !4
@@ -32800,7 +32800,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcc9e1feef4da45d1E.exit.i.i.i: ; preds =
           to label %8 unwind label %32
 
 21:                                               ; preds = %.noexc5, %9
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %12, %.noexc5 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %9 ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %12, %.noexc5 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %9 ]
   %22 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !10973, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %24 = load i64, ptr %23, align 8, !noalias !10973, !noundef !4

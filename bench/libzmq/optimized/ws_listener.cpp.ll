@@ -50,9 +50,9 @@ entry:
   %cert = alloca %struct.gnutls_datum_t, align 8
   %key = alloca %struct.gnutls_datum_t, align 8
   tail call void @_ZN3zmq22stream_listener_base_tC2EPNS_11io_thread_tEPNS_13socket_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1520) %this, ptr noundef %io_thread_, ptr noundef %socket_, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13ws_listener_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq13ws_listener_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13ws_listener_tE, i64 256), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq13ws_listener_tE, i64 256), ptr %add.ptr, align 8
   %_address = getelementptr inbounds nuw i8, ptr %this, i64 1520
   invoke void @_ZN3zmq12ws_address_tC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %_address)
           to label %invoke.cont unwind label %lpad

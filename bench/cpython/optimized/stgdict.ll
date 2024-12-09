@@ -1233,7 +1233,7 @@ entry:
   %elements = getelementptr inbounds nuw i8, ptr %self, i64 88
   %2 = load ptr, ptr %elements, align 8
   tail call void @PyMem_Free(ptr noundef %2) #9
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDict_Type, i64 48), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDict_Type, i64 48), align 8
   tail call void %3(ptr noundef %self) #9
   ret void
 }
@@ -1241,7 +1241,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @PyCStgDict_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @PyDict_Type, i64 296), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDict_Type, i64 296), align 8
   %call = tail call i32 %0(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #9
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
@@ -1359,14 +1359,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @PyObject_HasAttrWithError(ptr noundef %type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 37176)) #9
+  %call = tail call i32 @PyObject_HasAttrWithError(ptr noundef %type, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37176)) #9
   %cmp1 = icmp slt i32 %call, 0
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
   %tobool.not = icmp ne i32 %call, 0
   %. = zext i1 %tobool.not to i32
-  %call6 = call i32 @PyObject_GetOptionalAttr(ptr noundef %type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 36840), ptr noundef nonnull %tmp) #9
+  %call6 = call i32 @PyObject_GetOptionalAttr(ptr noundef %type, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36840), ptr noundef nonnull %tmp) #9
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %return, label %if.end9
 
@@ -2733,7 +2733,7 @@ declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) local_unnam
 define internal fastcc range(i32 -1, 1) i32 @MakeAnonFields(ptr noundef %type) unnamed_addr #0 {
 entry:
   %anon = alloca ptr, align 8
-  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35472), ptr noundef nonnull %anon) #9
+  %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %type, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35472), ptr noundef nonnull %anon) #9
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2765,7 +2765,7 @@ Py_DECREF.exit97:                                 ; preds = %if.end3, %if.then1.
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %Py_DECREF.exit97
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_state, i64 16), align 8
   %5 = getelementptr i8, ptr %call4, i64 8
   %6 = getelementptr i8, ptr %call4, i64 16
   %ob_item = getelementptr inbounds nuw i8, ptr %call4, i64 24
@@ -3019,7 +3019,7 @@ Py_DECREF.exit178:                                ; preds = %if.end, %if.then1.i
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %Py_DECREF.exit178
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_state, i64 16), align 8
   %4 = getelementptr i8, ptr %call1, i64 8
   %5 = getelementptr i8, ptr %call1, i64 16
   %ob_item = getelementptr inbounds nuw i8, ptr %call1, i64 24

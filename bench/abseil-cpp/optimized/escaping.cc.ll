@@ -222,7 +222,7 @@ if.end87:                                         ; preds = %sw.bb84
   br label %sw.epilog
 
 do.body:                                          ; preds = %if.end24
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 121), i32 noundef 198, ptr noundef nonnull @.str.1, i64 noundef %sub.ptr.sub27)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 121), i32 noundef 198, ptr noundef nonnull @.str.1, i64 noundef %sub.ptr.sub27)
   unreachable
 
 sw.epilog:                                        ; preds = %if.end55, %if.end79, %if.end31, %if.end46, %if.end24, %if.end87

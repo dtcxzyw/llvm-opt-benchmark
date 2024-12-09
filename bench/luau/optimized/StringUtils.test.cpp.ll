@@ -1727,7 +1727,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS0_
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %11, align 8
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %12, align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %12, align 8, !alias.scope !14
   store ptr %8, ptr %19, align 8
   store ptr %9, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr %11, ptr %.sroa.327.0..sroa_idx, align 8
@@ -1870,7 +1870,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS0_
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %21) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %12, align 8
   %74 = load i8, ptr %24, align 8
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %"_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0ED2Ev.exit"
@@ -2160,7 +2160,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -2186,7 +2186,7 @@ declare void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

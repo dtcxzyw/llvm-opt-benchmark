@@ -1675,7 +1675,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1855,7 +1855,7 @@ _ZN4pbrt12StringPrintfIJRKiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4pbrt10IntegratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2272,7 +2272,7 @@ call.i58.noexc:                                   ; preds = %invoke.cont51
           to label %.noexc unwind label %lpad56
 
 .noexc:                                           ; preds = %call.i58.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp54, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 9))
           to label %invoke.cont57 unwind label %lpad.i61
 
 lpad.i61:                                         ; preds = %.noexc
@@ -2760,7 +2760,7 @@ call.i184.noexc:                                  ; preds = %invoke.cont198
           to label %.noexc189 unwind label %lpad207
 
 .noexc189:                                        ; preds = %call.i184.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 1))
           to label %invoke.cont208 unwind label %lpad.i187
 
 lpad.i187:                                        ; preds = %.noexc189
@@ -2780,7 +2780,7 @@ call.i192.noexc:                                  ; preds = %invoke.cont208
           to label %.noexc197 unwind label %lpad210
 
 .noexc197:                                        ; preds = %call.i192.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.17, i64 1))
           to label %invoke.cont211 unwind label %lpad.i195
 
 lpad.i195:                                        ; preds = %.noexc197
@@ -2800,7 +2800,7 @@ call.i200.noexc:                                  ; preds = %invoke.cont211
           to label %.noexc205 unwind label %lpad214
 
 .noexc205:                                        ; preds = %call.i200.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element212, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element212, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.18, i64 1))
           to label %invoke.cont215 unwind label %lpad.i203
 
 lpad.i203:                                        ; preds = %.noexc205
@@ -9077,7 +9077,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 16), ptr %this, align 8
   %maxDepth6 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth6, align 8
   %sampleLights7 = getelementptr inbounds nuw i8, ptr %this, i64 84
@@ -9321,7 +9321,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt13RayIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt13RayIntegratorE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZNSt6vectorIN4pbrt5LightESaIS1_EEC2ERKS3_.exit
@@ -11022,7 +11022,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -11048,7 +11048,7 @@ call.i.noexc13:                                   ; preds = %invoke.cont3
           to label %.noexc15 unwind label %lpad6
 
 .noexc15:                                         ; preds = %call.i.noexc13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.34, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.34, i64 12))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.34, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.34, i64 12))
           to label %invoke.cont7 unwind label %lpad.i12
 
 lpad.i12:                                         ; preds = %.noexc15
@@ -11075,7 +11075,7 @@ call.i.noexc21:                                   ; preds = %invoke.cont9
           to label %.noexc23 unwind label %lpad15
 
 .noexc23:                                         ; preds = %call.i.noexc21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.35, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.35, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.35, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.35, i64 10))
           to label %invoke.cont16 unwind label %lpad.i20
 
 lpad.i20:                                         ; preds = %.noexc23
@@ -11326,7 +11326,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 16), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   %lightSampler = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -11435,7 +11435,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt19ImageTileIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt19ImageTileIntegratorE, i64 16), ptr %this, align 8
   %camera3 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 0, ptr %camera3, align 8
   %5 = load i64, ptr %camera, align 8
@@ -12604,7 +12604,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -12857,7 +12857,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt14PathIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt14PathIntegratorE, i64 16), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   %lightSampler = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -14810,7 +14810,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -14836,7 +14836,7 @@ call.i.noexc16:                                   ; preds = %invoke.cont3
           to label %.noexc18 unwind label %lpad6
 
 .noexc18:                                         ; preds = %call.i.noexc16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 12))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.42, i64 12))
           to label %invoke.cont7 unwind label %lpad.i15
 
 lpad.i15:                                         ; preds = %.noexc18
@@ -14855,7 +14855,7 @@ call.i.noexc24:                                   ; preds = %invoke.cont7
           to label %.noexc26 unwind label %lpad10
 
 .noexc26:                                         ; preds = %call.i.noexc24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.43, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.43, i64 3))
           to label %invoke.cont11 unwind label %lpad.i23
 
 lpad.i23:                                         ; preds = %.noexc26
@@ -14882,7 +14882,7 @@ call.i.noexc32:                                   ; preds = %invoke.cont13
           to label %.noexc34 unwind label %lpad20
 
 .noexc34:                                         ; preds = %call.i.noexc32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.44, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.44, i64 10))
           to label %invoke.cont21 unwind label %lpad.i31
 
 lpad.i31:                                         ; preds = %.noexc34
@@ -15169,7 +15169,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt23SimpleVolPathIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt23SimpleVolPathIntegratorE, i64 16), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   %7 = load ptr, ptr %lights, align 8
@@ -18263,7 +18263,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -27719,7 +27719,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -27745,7 +27745,7 @@ call.i.noexc16:                                   ; preds = %invoke.cont3
           to label %.noexc18 unwind label %lpad6
 
 .noexc18:                                         ; preds = %call.i.noexc16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 12))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.42, i64 12))
           to label %invoke.cont7 unwind label %lpad.i15
 
 lpad.i15:                                         ; preds = %.noexc18
@@ -27764,7 +27764,7 @@ call.i.noexc24:                                   ; preds = %invoke.cont7
           to label %.noexc26 unwind label %lpad10
 
 .noexc26:                                         ; preds = %call.i.noexc24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.43, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.43, i64 3))
           to label %invoke.cont11 unwind label %lpad.i23
 
 lpad.i23:                                         ; preds = %.noexc26
@@ -27791,7 +27791,7 @@ call.i.noexc32:                                   ; preds = %invoke.cont13
           to label %.noexc34 unwind label %lpad20
 
 .noexc34:                                         ; preds = %call.i.noexc32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.44, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.44, i64 10))
           to label %invoke.cont21 unwind label %lpad.i31
 
 lpad.i31:                                         ; preds = %.noexc34
@@ -28079,7 +28079,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt12AOIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt12AOIntegratorE, i64 16), ptr %this, align 8
   %cosSample5 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 %frombool, ptr %cosSample5, align 8
   %maxDist7 = getelementptr inbounds nuw i8, ptr %this, i64 84
@@ -28584,7 +28584,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.54, i64 9))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -28611,7 +28611,7 @@ call.i.noexc10:                                   ; preds = %invoke.cont3
           to label %.noexc12 unwind label %lpad6
 
 .noexc12:                                         ; preds = %call.i.noexc10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.55, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.55, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.55, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.55, i64 11))
           to label %invoke.cont7 unwind label %lpad.i9
 
 lpad.i9:                                          ; preds = %.noexc12
@@ -37457,7 +37457,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -37483,7 +37483,7 @@ call.i.noexc16:                                   ; preds = %invoke.cont3
           to label %.noexc18 unwind label %lpad7
 
 .noexc18:                                         ; preds = %call.i.noexc16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.60, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 19))
           to label %invoke.cont8 unwind label %lpad.i15
 
 lpad.i15:                                         ; preds = %.noexc18
@@ -37510,7 +37510,7 @@ call.i.noexc24:                                   ; preds = %invoke.cont10
           to label %.noexc26 unwind label %lpad16
 
 .noexc26:                                         ; preds = %call.i.noexc24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.61, i64 16))
           to label %invoke.cont17 unwind label %lpad.i23
 
 lpad.i23:                                         ; preds = %.noexc26
@@ -37586,7 +37586,7 @@ call.i.noexc32:                                   ; preds = %if.end26
           to label %.noexc34 unwind label %lpad29
 
 .noexc34:                                         ; preds = %call.i.noexc32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.44, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.44, i64 10))
           to label %invoke.cont30 unwind label %lpad.i31
 
 lpad.i31:                                         ; preds = %.noexc34
@@ -38473,7 +38473,7 @@ call.i46.noexc:                                   ; preds = %_ZNSt8functionIFN4p
           to label %.noexc51 unwind label %lpad65
 
 .noexc51:                                         ; preds = %call.i46.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp63, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 26))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp63, ptr noundef nonnull @.str.66, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 26))
           to label %invoke.cont66 unwind label %lpad.i49
 
 lpad.i49:                                         ; preds = %.noexc51
@@ -38729,7 +38729,7 @@ call.i111.noexc:                                  ; preds = %invoke.cont134
           to label %.noexc116 unwind label %lpad143
 
 .noexc116:                                        ; preds = %call.i111.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 1))
           to label %invoke.cont144 unwind label %lpad.i114
 
 lpad.i114:                                        ; preds = %.noexc116
@@ -38749,7 +38749,7 @@ call.i119.noexc:                                  ; preds = %invoke.cont144
           to label %.noexc124 unwind label %lpad146
 
 .noexc124:                                        ; preds = %call.i119.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.17, i64 1))
           to label %invoke.cont147 unwind label %lpad.i122
 
 lpad.i122:                                        ; preds = %.noexc124
@@ -38769,7 +38769,7 @@ call.i127.noexc:                                  ; preds = %invoke.cont147
           to label %.noexc132 unwind label %lpad150
 
 .noexc132:                                        ; preds = %call.i127.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element148, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element148, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.18, i64 1))
           to label %invoke.cont151 unwind label %lpad.i130
 
 lpad.i130:                                        ; preds = %.noexc132
@@ -39066,7 +39066,7 @@ call.i177.noexc:                                  ; preds = %invoke.cont189
           to label %.noexc182 unwind label %lpad197
 
 .noexc182:                                        ; preds = %call.i177.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp195, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp195, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 9))
           to label %invoke.cont198 unwind label %lpad.i180
 
 lpad.i180:                                        ; preds = %.noexc182
@@ -39602,7 +39602,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -39628,7 +39628,7 @@ call.i.noexc25:                                   ; preds = %invoke.cont3
           to label %.noexc27 unwind label %lpad7
 
 .noexc27:                                         ; preds = %call.i.noexc25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 16))
           to label %invoke.cont8 unwind label %lpad.i24
 
 lpad.i24:                                         ; preds = %.noexc27
@@ -39654,7 +39654,7 @@ call.i.noexc33:                                   ; preds = %invoke.cont10
           to label %.noexc35 unwind label %lpad16
 
 .noexc35:                                         ; preds = %call.i.noexc33
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 6))
           to label %invoke.cont17 unwind label %lpad.i32
 
 lpad.i32:                                         ; preds = %.noexc35
@@ -39681,7 +39681,7 @@ call.i.noexc41:                                   ; preds = %invoke.cont19
           to label %.noexc43 unwind label %lpad25
 
 .noexc43:                                         ; preds = %call.i.noexc41
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull @.str.72, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 17))
           to label %invoke.cont26 unwind label %lpad.i40
 
 lpad.i40:                                         ; preds = %.noexc43
@@ -39765,7 +39765,7 @@ call.i.noexc49:                                   ; preds = %if.end36
           to label %.noexc51 unwind label %lpad39
 
 .noexc51:                                         ; preds = %call.i.noexc49
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 20))
           to label %invoke.cont40 unwind label %lpad.i48
 
 lpad.i48:                                         ; preds = %.noexc51
@@ -39791,7 +39791,7 @@ call.i.noexc57:                                   ; preds = %invoke.cont42
           to label %.noexc59 unwind label %lpad48
 
 .noexc59:                                         ; preds = %call.i.noexc57
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.74, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef nonnull @.str.74, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.74, i64 5))
           to label %invoke.cont49 unwind label %lpad.i56
 
 lpad.i56:                                         ; preds = %.noexc59
@@ -39855,7 +39855,7 @@ call.i.noexc68:                                   ; preds = %if.end63
           to label %.noexc70 unwind label %lpad66
 
 .noexc70:                                         ; preds = %call.i.noexc68
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.44, i64 10))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.44, i64 10))
           to label %invoke.cont67 unwind label %lpad.i67
 
 lpad.i67:                                         ; preds = %.noexc70
@@ -40193,7 +40193,7 @@ call.i.noexc:                                     ; preds = %_ZNK4pbrt7Sampler15
           to label %.noexc unwind label %lpad11
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 9))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 9))
           to label %invoke.cont12 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -40503,7 +40503,7 @@ for.body70.lr.ph:                                 ; preds = %invoke.cont66
   %_M_finish.i611 = getelementptr inbounds nuw i8, ptr %agg.tmp84, i64 8
   %_M_manager.i.i137 = getelementptr inbounds nuw i8, ptr %agg.tmp100, i64 16
   %_M_invoker.i138 = getelementptr inbounds nuw i8, ptr %agg.tmp100, i64 24
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt6PrimesE, i64 4), align 4
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pbrt6PrimesE, i64 4), align 4
   %conv.i166 = zext i32 %58 to i64
   %conv2.i = uitofp i32 %58 to float
   %div3.i = fdiv float 1.000000e+00, %conv2.i
@@ -40635,7 +40635,7 @@ call.i111.noexc:                                  ; preds = %invoke.cont79
           to label %.noexc116 unwind label %lpad88
 
 .noexc116:                                        ; preds = %call.i111.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 1))
           to label %invoke.cont89 unwind label %lpad.i114
 
 lpad.i114:                                        ; preds = %.noexc116
@@ -40654,7 +40654,7 @@ call.i119.noexc:                                  ; preds = %invoke.cont89
           to label %.noexc124 unwind label %lpad91
 
 .noexc124:                                        ; preds = %call.i119.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.17, i64 1))
           to label %invoke.cont92 unwind label %lpad.i122
 
 lpad.i122:                                        ; preds = %.noexc124
@@ -40673,7 +40673,7 @@ call.i127.noexc:                                  ; preds = %invoke.cont92
           to label %.noexc132 unwind label %lpad95
 
 .noexc132:                                        ; preds = %call.i127.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element93, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element93, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.18, i64 1))
           to label %invoke.cont96 unwind label %lpad.i130
 
 lpad.i130:                                        ; preds = %.noexc132
@@ -41651,7 +41651,7 @@ call.i303.noexc:                                  ; preds = %invoke.cont248
           to label %.noexc309 unwind label %lpad259
 
 .noexc309:                                        ; preds = %call.i303.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 1))
           to label %invoke.cont260 unwind label %lpad.i307
 
 lpad.i307:                                        ; preds = %.noexc309
@@ -41670,7 +41670,7 @@ call.i312.noexc:                                  ; preds = %invoke.cont260
           to label %.noexc318 unwind label %lpad263
 
 .noexc318:                                        ; preds = %call.i312.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element261, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element261, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.17, i64 1))
           to label %invoke.cont264 unwind label %lpad.i316
 
 lpad.i316:                                        ; preds = %.noexc318
@@ -41689,7 +41689,7 @@ call.i321.noexc:                                  ; preds = %invoke.cont264
           to label %.noexc327 unwind label %lpad267
 
 .noexc327:                                        ; preds = %call.i321.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element265, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element265, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.18, i64 1))
           to label %invoke.cont276 unwind label %lpad.i325
 
 lpad.i325:                                        ; preds = %.noexc327
@@ -41906,7 +41906,7 @@ call.i392.noexc:                                  ; preds = %invoke.cont356
           to label %.noexc398 unwind label %lpad367
 
 .noexc398:                                        ; preds = %call.i392.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp363, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.82, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp363, ptr noundef nonnull @.str.82, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.82, i64 6))
           to label %invoke.cont376 unwind label %lpad.i396
 
 lpad.i396:                                        ; preds = %.noexc398
@@ -42274,7 +42274,7 @@ call.i520.noexc:                                  ; preds = %invoke.cont482
           to label %.noexc526 unwind label %lpad486
 
 .noexc526:                                        ; preds = %call.i520.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp484, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.84, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp484, ptr noundef nonnull @.str.84, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.84, i64 15))
           to label %invoke.cont487 unwind label %lpad.i524
 
 lpad.i524:                                        ; preds = %.noexc526
@@ -43809,7 +43809,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -43835,7 +43835,7 @@ call.i.noexc16:                                   ; preds = %invoke.cont3
           to label %.noexc18 unwind label %lpad6
 
 .noexc18:                                         ; preds = %call.i.noexc16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.86, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.86, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.86, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.86, i64 19))
           to label %invoke.cont7 unwind label %lpad.i15
 
 lpad.i15:                                         ; preds = %.noexc18
@@ -43861,7 +43861,7 @@ call.i.noexc24:                                   ; preds = %invoke.cont9
           to label %.noexc26 unwind label %lpad15
 
 .noexc26:                                         ; preds = %call.i.noexc24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.87, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.87, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.87, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.87, i64 6))
           to label %invoke.cont16 unwind label %lpad.i23
 
 lpad.i23:                                         ; preds = %.noexc26
@@ -43887,7 +43887,7 @@ call.i.noexc32:                                   ; preds = %invoke.cont18
           to label %.noexc34 unwind label %lpad24
 
 .noexc34:                                         ; preds = %call.i.noexc32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull @.str.88, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.88, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull @.str.88, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.88, i64 4))
           to label %invoke.cont25 unwind label %lpad.i31
 
 lpad.i31:                                         ; preds = %.noexc34
@@ -44094,7 +44094,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 16), ptr %this, align 8
   %func3 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -44211,7 +44211,7 @@ define linkonce_odr dso_local void @_ZN4pbrt10IntegratorC2ENS_9PrimitiveESt6vect
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %sceneBounds = alloca %"class.pbrt::Bounds3", align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %aggregate2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %aggregate2, align 8
   %0 = load i64, ptr %aggregate, align 8
@@ -44508,7 +44508,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.89, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.89, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.89, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.89, i64 8))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -44527,7 +44527,7 @@ call.i.noexc23:                                   ; preds = %invoke.cont
           to label %.noexc25 unwind label %lpad4
 
 .noexc25:                                         ; preds = %call.i.noexc23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.90, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.90, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.90, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.90, i64 4))
           to label %invoke.cont5 unwind label %lpad.i22
 
 lpad.i22:                                         ; preds = %.noexc25
@@ -44577,7 +44577,7 @@ call.i.noexc33:                                   ; preds = %cond.end
           to label %.noexc35 unwind label %lpad16
 
 .noexc35:                                         ; preds = %call.i.noexc33
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.92, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 8))
           to label %invoke.cont17 unwind label %lpad.i32
 
 lpad.i32:                                         ; preds = %.noexc35
@@ -44906,7 +44906,7 @@ call.i93.noexc:                                   ; preds = %if.end63
           to label %.noexc98 unwind label %lpad66
 
 .noexc98:                                         ; preds = %call.i93.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.100, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.100, i64 7))
           to label %invoke.cont67 unwind label %lpad.i96
 
 lpad.i96:                                         ; preds = %.noexc98
@@ -44933,7 +44933,7 @@ call.i101.noexc:                                  ; preds = %invoke.cont69
           to label %.noexc106 unwind label %lpad75
 
 .noexc106:                                        ; preds = %call.i101.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73, ptr noundef nonnull @.str.101, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.101, i64 13))
           to label %invoke.cont76 unwind label %lpad.i104
 
 lpad.i104:                                        ; preds = %.noexc106
@@ -45589,7 +45589,7 @@ call.i62.noexc:                                   ; preds = %invoke.cont14
           to label %.noexc unwind label %lpad23
 
 .noexc:                                           ; preds = %call.i62.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull @.str.103, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.103, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull @.str.103, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.103, i64 1))
           to label %invoke.cont28 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -45803,7 +45803,7 @@ call.i96.noexc:                                   ; preds = %if.end
           to label %.noexc102 unwind label %lpad103
 
 .noexc102:                                        ; preds = %call.i96.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp101, ptr noundef nonnull @.str.104, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.104, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp101, ptr noundef nonnull @.str.104, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.104, i64 8))
           to label %invoke.cont104 unwind label %lpad.i100
 
 lpad.i100:                                        ; preds = %.noexc102
@@ -47702,7 +47702,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt19ImageTileIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -47736,7 +47736,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt13RayIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -47770,7 +47770,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt20RandomWalkIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -47797,7 +47797,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt20RandomWalkIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -47844,7 +47844,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt17VolPathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -47871,7 +47871,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt17VolPathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -47899,7 +47899,7 @@ _ZN4pbrt17VolPathIntegratorD2Ev.exit:             ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14BDPTIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 16), ptr %this, align 8
   %weightFilms = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %weightFilms, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -47910,7 +47910,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN4pbrt4FilmESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt4FilmESaIS1_EED2Ev.exit:       ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %1, null
@@ -47937,7 +47937,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14BDPTIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 16), ptr %this, align 8
   %weightFilms.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %weightFilms.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -47948,7 +47948,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIN4pbrt4FilmESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN4pbrt4FilmESaIS1_EED2Ev.exit.i:     ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
@@ -47976,7 +47976,7 @@ _ZN4pbrt14BDPTIntegratorD2Ev.exit:                ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt13MLTIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -48003,7 +48003,7 @@ _ZN4pbrt10IntegratorD2Ev.exit:                    ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt13MLTIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -48031,7 +48031,7 @@ _ZN4pbrt13MLTIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14SPPMIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -48058,7 +48058,7 @@ _ZN4pbrt10IntegratorD2Ev.exit:                    ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14SPPMIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -48086,7 +48086,7 @@ _ZN4pbrt14SPPMIntegratorD2Ev.exit:                ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt20SimplePathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 16), ptr %this, align 8
   %nStored.le.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 0, ptr %nStored.le.i.i.i, align 8
   %ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -48114,7 +48114,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 _ZN4pbrt19UniformLightSamplerD2Ev.exit:           ; preds = %entry, %if.end.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -48141,7 +48141,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt20SimplePathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 16), ptr %this, align 8
   %nStored.le.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 0, ptr %nStored.le.i.i.i.i, align 8
   %ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -48169,7 +48169,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   unreachable
 
 _ZN4pbrt19UniformLightSamplerD2Ev.exit.i:         ; preds = %if.end.i.i.i.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -48197,10 +48197,10 @@ _ZN4pbrt20SimplePathIntegratorD2Ev.exit:          ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt19LightPathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 16), ptr %this, align 8
   %lightSampler = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @_ZN4pbrt17PowerLightSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %lightSampler) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -48227,10 +48227,10 @@ _ZN4pbrt19ImageTileIntegratorD2Ev.exit:           ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt19LightPathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 16), ptr %this, align 8
   %lightSampler.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @_ZN4pbrt17PowerLightSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %lightSampler.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48258,7 +48258,7 @@ _ZN4pbrt19LightPathIntegratorD2Ev.exit:           ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14PathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48285,7 +48285,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14PathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48313,7 +48313,7 @@ _ZN4pbrt14PathIntegratorD2Ev.exit:                ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt23SimpleVolPathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48340,7 +48340,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt23SimpleVolPathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48368,7 +48368,7 @@ _ZN4pbrt23SimpleVolPathIntegratorD2Ev.exit:       ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt12AOIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48395,7 +48395,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt12AOIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48423,7 +48423,7 @@ _ZN4pbrt12AOIntegratorD2Ev.exit:                  ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt18FunctionIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 16), ptr %this, align 8
   %imageFilename = getelementptr inbounds nuw i8, ptr %this, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %imageFilename) #33
   %outputFilename = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -48446,7 +48446,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdN4pbrt6Point2IfEEEED2Ev.exit:    ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load ptr, ptr %infiniteLights.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
@@ -48473,7 +48473,7 @@ _ZN4pbrt10IntegratorD2Ev.exit:                    ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt18FunctionIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 16), ptr %this, align 8
   %imageFilename.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %imageFilename.i) #33
   %outputFilename.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -48496,7 +48496,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZNSt8functionIFdN4pbrt6Point2IfEEEED2Ev.exit.i:  ; preds = %if.then.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -67090,7 +67090,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt20RandomWalkIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt20RandomWalkIntegratorE, i64 16), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   ret void
@@ -73233,7 +73233,7 @@ _ZN4pbrt14RadicalInverseEim.exit.i.i:             ; preds = %while.end.loopexit.
   %19 = load i32, ptr %cond-lvalue.i.i.i, align 4
   %conv.i.i18 = sext i32 %19 to i64
   %div.i.i = sdiv i64 %13, %conv.i.i18
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt6PrimesE, i64 4), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pbrt6PrimesE, i64 4), align 4
   %conv.i1.i.i = zext i32 %20 to i64
   %div.i2.i.i = udiv i64 -1, %conv.i1.i.i
   %sub.i3.i.i = sub nuw i64 %div.i2.i.i, %conv.i1.i.i
@@ -86139,7 +86139,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt17VolPathIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt17VolPathIntegratorE, i64 16), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   %lightSampler = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -87959,7 +87959,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 16), ptr %this, align 8
   %maxDepth7 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth7, align 8
   %regularize8 = getelementptr inbounds nuw i8, ptr %this, i64 84
@@ -90693,7 +90693,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.then.i.i.i, %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt13MLTIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt13MLTIntegratorE, i64 16), ptr %this, align 8
   %camera3 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 0, ptr %camera3, align 8
   %5 = load i64, ptr %camera, align 8
@@ -96984,7 +96984,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt14SPPMIntegratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pbrt14SPPMIntegratorE, i64 16), ptr %this, align 8
   %camera3 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 0, ptr %camera3, align 8
   %5 = load i64, ptr %camera, align 8
@@ -97923,7 +97923,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %entry
   %conv5.i.i.i.i = uitofp i32 %sub4.i.i.i.i to float
   %sub614.i.i.i.i = fsub float 1.000000e+00, %conv5.i.i.i.i
   %cmp15.i.i.i.i = fcmp olt float %sub614.i.i.i.i, 1.000000e+00
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4pbrt6PrimesE, i64 4), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pbrt6PrimesE, i64 4), align 4
   %conv.i56.i.i.i = zext i32 %13 to i64
   %conv2.i59.i.i.i = uitofp i32 %13 to float
   %div3.i60.i.i.i = fdiv float 1.000000e+00, %conv2.i59.i.i.i

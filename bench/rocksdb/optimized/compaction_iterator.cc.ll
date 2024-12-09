@@ -404,7 +404,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18CompactionIterator14RealCompactionE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb18CompactionIterator14RealCompactionE, i64 16), ptr %call, align 8
   %compaction_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %compaction, ptr %compaction_.i, align 8
   br label %cond.end
@@ -564,9 +564,9 @@ entry:
   %frombool3 = zext i1 %enforce_single_del_contracts to i8
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19SequenceIterWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19SequenceIterWrapperE, i64 16), ptr %this, align 8
   %icmp_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %icmp_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21InternalKeyComparatorE, i64 16), ptr %icmp_.i, align 8
   %user_comparator_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %cmp, ptr %user_comparator_.i.i, align 8
   %frombool.i = zext i1 %must_count_input_entries to i8

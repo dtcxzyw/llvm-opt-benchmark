@@ -112,7 +112,7 @@ define hidden void @zim_php_user_filter_filter(ptr nocapture noundef readonly %0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %16
@@ -386,15 +386,15 @@ define internal void @php_bucket_dtor(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_deactivate_user_filters(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1336), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1336), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
   tail call void @zend_hash_destroy(ptr noundef nonnull %3) #11
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1336), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1336), align 8
   tail call void @_efree(ptr noundef %5) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1336), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1336), align 8
   br label %6
 
 6:                                                ; preds = %4, %2
@@ -411,7 +411,7 @@ define hidden i32 @userfilter_filter(ptr nocapture noundef %0, ptr noundef %1, p
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca [4 x %struct._zval_struct], align 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 83), align 1
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 83), align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %111, label %13
 
@@ -685,7 +685,7 @@ define hidden void @zif_stream_bucket_make_writeable(ptr noundef %0, ptr noundef
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   br label %34
@@ -797,7 +797,7 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef range(i32 0, 2
 
 29:                                               ; preds = %14
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.26) #11
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %31)
   br label %104
@@ -811,7 +811,7 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef range(i32 0, 2
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   tail call void @llvm.assume(i1 %39)
   br label %104
@@ -823,7 +823,7 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef range(i32 0, 2
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %46)
   br label %104
@@ -1214,7 +1214,7 @@ define hidden void @zif_stream_filter_register(ptr noundef %0, ptr nocapture nou
 
 28:                                               ; preds = %.thread156
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.10) #11
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %76
@@ -1228,19 +1228,19 @@ define hidden void @zif_stream_filter_register(ptr noundef %0, ptr nocapture nou
 
 35:                                               ; preds = %31
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.10) #11
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
   br label %76
 
 38:                                               ; preds = %31
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1336), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1336), align 8
   %.not122 = icmp eq ptr %39, null
   br i1 %.not122, label %40, label %42
 
 40:                                               ; preds = %38
   %41 = call noalias ptr @_emalloc_56() #11
-  store ptr %41, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1336), align 8
+  store ptr %41, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1336), align 8
   call void @_zend_hash_init(ptr noundef %41, i32 noundef 8, ptr noundef nonnull @filter_item_dtor, i1 noundef zeroext false) #11
   br label %42
 
@@ -1262,7 +1262,7 @@ define hidden void @zif_stream_filter_register(ptr noundef %0, ptr nocapture nou
 51:                                               ; preds = %48, %42
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %44, ptr %52, align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1336), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1336), align 8
   %54 = load ptr, ptr %4, align 8
   store ptr %43, ptr %3, align 8
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1405,7 +1405,7 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
 
 7:                                                ; preds = %3
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1336), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1336), align 8
   %10 = tail call ptr @zend_hash_str_find(ptr noundef %9, ptr noundef %0, i64 noundef %8) #11
   %.not141 = icmp eq ptr %10, null
   br i1 %.not141, label %13, label %11
@@ -1442,7 +1442,7 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
   store i8 42, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %.0132157, i64 2
   store i8 0, ptr %25, align 1
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1336), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1336), align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
   %28 = tail call ptr @zend_hash_str_find(ptr noundef %26, ptr noundef nonnull %16, i64 noundef %27) #11
   %.not148 = icmp eq ptr %28, null

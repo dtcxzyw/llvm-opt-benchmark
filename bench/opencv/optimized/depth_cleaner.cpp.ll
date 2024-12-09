@@ -162,7 +162,7 @@ define void @_ZN2cv4rgbd12DepthCleanerC2Eiii(ptr noundef nonnull align 8 derefer
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv4rgbd12DepthCleanerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv4rgbd12DepthCleanerE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -233,7 +233,7 @@ declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv4rgbd12DepthCleanerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv4rgbd12DepthCleanerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv4rgbd12DepthCleanerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
@@ -396,7 +396,7 @@ define void @_ZNK2cv4rgbd12DepthCleaner23initialize_cleaner_implEv(ptr nocapture
   store i32 %19, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 0, ptr %43, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILItEE, i64 16), ptr %40, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILItEE, i64 16), ptr %40, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %40, ptr %44, align 8
   br label %57
@@ -409,7 +409,7 @@ define void @_ZNK2cv4rgbd12DepthCleaner23initialize_cleaner_implEv(ptr nocapture
   store i32 %19, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 0, ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILIfEE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILIfEE, i64 16), ptr %46, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %46, ptr %50, align 8
   br label %57
@@ -422,13 +422,13 @@ define void @_ZNK2cv4rgbd12DepthCleaner23initialize_cleaner_implEv(ptr nocapture
   store i32 %19, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i32 0, ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILIdEE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILIdEE, i64 16), ptr %52, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %52, ptr %56, align 8
   br label %57
 
 57:                                               ; preds = %._crit_edge, %39, %45, %51
-  %58 = phi ptr [ %.pre15, %._crit_edge ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILItEE, i64 16), %39 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILIfEE, i64 16), %45 ], [ getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILIdEE, i64 16), %51 ]
+  %58 = phi ptr [ %.pre15, %._crit_edge ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILItEE, i64 16), %39 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILIfEE, i64 16), %45 ], [ getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd3NILIdEE, i64 16), %51 ]
   %59 = phi ptr [ %.pre, %._crit_edge ], [ %40, %39 ], [ %46, %45 ], [ %52, %51 ]
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %61 = load ptr, ptr %60, align 8

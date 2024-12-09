@@ -1213,7 +1213,7 @@ define linkonce_odr void @_ZN3nix8make_refI7CmdCopyJEEENS_3refIT_EEDpOT0_(ptr de
   store i32 1, ptr %4, align 8, !noalias !9
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI7CmdCopySaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI7CmdCopySaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN7CmdCopyC1Ev(ptr noundef nonnull align 8 dereferenceable(10) %6)
           to label %8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI7CmdCopySaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit7.i.i.i.i, !noalias !9
@@ -1549,40 +1549,40 @@ define linkonce_odr void @_ZN7CmdCopyC1Ev(ptr noundef nonnull align 8 dereferenc
   store ptr %27, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTC7CmdCopy0_N3nix7CommandE, i64 56), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTC7CmdCopy0_N3nix7CommandE, i64 184), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC7CmdCopy0_N3nix7CommandE, i64 56), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC7CmdCopy0_N3nix7CommandE, i64 184), ptr %10, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT7CmdCopy, i64 96))
+  invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT7CmdCopy, i64 96))
           to label %33 unwind label %99
 
 33:                                               ; preds = %1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN3nix11CopyCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT7CmdCopy, i64 64))
+  invoke void @_ZN3nix11CopyCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT7CmdCopy, i64 64))
           to label %35 unwind label %101
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  invoke void @_ZN3nix9MixRepairC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %36, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT7CmdCopy, i64 408))
+  invoke void @_ZN3nix9MixRepairC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %36, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT7CmdCopy, i64 408))
           to label %37 unwind label %103
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  invoke void @_ZN3nix19MixOperateOnOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %38, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT7CmdCopy, i64 424))
+  invoke void @_ZN3nix19MixOperateOnOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %38, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT7CmdCopy, i64 424))
           to label %39 unwind label %105
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  invoke void @_ZN3nix17BuiltPathsCommandC2Eb(ptr noundef nonnull align 8 dereferenceable(480) %40, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT7CmdCopy, i64 136), i1 noundef zeroext true)
+  invoke void @_ZN3nix17BuiltPathsCommandC2Eb(ptr noundef nonnull align 8 dereferenceable(480) %40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT7CmdCopy, i64 136), i1 noundef zeroext true)
           to label %41 unwind label %107
 
 41:                                               ; preds = %39
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7CmdCopy, i64 248), ptr %34, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7CmdCopy, i64 376), ptr %32, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7CmdCopy, i64 104), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7CmdCopy, i64 520), ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7CmdCopy, i64 720), ptr %40, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7CmdCopy, i64 824), ptr %36, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7CmdCopy, i64 848), ptr %38, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7CmdCopy, i64 248), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7CmdCopy, i64 376), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7CmdCopy, i64 104), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7CmdCopy, i64 520), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7CmdCopy, i64 720), ptr %40, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7CmdCopy, i64 824), ptr %36, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7CmdCopy, i64 848), ptr %38, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -1786,17 +1786,17 @@ define linkonce_odr void @_ZN7CmdCopyC1Ev(ptr noundef nonnull align 8 dereferenc
   %.sink = phi ptr [ %5, %111 ], [ %5, %113 ], [ %5, %109 ], [ %8, %117 ], [ %8, %119 ], [ %8, %115 ]
   %.pn22.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %114, %113 ], [ %110, %109 ], [ %118, %117 ], [ %120, %119 ], [ %116, %115 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #24
-  call void @_ZN3nix22RawInstallablesCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %40, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT7CmdCopy, i64 152)) #24
+  call void @_ZN3nix22RawInstallablesCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT7CmdCopy, i64 152)) #24
   br label %121
 
 121:                                              ; preds = %105, %.critedge, %107, %103
   %.pn22.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %104, %103 ], [ %106, %105 ], [ %.pn22.pn.pn, %.critedge ], [ %108, %107 ]
-  call void @_ZN3nix11CopyCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT7CmdCopy, i64 64)) #24
+  call void @_ZN3nix11CopyCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT7CmdCopy, i64 64)) #24
   br label %122
 
 122:                                              ; preds = %121, %101
   %.pn22.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn22.pn.pn.pn.pn.pn, %121 ], [ %102, %101 ]
-  call void @_ZN3nix12StoreCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT7CmdCopy, i64 96)) #24
+  call void @_ZN3nix12StoreCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT7CmdCopy, i64 96)) #24
   br label %123
 
 123:                                              ; preds = %122, %99
@@ -2251,7 +2251,7 @@ _ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit:         ; preds = %2, %33, %46, %_ZNSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix4ArgsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix4ArgsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -2596,14 +2596,14 @@ declare void @_ZTv0_n32_N3nix11EvalCommandD0Ev(ptr noundef) unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7CmdCopyD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  tail call void @_ZN3nix22RawInstallablesCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT7CmdCopy, i64 152)) #24
+  tail call void @_ZN3nix22RawInstallablesCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT7CmdCopy, i64 152)) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTC7CmdCopy16_N3nix11CopyCommandE, i64 80), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC7CmdCopy16_N3nix11CopyCommandE, i64 80), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTC7CmdCopy16_N3nix11CopyCommandE, i64 208), ptr %4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTC7CmdCopy16_N3nix11CopyCommandE, i64 320), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC7CmdCopy16_N3nix11CopyCommandE, i64 208), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC7CmdCopy16_N3nix11CopyCommandE, i64 320), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr getelementptr inbounds (i8, ptr @_ZTC7CmdCopy16_N3nix11CopyCommandE, i64 448), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC7CmdCopy16_N3nix11CopyCommandE, i64 448), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2642,9 +2642,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.
 
 _ZN3nix11CopyCommandD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTC7CmdCopy88_N3nix12StoreCommandE, i64 80), ptr %4, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTC7CmdCopy88_N3nix12StoreCommandE, i64 192), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTC7CmdCopy88_N3nix12StoreCommandE, i64 320), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC7CmdCopy88_N3nix12StoreCommandE, i64 80), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC7CmdCopy88_N3nix12StoreCommandE, i64 192), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC7CmdCopy88_N3nix12StoreCommandE, i64 320), ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null

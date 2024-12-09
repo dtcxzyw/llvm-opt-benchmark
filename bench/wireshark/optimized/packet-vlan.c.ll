@@ -325,7 +325,7 @@ switch.lookup:                                    ; preds = %54
   %62 = load i32, ptr %hf_vlan_cfi.sink, align 4
   store i32 %62, ptr %7, align 4
   call void @proto_tree_add_bitmask_list(ptr noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 0) #3
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 20), align 4
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 20), align 4
   %.not59 = icmp eq i32 %63, 0
   br i1 %.not59, label %proto_item_set_generated.exit, label %64
 

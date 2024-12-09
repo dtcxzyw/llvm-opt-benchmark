@@ -564,7 +564,7 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_0v() #1 personality ptr @__gxx_p
   store i8 1, ptr %19, align 8, !alias.scope !5
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 1, ptr %20, align 1, !alias.scope !5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !5
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 2, ptr %21, align 4, !alias.scope !5
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -636,7 +636,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %32, %36
   store i8 1, ptr %47, align 8, !alias.scope !8
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 1, ptr %48, align 1, !alias.scope !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %49, align 4, !alias.scope !8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -792,7 +792,7 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_3v() #1 personality ptr @__gxx_p
   store i8 1, ptr %25, align 8, !alias.scope !11
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 1, ptr %26, align 1, !alias.scope !11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !11
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %27, align 4, !alias.scope !11
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -864,7 +864,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %38, %42
   store i8 1, ptr %53, align 8, !alias.scope !14
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 1, ptr %54, align 1, !alias.scope !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !14
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %55, align 4, !alias.scope !14
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -979,7 +979,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit34:           ; preds = %73, %69, %21
   store i8 1, ptr %96, align 8, !alias.scope !17
   %97 = getelementptr inbounds nuw i8, ptr %15, i64 9
   store i8 1, ptr %97, align 1, !alias.scope !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %15, align 8, !alias.scope !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %15, align 8, !alias.scope !17
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 1, ptr %98, align 4, !alias.scope !17
   %99 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1116,7 +1116,7 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_7v() #1 personality ptr @__gxx_p
   store i8 1, ptr %25, align 8, !alias.scope !20
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 1, ptr %26, align 1, !alias.scope !20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !20
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 2, ptr %27, align 4, !alias.scope !20
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1188,7 +1188,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %38, %42
   store i8 1, ptr %53, align 8, !alias.scope !23
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 1, ptr %54, align 1, !alias.scope !23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !23
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !23
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 2, ptr %55, align 4, !alias.scope !23
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1303,7 +1303,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit34:           ; preds = %73, %69, %21
   store i8 1, ptr %96, align 8, !alias.scope !26
   %97 = getelementptr inbounds nuw i8, ptr %15, i64 9
   store i8 1, ptr %97, align 1, !alias.scope !26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %15, align 8, !alias.scope !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %15, align 8, !alias.scope !26
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 1, ptr %98, align 4, !alias.scope !26
   %99 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1437,7 +1437,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_11v() #1 personality ptr @__gxx_
   store i8 1, ptr %22, align 8, !alias.scope !29
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 1, ptr %23, align 1, !alias.scope !29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !29
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !29
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %24, align 4, !alias.scope !29
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1509,7 +1509,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %35, %39
   store i8 1, ptr %50, align 8, !alias.scope !32
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 1, ptr %51, align 1, !alias.scope !32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !32
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !32
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %52, align 4, !alias.scope !32
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1592,7 +1592,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit29:           ; preds = %66, %70
   store i8 1, ptr %81, align 8, !alias.scope !35
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 9
   store i8 1, ptr %82, align 1, !alias.scope !35
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %12, align 8, !alias.scope !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %12, align 8, !alias.scope !35
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 0, ptr %83, align 4, !alias.scope !35
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1736,7 +1736,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_14v() #1 personality ptr @__gxx_
   store i8 1, ptr %22, align 8, !alias.scope !38
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 1, ptr %23, align 1, !alias.scope !38
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !38
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !38
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 4, ptr %24, align 4, !alias.scope !38
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1808,7 +1808,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %35, %39
   store i8 1, ptr %50, align 8, !alias.scope !41
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 1, ptr %51, align 1, !alias.scope !41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !41
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %9, align 8, !alias.scope !41
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 16, ptr %52, align 4, !alias.scope !41
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1891,7 +1891,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit29:           ; preds = %66, %70
   store i8 1, ptr %81, align 8, !alias.scope !44
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 9
   store i8 1, ptr %82, align 1, !alias.scope !44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %12, align 8, !alias.scope !44
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %12, align 8, !alias.scope !44
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 0, ptr %83, align 4, !alias.scope !44
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -2041,7 +2041,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_17v() #1 personality ptr @__gxx_
   store i8 1, ptr %28, align 8, !alias.scope !47
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 1, ptr %29, align 1, !alias.scope !47
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !47
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %6, align 8, !alias.scope !47
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %30, align 4, !alias.scope !47
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2145,7 +2145,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %45, %41, %24
   store i8 1, ptr %68, align 8, !alias.scope !50
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 9
   store i8 1, ptr %69, align 1, !alias.scope !50
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %12, align 8, !alias.scope !50
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %12, align 8, !alias.scope !50
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 1, ptr %70, align 4, !alias.scope !50
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -2249,7 +2249,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit37:           ; preds = %85, %81, %64
   store i8 1, ptr %108, align 8, !alias.scope !53
   %109 = getelementptr inbounds nuw i8, ptr %18, i64 9
   store i8 1, ptr %109, align 1, !alias.scope !53
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %18, align 8, !alias.scope !53
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %18, align 8, !alias.scope !53
   %110 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %110, align 4, !alias.scope !53
   %111 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -2396,7 +2396,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %22
   store i8 1, ptr %27, align 8, !alias.scope !56
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %26, ptr %28, align 1, !alias.scope !56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !56
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !56
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float %21, ptr %29, align 4, !alias.scope !56
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2491,7 +2491,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit19:               ; preds = %59
   store i8 1, ptr %64, align 8, !alias.scope !59
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %63, ptr %65, align 1, !alias.scope !59
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !59
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !59
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float %58, ptr %66, align 4, !alias.scope !59
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2671,7 +2671,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %39
   store i8 1, ptr %43, align 8, !alias.scope !62
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %42, ptr %44, align 1, !alias.scope !62
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !62
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !62
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float -1.500000e+01, ptr %45, align 4, !alias.scope !62
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2761,7 +2761,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit60:               ; preds = %73
   store i8 1, ptr %77, align 8, !alias.scope !65
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %76, ptr %78, align 1, !alias.scope !65
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !65
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !65
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float -2.000000e+00, ptr %79, align 4, !alias.scope !65
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2862,7 +2862,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit64:               ; preds = %110
   store i8 1, ptr %114, align 8, !alias.scope !68
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %113, ptr %115, align 1, !alias.scope !68
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !68
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !68
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float 3.900000e+01, ptr %116, align 4, !alias.scope !68
   %117 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2995,7 +2995,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit68:               ; preds = %159
   store i8 1, ptr %163, align 8, !alias.scope !71
   %164 = getelementptr inbounds nuw i8, ptr %21, i64 9
   store i8 %162, ptr %164, align 1, !alias.scope !71
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !71
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !71
   %165 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store float 0.000000e+00, ptr %165, align 4, !alias.scope !71
   %166 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -3085,7 +3085,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit72:               ; preds = %193
   store i8 1, ptr %197, align 8, !alias.scope !74
   %198 = getelementptr inbounds nuw i8, ptr %25, i64 9
   store i8 %196, ptr %198, align 1, !alias.scope !74
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !74
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !74
   %199 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store float 0.000000e+00, ptr %199, align 4, !alias.scope !74
   %200 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -3186,7 +3186,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit76:               ; preds = %230
   store i8 1, ptr %234, align 8, !alias.scope !77
   %235 = getelementptr inbounds nuw i8, ptr %29, i64 9
   store i8 %233, ptr %235, align 1, !alias.scope !77
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !77
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !77
   %236 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store float 0.000000e+00, ptr %236, align 4, !alias.scope !77
   %237 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -3351,7 +3351,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %23
   store i8 1, ptr %27, align 8, !alias.scope !80
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %26, ptr %28, align 1, !alias.scope !80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !80
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !80
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float 1.000000e+00, ptr %29, align 4, !alias.scope !80
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3473,7 +3473,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit26:               ; preds = %69
   store i8 1, ptr %73, align 8, !alias.scope !83
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 9
   store i8 %72, ptr %74, align 1, !alias.scope !83
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !83
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !83
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store float 0.000000e+00, ptr %75, align 4, !alias.scope !83
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3643,7 +3643,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %39
   store i8 1, ptr %43, align 8, !alias.scope !86
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %42, ptr %44, align 1, !alias.scope !86
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !86
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !86
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float 1.000000e+00, ptr %45, align 4, !alias.scope !86
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3733,7 +3733,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit60:               ; preds = %73
   store i8 1, ptr %77, align 8, !alias.scope !89
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %76, ptr %78, align 1, !alias.scope !89
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !89
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !89
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float 6.000000e+00, ptr %79, align 4, !alias.scope !89
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3834,7 +3834,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit64:               ; preds = %110
   store i8 1, ptr %114, align 8, !alias.scope !92
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %113, ptr %115, align 1, !alias.scope !92
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !92
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !92
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float 1.100000e+01, ptr %116, align 4, !alias.scope !92
   %117 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3967,7 +3967,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit68:               ; preds = %159
   store i8 1, ptr %163, align 8, !alias.scope !95
   %164 = getelementptr inbounds nuw i8, ptr %21, i64 9
   store i8 %162, ptr %164, align 1, !alias.scope !95
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !95
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !95
   %165 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store float 1.000000e+00, ptr %165, align 4, !alias.scope !95
   %166 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -4057,7 +4057,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit72:               ; preds = %193
   store i8 1, ptr %197, align 8, !alias.scope !98
   %198 = getelementptr inbounds nuw i8, ptr %25, i64 9
   store i8 %196, ptr %198, align 1, !alias.scope !98
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !98
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !98
   %199 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store float 2.000000e+00, ptr %199, align 4, !alias.scope !98
   %200 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -4158,7 +4158,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit76:               ; preds = %230
   store i8 1, ptr %234, align 8, !alias.scope !101
   %235 = getelementptr inbounds nuw i8, ptr %29, i64 9
   store i8 %233, ptr %235, align 1, !alias.scope !101
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !101
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !101
   %236 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store float 3.000000e+00, ptr %236, align 4, !alias.scope !101
   %237 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -4324,7 +4324,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %24
   store i8 1, ptr %28, align 8, !alias.scope !104
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %27, ptr %29, align 1, !alias.scope !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !104
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float 6.000000e+00, ptr %30, align 4, !alias.scope !104
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4414,7 +4414,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit28:               ; preds = %58
   store i8 1, ptr %62, align 8, !alias.scope !107
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %61, ptr %63, align 1, !alias.scope !107
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !107
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !107
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float 8.000000e+00, ptr %64, align 4, !alias.scope !107
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -4515,7 +4515,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit32:               ; preds = %95
   store i8 1, ptr %99, align 8, !alias.scope !110
   %100 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %98, ptr %100, align 1, !alias.scope !110
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !110
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !110
   %101 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float 1.000000e+01, ptr %101, align 4, !alias.scope !110
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -4680,7 +4680,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %24
   store i8 1, ptr %28, align 8, !alias.scope !113
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %27, ptr %29, align 1, !alias.scope !113
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !113
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !113
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float 4.000000e+00, ptr %30, align 4, !alias.scope !113
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4770,7 +4770,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit28:               ; preds = %58
   store i8 1, ptr %62, align 8, !alias.scope !116
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %61, ptr %63, align 1, !alias.scope !116
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !116
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !116
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float 2.000000e+00, ptr %64, align 4, !alias.scope !116
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -4871,7 +4871,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit32:               ; preds = %95
   store i8 1, ptr %99, align 8, !alias.scope !119
   %100 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %98, ptr %100, align 1, !alias.scope !119
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !119
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !119
   %101 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float 0.000000e+00, ptr %101, align 4, !alias.scope !119
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -5066,7 +5066,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %54
   store i8 1, ptr %58, align 8, !alias.scope !122
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %57, ptr %59, align 1, !alias.scope !122
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !122
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !122
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float 1.000000e+00, ptr %60, align 4, !alias.scope !122
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5156,7 +5156,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit90:               ; preds = %88
   store i8 1, ptr %92, align 8, !alias.scope !125
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %91, ptr %93, align 1, !alias.scope !125
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !125
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !125
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float 2.000000e+00, ptr %94, align 4, !alias.scope !125
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -5257,7 +5257,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit94:               ; preds = %125
   store i8 1, ptr %129, align 8, !alias.scope !128
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %128, ptr %130, align 1, !alias.scope !128
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !128
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !128
   %131 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float 0.000000e+00, ptr %131, align 4, !alias.scope !128
   %132 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -5390,7 +5390,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit98:               ; preds = %174
   store i8 1, ptr %178, align 8, !alias.scope !131
   %179 = getelementptr inbounds nuw i8, ptr %21, i64 9
   store i8 %177, ptr %179, align 1, !alias.scope !131
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !131
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !131
   %180 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store float 1.000000e+00, ptr %180, align 4, !alias.scope !131
   %181 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -5480,7 +5480,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit102:              ; preds = %208
   store i8 1, ptr %212, align 8, !alias.scope !134
   %213 = getelementptr inbounds nuw i8, ptr %25, i64 9
   store i8 %211, ptr %213, align 1, !alias.scope !134
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !134
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !134
   %214 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store float 2.000000e+00, ptr %214, align 4, !alias.scope !134
   %215 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -5581,7 +5581,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit106:              ; preds = %245
   store i8 1, ptr %249, align 8, !alias.scope !137
   %250 = getelementptr inbounds nuw i8, ptr %29, i64 9
   store i8 %248, ptr %250, align 1, !alias.scope !137
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !137
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !137
   %251 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store float 3.000000e+00, ptr %251, align 4, !alias.scope !137
   %252 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -5714,7 +5714,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit110:              ; preds = %294
   store i8 1, ptr %298, align 8, !alias.scope !140
   %299 = getelementptr inbounds nuw i8, ptr %36, i64 9
   store i8 %297, ptr %299, align 1, !alias.scope !140
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %36, align 8, !alias.scope !140
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %36, align 8, !alias.scope !140
   %300 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store float 1.000000e+00, ptr %300, align 4, !alias.scope !140
   %301 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -5804,7 +5804,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit114:              ; preds = %328
   store i8 1, ptr %332, align 8, !alias.scope !143
   %333 = getelementptr inbounds nuw i8, ptr %40, i64 9
   store i8 %331, ptr %333, align 1, !alias.scope !143
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %40, align 8, !alias.scope !143
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %40, align 8, !alias.scope !143
   %334 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store float 2.000000e+00, ptr %334, align 4, !alias.scope !143
   %335 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -5905,7 +5905,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit118:              ; preds = %365
   store i8 1, ptr %369, align 8, !alias.scope !146
   %370 = getelementptr inbounds nuw i8, ptr %44, i64 9
   store i8 %368, ptr %370, align 1, !alias.scope !146
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %44, align 8, !alias.scope !146
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %44, align 8, !alias.scope !146
   %371 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store float 3.000000e+00, ptr %371, align 4, !alias.scope !146
   %372 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -6101,7 +6101,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %54
   store i8 1, ptr %58, align 8, !alias.scope !149
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %57, ptr %59, align 1, !alias.scope !149
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !149
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !149
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float 5.000000e+00, ptr %60, align 4, !alias.scope !149
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -6191,7 +6191,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit90:               ; preds = %88
   store i8 1, ptr %92, align 8, !alias.scope !152
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %91, ptr %93, align 1, !alias.scope !152
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !152
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !152
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float 4.000000e+00, ptr %94, align 4, !alias.scope !152
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -6292,7 +6292,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit94:               ; preds = %125
   store i8 1, ptr %129, align 8, !alias.scope !155
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %128, ptr %130, align 1, !alias.scope !155
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !155
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !155
   %131 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float 9.000000e+00, ptr %131, align 4, !alias.scope !155
   %132 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -6425,7 +6425,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit98:               ; preds = %174
   store i8 1, ptr %178, align 8, !alias.scope !158
   %179 = getelementptr inbounds nuw i8, ptr %21, i64 9
   store i8 %177, ptr %179, align 1, !alias.scope !158
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !158
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !158
   %180 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store float 4.000000e+00, ptr %180, align 4, !alias.scope !158
   %181 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -6515,7 +6515,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit102:              ; preds = %208
   store i8 1, ptr %212, align 8, !alias.scope !161
   %213 = getelementptr inbounds nuw i8, ptr %25, i64 9
   store i8 %211, ptr %213, align 1, !alias.scope !161
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !161
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !161
   %214 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store float 5.000000e+00, ptr %214, align 4, !alias.scope !161
   %215 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -6616,7 +6616,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit106:              ; preds = %245
   store i8 1, ptr %249, align 8, !alias.scope !164
   %250 = getelementptr inbounds nuw i8, ptr %29, i64 9
   store i8 %248, ptr %250, align 1, !alias.scope !164
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !164
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !164
   %251 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store float 6.000000e+00, ptr %251, align 4, !alias.scope !164
   %252 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -6749,7 +6749,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit110:              ; preds = %294
   store i8 1, ptr %298, align 8, !alias.scope !167
   %299 = getelementptr inbounds nuw i8, ptr %36, i64 9
   store i8 %297, ptr %299, align 1, !alias.scope !167
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %36, align 8, !alias.scope !167
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %36, align 8, !alias.scope !167
   %300 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store float 4.000000e+00, ptr %300, align 4, !alias.scope !167
   %301 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -6839,7 +6839,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit114:              ; preds = %328
   store i8 1, ptr %332, align 8, !alias.scope !170
   %333 = getelementptr inbounds nuw i8, ptr %40, i64 9
   store i8 %331, ptr %333, align 1, !alias.scope !170
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %40, align 8, !alias.scope !170
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %40, align 8, !alias.scope !170
   %334 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store float 5.000000e+00, ptr %334, align 4, !alias.scope !170
   %335 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -6940,7 +6940,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit118:              ; preds = %365
   store i8 1, ptr %369, align 8, !alias.scope !173
   %370 = getelementptr inbounds nuw i8, ptr %44, i64 9
   store i8 %368, ptr %370, align 1, !alias.scope !173
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %44, align 8, !alias.scope !173
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %44, align 8, !alias.scope !173
   %371 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store float 6.000000e+00, ptr %371, align 4, !alias.scope !173
   %372 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -7118,7 +7118,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %36
   store i8 1, ptr %40, align 8, !alias.scope !176
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %39, ptr %41, align 1, !alias.scope !176
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !176
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !176
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float 5.000000e+00, ptr %42, align 4, !alias.scope !176
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -7208,7 +7208,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit55:               ; preds = %70
   store i8 1, ptr %74, align 8, !alias.scope !179
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %73, ptr %75, align 1, !alias.scope !179
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !179
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !179
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float 4.000000e+00, ptr %76, align 4, !alias.scope !179
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -7309,7 +7309,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit59:               ; preds = %107
   store i8 1, ptr %111, align 8, !alias.scope !182
   %112 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %110, ptr %112, align 1, !alias.scope !182
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !182
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !182
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float 0.000000e+00, ptr %113, align 4, !alias.scope !182
   %114 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7410,7 +7410,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit63:               ; preds = %144
   store i8 1, ptr %148, align 8, !alias.scope !185
   %149 = getelementptr inbounds nuw i8, ptr %18, i64 9
   store i8 %147, ptr %149, align 1, !alias.scope !185
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %18, align 8, !alias.scope !185
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %18, align 8, !alias.scope !185
   %150 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store float 5.000000e+00, ptr %150, align 4, !alias.scope !185
   %151 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -7511,7 +7511,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit67:               ; preds = %181
   store i8 1, ptr %185, align 8, !alias.scope !188
   %186 = getelementptr inbounds nuw i8, ptr %22, i64 9
   store i8 %184, ptr %186, align 1, !alias.scope !188
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %22, align 8, !alias.scope !188
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %22, align 8, !alias.scope !188
   %187 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store float 4.000000e+00, ptr %187, align 4, !alias.scope !188
   %188 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -7612,7 +7612,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit71:               ; preds = %218
   store i8 1, ptr %222, align 8, !alias.scope !191
   %223 = getelementptr inbounds nuw i8, ptr %26, i64 9
   store i8 %221, ptr %223, align 1, !alias.scope !191
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %26, align 8, !alias.scope !191
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %26, align 8, !alias.scope !191
   %224 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store float 0.000000e+00, ptr %224, align 4, !alias.scope !191
   %225 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -7781,7 +7781,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit:                 ; preds = %24
   store i8 1, ptr %29, align 8, !alias.scope !194
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %28, ptr %30, align 1, !alias.scope !194
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !194
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !194
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float %22, ptr %31, align 4, !alias.scope !194
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -7913,7 +7913,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit27:               ; preds = %74
   store i8 1, ptr %80, align 8, !alias.scope !197
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 9
   store i8 %79, ptr %81, align 1, !alias.scope !197
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !197
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !197
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store float %70, ptr %82, align 4, !alias.scope !197
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -8067,7 +8067,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %23
   store i8 1, ptr %27, align 8, !alias.scope !200
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %26, ptr %28, align 1, !alias.scope !200
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !200
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !200
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float 1.200000e+01, ptr %29, align 4, !alias.scope !200
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8189,7 +8189,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit:                 ; preds = %69
   store i8 1, ptr %73, align 8, !alias.scope !203
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 9
   store i8 %72, ptr %74, align 1, !alias.scope !203
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !203
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !203
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store float 1.900000e+01, ptr %75, align 4, !alias.scope !203
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -8360,7 +8360,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit:                 ; preds = %34
   store i8 1, ptr %40, align 8, !alias.scope !206
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %39, ptr %41, align 1, !alias.scope !206
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !206
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %6, align 8, !alias.scope !206
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float %30, ptr %42, align 4, !alias.scope !206
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8456,7 +8456,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit38:               ; preds = %72
   store i8 1, ptr %78, align 8, !alias.scope !209
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %77, ptr %79, align 1, !alias.scope !209
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !209
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %10, align 8, !alias.scope !209
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store float %30, ptr %80, align 4, !alias.scope !209
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -8563,7 +8563,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit42:               ; preds = %113
   store i8 1, ptr %119, align 8, !alias.scope !212
   %120 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %118, ptr %120, align 1, !alias.scope !212
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !212
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %14, align 8, !alias.scope !212
   %121 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store float %30, ptr %121, align 4, !alias.scope !212
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -8672,7 +8672,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %157
   store i8 1, ptr %162, align 8, !alias.scope !215
   %163 = getelementptr inbounds nuw i8, ptr %18, i64 9
   store i8 %161, ptr %163, align 1, !alias.scope !215
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %18, align 8, !alias.scope !215
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %18, align 8, !alias.scope !215
   %164 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store float %154, ptr %164, align 4, !alias.scope !215
   %165 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -8891,7 +8891,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit:                 ; preds = %70
   store i8 1, ptr %78, align 8, !alias.scope !218
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %77, ptr %79, align 1, !alias.scope !218
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %9, align 8, !alias.scope !218
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %9, align 8, !alias.scope !218
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store float %71, ptr %80, align 4, !alias.scope !218
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -8987,7 +8987,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit114:              ; preds = %108
   store i8 1, ptr %118, align 8, !alias.scope !221
   %119 = getelementptr inbounds nuw i8, ptr %13, i64 9
   store i8 %117, ptr %119, align 1, !alias.scope !221
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !221
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %13, align 8, !alias.scope !221
   %120 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store float %110, ptr %120, align 4, !alias.scope !221
   %121 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -9094,7 +9094,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit118:              ; preds = %151
   store i8 1, ptr %161, align 8, !alias.scope !224
   %162 = getelementptr inbounds nuw i8, ptr %17, i64 9
   store i8 %160, ptr %162, align 1, !alias.scope !224
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %17, align 8, !alias.scope !224
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %17, align 8, !alias.scope !224
   %163 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store float %153, ptr %163, align 4, !alias.scope !224
   %164 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -9199,7 +9199,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit122:              ; preds = %194
   store i8 1, ptr %202, align 8, !alias.scope !227
   %203 = getelementptr inbounds nuw i8, ptr %21, i64 9
   store i8 %201, ptr %203, align 1, !alias.scope !227
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !227
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !227
   %204 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store float %195, ptr %204, align 4, !alias.scope !227
   %205 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -9305,7 +9305,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit126:              ; preds = %235
   store i8 1, ptr %244, align 8, !alias.scope !230
   %245 = getelementptr inbounds nuw i8, ptr %25, i64 9
   store i8 %243, ptr %245, align 1, !alias.scope !230
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !230
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !230
   %246 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store float %237, ptr %246, align 4, !alias.scope !230
   %247 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -9411,7 +9411,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit130:              ; preds = %277
   store i8 1, ptr %286, align 8, !alias.scope !233
   %287 = getelementptr inbounds nuw i8, ptr %29, i64 9
   store i8 %285, ptr %287, align 1, !alias.scope !233
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !233
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !233
   %288 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store float %279, ptr %288, align 4, !alias.scope !233
   %289 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -9551,7 +9551,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit:                 ; preds = %332
   store i8 1, ptr %338, align 8, !alias.scope !236
   %339 = getelementptr inbounds nuw i8, ptr %39, i64 9
   store i8 %337, ptr %339, align 1, !alias.scope !236
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %39, align 8, !alias.scope !236
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %39, align 8, !alias.scope !236
   %340 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store float %333, ptr %340, align 4, !alias.scope !236
   %341 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -9644,7 +9644,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit137:              ; preds = %368
   store i8 1, ptr %375, align 8, !alias.scope !239
   %376 = getelementptr inbounds nuw i8, ptr %43, i64 9
   store i8 %374, ptr %376, align 1, !alias.scope !239
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %43, align 8, !alias.scope !239
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %43, align 8, !alias.scope !239
   %377 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store float %370, ptr %377, align 4, !alias.scope !239
   %378 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -9748,7 +9748,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit141:              ; preds = %408
   store i8 1, ptr %415, align 8, !alias.scope !242
   %416 = getelementptr inbounds nuw i8, ptr %47, i64 9
   store i8 %414, ptr %416, align 1, !alias.scope !242
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %47, align 8, !alias.scope !242
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %47, align 8, !alias.scope !242
   %417 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store float %410, ptr %417, align 4, !alias.scope !242
   %418 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -9851,7 +9851,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit145:              ; preds = %448
   store i8 1, ptr %454, align 8, !alias.scope !245
   %455 = getelementptr inbounds nuw i8, ptr %51, i64 9
   store i8 %453, ptr %455, align 1, !alias.scope !245
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %51, align 8, !alias.scope !245
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %51, align 8, !alias.scope !245
   %456 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store float %449, ptr %456, align 4, !alias.scope !245
   %457 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -9955,7 +9955,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit149:              ; preds = %487
   store i8 1, ptr %494, align 8, !alias.scope !248
   %495 = getelementptr inbounds nuw i8, ptr %55, i64 9
   store i8 %493, ptr %495, align 1, !alias.scope !248
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %55, align 8, !alias.scope !248
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %55, align 8, !alias.scope !248
   %496 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store float %489, ptr %496, align 4, !alias.scope !248
   %497 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -10059,7 +10059,7 @@ _ZN5Catch6ApproxC2IivEERKT_.exit153:              ; preds = %527
   store i8 1, ptr %534, align 8, !alias.scope !251
   %535 = getelementptr inbounds nuw i8, ptr %59, i64 9
   store i8 %533, ptr %535, align 1, !alias.scope !251
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %59, align 8, !alias.scope !251
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %59, align 8, !alias.scope !251
   %536 = getelementptr inbounds nuw i8, ptr %59, i64 12
   store float %529, ptr %536, align 4, !alias.scope !251
   %537 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -10227,7 +10227,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_71v() #1 personality ptr @__gxx_
   store i8 1, ptr %29, align 8, !alias.scope !254
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 9
   store i8 %28, ptr %30, align 1, !alias.scope !254
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %11, align 8, !alias.scope !254
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %11, align 8, !alias.scope !254
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %26, ptr %31, align 4, !alias.scope !254
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -10302,7 +10302,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %42, %46
   store i8 1, ptr %60, align 8, !alias.scope !257
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %59, ptr %61, align 1, !alias.scope !257
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %14, align 8, !alias.scope !257
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %14, align 8, !alias.scope !257
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %57, ptr %62, align 4, !alias.scope !257
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -10514,7 +10514,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_74v() #1 personality ptr @__gxx_
   store i8 0, ptr %77, align 8, !alias.scope !260
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %76, ptr %78, align 1, !alias.scope !260
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !260
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !260
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %76, ptr %79, align 2, !alias.scope !260
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(10) %1)
@@ -10590,7 +10590,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %89, %93
   store i8 1, ptr %108, align 8, !alias.scope !263
   %109 = getelementptr inbounds nuw i8, ptr %15, i64 9
   store i8 %107, ptr %109, align 1, !alias.scope !263
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %15, align 8, !alias.scope !263
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %15, align 8, !alias.scope !263
   %110 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %104, ptr %110, align 4, !alias.scope !263
   %111 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -10678,7 +10678,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit129:          ; preds = %124, %128
   store i8 1, ptr %144, align 8, !alias.scope !266
   %145 = getelementptr inbounds nuw i8, ptr %18, i64 9
   store i8 %143, ptr %145, align 1, !alias.scope !266
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %18, align 8, !alias.scope !266
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 16), ptr %18, align 8, !alias.scope !266
   %146 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %140, ptr %146, align 4, !alias.scope !266
   %147 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -10775,7 +10775,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit:                 ; preds = %174
   store i8 1, ptr %183, align 8, !alias.scope !269
   %184 = getelementptr inbounds nuw i8, ptr %21, i64 9
   store i8 %182, ptr %184, align 1, !alias.scope !269
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !269
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %21, align 8, !alias.scope !269
   %185 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store float %176, ptr %185, align 4, !alias.scope !269
   %186 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -10882,7 +10882,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit134:              ; preds = %216
   store i8 1, ptr %226, align 8, !alias.scope !272
   %227 = getelementptr inbounds nuw i8, ptr %25, i64 9
   store i8 %225, ptr %227, align 1, !alias.scope !272
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !272
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %25, align 8, !alias.scope !272
   %228 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store float %218, ptr %228, align 4, !alias.scope !272
   %229 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -10989,7 +10989,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit138:              ; preds = %259
   store i8 1, ptr %269, align 8, !alias.scope !275
   %270 = getelementptr inbounds nuw i8, ptr %29, i64 9
   store i8 %268, ptr %270, align 1, !alias.scope !275
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !275
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %29, align 8, !alias.scope !275
   %271 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store float %261, ptr %271, align 4, !alias.scope !275
   %272 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -11095,7 +11095,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit142:              ; preds = %302
   store i8 1, ptr %311, align 8, !alias.scope !278
   %312 = getelementptr inbounds nuw i8, ptr %33, i64 9
   store i8 %310, ptr %312, align 1, !alias.scope !278
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %33, align 8, !alias.scope !278
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %33, align 8, !alias.scope !278
   %313 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store float %304, ptr %313, align 4, !alias.scope !278
   %314 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -11202,7 +11202,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit146:              ; preds = %344
   store i8 1, ptr %354, align 8, !alias.scope !281
   %355 = getelementptr inbounds nuw i8, ptr %37, i64 9
   store i8 %353, ptr %355, align 1, !alias.scope !281
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %37, align 8, !alias.scope !281
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %37, align 8, !alias.scope !281
   %356 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store float %346, ptr %356, align 4, !alias.scope !281
   %357 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -11309,7 +11309,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit150:              ; preds = %387
   store i8 1, ptr %397, align 8, !alias.scope !284
   %398 = getelementptr inbounds nuw i8, ptr %41, i64 9
   store i8 %396, ptr %398, align 1, !alias.scope !284
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %41, align 8, !alias.scope !284
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %41, align 8, !alias.scope !284
   %399 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store float %389, ptr %399, align 4, !alias.scope !284
   %400 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -11413,7 +11413,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit154:              ; preds = %430
   store i8 1, ptr %437, align 8, !alias.scope !287
   %438 = getelementptr inbounds nuw i8, ptr %45, i64 9
   store i8 %436, ptr %438, align 1, !alias.scope !287
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %45, align 8, !alias.scope !287
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %45, align 8, !alias.scope !287
   %439 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store float %432, ptr %439, align 4, !alias.scope !287
   %440 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -11517,7 +11517,7 @@ _ZN5Catch6ApproxC2IfvEERKT_.exit158:              ; preds = %470
   store i8 1, ptr %477, align 8, !alias.scope !290
   %478 = getelementptr inbounds nuw i8, ptr %49, i64 9
   store i8 %476, ptr %478, align 1, !alias.scope !290
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %49, align 8, !alias.scope !290
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i64 16), ptr %49, align 8, !alias.scope !290
   %479 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store float %472, ptr %479, align 4, !alias.scope !290
   %480 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -11614,7 +11614,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit161:          ; preds = %496, %500
   store i8 1, ptr %515, align 8, !alias.scope !293
   %516 = getelementptr inbounds nuw i8, ptr %53, i64 9
   store i8 %514, ptr %516, align 1, !alias.scope !293
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRPP6rcSpaniEE, i64 16), ptr %53, align 8, !alias.scope !293
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRPP6rcSpaniEE, i64 16), ptr %53, align 8, !alias.scope !293
   %517 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %511, ptr %517, align 8, !alias.scope !293
   %518 = getelementptr inbounds nuw i8, ptr %53, i64 24
@@ -11702,7 +11702,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit163:          ; preds = %531, %535
   store i8 1, ptr %550, align 8, !alias.scope !296
   %551 = getelementptr inbounds nuw i8, ptr %56, i64 9
   store i8 %549, ptr %551, align 1, !alias.scope !296
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP10rcSpanPooliEE, i64 16), ptr %56, align 8, !alias.scope !296
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP10rcSpanPooliEE, i64 16), ptr %56, align 8, !alias.scope !296
   %552 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %546, ptr %552, align 8, !alias.scope !296
   %553 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -11790,7 +11790,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit165:          ; preds = %566, %570
   store i8 1, ptr %585, align 8, !alias.scope !299
   %586 = getelementptr inbounds nuw i8, ptr %59, i64 9
   store i8 %584, ptr %586, align 1, !alias.scope !299
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %59, align 8, !alias.scope !299
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %59, align 8, !alias.scope !299
   %587 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %581, ptr %587, align 8, !alias.scope !299
   %588 = getelementptr inbounds nuw i8, ptr %59, i64 24
@@ -11974,7 +11974,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_77v() #1 personality ptr @__gxx_
   store i8 1, ptr %44, align 8, !alias.scope !302
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %43, ptr %45, align 1, !alias.scope !302
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %10, align 8, !alias.scope !302
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %10, align 8, !alias.scope !302
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i8 %41, ptr %46, align 2, !alias.scope !302
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -12085,7 +12085,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %61, %57, %36
   store i8 1, ptr %88, align 8, !alias.scope !305
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 9
   store i8 %87, ptr %89, align 1, !alias.scope !305
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %16, align 8, !alias.scope !305
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %16, align 8, !alias.scope !305
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 10
   store i8 %85, ptr %90, align 2, !alias.scope !305
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -12197,7 +12197,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit65:           ; preds = %105, %101, %80
   store i8 1, ptr %132, align 8, !alias.scope !308
   %133 = getelementptr inbounds nuw i8, ptr %22, i64 9
   store i8 %131, ptr %133, align 1, !alias.scope !308
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIhiEE, i64 16), ptr %22, align 8, !alias.scope !308
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIhiEE, i64 16), ptr %22, align 8, !alias.scope !308
   %134 = getelementptr inbounds nuw i8, ptr %22, i64 10
   store i8 %129, ptr %134, align 2, !alias.scope !308
   %135 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -12308,7 +12308,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit67:           ; preds = %149, %145, %124
   store i8 1, ptr %176, align 8, !alias.scope !311
   %177 = getelementptr inbounds nuw i8, ptr %28, i64 9
   store i8 %175, ptr %177, align 1, !alias.scope !311
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %28, align 8, !alias.scope !311
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %28, align 8, !alias.scope !311
   %178 = getelementptr inbounds nuw i8, ptr %28, i64 10
   store i8 %173, ptr %178, align 2, !alias.scope !311
   %179 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -12467,7 +12467,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_83v() #1 personality ptr @__gxx_
   store i8 1, ptr %38, align 8, !alias.scope !314
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %37, ptr %39, align 1, !alias.scope !314
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %10, align 8, !alias.scope !314
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %10, align 8, !alias.scope !314
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i8 %35, ptr %40, align 2, !alias.scope !314
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -12578,7 +12578,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %55, %51, %30
   store i8 1, ptr %82, align 8, !alias.scope !317
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 9
   store i8 %81, ptr %83, align 1, !alias.scope !317
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIhiEE, i64 16), ptr %16, align 8, !alias.scope !317
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIhiEE, i64 16), ptr %16, align 8, !alias.scope !317
   %84 = getelementptr inbounds nuw i8, ptr %16, i64 10
   store i8 %79, ptr %84, align 2, !alias.scope !317
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -12689,7 +12689,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit49:           ; preds = %99, %95, %74
   store i8 1, ptr %126, align 8, !alias.scope !320
   %127 = getelementptr inbounds nuw i8, ptr %22, i64 9
   store i8 %125, ptr %127, align 1, !alias.scope !320
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %22, align 8, !alias.scope !320
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIhhEE, i64 16), ptr %22, align 8, !alias.scope !320
   %128 = getelementptr inbounds nuw i8, ptr %22, i64 10
   store i8 %123, ptr %128, align 2, !alias.scope !320
   %129 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -12900,7 +12900,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_88v() #1 personality ptr @__gxx_
   %113 = alloca %"class.Catch::AssertionHandler", align 8
   %114 = alloca %"struct.Catch::SourceLineInfo", align 8
   %115 = alloca %"class.Catch::BinaryExpr.9", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9rcContext, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9rcContext, i64 16), ptr %8, align 8
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 0, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 9
@@ -12928,7 +12928,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_88v() #1 personality ptr @__gxx_
   store i8 0, ptr %125, align 8, !alias.scope !323
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 %124, ptr %126, align 1, !alias.scope !323
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %7, align 8, !alias.scope !323
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %7, align 8, !alias.scope !323
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 10
   store i8 %124, ptr %127, align 2, !alias.scope !323
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(10) %7)
@@ -13028,7 +13028,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %138, %142
   store i8 0, ptr %164, align 8, !alias.scope !326
   %165 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %163, ptr %165, align 1, !alias.scope !326
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %6, align 8, !alias.scope !326
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %6, align 8, !alias.scope !326
   %166 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i8 %163, ptr %166, align 2, !alias.scope !326
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(10) %6)
@@ -13117,7 +13117,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit360:          ; preds = %179, %183
   store i8 1, ptr %199, align 8, !alias.scope !329
   %200 = getelementptr inbounds nuw i8, ptr %24, i64 9
   store i8 %198, ptr %200, align 1, !alias.scope !329
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %24, align 8, !alias.scope !329
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %24, align 8, !alias.scope !329
   %201 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %195, ptr %201, align 8, !alias.scope !329
   %202 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -13206,7 +13206,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit361:          ; preds = %215, %219
   store i8 1, ptr %236, align 8, !alias.scope !332
   %237 = getelementptr inbounds nuw i8, ptr %27, i64 9
   store i8 %235, ptr %237, align 1, !alias.scope !332
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %27, align 8, !alias.scope !332
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %27, align 8, !alias.scope !332
   %238 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %233, ptr %238, align 4, !alias.scope !332
   %239 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -13296,7 +13296,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit363:          ; preds = %252, %256
   store i8 1, ptr %274, align 8, !alias.scope !335
   %275 = getelementptr inbounds nuw i8, ptr %30, i64 9
   store i8 %273, ptr %275, align 1, !alias.scope !335
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %30, align 8, !alias.scope !335
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %30, align 8, !alias.scope !335
   %276 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 %271, ptr %276, align 4, !alias.scope !335
   %277 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -13385,7 +13385,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit365:          ; preds = %290, %294
   store i8 1, ptr %311, align 8, !alias.scope !338
   %312 = getelementptr inbounds nuw i8, ptr %33, i64 9
   store i8 %310, ptr %312, align 1, !alias.scope !338
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %33, align 8, !alias.scope !338
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %33, align 8, !alias.scope !338
   %313 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %308, ptr %313, align 4, !alias.scope !338
   %314 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -13509,7 +13509,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit367:          ; preds = %331, %327, %157
   store i8 0, ptr %358, align 8, !alias.scope !341
   %359 = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %357, ptr %359, align 1, !alias.scope !341
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %5, align 8, !alias.scope !341
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %5, align 8, !alias.scope !341
   %360 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i8 %357, ptr %360, align 2, !alias.scope !341
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %37, ptr noundef nonnull align 8 dereferenceable(10) %5)
@@ -13587,7 +13587,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit371:          ; preds = %369, %373
   store i8 1, ptr %389, align 8, !alias.scope !344
   %390 = getelementptr inbounds nuw i8, ptr %41, i64 9
   store i8 %388, ptr %390, align 1, !alias.scope !344
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %41, align 8, !alias.scope !344
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %41, align 8, !alias.scope !344
   %391 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %385, ptr %391, align 8, !alias.scope !344
   %392 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -13676,7 +13676,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit373:          ; preds = %405, %409
   store i8 1, ptr %426, align 8, !alias.scope !347
   %427 = getelementptr inbounds nuw i8, ptr %44, i64 9
   store i8 %425, ptr %427, align 1, !alias.scope !347
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %44, align 8, !alias.scope !347
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %44, align 8, !alias.scope !347
   %428 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 %423, ptr %428, align 4, !alias.scope !347
   %429 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -13766,7 +13766,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit375:          ; preds = %442, %446
   store i8 1, ptr %464, align 8, !alias.scope !350
   %465 = getelementptr inbounds nuw i8, ptr %47, i64 9
   store i8 %463, ptr %465, align 1, !alias.scope !350
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %47, align 8, !alias.scope !350
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %47, align 8, !alias.scope !350
   %466 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 %461, ptr %466, align 4, !alias.scope !350
   %467 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -13855,7 +13855,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit377:          ; preds = %480, %484
   store i8 1, ptr %501, align 8, !alias.scope !353
   %502 = getelementptr inbounds nuw i8, ptr %50, i64 9
   store i8 %500, ptr %502, align 1, !alias.scope !353
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %50, align 8, !alias.scope !353
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %50, align 8, !alias.scope !353
   %503 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 %498, ptr %503, align 4, !alias.scope !353
   %504 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -13944,7 +13944,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit379:          ; preds = %517, %521
   store i8 0, ptr %535, align 8, !alias.scope !356
   %536 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %534, ptr %536, align 1, !alias.scope !356
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %4, align 8, !alias.scope !356
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %4, align 8, !alias.scope !356
   %537 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i8 %534, ptr %537, align 2, !alias.scope !356
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull align 8 dereferenceable(10) %4)
@@ -14027,7 +14027,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit383:          ; preds = %548, %552
   store i8 1, ptr %567, align 8, !alias.scope !359
   %568 = getelementptr inbounds nuw i8, ptr %55, i64 9
   store i8 %566, ptr %568, align 1, !alias.scope !359
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %55, align 8, !alias.scope !359
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %55, align 8, !alias.scope !359
   %569 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %563, ptr %569, align 8, !alias.scope !359
   %570 = getelementptr inbounds nuw i8, ptr %55, i64 24
@@ -14116,7 +14116,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit385:          ; preds = %583, %587
   store i8 1, ptr %604, align 8, !alias.scope !362
   %605 = getelementptr inbounds nuw i8, ptr %58, i64 9
   store i8 %603, ptr %605, align 1, !alias.scope !362
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %58, align 8, !alias.scope !362
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %58, align 8, !alias.scope !362
   %606 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 %601, ptr %606, align 4, !alias.scope !362
   %607 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -14206,7 +14206,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit387:          ; preds = %620, %624
   store i8 1, ptr %642, align 8, !alias.scope !365
   %643 = getelementptr inbounds nuw i8, ptr %61, i64 9
   store i8 %641, ptr %643, align 1, !alias.scope !365
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %61, align 8, !alias.scope !365
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %61, align 8, !alias.scope !365
   %644 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 %639, ptr %644, align 4, !alias.scope !365
   %645 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -14295,7 +14295,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit389:          ; preds = %658, %662
   store i8 1, ptr %679, align 8, !alias.scope !368
   %680 = getelementptr inbounds nuw i8, ptr %64, i64 9
   store i8 %678, ptr %680, align 1, !alias.scope !368
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %64, align 8, !alias.scope !368
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %64, align 8, !alias.scope !368
   %681 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 %676, ptr %681, align 4, !alias.scope !368
   %682 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -14419,7 +14419,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit391:          ; preds = %699, %695, %351
   store i8 0, ptr %726, align 8, !alias.scope !371
   %727 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 %725, ptr %727, align 1, !alias.scope !371
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %3, align 8, !alias.scope !371
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %3, align 8, !alias.scope !371
   %728 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i8 %725, ptr %728, align 2, !alias.scope !371
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %68, ptr noundef nonnull align 8 dereferenceable(10) %3)
@@ -14506,7 +14506,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit395:          ; preds = %740, %744
   store i8 1, ptr %760, align 8, !alias.scope !374
   %761 = getelementptr inbounds nuw i8, ptr %72, i64 9
   store i8 %759, ptr %761, align 1, !alias.scope !374
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %72, align 8, !alias.scope !374
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %72, align 8, !alias.scope !374
   %762 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %756, ptr %762, align 8, !alias.scope !374
   %763 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -14595,7 +14595,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit397:          ; preds = %776, %780
   store i8 1, ptr %797, align 8, !alias.scope !377
   %798 = getelementptr inbounds nuw i8, ptr %75, i64 9
   store i8 %796, ptr %798, align 1, !alias.scope !377
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %75, align 8, !alias.scope !377
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %75, align 8, !alias.scope !377
   %799 = getelementptr inbounds nuw i8, ptr %75, i64 12
   store i32 %794, ptr %799, align 4, !alias.scope !377
   %800 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -14685,7 +14685,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit399:          ; preds = %813, %817
   store i8 1, ptr %835, align 8, !alias.scope !380
   %836 = getelementptr inbounds nuw i8, ptr %78, i64 9
   store i8 %834, ptr %836, align 1, !alias.scope !380
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %78, align 8, !alias.scope !380
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %78, align 8, !alias.scope !380
   %837 = getelementptr inbounds nuw i8, ptr %78, i64 12
   store i32 %832, ptr %837, align 4, !alias.scope !380
   %838 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -14774,7 +14774,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit401:          ; preds = %851, %855
   store i8 1, ptr %872, align 8, !alias.scope !383
   %873 = getelementptr inbounds nuw i8, ptr %81, i64 9
   store i8 %871, ptr %873, align 1, !alias.scope !383
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %81, align 8, !alias.scope !383
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %81, align 8, !alias.scope !383
   %874 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store i32 %869, ptr %874, align 4, !alias.scope !383
   %875 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -14864,7 +14864,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit403:          ; preds = %888, %892
   store i8 1, ptr %909, align 8, !alias.scope !386
   %910 = getelementptr inbounds nuw i8, ptr %84, i64 9
   store i8 %908, ptr %910, align 1, !alias.scope !386
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %84, align 8, !alias.scope !386
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %84, align 8, !alias.scope !386
   %911 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %905, ptr %911, align 8, !alias.scope !386
   %912 = getelementptr inbounds nuw i8, ptr %84, i64 24
@@ -14953,7 +14953,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit405:          ; preds = %925, %929
   store i8 0, ptr %943, align 8, !alias.scope !389
   %944 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %942, ptr %944, align 1, !alias.scope !389
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !389
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !389
   %945 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %942, ptr %945, align 2, !alias.scope !389
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %85, ptr noundef nonnull align 8 dereferenceable(10) %2)
@@ -15047,7 +15047,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit409:          ; preds = %959, %963
   store i8 1, ptr %980, align 8, !alias.scope !392
   %981 = getelementptr inbounds nuw i8, ptr %89, i64 9
   store i8 %979, ptr %981, align 1, !alias.scope !392
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %89, align 8, !alias.scope !392
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %89, align 8, !alias.scope !392
   %982 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr %976, ptr %982, align 8, !alias.scope !392
   %983 = getelementptr inbounds nuw i8, ptr %89, i64 24
@@ -15138,7 +15138,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit411:          ; preds = %996, %1000
   store i8 1, ptr %1019, align 8, !alias.scope !395
   %1020 = getelementptr inbounds nuw i8, ptr %92, i64 9
   store i8 %1018, ptr %1020, align 1, !alias.scope !395
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %92, align 8, !alias.scope !395
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %92, align 8, !alias.scope !395
   %1021 = getelementptr inbounds nuw i8, ptr %92, i64 12
   store i32 %1016, ptr %1021, align 4, !alias.scope !395
   %1022 = getelementptr inbounds nuw i8, ptr %92, i64 16
@@ -15230,7 +15230,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit413:          ; preds = %1035, %1039
   store i8 1, ptr %1059, align 8, !alias.scope !398
   %1060 = getelementptr inbounds nuw i8, ptr %95, i64 9
   store i8 %1058, ptr %1060, align 1, !alias.scope !398
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %95, align 8, !alias.scope !398
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjtEE, i64 16), ptr %95, align 8, !alias.scope !398
   %1061 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 %1056, ptr %1061, align 4, !alias.scope !398
   %1062 = getelementptr inbounds nuw i8, ptr %95, i64 16
@@ -15321,7 +15321,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit415:          ; preds = %1075, %1079
   store i8 1, ptr %1098, align 8, !alias.scope !401
   %1099 = getelementptr inbounds nuw i8, ptr %98, i64 9
   store i8 %1097, ptr %1099, align 1, !alias.scope !401
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %98, align 8, !alias.scope !401
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %98, align 8, !alias.scope !401
   %1100 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store i32 %1095, ptr %1100, align 4, !alias.scope !401
   %1101 = getelementptr inbounds nuw i8, ptr %98, i64 16
@@ -15410,7 +15410,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit417:          ; preds = %1114, %1118
   store i8 0, ptr %1132, align 8, !alias.scope !404
   %1133 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %1131, ptr %1133, align 1, !alias.scope !404
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !404
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !404
   %1134 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %1131, ptr %1134, align 2, !alias.scope !404
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(10) %1)
@@ -15502,7 +15502,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit421:          ; preds = %1148, %1152
   store i8 1, ptr %1167, align 8, !alias.scope !407
   %1168 = getelementptr inbounds nuw i8, ptr %103, i64 9
   store i8 %1166, ptr %1168, align 1, !alias.scope !407
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %103, align 8, !alias.scope !407
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %103, align 8, !alias.scope !407
   %1169 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %1163, ptr %1169, align 8, !alias.scope !407
   %1170 = getelementptr inbounds nuw i8, ptr %103, i64 24
@@ -15591,7 +15591,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit423:          ; preds = %1183, %1187
   store i8 1, ptr %1204, align 8, !alias.scope !410
   %1205 = getelementptr inbounds nuw i8, ptr %106, i64 9
   store i8 %1203, ptr %1205, align 1, !alias.scope !410
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %106, align 8, !alias.scope !410
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %106, align 8, !alias.scope !410
   %1206 = getelementptr inbounds nuw i8, ptr %106, i64 12
   store i32 %1201, ptr %1206, align 4, !alias.scope !410
   %1207 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -15681,7 +15681,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit425:          ; preds = %1220, %1224
   store i8 1, ptr %1242, align 8, !alias.scope !413
   %1243 = getelementptr inbounds nuw i8, ptr %109, i64 9
   store i8 %1241, ptr %1243, align 1, !alias.scope !413
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %109, align 8, !alias.scope !413
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %109, align 8, !alias.scope !413
   %1244 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store i32 %1239, ptr %1244, align 4, !alias.scope !413
   %1245 = getelementptr inbounds nuw i8, ptr %109, i64 16
@@ -15770,7 +15770,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit427:          ; preds = %1258, %1262
   store i8 1, ptr %1279, align 8, !alias.scope !416
   %1280 = getelementptr inbounds nuw i8, ptr %112, i64 9
   store i8 %1278, ptr %1280, align 1, !alias.scope !416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %112, align 8, !alias.scope !416
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %112, align 8, !alias.scope !416
   %1281 = getelementptr inbounds nuw i8, ptr %112, i64 12
   store i32 %1276, ptr %1281, align 4, !alias.scope !416
   %1282 = getelementptr inbounds nuw i8, ptr %112, i64 16
@@ -15860,7 +15860,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit429:          ; preds = %1295, %1299
   store i8 1, ptr %1316, align 8, !alias.scope !419
   %1317 = getelementptr inbounds nuw i8, ptr %115, i64 9
   store i8 %1315, ptr %1317, align 1, !alias.scope !419
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %115, align 8, !alias.scope !419
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i64 16), ptr %115, align 8, !alias.scope !419
   %1318 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store ptr %1312, ptr %1318, align 8, !alias.scope !419
   %1319 = getelementptr inbounds nuw i8, ptr %115, i64 24
@@ -16036,7 +16036,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_93v() #1 personality ptr @__gxx_
   %62 = alloca %"class.Catch::BinaryExpr.20", align 8
   %63 = alloca %"class.Catch::AssertionHandler", align 8
   %64 = alloca %"struct.Catch::SourceLineInfo", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9rcContext, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9rcContext, i64 16), ptr %10, align 8
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 1, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 9
@@ -16068,7 +16068,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_93v() #1 personality ptr @__gxx_
   store i8 0, ptr %76, align 8, !alias.scope !422
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %75, ptr %77, align 1, !alias.scope !422
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %9, align 8, !alias.scope !422
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %9, align 8, !alias.scope !422
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 10
   store i8 %75, ptr %78, align 2, !alias.scope !422
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(10) %9)
@@ -16169,7 +16169,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %89, %93
   store i8 0, ptr %116, align 8, !alias.scope !425
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 9
   store i8 %115, ptr %117, align 1, !alias.scope !425
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %8, align 8, !alias.scope !425
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %8, align 8, !alias.scope !425
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 10
   store i8 %115, ptr %118, align 2, !alias.scope !425
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(10) %8)
@@ -16268,7 +16268,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit172:          ; preds = %134, %138
   store i8 0, ptr %154, align 8, !alias.scope !428
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 %153, ptr %155, align 1, !alias.scope !428
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %7, align 8, !alias.scope !428
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %7, align 8, !alias.scope !428
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %150, ptr %156, align 8, !alias.scope !428
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(10) %7)
@@ -16352,7 +16352,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit175:          ; preds = %167, %171
   store i8 0, ptr %186, align 8, !alias.scope !431
   %187 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %185, ptr %187, align 1, !alias.scope !431
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %6, align 8, !alias.scope !431
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %6, align 8, !alias.scope !431
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i8 %185, ptr %188, align 2, !alias.scope !431
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(10) %6)
@@ -16439,7 +16439,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit179:          ; preds = %199, %203
   store i8 0, ptr %221, align 8, !alias.scope !434
   %222 = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %220, ptr %222, align 1, !alias.scope !434
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %5, align 8, !alias.scope !434
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %5, align 8, !alias.scope !434
   %223 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %217, ptr %223, align 8, !alias.scope !434
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull align 8 dereferenceable(10) %5)
@@ -16527,7 +16527,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit183:          ; preds = %234, %238
   store i8 0, ptr %257, align 8, !alias.scope !437
   %258 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %256, ptr %258, align 1, !alias.scope !437
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %4, align 8, !alias.scope !437
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %4, align 8, !alias.scope !437
   %259 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %253, ptr %259, align 8, !alias.scope !437
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(10) %4)
@@ -16611,7 +16611,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit187:          ; preds = %270, %274
   store i8 1, ptr %291, align 8, !alias.scope !440
   %292 = getelementptr inbounds nuw i8, ptr %34, i64 9
   store i8 %290, ptr %292, align 1, !alias.scope !440
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %34, align 8, !alias.scope !440
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %34, align 8, !alias.scope !440
   %293 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 %288, ptr %293, align 4, !alias.scope !440
   %294 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -16701,7 +16701,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit188:          ; preds = %307, %311
   store i8 1, ptr %329, align 8, !alias.scope !443
   %330 = getelementptr inbounds nuw i8, ptr %37, i64 9
   store i8 %328, ptr %330, align 1, !alias.scope !443
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %37, align 8, !alias.scope !443
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %37, align 8, !alias.scope !443
   %331 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 %326, ptr %331, align 4, !alias.scope !443
   %332 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -16790,7 +16790,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit190:          ; preds = %345, %349
   store i8 1, ptr %366, align 8, !alias.scope !446
   %367 = getelementptr inbounds nuw i8, ptr %40, i64 9
   store i8 %365, ptr %367, align 1, !alias.scope !446
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %40, align 8, !alias.scope !446
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %40, align 8, !alias.scope !446
   %368 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 %363, ptr %368, align 4, !alias.scope !446
   %369 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -16880,7 +16880,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit192:          ; preds = %382, %386
   store i8 0, ptr %402, align 8, !alias.scope !449
   %403 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 %401, ptr %403, align 1, !alias.scope !449
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %3, align 8, !alias.scope !449
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %3, align 8, !alias.scope !449
   %404 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i8 %401, ptr %404, align 2, !alias.scope !449
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef nonnull align 8 dereferenceable(10) %3)
@@ -16967,7 +16967,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit196:          ; preds = %415, %419
   store i8 1, ptr %439, align 8, !alias.scope !452
   %440 = getelementptr inbounds nuw i8, ptr %45, i64 9
   store i8 %438, ptr %440, align 1, !alias.scope !452
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %45, align 8, !alias.scope !452
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %45, align 8, !alias.scope !452
   %441 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %436, ptr %441, align 4, !alias.scope !452
   %442 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -17060,7 +17060,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit198:          ; preds = %455, %459
   store i8 1, ptr %480, align 8, !alias.scope !455
   %481 = getelementptr inbounds nuw i8, ptr %48, i64 9
   store i8 %479, ptr %481, align 1, !alias.scope !455
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %48, align 8, !alias.scope !455
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %48, align 8, !alias.scope !455
   %482 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 %477, ptr %482, align 4, !alias.scope !455
   %483 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -17152,7 +17152,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit200:          ; preds = %496, %500
   store i8 1, ptr %520, align 8, !alias.scope !458
   %521 = getelementptr inbounds nuw i8, ptr %51, i64 9
   store i8 %519, ptr %521, align 1, !alias.scope !458
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %51, align 8, !alias.scope !458
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %51, align 8, !alias.scope !458
   %522 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 %517, ptr %522, align 4, !alias.scope !458
   %523 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -17245,7 +17245,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit202:          ; preds = %536, %540
   store i8 0, ptr %559, align 8, !alias.scope !461
   %560 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %558, ptr %560, align 1, !alias.scope !461
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !461
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !461
   %561 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %558, ptr %561, align 2, !alias.scope !461
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %52, ptr noundef nonnull align 8 dereferenceable(10) %2)
@@ -17333,7 +17333,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit206:          ; preds = %572, %576
   store i8 1, ptr %597, align 8, !alias.scope !464
   %598 = getelementptr inbounds nuw i8, ptr %56, i64 9
   store i8 %596, ptr %598, align 1, !alias.scope !464
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %56, align 8, !alias.scope !464
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %56, align 8, !alias.scope !464
   %599 = getelementptr inbounds nuw i8, ptr %56, i64 12
   store i32 %594, ptr %599, align 4, !alias.scope !464
   %600 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -17427,7 +17427,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit208:          ; preds = %613, %617
   store i8 1, ptr %639, align 8, !alias.scope !467
   %640 = getelementptr inbounds nuw i8, ptr %59, i64 9
   store i8 %638, ptr %640, align 1, !alias.scope !467
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %59, align 8, !alias.scope !467
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %59, align 8, !alias.scope !467
   %641 = getelementptr inbounds nuw i8, ptr %59, i64 12
   store i32 %636, ptr %641, align 4, !alias.scope !467
   %642 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -17520,7 +17520,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit210:          ; preds = %655, %659
   store i8 1, ptr %680, align 8, !alias.scope !470
   %681 = getelementptr inbounds nuw i8, ptr %62, i64 9
   store i8 %679, ptr %681, align 1, !alias.scope !470
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %62, align 8, !alias.scope !470
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjhEE, i64 16), ptr %62, align 8, !alias.scope !470
   %682 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store i32 %677, ptr %682, align 4, !alias.scope !470
   %683 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -17614,7 +17614,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit212:          ; preds = %696, %700
   store i8 0, ptr %720, align 8, !alias.scope !473
   %721 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %719, ptr %721, align 1, !alias.scope !473
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !473
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !473
   %722 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %719, ptr %722, align 2, !alias.scope !473
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(10) %1)
@@ -17736,7 +17736,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_96v() #1 personality ptr @__gxx_
   %13 = alloca %"class.Catch::AssertionHandler", align 8
   %14 = alloca %"struct.Catch::SourceLineInfo", align 8
   %15 = alloca %"class.Catch::BinaryExpr.25", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9rcContext, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9rcContext, i64 16), ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 9
@@ -17761,7 +17761,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_96v() #1 personality ptr @__gxx_
   store i8 0, ptr %23, align 8, !alias.scope !476
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %22, ptr %24, align 1, !alias.scope !476
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !476
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !476
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %22, ptr %25, align 2, !alias.scope !476
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(10) %2)
@@ -17851,7 +17851,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %34, %38
   store i8 0, ptr %54, align 8, !alias.scope !479
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %53, ptr %55, align 1, !alias.scope !479
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !479
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !479
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %53, ptr %56, align 2, !alias.scope !479
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(10) %1)
@@ -17965,7 +17965,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit46:           ; preds = %70, %74
   %103 = zext i1 %102 to i8
   store i8 1, ptr %85, align 8, !alias.scope !482
   store i8 %103, ptr %86, align 1, !alias.scope !482
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpanlEE, i64 16), ptr %15, align 8, !alias.scope !482
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpanlEE, i64 16), ptr %15, align 8, !alias.scope !482
   store ptr %12, ptr %87, align 8, !alias.scope !482
   store ptr @.str.62, ptr %88, align 8, !alias.scope !482
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !482
@@ -18124,7 +18124,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_98v() #1 personality ptr @__gxx_
   br i1 %39, label %41, label %124
 
 41:                                               ; preds = %40
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9rcContext, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9rcContext, i64 16), ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 1, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 9
@@ -18161,7 +18161,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_98v() #1 personality ptr @__gxx_
   store i8 0, ptr %54, align 8, !alias.scope !488
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %53, ptr %55, align 1, !alias.scope !488
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %4, align 8, !alias.scope !488
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %4, align 8, !alias.scope !488
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i8 %53, ptr %56, align 2, !alias.scope !488
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(10) %4)
@@ -18254,7 +18254,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %71, %75
   store i8 0, ptr %89, align 8, !alias.scope !491
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 %88, ptr %90, align 1, !alias.scope !491
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %3, align 8, !alias.scope !491
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %3, align 8, !alias.scope !491
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i8 %88, ptr %91, align 2, !alias.scope !491
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(10) %3)
@@ -18371,7 +18371,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit57:           ; preds = %105, %109
   br i1 %129, label %131, label %214
 
 131:                                              ; preds = %130
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9rcContext, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9rcContext, i64 16), ptr %23, align 8
   %132 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i8 1, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %23, i64 9
@@ -18408,7 +18408,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit57:           ; preds = %105, %109
   store i8 0, ptr %144, align 8, !alias.scope !494
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %143, ptr %145, align 1, !alias.scope !494
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !494
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !494
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %143, ptr %146, align 2, !alias.scope !494
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(10) %2)
@@ -18501,7 +18501,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit61:           ; preds = %161, %165
   store i8 0, ptr %179, align 8, !alias.scope !497
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %178, ptr %180, align 1, !alias.scope !497
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !497
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !497
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %178, ptr %181, align 2, !alias.scope !497
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(10) %1)
@@ -18941,7 +18941,7 @@ define internal void @_ZL24CATCH2_INTERNAL_TEST_102v() #1 personality ptr @__gxx
   %318 = alloca %"class.Catch::BinaryExpr.22", align 8
   %319 = alloca %"class.Catch::AssertionHandler", align 8
   %320 = alloca %"struct.Catch::SourceLineInfo", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9rcContext, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9rcContext, i64 16), ptr %47, align 8
   %321 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i8 1, ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %47, i64 9
@@ -18977,7 +18977,7 @@ define internal void @_ZL24CATCH2_INTERNAL_TEST_102v() #1 personality ptr @__gxx
   store i8 0, ptr %333, align 8, !alias.scope !500
   %334 = getelementptr inbounds nuw i8, ptr %46, i64 9
   store i8 %332, ptr %334, align 1, !alias.scope !500
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %46, align 8, !alias.scope !500
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %46, align 8, !alias.scope !500
   %335 = getelementptr inbounds nuw i8, ptr %46, i64 10
   store i8 %332, ptr %335, align 2, !alias.scope !500
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %56, ptr noundef nonnull align 8 dereferenceable(10) %46)
@@ -19077,7 +19077,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %346, %350
   store i8 0, ptr %372, align 8, !alias.scope !503
   %373 = getelementptr inbounds nuw i8, ptr %45, i64 9
   store i8 %371, ptr %373, align 1, !alias.scope !503
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %45, align 8, !alias.scope !503
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %45, align 8, !alias.scope !503
   %374 = getelementptr inbounds nuw i8, ptr %45, i64 10
   store i8 %371, ptr %374, align 2, !alias.scope !503
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr noundef nonnull align 8 dereferenceable(10) %45)
@@ -19176,7 +19176,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit897:          ; preds = %390, %394
   store i8 0, ptr %410, align 8, !alias.scope !506
   %411 = getelementptr inbounds nuw i8, ptr %44, i64 9
   store i8 %409, ptr %411, align 1, !alias.scope !506
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %44, align 8, !alias.scope !506
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %44, align 8, !alias.scope !506
   %412 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %406, ptr %412, align 8, !alias.scope !506
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull align 8 dereferenceable(10) %44)
@@ -19263,7 +19263,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit900:          ; preds = %423, %427
   store i8 0, ptr %445, align 8, !alias.scope !509
   %446 = getelementptr inbounds nuw i8, ptr %43, i64 9
   store i8 %444, ptr %446, align 1, !alias.scope !509
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %43, align 8, !alias.scope !509
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %43, align 8, !alias.scope !509
   %447 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %441, ptr %447, align 8, !alias.scope !509
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %65, ptr noundef nonnull align 8 dereferenceable(10) %43)
@@ -19351,7 +19351,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit904:          ; preds = %458, %462
   store i8 0, ptr %481, align 8, !alias.scope !512
   %482 = getelementptr inbounds nuw i8, ptr %42, i64 9
   store i8 %480, ptr %482, align 1, !alias.scope !512
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %42, align 8, !alias.scope !512
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %42, align 8, !alias.scope !512
   %483 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %477, ptr %483, align 8, !alias.scope !512
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %67, ptr noundef nonnull align 8 dereferenceable(10) %42)
@@ -19439,7 +19439,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit908:          ; preds = %494, %498
   store i8 0, ptr %517, align 8, !alias.scope !515
   %518 = getelementptr inbounds nuw i8, ptr %41, i64 9
   store i8 %516, ptr %518, align 1, !alias.scope !515
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %41, align 8, !alias.scope !515
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %41, align 8, !alias.scope !515
   %519 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %513, ptr %519, align 8, !alias.scope !515
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %69, ptr noundef nonnull align 8 dereferenceable(10) %41)
@@ -19523,7 +19523,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit912:          ; preds = %530, %534
   store i8 0, ptr %549, align 8, !alias.scope !518
   %550 = getelementptr inbounds nuw i8, ptr %40, i64 9
   store i8 %548, ptr %550, align 1, !alias.scope !518
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %40, align 8, !alias.scope !518
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %40, align 8, !alias.scope !518
   %551 = getelementptr inbounds nuw i8, ptr %40, i64 10
   store i8 %548, ptr %551, align 2, !alias.scope !518
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull align 8 dereferenceable(10) %40)
@@ -19611,7 +19611,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit916:          ; preds = %562, %566
   store i8 0, ptr %585, align 8, !alias.scope !521
   %586 = getelementptr inbounds nuw i8, ptr %39, i64 9
   store i8 %584, ptr %586, align 1, !alias.scope !521
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %39, align 8, !alias.scope !521
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %39, align 8, !alias.scope !521
   %587 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %581, ptr %587, align 8, !alias.scope !521
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %73, ptr noundef nonnull align 8 dereferenceable(10) %39)
@@ -19700,7 +19700,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit920:          ; preds = %598, %602
   store i8 0, ptr %622, align 8, !alias.scope !524
   %623 = getelementptr inbounds nuw i8, ptr %38, i64 9
   store i8 %621, ptr %623, align 1, !alias.scope !524
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %38, align 8, !alias.scope !524
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %38, align 8, !alias.scope !524
   %624 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %618, ptr %624, align 8, !alias.scope !524
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %75, ptr noundef nonnull align 8 dereferenceable(10) %38)
@@ -19788,7 +19788,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit924:          ; preds = %635, %639
   store i8 0, ptr %658, align 8, !alias.scope !527
   %659 = getelementptr inbounds nuw i8, ptr %37, i64 9
   store i8 %657, ptr %659, align 1, !alias.scope !527
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %37, align 8, !alias.scope !527
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %37, align 8, !alias.scope !527
   %660 = getelementptr inbounds nuw i8, ptr %37, i64 10
   store i8 %657, ptr %660, align 2, !alias.scope !527
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %77, ptr noundef nonnull align 8 dereferenceable(10) %37)
@@ -19872,7 +19872,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit928:          ; preds = %671, %675
   store i8 1, ptr %692, align 8, !alias.scope !530
   %693 = getelementptr inbounds nuw i8, ptr %81, i64 9
   store i8 %691, ptr %693, align 1, !alias.scope !530
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %81, align 8, !alias.scope !530
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %81, align 8, !alias.scope !530
   %694 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store i32 %689, ptr %694, align 4, !alias.scope !530
   %695 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -19962,7 +19962,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit929:          ; preds = %708, %712
   store i8 1, ptr %730, align 8, !alias.scope !533
   %731 = getelementptr inbounds nuw i8, ptr %84, i64 9
   store i8 %729, ptr %731, align 1, !alias.scope !533
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %84, align 8, !alias.scope !533
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %84, align 8, !alias.scope !533
   %732 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store i32 %727, ptr %732, align 4, !alias.scope !533
   %733 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -20051,7 +20051,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit931:          ; preds = %746, %750
   store i8 1, ptr %767, align 8, !alias.scope !536
   %768 = getelementptr inbounds nuw i8, ptr %87, i64 9
   store i8 %766, ptr %768, align 1, !alias.scope !536
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %87, align 8, !alias.scope !536
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %87, align 8, !alias.scope !536
   %769 = getelementptr inbounds nuw i8, ptr %87, i64 12
   store i32 %764, ptr %769, align 4, !alias.scope !536
   %770 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -20141,7 +20141,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit933:          ; preds = %783, %787
   store i8 0, ptr %803, align 8, !alias.scope !539
   %804 = getelementptr inbounds nuw i8, ptr %36, i64 9
   store i8 %802, ptr %804, align 1, !alias.scope !539
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %36, align 8, !alias.scope !539
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %36, align 8, !alias.scope !539
   %805 = getelementptr inbounds nuw i8, ptr %36, i64 10
   store i8 %802, ptr %805, align 2, !alias.scope !539
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %88, ptr noundef nonnull align 8 dereferenceable(10) %36)
@@ -20228,7 +20228,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit937:          ; preds = %816, %820
   store i8 1, ptr %840, align 8, !alias.scope !542
   %841 = getelementptr inbounds nuw i8, ptr %92, i64 9
   store i8 %839, ptr %841, align 1, !alias.scope !542
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %92, align 8, !alias.scope !542
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %92, align 8, !alias.scope !542
   %842 = getelementptr inbounds nuw i8, ptr %92, i64 12
   store i32 %837, ptr %842, align 4, !alias.scope !542
   %843 = getelementptr inbounds nuw i8, ptr %92, i64 16
@@ -20321,7 +20321,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit939:          ; preds = %856, %860
   store i8 1, ptr %881, align 8, !alias.scope !545
   %882 = getelementptr inbounds nuw i8, ptr %95, i64 9
   store i8 %880, ptr %882, align 1, !alias.scope !545
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %95, align 8, !alias.scope !545
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %95, align 8, !alias.scope !545
   %883 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 %878, ptr %883, align 4, !alias.scope !545
   %884 = getelementptr inbounds nuw i8, ptr %95, i64 16
@@ -20413,7 +20413,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit941:          ; preds = %897, %901
   store i8 1, ptr %921, align 8, !alias.scope !548
   %922 = getelementptr inbounds nuw i8, ptr %98, i64 9
   store i8 %920, ptr %922, align 1, !alias.scope !548
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %98, align 8, !alias.scope !548
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %98, align 8, !alias.scope !548
   %923 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store i32 %918, ptr %923, align 4, !alias.scope !548
   %924 = getelementptr inbounds nuw i8, ptr %98, i64 16
@@ -20506,7 +20506,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit943:          ; preds = %937, %941
   store i8 0, ptr %960, align 8, !alias.scope !551
   %961 = getelementptr inbounds nuw i8, ptr %35, i64 9
   store i8 %959, ptr %961, align 1, !alias.scope !551
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %35, align 8, !alias.scope !551
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %35, align 8, !alias.scope !551
   %962 = getelementptr inbounds nuw i8, ptr %35, i64 10
   store i8 %959, ptr %962, align 2, !alias.scope !551
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(10) %35)
@@ -20594,7 +20594,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit947:          ; preds = %973, %977
   store i8 1, ptr %998, align 8, !alias.scope !554
   %999 = getelementptr inbounds nuw i8, ptr %103, i64 9
   store i8 %997, ptr %999, align 1, !alias.scope !554
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %103, align 8, !alias.scope !554
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %103, align 8, !alias.scope !554
   %1000 = getelementptr inbounds nuw i8, ptr %103, i64 12
   store i32 %995, ptr %1000, align 4, !alias.scope !554
   %1001 = getelementptr inbounds nuw i8, ptr %103, i64 16
@@ -20688,7 +20688,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit949:          ; preds = %1014, %1018
   store i8 1, ptr %1040, align 8, !alias.scope !557
   %1041 = getelementptr inbounds nuw i8, ptr %106, i64 9
   store i8 %1039, ptr %1041, align 1, !alias.scope !557
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %106, align 8, !alias.scope !557
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %106, align 8, !alias.scope !557
   %1042 = getelementptr inbounds nuw i8, ptr %106, i64 12
   store i32 %1037, ptr %1042, align 4, !alias.scope !557
   %1043 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -20781,7 +20781,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit951:          ; preds = %1056, %1060
   store i8 1, ptr %1081, align 8, !alias.scope !560
   %1082 = getelementptr inbounds nuw i8, ptr %109, i64 9
   store i8 %1080, ptr %1082, align 1, !alias.scope !560
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %109, align 8, !alias.scope !560
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %109, align 8, !alias.scope !560
   %1083 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store i32 %1078, ptr %1083, align 4, !alias.scope !560
   %1084 = getelementptr inbounds nuw i8, ptr %109, i64 16
@@ -20875,7 +20875,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit953:          ; preds = %1097, %1101
   store i8 0, ptr %1121, align 8, !alias.scope !563
   %1122 = getelementptr inbounds nuw i8, ptr %34, i64 9
   store i8 %1120, ptr %1122, align 1, !alias.scope !563
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %34, align 8, !alias.scope !563
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %34, align 8, !alias.scope !563
   %1123 = getelementptr inbounds nuw i8, ptr %34, i64 10
   store i8 %1120, ptr %1123, align 2, !alias.scope !563
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %110, ptr noundef nonnull align 8 dereferenceable(10) %34)
@@ -20963,7 +20963,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit957:          ; preds = %1134, %1138
   store i8 1, ptr %1159, align 8, !alias.scope !566
   %1160 = getelementptr inbounds nuw i8, ptr %114, i64 9
   store i8 %1158, ptr %1160, align 1, !alias.scope !566
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %114, align 8, !alias.scope !566
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %114, align 8, !alias.scope !566
   %1161 = getelementptr inbounds nuw i8, ptr %114, i64 12
   store i32 %1156, ptr %1161, align 4, !alias.scope !566
   %1162 = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -21057,7 +21057,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit959:          ; preds = %1175, %1179
   store i8 1, ptr %1201, align 8, !alias.scope !569
   %1202 = getelementptr inbounds nuw i8, ptr %117, i64 9
   store i8 %1200, ptr %1202, align 1, !alias.scope !569
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %117, align 8, !alias.scope !569
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %117, align 8, !alias.scope !569
   %1203 = getelementptr inbounds nuw i8, ptr %117, i64 12
   store i32 %1198, ptr %1203, align 4, !alias.scope !569
   %1204 = getelementptr inbounds nuw i8, ptr %117, i64 16
@@ -21150,7 +21150,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit961:          ; preds = %1217, %1221
   store i8 1, ptr %1242, align 8, !alias.scope !572
   %1243 = getelementptr inbounds nuw i8, ptr %120, i64 9
   store i8 %1241, ptr %1243, align 1, !alias.scope !572
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %120, align 8, !alias.scope !572
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %120, align 8, !alias.scope !572
   %1244 = getelementptr inbounds nuw i8, ptr %120, i64 12
   store i32 %1239, ptr %1244, align 4, !alias.scope !572
   %1245 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -21244,7 +21244,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit963:          ; preds = %1258, %1262
   store i8 0, ptr %1282, align 8, !alias.scope !575
   %1283 = getelementptr inbounds nuw i8, ptr %33, i64 9
   store i8 %1281, ptr %1283, align 1, !alias.scope !575
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %33, align 8, !alias.scope !575
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %33, align 8, !alias.scope !575
   %1284 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i8 %1281, ptr %1284, align 2, !alias.scope !575
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %121, ptr noundef nonnull align 8 dereferenceable(10) %33)
@@ -21332,7 +21332,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit967:          ; preds = %1295, %1299
   store i8 1, ptr %1320, align 8, !alias.scope !578
   %1321 = getelementptr inbounds nuw i8, ptr %125, i64 9
   store i8 %1319, ptr %1321, align 1, !alias.scope !578
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %125, align 8, !alias.scope !578
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %125, align 8, !alias.scope !578
   %1322 = getelementptr inbounds nuw i8, ptr %125, i64 12
   store i32 %1317, ptr %1322, align 4, !alias.scope !578
   %1323 = getelementptr inbounds nuw i8, ptr %125, i64 16
@@ -21426,7 +21426,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit969:          ; preds = %1336, %1340
   store i8 1, ptr %1362, align 8, !alias.scope !581
   %1363 = getelementptr inbounds nuw i8, ptr %128, i64 9
   store i8 %1361, ptr %1363, align 1, !alias.scope !581
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %128, align 8, !alias.scope !581
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %128, align 8, !alias.scope !581
   %1364 = getelementptr inbounds nuw i8, ptr %128, i64 12
   store i32 %1359, ptr %1364, align 4, !alias.scope !581
   %1365 = getelementptr inbounds nuw i8, ptr %128, i64 16
@@ -21519,7 +21519,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit971:          ; preds = %1378, %1382
   store i8 1, ptr %1403, align 8, !alias.scope !584
   %1404 = getelementptr inbounds nuw i8, ptr %131, i64 9
   store i8 %1402, ptr %1404, align 1, !alias.scope !584
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %131, align 8, !alias.scope !584
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %131, align 8, !alias.scope !584
   %1405 = getelementptr inbounds nuw i8, ptr %131, i64 12
   store i32 %1400, ptr %1405, align 4, !alias.scope !584
   %1406 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -21613,7 +21613,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit973:          ; preds = %1419, %1423
   store i8 0, ptr %1443, align 8, !alias.scope !587
   %1444 = getelementptr inbounds nuw i8, ptr %32, i64 9
   store i8 %1442, ptr %1444, align 1, !alias.scope !587
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %32, align 8, !alias.scope !587
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %32, align 8, !alias.scope !587
   %1445 = getelementptr inbounds nuw i8, ptr %32, i64 10
   store i8 %1442, ptr %1445, align 2, !alias.scope !587
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %132, ptr noundef nonnull align 8 dereferenceable(10) %32)
@@ -21702,7 +21702,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit977:          ; preds = %1456, %1460
   store i8 1, ptr %1482, align 8, !alias.scope !590
   %1483 = getelementptr inbounds nuw i8, ptr %136, i64 9
   store i8 %1481, ptr %1483, align 1, !alias.scope !590
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %136, align 8, !alias.scope !590
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %136, align 8, !alias.scope !590
   %1484 = getelementptr inbounds nuw i8, ptr %136, i64 12
   store i32 %1479, ptr %1484, align 4, !alias.scope !590
   %1485 = getelementptr inbounds nuw i8, ptr %136, i64 16
@@ -21797,7 +21797,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit979:          ; preds = %1498, %1502
   store i8 1, ptr %1525, align 8, !alias.scope !593
   %1526 = getelementptr inbounds nuw i8, ptr %139, i64 9
   store i8 %1524, ptr %1526, align 1, !alias.scope !593
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %139, align 8, !alias.scope !593
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %139, align 8, !alias.scope !593
   %1527 = getelementptr inbounds nuw i8, ptr %139, i64 12
   store i32 %1522, ptr %1527, align 4, !alias.scope !593
   %1528 = getelementptr inbounds nuw i8, ptr %139, i64 16
@@ -21891,7 +21891,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit981:          ; preds = %1541, %1545
   store i8 1, ptr %1567, align 8, !alias.scope !596
   %1568 = getelementptr inbounds nuw i8, ptr %142, i64 9
   store i8 %1566, ptr %1568, align 1, !alias.scope !596
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %142, align 8, !alias.scope !596
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %142, align 8, !alias.scope !596
   %1569 = getelementptr inbounds nuw i8, ptr %142, i64 12
   store i32 %1564, ptr %1569, align 4, !alias.scope !596
   %1570 = getelementptr inbounds nuw i8, ptr %142, i64 16
@@ -21986,7 +21986,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit983:          ; preds = %1583, %1587
   store i8 0, ptr %1608, align 8, !alias.scope !599
   %1609 = getelementptr inbounds nuw i8, ptr %31, i64 9
   store i8 %1607, ptr %1609, align 1, !alias.scope !599
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %31, align 8, !alias.scope !599
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %31, align 8, !alias.scope !599
   %1610 = getelementptr inbounds nuw i8, ptr %31, i64 10
   store i8 %1607, ptr %1610, align 2, !alias.scope !599
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %143, ptr noundef nonnull align 8 dereferenceable(10) %31)
@@ -22106,7 +22106,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit987:          ; preds = %1625, %1621, %365
   store i8 0, ptr %1652, align 8, !alias.scope !602
   %1653 = getelementptr inbounds nuw i8, ptr %30, i64 9
   store i8 %1651, ptr %1653, align 1, !alias.scope !602
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %30, align 8, !alias.scope !602
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %30, align 8, !alias.scope !602
   %1654 = getelementptr inbounds nuw i8, ptr %30, i64 10
   store i8 %1651, ptr %1654, align 2, !alias.scope !602
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %149, ptr noundef nonnull align 8 dereferenceable(10) %30)
@@ -22194,7 +22194,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit991:          ; preds = %1666, %1670
   store i8 0, ptr %1686, align 8, !alias.scope !605
   %1687 = getelementptr inbounds nuw i8, ptr %29, i64 9
   store i8 %1685, ptr %1687, align 1, !alias.scope !605
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %29, align 8, !alias.scope !605
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %29, align 8, !alias.scope !605
   %1688 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %1682, ptr %1688, align 8, !alias.scope !605
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %151, ptr noundef nonnull align 8 dereferenceable(10) %29)
@@ -22281,7 +22281,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit995:          ; preds = %1699, %1703
   store i8 0, ptr %1721, align 8, !alias.scope !608
   %1722 = getelementptr inbounds nuw i8, ptr %28, i64 9
   store i8 %1720, ptr %1722, align 1, !alias.scope !608
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %28, align 8, !alias.scope !608
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %28, align 8, !alias.scope !608
   %1723 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %1717, ptr %1723, align 8, !alias.scope !608
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %153, ptr noundef nonnull align 8 dereferenceable(10) %28)
@@ -22369,7 +22369,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit999:          ; preds = %1734, %1738
   store i8 0, ptr %1757, align 8, !alias.scope !611
   %1758 = getelementptr inbounds nuw i8, ptr %27, i64 9
   store i8 %1756, ptr %1758, align 1, !alias.scope !611
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %27, align 8, !alias.scope !611
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %27, align 8, !alias.scope !611
   %1759 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %1753, ptr %1759, align 8, !alias.scope !611
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %155, ptr noundef nonnull align 8 dereferenceable(10) %27)
@@ -22457,7 +22457,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1003:         ; preds = %1770, %1774
   store i8 0, ptr %1793, align 8, !alias.scope !614
   %1794 = getelementptr inbounds nuw i8, ptr %26, i64 9
   store i8 %1792, ptr %1794, align 1, !alias.scope !614
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %26, align 8, !alias.scope !614
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %26, align 8, !alias.scope !614
   %1795 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %1789, ptr %1795, align 8, !alias.scope !614
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %157, ptr noundef nonnull align 8 dereferenceable(10) %26)
@@ -22541,7 +22541,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1007:         ; preds = %1806, %1810
   store i8 0, ptr %1825, align 8, !alias.scope !617
   %1826 = getelementptr inbounds nuw i8, ptr %25, i64 9
   store i8 %1824, ptr %1826, align 1, !alias.scope !617
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %25, align 8, !alias.scope !617
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %25, align 8, !alias.scope !617
   %1827 = getelementptr inbounds nuw i8, ptr %25, i64 10
   store i8 %1824, ptr %1827, align 2, !alias.scope !617
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %159, ptr noundef nonnull align 8 dereferenceable(10) %25)
@@ -22629,7 +22629,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1011:         ; preds = %1838, %1842
   store i8 0, ptr %1861, align 8, !alias.scope !620
   %1862 = getelementptr inbounds nuw i8, ptr %24, i64 9
   store i8 %1860, ptr %1862, align 1, !alias.scope !620
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %24, align 8, !alias.scope !620
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %24, align 8, !alias.scope !620
   %1863 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %1857, ptr %1863, align 8, !alias.scope !620
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %161, ptr noundef nonnull align 8 dereferenceable(10) %24)
@@ -22718,7 +22718,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1015:         ; preds = %1874, %1878
   store i8 0, ptr %1898, align 8, !alias.scope !623
   %1899 = getelementptr inbounds nuw i8, ptr %23, i64 9
   store i8 %1897, ptr %1899, align 1, !alias.scope !623
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %23, align 8, !alias.scope !623
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %23, align 8, !alias.scope !623
   %1900 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %1894, ptr %1900, align 8, !alias.scope !623
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %163, ptr noundef nonnull align 8 dereferenceable(10) %23)
@@ -22806,7 +22806,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1019:         ; preds = %1911, %1915
   store i8 0, ptr %1934, align 8, !alias.scope !626
   %1935 = getelementptr inbounds nuw i8, ptr %22, i64 9
   store i8 %1933, ptr %1935, align 1, !alias.scope !626
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %22, align 8, !alias.scope !626
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %22, align 8, !alias.scope !626
   %1936 = getelementptr inbounds nuw i8, ptr %22, i64 10
   store i8 %1933, ptr %1936, align 2, !alias.scope !626
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %165, ptr noundef nonnull align 8 dereferenceable(10) %22)
@@ -22890,7 +22890,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1023:         ; preds = %1947, %1951
   store i8 1, ptr %1968, align 8, !alias.scope !629
   %1969 = getelementptr inbounds nuw i8, ptr %169, i64 9
   store i8 %1967, ptr %1969, align 1, !alias.scope !629
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %169, align 8, !alias.scope !629
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %169, align 8, !alias.scope !629
   %1970 = getelementptr inbounds nuw i8, ptr %169, i64 12
   store i32 %1965, ptr %1970, align 4, !alias.scope !629
   %1971 = getelementptr inbounds nuw i8, ptr %169, i64 16
@@ -22980,7 +22980,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1025:         ; preds = %1984, %1988
   store i8 1, ptr %2006, align 8, !alias.scope !632
   %2007 = getelementptr inbounds nuw i8, ptr %172, i64 9
   store i8 %2005, ptr %2007, align 1, !alias.scope !632
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %172, align 8, !alias.scope !632
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %172, align 8, !alias.scope !632
   %2008 = getelementptr inbounds nuw i8, ptr %172, i64 12
   store i32 %2003, ptr %2008, align 4, !alias.scope !632
   %2009 = getelementptr inbounds nuw i8, ptr %172, i64 16
@@ -23069,7 +23069,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1027:         ; preds = %2022, %2026
   store i8 1, ptr %2043, align 8, !alias.scope !635
   %2044 = getelementptr inbounds nuw i8, ptr %175, i64 9
   store i8 %2042, ptr %2044, align 1, !alias.scope !635
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %175, align 8, !alias.scope !635
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %175, align 8, !alias.scope !635
   %2045 = getelementptr inbounds nuw i8, ptr %175, i64 12
   store i32 %2040, ptr %2045, align 4, !alias.scope !635
   %2046 = getelementptr inbounds nuw i8, ptr %175, i64 16
@@ -23159,7 +23159,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1029:         ; preds = %2059, %2063
   store i8 0, ptr %2079, align 8, !alias.scope !638
   %2080 = getelementptr inbounds nuw i8, ptr %21, i64 9
   store i8 %2078, ptr %2080, align 1, !alias.scope !638
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %21, align 8, !alias.scope !638
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %21, align 8, !alias.scope !638
   %2081 = getelementptr inbounds nuw i8, ptr %21, i64 10
   store i8 %2078, ptr %2081, align 2, !alias.scope !638
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %176, ptr noundef nonnull align 8 dereferenceable(10) %21)
@@ -23246,7 +23246,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1033:         ; preds = %2092, %2096
   store i8 1, ptr %2116, align 8, !alias.scope !641
   %2117 = getelementptr inbounds nuw i8, ptr %180, i64 9
   store i8 %2115, ptr %2117, align 1, !alias.scope !641
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %180, align 8, !alias.scope !641
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %180, align 8, !alias.scope !641
   %2118 = getelementptr inbounds nuw i8, ptr %180, i64 12
   store i32 %2113, ptr %2118, align 4, !alias.scope !641
   %2119 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -23339,7 +23339,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1035:         ; preds = %2132, %2136
   store i8 1, ptr %2157, align 8, !alias.scope !644
   %2158 = getelementptr inbounds nuw i8, ptr %183, i64 9
   store i8 %2156, ptr %2158, align 1, !alias.scope !644
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %183, align 8, !alias.scope !644
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %183, align 8, !alias.scope !644
   %2159 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 %2154, ptr %2159, align 4, !alias.scope !644
   %2160 = getelementptr inbounds nuw i8, ptr %183, i64 16
@@ -23431,7 +23431,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1037:         ; preds = %2173, %2177
   store i8 1, ptr %2197, align 8, !alias.scope !647
   %2198 = getelementptr inbounds nuw i8, ptr %186, i64 9
   store i8 %2196, ptr %2198, align 1, !alias.scope !647
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %186, align 8, !alias.scope !647
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %186, align 8, !alias.scope !647
   %2199 = getelementptr inbounds nuw i8, ptr %186, i64 12
   store i32 %2194, ptr %2199, align 4, !alias.scope !647
   %2200 = getelementptr inbounds nuw i8, ptr %186, i64 16
@@ -23524,7 +23524,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1039:         ; preds = %2213, %2217
   store i8 0, ptr %2236, align 8, !alias.scope !650
   %2237 = getelementptr inbounds nuw i8, ptr %20, i64 9
   store i8 %2235, ptr %2237, align 1, !alias.scope !650
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %20, align 8, !alias.scope !650
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %20, align 8, !alias.scope !650
   %2238 = getelementptr inbounds nuw i8, ptr %20, i64 10
   store i8 %2235, ptr %2238, align 2, !alias.scope !650
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %187, ptr noundef nonnull align 8 dereferenceable(10) %20)
@@ -23612,7 +23612,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1043:         ; preds = %2249, %2253
   store i8 1, ptr %2274, align 8, !alias.scope !653
   %2275 = getelementptr inbounds nuw i8, ptr %191, i64 9
   store i8 %2273, ptr %2275, align 1, !alias.scope !653
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %191, align 8, !alias.scope !653
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %191, align 8, !alias.scope !653
   %2276 = getelementptr inbounds nuw i8, ptr %191, i64 12
   store i32 %2271, ptr %2276, align 4, !alias.scope !653
   %2277 = getelementptr inbounds nuw i8, ptr %191, i64 16
@@ -23706,7 +23706,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1045:         ; preds = %2290, %2294
   store i8 1, ptr %2316, align 8, !alias.scope !656
   %2317 = getelementptr inbounds nuw i8, ptr %194, i64 9
   store i8 %2315, ptr %2317, align 1, !alias.scope !656
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %194, align 8, !alias.scope !656
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %194, align 8, !alias.scope !656
   %2318 = getelementptr inbounds nuw i8, ptr %194, i64 12
   store i32 %2313, ptr %2318, align 4, !alias.scope !656
   %2319 = getelementptr inbounds nuw i8, ptr %194, i64 16
@@ -23799,7 +23799,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1047:         ; preds = %2332, %2336
   store i8 1, ptr %2357, align 8, !alias.scope !659
   %2358 = getelementptr inbounds nuw i8, ptr %197, i64 9
   store i8 %2356, ptr %2358, align 1, !alias.scope !659
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %197, align 8, !alias.scope !659
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %197, align 8, !alias.scope !659
   %2359 = getelementptr inbounds nuw i8, ptr %197, i64 12
   store i32 %2354, ptr %2359, align 4, !alias.scope !659
   %2360 = getelementptr inbounds nuw i8, ptr %197, i64 16
@@ -23893,7 +23893,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1049:         ; preds = %2373, %2377
   store i8 0, ptr %2397, align 8, !alias.scope !662
   %2398 = getelementptr inbounds nuw i8, ptr %19, i64 9
   store i8 %2396, ptr %2398, align 1, !alias.scope !662
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %19, align 8, !alias.scope !662
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %19, align 8, !alias.scope !662
   %2399 = getelementptr inbounds nuw i8, ptr %19, i64 10
   store i8 %2396, ptr %2399, align 2, !alias.scope !662
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %198, ptr noundef nonnull align 8 dereferenceable(10) %19)
@@ -23981,7 +23981,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1053:         ; preds = %2410, %2414
   store i8 1, ptr %2435, align 8, !alias.scope !665
   %2436 = getelementptr inbounds nuw i8, ptr %202, i64 9
   store i8 %2434, ptr %2436, align 1, !alias.scope !665
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %202, align 8, !alias.scope !665
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %202, align 8, !alias.scope !665
   %2437 = getelementptr inbounds nuw i8, ptr %202, i64 12
   store i32 %2432, ptr %2437, align 4, !alias.scope !665
   %2438 = getelementptr inbounds nuw i8, ptr %202, i64 16
@@ -24075,7 +24075,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1055:         ; preds = %2451, %2455
   store i8 1, ptr %2477, align 8, !alias.scope !668
   %2478 = getelementptr inbounds nuw i8, ptr %205, i64 9
   store i8 %2476, ptr %2478, align 1, !alias.scope !668
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %205, align 8, !alias.scope !668
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %205, align 8, !alias.scope !668
   %2479 = getelementptr inbounds nuw i8, ptr %205, i64 12
   store i32 %2474, ptr %2479, align 4, !alias.scope !668
   %2480 = getelementptr inbounds nuw i8, ptr %205, i64 16
@@ -24168,7 +24168,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1057:         ; preds = %2493, %2497
   store i8 1, ptr %2518, align 8, !alias.scope !671
   %2519 = getelementptr inbounds nuw i8, ptr %208, i64 9
   store i8 %2517, ptr %2519, align 1, !alias.scope !671
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %208, align 8, !alias.scope !671
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %208, align 8, !alias.scope !671
   %2520 = getelementptr inbounds nuw i8, ptr %208, i64 12
   store i32 %2515, ptr %2520, align 4, !alias.scope !671
   %2521 = getelementptr inbounds nuw i8, ptr %208, i64 16
@@ -24262,7 +24262,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1059:         ; preds = %2534, %2538
   store i8 0, ptr %2558, align 8, !alias.scope !674
   %2559 = getelementptr inbounds nuw i8, ptr %18, i64 9
   store i8 %2557, ptr %2559, align 1, !alias.scope !674
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %18, align 8, !alias.scope !674
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %18, align 8, !alias.scope !674
   %2560 = getelementptr inbounds nuw i8, ptr %18, i64 10
   store i8 %2557, ptr %2560, align 2, !alias.scope !674
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %209, ptr noundef nonnull align 8 dereferenceable(10) %18)
@@ -24350,7 +24350,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1063:         ; preds = %2571, %2575
   store i8 1, ptr %2596, align 8, !alias.scope !677
   %2597 = getelementptr inbounds nuw i8, ptr %213, i64 9
   store i8 %2595, ptr %2597, align 1, !alias.scope !677
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %213, align 8, !alias.scope !677
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %213, align 8, !alias.scope !677
   %2598 = getelementptr inbounds nuw i8, ptr %213, i64 12
   store i32 %2593, ptr %2598, align 4, !alias.scope !677
   %2599 = getelementptr inbounds nuw i8, ptr %213, i64 16
@@ -24444,7 +24444,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1065:         ; preds = %2612, %2616
   store i8 1, ptr %2638, align 8, !alias.scope !680
   %2639 = getelementptr inbounds nuw i8, ptr %216, i64 9
   store i8 %2637, ptr %2639, align 1, !alias.scope !680
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %216, align 8, !alias.scope !680
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %216, align 8, !alias.scope !680
   %2640 = getelementptr inbounds nuw i8, ptr %216, i64 12
   store i32 %2635, ptr %2640, align 4, !alias.scope !680
   %2641 = getelementptr inbounds nuw i8, ptr %216, i64 16
@@ -24537,7 +24537,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1067:         ; preds = %2654, %2658
   store i8 1, ptr %2679, align 8, !alias.scope !683
   %2680 = getelementptr inbounds nuw i8, ptr %219, i64 9
   store i8 %2678, ptr %2680, align 1, !alias.scope !683
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %219, align 8, !alias.scope !683
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %219, align 8, !alias.scope !683
   %2681 = getelementptr inbounds nuw i8, ptr %219, i64 12
   store i32 %2676, ptr %2681, align 4, !alias.scope !683
   %2682 = getelementptr inbounds nuw i8, ptr %219, i64 16
@@ -24631,7 +24631,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1069:         ; preds = %2695, %2699
   store i8 0, ptr %2719, align 8, !alias.scope !686
   %2720 = getelementptr inbounds nuw i8, ptr %17, i64 9
   store i8 %2718, ptr %2720, align 1, !alias.scope !686
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %17, align 8, !alias.scope !686
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %17, align 8, !alias.scope !686
   %2721 = getelementptr inbounds nuw i8, ptr %17, i64 10
   store i8 %2718, ptr %2721, align 2, !alias.scope !686
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %220, ptr noundef nonnull align 8 dereferenceable(10) %17)
@@ -24720,7 +24720,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1073:         ; preds = %2732, %2736
   store i8 1, ptr %2758, align 8, !alias.scope !689
   %2759 = getelementptr inbounds nuw i8, ptr %224, i64 9
   store i8 %2757, ptr %2759, align 1, !alias.scope !689
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %224, align 8, !alias.scope !689
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %224, align 8, !alias.scope !689
   %2760 = getelementptr inbounds nuw i8, ptr %224, i64 12
   store i32 %2755, ptr %2760, align 4, !alias.scope !689
   %2761 = getelementptr inbounds nuw i8, ptr %224, i64 16
@@ -24815,7 +24815,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1075:         ; preds = %2774, %2778
   store i8 1, ptr %2801, align 8, !alias.scope !692
   %2802 = getelementptr inbounds nuw i8, ptr %227, i64 9
   store i8 %2800, ptr %2802, align 1, !alias.scope !692
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %227, align 8, !alias.scope !692
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %227, align 8, !alias.scope !692
   %2803 = getelementptr inbounds nuw i8, ptr %227, i64 12
   store i32 %2798, ptr %2803, align 4, !alias.scope !692
   %2804 = getelementptr inbounds nuw i8, ptr %227, i64 16
@@ -24909,7 +24909,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1077:         ; preds = %2817, %2821
   store i8 1, ptr %2843, align 8, !alias.scope !695
   %2844 = getelementptr inbounds nuw i8, ptr %230, i64 9
   store i8 %2842, ptr %2844, align 1, !alias.scope !695
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %230, align 8, !alias.scope !695
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %230, align 8, !alias.scope !695
   %2845 = getelementptr inbounds nuw i8, ptr %230, i64 12
   store i32 %2840, ptr %2845, align 4, !alias.scope !695
   %2846 = getelementptr inbounds nuw i8, ptr %230, i64 16
@@ -25004,7 +25004,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1079:         ; preds = %2859, %2863
   store i8 0, ptr %2884, align 8, !alias.scope !698
   %2885 = getelementptr inbounds nuw i8, ptr %16, i64 9
   store i8 %2883, ptr %2885, align 1, !alias.scope !698
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %16, align 8, !alias.scope !698
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %16, align 8, !alias.scope !698
   %2886 = getelementptr inbounds nuw i8, ptr %16, i64 10
   store i8 %2883, ptr %2886, align 2, !alias.scope !698
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %231, ptr noundef nonnull align 8 dereferenceable(10) %16)
@@ -25132,7 +25132,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1083:         ; preds = %2901, %2897, %1645
   store i8 0, ptr %2932, align 8, !alias.scope !701
   %2933 = getelementptr inbounds nuw i8, ptr %15, i64 9
   store i8 %2931, ptr %2933, align 1, !alias.scope !701
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %15, align 8, !alias.scope !701
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %15, align 8, !alias.scope !701
   %2934 = getelementptr inbounds nuw i8, ptr %15, i64 10
   store i8 %2931, ptr %2934, align 2, !alias.scope !701
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %237, ptr noundef nonnull align 8 dereferenceable(10) %15)
@@ -25220,7 +25220,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1087:         ; preds = %2946, %2950
   store i8 0, ptr %2966, align 8, !alias.scope !704
   %2967 = getelementptr inbounds nuw i8, ptr %14, i64 9
   store i8 %2965, ptr %2967, align 1, !alias.scope !704
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %14, align 8, !alias.scope !704
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %14, align 8, !alias.scope !704
   %2968 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %2962, ptr %2968, align 8, !alias.scope !704
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %239, ptr noundef nonnull align 8 dereferenceable(10) %14)
@@ -25307,7 +25307,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1091:         ; preds = %2979, %2983
   store i8 0, ptr %3001, align 8, !alias.scope !707
   %3002 = getelementptr inbounds nuw i8, ptr %13, i64 9
   store i8 %3000, ptr %3002, align 1, !alias.scope !707
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %13, align 8, !alias.scope !707
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %13, align 8, !alias.scope !707
   %3003 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %2997, ptr %3003, align 8, !alias.scope !707
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %241, ptr noundef nonnull align 8 dereferenceable(10) %13)
@@ -25395,7 +25395,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1095:         ; preds = %3014, %3018
   store i8 0, ptr %3037, align 8, !alias.scope !710
   %3038 = getelementptr inbounds nuw i8, ptr %12, i64 9
   store i8 %3036, ptr %3038, align 1, !alias.scope !710
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %12, align 8, !alias.scope !710
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %12, align 8, !alias.scope !710
   %3039 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %3033, ptr %3039, align 8, !alias.scope !710
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %243, ptr noundef nonnull align 8 dereferenceable(10) %12)
@@ -25483,7 +25483,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1099:         ; preds = %3050, %3054
   store i8 0, ptr %3073, align 8, !alias.scope !713
   %3074 = getelementptr inbounds nuw i8, ptr %11, i64 9
   store i8 %3072, ptr %3074, align 1, !alias.scope !713
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %11, align 8, !alias.scope !713
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %11, align 8, !alias.scope !713
   %3075 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %3069, ptr %3075, align 8, !alias.scope !713
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %245, ptr noundef nonnull align 8 dereferenceable(10) %11)
@@ -25567,7 +25567,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1103:         ; preds = %3086, %3090
   store i8 0, ptr %3105, align 8, !alias.scope !716
   %3106 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %3104, ptr %3106, align 1, !alias.scope !716
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %10, align 8, !alias.scope !716
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %10, align 8, !alias.scope !716
   %3107 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i8 %3104, ptr %3107, align 2, !alias.scope !716
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %247, ptr noundef nonnull align 8 dereferenceable(10) %10)
@@ -25655,7 +25655,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1107:         ; preds = %3118, %3122
   store i8 0, ptr %3141, align 8, !alias.scope !719
   %3142 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %3140, ptr %3142, align 1, !alias.scope !719
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %9, align 8, !alias.scope !719
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %9, align 8, !alias.scope !719
   %3143 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %3137, ptr %3143, align 8, !alias.scope !719
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %249, ptr noundef nonnull align 8 dereferenceable(10) %9)
@@ -25744,7 +25744,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1111:         ; preds = %3154, %3158
   store i8 0, ptr %3178, align 8, !alias.scope !722
   %3179 = getelementptr inbounds nuw i8, ptr %8, i64 9
   store i8 %3177, ptr %3179, align 1, !alias.scope !722
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %8, align 8, !alias.scope !722
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i64 16), ptr %8, align 8, !alias.scope !722
   %3180 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %3174, ptr %3180, align 8, !alias.scope !722
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %251, ptr noundef nonnull align 8 dereferenceable(10) %8)
@@ -25832,7 +25832,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1115:         ; preds = %3191, %3195
   store i8 0, ptr %3214, align 8, !alias.scope !725
   %3215 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 %3213, ptr %3215, align 1, !alias.scope !725
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %7, align 8, !alias.scope !725
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %7, align 8, !alias.scope !725
   %3216 = getelementptr inbounds nuw i8, ptr %7, i64 10
   store i8 %3213, ptr %3216, align 2, !alias.scope !725
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %253, ptr noundef nonnull align 8 dereferenceable(10) %7)
@@ -25916,7 +25916,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1119:         ; preds = %3227, %3231
   store i8 1, ptr %3248, align 8, !alias.scope !728
   %3249 = getelementptr inbounds nuw i8, ptr %257, i64 9
   store i8 %3247, ptr %3249, align 1, !alias.scope !728
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %257, align 8, !alias.scope !728
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %257, align 8, !alias.scope !728
   %3250 = getelementptr inbounds nuw i8, ptr %257, i64 12
   store i32 %3245, ptr %3250, align 4, !alias.scope !728
   %3251 = getelementptr inbounds nuw i8, ptr %257, i64 16
@@ -26006,7 +26006,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1121:         ; preds = %3264, %3268
   store i8 1, ptr %3286, align 8, !alias.scope !731
   %3287 = getelementptr inbounds nuw i8, ptr %260, i64 9
   store i8 %3285, ptr %3287, align 1, !alias.scope !731
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %260, align 8, !alias.scope !731
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %260, align 8, !alias.scope !731
   %3288 = getelementptr inbounds nuw i8, ptr %260, i64 12
   store i32 %3283, ptr %3288, align 4, !alias.scope !731
   %3289 = getelementptr inbounds nuw i8, ptr %260, i64 16
@@ -26095,7 +26095,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1123:         ; preds = %3302, %3306
   store i8 1, ptr %3323, align 8, !alias.scope !734
   %3324 = getelementptr inbounds nuw i8, ptr %263, i64 9
   store i8 %3322, ptr %3324, align 1, !alias.scope !734
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %263, align 8, !alias.scope !734
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %263, align 8, !alias.scope !734
   %3325 = getelementptr inbounds nuw i8, ptr %263, i64 12
   store i32 %3320, ptr %3325, align 4, !alias.scope !734
   %3326 = getelementptr inbounds nuw i8, ptr %263, i64 16
@@ -26185,7 +26185,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1125:         ; preds = %3339, %3343
   store i8 0, ptr %3359, align 8, !alias.scope !737
   %3360 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %3358, ptr %3360, align 1, !alias.scope !737
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %6, align 8, !alias.scope !737
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %6, align 8, !alias.scope !737
   %3361 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i8 %3358, ptr %3361, align 2, !alias.scope !737
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %264, ptr noundef nonnull align 8 dereferenceable(10) %6)
@@ -26272,7 +26272,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1129:         ; preds = %3372, %3376
   store i8 1, ptr %3396, align 8, !alias.scope !740
   %3397 = getelementptr inbounds nuw i8, ptr %268, i64 9
   store i8 %3395, ptr %3397, align 1, !alias.scope !740
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %268, align 8, !alias.scope !740
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %268, align 8, !alias.scope !740
   %3398 = getelementptr inbounds nuw i8, ptr %268, i64 12
   store i32 %3393, ptr %3398, align 4, !alias.scope !740
   %3399 = getelementptr inbounds nuw i8, ptr %268, i64 16
@@ -26365,7 +26365,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1131:         ; preds = %3412, %3416
   store i8 1, ptr %3437, align 8, !alias.scope !743
   %3438 = getelementptr inbounds nuw i8, ptr %271, i64 9
   store i8 %3436, ptr %3438, align 1, !alias.scope !743
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %271, align 8, !alias.scope !743
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %271, align 8, !alias.scope !743
   %3439 = getelementptr inbounds nuw i8, ptr %271, i64 12
   store i32 %3434, ptr %3439, align 4, !alias.scope !743
   %3440 = getelementptr inbounds nuw i8, ptr %271, i64 16
@@ -26457,7 +26457,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1133:         ; preds = %3453, %3457
   store i8 1, ptr %3477, align 8, !alias.scope !746
   %3478 = getelementptr inbounds nuw i8, ptr %274, i64 9
   store i8 %3476, ptr %3478, align 1, !alias.scope !746
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %274, align 8, !alias.scope !746
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %274, align 8, !alias.scope !746
   %3479 = getelementptr inbounds nuw i8, ptr %274, i64 12
   store i32 %3474, ptr %3479, align 4, !alias.scope !746
   %3480 = getelementptr inbounds nuw i8, ptr %274, i64 16
@@ -26550,7 +26550,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1135:         ; preds = %3493, %3497
   store i8 0, ptr %3516, align 8, !alias.scope !749
   %3517 = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %3515, ptr %3517, align 1, !alias.scope !749
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %5, align 8, !alias.scope !749
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %5, align 8, !alias.scope !749
   %3518 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i8 %3515, ptr %3518, align 2, !alias.scope !749
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %275, ptr noundef nonnull align 8 dereferenceable(10) %5)
@@ -26638,7 +26638,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1139:         ; preds = %3529, %3533
   store i8 1, ptr %3554, align 8, !alias.scope !752
   %3555 = getelementptr inbounds nuw i8, ptr %279, i64 9
   store i8 %3553, ptr %3555, align 1, !alias.scope !752
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %279, align 8, !alias.scope !752
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %279, align 8, !alias.scope !752
   %3556 = getelementptr inbounds nuw i8, ptr %279, i64 12
   store i32 %3551, ptr %3556, align 4, !alias.scope !752
   %3557 = getelementptr inbounds nuw i8, ptr %279, i64 16
@@ -26732,7 +26732,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1141:         ; preds = %3570, %3574
   store i8 1, ptr %3596, align 8, !alias.scope !755
   %3597 = getelementptr inbounds nuw i8, ptr %282, i64 9
   store i8 %3595, ptr %3597, align 1, !alias.scope !755
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %282, align 8, !alias.scope !755
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %282, align 8, !alias.scope !755
   %3598 = getelementptr inbounds nuw i8, ptr %282, i64 12
   store i32 %3593, ptr %3598, align 4, !alias.scope !755
   %3599 = getelementptr inbounds nuw i8, ptr %282, i64 16
@@ -26825,7 +26825,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1143:         ; preds = %3612, %3616
   store i8 1, ptr %3637, align 8, !alias.scope !758
   %3638 = getelementptr inbounds nuw i8, ptr %285, i64 9
   store i8 %3636, ptr %3638, align 1, !alias.scope !758
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %285, align 8, !alias.scope !758
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %285, align 8, !alias.scope !758
   %3639 = getelementptr inbounds nuw i8, ptr %285, i64 12
   store i32 %3634, ptr %3639, align 4, !alias.scope !758
   %3640 = getelementptr inbounds nuw i8, ptr %285, i64 16
@@ -26919,7 +26919,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1145:         ; preds = %3653, %3657
   store i8 0, ptr %3677, align 8, !alias.scope !761
   %3678 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %3676, ptr %3678, align 1, !alias.scope !761
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %4, align 8, !alias.scope !761
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %4, align 8, !alias.scope !761
   %3679 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i8 %3676, ptr %3679, align 2, !alias.scope !761
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %286, ptr noundef nonnull align 8 dereferenceable(10) %4)
@@ -27007,7 +27007,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1149:         ; preds = %3690, %3694
   store i8 1, ptr %3715, align 8, !alias.scope !764
   %3716 = getelementptr inbounds nuw i8, ptr %290, i64 9
   store i8 %3714, ptr %3716, align 1, !alias.scope !764
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %290, align 8, !alias.scope !764
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %290, align 8, !alias.scope !764
   %3717 = getelementptr inbounds nuw i8, ptr %290, i64 12
   store i32 %3712, ptr %3717, align 4, !alias.scope !764
   %3718 = getelementptr inbounds nuw i8, ptr %290, i64 16
@@ -27101,7 +27101,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1151:         ; preds = %3731, %3735
   store i8 1, ptr %3757, align 8, !alias.scope !767
   %3758 = getelementptr inbounds nuw i8, ptr %293, i64 9
   store i8 %3756, ptr %3758, align 1, !alias.scope !767
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %293, align 8, !alias.scope !767
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %293, align 8, !alias.scope !767
   %3759 = getelementptr inbounds nuw i8, ptr %293, i64 12
   store i32 %3754, ptr %3759, align 4, !alias.scope !767
   %3760 = getelementptr inbounds nuw i8, ptr %293, i64 16
@@ -27194,7 +27194,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1153:         ; preds = %3773, %3777
   store i8 1, ptr %3798, align 8, !alias.scope !770
   %3799 = getelementptr inbounds nuw i8, ptr %296, i64 9
   store i8 %3797, ptr %3799, align 1, !alias.scope !770
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %296, align 8, !alias.scope !770
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %296, align 8, !alias.scope !770
   %3800 = getelementptr inbounds nuw i8, ptr %296, i64 12
   store i32 %3795, ptr %3800, align 4, !alias.scope !770
   %3801 = getelementptr inbounds nuw i8, ptr %296, i64 16
@@ -27288,7 +27288,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1155:         ; preds = %3814, %3818
   store i8 0, ptr %3838, align 8, !alias.scope !773
   %3839 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 %3837, ptr %3839, align 1, !alias.scope !773
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %3, align 8, !alias.scope !773
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %3, align 8, !alias.scope !773
   %3840 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i8 %3837, ptr %3840, align 2, !alias.scope !773
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %297, ptr noundef nonnull align 8 dereferenceable(10) %3)
@@ -27376,7 +27376,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1159:         ; preds = %3851, %3855
   store i8 1, ptr %3876, align 8, !alias.scope !776
   %3877 = getelementptr inbounds nuw i8, ptr %301, i64 9
   store i8 %3875, ptr %3877, align 1, !alias.scope !776
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %301, align 8, !alias.scope !776
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %301, align 8, !alias.scope !776
   %3878 = getelementptr inbounds nuw i8, ptr %301, i64 12
   store i32 %3873, ptr %3878, align 4, !alias.scope !776
   %3879 = getelementptr inbounds nuw i8, ptr %301, i64 16
@@ -27470,7 +27470,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1161:         ; preds = %3892, %3896
   store i8 1, ptr %3918, align 8, !alias.scope !779
   %3919 = getelementptr inbounds nuw i8, ptr %304, i64 9
   store i8 %3917, ptr %3919, align 1, !alias.scope !779
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %304, align 8, !alias.scope !779
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %304, align 8, !alias.scope !779
   %3920 = getelementptr inbounds nuw i8, ptr %304, i64 12
   store i32 %3915, ptr %3920, align 4, !alias.scope !779
   %3921 = getelementptr inbounds nuw i8, ptr %304, i64 16
@@ -27563,7 +27563,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1163:         ; preds = %3934, %3938
   store i8 1, ptr %3959, align 8, !alias.scope !782
   %3960 = getelementptr inbounds nuw i8, ptr %307, i64 9
   store i8 %3958, ptr %3960, align 1, !alias.scope !782
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %307, align 8, !alias.scope !782
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %307, align 8, !alias.scope !782
   %3961 = getelementptr inbounds nuw i8, ptr %307, i64 12
   store i32 %3956, ptr %3961, align 4, !alias.scope !782
   %3962 = getelementptr inbounds nuw i8, ptr %307, i64 16
@@ -27657,7 +27657,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1165:         ; preds = %3975, %3979
   store i8 0, ptr %3999, align 8, !alias.scope !785
   %4000 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %3998, ptr %4000, align 1, !alias.scope !785
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !785
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %2, align 8, !alias.scope !785
   %4001 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %3998, ptr %4001, align 2, !alias.scope !785
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %308, ptr noundef nonnull align 8 dereferenceable(10) %2)
@@ -27746,7 +27746,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1169:         ; preds = %4012, %4016
   store i8 1, ptr %4038, align 8, !alias.scope !788
   %4039 = getelementptr inbounds nuw i8, ptr %312, i64 9
   store i8 %4037, ptr %4039, align 1, !alias.scope !788
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %312, align 8, !alias.scope !788
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %312, align 8, !alias.scope !788
   %4040 = getelementptr inbounds nuw i8, ptr %312, i64 12
   store i32 %4035, ptr %4040, align 4, !alias.scope !788
   %4041 = getelementptr inbounds nuw i8, ptr %312, i64 16
@@ -27841,7 +27841,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1171:         ; preds = %4054, %4058
   store i8 1, ptr %4081, align 8, !alias.scope !791
   %4082 = getelementptr inbounds nuw i8, ptr %315, i64 9
   store i8 %4080, ptr %4082, align 1, !alias.scope !791
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %315, align 8, !alias.scope !791
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %315, align 8, !alias.scope !791
   %4083 = getelementptr inbounds nuw i8, ptr %315, i64 12
   store i32 %4078, ptr %4083, align 4, !alias.scope !791
   %4084 = getelementptr inbounds nuw i8, ptr %315, i64 16
@@ -27935,7 +27935,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1173:         ; preds = %4097, %4101
   store i8 1, ptr %4123, align 8, !alias.scope !794
   %4124 = getelementptr inbounds nuw i8, ptr %318, i64 9
   store i8 %4122, ptr %4124, align 1, !alias.scope !794
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %318, align 8, !alias.scope !794
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch10BinaryExprIjiEE, i64 16), ptr %318, align 8, !alias.scope !794
   %4125 = getelementptr inbounds nuw i8, ptr %318, i64 12
   store i32 %4120, ptr %4125, align 4, !alias.scope !794
   %4126 = getelementptr inbounds nuw i8, ptr %318, i64 16
@@ -28030,7 +28030,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit1175:         ; preds = %4139, %4143
   store i8 0, ptr %4164, align 8, !alias.scope !797
   %4165 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %4163, ptr %4165, align 1, !alias.scope !797
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !797
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !alias.scope !797
   %4166 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %4163, ptr %4166, align 2, !alias.scope !797
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %319, ptr noundef nonnull align 8 dereferenceable(10) %1)
@@ -28522,7 +28522,7 @@ define linkonce_odr dso_local void @_ZN5Catch11StringMakerIPP6rcSpanvE7convertIS
           to label %.noexc1 unwind label %10
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.196, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.196, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.196, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.196, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 8:                                                ; preds = %.noexc1
@@ -28717,7 +28717,7 @@ define linkonce_odr dso_local void @_ZN5Catch11StringMakerIP10rcSpanPoolvE7conve
           to label %.noexc1 unwind label %10
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.196, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.196, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.196, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.196, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 8:                                                ; preds = %.noexc1
@@ -28816,7 +28816,7 @@ define linkonce_odr dso_local void @_ZN5Catch11StringMakerIP6rcSpanvE7convertIS1
           to label %.noexc1 unwind label %10
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.196, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.196, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.196, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.196, i64 7))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 8:                                                ; preds = %.noexc1

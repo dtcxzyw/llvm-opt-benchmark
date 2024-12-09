@@ -2138,7 +2138,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test55RenderTestFTexts_Rende
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestFTextsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEN2cv5Size_IiEENSF_6Point_IiEEiNSF_7Scalar_IdEESt6vectorINSF_11GCompileArgESaISN_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -3983,7 +3983,7 @@ _ZN2cv6detail9WrapValueINS_4GMatEvE7wrap_inINS_3MatEEET_RKS6_.exit:
 
 .noexc:                                           ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail10VectorRefTINS_4util7variantIJNS_4gapi3wip4draw4TextENS6_5FTextENS6_4RectENS6_6CircleENS6_4LineENS6_6MosaicENS6_5ImageENS6_4PolyEEEEEE, i64 16), ptr %36, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail10VectorRefTINS_4util7variantIJNS_4gapi3wip4draw4TextENS6_5FTextENS6_4RectENS6_6CircleENS6_4LineENS6_6MosaicENS6_5ImageENS6_4PolyEEEEEE, i64 16), ptr %36, align 8, !noalias !26
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 1, ptr %38, align 8, !noalias !26
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -4701,7 +4701,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test56RenderTestFTexts_Rende
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestFTextsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEN2cv5Size_IiEENSF_6Point_IiEEiNSF_7Scalar_IdEESt6vectorINSF_11GCompileArgESaISN_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.81, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -6875,7 +6875,7 @@ _ZN2cv6detail9WrapValueINS_4GMatEvE7wrap_inINS_3MatEEET_RKS6_.exit23: ; preds = 
 
 .noexc:                                           ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail10VectorRefTINS_4util7variantIJNS_4gapi3wip4draw4TextENS6_5FTextENS6_4RectENS6_6CircleENS6_4LineENS6_6MosaicENS6_5ImageENS6_4PolyEEEEEE, i64 16), ptr %66, align 8, !noalias !51
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail10VectorRefTINS_4util7variantIJNS_4gapi3wip4draw4TextENS6_5FTextENS6_4RectENS6_6CircleENS6_4LineENS6_6MosaicENS6_5ImageENS6_4PolyEEEEEE, i64 16), ptr %66, align 8, !noalias !51
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i64 1, ptr %68, align 8, !noalias !51
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 32
@@ -7371,7 +7371,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test53RenderTestTexts_Render
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestTextsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEENSF_6Point_IiEEiNSF_7Scalar_IdEEiibSt6vectorINSF_11GCompileArgESaISN_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -8658,7 +8658,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test54RenderTestTexts_Render
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestTextsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEENSF_6Point_IiEEiNSF_7Scalar_IdEEiibSt6vectorINSF_11GCompileArgESaISN_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.86, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -10227,7 +10227,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test53RenderTestRects_Render
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestRectsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_5Rect_IiEENS9_7Scalar_IdEEiiiSt6vectorINS9_11GCompileArgESaISH_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -11444,7 +11444,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test54RenderTestRects_Render
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestRectsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_5Rect_IiEENS9_7Scalar_IdEEiiiSt6vectorINS9_11GCompileArgESaISH_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.92, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -12949,7 +12949,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test57RenderTestCircles_Rend
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestCirclesEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_6Point_IiEEiNS9_7Scalar_IdEEiiiSt6vectorINS9_11GCompileArgESaISH_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -14169,7 +14169,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test58RenderTestCircles_Rend
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestCirclesEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_6Point_IiEEiNS9_7Scalar_IdEEiiiSt6vectorINS9_11GCompileArgESaISH_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.95, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -15677,7 +15677,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test53RenderTestLines_Render
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestLinesEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_6Point_IiEESD_NS9_7Scalar_IdEEiiiSt6vectorINS9_11GCompileArgESaISH_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -16933,7 +16933,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test54RenderTestLines_Render
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestLinesEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_6Point_IiEESD_NS9_7Scalar_IdEEiiiSt6vectorINS9_11GCompileArgESaISH_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.98, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -18477,7 +18477,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test57RenderTestMosaics_Rend
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestMosaicsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_5Rect_IiEEiiSt6vectorINS9_11GCompileArgESaISF_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -19674,7 +19674,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test58RenderTestMosaics_Rend
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestMosaicsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_5Rect_IiEEiiSt6vectorINS9_11GCompileArgESaISF_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.101, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -21159,7 +21159,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test55RenderTestImages_Rende
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestImagesEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_5Rect_IiEENS9_7Scalar_IdEEdSt6vectorINS9_11GCompileArgESaISH_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -22521,7 +22521,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test56RenderTestImages_Rende
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestImagesEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEENS9_5Rect_IiEENS9_7Scalar_IdEEdSt6vectorINS9_11GCompileArgESaISH_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.104, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -24096,7 +24096,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test61RenderTestPolylines_Re
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolylinesEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEESt6vectorINS9_6Point_IiEESaISE_EENS9_7Scalar_IdEEiiiSC_INS9_11GCompileArgESaISJ_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -25410,7 +25410,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test62RenderTestPolylines_Re
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolylinesEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEESt6vectorINS9_6Point_IiEESaISE_EENS9_7Scalar_IdEEiiiSC_INS9_11GCompileArgESaISJ_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.107, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -27012,7 +27012,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test61RenderTestPolyItems_Re
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolyItemsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEEiiiSt6vectorINS9_11GCompileArgESaISD_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -28587,7 +28587,7 @@ define linkonce_odr hidden noundef i32 @_ZN11opencv_test62RenderTestPolyItems_Re
           to label %12 unwind label %18
 
 12:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestMetaFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %11, align 8
   invoke void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolyItemsEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJN2cv5Size_IiEEiiiSt6vectorINS9_11GCompileArgESaISD_EEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.110, ptr noundef nonnull %11)
           to label %13 unwind label %18
 
@@ -30975,7 +30975,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal29ParameterizedTestC
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestFTextsEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestFTextsEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -31273,7 +31273,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestFTextsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestFTextsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestFTextsEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -34440,7 +34440,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   br label %.body
 
 _ZNSt5tupleIJNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEN2cv5Size_IiEENS6_6Point_IiEEiNS6_7Scalar_IdEESt6vectorINS6_11GCompileArgESaISE_EEEEC2ERKSH_.exit: ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %20, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %.noexc4 unwind label %51
@@ -34553,7 +34553,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEN2cv5Size_IiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -34621,7 +34621,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEN2cv5Size_IiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -34715,8 +34715,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test55RenderTestFTexts_RenderFTextsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -34736,7 +34736,7 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctionalD2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test14TestPerfParamsISt5tupleIJNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEN2cv5Size_IiEENS8_6Point_IiEEiNS8_7Scalar_IdEESt6vectorINS8_11GCompileArgESaISG_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -35470,7 +35470,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   br label %.body
 
 _ZNSt5tupleIJNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEN2cv5Size_IiEENS6_6Point_IiEEiNS6_7Scalar_IdEESt6vectorINS6_11GCompileArgESaISE_EEEEC2ERKSH_.exit: ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(112) %20, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %.noexc4 unwind label %51
@@ -35583,7 +35583,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEN2cv5Size_IiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -35651,7 +35651,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEN2cv5Size_IiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -35745,8 +35745,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test56RenderTestFTexts_RenderFTextsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -35979,7 +35979,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal29ParameterizedTestC
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestTextsEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestTextsEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -36244,7 +36244,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestTextsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestTextsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestTextsEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -38952,7 +38952,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   br label %.body
 
 _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEENS6_6Point_IiEEiNS6_7Scalar_IdEEiibSt6vectorINS6_11GCompileArgESaISE_EEEEC2ERKSH_.exit: ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %.noexc4 unwind label %66
@@ -39074,7 +39074,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -39142,7 +39142,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -39236,8 +39236,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test53RenderTestTexts_RenderTextsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -39245,7 +39245,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test14TestPerfParamsISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEENS8_6Point_IiEEiNS8_7Scalar_IdEEiibSt6vectorINS8_11GCompileArgESaISG_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -39346,7 +39346,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   br label %.body
 
 _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEENS6_6Point_IiEEiNS6_7Scalar_IdEEiibSt6vectorINS6_11GCompileArgESaISE_EEEEC2ERKSH_.exit: ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %.noexc4 unwind label %66
@@ -39468,7 +39468,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -39536,7 +39536,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -39630,8 +39630,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test54RenderTestTexts_RenderTextsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -39711,7 +39711,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal29ParameterizedTestC
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestRectsEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestRectsEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -39976,7 +39976,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestRectsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestRectsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestRectsEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -42623,7 +42623,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %.noexc4 unwind label %53
@@ -42725,7 +42725,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEENS0_7Scalar_IdEEiiiSt6vectorINS0_11GCom
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -42791,7 +42791,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEENS0_7Scalar_IdEEiiiSt6vectorINS0_11GCom
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -42883,8 +42883,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test53RenderTestRects_RenderRectsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -42892,7 +42892,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test14TestPerfParamsISt5tupleIJN2cv5Size_IiEENS2_5Rect_IiEENS2_7Scalar_IdEEiiiSt6vectorINS2_11GCompileArgESaISA_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -42976,7 +42976,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %.noexc4 unwind label %53
@@ -43078,7 +43078,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEENS0_7Scalar_IdEEiiiSt6vectorINS0_11GCom
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -43144,7 +43144,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEENS0_7Scalar_IdEEiiiSt6vectorINS0_11GCom
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -43236,8 +43236,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test54RenderTestRects_RenderRectsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -43317,7 +43317,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal29ParameterizedTestC
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestCirclesEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestCirclesEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -43582,7 +43582,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestCirclesEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestCirclesEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestCirclesEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -46122,7 +46122,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %24 = load i64, ptr %23, align 4
   store i64 %24, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(92) %25, ptr noundef nonnull align 8 dereferenceable(92) %3)
           to label %.noexc4 unwind label %60
@@ -46228,7 +46228,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_6Point_IiEEiNS0_7Scalar_IdEEiiiSt6vectorINS0_11GC
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -46294,7 +46294,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_6Point_IiEEiNS0_7Scalar_IdEEiiiSt6vectorINS0_11GC
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -46386,8 +46386,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test57RenderTestCircles_RenderCirclesPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -46395,7 +46395,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test14TestPerfParamsISt5tupleIJN2cv5Size_IiEENS2_6Point_IiEEiNS2_7Scalar_IdEEiiiSt6vectorINS2_11GCompileArgESaISA_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -46484,7 +46484,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %24 = load i64, ptr %23, align 4
   store i64 %24, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(92) %25, ptr noundef nonnull align 8 dereferenceable(92) %3)
           to label %.noexc4 unwind label %60
@@ -46590,7 +46590,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_6Point_IiEEiNS0_7Scalar_IdEEiiiSt6vectorINS0_11GC
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -46656,7 +46656,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_6Point_IiEEiNS0_7Scalar_IdEEiiiSt6vectorINS0_11GC
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -46748,8 +46748,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test58RenderTestCircles_RenderCirclesPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -46829,7 +46829,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal29ParameterizedTestC
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestLinesEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestLinesEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -47094,7 +47094,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestLinesEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestLinesEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test15RenderTestLinesEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -49700,7 +49700,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %.noexc4 unwind label %60
@@ -49806,7 +49806,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_6Point_IiEES4_NS0_7Scalar_IdEEiiiSt6vectorINS0_11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -49872,7 +49872,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_6Point_IiEES4_NS0_7Scalar_IdEEiiiSt6vectorINS0_11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -49964,8 +49964,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test53RenderTestLines_RenderLinesPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -49973,7 +49973,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test14TestPerfParamsISt5tupleIJN2cv5Size_IiEENS2_6Point_IiEES6_NS2_7Scalar_IdEEiiiSt6vectorINS2_11GCompileArgESaISA_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -50062,7 +50062,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %.noexc4 unwind label %60
@@ -50168,7 +50168,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_6Point_IiEES4_NS0_7Scalar_IdEEiiiSt6vectorINS0_11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -50234,7 +50234,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_6Point_IiEES4_NS0_7Scalar_IdEEiiiSt6vectorINS0_11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -50326,8 +50326,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test54RenderTestLines_RenderLinesPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -50407,7 +50407,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal29ParameterizedTestC
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestMosaicsEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestMosaicsEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -50672,7 +50672,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestMosaicsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestMosaicsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test17RenderTestMosaicsEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -53252,7 +53252,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %18 unwind label %47
@@ -53349,7 +53349,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEEiiSt6vectorINS0_11GCompileArgESaIS6_EEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -53415,7 +53415,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEEiiSt6vectorINS0_11GCompileArgESaIS6_EEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -53507,8 +53507,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test57RenderTestMosaics_RenderMosaicsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -53516,7 +53516,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test14TestPerfParamsISt5tupleIJN2cv5Size_IiEENS2_5Rect_IiEEiiSt6vectorINS2_11GCompileArgESaIS8_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -53593,7 +53593,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %18 unwind label %47
@@ -53690,7 +53690,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEEiiSt6vectorINS0_11GCompileArgESaIS6_EEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -53756,7 +53756,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEEiiSt6vectorINS0_11GCompileArgESaIS6_EEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -53848,8 +53848,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test58RenderTestMosaics_RenderMosaicsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -53929,7 +53929,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal29ParameterizedTestC
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestImagesEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestImagesEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -54194,7 +54194,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestImagesEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestImagesEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test16RenderTestImagesEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -56796,7 +56796,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef nonnull align 8 dereferenceable(88) %3)
           to label %.noexc4 unwind label %43
@@ -56892,7 +56892,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEENS0_7Scalar_IdEEdSt6vectorINS0_11GCompi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -56958,7 +56958,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEENS0_7Scalar_IdEEdSt6vectorINS0_11GCompi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -57050,8 +57050,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test55RenderTestImages_RenderImagesPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -57059,7 +57059,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test14TestPerfParamsISt5tupleIJN2cv5Size_IiEENS2_5Rect_IiEENS2_7Scalar_IdEEdSt6vectorINS2_11GCompileArgESaISA_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -57137,7 +57137,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef nonnull align 8 dereferenceable(88) %3)
           to label %.noexc4 unwind label %43
@@ -57233,7 +57233,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEENS0_7Scalar_IdEEdSt6vectorINS0_11GCompi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -57299,7 +57299,7 @@ _ZNSt5tupleIJN2cv5Size_IiEENS0_5Rect_IiEENS0_7Scalar_IdEEdSt6vectorINS0_11GCompi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -57391,8 +57391,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test56RenderTestImages_RenderImagesPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -57472,7 +57472,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal29ParameterizedTestC
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolylinesEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolylinesEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -57737,7 +57737,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolylinesEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolylinesEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolylinesEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -60646,7 +60646,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt11_Tuple_implILm1EJSt6vectorIN2cv6Point_IiEESaIS3_EENS1_7Scalar_IdEEiiiS0_INS1_11GCompileArgESaIS8_EEEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %3)
           to label %10 unwind label %37
@@ -60745,7 +60745,7 @@ _ZNSt5tupleIJN2cv5Size_IiEESt6vectorINS0_6Point_IiEESaIS5_EENS0_7Scalar_IdEEiiiS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
@@ -60853,8 +60853,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test61RenderTestPolylines_RenderPolylinesPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -60862,7 +60862,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test14TestPerfParamsISt5tupleIJN2cv5Size_IiEESt6vectorINS2_6Point_IiEESaIS7_EENS2_7Scalar_IdEEiiiS5_INS2_11GCompileArgESaISC_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -60928,7 +60928,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt11_Tuple_implILm1EJSt6vectorIN2cv6Point_IiEESaIS3_EENS1_7Scalar_IdEEiiiS0_INS1_11GCompileArgESaIS8_EEEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %3)
           to label %10 unwind label %37
@@ -61027,7 +61027,7 @@ _ZNSt5tupleIJN2cv5Size_IiEESt6vectorINS0_6Point_IiEESaIS5_EENS0_7Scalar_IdEEiiiS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
@@ -61135,8 +61135,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test62RenderTestPolylines_RenderPolylinesPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -61216,7 +61216,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal29ParameterizedTestC
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolyItemsEEE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolyItemsEEE, i64 16), ptr %37, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -61481,7 +61481,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolyItemsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolyItemsEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test19RenderTestPolyItemsEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -63941,7 +63941,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %17 = load i64, ptr %16, align 4
   store i64 %17, ptr %15, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEEE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(44) %18, ptr noundef nonnull align 8 dereferenceable(44) %3)
           to label %19 unwind label %49
@@ -64039,7 +64039,7 @@ _ZNSt5tupleIJN2cv5Size_IiEEiiiSt6vectorINS0_11GCompileArgESaIS4_EEEED2Ev.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -64105,7 +64105,7 @@ _ZNSt5tupleIJN2cv5Size_IiEEiiiSt6vectorINS0_11GCompileArgESaIS4_EEEED2Ev.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -64197,8 +64197,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test61RenderTestPolyItems_RenderPolyItemsPerformanceBGROCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -64206,7 +64206,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test14TestPerfParamsISt5tupleIJN2cv5Size_IiEEiiiSt6vectorINS2_11GCompileArgESaIS6_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -64284,7 +64284,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestMetaFactoryIN1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %17 = load i64, ptr %16, align 4
   store i64 %17, ptr %15, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt6vectorIN2cv11GCompileArgESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(44) %18, ptr noundef nonnull align 8 dereferenceable(44) %3)
           to label %19 unwind label %49
@@ -64382,7 +64382,7 @@ _ZNSt5tupleIJN2cv5Size_IiEEiiiSt6vectorINS0_11GCompileArgESaIS4_EEEED2Ev.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -64448,7 +64448,7 @@ _ZNSt5tupleIJN2cv5Size_IiEEiiiSt6vectorINS0_11GCompileArgESaIS4_EEEED2Ev.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -64540,8 +64540,8 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test62RenderTestPolyItems_RenderPolyItemsPerformanceNV12OCVTest_TestE, i64 88), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store i8 0, ptr %12, align 8
   ret ptr %3
@@ -66209,7 +66209,7 @@ _ZNSt8functionIFvRN2cv6detail9VectorRefEEEC2IPS4_vEEOT_.exit:
 _ZNSt8functionIFvRN2cv6detail9VectorRefEEED2Ev.exit: ; preds = %5, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv6detail8TypeHintINS_4util7variantIJNS_4gapi3wip4draw4TextENS6_5FTextENS6_4RectENS6_6CircleENS6_4LineENS6_6MosaicENS6_5ImageENS6_4PolyEEEEEE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv6detail8TypeHintINS_4util7variantIJNS_4gapi3wip4draw4TextENS6_5FTextENS6_4RectENS6_6CircleENS6_4LineENS6_6MosaicENS6_5ImageENS6_4PolyEEEEEE, i64 16), ptr %13, align 8
   call void @_ZNSt12__shared_ptrIN2cv6detail12TypeHintBaseELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_8TypeHintINS0_4util7variantIJNS0_4gapi3wip4draw4TextENSC_5FTextENSC_4RectENSC_6CircleENSC_4LineENSC_6MosaicENSC_5ImageENSC_4PolyEEEEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS2_T_EE5valueEvE4typeEPSO_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %13)
   call void @_ZN2cv6detail7GArrayU7setKindENS0_10OpaqueKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 15)
   ret void
@@ -66256,7 +66256,7 @@ define linkonce_odr hidden void @_ZN2cv6detail9VectorRef5resetINS_4util7variantI
 6:                                                ; preds = %1
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail10VectorRefTINS_4util7variantIJNS_4gapi3wip4draw4TextENS6_5FTextENS6_4RectENS6_6CircleENS6_4LineENS6_6MosaicENS6_5ImageENS6_4PolyEEEEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail10VectorRefTINS_4util7variantIJNS_4gapi3wip4draw4TextENS6_5FTextENS6_4RectENS6_6CircleENS6_4LineENS6_6MosaicENS6_5ImageENS6_4PolyEEEEEE, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %9, align 8
   store i64 208, ptr %8, align 8
@@ -66488,7 +66488,7 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail10VectorRefTINS0_4util7variantIJNS0_4gapi3wip4draw4TextENS7_5FTextENS7_4RectENS7_6CircleENS7_4LineENS7_6MosaicENS7_5ImageENS7_4PolyEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail10VectorRefTINS0_4util7variantIJNS0_4gapi3wip4draw4TextENS7_5FTextENS7_4RectENS7_6CircleENS7_4LineENS7_6MosaicENS7_5ImageENS7_4PolyEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
   store ptr %3, ptr %0, align 8
@@ -67083,7 +67083,7 @@ _ZNSt12__shared_ptrIN2cv6detail12TypeHintBaseELN9__gnu_cxx12_Lock_policyE2EEC2IN
   store i32 1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %19, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8TypeHintINS0_4util7variantIJNS0_4gapi3wip4draw4TextENS7_5FTextENS7_4RectENS7_6CircleENS7_4LineENS7_6MosaicENS7_5ImageENS7_4PolyEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8TypeHintINS0_4util7variantIJNS0_4gapi3wip4draw4TextENS7_5FTextENS7_4RectENS7_6CircleENS7_4LineENS7_6MosaicENS7_5ImageENS7_4PolyEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %20, align 8
   store ptr %1, ptr %0, align 8

@@ -33,7 +33,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_118X86ELFObjectWriterESt14default_deleteIS1_EED2
   %6 = icmp ne i16 %3, 6
   %7 = and i1 %5, %6
   tail call void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr noundef nonnull align 8 dereferenceable(13) %4, i1 noundef zeroext %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %7, i8 noundef zeroext 0) #8, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_118X86ELFObjectWriterE, i64 16), ptr %4, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_118X86ELFObjectWriterE, i64 16), ptr %4, align 8, !noalias !4
   store ptr %4, ptr %0, align 8
   ret void
 }

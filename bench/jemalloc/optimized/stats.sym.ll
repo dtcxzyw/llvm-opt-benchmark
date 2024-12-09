@@ -3441,7 +3441,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @stats_interval_event_handler(ptr nocapture noundef readnone %tsd, i64 noundef %elapsed) local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @stats_interval_accumulated, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats_interval_accumulated, i64 8), align 8
   %1 = load atomic i64, ptr @stats_interval_accumulated monotonic, align 8
   br label %do.body1.i
 

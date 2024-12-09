@@ -356,7 +356,7 @@ _rebuild_mpi_layout.exit:                         ; preds = %38, %62
   br label %107
 
 107:                                              ; preds = %106, %96
-  %108 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 312), align 8
+  %108 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 312), align 8
   %109 = call ptr @eio_handle_create(i16 noundef zeroext %108) #14
   %110 = getelementptr inbounds nuw i8, ptr %97, i64 160
   store ptr %109, ptr %110, align 8
@@ -375,15 +375,15 @@ _rebuild_mpi_layout.exit:                         ; preds = %38, %62
   %118 = call ptr @slurm_xcalloc(i64 noundef %117, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 1110, ptr noundef nonnull @__func__._msg_thr_create) #14
   %119 = getelementptr inbounds nuw i8, ptr %97, i64 184
   store ptr %118, ptr %119, align 8
-  %120 = load i32, ptr getelementptr inbounds (i8, ptr @message_socket_ops, i64 56), align 8
+  %120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @message_socket_ops, i64 56), align 8
   %.not.i = icmp eq i32 %120, 0
   br i1 %.not.i, label %121, label %125
 
 121:                                              ; preds = %107
-  %122 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %122 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %123 = zext i16 %122 to i32
   %124 = mul nuw nsw i32 %123, 8000
-  store i32 %124, ptr getelementptr inbounds (i8, ptr @message_socket_ops, i64 56), align 8
+  store i32 %124, ptr getelementptr inbounds nuw (i8, ptr @message_socket_ops, i64 56), align 8
   br label %125
 
 125:                                              ; preds = %121, %107
@@ -957,7 +957,7 @@ _msg_thr_create.exit.thread:                      ; preds = %177, %_msg_thr_crea
   %487 = zext i16 %486 to i64
   %488 = shl nuw nsw i64 %487, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %479, ptr align 2 %485, i64 %488, i1 false)
-  %489 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %489 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %490 = zext i16 %489 to i32
   %491 = load ptr, ptr %32, align 8
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 144
@@ -1153,9 +1153,9 @@ _print_launch_msg.exit:                           ; preds = %._crit_edge.i, %45
 
 51:                                               ; preds = %._crit_edge, %15
   %52 = icmp eq i32 %2, 0
-  %53 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %53 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %54 = zext i16 %53 to i32
-  %55 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 168), align 8
+  %55 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 168), align 8
   %56 = zext i16 %55 to i32
   %57 = add nuw nsw i32 %56, %54
   %58 = mul nuw nsw i32 %57, 1000
@@ -1829,7 +1829,7 @@ _lookup_cwd.exit:                                 ; preds = %100, %102
   %286 = zext i16 %285 to i64
   %287 = shl nuw nsw i64 %286, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %278, ptr align 2 %284, i64 %287, i1 false)
-  %288 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %288 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %289 = zext i16 %288 to i32
   %290 = load ptr, ptr %259, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 144
@@ -2251,7 +2251,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
 41:                                               ; preds = %39
   %42 = call i64 @time(ptr noundef null) #14
   %43 = add nsw i64 %42, 2
-  %44 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 582), align 2
+  %44 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 582), align 2
   %45 = zext i16 %44 to i64
   %46 = add nsw i64 %43, %45
   store i64 %46, ptr %2, align 8
@@ -2260,7 +2260,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %41
-  %50 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 582), align 2
+  %50 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 582), align 2
   %51 = zext i16 %50 to i32
   %52 = add nuw nsw i32 %51, 2
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8, i32 noundef %52) #14
@@ -3312,7 +3312,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @auth_g_get_uid(ptr noundef %8) #14
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %11 = icmp eq i32 %9, %10
   %12 = icmp eq i32 %9, 0
   %or.cond.not69 = or i1 %12, %11

@@ -66,16 +66,16 @@ define hidden void @WebPInitSamplers() local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   store ptr @YuvToRgbRow, ptr @WebPSamplers, align 16
-  store ptr @YuvToRgbaRow, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 8), align 8
-  store ptr @YuvToBgrRow, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 16), align 16
-  store ptr @YuvToBgraRow, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 24), align 8
-  store ptr @YuvToArgbRow, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 32), align 16
-  store ptr @YuvToRgba4444Row, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 40), align 8
-  store ptr @YuvToRgb565Row, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 48), align 16
-  store ptr @YuvToRgbaRow, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 56), align 8
-  store ptr @YuvToBgraRow, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 64), align 16
-  store ptr @YuvToArgbRow, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 72), align 8
-  store ptr @YuvToRgba4444Row, ptr getelementptr inbounds (i8, ptr @WebPSamplers, i64 80), align 16
+  store ptr @YuvToRgbaRow, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 8), align 8
+  store ptr @YuvToBgrRow, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 16), align 16
+  store ptr @YuvToBgraRow, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 24), align 8
+  store ptr @YuvToArgbRow, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 32), align 16
+  store ptr @YuvToRgba4444Row, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 40), align 8
+  store ptr @YuvToRgb565Row, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 48), align 16
+  store ptr @YuvToRgbaRow, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 56), align 8
+  store ptr @YuvToBgraRow, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 64), align 16
+  store ptr @YuvToArgbRow, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 72), align 8
+  store ptr @YuvToRgba4444Row, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 80), align 16
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %WebPInitSamplers_body.exit, label %6
 

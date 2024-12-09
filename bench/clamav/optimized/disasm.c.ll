@@ -521,7 +521,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 66:                                               ; preds = %61
   %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr inbounds nuw [14 x i8], ptr getelementptr inbounds (i8, ptr @regmap, i64 28), i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [14 x i8], ptr getelementptr inbounds nuw (i8, ptr @regmap, i64 28), i64 0, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   store i32 %70, ptr %26, align 8
@@ -650,7 +650,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %135 = shl nuw nsw i8 1, %131
   store i8 %135, ptr %25, align 8
   %136 = zext nneg i8 %134 to i64
-  %137 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = icmp eq i8 %138, 5
@@ -660,7 +660,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %spec.select630.i = select i1 %or.cond.i, i8 2, i8 %110
   store i32 %spec.select.i, ptr %21, align 4
   %142 = zext nneg i8 %133 to i64
-  %143 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   store i32 %145, ptr %20, align 8
@@ -682,7 +682,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 152:                                              ; preds = %150
   store i8 1, ptr %25, align 8
   %153 = zext nneg i8 %113 to i64
-  %154 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   br label %157
@@ -1189,7 +1189,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %368 = getelementptr inbounds nuw i8, ptr %289, i64 24
   store i8 %366, ptr %368, align 8
   %369 = zext nneg i8 %365 to i64
-  %370 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %369
+  %370 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %369
   %371 = load i8, ptr %370, align 1
   %372 = zext i8 %371 to i32
   %373 = getelementptr inbounds nuw i8, ptr %289, i64 20
@@ -1200,7 +1200,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %spec.select633.i = select i1 %or.cond14.i, i8 2, i8 %.0546.i
   store i32 %spec.select632.i, ptr %373, align 4
   %376 = zext nneg i8 %364 to i64
-  %377 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %376
+  %377 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %376
   %378 = load i8, ptr %377, align 1
   %379 = zext i8 %378 to i32
   store i32 %379, ptr %367, align 8
@@ -1225,7 +1225,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %388 = getelementptr inbounds nuw i8, ptr %289, i64 24
   store i8 1, ptr %388, align 8
   %389 = zext nneg i8 %283 to i64
-  %390 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %389
+  %390 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @mrm_regmap, i64 16), i64 0, i64 %389
   %391 = load i8, ptr %390, align 1
   %392 = zext i8 %391 to i32
   br label %393
@@ -1427,7 +1427,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 476:                                              ; preds = %472, %472
   %477 = zext nneg i32 %38 to i64
-  %478 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds (i8, ptr @sizemap, i64 10), i64 0, i64 %477
+  %478 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @sizemap, i64 10), i64 0, i64 %477
   %479 = load i8, ptr %478, align 1
   %480 = zext i8 %479 to i32
   %.not605.i = icmp eq i8 %479, -1
@@ -1645,7 +1645,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
 
 567:                                              ; preds = %563, %563
   %568 = zext nneg i32 %43 to i64
-  %569 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds (i8, ptr @sizemap, i64 10), i64 0, i64 %568
+  %569 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @sizemap, i64 10), i64 0, i64 %568
   %570 = load i8, ptr %569, align 1
   %571 = zext i8 %570 to i32
   %.not.i = icmp eq i8 %570, -1

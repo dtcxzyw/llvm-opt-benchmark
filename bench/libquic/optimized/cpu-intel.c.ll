@@ -118,9 +118,9 @@ if.end60:                                         ; preds = %if.then55, %if.then
   %ecx.0 = phi i32 [ %and58, %if.then55 ], [ %storemerge9, %if.then51 ]
   %extended_features.1 = phi i32 [ %and59, %if.then55 ], [ %extended_features.0, %if.then51 ]
   store i32 %storemerge, ptr @OPENSSL_ia32cap_P, align 16
-  store i32 %ecx.0, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
-  store i32 %extended_features.1, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4
+  store i32 %ecx.0, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  store i32 %extended_features.1, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4
   %call61 = tail call ptr @getenv(ptr noundef nonnull @.str) #5
   %cmp62 = icmp eq ptr %call61, null
   br i1 %cmp62, label %if.end68, label %if.end64
@@ -186,13 +186,13 @@ if.end.i38:                                       ; preds = %if.then67
   br i1 %cmp.i33, label %if.then3.i43, label %if.else.i39
 
 if.then3.i43:                                     ; preds = %if.end.i38
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
   %25 = trunc i64 %23 to i32
   %26 = xor i32 %25, -1
   %conv6.i44 = and i32 %24, %26
-  store i32 %conv6.i44, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
+  store i32 %conv6.i44, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
   %shr.i45 = lshr i64 %23, 32
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4
   %28 = trunc nuw i64 %shr.i45 to i32
   %29 = xor i32 %28, -1
   %conv11.i46 = and i32 %27, %29
@@ -200,14 +200,14 @@ if.then3.i43:                                     ; preds = %if.end.i38
 
 if.else.i39:                                      ; preds = %if.end.i38
   %conv12.i40 = trunc i64 %23 to i32
-  store i32 %conv12.i40, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
+  store i32 %conv12.i40, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
   %shr14.i41 = lshr i64 %23, 32
   %conv15.i42 = trunc nuw i64 %shr14.i41 to i32
   br label %handle_cpu_env.exit47.sink.split
 
 handle_cpu_env.exit47.sink.split:                 ; preds = %if.else.i39, %if.then3.i43
   %conv11.i46.sink = phi i32 [ %conv11.i46, %if.then3.i43 ], [ %conv15.i42, %if.else.i39 ]
-  store i32 %conv11.i46.sink, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4
+  store i32 %conv11.i46.sink, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4
   br label %handle_cpu_env.exit47
 
 handle_cpu_env.exit47:                            ; preds = %handle_cpu_env.exit47.sink.split, %if.then67

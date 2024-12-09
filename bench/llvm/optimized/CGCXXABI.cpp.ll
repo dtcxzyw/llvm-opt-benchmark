@@ -136,7 +136,7 @@ $_ZN4llvm15SmallVectorImplIN5clang7CodeGen7CallArgEE15insert_one_implIRKS3_EEPS3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang7CodeGen8CGCXXABID2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 760) (i8, ptr @_ZTVN5clang7CodeGen8CGCXXABIE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 760) (i8, ptr @_ZTVN5clang7CodeGen8CGCXXABIE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

@@ -676,7 +676,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %49, %43
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN13RelocIteratorC2EP11CodeSectionPhS2_(ptr noundef nonnull align 8 dereferenceable(152) initializes((8, 40), (56, 58), (64, 132)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -814,7 +814,7 @@ define hidden noundef nonnull ptr @_ZN13RelocIterator5relocEv(ptr noundef nonnul
 11:                                               ; preds = %9
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !11
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !11
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !11
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #19
   br label %12
 
@@ -871,7 +871,7 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %23, %31, %33
 43:                                               ; preds = %41
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 8), align 8, !alias.scope !14
   store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 16), align 8, !alias.scope !14
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, align 8, !alias.scope !14
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator14metadata_relocEvE5proto) #19
   br label %44
 
@@ -928,7 +928,7 @@ _ZN13RelocIterator14metadata_relocEv.exit:        ; preds = %55, %63, %65
 75:                                               ; preds = %73
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !17
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !17
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !17
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !17
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator18virtual_call_relocEvE5proto) #19
   br label %76
 
@@ -1024,7 +1024,7 @@ _ZN13RelocIterator18virtual_call_relocEv.exit:    ; preds = %_ZN10Relocation13un
 126:                                              ; preds = %124
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !20
   store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !20
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, align 8, !alias.scope !20
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, align 8, !alias.scope !20
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator22opt_virtual_call_relocEvE5proto) #19
   br label %127
 
@@ -1081,7 +1081,7 @@ _ZN13RelocIterator22opt_virtual_call_relocEv.exit: ; preds = %138, %146, %148
 158:                                              ; preds = %156
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 8), align 8, !alias.scope !23
   store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 16), align 8, !alias.scope !23
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, align 8, !alias.scope !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, align 8, !alias.scope !23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_call_relocEvE5proto) #19
   br label %159
 
@@ -1138,7 +1138,7 @@ _ZN13RelocIterator17static_call_relocEv.exit:     ; preds = %170, %178, %180
 190:                                              ; preds = %188
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 8), align 8, !alias.scope !26
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 16), align 8, !alias.scope !26
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !26
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !26
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_stub_relocEvE5proto) #19
   br label %191
 
@@ -1200,7 +1200,7 @@ _ZN13RelocIterator17static_stub_relocEv.exit:     ; preds = %204, %212, %214
 227:                                              ; preds = %225
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, i64 8), align 8, !alias.scope !29
   store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, i64 16), align 8, !alias.scope !29
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, align 8, !alias.scope !29
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18runtime_call_relocEvE5proto, align 8, !alias.scope !29
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator18runtime_call_relocEvE5proto) #19
   br label %_ZN13RelocIterator18runtime_call_relocEv.exit
 
@@ -1227,7 +1227,7 @@ _ZN13RelocIterator18runtime_call_relocEv.exit:    ; preds = %222, %225, %227
 238:                                              ; preds = %236
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, i64 8), align 8, !alias.scope !32
   store i32 14, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, i64 16), align 8, !alias.scope !32
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV28runtime_call_w_cp_Relocation, i64 16), ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, align 8, !alias.scope !32
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV28runtime_call_w_cp_Relocation, i64 16), ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, align 8, !alias.scope !32
   store i32 -4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator23runtime_call_w_cp_relocEvE5proto, i64 20), align 4, !alias.scope !32
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator23runtime_call_w_cp_relocEvE5proto) #19
   br label %239
@@ -1286,7 +1286,7 @@ _ZN13RelocIterator23runtime_call_w_cp_relocEv.exit: ; preds = %250, %258, %260
 271:                                              ; preds = %269
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, i64 8), align 8, !alias.scope !35
   store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, i64 16), align 8, !alias.scope !35
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV24external_word_Relocation, i64 16), ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, align 8, !alias.scope !35
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24external_word_Relocation, i64 16), ptr @_ZZN13RelocIterator19external_word_relocEvE5proto, align 8, !alias.scope !35
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator19external_word_relocEvE5proto) #19
   br label %272
 
@@ -1344,7 +1344,7 @@ _ZN13RelocIterator19external_word_relocEv.exit:   ; preds = %283, %291, %293
 304:                                              ; preds = %302
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, i64 8), align 8, !alias.scope !38
   store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, i64 16), align 8, !alias.scope !38
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV24internal_word_Relocation, i64 16), ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, align 8, !alias.scope !38
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24internal_word_Relocation, i64 16), ptr @_ZZN13RelocIterator19internal_word_relocEvE5proto, align 8, !alias.scope !38
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator19internal_word_relocEvE5proto) #19
   br label %305
 
@@ -1416,7 +1416,7 @@ _ZN13RelocIterator19internal_word_relocEv.exit:   ; preds = %324, %_ZN10Relocati
 345:                                              ; preds = %343
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator10poll_relocEvE5proto, i64 8), align 8, !alias.scope !41
   store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator10poll_relocEvE5proto, i64 16), align 8, !alias.scope !41
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV15poll_Relocation, i64 16), ptr @_ZZN13RelocIterator10poll_relocEvE5proto, align 8, !alias.scope !41
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV15poll_Relocation, i64 16), ptr @_ZZN13RelocIterator10poll_relocEvE5proto, align 8, !alias.scope !41
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator10poll_relocEvE5proto) #19
   br label %_ZN13RelocIterator10poll_relocEv.exit
 
@@ -1443,7 +1443,7 @@ _ZN13RelocIterator10poll_relocEv.exit:            ; preds = %340, %343, %345
 356:                                              ; preds = %354
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, i64 8), align 8, !alias.scope !44
   store i32 11, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, i64 16), align 8, !alias.scope !44
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22poll_return_Relocation, i64 16), ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, align 8, !alias.scope !44
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22poll_return_Relocation, i64 16), ptr @_ZZN13RelocIterator17poll_return_relocEvE5proto, align 8, !alias.scope !44
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17poll_return_relocEvE5proto) #19
   br label %_ZN13RelocIterator17poll_return_relocEv.exit
 
@@ -1470,7 +1470,7 @@ _ZN13RelocIterator17poll_return_relocEv.exit:     ; preds = %351, %354, %356
 367:                                              ; preds = %365
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, i64 8), align 8, !alias.scope !47
   store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, i64 16), align 8, !alias.scope !47
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23section_word_Relocation, i64 16), ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, align 8, !alias.scope !47
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23section_word_Relocation, i64 16), ptr @_ZZN13RelocIterator18section_word_relocEvE5proto, align 8, !alias.scope !47
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator18section_word_relocEvE5proto) #19
   br label %368
 
@@ -1538,7 +1538,7 @@ _ZN13RelocIterator18section_word_relocEv.exit:    ; preds = %379, %387, %389
 409:                                              ; preds = %407
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 8), align 8, !alias.scope !50
   store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 16), align 8, !alias.scope !50
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8, !alias.scope !50
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8, !alias.scope !50
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto) #19
   br label %410
 
@@ -1600,7 +1600,7 @@ _ZN13RelocIterator21trampoline_stub_relocEv.exit: ; preds = %423, %431, %433
 446:                                              ; preds = %444
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, i64 8), align 8, !alias.scope !53
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, i64 16), align 8, !alias.scope !53
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV24post_call_nop_Relocation, i64 16), ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, align 8, !alias.scope !53
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24post_call_nop_Relocation, i64 16), ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, align 8, !alias.scope !53
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator19post_call_nop_relocEvE5proto) #19
   br label %_ZN13RelocIterator19post_call_nop_relocEv.exit
 
@@ -1627,7 +1627,7 @@ _ZN13RelocIterator19post_call_nop_relocEv.exit:   ; preds = %441, %444, %446
 457:                                              ; preds = %455
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, i64 8), align 8, !alias.scope !56
   store i32 17, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, i64 16), align 8, !alias.scope !56
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22entry_guard_Relocation, i64 16), ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, align 8, !alias.scope !56
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22entry_guard_Relocation, i64 16), ptr @_ZZN13RelocIterator17entry_guard_relocEvE5proto, align 8, !alias.scope !56
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17entry_guard_relocEvE5proto) #19
   br label %_ZN13RelocIterator17entry_guard_relocEv.exit
 
@@ -1654,7 +1654,7 @@ _ZN13RelocIterator17entry_guard_relocEv.exit:     ; preds = %452, %455, %457
 468:                                              ; preds = %466
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, i64 8), align 8, !alias.scope !59
   store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, i64 16), align 8, !alias.scope !59
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, align 8, !alias.scope !59
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, align 8, !alias.scope !59
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator13barrier_relocEvE5proto) #19
   br label %_ZN13RelocIterator13barrier_relocEv.exit
 
@@ -1683,11 +1683,11 @@ _ZN13RelocIterator13barrier_relocEv.exit:         ; preds = %463, %466, %468
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK14oop_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
@@ -1697,11 +1697,11 @@ define hidden void @_ZNK14oop_Relocation9copy_intoER16RelocationHolder(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK19metadata_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
@@ -1711,11 +1711,11 @@ define hidden void @_ZNK19metadata_Relocation9copy_intoER16RelocationHolder(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK23virtual_call_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 36)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false)
@@ -1724,11 +1724,11 @@ define hidden void @_ZNK23virtual_call_Relocation9copy_intoER16RelocationHolder(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK27opt_virtual_call_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
@@ -1738,11 +1738,11 @@ define hidden void @_ZNK27opt_virtual_call_Relocation9copy_intoER16RelocationHol
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK22static_call_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
@@ -1752,11 +1752,11 @@ define hidden void @_ZNK22static_call_Relocation9copy_intoER16RelocationHolder(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK22static_stub_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 32)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -1766,21 +1766,21 @@ define hidden void @_ZNK22static_stub_Relocation9copy_intoER16RelocationHolder(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK23runtime_call_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK28runtime_call_w_cp_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV28runtime_call_w_cp_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV28runtime_call_w_cp_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
@@ -1790,11 +1790,11 @@ define hidden void @_ZNK28runtime_call_w_cp_Relocation9copy_intoER16RelocationHo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK24external_word_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 32)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV24external_word_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24external_word_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -1804,11 +1804,11 @@ define hidden void @_ZNK24external_word_Relocation9copy_intoER16RelocationHolder
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK24internal_word_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 36)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV24internal_word_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24internal_word_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false)
@@ -1817,45 +1817,45 @@ define hidden void @_ZNK24internal_word_Relocation9copy_intoER16RelocationHolder
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK15poll_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV15poll_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV15poll_Relocation, i64 16), ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK22poll_return_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22poll_return_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22poll_return_Relocation, i64 16), ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK23section_word_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 36)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV24internal_word_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24internal_word_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23section_word_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23section_word_Relocation, i64 16), ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK26trampoline_stub_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 32)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -1865,37 +1865,37 @@ define hidden void @_ZNK26trampoline_stub_Relocation9copy_intoER16RelocationHold
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK24post_call_nop_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV24post_call_nop_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24post_call_nop_Relocation, i64 16), ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK22entry_guard_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22entry_guard_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22entry_guard_Relocation, i64 16), ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK18barrier_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK10Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
@@ -1938,7 +1938,7 @@ define hidden void @_ZN10Relocation20const_set_data_valueEPh(ptr nocapture nound
   %13 = ptrtoint ptr %1 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %17 = zext nneg i32 %16 to i64
   %18 = lshr i64 %15, %17
   %19 = trunc i64 %18 to i32
@@ -1978,7 +1978,7 @@ define hidden void @_ZN10Relocation23const_verify_data_valueEPh(ptr nocapture no
   %16 = ptrtoint ptr %1 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %18, %20
   %22 = trunc i64 %21 to i32
@@ -2026,7 +2026,7 @@ define hidden void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead
   %11 = shl i16 %.tr, 11
   store i16 %11, ptr %3, align 2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -3502,7 +3502,7 @@ define linkonce_odr hidden void @_ZN14DataRelocation12verify_valueEPh(ptr nounde
   %23 = ptrtoint ptr %1 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %27 = zext nneg i32 %26 to i64
   %28 = lshr i64 %25, %27
   %29 = trunc i64 %28 to i32
@@ -3884,7 +3884,7 @@ define hidden noundef ptr @_ZN27opt_virtual_call_Relocation11static_stubEv(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -4027,7 +4027,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %68, %62
 86:                                               ; preds = %84
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 8), align 8, !alias.scope !63
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 16), align 8, !alias.scope !63
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !63
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !63
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_stub_relocEvE5proto) #19
   br label %87
 
@@ -4259,7 +4259,7 @@ define hidden noundef ptr @_ZN22static_call_Relocation11static_stubEv(ptr nocapt
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -4402,7 +4402,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %68, %62
 86:                                               ; preds = %84
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 8), align 8, !alias.scope !67
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, i64 16), align 8, !alias.scope !67
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !67
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_stub_relocEvE5proto, align 8, !alias.scope !67
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_stub_relocEvE5proto) #19
   br label %87
 
@@ -4478,7 +4478,7 @@ define hidden noundef ptr @_ZN26trampoline_stub_Relocation18get_trampoline_forEP
 
 _ZN13RelocIterator10initializeEP7nmethodPhS2_.exit: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -4678,7 +4678,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %89, %83
 107:                                              ; preds = %105
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 8), align 8, !alias.scope !71
   store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 16), align 8, !alias.scope !71
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8, !alias.scope !71
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8, !alias.scope !71
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto) #19
   br label %108
 
@@ -5009,7 +5009,7 @@ define linkonce_odr hidden void @_ZN14DataRelocation9set_valueEPh(ptr noundef no
   %22 = ptrtoint ptr %1 to i64
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -5228,7 +5228,7 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_relocInfo.cpp() #17 section ".text.startup" {
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr @_ZN16RelocationHolder4noneE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr @_ZN16RelocationHolder4noneE, align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN16RelocationHolder4noneE, i64 8), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN16RelocationHolder4noneE, i64 16), align 8
   ret void

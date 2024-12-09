@@ -251,7 +251,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %20 = load i8, ptr %12, align 8
   %21 = or i8 %20, 2
   store i8 %21, ptr %12, align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(8192) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 8192) #18
   %24 = icmp eq ptr %23, null
   br i1 %24, label %316, label %25, !prof !6
@@ -840,7 +840,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @spi_schedule_dv_device(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 2080, i64 noundef 40) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5, !prof !6
@@ -1453,7 +1453,7 @@ define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @spi_attach_transport(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(360) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 360) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %18, label %5, !prof !6
@@ -4385,7 +4385,7 @@ define internal i32 @spi_host_configure(ptr nocapture readnone %0, ptr nocapture
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %.loopexit
-  %25 = load i16, ptr getelementptr inbounds (i8, ptr @dev_attr_signalling, i64 8), align 8
+  %25 = load i16, ptr getelementptr inbounds nuw (i8, ptr @dev_attr_signalling, i64 8), align 8
   %26 = or i16 %25, 128
   %27 = tail call i32 @sysfs_chmod_file(ptr noundef %2, ptr noundef nonnull @dev_attr_signalling, i16 noundef zeroext %26) #17
   br label %28

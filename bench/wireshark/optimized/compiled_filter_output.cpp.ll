@@ -78,8 +78,8 @@ define void @_ZN20CompiledFilterOutputC2EP7QWidgetR5QListI15InterfaceFilterE(ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20CompiledFilterOutput, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20CompiledFilterOutput, i64 488), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20CompiledFilterOutput, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20CompiledFilterOutput, i64 488), ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %2, align 8
   store ptr %14, ptr %13, align 8
@@ -957,9 +957,9 @@ declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20CompiledFilterOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20CompiledFilterOutput, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20CompiledFilterOutput, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20CompiledFilterOutput, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20CompiledFilterOutput, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16

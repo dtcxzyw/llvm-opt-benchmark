@@ -303,7 +303,7 @@ _ZN8QuantLib8ScheduleC2EOS0_.exit:                ; preds = %if.then, %invoke.co
   store i32 0, ptr %ref.tmp.sroa.6.0.this.sroa_idx.i.i.i.i.i.i, align 8
   %ref.tmp.sroa.72.0.this.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %schedule, i64 128
   store ptr null, ptr %ref.tmp.sroa.72.0.this.sroa_idx.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12ActualActual9ISMA_ImplE, i64 16), ptr %call1, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12ActualActual9ISMA_ImplE, i64 16), ptr %call1, align 8, !tbaa !21
   %schedule_.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i8 0, ptr %schedule_.i, align 4, !tbaa !7
   br i1 %loadedv.i.i.i.i, label %invoke.cont.i.i.i.i, label %_ZN8QuantLib12ActualActual9ISMA_ImplC2ENS_8ScheduleE.exit
@@ -355,7 +355,7 @@ lpad.i:                                           ; preds = %_ZN8QuantLib12Actua
 
 if.else:                                          ; preds = %sw.bb
   %call3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12ActualActual13Old_ISMA_ImplE, i64 16), ptr %call3, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12ActualActual13Old_ISMA_ImplE, i64 16), ptr %call3, align 8, !tbaa !21
   store ptr %call3, ptr %agg.result, align 8, !tbaa !23
   %pn.i10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i10, align 8, !tbaa !16
@@ -374,7 +374,7 @@ lpad.i11:                                         ; preds = %if.else
 
 sw.bb4:                                           ; preds = %entry, %entry, %entry
   %call5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12ActualActual9ISDA_ImplE, i64 16), ptr %call5, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12ActualActual9ISDA_ImplE, i64 16), ptr %call5, align 8, !tbaa !21
   store ptr %call5, ptr %agg.result, align 8, !tbaa !23
   %pn.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i12, align 8, !tbaa !16
@@ -389,7 +389,7 @@ lpad.i13:                                         ; preds = %sw.bb4
 
 sw.bb6:                                           ; preds = %entry, %entry
   %call7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12ActualActual8AFB_ImplE, i64 16), ptr %call7, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12ActualActual8AFB_ImplE, i64 16), ptr %call7, align 8, !tbaa !21
   store ptr %call7, ptr %agg.result, align 8, !tbaa !23
   %pn.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i14, align 8, !tbaa !16
@@ -738,7 +738,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !21
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3528,7 +3528,7 @@ _ZN5boost6detail12shared_countC2IN8QuantLib12ActualActual9ISMA_ImplEEEPT_.exit: 
   store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !93
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !95
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12ActualActual9ISMA_ImplEEE, i64 16), ptr %call.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12ActualActual9ISMA_ImplEEE, i64 16), ptr %call.i, align 8, !tbaa !21
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %p, ptr %px_.i.i, align 8, !tbaa !96
   %5 = load ptr, ptr %pn, align 8, !tbaa !16
@@ -3844,7 +3844,7 @@ _ZN5boost6detail12shared_countC2IN8QuantLib12ActualActual13Old_ISMA_ImplEEEPT_.e
   store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !93
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !95
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12ActualActual13Old_ISMA_ImplEEE, i64 16), ptr %call.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12ActualActual13Old_ISMA_ImplEEE, i64 16), ptr %call.i, align 8, !tbaa !21
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %p, ptr %px_.i.i, align 8, !tbaa !98
   %6 = load ptr, ptr %pn, align 8, !tbaa !16
@@ -3976,7 +3976,7 @@ _ZN5boost6detail12shared_countC2IN8QuantLib12ActualActual9ISDA_ImplEEEPT_.exit: 
   store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !93
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !95
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12ActualActual9ISDA_ImplEEE, i64 16), ptr %call.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12ActualActual9ISDA_ImplEEE, i64 16), ptr %call.i, align 8, !tbaa !21
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %p, ptr %px_.i.i, align 8, !tbaa !100
   %6 = load ptr, ptr %pn, align 8, !tbaa !16
@@ -4108,7 +4108,7 @@ _ZN5boost6detail12shared_countC2IN8QuantLib12ActualActual8AFB_ImplEEEPT_.exit: ;
   store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !93
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !95
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12ActualActual8AFB_ImplEEE, i64 16), ptr %call.i, align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12ActualActual8AFB_ImplEEE, i64 16), ptr %call.i, align 8, !tbaa !21
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %p, ptr %px_.i.i, align 8, !tbaa !102
   %6 = load ptr, ptr %pn, align 8, !tbaa !16

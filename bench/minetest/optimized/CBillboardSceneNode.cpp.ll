@@ -262,8 +262,8 @@ entry:
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !9
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 328
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %5, align 8, !tbaa !3
   %ChangedID_Vertex.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 1, ptr %ChangedID_Vertex.i, align 8, !tbaa !14
   %ChangedID_Index.i = getelementptr inbounds nuw i8, ptr %call, i64 12
@@ -458,8 +458,8 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !13
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 24), ptr %1, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 24), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 336), ptr %0, align 8, !tbaa !3
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !tbaa !65
   %AbsoluteTransformation.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -512,13 +512,13 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN3irr5scene19IBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEE.exit
 
 _ZN3irr5scene19IBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEE.exit: ; preds = %if.then.i.i, %entry
-  %vtable4.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 24), %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
+  %vtable4.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 24), %entry ], [ %vtable4.i.i.pre, %if.then.i.i ]
   %vfn5.i.i = getelementptr inbounds nuw i8, ptr %vtable4.i.i, i64 256
   %4 = load ptr, ptr %vfn5.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(222) %1) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 32), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 568), ptr %1, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 960), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 32), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 568), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 960), ptr %0, align 8, !tbaa !3
   %Size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %Height.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store <2 x float> zeroinitializer, ptr %Size, align 8, !tbaa !6
@@ -537,8 +537,8 @@ _ZN3irr5scene19IBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKN
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !9
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 328
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %5, align 8, !tbaa !3
   %ChangedID_Vertex.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 1, ptr %ChangedID_Vertex.i, align 8, !tbaa !14
   %ChangedID_Index.i = getelementptr inbounds nuw i8, ptr %call, i64 12
@@ -768,11 +768,11 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5scene19CBillboardSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 64), (280, 288)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 32), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 32), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 568), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 568), ptr %add.ptr.i, align 8, !tbaa !3
   %add.ptr6.i = getelementptr inbounds nuw i8, ptr %this, i64 280
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 960), ptr %add.ptr6.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 960), ptr %add.ptr6.i, align 8, !tbaa !3
   %Buffer.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %Buffer.i, align 8, !tbaa !55
   %vtable7.i = load ptr, ptr %0, align 8, !tbaa !3
@@ -794,8 +794,8 @@ delete.notnull.i.i:                               ; preds = %entry
   br label %_ZN3irr5scene19CBillboardSceneNodeD2Ev.exit
 
 _ZN3irr5scene19CBillboardSceneNodeD2Ev.exit:      ; preds = %delete.notnull.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 24), ptr %add.ptr.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 336), ptr %add.ptr6.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 24), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 336), ptr %add.ptr6.i, align 8, !tbaa !3
   %Children.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %__begin2.sroa.0.015.i = load ptr, ptr %Children.i, align 8, !tbaa !70
   %cmp.i.not16.i = icmp eq ptr %__begin2.sroa.0.015.i, %Children.i
@@ -4828,9 +4828,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #15 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 312
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i, align 8, !tbaa !3
   %Indices.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Indices.i, align 8, !tbaa !61
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -4897,9 +4897,9 @@ _ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED2Ev.exit: ; preds = %delete.not
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED0Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #15 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Indices.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Indices.i.i, align 8, !tbaa !61
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -4971,9 +4971,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 312
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Indices.i.i = getelementptr inbounds nuw i8, ptr %3, i64 248
   %4 = load ptr, ptr %Indices.i.i, align 8, !tbaa !61
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -5044,9 +5044,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 312
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 312), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Indices.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 248
   %4 = load ptr, ptr %Indices.i.i.i, align 8, !tbaa !61
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null

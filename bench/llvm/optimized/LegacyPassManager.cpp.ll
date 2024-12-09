@@ -447,7 +447,7 @@ $_ZZN4llvm10FoldingSetINS_17PMTopLevelManager16AUFoldingSetNodeEE17getFoldingSet
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -460,7 +460,7 @@ define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6p
 
 _ZNSt8functionIFvRKN12_GLOBAL__N_114PassDebugLevelEEED2Ev.exit: ; preds = %1, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %8) #27
   %10 = load ptr, ptr %8, align 8
@@ -473,7 +473,7 @@ _ZNSt8functionIFvRKN12_GLOBAL__N_114PassDebugLevelEEED2Ev.exit: ; preds = %1, %4
   br label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEED2Ev.exit
 
 _ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEED2Ev.exit: ; preds = %_ZNSt8functionIFvRKN12_GLOBAL__N_114PassDebugLevelEEED2Ev.exit, %13
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8
@@ -506,7 +506,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm13PMDataManager31isPassDebuggingExecutionsOrMoreEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(380) %0) local_unnamed_addr #2 align 2 {
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %2 = icmp sgt i32 %.val.i, 2
   ret i1 %2
 }
@@ -871,7 +871,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit40:          ; preds = %113, %114
 
 118:                                              ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit40, %"_ZSt8for_eachIN4llvm20StringMapKeyIteratorISt4pairIjjEEEZNS0_13PMDataManager27emitInstrCountChangedRemarkEPNS0_4PassERNS0_6ModuleEljRNS0_9StringMapIS3_NS0_15MallocAllocatorEEEPNS0_8FunctionEE3$_2ET0_T_SI_SH_.exit"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %16, align 8
   %119 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %120 = load ptr, ptr %119, align 8
   %121 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(336) %119) #27
@@ -1088,7 +1088,7 @@ define internal fastcc void @"_ZZN4llvm13PMDataManager27emitInstrCountChangedRem
   %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %57) #27
   call void @_ZN4llvm11LLVMContext8diagnoseERKNS_14DiagnosticInfoE(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(13) %9) #27
   store i32 %23, ptr %20, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %9, align 8
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %60 = load ptr, ptr %59, align 8
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(336) %59) #27
@@ -1429,7 +1429,7 @@ declare void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbPKNS_6ModuleE(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6legacy18debugPassSpecifiedEv() local_unnamed_addr #2 {
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %1 = icmp ne i32 %.val.i, 0
   ret i1 %1
 }
@@ -1443,7 +1443,7 @@ define dso_local void @_ZN4llvm6legacy23FunctionPassManagerImpl6anchorEv(ptr noc
 define dso_local noundef zeroext i1 @_ZN4llvm6legacy23FunctionPassManagerImpl16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(1097) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   tail call void @_ZNK4llvm17PMTopLevelManager13dumpArgumentsEv(ptr noundef nonnull align 8 dereferenceable(680) %3)
-  %.val.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %4 = icmp slt i32 %.val.i.i, 2
   br i1 %4, label %_ZNK4llvm17PMTopLevelManager10dumpPassesEv.exit, label %5
 
@@ -1545,7 +1545,7 @@ _ZNK4llvm17PMTopLevelManager10dumpPassesEv.exit:  ; preds = %.lr.ph22.i, %2, %._
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm17PMTopLevelManager13dumpArgumentsEv(ptr noundef nonnull align 8 dereferenceable(680) %0) local_unnamed_addr #0 align 2 {
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %2 = icmp slt i32 %.val.i, 1
   br i1 %2, label %_ZN4llvm11raw_ostreamlsEPKc.exit26, label %3
 
@@ -1692,7 +1692,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %71, %69, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm17PMTopLevelManager10dumpPassesEv(ptr noundef nonnull align 8 dereferenceable(680) %0) local_unnamed_addr #0 align 2 {
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %2 = icmp slt i32 %.val.i, 2
   br i1 %2, label %.loopexit, label %3
 
@@ -2180,7 +2180,7 @@ _ZN4llvm14TimeTraceScopeC2ENS_9StringRefENS_12function_refIFNSt7__cxx1112basic_s
   call void @_ZNK4llvm13PMDataManager15dumpRequiredSetEPKNS_4PassE(ptr noundef nonnull align 8 dereferenceable(380) %11, ptr noundef %55)
   call void @_ZN4llvm13PMDataManager22initializeAnalysisImplEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(380) %11, ptr noundef %55)
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm27PassManagerPrettyStackEntryE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm27PassManagerPrettyStackEntryE, i64 16), ptr %6, align 8
   store ptr %55, ptr %47, align 8
   store ptr %1, ptr %48, align 8
   store ptr null, ptr %49, align 8
@@ -2433,7 +2433,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6legacy15PassManagerImpl3runERNS_6M
   %9 = alloca %"class.llvm::PassManagerPrettyStackEntry", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 416
   tail call void @_ZNK4llvm17PMTopLevelManager13dumpArgumentsEv(ptr noundef nonnull align 8 dereferenceable(680) %10)
-  %.val.i.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %11 = icmp slt i32 %.val.i.i, 2
   br i1 %11, label %_ZNK4llvm17PMTopLevelManager10dumpPassesEv.exit, label %12
 
@@ -2480,7 +2480,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6legacy15PassManagerImpl3runERNS_6M
   br i1 %.not16.i, label %_ZNK4llvm17PMTopLevelManager10dumpPassesEv.exit, label %.lr.ph22.i
 
 _ZNK4llvm17PMTopLevelManager10dumpPassesEv.exit:  ; preds = %.lr.ph22.i, %2, %._crit_edge.i
-  %35 = load i8, ptr getelementptr inbounds (i8, ptr @UseNewDbgInfoFormat, i64 128), align 8
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @UseNewDbgInfoFormat, i64 128), align 8
   %36 = trunc i8 %35 to i1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 856
   %38 = load i8, ptr %37, align 8
@@ -2721,7 +2721,7 @@ _ZN4llvm14TimeTraceScopeC2ENS_9StringRefES1_.exit.i: ; preds = %120, %111
   %168 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #27
   call void @_ZN4llvm13PMDataManager12dumpPassInfoEPNS_4PassENS_19PassDebuggingStringES3_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(380) %147, ptr noundef %166, i32 noundef 0, i32 noundef 4, ptr %167, i64 %168)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3)
-  %.val.i.i64 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i.i64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %169 = icmp slt i32 %.val.i.i64, 4
   br i1 %169, label %_ZNK4llvm13PMDataManager15dumpRequiredSetEPKNS_4PassE.exit, label %170
 
@@ -2960,7 +2960,7 @@ _ZN4llvm16AnalysisResolver20addAnalysisImplsPairEPKvPNS_4PassE.exit: ; preds = %
 
 _ZN4llvm13PMDataManager22initializeAnalysisImplEPNS_4PassE.exit: ; preds = %_ZN4llvm16AnalysisResolver20addAnalysisImplsPairEPKvPNS_4PassE.exit, %_ZNK4llvm13PMDataManager15dumpRequiredSetEPKNS_4PassE.exit
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm27PassManagerPrettyStackEntryE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm27PassManagerPrettyStackEntryE, i64 16), ptr %9, align 8
   store ptr %166, ptr %71, align 8
   store ptr null, ptr %72, align 8
   store ptr %1, ptr %73, align 8
@@ -3009,7 +3009,7 @@ _ZN4llvm10TimeRegionD2Ev.exit.i:                  ; preds = %283, %282
   %287 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #27
   call void @_ZN4llvm13PMDataManager12dumpPassInfoEPNS_4PassENS_19PassDebuggingStringES3_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(380) %147, ptr noundef nonnull %166, i32 noundef 1, i32 noundef 4, ptr %286, i64 %287)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4)
-  %.val.i.i55 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i.i55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %288 = icmp slt i32 %.val.i.i55, 4
   br i1 %288, label %_ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE.exit56.thread, label %289
 
@@ -3069,7 +3069,7 @@ _ZN4llvm11SmallVectorIPKvLj2EED2Ev.exit1.i111:    ; preds = %304, %_ZN4llvm11Sma
   br label %_ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE.exit56
 
 _ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE.exit56: ; preds = %308, %_ZN4llvm11SmallVectorIPKvLj2EED2Ev.exit1.i111
-  %.val.i.i53.pr = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i.i53.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5)
   %309 = icmp slt i32 %.val.i.i53.pr, 4
@@ -3132,7 +3132,7 @@ _ZNK4llvm13PMDataManager11dumpUsedSetEPKNS_4PassE.exit54: ; preds = %329, %_ZN4l
 
 .critedge.i:                                      ; preds = %_ZN4llvm10TimeRegionD2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6)
-  %.val.i.i52 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i.i52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %330 = icmp slt i32 %.val.i.i52, 4
   br i1 %330, label %_ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE.exit.thread, label %331
 
@@ -3192,7 +3192,7 @@ _ZN4llvm11SmallVectorIPKvLj2EED2Ev.exit1.i103:    ; preds = %346, %_ZN4llvm11Sma
   br label %_ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE.exit
 
 _ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE.exit: ; preds = %350, %_ZN4llvm11SmallVectorIPKvLj2EED2Ev.exit1.i103
-  %.val.i.i51.pr = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i.i51.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %7)
   %351 = icmp slt i32 %.val.i.i51.pr, 4
@@ -3967,7 +3967,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit: ; preds = %694, %.cri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm17PMTopLevelManagerC2EPNS_13PMDataManagerE(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm17PMTopLevelManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm17PMTopLevelManagerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8038,7 +8038,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %46, %45, %43, %13, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm17PMTopLevelManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm17PMTopLevelManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm17PMTopLevelManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
@@ -8602,7 +8602,7 @@ _ZN4llvm16DenseMapIteratorIPKvPNS_4PassENS_12DenseMapInfoIS2_vEENS_6detail12Dens
   br i1 %36, label %126, label %37
 
 37:                                               ; preds = %35
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %38 = icmp sgt i32 %.val.i, 3
   br i1 %38, label %39, label %_ZN4llvm11raw_ostreamlsEPKc.exit41
 
@@ -8958,7 +8958,7 @@ _ZN4llvm12is_containedIRKNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit: ; preds 
   br i1 %.not96, label %203, label %292
 
 203:                                              ; preds = %_ZN4llvm12is_containedIRKNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit
-  %.val.i65 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %204 = icmp sgt i32 %.val.i65, 3
   br i1 %204, label %205, label %_ZN4llvm11raw_ostreamlsEPKc.exit80
 
@@ -9219,7 +9219,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_4PassEE5beginEv.exit.i: ; preds = %.critedge2.i7.
   br label %_ZN4llvm17PMTopLevelManager15collectLastUsesERNS_15SmallVectorImplIPNS_4PassEEES3_.exit
 
 _ZN4llvm17PMTopLevelManager15collectLastUsesERNS_15SmallVectorImplIPNS_4PassEEES3_.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_4PassENS_11SmallPtrSetIS3_Lj8EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit.i, %_ZNK4llvm15SmallPtrSetImplIPNS_4PassEE5beginEv.exit.i
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %54 = icmp sgt i32 %.val.i, 3
   br i1 %54, label %55, label %_ZN4llvm11raw_ostreamlsEPKc.exit21
 
@@ -9365,7 +9365,7 @@ define dso_local void @_ZN4llvm13PMDataManager8freePassEPNS_4PassENS_9StringRefE
   %6 = alloca %"class.llvm::PassManagerPrettyStackEntry", align 8
   tail call void @_ZN4llvm13PMDataManager12dumpPassInfoEPNS_4PassENS_19PassDebuggingStringES3_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, i32 noundef 2, i32 noundef %4, ptr %2, i64 %3)
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm27PassManagerPrettyStackEntryE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm27PassManagerPrettyStackEntryE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -9453,7 +9453,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPNS_4PassENS_12DenseMapInfoIS3_vEENS_6det
 define dso_local void @_ZN4llvm13PMDataManager12dumpPassInfoEPNS_4PassENS_19PassDebuggingStringES3_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %9 = icmp slt i32 %.val.i, 3
   br i1 %9, label %_ZN4llvm11raw_ostreamlsEPKc.exit51, label %10
 
@@ -10788,7 +10788,7 @@ define dso_local void @_ZNK4llvm13PMDataManager12dumpLastUsesEPNS_4PassEj(ptr no
   %4 = alloca %"class.llvm::SmallVector.213", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %7 = icmp slt i32 %.val.i, 4
   br i1 %7, label %_ZN4llvm11SmallVectorIPNS_4PassELj12EED2Ev.exit, label %8
 
@@ -10969,7 +10969,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm13PMDataManager15dumpRequiredSetEPKNS_4PassE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(380) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::AnalysisUsage", align 8
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %4 = icmp slt i32 %.val.i, 4
   br i1 %4, label %16, label %5
 
@@ -11219,7 +11219,7 @@ _ZN4llvm11raw_ostreamlsEc.exit31:                 ; preds = %115, %113, %5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(380) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::AnalysisUsage", align 8
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %4 = icmp slt i32 %.val.i, 4
   br i1 %4, label %16, label %5
 
@@ -11251,7 +11251,7 @@ define dso_local void @_ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm13PMDataManager11dumpUsedSetEPKNS_4PassE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(380) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::AnalysisUsage", align 8
-  %.val.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
   %4 = icmp slt i32 %.val.i, 4
   br i1 %4, label %16, label %5
 
@@ -11299,7 +11299,7 @@ define dso_local void @_ZN4llvm13PMDataManager15getOnTheFlyPassEPNS_4PassEPKvRNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13PMDataManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(380) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
@@ -11448,7 +11448,7 @@ define dso_local void @_ZN4llvm16AnalysisResolver12findImplPassEPNS_4PassEPKvRNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6legacy19FunctionPassManagerC2EPNS_6ModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm6legacy19FunctionPassManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm6legacy19FunctionPassManagerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(1104) ptr @_Znwm(i64 noundef 1104) #29
@@ -11469,7 +11469,7 @@ define dso_local void @_ZN4llvm6legacy19FunctionPassManagerC2EPNS_6ModuleE(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm6legacy23FunctionPassManagerImplC2Ev(ptr noundef nonnull align 8 dereferenceable(1097) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm4PassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11477,7 +11477,7 @@ define linkonce_odr hidden void @_ZN4llvm6legacy23FunctionPassManagerImplC2Ev(pt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 5, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -11539,9 +11539,9 @@ _ZN4llvm13PMDataManagerC2Ev.exit:                 ; preds = %1, %25, %._crit_edg
   tail call void @_ZN4llvm13FPPassManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(412) %32)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   tail call void @_ZN4llvm17PMTopLevelManagerC2EPNS_13PMDataManagerE(ptr noundef nonnull align 8 dereferenceable(680) %31, ptr noundef nonnull %33)
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm6legacy23FunctionPassManagerImplE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm6legacy23FunctionPassManagerImplE, i64 192), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm6legacy23FunctionPassManagerImplE, i64 256), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm6legacy23FunctionPassManagerImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6legacy23FunctionPassManagerImplE, i64 192), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm6legacy23FunctionPassManagerImplE, i64 256), ptr %31, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store i8 0, ptr %34, align 8
   ret void
@@ -11549,7 +11549,7 @@ _ZN4llvm13PMDataManagerC2Ev.exit:                 ; preds = %1, %25, %._crit_edg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6legacy19FunctionPassManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm6legacy19FunctionPassManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm6legacy19FunctionPassManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -11945,7 +11945,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13FPPassManager14doFinalizationERNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6legacy11PassManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm6legacy11PassManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm6legacy11PassManagerE, i64 16), ptr %0, align 8
   %2 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #29
   tail call void @_ZN4llvm6legacy15PassManagerImplC2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11958,7 +11958,7 @@ define dso_local void @_ZN4llvm6legacy11PassManagerC2Ev(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm6legacy15PassManagerImplC2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm4PassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm4PassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11966,7 +11966,7 @@ define linkonce_odr hidden void @_ZN4llvm6legacy15PassManagerImplC2Ev(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 5, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -12024,7 +12024,7 @@ _ZN4llvm13PMDataManagerC2Ev.exit:                 ; preds = %1, %25, %._crit_edg
   %scevgep.i.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i.i, i8 0, i64 48, i1 false)
   %31 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #29
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm4PassE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm4PassE, i64 16), ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -12032,7 +12032,7 @@ _ZN4llvm13PMDataManagerC2Ev.exit:                 ; preds = %1, %25, %._crit_edg
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i32 5, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -12090,23 +12090,23 @@ _ZN12_GLOBAL__N_113MPPassManagerC2Ev.exit:        ; preds = %_ZN4llvm13PMDataMan
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i.i.i, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 16), ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 200), ptr %35, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 200), ptr %35, align 8
   %62 = getelementptr inbounds nuw i8, ptr %31, i64 416
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 20, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %31, i64 440
   %64 = getelementptr inbounds nuw i8, ptr %31, i64 456
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull %64, i64 noundef 0) #27
   tail call void @_ZN4llvm17PMTopLevelManagerC2EPNS_13PMDataManagerE(ptr noundef nonnull align 8 dereferenceable(680) %61, ptr noundef nonnull %35)
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm6legacy15PassManagerImplE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm6legacy15PassManagerImplE, i64 192), ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm6legacy15PassManagerImplE, i64 256), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm6legacy15PassManagerImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6legacy15PassManagerImplE, i64 192), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm6legacy15PassManagerImplE, i64 256), ptr %61, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6legacy11PassManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm6legacy11PassManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm6legacy11PassManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -12550,9 +12550,9 @@ define linkonce_odr hidden void @_ZN4llvm13FPPassManagerC2Ev(ptr noundef nonnull
   store ptr @_ZN4llvm13FPPassManager2IDE, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 4, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm10ModulePassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN4llvm10ModulePassE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm13PMDataManagerE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -12609,8 +12609,8 @@ define linkonce_odr hidden void @_ZN4llvm13FPPassManagerC2Ev(ptr noundef nonnull
 _ZN4llvm13PMDataManagerC2Ev.exit:                 ; preds = %1, %25, %._crit_edge.i.i.i
   %scevgep.i.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i.i, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm13FPPassManagerE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm13FPPassManagerE, i64 192), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm13FPPassManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm13FPPassManagerE, i64 192), ptr %5, align 8
   ret void
 }
 
@@ -12997,7 +12997,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #27
   %4 = load ptr, ptr %2, align 8
@@ -13145,7 +13145,7 @@ declare void @_ZN4llvm2cl6Option6anchorEv(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13158,7 +13158,7 @@ define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6p
 
 _ZNSt8functionIFvRKN12_GLOBAL__N_114PassDebugLevelEEED2Ev.exit.i: ; preds = %4, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %8) #27
   %10 = load ptr, ptr %8, align 8
@@ -13171,7 +13171,7 @@ _ZNSt8functionIFvRKN12_GLOBAL__N_114PassDebugLevelEEED2Ev.exit.i: ; preds = %4, 
   br label %_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEED2Ev.exit.i
 
 _ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEED2Ev.exit.i: ; preds = %13, %_ZNSt8functionIFvRKN12_GLOBAL__N_114PassDebugLevelEEED2Ev.exit.i
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8
@@ -13236,7 +13236,7 @@ define internal void @_ZNK4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %4, align 8
   store i8 1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.val2.pre, ptr %14, align 8
@@ -13272,7 +13272,7 @@ declare noundef zeroext i1 @_ZN4llvm2cl6Option13addOccurrenceEjNS_9StringRefES2_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #27
   %4 = load ptr, ptr %2, align 8
@@ -13768,9 +13768,9 @@ declare noundef i32 @_ZNK4llvm6Module19getInstructionCountEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_113MPPassManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(456) initializes((0, 8), (32, 40)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 200), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 200), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
@@ -14665,7 +14665,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_2cl15OptionEnumValueELb1EE18uninitialized_c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -18021,7 +18021,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !224
   %155 = load ptr, ptr %2, align 8, !noalias !227
   store ptr null, ptr %2, align 8, !noalias !227
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
@@ -18241,12 +18241,12 @@ define internal void @_GLOBAL__sub_I_LegacyPassManager.cpp() #14 section ".text.
   call void @_ZN4llvm15SmallVectorImplINS_2cl15OptionEnumValueEE6appendIPKS2_vEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull %3, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3)
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL13PassDebugging, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL13PassDebugging, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEE, i64 16), ptr @_ZL13PassDebugging, align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 144), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_114PassDebugLevelELb0ENS0_6parserIS3_EEEE, i64 16), ptr @_ZL13PassDebugging, align 8
   store ptr @_ZL13PassDebugging, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 160), align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 152), align 8
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 184), i64 noundef 8) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 568), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKN12_GLOBAL__N_114PassDebugLevelEEN4llvm2cl3optIS1_Lb0ENS6_6parserIS1_EEEUlS3_E_EE9_M_invokeERKSt9_Any_dataS3_, ptr getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 592), align 8
@@ -18290,7 +18290,7 @@ define internal void @_GLOBAL__sub_I_LegacyPassManager.cpp() #14 section ".text.
   store i64 %.sroa.22.0.copyload.i.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %17, align 8
   store i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %18, align 8
   store i8 1, ptr %19, align 4
   store i32 %.val.i.i.i.i.i.i.i.i, ptr %20, align 8
   %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168)) #27
@@ -18330,11 +18330,11 @@ define internal void @_GLOBAL__sub_I_LegacyPassManager.cpp() #14 section ".text.
   %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %37 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 40
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %42, ptr noundef nonnull readonly align 8 dereferenceable(5) %43, i64 5, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   %45 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %44, %40
@@ -18366,11 +18366,11 @@ _ZN4llvm2cl6parserIN12_GLOBAL__N_114PassDebugLevelEE16addLiteralOptionIiEEvNS_9S
   %53 = getelementptr inbounds %"class.llvm::cl::parser<(anonymous namespace)::PassDebugLevel>::OptionInfo", ptr %.val.i.i.i.i.i.i.i.i.i.i.i, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef nonnull readonly align 8 dereferenceable(48) %.016.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i.i.i.i.i.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %55, ptr noundef nonnull readonly align 8 dereferenceable(5) %56, i64 5, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyIN12_GLOBAL__N_114PassDebugLevelEEE, i64 16), ptr %54, align 8
   %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168)) #27
   %58 = add i64 %57, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL13PassDebugging, i64 168), i64 noundef %58) #27

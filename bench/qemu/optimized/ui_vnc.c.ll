@@ -5095,11 +5095,11 @@ if.end:                                           ; preds = %for.inc.i, %for.con
   store ptr %call2, ptr %id3, align 8
   %next = getelementptr inbounds nuw i8, ptr %call1, i64 284944
   store ptr null, ptr %next, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @vnc_displays, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vnc_displays, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call1, i64 284952
   store ptr %2, ptr %tql_prev, align 8
   store ptr %call1, ptr %2, align 8
-  store ptr %next, ptr getelementptr inbounds (i8, ptr @vnc_displays, i64 8), align 8
+  store ptr %next, ptr getelementptr inbounds nuw (i8, ptr @vnc_displays, i64 8), align 8
   store ptr null, ptr %call1, align 8
   %tql_prev9 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call1, ptr %tql_prev9, align 8

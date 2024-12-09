@@ -209,7 +209,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 
 61:                                               ; preds = %.loopexit, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit71.thread"
   %.05095 = phi i8 [ 0, %.loopexit ], [ %.2, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit71.thread" ]
-  %.sroa.0.094 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17h17a3afe5a2286a15E, i64 1), %.loopexit ], [ %62, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit71.thread" ]
+  %.sroa.0.094 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17h17a3afe5a2286a15E, i64 1), %.loopexit ], [ %62, %"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit71.thread" ]
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.094, i64 1
   %63 = load i8, ptr %.sroa.0.094, align 1, !noundef !4
   %64 = zext i8 %63 to i64
@@ -256,7 +256,7 @@ define internal fastcc void @"_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$1
 
 "_ZN5image6codecs4jpeg7encoder18BitWriter$LT$W$GT$10write_bits17h74397c3fb4d61deeE.exit71.thread": ; preds = %122, %100, %99, %80
   %.2 = phi i8 [ %81, %80 ], [ 0, %99 ], [ 0, %100 ], [ 0, %122 ]
-  %82 = icmp eq ptr %62, getelementptr inbounds (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17h17a3afe5a2286a15E, i64 64)
+  %82 = icmp eq ptr %62, getelementptr inbounds nuw (i8, ptr @_ZN5image6codecs4jpeg7encoder8UNZIGZAG17h17a3afe5a2286a15E, i64 64)
   br i1 %82, label %57, label %61
 
 .lr.ph:                                           ; preds = %.preheader, %129

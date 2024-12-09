@@ -216,8 +216,8 @@ define void @_ZN13ProfileDialogC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13ProfileDialog, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13ProfileDialog, i64 488), ptr %40, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ProfileDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ProfileDialog, i64 488), ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #17
           to label %44 unwind label %240
@@ -1702,7 +1702,7 @@ _ZN7QStringD2Ev.exit142:                          ; preds = %191, %_ZN17QArrayDa
 202:                                              ; preds = %200
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store i32 0, ptr %203, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %201, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %201, align 8
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 12
   store i32 40, ptr %204, align 4
   %205 = getelementptr inbounds nuw i8, ptr %201, i64 16
@@ -5397,9 +5397,9 @@ declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13ProfileDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13ProfileDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ProfileDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13ProfileDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ProfileDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

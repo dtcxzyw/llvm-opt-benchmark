@@ -123,8 +123,8 @@ define dso_local void @parseCommandLine(i32 noundef %0, ptr noundef %1) local_un
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 0, ptr %4, align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @user_opts, i64 1), align 1
-  store i32 1, ptr getelementptr inbounds (i8, ptr @user_opts, i64 4), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 1), align 1
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 4), align 4
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @get_progname(ptr noundef %6) #12
   store ptr %7, ptr @os_info, align 8
@@ -139,7 +139,7 @@ define dso_local void @parseCommandLine(i32 noundef %0, ptr noundef %1) local_un
 
 12:                                               ; preds = %2, %9
   %13 = phi i16 [ %11, %9 ], [ -15104, %2 ]
-  store i16 %13, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 176), align 8
+  store i16 %13, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 176), align 8
   %14 = tail call ptr @getenv(ptr noundef nonnull @.str.20) #12
   %.not23 = icmp eq ptr %14, null
   br i1 %.not23, label %18, label %15
@@ -151,18 +151,18 @@ define dso_local void @parseCommandLine(i32 noundef %0, ptr noundef %1) local_un
 
 18:                                               ; preds = %12, %15
   %19 = phi i16 [ %17, %15 ], [ -15104, %12 ]
-  store i16 %19, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 176), align 8
-  %20 = tail call i32 @get_user_info(ptr noundef nonnull getelementptr inbounds (i8, ptr @os_info, i64 8)) #12
+  store i16 %19, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 176), align 8
+  %20 = tail call i32 @get_user_info(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @os_info, i64 8)) #12
   %21 = tail call ptr @getenv(ptr noundef nonnull @.str.21) #12
   %.not24 = icmp eq ptr %21, null
   br i1 %.not24, label %26, label %22
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 8), align 8
   tail call void @pg_free(ptr noundef %23) #12
   %24 = tail call ptr @getenv(ptr noundef nonnull @.str.21) #12
   %25 = tail call ptr @pg_strdup(ptr noundef %24) #12
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 8), align 8
   br label %26
 
 26:                                               ; preds = %22, %18
@@ -267,13 +267,13 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
 57:                                               ; preds = %.preheader
   %58 = load ptr, ptr @optarg, align 8
   %59 = call ptr @pg_strdup(ptr noundef %58) #12
-  store ptr %59, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 152), align 8
+  store ptr %59, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 152), align 8
   br label %.preheader.backedge
 
 60:                                               ; preds = %.preheader
   %61 = load ptr, ptr @optarg, align 8
   %62 = call ptr @pg_strdup(ptr noundef %61) #12
-  store ptr %62, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   br label %.preheader.backedge
 
 63:                                               ; preds = %.preheader
@@ -283,60 +283,60 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
 64:                                               ; preds = %.preheader
   %65 = load ptr, ptr @optarg, align 8
   %66 = call ptr @pg_strdup(ptr noundef %65) #12
-  store ptr %66, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
+  store ptr %66, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 136), align 8
   br label %.preheader.backedge
 
 67:                                               ; preds = %.preheader
   %68 = load ptr, ptr @optarg, align 8
   %69 = call ptr @pg_strdup(ptr noundef %68) #12
-  store ptr %69, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  store ptr %69, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   br label %.preheader.backedge
 
 70:                                               ; preds = %.preheader
   %71 = load ptr, ptr @optarg, align 8
   %72 = call i32 @atoi(ptr nocapture noundef %71) #13
-  store i32 %72, ptr getelementptr inbounds (i8, ptr @user_opts, i64 8), align 8
+  store i32 %72, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 8), align 8
   br label %.preheader.backedge
 
 73:                                               ; preds = %.preheader
-  store i32 2, ptr getelementptr inbounds (i8, ptr @user_opts, i64 4), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 4), align 4
   br label %.preheader.backedge
 
 74:                                               ; preds = %.preheader
-  store i8 0, ptr getelementptr inbounds (i8, ptr @user_opts, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 1), align 1
   br label %.preheader.backedge
 
 75:                                               ; preds = %.preheader
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 160), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 160), align 8
   %.not29 = icmp eq ptr %76, null
   %77 = load ptr, ptr @optarg, align 8
   br i1 %.not29, label %78, label %80
 
 78:                                               ; preds = %75
   %79 = call ptr @pg_strdup(ptr noundef %77) #12
-  store ptr %79, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 160), align 8
+  store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 160), align 8
   br label %.preheader.backedge
 
 80:                                               ; preds = %75
   %81 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.29, ptr noundef nonnull %76, ptr noundef %77) #12
-  store ptr %81, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 160), align 8
+  store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 160), align 8
   call void @free(ptr noundef nonnull %76) #12
   br label %.preheader.backedge
 
 82:                                               ; preds = %.preheader
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 160), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 160), align 8
   %.not28 = icmp eq ptr %83, null
   %84 = load ptr, ptr @optarg, align 8
   br i1 %.not28, label %85, label %87
 
 85:                                               ; preds = %82
   %86 = call ptr @pg_strdup(ptr noundef %84) #12
-  store ptr %86, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 160), align 8
+  store ptr %86, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 160), align 8
   br label %.preheader.backedge
 
 87:                                               ; preds = %82
   %88 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.29, ptr noundef nonnull %83, ptr noundef %84) #12
-  store ptr %88, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 160), align 8
+  store ptr %88, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 160), align 8
   call void @free(ptr noundef nonnull %83) #12
   br label %.preheader.backedge
 
@@ -344,7 +344,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
   %90 = load ptr, ptr @optarg, align 8
   %91 = call i32 @atoi(ptr nocapture noundef %90) #13
   %92 = trunc i32 %91 to i16
-  store i16 %92, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 176), align 8
+  store i16 %92, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 176), align 8
   %93 = and i32 %91, 65535
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %.preheader.backedge
@@ -357,7 +357,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
   %97 = load ptr, ptr @optarg, align 8
   %98 = call i32 @atoi(ptr nocapture noundef %97) #13
   %99 = trunc i32 %98 to i16
-  store i16 %99, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 176), align 8
+  store i16 %99, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 176), align 8
   %100 = and i32 %98, 65535
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %.preheader.backedge
@@ -370,34 +370,34 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
   unreachable
 
 103:                                              ; preds = %.preheader
-  store i8 1, ptr getelementptr inbounds (i8, ptr @log_opts, i64 9), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 9), align 1
   br label %.preheader.backedge
 
 104:                                              ; preds = %.preheader
   %105 = load ptr, ptr @optarg, align 8
   %106 = call ptr @pg_strdup(ptr noundef %105) #12
-  store ptr %106, ptr getelementptr inbounds (i8, ptr @user_opts, i64 16), align 8
+  store ptr %106, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 16), align 8
   br label %.preheader.backedge
 
 107:                                              ; preds = %.preheader
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 8), align 8
   call void @pg_free(ptr noundef %108) #12
   %109 = load ptr, ptr @optarg, align 8
   %110 = call ptr @pg_strdup(ptr noundef %109) #12
-  store ptr %110, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @os_info, i64 16), align 8
+  store ptr %110, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 16), align 8
   br label %.preheader.backedge
 
 111:                                              ; preds = %.preheader
-  store i8 1, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8
   br label %.preheader.backedge
 
 112:                                              ; preds = %.preheader
-  store i32 0, ptr getelementptr inbounds (i8, ptr @user_opts, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 4), align 4
   br label %.preheader.backedge
 
 113:                                              ; preds = %.preheader
-  store i32 1, ptr getelementptr inbounds (i8, ptr @user_opts, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 4), align 4
   br label %.preheader.backedge
 
 114:                                              ; preds = %.preheader
@@ -412,7 +412,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
 118:                                              ; preds = %114
   %119 = load ptr, ptr @optarg, align 8
   %120 = call ptr @pg_strdup(ptr noundef %119) #12
-  store ptr %120, ptr getelementptr inbounds (i8, ptr @user_opts, i64 24), align 8
+  store ptr %120, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 24), align 8
   br label %.preheader.backedge
 
 121:                                              ; preds = %.preheader
@@ -435,17 +435,17 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
   unreachable
 
 132:                                              ; preds = %125
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @user_opts, i64 24), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 24), align 8
   %.not26 = icmp eq ptr %133, null
   br i1 %.not26, label %134, label %136
 
 134:                                              ; preds = %132
   %135 = call ptr @pg_strdup(ptr noundef nonnull @.str.34) #12
-  store ptr %135, ptr getelementptr inbounds (i8, ptr @user_opts, i64 24), align 8
+  store ptr %135, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 24), align 8
   br label %136
 
 136:                                              ; preds = %134, %132
-  %137 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
+  %137 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8
   %138 = trunc i8 %137 to i1
   br i1 %138, label %139, label %140
 
@@ -459,7 +459,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
   %143 = call i32 @isatty(i32 noundef %142) #12
   %144 = icmp ne i32 %143, 0
   %145 = zext i1 %144 to i8
-  store i8 %145, ptr getelementptr inbounds (i8, ptr @log_opts, i64 48), align 8
+  store i8 %145, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 48), align 8
   %146 = call ptr @getenv(ptr noundef nonnull @.str.36) #12
   %.not27 = icmp eq ptr %146, null
   br i1 %.not27, label %150, label %147
@@ -475,7 +475,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
   br label %152
 
 152:                                              ; preds = %150, %147
-  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 152), align 8
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 152), align 8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %157, label %155
 
@@ -496,7 +496,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
 
 160:                                              ; preds = %159
   %161 = call ptr @pg_strdup(ptr noundef nonnull %158) #12
-  store ptr %161, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 152), align 8
+  store ptr %161, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 152), align 8
   br label %check_required_directory.exit
 
 162:                                              ; preds = %159, %157
@@ -506,7 +506,7 @@ sub_152:                                          ; preds = %.tail.thread, %.thr
 check_required_directory.exit:                    ; preds = %155, %160
   %163 = phi ptr [ %153, %155 ], [ %161, %160 ]
   call void @canonicalize_path(ptr noundef %163) #12
-  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   %165 = icmp eq ptr %164, null
   br i1 %165, label %168, label %166
 
@@ -527,7 +527,7 @@ check_required_directory.exit:                    ; preds = %155, %160
 
 171:                                              ; preds = %170
   %172 = call ptr @pg_strdup(ptr noundef nonnull %169) #12
-  store ptr %172, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  store ptr %172, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   br label %173
 
 173:                                              ; preds = %171, %166
@@ -536,7 +536,7 @@ check_required_directory.exit:                    ; preds = %155, %160
   br label %check_required_directory.exit34
 
 check_required_directory.exit34:                  ; preds = %168, %170, %173
-  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 136), align 8
   %176 = icmp eq ptr %175, null
   br i1 %176, label %179, label %177
 
@@ -557,7 +557,7 @@ check_required_directory.exit34:                  ; preds = %168, %170, %173
 
 182:                                              ; preds = %181
   %183 = call ptr @pg_strdup(ptr noundef nonnull %180) #12
-  store ptr %183, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
+  store ptr %183, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 136), align 8
   br label %check_required_directory.exit39
 
 184:                                              ; preds = %181, %179
@@ -567,7 +567,7 @@ check_required_directory.exit34:                  ; preds = %168, %170, %173
 check_required_directory.exit39:                  ; preds = %177, %182
   %185 = phi ptr [ %175, %177 ], [ %183, %182 ]
   call void @canonicalize_path(ptr noundef %185) #12
-  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %187 = icmp eq ptr %186, null
   br i1 %187, label %190, label %188
 
@@ -588,7 +588,7 @@ check_required_directory.exit39:                  ; preds = %177, %182
 
 193:                                              ; preds = %192
   %194 = call ptr @pg_strdup(ptr noundef nonnull %191) #12
-  store ptr %194, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  store ptr %194, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   br label %check_required_directory.exit44
 
 195:                                              ; preds = %192, %190
@@ -599,7 +599,7 @@ check_required_directory.exit44:                  ; preds = %188, %193
   %196 = phi ptr [ %186, %188 ], [ %194, %193 ]
   call void @canonicalize_path(ptr noundef %196) #12
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
-  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @user_opts, i64 16), align 8
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 16), align 8
   %198 = icmp eq ptr %197, null
   br i1 %198, label %201, label %199
 
@@ -630,7 +630,7 @@ check_required_directory.exit44:                  ; preds = %188, %193
 .sink.split.i:                                    ; preds = %204, %203
   %.sink = phi ptr [ %202, %203 ], [ %3, %204 ]
   %207 = call ptr @pg_strdup(ptr noundef nonnull %.sink) #12
-  store ptr %207, ptr getelementptr inbounds (i8, ptr @user_opts, i64 16), align 8
+  store ptr %207, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 16), align 8
   br label %check_required_directory.exit49
 
 check_required_directory.exit49:                  ; preds = %199, %.sink.split.i
@@ -673,15 +673,15 @@ define internal fastcc void @usage() unnamed_addr #0 {
   %12 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.76) #12
   %13 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.77) #12
   %14 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.78) #12
-  %15 = load i16, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 176), align 8
+  %15 = load i16, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 176), align 8
   %16 = zext i16 %15 to i32
   %17 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.79, i32 noundef %16) #12
-  %18 = load i16, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 176), align 8
+  %18 = load i16, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 176), align 8
   %19 = zext i16 %18 to i32
   %20 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.80, i32 noundef %19) #12
   %21 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.81) #12
   %22 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.82) #12
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 8), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 8), align 8
   %24 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.83, ptr noundef %23) #12
   %25 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.84) #12
   %26 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.85) #12
@@ -845,7 +845,7 @@ define dso_local void @get_sock_dir(ptr nocapture noundef %0, i1 noundef zeroext
   br i1 %1, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @user_opts, i64 16), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 16), align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %6, ptr %7, align 8
   br label %41
@@ -889,7 +889,7 @@ define dso_local void @get_sock_dir(ptr nocapture noundef %0, i1 noundef zeroext
   ]
 
 26:                                               ; preds = %.lr.ph
-  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @old_cluster, i64 176)) #12
+  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_cluster, i64 176)) #12
   br label %28
 
 28:                                               ; preds = %26, %.lr.ph
@@ -904,7 +904,7 @@ define dso_local void @get_sock_dir(ptr nocapture noundef %0, i1 noundef zeroext
   %34 = call i32 @pg_strip_crlf(ptr noundef %33) #12
   %35 = call i32 @fclose(ptr noundef nonnull %14)
   %.not = icmp eq i16 %10, -15104
-  %36 = load i16, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 176), align 8
+  %36 = load i16, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 176), align 8
   %.not18 = icmp eq i16 %36, %10
   %or.cond = select i1 %.not, i1 true, i1 %.not18
   br i1 %or.cond, label %41, label %37

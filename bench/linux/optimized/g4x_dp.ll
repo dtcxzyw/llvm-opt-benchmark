@@ -270,7 +270,7 @@ define dso_local noundef zeroext i1 @g4x_dp_init(ptr noundef %0, i32 %1, i32 nou
   br label %16
 
 16:                                               ; preds = %13, %5
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(4056) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 4056) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %163, label %20

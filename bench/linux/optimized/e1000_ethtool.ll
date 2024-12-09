@@ -2387,7 +2387,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %662 = load ptr, ptr %458, align 8
   %663 = sext i32 %661 to i64
   %664 = getelementptr %struct.e1000_rx_desc, ptr %662, i64 %663
-  %665 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %665 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %666 = call noalias noundef align 8 dereferenceable_or_null(2112) ptr @kmalloc_trace(ptr noundef %665, i32 noundef 3520, i64 noundef 2112) #21
   %667 = icmp eq ptr %666, null
   br i1 %667, label %.thread, label %668

@@ -1319,7 +1319,7 @@ _ZN16IndexSetIterator4nextEv.exit13:              ; preds = %81, %95
 define hidden void @_ZN12PhaseChaitin17build_ifg_virtualEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(364) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.IndexSetIterator, align 8
   %3 = alloca %"class.Compile::TracePhase", align 8
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 696)) #13
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 696)) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -2060,7 +2060,7 @@ define hidden void @_ZN12PhaseChaitin14lower_pressureEP5BlockjR3LRGP8IndexSetRNS
   br i1 %26, label %_ZN12PhaseChaitin8Pressure5lowerER3LRGRj.exit.sink.split, label %_ZN12PhaseChaitin8Pressure5lowerER3LRGRj.exit
 
 27:                                               ; preds = %14
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 148
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 92
@@ -2099,7 +2099,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %27, %_ZNK7RegMask7o
   br i1 %.not23, label %_ZN12PhaseChaitin8Pressure5lowerER3LRGRj.exit, label %49
 
 49:                                               ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 92
   %52 = load i32, ptr %51, align 4
   %53 = tail call noundef i32 @llvm.umin.i32(i32 %30, i32 %52)
@@ -2183,7 +2183,7 @@ define hidden void @_ZN12PhaseChaitin14raise_pressureEP5BlockR3LRGRNS_8PressureE
   br label %_ZN12PhaseChaitin8Pressure5raiseER3LRG.exit
 
 26:                                               ; preds = %12
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 148
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 92
@@ -2222,7 +2222,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %26, %_ZNK7RegMask7o
   br i1 %.not21, label %_ZN12PhaseChaitin8Pressure5raiseER3LRG.exit, label %48
 
 48:                                               ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 92
   %51 = load i32, ptr %50, align 4
   %52 = tail call noundef i32 @llvm.umin.i32(i32 %29, i32 %51)
@@ -3540,7 +3540,7 @@ define hidden noundef i32 @_ZN12PhaseChaitin18build_ifg_physicalEP12ResourceArea
   %8 = alloca %class.IndexSet, align 8
   %9 = alloca %"class.PhaseChaitin::Pressure", align 4
   %10 = alloca %"class.PhaseChaitin::Pressure", align 4
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 720)) #13
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 720)) #13
   store i32 0, ptr %7, align 4
   %.sink28.i.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.sink28.i.sroa.gep180 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -3935,7 +3935,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %143, %147
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
   %259 = getelementptr inbounds nuw i8, ptr %163, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull readonly align 8 dereferenceable(96) %259, i64 96, i1 false)
-  %260 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  %260 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %261 = load i32, ptr %26, align 8
   %262 = load i32, ptr %27, align 4
   %.not12.i.i = icmp ugt i32 %261, %262
@@ -4003,7 +4003,7 @@ _ZN12PhaseChaitin45check_for_high_pressure_transition_at_fatprojERjjR3LRGRNS_8Pr
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull readonly align 8 dereferenceable(96) %259, i64 96, i1 false)
-  %289 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 8
+  %289 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 8
   %290 = load i32, ptr %28, align 8
   %291 = load i32, ptr %29, align 4
   %.not12.i.i100 = icmp ugt i32 %290, %291
@@ -4202,7 +4202,7 @@ _ZN12PhaseChaitin37assign_high_score_to_immediate_copiesEP5BlockP4NodeR3LRGjj.ex
   br i1 %397, label %_ZN12PhaseChaitin8Pressure5lowerER3LRGRj.exit.sink.split.i, label %_ZN8IndexSet6removeEj.exit
 
 398:                                              ; preds = %386
-  %399 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  %399 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %400 = getelementptr inbounds nuw i8, ptr %163, i64 148
   %401 = load i32, ptr %400, align 4
   %402 = getelementptr inbounds nuw i8, ptr %399, i64 92
@@ -4241,7 +4241,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread.i:          ; preds = %_ZNK7RegMask7overla
   br i1 %.not23.i, label %_ZN8IndexSet6removeEj.exit, label %420
 
 420:                                              ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread.i
-  %421 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
+  %421 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 92
   %423 = load i32, ptr %422, align 4
   %424 = call noundef i32 @llvm.umin.i32(i32 %401, i32 %423)
@@ -4364,7 +4364,7 @@ _ZN8IndexSet6removeEj.exit:                       ; preds = %_ZN12PhaseChaitin8P
   br i1 %503, label %_ZN12PhaseChaitin8Pressure5lowerER3LRGRj.exit.sink.split.i151, label %_ZN12PhaseChaitin29remove_interference_from_copyEP5BlockjjP8IndexSetdRNS_8PressureES5_.exit
 
 504:                                              ; preds = %492
-  %505 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  %505 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %506 = getelementptr inbounds nuw i8, ptr %482, i64 148
   %507 = load i32, ptr %506, align 4
   %508 = getelementptr inbounds nuw i8, ptr %505, i64 92
@@ -4403,7 +4403,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread.i160:       ; preds = %_ZNK7RegMask7overla
   br i1 %.not23.i161, label %_ZN12PhaseChaitin29remove_interference_from_copyEP5BlockjjP8IndexSetdRNS_8PressureES5_.exit, label %526
 
 526:                                              ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread.i160
-  %527 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
+  %527 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 92
   %529 = load i32, ptr %528, align 4
   %530 = call noundef i32 @llvm.umin.i32(i32 %507, i32 %529)
@@ -4789,7 +4789,7 @@ _ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit: ; preds = %640, %_ZN16I
   br label %_ZN8IndexSet6insertEj.exit.i
 
 748:                                              ; preds = %739
-  %749 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
+  %749 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
   %750 = getelementptr inbounds nuw i8, ptr %698, i64 148
   %751 = load i32, ptr %750, align 4
   %752 = getelementptr inbounds nuw i8, ptr %749, i64 92
@@ -4828,7 +4828,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread.i177:       ; preds = %_ZNK7RegMask7overla
   br i1 %.not21.i178, label %_ZN8IndexSet6insertEj.exit.i, label %770
 
 770:                                              ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread.i177
-  %771 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
+  %771 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 112), align 8
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 92
   %773 = load i32, ptr %772, align 4
   %774 = call noundef i32 @llvm.umin.i32(i32 %751, i32 %773)

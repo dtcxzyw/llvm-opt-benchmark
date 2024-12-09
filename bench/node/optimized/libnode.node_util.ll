@@ -2723,7 +2723,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %entry, %init.check.
   %.fca.1.load.i.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i)
   store ptr %.fca.0.load.i.i.i.i, ptr @_ZN4node4util23fast_guess_handle_type_E, align 8
-  store ptr %.fca.1.load.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4node4util23fast_guess_handle_type_E, i64 8), align 8
+  store ptr %.fca.1.load.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4util23fast_guess_handle_type_E, i64 8), align 8
   ret void
 }
 

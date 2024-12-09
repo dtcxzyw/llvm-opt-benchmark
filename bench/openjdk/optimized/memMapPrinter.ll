@@ -455,7 +455,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %_ZN28JavaThre
   br i1 %.not24.i, label %196, label %188
 
 188:                                              ; preds = %186
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15GCThreadClosure, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15GCThreadClosure, i64 16), ptr %5, align 8
   store i8 0, ptr %55, align 8
   store i64 0, ptr %56, align 8
   store ptr %1, ptr %57, align 8
@@ -526,7 +526,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 define hidden void @_ZN13MemMapPrinter18print_all_mappingsEP12outputStream(ptr noundef nonnull %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.CachedNMTInformation, align 8
   %3 = alloca %class.MappingPrintSession, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20CachedNMTInformation, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20CachedNMTInformation, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.29) #13
@@ -547,7 +547,7 @@ define hidden void @_ZN13MemMapPrinter18print_all_mappingsEP12outputStream(ptr n
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %11, align 8
   call void @_ZN13MemMapPrinter21pd_print_all_mappingsERK19MappingPrintSession(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20CachedNMTInformation, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20CachedNMTInformation, i64 16), ptr %2, align 8
   %12 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %12) #13
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16

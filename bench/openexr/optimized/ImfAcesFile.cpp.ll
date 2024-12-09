@@ -152,7 +152,7 @@ entry:
   %ref.tmp2.i = alloca %"class.Imath_3_2::Vec2", align 4
   %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 4
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
@@ -278,7 +278,7 @@ invoke.cont7:                                     ; preds = %invoke.cont.i18, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp1.i6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i8)
-  invoke void @_ZN7Imf_3_217addAdoptedNeutralERNS_6HeaderERKN9Imath_3_24Vec2IfEE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 24))
+  invoke void @_ZN7Imf_3_217addAdoptedNeutralERNS_6HeaderERKN9Imath_3_24Vec2IfEE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 24))
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -355,7 +355,7 @@ entry:
   %ref.tmp2.i = alloca %"class.Imath_3_2::Vec2", align 4
   %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 4
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
@@ -481,7 +481,7 @@ invoke.cont7:                                     ; preds = %invoke.cont.i19, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp1.i7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i9)
-  invoke void @_ZN7Imf_3_217addAdoptedNeutralERNS_6HeaderERKN9Imath_3_24Vec2IfEE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 24))
+  invoke void @_ZN7Imf_3_217addAdoptedNeutralERNS_6HeaderERKN9Imath_3_24Vec2IfEE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 24))
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -535,7 +535,7 @@ entry:
   %ref.tmp2.i = alloca %"class.Imath_3_2::Vec2", align 4
   %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 4
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
@@ -670,7 +670,7 @@ invoke.cont7:                                     ; preds = %invoke.cont.i20, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp1.i8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i10)
-  invoke void @_ZN7Imf_3_217addAdoptedNeutralERNS_6HeaderERKN9Imath_3_24Vec2IfEE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 24))
+  invoke void @_ZN7Imf_3_217addAdoptedNeutralERNS_6HeaderERKN9Imath_3_24Vec2IfEE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 24))
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -725,7 +725,7 @@ entry:
   %ref.tmp2.i = alloca %"class.Imath_3_2::Vec2", align 4
   %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 4
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
@@ -849,7 +849,7 @@ invoke.cont6:                                     ; preds = %invoke.cont.i18, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp1.i6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i8)
-  invoke void @_ZN7Imf_3_217addAdoptedNeutralERNS_6HeaderERKN9Imath_3_24Vec2IfEE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(8) getelementptr inbounds (i8, ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 24))
+  invoke void @_ZN7Imf_3_217addAdoptedNeutralERNS_6HeaderERKN9Imath_3_24Vec2IfEE(ptr noundef nonnull align 8 dereferenceable(49) %newHeader, ptr noundef nonnull align 4 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 24))
           to label %invoke.cont8 unwind label %lpad2
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -895,7 +895,7 @@ declare void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_214AcesOutputFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %isnull = icmp eq ptr %0, null
@@ -1711,7 +1711,7 @@ declare void @_ZN7Imf_3_28XYZtoRGBERKNS_14ChromaticitiesEf(ptr sret(%"class.Imat
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_213AcesInputFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #15
   %fileToAces.i = getelementptr inbounds nuw i8, ptr %call, i64 44
@@ -1754,7 +1754,7 @@ declare void @_ZN7Imf_3_213RgbaInputFileC1EPKci(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_213AcesInputFileC2ERNS_7IStreamEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #15
   %fileToAces.i = getelementptr inbounds nuw i8, ptr %call, i64 44
@@ -1796,7 +1796,7 @@ declare void @_ZN7Imf_3_213RgbaInputFileC1ERNS_7IStreamEi(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_213AcesInputFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %isnull = icmp eq ptr %0, null

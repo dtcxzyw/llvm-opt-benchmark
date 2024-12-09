@@ -60,7 +60,7 @@ declare void @_ZN6google7LogSink12WaitTillSentEv(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly7logging23BridgeFromGoogleLoggingC2Ev(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 16), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 16), ptr %this, align 8, !tbaa !16
   invoke void @_ZN6google10AddLogSinkEPNS_7LogSinkE(ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
 
@@ -84,7 +84,7 @@ declare void @_ZN6google7LogSinkD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly7logging23BridgeFromGoogleLoggingD2Ev(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 16), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly7logging23BridgeFromGoogleLoggingE, i64 16), ptr %this, align 8, !tbaa !16
   invoke void @_ZN6google13RemoveLogSinkEPNS_7LogSinkE(ptr noundef nonnull %this)
           to label %invoke.cont unwind label %terminate.lpad
 

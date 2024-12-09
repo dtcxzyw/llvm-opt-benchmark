@@ -216,7 +216,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorUtf8E, i64 16), ptr %call.i6, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorUtf8E, i64 16), ptr %call.i6, align 8, !noalias !7
   %expr.i.i = getelementptr inbounds nuw i8, ptr %call.i6, i64 8
   store ptr %expr, ptr %expr.i.i, align 8, !noalias !7
   %graph.i.i = getelementptr inbounds nuw i8, ptr %call.i6, i64 16
@@ -292,7 +292,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119CorpusGeneratorUtf8ESt14default_deleteIS1_EED
   br label %return
 
 if.else:                                          ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorImplE, i64 16), ptr %call.i6, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorImplE, i64 16), ptr %call.i6, align 8, !noalias !10
   %expr.i.i7 = getelementptr inbounds nuw i8, ptr %call.i6, i64 8
   store ptr %expr, ptr %expr.i.i7, align 8, !noalias !10
   %graph.i.i8 = getelementptr inbounds nuw i8, ptr %call.i6, i64 16
@@ -6460,7 +6460,7 @@ invoke.cont.i.i:                                  ; preds = %init.check.i.i
   %5 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i = add i32 %5, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #26
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
 
@@ -6514,7 +6514,7 @@ invoke.cont.i.i50:                                ; preds = %init.check.i.i48
   %10 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i51 = add i32 %10, 1
   store i32 %inc.i.i.i.i.i51, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #26
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i45
 
@@ -6721,7 +6721,7 @@ invoke.cont.i.i:                                  ; preds = %init.check.i.i
   %7 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i = add i32 %7, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #26
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
 
@@ -6778,7 +6778,7 @@ invoke.cont.i.i58:                                ; preds = %init.check.i.i56
   %12 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i59 = add i32 %12, 1
   store i32 %inc.i.i.i.i.i59, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #26
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i53
 

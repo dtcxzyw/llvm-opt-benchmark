@@ -35399,7 +35399,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i7.sroa.5.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.c91e04c7d383ba7521049835a0a71fd2.89.llvm.9266542439947230232, i64 8), i64 24, i1 false), !noalias !9077
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i7.sroa.5.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.c91e04c7d383ba7521049835a0a71fd2.89.llvm.9266542439947230232, i64 8), i64 24, i1 false), !noalias !9077
   br label %174
 
 161:                                              ; preds = %152

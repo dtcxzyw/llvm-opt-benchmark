@@ -372,7 +372,7 @@ define internal fastcc ptr @_parse_plugin_type(ptr noundef %0) unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %13, %20
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %24 = and i64 %23, 256
   %.not23 = icmp eq i64 %24, 0
   br i1 %.not23, label %32, label %25
@@ -1044,7 +1044,7 @@ define ptr @data_parser_cli_meta(i32 noundef %0, ptr nocapture noundef readonly 
 
 22:                                               ; preds = %20, %19
   %.012 = phi ptr [ %21, %20 ], [ null, %19 ]
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 72), align 8
   br i1 %.not19, label %26, label %24
 
 24:                                               ; preds = %22
@@ -1059,7 +1059,7 @@ define ptr @data_parser_cli_meta(i32 noundef %0, ptr nocapture noundef readonly 
   %31 = tail call ptr @xstrdup(ptr noundef nonnull @.str.12) #13
   %32 = tail call ptr @xstrdup(ptr noundef nonnull @.str.13) #13
   %33 = tail call ptr @xstrdup(ptr noundef nonnull @.str.14) #13
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %35 = tail call ptr @xstrdup(ptr noundef %34) #13
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)

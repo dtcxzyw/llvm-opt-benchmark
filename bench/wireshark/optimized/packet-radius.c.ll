@@ -2405,7 +2405,7 @@ define hidden void @radius_register_avp_dissector(i32 noundef %0, i32 noundef %1
   %19 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @free_radius_attr_info) #14
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %19, ptr %20, align 8
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @no_vendor, i64 24), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_vendor, i64 24), align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 28
@@ -2466,17 +2466,17 @@ define hidden void @radius_register_avp_dissector(i32 noundef %0, i32 noundef %1
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 40
   store ptr null, ptr %54, align 8
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 52), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 52), align 4
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 52
   store i32 %55, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i32 0, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 64
   store i32 -1, ptr %58, align 8
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 68), align 4
   %60 = getelementptr inbounds nuw i8, ptr %49, i64 68
   store i32 %59, ptr %60, align 4
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 48), align 8
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store i32 %61, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %49, i64 72
@@ -3434,17 +3434,17 @@ _radius_load_dictionary.exit8:                    ; preds = %_radius_load_dictio
   store ptr null, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store ptr null, ptr %59, align 8
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 52), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 52), align 4
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 52
   store i32 %60, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 0, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 64
   store i32 -1, ptr %63, align 8
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 68), align 4
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 68
   store i32 %64, ptr %65, align 4
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 48), align 8
   %67 = getelementptr inbounds nuw i8, ptr %54, i64 48
   store i32 %66, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %54, i64 72
@@ -3481,17 +3481,17 @@ radius_register_avp_dissector.exit:               ; preds = %_radius_load_dictio
   store ptr null, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 40
   store ptr null, ptr %84, align 8
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 52), align 4
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 52), align 4
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 52
   store i32 %85, ptr %86, align 4
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store i32 0, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 64
   store i32 -1, ptr %88, align 8
-  %89 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 68), align 4
   %90 = getelementptr inbounds nuw i8, ptr %79, i64 68
   store i32 %89, ptr %90, align 4
-  %91 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
+  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 48), align 8
   %92 = getelementptr inbounds nuw i8, ptr %79, i64 48
   store i32 %91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %79, i64 72
@@ -3528,17 +3528,17 @@ radius_register_avp_dissector.exit13:             ; preds = %radius_register_avp
   store ptr null, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store ptr null, ptr %109, align 8
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 52), align 4
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 52), align 4
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 52
   store i32 %110, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store i32 0, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %104, i64 64
   store i32 -1, ptr %113, align 8
-  %114 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 68), align 4
   %115 = getelementptr inbounds nuw i8, ptr %104, i64 68
   store i32 %114, ptr %115, align 4
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 48), align 8
   %117 = getelementptr inbounds nuw i8, ptr %104, i64 48
   store i32 %116, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %104, i64 72
@@ -3575,17 +3575,17 @@ radius_register_avp_dissector.exit18:             ; preds = %radius_register_avp
   store ptr null, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 40
   store ptr null, ptr %134, align 8
-  %135 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 52), align 4
+  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 52), align 4
   %136 = getelementptr inbounds nuw i8, ptr %129, i64 52
   store i32 %135, ptr %136, align 4
   %137 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store i32 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %129, i64 64
   store i32 -1, ptr %138, align 8
-  %139 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 68), align 4
   %140 = getelementptr inbounds nuw i8, ptr %129, i64 68
   store i32 %139, ptr %140, align 4
-  %141 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
+  %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 48), align 8
   %142 = getelementptr inbounds nuw i8, ptr %129, i64 48
   store i32 %141, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %129, i64 72
@@ -3622,17 +3622,17 @@ radius_register_avp_dissector.exit23:             ; preds = %radius_register_avp
   store ptr null, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %154, i64 40
   store ptr null, ptr %159, align 8
-  %160 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 52), align 4
+  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 52), align 4
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 52
   store i32 %160, ptr %161, align 4
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store i32 0, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 64
   store i32 -1, ptr %163, align 8
-  %164 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
+  %164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 68), align 4
   %165 = getelementptr inbounds nuw i8, ptr %154, i64 68
   store i32 %164, ptr %165, align 4
-  %166 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
+  %166 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 48), align 8
   %167 = getelementptr inbounds nuw i8, ptr %154, i64 48
   store i32 %166, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %154, i64 72
@@ -3669,17 +3669,17 @@ radius_register_avp_dissector.exit28:             ; preds = %radius_register_avp
   store ptr null, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 40
   store ptr null, ptr %184, align 8
-  %185 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 52), align 4
+  %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 52), align 4
   %186 = getelementptr inbounds nuw i8, ptr %179, i64 52
   store i32 %185, ptr %186, align 4
   %187 = getelementptr inbounds nuw i8, ptr %179, i64 16
   store i32 0, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %179, i64 64
   store i32 -1, ptr %188, align 8
-  %189 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 68), align 4
+  %189 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 68), align 4
   %190 = getelementptr inbounds nuw i8, ptr %179, i64 68
   store i32 %189, ptr %190, align 4
-  %191 = load i32, ptr getelementptr inbounds (i8, ptr @no_dictionary_entry, i64 48), align 8
+  %191 = load i32, ptr getelementptr inbounds nuw (i8, ptr @no_dictionary_entry, i64 48), align 8
   %192 = getelementptr inbounds nuw i8, ptr %179, i64 48
   store i32 %191, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %179, i64 72

@@ -134,7 +134,7 @@ define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr
 .lr.ph:                                           ; preds = %.preheader, %proctrack_p_signal.exit
   %.01517 = phi i32 [ %spec.select, %proctrack_p_signal.exit ], [ 1, %.preheader ]
   %7 = tail call i64 @time(ptr noundef null) #8
-  %8 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1488), align 8
+  %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1488), align 8
   %9 = zext i16 %8 to i64
   %10 = add nsw i64 %3, %9
   %11 = icmp sgt i64 %7, %10

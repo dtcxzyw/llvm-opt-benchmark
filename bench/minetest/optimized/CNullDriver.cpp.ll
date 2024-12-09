@@ -234,7 +234,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video23IGPUProgrammingServicesE, i64 16), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video23IGPUProgrammingServicesE, i64 16), ptr %4, align 8, !tbaa !3
   %5 = load ptr, ptr %vtt, align 8
   store ptr %5, ptr %this, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
@@ -243,7 +243,7 @@ entry:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %7, ptr %add.ptr, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 992), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 992), ptr %4, align 8, !tbaa !3
   %Textures = getelementptr inbounds nuw i8, ptr %this, i64 16
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Textures, i8 0, i64 24, i1 false)
@@ -643,14 +643,14 @@ entry:
   %30 = getelementptr inbounds nuw i8, ptr %call39, i64 8
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call39, i64 24
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !115
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3irr5scene16CMeshManipulatorE, i64 8), align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3irr5scene16CMeshManipulatorE, i64 16), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5scene16CMeshManipulatorE, i64 8), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5scene16CMeshManipulatorE, i64 16), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %31, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call39, i64 %vbase.offset.i.i
   store ptr %32, ptr %add.ptr.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CMeshManipulatorE, i64 24), ptr %call39, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CMeshManipulatorE, i64 112), ptr %30, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CMeshManipulatorE, i64 24), ptr %call39, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CMeshManipulatorE, i64 112), ptr %30, align 8, !tbaa !3
   store ptr %call39, ptr %MeshManipulator, align 8, !tbaa !117
   %33 = load ptr, ptr %FileSystem, align 8, !tbaa !57
   %tobool.not = icmp eq ptr %33, null
@@ -1408,9 +1408,9 @@ entry:
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 1184
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !115
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 1064), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 992), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 1064), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 992), ptr %1, align 8, !tbaa !3
   %Textures = getelementptr inbounds nuw i8, ptr %this, i64 16
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Textures, i8 0, i64 24, i1 false)
@@ -1810,14 +1810,14 @@ entry:
   %24 = getelementptr inbounds nuw i8, ptr %call37, i64 8
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call37, i64 24
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !115
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3irr5scene16CMeshManipulatorE, i64 8), align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN3irr5scene16CMeshManipulatorE, i64 16), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5scene16CMeshManipulatorE, i64 8), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5scene16CMeshManipulatorE, i64 16), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %25, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call37, i64 %vbase.offset.i.i
   store ptr %26, ptr %add.ptr.i.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CMeshManipulatorE, i64 24), ptr %call37, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CMeshManipulatorE, i64 112), ptr %24, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CMeshManipulatorE, i64 24), ptr %call37, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CMeshManipulatorE, i64 112), ptr %24, align 8, !tbaa !3
   store ptr %call37, ptr %MeshManipulator, align 8, !tbaa !117
   %27 = load ptr, ptr %FileSystem, align 8, !tbaa !57
   %tobool.not = icmp eq ptr %27, null
@@ -2261,7 +2261,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 992), ptr %add.ptr3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriverE, i64 992), ptr %add.ptr3, align 8, !tbaa !3
   %DriverAttributes = getelementptr inbounds nuw i8, ptr %this, i64 480
   %3 = load ptr, ptr %DriverAttributes, align 8, !tbaa !113
   %tobool.not = icmp eq ptr %3, null
@@ -5465,14 +5465,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s) #24
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %dummy) #24
   %0 = getelementptr inbounds nuw i8, ptr %dummy, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i.i = getelementptr inbounds nuw i8, ptr %dummy, i64 128
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !129
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %dummy, i64 136
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !115
-  call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %dummy, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video11CNullDriver13SDummyTextureE, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %filename, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 24), ptr %dummy, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 88), ptr %0, align 8, !tbaa !3
+  call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %dummy, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video11CNullDriver13SDummyTextureE, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %filename, i32 noundef 0)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 24), ptr %dummy, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 88), ptr %0, align 8, !tbaa !3
   store ptr %dummy, ptr %s, align 8, !tbaa !158
   %Textures = getelementptr inbounds nuw i8, ptr %this, i64 16
   %is_sorted.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -5511,8 +5511,8 @@ if.then:                                          ; preds = %_ZN3irr4core5arrayI
 
 cleanup:                                          ; preds = %if.then, %_ZN3irr4core5arrayINS_5video11CNullDriver8SSurfaceEE13binary_searchERKS4_.exit
   %retval.0 = phi ptr [ %7, %if.then ], [ null, %_ZN3irr4core5arrayINS_5video11CNullDriver8SSurfaceEE13binary_searchERKS4_.exit ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %dummy, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %dummy, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %0, align 8, !tbaa !3
   %NamedPath.i.i.i = getelementptr inbounds nuw i8, ptr %dummy, i64 8
   %InternalName.i.i.i.i = getelementptr inbounds nuw i8, ptr %dummy, i64 40
   %8 = load ptr, ptr %InternalName.i.i.i.i, align 8, !tbaa !135
@@ -5557,9 +5557,9 @@ _ZN3irr5video11CNullDriver13SDummyTextureD1Ev.exit: ; preds = %if.then.i.i.i3.i.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video11CNullDriver13SDummyTextureD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !3
   %NamedPath.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %InternalName.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %InternalName.i.i.i, align 8, !tbaa !135
@@ -5604,14 +5604,14 @@ define noundef nonnull ptr @_ZN3irr5video11CNullDriver28createDeviceDependentTex
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #25
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !129
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !115
-  tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video11CNullDriver13SDummyTextureE, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 88), ptr %0, align 8, !tbaa !3
+  tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %call, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video11CNullDriver13SDummyTextureE, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef 0)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 88), ptr %0, align 8, !tbaa !3
   %Size.i = getelementptr inbounds nuw i8, ptr %image, i64 12
   %OriginalSize.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %1 = load i64, ptr %Size.i, align 4, !tbaa.struct !86
@@ -5626,14 +5626,14 @@ define noundef nonnull ptr @_ZN3irr5video11CNullDriver35createDeviceDependentTex
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #25
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
   %DebugName.i.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !129
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !115
-  tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video11CNullDriver13SDummyTextureE, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef 1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 24), ptr %call, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 88), ptr %0, align 8, !tbaa !3
+  tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %call, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video11CNullDriver13SDummyTextureE, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef 1)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 24), ptr %call, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video11CNullDriver13SDummyTextureE, i64 88), ptr %0, align 8, !tbaa !3
   ret ptr %call
 }
 
@@ -10026,8 +10026,8 @@ if.end28:                                         ; preds = %delete.notnull.i55,
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !129
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 24
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !115
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video12_GLOBAL__N_122CDummyMaterialRendererE, i64 24), ptr %call29, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video12_GLOBAL__N_122CDummyMaterialRendererE, i64 112), ptr %15, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video12_GLOBAL__N_122CDummyMaterialRendererE, i64 24), ptr %call29, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video12_GLOBAL__N_122CDummyMaterialRendererE, i64 112), ptr %15, align 8, !tbaa !3
   store ptr %call29, ptr %Renderer19, align 8, !tbaa !140
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %empty.i) #24
   %16 = getelementptr inbounds nuw i8, ptr %empty.i, i64 16
@@ -10191,8 +10191,8 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %call1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !115
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %0, align 8, !tbaa !3
   %vtable = load ptr, ptr %call, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 616
   %2 = load ptr, ptr %vfn, align 8
@@ -10222,8 +10222,8 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
   %6 = getelementptr inbounds nuw i8, ptr %call1.1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %ReferenceCounter.i.i.1, align 8, !tbaa !115
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1.1, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1.1, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %5, align 8, !tbaa !3
   %vtable.1 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn.1 = getelementptr inbounds nuw i8, ptr %vtable.1, i64 616
   %7 = load ptr, ptr %vfn.1, align 8
@@ -10253,8 +10253,8 @@ _ZNK3irr17IReferenceCounted4dropEv.exit.1:        ; preds = %delete.notnull.i.1,
   %11 = getelementptr inbounds nuw i8, ptr %call1.2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i32 1, ptr %ReferenceCounter.i.i.2, align 8, !tbaa !115
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1.2, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %10, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1.2, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %10, align 8, !tbaa !3
   %vtable.2 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn.2 = getelementptr inbounds nuw i8, ptr %vtable.2, i64 616
   %12 = load ptr, ptr %vfn.2, align 8
@@ -10284,8 +10284,8 @@ _ZNK3irr17IReferenceCounted4dropEv.exit.2:        ; preds = %delete.notnull.i.2,
   %16 = getelementptr inbounds nuw i8, ptr %call1.3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store i32 1, ptr %ReferenceCounter.i.i.3, align 8, !tbaa !115
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1.3, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %15, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1.3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %15, align 8, !tbaa !3
   %vtable.3 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn.3 = getelementptr inbounds nuw i8, ptr %vtable.3, i64 616
   %17 = load ptr, ptr %vfn.3, align 8
@@ -10315,8 +10315,8 @@ _ZNK3irr17IReferenceCounted4dropEv.exit.3:        ; preds = %delete.notnull.i.3,
   %21 = getelementptr inbounds nuw i8, ptr %call1.4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i32 1, ptr %ReferenceCounter.i.i.4, align 8, !tbaa !115
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1.4, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %20, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 24), ptr %call1.4, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video17IMaterialRendererE, i64 112), ptr %20, align 8, !tbaa !3
   %vtable.4 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn.4 = getelementptr inbounds nuw i8, ptr %vtable.4, i64 616
   %22 = load ptr, ptr %vfn.4, align 8
@@ -11288,9 +11288,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video11CNullDriver13SDummyTextureD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %NamedPath.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %InternalName.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %InternalName.i.i.i.i, align 8, !tbaa !135
@@ -11338,9 +11338,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %NamedPath.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %InternalName.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load ptr, ptr %InternalName.i.i.i.i, align 8, !tbaa !135
@@ -11387,9 +11387,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTCN3irr5video11CNullDriver13SDummyTextureE0_NS0_8ITextureE, i64 88), ptr %add.ptr.i.i.i.i, align 8, !tbaa !3
   %NamedPath.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %InternalName.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load ptr, ptr %InternalName.i.i.i.i.i, align 8, !tbaa !135

@@ -3388,7 +3388,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr nocapture nounde
 
 220:                                              ; preds = %203
   %221 = load i64, ptr %102, align 8
-  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %223 = call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %222, i32 noundef 3520, i64 noundef 120) #13
   %224 = icmp eq ptr %223, null
   br i1 %224, label %.thread46, label %225

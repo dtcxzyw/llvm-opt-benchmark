@@ -147,7 +147,7 @@ $_ZN9QtPrivate11QSlotObjectIM14RtpAudioStreamFvN6QAudio5StateEENS_4ListIJS3_EEEv
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14RtpAudioStreamC2EP7QObjectP13_rtpstream_idb(ptr noundef nonnull align 8 dereferenceable(7680) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14RtpAudioStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14RtpAudioStream, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7384
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7392
@@ -204,9 +204,9 @@ define void @_ZN14RtpAudioStreamC2EP7QObjectP13_rtpstream_idb(ptr noundef nonnul
           to label %34 unwind label %45
 
 34:                                               ; preds = %31
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 536), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 536), align 8
   %36 = icmp ne i32 %35, 0
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 540), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 540), align 4
   %38 = icmp ne i32 %37, 0
   invoke void @_ZN12RtpAudioFileC1Ebb(ptr noundef nonnull align 8 dereferenceable(96) %33, i1 noundef zeroext %36, i1 noundef zeroext %38)
           to label %39 unwind label %47
@@ -442,7 +442,7 @@ declare void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14RtpAudioStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(7680) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14RtpAudioStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14RtpAudioStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7392
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7408
   %4 = load i64, ptr %3, align 8

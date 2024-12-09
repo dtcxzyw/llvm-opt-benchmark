@@ -3294,7 +3294,7 @@ Gia_ObjIsRo.exit207.thread.i:                     ; preds = %Gia_ObjIsRo.exit207
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds i32, ptr %.val4.val.i223.i, i64 %152
   %154 = load i32, ptr %153, align 4
-  store i32 %154, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  store i32 %154, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %.val5.i225.i = load ptr, ptr %142, align 8
   %.val6.i226.i = load ptr, ptr %143, align 8
   %155 = getelementptr i8, ptr %.val6.i226.i, i64 8
@@ -3309,7 +3309,7 @@ Gia_ObjIsRo.exit207.thread.i:                     ; preds = %Gia_ObjIsRo.exit207
   %162 = sext i32 %161 to i64
   %163 = getelementptr i32, ptr %.val6.val.i.i, i64 %162
   %164 = getelementptr i8, ptr %163, i64 4
-  store ptr %164, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  store ptr %164, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %165 = icmp sgt i32 %154, 0
   br i1 %165, label %.lr.ph.i, label %.critedge.i
 
@@ -3323,7 +3323,7 @@ Gia_ObjIsRo.exit207.thread.i:                     ; preds = %Gia_ObjIsRo.exit207
   br i1 %.not165.i, label %.critedge.i, label %168
 
 168:                                              ; preds = %.lr.ph.i
-  %Ga2_ObjLeaves.v.val180.i = load ptr, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  %Ga2_ObjLeaves.v.val180.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %169 = getelementptr inbounds nuw i32, ptr %Ga2_ObjLeaves.v.val180.i, i64 %indvars.iv.i
   %170 = load i32, ptr %169, align 4
   %171 = zext i32 %170 to i64
@@ -3451,7 +3451,7 @@ Vec_IntPush.exit.i:                               ; preds = %223, %Vec_IntGrow.e
   %229 = getelementptr inbounds i32, ptr %225, i64 %228
   store i32 %.1152.i, ptr %229, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %Ga2_ObjLeaves.v.val174.i = load i32, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  %Ga2_ObjLeaves.v.val174.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %230 = sext i32 %Ga2_ObjLeaves.v.val174.i to i64
   %231 = icmp slt i64 %indvars.iv.next.i, %230
   br i1 %231, label %.lr.ph.i, label %.critedge.i, !llvm.loop !32
@@ -3521,7 +3521,7 @@ Vec_IntPush.exit.i:                               ; preds = %223, %Vec_IntGrow.e
 264:                                              ; preds = %259
   %265 = add nsw i32 %262, -1073741808
   %266 = lshr i32 %265, 1
-  %Ga2_ObjLeaves.v.val178.i = load ptr, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  %Ga2_ObjLeaves.v.val178.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %267 = zext nneg i32 %266 to i64
   %268 = getelementptr inbounds nuw i32, ptr %Ga2_ObjLeaves.v.val178.i, i64 %267
   %269 = load i32, ptr %268, align 4
@@ -3620,7 +3620,7 @@ Ga2_ObjFindOrAddLit.exit131:                      ; preds = %283, %264, %259
 325:                                              ; preds = %.lr.ph353.i
   %326 = add nsw i32 %323, -1073741808
   %327 = lshr i32 %326, 1
-  %Ga2_ObjLeaves.v.val176.i = load ptr, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  %Ga2_ObjLeaves.v.val176.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %328 = zext nneg i32 %327 to i64
   %329 = getelementptr inbounds nuw i32, ptr %Ga2_ObjLeaves.v.val176.i, i64 %328
   %330 = load i32, ptr %329, align 4
@@ -3702,7 +3702,7 @@ Ga2_ObjFindOrAddLit.exit296.i:                    ; preds = %344, %325
 371:                                              ; preds = %.critedge5.i
   %372 = getelementptr i8, ptr %366, i64 4
   store i32 0, ptr %372, align 4
-  %Ga2_ObjLeaves.v.val357.i = load i32, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  %Ga2_ObjLeaves.v.val357.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %373 = icmp sgt i32 %Ga2_ObjLeaves.v.val357.i, 0
   br i1 %373, label %.lr.ph360.i, label %.critedge7.i
 
@@ -3715,7 +3715,7 @@ Ga2_ObjFindOrAddLit.exit296.i:                    ; preds = %344, %325
   br i1 %.not167.i, label %.critedge7.i, label %376
 
 376:                                              ; preds = %.lr.ph360.i
-  %Ga2_ObjLeaves.v.val175.i = load ptr, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  %Ga2_ObjLeaves.v.val175.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %377 = getelementptr inbounds nuw i32, ptr %Ga2_ObjLeaves.v.val175.i, i64 %indvars.iv367.i
   %378 = load i32, ptr %377, align 4
   %379 = sext i32 %378 to i64
@@ -3836,7 +3836,7 @@ Vec_IntPush.exit318.i:                            ; preds = %435, %Vec_IntGrow.e
   %441 = getelementptr inbounds i32, ptr %437, i64 %440
   store i32 %.0.i305.i, ptr %441, align 4
   %indvars.iv.next368.i = add nuw nsw i64 %indvars.iv367.i, 1
-  %Ga2_ObjLeaves.v.val.i = load i32, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  %Ga2_ObjLeaves.v.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %442 = sext i32 %Ga2_ObjLeaves.v.val.i to i64
   %443 = icmp slt i64 %indvars.iv.next368.i, %442
   br i1 %443, label %.lr.ph360.i, label %.critedge7.i, !llvm.loop !34
@@ -4743,7 +4743,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit, %
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i32, ptr %.val4.val.i, i64 %81
   %83 = load i32, ptr %82, align 4
-  store i32 %83, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  store i32 %83, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %.val5.i = load ptr, ptr %72, align 8
   %.val6.i = load ptr, ptr %73, align 8
   %84 = getelementptr i8, ptr %.val6.i, i64 8
@@ -4758,7 +4758,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit, %
   %91 = sext i32 %90 to i64
   %92 = getelementptr i32, ptr %.val6.val.i, i64 %91
   %93 = getelementptr i8, ptr %92, i64 4
-  store ptr %93, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  store ptr %93, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %94 = icmp sgt i32 %83, 0
   br i1 %94, label %.lr.ph, label %.critedge.thread
 
@@ -4774,7 +4774,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit, %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit ]
   %.048117 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %Vec_IntPush.exit ]
   %97 = load ptr, ptr %0, align 8
-  %Ga2_ObjLeaves.v.val54 = load ptr, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  %Ga2_ObjLeaves.v.val54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %98 = getelementptr inbounds nuw i32, ptr %Ga2_ObjLeaves.v.val54, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4
   %100 = getelementptr i8, ptr %97, i64 32
@@ -4927,7 +4927,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %177 = icmp slt i32 %.0.i79, 2
   %spec.select = select i1 %177, i32 0, i32 %.048117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %Ga2_ObjLeaves.v.val = load i32, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  %Ga2_ObjLeaves.v.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %178 = sext i32 %Ga2_ObjLeaves.v.val to i64
   %179 = icmp slt i64 %indvars.iv.next, %178
   br i1 %179, label %96, label %.critedge, !llvm.loop !42
@@ -5288,7 +5288,7 @@ define void @Ga2_ManAddToAbs(ptr nocapture noundef %0, ptr nocapture noundef rea
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i32, ptr %.val4.val.i, i64 %59
   %61 = load i32, ptr %60, align 4
-  store i32 %61, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  store i32 %61, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %.val5.i = load ptr, ptr %47, align 8
   %.val6.i = load ptr, ptr %53, align 8
   %62 = getelementptr i8, ptr %.val6.i, i64 8
@@ -5303,7 +5303,7 @@ define void @Ga2_ManAddToAbs(ptr nocapture noundef %0, ptr nocapture noundef rea
   %69 = sext i32 %68 to i64
   %70 = getelementptr i32, ptr %.val6.val.i, i64 %69
   %71 = getelementptr i8, ptr %70, i64 4
-  store ptr %71, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  store ptr %71, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %72 = icmp sgt i32 %61, 0
   br i1 %72, label %.lr.ph83, label %.critedge4
 
@@ -5333,8 +5333,8 @@ define void @Ga2_ManAddToAbs(ptr nocapture noundef %0, ptr nocapture noundef rea
 
 85:                                               ; preds = %79
   tail call fastcc void @Ga2_ManSetupNode(ptr noundef nonnull %0, ptr noundef %78, i32 noundef 0)
-  %Ga2_ObjLeaves.v.val66.pre = load ptr, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
-  %Ga2_ObjLeaves.v.val.pre = load i32, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  %Ga2_ObjLeaves.v.val66.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  %Ga2_ObjLeaves.v.val.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   br label %86
 
 86:                                               ; preds = %79, %85
@@ -6922,7 +6922,7 @@ define void @Ga2_ManRefinePrint(ptr nocapture noundef readonly %0, ptr nocapture
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i32, ptr %.val4.val.i, i64 %23
   %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %.val5.i = load ptr, ptr %11, align 8
   %.val6.i = load ptr, ptr %17, align 8
   %26 = getelementptr i8, ptr %.val6.i, i64 8
@@ -6937,7 +6937,7 @@ define void @Ga2_ManRefinePrint(ptr nocapture noundef readonly %0, ptr nocapture
   %33 = sext i32 %32 to i64
   %34 = getelementptr i32, ptr %.val6.val.i, i64 %33
   %35 = getelementptr i8, ptr %34, i64 4
-  store ptr %35, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %36 = trunc nuw nsw i64 %indvars.iv94 to i32
   %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %36)
   %38 = load ptr, ptr %0, align 8
@@ -7009,7 +7009,7 @@ Ga2_ObjIsLeaf0.exit.thread:                       ; preds = %Ga2_ObjIsAbs0.exit.
   %.str.31.sink = phi ptr [ @.str.32, %Ga2_ObjIsLeaf0.exit.thread ], [ @.str.30, %54 ], [ @.str.31, %Ga2_ObjIsLeaf0.exit ]
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.31.sink)
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33)
-  %Ga2_ObjLeaves.v.val86 = load i32, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  %Ga2_ObjLeaves.v.val86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %69 = icmp sgt i32 %Ga2_ObjLeaves.v.val86, 0
   br i1 %69, label %.lr.ph, label %.critedge2
 
@@ -7022,7 +7022,7 @@ Ga2_ObjIsLeaf0.exit.thread:                       ; preds = %Ga2_ObjIsAbs0.exit.
   br i1 %.not38, label %.critedge2, label %72
 
 72:                                               ; preds = %.lr.ph
-  %Ga2_ObjLeaves.v.val42 = load ptr, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
+  %Ga2_ObjLeaves.v.val42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %73 = getelementptr inbounds nuw i32, ptr %Ga2_ObjLeaves.v.val42, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
@@ -7090,7 +7090,7 @@ Ga2_ObjIsLeaf0.exit73.thread:                     ; preds = %Ga2_ObjIsAbs0.exit6
   %.str.30.sink = phi ptr [ @.str.32, %Ga2_ObjIsLeaf0.exit73.thread ], [ @.str.30, %88 ], [ @.str.31, %Ga2_ObjIsLeaf0.exit73 ]
   %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.30.sink)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %Ga2_ObjLeaves.v.val = load i32, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
+  %Ga2_ObjLeaves.v.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   %102 = sext i32 %Ga2_ObjLeaves.v.val to i64
   %103 = icmp slt i64 %indvars.iv.next, %102
   br i1 %103, label %.lr.ph, label %.critedge2, !llvm.loop !58

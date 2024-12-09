@@ -4082,7 +4082,7 @@ if.then6:                                         ; preds = %if.end
 if.end11:                                         ; preds = %if.then6, %if.end
   %dict.addr.0 = phi ptr [ %call7, %if.then6 ], [ %dict, %if.end ]
   %mydict.0 = phi ptr [ %call7, %if.then6 ], [ null, %if.end ]
-  %call12 = tail call i32 @PyDict_Contains(ptr noundef nonnull %dict.addr.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552)) #16
+  %call12 = tail call i32 @PyDict_Contains(ptr noundef nonnull %dict.addr.0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31552)) #16
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %Py_XDECREF.exit, label %if.end15
 
@@ -4099,7 +4099,7 @@ if.then17:                                        ; preds = %if.end15
   br i1 %cmp19, label %Py_XDECREF.exit, label %if.end21
 
 if.end21:                                         ; preds = %if.then17
-  %call22 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %dict.addr.0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %call18) #16
+  %call22 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %dict.addr.0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31552), ptr noundef nonnull %call18) #16
   %cmp23.not = icmp eq i32 %call22, 0
   br i1 %cmp23.not, label %if.end26, label %Py_XDECREF.exit
 
@@ -4376,7 +4376,7 @@ declare ptr @PyStructSequence_GetItem(ptr noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @write_unraisable_exc(ptr noundef %tstate, ptr noundef %exc_type, ptr noundef %exc_value, ptr noundef %exc_tb, ptr noundef %err_msg, ptr noundef %obj) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @_PySys_GetAttr(ptr noundef %tstate, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 59112)) #16
+  %call = tail call ptr @_PySys_GetAttr(ptr noundef %tstate, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 59112)) #16
   %cmp = icmp eq ptr %call, null
   %cmp1 = icmp eq ptr %call, @_Py_NoneStruct
   %or.cond = or i1 %cmp, %cmp1
@@ -4511,7 +4511,7 @@ if.end52.i:                                       ; preds = %if.then1.i.i.i.i.i7
   br i1 %or.cond4.i, label %write_unraisable_exc_file.exit, label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end52.i
-  %call57.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %exc_type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31552)) #16
+  %call57.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %exc_type, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31552)) #16
   %cmp58.i = icmp eq ptr %call57.i, null
   br i1 %cmp58.i, label %if.then62.i, label %lor.lhs.false59.i
 
@@ -4569,12 +4569,12 @@ _PyErr_Clear.exit85.i:                            ; preds = %if.then1.i.i.i.i.i8
   br i1 %cmp64.i, label %write_unraisable_exc_file.exit, label %if.end84.i
 
 if.else67.i:                                      ; preds = %lor.lhs.false59.i
-  %call68.i = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %call57.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 39248)) #16
+  %call68.i = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %call57.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 39248)) #16
   %tobool69.not.i = icmp eq i32 %call68.i, 0
   br i1 %tobool69.not.i, label %land.lhs.true70.i, label %if.else82.i
 
 land.lhs.true70.i:                                ; preds = %if.else67.i
-  %call71.i = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %call57.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31280)) #16
+  %call71.i = tail call i32 @_PyUnicode_Equal(ptr noundef nonnull %call57.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31280)) #16
   %tobool72.not.i = icmp eq i32 %call71.i, 0
   br i1 %tobool72.not.i, label %if.then73.i, label %if.else82.i
 
@@ -5072,7 +5072,7 @@ if.end.i.i:                                       ; preds = %if.then34.i
   br i1 %cmp.i.i, label %do.body.sink.split, label %do.body
 
 if.end32:                                         ; preds = %_PyErr_Occurred.exit.i, %_Py_NewRef.exit38.i
-  %call33 = tail call ptr @_PySys_GetAttr(ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 61432)) #16
+  %call33 = tail call ptr @_PySys_GetAttr(ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 61432)) #16
   %cmp34 = icmp eq ptr %call33, null
   br i1 %cmp34, label %if.then35, label %if.end36
 
@@ -5544,7 +5544,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.end6.sink.split, label %if.end6
 
 if.else:                                          ; preds = %entry
-  %call4 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 50600), ptr noundef nonnull %call2) #16
+  %call4 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50600), ptr noundef nonnull %call2) #16
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end, label %if.then5
 
@@ -5623,7 +5623,7 @@ if.end16:                                         ; preds = %if.then1.i.i.i.i.i8
   %tmp.0 = phi ptr [ %call11, %if.then9 ], [ null, %if.end6 ], [ null, %if.then14 ], [ null, %if.then.i.i.i.i76 ], [ null, %if.end.i.i.i.i.i78 ], [ null, %if.then1.i.i.i.i.i81 ]
   %tobool17.not = icmp eq ptr %tmp.0, null
   %cond = select i1 %tobool17.not, ptr @_Py_NoneStruct, ptr %tmp.0
-  %call18 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 53496), ptr noundef nonnull %cond) #16
+  %call18 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53496), ptr noundef nonnull %cond) #16
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end21, label %if.then20
 
@@ -5704,7 +5704,7 @@ if.end31:                                         ; preds = %if.then1.i.i.i.i.i1
   %tmp.1 = phi ptr [ %call26, %if.then24 ], [ null, %Py_XDECREF.exit ], [ null, %if.then29 ], [ null, %if.then.i.i.i.i95 ], [ null, %if.end.i.i.i.i.i97 ], [ null, %if.then1.i.i.i.i.i100 ]
   %tobool32.not = icmp eq ptr %tmp.1, null
   %cond36 = select i1 %tobool32.not, ptr @_Py_NoneStruct, ptr %tmp.1
-  %call37 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 44104), ptr noundef nonnull %cond36) #16
+  %call37 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44104), ptr noundef nonnull %cond36) #16
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end40, label %if.then39
 
@@ -5785,7 +5785,7 @@ if.end50:                                         ; preds = %if.then1.i.i.i.i.i1
   %tmp.2 = phi ptr [ %call45, %if.then43 ], [ null, %Py_XDECREF.exit119 ], [ null, %if.then48 ], [ null, %if.then.i.i.i.i122 ], [ null, %if.end.i.i.i.i.i124 ], [ null, %if.then1.i.i.i.i.i127 ]
   %tobool51.not = icmp eq ptr %tmp.2, null
   %cond55 = select i1 %tobool51.not, ptr @_Py_NoneStruct, ptr %tmp.2
-  %call56 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 44160), ptr noundef nonnull %cond55) #16
+  %call56 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 44160), ptr noundef nonnull %cond55) #16
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %if.end59, label %if.then58
 
@@ -5835,7 +5835,7 @@ Py_XDECREF.exit146:                               ; preds = %if.end59, %if.then.
   br i1 %cmp60.not, label %if.end76, label %if.then62
 
 if.then62:                                        ; preds = %Py_XDECREF.exit146
-  %call63 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 45440), ptr noundef nonnull %filename) #16
+  %call63 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45440), ptr noundef nonnull %filename) #16
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %if.end66, label %if.then65
 
@@ -5867,7 +5867,7 @@ if.end66:                                         ; preds = %if.then1.i.i.i.i.i1
   br i1 %tobool68.not, label %if.else74, label %if.then69
 
 if.then69:                                        ; preds = %if.end66
-  %call70 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 60416), ptr noundef nonnull %call.i) #16
+  %call70 = tail call i32 @PyObject_SetAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60416), ptr noundef nonnull %call.i) #16
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %if.end73, label %if.then72
 
@@ -5936,7 +5936,7 @@ if.end76:                                         ; preds = %if.end76.sink.split
   br i1 %cmp78.not, label %if.end112, label %if.then80
 
 if.then80:                                        ; preds = %if.end76
-  %call81 = tail call i32 @PyObject_HasAttrWithError(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52040)) #16
+  %call81 = tail call i32 @PyObject_HasAttrWithError(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52040)) #16
   %cmp82 = icmp slt i32 %call81, 0
   br i1 %cmp82, label %if.then84, label %if.else85
 
@@ -5968,7 +5968,7 @@ if.then87:                                        ; preds = %if.else85
   br i1 %tobool89.not, label %if.else95, label %if.then90
 
 if.then90:                                        ; preds = %if.then87
-  %call91 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52040), ptr noundef nonnull %call88) #16
+  %call91 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52040), ptr noundef nonnull %call88) #16
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %if.end94, label %if.then93
 
@@ -6030,7 +6030,7 @@ if.end98.sink.split:                              ; preds = %if.end.i.i.i.i.i196
   br label %if.end98
 
 if.end98:                                         ; preds = %if.end98.sink.split, %if.end.i.i.i.i.i196, %if.then.i.i.i.i194, %if.else95, %if.end.i.i.i.i.i178, %if.then.i.i.i.i176, %if.then84, %if.else85, %if.end.i, %if.end94
-  %call99 = tail call i32 @PyObject_HasAttrWithError(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 55328)) #16
+  %call99 = tail call i32 @PyObject_HasAttrWithError(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55328)) #16
   %cmp100 = icmp slt i32 %call99, 0
   br i1 %cmp100, label %if.then102, label %if.else103
 
@@ -6057,7 +6057,7 @@ if.else103:                                       ; preds = %if.end98
   br i1 %tobool104.not, label %if.then105, label %if.end112
 
 if.then105:                                       ; preds = %if.else103
-  %call106 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 55328), ptr noundef nonnull @_Py_NoneStruct) #16
+  %call106 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55328), ptr noundef nonnull @_Py_NoneStruct) #16
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %if.end112, label %if.then108
 

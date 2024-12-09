@@ -1484,7 +1484,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 349:                                              ; preds = %325
-  %350 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 8), align 8
+  %350 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 8), align 8
   %351 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %350) #18
   %.not120.i = icmp eq i32 %351, 0
   br i1 %.not120.i, label %352, label %368
@@ -1516,7 +1516,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 368:                                              ; preds = %349
-  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 16), align 16
+  %369 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 16), align 16
   %370 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %369) #18
   %.not122.i = icmp eq i32 %370, 0
   br i1 %.not122.i, label %371, label %390
@@ -1553,7 +1553,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 390:                                              ; preds = %368
-  %391 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 24), align 8
+  %391 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 24), align 8
   %392 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %391) #18
   %.not124.i = icmp eq i32 %392, 0
   br i1 %.not124.i, label %393, label %409
@@ -1585,7 +1585,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 409:                                              ; preds = %390
-  %410 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 32), align 16
+  %410 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 32), align 16
   %411 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %410) #18
   %.not126.i = icmp eq i32 %411, 0
   br i1 %.not126.i, label %412, label %431
@@ -1622,7 +1622,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 431:                                              ; preds = %409
-  %432 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 40), align 8
+  %432 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 40), align 8
   %433 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %432) #18
   %.not128.i = icmp eq i32 %433, 0
   br i1 %.not128.i, label %434, label %453
@@ -1659,7 +1659,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 453:                                              ; preds = %431
-  %454 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 48), align 16
+  %454 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 48), align 16
   %455 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %454) #18
   %.not130.i = icmp eq i32 %455, 0
   br i1 %.not130.i, label %456, label %475
@@ -1696,7 +1696,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 475:                                              ; preds = %453
-  %476 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 56), align 8
+  %476 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 56), align 8
   %477 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %476) #18
   %.not132.i = icmp eq i32 %477, 0
   br i1 %.not132.i, label %478, label %497
@@ -1733,7 +1733,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 497:                                              ; preds = %475
-  %498 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 64), align 16
+  %498 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 64), align 16
   %499 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %498) #18
   %.not134.i = icmp eq i32 %499, 0
   br i1 %.not134.i, label %500, label %519
@@ -1770,7 +1770,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 519:                                              ; preds = %497
-  %520 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 72), align 8
+  %520 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 72), align 8
   %521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %520) #18
   %.not136.i = icmp eq i32 %521, 0
   br i1 %.not136.i, label %522, label %538
@@ -1802,7 +1802,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 538:                                              ; preds = %519
-  %539 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 96), align 16
+  %539 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 96), align 16
   %540 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %539) #18
   %.not138.i = icmp eq i32 %540, 0
   br i1 %.not138.i, label %541, label %557
@@ -1834,7 +1834,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 557:                                              ; preds = %538
-  %558 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 104), align 8
+  %558 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 104), align 8
   %559 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %558) #18
   %.not140.i = icmp eq i32 %559, 0
   br i1 %.not140.i, label %560, label %576
@@ -1866,7 +1866,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 576:                                              ; preds = %557
-  %577 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 112), align 16
+  %577 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 112), align 16
   %578 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %577) #18
   %.not142.i = icmp eq i32 %578, 0
   br i1 %.not142.i, label %579, label %595
@@ -1898,7 +1898,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 595:                                              ; preds = %576
-  %596 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 120), align 8
+  %596 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 120), align 8
   %597 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %327, ptr noundef nonnull dereferenceable(1) %596) #18
   %.not144.i = icmp eq i32 %597, 0
   %598 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2387,7 +2387,7 @@ define range(i32 -1, 1) i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %128
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 16), align 16
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 16), align 16
   br label %157
 
 133:                                              ; preds = %128
@@ -2396,7 +2396,7 @@ define range(i32 -1, 1) i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %133
-  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 32), align 16
+  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 32), align 16
   br label %157
 
 138:                                              ; preds = %133
@@ -2405,7 +2405,7 @@ define range(i32 -1, 1) i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %138
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 40), align 8
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 40), align 8
   br label %157
 
 143:                                              ; preds = %138
@@ -2414,7 +2414,7 @@ define range(i32 -1, 1) i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %143
-  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 48), align 16
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 48), align 16
   br label %157
 
 148:                                              ; preds = %143
@@ -2423,13 +2423,13 @@ define range(i32 -1, 1) i32 @h5tools_get_vfd_name(i64 noundef %0, i64 noundef %1
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %148
-  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 64), align 16
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 64), align 16
   br label %157
 
 153:                                              ; preds = %148
   %154 = call i64 @H5FDperform_init(ptr noundef nonnull @H5FD_onion_init) #16
   %155 = icmp eq i64 %105, %154
-  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @drivernames, i64 120), align 8
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @drivernames, i64 120), align 8
   %spec.select = select i1 %155, ptr %156, ptr @.str.58
   br label %157
 

@@ -67,7 +67,7 @@ define range(i32 -1, 2) i32 @mca_mpool_base_tree_node_compare(ptr noundef readno
 ; Function Attrs: nounwind uwtable
 define i32 @mca_mpool_base_tree_init() local_unnamed_addr #2 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_rb_tree_t_class, i64 32), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_rb_tree_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -77,7 +77,7 @@ define i32 @mca_mpool_base_tree_init() local_unnamed_addr #2 {
 
 4:                                                ; preds = %3, %0
   store ptr @opal_rb_tree_t_class, ptr @mca_mpool_base_tree, align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree, i64 8), align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_rb_tree_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
@@ -94,7 +94,7 @@ define i32 @mca_mpool_base_tree_init() local_unnamed_addr #2 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
   %10 = load i32, ptr @opal_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not3 = icmp eq i32 %10, %11
   br i1 %.not3, label %13, label %12
 
@@ -104,7 +104,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 13:                                               ; preds = %12, %opal_obj_run_constructors.exit
   store ptr @opal_free_list_t_class, ptr @mca_mpool_base_tree_item_free_list, align 16
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 8), align 8
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i5 = icmp eq ptr %15, null
@@ -121,7 +121,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 opal_obj_run_constructors.exit9:                  ; preds = %.lr.ph.i6, %13
   %19 = load i32, ptr @opal_class_init_epoch, align 4
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not4 = icmp eq i32 %19, %20
   br i1 %.not4, label %22, label %21
 
@@ -131,7 +131,7 @@ opal_obj_run_constructors.exit9:                  ; preds = %.lr.ph.i6, %13
 
 22:                                               ; preds = %21, %opal_obj_run_constructors.exit9
   store ptr @opal_mutex_t_class, ptr @tree_lock, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @tree_lock, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @tree_lock, i64 8), align 8
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i10 = icmp eq ptr %24, null
@@ -291,7 +291,7 @@ define ptr @mca_mpool_base_tree_find(ptr noundef %0) local_unnamed_addr #2 {
   br label %6
 
 6:                                                ; preds = %1, %4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree, i64 32), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree, i64 32), align 16
   %8 = tail call ptr @opal_rb_tree_find_with(ptr noundef nonnull @mca_mpool_base_tree, ptr noundef %0, ptr noundef %7) #8
   %9 = load i8, ptr @opal_uses_threads, align 1
   %10 = trunc i8 %9 to i1
@@ -321,7 +321,7 @@ define ptr @mca_mpool_base_tree_item_get() local_unnamed_addr #2 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
-  store volatile ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 16), ptr %3, align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 16), ptr %3, align 8
   %.0..0..0..0..0..0..0..0..0..0.10.i.i.i = load volatile ptr, ptr %3, align 8
   %8 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0.10.i.i.i, align 16
   fence acquire
@@ -330,7 +330,7 @@ define ptr @mca_mpool_base_tree_item_get() local_unnamed_addr #2 {
   %10 = load volatile i64, ptr %9, align 8
   store volatile i64 %10, ptr %.sroa.4.i.i.i, align 8
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i = load volatile i64, ptr %.sroa.4.i.i.i, align 8
-  %11 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32) to i64)
+  %11 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32) to i64)
   br i1 %11, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %7, %opal_update_counted_pointer.exit.i.i.i
@@ -341,7 +341,7 @@ define ptr @mca_mpool_base_tree_item_get() local_unnamed_addr #2 {
   %14 = load volatile ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
-  store volatile ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 16), ptr %2, align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 16), ptr %2, align 8
   %15 = ptrtoint ptr %14 to i64
   store volatile i64 %15, ptr %.sroa.22.i.i.i.i, align 8
   %16 = add i64 %.sroa.0.06.i.i.i, 1
@@ -367,7 +367,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i = load volatile i64, ptr %.sroa.4.i.i.i, align 8
-  %20 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, ptrtoint (ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32) to i64)
+  %20 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32) to i64)
   br i1 %20, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
@@ -384,10 +384,10 @@ opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
   store ptr null, ptr %4, align 8
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 184)) #8
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 96), align 16
+  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 184)) #8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 96), align 16
   %24 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @mca_mpool_base_tree_item_free_list, i64 noundef %23, ptr noundef nonnull %4) #8
-  %25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 184)) #8
+  %25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 184)) #8
   %.pre.i.i = load ptr, ptr %4, align 8
   br label %opal_free_list_get_mt.exit.i
 
@@ -398,13 +398,13 @@ opal_free_list_get_mt.exit.i:                     ; preds = %.loopexit.i.i, %opa
 
 27:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  %28 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), align 8
+  %28 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), align 8
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load volatile ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
-  store volatile i64 %32, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), align 8
-  %33 = icmp eq i64 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32) to i64)
+  store volatile i64 %32, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), align 8
+  %33 = icmp eq i64 %28, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32) to i64)
   br i1 %33, label %35, label %opal_lifo_pop_st.exit.i.i
 
 opal_lifo_pop_st.exit.i.i:                        ; preds = %27
@@ -415,7 +415,7 @@ opal_lifo_pop_st.exit.i.i:                        ; preds = %27
 
 35:                                               ; preds = %27
   store ptr null, ptr %1, align 8
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 96), align 16
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 96), align 16
   %37 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @mca_mpool_base_tree_item_free_list, i64 noundef %36, ptr noundef nonnull %1) #8
   %.pre.i3.i = load ptr, ptr %1, align 8
   br label %opal_free_list_get_st.exit.i
@@ -434,7 +434,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
 define void @mca_mpool_base_tree_item_put(ptr noundef %0) local_unnamed_addr #4 {
   %2 = load i8, ptr @opal_uses_threads, align 1
   %3 = trunc i8 %2 to i1
-  %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), align 8
+  %4 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), align 8
   br i1 %3, label %5, label %18
 
 5:                                                ; preds = %1
@@ -443,7 +443,7 @@ define void @mca_mpool_base_tree_item_put(ptr noundef %0) local_unnamed_addr #4 
   store volatile ptr %.04.i.i.i, ptr %6, align 8
   fence release
   %7 = ptrtoint ptr %0 to i64
-  %8 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), i64 %4, i64 %7 acquire monotonic, align 8
+  %8 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), i64 %4, i64 %7 acquire monotonic, align 8
   %9 = extractvalue { i64, i1 } %8, 1
   br i1 %9, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
@@ -453,20 +453,20 @@ opal_atomic_compare_exchange_strong_ptr.exit.i.i.i: ; preds = %5, %opal_atomic_c
   %.0.i.i.i = inttoptr i64 %11 to ptr
   store volatile ptr %.0.i.i.i, ptr %6, align 8
   fence release
-  %12 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), i64 %11, i64 %7 acquire monotonic, align 8
+  %12 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), i64 %11, i64 %7 acquire monotonic, align 8
   %13 = extractvalue { i64, i1 } %12, 1
   br i1 %13, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
 
 opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i, %5
   %.0.lcssa.i.i.i = phi ptr [ %.04.i.i.i, %5 ], [ %.0.i.i.i, %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i ]
-  %14 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32)
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 104), align 8
+  %14 = icmp ne ptr %.0.lcssa.i.i.i, getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32)
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 104), align 8
   %.not.i.i = icmp eq i64 %15, 0
   %or.cond.i.i = select i1 %14, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %opal_free_list_return.exit, label %16
 
 16:                                               ; preds = %opal_lifo_push_atomic.exit.i.i
-  %17 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 248), align 8
+  %17 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 248), align 8
   %.not.i.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
@@ -477,23 +477,23 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %21, align 8
   %22 = ptrtoint ptr %0 to i64
-  store volatile i64 %22, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), align 8
+  store volatile i64 %22, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 24), align 8
   %23 = load volatile ptr, ptr %20, align 8
-  %24 = icmp ne ptr %23, getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32)
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 104), align 8
+  %24 = icmp ne ptr %23, getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 32)
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 104), align 8
   %.not.i4.i = icmp eq i64 %25, 0
   %or.cond.i5.i = select i1 %24, i1 true, i1 %.not.i4.i
   br i1 %or.cond.i5.i, label %opal_free_list_return.exit, label %26
 
 26:                                               ; preds = %18
-  %27 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 248), align 8
+  %27 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 248), align 8
   %.not.i.i6.i = icmp eq i32 %27, 0
   br i1 %.not.i.i6.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 opal_free_list_return_mt.exit.sink.split.i:       ; preds = %26, %16
-  %28 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 252), align 4
+  %28 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 252), align 4
   %29 = add nsw i32 %28, 1
-  store volatile i32 %29, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_tree_item_free_list, i64 252), align 4
+  store volatile i32 %29, ptr getelementptr inbounds nuw (i8, ptr @mca_mpool_base_tree_item_free_list, i64 252), align 4
   br label %opal_free_list_return.exit
 
 opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atomic.exit.i.i, %16, %18, %26, %opal_free_list_return_mt.exit.sink.split.i
@@ -526,7 +526,7 @@ define void @mca_mpool_base_tree_print(i32 noundef %0) local_unnamed_addr #2 {
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i64, ptr %14, align 8
   %16 = tail call ptr %12(i64 %15) #8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %18 = tail call i32 @getpid() #8
   %19 = load ptr, ptr @leak_msg, align 8
   %20 = tail call i32 (ptr, ptr, i32, ...) %11(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef %16, ptr noundef %17, i32 noundef %18, ptr noundef %19) #8
@@ -540,7 +540,7 @@ define void @mca_mpool_base_tree_print(i32 noundef %0) local_unnamed_addr #2 {
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = tail call ptr %24(i64 %27) #8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %30 = tail call i32 @getpid() #8
   %31 = load ptr, ptr @leak_msg, align 8
   %32 = icmp sgt i32 %22, 1

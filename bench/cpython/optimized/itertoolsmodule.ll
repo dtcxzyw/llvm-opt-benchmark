@@ -2034,7 +2034,7 @@ if.then1.i110.i:                                  ; preds = %if.end.i107.i
   br label %itertools_tee_impl.exit
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %call11.i = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %call7.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28016), ptr noundef nonnull %copyfunc.i) #8
+  %call11.i = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %call7.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28016), ptr noundef nonnull %copyfunc.i) #8
   %cmp12.i = icmp slt i32 %call11.i, 0
   br i1 %cmp12.i, label %if.then13.i, label %if.end14.i
 
@@ -2115,7 +2115,7 @@ if.then1.i74.i:                                   ; preds = %if.end.i71.i
   br label %itertools_tee_impl.exit
 
 if.end21.i:                                       ; preds = %Py_DECREF.exit85.i
-  %call22.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call18.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28016)) #8
+  %call22.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call18.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 28016)) #8
   store ptr %call22.i, ptr %copyfunc.i, align 8
   %cmp23.i = icmp eq ptr %call22.i, null
   br i1 %cmp23.i, label %if.then24.i, label %if.end26.i
@@ -5803,7 +5803,7 @@ if.then23.i:                                      ; preds = %land.lhs.true20.i
 if.end27.i:                                       ; preds = %lor.lhs.false.i, %lor.lhs.false6.i.thread, %lor.rhs.i, %if.end, %if.then23.i, %land.lhs.true20.i, %if.then17.i, %15, %lor.lhs.false6.i
   %cmp1.not.i5459 = phi i1 [ %cmp1.not.i126, %if.then23.i ], [ %cmp1.not.i126, %land.lhs.true20.i ], [ %cmp1.not.i126, %if.then17.i ], [ false, %15 ], [ true, %lor.lhs.false6.i ], [ true, %if.end ], [ false, %lor.rhs.i ], [ false, %lor.lhs.false6.i.thread ], [ true, %lor.lhs.false.i ]
   %long_step.034 = phi ptr [ %long_step.03352107115117, %if.then23.i ], [ %long_step.03352107115117, %land.lhs.true20.i ], [ %long_step.03352107115117, %if.then17.i ], [ %4, %15 ], [ null, %lor.lhs.false6.i ], [ null, %if.end ], [ %5, %lor.rhs.i ], [ %4, %lor.lhs.false6.i.thread ], [ null, %lor.lhs.false.i ]
-  %long_cnt.addr.0.i = phi ptr [ %3, %if.then23.i ], [ %3, %land.lhs.true20.i ], [ %3, %if.then17.i ], [ %3, %15 ], [ %3, %lor.lhs.false6.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.end ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %lor.rhs.i ], [ %3, %lor.lhs.false6.i.thread ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %lor.lhs.false.i ]
+  %long_cnt.addr.0.i = phi ptr [ %3, %if.then23.i ], [ %3, %land.lhs.true20.i ], [ %3, %if.then17.i ], [ %3, %15 ], [ %3, %lor.lhs.false6.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %if.end ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %lor.rhs.i ], [ %3, %lor.lhs.false6.i.thread ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), %lor.lhs.false.i ]
   %cnt.0.i = phi i64 [ -1, %if.then23.i ], [ -1, %land.lhs.true20.i ], [ %call18.i, %if.then17.i ], [ 0, %15 ], [ 0, %lor.lhs.false6.i ], [ 0, %if.end ], [ 0, %lor.rhs.i ], [ 0, %lor.lhs.false6.i.thread ], [ 0, %lor.lhs.false.i ]
   %fast_mode.0.shrunk.i = phi i1 [ false, %if.then23.i ], [ true, %land.lhs.true20.i ], [ true, %if.then17.i ], [ false, %15 ], [ false, %lor.lhs.false6.i ], [ true, %if.end ], [ %cmp.i39.i, %lor.rhs.i ], [ false, %lor.lhs.false6.i.thread ], [ true, %lor.lhs.false.i ]
   %18 = load i32, ptr %long_cnt.addr.0.i, align 8
@@ -5816,7 +5816,7 @@ if.end.i83.i:                                     ; preds = %if.end27.i
   br label %Py_INCREF.exit85.i
 
 Py_INCREF.exit85.i:                               ; preds = %if.end.i83.i, %if.end27.i
-  %spec.select.i = select i1 %cmp1.not.i5459, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3848), ptr %long_step.034
+  %spec.select.i = select i1 %cmp1.not.i5459, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3848), ptr %long_step.034
   %19 = load i32, ptr %spec.select.i, align 8
   %add.i.i = add i32 %19, 1
   %cmp.i75.i = icmp eq i32 %add.i.i, 0
@@ -7092,7 +7092,7 @@ if.end7:                                          ; preds = %if.then2
   br i1 %cmp8.not, label %if.end15, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %call11 = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %call4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34064), ptr noundef nonnull @.str.18, i64 noundef %3) #8
+  %call11 = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %call4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34064), ptr noundef nonnull @.str.18, i64 noundef %3) #8
   %cmp12 = icmp eq ptr %call11, null
   br i1 %cmp12, label %if.then13, label %if.end14
 
@@ -8960,7 +8960,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49176)) #8
+  %call3 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #8
   %call4 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.74, ptr noundef %call3) #8
   br label %return
 
@@ -13972,7 +13972,7 @@ if.then:                                          ; preds = %land.lhs.true1
   br i1 %cmp5, label %if.end, label %if.then9
 
 if.end:                                           ; preds = %if.then
-  %call7 = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %kwds, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 45600)) #8
+  %call7 = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %kwds, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 45600)) #8
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %if.end15
 

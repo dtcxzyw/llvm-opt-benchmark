@@ -195,11 +195,11 @@ define internal void @BicubicInterp(ptr nocapture noundef %0, i32 noundef %1, i3
   br i1 %exitcond43.not.i, label %.lr.ph36.preheader.i, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph36.preheader.i:                             ; preds = %.lr.ph.i
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @bicubic_coeff, i64 512), align 16
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @bicubic_coeff, i64 512), align 16
   %26 = shl nsw i32 %25, 1
   %27 = sub nsw i32 256, %26
   %28 = ashr exact i32 %27, 1
-  store i32 %28, ptr getelementptr inbounds (i8, ptr @bicubic_coeff, i64 1536), align 16
+  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @bicubic_coeff, i64 1536), align 16
   br label %.lr.ph36.i
 
 .lr.ph36.i:                                       ; preds = %.lr.ph36.i, %.lr.ph36.preheader.i

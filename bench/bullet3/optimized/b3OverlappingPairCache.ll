@@ -101,7 +101,7 @@ $_ZTI17b3OverlapCallback = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN28b3HashedOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (12, 20), (24, 33), (40, 48), (52, 60), (64, 73), (84, 92), (96, 105)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28b3HashedOverlappingPairCache, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28b3HashedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -492,7 +492,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN28b3HashedOverlappingPairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28b3HashedOverlappingPairCache, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28b3HashedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -607,7 +607,7 @@ entry:
 define dso_local void @_ZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3Dispatcher(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %proxy, ptr noundef %dispatcher) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cleanPairs = alloca %class.CleanPairCallback, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i64 16), ptr %cleanPairs, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i64 16), ptr %cleanPairs, align 8
   %m_cleanProxy.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 8
   store i32 %proxy, ptr %m_cleanProxy.i, align 8
   %m_pairCache.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 16
@@ -631,7 +631,7 @@ entry:
 define dso_local void @_ZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3Dispatcher(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %proxy, ptr noundef %dispatcher) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %removeCallback = alloca %class.RemovePairCallback, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i64 16), ptr %removeCallback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i64 16), ptr %removeCallback, align 8
   %m_obsoleteProxy.i = getelementptr inbounds nuw i8, ptr %removeCallback, i64 8
   store i32 %proxy, ptr %m_obsoleteProxy.i, align 8
   %vtable = load ptr, ptr %this, align 8
@@ -1655,7 +1655,7 @@ for.end:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN28b3SortedOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (12, 20), (24, 33), (40, 42), (48, 56)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28b3SortedOverlappingPairCache, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28b3SortedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1740,7 +1740,7 @@ lpad3:                                            ; preds = %if.then3.i.i, %.noe
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN28b3SortedOverlappingPairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28b3SortedOverlappingPairCache, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28b3SortedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1777,7 +1777,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit:      ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN28b3SortedOverlappingPairCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28b3SortedOverlappingPairCache, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28b3SortedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1815,7 +1815,7 @@ entry:
 define dso_local void @_ZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3Dispatcher(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %proxy, ptr noundef %dispatcher) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cleanPairs = alloca %class.CleanPairCallback.5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i64 16), ptr %cleanPairs, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i64 16), ptr %cleanPairs, align 8
   %m_cleanProxy.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 8
   store i32 %proxy, ptr %m_cleanProxy.i, align 8
   %m_pairCache.i = getelementptr inbounds nuw i8, ptr %cleanPairs, i64 16
@@ -1839,7 +1839,7 @@ entry:
 define dso_local void @_ZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3Dispatcher(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %proxy, ptr noundef %dispatcher) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %removeCallback = alloca %class.RemovePairCallback.6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i64 16), ptr %removeCallback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i64 16), ptr %removeCallback, align 8
   %m_obsoleteProxy.i = getelementptr inbounds nuw i8, ptr %removeCallback, i64 8
   store i32 %proxy, ptr %m_obsoleteProxy.i, align 8
   %vtable = load ptr, ptr %this, align 8

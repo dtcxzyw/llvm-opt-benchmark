@@ -855,7 +855,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i:                                       ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 1, ptr %70, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %69, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %69, align 8, !noalias !4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 12
   store i8 0, ptr %71, align 4, !noalias !4
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 13
@@ -944,7 +944,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i23.i:                                     ; preds = %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i32 1, ptr %112, align 4, !noalias !14
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %111, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %111, align 8, !noalias !14
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 12
   store i8 0, ptr %113, align 4, !noalias !14
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 13
@@ -1552,7 +1552,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %37 = ptrtoint ptr %12 to i64
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS5_8TfRefPtrINS5_8SdfLayerEEESaISB_EERKS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EERKNS5_7SdfPathEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %36, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS5_8TfRefPtrINS5_8SdfLayerEEESaISB_EERKS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EERKNS5_7SdfPathEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %36, align 64
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store i64 %26, ptr %39, align 64
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %36, i64 72
@@ -2762,7 +2762,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i50:                                       ; preds = %193
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store i32 1, ptr %195, align 4, !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %194, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %194, align 8, !noalias !27
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 12
   store i8 0, ptr %196, align 4, !noalias !27
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 13
@@ -3150,7 +3150,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i89:                                       ; preds = %349
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
   store i32 1, ptr %351, align 4, !noalias !37
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %350, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %350, align 8, !noalias !37
   %352 = getelementptr inbounds nuw i8, ptr %350, i64 12
   store i8 0, ptr %352, align 4, !noalias !37
   %353 = getelementptr inbounds nuw i8, ptr %350, i64 13
@@ -3389,7 +3389,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i.i:                                     ; preds = %424
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
   store i32 1, ptr %426, align 4, !noalias !47
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %425, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %425, align 8, !noalias !47
   %427 = getelementptr inbounds nuw i8, ptr %425, i64 12
   store i8 0, ptr %427, align 4, !noalias !47
   %428 = getelementptr inbounds nuw i8, ptr %425, i64 13
@@ -3478,7 +3478,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i51.i.i:                                   ; preds = %466
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
   store i32 1, ptr %468, align 4, !noalias !57
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %467, align 8, !noalias !57
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %467, align 8, !noalias !57
   %469 = getelementptr inbounds nuw i8, ptr %467, i64 12
   store i8 0, ptr %469, align 4, !noalias !57
   %470 = getelementptr inbounds nuw i8, ptr %467, i64 13
@@ -3679,7 +3679,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i75.i.i:                                   ; preds = %549
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 8
   store i32 1, ptr %551, align 4, !noalias !67
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %550, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %550, align 8, !noalias !67
   %552 = getelementptr inbounds nuw i8, ptr %550, i64 12
   store i8 0, ptr %552, align 4, !noalias !67
   %553 = getelementptr inbounds nuw i8, ptr %550, i64 13
@@ -6941,7 +6941,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32UsdUtilsGenerateClipTopology
           to label %.noexc14 unwind label %19
 
 .noexc14:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %10
 
 10:                                               ; preds = %.noexc14
@@ -6965,7 +6965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc16 unwind label %23
 
 .noexc16:                                         ; preds = %.noexc15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 8))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19 unwind label %15
 
 15:                                               ; preds = %.noexc16
@@ -7124,7 +7124,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32UsdUtilsGenerateClipManifest
           to label %.noexc14 unwind label %19
 
 .noexc14:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 1))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 1))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %10
 
 10:                                               ; preds = %.noexc14
@@ -7148,7 +7148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc16 unwind label %23
 
 .noexc16:                                         ; preds = %.noexc15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 8))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit19 unwind label %15
 
 15:                                               ; preds = %.noexc16
@@ -10206,7 +10206,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %51 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %1)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %52, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS5_8TfRefPtrINS5_8SdfLayerEEESaISB_EERKS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EERKNS5_7SdfPathEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %51, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS5_8TfRefPtrINS5_8SdfLayerEEESaISB_EERKS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EERKNS5_7SdfPathEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %51, align 64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %54 = load i64, ptr %31, align 64
   store i64 %54, ptr %53, align 8
@@ -10418,7 +10418,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %158 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %105, i64 %154
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %159, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS5_8TfRefPtrINS5_8SdfLayerEEESaISB_EERKS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EERKNS5_7SdfPathEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %157, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNIZNS5_12_GLOBAL__N_115_OpenClipLayersEPSt6vectorINS5_8TfRefPtrINS5_8SdfLayerEEESaISB_EERKS8_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EERKNS5_7SdfPathEE3$_0EEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEEE", i64 16), ptr %157, align 64
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %160, ptr noundef nonnull readonly align 8 dereferenceable(24) %158, i64 24, i1 false)
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 88
@@ -10857,7 +10857,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 .noexc.i.i:                                       ; preds = %.noexc.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d112start_reduceINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEENS6_12_GLOBAL__N_119_StitchLayersResultEKNS1_16auto_partitionerEEE, i64 16), ptr %18, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d112start_reduceINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEENS6_12_GLOBAL__N_119_StitchLayersResultEKNS1_16auto_partitionerEEE, i64 16), ptr %18, align 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %10, ptr %20, align 64
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -11529,7 +11529,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   %71 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %72, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d112start_reduceINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEENS6_12_GLOBAL__N_119_StitchLayersResultEKNS1_16auto_partitionerEEE, i64 16), ptr %71, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d112start_reduceINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEENS6_12_GLOBAL__N_119_StitchLayersResultEKNS1_16auto_partitionerEEE, i64 16), ptr %71, align 64
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %74 = load i64, ptr %48, align 64
   store i64 %74, ptr %73, align 8
@@ -11759,7 +11759,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIN9__gnu_cxx17__normal_iterat
   %192 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range.112", ptr %134, i64 %188
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %193, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d112start_reduceINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEENS6_12_GLOBAL__N_119_StitchLayersResultEKNS1_16auto_partitionerEEE, i64 16), ptr %191, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d112start_reduceINS1_13blocked_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS6_8SdfLayerEEESt6vectorIS9_SaIS9_EEEEEENS6_12_GLOBAL__N_119_StitchLayersResultEKNS1_16auto_partitionerEEE, i64 16), ptr %191, align 64
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %194, ptr noundef nonnull readonly align 8 dereferenceable(24) %192, i64 24, i1 false)
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 88
@@ -11957,7 +11957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i.i.i:                                   ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 1, ptr %45, align 4, !noalias !107
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %44, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %44, align 8, !noalias !107
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i8 0, ptr %46, align 4, !noalias !107
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 13
@@ -12051,7 +12051,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i16.i.i.i:                                 ; preds = %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i32 1, ptr %85, align 4, !noalias !117
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %84, align 8, !noalias !117
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %84, align 8, !noalias !117
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store i8 0, ptr %86, align 4, !noalias !117
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 13
@@ -12423,7 +12423,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i:                                       ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 1, ptr %72, align 4, !noalias !128
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %71, align 8, !noalias !128
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %71, align 8, !noalias !128
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i8 0, ptr %73, align 4, !noalias !128
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 13
@@ -12516,7 +12516,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i24.i:                                     ; preds = %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i32 1, ptr %111, align 4, !noalias !138
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %110, align 8, !noalias !138
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %110, align 8, !noalias !138
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 12
   store i8 0, ptr %112, align 4, !noalias !138
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 13
@@ -12687,7 +12687,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i43.i:                                     ; preds = %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i32 1, ptr %182, align 4, !noalias !148
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %181, align 8, !noalias !148
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %181, align 8, !noalias !148
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 12
   store i8 0, ptr %183, align 4, !noalias !148
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 13
@@ -12773,7 +12773,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i.i:                                     ; preds = %218
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store i32 1, ptr %220, align 4, !noalias !158
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %219, align 8, !noalias !158
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %219, align 8, !noalias !158
   %221 = getelementptr inbounds nuw i8, ptr %219, i64 12
   store i8 0, ptr %221, align 4, !noalias !158
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 13
@@ -13570,7 +13570,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i.i.i:                                   ; preds = %498
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
   store i32 1, ptr %500, align 4, !noalias !168
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %499, align 8, !noalias !168
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %499, align 8, !noalias !168
   %501 = getelementptr inbounds nuw i8, ptr %499, i64 12
   store i8 0, ptr %501, align 4, !noalias !168
   %502 = getelementptr inbounds nuw i8, ptr %499, i64 13
@@ -13851,7 +13851,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i70.i.i:                                 ; preds = %599
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 8
   store i32 1, ptr %601, align 4, !noalias !178
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %600, align 8, !noalias !178
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %600, align 8, !noalias !178
   %602 = getelementptr inbounds nuw i8, ptr %600, i64 12
   store i8 0, ptr %602, align 4, !noalias !178
   %603 = getelementptr inbounds nuw i8, ptr %600, i64 13
@@ -13963,7 +13963,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIKNS_8SdfLayerEEC2IS1_EERKNS_8TfR
 .noexc.i37.i.i.i:                                 ; preds = %650
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 8
   store i32 1, ptr %652, align 4, !noalias !188
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %651, align 8, !noalias !188
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %651, align 8, !noalias !188
   %653 = getelementptr inbounds nuw i8, ptr %651, i64 12
   store i8 0, ptr %653, align 4, !noalias !188
   %654 = getelementptr inbounds nuw i8, ptr %651, i64 13
@@ -19010,7 +19010,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i:                                       ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %11, align 4, !noalias !223
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %10, align 8, !noalias !223
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %10, align 8, !noalias !223
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i8 0, ptr %12, align 4, !noalias !223
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 13
@@ -19248,7 +19248,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i.i.i:                                   ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 1, ptr %46, align 4, !noalias !234
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %45, align 8, !noalias !234
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %45, align 8, !noalias !234
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i8 0, ptr %47, align 4, !noalias !234
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 13

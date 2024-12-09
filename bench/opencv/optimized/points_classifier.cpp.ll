@@ -3122,12 +3122,12 @@ _ZN2cv3PtrINS_2ml2EMEED2Ev.exit.i:                ; preds = %_ZNSt16_Sp_counted_
           to label %.preheader84.i unwind label %1419
 
 .preheader84.i:                                   ; preds = %1330
-  %1331 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 8), align 8
+  %1331 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 8), align 8
   %1332 = icmp sgt i32 %1331, 0
   br i1 %1332, label %.preheader.lr.ph.i, label %._crit_edge101.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader84.i
-  %1333 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 12), align 4
+  %1333 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 12), align 4
   %1334 = icmp sgt i32 %1333, 0
   br i1 %1334, label %.preheader.preheader.i, label %._crit_edge101.i
 
@@ -3322,7 +3322,7 @@ _ZN2cv3Mat2atIdEERT_i.exit.i:                     ; preds = %1406, %1400, %1393
   %1436 = getelementptr inbounds nuw %"class.cv::Vec.13", ptr %1435, i64 %indvars.iv112.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1436, ptr noundef nonnull align 1 dereferenceable(3) %1430, i64 3, i1 false)
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 5
-  %1437 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 12), align 4
+  %1437 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 12), align 4
   %1438 = trunc nuw i64 %indvars.iv.next113.i to i32
   %1439 = icmp sgt i32 %1437, %1438
   br i1 %1439, label %_ZN2cv3Mat2atIfEERT_i.exit.i, label %._crit_edge99.loopexit.i, !llvm.loop !17
@@ -3333,7 +3333,7 @@ _ZN2cv3Mat2atIdEERT_i.exit.i:                     ; preds = %1406, %1400, %1393
   br label %1484
 
 ._crit_edge99.loopexit.i:                         ; preds = %1426
-  %.pre120.i = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 8), align 8
+  %.pre120.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 8), align 8
   br label %._crit_edge99.i
 
 ._crit_edge99.i:                                  ; preds = %._crit_edge99.loopexit.i, %.preheader.i
@@ -5094,7 +5094,7 @@ define internal fastcc void @_ZL17predict_and_paintRKN2cv3PtrINS_2ml9StatModelEE
   %2 = alloca %"class.cv::Mat", align 8
   %3 = alloca %"class.cv::_InputArray", align 8
   call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 1, i32 noundef 2, i32 noundef 5)
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 8), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 8), align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.preheader.lr.ph, label %._crit_edge3
 
@@ -5106,7 +5106,7 @@ define internal fastcc void @_ZL17predict_and_paintRKN2cv3PtrINS_2ml9StatModelEE
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 12), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 12), align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.preheader, label %._crit_edge3
 
@@ -5206,7 +5206,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %.lr.ph, %64
   %74 = getelementptr inbounds nuw %"class.cv::Vec.13", ptr %73, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %74, ptr noundef nonnull align 1 dereferenceable(3) %68, i64 3, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 12), align 4
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 12), align 4
   %76 = trunc nuw i64 %indvars.iv.next to i32
   %77 = icmp sgt i32 %75, %76
   br i1 %77, label %_ZN2cv3Mat2atIfEERT_i.exit, label %._crit_edge.loopexit, !llvm.loop !30
@@ -5218,7 +5218,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %.lr.ph, %64
   resume { ptr, i32 } %79
 
 ._crit_edge.loopexit:                             ; preds = %64
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 8), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 8), align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

@@ -288,7 +288,7 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 56), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 56), align 8
   br label %87
 
 9:                                                ; preds = %1
@@ -297,7 +297,7 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 24), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 24), align 8
   %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @job_attr_get.attr, i64 noundef 1024, ptr noundef nonnull @.str.10, i32 noundef %12) #5
   br label %87
 
@@ -307,7 +307,7 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not7, label %16, label %26
 
 16:                                               ; preds = %14
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 104), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 104), align 8
   %.not8 = icmp eq ptr %17, null
   br i1 %.not8, label %87, label %18
 
@@ -317,12 +317,12 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 104), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 104), align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.job_attr_get, ptr noundef nonnull @__func__.job_attr_get, ptr noundef %22) #5
   br label %23
 
 23:                                               ; preds = %21, %18
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 104), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 104), align 8
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @job_attr_get.attr, i64 noundef 1024, ptr noundef nonnull @.str.13, ptr noundef %24) #5
   br label %87
 

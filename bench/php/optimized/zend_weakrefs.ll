@@ -118,7 +118,7 @@ define internal fastcc void @zend_weakref_register(ptr noundef %0, ptr noundef %
   %11 = icmp eq i64 %10, 0
   tail call void @llvm.assume(i1 %11)
   %12 = lshr exact i64 %9, 3
-  %13 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i64 noundef %12) #8
+  %13 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i64 noundef %12) #8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 1
@@ -201,7 +201,7 @@ define internal fastcc void @zend_weakref_unregister(ptr noundef %0, ptr noundef
   %6 = icmp eq i64 %5, 0
   tail call void @llvm.assume(i1 %6)
   %7 = lshr exact i64 %4, 3
-  %8 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i64 noundef %7) #8
+  %8 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i64 noundef %7) #8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
@@ -223,7 +223,7 @@ define internal fastcc void @zend_weakref_unregister(ptr noundef %0, ptr noundef
 17:                                               ; preds = %11
   %18 = icmp eq ptr %.0, %1
   tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i64 noundef %7) #8
+  %19 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i64 noundef %7) #8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, -129
@@ -266,7 +266,7 @@ define internal fastcc void @zend_weakref_unregister(ptr noundef %0, ptr noundef
   store i32 %42, ptr %40, align 4
   tail call void @zend_hash_destroy(ptr noundef nonnull %15) #8
   tail call void @_efree_56(ptr noundef nonnull %15) #8
-  %43 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i64 noundef %7) #8
+  %43 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i64 noundef %7) #8
   br label %44
 
 44:                                               ; preds = %39, %33
@@ -301,7 +301,7 @@ zend_weakref_unref_single.exit:                   ; preds = %51, %50, %26, %25, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_weakrefs_init() local_unnamed_addr #0 {
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #8
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #8
   ret void
 }
 
@@ -314,7 +314,7 @@ define void @zend_weakrefs_notify(ptr noundef %0) local_unnamed_addr #0 {
   %4 = icmp eq i64 %3, 0
   tail call void @llvm.assume(i1 %4)
   %5 = lshr exact i64 %2, 3
-  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i64 noundef %5) #8
+  %6 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i64 noundef %5) #8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread, label %7
 
@@ -391,7 +391,7 @@ zend_weakref_unref_single.exit.i:                 ; preds = %34, %33, %.lr.ph.i
   br label %zend_weakref_unref.exit
 
 zend_weakref_unref.exit:                          ; preds = %._crit_edge.i, %38, %39
-  %42 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i64 noundef %5) #8
+  %42 = tail call i32 @zend_hash_index_del(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i64 noundef %5) #8
   br label %.thread
 
 .thread:                                          ; preds = %1, %zend_weakref_unref.exit
@@ -402,7 +402,7 @@ declare i32 @zend_hash_index_del(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_weakrefs_shutdown() local_unnamed_addr #0 {
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560)) #8
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560)) #8
   ret void
 }
 
@@ -449,7 +449,7 @@ define hidden void @zim_WeakReference_create(ptr noundef %0, ptr noundef %1) #0 
   %14 = icmp eq i64 %13, 0
   tail call void @llvm.assume(i1 %14)
   %15 = lshr exact i64 %12, 3
-  %16 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i64 noundef %15) #8
+  %16 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i64 noundef %15) #8
   %.not106 = icmp eq ptr %16, null
   br i1 %.not106, label %.thread129, label %17
 
@@ -808,7 +808,7 @@ define hidden noalias noundef ptr @zend_weakmap_get_object_key_entry_gc(ptr noun
   %7 = icmp eq i64 %6, 0
   tail call void @llvm.assume(i1 %7)
   %8 = lshr exact i64 %5, 3
-  %9 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i64 noundef %8) #8
+  %9 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i64 noundef %8) #8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.thread, label %10
 
@@ -972,7 +972,7 @@ define hidden noalias noundef ptr @zend_weakmap_get_object_entry_gc(ptr noundef 
   %7 = icmp eq i64 %6, 0
   tail call void @llvm.assume(i1 %7)
   %8 = lshr exact i64 %5, 3
-  %9 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 1560), i64 noundef %8) #8
+  %9 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1560), i64 noundef %8) #8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.thread, label %10
 
@@ -1768,8 +1768,8 @@ define hidden void @zend_register_weakref_ce() local_unnamed_addr #0 {
   store ptr @zend_weakref_handlers, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @zend_weakref_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 8, ptr @zend_weakref_handlers, align 8
-  store ptr @zend_weakref_free, ptr getelementptr inbounds (i8, ptr @zend_weakref_handlers, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @zend_weakref_handlers, i64 24), align 8
+  store ptr @zend_weakref_free, ptr getelementptr inbounds nuw (i8, ptr @zend_weakref_handlers, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @zend_weakref_handlers, i64 24), align 8
   %14 = load ptr, ptr @zend_ce_arrayaccess, align 8
   %15 = load ptr, ptr @zend_ce_countable, align 8
   %16 = load ptr, ptr @zend_ce_aggregate, align 8
@@ -1799,15 +1799,15 @@ define hidden void @zend_register_weakref_ce() local_unnamed_addr #0 {
   store ptr @zend_weakmap_handlers, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @zend_weakmap_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 192, i1 false)
   store i32 56, ptr @zend_weakmap_handlers, align 8
-  store ptr @zend_weakmap_free_obj, ptr getelementptr inbounds (i8, ptr @zend_weakmap_handlers, i64 8), align 8
-  store ptr @zend_weakmap_read_dimension, ptr getelementptr inbounds (i8, ptr @zend_weakmap_handlers, i64 48), align 8
-  store ptr @zend_weakmap_write_dimension, ptr getelementptr inbounds (i8, ptr @zend_weakmap_handlers, i64 56), align 8
-  store ptr @zend_weakmap_has_dimension, ptr getelementptr inbounds (i8, ptr @zend_weakmap_handlers, i64 88), align 8
-  store ptr @zend_weakmap_unset_dimension, ptr getelementptr inbounds (i8, ptr @zend_weakmap_handlers, i64 96), align 8
-  store ptr @zend_weakmap_count_elements, ptr getelementptr inbounds (i8, ptr @zend_weakmap_handlers, i64 144), align 8
-  store ptr @zend_weakmap_get_properties_for, ptr getelementptr inbounds (i8, ptr @zend_weakmap_handlers, i64 192), align 8
-  store ptr @zend_weakmap_get_gc, ptr getelementptr inbounds (i8, ptr @zend_weakmap_handlers, i64 168), align 8
-  store ptr @zend_weakmap_clone_obj, ptr getelementptr inbounds (i8, ptr @zend_weakmap_handlers, i64 24), align 8
+  store ptr @zend_weakmap_free_obj, ptr getelementptr inbounds nuw (i8, ptr @zend_weakmap_handlers, i64 8), align 8
+  store ptr @zend_weakmap_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @zend_weakmap_handlers, i64 48), align 8
+  store ptr @zend_weakmap_write_dimension, ptr getelementptr inbounds nuw (i8, ptr @zend_weakmap_handlers, i64 56), align 8
+  store ptr @zend_weakmap_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @zend_weakmap_handlers, i64 88), align 8
+  store ptr @zend_weakmap_unset_dimension, ptr getelementptr inbounds nuw (i8, ptr @zend_weakmap_handlers, i64 96), align 8
+  store ptr @zend_weakmap_count_elements, ptr getelementptr inbounds nuw (i8, ptr @zend_weakmap_handlers, i64 144), align 8
+  store ptr @zend_weakmap_get_properties_for, ptr getelementptr inbounds nuw (i8, ptr @zend_weakmap_handlers, i64 192), align 8
+  store ptr @zend_weakmap_get_gc, ptr getelementptr inbounds nuw (i8, ptr @zend_weakmap_handlers, i64 168), align 8
+  store ptr @zend_weakmap_clone_obj, ptr getelementptr inbounds nuw (i8, ptr @zend_weakmap_handlers, i64 24), align 8
   ret void
 }
 
@@ -2156,7 +2156,7 @@ define internal range(i32 -1, 1) i32 @zend_weakmap_iterator_valid(ptr nocapture 
   %.val = load i32, ptr %5, align 8
   %6 = icmp ne i32 %.val, -1
   tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %8 = zext i32 %.val to i64
   %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8, i32 1
   %10 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef nonnull %4, ptr noundef nonnull %9) #8
@@ -2174,7 +2174,7 @@ define internal ptr @zend_weakmap_iterator_get_current_data(ptr nocapture nounde
   %.val = load i32, ptr %5, align 8
   %6 = icmp ne i32 %.val, -1
   tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %8 = zext i32 %.val to i64
   %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8, i32 1
   %10 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %4, ptr noundef nonnull %9) #8
@@ -2192,7 +2192,7 @@ define internal void @zend_weakmap_iterator_get_current_key(ptr nocapture nounde
   %.val = load i32, ptr %8, align 8
   %9 = icmp ne i32 %.val, -1
   tail call void @llvm.assume(i1 %9)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %11 = zext i32 %.val to i64
   %12 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %10, i64 %11, i32 1
   %13 = call i32 @zend_hash_get_current_key_ex(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %12) #8
@@ -2219,7 +2219,7 @@ define internal void @zend_weakmap_iterator_move_forward(ptr nocapture noundef r
   %.val = load i32, ptr %5, align 8
   %6 = icmp ne i32 %.val, -1
   tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %8 = zext i32 %.val to i64
   %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8, i32 1
   %10 = tail call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %4, ptr noundef nonnull %9) #8
@@ -2235,7 +2235,7 @@ define internal void @zend_weakmap_iterator_rewind(ptr nocapture noundef readonl
   %.val = load i32, ptr %5, align 8
   %6 = icmp ne i32 %.val, -1
   tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %8 = zext i32 %.val to i64
   %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %4, ptr noundef nonnull %9) #8

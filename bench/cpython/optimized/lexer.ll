@@ -1216,7 +1216,7 @@ entry:
   %altindstack124 = getelementptr inbounds nuw i8, ptr %tok, i64 2344
   %tok_extra_tokens193 = getelementptr inbounds nuw i8, ptr %tok, i64 17260
   %type_comments = getelementptr inbounds nuw i8, ptr %tok, i64 2832
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_Py_ctype_table, i64 1020), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_Py_ctype_table, i64 1020), align 4
   %and5231680 = and i32 %0, 4
   %tobool524.not1681 = icmp eq i32 %and5231680, 0
   %cont_line1100 = getelementptr inbounds nuw i8, ptr %tok, i64 2760

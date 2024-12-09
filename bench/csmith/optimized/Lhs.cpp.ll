@@ -397,7 +397,7 @@ _ZNK4Type12is_long_longEv.exit:                   ; preds = %102
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %140
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Lhs, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Lhs, i64 16), ptr %11, align 8
   store ptr %.1104, ptr %24, align 8
   store ptr %1, ptr %25, align 8
   store i8 %23, ptr %26, align 8
@@ -451,7 +451,7 @@ _ZNK4Type12is_long_longEv.exit:                   ; preds = %102
           to label %_ZN9CGContext16reset_effect_stmERK6Effect.exit.thread unwind label %162
 
 _ZN9CGContext16reset_effect_stmERK6Effect.exit.thread: ; preds = %158
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Lhs, i64 16), ptr %157, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Lhs, i64 16), ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 24
   store ptr %.1104, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 32
@@ -1024,7 +1024,7 @@ declare void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74)) un
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3LhsC2ERK8Variable(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 5)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Lhs, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Lhs, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1041,7 +1041,7 @@ declare void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3LhsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 5)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Lhs, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Lhs, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1062,7 +1062,7 @@ define dso_local void @_ZN3LhsC2ERKS_(ptr noundef nonnull align 8 dereferenceabl
 define dso_local void @_ZN3LhsC2ERK8VariablePK4Typeb(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 {
   %5 = zext i1 %3 to i8
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 5)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Lhs, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Lhs, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1095,7 +1095,7 @@ define dso_local noundef nonnull ptr @_ZNK3Lhs5cloneEv(ptr nocapture noundef non
           to label %3 unwind label %14
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Lhs, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Lhs, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8

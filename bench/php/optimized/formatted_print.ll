@@ -176,7 +176,7 @@ define hidden void @zif_sprintf(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %22
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %39
@@ -1853,7 +1853,7 @@ php_formatted_print_get_array.exit:               ; preds = %50, %23
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %php_formatted_print_get_array.exit
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %58 = icmp ne ptr %57, null
   call void @llvm.assume(i1 %58)
   br label %65
@@ -1933,7 +1933,7 @@ define hidden void @zif_printf(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %22
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %39
@@ -2064,7 +2064,7 @@ php_formatted_print_get_array.exit:               ; preds = %50, %23
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %php_formatted_print_get_array.exit
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %58 = icmp ne ptr %57, null
   call void @llvm.assume(i1 %58)
   br label %65
@@ -2160,7 +2160,7 @@ define hidden void @zif_fprintf(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %41 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %41)
   br label %49
@@ -2312,7 +2312,7 @@ php_formatted_print_get_array.exit:               ; preds = %59, %33
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %php_formatted_print_get_array.exit
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
   br label %75

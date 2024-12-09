@@ -91,7 +91,7 @@ define internal ptr @mca_btl_self_alloc(ptr nocapture noundef readonly %0, ptr n
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 8), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_self, i64 8), align 8
   %.not = icmp ugt i64 %3, %8
   br i1 %.not, label %9, label %12
 
@@ -102,7 +102,7 @@ define internal ptr @mca_btl_self_alloc(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not13, label %.thread, label %12
 
 12:                                               ; preds = %9, %7, %5
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 1008), %5 ], [ getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 304), %7 ], [ getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 656), %9 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @mca_btl_self_component, i64 1008), %5 ], [ getelementptr inbounds nuw (i8, ptr @mca_btl_self_component, i64 304), %7 ], [ getelementptr inbounds nuw (i8, ptr @mca_btl_self_component, i64 656), %9 ]
   %13 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull %.sink)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -247,7 +247,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %15
   br i1 %27, label %33, label %28
 
 28:                                               ; preds = %23
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 8), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_self, i64 8), align 8
   %.not.i30 = icmp ugt i64 %26, %29
   br i1 %.not.i30, label %30, label %33
 
@@ -258,7 +258,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %15
   br i1 %.not13.i, label %mca_btl_self_free.exit, label %33
 
 33:                                               ; preds = %30, %28, %23
-  %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 1008), %23 ], [ getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 304), %28 ], [ getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 656), %30 ]
+  %.sink.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @mca_btl_self_component, i64 1008), %23 ], [ getelementptr inbounds nuw (i8, ptr @mca_btl_self_component, i64 304), %28 ], [ getelementptr inbounds nuw (i8, ptr @mca_btl_self_component, i64 656), %30 ]
   %34 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull %.sink.i)
   %35 = icmp eq ptr %34, null
   br i1 %35, label %mca_btl_self_free.exit, label %36

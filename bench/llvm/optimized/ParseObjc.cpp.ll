@@ -13327,7 +13327,7 @@ define dso_local void @_ZN5clang6Parser35StashAwayMethodOrFunctionBodyTokensEPNS
 
 17:                                               ; preds = %11, %7, %2
   %18 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #18
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6Parser11LexedMethodE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6Parser11LexedMethodE, i64 16), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -13589,7 +13589,7 @@ define dso_local noundef ptr @_ZN5clang6Parser25ParseObjCMethodDefinitionEv(ptr 
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %8, align 8
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang25PrettyDeclStackTraceEntryE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang25PrettyDeclStackTraceEntryE, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %19, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24

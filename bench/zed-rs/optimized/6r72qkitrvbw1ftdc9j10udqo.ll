@@ -370,9 +370,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E = external local_unnamed_addr global { i64 }
 @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE = external global { { { [6 x i64] } }, { { { i32 } } }, [1 x i32] }
 @"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h458d2e78ec3b19aaE.llvm.17120096847998249645" = private unnamed_addr constant [3 x ptr] [ptr @anon.5a940242dad4803ffa0694047890eb1b.285.llvm.7428513249094624621, ptr @anon.5a940242dad4803ffa0694047890eb1b.286.llvm.7428513249094624621, ptr @anon.5a940242dad4803ffa0694047890eb1b.287.llvm.7428513249094624621], align 8
-@"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h458d2e78ec3b19aaE.llvm.17120096847998249645.200" = private unnamed_addr constant [3 x i64] [i64 4, i64 14, i64 12], align 8
+@"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h458d2e78ec3b19aaE.llvm.17120096847998249645.199" = private unnamed_addr constant [3 x i64] [i64 4, i64 14, i64 12], align 8
 @"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h673db5375591e623E.llvm.17120096847998249645" = private unnamed_addr constant [3 x ptr] [ptr @anon.5a940242dad4803ffa0694047890eb1b.280.llvm.7428513249094624621, ptr @anon.5a940242dad4803ffa0694047890eb1b.281.llvm.7428513249094624621, ptr @anon.5a940242dad4803ffa0694047890eb1b.282.llvm.7428513249094624621], align 8
-@"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h673db5375591e623E.llvm.17120096847998249645.201" = private unnamed_addr constant [3 x i64] [i64 16, i64 12, i64 16], align 8
+@"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h673db5375591e623E.llvm.17120096847998249645.200" = private unnamed_addr constant [3 x i64] [i64 16, i64 12, i64 16], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN100_$LT$pin_project_lite..__private..UnsafeOverwriteGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h90644ee2de7f71bbE.llvm.17120096847998249645"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
@@ -55531,7 +55531,7 @@ switch.lookup:                                    ; preds = %15
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h458d2e78ec3b19aaE.llvm.17120096847998249645", i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = zext nneg i8 %16 to i64
-  %switch.gep11 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h458d2e78ec3b19aaE.llvm.17120096847998249645.200", i64 0, i64 %19
+  %switch.gep11 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h458d2e78ec3b19aaE.llvm.17120096847998249645.199", i64 0, i64 %19
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf697c26beec1c678E.llvm.7428513249094624621"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load12)
           to label %24 unwind label %20
@@ -55743,7 +55743,7 @@ switch.lookup:                                    ; preds = %15
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h673db5375591e623E.llvm.17120096847998249645", i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = zext nneg i8 %16 to i64
-  %switch.gep11 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h673db5375591e623E.llvm.17120096847998249645.201", i64 0, i64 %19
+  %switch.gep11 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h673db5375591e623E.llvm.17120096847998249645.200", i64 0, i64 %19
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hf697c26beec1c678E.llvm.7428513249094624621"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i.i.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load12)
           to label %24 unwind label %20
@@ -77525,7 +77525,7 @@ default.unreachable341:                           ; preds = %3
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 507
   store i8 1, ptr %76, align 1
   store i8 1, ptr %75, align 2
-  %77 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
+  %77 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
   %78 = icmp eq i32 %77, 4
   br i1 %78, label %89, label %79
 
@@ -77534,7 +77534,7 @@ default.unreachable341:                           ; preds = %3
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
   store ptr %49, ptr %48, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
           to label %.noexc unwind label %87
 
 .noexc:                                           ; preds = %79
@@ -78811,7 +78811,7 @@ common.ret:                                       ; preds = %727, %"_ZN4core3ptr
 454:                                              ; preds = %447
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9234)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6230)
-  %455 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
+  %455 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
   %456 = icmp eq i32 %455, 4
   br i1 %456, label %464, label %457
 
@@ -78820,7 +78820,7 @@ common.ret:                                       ; preds = %727, %"_ZN4core3ptr
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr %18, ptr %17, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
           to label %.noexc142 unwind label %462
 
 .noexc142:                                        ; preds = %457
@@ -79216,7 +79216,7 @@ common.ret:                                       ; preds = %727, %"_ZN4core3ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.3.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.2.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !15696
-  %582 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !15696
+  %582 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8, !noalias !15696
   %583 = icmp eq i32 %582, 4
   br i1 %583, label %_ZN3std4sync4once4Once9call_once17h58d5497c94b98c9eE.exit.i.i, label %584
 
@@ -79225,7 +79225,7 @@ common.ret:                                       ; preds = %727, %"_ZN4core3ptr
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %12, align 8, !noalias !15696
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !15696
   store ptr %12, ptr %11, align 8, !noalias !15696
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
           to label %.noexc164 unwind label %592
 
 .noexc164:                                        ; preds = %584
@@ -102523,7 +102523,7 @@ default.unreachable367:                           ; preds = %329, %190, %87, %2
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.0207)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(i64 279, ptr nonnull %.sroa.12211)
-  %46 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
+  %46 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
   %47 = icmp eq i32 %46, 4
   br i1 %47, label %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7f555db6f6602b45E.exit", label %48
 
@@ -102532,7 +102532,7 @@ default.unreachable367:                           ; preds = %329, %190, %87, %2
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   store ptr %28, ptr %27, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
           to label %.noexc unwind label %52
 
 .noexc:                                           ; preds = %48
@@ -104684,7 +104684,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr64drop
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h9970bf68c9e0251dE.exit"
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h9970bf68c9e0251dE.exit139": ; preds = %707
-  %714 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
+  %714 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
   %715 = icmp eq i32 %714, 4
   br i1 %715, label %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7f555db6f6602b45E.exit141", label %716
 
@@ -104693,7 +104693,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr64drop
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %12, ptr %11, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
           to label %.noexc140 unwind label %718
 
 .noexc140:                                        ; preds = %716
@@ -104739,7 +104739,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr64drop
 730:                                              ; preds = %724
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10256)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6252)
-  %731 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
+  %731 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
   %732 = icmp eq i32 %731, 4
   br i1 %732, label %736, label %733
 
@@ -104748,7 +104748,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr64drop
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %10, ptr %9, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
           to label %.noexc143 unwind label %734
 
 .noexc143:                                        ; preds = %733
@@ -105835,7 +105835,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hcfb34856c7af7c6eE.exit: ; pred
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$gpui..window..AnyWindowHandle$GT$$GT$17h7e92366f948a2b43E.exit71": ; preds = %_ZN4core4iter6traits8iterator8Iterator8find_map17hcfb34856c7af7c6eE.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60)
-  %90 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
+  %90 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
   %91 = icmp eq i32 %90, 4
   br i1 %91, label %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h7f555db6f6602b45E.exit", label %92
 
@@ -105844,7 +105844,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hcfb34856c7af7c6eE.exit: ; pred
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
   store ptr %43, ptr %42, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
           to label %.noexc72 unwind label %94
 
 .noexc72:                                         ; preds = %92
@@ -107776,7 +107776,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr64drop
 698:                                              ; preds = %689
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10138)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6134)
-  %699 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
+  %699 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48) acquire, align 8
   %700 = icmp eq i32 %699, 4
   br i1 %700, label %708, label %701
 
@@ -107785,7 +107785,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr64drop
   store ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h9b8e486205726090E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9workspace11persistence2DB17h81808c1e329f2f7dE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d95cb3795d954674052c907b50ac2716.209)
           to label %.noexc86 unwind label %706
 
 .noexc86:                                         ; preds = %701

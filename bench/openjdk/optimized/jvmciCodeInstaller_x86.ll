@@ -236,7 +236,7 @@ _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %25, %27, %30
   store ptr null, ptr %34, align 8, !alias.scope !6
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %35, align 8, !alias.scope !6
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %6, align 8, !alias.scope !6
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %6, align 8, !alias.scope !6
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %32, ptr %36, align 4, !alias.scope !6
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 3) #5
@@ -255,7 +255,7 @@ _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %25, %27, %30
   store ptr null, ptr %44, align 8, !alias.scope !11
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %45, align 8, !alias.scope !11
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %7, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr %7, align 8, !alias.scope !11
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %46, align 4, !alias.scope !11
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %43, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 0) #5
@@ -377,7 +377,7 @@ define hidden void @_ZN13CodeInstaller29pd_patch_DataSectionReferenceEiiP8JVMCIE
   store ptr %17, ptr %25, align 8, !alias.scope !16
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %26, align 8, !alias.scope !16
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23section_word_Relocation, i64 16), ptr %5, align 8, !alias.scope !16
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23section_word_Relocation, i64 16), ptr %5, align 8, !alias.scope !16
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1) #5
   %27 = load i64, ptr @JVMCITraceLevel, align 8
   %28 = icmp slt i64 %27, 3
@@ -433,7 +433,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %10
   store ptr null, ptr %22, align 8, !alias.scope !21
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 6, ptr %23, align 8, !alias.scope !21
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %5, align 8, !alias.scope !21
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %5, align 8, !alias.scope !21
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 2) #5
   br label %74
 
@@ -480,7 +480,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %.thread5.i, %25, %s
   store ptr null, ptr %40, align 8, !alias.scope !26
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 6, ptr %41, align 8, !alias.scope !26
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %6, align 8, !alias.scope !26
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %6, align 8, !alias.scope !26
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %39, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 0) #5
   br label %74
 
@@ -505,7 +505,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %25, %_ZN17Nat
   store ptr null, ptr %53, align 8, !alias.scope !31
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 6, ptr %54, align 8, !alias.scope !31
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %7, align 8, !alias.scope !31
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %7, align 8, !alias.scope !31
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %52, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 2) #5
   br label %74
 
@@ -533,7 +533,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread: ; preds = %27, %_
   store ptr null, ptr %71, align 8, !alias.scope !36
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 6, ptr %72, align 8, !alias.scope !36
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %8, align 8, !alias.scope !36
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %8, align 8, !alias.scope !36
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %70, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2) #5
   br label %74
 
@@ -610,7 +610,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
   store ptr null, ptr %33, align 8, !alias.scope !41
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 2, ptr %34, align 8, !alias.scope !41
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr %6, align 8, !alias.scope !41
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr %6, align 8, !alias.scope !41
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %32, ptr %35, align 8, !alias.scope !41
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -771,7 +771,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nocapt
   store ptr null, ptr %20, align 8, !alias.scope !46
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 18, ptr %21, align 8, !alias.scope !46
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !46
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !46
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %19, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #5
   br label %52
 
@@ -782,7 +782,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nocapt
   store ptr null, ptr %25, align 8, !alias.scope !51
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 18, ptr %26, align 8, !alias.scope !51
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !51
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !51
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %24, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1) #5
   br label %52
 
@@ -793,7 +793,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nocapt
   store ptr null, ptr %30, align 8, !alias.scope !56
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 18, ptr %31, align 8, !alias.scope !56
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !56
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !56
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %29, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 2) #5
   br label %52
 
@@ -804,7 +804,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nocapt
   store ptr null, ptr %35, align 8, !alias.scope !61
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 18, ptr %36, align 8, !alias.scope !61
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %7, align 8, !alias.scope !61
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %7, align 8, !alias.scope !61
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 3) #5
   br label %52
 
@@ -815,7 +815,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nocapt
   store ptr null, ptr %40, align 8, !alias.scope !66
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 18, ptr %41, align 8, !alias.scope !66
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %8, align 8, !alias.scope !66
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %8, align 8, !alias.scope !66
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %39, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 4) #5
   br label %52
 
@@ -826,7 +826,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nocapt
   store ptr null, ptr %45, align 8, !alias.scope !71
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 18, ptr %46, align 8, !alias.scope !71
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %9, align 8, !alias.scope !71
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %9, align 8, !alias.scope !71
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %44, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 5) #5
   br label %52
 
@@ -837,7 +837,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller11pd_relocateEPhi(ptr nocapt
   store ptr null, ptr %50, align 8, !alias.scope !76
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 18, ptr %51, align 8, !alias.scope !76
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %10, align 8, !alias.scope !76
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %10, align 8, !alias.scope !76
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %49, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 6) #5
   br label %52
 
@@ -855,13 +855,13 @@ define hidden noundef ptr @_ZN13CodeInstaller15get_hotspot_regEiP8JVMCIEnv(i32 n
   %or.cond.i = icmp ult i32 %0, 32
   %spec.select.i = select i1 %or.cond.i, i32 %0, i32 -1
   %5 = sext i32 %spec.select.i to i64
-  %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %5
+  %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
-  %9 = sub i32 %8, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %9 = sub i32 %8, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %10 = shl i32 %9, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %11
+  %12 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %11
   br label %27
 
 13:                                               ; preds = %2
@@ -870,14 +870,14 @@ define hidden noundef ptr @_ZN13CodeInstaller15get_hotspot_regEiP8JVMCIEnv(i32 n
 
 15:                                               ; preds = %13
   %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %16
+  %17 = getelementptr %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %16
   %18 = getelementptr i8, ptr %17, i64 -32
   %19 = ptrtoint ptr %18 to i64
   %20 = trunc i64 %19 to i32
-  %21 = sub i32 %20, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %21 = sub i32 %20, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %22 = shl i32 %21, 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %23
+  %24 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %23
   %25 = getelementptr i8, ptr %24, i64 80
   br label %27
 
@@ -894,7 +894,7 @@ define hidden noundef ptr @_ZN13CodeInstaller15get_hotspot_regEiP8JVMCIEnv(i32 n
 define hidden noundef zeroext i1 @_ZN13CodeInstaller22is_general_purpose_regEP9VMRegImpl(ptr noundef %0) local_unnamed_addr #2 align 2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
-  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %5 = and i32 %4, -16
   %spec.select.i = icmp eq i32 %5, 64
   br i1 %spec.select.i, label %12, label %6

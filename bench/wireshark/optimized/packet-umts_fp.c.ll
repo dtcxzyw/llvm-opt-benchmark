@@ -2879,7 +2879,7 @@ proto_item_set_generated.exit274:                 ; preds = %proto_item_set_gene
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %700, %696, %704, %703, %702, %699, %698
-  %.sink.in.i = phi ptr [ @hf_fp_rach_angle_of_arrival_present, %702 ], [ @hf_fp_rach_ext_rx_timing_deviation_present, %703 ], [ @hf_fp_rach_ext_rx_sync_ul_timing_deviation_present, %698 ], [ getelementptr inbounds (i8, ptr @hf_fp_rach_new_ie_flag_unused, i64 24), %699 ], [ %705, %704 ], [ @hf_fp_rach_ext_propagation_delay_present, %696 ], [ @hf_fp_rach_cell_portion_id_present, %700 ]
+  %.sink.in.i = phi ptr [ @hf_fp_rach_angle_of_arrival_present, %702 ], [ @hf_fp_rach_ext_rx_timing_deviation_present, %703 ], [ @hf_fp_rach_ext_rx_sync_ul_timing_deviation_present, %698 ], [ getelementptr inbounds nuw (i8, ptr @hf_fp_rach_new_ie_flag_unused, i64 24), %699 ], [ %705, %704 ], [ @hf_fp_rach_ext_propagation_delay_present, %696 ], [ @hf_fp_rach_cell_portion_id_present, %700 ]
   %.1176.ph.i = phi i32 [ %.0175191.i, %702 ], [ %.0175191.i, %703 ], [ %.0175191.i, %698 ], [ %.0175191.i, %699 ], [ %.0175191.i, %704 ], [ %.0175191.i, %696 ], [ %701, %700 ]
   %.1174.ph.i = phi i32 [ %.0173192.i, %702 ], [ %.0173192.i, %703 ], [ %.0173192.i, %698 ], [ %.0173192.i, %699 ], [ %.0173192.i, %704 ], [ %697, %696 ], [ %.0173192.i, %700 ]
   %.1172.ph.i = phi i32 [ 1, %702 ], [ %.0171193.i, %703 ], [ %.0171193.i, %698 ], [ %.0171193.i, %699 ], [ %.0171193.i, %704 ], [ %.0171193.i, %696 ], [ %.0171193.i, %700 ]
@@ -5106,7 +5106,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, 
   br i1 %197, label %198, label %206
 
 198:                                              ; preds = %._crit_edge239
-  %199 = load i32, ptr getelementptr inbounds (i8, ptr @hf_fp_hsdsch_new_ie_flag, i64 24), align 8
+  %199 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_fp_hsdsch_new_ie_flag, i64 24), align 8
   %200 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %199, ptr noundef %0, i32 noundef %.6.lcssa, i32 noundef 1, i32 noundef 2) #9
   %201 = load i32, ptr @hf_fp_hsdsch_physical_layer_category, align 4
   %202 = shl i32 %.6.lcssa, 3

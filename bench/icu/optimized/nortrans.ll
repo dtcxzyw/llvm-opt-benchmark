@@ -518,7 +518,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 define void @_ZN6icu_7527NormalizationTransliteratorC2ERKNS_13UnicodeStringERKNS_11Normalizer2E(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull align 8 dereferenceable(8) %norm2) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7527NormalizationTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7527NormalizationTransliteratorE, i64 16), ptr %this, align 8
   %fNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %norm2, ptr %fNorm2, align 8
   ret void
@@ -548,7 +548,7 @@ entry:
 define void @_ZN6icu_7527NormalizationTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %o) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %o)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7527NormalizationTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7527NormalizationTransliteratorE, i64 16), ptr %this, align 8
   %fNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %fNorm22 = getelementptr inbounds nuw i8, ptr %o, i64 88
   %0 = load ptr, ptr %fNorm22, align 8
@@ -594,10 +594,10 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %errorCode, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %segment, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %segment, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %segment, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %normalized, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %normalized, align 8
   %fUnion2.i32 = getelementptr inbounds nuw i8, ptr %normalized, i64 8
   store i16 2, ptr %fUnion2.i32, align 8
   %vtable.i = load ptr, ptr %text, align 8

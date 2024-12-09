@@ -26314,7 +26314,7 @@ define hidden noundef zeroext i1 @_ZN14ide_completion7context17CompletionContext
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !6694
   store ptr @anon.360a79e4fec2c1b021005981551725ec.285.llvm.6578722319504587490, ptr %3, align 8, !noalias !6694
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.360a79e4fec2c1b021005981551725ec.285.llvm.6578722319504587490, i64 480), ptr %20, align 8, !noalias !6694
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.360a79e4fec2c1b021005981551725ec.285.llvm.6578722319504587490, i64 480), ptr %20, align 8, !noalias !6694
   %21 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f8ba5404646a71cE.llvm.8330083114956406873"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc3 unwind label %.loopexit.split-lp
 

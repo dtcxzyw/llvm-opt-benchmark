@@ -1008,14 +1008,14 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @asn1_ctx_init(ptr noundef nonnull %14, i32 noundef 0, i1 noundef zeroext true, ptr noundef %2) #11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %15, ptr %16, align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @usm_p, i64 64), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 64), align 8
   %17 = call i32 @tvb_offset_from_real_beginning(ptr noundef %0) #11
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @usm_p, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @usm_p, i64 72), align 8
+  store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 72), align 8
   store i32 0, ptr @usm_p, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @usm_p, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @usm_p, i64 80), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) getelementptr inbounds (i8, ptr @usm_p, i64 12), i8 0, i64 52, i1 false)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 80), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) getelementptr inbounds nuw (i8, ptr @usm_p, i64 12), i8 0, i64 52, i1 false)
   %18 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %1) #11
   %19 = icmp ne i32 %6, 0
   %20 = load i32, ptr @snmp_desegment, align 4
@@ -1100,21 +1100,21 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   %65 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %14, ptr noundef %55, ptr noundef %0, i32 noundef %1, ptr noundef nonnull @SNMPv3Message_sequence, i32 noundef -1, i32 noundef %64) #11
   %66 = load i32, ptr @usm_p, align 8
   %67 = icmp ne i32 %66, 0
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 72), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 72), align 8
   %69 = icmp ne ptr %68, null
   %or.cond.i = select i1 %67, i1 %69, i1 false
   br i1 %or.cond.i, label %70, label %dissect_snmp_SNMPv3Message.exit
 
 70:                                               ; preds = %63
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 40), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 40), align 8
   %72 = load i32, ptr @ett_authParameters, align 4
   %73 = call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72) #11
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 72), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 72), align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i32, ptr %77, align 8
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 48), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 48), align 8
   %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %123, label %80
 
@@ -1135,7 +1135,7 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not54.i.i, label %90, label %123
 
 90:                                               ; preds = %85
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 64), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 64), align 8
   %92 = call i32 @tvb_captured_length(ptr noundef %91) #11
   %93 = icmp slt i32 %92, 1
   br i1 %93, label %123, label %94
@@ -1143,15 +1143,15 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %75, i64 408
   %96 = load ptr, ptr %95, align 8
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 64), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 64), align 8
   %98 = zext nneg i32 %92 to i64
   %99 = call ptr @tvb_memdup(ptr noundef %96, ptr noundef %97, i32 noundef 0, i64 noundef %98) #11
   %100 = load ptr, ptr %95, align 8
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 48), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 48), align 8
   %102 = zext i32 %86 to i64
   %103 = call ptr @tvb_memdup(ptr noundef %100, ptr noundef %101, i32 noundef 0, i64 noundef %102) #11
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @usm_p, i64 12), align 4
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @usm_p, i64 8), align 8
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 12), align 4
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 8), align 8
   %106 = sub i32 %104, %105
   %107 = add i32 %106, %86
   %108 = icmp ult i32 %106, %107
@@ -1186,9 +1186,9 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 123:                                              ; preds = %90, %85, %80, %70
   %.025.ph.i = phi ptr [ @.str.421, %90 ], [ @.str.420, %85 ], [ @.str.419, %80 ], [ @.str.418, %70 ]
-  store i32 0, ptr getelementptr inbounds (i8, ptr @usm_p, i64 80), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 80), align 8
   %124 = load ptr, ptr %74, align 8
-  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 40), align 8
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 40), align 8
   %126 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %124, ptr noundef %125, ptr noundef nonnull @ei_snmp_verify_authentication_error, ptr noundef nonnull @.str.412, ptr noundef nonnull %.025.ph.i) #11
   br label %dissect_snmp_SNMPv3Message.exit
 
@@ -1197,7 +1197,7 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   %.023.i = phi i64 [ %102, %122 ], [ 0, %._crit_edge.i.i ]
   %.046.i.i = phi i1 [ %.not56.i.i, %122 ], [ false, %._crit_edge.i.i ]
   %128 = zext i1 %.046.i.i to i32
-  store i32 %128, ptr getelementptr inbounds (i8, ptr @usm_p, i64 80), align 8
+  store i32 %128, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 80), align 8
   %129 = load i32, ptr @hf_snmp_msgAuthentication, align 4
   %130 = zext i1 %.046.i.i to i64
   %131 = call ptr @proto_tree_add_boolean(ptr noundef %73, i32 noundef %129, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %130) #11
@@ -1218,7 +1218,7 @@ define hidden i32 @dissect_snmp_pdu(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %135, %132, %127
-  %139 = load i32, ptr getelementptr inbounds (i8, ptr @usm_p, i64 80), align 8
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 80), align 8
   %.not20.i = icmp eq i32 %139, 0
   br i1 %.not20.i, label %140, label %145
 
@@ -4328,8 +4328,8 @@ define internal i32 @dissect_snmp_T_msgSecurityParameters(i1 noundef zeroext %0,
   %10 = tail call i32 @get_ber_length(ptr noundef %1, i32 noundef %9, ptr noundef null, ptr noundef null) #11
   %11 = load i32, ptr @ett_snmp_UsmSecurityParameters, align 4
   %12 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %10, ptr noundef nonnull @UsmSecurityParameters_sequence, i32 noundef -1, i32 noundef %11) #11
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 24), align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 32), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 24), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 32), align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @localized_ues, align 8
@@ -4510,7 +4510,7 @@ define internal i32 @dissect_snmp_T_msgSecurityParameters(i1 noundef zeroext %0,
 
 get_user_assoc.exit:                              ; preds = %115, %8, %21, %24, %.preheader.i, %113, %114, %.loopexit43.i
   %.0.i = phi ptr [ null, %8 ], [ null, %21 ], [ null, %24 ], [ %64, %114 ], [ %64, %113 ], [ %storemerge49.i, %.loopexit43.i ], [ null, %.preheader.i ], [ null, %115 ]
-  store ptr %.0.i, ptr getelementptr inbounds (i8, ptr @usm_p, i64 72), align 8
+  store ptr %.0.i, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 72), align 8
   br label %119
 
 117:                                              ; preds = %6
@@ -4562,7 +4562,7 @@ define internal i32 @dissect_snmp_T_msgFlags(i1 noundef zeroext %0, ptr noundef 
   %25 = zext i8 %11 to i32
   %26 = lshr i32 %25, 1
   %.lobit = and i32 %26, 1
-  store i32 %.lobit, ptr getelementptr inbounds (i8, ptr @usm_p, i64 4), align 4
+  store i32 %.lobit, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 4), align 4
   %27 = and i32 %25, 1
   store i32 %27, ptr @usm_p, align 8
   br label %28
@@ -4579,8 +4579,8 @@ define internal i32 @dissect_snmp_T_msgSecurityModel(i1 noundef zeroext %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_snmp_T_msgAuthoritativeEngineID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @usm_p, i64 24)) #11
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 24), align 8
+  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @usm_p, i64 24)) #11
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 24), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %19, label %9
 
@@ -4591,7 +4591,7 @@ define internal i32 @dissect_snmp_T_msgAuthoritativeEngineID(i1 noundef zeroext 
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #11
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 24), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 24), align 8
   %17 = tail call i32 @tvb_reported_length_remaining(ptr noundef %16, i32 noundef 0) #11
   %18 = tail call i32 @dissect_snmp_engineid(ptr noundef %13, ptr noundef %15, ptr noundef %16, i32 noundef 0, i32 noundef %17)
   br label %19
@@ -4602,35 +4602,35 @@ define internal i32 @dissect_snmp_T_msgAuthoritativeEngineID(i1 noundef zeroext 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_snmp_T_msgAuthoritativeEngineBoots(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @usm_p, i64 16)) #11
+  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @usm_p, i64 16)) #11
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_snmp_T_msgAuthoritativeEngineTime(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @usm_p, i64 20)) #11
+  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @usm_p, i64 20)) #11
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_snmp_T_msgUserName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @usm_p, i64 32)) #11
+  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @usm_p, i64 32)) #11
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_snmp_T_msgAuthenticationParameters(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @usm_p, i64 48)) #11
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 48), align 8
+  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @usm_p, i64 48)) #11
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 48), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @usm_p, i64 40), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 40), align 8
   %12 = tail call i32 @tvb_offset_from_real_beginning(ptr noundef nonnull %8) #11
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @usm_p, i64 12), align 4
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 12), align 4
   br label %13
 
 13:                                               ; preds = %9, %6
@@ -4639,7 +4639,7 @@ define internal i32 @dissect_snmp_T_msgAuthenticationParameters(i1 zeroext %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_snmp_T_msgPrivacyParameters(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @usm_p, i64 56)) #11
+  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @usm_p, i64 56)) #11
   ret i32 %7
 }
 
@@ -4856,12 +4856,12 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %12 = alloca ptr, align 8
   %13 = load i32, ptr @hf_snmp_encryptedPDU, align 4
   %14 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %13, ptr noundef nonnull %11) #11
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @usm_p, i64 4), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 4), align 4
   %16 = icmp ne i32 %15, 0
   %17 = load ptr, ptr %11, align 8
   %18 = icmp ne ptr %17, null
   %or.cond = select i1 %16, i1 %18, i1 false
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 72), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 72), align 8
   %20 = icmp ne ptr %19, null
   %or.cond4 = select i1 %or.cond, i1 %20, i1 false
   br i1 %or.cond4, label %21, label %90
@@ -4878,7 +4878,7 @@ define internal i32 @dissect_snmp_T_encryptedPDU(i1 zeroext %0, ptr noundef %1, 
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr @ett_encryptedPDU, align 4
   %28 = call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #11
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @usm_p, i64 72), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @usm_p, i64 72), align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %11, align 8

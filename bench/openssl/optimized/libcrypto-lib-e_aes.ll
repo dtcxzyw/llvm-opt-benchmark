@@ -97,7 +97,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_cbc() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_cbc, ptr @aesni_128_cbc
@@ -107,7 +107,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_ecb() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_ecb, ptr @aesni_128_ecb
@@ -117,7 +117,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_ofb() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_ofb, ptr @aesni_128_ofb
@@ -127,7 +127,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_cfb128() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_cfb, ptr @aesni_128_cfb
@@ -137,7 +137,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_cfb1() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_cfb1, ptr @aesni_128_cfb1
@@ -147,7 +147,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_cfb8() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_cfb8, ptr @aesni_128_cfb8
@@ -157,7 +157,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_ctr() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_ctr, ptr @aesni_128_ctr
@@ -167,7 +167,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_cbc() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_cbc, ptr @aesni_192_cbc
@@ -177,7 +177,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_ecb() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_ecb, ptr @aesni_192_ecb
@@ -187,7 +187,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_ofb() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_ofb, ptr @aesni_192_ofb
@@ -197,7 +197,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_cfb128() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_cfb, ptr @aesni_192_cfb
@@ -207,7 +207,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_cfb1() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_cfb1, ptr @aesni_192_cfb1
@@ -217,7 +217,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_cfb8() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_cfb8, ptr @aesni_192_cfb8
@@ -227,7 +227,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_ctr() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_ctr, ptr @aesni_192_ctr
@@ -237,7 +237,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_cbc() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_cbc, ptr @aesni_256_cbc
@@ -247,7 +247,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_ecb() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_ecb, ptr @aesni_256_ecb
@@ -257,7 +257,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_ofb() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_ofb, ptr @aesni_256_ofb
@@ -267,7 +267,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_cfb128() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_cfb, ptr @aesni_256_cfb
@@ -277,7 +277,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_cfb1() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_cfb1, ptr @aesni_256_cfb1
@@ -287,7 +287,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_cfb8() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_cfb8, ptr @aesni_256_cfb8
@@ -297,7 +297,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_ctr() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_ctr, ptr @aesni_256_ctr
@@ -307,7 +307,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_gcm() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_gcm, ptr @aesni_128_gcm
@@ -317,7 +317,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_gcm() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_gcm, ptr @aesni_192_gcm
@@ -327,7 +327,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_gcm() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_gcm, ptr @aesni_256_gcm
@@ -337,7 +337,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_xts() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_xts, ptr @aesni_128_xts
@@ -347,7 +347,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_xts() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_xts, ptr @aesni_256_xts
@@ -357,7 +357,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_ccm() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_ccm, ptr @aesni_128_ccm
@@ -367,7 +367,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_ccm() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_ccm, ptr @aesni_192_ccm
@@ -377,7 +377,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_ccm() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_ccm, ptr @aesni_256_ccm
@@ -423,7 +423,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_128_ocb() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_128_ocb, ptr @aesni_128_ocb
@@ -433,7 +433,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_192_ocb() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_192_ocb, ptr @aesni_192_ocb
@@ -443,7 +443,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define nonnull ptr @EVP_aes_256_ocb() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 33554432
   %tobool.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool.not, ptr @aes_256_ocb, ptr @aesni_256_ocb
@@ -574,7 +574,7 @@ if.end:                                           ; preds = %entry
   %or.cond = icmp ult i32 %0, -2
   %tobool = icmp ne i32 %enc, 0
   %or.cond1 = or i1 %tobool, %or.cond
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and30 = and i32 %1, 512
   %tobool31 = icmp ne i32 %and30, 0
   br i1 %or.cond1, label %if.else29, label %if.then6
@@ -1887,7 +1887,7 @@ if.then6:                                         ; preds = %if.then3
 
 do.body:                                          ; preds = %if.then3
   %mul = shl nsw i32 %call4, 3
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
   %call23 = tail call i32 @AES_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %mul, ptr noundef %call) #8
@@ -2206,7 +2206,7 @@ if.then12:                                        ; preds = %land.lhs.true8
 if.end13:                                         ; preds = %land.lhs.true8, %if.end7
   %stream = getelementptr inbounds nuw i8, ptr %call, i64 528
   store ptr null, ptr %stream, align 8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 512
   %tobool14.not = icmp eq i32 %and, 0
   br i1 %tobool14.not, label %if.end38, label %if.then15
@@ -2863,7 +2863,7 @@ if.then6:                                         ; preds = %if.then3
   br label %return
 
 do.body:                                          ; preds = %if.then3
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
   %ccm14 = getelementptr inbounds nuw i8, ptr %call, i64 280
@@ -3609,7 +3609,7 @@ if.then6:                                         ; preds = %if.then3
   br label %return
 
 do.body:                                          ; preds = %if.then3
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
   %ksdec20 = getelementptr inbounds nuw i8, ptr %call, i64 248

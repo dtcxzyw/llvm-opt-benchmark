@@ -936,7 +936,7 @@ define ptr @bb_handle_job_script(ptr nocapture noundef %0, ptr noundef %1) local
   unreachable
 
 62:                                               ; preds = %10
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %65 = load i32, ptr %64, align 8
   %66 = urem i32 %65, 10
@@ -987,7 +987,7 @@ define void @bb_set_job_bb_state(ptr noundef %0, ptr nocapture noundef initializ
   br label %23
 
 11:                                               ; preds = %3
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %13 = and i64 %12, 1099511627776
   %.not11 = icmp eq i64 %13, 0
   br i1 %.not11, label %20, label %14
@@ -1332,7 +1332,7 @@ _atoi.exit:                                       ; preds = %107, %111
   %145 = call i32 @s_p_get_uint32(ptr noundef nonnull %26, ptr noundef nonnull @.str.36, ptr noundef %47) #17
   call void @s_p_hashtbl_destroy(ptr noundef %47) #17
   call void @slurm_xfree(ptr noundef nonnull %8) #17
-  %146 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %146 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %147 = and i64 %146, 1099511627776
   %.not147 = icmp eq i64 %147, 0
   br i1 %.not147, label %288, label %148
@@ -1864,7 +1864,7 @@ declare ptr @slurm_bb_flags2str(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @bb_open_state_file(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %5 = tail call ptr @xstrdup(ptr noundef %4) #17
   store ptr %5, ptr %1, align 8
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.63, ptr noundef %0) #17
@@ -4130,7 +4130,7 @@ define i32 @bb_post_persist_create(ptr noundef readonly %0, ptr nocapture nounde
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %4, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -4279,7 +4279,7 @@ define i32 @bb_post_persist_delete(ptr nocapture noundef readonly %0, ptr nocapt
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %3, align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5197,7 +5197,7 @@ bb_granularity.exit268:                           ; preds = %301, %303
   %366 = getelementptr inbounds nuw i8, ptr %330, i64 40
   %367 = load i32, ptr %366, align 8
   tail call void %3(i32 noundef %365, i32 noundef %367, i1 noundef zeroext true) #17
-  %368 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %368 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %369 = and i64 %368, 1099511627776
   %.not240.us = icmp eq i64 %369, 0
   br i1 %.not240.us, label %..loopexit_crit_edge.us, label %370
@@ -5313,7 +5313,7 @@ define void @bb_update_system_comment(ptr noundef %0, ptr noundef %1, ptr nounde
   %26 = call ptr @list_create(ptr noundef null) #17
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %26, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   call void @list_append(ptr noundef %26, ptr noundef %28) #17
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %30 = load ptr, ptr %29, align 8
@@ -5325,7 +5325,7 @@ define void @bb_update_system_comment(ptr noundef %0, ptr noundef %1, ptr nounde
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 352
   store ptr %34, ptr %35, align 8
   %36 = load ptr, ptr @acct_db_conn, align 8
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %38 = call ptr @acct_storage_g_modify_job(ptr noundef %36, i32 noundef %37, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
   %39 = load ptr, ptr %27, align 8
   %.not15 = icmp eq ptr %39, null

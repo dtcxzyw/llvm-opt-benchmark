@@ -18884,7 +18884,7 @@ define dso_local ptr @_ZN5clang6Parser42ParseOpenMPDeclarativeDirectiveWithExtDe
 .critedge:                                        ; preds = %68, %76
   %78 = call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
   %79 = load i32, ptr %1, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6Parser16LateParsedPragmaE, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6Parser16LateParsedPragmaE, i64 16), ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %0, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -20426,179 +20426,179 @@ define internal fastcc range(i32 0, 113) i32 @_ZL24parseOpenMPDirectiveKindRN5cl
 
 9:                                                ; preds = %7
   store i32 131, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, align 16
-  store i32 116, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 4), align 4
-  store i32 132, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 8), align 8
-  store i32 131, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 12), align 4
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 16), align 16
-  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 20), align 4
-  store i32 117, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 24), align 8
-  store i32 116, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 28), align 4
-  store i32 118, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 32), align 16
-  store i32 117, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 36), align 4
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 40), align 8
-  store i32 26, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 44), align 4
-  store i32 114, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 48), align 16
-  store i32 121, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 52), align 4
-  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 56), align 8
-  store i32 116, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 60), align 4
-  store i32 122, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 64), align 16
-  store i32 13, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 68), align 4
-  store i32 116, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 72), align 8
-  store i32 129, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 76), align 4
-  store i32 12, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 80), align 16
-  store i32 116, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 84), align 4
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 88), align 8
-  store i32 14, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 92), align 4
-  store i32 116, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 96), align 16
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 100), align 4
-  store i32 15, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 104), align 8
-  store i32 116, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 108), align 4
-  store i32 130, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 112), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 116), align 4
-  store i32 132, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 120), align 8
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 124), align 4
-  store i32 7, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 128), align 16
-  store i32 132, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 132), align 4
-  store i32 130, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 136), align 8
-  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 140), align 4
-  store i32 118, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 144), align 16
-  store i32 130, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 148), align 4
-  store i32 28, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 152), align 8
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 156), align 4
-  store i32 47, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 160), align 16
-  store i32 126, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 164), align 4
-  store i32 126, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 168), align 8
-  store i32 36, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 172), align 4
-  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 176), align 16
-  store i32 21, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 180), align 4
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 184), align 8
-  store i32 22, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 188), align 4
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 192), align 16
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 196), align 4
-  store i32 23, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 200), align 8
-  store i32 118, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 204), align 4
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 208), align 16
-  store i32 27, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 212), align 4
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 216), align 8
-  store i32 115, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 220), align 4
-  store i32 68, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 224), align 16
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 228), align 4
-  store i32 119, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 232), align 8
-  store i32 123, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 236), align 4
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 240), align 16
-  store i32 120, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 244), align 4
-  store i32 124, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 248), align 8
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 252), align 4
-  store i32 125, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 256), align 16
-  store i32 84, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 260), align 4
-  store i32 123, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 264), align 8
-  store i32 115, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 268), align 4
-  store i32 69, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 272), align 16
-  store i32 124, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 276), align 4
-  store i32 115, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 280), align 8
-  store i32 70, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 284), align 4
-  store i32 36, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 288), align 16
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 292), align 4
-  store i32 37, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 296), align 8
-  store i32 47, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 300), align 4
-  store i32 36, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 304), align 16
-  store i32 50, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 308), align 4
-  store i32 50, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 312), align 8
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 316), align 4
-  store i32 51, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 320), align 16
-  store i32 47, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 324), align 4
-  store i32 105, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 328), align 8
-  store i32 107, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 332), align 4
-  store i32 47, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 336), align 16
-  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 340), align 4
-  store i32 58, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 344), align 8
-  store i32 87, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 348), align 4
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 352), align 16
-  store i32 88, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 356), align 4
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 360), align 8
-  store i32 47, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 364), align 4
-  store i32 71, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 368), align 16
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 372), align 4
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 376), align 8
-  store i32 76, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 380), align 4
-  store i32 71, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 384), align 16
-  store i32 105, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 388), align 4
-  store i32 110, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 392), align 8
-  store i32 71, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 396), align 4
-  store i32 36, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 400), align 16
-  store i32 74, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 404), align 4
-  store i32 74, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 408), align 8
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 412), align 4
-  store i32 75, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 416), align 16
-  store i32 91, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 420), align 4
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 424), align 8
-  store i32 92, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 428), align 4
-  store i32 92, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 432), align 16
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 436), align 4
-  store i32 97, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 440), align 8
-  store i32 92, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 444), align 4
-  store i32 47, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 448), align 16
-  store i32 127, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 452), align 4
-  store i32 127, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 456), align 8
-  store i32 36, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 460), align 4
-  store i32 95, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 464), align 16
-  store i32 95, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 468), align 4
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 472), align 8
-  store i32 96, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 476), align 4
-  store i32 91, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 480), align 16
-  store i32 105, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 484), align 4
-  store i32 112, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 488), align 8
-  store i32 67, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 492), align 4
-  store i32 91, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 496), align 16
-  store i32 77, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 500), align 4
-  store i32 77, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 504), align 8
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 508), align 4
-  store i32 78, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 512), align 16
-  store i32 77, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 516), align 4
-  store i32 105, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 520), align 8
-  store i32 111, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 524), align 4
-  store i32 78, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 528), align 16
-  store i32 47, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 532), align 4
-  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 536), align 8
-  store i32 78, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 540), align 4
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 544), align 16
-  store i32 83, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 548), align 4
-  store i32 128, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 552), align 8
-  store i32 36, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 556), align 4
-  store i32 81, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 560), align 16
-  store i32 81, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 564), align 4
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 568), align 8
-  store i32 82, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 572), align 4
-  store i32 41, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 576), align 16
-  store i32 87, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 580), align 4
-  store i32 42, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 584), align 8
-  store i32 106, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 588), align 4
-  store i32 87, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 592), align 16
-  store i32 39, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 596), align 4
-  store i32 42, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 600), align 8
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 604), align 4
-  store i32 43, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 608), align 16
-  store i32 39, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 612), align 4
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 616), align 8
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 620), align 4
-  store i32 47, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 624), align 16
-  store i32 41, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 628), align 4
-  store i32 55, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 632), align 8
-  store i32 47, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 636), align 4
-  store i32 106, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 640), align 16
-  store i32 52, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 644), align 4
-  store i32 55, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 648), align 8
-  store i32 87, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 652), align 4
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 656), align 16
-  store i32 52, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 660), align 4
-  store i32 87, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 664), align 8
-  store i32 53, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 668), align 4
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 672), align 16
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 676), align 4
-  store i32 57, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 680), align 8
-  store i32 53, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 684), align 4
-  store i32 65, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 688), align 16
-  store i32 54, ptr getelementptr inbounds (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 692), align 4
+  store i32 116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 4), align 4
+  store i32 132, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 8), align 8
+  store i32 131, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 12), align 4
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 16), align 16
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 20), align 4
+  store i32 117, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 24), align 8
+  store i32 116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 28), align 4
+  store i32 118, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 32), align 16
+  store i32 117, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 36), align 4
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 40), align 8
+  store i32 26, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 44), align 4
+  store i32 114, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 48), align 16
+  store i32 121, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 52), align 4
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 56), align 8
+  store i32 116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 60), align 4
+  store i32 122, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 64), align 16
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 68), align 4
+  store i32 116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 72), align 8
+  store i32 129, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 76), align 4
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 80), align 16
+  store i32 116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 84), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 88), align 8
+  store i32 14, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 92), align 4
+  store i32 116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 96), align 16
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 100), align 4
+  store i32 15, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 104), align 8
+  store i32 116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 108), align 4
+  store i32 130, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 112), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 116), align 4
+  store i32 132, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 120), align 8
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 124), align 4
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 128), align 16
+  store i32 132, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 132), align 4
+  store i32 130, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 136), align 8
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 140), align 4
+  store i32 118, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 144), align 16
+  store i32 130, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 148), align 4
+  store i32 28, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 152), align 8
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 156), align 4
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 160), align 16
+  store i32 126, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 164), align 4
+  store i32 126, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 168), align 8
+  store i32 36, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 172), align 4
+  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 176), align 16
+  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 180), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 184), align 8
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 188), align 4
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 192), align 16
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 196), align 4
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 200), align 8
+  store i32 118, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 204), align 4
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 208), align 16
+  store i32 27, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 212), align 4
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 216), align 8
+  store i32 115, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 220), align 4
+  store i32 68, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 224), align 16
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 228), align 4
+  store i32 119, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 232), align 8
+  store i32 123, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 236), align 4
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 240), align 16
+  store i32 120, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 244), align 4
+  store i32 124, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 248), align 8
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 252), align 4
+  store i32 125, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 256), align 16
+  store i32 84, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 260), align 4
+  store i32 123, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 264), align 8
+  store i32 115, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 268), align 4
+  store i32 69, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 272), align 16
+  store i32 124, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 276), align 4
+  store i32 115, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 280), align 8
+  store i32 70, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 284), align 4
+  store i32 36, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 288), align 16
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 292), align 4
+  store i32 37, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 296), align 8
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 300), align 4
+  store i32 36, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 304), align 16
+  store i32 50, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 308), align 4
+  store i32 50, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 312), align 8
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 316), align 4
+  store i32 51, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 320), align 16
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 324), align 4
+  store i32 105, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 328), align 8
+  store i32 107, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 332), align 4
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 336), align 16
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 340), align 4
+  store i32 58, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 344), align 8
+  store i32 87, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 348), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 352), align 16
+  store i32 88, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 356), align 4
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 360), align 8
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 364), align 4
+  store i32 71, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 368), align 16
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 372), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 376), align 8
+  store i32 76, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 380), align 4
+  store i32 71, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 384), align 16
+  store i32 105, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 388), align 4
+  store i32 110, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 392), align 8
+  store i32 71, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 396), align 4
+  store i32 36, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 400), align 16
+  store i32 74, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 404), align 4
+  store i32 74, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 408), align 8
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 412), align 4
+  store i32 75, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 416), align 16
+  store i32 91, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 420), align 4
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 424), align 8
+  store i32 92, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 428), align 4
+  store i32 92, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 432), align 16
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 436), align 4
+  store i32 97, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 440), align 8
+  store i32 92, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 444), align 4
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 448), align 16
+  store i32 127, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 452), align 4
+  store i32 127, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 456), align 8
+  store i32 36, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 460), align 4
+  store i32 95, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 464), align 16
+  store i32 95, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 468), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 472), align 8
+  store i32 96, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 476), align 4
+  store i32 91, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 480), align 16
+  store i32 105, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 484), align 4
+  store i32 112, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 488), align 8
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 492), align 4
+  store i32 91, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 496), align 16
+  store i32 77, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 500), align 4
+  store i32 77, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 504), align 8
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 508), align 4
+  store i32 78, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 512), align 16
+  store i32 77, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 516), align 4
+  store i32 105, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 520), align 8
+  store i32 111, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 524), align 4
+  store i32 78, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 528), align 16
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 532), align 4
+  store i32 128, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 536), align 8
+  store i32 78, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 540), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 544), align 16
+  store i32 83, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 548), align 4
+  store i32 128, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 552), align 8
+  store i32 36, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 556), align 4
+  store i32 81, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 560), align 16
+  store i32 81, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 564), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 568), align 8
+  store i32 82, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 572), align 4
+  store i32 41, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 576), align 16
+  store i32 87, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 580), align 4
+  store i32 42, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 584), align 8
+  store i32 106, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 588), align 4
+  store i32 87, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 592), align 16
+  store i32 39, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 596), align 4
+  store i32 42, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 600), align 8
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 604), align 4
+  store i32 43, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 608), align 16
+  store i32 39, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 612), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 616), align 8
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 620), align 4
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 624), align 16
+  store i32 41, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 628), align 4
+  store i32 55, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 632), align 8
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 636), align 4
+  store i32 106, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 640), align 16
+  store i32 52, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 644), align 4
+  store i32 55, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 648), align 8
+  store i32 87, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 652), align 4
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 656), align 16
+  store i32 52, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 660), align 4
+  store i32 87, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 664), align 8
+  store i32 53, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 668), align 4
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 672), align 16
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 676), align 4
+  store i32 57, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 680), align 8
+  store i32 53, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 684), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 688), align 16
+  store i32 54, ptr getelementptr inbounds nuw (i8, ptr @_ZZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F, i64 692), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL24parseOpenMPDirectiveKindRN5clang6ParserEE1F) #17
   br label %10
 
@@ -20993,7 +20993,7 @@ _ZNSt8functionIFvN4llvm9StringRefEEED2Ev.exit:    ; preds = %_ZN4llvm9StringMapI
   br label %_ZNSt8functionIFbN4llvm9StringRefEEED2Ev.exit
 
 _ZNSt8functionIFbN4llvm9StringRefEEED2Ev.exit:    ; preds = %_ZNSt8functionIFvN4llvm9StringRefEEED2Ev.exit, %25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm3omp10OMPContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm3omp10OMPContextE, i64 16), ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %28) #17
   %30 = load ptr, ptr %28, align 8
@@ -30994,7 +30994,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm3omp10OMPContextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm3omp10OMPContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm3omp10OMPContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #17
   %4 = load ptr, ptr %2, align 8
@@ -31024,7 +31024,7 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZN4llvm11SmallVect
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm3omp10OMPContextD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm3omp10OMPContextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm3omp10OMPContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #17
   %4 = load ptr, ptr %2, align 8

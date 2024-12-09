@@ -79,24 +79,24 @@ define hidden void @_ZN9vmSymbols10initializeEv() local_unnamed_addr #0 align 2 
   br i1 %.not, label %7, label %.preheader
 
 7:                                                ; preds = %.preheader
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6960), align 8
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 64), align 16
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6968), align 8
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 40), align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6976), align 8
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 56), align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6984), align 8
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 48), align 16
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 80), align 16
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 88), align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7008), align 8
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 72), align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7016), align 8
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 32), align 16
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7024), align 8
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 112), align 16
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6960), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 64), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6968), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 40), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6976), align 8
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6984), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 48), align 16
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 80), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7000), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 88), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7008), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 72), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7016), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 32), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7024), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmSymbols16_type_signaturesE, i64 112), align 16
   br label %.preheader31
 
 .preheader31:                                     ; preds = %7, %0
@@ -112,7 +112,7 @@ define hidden void @_ZN9vmSymbols10initializeEv() local_unnamed_addr #0 align 2 
   br i1 %.not23, label %20, label %17
 
 20:                                               ; preds = %17
-  tail call void @qsort(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL15vm_symbol_index, i64 4), i64 noundef 1169, i64 noundef 4, ptr noundef nonnull @_ZL20compare_vmsymbol_sidPKvS0_) #10
+  tail call void @qsort(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4), i64 noundef 1169, i64 noundef 4, ptr noundef nonnull @_ZL20compare_vmsymbol_sidPKvS0_) #10
   ret void
 }
 
@@ -183,7 +183,7 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
   store i32 2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %3, ptr %7, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4) #10
@@ -199,7 +199,7 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %8, ptr %12, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %9) #10
@@ -221,7 +221,7 @@ define hidden void @_ZN9vmSymbols9serializeEP16SerializeClosure(ptr noundef %0) 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1
   %.08.i = phi i64 [ %9, %.lr.ph.i ], [ 9352, %1 ]
-  %.057.i = phi ptr [ %8, %.lr.ph.i ], [ getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8), %1 ]
+  %.057.i = phi ptr [ %8, %.lr.ph.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8), %1 ]
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -256,7 +256,7 @@ _ZN16SerializeClosure7do_ptrsEPPvm.exit6:         ; preds = %.lr.ph.i2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone %0) local_unnamed_addr #5 align 2 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL15vm_symbol_index, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4), align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -269,7 +269,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
   br label %.loopexit
 
 8:                                                ; preds = %1
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL15vm_symbol_index, i64 4676), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4676), align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
@@ -330,7 +330,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
   br i1 %6, label %_ZN9vmSymbols8find_sidEPK6Symbol.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL15vm_symbol_index, i64 4), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4), align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
@@ -343,7 +343,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
   br label %_ZN9vmSymbols8find_sidEPK6Symbol.exit
 
 14:                                               ; preds = %7
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL15vm_symbol_index, i64 4676), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4676), align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8

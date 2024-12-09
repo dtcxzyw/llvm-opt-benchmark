@@ -25,7 +25,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN5b
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5boost13serialization14no_rtti_system28extended_type_info_no_rtti_0C2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZN5boost13serialization18extended_type_infoC2EjPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization14no_rtti_system28extended_type_info_no_rtti_0E, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization14no_rtti_system28extended_type_info_no_rtti_0E, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 

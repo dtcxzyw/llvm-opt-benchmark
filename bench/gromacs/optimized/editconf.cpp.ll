@@ -1890,8 +1890,8 @@ _ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit:           ; preds = %_ZL14gmx_sfree_impl
   %773 = load float, ptr @_ZZ12gmx_editconfiPPcE3rho, align 4
   %774 = fdiv float %757, %773
   %775 = call noundef float @cbrtf(float noundef %774) #24
-  store float %775, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE5scale, i64 8), align 4
-  store float %775, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE5scale, i64 4), align 4
+  store float %775, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE5scale, i64 8), align 4
+  store float %775, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE5scale, i64 4), align 4
   store float %775, ptr @_ZZ12gmx_editconfiPPcE5scale, align 4
   %776 = load ptr, ptr @stderr, align 8
   %777 = fpext float %775 to double
@@ -2002,15 +2002,15 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %803
   %815 = phi i32 [ %.pre589, %..loopexit432_crit_edge ], [ %807, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ], [ %812, %.lr.ph468 ]
   %816 = load float, ptr @_ZZ12gmx_editconfiPPcE9targetvec, align 4
   %817 = fpext float %816 to double
-  %818 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 4), align 4
+  %818 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 4), align 4
   %819 = fpext float %818 to double
-  %820 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 8), align 4
+  %820 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE9targetvec, i64 8), align 4
   %821 = fpext float %820 to double
   %822 = load float, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, align 4
   %823 = fpext float %822 to double
-  %824 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 4), align 4
+  %824 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 4), align 4
   %825 = fpext float %824 to double
-  %826 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 8), align 4
+  %826 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 8), align 4
   %827 = fpext float %826 to double
   %828 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.172, i32 noundef %815, i32 noundef %192, double noundef %817, double noundef %819, double noundef %821, double noundef %823, double noundef %825, double noundef %827)
   %829 = load i32, ptr %27, align 4
@@ -2030,11 +2030,11 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %803
   %839 = fsub float %837, %838
   %840 = getelementptr inbounds nuw i8, ptr %836, i64 4
   %841 = load float, ptr %840, align 4
-  %842 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 4), align 4
+  %842 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 4), align 4
   %843 = fsub float %841, %842
   %844 = getelementptr inbounds nuw i8, ptr %836, i64 8
   %845 = load float, ptr %844, align 4
-  %846 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 8), align 4
+  %846 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE11aligncenter, i64 8), align 4
   %847 = fsub float %845, %846
   store float %839, ptr %836, align 4
   store float %843, ptr %840, align 4
@@ -2322,9 +2322,9 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1023
   %1032 = phi i32 [ %.pre591, %._crit_edge590 ], [ %1030, %.thread398 ]
   %1033 = load float, ptr @_ZZ12gmx_editconfiPPcE11translation, align 4
   %1034 = fpext float %1033 to double
-  %1035 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11translation, i64 4), align 4
+  %1035 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE11translation, i64 4), align 4
   %1036 = fpext float %1035 to double
-  %1037 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE11translation, i64 8), align 4
+  %1037 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE11translation, i64 8), align 4
   %1038 = fpext float %1037 to double
   %1039 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, i32 noundef %1032, i32 noundef %192, double noundef %1034, double noundef %1036, double noundef %1038)
   %1040 = load ptr, ptr %29, align 8
@@ -2400,9 +2400,9 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1023
 1077:                                             ; preds = %.loopexit428
   %1078 = load float, ptr @_ZZ12gmx_editconfiPPcE9rotangles, align 4
   %1079 = fpext float %1078 to double
-  %1080 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 4), align 4
+  %1080 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 4), align 4
   %1081 = fpext float %1080 to double
-  %1082 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 8), align 4
+  %1082 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 8), align 4
   %1083 = fpext float %1082 to double
   %1084 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.176, double noundef %1079, double noundef %1081, double noundef %1083)
   br label %1085
@@ -2423,8 +2423,8 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1023
   %1092 = load ptr, ptr %31, align 8
   %1093 = load ptr, ptr %32, align 8
   %1094 = load float, ptr @_ZZ12gmx_editconfiPPcE9rotangles, align 4
-  %1095 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 4), align 4
-  %1096 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 8), align 4
+  %1095 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 4), align 4
+  %1096 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE9rotangles, i64 8), align 4
   invoke void @_Z11rotate_confiPA3_fS0_fff(i32 noundef %192, ptr noundef %1092, ptr noundef %1093, float noundef %1094, float noundef %1095, float noundef %1096)
           to label %1097 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2541,10 +2541,10 @@ _ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit330.thread: ; preds = %1023
 1151:                                             ; preds = %.loopexit423
   %1152 = load float, ptr @_ZZ12gmx_editconfiPPcE6newbox, align 4
   store float %1152, ptr %38, align 16
-  %1153 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6newbox, i64 4), align 4
+  %1153 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE6newbox, i64 4), align 4
   %1154 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store float %1153, ptr %1154, align 16
-  %1155 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6newbox, i64 8), align 4
+  %1155 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE6newbox, i64 8), align 4
   br label %.loopexit425.sink.split
 
 1156:                                             ; preds = %.loopexit423
@@ -3616,10 +3616,10 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1693, %_ZL14gmx_sfr
   %1720 = add nsw i32 %1712, 1
   %1721 = call float @llvm.rint.f32(float %1705)
   %1722 = fptosi float %1721 to i32
-  %1723 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6visbox, i64 4), align 4
+  %1723 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE6visbox, i64 4), align 4
   %1724 = call float @llvm.rint.f32(float %1723)
   %1725 = fptosi float %1724 to i32
-  %1726 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6visbox, i64 8), align 4
+  %1726 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_editconfiPPcE6visbox, i64 8), align 4
   %1727 = call float @llvm.rint.f32(float %1726)
   %1728 = fptosi float %1727 to i32
   %1729 = mul i32 %1725, %1722

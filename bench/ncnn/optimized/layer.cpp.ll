@@ -313,7 +313,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Bias_x86_layer_creatorEPv(ptr nocap
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn8Bias_x86E, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn8Bias_x86E, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -330,7 +330,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Bias_x86_avx512_layer_creatorEPv(pt
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn15Bias_x86_avx512E, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn15Bias_x86_avx512E, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -347,7 +347,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_fma_layer_creatorEPv(ptr n
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn12Bias_x86_fmaE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn12Bias_x86_fmaE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -364,7 +364,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_avx_layer_creatorEPv(ptr n
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn12Bias_x86_avxE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn12Bias_x86_avxE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -1371,7 +1371,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21LRN_x86_layer_creatorEPv(ptr nocapt
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn7LRN_x86E, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn7LRN_x86E, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -1388,7 +1388,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28LRN_x86_avx512_layer_creatorEPv(ptr
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn14LRN_x86_avx512E, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn14LRN_x86_avx512E, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -1405,7 +1405,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_fma_layer_creatorEPv(ptr no
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11LRN_x86_fmaE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11LRN_x86_fmaE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -1422,7 +1422,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_avx_layer_creatorEPv(ptr no
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11LRN_x86_avxE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11LRN_x86_avxE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -5844,7 +5844,7 @@ declare void @_ZN4ncnn15RMSNorm_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn5LayerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn5LayerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5865,7 +5865,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn5LayerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn5LayerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -7013,7 +7013,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i32 %0, ptr %26, align 8
   %27 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn5LayerE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn5LayerE, i64 16), ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #18
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 80
@@ -7025,7 +7025,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %30, i8 0, i64 96, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11Layer_finalE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11Layer_finalE, i64 16), ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 208
   store ptr %25, ptr %34, align 8
   store i32 %0, ptr %32, align 8
@@ -7317,7 +7317,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn11Layer_finalD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11Layer_finalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11Layer_finalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -7337,7 +7337,7 @@ define linkonce_odr hidden void @_ZN4ncnn11Layer_finalD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn11Layer_finalD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11Layer_finalE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11Layer_finalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

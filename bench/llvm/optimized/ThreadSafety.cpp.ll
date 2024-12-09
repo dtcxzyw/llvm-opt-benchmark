@@ -4150,7 +4150,7 @@ _ZNK5clang21AcquireCapabilityAttr8isSharedEv.exit.thread: ; preds = %_ZNK5clang1
   store i16 513, ptr %1287, align 8, !noalias !130
   %1288 = getelementptr inbounds nuw i8, ptr %1285, i64 36
   store i32 %.sroa.0344.0.lcssa, ptr %1288, align 4, !noalias !130
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1285, align 8, !noalias !130
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1285, align 8, !noalias !130
   store ptr %1285, ptr %50, align 8
   call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS_7FactSetESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef %50, i1 noundef zeroext true)
   %1289 = load ptr, ptr %50, align 8
@@ -4186,7 +4186,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117LockableFactEntryESt14default_deleteIS1_EED2E
   store i16 512, ptr %1299, align 8, !noalias !133
   %1300 = getelementptr inbounds nuw i8, ptr %1297, i64 36
   store i32 %.sroa.0344.0.lcssa, ptr %1300, align 4, !noalias !133
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1297, align 8, !noalias !133
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1297, align 8, !noalias !133
   store ptr %1297, ptr %51, align 8
   call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS_7FactSetESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef %51, i1 noundef zeroext true)
   %1301 = load ptr, ptr %51, align 8
@@ -4248,7 +4248,7 @@ _ZN12_GLOBAL__N_17FactSetC2ERKS0_.exit:           ; preds = %1306, %1309
   store i16 1, ptr %1319, align 8, !noalias !136
   %1320 = getelementptr inbounds nuw i8, ptr %1317, i64 36
   store i32 %.sroa.0.0.copyload.i214, ptr %1320, align 4, !noalias !136
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1317, align 8, !noalias !136
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1317, align 8, !noalias !136
   store ptr %1317, ptr %53, align 8
   call fastcc void @_ZN12_GLOBAL__N_17FactSet7addLockERNS_11FactManagerESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(24) %1314, ptr noundef %53)
   %1321 = load ptr, ptr %53, align 8
@@ -4290,7 +4290,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117LockableFactEntryESt14default_deleteIS1_EED2E
   store i16 0, ptr %1334, align 8, !noalias !139
   %1335 = getelementptr inbounds nuw i8, ptr %1332, i64 36
   store i32 %.sroa.0.0.copyload.i221, ptr %1335, align 4, !noalias !139
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1332, align 8, !noalias !139
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1332, align 8, !noalias !139
   store ptr %1332, ptr %54, align 8
   call fastcc void @_ZN12_GLOBAL__N_17FactSet7addLockERNS_11FactManagerESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(24) %1329, ptr noundef %54)
   %1336 = load ptr, ptr %54, align 8
@@ -5248,7 +5248,7 @@ _ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang25SharedTrylockFunc
   store i16 1, ptr %1776, align 8, !noalias !176
   %1777 = getelementptr inbounds nuw i8, ptr %1774, i64 36
   store i32 %1770, ptr %1777, align 4, !noalias !176
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1774, align 8, !noalias !176
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1774, align 8, !noalias !176
   store ptr %1774, ptr %16, align 8
   call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS_7FactSetESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef %16, i1 noundef zeroext false)
   %1778 = load ptr, ptr %16, align 8
@@ -5284,7 +5284,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117LockableFactEntryESt14default_deleteIS1_EED2E
   store i16 0, ptr %1788, align 8, !noalias !179
   %1789 = getelementptr inbounds nuw i8, ptr %1786, i64 36
   store i32 %1770, ptr %1789, align 4, !noalias !179
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1786, align 8, !noalias !179
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %1786, align 8, !noalias !179
   store ptr %1786, ptr %17, align 8
   call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS_7FactSetESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef %17, i1 noundef zeroext false)
   %1790 = load ptr, ptr %17, align 8
@@ -9728,7 +9728,7 @@ _ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang23AssertExclusiveLo
   store i16 257, ptr %257, align 8, !noalias !225
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 36
   store i32 %.sroa.0411.0, ptr %258, align 4, !noalias !225
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %255, align 8, !noalias !225
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %255, align 8, !noalias !225
   store ptr %255, ptr %32, align 8
   call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS_7FactSetESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(600) %254, ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %32, i1 noundef zeroext false)
   %259 = load ptr, ptr %32, align 8
@@ -9892,7 +9892,7 @@ _ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang20AssertSharedLockA
   store i16 256, ptr %322, align 8, !noalias !228
   %323 = getelementptr inbounds nuw i8, ptr %320, i64 36
   store i32 %.sroa.0411.0, ptr %323, align 4, !noalias !228
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %320, align 8, !noalias !228
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %320, align 8, !noalias !228
   store ptr %320, ptr %34, align 8
   call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS_7FactSetESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(600) %319, ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %34, i1 noundef zeroext false)
   %324 = load ptr, ptr %34, align 8
@@ -10103,7 +10103,7 @@ _ZNK5clang20AssertCapabilityAttr8isSharedEv.exit: ; preds = %_ZNK5clang19Attribu
   store i16 %not.190, ptr %410, align 8, !noalias !231
   %411 = getelementptr inbounds nuw i8, ptr %408, i64 36
   store i32 %.sroa.0411.0, ptr %411, align 4, !noalias !231
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %408, align 8, !noalias !231
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %408, align 8, !noalias !231
   store ptr %408, ptr %36, align 8
   call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS_7FactSetESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(600) %386, ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef %36, i1 noundef zeroext false)
   %412 = load ptr, ptr %36, align 8
@@ -10601,7 +10601,7 @@ _ZN12_GLOBAL__N_110CapExprSetD2Ev.exit:           ; preds = %586, %502, %504, %4
   store i16 %621, ptr %626, align 8, !noalias !234
   %627 = getelementptr inbounds nuw i8, ptr %624, i64 36
   store i32 %.sroa.0411.0, ptr %627, align 4, !noalias !234
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %624, align 8, !noalias !234
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %624, align 8, !noalias !234
   store ptr %624, ptr %37, align 8
   call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS_7FactSetESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(600) %623, ptr noundef nonnull align 8 dereferenceable(32) %618, ptr noundef %37, i1 noundef zeroext false)
   %628 = load ptr, ptr %37, align 8
@@ -10644,7 +10644,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117LockableFactEntryESt14default_deleteIS1_EED2E
   store i16 %638, ptr %643, align 8, !noalias !237
   %644 = getelementptr inbounds nuw i8, ptr %641, i64 36
   store i32 %.sroa.0411.0, ptr %644, align 4, !noalias !237
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %641, align 8, !noalias !237
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %641, align 8, !noalias !237
   store ptr %641, ptr %38, align 8
   call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS_7FactSetESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EEb(ptr noundef nonnull align 8 dereferenceable(600) %640, ptr noundef nonnull align 8 dereferenceable(32) %636, ptr noundef %38, i1 noundef zeroext false)
   %645 = load ptr, ptr %38, align 8
@@ -10679,7 +10679,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117LockableFactEntryESt14default_deleteIS1_EED2E
   store i16 1, ptr %653, align 8, !noalias !240
   %654 = getelementptr inbounds nuw i8, ptr %651, i64 36
   store i32 %.sroa.0411.0, ptr %654, align 4, !noalias !240
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123ScopedLockableFactEntryE, i64 16), ptr %651, align 8, !noalias !240
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123ScopedLockableFactEntryE, i64 16), ptr %651, align 8, !noalias !240
   %655 = getelementptr inbounds nuw i8, ptr %651, i64 40
   %656 = getelementptr inbounds nuw i8, ptr %651, i64 56
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %655, ptr noundef nonnull %656, i64 noundef 2) #18, !noalias !240
@@ -14993,7 +14993,7 @@ define internal void @_ZNK12_GLOBAL__N_117LockableFactEntry12handleUnlockERNS_7F
   store i16 1, ptr %16, align 8, !noalias !273
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 %4, ptr %17, align 4, !noalias !273
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %14, align 8, !noalias !273
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %14, align 8, !noalias !273
   store ptr %14, ptr %8, align 8
   call fastcc void @_ZN12_GLOBAL__N_17FactSet7addLockERNS_11FactManagerESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %8)
   %18 = load ptr, ptr %8, align 8
@@ -16374,7 +16374,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5clang12threadSafety3til7Project8sl
   store i32 1, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %2, align 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %17, ptr %27, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef null, i64 noundef 0, i32 noundef 0) #18
@@ -24096,7 +24096,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang4ExprEPNS2_12threadSafety3til
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_123ScopedLockableFactEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123ScopedLockableFactEntryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123ScopedLockableFactEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #18
   %4 = load ptr, ptr %2, align 8
@@ -24114,7 +24114,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_123ScopedLockableFactEntry20UnderlyingCapabi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_123ScopedLockableFactEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123ScopedLockableFactEntryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123ScopedLockableFactEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #18
   %4 = load ptr, ptr %2, align 8
@@ -24323,7 +24323,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_123ScopedLockableFactEntry4lockERN
   store i16 %29, ptr %27, align 8, !noalias !339
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 36
   store i32 %4, ptr %30, align 4, !noalias !339
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %25, align 8, !noalias !339
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %25, align 8, !noalias !339
   store ptr %25, ptr %9, align 8
   call fastcc void @_ZN12_GLOBAL__N_17FactSet7addLockERNS_11FactManagerESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %9)
   %31 = load ptr, ptr %9, align 8
@@ -24370,7 +24370,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_123ScopedLockableFactEntry6unlockE
   store i16 1, ptr %16, align 8, !noalias !345
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 %3, ptr %17, align 4, !noalias !345
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %14, align 8, !noalias !345
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_117LockableFactEntryE, i64 16), ptr %14, align 8, !noalias !345
   store ptr %14, ptr %6, align 8
   call fastcc void @_ZN12_GLOBAL__N_17FactSet7addLockERNS_11FactManagerESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %6)
   %18 = load ptr, ptr %6, align 8

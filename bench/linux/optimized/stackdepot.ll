@@ -372,7 +372,7 @@ default.unreachable:                              ; preds = %.loopexit54
   %104 = and i32 %103, %101
   %105 = zext i32 %104 to i64
   %106 = getelementptr %struct.list_head, ptr %102, i64 %105
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !25
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
   %107 = load volatile ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, %106
@@ -497,7 +497,7 @@ default.unreachable:                              ; preds = %.loopexit54
 .loopexit51:                                      ; preds = %174, %.loopexit50, %.loopexit50.us, %128, %100
   %178 = phi ptr [ null, %100 ], [ %111, %128 ], [ null, %.loopexit50.us ], [ %135, %174 ], [ null, %.loopexit50 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !31
-  %179 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !32
+  %179 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !32
   %180 = icmp ult i8 %179, 2
   tail call void @llvm.assume(i1 %180)
   %181 = icmp eq i8 %179, 0
@@ -542,7 +542,7 @@ default.unreachable:                              ; preds = %.loopexit54
   %205 = phi ptr [ null, %187 ], [ null, %191 ], [ %203, %196 ], [ null, %188 ]
   %206 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pool_lock) #10
   tail call void @__printk_safe_enter() #10
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !25
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
   %207 = load volatile ptr, ptr %106, align 8
   %208 = icmp eq ptr %207, %106
@@ -667,7 +667,7 @@ default.unreachable:                              ; preds = %.loopexit54
 .loopexit46:                                      ; preds = %274, %.loopexit, %.loopexit.us, %228, %204
   %278 = phi ptr [ null, %204 ], [ %211, %228 ], [ null, %.loopexit.us ], [ %235, %274 ], [ null, %.loopexit ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !31
-  %279 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !32
+  %279 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !32
   %280 = icmp ult i8 %279, 2
   tail call void @llvm.assume(i1 %280)
   %281 = icmp eq i8 %279, 0
@@ -716,9 +716,9 @@ default.unreachable:                              ; preds = %.loopexit54
   store volatile ptr %306, ptr %305, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %291, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %304, align 8
-  %308 = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 24), align 8
+  %308 = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 24), align 8
   %309 = add i64 %308, -1
-  store i64 %309, ptr getelementptr inbounds (i8, ptr @counters, i64 24), align 8
+  store i64 %309, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 24), align 8
   %310 = icmp eq ptr %303, null
   br i1 %310, label %.thread35, label %364
 
@@ -860,19 +860,19 @@ thread-pre-split:                                 ; preds = %.thread35, %335
   %376 = load i64, ptr @counters, align 16
   %377 = add i64 %376, 1
   store i64 %377, ptr @counters, align 16
-  %378 = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 16
+  %378 = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 16), align 16
   %379 = add i64 %378, 1
-  store i64 %379, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 16
+  store i64 %379, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 16), align 16
   br label %385
 
 380:                                              ; preds = %364
   store volatile i32 -1073741824, ptr %374, align 4
-  %381 = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 32), align 16
+  %381 = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 32), align 16
   %382 = add i64 %381, 1
-  store i64 %382, ptr getelementptr inbounds (i8, ptr @counters, i64 32), align 16
-  %383 = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 40), align 8
+  store i64 %382, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 32), align 16
+  %383 = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 40), align 8
   %384 = add i64 %383, %365
-  store i64 %384, ptr getelementptr inbounds (i8, ptr @counters, i64 40), align 8
+  store i64 %384, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 40), align 8
   br label %385
 
 385:                                              ; preds = %375, %380
@@ -1127,21 +1127,21 @@ depot_fetch_stack.exit.thread:                    ; preds = %25, %19, %13, %depo
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i64 %39, ptr %41, align 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @free_stacks, i64 8), align 8
-  store ptr %40, ptr getelementptr inbounds (i8, ptr @free_stacks, i64 8), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @free_stacks, i64 8), align 8
+  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @free_stacks, i64 8), align 8
   store ptr @free_stacks, ptr %40, align 8
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %42, ptr %43, align 8
   store volatile ptr %40, ptr %42, align 8
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 24), align 8
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 24), align 8
   %45 = add i64 %44, 1
-  store i64 %45, ptr getelementptr inbounds (i8, ptr @counters, i64 24), align 8
-  %46 = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 8), align 8
+  store i64 %45, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 24), align 8
+  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 8), align 8
   %47 = add i64 %46, 1
-  store i64 %47, ptr getelementptr inbounds (i8, ptr @counters, i64 8), align 8
-  %48 = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 16
+  store i64 %47, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 8), align 8
+  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 16), align 16
   %49 = add i64 %48, -1
-  store i64 %49, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 16
+  store i64 %49, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 16), align 16
   tail call void @__printk_safe_exit() #10
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pool_lock, i64 noundef %34) #10
   br label %.thread

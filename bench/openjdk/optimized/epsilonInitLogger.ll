@@ -202,7 +202,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17EpsilonInitLogger5printEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.EpsilonInitLogger, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV17EpsilonInitLogger, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV17EpsilonInitLogger, i64 16), ptr %1, align 8
   call void @_ZN12GCInitLogger9print_allEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #4
   ret void
 }

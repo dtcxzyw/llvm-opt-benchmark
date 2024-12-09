@@ -919,7 +919,7 @@ while.body:                                       ; preds = %invoke.cont131
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %regionName, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %regionName, align 8, !alias.scope !4
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !4
   store i32 0, ptr %len.i, align 4, !noalias !4
   %call.i = invoke ptr @ures_getNextString_75(ptr noundef %call82, ptr noundef nonnull %len.i, ptr noundef null, ptr noundef nonnull %status)
@@ -1151,7 +1151,7 @@ while.body208:                                    ; preds = %invoke.cont204
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i295)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i296)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %regionName209, align 8, !alias.scope !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %regionName209, align 8, !alias.scope !12
   store i16 2, ptr %fUnion2.i.i297, align 8, !alias.scope !12
   store i32 0, ptr %len.i295, align 4, !noalias !12
   %call.i298 = invoke ptr @ures_getNextString_75(ptr noundef %call88, ptr noundef nonnull %len.i295, ptr noundef null, ptr noundef nonnull %status)
@@ -1384,7 +1384,7 @@ new.notnull309:                                   ; preds = %while.body305
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i368)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i369)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8, !alias.scope !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8, !alias.scope !17
   store i16 2, ptr %fUnion2.i.i370, align 8, !alias.scope !17
   store i32 0, ptr %len.i368, align 4, !noalias !17
   %call.i371 = invoke ptr @ures_getNextString_75(ptr noundef %call94, ptr noundef nonnull %len.i368, ptr noundef null, ptr noundef nonnull %status)
@@ -1478,7 +1478,7 @@ new.notnull352:                                   ; preds = %while.body349
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i396)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i397)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call350, align 8, !alias.scope !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call350, align 8, !alias.scope !21
   %fUnion2.i.i398 = getelementptr inbounds nuw i8, ptr %call350, i64 8
   store i16 2, ptr %fUnion2.i.i398, align 8, !alias.scope !21
   store i32 0, ptr %len.i396, align 4, !noalias !21
@@ -1765,7 +1765,7 @@ for.body517:                                      ; preds = %invoke.cont509
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i443)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i444)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %child, align 8, !alias.scope !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %child, align 8, !alias.scope !26
   store i16 2, ptr %fUnion2.i.i445, align 8, !alias.scope !26
   store i32 0, ptr %len.i443, align 4, !noalias !26
   %call.i446 = invoke ptr @ures_getStringByIndex_75(ptr noundef %call469, i32 noundef %i507.0, ptr noundef nonnull %len.i443, ptr noundef nonnull %status)
@@ -1967,7 +1967,7 @@ invoke.cont621:                                   ; preds = %new.notnull611, %if
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i503)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i504)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %aliasTo, align 8, !alias.scope !30
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %aliasTo, align 8, !alias.scope !30
   store i16 2, ptr %fUnion2.i.i505, align 8, !alias.scope !30
   store i32 0, ptr %len.i503, align 4, !noalias !30
   %call.i506 = invoke ptr @ures_getStringByKey_75(ptr noundef %148, ptr noundef nonnull @.str.13, ptr noundef nonnull %len.i503, ptr noundef nonnull %status)
@@ -2181,7 +2181,7 @@ lpad719:                                          ; preds = %new.notnull716
   br label %ehcleanup806
 
 if.end735:                                        ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit552
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %currentRegion, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %currentRegion, align 8
   store i16 2, ptr %fUnion2.i, align 8
   %174 = load i16, ptr %fUnion2.i.i505, align 8
   %cmp.i.i5561173 = icmp slt i16 %174, 0
@@ -2425,7 +2425,7 @@ if.then839:                                       ; preds = %invoke.cont836
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i646)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i647)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %codeMappingID, align 8, !alias.scope !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %codeMappingID, align 8, !alias.scope !35
   store i16 2, ptr %fUnion2.i.i648, align 8, !alias.scope !35
   store i32 0, ptr %len.i646, align 4, !noalias !35
   %call.i649 = invoke ptr @ures_getStringByIndex_75(ptr noundef %call827, i32 noundef 0, ptr noundef nonnull %len.i646, ptr noundef nonnull %status)
@@ -2475,7 +2475,7 @@ invoke.cont840:                                   ; preds = %if.else.i659, %invo
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i663)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i664)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %codeMappingNumber, align 8, !alias.scope !38
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %codeMappingNumber, align 8, !alias.scope !38
   store i16 2, ptr %fUnion2.i.i665, align 8, !alias.scope !38
   store i32 0, ptr %len.i663, align 4, !noalias !38
   %call.i666 = invoke ptr @ures_getStringByIndex_75(ptr noundef %call827, i32 noundef 1, ptr noundef nonnull %len.i663, ptr noundef nonnull %status)
@@ -2520,7 +2520,7 @@ invoke.cont842:                                   ; preds = %if.else.i676, %invo
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i679)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i680)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %codeMapping3Letter, align 8, !alias.scope !41
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %codeMapping3Letter, align 8, !alias.scope !41
   store i16 2, ptr %fUnion2.i.i681, align 8, !alias.scope !41
   store i32 0, ptr %len.i679, align 4, !noalias !41
   %call.i682 = invoke ptr @ures_getStringByIndex_75(ptr noundef %call827, i32 noundef 2, ptr noundef nonnull %len.i679, ptr noundef nonnull %status)
@@ -2865,7 +2865,7 @@ for.body1013.us:                                  ; preds = %invoke.cont1010.us
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i714)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i715)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %child1014, align 8, !alias.scope !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %child1014, align 8, !alias.scope !48
   store i16 2, ptr %fUnion2.i.i716, align 8, !alias.scope !48
   store i32 0, ptr %len.i714, align 4, !noalias !48
   %call.i717.us = invoke ptr @ures_getStringByIndex_75(ptr noundef %.pre1259, i32 noundef %j.0.us, ptr noundef nonnull %len.i714, ptr noundef nonnull %status)
@@ -2936,7 +2936,7 @@ for.body1013:                                     ; preds = %invoke.cont1010
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i714)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i715)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %child1014, align 8, !alias.scope !48
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %child1014, align 8, !alias.scope !48
   store i16 2, ptr %fUnion2.i.i716, align 8, !alias.scope !48
   store i32 0, ptr %len.i714, align 4, !noalias !48
   %call.i717 = invoke ptr @ures_getStringByIndex_75(ptr noundef %.pre1259, i32 noundef %j.0, ptr noundef nonnull %len.i714, ptr noundef nonnull %status)
@@ -3059,7 +3059,7 @@ if.then.i746:                                     ; preds = %new.cont1069
   br label %cleanup1107.critedge
 
 invoke.cont1070:                                  ; preds = %if.end1057
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call1058, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call1058, align 8
   %fUnion2.i742 = getelementptr inbounds nuw i8, ptr %call1058, i64 8
   store i16 2, ptr %fUnion2.i742, align 8
   %.pre1258 = load i32, ptr %status, align 4
@@ -3981,9 +3981,9 @@ declare void @uhash_close_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_756RegionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 9), (16, 26), (80, 112)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756RegionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756RegionE, i64 16), ptr %this, align 8
   %idStr = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %idStr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %idStr, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
   %code = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -4001,7 +4001,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756RegionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756RegionE, i64 16), ptr %this, align 8
   %containedRegions = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %containedRegions, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -4382,7 +4382,7 @@ if.end:                                           ; preds = %_ZN6icu_7513umtx_in
   br i1 %tobool2.not, label %if.then3, label %if.end7
 
 if.then3:                                         ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %id, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %id, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %id, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7511ICU_Utility12appendNumberERNS_13UnicodeStringEiii(ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef %code, i32 noundef 10, i32 noundef 1)
@@ -4979,7 +4979,7 @@ entry:
 define void @_ZN6icu_7521RegionNameEnumerationC2EPNS_7UVectorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %nameList, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521RegionNameEnumerationE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7521RegionNameEnumerationE, i64 16), ptr %this, align 8
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 116
   store i32 0, ptr %pos, align 4
   %fRegionNames = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -5174,7 +5174,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7521RegionNameEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521RegionNameEnumerationE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7521RegionNameEnumerationE, i64 16), ptr %this, align 8
   %fRegionNames = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %fRegionNames, align 8
   %isnull = icmp eq ptr %0, null

@@ -70,7 +70,7 @@ define internal range(i32 -21, 1) i32 @allocate(ptr nocapture readnone %0, ptr n
   %13 = tail call noalias ptr @strdup(ptr noundef nonnull %.0) #12
   store ptr %13, ptr @prte_job_ident, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_pbs_component, i64 224), align 8
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_pbs_component, i64 224), align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %24
 
@@ -145,7 +145,7 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   br i1 %.not.i, label %.loopexit, label %47
 
 47:                                               ; preds = %pbs_getline.exit.i
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ras_base_framework, i64 76), align 4
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %48, 64
   br i1 %or.cond.i, label %49, label %56
 
@@ -175,7 +175,7 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   br i1 %60, label %61, label %79
 
 61:                                               ; preds = %.lr.ph.i
-  %62 = load i8, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_pbs_component, i64 224), align 8
+  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_pbs_component, i64 224), align 8
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %66
 
@@ -188,7 +188,7 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   %68 = load i32, ptr %67, align 4
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %67, align 4
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ras_base_framework, i64 76), align 4
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4
   %or.cond35.i = icmp ult i32 %70, 64
   br i1 %or.cond35.i, label %71, label %120
 
@@ -212,7 +212,7 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   br i1 %.not34.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %79, %56
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ras_base_framework, i64 76), align 4
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4
   %or.cond36.i = icmp ult i32 %81, 64
   br i1 %or.cond36.i, label %82, label %89
 
@@ -229,10 +229,10 @@ pbs_getline.exit.i:                               ; preds = %121, %pbs_getline.e
   br label %89
 
 89:                                               ; preds = %87, %82, %.critedge.i
-  %90 = load i64, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 56), align 8
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 56), align 8
   %91 = call noalias noundef ptr @malloc(i64 noundef %90) #14
   %92 = load i32, ptr @pmix_class_init_epoch, align 4
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 32), align 8
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_node_t_class, i64 32), align 8
   %.not.i37.i = icmp eq i32 %92, %93
   br i1 %.not.i37.i, label %95, label %94
 
@@ -342,7 +342,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %96, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @finalize() #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ras_base_framework, i64 76), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %1, 64
   br i1 %or.cond, label %2, label %9
 

@@ -466,490 +466,490 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZL21get
 
 2:                                                ; preds = %1
   store i1 true, ptr @_ZZL21getStmtInfoTableEntryN5clang4Stmt9StmtClassEE11Initialized, align 1
-  store ptr @.str.24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 16), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 28), align 4
-  store ptr @.str.25, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 32), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 44), align 4
-  store ptr @.str.26, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 48), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 60), align 4
-  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 64), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 76), align 4
-  store ptr @.str.28, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 80), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 92), align 4
-  store ptr @.str.29, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 96), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 108), align 4
-  store ptr @.str.30, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 112), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 124), align 4
-  store ptr @.str.31, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 128), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 140), align 4
-  store ptr @.str.32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 144), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 156), align 4
-  store ptr @.str.33, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 160), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 172), align 4
-  store ptr @.str.34, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 176), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 188), align 4
-  store ptr @.str.35, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 192), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 204), align 4
-  store ptr @.str.36, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 208), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 220), align 4
-  store ptr @.str.37, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 224), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 236), align 4
-  store ptr @.str.38, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 240), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 252), align 4
-  store ptr @.str.39, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 256), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 268), align 4
-  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 272), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 284), align 4
-  store ptr @.str.41, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 288), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 300), align 4
-  store ptr @.str.42, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 304), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 316), align 4
-  store ptr @.str.43, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 320), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 332), align 4
-  store ptr @.str.44, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 336), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 348), align 4
-  store ptr @.str.45, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 352), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 364), align 4
-  store ptr @.str.46, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 368), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 380), align 4
-  store ptr @.str.47, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 384), align 16
-  store i32 80, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 396), align 4
-  store ptr @.str.48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 400), align 16
-  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 412), align 4
-  store ptr @.str.49, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 416), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 428), align 4
-  store ptr @.str.50, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 432), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 444), align 4
-  store ptr @.str.51, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 448), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 460), align 4
-  store ptr @.str.52, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 464), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 476), align 4
-  store ptr @.str.53, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 480), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 492), align 4
-  store ptr @.str.54, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 496), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 508), align 4
-  store ptr @.str.55, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 512), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 524), align 4
-  store ptr @.str.56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 528), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 540), align 4
-  store ptr @.str.57, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 544), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 556), align 4
-  store ptr @.str.58, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 560), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 572), align 4
-  store ptr @.str.59, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 576), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 588), align 4
-  store ptr @.str.60, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 592), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 604), align 4
-  store ptr @.str.61, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 608), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 620), align 4
-  store ptr @.str.62, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 624), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 636), align 4
-  store ptr @.str.63, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 640), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 652), align 4
-  store ptr @.str.64, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 656), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 668), align 4
-  store ptr @.str.65, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 672), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 684), align 4
-  store ptr @.str.66, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 688), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 700), align 4
-  store ptr @.str.67, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 704), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 716), align 4
-  store ptr @.str.68, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 720), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 732), align 4
-  store ptr @.str.69, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 736), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 748), align 4
-  store ptr @.str.70, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 752), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 764), align 4
-  store ptr @.str.71, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 768), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 780), align 4
-  store ptr @.str.72, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 784), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 796), align 4
-  store ptr @.str.73, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 800), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 812), align 4
-  store ptr @.str.74, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 816), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 828), align 4
-  store ptr @.str.75, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 832), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 844), align 4
-  store ptr @.str.76, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 848), align 16
-  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 860), align 4
-  store ptr @.str.77, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 864), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 876), align 4
-  store ptr @.str.78, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 880), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 892), align 4
-  store ptr @.str.79, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 896), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 908), align 4
-  store ptr @.str.80, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 912), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 924), align 4
-  store ptr @.str.81, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 928), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 940), align 4
-  store ptr @.str.82, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 944), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 956), align 4
-  store ptr @.str.83, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 960), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 972), align 4
-  store ptr @.str.84, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 976), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 988), align 4
-  store ptr @.str.85, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 992), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1004), align 4
-  store ptr @.str.86, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1008), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1020), align 4
-  store ptr @.str.87, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1024), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1036), align 4
-  store ptr @.str.88, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1040), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1052), align 4
-  store ptr @.str.89, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1056), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1068), align 4
-  store ptr @.str.90, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1072), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1084), align 4
-  store ptr @.str.91, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1088), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1100), align 4
-  store ptr @.str.92, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1104), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1116), align 4
-  store ptr @.str.93, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1120), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1132), align 4
-  store ptr @.str.94, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1136), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1148), align 4
-  store ptr @.str.95, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1152), align 16
-  store i32 72, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1164), align 4
-  store ptr @.str.96, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1168), align 16
-  store i32 72, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1180), align 4
-  store ptr @.str.97, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1184), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1196), align 4
-  store ptr @.str.98, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1200), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1212), align 4
-  store ptr @.str.99, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1216), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1228), align 4
-  store ptr @.str.100, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1232), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1244), align 4
-  store ptr @.str.101, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1248), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1260), align 4
-  store ptr @.str.102, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1264), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1276), align 4
-  store ptr @.str.103, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1280), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1292), align 4
-  store ptr @.str.104, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1296), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1308), align 4
-  store ptr @.str.105, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1312), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1324), align 4
-  store ptr @.str.106, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1328), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1340), align 4
-  store ptr @.str.107, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1344), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1356), align 4
-  store ptr @.str.108, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1360), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1372), align 4
-  store ptr @.str.109, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1376), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1388), align 4
-  store ptr @.str.110, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1392), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1404), align 4
-  store ptr @.str.111, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1408), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1420), align 4
-  store ptr @.str.112, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1424), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1436), align 4
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1440), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1452), align 4
-  store ptr @.str.114, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1456), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1468), align 4
-  store ptr @.str.115, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1472), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1484), align 4
-  store ptr @.str.116, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1488), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1500), align 4
-  store ptr @.str.117, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1504), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1516), align 4
-  store ptr @.str.118, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1520), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1532), align 4
-  store ptr @.str.119, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1536), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1548), align 4
-  store ptr @.str.120, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1552), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1564), align 4
-  store ptr @.str.121, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1568), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1580), align 4
-  store ptr @.str.122, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1584), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1596), align 4
-  store ptr @.str.123, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1600), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1612), align 4
-  store ptr @.str.124, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1616), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1628), align 4
-  store ptr @.str.125, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1632), align 16
-  store i32 80, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1644), align 4
-  store ptr @.str.126, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1648), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1660), align 4
-  store ptr @.str.127, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1664), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1676), align 4
-  store ptr @.str.128, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1680), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1692), align 4
-  store ptr @.str.129, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1696), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1708), align 4
-  store ptr @.str.130, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1712), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1724), align 4
-  store ptr @.str.131, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1728), align 16
-  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1740), align 4
-  store ptr @.str.132, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1744), align 16
-  store i32 72, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1756), align 4
-  store ptr @.str.133, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1760), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1772), align 4
-  store ptr @.str.134, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1776), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1788), align 4
-  store ptr @.str.135, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1792), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1804), align 4
-  store ptr @.str.136, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1808), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1820), align 4
-  store ptr @.str.137, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1824), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1836), align 4
-  store ptr @.str.138, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1840), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1852), align 4
-  store ptr @.str.139, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1856), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1868), align 4
-  store ptr @.str.140, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1872), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1884), align 4
-  store ptr @.str.141, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1888), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1900), align 4
-  store ptr @.str.142, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1904), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1916), align 4
-  store ptr @.str.143, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1920), align 16
-  store i32 88, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1932), align 4
-  store ptr @.str.144, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1936), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1948), align 4
-  store ptr @.str.145, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1952), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1964), align 4
-  store ptr @.str.146, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1968), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1980), align 4
-  store ptr @.str.147, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1984), align 16
-  store i32 72, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 1996), align 4
-  store ptr @.str.148, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2000), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2012), align 4
-  store ptr @.str.149, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2016), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2028), align 4
-  store ptr @.str.150, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2032), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2044), align 4
-  store ptr @.str.151, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2048), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2060), align 4
-  store ptr @.str.152, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2064), align 16
-  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2076), align 4
-  store ptr @.str.153, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2080), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2092), align 4
-  store ptr @.str.154, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2096), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2108), align 4
-  store ptr @.str.155, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2112), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2124), align 4
-  store ptr @.str.156, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2128), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2140), align 4
-  store ptr @.str.157, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2144), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2156), align 4
-  store ptr @.str.158, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2160), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2172), align 4
-  store ptr @.str.159, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2176), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2188), align 4
-  store ptr @.str.160, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2192), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2204), align 4
-  store ptr @.str.161, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2208), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2220), align 4
-  store ptr @.str.162, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2224), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2236), align 4
-  store ptr @.str.163, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2240), align 16
-  store i32 48, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2252), align 4
-  store ptr @.str.164, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2256), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2268), align 4
-  store ptr @.str.165, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2272), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2284), align 4
-  store ptr @.str.166, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2288), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2300), align 4
-  store ptr @.str.167, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2304), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2316), align 4
-  store ptr @.str.168, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2320), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2332), align 4
-  store ptr @.str.169, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2336), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2348), align 4
-  store ptr @.str.170, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2352), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2364), align 4
-  store ptr @.str.171, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2368), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2380), align 4
-  store ptr @.str.172, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2384), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2396), align 4
-  store ptr @.str.173, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2400), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2412), align 4
-  store ptr @.str.174, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2416), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2428), align 4
-  store ptr @.str.175, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2432), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2444), align 4
-  store ptr @.str.176, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2448), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2460), align 4
-  store ptr @.str.177, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2464), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2476), align 4
-  store ptr @.str.178, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2480), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2492), align 4
-  store ptr @.str.179, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2496), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2508), align 4
-  store ptr @.str.180, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2512), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2524), align 4
-  store ptr @.str.181, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2528), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2540), align 4
-  store ptr @.str.182, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2544), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2556), align 4
-  store ptr @.str.183, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2560), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2572), align 4
-  store ptr @.str.184, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2576), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2588), align 4
-  store ptr @.str.185, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2592), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2604), align 4
-  store ptr @.str.186, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2608), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2620), align 4
-  store ptr @.str.187, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2624), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2636), align 4
-  store ptr @.str.188, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2640), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2652), align 4
-  store ptr @.str.189, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2656), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2668), align 4
-  store ptr @.str.190, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2672), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2684), align 4
-  store ptr @.str.191, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2688), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2700), align 4
-  store ptr @.str.192, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2704), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2716), align 4
-  store ptr @.str.193, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2720), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2732), align 4
-  store ptr @.str.194, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2736), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2748), align 4
-  store ptr @.str.195, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2752), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2764), align 4
-  store ptr @.str.196, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2768), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2780), align 4
-  store ptr @.str.197, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2784), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2796), align 4
-  store ptr @.str.198, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2800), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2812), align 4
-  store ptr @.str.199, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2816), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2828), align 4
-  store ptr @.str.200, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2832), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2844), align 4
-  store ptr @.str.201, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2848), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2860), align 4
-  store ptr @.str.202, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2864), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2876), align 4
-  store ptr @.str.203, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2880), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2892), align 4
-  store ptr @.str.204, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2896), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2908), align 4
-  store ptr @.str.205, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2912), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2924), align 4
-  store ptr @.str.206, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2928), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2940), align 4
-  store ptr @.str.207, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2944), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2956), align 4
-  store ptr @.str.208, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2960), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2972), align 4
-  store ptr @.str.209, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2976), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2988), align 4
-  store ptr @.str.210, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 2992), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3004), align 4
-  store ptr @.str.211, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3008), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3020), align 4
-  store ptr @.str.212, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3024), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3036), align 4
-  store ptr @.str.213, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3040), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3052), align 4
-  store ptr @.str.214, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3056), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3068), align 4
-  store ptr @.str.215, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3072), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3084), align 4
-  store ptr @.str.216, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3088), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3100), align 4
-  store ptr @.str.217, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3104), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3116), align 4
-  store ptr @.str.218, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3120), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3132), align 4
-  store ptr @.str.219, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3136), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3148), align 4
-  store ptr @.str.220, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3152), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3164), align 4
-  store ptr @.str.221, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3168), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3180), align 4
-  store ptr @.str.222, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3184), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3196), align 4
-  store ptr @.str.223, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3200), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3212), align 4
-  store ptr @.str.224, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3216), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3228), align 4
-  store ptr @.str.225, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3232), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3244), align 4
-  store ptr @.str.226, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3248), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3260), align 4
-  store ptr @.str.227, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3264), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3276), align 4
-  store ptr @.str.228, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3280), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3292), align 4
-  store ptr @.str.229, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3296), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3308), align 4
-  store ptr @.str.230, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3312), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3324), align 4
-  store ptr @.str.231, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3328), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3340), align 4
-  store ptr @.str.232, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3344), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3356), align 4
-  store ptr @.str.233, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3360), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3372), align 4
-  store ptr @.str.234, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3376), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3388), align 4
-  store ptr @.str.235, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3392), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3404), align 4
-  store ptr @.str.236, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3408), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3420), align 4
-  store ptr @.str.237, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3424), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3436), align 4
-  store ptr @.str.238, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3440), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3452), align 4
-  store ptr @.str.239, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3456), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3468), align 4
-  store ptr @.str.240, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3472), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3484), align 4
-  store ptr @.str.241, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3488), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3500), align 4
-  store ptr @.str.242, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3504), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3516), align 4
-  store ptr @.str.243, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3520), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3532), align 4
-  store ptr @.str.244, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3536), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3548), align 4
-  store ptr @.str.245, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3552), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3564), align 4
-  store ptr @.str.246, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3568), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3580), align 4
-  store ptr @.str.247, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3584), align 16
-  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3596), align 4
-  store ptr @.str.248, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3600), align 16
-  store i32 64, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3612), align 4
-  store ptr @.str.249, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3616), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3628), align 4
-  store ptr @.str.250, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3632), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3644), align 4
-  store ptr @.str.251, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3648), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3660), align 4
-  store ptr @.str.252, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3664), align 16
-  store i32 56, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3676), align 4
-  store ptr @.str.253, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3680), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3692), align 4
-  store ptr @.str.254, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3696), align 16
-  store i32 24, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3708), align 4
-  store ptr @.str.255, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3712), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3724), align 4
-  store ptr @.str.256, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3728), align 16
-  store i32 40, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3740), align 4
-  store ptr @.str.257, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3744), align 16
-  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3756), align 4
-  store ptr @.str.258, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3760), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3772), align 4
-  store ptr @.str.259, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3776), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3788), align 4
-  store ptr @.str.260, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3792), align 16
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3804), align 4
-  store ptr @.str.261, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3808), align 16
-  store i32 96, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3820), align 4
-  store ptr @.str.262, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3824), align 16
-  store i32 32, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3836), align 4
-  store ptr @.str.263, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3840), align 16
-  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3852), align 4
-  store ptr @.str.264, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3856), align 16
-  store i32 96, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3868), align 4
-  store ptr @.str.265, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3872), align 16
-  store i32 88, ptr getelementptr inbounds (i8, ptr @_ZL13StmtClassInfo, i64 3884), align 4
+  store ptr @.str.24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 16), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 28), align 4
+  store ptr @.str.25, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 32), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 44), align 4
+  store ptr @.str.26, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 48), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 60), align 4
+  store ptr @.str.27, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 64), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 76), align 4
+  store ptr @.str.28, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 80), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 92), align 4
+  store ptr @.str.29, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 96), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 108), align 4
+  store ptr @.str.30, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 112), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 124), align 4
+  store ptr @.str.31, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 128), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 140), align 4
+  store ptr @.str.32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 144), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 156), align 4
+  store ptr @.str.33, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 160), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 172), align 4
+  store ptr @.str.34, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 176), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 188), align 4
+  store ptr @.str.35, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 192), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 204), align 4
+  store ptr @.str.36, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 208), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 220), align 4
+  store ptr @.str.37, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 224), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 236), align 4
+  store ptr @.str.38, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 240), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 252), align 4
+  store ptr @.str.39, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 256), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 268), align 4
+  store ptr @.str.40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 272), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 284), align 4
+  store ptr @.str.41, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 288), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 300), align 4
+  store ptr @.str.42, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 304), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 316), align 4
+  store ptr @.str.43, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 320), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 332), align 4
+  store ptr @.str.44, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 336), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 348), align 4
+  store ptr @.str.45, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 352), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 364), align 4
+  store ptr @.str.46, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 368), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 380), align 4
+  store ptr @.str.47, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 384), align 16
+  store i32 80, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 396), align 4
+  store ptr @.str.48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 400), align 16
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 412), align 4
+  store ptr @.str.49, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 416), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 428), align 4
+  store ptr @.str.50, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 432), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 444), align 4
+  store ptr @.str.51, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 448), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 460), align 4
+  store ptr @.str.52, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 464), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 476), align 4
+  store ptr @.str.53, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 480), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 492), align 4
+  store ptr @.str.54, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 496), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 508), align 4
+  store ptr @.str.55, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 512), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 524), align 4
+  store ptr @.str.56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 528), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 540), align 4
+  store ptr @.str.57, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 544), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 556), align 4
+  store ptr @.str.58, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 560), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 572), align 4
+  store ptr @.str.59, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 576), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 588), align 4
+  store ptr @.str.60, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 592), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 604), align 4
+  store ptr @.str.61, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 608), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 620), align 4
+  store ptr @.str.62, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 624), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 636), align 4
+  store ptr @.str.63, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 640), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 652), align 4
+  store ptr @.str.64, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 656), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 668), align 4
+  store ptr @.str.65, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 672), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 684), align 4
+  store ptr @.str.66, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 688), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 700), align 4
+  store ptr @.str.67, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 704), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 716), align 4
+  store ptr @.str.68, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 720), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 732), align 4
+  store ptr @.str.69, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 736), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 748), align 4
+  store ptr @.str.70, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 752), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 764), align 4
+  store ptr @.str.71, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 768), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 780), align 4
+  store ptr @.str.72, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 784), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 796), align 4
+  store ptr @.str.73, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 800), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 812), align 4
+  store ptr @.str.74, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 816), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 828), align 4
+  store ptr @.str.75, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 832), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 844), align 4
+  store ptr @.str.76, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 848), align 16
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 860), align 4
+  store ptr @.str.77, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 864), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 876), align 4
+  store ptr @.str.78, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 880), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 892), align 4
+  store ptr @.str.79, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 896), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 908), align 4
+  store ptr @.str.80, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 912), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 924), align 4
+  store ptr @.str.81, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 928), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 940), align 4
+  store ptr @.str.82, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 944), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 956), align 4
+  store ptr @.str.83, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 960), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 972), align 4
+  store ptr @.str.84, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 976), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 988), align 4
+  store ptr @.str.85, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 992), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1004), align 4
+  store ptr @.str.86, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1008), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1020), align 4
+  store ptr @.str.87, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1024), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1036), align 4
+  store ptr @.str.88, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1040), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1052), align 4
+  store ptr @.str.89, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1056), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1068), align 4
+  store ptr @.str.90, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1072), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1084), align 4
+  store ptr @.str.91, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1088), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1100), align 4
+  store ptr @.str.92, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1104), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1116), align 4
+  store ptr @.str.93, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1120), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1132), align 4
+  store ptr @.str.94, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1136), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1148), align 4
+  store ptr @.str.95, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1152), align 16
+  store i32 72, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1164), align 4
+  store ptr @.str.96, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1168), align 16
+  store i32 72, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1180), align 4
+  store ptr @.str.97, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1184), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1196), align 4
+  store ptr @.str.98, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1200), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1212), align 4
+  store ptr @.str.99, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1216), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1228), align 4
+  store ptr @.str.100, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1232), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1244), align 4
+  store ptr @.str.101, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1248), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1260), align 4
+  store ptr @.str.102, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1264), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1276), align 4
+  store ptr @.str.103, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1280), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1292), align 4
+  store ptr @.str.104, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1296), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1308), align 4
+  store ptr @.str.105, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1312), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1324), align 4
+  store ptr @.str.106, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1328), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1340), align 4
+  store ptr @.str.107, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1344), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1356), align 4
+  store ptr @.str.108, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1360), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1372), align 4
+  store ptr @.str.109, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1376), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1388), align 4
+  store ptr @.str.110, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1392), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1404), align 4
+  store ptr @.str.111, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1408), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1420), align 4
+  store ptr @.str.112, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1424), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1436), align 4
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1440), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1452), align 4
+  store ptr @.str.114, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1456), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1468), align 4
+  store ptr @.str.115, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1472), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1484), align 4
+  store ptr @.str.116, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1488), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1500), align 4
+  store ptr @.str.117, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1504), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1516), align 4
+  store ptr @.str.118, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1520), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1532), align 4
+  store ptr @.str.119, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1536), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1548), align 4
+  store ptr @.str.120, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1552), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1564), align 4
+  store ptr @.str.121, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1568), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1580), align 4
+  store ptr @.str.122, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1584), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1596), align 4
+  store ptr @.str.123, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1600), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1612), align 4
+  store ptr @.str.124, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1616), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1628), align 4
+  store ptr @.str.125, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1632), align 16
+  store i32 80, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1644), align 4
+  store ptr @.str.126, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1648), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1660), align 4
+  store ptr @.str.127, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1664), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1676), align 4
+  store ptr @.str.128, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1680), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1692), align 4
+  store ptr @.str.129, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1696), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1708), align 4
+  store ptr @.str.130, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1712), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1724), align 4
+  store ptr @.str.131, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1728), align 16
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1740), align 4
+  store ptr @.str.132, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1744), align 16
+  store i32 72, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1756), align 4
+  store ptr @.str.133, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1760), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1772), align 4
+  store ptr @.str.134, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1776), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1788), align 4
+  store ptr @.str.135, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1792), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1804), align 4
+  store ptr @.str.136, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1808), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1820), align 4
+  store ptr @.str.137, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1824), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1836), align 4
+  store ptr @.str.138, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1840), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1852), align 4
+  store ptr @.str.139, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1856), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1868), align 4
+  store ptr @.str.140, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1872), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1884), align 4
+  store ptr @.str.141, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1888), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1900), align 4
+  store ptr @.str.142, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1904), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1916), align 4
+  store ptr @.str.143, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1920), align 16
+  store i32 88, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1932), align 4
+  store ptr @.str.144, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1936), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1948), align 4
+  store ptr @.str.145, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1952), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1964), align 4
+  store ptr @.str.146, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1968), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1980), align 4
+  store ptr @.str.147, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1984), align 16
+  store i32 72, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 1996), align 4
+  store ptr @.str.148, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2000), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2012), align 4
+  store ptr @.str.149, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2016), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2028), align 4
+  store ptr @.str.150, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2032), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2044), align 4
+  store ptr @.str.151, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2048), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2060), align 4
+  store ptr @.str.152, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2064), align 16
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2076), align 4
+  store ptr @.str.153, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2080), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2092), align 4
+  store ptr @.str.154, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2096), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2108), align 4
+  store ptr @.str.155, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2112), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2124), align 4
+  store ptr @.str.156, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2128), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2140), align 4
+  store ptr @.str.157, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2144), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2156), align 4
+  store ptr @.str.158, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2160), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2172), align 4
+  store ptr @.str.159, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2176), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2188), align 4
+  store ptr @.str.160, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2192), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2204), align 4
+  store ptr @.str.161, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2208), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2220), align 4
+  store ptr @.str.162, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2224), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2236), align 4
+  store ptr @.str.163, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2240), align 16
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2252), align 4
+  store ptr @.str.164, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2256), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2268), align 4
+  store ptr @.str.165, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2272), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2284), align 4
+  store ptr @.str.166, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2288), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2300), align 4
+  store ptr @.str.167, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2304), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2316), align 4
+  store ptr @.str.168, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2320), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2332), align 4
+  store ptr @.str.169, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2336), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2348), align 4
+  store ptr @.str.170, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2352), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2364), align 4
+  store ptr @.str.171, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2368), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2380), align 4
+  store ptr @.str.172, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2384), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2396), align 4
+  store ptr @.str.173, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2400), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2412), align 4
+  store ptr @.str.174, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2416), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2428), align 4
+  store ptr @.str.175, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2432), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2444), align 4
+  store ptr @.str.176, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2448), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2460), align 4
+  store ptr @.str.177, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2464), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2476), align 4
+  store ptr @.str.178, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2480), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2492), align 4
+  store ptr @.str.179, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2496), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2508), align 4
+  store ptr @.str.180, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2512), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2524), align 4
+  store ptr @.str.181, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2528), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2540), align 4
+  store ptr @.str.182, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2544), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2556), align 4
+  store ptr @.str.183, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2560), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2572), align 4
+  store ptr @.str.184, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2576), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2588), align 4
+  store ptr @.str.185, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2592), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2604), align 4
+  store ptr @.str.186, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2608), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2620), align 4
+  store ptr @.str.187, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2624), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2636), align 4
+  store ptr @.str.188, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2640), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2652), align 4
+  store ptr @.str.189, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2656), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2668), align 4
+  store ptr @.str.190, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2672), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2684), align 4
+  store ptr @.str.191, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2688), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2700), align 4
+  store ptr @.str.192, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2704), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2716), align 4
+  store ptr @.str.193, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2720), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2732), align 4
+  store ptr @.str.194, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2736), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2748), align 4
+  store ptr @.str.195, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2752), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2764), align 4
+  store ptr @.str.196, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2768), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2780), align 4
+  store ptr @.str.197, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2784), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2796), align 4
+  store ptr @.str.198, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2800), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2812), align 4
+  store ptr @.str.199, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2816), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2828), align 4
+  store ptr @.str.200, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2832), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2844), align 4
+  store ptr @.str.201, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2848), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2860), align 4
+  store ptr @.str.202, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2864), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2876), align 4
+  store ptr @.str.203, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2880), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2892), align 4
+  store ptr @.str.204, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2896), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2908), align 4
+  store ptr @.str.205, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2912), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2924), align 4
+  store ptr @.str.206, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2928), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2940), align 4
+  store ptr @.str.207, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2944), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2956), align 4
+  store ptr @.str.208, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2960), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2972), align 4
+  store ptr @.str.209, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2976), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2988), align 4
+  store ptr @.str.210, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 2992), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3004), align 4
+  store ptr @.str.211, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3008), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3020), align 4
+  store ptr @.str.212, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3024), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3036), align 4
+  store ptr @.str.213, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3040), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3052), align 4
+  store ptr @.str.214, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3056), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3068), align 4
+  store ptr @.str.215, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3072), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3084), align 4
+  store ptr @.str.216, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3088), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3100), align 4
+  store ptr @.str.217, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3104), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3116), align 4
+  store ptr @.str.218, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3120), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3132), align 4
+  store ptr @.str.219, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3136), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3148), align 4
+  store ptr @.str.220, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3152), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3164), align 4
+  store ptr @.str.221, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3168), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3180), align 4
+  store ptr @.str.222, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3184), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3196), align 4
+  store ptr @.str.223, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3200), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3212), align 4
+  store ptr @.str.224, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3216), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3228), align 4
+  store ptr @.str.225, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3232), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3244), align 4
+  store ptr @.str.226, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3248), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3260), align 4
+  store ptr @.str.227, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3264), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3276), align 4
+  store ptr @.str.228, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3280), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3292), align 4
+  store ptr @.str.229, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3296), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3308), align 4
+  store ptr @.str.230, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3312), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3324), align 4
+  store ptr @.str.231, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3328), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3340), align 4
+  store ptr @.str.232, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3344), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3356), align 4
+  store ptr @.str.233, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3360), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3372), align 4
+  store ptr @.str.234, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3376), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3388), align 4
+  store ptr @.str.235, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3392), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3404), align 4
+  store ptr @.str.236, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3408), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3420), align 4
+  store ptr @.str.237, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3424), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3436), align 4
+  store ptr @.str.238, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3440), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3452), align 4
+  store ptr @.str.239, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3456), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3468), align 4
+  store ptr @.str.240, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3472), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3484), align 4
+  store ptr @.str.241, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3488), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3500), align 4
+  store ptr @.str.242, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3504), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3516), align 4
+  store ptr @.str.243, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3520), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3532), align 4
+  store ptr @.str.244, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3536), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3548), align 4
+  store ptr @.str.245, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3552), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3564), align 4
+  store ptr @.str.246, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3568), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3580), align 4
+  store ptr @.str.247, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3584), align 16
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3596), align 4
+  store ptr @.str.248, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3600), align 16
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3612), align 4
+  store ptr @.str.249, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3616), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3628), align 4
+  store ptr @.str.250, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3632), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3644), align 4
+  store ptr @.str.251, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3648), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3660), align 4
+  store ptr @.str.252, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3664), align 16
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3676), align 4
+  store ptr @.str.253, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3680), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3692), align 4
+  store ptr @.str.254, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3696), align 16
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3708), align 4
+  store ptr @.str.255, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3712), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3724), align 4
+  store ptr @.str.256, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3728), align 16
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3740), align 4
+  store ptr @.str.257, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3744), align 16
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3756), align 4
+  store ptr @.str.258, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3760), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3772), align 4
+  store ptr @.str.259, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3776), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3788), align 4
+  store ptr @.str.260, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3792), align 16
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3804), align 4
+  store ptr @.str.261, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3808), align 16
+  store i32 96, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3820), align 4
+  store ptr @.str.262, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3824), align 16
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3836), align 4
+  store ptr @.str.263, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3840), align 16
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3852), align 4
+  store ptr @.str.264, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3856), align 16
+  store i32 96, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3868), align 4
+  store ptr @.str.265, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3872), align 16
+  store i32 88, ptr getelementptr inbounds nuw (i8, ptr @_ZL13StmtClassInfo, i64 3884), align 4
   br label %3
 
 3:                                                ; preds = %1, %2

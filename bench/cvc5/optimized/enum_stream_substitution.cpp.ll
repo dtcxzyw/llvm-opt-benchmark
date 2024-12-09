@@ -269,7 +269,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutationC2ERNS0_3EnvEPNS2_11TermDbSygusE(ptr noundef nonnull align 8 dereferenceable(220) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %tds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers21EnumStreamPermutationE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers21EnumStreamPermutationE, i64 16), ptr %this, align 8
   %d_tds = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %tds, ptr %d_tds, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -6355,7 +6355,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 define hidden void @_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionC2ERNS0_3EnvEPNS2_11TermDbSygusE(ptr noundef nonnull align 8 dereferenceable(452) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %tds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionE, i64 16), ptr %this, align 8
   %d_tds = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %tds, ptr %d_tds, align 8
   %d_tn = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -10473,7 +10473,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
 define hidden void @_ZN4cvc58internal6theory11quantifiers18EnumStreamConcreteC2ERNS0_3EnvEPNS2_11TermDbSygusE(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %tds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i64 16), ptr %this, align 8
   %d_ess = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionC2ERNS0_3EnvEPNS2_11TermDbSygusE(ptr noundef nonnull align 8 dereferenceable(452) %d_ess, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %tds)
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -10516,7 +10516,7 @@ invoke.cont3:                                     ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers22EnumStreamSubstitutionE, i64 16), ptr %this, align 8
   %d_comb_state_class = getelementptr inbounds nuw i8, ptr %this, i64 424
   tail call void @_ZNSt6vectorIN4cvc58internal6theory11quantifiers22EnumStreamSubstitution16CombinationStateESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_comb_state_class) #24
   %d_stream_permutations = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -11072,7 +11072,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers18EnumStreamConcreteD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i64 16), ptr %this, align 8
   %d_currTerm = getelementptr inbounds nuw i8, ptr %this, i64 472
   %0 = load ptr, ptr %d_currTerm, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -11109,7 +11109,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers18EnumStreamConcreteD0Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers18EnumStreamConcreteE, i64 16), ptr %this, align 8
   %d_currTerm.i = getelementptr inbounds nuw i8, ptr %this, i64 472
   %0 = load ptr, ptr %d_currTerm.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
@@ -11221,7 +11221,7 @@ init.end:                                         ; preds = %_ZN4cvc58internal12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutationD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers21EnumStreamPermutationE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers21EnumStreamPermutationE, i64 16), ptr %this, align 8
   %d_perm_state_class = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %d_perm_state_class, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 200

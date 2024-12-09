@@ -94,7 +94,7 @@ define hidden void @_Z18montgomeryMultiply8RegisterS_S_S_P14MacroAssembler(i32 %
   %45 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -102,7 +102,7 @@ define hidden void @_Z18montgomeryMultiply8RegisterS_S_S_P14MacroAssembler(i32 %
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 21, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %50 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %49) #5
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 0, ptr noundef nonnull %7, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
@@ -119,7 +119,7 @@ define hidden void @_Z18montgomeryMultiply8RegisterS_S_S_P14MacroAssembler(i32 %
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -147,7 +147,7 @@ define hidden void @_Z18montgomeryMultiply8RegisterS_S_S_P14MacroAssembler(i32 %
   store i32 -1, ptr %61, align 4
   store i32 %68, ptr %62, align 8
   store i8 0, ptr %63, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
   store ptr null, ptr %65, align 8
   store i32 0, ptr %66, align 8
   call void @_ZN9Assembler12vpbroadcastqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 1, ptr noundef nonnull %18, i32 noundef 2) #5
@@ -185,7 +185,7 @@ define hidden void @_Z18montgomeryMultiply8RegisterS_S_S_P14MacroAssembler(i32 %
   %77 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -204,7 +204,7 @@ define hidden void @_Z18montgomeryMultiply8RegisterS_S_S_P14MacroAssembler(i32 %
   %85 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %86, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -330,11 +330,11 @@ define hidden void @_Z10assign_avx11XMMRegister7AddressS_S0_9KRegisteriP14MacroA
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 %2, ptr noundef nonnull %9, i32 noundef %5) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   %32 = sext i32 %0 to i64
-  %33 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %32
+  %33 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %32
   %34 = ptrtoint ptr %33 to i64
   %35 = trunc i64 %34 to i32
   %36 = sext i32 %2 to i64
-  %37 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %36
+  %37 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %36
   %38 = ptrtoint ptr %37 to i64
   %39 = trunc i64 %38 to i32
   %.not.i = icmp eq i32 %35, %39
@@ -625,7 +625,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %166 = getelementptr inbounds nuw i8, ptr %87, i64 20
   store i8 0, ptr %166, align 4
   %167 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %167, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store ptr null, ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %87, i64 40
@@ -642,7 +642,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %174 = getelementptr inbounds nuw i8, ptr %88, i64 20
   store i8 0, ptr %174, align 4
   %175 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %175, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %88, i64 32
   store ptr null, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %88, i64 40
@@ -653,7 +653,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %78)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef nonnull align 8 dereferenceable(64) %87, i64 21, i1 false)
   %179 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %180 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %180 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %180(ptr noundef nonnull align 8 dereferenceable(40) %167, ptr noundef nonnull align 8 dereferenceable(40) %179) #5
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %178, i32 9, ptr noundef nonnull %76) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(64) %88, i64 21, i1 false)
@@ -686,7 +686,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %192 = getelementptr inbounds nuw i8, ptr %89, i64 20
   store i8 0, ptr %192, align 4
   %193 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %193, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store ptr null, ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %89, i64 40
@@ -710,7 +710,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %202 = getelementptr inbounds nuw i8, ptr %90, i64 20
   store i8 0, ptr %202, align 4
   %203 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %203, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %90, i64 32
   store ptr null, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %90, i64 40
@@ -741,7 +741,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %215 = getelementptr inbounds nuw i8, ptr %91, i64 20
   store i8 0, ptr %215, align 4
   %216 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %216, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %91, i64 32
   store ptr null, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %91, i64 40
@@ -758,7 +758,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %223 = getelementptr inbounds nuw i8, ptr %92, i64 20
   store i8 0, ptr %223, align 4
   %224 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %224, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %224, align 8
   %225 = getelementptr inbounds nuw i8, ptr %92, i64 32
   store ptr null, ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %92, i64 40
@@ -773,7 +773,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %227, i32 9, ptr noundef nonnull %71) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %72, ptr noundef nonnull align 8 dereferenceable(64) %92, i64 21, i1 false)
   %229 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %230 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %230 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %230(ptr noundef nonnull align 8 dereferenceable(40) %224, ptr noundef nonnull align 8 dereferenceable(40) %229) #5
   call void @_ZN9Assembler4xorqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %227, i32 9, ptr noundef nonnull %72) #5
   call void @_ZN9Assembler4andqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %227, i32 9, i32 7) #5
@@ -799,7 +799,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %239 = getelementptr inbounds nuw i8, ptr %93, i64 20
   store i8 0, ptr %239, align 4
   %240 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %240, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %240, align 8
   %241 = getelementptr inbounds nuw i8, ptr %93, i64 32
   store ptr null, ptr %241, align 8
   %242 = getelementptr inbounds nuw i8, ptr %93, i64 40
@@ -816,7 +816,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %247 = getelementptr inbounds nuw i8, ptr %94, i64 20
   store i8 0, ptr %247, align 4
   %248 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %248, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %248, align 8
   %249 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store ptr null, ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %94, i64 40
@@ -884,7 +884,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %276 = getelementptr inbounds nuw i8, ptr %95, i64 20
   store i8 0, ptr %276, align 4
   %277 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %277, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %277, align 8
   %278 = getelementptr inbounds nuw i8, ptr %95, i64 32
   store ptr null, ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %95, i64 40
@@ -901,7 +901,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %284 = getelementptr inbounds nuw i8, ptr %96, i64 20
   store i8 0, ptr %284, align 4
   %285 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %285, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store ptr null, ptr %286, align 8
   %287 = getelementptr inbounds nuw i8, ptr %96, i64 40
@@ -924,7 +924,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(64) %96, i64 21, i1 false)
   %294 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %295 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %295 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %295(ptr noundef nonnull align 8 dereferenceable(40) %285, ptr noundef nonnull align 8 dereferenceable(40) %294) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %60)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(64) %63, i64 21, i1 false)
@@ -966,7 +966,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %312 = getelementptr inbounds nuw i8, ptr %97, i64 20
   store i8 0, ptr %312, align 4
   %313 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %313, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %313, align 8
   %314 = getelementptr inbounds nuw i8, ptr %97, i64 32
   store ptr null, ptr %314, align 8
   %315 = getelementptr inbounds nuw i8, ptr %97, i64 40
@@ -983,7 +983,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %320 = getelementptr inbounds nuw i8, ptr %98, i64 20
   store i8 0, ptr %320, align 4
   %321 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %321, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %98, i64 32
   store ptr null, ptr %322, align 8
   %323 = getelementptr inbounds nuw i8, ptr %98, i64 40
@@ -1051,7 +1051,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %349 = getelementptr inbounds nuw i8, ptr %99, i64 20
   store i8 0, ptr %349, align 4
   %350 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %350, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %350, align 8
   %351 = getelementptr inbounds nuw i8, ptr %99, i64 32
   store ptr null, ptr %351, align 8
   %352 = getelementptr inbounds nuw i8, ptr %99, i64 40
@@ -1068,7 +1068,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %357 = getelementptr inbounds nuw i8, ptr %100, i64 20
   store i8 0, ptr %357, align 4
   %358 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %358, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %358, align 8
   %359 = getelementptr inbounds nuw i8, ptr %100, i64 32
   store ptr null, ptr %359, align 8
   %360 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -1091,7 +1091,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %49)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(64) %100, i64 21, i1 false)
   %367 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %368 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %368 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %368(ptr noundef nonnull align 8 dereferenceable(40) %358, ptr noundef nonnull align 8 dereferenceable(40) %367) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %48)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %51, i64 21, i1 false)
@@ -1133,7 +1133,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %385 = getelementptr inbounds nuw i8, ptr %101, i64 20
   store i8 0, ptr %385, align 4
   %386 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %386, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %386, align 8
   %387 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store ptr null, ptr %387, align 8
   %388 = getelementptr inbounds nuw i8, ptr %101, i64 40
@@ -1150,7 +1150,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %393 = getelementptr inbounds nuw i8, ptr %102, i64 20
   store i8 0, ptr %393, align 4
   %394 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %394, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %394, align 8
   %395 = getelementptr inbounds nuw i8, ptr %102, i64 32
   store ptr null, ptr %395, align 8
   %396 = getelementptr inbounds nuw i8, ptr %102, i64 40
@@ -1214,7 +1214,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %420 = getelementptr inbounds nuw i8, ptr %103, i64 20
   store i8 0, ptr %420, align 4
   %421 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %421, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %421, align 8
   %422 = getelementptr inbounds nuw i8, ptr %103, i64 32
   store ptr null, ptr %422, align 8
   %423 = getelementptr inbounds nuw i8, ptr %103, i64 40
@@ -1231,7 +1231,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %428 = getelementptr inbounds nuw i8, ptr %104, i64 20
   store i8 0, ptr %428, align 4
   %429 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %429, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %429, align 8
   %430 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store ptr null, ptr %430, align 8
   %431 = getelementptr inbounds nuw i8, ptr %104, i64 40
@@ -1254,7 +1254,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %104, i64 21, i1 false)
   %438 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %439 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %439 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %439(ptr noundef nonnull align 8 dereferenceable(40) %429, ptr noundef nonnull align 8 dereferenceable(40) %438) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %36)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 21, i1 false)
@@ -1300,7 +1300,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %458 = getelementptr inbounds nuw i8, ptr %105, i64 20
   store i8 0, ptr %458, align 4
   %459 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %459, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %459, align 8
   %460 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store ptr null, ptr %460, align 8
   %461 = getelementptr inbounds nuw i8, ptr %105, i64 40
@@ -1317,7 +1317,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %466 = getelementptr inbounds nuw i8, ptr %106, i64 20
   store i8 0, ptr %466, align 4
   %467 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %467, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %467, align 8
   %468 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr null, ptr %468, align 8
   %469 = getelementptr inbounds nuw i8, ptr %106, i64 40
@@ -1381,7 +1381,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %493 = getelementptr inbounds nuw i8, ptr %107, i64 20
   store i8 0, ptr %493, align 4
   %494 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %494, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %494, align 8
   %495 = getelementptr inbounds nuw i8, ptr %107, i64 32
   store ptr null, ptr %495, align 8
   %496 = getelementptr inbounds nuw i8, ptr %107, i64 40
@@ -1398,7 +1398,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %501 = getelementptr inbounds nuw i8, ptr %108, i64 20
   store i8 0, ptr %501, align 4
   %502 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %502, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %502, align 8
   %503 = getelementptr inbounds nuw i8, ptr %108, i64 32
   store ptr null, ptr %503, align 8
   %504 = getelementptr inbounds nuw i8, ptr %108, i64 40
@@ -1421,7 +1421,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %108, i64 21, i1 false)
   %511 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %512 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %512 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %512(ptr noundef nonnull align 8 dereferenceable(40) %502, ptr noundef nonnull align 8 dereferenceable(40) %511) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %27, i64 21, i1 false)
@@ -1467,7 +1467,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %531 = getelementptr inbounds nuw i8, ptr %109, i64 20
   store i8 0, ptr %531, align 4
   %532 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %532, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %532, align 8
   %533 = getelementptr inbounds nuw i8, ptr %109, i64 32
   store ptr null, ptr %533, align 8
   %534 = getelementptr inbounds nuw i8, ptr %109, i64 40
@@ -1484,7 +1484,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %539 = getelementptr inbounds nuw i8, ptr %110, i64 20
   store i8 0, ptr %539, align 4
   %540 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %540, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %540, align 8
   %541 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store ptr null, ptr %541, align 8
   %542 = getelementptr inbounds nuw i8, ptr %110, i64 40
@@ -1524,7 +1524,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %554 = getelementptr inbounds nuw i8, ptr %111, i64 20
   store i8 0, ptr %554, align 4
   %555 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %555, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %555, align 8
   %556 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store ptr null, ptr %556, align 8
   %557 = getelementptr inbounds nuw i8, ptr %111, i64 40
@@ -1541,7 +1541,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %562 = getelementptr inbounds nuw i8, ptr %112, i64 20
   store i8 0, ptr %562, align 4
   %563 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %563, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %563, align 8
   %564 = getelementptr inbounds nuw i8, ptr %112, i64 32
   store ptr null, ptr %564, align 8
   %565 = getelementptr inbounds nuw i8, ptr %112, i64 40
@@ -1564,7 +1564,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %112, i64 21, i1 false)
   %572 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %573 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %573 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %573(ptr noundef nonnull align 8 dereferenceable(40) %563, ptr noundef nonnull align 8 dereferenceable(40) %572) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 21, i1 false)
@@ -1606,7 +1606,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %590 = getelementptr inbounds nuw i8, ptr %113, i64 20
   store i8 0, ptr %590, align 4
   %591 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %591, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %591, align 8
   %592 = getelementptr inbounds nuw i8, ptr %113, i64 32
   store ptr null, ptr %592, align 8
   %593 = getelementptr inbounds nuw i8, ptr %113, i64 40
@@ -1623,7 +1623,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %598 = getelementptr inbounds nuw i8, ptr %114, i64 20
   store i8 0, ptr %598, align 4
   %599 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %599, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %599, align 8
   %600 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr null, ptr %600, align 8
   %601 = getelementptr inbounds nuw i8, ptr %114, i64 40
@@ -1687,7 +1687,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %625 = getelementptr inbounds nuw i8, ptr %115, i64 20
   store i8 0, ptr %625, align 4
   %626 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %626, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %626, align 8
   %627 = getelementptr inbounds nuw i8, ptr %115, i64 32
   store ptr null, ptr %627, align 8
   %628 = getelementptr inbounds nuw i8, ptr %115, i64 40
@@ -1704,7 +1704,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   %633 = getelementptr inbounds nuw i8, ptr %116, i64 20
   store i8 0, ptr %633, align 4
   %634 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %634, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %634, align 8
   %635 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store ptr null, ptr %635, align 8
   %636 = getelementptr inbounds nuw i8, ptr %116, i64 40
@@ -1727,7 +1727,7 @@ define hidden noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr nou
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %116, i64 21, i1 false)
   %643 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %644 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %644 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %644(ptr noundef nonnull align 8 dereferenceable(40) %634, ptr noundef nonnull align 8 dereferenceable(40) %643) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)

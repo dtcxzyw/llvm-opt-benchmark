@@ -121,7 +121,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib16MultiStepNothingE, i64 16), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib16MultiStepNothingE, i64 16), ptr %this, align 8, !tbaa !11
   %numberOfProducts_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i64 %numberOfProducts, ptr %numberOfProducts_, align 8, !tbaa !13
   %doneIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -187,7 +187,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit
 define void @_ZNK8QuantLib16MultiStepNothing5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #11
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %call, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %call, align 8, !tbaa !11
   %rateTimes_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %rateTimes_2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -259,7 +259,7 @@ if.then.i.i.i.i.i:                                ; preds = %lpad4.i.i
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib16MultiStepNothingE, i64 16), ptr %call, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib16MultiStepNothingE, i64 16), ptr %call, align 8, !tbaa !11
   %numberOfProducts_.i = getelementptr inbounds nuw i8, ptr %call, i64 160
   %numberOfProducts_2.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numberOfProducts_.i, ptr noundef nonnull align 8 dereferenceable(24) %numberOfProducts_2.i, i64 24, i1 false)
@@ -286,7 +286,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !11
   %firstAliveRate_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %firstAliveRate_.i, align 8, !tbaa !34
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

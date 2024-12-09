@@ -33,10 +33,10 @@ define hidden void @keypair_context_init(ptr noundef readonly %0, ptr noundef re
 6:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(258) @keypair_context, i8 0, i64 258, i1 false)
   %7 = load i64, ptr %0, align 1
-  store i64 %7, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 240), align 1
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 240), align 1
   %8 = load i64, ptr %1, align 1
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 248), align 1
-  store i8 %2, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 256), align 1
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 248), align 1
+  store i8 %2, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 256), align 1
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -53,19 +53,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @keypair_context_update_seed(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = alloca [16 x i8], align 16
   %4 = zext i8 %1 to i32
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 257), align 1
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
   %6 = zext i8 %5 to i32
   %7 = add nsw i32 %6, -1
   %8 = icmp eq i32 %7, %4
   %9 = add nuw nsw i32 %4, 1
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 256), align 1
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 256), align 1
   %11 = zext i8 %10 to i32
   %12 = icmp eq i32 %9, %11
   %or.cond = select i1 %8, i1 %12, i1 false
   br i1 %or.cond, label %13, label %14
 
 13:                                               ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds (i8, ptr @keypair_context, i64 160), ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds (i8, ptr @keypair_context, i64 80), i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 80), i64 80, i1 false)
   br label %14
 
 14:                                               ; preds = %13, %2
@@ -74,7 +74,7 @@ define hidden void @keypair_context_update_seed(ptr nocapture noundef readonly %
 
 16:                                               ; preds = %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) @keypair_context, ptr noundef nonnull align 1 dereferenceable(80) %0, i64 80, i1 false)
-  store i8 1, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 257), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
   br label %nwk_key_storage_add_entry.exit
 
 17:                                               ; preds = %14
@@ -92,7 +92,7 @@ define hidden void @keypair_context_update_seed(ptr nocapture noundef readonly %
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %19 ]
   %21 = getelementptr [80 x i8], ptr @keypair_context, i64 0, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1
-  %23 = getelementptr [80 x i8], ptr getelementptr inbounds (i8, ptr @keypair_context, i64 160), i64 0, i64 %indvars.iv
+  %23 = getelementptr [80 x i8], ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 0, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1
   %25 = xor i8 %24, %22
   store i8 %25, ptr %23, align 1
@@ -102,9 +102,9 @@ define hidden void @keypair_context_update_seed(ptr nocapture noundef readonly %
 
 26:                                               ; preds = %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) @keypair_context, ptr noundef nonnull align 1 dereferenceable(80) %0, i64 80, i1 false)
-  %27 = load i8, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 257), align 1
+  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
   %28 = add i8 %27, 1
-  store i8 %28, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 257), align 1
+  store i8 %28, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
   br label %29
 
 29:                                               ; preds = %26, %19
@@ -119,7 +119,7 @@ define hidden void @keypair_context_update_seed(ptr nocapture noundef readonly %
   br i1 %.not.i, label %35, label %33
 
 33:                                               ; preds = %.lr.ph.split.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %30, ptr noundef nonnull readonly dereferenceable(8) getelementptr inbounds (i8, ptr @keypair_context, i64 240), i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %30, ptr noundef nonnull readonly dereferenceable(8) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 240), i64 8)
   %34 = icmp eq i32 %bcmp.i, 0
   br i1 %34, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit, label %35
 
@@ -141,7 +141,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %33, %35
   br i1 %.not.i26, label %41, label %39
 
 39:                                               ; preds = %.lr.ph.split.i24
-  %bcmp.i27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %36, ptr noundef nonnull readonly dereferenceable(8) getelementptr inbounds (i8, ptr @keypair_context, i64 248), i64 8)
+  %bcmp.i27 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %36, ptr noundef nonnull readonly dereferenceable(8) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 248), i64 8)
   %40 = icmp eq i32 %bcmp.i27, 0
   br i1 %40, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit31, label %41
 
@@ -152,14 +152,14 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %33, %35
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit31:   ; preds = %39, %41
   %.07.i30 = phi ptr [ null, %41 ], [ %36, %39 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds (i8, ptr @keypair_context, i64 80), ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds (i8, ptr @keypair_context, i64 160), i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 80), ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 80, i1 false)
   br label %42
 
 42:                                               ; preds = %rf4ce_addr_table_get_addr_entry_by_ieee.exit31, %42
   %indvars.iv53 = phi i64 [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit31 ], [ %indvars.iv.next54, %42 ]
   %43 = getelementptr [80 x i8], ptr @keypair_context, i64 0, i64 %indvars.iv53
   %44 = load i8, ptr %43, align 1
-  %45 = getelementptr [80 x i8], ptr getelementptr inbounds (i8, ptr @keypair_context, i64 160), i64 0, i64 %indvars.iv53
+  %45 = getelementptr [80 x i8], ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 0, i64 %indvars.iv53
   %46 = load i8, ptr %45, align 1
   %47 = xor i8 %46, %44
   store i8 %47, ptr %45, align 1
@@ -168,7 +168,7 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit31:   ; preds = %39, %41
   br i1 %exitcond56.not, label %48, label %42, !llvm.loop !7
 
 48:                                               ; preds = %42
-  %49 = load i8, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 257), align 1
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
   %.not.i32 = icmp eq i8 %49, 0
   br i1 %.not.i32, label %keypair_context_calc_key.exit, label %.preheader.i
 
@@ -181,10 +181,10 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit31:   ; preds = %39, %41
 52:                                               ; preds = %52, %.preheader.i
   %indvars.iv.i33 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i34, %52 ]
   %53 = or disjoint i64 %indvars.iv.i33, %50
-  %54 = getelementptr [80 x i8], ptr getelementptr inbounds (i8, ptr @keypair_context, i64 160), i64 0, i64 %53
+  %54 = getelementptr [80 x i8], ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = add nuw nsw i64 %51, %indvars.iv.i33
-  %57 = getelementptr [80 x i8], ptr getelementptr inbounds (i8, ptr @keypair_context, i64 160), i64 0, i64 %56
+  %57 = getelementptr [80 x i8], ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = xor i8 %58, %55
   store i8 %59, ptr %57, align 1
@@ -194,13 +194,13 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit31:   ; preds = %39, %41
 
 60:                                               ; preds = %52
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %61 = load i8, ptr getelementptr inbounds (i8, ptr @keypair_context, i64 257), align 1
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
   %62 = zext i8 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next13.i, %62
   br i1 %63, label %.preheader.i, label %keypair_context_calc_key.exit, !llvm.loop !9
 
 keypair_context_calc_key.exit:                    ; preds = %60, %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (i8, ptr @keypair_context, i64 224), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 224), i64 16, i1 false)
   br label %64
 
 64:                                               ; preds = %74, %keypair_context_calc_key.exit
@@ -249,7 +249,7 @@ nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %72
 
 80:                                               ; preds = %.preheader.i36
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %77, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (i8, ptr @keypair_context, i64 224), i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %77, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 224), i64 16, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %.07.i, ptr %82, align 16
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 24
@@ -552,12 +552,12 @@ define hidden void @key_exchange_context_init() local_unnamed_addr #8 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @key_exchange_context_start_procedure() local_unnamed_addr #9 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 32), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 32), align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
 2:                                                ; preds = %0
-  store i32 1, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 32), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 32), align 4
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -566,12 +566,12 @@ define hidden void @key_exchange_context_start_procedure() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @key_exchange_context_stop_procedure() local_unnamed_addr #9 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 32), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 32), align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
-  store i32 0, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 32), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 32), align 4
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -580,7 +580,7 @@ define hidden void @key_exchange_context_stop_procedure() local_unnamed_addr #9 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @key_exchange_context_is_procedure_started() local_unnamed_addr #10 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 32), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 32), align 4
   ret i32 %1
 }
 
@@ -605,7 +605,7 @@ define hidden void @key_exchange_context_set_rand_b(ptr noundef readonly %0) loc
 
 2:                                                ; preds = %1
   %3 = load i64, ptr %0, align 1
-  store i64 %3, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 8), align 8
+  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 8), align 8
   br label %4
 
 4:                                                ; preds = %2, %1
@@ -619,7 +619,7 @@ define hidden void @key_exchange_context_set_mac_a(ptr noundef readonly %0) loca
 
 2:                                                ; preds = %1
   %3 = load i64, ptr %0, align 1
-  store i64 %3, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 16), align 8
+  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 16), align 8
   br label %4
 
 4:                                                ; preds = %2, %1
@@ -633,7 +633,7 @@ define hidden void @key_exchange_context_set_mac_b(ptr noundef readonly %0) loca
 
 2:                                                ; preds = %1
   %3 = load i64, ptr %0, align 1
-  store i64 %3, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 24), align 8
+  store i64 %3, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 24), align 8
   br label %4
 
 4:                                                ; preds = %2, %1
@@ -643,7 +643,7 @@ define hidden void @key_exchange_context_set_mac_b(ptr noundef readonly %0) loca
 ; Function Attrs: nounwind uwtable
 define hidden void @key_exchange_calc_key(i32 noundef %0) local_unnamed_addr #6 {
   %2 = alloca [16 x i8], align 16
-  %rhsv = load i64, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 16), align 8
+  %rhsv = load i64, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 16), align 8
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %7, %1
@@ -666,7 +666,7 @@ define hidden void @key_exchange_calc_key(i32 noundef %0) local_unnamed_addr #6 
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %6, %7
   %.07.i = phi ptr [ null, %7 ], [ %3, %6 ]
-  %rhsv55 = load i64, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 24), align 8
+  %rhsv55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 24), align 8
   br label %.lr.ph.split.i17
 
 .lr.ph.split.i17:                                 ; preds = %12, %rf4ce_addr_table_get_addr_entry_by_ieee.exit
@@ -839,7 +839,7 @@ define internal fastcc range(i32 0, 2) i32 @key_exchange_calc_key_cont(ptr nound
 
 35:                                               ; preds = %35, %34
   %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %35 ]
-  %36 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 16), i64 %indvars.iv.i.i
+  %36 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 16), i64 %indvars.iv.i.i
   %37 = load i8, ptr %36, align 1
   %38 = sub nuw nsw i64 7, %indvars.iv.i.i
   %39 = getelementptr i8, ptr %11, i64 %38
@@ -850,7 +850,7 @@ define internal fastcc range(i32 0, 2) i32 @key_exchange_calc_key_cont(ptr nound
 
 reverse.exit.i:                                   ; preds = %35, %reverse.exit.i
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i10.i, %reverse.exit.i ], [ 0, %35 ]
-  %40 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 24), i64 %indvars.iv.i9.i
+  %40 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 24), i64 %indvars.iv.i9.i
   %41 = load i8, ptr %40, align 1
   %42 = sub nuw nsw i64 7, %indvars.iv.i9.i
   %43 = getelementptr i8, ptr %12, i64 %42
@@ -862,7 +862,7 @@ reverse.exit.i:                                   ; preds = %35, %reverse.exit.i
 reverse.exit12.i:                                 ; preds = %reverse.exit.i
   %44 = load i64, ptr @key_exchange_context, align 8
   store i64 %44, ptr %13, align 8
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 8), align 8
+  %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @key_exchange_context, i64 8), align 8
   store i64 %45, ptr %19, align 8
   store i64 %45, ptr %14, align 8
   store i64 %44, ptr %20, align 8

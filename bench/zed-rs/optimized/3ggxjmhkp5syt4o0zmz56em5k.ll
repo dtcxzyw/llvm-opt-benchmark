@@ -1121,7 +1121,7 @@ _ZN4core3ops8function6FnOnce9call_once17h43a502c444bf3c3bE.exit.i.i.i: ; preds =
   unreachable
 
 443:                                              ; preds = %.noexc.i.i, %9
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %440, %.noexc.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %9 ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %440, %.noexc.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %9 ]
   %444 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !31, !noundef !29
   %445 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %446 = load i64, ptr %445, align 8, !noalias !31, !noundef !29
@@ -1178,7 +1178,7 @@ define noundef zeroext i1 @_ZN9google_ai19supported_countries20is_supported_coun
   %5 = alloca [72 x i8], align 8
   %6 = alloca [8 x i8], align 8
   %7 = alloca [8 x i8], align 8
-  %8 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 48) acquire, align 8
+  %8 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 48) acquire, align 8
   %9 = icmp eq i32 %8, 4
   br i1 %9, label %_ZN3std4sync4once4Once9call_once17ha7249f4d6c17aa09E.exit, label %10
 
@@ -1187,13 +1187,13 @@ define noundef zeroext i1 @_ZN9google_ai19supported_countries20is_supported_coun
   store ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %7, ptr %6, align 8
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hc1b3b3f8ea3c4885E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0fa02d85a53dd5b993eec41db38daef.14)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hc1b3b3f8ea3c4885E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0fa02d85a53dd5b993eec41db38daef.14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %_ZN3std4sync4once4Once9call_once17ha7249f4d6c17aa09E.exit
 
 _ZN3std4sync4once4Once9call_once17ha7249f4d6c17aa09E.exit: ; preds = %2, %10
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 24), align 8, !noundef !29
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 24), align 8, !noundef !29
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h2bc487090371f224E.exit", label %13
 
@@ -1202,8 +1202,8 @@ _ZN3std4sync4once4Once9call_once17ha7249f4d6c17aa09E.exit: ; preds = %2, %10
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !41
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 32), align 8, !alias.scope !48, !noalias !49, !noundef !29
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 40), align 8, !alias.scope !48, !noalias !49, !noundef !29
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 32), align 8, !alias.scope !48, !noalias !49, !noundef !29
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 40), align 8, !alias.scope !48, !noalias !49, !noundef !29
   %16 = xor i64 %14, 8317987319222330741
   %17 = xor i64 %15, 7237128888997146477
   %18 = xor i64 %14, 7816392313619706465
@@ -1260,7 +1260,7 @@ _ZN3std4sync4once4Once9call_once17ha7249f4d6c17aa09E.exit: ; preds = %2, %10
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !41
   %41 = lshr i64 %40, 57
   %42 = trunc nuw nsw i64 %41 to i8
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 8), align 8, !noalias !76, !noundef !29
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, i64 8), align 8, !noalias !76, !noundef !29
   %44 = load ptr, ptr @_ZN9google_ai19supported_countries19SUPPORTED_COUNTRIES17he81c2b8220db4569E, align 8, !noalias !76, !nonnull !29, !noundef !29
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %42, i64 0
   %.sroa.0.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer

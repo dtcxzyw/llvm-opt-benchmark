@@ -1067,7 +1067,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @kstrdup_quotable_cmdline(ptr noundef %0, i32 noundef %1) #4 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 4096) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %35, label %6
@@ -1139,7 +1139,7 @@ define dso_local ptr @kstrdup_quotable_file(ptr noundef %0, i32 noundef %1) #4 a
   br label %21
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(4107) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 4107) #19
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12

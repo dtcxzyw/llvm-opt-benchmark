@@ -620,7 +620,7 @@ invoke.cont:
   %norm16TrieLength = getelementptr inbounds nuw i8, ptr %this, i64 528
   store i32 0, ptr %norm16TrieLength, align 8
   %extraData = getelementptr inbounds nuw i8, ptr %this, i64 536
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %extraData, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %extraData, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 544
   store i16 2, ptr %fUnion2.i, align 8
   %indexes = getelementptr inbounds nuw i8, ptr %this, i64 436
@@ -2045,7 +2045,7 @@ sw.epilog:                                        ; preds = %if.end, %sw.bb66, %
   %spec.select = or i32 %norm16.0, %or72
   %errorCode.i.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
   %location.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 16
   store ptr @.str.9, ptr %location.i, align 8
   invoke void @umutablecptrie_setRange_75(ptr noundef %norm16Trie, i32 noundef %start, i32 noundef %end, i32 noundef %spec.select, ptr noundef nonnull %errorCode.i.i)
@@ -2159,7 +2159,7 @@ for.inc:                                          ; preds = %for.body
 while.end:                                        ; preds = %while.cond.loopexit
   %errorCode.i.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
   %location.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 16
   store ptr @.str.11, ptr %location.i, align 8
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 472
@@ -2259,14 +2259,14 @@ entry:
   %value = alloca i32, align 4
   %norms.i.i = getelementptr inbounds nuw i8, ptr %compBuilder, i64 8
   store ptr %this, ptr %norms.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518CompositionBuilderE, i64 16), ptr %compBuilder, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518CompositionBuilderE, i64 16), ptr %compBuilder, align 8
   invoke void @_ZN6icu_755Norms10enumRangesERNS0_10EnumeratorE(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef nonnull align 8 dereferenceable(16) %compBuilder)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %norms.i.i52 = getelementptr inbounds nuw i8, ptr %decomposer, i64 8
   store ptr %this, ptr %norms.i.i52, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510DecomposerE, i64 16), ptr %decomposer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510DecomposerE, i64 16), ptr %decomposer, align 8
   %didDecompose.i = getelementptr inbounds nuw i8, ptr %decomposer, i64 16
   br label %do.body
 
@@ -2590,7 +2590,7 @@ invoke.cont119:                                   ; preds = %if.end
   store i32 1114112, ptr %arrayidx118, align 4
   %errorCode.i.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
   %location.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 16
   store ptr @.str.13, ptr %location.i, align 8
   %call124 = invoke ptr @umutablecptrie_open_75(i32 noundef 1, i32 noundef 1, ptr noundef nonnull %errorCode.i.i)
@@ -2603,7 +2603,7 @@ invoke.cont123:                                   ; preds = %invoke.cont119
 invoke.cont125:                                   ; preds = %invoke.cont123
   %norms.i.i146 = getelementptr inbounds nuw i8, ptr %norm16Writer, i64 8
   store ptr %this, ptr %norms.i.i146, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512Norm16WriterE, i64 16), ptr %norm16Writer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512Norm16WriterE, i64 16), ptr %norm16Writer, align 8
   %builder.i = getelementptr inbounds nuw i8, ptr %norm16Writer, i64 16
   store ptr %this, ptr %builder.i, align 8
   %norm16Trie.i = getelementptr inbounds nuw i8, ptr %norm16Writer, i64 24
@@ -2914,7 +2914,7 @@ if.then356:                                       ; preds = %if.end352
 
 if.end360:                                        ; preds = %if.then356, %if.end352
   %95 = load i32, ptr %unicodeVersion, align 8
-  store i32 %95, ptr getelementptr inbounds (i8, ptr @_ZL8dataInfo, i64 16), align 2
+  store i32 %95, ptr getelementptr inbounds nuw (i8, ptr @_ZL8dataInfo, i64 16), align 2
   call void @_ZN6icu_755Norms10EnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %norm16Writer) #18
   call void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %errorCode) #18
   call void @_ZN6icu_759ExtraDataD2Ev(ptr noundef nonnull align 8 dereferenceable(888) %extra) #18
@@ -3006,7 +3006,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6icu_759ExtraDataD2Ev(ptr noundef nonnull align 8 dereferenceable(888) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ExtraDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759ExtraDataE, i64 16), ptr %this, align 8
   %previousNoNoMappingsEmpty = getelementptr inbounds nuw i8, ptr %this, i64 800
   %0 = load ptr, ptr %previousNoNoMappingsEmpty, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3119,7 +3119,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN6icu_7519LocalUCPTriePointerD2Ev.exit:         ; preds = %entry, %if.then.i
   %errorCode.i.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
   %location.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 16
   store ptr @.str.33, ptr %location.i, align 8
   %3 = load i8, ptr @_ZN6icu_7513haveCopyrightE, align 1
@@ -3267,7 +3267,7 @@ invoke.cont:
   call void @_ZN6icu_7522Normalizer2DataBuilder11processDataEv(ptr nonnull sret(%"class.icu_75::LocalUCPTriePointer") align 8 %norm16Trie, ptr noundef nonnull align 8 dereferenceable(860) %this)
   %errorCode.i.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %errorCode, align 8
   %location.i = getelementptr inbounds nuw i8, ptr %errorCode, i64 16
   store ptr @.str.38, ptr %location.i, align 8
   %call = invoke ptr @findBasename(ptr noundef %filename)
@@ -3371,12 +3371,12 @@ if.then28:                                        ; preds = %invoke.cont25
 if.end31:                                         ; preds = %invoke.cont25
   %13 = call i64 @fwrite(ptr nonnull @.str.41, i64 38, i64 1, ptr nonnull %call26)
   %call34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line, i64 noundef 100, ptr noundef nonnull @.str.42, ptr noundef %10) #18
-  invoke void @usrc_writeArray(ptr noundef nonnull %call26, ptr noundef nonnull %line, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL8dataInfo, i64 12), i32 noundef 8, i32 noundef 4, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44)
+  invoke void @usrc_writeArray(ptr noundef nonnull %call26, ptr noundef nonnull %line, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL8dataInfo, i64 12), i32 noundef 8, i32 noundef 4, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44)
           to label %invoke.cont36 unwind label %lpad17
 
 invoke.cont36:                                    ; preds = %if.end31
   %call38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line, i64 noundef 100, ptr noundef nonnull @.str.45, ptr noundef %10) #18
-  invoke void @usrc_writeArray(ptr noundef nonnull %call26, ptr noundef nonnull %line, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL8dataInfo, i64 16), i32 noundef 8, i32 noundef 4, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.46)
+  invoke void @usrc_writeArray(ptr noundef nonnull %call26, ptr noundef nonnull %line, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL8dataInfo, i64 16), i32 noundef 8, i32 noundef 4, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.46)
           to label %invoke.cont40 unwind label %lpad17
 
 invoke.cont40:                                    ; preds = %invoke.cont36

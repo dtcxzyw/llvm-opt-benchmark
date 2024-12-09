@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @acpi_nvs_register(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 32) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
@@ -24,8 +24,8 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_nvs_register(i64 noundef %0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @nvs_region_list, i64 8), align 8
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @nvs_region_list, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @nvs_region_list, i64 8), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @nvs_region_list, i64 8), align 8
   store ptr @nvs_region_list, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %9, ptr %10, align 8
@@ -39,15 +39,15 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_nvs_register(i64 noundef %0
 .lr.ph:                                           ; preds = %6, %20
   %15 = phi i64 [ %29, %20 ], [ %0, %6 ]
   %16 = phi i64 [ %30, %20 ], [ %1, %6 ]
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 56) #7
   %19 = icmp eq ptr %18, null
   br i1 %19, label %32, label %20
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @nvs_list, i64 8), align 8
-  store ptr %21, ptr getelementptr inbounds (i8, ptr @nvs_list, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @nvs_list, i64 8), align 8
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @nvs_list, i64 8), align 8
   store ptr @nvs_list, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %22, ptr %23, align 8

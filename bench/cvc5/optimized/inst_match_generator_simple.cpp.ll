@@ -143,7 +143,7 @@ entry:
   %ref.tmp105 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp106 = alloca %"class.cvc5::internal::NodeTemplate.444", align 8
   tail call void @_ZN4cvc58internal6theory11quantifiers4inst11IMGeneratorC2ERNS0_3EnvEPNS3_7TriggerE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %tparent)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst24InstMatchGeneratorSimpleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst24InstMatchGeneratorSimpleE, i64 16), ptr %this, align 8
   %d_quant = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %q, align 8
   store ptr %0, ptr %d_quant, align 8
@@ -3359,7 +3359,7 @@ declare noundef i64 @_ZNK4cvc58internal6theory11quantifiers6TermDb17getNumGround
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers4inst24InstMatchGeneratorSimpleD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst24InstMatchGeneratorSimpleE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst24InstMatchGeneratorSimpleE, i64 16), ptr %this, align 8
   %d_var_num = getelementptr inbounds nuw i8, ptr %this, i64 104
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

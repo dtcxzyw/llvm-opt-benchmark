@@ -56,7 +56,7 @@ invoke.cont8:
   store ptr %m_rvars.i, ptr %m_vars.i, align 8
   %m_monic.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %arrayidx.i2.i, ptr %m_monic.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nla25factorization_factory_impE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nla25factorization_factory_impE, i64 16), ptr %this, align 8
   %m_core = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %s, ptr %m_core, align 8
   %4 = load i32, ptr %rm, align 8

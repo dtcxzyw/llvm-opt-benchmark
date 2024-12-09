@@ -42737,7 +42737,7 @@ entry:
 
 invoke.cont.i.i:                                  ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %mark.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mark.i.i, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, i64 12, i1 false)
   %msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -42758,9 +42758,9 @@ lpad2.i.i:                                        ; preds = %invoke.cont.i.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML23RepresentationExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML23RepresentationExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML11InvalidNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML11InvalidNodeE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -42824,7 +42824,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail13memory_ho
   store i32 1, ptr %_M_use_count.i.i.i3, align 8
   %_M_weak_count.i.i.i4 = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i4, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8
   %_M_ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i, align 8
   store ptr %__p, ptr %this, align 8
@@ -42961,7 +42961,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail6memoryEEET
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4YAML6detail6memoryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4YAML6detail6memoryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8
   %_M_ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i, align 8
   store ptr %call.i, ptr %_M_refcount.i.i, align 8
@@ -43833,7 +43833,7 @@ entry:
 
 invoke.cont.i.i:                                  ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %mark.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mark.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mark_, i64 12, i1 false)
   %msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -43854,9 +43854,9 @@ lpad2.i.i:                                        ; preds = %invoke.cont.i.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML23RepresentationExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML23RepresentationExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML12BadSubscriptE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML12BadSubscriptE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -46792,7 +46792,7 @@ return:                                           ; preds = %_ZNK4YAML4Node6Scal
 define linkonce_odr hidden void @_ZN4YAML18TypedBadConversionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN4YAML13BadConversionC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -46824,7 +46824,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont.i.i:                                  ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %mark.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mark.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mark_, i64 12, i1 false)
   %msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -46845,10 +46845,10 @@ lpad2.i.i:                                        ; preds = %invoke.cont.i.i
 
 invoke.cont4:                                     ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML23RepresentationExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML23RepresentationExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13BadConversionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML13BadConversionE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -46956,7 +46956,7 @@ invoke.cont14:                                    ; preds = %if.end9
           to label %invoke.cont17 unwind label %lpad13
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEE, i64 16), ptr %exception10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEE, i64 16), ptr %exception10, align 8
   invoke void @__cxa_throw(ptr nonnull %exception10, ptr nonnull @_ZTIN4YAML18TypedBadConversionISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEE, ptr nonnull @_ZN4YAML18TypedBadConversionISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED2Ev) #27
           to label %unreachable unwind label %lpad5
 
@@ -46986,7 +46986,7 @@ unreachable:                                      ; preds = %invoke.cont17
 define linkonce_odr hidden void @_ZN4YAML18TypedBadConversionISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN4YAML13BadConversionC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -47567,7 +47567,7 @@ eh.resume:                                        ; preds = %lpad12, %lpad
 define linkonce_odr hidden void @_ZN4YAML18TypedBadConversionIbEC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN4YAML13BadConversionC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionIbEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionIbEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -47659,7 +47659,7 @@ invoke.cont14:                                    ; preds = %if.end9
           to label %invoke.cont17 unwind label %lpad13
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorIdSaIdEEEE, i64 16), ptr %exception10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorIdSaIdEEEE, i64 16), ptr %exception10, align 8
   invoke void @__cxa_throw(ptr nonnull %exception10, ptr nonnull @_ZTIN4YAML18TypedBadConversionISt6vectorIdSaIdEEEE, ptr nonnull @_ZN4YAML18TypedBadConversionISt6vectorIdSaIdEEED2Ev) #27
           to label %unreachable unwind label %lpad5
 
@@ -47694,7 +47694,7 @@ unreachable:                                      ; preds = %invoke.cont17
 define linkonce_odr hidden void @_ZN4YAML18TypedBadConversionISt6vectorIdSaIdEEEC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN4YAML13BadConversionC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorIdSaIdEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorIdSaIdEEEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -48312,7 +48312,7 @@ eh.resume:                                        ; preds = %lpad11, %lpad
 define linkonce_odr hidden void @_ZN4YAML18TypedBadConversionIdEC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN4YAML13BadConversionC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionIdEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionIdEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -48948,7 +48948,7 @@ entry:
 
 invoke.cont.i.i:                                  ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %mark.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mark.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mark_, i64 12, i1 false)
   %msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -48969,9 +48969,9 @@ lpad2.i.i:                                        ; preds = %invoke.cont.i.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML23RepresentationExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML23RepresentationExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML12BadSubscriptE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML12BadSubscriptE, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -60043,7 +60043,7 @@ invoke.cont14:                                    ; preds = %if.end9
           to label %invoke.cont17 unwind label %lpad13
 
 invoke.cont17:                                    ; preds = %invoke.cont14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorIfSaIfEEEE, i64 16), ptr %exception10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorIfSaIfEEEE, i64 16), ptr %exception10, align 8
   invoke void @__cxa_throw(ptr nonnull %exception10, ptr nonnull @_ZTIN4YAML18TypedBadConversionISt6vectorIfSaIfEEEE, ptr nonnull @_ZN4YAML18TypedBadConversionISt6vectorIfSaIfEEED2Ev) #27
           to label %unreachable unwind label %lpad5
 
@@ -60078,7 +60078,7 @@ unreachable:                                      ; preds = %invoke.cont17
 define linkonce_odr hidden void @_ZN4YAML18TypedBadConversionISt6vectorIfSaIfEEEC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN4YAML13BadConversionC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorIfSaIfEEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionISt6vectorIfSaIfEEEE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -60693,7 +60693,7 @@ eh.resume:                                        ; preds = %lpad11, %lpad
 define linkonce_odr hidden void @_ZN4YAML18TypedBadConversionIfEC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN4YAML13BadConversionC2ERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML18TypedBadConversionIfEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML18TypedBadConversionIfEE, i64 16), ptr %this, align 8
   ret void
 }
 

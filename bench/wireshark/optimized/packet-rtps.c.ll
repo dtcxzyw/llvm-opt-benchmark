@@ -5624,24 +5624,24 @@ define hidden void @proto_register_rtps() local_unnamed_addr #0 {
   store ptr %34, ptr @discovered_participants_domain_ids, align 8
   %35 = load i32, ptr @proto_rtps, align 4
   %36 = tail call ptr @register_dissector(ptr noundef nonnull @.str.988, ptr noundef nonnull @dissect_simple_rtps, i32 noundef %35) #13
-  %37 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2108), ptr noundef nonnull @.str.1718, i64 noundef 256) #13
-  store i32 16, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2372), align 4
-  store i32 17, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2088), align 8
-  store i64 2, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2096), align 8
-  store i64 -7547922263798879763, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2080), align 8
-  store i32 16, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2368), align 8
+  %37 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2108), ptr noundef nonnull @.str.1718, i64 noundef 256) #13
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2372), align 4
+  store i32 17, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2088), align 8
+  store i64 2, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2096), align 8
+  store i64 -7547922263798879763, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2080), align 8
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2368), align 8
   %38 = tail call ptr @wmem_epan_scope() #13
   %39 = tail call noalias ptr @wmem_alloc(ptr noundef %38, i64 noundef 272) #13
-  store ptr %39, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2376), align 8
+  store ptr %39, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2376), align 8
   %40 = load ptr, ptr @builtin_dissection_infos, align 8
-  %41 = tail call ptr @wmem_map_insert(ptr noundef %40, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2080), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2080)) #13
-  %42 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 1804), ptr noundef nonnull @.str.1719, i64 noundef 256) #13
-  store i32 1, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2068), align 4
-  store i32 22, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 1784), align 8
-  store i64 3952261362536702103, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 1776), align 8
+  %41 = tail call ptr @wmem_map_insert(ptr noundef %40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2080), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2080)) #13
+  %42 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 1804), ptr noundef nonnull @.str.1719, i64 noundef 256) #13
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2068), align 4
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 1784), align 8
+  store i64 3952261362536702103, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 1776), align 8
   %43 = tail call ptr @wmem_epan_scope() #13
   %44 = tail call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef 272) #13
-  store ptr %44, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2072), align 8
+  store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2072), align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i16 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 12
@@ -5650,35 +5650,35 @@ define hidden void @proto_register_rtps() local_unnamed_addr #0 {
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %48 = tail call i64 @g_strlcpy(ptr noundef nonnull %47, ptr noundef nonnull @.str.1718, i64 noundef 256) #13
   %49 = load ptr, ptr @builtin_dissection_infos, align 8
-  %50 = tail call ptr @wmem_map_insert(ptr noundef %49, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 1776), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 1776)) #13
-  %51 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4236), ptr noundef nonnull @.str.1720, i64 noundef 256) #13
-  store i32 18, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4216), align 8
-  store i64 2, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4224), align 8
-  store i64 940914279012746155, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4208), align 8
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4496), align 8
+  %50 = tail call ptr @wmem_map_insert(ptr noundef %49, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 1776), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 1776)) #13
+  %51 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4236), ptr noundef nonnull @.str.1720, i64 noundef 256) #13
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4216), align 8
+  store i64 2, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4224), align 8
+  store i64 940914279012746155, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4208), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4496), align 8
   %52 = tail call ptr @wmem_epan_scope() #13
   %53 = tail call noalias ptr @wmem_alloc(ptr noundef %52, i64 noundef 272) #13
-  store ptr %53, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4504), align 8
+  store ptr %53, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4504), align 8
   %54 = load ptr, ptr @builtin_dissection_infos, align 8
-  %55 = tail call ptr @wmem_map_insert(ptr noundef %54, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4208), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4208)) #13
-  %56 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2716), ptr noundef nonnull @.str.1721, i64 noundef 256) #13
-  store i32 16, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2980), align 4
-  store i32 17, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2696), align 8
-  store i64 2, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2704), align 8
-  store i64 5220339609064640749, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2688), align 8
-  store i32 16, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2976), align 8
+  %55 = tail call ptr @wmem_map_insert(ptr noundef %54, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4208), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4208)) #13
+  %56 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2716), ptr noundef nonnull @.str.1721, i64 noundef 256) #13
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2980), align 4
+  store i32 17, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2696), align 8
+  store i64 2, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2704), align 8
+  store i64 5220339609064640749, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2688), align 8
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2976), align 8
   %57 = tail call ptr @wmem_epan_scope() #13
   %58 = tail call noalias ptr @wmem_alloc(ptr noundef %57, i64 noundef 272) #13
-  store ptr %58, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2984), align 8
+  store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2984), align 8
   %59 = load ptr, ptr @builtin_dissection_infos, align 8
-  %60 = tail call ptr @wmem_map_insert(ptr noundef %59, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2688), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2688)) #13
-  %61 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3932), ptr noundef nonnull @.str.1722, i64 noundef 256) #13
-  store i32 1, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4196), align 4
-  store i32 22, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3912), align 8
-  store i64 4600280303078768213, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3904), align 8
+  %60 = tail call ptr @wmem_map_insert(ptr noundef %59, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2688), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2688)) #13
+  %61 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3932), ptr noundef nonnull @.str.1722, i64 noundef 256) #13
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4196), align 4
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3912), align 8
+  store i64 4600280303078768213, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3904), align 8
   %62 = tail call ptr @wmem_epan_scope() #13
   %63 = tail call noalias ptr @wmem_alloc(ptr noundef %62, i64 noundef 272) #13
-  store ptr %63, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 4200), align 8
+  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 4200), align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i16 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -5687,14 +5687,14 @@ define hidden void @proto_register_rtps() local_unnamed_addr #0 {
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %67 = tail call i64 @g_strlcpy(ptr noundef nonnull %66, ptr noundef nonnull @.str.1720, i64 noundef 256) #13
   %68 = load ptr, ptr @builtin_dissection_infos, align 8
-  %69 = tail call ptr @wmem_map_insert(ptr noundef %68, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3904), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3904)) #13
-  %70 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3324), ptr noundef nonnull @.str.1723, i64 noundef 256) #13
-  store i32 2, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3588), align 4
-  store i32 22, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3304), align 8
-  store i64 -8922658151449875892, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3296), align 8
+  %69 = tail call ptr @wmem_map_insert(ptr noundef %68, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3904), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3904)) #13
+  %70 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3324), ptr noundef nonnull @.str.1723, i64 noundef 256) #13
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3588), align 4
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3304), align 8
+  store i64 -8922658151449875892, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3296), align 8
   %71 = tail call ptr @wmem_epan_scope() #13
   %72 = tail call noalias ptr @wmem_alloc(ptr noundef %71, i64 noundef 544) #13
-  store ptr %72, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
+  store ptr %72, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i16 0, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 12
@@ -5702,27 +5702,27 @@ define hidden void @proto_register_rtps() local_unnamed_addr #0 {
   store i64 5, ptr %72, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = tail call i64 @g_strlcpy(ptr noundef nonnull %75, ptr noundef nonnull @.str.1724, i64 noundef 256) #13
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
   %78 = getelementptr i8, ptr %77, i64 280
   store i16 0, ptr %78, align 8
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
   %80 = getelementptr i8, ptr %79, i64 284
   store i32 1, ptr %80, align 4
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
   %82 = getelementptr i8, ptr %81, i64 272
   store i64 5, ptr %82, align 8
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3592), align 8
   %84 = getelementptr i8, ptr %83, i64 288
   %85 = tail call i64 @g_strlcpy(ptr noundef %84, ptr noundef nonnull @.str.1725, i64 noundef 256) #13
   %86 = load ptr, ptr @builtin_dissection_infos, align 8
-  %87 = tail call ptr @wmem_map_insert(ptr noundef %86, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3296), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3296)) #13
-  %88 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3628), ptr noundef nonnull @.str.1726, i64 noundef 256) #13
-  store i32 2, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3892), align 4
-  store i32 22, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3608), align 8
-  store i64 -5101470194417187525, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3600), align 8
+  %87 = tail call ptr @wmem_map_insert(ptr noundef %86, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3296), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3296)) #13
+  %88 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3628), ptr noundef nonnull @.str.1726, i64 noundef 256) #13
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3892), align 4
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3608), align 8
+  store i64 -5101470194417187525, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3600), align 8
   %89 = tail call ptr @wmem_epan_scope() #13
   %90 = tail call noalias ptr @wmem_alloc(ptr noundef %89, i64 noundef 544) #13
-  store ptr %90, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
+  store ptr %90, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i16 0, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 12
@@ -5730,30 +5730,30 @@ define hidden void @proto_register_rtps() local_unnamed_addr #0 {
   store i64 5, ptr %90, align 8
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %94 = tail call i64 @g_strlcpy(ptr noundef nonnull %93, ptr noundef nonnull @.str.1727, i64 noundef 256) #13
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
   %96 = getelementptr i8, ptr %95, i64 280
   store i16 0, ptr %96, align 8
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
   %98 = getelementptr i8, ptr %97, i64 284
   store i32 1, ptr %98, align 4
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
   %100 = getelementptr i8, ptr %99, i64 272
   store i64 6, ptr %100, align 8
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3896), align 8
   %102 = getelementptr i8, ptr %101, i64 288
   %103 = tail call i64 @g_strlcpy(ptr noundef %102, ptr noundef nonnull @.str.1728, i64 noundef 256) #13
   %104 = load ptr, ptr @builtin_dissection_infos, align 8
-  %105 = tail call ptr @wmem_map_insert(ptr noundef %104, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3600), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 3600)) #13
-  %106 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2412), ptr noundef nonnull @.str.1729, i64 noundef 256) #13
-  store i32 4, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2676), align 4
-  store i32 22, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2392), align 8
-  store i64 -3551380896433783321, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2384), align 8
+  %105 = tail call ptr @wmem_map_insert(ptr noundef %104, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3600), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 3600)) #13
+  %106 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2412), ptr noundef nonnull @.str.1729, i64 noundef 256) #13
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2676), align 4
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2392), align 8
+  store i64 -3551380896433783321, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2384), align 8
   %107 = tail call ptr @wmem_epan_scope() #13
   %108 = tail call noalias ptr @wmem_alloc(ptr noundef %107, i64 noundef 1088) #13
-  store ptr %108, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
+  store ptr %108, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
   %109 = load ptr, ptr @builtin_dissection_infos, align 8
-  %110 = tail call ptr @wmem_map_insert(ptr noundef %109, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2384), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2384)) #13
-  %111 = load i32, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2676), align 4
+  %110 = tail call ptr @wmem_map_insert(ptr noundef %109, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2384), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2384)) #13
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2676), align 4
   %.not.i = icmp eq i32 %111, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -5772,19 +5772,19 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %switch.load = load i64, ptr %switch.gep, align 8
   %switch.gep11 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.proto_register_rtps.17, i64 0, i64 %indvars.iv.i
   %switch.load12 = load ptr, ptr %switch.gep11, align 8
-  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
   %116 = getelementptr %struct._dissection_element, ptr %115, i64 %indvars.iv.i, i32 1
   store i16 %switch.masked, ptr %116, align 8
-  %117 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
   %118 = getelementptr %struct._dissection_element, ptr %117, i64 %indvars.iv.i, i32 2
   store i32 %114, ptr %118, align 4
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
   %120 = getelementptr %struct._dissection_element, ptr %119, i64 %indvars.iv.i
   store i64 %switch.load, ptr %120, align 8
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
   %122 = getelementptr %struct._dissection_element, ptr %121, i64 %indvars.iv.i, i32 3
   %123 = tail call i64 @g_strlcpy(ptr noundef %122, ptr noundef nonnull %switch.load12, i64 noundef 256) #13
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 2676), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2676), align 4
   br label %124
 
 124:                                              ; preds = %.lr.ph.i, %switch.lookup
@@ -5795,32 +5795,32 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   br i1 %127, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %124, %0
-  store i64 -7102936891987694935, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 552), align 8
-  store i32 141, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 16), align 8
+  store i64 -7102936891987694935, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 552), align 8
+  store i32 141, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 16), align 8
   store i32 15, ptr @builtin_types_dissection_data, align 8
-  store i32 7, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 532), align 4
-  %128 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 276), ptr noundef nonnull @.str.1734, i64 noundef 256) #13
-  %129 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 20), ptr noundef nonnull @.str.1734, i64 noundef 256) #13
-  %130 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 588), ptr noundef nonnull @.str.1734, i64 noundef 256) #13
-  store i32 7, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 852), align 4
-  store i32 7, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 848), align 8
-  store i32 22, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 568), align 8
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 532), align 4
+  %128 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 276), ptr noundef nonnull @.str.1734, i64 noundef 256) #13
+  %129 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 20), ptr noundef nonnull @.str.1734, i64 noundef 256) #13
+  %130 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 588), ptr noundef nonnull @.str.1734, i64 noundef 256) #13
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 852), align 4
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 848), align 8
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 568), align 8
   %131 = tail call ptr @wmem_epan_scope() #13
   %132 = tail call noalias ptr @wmem_alloc(ptr noundef %131, i64 noundef 1904) #13
-  store ptr %132, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 856), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 576), align 8
-  store i64 -7102936891987694935, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 560), align 8
+  store ptr %132, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 576), align 8
+  store i64 -7102936891987694935, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 560), align 8
   %133 = load ptr, ptr @builtin_dissection_infos, align 8
-  %134 = tail call ptr @wmem_map_insert(ptr noundef %133, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 560), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 560)) #13
-  %135 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 892), ptr noundef nonnull @.str.1735, i64 noundef 256) #13
-  store i32 7, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 1156), align 4
-  store i32 100, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 1152), align 8
-  store i32 18, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 872), align 8
-  store i64 -3551380896433783321, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 880), align 8
-  store i64 3291014040578206454, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 864), align 8
+  %134 = tail call ptr @wmem_map_insert(ptr noundef %133, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 560), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 560)) #13
+  %135 = tail call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 892), ptr noundef nonnull @.str.1735, i64 noundef 256) #13
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 1156), align 4
+  store i32 100, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 1152), align 8
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 872), align 8
+  store i64 -3551380896433783321, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 880), align 8
+  store i64 3291014040578206454, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 864), align 8
   %136 = load ptr, ptr @builtin_dissection_infos, align 8
-  %137 = tail call ptr @wmem_map_insert(ptr noundef %136, ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 864), ptr noundef nonnull getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 864)) #13
-  %138 = load i32, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 852), align 4
+  %137 = tail call ptr @wmem_map_insert(ptr noundef %136, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 864), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 864)) #13
+  %138 = load i32, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 852), align 4
   %.not6.i = icmp eq i32 %138, 0
   br i1 %.not6.i, label %initialize_instance_state_data_response_dissection_info.exit, label %.lr.ph4.i
 
@@ -5838,19 +5838,19 @@ switch.lookup13:                                  ; preds = %.lr.ph4.i
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %switch.gep18 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.proto_register_rtps.20, i64 0, i64 %indvars.iv8.i
   %switch.load19 = load i64, ptr %switch.gep18, align 8
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 856), align 8
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
   %143 = getelementptr %struct._dissection_element, ptr %142, i64 %indvars.iv8.i, i32 1
   store i16 %switch.load15, ptr %143, align 8
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 856), align 8
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
   %145 = getelementptr %struct._dissection_element, ptr %144, i64 %indvars.iv8.i, i32 3
   %146 = tail call i64 @g_strlcpy(ptr noundef %145, ptr noundef nonnull %switch.load17, i64 noundef 256) #13
-  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 856), align 8
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
   %148 = getelementptr %struct._dissection_element, ptr %147, i64 %indvars.iv8.i
   store i64 %switch.load19, ptr %148, align 8
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 856), align 8
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
   %150 = getelementptr %struct._dissection_element, ptr %149, i64 %indvars.iv8.i, i32 2
   store i32 %141, ptr %150, align 4
-  %.pre10 = load i32, ptr getelementptr inbounds (i8, ptr @builtin_types_dissection_data, i64 852), align 4
+  %.pre10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 852), align 4
   br label %151
 
 151:                                              ; preds = %.lr.ph4.i, %switch.lookup13

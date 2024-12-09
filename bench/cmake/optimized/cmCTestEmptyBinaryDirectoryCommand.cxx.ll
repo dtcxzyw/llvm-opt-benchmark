@@ -88,7 +88,7 @@ define dso_local noundef zeroext i1 @_ZN34cmCTestEmptyBinaryDirectoryCommand11In
           to label %.noexc16 unwind label %20
 
 .noexc16:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 41))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 41))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %17
 
 17:                                               ; preds = %.noexc16
@@ -241,7 +241,7 @@ _ZNSt10unique_ptrI34cmCTestEmptyBinaryDirectoryCommandSt14default_deleteIS0_EED2
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14, !noalias !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false), !noalias !20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34cmCTestEmptyBinaryDirectoryCommand, i64 16), ptr %2, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34cmCTestEmptyBinaryDirectoryCommand, i64 16), ptr %2, align 8, !noalias !20
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24

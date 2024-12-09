@@ -15959,7 +15959,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 1, ptr %47, align 4, !noalias !61
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %46, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %46, align 8, !noalias !61
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i8 0, ptr %48, align 4, !noalias !61
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 13
@@ -17026,7 +17026,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i146:                                      ; preds = %474
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
   store i32 1, ptr %476, align 4, !noalias !74
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %475, align 8, !noalias !74
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %475, align 8, !noalias !74
   %477 = getelementptr inbounds nuw i8, ptr %475, i64 12
   store i8 0, ptr %477, align 4, !noalias !74
   %478 = getelementptr inbounds nuw i8, ptr %475, i64 13
@@ -17496,7 +17496,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdfChildrenKeys_Static
   store i8 0, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 0, ptr %76, align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueISt6vectorINS_7TfTokenESaIS2_EEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueISt6vectorINS_7TfTokenESaIS2_EEEE, i64 16), ptr %5, align 8
   %77 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueE(ptr noundef nonnull align 8 dereferenceable(557) %53, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %5)
           to label %78 unwind label %.loopexit.split-lp
 
@@ -21448,7 +21448,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 1, ptr %24, align 4, !noalias !122
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %23, align 8, !noalias !122
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %23, align 8, !noalias !122
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i8 0, ptr %25, align 4, !noalias !122
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 13
@@ -21617,7 +21617,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i35:                                       ; preds = %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 1, ptr %102, align 4, !noalias !132
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %101, align 8, !noalias !132
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %101, align 8, !noalias !132
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store i8 0, ptr %103, align 4, !noalias !132
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 13
@@ -22228,7 +22228,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 1, ptr %51, align 4, !noalias !142
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %50, align 8, !noalias !142
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %50, align 8, !noalias !142
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i8 0, ptr %52, align 4, !noalias !142
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 13
@@ -22574,7 +22574,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 1, ptr %49, align 4, !noalias !152
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %48, align 8, !noalias !152
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %48, align 8, !noalias !152
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i8 0, ptr %50, align 4, !noalias !152
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 13

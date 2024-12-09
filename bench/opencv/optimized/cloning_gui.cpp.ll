@@ -531,7 +531,7 @@ define hidden void @_Z6sourceiiiiPv(i32 noundef %0, i32 noundef %1, i32 noundef 
 182:                                              ; preds = %118
   %183 = load i32, ptr @var, align 4
   store i32 %183, ptr @flag, align 4
-  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   %186 = load i32, ptr %185, align 4
   %187 = load i32, ptr %184, align 4
@@ -554,7 +554,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %182
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %193) #12
   %194 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %194) #12
-  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load i32, ptr %196, align 4
   %198 = load i32, ptr %195, align 4
@@ -1097,7 +1097,7 @@ define hidden void @_Z11destinationiiiiPv(i32 noundef %0, i32 noundef %1, i32 no
   %47 = load ptr, ptr @pts2, align 8
   %48 = getelementptr inbounds nuw %"class.cv::Point_", ptr %47, i64 %indvars.iv142
   store i32 %46, ptr %48, align 4
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @point, i64 4), align 4
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @point, i64 4), align 4
   %50 = load ptr, ptr @pts_diff, align 8
   %51 = getelementptr inbounds nuw %"class.cv::Point_", ptr %50, i64 %indvars.iv142, i32 1
   %52 = load i32, ptr %51, align 4
@@ -1131,7 +1131,7 @@ define hidden void @_Z11destinationiiiiPv(i32 noundef %0, i32 noundef %1, i32 no
   %67 = load ptr, ptr @pts2, align 8
   %68 = getelementptr inbounds %"class.cv::Point_", ptr %67, i64 %indvars.iv145
   store i32 %66, ptr %68, align 4
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @point, i64 4), align 4
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @point, i64 4), align 4
   %70 = load ptr, ptr @pts_diff, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
@@ -1281,7 +1281,7 @@ define hidden void @_Z11destinationiiiiPv(i32 noundef %0, i32 noundef %1, i32 no
   unreachable
 
 134:                                              ; preds = %122
-  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @img2, i64 64), align 8
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img2, i64 64), align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %137 = load i32, ptr %136, align 4
   %138 = load i32, ptr %135, align 4
@@ -1307,7 +1307,7 @@ define hidden void @_Z11destinationiiiiPv(i32 noundef %0, i32 noundef %1, i32 no
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %146) #12
   %147 = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %147) #12
-  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @img2, i64 64), align 8
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img2, i64 64), align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load i32, ptr %149, align 4
   %151 = load i32, ptr %148, align 4
@@ -1970,7 +1970,7 @@ define hidden noundef i32 @main() local_unnamed_addr #8 personality ptr @__gxx_p
   %214 = and i32 %213, 511
   %215 = add nuw nsw i32 %214, 1
   store i32 %215, ptr @channel, align 4
-  %216 = load ptr, ptr getelementptr inbounds (i8, ptr @img2, i64 64), align 8
+  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img2, i64 64), align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   %218 = load i32, ptr %217, align 4
   %219 = load i32, ptr %216, align 4
@@ -1996,7 +1996,7 @@ define hidden noundef i32 @main() local_unnamed_addr #8 personality ptr @__gxx_p
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %227) #12
   %228 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %228) #12
-  %229 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 4
   %231 = load i32, ptr %230, align 4
   %232 = load i32, ptr %229, align 4
@@ -2022,7 +2022,7 @@ define hidden noundef i32 @main() local_unnamed_addr #8 personality ptr @__gxx_p
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %240) #12
   %241 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %241) #12
-  %242 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
   %244 = load i32, ptr %243, align 4
   %245 = load i32, ptr %242, align 4
@@ -2048,7 +2048,7 @@ define hidden noundef i32 @main() local_unnamed_addr #8 personality ptr @__gxx_p
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %253) #12
   %254 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %254) #12
-  %255 = load ptr, ptr getelementptr inbounds (i8, ptr @img2, i64 64), align 8
+  %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img2, i64 64), align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 4
   %257 = load i32, ptr %256, align 4
   %258 = load i32, ptr %255, align 4
@@ -2386,7 +2386,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit267:              ; preds = %259
   br label %418
 
 364:                                              ; preds = %351
-  %365 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %365 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 4
   %367 = load i32, ptr %366, align 4
   %368 = load i32, ptr %365, align 4
@@ -2412,7 +2412,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit267:              ; preds = %259
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %376) #12
   %377 = getelementptr inbounds nuw i8, ptr %28, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %377) #12
-  %378 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %378 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 4
   %380 = load i32, ptr %379, align 4
   %381 = load i32, ptr %378, align 4
@@ -2625,7 +2625,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit277:              ; preds = %382
   br label %504
 
 450:                                              ; preds = %437
-  %451 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %451 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 4
   %453 = load i32, ptr %452, align 4
   %454 = load i32, ptr %451, align 4
@@ -2651,7 +2651,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit277:              ; preds = %382
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %462) #12
   %463 = getelementptr inbounds nuw i8, ptr %40, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %463) #12
-  %464 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %464 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 4
   %466 = load i32, ptr %465, align 4
   %467 = load i32, ptr %464, align 4
@@ -2872,7 +2872,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit287:              ; preds = %468
   br label %594
 
 540:                                              ; preds = %527
-  %541 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %541 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 4
   %543 = load i32, ptr %542, align 4
   %544 = load i32, ptr %541, align 4
@@ -2898,7 +2898,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit287:              ; preds = %468
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %552) #12
   %553 = getelementptr inbounds nuw i8, ptr %52, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %553) #12
-  %554 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %554 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 4
   %556 = load i32, ptr %555, align 4
   %557 = load i32, ptr %554, align 4
@@ -3277,7 +3277,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit297:              ; preds = %558
 ._crit_edge342:                                   ; preds = %731, %._crit_edge338.thread
   %.lcssa = phi i32 [ %710, %._crit_edge338.thread ], [ %744, %731 ]
   store i32 %.lcssa, ptr @flag, align 4
-  %747 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %747 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 4
   %749 = load i32, ptr %748, align 4
   %750 = load i32, ptr %747, align 4
@@ -3297,7 +3297,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit305:              ; preds = %._crit_edge342
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %666) #12
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %667) #12
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %668) #12
-  %755 = load ptr, ptr getelementptr inbounds (i8, ptr @img0, i64 64), align 8
+  %755 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 4
   %757 = load i32, ptr %756, align 4
   %758 = load i32, ptr %755, align 4

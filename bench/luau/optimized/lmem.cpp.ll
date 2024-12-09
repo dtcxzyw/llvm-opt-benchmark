@@ -27,7 +27,7 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %1
+  %9 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %1
   %10 = load i8, ptr %9, align 1
   %11 = icmp sgt i8 %10, -1
   br i1 %11, label %12, label %.thread
@@ -194,7 +194,7 @@ define hidden noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 nou
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %1
+  %9 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %1
   %10 = load i8, ptr %9, align 1
   %11 = icmp sgt i8 %10, -1
   br i1 %11, label %12, label %.thread
@@ -389,7 +389,7 @@ define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr nocapture noundef readonly
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
+  %10 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i32
   %13 = icmp sgt i8 %11, -1
@@ -516,7 +516,7 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
+  %11 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
   %14 = icmp sgt i8 %12, -1
@@ -705,7 +705,7 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %3
+  %11 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %3
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
   br label %14
@@ -717,7 +717,7 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
+  %19 = getelementptr inbounds nuw [1025 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 0, i64 %2
   %20 = load i8, ptr %19, align 1
   %21 = sext i8 %20 to i32
   br label %22

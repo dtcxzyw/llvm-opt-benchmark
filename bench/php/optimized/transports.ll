@@ -119,7 +119,7 @@ define ptr @_php_stream_xport_create(ptr noundef %0, i64 noundef %1, i32 noundef
   store ptr null, ptr %13, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %17, align 8
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8
   store i64 %18, ptr %14, align 8
   %19 = icmp eq ptr %5, null
   %spec.store.select = select i1 %19, ptr %14, ptr %5
@@ -235,8 +235,8 @@ sub_1:                                            ; preds = %40
   br i1 %.not136, label %193, label %61
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %63 = call i32 @__sigsetjmp(ptr noundef nonnull %16, i32 noundef 0) #16
   %64 = icmp ne i32 %63, 0
   br i1 %64, label %.thread190, label %65
@@ -524,7 +524,7 @@ php_stream_xport_bind.exit:                       ; preds = %118
 
 .thread190:                                       ; preds = %61, %172, %187, %173, %130, %144, %131, %101, %115, %102, %php_stream_xport_connect.exit, %78, %188, %116
   %.2 = phi i1 [ false, %php_stream_xport_connect.exit ], [ false, %78 ], [ false, %188 ], [ false, %116 ], [ true, %102 ], [ true, %115 ], [ true, %101 ], [ true, %131 ], [ true, %144 ], [ true, %130 ], [ true, %173 ], [ true, %187 ], [ true, %172 ], [ false, %61 ]
-  store ptr %62, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   br label %193
 
 193:                                              ; preds = %.thread190, %58

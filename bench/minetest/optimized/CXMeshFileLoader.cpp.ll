@@ -326,8 +326,8 @@ entry:
   store ptr null, ptr %DebugName.i, align 8, !tbaa !26
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %this, align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %0, align 8, !tbaa !3
   %AnimatedMesh = getelementptr inbounds nuw i8, ptr %this, i64 8
   %FilePath = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -16069,9 +16069,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene16CXMeshFileLoaderD1Ev(ptr noundef nonnull align 8 dereferenceable(138) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %add.ptr.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %add.ptr.i, align 8, !tbaa !3
   %Meshes.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %Meshes.i, align 8, !tbaa !38
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -16106,9 +16106,9 @@ _ZN3irr5scene16CXMeshFileLoaderD2Ev.exit:         ; preds = %if.then.i.i.i.i, %_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene16CXMeshFileLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(138) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Meshes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !38
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -16148,9 +16148,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %add.ptr.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %add.ptr.i.i, align 8, !tbaa !3
   %Meshes.i.i = getelementptr inbounds nuw i8, ptr %3, i64 96
   %4 = load ptr, ptr %Meshes.i.i, align 8, !tbaa !38
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -16189,9 +16189,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 24), ptr %3, align 8, !tbaa !3
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 144
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %add.ptr.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5scene16CXMeshFileLoaderE, i64 80), ptr %add.ptr.i.i.i, align 8, !tbaa !3
   %Meshes.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 96
   %4 = load ptr, ptr %Meshes.i.i.i, align 8, !tbaa !38
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null

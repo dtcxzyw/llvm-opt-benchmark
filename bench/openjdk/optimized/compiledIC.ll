@@ -427,7 +427,7 @@ define hidden noundef ptr @_Z20data_from_reloc_iterP13RelocIterator(ptr noundef 
 6:                                                ; preds = %4
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !7
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !7
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !7
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !7
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator18virtual_call_relocEvE5proto) #14
   br label %_ZN13RelocIterator18virtual_call_relocEv.exit
 
@@ -469,7 +469,7 @@ define hidden void @_ZN10CompiledICC2EP13RelocIterator(ptr nocapture noundef non
 9:                                                ; preds = %7
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !10
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !10
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !10
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !10
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator18virtual_call_relocEvE5proto) #14
   br label %_Z20data_from_reloc_iterP13RelocIterator.exit
 
@@ -505,7 +505,7 @@ define hidden noundef ptr @_Z17CompiledIC_beforeP7nmethodPh(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
   %5 = getelementptr inbounds i8, ptr %1, i64 -4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -563,7 +563,7 @@ define hidden noundef ptr @_Z13CompiledIC_atP7nmethodPh(ptr noundef %0, ptr noun
   %3 = alloca %class.RelocIterator, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -633,7 +633,7 @@ define hidden noundef ptr @_Z13CompiledIC_atP13RelocIterator(ptr noundef %0) loc
 9:                                                ; preds = %7
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !13
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !13
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !13
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV23virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator18virtual_call_relocEvE5proto, align 8, !alias.scope !13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator18virtual_call_relocEvE5proto) #14
   br label %_ZN10CompiledICC2EP13RelocIterator.exit
 
@@ -673,7 +673,7 @@ define hidden noundef ptr @_Z13CompiledIC_atP10Relocation(ptr nocapture noundef 
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -1350,7 +1350,7 @@ define hidden void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr nocapture nounde
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -1622,7 +1622,7 @@ define hidden noundef zeroext i1 @_ZNK18CompiledDirectCall19is_call_to_compiledE
 define hidden noundef ptr @_ZN18CompiledDirectCall13find_stub_forEPh(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.RelocIterator, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -1695,7 +1695,7 @@ define hidden noundef ptr @_ZN18CompiledDirectCall13find_stub_forEPh(ptr noundef
 37:                                               ; preds = %35
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 8), align 8, !alias.scope !20
   store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, i64 16), align 8, !alias.scope !20
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, align 8, !alias.scope !20
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_call_Relocation, i64 16), ptr @_ZZN13RelocIterator17static_call_relocEvE5proto, align 8, !alias.scope !20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator17static_call_relocEvE5proto) #14
   br label %_ZN13RelocIterator17static_call_relocEv.exit
 
@@ -1722,7 +1722,7 @@ _ZN13RelocIterator17static_call_relocEv.exit:     ; preds = %32, %35, %37
 47:                                               ; preds = %45
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 8), align 8, !alias.scope !23
   store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, i64 16), align 8, !alias.scope !23
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, align 8, !alias.scope !23
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 16), ptr @_ZZN13RelocIterator22opt_virtual_call_relocEvE5proto, align 8, !alias.scope !23
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator22opt_virtual_call_relocEvE5proto) #14
   br label %_ZN13RelocIterator22opt_virtual_call_relocEv.exit
 

@@ -141,7 +141,7 @@ ompi_mpi_errnum_is_class.exit:                    ; preds = %42, %opal_pointer_a
 
 56:                                               ; preds = %51
   %57 = load i32, ptr @ompi_mpi_errcode_lastused, align 4
-  %58 = tail call i32 @ompi_attr_set_fint(i32 noundef 1, ptr noundef nonnull @ompi_mpi_comm_world, ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 272), i32 noundef 5, i32 noundef %57, i1 noundef zeroext true) #4
+  %58 = tail call i32 @ompi_attr_set_fint(i32 noundef 1, ptr noundef nonnull @ompi_mpi_comm_world, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 272), i32 noundef 5, i32 noundef %57, i1 noundef zeroext true) #4
   %.not11 = icmp eq i32 %58, 0
   br i1 %.not11, label %89, label %59
 

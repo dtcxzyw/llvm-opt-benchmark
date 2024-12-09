@@ -765,7 +765,7 @@ _ZN17pyo3_build_config5impl_20PythonImplementation10from_soabi17h30a7db2481523c0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.97, ptr %4, align 8, !noalias !3
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.97, i64 96), ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.97, i64 96), ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !3
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !3
   invoke void @"_ZN120_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h55ba70232cfe6e09E"(ptr nonnull sret([48 x i8]) align 8 %5, ptr nonnull align 8 %4)
@@ -3920,7 +3920,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
 159:                                              ; preds = %150
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.151, ptr %28, align 8
   %160 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.151, i64 32), ptr %160, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.151, i64 32), ptr %160, align 8
   %161 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h450b73a8287e865fE"(ptr nonnull align 8 %28)
           to label %162 unwind label %157
 

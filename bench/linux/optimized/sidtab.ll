@@ -848,7 +848,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr nocapture noundef %0, i32 nound
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %.loopexit7
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 2336, i64 noundef 4096) #15
   store ptr %18, ptr %0, align 8
   %19 = icmp eq ptr %18, null
@@ -868,7 +868,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr nocapture noundef %0, i32 nound
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %.preheader
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %30 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %29, i32 noundef 2336, i64 noundef 4096) #15
   store ptr %30, ptr %25, align 8
   %31 = icmp eq ptr %30, null
@@ -911,7 +911,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr nocapture noundef %0, i32 nound
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %43
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %60 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %59, i32 noundef 2336, i64 noundef 4096) #15
   store ptr %60, ptr %52, align 8
   %61 = icmp eq ptr %60, null
@@ -1040,7 +1040,7 @@ define internal fastcc i32 @sidtab_convert_tree(ptr nocapture noundef %0, ptr no
   br i1 %9, label %11, label %15
 
 11:                                               ; preds = %10
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 4096) #15
   store ptr %13, ptr %0, align 8
   %14 = icmp eq ptr %13, null
@@ -1074,7 +1074,7 @@ define internal fastcc i32 @sidtab_convert_tree(ptr nocapture noundef %0, ptr no
   br i1 %9, label %32, label %36
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %34 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3520, i64 noundef 4096) #15
   store ptr %34, ptr %0, align 8
   %35 = icmp eq ptr %34, null

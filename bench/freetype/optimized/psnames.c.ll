@@ -160,7 +160,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %54 = add nsw i32 %.05371.i, %.05172.i
   %55 = and i32 %54, -2
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @ft_adobe_glyph_list, i64 2), i64 %56
+  %57 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ft_adobe_glyph_list, i64 2), i64 %56
   %58 = load i8, ptr %57, align 2
   %59 = zext i8 %58 to i64
   %60 = shl nuw nsw i64 %59, 8

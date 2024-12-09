@@ -1278,7 +1278,7 @@ if.end:                                           ; preds = %invoke.cont
   %d_rowIndex2basic = getelementptr inbounds nuw i8, ptr %this, i64 424
   %10 = load i32, ptr %newRow, align 4
   call void @_ZN4cvc58internal8DenseMapIjE3setEjRKj(ptr noundef nonnull align 8 dereferenceable(72) %d_rowIndex2basic, i32 noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %basic.addr)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear12NoEffectCCCBE, i64 16), ptr %noeffect, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear12NoEffectCCCBE, i64 16), ptr %noeffect, align 8
   %11 = load ptr, ptr %variables, align 8
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not139 = icmp eq ptr %11, %12

@@ -216,7 +216,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_amoand_bP1
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -424,7 +424,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %117, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store i64 %122, ptr %129, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %104, align 8
   invoke void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %242 unwind label %235
 
@@ -474,7 +474,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %148, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %135, i64 40
   store i64 %153, ptr %160, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %135, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %135, align 8
   invoke void @__cxa_throw(ptr nonnull %135, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %242 unwind label %230
 
@@ -524,7 +524,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %179, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %166, i64 40
   store i64 %184, ptr %191, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %166, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %166, align 8
   invoke void @__cxa_throw(ptr nonnull %166, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %242 unwind label %225
 
@@ -567,7 +567,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %206, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %197, i64 40
   store i64 %211, ptr %217, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %197, align 8
   invoke void @__cxa_throw(ptr nonnull %197, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %242 unwind label %220
 
@@ -709,7 +709,7 @@ define noundef i64 @_Z19fast_rv64i_amoand_bP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -917,7 +917,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %117, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store i64 %122, ptr %129, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %104, align 8
   invoke void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %242 unwind label %235
 
@@ -967,7 +967,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %148, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %135, i64 40
   store i64 %153, ptr %160, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %135, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %135, align 8
   invoke void @__cxa_throw(ptr nonnull %135, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %242 unwind label %230
 
@@ -1017,7 +1017,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %179, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %166, i64 40
   store i64 %184, ptr %191, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %166, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %166, align 8
   invoke void @__cxa_throw(ptr nonnull %166, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %242 unwind label %225
 
@@ -1060,7 +1060,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %206, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %197, i64 40
   store i64 %211, ptr %217, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %197, align 8
   invoke void @__cxa_throw(ptr nonnull %197, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %242 unwind label %220
 
@@ -1183,7 +1183,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_amoand_b
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -1391,7 +1391,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %117, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store i64 %122, ptr %129, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %104, align 8
   invoke void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %241 unwind label %235
 
@@ -1441,7 +1441,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %148, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %135, i64 40
   store i64 %153, ptr %160, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %135, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %135, align 8
   invoke void @__cxa_throw(ptr nonnull %135, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %241 unwind label %230
 
@@ -1491,7 +1491,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %179, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %166, i64 40
   store i64 %184, ptr %191, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %166, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %166, align 8
   invoke void @__cxa_throw(ptr nonnull %166, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %241 unwind label %225
 
@@ -1534,7 +1534,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %206, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %197, i64 40
   store i64 %211, ptr %217, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %197, align 8
   invoke void @__cxa_throw(ptr nonnull %197, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %241 unwind label %220
 
@@ -1716,7 +1716,7 @@ define noundef i64 @_Z21logged_rv64i_amoand_bP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -1924,7 +1924,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %117, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store i64 %122, ptr %129, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %104, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %104, align 8
   invoke void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %241 unwind label %235
 
@@ -1974,7 +1974,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %148, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %135, i64 40
   store i64 %153, ptr %160, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %135, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %135, align 8
   invoke void @__cxa_throw(ptr nonnull %135, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %241 unwind label %230
 
@@ -2024,7 +2024,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %179, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %166, i64 40
   store i64 %184, ptr %191, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %166, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %166, align 8
   invoke void @__cxa_throw(ptr nonnull %166, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %241 unwind label %225
 
@@ -2067,7 +2067,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit79.i: ; preds = %55, %48, %37, %34
   store i64 %206, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %197, i64 40
   store i64 %211, ptr %217, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %197, align 8
   invoke void @__cxa_throw(ptr nonnull %197, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %241 unwind label %220
 
@@ -2247,7 +2247,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amoand_bP1
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -2267,7 +2267,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amoand_bP1
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %1, ptr %25, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -2363,7 +2363,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i8 0, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i64 %1, ptr %72, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
   invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
           to label %.noexc77.i unwind label %110
 
@@ -2490,7 +2490,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %131, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %118, i64 40
   store i64 %136, ptr %143, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %118, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %118, align 8
   invoke void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %256 unwind label %249
 
@@ -2540,7 +2540,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %162, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %149, i64 40
   store i64 %167, ptr %174, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %149, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %149, align 8
   invoke void @__cxa_throw(ptr nonnull %149, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %256 unwind label %244
 
@@ -2590,7 +2590,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %193, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %180, i64 40
   store i64 %198, ptr %205, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %180, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %180, align 8
   invoke void @__cxa_throw(ptr nonnull %180, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %256 unwind label %239
 
@@ -2633,7 +2633,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %220, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %211, i64 40
   store i64 %225, ptr %231, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %211, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %211, align 8
   invoke void @__cxa_throw(ptr nonnull %211, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %256 unwind label %234
 
@@ -2733,7 +2733,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i8 0, ptr %263, align 8
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 24
   store i64 %1, ptr %264, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %261, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %261, align 8
   call void @__cxa_throw(ptr nonnull %261, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -2774,7 +2774,7 @@ define noundef i64 @_Z19fast_rv64e_amoand_bP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -2794,7 +2794,7 @@ define noundef i64 @_Z19fast_rv64e_amoand_bP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %1, ptr %25, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -2890,7 +2890,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i8 0, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i64 %1, ptr %72, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
   invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
           to label %.noexc77.i unwind label %110
 
@@ -3017,7 +3017,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %131, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %118, i64 40
   store i64 %136, ptr %143, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %118, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %118, align 8
   invoke void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %256 unwind label %249
 
@@ -3067,7 +3067,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %162, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %149, i64 40
   store i64 %167, ptr %174, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %149, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %149, align 8
   invoke void @__cxa_throw(ptr nonnull %149, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %256 unwind label %244
 
@@ -3117,7 +3117,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %193, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %180, i64 40
   store i64 %198, ptr %205, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %180, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %180, align 8
   invoke void @__cxa_throw(ptr nonnull %180, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %256 unwind label %239
 
@@ -3160,7 +3160,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %220, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %211, i64 40
   store i64 %225, ptr %231, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %211, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %211, align 8
   invoke void @__cxa_throw(ptr nonnull %211, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %256 unwind label %234
 
@@ -3260,7 +3260,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i8 0, ptr %263, align 8
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 24
   store i64 %1, ptr %264, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %261, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %261, align 8
   call void @__cxa_throw(ptr nonnull %261, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -3299,7 +3299,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_amoand_b
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -3319,7 +3319,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_amoand_b
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %1, ptr %25, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -3415,7 +3415,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i8 0, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i64 %1, ptr %72, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
   invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
           to label %.noexc77.i unwind label %110
 
@@ -3542,7 +3542,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %131, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %118, i64 40
   store i64 %136, ptr %143, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %118, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %118, align 8
   invoke void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %255 unwind label %249
 
@@ -3592,7 +3592,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %162, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %149, i64 40
   store i64 %167, ptr %174, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %149, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %149, align 8
   invoke void @__cxa_throw(ptr nonnull %149, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %255 unwind label %244
 
@@ -3642,7 +3642,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %193, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %180, i64 40
   store i64 %198, ptr %205, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %180, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %180, align 8
   invoke void @__cxa_throw(ptr nonnull %180, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %255 unwind label %239
 
@@ -3685,7 +3685,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %220, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %211, i64 40
   store i64 %225, ptr %231, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %211, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %211, align 8
   invoke void @__cxa_throw(ptr nonnull %211, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %255 unwind label %234
 
@@ -3843,7 +3843,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i8 0, ptr %288, align 8
   %289 = getelementptr inbounds nuw i8, ptr %286, i64 24
   store i64 %1, ptr %289, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %286, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %286, align 8
   call void @__cxa_throw(ptr nonnull %286, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -3883,7 +3883,7 @@ define noundef i64 @_Z21logged_rv64e_amoand_bP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -3903,7 +3903,7 @@ define noundef i64 @_Z21logged_rv64e_amoand_bP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %1, ptr %25, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 
@@ -3999,7 +3999,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %26
   store i8 0, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i64 %1, ptr %72, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %69, align 8
   invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
           to label %.noexc77.i unwind label %110
 
@@ -4126,7 +4126,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %131, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %118, i64 40
   store i64 %136, ptr %143, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %118, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %118, align 8
   invoke void @__cxa_throw(ptr nonnull %118, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #21
           to label %255 unwind label %249
 
@@ -4176,7 +4176,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %162, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %149, i64 40
   store i64 %167, ptr %174, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %149, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %149, align 8
   invoke void @__cxa_throw(ptr nonnull %149, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #21
           to label %255 unwind label %244
 
@@ -4226,7 +4226,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %193, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %180, i64 40
   store i64 %198, ptr %205, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %180, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %180, align 8
   invoke void @__cxa_throw(ptr nonnull %180, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #21
           to label %255 unwind label %239
 
@@ -4269,7 +4269,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit80.i: ; preds = %64
   store i64 %220, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %211, i64 40
   store i64 %225, ptr %231, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %211, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %211, align 8
   invoke void @__cxa_throw(ptr nonnull %211, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #21
           to label %255 unwind label %234
 
@@ -4427,7 +4427,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i8 0, ptr %288, align 8
   %289 = getelementptr inbounds nuw i8, ptr %286, i64 24
   store i64 %1, ptr %289, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %286, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %286, align 8
   call void @__cxa_throw(ptr nonnull %286, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 

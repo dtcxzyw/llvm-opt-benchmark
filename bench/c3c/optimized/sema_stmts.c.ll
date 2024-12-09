@@ -6591,7 +6591,7 @@ extend_span_with_token.exit76.i:                  ; preds = %229, %228
   call void @int_sub(ptr dead_on_unwind nonnull writable sret(%struct.Int) align 8 %3, ptr noundef nonnull byval(%struct.Int) align 8 %221, ptr noundef nonnull byval(%struct.Int) align 8 %220) #9
   %.sroa.012.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.213.0.copyload.i = load i64, ptr %.sroa.213.0..sroa_idx.i, align 8
-  %241 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 240), align 8
+  %241 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 240), align 8
   %242 = zext i32 %241 to i64
   %243 = load ptr, ptr @type_i128, align 8
   %244 = call i32 @i128_comp(i64 %.sroa.012.0.copyload.i, i64 %.sroa.213.0.copyload.i, i64 0, i64 %242, ptr noundef %243) #9

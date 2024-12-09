@@ -1800,7 +1800,7 @@ _ZNK4llvm7memprof5FrameneERKS1_.exit.thread:      ; preds = %30, %35, %40, %_ZNK
   store ptr @.str, ptr %7, align 8, !noalias !29
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %52, align 8, !noalias !29
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %50, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %50, align 8, !noalias !29
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 9, ptr %53, align 8, !noalias !29
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -1891,7 +1891,7 @@ _ZNK4llvm15SmallVectorImplImEneERKS1_.exit.thread: ; preds = %21, %_ZNK4llvm15Sm
   store ptr @.str.1, ptr %7, align 8, !noalias !35
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %31, align 8, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %29, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %29, align 8, !noalias !35
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 9, ptr %32, align 8, !noalias !35
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -6658,15 +6658,15 @@ _ZL12writeMemProfRN4llvm11ProfOStreamERNS_7memprof18IndexedMemProfDataENS2_14Ind
   %1212 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i8 1, ptr %1212, align 8, !alias.scope !136, !noalias !89
   %1213 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %1213, align 8, !alias.scope !136, !noalias !89
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %1213, align 8, !alias.scope !136, !noalias !89
   %1214 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr @_ZN4llvm7memprofL23MaximumSupportedVersionE, ptr %1214, align 8, !alias.scope !136, !noalias !89
   %1215 = getelementptr inbounds nuw i8, ptr %69, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %1215, align 8, !alias.scope !136, !noalias !89
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %1215, align 8, !alias.scope !136, !noalias !89
   %1216 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr @_ZN4llvm7memprofL23MinimumSupportedVersionE, ptr %1216, align 8, !alias.scope !136, !noalias !89
   %1217 = getelementptr inbounds nuw i8, ptr %69, i64 72
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRNS_7memprof14IndexedVersionEEE, i64 16), ptr %1217, align 8, !alias.scope !136, !noalias !89
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRNS_7memprof14IndexedVersionEEE, i64 16), ptr %1217, align 8, !alias.scope !136, !noalias !89
   %1218 = getelementptr inbounds nuw i8, ptr %69, i64 80
   store ptr %68, ptr %1218, align 8, !alias.scope !136, !noalias !89
   store ptr %1217, ptr %1210, align 8, !alias.scope !136, !noalias !89
@@ -6682,7 +6682,7 @@ _ZL12writeMemProfRN4llvm11ProfOStreamERNS_7memprof18IndexedMemProfDataENS2_14Ind
   %1221 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 1, ptr %1221, align 1, !noalias !145
   store ptr %69, ptr %13, align 8, !noalias !145
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %1219, align 8, !noalias !145
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %1219, align 8, !noalias !145
   %1222 = getelementptr inbounds nuw i8, ptr %1219, i64 8
   store i32 5, ptr %1222, align 8, !noalias !145
   %1223 = getelementptr inbounds nuw i8, ptr %1219, i64 16
@@ -8365,7 +8365,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %.loopexit44
   %203 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23, !noalias !176
   store i8 1, ptr %10, align 8, !noalias !176
   store i8 1, ptr %11, align 1, !noalias !176
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %203, align 8, !noalias !176
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %203, align 8, !noalias !176
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store i32 14, ptr %204, align 8, !noalias !176
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 16
@@ -8427,7 +8427,7 @@ define dso_local void @_ZN4llvm15InstrProfWriter11writeBufferEv(ptr dead_on_unwi
   store i32 1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %4, ptr %12, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
@@ -19674,7 +19674,7 @@ define linkonce_odr hidden void @_ZN4llvm15InstrProfSymtab13addSymbolNameENS_9St
   store ptr @.str.45, ptr %7, align 8, !noalias !271
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %12, align 8, !noalias !271
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %10, align 8, !noalias !271
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %10, align 8, !noalias !271
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 9, ptr %13, align 8, !noalias !271
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -22974,7 +22974,7 @@ define internal void @"_ZN4llvm12function_refIFvNS_15instrprof_errorEEE11callbac
   store i8 1, ptr %7, align 8, !noalias !328
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %8, align 1, !noalias !328
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %6, align 8, !noalias !328
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %6, align 8, !noalias !328
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %9, align 8, !noalias !328
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16

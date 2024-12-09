@@ -734,7 +734,7 @@ define dso_local void @dqput(ptr noundef %0) #0 align 16 {
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 104), i64 noundef 1, i32 noundef %4) #12
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 104), i64 noundef 1, i32 noundef %4) #12
   tail call void @_raw_spin_lock(ptr noundef nonnull @dq_list_lock) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %6 = load volatile i32, ptr %5, align 4
@@ -773,8 +773,8 @@ define dso_local void @dqput(ptr noundef %0) #0 align 16 {
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @releasing_dquots, i64 8), align 8
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @releasing_dquots, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @releasing_dquots, i64 8), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @releasing_dquots, i64 8), align 8
   store ptr @releasing_dquots, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %30, ptr %31, align 8
@@ -1018,7 +1018,7 @@ dqput.exit:                                       ; preds = %148, %147, %119, %7
 
 125:                                              ; preds = %119
   %126 = load i32, ptr @percpu_counter_batch, align 4
-  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 104), i64 noundef 1, i32 noundef %126) #12
+  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 104), i64 noundef 1, i32 noundef %126) #12
   call void @_raw_spin_lock(ptr noundef nonnull @dq_list_lock) #12
   %127 = load volatile i32, ptr %82, align 4
   %128 = icmp sgt i32 %127, 1
@@ -1055,8 +1055,8 @@ dqput.exit:                                       ; preds = %148, %147, %119, %7
 
 148:                                              ; preds = %125
   %149 = getelementptr i8, ptr %64, i64 -16
-  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @releasing_dquots, i64 8), align 8
-  store ptr %149, ptr getelementptr inbounds (i8, ptr @releasing_dquots, i64 8), align 8
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @releasing_dquots, i64 8), align 8
+  store ptr %149, ptr getelementptr inbounds nuw (i8, ptr @releasing_dquots, i64 8), align 8
   store ptr @releasing_dquots, ptr %149, align 8
   %151 = getelementptr i8, ptr %64, i64 -8
   store ptr %150, ptr %151, align 8
@@ -1113,7 +1113,7 @@ dqput.exit:                                       ; preds = %148, %147, %119, %7
 
 .split8.us:                                       ; preds = %177, %37
   %180 = load i32, ptr @percpu_counter_batch, align 4
-  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 344), i64 noundef 1, i32 noundef %180) #12
+  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 344), i64 noundef 1, i32 noundef %180) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   ret i32 %156
 }
@@ -1406,14 +1406,14 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
   %96 = getelementptr inbounds nuw i8, ptr %49, i64 116
   store i32 %5, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @inuse_list, i64 8), align 8
-  store ptr %97, ptr getelementptr inbounds (i8, ptr @inuse_list, i64 8), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @inuse_list, i64 8), align 8
+  store ptr %97, ptr getelementptr inbounds nuw (i8, ptr @inuse_list, i64 8), align 8
   store ptr @inuse_list, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %98, ptr %99, align 8
   store volatile ptr %97, ptr %98, align 8
   %100 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 264), i64 noundef 1, i32 noundef %100) #12
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 264), i64 noundef 1, i32 noundef %100) #12
   %101 = load ptr, ptr @dquot_hash, align 8
   %102 = getelementptr inbounds nuw i8, ptr %49, i64 104
   %103 = load ptr, ptr %102, align 8
@@ -1480,7 +1480,7 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
 
 144:                                              ; preds = %136
   %145 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 304), i64 noundef -1, i32 noundef %145) #12
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 304), i64 noundef -1, i32 noundef %145) #12
   br label %147
 
 146:                                              ; preds = %136
@@ -1491,14 +1491,14 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %129, ptr nonnull elementtype(i32) %129) #12, !srcloc !18
   tail call void @_raw_spin_unlock(ptr noundef nonnull @dq_list_lock) #12
   %148 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 224), i64 noundef 1, i32 noundef %148) #12
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 224), i64 noundef 1, i32 noundef %148) #12
   br label %149
 
 149:                                              ; preds = %147, %126
   %150 = phi ptr [ %54, %147 ], [ %49, %126 ]
   %151 = phi ptr [ %49, %147 ], [ null, %126 ]
   %152 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 64), i64 noundef 1, i32 noundef %152) #12
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 64), i64 noundef 1, i32 noundef %152) #12
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 64
   tail call void @mutex_lock(ptr noundef nonnull %153) #12
   tail call void @mutex_unlock(ptr noundef nonnull %153) #12
@@ -5159,7 +5159,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dquot_disable(ptr noundef %0, i3
 
 167:                                              ; preds = %160
   %168 = load i32, ptr @percpu_counter_batch, align 4
-  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 304), i64 noundef -1, i32 noundef %168) #12
+  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 304), i64 noundef -1, i32 noundef %168) #12
   br label %170
 
 169:                                              ; preds = %160
@@ -5168,7 +5168,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dquot_disable(ptr noundef %0, i3
 
 170:                                              ; preds = %169, %167, %156
   %171 = load i32, ptr @percpu_counter_batch, align 4
-  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 264), i64 noundef -1, i32 noundef %171) #12
+  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 264), i64 noundef -1, i32 noundef %171) #12
   %172 = getelementptr i8, ptr %109, i64 8
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr %109, align 8
@@ -6948,12 +6948,12 @@ define internal void @quota_release_workfn(ptr nocapture readnone %0) #0 align 1
   store ptr %3, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @releasing_dquots, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @releasing_dquots, i64 8), align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8
   store ptr %2, ptr %5, align 8
   store volatile ptr @releasing_dquots, ptr @releasing_dquots, align 8
-  store volatile ptr @releasing_dquots, ptr getelementptr inbounds (i8, ptr @releasing_dquots, i64 8), align 8
+  store volatile ptr @releasing_dquots, ptr getelementptr inbounds nuw (i8, ptr @releasing_dquots, i64 8), align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @dq_list_lock) #12
   call void @synchronize_srcu(ptr noundef nonnull @dquot_srcu) #12
   call void @_raw_spin_lock(ptr noundef nonnull @dq_list_lock) #12
@@ -7078,7 +7078,7 @@ define internal void @quota_release_workfn(ptr nocapture readnone %0) #0 align 1
 
 75:                                               ; preds = %68
   %76 = load i32, ptr @percpu_counter_batch, align 4
-  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 304), i64 noundef -1, i32 noundef %76) #12
+  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 304), i64 noundef -1, i32 noundef %76) #12
   br label %78
 
 77:                                               ; preds = %68
@@ -7086,14 +7086,14 @@ define internal void @quota_release_workfn(ptr nocapture readnone %0) #0 align 1
   br label %78
 
 78:                                               ; preds = %77, %75, %65
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @free_dquots, i64 8), align 8
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @free_dquots, i64 8), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @free_dquots, i64 8), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @free_dquots, i64 8), align 8
   store ptr @free_dquots, ptr %9, align 8
   %80 = getelementptr i8, ptr %9, i64 8
   store ptr %79, ptr %80, align 8
   store volatile ptr %9, ptr %79, align 8
   %81 = load i32, ptr @percpu_counter_batch, align 4
-  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 304), i64 noundef 1, i32 noundef %81) #12
+  call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 304), i64 noundef 1, i32 noundef %81) #12
   %82 = load volatile ptr, ptr %2, align 8
   %83 = icmp eq ptr %82, %2
   br i1 %83, label %.loopexit, label %.preheader.backedge
@@ -7218,7 +7218,7 @@ declare dso_local ptr @shrinker_alloc(i32 noundef, ptr noundef, ...) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)
 define internal i64 @dqcache_shrink_count(ptr nocapture readnone %0, ptr nocapture readnone %1) #9 align 16 {
-  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @dqstats, i64 312), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @dqstats, i64 312), align 8
   %4 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
   %5 = load i32, ptr @sysctl_vfs_cache_pressure, align 4
   %6 = udiv i64 %4, 100
@@ -7293,7 +7293,7 @@ thread-pre-split:                                 ; preds = %2
 
 33:                                               ; preds = %25
   %34 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 304), i64 noundef -1, i32 noundef %34) #12
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 304), i64 noundef -1, i32 noundef %34) #12
   br label %36
 
 35:                                               ; preds = %25
@@ -7302,7 +7302,7 @@ thread-pre-split:                                 ; preds = %2
 
 36:                                               ; preds = %35, %33, %22
   %37 = load i32, ptr @percpu_counter_batch, align 4
-  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds (i8, ptr @dqstats, i64 264), i64 noundef -1, i32 noundef %37) #12
+  tail call void @percpu_counter_add_batch(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dqstats, i64 264), i64 noundef -1, i32 noundef %37) #12
   %38 = getelementptr i8, ptr %8, i64 -16
   %39 = getelementptr i8, ptr %8, i64 -8
   %40 = load ptr, ptr %39, align 8

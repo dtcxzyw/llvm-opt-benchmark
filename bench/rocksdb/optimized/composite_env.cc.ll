@@ -676,7 +676,7 @@ if.then:                                          ; preds = %invoke.cont8
           to label %invoke.cont13 unwind label %ehcleanup
 
 invoke.cont13:                                    ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_130CompositeSequentialFileWrapperE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_130CompositeSequentialFileWrapperE, i64 16), ptr %call11, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %call11, i64 8
   %16 = load i64, ptr %file, align 8
   store i64 %16, ptr %target_.i, align 8
@@ -992,7 +992,7 @@ if.then:                                          ; preds = %invoke.cont8
           to label %invoke.cont13 unwind label %ehcleanup
 
 invoke.cont13:                                    ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrapperE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrapperE, i64 16), ptr %call11, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %call11, i64 8
   %16 = load i64, ptr %file, align 8
   store i64 %16, ptr %target_.i, align 8
@@ -1243,7 +1243,7 @@ invoke.cont13:                                    ; preds = %if.then
   store i32 0, ptr %write_hint_.i.i, align 4
   %strict_bytes_per_sync_.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %call11, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %call11, i64 40
   %16 = load i64, ptr %file, align 8
   store i64 %16, ptr %target_.i, align 8
@@ -1494,7 +1494,7 @@ invoke.cont13:                                    ; preds = %if.then
   store i32 0, ptr %write_hint_.i.i, align 4
   %strict_bytes_per_sync_.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %call11, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %call11, i64 40
   %16 = load i64, ptr %file, align 8
   store i64 %16, ptr %target_.i, align 8
@@ -1748,7 +1748,7 @@ invoke.cont13:                                    ; preds = %if.then
   store i32 0, ptr %write_hint_.i.i, align 4
   %strict_bytes_per_sync_.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %call11, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %call11, i64 40
   %16 = load i64, ptr %file, align 8
   store i64 %16, ptr %target_.i, align 8
@@ -1994,7 +1994,7 @@ if.then:                                          ; preds = %invoke.cont8
           to label %invoke.cont13 unwind label %ehcleanup
 
 invoke.cont13:                                    ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeRandomRWFileWrapperE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeRandomRWFileWrapperE, i64 16), ptr %call11, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %call11, i64 8
   %16 = load i64, ptr %file, align 8
   store i64 %16, ptr %target_.i, align 8
@@ -2206,7 +2206,7 @@ if.then:                                          ; preds = %invoke.cont7.thread
           to label %invoke.cont9 unwind label %lpad4
 
 invoke.cont9:                                     ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125CompositeDirectoryWrapperE, i64 16), ptr %call10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125CompositeDirectoryWrapperE, i64 16), ptr %call10, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %call10, i64 8
   %11 = load i64, ptr %dir, align 8
   store i64 %11, ptr %target_.i, align 8
@@ -2886,7 +2886,7 @@ entry:
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::allocator", align 1
   tail call void @_ZN7rocksdb3EnvC2ERKSt10shared_ptrINS_10FileSystemEERKS1_INS_11SystemClockEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %fs, ptr noundef nonnull align 8 dereferenceable(16) %sc)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %env, ptr %target_, align 8
   %guard.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -3113,7 +3113,7 @@ entry:
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::allocator", align 1
   tail call void @_ZN7rocksdb3EnvC2ERKSt10shared_ptrINS_10FileSystemEERKS1_INS_11SystemClockEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %fs, ptr noundef nonnull align 8 dereferenceable(16) %sc)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %guard.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %env, align 8
@@ -3653,7 +3653,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   tail call void @_ZN7rocksdb3EnvC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10EnvWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10EnvWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %t, ptr %target_, align 8
   %guard.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -3715,7 +3715,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   tail call void @_ZN7rocksdb3EnvC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10EnvWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10EnvWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %guard.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %t, align 8
@@ -3766,7 +3766,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb3EnvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb3EnvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 16
   store ptr %0, ptr %_M_ptr.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %_M_refcount.i.i.i, align 8
@@ -3827,7 +3827,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   tail call void @_ZN7rocksdb3EnvC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10EnvWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10EnvWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %guard.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %t, align 8
@@ -3907,7 +3907,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad.i, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb10EnvWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb10EnvWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb10EnvWrapperE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -4114,7 +4114,7 @@ call.i.noexc16:                                   ; preds = %invoke.cont13
           to label %.noexc18 unwind label %lpad19
 
 .noexc18:                                         ; preds = %call.i.noexc16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
           to label %invoke.cont20 unwind label %lpad.i15
 
 lpad.i15:                                         ; preds = %.noexc18
@@ -8997,7 +8997,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb19CompositeEnvWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -9079,7 +9079,7 @@ _ZN7rocksdb10EnvWrapper6TargetD2Ev.exit:          ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb19CompositeEnvWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -10261,7 +10261,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_130CompositeSequentialFileWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_130CompositeSequentialFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_130CompositeSequentialFileWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -10283,7 +10283,7 @@ _ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_130CompositeSequentialFileWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_130CompositeSequentialFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_130CompositeSequentialFileWrapperE, i64 16), ptr %this, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -10808,7 +10808,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -10830,7 +10830,7 @@ _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrapperE, i64 16), ptr %this, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -11978,7 +11978,7 @@ declare void @_ZN7rocksdb6Status9CopyStateEPKc(ptr sret(%"class.std::unique_ptr"
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -12000,7 +12000,7 @@ _ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeWritableFileWrapperE, i64 16), ptr %this, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -14238,7 +14238,7 @@ declare void @_ZN7rocksdb12WritableFileD2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_128CompositeRandomRWFileWrapperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeRandomRWFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeRandomRWFileWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -14259,7 +14259,7 @@ _ZNSt10unique_ptrIN7rocksdb14FSRandomRWFileESt14default_deleteIS1_EED2Ev.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_128CompositeRandomRWFileWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeRandomRWFileWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128CompositeRandomRWFileWrapperE, i64 16), ptr %this, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -15300,7 +15300,7 @@ lpad2:                                            ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_125CompositeDirectoryWrapperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125CompositeDirectoryWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125CompositeDirectoryWrapperE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -15321,7 +15321,7 @@ _ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_125CompositeDirectoryWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125CompositeDirectoryWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_125CompositeDirectoryWrapperE, i64 16), ptr %this, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

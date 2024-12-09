@@ -364,7 +364,7 @@ declare dso_local void @put_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @phy_register_fixup(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 96) #19
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8
@@ -379,8 +379,8 @@ define dso_local noundef range(i32 -12, 1) i32 @phy_register_fixup(ptr noundef %
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr %3, ptr %13, align 8
   tail call void @mutex_lock(ptr noundef nonnull @phy_fixup_lock) #18
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @phy_fixup_list, i64 8), align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @phy_fixup_list, i64 8), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phy_fixup_list, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @phy_fixup_list, i64 8), align 8
   store ptr @phy_fixup_list, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %15, align 8
@@ -410,7 +410,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @phy_register_fixup_for_uid(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 96) #19
   %6 = icmp eq ptr %5, null
   br i1 %6, label %15, label %7
@@ -425,8 +425,8 @@ define dso_local noundef range(i32 -12, 1) i32 @phy_register_fixup_for_uid(i32 n
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %2, ptr %12, align 8
   tail call void @mutex_lock(ptr noundef nonnull @phy_fixup_lock) #18
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @phy_fixup_list, i64 8), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @phy_fixup_list, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phy_fixup_list, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @phy_fixup_list, i64 8), align 8
   store ptr @phy_fixup_list, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %14, align 8
@@ -441,7 +441,7 @@ define dso_local noundef range(i32 -12, 1) i32 @phy_register_fixup_for_uid(i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @phy_register_fixup_for_id(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 96) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %14, label %6
@@ -456,8 +456,8 @@ define dso_local noundef range(i32 -12, 1) i32 @phy_register_fixup_for_id(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %1, ptr %11, align 8
   tail call void @mutex_lock(ptr noundef nonnull @phy_fixup_lock) #18
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @phy_fixup_list, i64 8), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @phy_fixup_list, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phy_fixup_list, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @phy_fixup_list, i64 8), align 8
   store ptr @phy_fixup_list, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %12, ptr %13, align 8
@@ -608,7 +608,7 @@ define dso_local noundef range(i32 -19, 1) i32 @phy_unregister_fixup_for_id(ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @phy_device_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef readonly %4) #0 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(1424) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 1424) #19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
@@ -2442,7 +2442,7 @@ define dso_local noundef range(i32 -22, 1) i32 @phy_package_join(ptr nocapture n
   br i1 %13, label %14, label %29
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 32) #19
   %17 = icmp eq ptr %16, null
   br i1 %17, label %49, label %18

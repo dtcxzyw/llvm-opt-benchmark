@@ -256,7 +256,7 @@ _ZN20ParallelScavengeHeap31trace_actual_reserved_page_sizeEm13ReservedSpace.exit
   %17 = extractvalue { ptr, i64 } %16, 0
   %18 = extractvalue { ptr, i64 } %16, 1
   call void @_ZN9CardTableC2E9MemRegion(ptr noundef nonnull align 8 dereferenceable(92) %15, ptr %17, i64 %18) #15
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11PSCardTable, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11PSCardTable, i64 16), ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store volatile i32 0, ptr %19, align 8
   %20 = load ptr, ptr %3, align 8
@@ -517,7 +517,7 @@ define hidden void @_ZN20ParallelScavengeHeap15update_countersEv(ptr noundef non
   br i1 %8, label %9, label %_ZN20ParallelScavengeHeap39update_parallel_worker_threads_cpu_timeEv.exit
 
 9:                                                ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -553,7 +553,7 @@ define hidden void @_ZN20ParallelScavengeHeap39update_parallel_worker_threads_cp
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1754,7 +1754,7 @@ declare void @_ZN8PSOldGen20object_iterate_blockEP13ObjectClosurem(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN20ParallelScavengeHeap24parallel_object_iteratorEj(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 5, i32 noundef 0) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32PSScavengeParallelObjectIterator, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32PSScavengeParallelObjectIterator, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %5, ptr %4, align 8
@@ -2092,7 +2092,7 @@ define hidden void @_ZN20ParallelScavengeHeap22create_ps_heap_summaryEv(ptr dead
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %73, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13PSHeapSummary, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13PSHeapSummary, i64 16), ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %10, ptr %76, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2202,7 +2202,7 @@ _ZNK20ParallelScavengeHeap14is_in_reservedEPKv.exit.thread: ; preds = %13, %_ZNK
   %35 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = and i64 %34, 4294967295
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl i64 %37, %39
   %41 = add i64 %40, %36
@@ -2679,7 +2679,7 @@ define hidden void @_ZN20ParallelScavengeHeap10trace_heapEN6GCWhen4TypeEPK8GCTra
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %76, ptr %78, align 8, !alias.scope !18
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13PSHeapSummary, i64 16), ptr %5, align 8, !alias.scope !18
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13PSHeapSummary, i64 16), ptr %5, align 8, !alias.scope !18
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %13, ptr %79, align 8, !alias.scope !18
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 48

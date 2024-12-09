@@ -1374,7 +1374,7 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
   br i1 %104, label %.lr.ph150.i.i.i, label %h264_user_data_unregistered.exit.i.i, !llvm.loop !8
 
 105:                                              ; preds = %40
-  %bcmp138.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) getelementptr inbounds (i8, ptr @ms_guids, i64 16), i64 16)
+  %bcmp138.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) getelementptr inbounds nuw (i8, ptr @ms_guids, i64 16), i64 16)
   %106 = icmp eq i32 %bcmp138.i.i.i, 0
   br i1 %106, label %107, label %135
 
@@ -1420,7 +1420,7 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
   br i1 %.not.i.i.i, label %h264_user_data_unregistered.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 135:                                              ; preds = %105
-  %bcmp139.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) getelementptr inbounds (i8, ptr @ms_guids, i64 32), i64 16)
+  %bcmp139.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) getelementptr inbounds nuw (i8, ptr @ms_guids, i64 32), i64 16)
   %136 = icmp eq i32 %bcmp139.i.i.i, 0
   br i1 %136, label %137, label %146
 

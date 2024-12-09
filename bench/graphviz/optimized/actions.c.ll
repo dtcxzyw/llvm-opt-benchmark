@@ -5176,7 +5176,7 @@ define double @gvelapsed_sec() local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr @T, align 8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @T, i64 8), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @T, i64 8), align 8
   %.neg2 = add i64 %5, %3
   %8 = add i64 %6, %7
   %9 = sub i64 %.neg2, %8

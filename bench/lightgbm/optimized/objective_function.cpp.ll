@@ -976,7 +976,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 48:                                               ; preds = %.critedge56, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %49 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #32
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 56
@@ -1046,7 +1046,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %82 = and i8 %80, 1
   store i8 %82, ptr %81, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL1lossE, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL1lossE, i64 16), ptr %73, align 8
   br label %_ZN8LightGBM22RegressionQuantilelossC2ERKNS_6ConfigE.exit
 
 83:                                               ; preds = %61
@@ -1104,7 +1104,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %106 = and i8 %104, 1
   store i8 %106, ptr %105, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM22RegressionQuantilelossE, i64 16), ptr %97, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM22RegressionQuantilelossE, i64 16), ptr %97, align 8
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 1296
   %108 = load double, ptr %107, align 8
   %109 = fptrunc double %108 to float
@@ -1180,7 +1180,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %137 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %138 = and i8 %136, 1
   store i8 %138, ptr %137, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM19RegressionHuberLossE, i64 16), ptr %129, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM19RegressionHuberLossE, i64 16), ptr %129, align 8
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 1296
   %140 = load double, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %129, i64 64
@@ -1257,7 +1257,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %168 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %169 = and i8 %167, 1
   store i8 %169, ptr %168, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionFairLossE, i64 16), ptr %160, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionFairLossE, i64 16), ptr %160, align 8
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 1304
   %171 = load double, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %160, i64 64
@@ -1445,7 +1445,7 @@ _ZNSt8functionIFbfEED2Ev.exit55:                  ; preds = %207, %211
   %238 = load double, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %229, i64 104
   store double %238, ptr %239, align 8
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM10RankXENDCGE, i64 16), ptr %229, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM10RankXENDCGE, i64 16), ptr %229, align 8
   %240 = getelementptr inbounds nuw i8, ptr %229, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %240, i8 0, i64 24, i1 false)
   br label %_ZN8LightGBM22RegressionQuantilelossC2ERKNS_6ConfigE.exit
@@ -1469,7 +1469,7 @@ _ZNSt8functionIFbfEED2Ev.exit55:                  ; preds = %207, %211
 
 246:                                              ; preds = %244
   %247 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #32
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM17MulticlassSoftmaxE, i64 16), ptr %247, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM17MulticlassSoftmaxE, i64 16), ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %248, i8 0, i64 24, i1 false)
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 64
@@ -1534,7 +1534,7 @@ _ZNSt8functionIFbfEED2Ev.exit55:                  ; preds = %207, %211
 
 273:                                              ; preds = %271
   %274 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM12CrossEntropyE, i64 16), ptr %274, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM12CrossEntropyE, i64 16), ptr %274, align 8
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 32
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %277 = load i8, ptr %276, align 4
@@ -1561,7 +1561,7 @@ _ZNSt8functionIFbfEED2Ev.exit55:                  ; preds = %207, %211
 
 284:                                              ; preds = %282
   %285 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18CrossEntropyLambdaE, i64 16), ptr %285, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18CrossEntropyLambdaE, i64 16), ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 40
   %287 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %288 = load i8, ptr %287, align 4
@@ -1604,7 +1604,7 @@ _ZNSt8functionIFbfEED2Ev.exit55:                  ; preds = %207, %211
   %306 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %307 = and i8 %305, 1
   store i8 %307, ptr %306, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionMAPELOSSE, i64 16), ptr %298, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionMAPELOSSE, i64 16), ptr %298, align 8
   %308 = getelementptr inbounds nuw i8, ptr %298, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %308, i8 0, i64 24, i1 false)
   br label %_ZN8LightGBM22RegressionQuantilelossC2ERKNS_6ConfigE.exit
@@ -1747,7 +1747,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM21RegressionPoissonLossC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1760,7 +1760,7 @@ define linkonce_odr void @_ZN8LightGBM21RegressionPoissonLossC2ERKNS_6ConfigE(pt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = and i8 %9, 1
   store i8 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionPoissonLossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionPoissonLossE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   %13 = load double, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1779,7 +1779,7 @@ define linkonce_odr void @_ZN8LightGBM21RegressionPoissonLossC2ERKNS_6ConfigE(pt
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %20 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZN8LightGBM16RegressionL2lossD2Ev.exit, label %21
@@ -1799,7 +1799,7 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit:          ; preds = %18, %21
 define linkonce_odr void @_ZN8LightGBM13BinaryLoglossC2ERKNS_6ConfigESt8functionIFbfEE(ptr noundef nonnull align 8 dereferenceable(114) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1, ptr noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %4 = alloca %"class.std::function", align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 113
@@ -1957,7 +1957,7 @@ _ZNSt8functionIFbfEEaSIZN8LightGBM13BinaryLoglossC1ERKNS3_6ConfigES1_EUlfE_EENSt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM14LambdarankNDCGC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %5 = load i32, ptr %4, align 8
@@ -1972,7 +1972,7 @@ define linkonce_odr void @_ZN8LightGBM14LambdarankNDCGC2ERKNS_6ConfigE(ptr nound
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %11, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM14LambdarankNDCGE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM14LambdarankNDCGE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %15 = load double, ptr %14, align 8
@@ -2069,7 +2069,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit10:                  ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit12
 
 _ZNSt6vectorIdSaIdEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit10, %52
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
   %53 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i, label %_ZN8LightGBM16RankingObjectiveD2Ev.exit, label %54
@@ -2088,7 +2088,7 @@ _ZN8LightGBM16RankingObjectiveD2Ev.exit:          ; preds = %_ZNSt6vectorIdSaIdE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM13MulticlassOVAC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13MulticlassOVAE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13MulticlassOVAE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1260
@@ -2273,7 +2273,7 @@ _ZNSt8functionIFbfEED2Ev.exit15:                  ; preds = %54, %56
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM19RegressionGammaLossC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2286,7 +2286,7 @@ define linkonce_odr void @_ZN8LightGBM19RegressionGammaLossC2ERKNS_6ConfigE(ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = and i8 %9, 1
   store i8 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionPoissonLossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionPoissonLossE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   %13 = load double, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2305,7 +2305,7 @@ define linkonce_odr void @_ZN8LightGBM19RegressionGammaLossC2ERKNS_6ConfigE(ptr 
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %20 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i, label %_ZN8LightGBM16RegressionL2lossD2Ev.exit.i, label %21
@@ -2318,13 +2318,13 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit.i:        ; preds = %21, %18
   resume { ptr, i32 } %19
 
 _ZN8LightGBM21RegressionPoissonLossC2ERKNS_6ConfigE.exit: ; preds = %2, %17
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM19RegressionGammaLossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM19RegressionGammaLossE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8LightGBM21RegressionTweedieLossC2ERKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(1616) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2337,7 +2337,7 @@ define linkonce_odr void @_ZN8LightGBM21RegressionTweedieLossC2ERKNS_6ConfigE(pt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = and i8 %9, 1
   store i8 %11, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionPoissonLossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionPoissonLossE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   %13 = load double, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2356,7 +2356,7 @@ define linkonce_odr void @_ZN8LightGBM21RegressionTweedieLossC2ERKNS_6ConfigE(pt
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %20 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i, label %_ZN8LightGBM16RegressionL2lossD2Ev.exit.i, label %21
@@ -2369,7 +2369,7 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit.i:        ; preds = %21, %18
   resume { ptr, i32 } %19
 
 _ZN8LightGBM21RegressionPoissonLossC2ERKNS_6ConfigE.exit: ; preds = %2, %17
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionTweedieLossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionTweedieLossE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 1320
   %23 = load double, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2453,7 +2453,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionL2lossD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2469,7 +2469,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionL2lossD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -3330,7 +3330,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionL1lossD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -3346,7 +3346,7 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit:          ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RegressionL1lossD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -11316,7 +11316,7 @@ define linkonce_odr void @_ZN8LightGBM9ArrayArgsIfE9PartitionEPSt6vectorIfSaIfEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM22RegressionQuantilelossD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -11332,7 +11332,7 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit:          ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM22RegressionQuantilelossD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -17904,7 +17904,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM19RegressionHuberLossD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -17920,7 +17920,7 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit:          ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM19RegressionHuberLossD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -18140,7 +18140,7 @@ declare double @llvm.fabs.f64(double) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM18RegressionFairLossD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -18156,7 +18156,7 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit:          ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM18RegressionFairLossD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -18361,7 +18361,7 @@ define internal void @_ZNK8LightGBM18RegressionFairLoss12GetGradientsEPKdPfS3_.o
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM21RegressionPoissonLossD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -18377,7 +18377,7 @@ _ZN8LightGBM16RegressionL2lossD2Ev.exit:          ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM21RegressionPoissonLossD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -18689,7 +18689,7 @@ declare double @log(double noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM13BinaryLoglossD2Ev(ptr noundef nonnull align 8 dereferenceable(114) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -18713,7 +18713,7 @@ _ZNSt8functionIFbfEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM13BinaryLoglossD0Ev(ptr noundef nonnull align 8 dereferenceable(114) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -20018,7 +20018,7 @@ declare void @_ZN8LightGBM13DCGCalculator4InitERKSt6vectorIdSaIdEE(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM14LambdarankNDCGD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM14LambdarankNDCGE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM14LambdarankNDCGE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -20049,7 +20049,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit4
 
 _ZNSt6vectorIdSaIdEED2Ev.exit4:                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2, %10
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -20065,7 +20065,7 @@ _ZN8LightGBM16RankingObjectiveD2Ev.exit:          ; preds = %_ZNSt6vectorIdSaIdE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM14LambdarankNDCGD0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM14LambdarankNDCGE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM14LambdarankNDCGE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -20096,7 +20096,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %7, %_ZNSt6vectorIdS
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit4.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit4.i:                 ; preds = %10, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i = icmp eq ptr %12, null
@@ -20749,7 +20749,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit33:                  ; preds = %51, %_ZNSt6vectorId
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM16RankingObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -23012,7 +23012,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM10RankXENDCGD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM10RankXENDCGE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM10RankXENDCGE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -23023,7 +23023,7 @@ define linkonce_odr void @_ZN8LightGBM10RankXENDCGD2Ev(ptr noundef nonnull align
   br label %_ZNSt6vectorIN8LightGBM6RandomESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN8LightGBM6RandomESaIS1_EED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %6, null
@@ -23039,7 +23039,7 @@ _ZN8LightGBM16RankingObjectiveD2Ev.exit:          ; preds = %_ZNSt6vectorIN8Ligh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM10RankXENDCGD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM10RankXENDCGE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM10RankXENDCGE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -23050,7 +23050,7 @@ define linkonce_odr void @_ZN8LightGBM10RankXENDCGD0Ev(ptr noundef nonnull align
   br label %_ZNSt6vectorIN8LightGBM6RandomESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN8LightGBM6RandomESaIS1_EED2Ev.exit.i: ; preds = %4, %1
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM16RankingObjectiveE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i = icmp eq ptr %6, null
@@ -23420,7 +23420,7 @@ tailrecurse.backedge:                             ; preds = %10, %17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM17MulticlassSoftmaxD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM17MulticlassSoftmaxE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM17MulticlassSoftmaxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -23446,7 +23446,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM17MulticlassSoftmaxD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM17MulticlassSoftmaxE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM17MulticlassSoftmaxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -24803,7 +24803,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM13BinaryLoglossESt14default_deleteI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM13MulticlassOVAD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13MulticlassOVAE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13MulticlassOVAE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -24849,7 +24849,7 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM13BinaryLoglossESt14default_deleteIS2_EESa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM13MulticlassOVAD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13MulticlassOVAE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13MulticlassOVAE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -26630,7 +26630,7 @@ declare double @expm1(double noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM18RegressionMAPELOSSD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionMAPELOSSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionMAPELOSSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -26641,7 +26641,7 @@ define linkonce_odr void @_ZN8LightGBM18RegressionMAPELOSSD2Ev(ptr noundef nonnu
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i = icmp eq ptr %6, null
@@ -26657,7 +26657,7 @@ _ZN8LightGBM16RegressionL1lossD2Ev.exit:          ; preds = %_ZNSt6vectorIfSaIfE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM18RegressionMAPELOSSD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionMAPELOSSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionMAPELOSSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -26668,7 +26668,7 @@ define linkonce_odr void @_ZN8LightGBM18RegressionMAPELOSSD0Ev(ptr noundef nonnu
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %4, %1
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -32596,7 +32596,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM19RegressionGammaLossD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -32612,7 +32612,7 @@ _ZN8LightGBM21RegressionPoissonLossD2Ev.exit:     ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM19RegressionGammaLossD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -32806,7 +32806,7 @@ define internal void @_ZNK8LightGBM19RegressionGammaLoss12GetGradientsEPKdPfS3_.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM21RegressionTweedieLossD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -32822,7 +32822,7 @@ _ZN8LightGBM21RegressionPoissonLossD2Ev.exit:     ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM21RegressionTweedieLossD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -33209,7 +33209,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN8LightGBM16RegressionL1lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %78
 
 _ZN8LightGBM16RegressionL1lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %75
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL1lossE, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL1lossE, i64 16), ptr %74, align 8
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
 
 76:                                               ; preds = %62
@@ -33268,7 +33268,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN8LightGBM22RegressionQuantilelossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %96
 
 _ZN8LightGBM22RegressionQuantilelossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %93
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM22RegressionQuantilelossE, i64 16), ptr %92, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM22RegressionQuantilelossE, i64 16), ptr %92, align 8
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
 
 94:                                               ; preds = %80
@@ -33327,7 +33327,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %.noexc unwind label %124
 
 .noexc:                                           ; preds = %111
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM19RegressionHuberLossE, i64 16), ptr %110, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM19RegressionHuberLossE, i64 16), ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = load i8, ptr %112, align 8
   %114 = trunc i8 %113 to i1
@@ -33344,7 +33344,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 117:                                              ; preds = %115
   %118 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %110, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %110, align 8
   %119 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %120 = load ptr, ptr %119, align 8
   %.not.i.i.i.i.i = icmp eq ptr %120, null
@@ -33414,7 +33414,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN8LightGBM18RegressionFairLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %142
 
 _ZN8LightGBM18RegressionFairLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %139
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionFairLossE, i64 16), ptr %138, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionFairLossE, i64 16), ptr %138, align 8
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
 
 140:                                              ; preds = %126
@@ -33473,7 +33473,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %160
 
 _ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %157
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionPoissonLossE, i64 16), ptr %156, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionPoissonLossE, i64 16), ptr %156, align 8
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
 
 158:                                              ; preds = %144
@@ -33544,7 +33544,7 @@ _ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt1
   store i32 0, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM14LambdarankNDCGE, i64 16), ptr %176, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM14LambdarankNDCGE, i64 16), ptr %176, align 8
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 128
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %180, i8 0, i64 72, i1 false)
@@ -33581,7 +33581,7 @@ _ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt1
   store i32 0, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %193, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM10RankXENDCGE, i64 16), ptr %190, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN8LightGBM10RankXENDCGE, i64 16), ptr %190, align 8
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, i8 0, i64 24, i1 false)
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
@@ -33670,7 +33670,7 @@ _ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt1
           to label %222 unwind label %58
 
 222:                                              ; preds = %220
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM12CrossEntropyE, i64 16), ptr %221, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM12CrossEntropyE, i64 16), ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 32
   store i8 0, ptr %223, align 8
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
@@ -33697,7 +33697,7 @@ _ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt1
           to label %231 unwind label %58
 
 231:                                              ; preds = %229
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18CrossEntropyLambdaE, i64 16), ptr %230, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18CrossEntropyLambdaE, i64 16), ptr %230, align 8
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 40
   store i8 0, ptr %232, align 8
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
@@ -33728,7 +33728,7 @@ _ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt1
           to label %_ZN8LightGBM18RegressionMAPELOSSC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %244
 
 _ZN8LightGBM18RegressionMAPELOSSC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %240
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionMAPELOSSE, i64 16), ptr %239, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM18RegressionMAPELOSSE, i64 16), ptr %239, align 8
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %241, i8 0, i64 24, i1 false)
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
@@ -33765,7 +33765,7 @@ _ZN8LightGBM18RegressionMAPELOSSC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11ch
           to label %_ZN8LightGBM19RegressionGammaLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %254
 
 _ZN8LightGBM19RegressionGammaLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %251
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM19RegressionGammaLossE, i64 16), ptr %250, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM19RegressionGammaLossE, i64 16), ptr %250, align 8
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
 
 252:                                              ; preds = %246
@@ -33800,7 +33800,7 @@ _ZN8LightGBM19RegressionGammaLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11c
           to label %_ZN8LightGBM21RegressionTweedieLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %264
 
 _ZN8LightGBM21RegressionTweedieLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %261
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionTweedieLossE, i64 16), ptr %260, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM21RegressionTweedieLossE, i64 16), ptr %260, align 8
   br label %_ZN8LightGBM19RegressionHuberLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit
 
 262:                                              ; preds = %256
@@ -34039,7 +34039,7 @@ define linkonce_odr void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM16RegressionL2lossE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %7, align 8
@@ -34135,7 +34135,7 @@ define linkonce_odr void @_ZN8LightGBM13BinaryLoglossC2ERKSt6vectorINSt7__cxx111
   %4 = alloca %"class.std::vector.3", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13BinaryLoglossE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 113
@@ -34322,7 +34322,7 @@ define linkonce_odr void @_ZN8LightGBM17MulticlassSoftmaxC2ERKSt6vectorINSt7__cx
   %4 = alloca %"class.std::vector.3", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM17MulticlassSoftmaxE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM17MulticlassSoftmaxE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -34562,7 +34562,7 @@ define linkonce_odr void @_ZN8LightGBM13MulticlassOVAC2ERKSt6vectorINSt7__cxx111
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13MulticlassOVAE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN8LightGBM13MulticlassOVAE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12

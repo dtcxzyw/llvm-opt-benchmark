@@ -1065,7 +1065,7 @@ define internal fastcc void @cleanup() unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  store ptr @free_citem, ptr getelementptr inbounds (i8, ptr @cellDisc, i64 24), align 8
+  store ptr @free_citem, ptr getelementptr inbounds nuw (i8, ptr @cellDisc, i64 24), align 8
   %.not56 = icmp eq ptr %1, null
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
@@ -1082,17 +1082,17 @@ define internal fastcc void @cleanup() unnamed_addr #0 {
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  store ptr @free_item, ptr getelementptr inbounds (i8, ptr @cellDisc, i64 24), align 8
-  store ptr @free_fitem, ptr getelementptr inbounds (i8, ptr @fstrDisc, i64 24), align 8
+  store ptr @free_item, ptr getelementptr inbounds nuw (i8, ptr @cellDisc, i64 24), align 8
+  store ptr @free_fitem, ptr getelementptr inbounds nuw (i8, ptr @fstrDisc, i64 24), align 8
   %10 = load ptr, ptr @HTMLstate.2, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %10, ptr noundef null, i32 noundef 64) #17
-  store ptr @free_item, ptr getelementptr inbounds (i8, ptr @fstrDisc, i64 24), align 8
-  store ptr @free_fspan, ptr getelementptr inbounds (i8, ptr @fspanDisc, i64 24), align 8
+  store ptr @free_item, ptr getelementptr inbounds nuw (i8, ptr @fstrDisc, i64 24), align 8
+  store ptr @free_fspan, ptr getelementptr inbounds nuw (i8, ptr @fspanDisc, i64 24), align 8
   %13 = load ptr, ptr @HTMLstate.3, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %13, ptr noundef null, i32 noundef 64) #17
-  store ptr @free_item, ptr getelementptr inbounds (i8, ptr @fspanDisc, i64 24), align 8
+  store ptr @free_item, ptr getelementptr inbounds nuw (i8, ptr @fspanDisc, i64 24), align 8
   %16 = load ptr, ptr @HTMLstate.5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8

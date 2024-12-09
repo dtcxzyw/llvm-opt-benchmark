@@ -979,7 +979,7 @@ DC4.exit:                                         ; preds = %16
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @clip1, i64 255), i64 %23
+  %24 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @clip1, i64 255), i64 %23
   br label %25
 
 25:                                               ; preds = %38, %DC4.exit
@@ -1788,7 +1788,7 @@ HorizontalPred.exit:                              ; preds = %.preheader34
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i64
   %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @clip1, i64 255), i64 %48
+  %49 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @clip1, i64 255), i64 %48
   br label %50
 
 50:                                               ; preds = %62, %44
@@ -1990,7 +1990,7 @@ HorizontalPred.exit:                              ; preds = %.preheader133
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
   %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @clip1, i64 255), i64 %50
+  %51 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @clip1, i64 255), i64 %50
   br label %52
 
 52:                                               ; preds = %64, %46
@@ -2204,7 +2204,7 @@ HorizontalPred.exit97:                            ; preds = %.preheader.i90, %.p
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i64
   %128 = sub nsw i64 0, %127
-  %129 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @clip1, i64 255), i64 %128
+  %129 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @clip1, i64 255), i64 %128
   br label %130
 
 130:                                              ; preds = %142, %124

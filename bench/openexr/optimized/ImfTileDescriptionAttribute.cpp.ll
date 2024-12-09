@@ -66,7 +66,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_15TileDescriptionEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(16) %value) unnamed_addr #3 comdat($_ZN7Imf_3_214TypedAttributeINS_15TileDescriptionEEC5ERKS1_) align 2 {
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_15TileDescriptionEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_15TileDescriptionEEE, i64 16), ptr %this, align 8
   %_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_value, ptr noundef nonnull align 4 dereferenceable(16) %value, i64 16, i1 false)
   ret void
@@ -133,7 +133,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_15TileDescriptionEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_15TileDescriptionEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 32, ptr %_value.i, align 4
   %ySize.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12
@@ -168,7 +168,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_15TileDescriptionEEE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_15TileDescriptionEEE, i64 16), ptr %call, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 32, ptr %_value.i, align 4
   %ySize.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12

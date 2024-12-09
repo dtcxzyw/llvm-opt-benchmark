@@ -207,7 +207,7 @@ define dso_local void @_ZN4llvm6object10ObjectFile6anchorEv(ptr nocapture nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6object10ObjectFileC2EjNS_15MemoryBufferRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %2) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm6object12SymbolicFileC2EjNS_15MemoryBufferRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %2) #16
-  store ptr getelementptr inbounds inrange(-16, 456) (i8, ptr @_ZTVN4llvm6object10ObjectFileE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 456) (i8, ptr @_ZTVN4llvm6object10ObjectFileE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -1628,7 +1628,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !101
   %155 = load ptr, ptr %2, align 8, !noalias !104
   store ptr null, ptr %2, align 8, !noalias !104
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18

@@ -233,7 +233,7 @@ define void @_ZN5boost9unit_test16results_reporter10set_formatENS0_13output_form
 
 2:                                                ; preds = %1
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #10
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost9unit_test6output22plain_report_formatterE, i64 16), ptr %3, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost9unit_test6output22plain_report_formatterE, i64 16), ptr %3, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -274,7 +274,7 @@ _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit.i: ; preds 
 
 17:                                               ; preds = %1
   %18 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost9unit_test6output20xml_report_formatterE, i64 16), ptr %18, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost9unit_test6output20xml_report_formatterE, i64 16), ptr %18, align 8, !tbaa !14
   %19 = load atomic i8, ptr @_ZGVZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEvE8the_inst acquire, align 8
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %_ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit.i1, !prof !3
@@ -747,7 +747,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implC2Ev() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implE, i64 16), ptr @_ZZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEvE8the_inst, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implE, i64 16), ptr @_ZZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEvE8the_inst, align 8, !tbaa !14
   store ptr @_ZSt4cerr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEvE8the_inst, i64 8), align 8, !tbaa !13
   %1 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
   %2 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !14
@@ -773,7 +773,7 @@ define internal fastcc void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_1
           to label %16 unwind label %19
 
 16:                                               ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost9unit_test6output22plain_report_formatterE, i64 16), ptr %15, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost9unit_test6output22plain_report_formatterE, i64 16), ptr %15, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %17, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -790,7 +790,7 @@ define internal fastcc void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implE, i64 16), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implE, i64 16), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = icmp eq ptr %3, null
@@ -943,7 +943,7 @@ define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121resul
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implE, i64 16), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implE, i64 16), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = icmp eq ptr %3, null

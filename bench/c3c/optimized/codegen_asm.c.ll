@@ -39,7 +39,7 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   tail call void @scratch_buffer_clear() #3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   switch i32 %4, label %93 [
     i32 32, label %5
     i32 31, label %5

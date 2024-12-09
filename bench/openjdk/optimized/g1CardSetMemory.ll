@@ -117,7 +117,7 @@ declare noundef i32 @_ZNK16G1MonotonicArena12num_segmentsEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1CardSetMemoryManagerC2EP22G1CardSetConfigurationP24G1MonotonicArenaFreePool(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2560, i8 noundef zeroext 5, i32 noundef 0) #4
@@ -161,7 +161,7 @@ declare noundef ptr @_ZN22G1CardSetConfiguration24mem_object_alloc_optionsEj(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1CardSetMemoryManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
@@ -188,7 +188,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1CardSetMemoryManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 

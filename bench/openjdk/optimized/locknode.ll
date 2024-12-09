@@ -50,7 +50,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11BoxLockNode
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK11BoxLockNode11out_RegMaskEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(156) %0) unnamed_addr #1 align 2 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 32), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 32), align 8
   ret ptr %2
 }
 
@@ -70,7 +70,7 @@ define hidden void @_ZN11BoxLockNodeC2Ei(ptr noundef nonnull align 8 dereference
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 736
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %10) #8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11BoxLockNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11BoxLockNode, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %1, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56

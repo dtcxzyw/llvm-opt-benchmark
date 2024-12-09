@@ -1318,7 +1318,7 @@ cleanup_return:                                   ; preds = %if.end46, %while.en
 
 cleanup_return.thread:                            ; preds = %if.end46
   %call51 = tail call ptr @strbuf_realpath(ptr noundef nonnull @read_gitfile_gently.realpath, ptr noundef %dir.1, i32 noundef 1) #21
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @read_gitfile_gently.realpath, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @read_gitfile_gently.realpath, i64 16), align 8
   %tobool52.not36 = icmp eq ptr %return_error_code, null
   br i1 %tobool52.not36, label %if.end57.thread, label %if.end57.thread62
 
@@ -2692,7 +2692,7 @@ sw.bb:                                            ; preds = %if.end4
 sw.bb7:                                           ; preds = %if.end4
   %len = getelementptr inbounds nuw i8, ptr %dir, i64 8
   %6 = load i64, ptr %len, align 8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
   %cmp = icmp ult i64 %6, %7
   br i1 %cmp, label %land.lhs.true, label %if.end14
 
@@ -2733,7 +2733,7 @@ if.end.i:                                         ; preds = %if.end14
 if.then4.i:                                       ; preds = %if.end.i
   %sext55 = shl i64 %10, 32
   %conv.i = ashr exact i64 %sext55, 32
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
   %cmp.not.i = icmp eq i64 %13, %conv.i
   br i1 %cmp.not.i, label %if.end10.i, label %land.lhs.true.i
 
@@ -2749,7 +2749,7 @@ if.then8.i:                                       ; preds = %land.lhs.true.i
 if.end10.i:                                       ; preds = %if.then8.i, %land.lhs.true.i, %if.then4.i
   %gitdir.addr.0.i = phi ptr [ %11, %land.lhs.true.i ], [ %call9.i, %if.then8.i ], [ %11, %if.then4.i ]
   %to_free.0.i = phi ptr [ null, %land.lhs.true.i ], [ %call9.i, %if.then8.i ], [ null, %if.then4.i ]
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %call11.i = call i32 @chdir(ptr noundef %14) #21
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %if.end15.i, label %if.then13.i
@@ -2772,11 +2772,11 @@ if.end17.i:                                       ; preds = %if.end.i
 if.then20.i:                                      ; preds = %if.end17.i
   %sext54 = shl i64 %10, 32
   %conv21.i = ashr exact i64 %sext54, 32
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
   %cmp23.i = icmp ne i64 %16, %conv21.i
   %conv24.i = zext i1 %cmp23.i to i32
   call void @set_git_dir(ptr noundef %11, i32 noundef %conv24.i) #21
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %call26.i = call i32 @chdir(ptr noundef %17) #21
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %sw.epilog, label %if.then28.i
@@ -2801,12 +2801,12 @@ if.end35.i:                                       ; preds = %if.then34.i, %if.en
   store i32 1, ptr @inside_work_tree, align 4
   %sext52 = shl i64 %10, 32
   %conv36.i = ashr exact i64 %sext52, 32
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
   %cmp38.not.i = icmp ugt i64 %18, %conv36.i
   br i1 %cmp38.not.i, label %if.end41.i, label %sw.epilog
 
 if.end41.i:                                       ; preds = %if.end35.i
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %.val.i = load i8, ptr %19, align 1
   %cmp.i.i22.i = icmp eq i8 %.val.i, 47
   %conv.i.i23.i = zext i1 %cmp.i.i22.i to i32
@@ -2838,7 +2838,7 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %if.en
   %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %23, i64 %24
   store i8 0, ptr %arrayidx3.i.i, align 1
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %sext53 = shl i64 %spec.select.i, 32
   %idx.ext.i = ashr exact i64 %sext53, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %25, i64 %idx.ext.i
@@ -2847,7 +2847,7 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %if.en
 sw.bb18:                                          ; preds = %if.end4
   %len19 = getelementptr inbounds nuw i8, ptr %dir, i64 8
   %26 = load i64, ptr %len19, align 8
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
   %cmp20 = icmp ult i64 %26, %27
   br i1 %cmp20, label %land.lhs.true22, label %if.end29
 
@@ -2887,19 +2887,19 @@ if.end.i23:                                       ; preds = %if.end29
 if.then5.i:                                       ; preds = %if.end.i23
   %sext51 = shl i64 %30, 32
   %conv.i33 = ashr exact i64 %sext51, 32
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
   %cmp.i = icmp eq i64 %32, %conv.i33
   br i1 %cmp.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then5.i
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %call8.i = call ptr @xmemdupz(ptr noundef %33, i64 noundef %conv.i33) #21
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.then5.i
   %cond.i = phi ptr [ %call8.i, %cond.false.i ], [ @.str.21, %if.then5.i ]
   store ptr %cond.i, ptr @setup_bare_git_dir.gitdir, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %call10.i = call i32 @chdir(ptr noundef %34) #21
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %if.end14.i, label %if.then12.i
@@ -2919,12 +2919,12 @@ if.end16.i:                                       ; preds = %if.end.i23
   store i32 0, ptr @inside_work_tree, align 4
   %sext = shl i64 %30, 32
   %conv17.i = ashr exact i64 %sext, 32
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 8), align 8
   %cmp19.not.i = icmp eq i64 %36, %conv17.i
   br i1 %cmp19.not.i, label %if.else.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end16.i
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %call23.i = call i32 @chdir(ptr noundef %37) #21
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %if.end27.i, label %if.then25.i
@@ -2935,7 +2935,7 @@ if.then25.i:                                      ; preds = %if.then21.i
   unreachable
 
 if.end27.i:                                       ; preds = %if.then21.i
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %.val.i28 = load i8, ptr %38, align 1
   %cmp.i.i.i = icmp eq i8 %.val.i28, 47
   %conv.i.i.i = zext i1 %cmp.i.i.i to i32
@@ -2958,7 +2958,7 @@ if.end.i.i:                                       ; preds = %if.end27.i
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %arrayidx.i.i30 = getelementptr inbounds nuw i8, ptr %38, i64 %conv36.i29
   store i8 0, ptr %arrayidx.i.i30, align 1
-  %.pre.i31 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %.pre.i31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.end.i.i
@@ -3304,7 +3304,7 @@ if.then40:                                        ; preds = %if.end37
 
 if.end42:                                         ; preds = %if.end37
   %call43 = tail call ptr @xgetcwd() #21
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %call44 = tail call i32 @chdir(ptr noundef %4) #21
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.end48, label %if.then46
@@ -3335,7 +3335,7 @@ if.else54:                                        ; preds = %if.else50
 
 if.end58:                                         ; preds = %if.then31, %if.end48, %if.else54, %if.then20
   %call59 = tail call ptr @get_git_work_tree() #21
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %call61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %call59) #20
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %if.then63, label %if.end64
@@ -3390,7 +3390,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %arrayidx3.i = getelementptr inbounds i8, ptr %10, i64 %11
   store i8 0, ptr %arrayidx3.i, align 1
   tail call void @free(ptr noundef %gitfile.0) #21
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @setup_git_directory_gently.cwd, i64 16), align 8
   %idx.ext = zext nneg i32 %call66 to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %12, i64 %idx.ext
   br label %return

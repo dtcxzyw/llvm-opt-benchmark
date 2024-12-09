@@ -60,7 +60,7 @@ if.then.i.i.i:
   store i32 0, ptr %m_capacity.i.i.i, align 8
   %m_hasAabb.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %m_hasAabb.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14btTriangleMesh, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14btTriangleMesh, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -1333,7 +1333,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btTriangleMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14btTriangleMesh, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14btTriangleMesh, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

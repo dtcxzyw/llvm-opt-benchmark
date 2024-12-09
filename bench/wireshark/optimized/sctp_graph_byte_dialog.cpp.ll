@@ -106,9 +106,9 @@ define void @_ZN19SCTPGraphByteDialogC2EP7QWidgetPK16_sctp_assoc_infoP13_capture
   %11 = alloca %class.QMessageBox, align 8
   %12 = alloca %class.QString, align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 488), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 488), ptr %13, align 8
   %14 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
           to label %15 unwind label %77
 
@@ -786,7 +786,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78:    ; preds = %109
   %117 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 0, ptr %118, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 12
   store i32 428, ptr %119, align 4
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
@@ -1211,9 +1211,9 @@ declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19SCTPGraphByteDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

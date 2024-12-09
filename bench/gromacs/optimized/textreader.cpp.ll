@@ -383,7 +383,7 @@ define void @_ZN3gmx10TextReaderC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture
   store i32 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %23, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx13TextInputFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx13TextInputFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %4, ptr %24, align 8
   store ptr %4, ptr %3, align 8
@@ -588,7 +588,7 @@ define void @_ZN3gmx10TextReaderC2EPNS_15TextInputStreamE(ptr nocapture noundef 
   store i32 1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN3gmx15TextInputStreamENS0_9no_deleteIS1_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN3gmx15TextInputStreamENS0_9no_deleteIS1_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %18, align 8
   store ptr %1, ptr %3, align 8

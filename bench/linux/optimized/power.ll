@@ -182,7 +182,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr nocaptu
   br i1 %.not21, label %.thread14, label %56
 
 56:                                               ; preds = %54
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %58 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %57, i32 noundef 3520, i64 noundef 24) #11
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.thread14, label %60
@@ -270,7 +270,7 @@ define dso_local ptr @acpi_add_power_resource(ptr noundef %0) local_unnamed_addr
 
 8:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !11
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %10 = call noalias align 8 dereferenceable_or_null(1488) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 1488) #11
   %11 = icmp eq ptr %10, null
   br i1 %11, label %79, label %12
@@ -449,7 +449,7 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_device_power_add_dependent(
   br i1 %23, label %.loopexit9, label %16, !llvm.loop !13
 
 24:                                               ; preds = %16
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %26 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 24) #11
   %27 = icmp eq ptr %26, null
   br i1 %27, label %35, label %28
@@ -1546,8 +1546,8 @@ thread-pre-split:                                 ; preds = %8
 
 .loopexit:                                        ; preds = %thread-pre-split, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1408
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_power_resource_list, i64 8), align 8
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @acpi_power_resource_list, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_power_resource_list, i64 8), align 8
+  store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @acpi_power_resource_list, i64 8), align 8
   store ptr @acpi_power_resource_list, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   store ptr %19, ptr %20, align 8
@@ -1660,7 +1660,7 @@ define dso_local void @acpi_turn_off_unused_power_resources() local_unnamed_addr
 
 3:                                                ; preds = %0
   tail call void @mutex_lock(ptr noundef nonnull @power_resource_list_lock) #10
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_power_resource_list, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_power_resource_list, i64 8), align 8
   %5 = icmp eq ptr %4, @acpi_power_resource_list
   br i1 %5, label %.loopexit, label %.preheader
 

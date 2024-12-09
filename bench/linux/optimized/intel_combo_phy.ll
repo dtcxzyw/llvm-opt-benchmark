@@ -191,7 +191,7 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
   br label %29
 
 29:                                               ; preds = %28, %27, %26, %25, %23, %15
-  %30 = phi ptr [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 96), %28 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 72), %27 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 48), %26 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 24), %25 ], [ @icl_procmon_values, %15 ], [ @icl_procmon_values, %23 ]
+  %30 = phi ptr [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 96), %28 ], [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 72), %27 ], [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 48), %26 ], [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 24), %25 ], [ @icl_procmon_values, %15 ], [ @icl_procmon_values, %23 ]
   br i1 %4, label %33, label %31
 
 31:                                               ; preds = %29
@@ -341,7 +341,7 @@ define dso_local void @intel_combo_phy_init(ptr noundef %0) local_unnamed_addr #
   br label %112
 
 112:                                              ; preds = %111, %110, %109, %108, %106, %101
-  %113 = phi ptr [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 96), %111 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 72), %110 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 48), %109 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 24), %108 ], [ @icl_procmon_values, %101 ], [ @icl_procmon_values, %106 ]
+  %113 = phi ptr [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 96), %111 ], [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 72), %110 ], [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 48), %109 ], [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 24), %108 ], [ @icl_procmon_values, %101 ], [ @icl_procmon_values, %106 ]
   %114 = add i32 %17, 260
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = load i32, ptr %115, align 8
@@ -679,7 +679,7 @@ define internal fastcc zeroext i1 @icl_combo_phy_verify_state(ptr noundef %0, i3
   br label %94
 
 94:                                               ; preds = %93, %92, %91, %90, %88, %._crit_edge
-  %95 = phi ptr [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 96), %93 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 72), %92 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 48), %91 ], [ getelementptr inbounds (i8, ptr @icl_procmon_values, i64 24), %90 ], [ @icl_procmon_values, %._crit_edge ], [ @icl_procmon_values, %88 ]
+  %95 = phi ptr [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 96), %93 ], [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 72), %92 ], [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 48), %91 ], [ getelementptr inbounds nuw (i8, ptr @icl_procmon_values, i64 24), %90 ], [ @icl_procmon_values, %._crit_edge ], [ @icl_procmon_values, %88 ]
   %96 = add i32 %41, 260
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load i32, ptr %97, align 8

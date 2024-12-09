@@ -358,7 +358,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN22G1CodeRootSetHashTable8conta
   br i1 %8, label %9, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i
 
 9:                                                ; preds = %2
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %11 = or i64 %10, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i
 
@@ -473,7 +473,7 @@ define hidden noundef range(i64 296, 289) i64 @_ZN13G1CodeRootSet8mem_sizeEv(ptr
   br i1 %8, label %9, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
 9:                                                ; preds = %1
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %11 = or i64 %10, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
@@ -568,13 +568,13 @@ _ZN22G1CodeRootSetHashTable20iterate_at_safepointEP14NMethodClosure.exit: ; pred
 define hidden void @_ZN13G1CodeRootSet5cleanEP12G1HeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.CleanCallback, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13CleanCallback28PointsIntoHRDetectionClosureE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN13CleanCallback28PointsIntoHRDetectionClosureE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -649,7 +649,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE15try_bulk_d
   br i1 %36, label %37, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
 37:                                               ; preds = %28
-  %38 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %38 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %39 = or i64 %38, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
@@ -826,7 +826,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19ConcurrentHashTableI28G1Code
   br i1 %35, label %36, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i
 
 36:                                               ; preds = %32
-  %37 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %37 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %38 = or i64 %37, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i
 
@@ -1003,7 +1003,7 @@ define linkonce_odr hidden noundef ptr @_ZN19ConcurrentHashTableI28G1CodeRootSet
   br i1 %11, label %12, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i
 
 12:                                               ; preds = %8
-  %13 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %13 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %14 = or i64 %13, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i
 
@@ -1764,7 +1764,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE15try_bulk_d
   br i1 %36, label %37, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
 37:                                               ; preds = %28
-  %38 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %38 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %39 = or i64 %38, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
@@ -1834,7 +1834,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI28G1CodeRootSetHashTab
   br i1 %14, label %15, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
 
 15:                                               ; preds = %7
-  %16 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %16 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %17 = or i64 %16, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
 
@@ -2181,7 +2181,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats
   br i1 %152, label %153, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46
 
 153:                                              ; preds = %._crit_edge
-  %154 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %154 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %155 = or i64 %154, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46
 
@@ -2587,7 +2587,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE15try_bulk_d
   br i1 %36, label %37, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
 37:                                               ; preds = %28
-  %38 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %38 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %39 = or i64 %38, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
 
@@ -2654,7 +2654,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI28G1CodeRootSetHashTab
   br i1 %14, label %15, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
 
 15:                                               ; preds = %7
-  %16 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %16 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %17 = or i64 %16, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
 
@@ -2956,7 +2956,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats
   br i1 %137, label %138, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43
 
 138:                                              ; preds = %._crit_edge
-  %139 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %139 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %140 = or i64 %139, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit43
 
@@ -3134,7 +3134,7 @@ define linkonce_odr hidden void @_ZN13CleanCallback28PointsIntoHRDetectionClosur
   %7 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = zext i32 %5 to i64
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %11 = zext nneg i32 %10 to i64
   %12 = shl i64 %9, %11
   %13 = add i64 %12, %8
@@ -3172,7 +3172,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI28G1CodeRootSetHashTab
   br i1 %14, label %15, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
 
 15:                                               ; preds = %7
-  %16 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %16 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %17 = or i64 %16, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit
 
@@ -3521,7 +3521,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE17safe_stats
   br i1 %155, label %156, label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46
 
 156:                                              ; preds = %._crit_edge
-  %157 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %157 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %158 = or i64 %157, 1
   br label %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit46
 

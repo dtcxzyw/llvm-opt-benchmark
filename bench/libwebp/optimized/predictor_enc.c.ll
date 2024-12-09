@@ -532,14 +532,14 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
 264:                                              ; preds = %.lr.ph89.split.i
   %265 = load ptr, ptr @VP8LPredictorsSub, align 16
   call void %265(ptr noundef %.07288.i, ptr noundef null, i32 noundef 1, ptr noundef %255) #8
-  %266 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 8), align 8
+  %266 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 8), align 8
   call void %266(ptr noundef nonnull %263, ptr noundef null, i32 noundef %19, ptr noundef nonnull %262) #8
   br label %PredictBatch.exit.i
 
 267:                                              ; preds = %.lr.ph89.split.i
-  %268 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 16), align 16
+  %268 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 16), align 16
   call void %268(ptr noundef %.07288.i, ptr noundef %.07387.i, i32 noundef 1, ptr noundef %255) #8
-  %269 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 88), align 8
+  %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 88), align 8
   %270 = getelementptr inbounds nuw i8, ptr %.07387.i, i64 4
   call void %269(ptr noundef nonnull %263, ptr noundef nonnull %270, i32 noundef %19, ptr noundef nonnull %262) #8
   br label %PredictBatch.exit.i
@@ -1393,7 +1393,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   br label %23
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 16), align 16
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 16), align 16
   tail call void %22(ptr noundef %3, ptr noundef %2, i32 noundef 1, ptr noundef %12) #8
   br label %23
 
@@ -1410,7 +1410,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 8), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsSub, i64 8), align 8
   %30 = sext i32 %.021.i to i64
   %31 = getelementptr inbounds i32, ptr %3, i64 %30
   tail call void %29(ptr noundef nonnull %31, ptr noundef null, i32 noundef %.022.i, ptr noundef %.0.i) #8

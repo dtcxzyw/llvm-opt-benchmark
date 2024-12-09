@@ -332,7 +332,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp14.i)
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %formatted) #15
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 120), i32 noundef 95, ptr noundef nonnull @.str.5, ptr noundef %call)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 120), i32 noundef 95, ptr noundef nonnull @.str.5, ptr noundef %call)
           to label %do.end unwind label %lpad
 
 do.end:                                           ; preds = %if.end

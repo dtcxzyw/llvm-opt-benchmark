@@ -317,7 +317,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define void @Dau_ParseFormulaTest() local_unnamed_addr #1 {
-  %1 = tail call i64 @Dau_ParseFormula_rec(ptr noundef nonnull @.str, ptr noundef nonnull readonly getelementptr inbounds (i8, ptr @.str, i64 37))
+  %1 = tail call i64 @Dau_ParseFormula_rec(ptr noundef nonnull @.str, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @.str, i64 37))
   ret void
 }
 
@@ -539,7 +539,7 @@ define noundef ptr @Dau_ParseFormulaAigTest() local_unnamed_addr #4 {
   br i1 %exitcond.not, label %5, label %3, !llvm.loop !8
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @Dau_ParseFormulaAig_rec(ptr noundef nonnull %1, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 37))
+  %6 = tail call i32 @Dau_ParseFormulaAig_rec(ptr noundef nonnull %1, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 37))
   tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %1, i32 noundef %6)
   ret ptr %1
 }

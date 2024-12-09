@@ -6962,7 +6962,7 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 define linkonce_odr hidden void @_ZN1q8mam_implC2ERN3euf6solverERNS_6ematchEb(ptr noundef nonnull align 8 dereferenceable(98912) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr noundef nonnull align 8 dereferenceable(2672) %ematch, i1 noundef zeroext %use_filters) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %frombool = zext i1 %use_filters to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q8mam_implE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q8mam_implE, i64 16), ptr %this, align 8
   %ctx2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %ctx, ptr %ctx2, align 8
   %m_egraph = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7255,7 +7255,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -7333,7 +7333,7 @@ invoke.cont4:                                     ; preds = %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #20
   ret void
@@ -8217,7 +8217,7 @@ _ZN7svectorIajED2Ev.exit:                         ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN1q8mam_implD2Ev(ptr noundef nonnull align 8 dereferenceable(98912) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q8mam_implE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q8mam_implE, i64 16), ptr %this, align 8
   %m_todo = getelementptr inbounds nuw i8, ptr %this, i64 98880
   %0 = load ptr, ptr %m_todo, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -8576,7 +8576,7 @@ _ZN6vectorISt4pairIP10quantifierP3appELb0EjE9push_backEOS5_.exit: ; preds = %lor
   %m_trail.i = getelementptr inbounds nuw i8, ptr %12, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %12, i64 2208
   %call.i.i.i25 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15push_back_trailISt4pairIP10quantifierP3appELb0EE, i64 16), ptr %call.i.i.i25, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15push_back_trailISt4pairIP10quantifierP3appELb0EE, i64 16), ptr %call.i.i.i25, align 8
   %m_vector.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i25, i64 8
   store ptr %m_new_patterns, ptr %m_vector.i.i.i, align 8
   %13 = load ptr, ptr %m_trail.i, align 8
@@ -8659,7 +8659,7 @@ if.then.i:                                        ; preds = %if.then
   store ptr %m_lbls.i.i, ptr %m_value.i.i.i.i.i, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i3.i, i64 16
   store i64 %2, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i3.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i3.i, align 8
   %5 = load ptr, ptr %m_trail.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
@@ -8760,7 +8760,7 @@ if.then.i21:                                      ; preds = %if.then9
   store ptr %m_lbls.i.i15, ptr %m_value.i.i.i.i.i26, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %call.i.i.i3.i25, i64 16
   store i64 %21, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i3.i25, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i3.i25, align 8
   %24 = load ptr, ptr %m_trail.i.i23, align 8
   %cmp.i.i.i.i28 = icmp eq ptr %24, null
   br i1 %cmp.i.i.i.i28, label %if.then.i.i.i.i39, label %lor.lhs.false.i.i.i.i29
@@ -8853,7 +8853,7 @@ if.then.i60:                                      ; preds = %for.body.i
   store ptr %m_plbls.i.i, ptr %m_value.i.i.i.i.i63, align 8
   %ref.tmp6.sroa.4.8.m_value.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i7.i, i64 16
   store i64 %39, ptr %ref.tmp6.sroa.4.8.m_value.i.i.i.i.sroa_idx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i7.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i7.i, align 8
   %41 = load ptr, ptr %m_trail.i.i61, align 8
   %cmp.i.i.i.i64 = icmp eq ptr %41, null
   br i1 %cmp.i.i.i.i64, label %if.then.i.i.i.i75, label %lor.lhs.false.i.i.i.i65
@@ -9129,7 +9129,7 @@ call.i.i.i.noexc:                                 ; preds = %invoke.cont9
   store ptr %m_lbls.i6, ptr %m_value.i.i.i.i, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i7, i64 16
   store i64 %5, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i7, align 8
   %6 = load ptr, ptr %m_trail.i, align 8
   %cmp.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
@@ -9175,7 +9175,7 @@ call.i.i.i.noexc27:                               ; preds = %invoke.cont14
   store ptr %m_plbls.i5, ptr %m_value.i.i.i.i12, align 8
   %ref.tmp13.sroa.4.8.m_value.i.i.i.i12.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i28, i64 16
   store i64 %14, ptr %ref.tmp13.sroa.4.8.m_value.i.i.i.i12.sroa_idx, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i28, align 8
   %15 = load ptr, ptr %m_trail.i10, align 8
   %cmp.i.i.i14 = icmp eq ptr %15, null
   br i1 %cmp.i.i.i14, label %if.then.i.i.i23, label %lor.lhs.false.i.i.i15
@@ -9589,7 +9589,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -9885,7 +9885,7 @@ if.then:                                          ; preds = %_ZN6vectorIPN1q9cod
   %m_trail.i = getelementptr inbounds nuw i8, ptr %17, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %17, i64 2208
   %call.i.i.i16 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q13code_tree_map13mk_tree_trailE, i64 16), ptr %call.i.i.i16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q13code_tree_map13mk_tree_trailE, i64 16), ptr %call.i.i.i16, align 8
   %m_trees.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i16, i64 8
   store ptr %m_trees, ptr %m_trees.i.i.i, align 8
   %ref.tmp10.sroa.3.8.m_trees.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i16, i64 16
@@ -10119,7 +10119,7 @@ if.else.i:                                        ; preds = %if.end21
   %m_trail.i.i = getelementptr inbounds nuw i8, ptr %24, i64 2192
   %m_region.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 2208
   %call.i.i.i10.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i10.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i10.i, align 8
   %m_ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i10.i, i64 8
   store ptr %arrayidx3.i, ptr %m_ptr.i.i.i.i, align 8
   %25 = load ptr, ptr %m_trail.i.i, align 8
@@ -10179,7 +10179,7 @@ if.else.i51:                                      ; preds = %if.end24
   %m_trail.i.i53 = getelementptr inbounds nuw i8, ptr %34, i64 2192
   %m_region.i.i.i54 = getelementptr inbounds nuw i8, ptr %34, i64 2208
   %call.i.i.i10.i55 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i54, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i10.i55, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i10.i55, align 8
   %m_ptr.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %call.i.i.i10.i55, i64 8
   store ptr %arrayidx3.i48, ptr %m_ptr.i.i.i.i56, align 8
   %35 = load ptr, ptr %m_trail.i.i53, align 8
@@ -10271,7 +10271,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -10591,7 +10591,7 @@ if.end:                                           ; preds = %_ZN6vectorIbLb0EjE7
   %m_trail.i = getelementptr inbounds nuw i8, ptr %8, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %8, i64 2208
   %call.i.i.i10 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19set_bitvector_trail, i64 16), ptr %call.i.i.i10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19set_bitvector_trail, i64 16), ptr %call.i.i.i10, align 8
   %m_vector.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i10, i64 8
   store ptr %m_is_plbl, ptr %m_vector.i.i.i, align 8
   %ref.tmp4.sroa.3.8.m_vector.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i10, i64 16
@@ -10696,7 +10696,7 @@ if.then.i:                                        ; preds = %for.body.i
   store ptr %m_plbls.i.i, ptr %m_value.i.i.i.i.i, align 8
   %ref.tmp6.sroa.4.8.m_value.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i7.i, i64 16
   store i64 %28, ptr %ref.tmp6.sroa.4.8.m_value.i.i.i.i.sroa_idx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i7.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i7.i, align 8
   %30 = load ptr, ptr %m_trail.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %30, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
@@ -10944,7 +10944,7 @@ if.end:                                           ; preds = %_ZN6vectorIbLb0EjE7
   %m_trail.i = getelementptr inbounds nuw i8, ptr %8, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %8, i64 2208
   %call.i.i.i10 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19set_bitvector_trail, i64 16), ptr %call.i.i.i10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19set_bitvector_trail, i64 16), ptr %call.i.i.i10, align 8
   %m_vector.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i10, i64 8
   store ptr %m_is_clbl, ptr %m_vector.i.i.i, align 8
   %ref.tmp4.sroa.3.8.m_vector.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i10, i64 16
@@ -11034,7 +11034,7 @@ if.then.i:                                        ; preds = %if.then12
   store ptr %m_lbls.i.i, ptr %m_value.i.i.i.i.i, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i3.i, i64 16
   store i64 %26, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i3.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i3.i, align 8
   %27 = load ptr, ptr %m_trail.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
@@ -11148,7 +11148,7 @@ if.else:                                          ; preds = %if.then
   %m_trail.i = getelementptr inbounds nuw i8, ptr %11, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2208
   %call.i.i.i23 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i23, align 8
   %m_ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i23, i64 8
   store ptr %arrayidx4, ptr %m_ptr.i.i.i, align 8
   %12 = load ptr, ptr %m_trail.i, align 8
@@ -11223,7 +11223,7 @@ if.else64:                                        ; preds = %if.end44
   %m_trail.i25 = getelementptr inbounds nuw i8, ptr %21, i64 2192
   %m_region.i.i26 = getelementptr inbounds nuw i8, ptr %21, i64 2208
   %call.i.i.i43 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i26, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i43, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i43, align 8
   %m_ptr.i.i.i27 = getelementptr inbounds nuw i8, ptr %call.i.i.i43, i64 8
   store ptr %arrayidx49, ptr %m_ptr.i.i.i27, align 8
   %22 = load ptr, ptr %m_trail.i25, align 8
@@ -11265,7 +11265,7 @@ invoke.cont74:                                    ; preds = %if.then.i.i.i38, %l
   %m_trail.i47 = getelementptr inbounds nuw i8, ptr %29, i64 2192
   %m_region.i.i48 = getelementptr inbounds nuw i8, ptr %29, i64 2208
   %call.i.i.i65 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i48, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i65, align 8
   %m_ptr.i.i.i49 = getelementptr inbounds nuw i8, ptr %call.i.i.i65, i64 8
   store ptr %second82, ptr %m_ptr.i.i.i49, align 8
   %30 = load ptr, ptr %m_trail.i47, align 8
@@ -11383,7 +11383,7 @@ if.else:                                          ; preds = %if.then16
   %m_first_child.le = getelementptr inbounds nuw i8, ptr %t.addr.078, i64 48
   %ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %ctx, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %ref.tmp, align 8
   %m_ptr.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr %m_first_child.le, ptr %m_ptr.i, align 8
   call void @_ZN3euf6solver4pushI13set_ptr_trailIN1q9path_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9136) %12, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
@@ -11411,7 +11411,7 @@ if.then26:                                        ; preds = %if.then25
 if.else28:                                        ; preds = %if.then25
   %ctx29 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load ptr, ptr %ctx29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9code_treeEE, i64 16), ptr %ref.tmp30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9code_treeEE, i64 16), ptr %ref.tmp30, align 8
   %m_ptr.i46 = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
   store ptr %m_code, ptr %m_ptr.i46, align 8
   call void @_ZN3euf6solver4pushI13set_ptr_trailIN1q9code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9136) %16, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp30)
@@ -11421,7 +11421,7 @@ if.else28:                                        ; preds = %if.then25
   %call.i = call noundef ptr @_ZN1q8compiler7mk_treeEP10quantifierP3appjb(ptr noundef nonnull align 8 dereferenceable(176) %m_compiler.i47, ptr noundef %qa, ptr noundef %mp, i32 noundef %17, i1 noundef zeroext true)
   store ptr %call.i, ptr %m_code, align 8
   %18 = load ptr, ptr %ctx29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13new_obj_trailIN1q9code_treeEE, i64 16), ptr %ref.tmp38, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13new_obj_trailIN1q9code_treeEE, i64 16), ptr %ref.tmp38, align 8
   %m_obj.i = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
   store ptr %call.i, ptr %m_obj.i, align 8
   call void @_ZN3euf6solver4pushI13new_obj_trailIN1q9code_treeEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9136) %18, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38)
@@ -11443,7 +11443,7 @@ while.end:                                        ; preds = %tailrecurse, %if.en
   %m_trail.i = getelementptr inbounds nuw i8, ptr %20, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %20, i64 2208
   %call.i.i.i49 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i49, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i.i49, align 8
   %m_ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i49, i64 8
   store ptr %m_sibling52, ptr %m_ptr.i.i.i, align 8
   %21 = load ptr, ptr %m_trail.i, align 8
@@ -11487,7 +11487,7 @@ if.then58:                                        ; preds = %invoke.cont54
   %m_trail.i50 = getelementptr inbounds nuw i8, ptr %28, i64 2192
   %m_region.i.i51 = getelementptr inbounds nuw i8, ptr %28, i64 2208
   %call.i.i.i66 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i51, i64 noundef 24)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11value_trailI10approx_setE, i64 16), ptr %call.i.i.i66, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11value_trailI10approx_setE, i64 16), ptr %call.i.i.i66, align 8
   %m_value.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i66, i64 8
   store ptr %m_filter, ptr %m_value.i.i.i, align 8
   %ref.tmp60.sroa.3.8.m_value.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i66, i64 16
@@ -11543,7 +11543,7 @@ entry:
   %m_trail = getelementptr inbounds nuw i8, ptr %this, i64 2192
   %m_region.i = getelementptr inbounds nuw i8, ptr %this, i64 2208
   %call.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %call.i.i, align 8
   %m_ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %m_ptr2.i.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load ptr, ptr %m_ptr2.i.i, align 8
@@ -11653,7 +11653,7 @@ while.end:                                        ; preds = %if.end
   %m_trail.i = getelementptr inbounds nuw i8, ptr %9, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %9, i64 2208
   %call.i.i.i14 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13new_obj_trailIN1q9code_treeEE, i64 16), ptr %call.i.i.i14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13new_obj_trailIN1q9code_treeEE, i64 16), ptr %call.i.i.i14, align 8
   %m_obj.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i14, i64 8
   store ptr %call.i13, ptr %m_obj.i.i.i, align 8
   %10 = load ptr, ptr %m_trail.i, align 8
@@ -11695,7 +11695,7 @@ entry:
   %m_trail = getelementptr inbounds nuw i8, ptr %this, i64 2192
   %m_region.i = getelementptr inbounds nuw i8, ptr %this, i64 2208
   %call.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13set_ptr_trailIN1q9code_treeEE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13set_ptr_trailIN1q9code_treeEE, i64 16), ptr %call.i.i, align 8
   %m_ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %m_ptr2.i.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load ptr, ptr %m_ptr2.i.i, align 8
@@ -11745,7 +11745,7 @@ entry:
   %m_trail = getelementptr inbounds nuw i8, ptr %this, i64 2192
   %m_region.i = getelementptr inbounds nuw i8, ptr %this, i64 2208
   %call.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13new_obj_trailIN1q9code_treeEE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13new_obj_trailIN1q9code_treeEE, i64 16), ptr %call.i.i, align 8
   %m_obj.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %m_obj2.i.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load ptr, ptr %m_obj2.i.i, align 8
@@ -11828,7 +11828,7 @@ if.then7:                                         ; preds = %if.end
   store ptr %m_num_regs.i, ptr %m_value.i.i.i.i.i, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i1.i, i64 16
   store i32 %5, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailIjEE, i64 16), ptr %call.i.i.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailIjEE, i64 16), ptr %call.i.i.i1.i, align 8
   %6 = load ptr, ptr %m_trail.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
@@ -11889,7 +11889,7 @@ if.then15:                                        ; preds = %if.then13
   store ptr %m_num_choices, ptr %m_value.i.i.i.i.i17, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i1.i16, i64 16
   store i32 %16, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailIjEE, i64 16), ptr %call.i.i.i1.i16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailIjEE, i64 16), ptr %call.i.i.i1.i16, align 8
   %19 = load ptr, ptr %m_trail.i.i14, align 8
   %cmp.i.i.i.i19 = icmp eq ptr %19, null
   br i1 %cmp.i.i.i.i19, label %if.then.i.i.i.i28, label %lor.lhs.false.i.i.i.i20
@@ -12074,7 +12074,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i33, 
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -12603,7 +12603,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i934,
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -12711,7 +12711,7 @@ if.then17.i949:                                   ; preds = %lor.lhs.false.i958,
           to label %invoke.cont.i954 unwind label %cleanup.action.i951
 
 invoke.cont.i954:                                 ; preds = %if.then17.i949
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i950, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i950, align 8
   %m_msg.i.i955 = getelementptr inbounds nuw i8, ptr %exception.i950, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i955, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i938) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i950, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -12867,7 +12867,7 @@ call.i1331.noexc:                                 ; preds = %if.then17.i981
           to label %.noexc unwind label %cleanup.action.i983
 
 .noexc:                                           ; preds = %call.i1331.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i970, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 42))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i970, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.42, i64 42))
           to label %invoke.cont.i986 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -12877,7 +12877,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %cleanup.action.i983.body
 
 invoke.cont.i986:                                 ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i982, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i982, align 8
   %m_msg.i.i987 = getelementptr inbounds nuw i8, ptr %exception.i982, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i987, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i970) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i982, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -12986,7 +12986,7 @@ if.then17.i1013:                                  ; preds = %lor.lhs.false.i1022
           to label %invoke.cont.i1018 unwind label %cleanup.action.i1015
 
 invoke.cont.i1018:                                ; preds = %if.then17.i1013
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1014, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1014, align 8
   %m_msg.i.i1019 = getelementptr inbounds nuw i8, ptr %exception.i1014, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1019, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1002) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1014, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -13088,7 +13088,7 @@ if.then17.i1045:                                  ; preds = %lor.lhs.false.i1054
           to label %invoke.cont.i1050 unwind label %cleanup.action.i1047
 
 invoke.cont.i1050:                                ; preds = %if.then17.i1045
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1046, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1046, align 8
   %m_msg.i.i1051 = getelementptr inbounds nuw i8, ptr %exception.i1046, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1051, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1034) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1046, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -13258,7 +13258,7 @@ if.then17.i1078:                                  ; preds = %lor.lhs.false.i1087
           to label %invoke.cont.i1083 unwind label %cleanup.action.i1080
 
 invoke.cont.i1083:                                ; preds = %if.then17.i1078
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1079, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1079, align 8
   %m_msg.i.i1084 = getelementptr inbounds nuw i8, ptr %exception.i1079, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1084, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1067) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1079, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -13511,7 +13511,7 @@ if.then17.i1111:                                  ; preds = %lor.lhs.false.i1120
           to label %invoke.cont.i1116 unwind label %cleanup.action.i1113
 
 invoke.cont.i1116:                                ; preds = %if.then17.i1111
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1112, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1112, align 8
   %m_msg.i.i1117 = getelementptr inbounds nuw i8, ptr %exception.i1112, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1117, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1100) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1112, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -13735,7 +13735,7 @@ if.then17.i1144:                                  ; preds = %lor.lhs.false.i1153
           to label %invoke.cont.i1149 unwind label %cleanup.action.i1146
 
 invoke.cont.i1149:                                ; preds = %if.then17.i1144
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1145, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1145, align 8
   %m_msg.i.i1150 = getelementptr inbounds nuw i8, ptr %exception.i1145, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1150, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1133) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1145, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -13885,7 +13885,7 @@ if.then17.i1177:                                  ; preds = %lor.lhs.false.i1186
           to label %invoke.cont.i1182 unwind label %cleanup.action.i1179
 
 invoke.cont.i1182:                                ; preds = %if.then17.i1177
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1178, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1178, align 8
   %m_msg.i.i1183 = getelementptr inbounds nuw i8, ptr %exception.i1178, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1183, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1166) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1178, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -14150,7 +14150,7 @@ if.then17.i1210:                                  ; preds = %lor.lhs.false.i1219
           to label %invoke.cont.i1215 unwind label %cleanup.action.i1212
 
 invoke.cont.i1215:                                ; preds = %if.then17.i1210
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1211, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1211, align 8
   %m_msg.i.i1216 = getelementptr inbounds nuw i8, ptr %exception.i1211, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1216, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1199) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1211, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -14372,7 +14372,7 @@ if.then17.i1243:                                  ; preds = %lor.lhs.false.i1252
           to label %invoke.cont.i1248 unwind label %cleanup.action.i1245
 
 invoke.cont.i1248:                                ; preds = %if.then17.i1243
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1244, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1244, align 8
   %m_msg.i.i1249 = getelementptr inbounds nuw i8, ptr %exception.i1244, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1249, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1232) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1244, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -14502,7 +14502,7 @@ if.then17.i1276:                                  ; preds = %lor.lhs.false.i1285
           to label %invoke.cont.i1281 unwind label %cleanup.action.i1278
 
 invoke.cont.i1281:                                ; preds = %if.then17.i1276
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1277, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1277, align 8
   %m_msg.i.i1282 = getelementptr inbounds nuw i8, ptr %exception.i1277, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1282, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1265) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1277, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -14710,7 +14710,7 @@ if.then17.i1309:                                  ; preds = %lor.lhs.false.i1318
           to label %invoke.cont.i1314 unwind label %cleanup.action.i1311
 
 invoke.cont.i1314:                                ; preds = %if.then17.i1309
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1310, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i1310, align 8
   %m_msg.i.i1315 = getelementptr inbounds nuw i8, ptr %exception.i1310, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i1315, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1298) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i1310, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -14784,7 +14784,7 @@ if.then107:                                       ; preds = %_ZN1q8compiler14set
   store ptr %m_lbl_set104, ptr %m_value.i.i.i.i.i, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i2.i, i64 16
   store i64 %283, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i2.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailI10approx_setEE, i64 16), ptr %call.i.i.i2.i, align 8
   %284 = load ptr, ptr %m_trail.i.i, align 8
   %cmp.i.i.i.i693 = icmp eq ptr %284, null
   br i1 %cmp.i.i.i.i693, label %if.then.i.i.i.i700, label %lor.lhs.false.i.i.i.i
@@ -15049,7 +15049,7 @@ if.else.i797:                                     ; preds = %if.then137
   store ptr %storemerge.in.lcssa1432, ptr %m_value.i.i.i.i.i.i, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i2.i.i, i64 16
   store ptr %325, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i, align 8
   %326 = load ptr, ptr %m_trail.i.i.i, align 8
   %cmp.i.i.i.i.i799 = icmp eq ptr %326, null
   br i1 %cmp.i.i.i.i.i799, label %if.then.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i
@@ -15148,7 +15148,7 @@ if.else.i815:                                     ; preds = %for.body155
   store ptr %m_next.i.i817, ptr %m_value.i.i.i.i.i.i821, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i822 = getelementptr inbounds nuw i8, ptr %call.i.i.i2.i.i820, i64 16
   store ptr %345, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i822, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i820, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i820, align 8
   %346 = load ptr, ptr %m_trail.i.i.i818, align 8
   %cmp.i.i.i.i.i823 = icmp eq ptr %346, null
   br i1 %cmp.i.i.i.i.i823, label %if.then.i.i.i.i.i834, label %lor.lhs.false.i.i.i.i.i824
@@ -15211,7 +15211,7 @@ if.else.i843:                                     ; preds = %for.end157
   store ptr %m_next.i.i845, ptr %m_value.i.i.i.i.i.i849, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i850 = getelementptr inbounds nuw i8, ptr %call.i.i.i2.i.i848, i64 16
   store ptr %356, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i850, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i848, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i848, align 8
   %357 = load ptr, ptr %m_trail.i.i.i846, align 8
   %cmp.i.i.i.i.i851 = icmp eq ptr %357, null
   br i1 %cmp.i.i.i.i.i851, label %if.then.i.i.i.i.i862, label %lor.lhs.false.i.i.i.i.i852
@@ -15292,7 +15292,7 @@ if.else.i877:                                     ; preds = %if.else171
   store ptr %m_next.i.i879, ptr %m_value.i.i.i.i.i.i883, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i884 = getelementptr inbounds nuw i8, ptr %call.i.i.i2.i.i882, i64 16
   store ptr %371, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i884, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i882, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i882, align 8
   %372 = load ptr, ptr %m_trail.i.i.i880, align 8
   %cmp.i.i.i.i.i885 = icmp eq ptr %372, null
   br i1 %cmp.i.i.i.i.i885, label %if.then.i.i.i.i.i896, label %lor.lhs.false.i.i.i.i.i886
@@ -15354,7 +15354,7 @@ if.else.i905:                                     ; preds = %for.end175
   store ptr %m_next.i.i907, ptr %m_value.i.i.i.i.i.i911, align 8
   %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i912 = getelementptr inbounds nuw i8, ptr %call.i.i.i2.i.i910, i64 16
   store ptr %382, ptr %ref.tmp.sroa.4.8.m_value.i.i.i.i.sroa_idx.i.i912, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i910, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN1q15mam_value_trailIPNS_11instructionEEE, i64 16), ptr %call.i.i.i2.i.i910, align 8
   %383 = load ptr, ptr %m_trail.i.i.i908, align 8
   %cmp.i.i.i.i.i913 = icmp eq ptr %383, null
   br i1 %cmp.i.i.i.i.i913, label %if.then.i.i.i.i.i924, label %lor.lhs.false.i.i.i.i.i914
@@ -15442,7 +15442,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -15554,7 +15554,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -15635,7 +15635,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -16301,7 +16301,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -16382,7 +16382,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -16644,7 +16644,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i136,
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -16753,7 +16753,7 @@ if.then17.i150:                                   ; preds = %lor.lhs.false.i159,
           to label %invoke.cont.i155 unwind label %cleanup.action.i152
 
 invoke.cont.i155:                                 ; preds = %if.then17.i150
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i151, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i151, align 8
   %m_msg.i.i156 = getelementptr inbounds nuw i8, ptr %exception.i151, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i156, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i139) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i151, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -17429,7 +17429,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i381,
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i378) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -18298,7 +18298,7 @@ if.then17.i396:                                   ; preds = %lor.lhs.false.i405,
           to label %invoke.cont.i401 unwind label %cleanup.action.i398
 
 invoke.cont.i401:                                 ; preds = %if.then17.i396
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i397, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i397, align 8
   %m_msg.i.i402 = getelementptr inbounds nuw i8, ptr %exception.i397, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i402, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i385) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i397, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -18760,7 +18760,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i356,
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -18871,7 +18871,7 @@ if.then17.i372:                                   ; preds = %lor.lhs.false.i381,
           to label %invoke.cont.i377 unwind label %cleanup.action.i374
 
 invoke.cont.i377:                                 ; preds = %if.then17.i372
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i373, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i373, align 8
   %m_msg.i.i378 = getelementptr inbounds nuw i8, ptr %exception.i373, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i378, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i361) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i373, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -20076,7 +20076,7 @@ if.then17:                                        ; preds = %if.else
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -20808,7 +20808,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -20912,7 +20912,7 @@ if.then17:                                        ; preds = %if.else
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -20989,7 +20989,7 @@ if.then17:                                        ; preds = %if.else
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -21133,7 +21133,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -21259,7 +21259,7 @@ if.then2:                                         ; preds = %if.end, %_ZNK1q9cod
   %m_trail.i = getelementptr inbounds nuw i8, ptr %4, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %4, i64 2208
   %call.i.i.i1 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15push_back_trailIPN1q9code_treeELb0EE, i64 16), ptr %call.i.i.i1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15push_back_trailIPN1q9code_treeELb0EE, i64 16), ptr %call.i.i.i1, align 8
   %m_vector.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i1, i64 8
   store ptr %m_to_match, ptr %m_vector.i.i.i, align 8
   %5 = load ptr, ptr %m_trail.i, align 8
@@ -21361,7 +21361,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit.i: ; preds = %if.then.i.i, %
   %m_trail.i.i = getelementptr inbounds nuw i8, ptr %25, i64 2192
   %m_region.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 2208
   %call.i.i.i1.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i, i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15push_back_trailIPN3euf5enodeELb0EE, i64 16), ptr %call.i.i.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15push_back_trailIPN3euf5enodeELb0EE, i64 16), ptr %call.i.i.i1.i, align 8
   %m_vector.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i1.i, i64 8
   store ptr %m_candidates.i, ptr %m_vector.i.i.i.i, align 8
   %30 = load ptr, ptr %m_trail.i.i, align 8
@@ -21474,7 +21474,7 @@ if.end:                                           ; preds = %_ZNK6vectorIPN1q9co
   %m_trail.i = getelementptr inbounds nuw i8, ptr %3, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %3, i64 2208
   %call.i.i.i1 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11value_trailIjE, i64 16), ptr %call.i.i.i1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11value_trailIjE, i64 16), ptr %call.i.i.i1, align 8
   %m_value.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i1, i64 8
   store ptr %m_to_match_head, ptr %m_value.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i1, i64 16
@@ -21566,7 +21566,7 @@ if.end:                                           ; preds = %_ZNK6vectorISt4pair
   %m_trail.i = getelementptr inbounds nuw i8, ptr %3, i64 2192
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %3, i64 2208
   %call.i.i.i18 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef 24)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11value_trailIjE, i64 16), ptr %call.i.i.i18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11value_trailIjE, i64 16), ptr %call.i.i.i18, align 8
   %m_value.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 8
   store ptr %m_new_patterns_qhead, ptr %m_value.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 16
@@ -21739,7 +21739,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i62, 
           to label %invoke.cont.i unwind label %cleanup.action.i
 
 invoke.cont.i:                                    ; preds = %if.then17.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -22010,7 +22010,7 @@ if.end:                                           ; preds = %_ZNK1q9code_tree14h
   %m_trail.i.i = getelementptr inbounds nuw i8, ptr %3, i64 2192
   %m_region.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 2208
   %call.i.i.i1.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i.i, i64 noundef 24)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11value_trailIjE, i64 16), ptr %call.i.i.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11value_trailIjE, i64 16), ptr %call.i.i.i1.i, align 8
   %m_value.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i1.i, i64 8
   store ptr %m_qhead.i, ptr %m_value.i.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_value.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i.i.i1.i, i64 16
@@ -22442,7 +22442,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -22523,7 +22523,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -23310,7 +23310,7 @@ call.i374.noexc:                                  ; preds = %if.then17.i
           to label %.noexc unwind label %cleanup.action.i
 
 .noexc:                                           ; preds = %call.i374.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.42, i64 42))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.42, i64 42))
           to label %invoke.cont.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -23320,7 +23320,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %cleanup.action.i.body
 
 invoke.cont.i:                                    ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds nuw i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -23708,7 +23708,7 @@ if.then17.i288:                                   ; preds = %lor.lhs.false.i297,
           to label %invoke.cont.i293 unwind label %cleanup.action.i290
 
 invoke.cont.i293:                                 ; preds = %if.then17.i288
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i289, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i289, align 8
   %m_msg.i.i294 = getelementptr inbounds nuw i8, ptr %exception.i289, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i294, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i278) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i289, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -23818,7 +23818,7 @@ if.then17.i319:                                   ; preds = %lor.lhs.false.i328,
           to label %invoke.cont.i324 unwind label %cleanup.action.i321
 
 invoke.cont.i324:                                 ; preds = %if.then17.i319
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i320, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i320, align 8
   %m_msg.i.i325 = getelementptr inbounds nuw i8, ptr %exception.i320, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i325, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i308) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i320, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -23925,7 +23925,7 @@ if.then17.i352:                                   ; preds = %lor.lhs.false.i361,
           to label %invoke.cont.i357 unwind label %cleanup.action.i354
 
 invoke.cont.i357:                                 ; preds = %if.then17.i352
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i353, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i353, align 8
   %m_msg.i.i358 = getelementptr inbounds nuw i8, ptr %exception.i353, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i358, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i341) #20
   invoke void @__cxa_throw(ptr nonnull %exception.i353, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -24200,7 +24200,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
@@ -24570,7 +24570,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23

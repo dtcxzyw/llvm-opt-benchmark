@@ -3910,7 +3910,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %125
   store i8 0, ptr %54, align 4
   store ptr %.val.val, ptr %55, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %18, align 8
   store ptr @.str.10, ptr %57, align 8
   store i8 3, ptr %.sroa.21.0..sroa_idx.i, align 8
   store i8 1, ptr %.sroa.4.0..sroa_idx.i, align 1
@@ -3987,7 +3987,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit299: ; preds = %152
   store i8 0, ptr %59, align 4
   store ptr %.val281.val, ptr %60, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %16, align 8
   store ptr @.str.11, ptr %62, align 8
   store i8 3, ptr %.sroa.21.0..sroa_idx.i303, align 8
   store i8 1, ptr %.sroa.4.0..sroa_idx.i304, align 1
@@ -5382,7 +5382,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %96
   store i8 0, ptr %43, align 4
   store ptr %.val150.val, ptr %44, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %20, align 8
   store ptr @.str.10, ptr %46, align 8
   store i8 3, ptr %.sroa.21.0..sroa_idx.i, align 8
   store i8 1, ptr %.sroa.4.0..sroa_idx.i, align 1
@@ -5458,7 +5458,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit168: ; preds = %122
   store i8 0, ptr %48, align 4
   store ptr %.val.val, ptr %49, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %18, align 8
   store ptr @.str.11, ptr %51, align 8
   store i8 3, ptr %.sroa.21.0..sroa_idx.i170, align 8
   store i8 1, ptr %.sroa.4.0..sroa_idx.i171, align 1
@@ -8619,7 +8619,7 @@ _ZL15canGuaranteeTCOj.exit:                       ; preds = %_ZL15canGuaranteeTC
   store ptr %.val.val, ptr %883, align 8
   %884 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %884, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %10, align 8
   %885 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr @.str.15, ptr %885, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 72
@@ -12567,7 +12567,7 @@ _ZL15canGuaranteeTCOj.exit1111:                   ; preds = %1365
   store ptr %.val.val, ptr %1388, align 8
   %1389 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1389, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm25DiagnosticInfoUnsupportedE, i64 16), ptr %4, align 8
   %1390 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @.str.15, ptr %1390, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -13858,7 +13858,7 @@ _ZSt8_DestroyIPN4llvm7APFloatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_Destro
   br label %_ZNSt6vectorIN4llvm7APFloatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm7APFloatESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN4llvm7APFloatES1_EvT_S3_RSaIT0_E.exit.i, %14
-  store ptr getelementptr inbounds inrange(-16, 1784) (i8, ptr @_ZTVN4llvm18TargetLoweringBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 1784) (i8, ptr @_ZTVN4llvm18TargetLoweringBaseE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 396824
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 396840
   %22 = load ptr, ptr %21, align 8

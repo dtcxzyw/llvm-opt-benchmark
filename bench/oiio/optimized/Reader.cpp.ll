@@ -35,7 +35,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6cineon6ReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(2080) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
   %header = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6cineon6HeaderC1Ev(ptr noundef nonnull align 4 dereferenceable(2048) %header)
   %fd = getelementptr inbounds nuw i8, ptr %this, i64 2056
@@ -48,7 +48,7 @@ declare void @_ZN6cineon6HeaderC1Ev(ptr noundef nonnull align 4 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6cineon6ReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2080) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
   %codec.i = getelementptr inbounds nuw i8, ptr %this, i64 2064
   %0 = load ptr, ptr %codec.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -191,7 +191,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6cineon6ReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(2080) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
   %codec.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2064
   %0 = load ptr, ptr %codec.i.i, align 8
   %isnull.i.i = icmp eq ptr %0, null

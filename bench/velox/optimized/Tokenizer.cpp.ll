@@ -483,7 +483,7 @@ cond.true17:                                      ; preds = %lor.lhs.false.i.i75
   store i32 %inc.i.i80, ptr %index_.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i64 16), ptr %call.i.i, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i64 16), ptr %call.i.i, align 8, !noalias !7
   store ptr %call.i.i, ptr %agg.result, align 8, !alias.scope !4
   br label %cond.end19
 
@@ -683,7 +683,7 @@ if.end:                                           ; preds = %while.end
           to label %call.i10.noexc unwind label %lpad
 
 call.i10.noexc:                                   ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield11NestedFieldE, i64 16), ptr %call.i1011, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield11NestedFieldE, i64 16), ptr %call.i1011, align 8, !noalias !12
   %name_.i.i = getelementptr inbounds nuw i8, ptr %call.i1011, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %token)
           to label %.noexc.i unwind label %lpad.i, !noalias !12
@@ -847,7 +847,7 @@ if.then33:                                        ; preds = %invoke.cont30
           to label %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev.exit unwind label %lpad.loopexit.split-lp
 
 _ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev.exit: ; preds = %if.then33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i64 16), ptr %call.i2223, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i64 16), ptr %call.i2223, align 8, !noalias !16
   br label %cleanup
 
 if.end35:                                         ; preds = %invoke.cont30
@@ -855,7 +855,7 @@ if.end35:                                         ; preds = %invoke.cont30
           to label %call.i24.noexc unwind label %lpad.loopexit.split-lp
 
 call.i24.noexc:                                   ; preds = %if.end35
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield15StringSubscriptE, i64 16), ptr %call.i2425, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield15StringSubscriptE, i64 16), ptr %call.i2425, align 8, !noalias !19
   %index_.i.i = getelementptr inbounds nuw i8, ptr %call.i2425, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %index_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %token)
           to label %cleanup unwind label %lpad.i, !noalias !19
@@ -877,7 +877,7 @@ cleanup:                                          ; preds = %call.i24.noexc, %_Z
 define void @_ZN8facebook5velox6common9Tokenizer22matchWildcardSubscriptEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i64 16), ptr %call.i, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i64 16), ptr %call.i, align 8, !noalias !22
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -995,7 +995,7 @@ lpad7.body:                                       ; preds = %lpad.i.i, %if.then.
   unreachable
 
 _ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_deleteIS4_EED2Ev.exit: ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield13LongSubscriptE, i64 16), ptr %call.i89, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield13LongSubscriptE, i64 16), ptr %call.i89, align 8, !noalias !26
   %index_.i.i = getelementptr inbounds nuw i8, ptr %call.i89, i64 8
   store i64 %call.i.i, ptr %index_.i.i, align 8, !noalias !26
   store ptr %call.i89, ptr %agg.result, align 8
@@ -1316,7 +1316,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 3))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 3))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1361,7 +1361,7 @@ entry:
 define linkonce_odr void @_ZN8facebook5velox6common8Subfield13AllSubscripts5cloneEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i64 16), ptr %call.i, align 8, !noalias !32
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i64 16), ptr %call.i, align 8, !noalias !32
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -1589,7 +1589,7 @@ define linkonce_odr void @_ZN8facebook5velox6common8Subfield11NestedField5cloneE
 entry:
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !35
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield11NestedFieldE, i64 16), ptr %call.i, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield11NestedFieldE, i64 16), ptr %call.i, align 8, !noalias !35
   %name_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_)
           to label %.noexc.i unwind label %lpad.i, !noalias !35
@@ -1765,7 +1765,7 @@ _ZNSt10unique_ptrIN8facebook5velox6common8Subfield13LongSubscriptESt14default_de
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !38
   %0 = load i64, ptr %index_, align 8, !noalias !38
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield13LongSubscriptE, i64 16), ptr %call.i, align 8, !noalias !38
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield13LongSubscriptE, i64 16), ptr %call.i, align 8, !noalias !38
   %index_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %0, ptr %index_.i.i, align 8, !noalias !38
   store ptr %call.i, ptr %agg.result, align 8
@@ -2052,7 +2052,7 @@ define linkonce_odr void @_ZN8facebook5velox6common8Subfield15StringSubscript5cl
 entry:
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !43
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield15StringSubscriptE, i64 16), ptr %call.i, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox6common8Subfield15StringSubscriptE, i64 16), ptr %call.i, align 8, !noalias !43
   %index_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %index_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %index_)
           to label %_ZNSt10unique_ptrIN8facebook5velox6common8Subfield15StringSubscriptESt14default_deleteIS4_EED2Ev.exit unwind label %lpad.i, !noalias !43

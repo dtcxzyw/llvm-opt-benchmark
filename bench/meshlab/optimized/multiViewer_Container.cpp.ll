@@ -468,9 +468,9 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8SplitterC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #10 align 2 {
   tail call void @_ZN9QSplitterC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8Splitter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8Splitter, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8Splitter, i64 464), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8Splitter, i64 464), ptr %3, align 8
   ret void
 }
 
@@ -479,9 +479,9 @@ declare void @_ZN9QSplitterC2EP7QWidget(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8SplitterC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #10 align 2 {
   tail call void @_ZN9QSplitterC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8Splitter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8Splitter, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8Splitter, i64 464), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8Splitter, i64 464), ptr %4, align 8
   ret void
 }
 
@@ -539,8 +539,8 @@ declare noundef ptr @_ZNK11QMetaObject4castEP7QObject(ptr noundef nonnull align 
 define void @_ZN21MultiViewer_ContainerC2ERN3vcg22QtThreadSafeMemoryInfoEbmmP7QWidget(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN9QSplitterC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21MultiViewer_Container, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21MultiViewer_Container, i64 464), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21MultiViewer_Container, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21MultiViewer_Container, i64 464), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN12MeshDocumentC1Ev(ptr noundef nonnull align 8 dereferenceable(192) %8)
           to label %9 unwind label %24
@@ -660,9 +660,9 @@ declare void @_ZN9QSplitterD2Ev(ptr noundef nonnull align 8 dereferenceable(48))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21MultiViewer_ContainerD2Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21MultiViewer_Container, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21MultiViewer_Container, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21MultiViewer_Container, i64 464), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21MultiViewer_Container, i64 464), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %4)

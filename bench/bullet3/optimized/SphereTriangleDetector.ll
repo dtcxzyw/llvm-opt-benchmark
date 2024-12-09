@@ -29,7 +29,7 @@ $_ZTI36btDiscreteCollisionDetectorInterface = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN22SphereTriangleDetectorC2EP13btSphereShapeP15btTriangleShapef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef %sphere, ptr noundef %triangle, float noundef %contactBreakingThreshold) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22SphereTriangleDetector, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22SphereTriangleDetector, i64 16), ptr %this, align 8
   %m_sphere = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %sphere, ptr %m_sphere, align 8
   %m_triangle = getelementptr inbounds nuw i8, ptr %this, i64 16

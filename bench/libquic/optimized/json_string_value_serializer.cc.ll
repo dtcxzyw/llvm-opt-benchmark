@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN25JSONStringValueSerializerC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef %json_string) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25JSONStringValueSerializer, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25JSONStringValueSerializer, i64 16), ptr %this, align 8
   %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %json_string, ptr %json_string_, align 8
   %pretty_print_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -127,7 +127,7 @@ declare noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN27JSONStringValueDeserializerC2ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %json_string) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27JSONStringValueDeserializer, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27JSONStringValueDeserializer, i64 16), ptr %this, align 8
   %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %json_string_, ptr noundef nonnull align 8 dereferenceable(16) %json_string, i64 16, i1 false)
   %allow_trailing_comma_ = getelementptr inbounds nuw i8, ptr %this, i64 24

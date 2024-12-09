@@ -117,7 +117,7 @@ thread-pre-split:                                 ; preds = %14
 
 37:                                               ; preds = %33
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str) #6
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %62
@@ -130,7 +130,7 @@ thread-pre-split:                                 ; preds = %14
 
 43:                                               ; preds = %40
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.1) #6
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %45 = icmp ne ptr %44, null
   call void @llvm.assume(i1 %45)
   br label %62

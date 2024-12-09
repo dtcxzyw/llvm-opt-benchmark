@@ -469,9 +469,9 @@ define void @_ZN15AlignPairWidgetC2EP6GLAreaP7QWidget(ptr noundef nonnull align 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN9QGLWidgetC2EP7QWidgetPKS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, ptr noundef %7, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15AlignPairWidget, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15AlignPairWidget, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15AlignPairWidget, i64 528), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15AlignPairWidget, i64 528), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @_ZN3vcg9TrackballC1Ev(ptr noundef nonnull align 8 dereferenceable(597) %9)
           to label %10 unwind label %32
@@ -1676,7 +1676,7 @@ define void @_ZN15AlignPairWidget19createRenderingDataEP9MeshModelR15MLRendering
   store i8 1, ptr %24, align 1
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store float 1.000000e+00, ptr %25, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 66
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 70
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 74

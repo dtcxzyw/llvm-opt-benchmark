@@ -77,7 +77,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14CompilerThreadC2EP12CompileQueueP16CompilerCounters(ptr noundef nonnull align 8 dereferenceable(1880) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN10JavaThreadC2EPFvPS_S0_Em8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef nonnull @_ZN14CompilerThread12thread_entryEP10JavaThreadS1_, i64 noundef 0, i8 noundef zeroext 7) #6
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1808
@@ -122,7 +122,7 @@ declare void @_ZN16ArenaStatCounterC1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14CompilerThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1880) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -152,7 +152,7 @@ declare void @_ZN10JavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14CompilerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1880) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

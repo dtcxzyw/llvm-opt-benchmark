@@ -1084,7 +1084,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
   %301 = tail call ptr @__errno_location() #17
   store i32 0, ptr %301, align 4
   %302 = call i64 @strtoull(ptr nocapture noundef nonnull %274, ptr noundef null, i32 noundef 10) #15
-  store i64 %302, ptr getelementptr inbounds (i8, ptr @onion_fa_in_g, i64 24), align 8
+  store i64 %302, ptr getelementptr inbounds nuw (i8, ptr @onion_fa_in_g, i64 24), align 8
   %303 = load i32, ptr %301, align 4
   %304 = icmp eq i32 %303, 34
   br i1 %304, label %305, label %308
@@ -1097,7 +1097,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
   unreachable
 
 307:                                              ; preds = %298
-  store i64 0, ptr getelementptr inbounds (i8, ptr @onion_fa_in_g, i64 24), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @onion_fa_in_g, i64 24), align 8
   br label %308
 
 308:                                              ; preds = %307, %300

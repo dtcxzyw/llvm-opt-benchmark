@@ -456,7 +456,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit: ; preds = %.loopexit88, %.lr
   br i1 %.not.i45, label %88, label %84
 
 84:                                               ; preds = %82
-  %85 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 1))
+  %85 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 1))
           to label %86 unwind label %93, !noalias !11
 
 86:                                               ; preds = %84
@@ -1685,7 +1685,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit205:             ; preds = %306, %311, %318
   br i1 %.not.i, label %354, label %350
 
 350:                                              ; preds = %348
-  %351 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 1))
+  %351 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 1))
           to label %352 unwind label %359, !noalias !21
 
 352:                                              ; preds = %350
@@ -4850,7 +4850,7 @@ define linkonce_odr void @_ZN5Yosys14SyntPropertiesC2Ev(ptr noundef nonnull alig
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys14SyntPropertiesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Yosys14SyntPropertiesE, i64 16), ptr %0, align 8
   ret void
 
 9:                                                ; preds = %1

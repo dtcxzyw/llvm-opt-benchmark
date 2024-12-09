@@ -1578,7 +1578,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515Normalizer2ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515Normalizer2ImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515Normalizer2ImplE, i64 16), ptr %this, align 8
   %fCanonIterData = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %fCanonIterData, align 8
   %isnull = icmp eq ptr %0, null
@@ -2899,7 +2899,7 @@ define noundef ptr @_ZNK6icu_7515Normalizer2Impl13decomposeUTF8EjPKhS2_PNS_8Byte
 entry:
   %s16 = alloca %"class.icu_75::UnicodeString", align 8
   %buffer = alloca %"class.icu_75::ReorderingBuffer", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s16, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %s16, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %minDecompNoCP = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -8457,7 +8457,7 @@ entry:
   %buffer.i = alloca [4 x i8], align 1
   %s16 = alloca %"class.icu_75::UnicodeString", align 8
   %buffer = alloca %"class.icu_75::ReorderingBuffer", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s16, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %s16, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %minCompNoMaybeCP = getelementptr inbounds nuw i8, ptr %this, i64 10

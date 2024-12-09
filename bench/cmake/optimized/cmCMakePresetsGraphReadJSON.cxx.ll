@@ -7307,7 +7307,7 @@ _ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i: ; pre
 15:                                               ; preds = %13
   %16 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27, !noalias !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false), !noalias !30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal14ConstConditionE, i64 16), ptr %16, align 8, !noalias !30
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal14ConstConditionE, i64 16), ptr %16, align 8, !noalias !30
   %17 = invoke noundef zeroext i1 @_ZNK4Json5Value6asBoolEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %18 unwind label %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit91
 
@@ -7339,7 +7339,7 @@ _ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_del
 
 28:                                               ; preds = %26
   %29 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27, !noalias !33
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal13NullConditionE, i64 16), ptr %29, align 8, !noalias !33
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal13NullConditionE, i64 16), ptr %29, align 8, !noalias !33
   %30 = load ptr, ptr %0, align 8
   store ptr %29, ptr %0, align 8
   %.not.i.i.i92 = icmp eq ptr %30, null
@@ -7386,7 +7386,7 @@ _ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i93: ;
 
 49:                                               ; preds = %47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %48, i8 0, i64 16, i1 false), !noalias !36
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal14ConstConditionE, i64 16), ptr %48, align 8, !noalias !36
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal14ConstConditionE, i64 16), ptr %48, align 8, !noalias !36
   %50 = invoke noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal14ConstConditionEEclERS2_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(65) @_ZN12_GLOBAL__N_120ConstConditionHelperE, ptr noundef nonnull align 8 dereferenceable(9) %48, ptr noundef nonnull %1, ptr noundef %2)
           to label %51 unwind label %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit97
 
@@ -7482,7 +7482,7 @@ _ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN2
           to label %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit unwind label %92
 
 _ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit: ; preds = %87
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i64 16), ptr %90, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i64 16), ptr %90, align 8, !noalias !39
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %89, ptr %91, align 8, !noalias !44
   store ptr %90, ptr %0, align 8
@@ -7589,7 +7589,7 @@ _ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN2
           to label %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit128 unwind label %132
 
 _ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit128: ; preds = %127
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i64 16), ptr %130, align 8, !noalias !45
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i64 16), ptr %130, align 8, !noalias !45
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store ptr %129, ptr %131, align 8, !noalias !50
   store ptr %130, ptr %0, align 8
@@ -7696,7 +7696,7 @@ _ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN2
           to label %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit147 unwind label %172
 
 _ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit147: ; preds = %167
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i64 16), ptr %170, align 8, !noalias !51
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i64 16), ptr %170, align 8, !noalias !51
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr %169, ptr %171, align 8, !noalias !56
   store ptr %170, ptr %0, align 8
@@ -7765,7 +7765,7 @@ _ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal16MatchesConditionESt14default_d
 194:                                              ; preds = %192
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 32
   store i64 0, ptr %195, align 16, !noalias !57
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal17AnyAllOfConditionE, i64 16), ptr %193, align 8, !noalias !57
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal17AnyAllOfConditionE, i64 16), ptr %193, align 8, !noalias !57
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %196, i8 0, i64 24, i1 false), !noalias !57
   %197 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.50) #25
@@ -7817,7 +7817,7 @@ _ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEEclEPS1
           to label %219 unwind label %52
 
 219:                                              ; preds = %217
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i64 16), ptr %218, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i64 16), ptr %218, align 8, !noalias !60
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store ptr null, ptr %220, align 8, !noalias !60
   %221 = invoke noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN27cmCMakePresetsGraphInternal12NotConditionEEclERS2_PKN4Json5ValueEP11cmJSONState(ptr noundef nonnull align 8 dereferenceable(65) @_ZN12_GLOBAL__N_118NotConditionHelperE, ptr noundef nonnull align 8 dereferenceable(16) %218, ptr noundef nonnull %1, ptr noundef %2)
@@ -9444,7 +9444,7 @@ _ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal17BaseMacroExpanderESt14default_
           to label %543 unwind label %.loopexit.split-lp
 
 543:                                              ; preds = %541
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderE, i64 16), ptr %542, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderE, i64 16), ptr %542, align 8, !noalias !67
   store ptr %542, ptr %32, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %544 unwind label %567
@@ -10479,13 +10479,13 @@ define internal fastcc noundef zeroext i1 @_ZNK19cmJSONHelperBuilder6ObjectIN12_
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   store i32 1, ptr %16, align 4, !noalias !84
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8, !noalias !84
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8, !noalias !84
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %.invoke, label %30
 
 30:                                               ; preds = %28
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 56), align 8, !noalias !84
-  invoke void %31(ptr dead_on_unwind nonnull writable sret(%"class.std::function.0") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 56), align 8, !noalias !84
+  invoke void %31(ptr dead_on_unwind nonnull writable sret(%"class.std::function.0") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %32 unwind label %25
 
 32:                                               ; preds = %30
@@ -10612,7 +10612,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %71
   %_ZN12_GLOBAL__N_117RootPresetsHelperE.val = load ptr, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, align 8
-  %_ZN12_GLOBAL__N_117RootPresetsHelperE.val48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 8), align 8
+  %_ZN12_GLOBAL__N_117RootPresetsHelperE.val48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 8), align 8
   %.not19 = icmp eq ptr %_ZN12_GLOBAL__N_117RootPresetsHelperE.val, %_ZN12_GLOBAL__N_117RootPresetsHelperE.val48
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -10769,13 +10769,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 131:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 3, ptr %9, align 4, !noalias !87
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8, !noalias !87
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8, !noalias !87
   %.not.i.i67 = icmp eq ptr %132, null
   br i1 %.not.i.i67, label %.invoke22, label %133
 
 133:                                              ; preds = %131
-  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 56), align 8, !noalias !87
-  invoke void %134(ptr dead_on_unwind nonnull writable sret(%"class.std::function.0") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 56), align 8, !noalias !87
+  invoke void %134(ptr dead_on_unwind nonnull writable sret(%"class.std::function.0") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %135 unwind label %.loopexit
 
 135:                                              ; preds = %133
@@ -10863,7 +10863,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit78: ; preds = %.loopexi
 
 ._crit_edge:                                      ; preds = %154, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %.036.lcssa = phi i1 [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.2, %154 ]
-  %156 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 64), align 8
+  %156 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 64), align 8
   %157 = trunc i8 %156 to i1
   br i1 %157, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit, label %158
 
@@ -10876,7 +10876,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit78: ; preds = %.loopexi
 162:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 2, ptr %6, align 4, !noalias !90
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8, !noalias !90
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8, !noalias !90
   %.not.i.i79 = icmp eq ptr %163, null
   br i1 %.not.i.i79, label %.invoke, label %164
 
@@ -10888,8 +10888,8 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit78: ; preds = %.loopexi
   unreachable
 
 164:                                              ; preds = %162
-  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 56), align 8, !noalias !90
-  invoke void %165(ptr dead_on_unwind nonnull writable sret(%"class.std::function.0") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 56), align 8, !noalias !90
+  invoke void %165(ptr dead_on_unwind nonnull writable sret(%"class.std::function.0") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %166 unwind label %25
 
 166:                                              ; preds = %164
@@ -11357,7 +11357,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph15ConfigurePresetEED2Ev.exit: ; preds = %1,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10PresetPairINS_11BuildPresetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(728) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -11380,7 +11380,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10PresetPairINS_11Bu
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 249
@@ -11517,7 +11517,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph11BuildPresetEED2Ev.exit: ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10PresetPairINS_10TestPresetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(1816) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -11540,7 +11540,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10PresetPairINS_10Te
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 249
@@ -11839,7 +11839,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph13PackagePresetEED2Ev.exit: ; preds = %1, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10PresetPairINS_14WorkflowPresetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -11862,7 +11862,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10PresetPairINS_14Wo
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -11879,7 +11879,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(248) ptr @
 
 5:                                                ; preds = %1
   store i8 0, ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -11990,7 +11990,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10PresetPairINS_14Wo
 
 6:                                                ; preds = %1
   store i8 0, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -12024,7 +12024,7 @@ _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph14WorkflowPresetEE10_M_destr
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph14WorkflowPresetEED2Ev.exit
 
 _ZNSt8optionalIN19cmCMakePresetsGraph14WorkflowPresetEED2Ev.exit: ; preds = %1, %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph14WorkflowPresetEE10_M_destroyEv.exit.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -12146,7 +12146,7 @@ _ZNSt6vectorISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpanderESt14de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt11make_uniqueIN27cmCMakePresetsGraphInternal17BaseMacroExpanderEJR19cmCMakePresetsGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.449") align 8 %0, ptr noundef nonnull align 8 dereferenceable(528) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -15689,7 +15689,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56: ; preds = %237, %23
 define linkonce_odr dso_local void @_ZSt11make_uniqueIN27cmCMakePresetsGraphInternal15EqualsConditionEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.513") align 8 %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal15EqualsConditionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal15EqualsConditionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -16354,7 +16354,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56: ; preds = %237, %23
 define linkonce_odr dso_local void @_ZSt11make_uniqueIN27cmCMakePresetsGraphInternal15InListConditionEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.529") align 8 %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal15InListConditionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal15InListConditionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -17019,7 +17019,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit56: ; preds = %237, %23
 define linkonce_odr dso_local void @_ZSt11make_uniqueIN27cmCMakePresetsGraphInternal16MatchesConditionEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.537") align 8 %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2, i8 0, i64 72, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal16MatchesConditionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN27cmCMakePresetsGraphInternal16MatchesConditionE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -19278,7 +19278,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetC2Ev(ptr noundef nonnull align 8 dereferenceable(568) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -19301,7 +19301,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetC2E
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -19361,7 +19361,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetC2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -20969,7 +20969,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -21050,7 +21050,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph11BuildPresetD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -21977,7 +21977,7 @@ _ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEED2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -22073,7 +22073,7 @@ _ZNSt14_Optional_baseIN19cmCMakePresetsGraph10TestPreset13OutputOptionsELb0ELb0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph13PackagePresetC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -22096,7 +22096,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph13PackagePresetC2Ev(
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 249
@@ -22516,7 +22516,7 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph13PackagePresetD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -22964,7 +22964,7 @@ _ZNSt12_Vector_baseIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph14WorkflowPresetD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -32159,7 +32159,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19cmCMakePresetsGraph9Co
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %10, align 8
   %11 = load ptr, ptr %4, align 8
@@ -34094,7 +34094,7 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(568) %0, ptr noundef nonnull align 8 dereferenceable(568) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::optional<cmCMakePresetsGraph::CacheVariable>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::optional<cmCMakePresetsGraph::CacheVariable>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   tail call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -34296,7 +34296,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN19cmC
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::optional<std::__cxx11::basic_string<char>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::optional<std::__cxx11::basic_string<char>>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -35400,7 +35400,7 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph11BuildPresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(360) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 216
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -35987,7 +35987,7 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(904) %0, ptr noundef nonnull align 8 dereferenceable(904) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 216
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -36702,7 +36702,7 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph13PackagePresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(520) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   tail call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -37475,7 +37475,7 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10PresetPairINS_14WorkflowPresetEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(488) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(240) %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 216
   invoke void @_ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -37506,7 +37506,7 @@ _ZN19cmCMakePresetsGraph14WorkflowPresetC2ERKS0_.exit: ; preds = %2
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 16), ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 456
   invoke void @_ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
@@ -41977,7 +41977,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_111RootPresetsEPKN4Json5ValueEP11cmJSONStateEED2
 .noexc80.thread.i:                                ; preds = %1648
   %1653 = getelementptr inbounds i8, ptr null, i64 %1652
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_117RootPresetsHelperE, i8 0, i64 16, i1 false)
-  store ptr %1653, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 16), align 8
+  store ptr %1653, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 16), align 8
   br label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6MemberESaIS5_EEC2ERKS7_.exit.i.i
 
 1654:                                             ; preds = %1648
@@ -41998,9 +41998,9 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPr
 
 .noexc80.i:                                       ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6MemberEEE8allocateERS6_m.exit.i.i.i.i.i.i
   store ptr %1657, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, align 8
-  store ptr %1657, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 8), align 8
+  store ptr %1657, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 8), align 8
   %1658 = getelementptr inbounds i8, ptr %1657, i64 %1652
-  store ptr %1658, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 16), align 8
+  store ptr %1658, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 16), align 8
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %1678, %.noexc80.i
@@ -42095,36 +42095,36 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPr
 
 _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6MemberESaIS5_EEC2ERKS7_.exit.i.i: ; preds = %1678, %.noexc80.thread.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %.noexc80.thread.i ], [ %1684, %1678 ]
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 8), align 8
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 8), align 8
   %1695 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %1696 = load i8, ptr %1695, align 8
   %1697 = and i8 %1696, 1
-  store i8 %1697, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 24), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), i8 0, i64 32, i1 false)
+  store i8 %1697, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 24), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), i8 0, i64 32, i1 false)
   %1698 = load ptr, ptr %1317, align 8
   %.not.i.i.not.i.i77.i = icmp eq ptr %1698, null
   br i1 %.not.i.i.not.i.i77.i, label %1712, label %1699
 
 1699:                                             ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6MemberESaIS5_EEC2ERKS7_.exit.i.i
-  %1700 = invoke noundef zeroext i1 %1698(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %1315, i32 noundef 2)
+  %1700 = invoke noundef zeroext i1 %1698(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %1315, i32 noundef 2)
           to label %1701 unwind label %1704
 
 1701:                                             ; preds = %1699
   %1702 = load ptr, ptr %1316, align 8
-  store ptr %1702, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 56), align 8
+  store ptr %1702, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 56), align 8
   %1703 = load ptr, ptr %1317, align 8
-  store ptr %1703, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8
+  store ptr %1703, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8
   br label %1712
 
 1704:                                             ; preds = %1699
   %1705 = landingpad { ptr, i32 }
           cleanup
-  %1706 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8
+  %1706 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 48), align 8
   %.not.i.i.i78.i = icmp eq ptr %1706, null
   br i1 %.not.i.i.i78.i, label %.body.i.i, label %1707
 
 1707:                                             ; preds = %1704
-  %1708 = invoke noundef zeroext i1 %1706(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), i32 noundef 3)
+  %1708 = invoke noundef zeroext i1 %1706(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 32), i32 noundef 3)
           to label %.body.i.i unwind label %1709
 
 1709:                                             ; preds = %1707
@@ -42141,7 +42141,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6Member
 1712:                                             ; preds = %1701, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_111RootPresetsEE6MemberESaIS5_EEC2ERKS7_.exit.i.i
   %1713 = load i8, ptr %1318, align 8
   %1714 = and i8 %1713, 1
-  store i8 %1714, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 64), align 8
+  store i8 %1714, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117RootPresetsHelperE, i64 64), align 8
   %1715 = load ptr, ptr %1645, align 8
   %.not.i.i83.i = icmp eq ptr %1715, null
   br i1 %.not.i.i83.i, label %_ZNSt8functionIFbRDnPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %1716

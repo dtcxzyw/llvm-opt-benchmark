@@ -34,7 +34,7 @@ define hidden void @_ZN10BarrierSet15set_barrier_setEPS_(ptr noundef %0) local_u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %6) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10BarrierSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV10BarrierSet, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -49,7 +49,7 @@ define hidden void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12Ba
 
 13:                                               ; preds = %7
   %14 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV17BarrierSetNMethod, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV17BarrierSetNMethod, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 1, ptr %15, align 8
   br label %_ZL26select_barrier_set_nmethodP17BarrierSetNMethod.exit
@@ -62,7 +62,7 @@ _ZL26select_barrier_set_nmethodP17BarrierSetNMethod.exit: ; preds = %7, %13
 
 16:                                               ; preds = %_ZL26select_barrier_set_nmethodP17BarrierSetNMethod.exit
   %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV20BarrierSetStackChunk, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV20BarrierSetStackChunk, i64 16), ptr %17, align 8
   br label %_ZL30select_barrier_set_stack_chunkP20BarrierSetStackChunk.exit
 
 _ZL30select_barrier_set_stack_chunkP20BarrierSetStackChunk.exit: ; preds = %_ZL26select_barrier_set_nmethodP17BarrierSetNMethod.exit, %16

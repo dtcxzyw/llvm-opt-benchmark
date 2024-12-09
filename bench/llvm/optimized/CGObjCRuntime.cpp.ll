@@ -1025,7 +1025,7 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i:       ; preds = %229, %225
 
 _ZN4llvm14FuncletPadInst10setOperandEjPNS_5ValueE.exit: ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i
   %232 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %169, i32 noundef 2, i64 noundef 16) #12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen13CatchRetScopeE, i64 16), ptr %232, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang7CodeGen13CatchRetScopeE, i64 16), ptr %232, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store ptr %198, ptr %233, align 8
   br label %_ZN4llvm16dyn_cast_or_nullINS_12CatchPadInstENS_11InstructionEEEDaPT0_.exit.thread
@@ -1051,7 +1051,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12CatchPadInstENS_11InstructionEEEDaPT0_.exit.thre
   %240 = icmp eq ptr %239, null
   %241 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %169, i32 noundef 3, i64 noundef 32) #12
   %242 = zext i1 %240 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_116CallObjCEndCatchE, i64 16), ptr %241, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_116CallObjCEndCatchE, i64 16), ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store i8 %242, ptr %243, align 8
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 16
@@ -1610,7 +1610,7 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime22EmitAtSynchronizedStmtE
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %62 = load ptr, ptr %8, align 8
   %63 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %61, i32 noundef 3, i64 noundef 32) #12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112CallSyncExitE, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_112CallSyncExitE, i64 16), ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %.sroa.0.0.copyload, ptr %64, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -2066,7 +2066,7 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime22getSymbolNameForMethodB
   store i32 1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %0, ptr %10, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #12

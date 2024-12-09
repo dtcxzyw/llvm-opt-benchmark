@@ -2090,7 +2090,7 @@ _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit13: ; preds = %cond.tru
   %5 = load i32, ptr %lastRangeEnd_, align 8
   %size = getelementptr inbounds i8, ptr %add.ptr.i.i.i3, i64 -8
   store i32 %5, ptr %size, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %agg.result, align 8
   %ranges_.i5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i2.i6.i, ptr %ranges_.i5, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -2843,7 +2843,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox15ByteInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %this, align 8
   %ranges_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ranges_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2860,7 +2860,7 @@ _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EED2Ev.exit: ; preds = %entry, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox15ByteInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 16), ptr %this, align 8
   %ranges_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ranges_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -2878,7 +2878,7 @@ _ZN8facebook5velox15ByteInputStreamD2Ev.exit:     ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox17IOBufOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17IOBufOutputStreamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17IOBufOutputStreamE, i64 16), ptr %this, align 8
   %out_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %out_, align 8
   %cmp.not.i = icmp eq ptr %0, null

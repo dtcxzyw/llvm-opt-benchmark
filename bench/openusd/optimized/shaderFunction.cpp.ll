@@ -56,7 +56,7 @@ define noundef nonnull align 8 dereferenceable(393) ptr @_ZNK32pxrInternal_v0_24
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__17HgiShaderFunctionC2ERKNS_21HgiShaderFunctionDescE(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(393) %1) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17HgiShaderFunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17HgiShaderFunctionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21HgiShaderFunctionDescC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(393) %3, ptr noundef nonnull align 8 dereferenceable(393) %1)
   ret void
@@ -308,7 +308,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__29HgiShaderFunctionGeometryDescC2ERKS0_.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__17HgiShaderFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17HgiShaderFunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17HgiShaderFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21HgiShaderFunctionDescD2Ev(ptr noundef nonnull align 8 dereferenceable(393) %2) #17
   ret void

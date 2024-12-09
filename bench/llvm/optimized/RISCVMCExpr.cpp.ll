@@ -93,7 +93,7 @@ _ZnwmRN4llvm9MCContextEm.exit:                    ; preds = %16, %.critedge.i.i.
   store i32 %30, ptr %28, align 1
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store ptr null, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm11RISCVMCExprE, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm11RISCVMCExprE, i64 16), ptr %.0.i.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32

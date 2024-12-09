@@ -3939,12 +3939,12 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
   ]
 
 19:                                               ; preds = %17
-  %20 = load i8, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 16), align 8
+  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 16), align 8
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.preheader.preheader, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %.preheader.preheader, label %24
 
@@ -3986,12 +3986,12 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
   ]
 
 43:                                               ; preds = %41
-  %44 = load i8, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 16), align 8
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 16), align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %.preheader.preheader, label %46
 
 46:                                               ; preds = %43
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i79 = icmp eq ptr %47, null
   br i1 %.not.i79, label %.preheader.preheader, label %48
 
@@ -4032,12 +4032,12 @@ define internal fastcc ptr @read_datatype(i32 noundef %0) unnamed_addr #0 {
   ]
 
 66:                                               ; preds = %64
-  %67 = load i8, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 16), align 8
+  %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 16), align 8
   %68 = trunc i8 %67 to i1
   br i1 %68, label %.preheader.preheader, label %69
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i85 = icmp eq ptr %70, null
   br i1 %.not.i85, label %.preheader.preheader, label %71
 
@@ -4077,12 +4077,12 @@ tok_is_keyword.exit77:                            ; preds = %51, %56, %79, %74, 
   ]
 
 83:                                               ; preds = %81
-  %84 = load i8, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 16), align 8
+  %84 = load i8, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 16), align 8
   %85 = trunc i8 %84 to i1
   br i1 %85, label %._crit_edge.thread, label %86
 
 86:                                               ; preds = %83
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i91 = icmp eq ptr %87, null
   br i1 %.not.i91, label %._crit_edge.thread, label %88
 
@@ -4537,12 +4537,12 @@ define internal fastcc noundef zeroext i1 @tok_is_keyword(i32 noundef %0, i32 no
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %5
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 16), align 8
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 16), align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
 
@@ -5545,12 +5545,12 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   ]
 
 9:                                                ; preds = %6
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 16), align 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 16), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %tok_is_keyword.exit37, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %tok_is_keyword.exit37, label %14
 
@@ -5568,7 +5568,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br label %51
 
 21:                                               ; preds = %17
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i18 = icmp eq ptr %.pr, null
   br i1 %.not.i18, label %tok_is_keyword.exit37, label %22
 
@@ -5589,7 +5589,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br label %51
 
 .thread77:                                        ; preds = %26
-  %.pr96 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %.pr96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i24 = icmp eq ptr %.pr96, null
   br i1 %.not.i24, label %tok_is_keyword.exit37, label %30
 
@@ -5610,7 +5610,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br label %51
 
 38:                                               ; preds = %34
-  %.pr86 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %.pr86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i30 = icmp eq ptr %.pr86, null
   br i1 %.not.i30, label %tok_is_keyword.exit37, label %39
 
@@ -5631,7 +5631,7 @@ define internal fastcc ptr @read_raise_options() unnamed_addr #0 {
   br label %51
 
 .thread92:                                        ; preds = %43
-  %.pr98.pr = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %.pr98.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i36 = icmp eq ptr %.pr98.pr, null
   br i1 %.not.i36, label %tok_is_keyword.exit37, label %47
 
@@ -6195,12 +6195,12 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   unreachable
 
 14:                                               ; preds = %0
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 16), align 8
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 16), align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %tok_is_keyword.exit55, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %tok_is_keyword.exit55, label %19
 
@@ -6219,7 +6219,7 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   br label %tok_is_keyword.exit.thread
 
 26:                                               ; preds = %22
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i45 = icmp eq ptr %.pr, null
   br i1 %.not.i45, label %tok_is_keyword.exit55, label %27
 
@@ -6243,7 +6243,7 @@ define internal fastcc noundef ptr @read_fetch_direction() unnamed_addr #0 {
   br label %tok_is_keyword.exit.thread
 
 .thread83:                                        ; preds = %31
-  %.pr91 = load ptr, ptr getelementptr inbounds (i8, ptr @plpgsql_yylval, i64 8), align 8
+  %.pr91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plpgsql_yylval, i64 8), align 8
   %.not.i51 = icmp eq ptr %.pr91, null
   br i1 %.not.i51, label %tok_is_keyword.exit55, label %35
 

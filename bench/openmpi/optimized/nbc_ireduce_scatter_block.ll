@@ -82,10 +82,10 @@ define internal fastcc i32 @nbc_reduce_scatter_block_init(ptr noundef %0, ptr no
   br label %opal_obj_new.exit.thread
 
 26:                                               ; preds = %16
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #9
   %29 = load i32, ptr @opal_class_init_epoch, align 4
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i = icmp eq i32 %29, %30
   br i1 %.not.i, label %32, label %31
 
@@ -925,10 +925,10 @@ opal_datatype_span.exit:                          ; preds = %ompi_comm_remote_si
 
 52:                                               ; preds = %48, %opal_datatype_span.exit
   %.0152 = phi ptr [ %50, %48 ], [ null, %opal_datatype_span.exit ]
-  %53 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %54 = tail call noalias ptr @malloc(i64 noundef %53) #9
   %55 = load i32, ptr @opal_class_init_epoch, align 4
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i177 = icmp eq i32 %55, %56
   br i1 %.not.i177, label %58, label %57
 

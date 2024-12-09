@@ -1296,7 +1296,7 @@ declare void @_ZN5boost7archive21BOOST_ARCHIVE_VERSIONEv(ptr dead_on_unwind writ
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN5boost7archive21basic_binary_oarchiveINS0_16binary_woarchiveEEC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #1 comdat($_ZN5boost7archive21basic_binary_oarchiveINS0_16binary_woarchiveEEC5Ej) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5boost7archive6detail14basic_oarchiveC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive21basic_binary_oarchiveINS0_16binary_woarchiveEEE, i64 16), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive21basic_binary_oarchiveINS0_16binary_woarchiveEEE, i64 16), ptr %0, align 8, !tbaa !29
   ret void
 }
 
@@ -1326,7 +1326,7 @@ define weak_odr hidden void @_ZN5boost7archive20binary_oarchive_implINS0_16binar
           to label %7 unwind label %8
 
 7:                                                ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive20binary_oarchive_implINS0_16binary_woarchiveEwSt11char_traitsIwEEE, i64 16), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive20binary_oarchive_implINS0_16binary_woarchiveEwSt11char_traitsIwEEE, i64 16), ptr %0, align 8, !tbaa !29
   ret void
 
 8:                                                ; preds = %3
@@ -1352,7 +1352,7 @@ define weak_odr hidden void @_ZN5boost7archive20binary_oarchive_implINS0_16binar
           to label %13 unwind label %14
 
 13:                                               ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive20binary_oarchive_implINS0_16binary_woarchiveEwSt11char_traitsIwEEE, i64 16), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive20binary_oarchive_implINS0_16binary_woarchiveEwSt11char_traitsIwEEE, i64 16), ptr %0, align 8, !tbaa !29
   ret void
 
 14:                                               ; preds = %3

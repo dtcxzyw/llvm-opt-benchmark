@@ -1372,7 +1372,7 @@ declare noundef ptr @_ZN5boost7archive26BOOST_ARCHIVE_XML_TRACKINGEv() local_unn
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEEC2Ej(ptr noundef nonnull align 8 dereferenceable(46) %0, i32 noundef %1) unnamed_addr #4 comdat($_ZN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEEC5Ej) align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5boost7archive6detail14basic_oarchiveC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEEE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive18basic_xml_oarchiveINS0_13xml_woarchiveEEE, i64 16), ptr %0, align 8, !tbaa !42
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1673,7 +1673,7 @@ define weak_odr void @_ZN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveE
   store i8 0, ptr %10, align 4, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 0, ptr %11, align 1, !tbaa !56
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveEEE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveEEE, i64 16), ptr %0, align 8, !tbaa !42
   %12 = and i32 %2, 2
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %42
@@ -1855,7 +1855,7 @@ declare void @_ZN5boost7archive21basic_text_oprimitiveISt13basic_ostreamIwSt11ch
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 comdat($_ZN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveEEE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive18xml_woarchive_implINS0_13xml_woarchiveEEE, i64 16), ptr %0, align 8, !tbaa !42
   %2 = tail call noundef i32 @_ZSt19uncaught_exceptionsv() #22
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %_ZStlsIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_PKS3_.exit
@@ -3303,7 +3303,7 @@ define linkonce_odr hidden void @_ZN5boost7archive9iterators13wchar_from_mbINS1_
 
 20:                                               ; preds = %18, %17, %16, %15, %12
   %.str.16.sink.i.i.i.i.i = phi ptr [ @.str.16, %18 ], [ @.str.15, %17 ], [ @.str.14, %16 ], [ @.str.13, %15 ], [ @.str.12, %12 ]
-  %.sink.i.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.16, i64 6), %18 ], [ getelementptr inbounds (i8, ptr @.str.15, i64 6), %17 ], [ getelementptr inbounds (i8, ptr @.str.14, i64 5), %16 ], [ getelementptr inbounds (i8, ptr @.str.13, i64 4), %15 ], [ getelementptr inbounds (i8, ptr @.str.12, i64 4), %12 ]
+  %.sink.i.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.16, i64 6), %18 ], [ getelementptr inbounds nuw (i8, ptr @.str.15, i64 6), %17 ], [ getelementptr inbounds nuw (i8, ptr @.str.14, i64 5), %16 ], [ getelementptr inbounds nuw (i8, ptr @.str.13, i64 4), %15 ], [ getelementptr inbounds nuw (i8, ptr @.str.12, i64 4), %12 ]
   store ptr %.str.16.sink.i.i.i.i.i, ptr %5, align 8, !tbaa !63
   store ptr %.sink.i.i.i.i.i, ptr %6, align 8, !tbaa !63
   %21 = load i8, ptr %.str.16.sink.i.i.i.i.i, align 1, !tbaa !50
@@ -3453,7 +3453,7 @@ define linkonce_odr hidden void @_ZNSt11__copy_moveILb0ELb0ESt18input_iterator_t
 
 20:                                               ; preds = %19, %18, %17, %16, %13
   %.str.22.sink.i.i.i.i.i = phi ptr [ @.str.22, %19 ], [ @.str.21, %18 ], [ @.str.20, %17 ], [ @.str.19, %16 ], [ @.str.18, %13 ]
-  %.sink.i.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.22, i64 24), %19 ], [ getelementptr inbounds (i8, ptr @.str.21, i64 24), %18 ], [ getelementptr inbounds (i8, ptr @.str.20, i64 20), %17 ], [ getelementptr inbounds (i8, ptr @.str.19, i64 16), %16 ], [ getelementptr inbounds (i8, ptr @.str.18, i64 16), %13 ]
+  %.sink.i.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.22, i64 24), %19 ], [ getelementptr inbounds nuw (i8, ptr @.str.21, i64 24), %18 ], [ getelementptr inbounds nuw (i8, ptr @.str.20, i64 20), %17 ], [ getelementptr inbounds nuw (i8, ptr @.str.19, i64 16), %16 ], [ getelementptr inbounds nuw (i8, ptr @.str.18, i64 16), %13 ]
   store ptr %.str.22.sink.i.i.i.i.i, ptr %7, align 8, !tbaa !63
   store ptr %.sink.i.i.i.i.i, ptr %8, align 8, !tbaa !63
   %21 = load i32, ptr %.str.22.sink.i.i.i.i.i, align 4, !tbaa !150
@@ -3561,7 +3561,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost7archive9iterators6esca
 
 19:                                               ; preds = %18, %17, %16, %15, %10
   %.str.22.sink.i.i = phi ptr [ @.str.22, %18 ], [ @.str.21, %17 ], [ @.str.20, %16 ], [ @.str.19, %15 ], [ @.str.18, %10 ]
-  %.sink.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.22, i64 24), %18 ], [ getelementptr inbounds (i8, ptr @.str.21, i64 24), %17 ], [ getelementptr inbounds (i8, ptr @.str.20, i64 20), %16 ], [ getelementptr inbounds (i8, ptr @.str.19, i64 16), %15 ], [ getelementptr inbounds (i8, ptr @.str.18, i64 16), %10 ]
+  %.sink.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.22, i64 24), %18 ], [ getelementptr inbounds nuw (i8, ptr @.str.21, i64 24), %17 ], [ getelementptr inbounds nuw (i8, ptr @.str.20, i64 20), %16 ], [ getelementptr inbounds nuw (i8, ptr @.str.19, i64 16), %15 ], [ getelementptr inbounds nuw (i8, ptr @.str.18, i64 16), %10 ]
   store ptr %.str.22.sink.i.i, ptr %11, align 8, !tbaa !63
   store ptr %.sink.i.i, ptr %12, align 8, !tbaa !63
   %20 = load i32, ptr %.str.22.sink.i.i, align 4, !tbaa !150
@@ -3604,7 +3604,7 @@ _ZN5boost7archive9iterators6escapeINS1_10xml_escapeIPKwEES5_E16dereference_implE
 
 32:                                               ; preds = %31, %30, %29, %28, %23
   %.str.22.sink.i.i8 = phi ptr [ @.str.22, %31 ], [ @.str.21, %30 ], [ @.str.20, %29 ], [ @.str.19, %28 ], [ @.str.18, %23 ]
-  %.sink.i.i9 = phi ptr [ getelementptr inbounds (i8, ptr @.str.22, i64 24), %31 ], [ getelementptr inbounds (i8, ptr @.str.21, i64 24), %30 ], [ getelementptr inbounds (i8, ptr @.str.20, i64 20), %29 ], [ getelementptr inbounds (i8, ptr @.str.19, i64 16), %28 ], [ getelementptr inbounds (i8, ptr @.str.18, i64 16), %23 ]
+  %.sink.i.i9 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.22, i64 24), %31 ], [ getelementptr inbounds nuw (i8, ptr @.str.21, i64 24), %30 ], [ getelementptr inbounds nuw (i8, ptr @.str.20, i64 20), %29 ], [ getelementptr inbounds nuw (i8, ptr @.str.19, i64 16), %28 ], [ getelementptr inbounds nuw (i8, ptr @.str.18, i64 16), %23 ]
   store ptr %.str.22.sink.i.i8, ptr %24, align 8, !tbaa !63
   store ptr %.sink.i.i9, ptr %25, align 8, !tbaa !63
   %33 = load i32, ptr %.str.22.sink.i.i8, align 4, !tbaa !150

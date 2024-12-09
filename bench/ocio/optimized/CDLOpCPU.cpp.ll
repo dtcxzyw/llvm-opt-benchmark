@@ -560,7 +560,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev8CDLOpCPUC2ERSt10shared_ptrIKNS_9CDLOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 62)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cdl) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev8CDLOpCPUE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev8CDLOpCPUE, i64 16), ptr %this, align 8
   %m_renderParams = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_isReverse.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i8 0, ptr %m_isReverse.i, align 4
@@ -649,7 +649,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit: ; preds = %sw.bb
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !5
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !5
   store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
@@ -663,13 +663,13 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEEED2Ev.exit: ; 
   store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !5
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !5
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit: ; preds = %sw.bb
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !8
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !8
   store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
@@ -683,7 +683,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEEED2Ev.exit: ; pre
   store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !8
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !8
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
   br label %return
@@ -711,7 +711,7 @@ sw.bb3:                                           ; preds = %entry
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit: ; preds = %sw.bb3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i53, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i53, align 8, !noalias !11
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i58, align 4, !noalias !11
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i59, align 1, !noalias !11
   store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i57, align 4, !noalias !11
@@ -725,13 +725,13 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEEED2Ev.exit: ; 
   store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i67, align 4, !noalias !11
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i68, align 4, !noalias !11
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i57, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i56, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererFwdSSEILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i56, align 8, !noalias !11
   store ptr %_M_impl.i.i.i.i.i.i56, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i53, ptr %_M_refcount.i.i69, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit: ; preds = %sw.bb3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i53, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i53, align 8, !noalias !14
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i58, align 4, !noalias !14
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i59, align 1, !noalias !14
   store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i57, align 4, !noalias !14
@@ -745,7 +745,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEEED2Ev.exit: ; pre
   store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i67, align 4, !noalias !14
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i68, align 4, !noalias !14
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i57, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i56, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererFwdILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i56, align 8, !noalias !14
   store ptr %_M_impl.i.i.i.i.i.i56, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i53, ptr %_M_refcount.i.i69, align 8
   br label %return
@@ -773,7 +773,7 @@ sw.bb9:                                           ; preds = %entry
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit: ; preds = %sw.bb9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i153, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i153, align 8, !noalias !17
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i158, align 4, !noalias !17
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i159, align 1, !noalias !17
   store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i157, align 4, !noalias !17
@@ -787,13 +787,13 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEEED2Ev.exit: ; 
   store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i167, align 4, !noalias !17
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i168, align 4, !noalias !17
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i157, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i156, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i156, align 8, !noalias !17
   store ptr %_M_impl.i.i.i.i.i.i156, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i153, ptr %_M_refcount.i.i169, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit: ; preds = %sw.bb9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i153, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i153, align 8, !noalias !20
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i158, align 4, !noalias !20
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i159, align 1, !noalias !20
   store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i157, align 4, !noalias !20
@@ -807,7 +807,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEEED2Ev.exit: ; pre
   store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i167, align 4, !noalias !20
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i168, align 4, !noalias !20
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i157, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i156, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb1EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i156, align 8, !noalias !20
   store ptr %_M_impl.i.i.i.i.i.i156, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i153, ptr %_M_refcount.i.i169, align 8
   br label %return
@@ -835,7 +835,7 @@ sw.bb15:                                          ; preds = %entry
   br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit: ; preds = %sw.bb15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i253, align 8, !noalias !23
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i253, align 8, !noalias !23
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i258, align 4, !noalias !23
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i259, align 1, !noalias !23
   store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i257, align 4, !noalias !23
@@ -849,13 +849,13 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEEED2Ev.exit: ; 
   store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i267, align 4, !noalias !23
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i268, align 4, !noalias !23
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i257, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i256, align 8, !noalias !23
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CDLRendererRevSSEILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i256, align 8, !noalias !23
   store ptr %_M_impl.i.i.i.i.i.i256, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i253, ptr %_M_refcount.i.i269, align 8
   br label %return
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit: ; preds = %sw.bb15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i253, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i253, align 8, !noalias !26
   store i8 0, ptr %m_isReverse.i.i.i.i.i.i.i.i.i.i.i258, align 4, !noalias !26
   store i8 0, ptr %m_isNoClamp.i.i.i.i.i.i.i.i.i.i.i259, align 1, !noalias !26
   store float 1.000000e+00, ptr %m_renderParams.i.i.i.i.i.i.i.i.i.i257, align 4, !noalias !26
@@ -869,7 +869,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEEED2Ev.exit: ; pre
   store float 1.000000e+00, ptr %arrayidx7.i6.i.i.i.i.i.i.i.i.i.i.i267, align 4, !noalias !26
   store float 1.000000e+00, ptr %m_saturation.i.i.i.i.i.i.i.i.i.i.i.i268, align 4, !noalias !26
   tail call void @_ZN19OpenColorIO_v2_4dev12RenderParams6updateERSt10shared_ptrIKNS_9CDLOpDataEE(ptr noundef nonnull align 4 dereferenceable(54) %m_renderParams.i.i.i.i.i.i.i.i.i.i257, ptr noundef nonnull readonly align 8 dereferenceable(16) %cdl), !noalias !26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i256, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CDLRendererRevILb0EEE, i64 16), ptr %_M_impl.i.i.i.i.i.i256, align 8, !noalias !26
   store ptr %_M_impl.i.i.i.i.i.i256, ptr %agg.result, align 8
   store ptr %call5.i.i.i3.i.i.i.i253, ptr %_M_refcount.i.i269, align 8
   br label %return

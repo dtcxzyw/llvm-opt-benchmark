@@ -35,14 +35,14 @@ define void @nx_start() #0 {
 .critedge:
   %0 = alloca ptr, align 8
   %1 = alloca i64, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(992) getelementptr inbounds (i8, ptr @g_idletcb, i64 16), i8 0, i64 992, i1 false)
-  store i8 3, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 48), align 16
-  store ptr @nx_start, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 32), align 16
-  store ptr @nx_start, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 40), align 8
-  store i16 2, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 64), align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds (i8, ptr @g_idletcb, i64 976), ptr noundef nonnull align 1 dereferenceable(10) @g_idlename, i64 noundef 10, i1 false) #5
-  store ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 976), ptr @g_idleargv, align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(992) getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 16), i8 0, i64 992, i1 false)
+  store i8 3, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 48), align 16
+  store ptr @nx_start, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 32), align 16
+  store ptr @nx_start, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 40), align 8
+  store i16 2, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 64), align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 976), ptr noundef nonnull align 1 dereferenceable(10) @g_idlename, i64 noundef 10, i1 false) #5
+  store ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 976), ptr @g_idleargv, align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 8), align 8
   %2 = load ptr, ptr @g_readytorun, align 8
   store ptr %2, ptr @g_idletcb, align 16
   %.not = icmp eq ptr %2, null
@@ -87,10 +87,10 @@ define void @nx_start() #0 {
   store ptr %18, ptr @g_pidhash, align 8
   %19 = load volatile i32, ptr @g_npidhash, align 4
   store ptr @g_idletcb, ptr %18, align 8
-  %20 = load i16, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 64), align 16
+  %20 = load i16, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 64), align 16
   %21 = trunc i16 %20 to i8
   %22 = call i32 @group_allocate(ptr noundef nonnull @g_idletcb, i8 noundef zeroext %21) #5
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 16), align 16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 856
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -98,7 +98,7 @@ define void @nx_start() #0 {
   call void @up_initial_state(ptr noundef nonnull @g_idletcb) #5
   %27 = call i32 @tls_init_info(ptr noundef nonnull @g_idletcb) #5
   call void @group_initialize(ptr noundef nonnull @g_idletcb) #5
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @g_idletcb, i64 16), align 16
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_idletcb, i64 16), align 16
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i8 3, ptr %29, align 8
   store volatile i32 0, ptr @g_lastpid, align 4

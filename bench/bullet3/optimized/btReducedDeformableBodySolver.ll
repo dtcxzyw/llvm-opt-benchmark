@@ -3038,7 +3038,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 define dso_local void @_ZN29btReducedDeformableBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(736) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   tail call void @_ZN22btDeformableBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(609) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btReducedDeformableBodySolver, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btReducedDeformableBodySolver, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 664
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 656
@@ -5195,7 +5195,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %arrayidx.i.i = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %21, i64 %indvars.iv.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i.i, align 8
   %m_static.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %m_static2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i, i64 8
   %22 = load i8, ptr %m_static2.i.i.i.i.i, align 8
@@ -5208,12 +5208,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %m_normal.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 24
   %m_normal4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i.i, align 8
   %m_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 40
   %m_node2.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i, i64 40
   %24 = load ptr, ptr %m_node2.i.i.i.i, align 8
   store ptr %24, ptr %m_node.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx.i.i, align 8
   %m_rsb.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 48
   %m_rsb2.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %m_rsb.i.i.i, ptr noundef nonnull align 8 dereferenceable(60) %m_rsb2.i.i.i, i64 60, i1 false)
@@ -5283,7 +5283,7 @@ invoke.cont26:                                    ; preds = %if.then.i, %_ZN20bt
   %31 = load ptr, ptr %m_data.i46, align 8
   %idxprom.i47 = sext i32 %30 to i64
   %arrayidx.i48 = getelementptr inbounds %class.btReducedDeformableStaticConstraint, ptr %31, i64 %idxprom.i47
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i48, align 8
   %m_static.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i48, i64 8
   %32 = load i8, ptr %m_static2.i.i.i.i, align 8
   %frombool.i.i.i.i = and i8 %32, 1
@@ -5293,11 +5293,11 @@ invoke.cont26:                                    ; preds = %if.then.i, %_ZN20bt
   store ptr %33, ptr %m_infoGlobal.i.i.i.i, align 8
   %m_normal.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i48, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i48, align 8
   %m_node.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i48, i64 40
   %34 = load ptr, ptr %m_node2.i.i.i, align 8
   store ptr %34, ptr %m_node.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx.i48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx.i48, align 8
   %m_rsb.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i48, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %m_rsb.i.i, ptr noundef nonnull align 8 dereferenceable(60) %m_rsb2.i.i, i64 60, i1 false)
   %m_impulseFactorMatrix.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i48, i64 108
@@ -5385,7 +5385,7 @@ for.body.i.i119:                                  ; preds = %for.body.i.i119, %f
   %47 = load ptr, ptr %m_data.i.i117, align 8
   %arrayidx3.i.i122 = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %47, i64 %indvars.iv.i.i120
   call void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(448) %arrayidx.i.i121, ptr noundef nonnull align 8 dereferenceable(448) %arrayidx3.i.i122)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx.i.i121, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx.i.i121, align 8
   %m_collideStatic.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i121, i64 96
   %m_collideStatic2.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i122, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic2.i.i.i.i, i64 196, i1 false)
@@ -5401,7 +5401,7 @@ for.body.i.i119:                                  ; preds = %for.body.i.i119, %f
   %m_bufferVelocityA.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i121, i64 340
   %m_bufferVelocityA4.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i122, i64 340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA4.i.i.i.i, i64 96, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx.i.i121, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx.i.i121, align 8
   %m_node.i.i.i123 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i121, i64 440
   %m_node2.i.i.i124 = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i122, i64 440
   %48 = load ptr, ptr %m_node2.i.i.i124, align 8
@@ -5461,7 +5461,7 @@ if.end.i:                                         ; preds = %if.then.i63, %_ZN20
   %idxprom.i60 = sext i32 %55 to i64
   %arrayidx.i61 = getelementptr inbounds %class.btReducedDeformableNodeRigidContactConstraint, ptr %56, i64 %idxprom.i60
   call void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(448) %arrayidx.i61, ptr noundef nonnull align 8 dereferenceable(448) %constraint)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx.i61, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx.i61, align 8
   %m_collideStatic.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i61, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic.i.i.i, ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic2.i.i.i, i64 196, i1 false)
   %m_impulseFactor.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i61, i64 292
@@ -5472,7 +5472,7 @@ if.end.i:                                         ; preds = %if.then.i63, %_ZN20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i.i, i64 16, i1 false)
   %m_bufferVelocityA.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i61, i64 340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA.i.i.i, ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA4.i.i.i, i64 96, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx.i61, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx.i61, align 8
   %m_node.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i61, i64 440
   %57 = load ptr, ptr %m_node2.i.i, align 8
   store ptr %57, ptr %m_node.i.i, align 8
@@ -6023,7 +6023,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29btReducedDeformableBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btReducedDeformableBodySolver, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btReducedDeformableBodySolver, i64 16), ptr %this, align 8
   %m_faceRigidConstraints = getelementptr inbounds nuw i8, ptr %this, i64 704
   invoke void @_ZN20btAlignedObjectArrayIS_I45btReducedDeformableFaceRigidContactConstraintEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %m_faceRigidConstraints)
           to label %_ZN20btAlignedObjectArrayIS_I45btReducedDeformableFaceRigidContactConstraintEED2Ev.exit unwind label %terminate.lpad.i
@@ -6067,7 +6067,7 @@ _ZN20btAlignedObjectArrayIS_I35btReducedDeformableStaticConstraintEED2Ev.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29btReducedDeformableBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(736) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btReducedDeformableBodySolver, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btReducedDeformableBodySolver, i64 16), ptr %this, align 8
   %m_faceRigidConstraints.i = getelementptr inbounds nuw i8, ptr %this, i64 704
   invoke void @_ZN20btAlignedObjectArrayIS_I45btReducedDeformableFaceRigidContactConstraintEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %m_faceRigidConstraints.i)
           to label %_ZN20btAlignedObjectArrayIS_I45btReducedDeformableFaceRigidContactConstraintEED2Ev.exit.i unwind label %terminate.lpad.i.i
@@ -8567,7 +8567,7 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
   %arrayidx11.i = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %5, i64 %indvars.iv.i
   %m_static.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx11.i, i64 8
   store i8 0, ptr %m_static.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx11.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body8.i, !llvm.loop !91
@@ -8588,7 +8588,7 @@ for.body.i7:                                      ; preds = %for.body.i7, %for.b
   %arrayidx.i9 = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %6, i64 %indvars.iv.i8
   %7 = load ptr, ptr %m_data.i5, align 8
   %arrayidx3.i = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %7, i64 %indvars.iv.i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i9, align 8
   %m_static.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %arrayidx.i9, i64 8
   %m_static2.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 8
   %8 = load i8, ptr %m_static2.i.i.i.i11, align 8
@@ -8601,12 +8601,12 @@ for.body.i7:                                      ; preds = %for.body.i7, %for.b
   %m_normal.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %arrayidx.i9, i64 24
   %m_normal4.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i.i16, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i9, align 8
   %m_node.i.i.i17 = getelementptr inbounds nuw i8, ptr %arrayidx.i9, i64 40
   %m_node2.i.i.i18 = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 40
   %10 = load ptr, ptr %m_node2.i.i.i18, align 8
   store ptr %10, ptr %m_node.i.i.i17, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx.i9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx.i9, align 8
   %m_rsb.i.i19 = getelementptr inbounds nuw i8, ptr %arrayidx.i9, i64 48
   %m_rsb2.i.i20 = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %m_rsb.i.i19, ptr noundef nonnull align 8 dereferenceable(60) %m_rsb2.i.i20, i64 60, i1 false)
@@ -8665,7 +8665,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %retval.0.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds nuw %class.btReducedDeformableStaticConstraint, ptr %2, i64 %indvars.iv.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %arrayidx.i, align 8
   %m_static.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %m_static2.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 8
   %3 = load i8, ptr %m_static2.i.i.i.i, align 8
@@ -8678,12 +8678,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %m_normal.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %m_normal4.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_normal4.i.i.i.i, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28btDeformableStaticConstraint, i64 16), ptr %arrayidx.i, align 8
   %m_node.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %m_node2.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 40
   %5 = load ptr, ptr %m_node2.i.i.i, align 8
   store ptr %5, ptr %m_node.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35btReducedDeformableStaticConstraint, i64 16), ptr %arrayidx.i, align 8
   %m_rsb.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %m_rsb2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %m_rsb.i.i, ptr noundef nonnull align 8 dereferenceable(60) %m_rsb2.i.i, i64 60, i1 false)
@@ -8967,7 +8967,7 @@ entry:
   store i8 0, ptr %m_static.i.i.i.i, align 8
   %m_binding.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 80
   store i8 0, ptr %m_binding.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %ref.tmp, align 8
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
@@ -9011,7 +9011,7 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
   %5 = load ptr, ptr %m_data.i, align 8
   %arrayidx11.i = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %5, i64 %indvars.iv.i
   call void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(448) %arrayidx11.i, ptr noundef nonnull align 8 dereferenceable(448) %ref.tmp)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx11.i, align 8
   %m_collideStatic.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx11.i, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic.i.i.i, ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic2.i.i.i, i64 196, i1 false)
   %m_impulseFactor.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx11.i, i64 292
@@ -9022,7 +9022,7 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i.i, i64 16, i1 false)
   %m_bufferVelocityA.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx11.i, i64 340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA.i.i.i, ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA4.i.i.i, i64 96, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx11.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx11.i, align 8
   %m_node.i.i = getelementptr inbounds nuw i8, ptr %arrayidx11.i, i64 440
   %6 = load ptr, ptr %m_node2.i.i, align 8
   store ptr %6, ptr %m_node.i.i, align 8
@@ -9047,7 +9047,7 @@ for.body.i7:                                      ; preds = %for.body.i7, %for.b
   %9 = load ptr, ptr %m_data.i6, align 8
   %arrayidx3.i = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %9, i64 %indvars.iv.i8
   call void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(448) %arrayidx.i9, ptr noundef nonnull align 8 dereferenceable(448) %arrayidx3.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx.i9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx.i9, align 8
   %m_collideStatic.i.i.i10 = getelementptr inbounds nuw i8, ptr %arrayidx.i9, i64 96
   %m_collideStatic2.i.i.i11 = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic.i.i.i10, ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic2.i.i.i11, i64 196, i1 false)
@@ -9063,7 +9063,7 @@ for.body.i7:                                      ; preds = %for.body.i7, %for.b
   %m_bufferVelocityA.i.i.i18 = getelementptr inbounds nuw i8, ptr %arrayidx.i9, i64 340
   %m_bufferVelocityA4.i.i.i19 = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA.i.i.i18, ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA4.i.i.i19, i64 96, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx.i9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx.i9, align 8
   %m_node.i.i20 = getelementptr inbounds nuw i8, ptr %arrayidx.i9, i64 440
   %m_node2.i.i21 = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 440
   %10 = load ptr, ptr %m_node2.i.i21, align 8
@@ -9112,7 +9112,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %2, i64 %indvars.iv.i
   tail call void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr noundef nonnull align 8 dereferenceable(448) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(448) %arrayidx3.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV41btReducedDeformableRigidContactConstraint, i64 16), ptr %arrayidx.i, align 8
   %m_collideStatic.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 96
   %m_collideStatic2.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic.i.i.i, ptr noundef nonnull align 8 dereferenceable(196) %m_collideStatic2.i.i.i, i64 196, i1 false)
@@ -9128,7 +9128,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %m_bufferVelocityA.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 340
   %m_bufferVelocityA4.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 340
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA.i.i.i, ptr noundef nonnull align 4 dereferenceable(96) %m_bufferVelocityA4.i.i.i, i64 96, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %arrayidx.i, align 8
   %m_node.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 440
   %m_node2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i, i64 440
   %3 = load ptr, ptr %m_node2.i.i, align 8

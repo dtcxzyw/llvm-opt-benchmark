@@ -243,11 +243,11 @@ entry:
   %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @e1000e_vmstate, ptr %vmsd, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) @e1000e_prop_disable_vnet, ptr noundef nonnull align 8 dereferenceable(80) @qdev_prop_uint8, i64 80, i1 false)
-  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @e1000e_prop_disable_vnet, i64 8), align 8
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @e1000e_prop_disable_vnet, i64 8), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) @e1000e_prop_subsys_ven, ptr noundef nonnull align 8 dereferenceable(80) @qdev_prop_uint16, i64 80, i1 false)
-  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @e1000e_prop_subsys_ven, i64 8), align 8
+  store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @e1000e_prop_subsys_ven, i64 8), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) @e1000e_prop_subsys, ptr noundef nonnull align 8 dereferenceable(80) @qdev_prop_uint16, i64 80, i1 false)
-  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @e1000e_prop_subsys, i64 8), align 8
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @e1000e_prop_subsys, i64 8), align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @e1000e_properties) #9
   %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8

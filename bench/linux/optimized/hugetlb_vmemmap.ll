@@ -683,7 +683,7 @@ define internal void @vmemmap_restore_pte(ptr noundef %0, i64 %1, ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @vmemmap_remap_range(i64 noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_start_locking, i64 8), i32 2) #7
           to label %5 [label %4], !srcloc !25
 
 4:                                                ; preds = %3
@@ -691,8 +691,8 @@ define internal fastcc i32 @vmemmap_remap_range(i64 noundef %0, i64 noundef %1, 
   br label %5
 
 5:                                                ; preds = %4, %3
-  tail call void @down_read(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_mm, i64 176)) #7
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #7
+  tail call void @down_read(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_mm, i64 176)) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #7
           to label %7 [label %6], !srcloc !25
 
 6:                                                ; preds = %5
@@ -701,7 +701,7 @@ define internal fastcc i32 @vmemmap_remap_range(i64 noundef %0, i64 noundef %1, 
 
 7:                                                ; preds = %6, %5
   %8 = tail call i32 @walk_page_range_novma(ptr noundef nonnull @init_mm, i64 noundef %0, i64 noundef %1, ptr noundef nonnull @vmemmap_remap_ops, ptr noundef null, ptr noundef %2) #7
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #7
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #7
           to label %10 [label %9], !srcloc !25
 
 9:                                                ; preds = %7
@@ -709,7 +709,7 @@ define internal fastcc i32 @vmemmap_remap_range(i64 noundef %0, i64 noundef %1, 
   br label %10
 
 10:                                               ; preds = %9, %7
-  tail call void @up_read(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_mm, i64 176)) #7
+  tail call void @up_read(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_mm, i64 176)) #7
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %12, label %21
 
@@ -778,14 +778,14 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
   br label %15
 
 15:                                               ; preds = %13, %4
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_mm, i64 172)) #7
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_mm, i64 172)) #7
   %16 = load i64, ptr %0, align 8
   %17 = and i64 %16, 128
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %.thread, label %19
 
 .thread:                                          ; preds = %15
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_mm, i64 172)) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_mm, i64 172)) #7
   br label %112
 
 19:                                               ; preds = %15
@@ -797,7 +797,7 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
   %24 = lshr i64 %23, 12
   %25 = and i64 %24, 1099511627264
   %26 = getelementptr %struct.page, ptr %21, i64 %25
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_mm, i64 172)) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_mm, i64 172)) #7
   %27 = icmp eq ptr %26, null
   br i1 %27, label %112, label %28
 
@@ -888,7 +888,7 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
   br i1 %86, label %87, label %49, !llvm.loop !29
 
 87:                                               ; preds = %57
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_mm, i64 172)) #7
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_mm, i64 172)) #7
   %88 = load i64, ptr %0, align 8
   %89 = and i64 %88, 128
   %90 = icmp eq i64 %89, 0
@@ -933,7 +933,7 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
   br label %110
 
 110:                                              ; preds = %109, %107, %96
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_mm, i64 172)) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_mm, i64 172)) #7
   br label %.thread7
 
 .thread7:                                         ; preds = %28, %110, %32

@@ -1404,7 +1404,7 @@ define internal noalias noundef ptr @_msg_thread(ptr noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   call void @slurm_set_addr(ptr noundef nonnull %4, i16 noundef zeroext %19, ptr noundef %21) #12
-  %22 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %22 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 720), align 8
   %23 = zext i16 %22 to i32
   %24 = mul nuw nsw i32 %23, 10000
   %25 = call i32 @slurm_send_recv_rc_msg_only_one(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %24) #12

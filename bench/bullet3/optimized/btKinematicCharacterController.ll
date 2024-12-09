@@ -172,7 +172,7 @@ entry:
 define dso_local void @_ZN30btKinematicCharacterControllerC2EP24btPairCachingGhostObjectP13btConvexShapefRK9btVector3(ptr noundef nonnull align 8 dereferenceable(319) initializes((0, 8), (16, 56), (68, 76), (80, 100), (116, 132), (164, 168), (220, 228), (232, 241), (268, 319)) %this, ptr noundef %ghostObject, ptr noundef %convexShape, float noundef %stepHeight, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %up) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   %ref.tmp.i.i = alloca %class.btVector3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30btKinematicCharacterController, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30btKinematicCharacterController, i64 16), ptr %this, align 8
   %m_walkDirection = getelementptr inbounds nuw i8, ptr %this, i64 84
   %m_AngVel = getelementptr inbounds nuw i8, ptr %this, i64 116
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
@@ -453,7 +453,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN30btKinematicCharacterControllerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(319) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30btKinematicCharacterController, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30btKinematicCharacterController, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -490,7 +490,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN30btKinematicCharacterControllerD0Ev(ptr noundef nonnull align 8 dereferenceable(319) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30btKinematicCharacterController, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30btKinematicCharacterController, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1026,7 +1026,7 @@ entry:
   %m_hitCollisionObject.i.i = getelementptr inbounds nuw i8, ptr %callback, i64 88
   store ptr null, ptr %m_hitCollisionObject.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %m_convexFromWorld.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %callback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %callback, align 8
   %m_me.i = getelementptr inbounds nuw i8, ptr %callback, i64 96
   store ptr %26, ptr %m_me.i, align 8
   %m_up.i = getelementptr inbounds nuw i8, ptr %callback, i64 104
@@ -1519,7 +1519,7 @@ while.body:                                       ; preds = %entry, %land.rhs.ba
   store i32 -1, ptr %m_collisionFilterMask.i.i.i, align 8
   store ptr null, ptr %m_hitCollisionObject.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %m_convexFromWorld.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %callback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %callback, align 8
   store ptr %26, ptr %m_me.i, align 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i28, ptr %m_up.i, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i29, ptr %sweepDirNegative.sroa.2.0.m_up.i.sroa_idx, align 8
@@ -1863,7 +1863,7 @@ invoke.cont26:                                    ; preds = %if.end, %land.lhs.t
   %m_hitCollisionObject.i.i = getelementptr inbounds nuw i8, ptr %callback, i64 88
   store ptr null, ptr %m_hitCollisionObject.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %m_convexFromWorld.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %callback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %callback, align 8
   %m_me.i = getelementptr inbounds nuw i8, ptr %callback, i64 96
   store ptr %11, ptr %m_me.i, align 8
   %m_up.i = getelementptr inbounds nuw i8, ptr %callback, i64 104
@@ -1886,7 +1886,7 @@ invoke.cont26:                                    ; preds = %if.end, %land.lhs.t
   %m_hitCollisionObject.i.i28 = getelementptr inbounds nuw i8, ptr %callback2, i64 88
   store ptr null, ptr %m_hitCollisionObject.i.i28, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %m_convexFromWorld.i.i27, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %callback2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %callback2, align 8
   %m_me.i29 = getelementptr inbounds nuw i8, ptr %callback2, i64 96
   store ptr %11, ptr %m_me.i29, align 8
   %m_up.i30 = getelementptr inbounds nuw i8, ptr %callback2, i64 104
@@ -3568,10 +3568,10 @@ init.check:                                       ; preds = %entry
 init:                                             ; preds = %init.check
   store float 1.000000e+00, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 4), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 20), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 24), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 40), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 44), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 20), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 24), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 40), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection, i64 44), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection) #27
   br label %init.end
 

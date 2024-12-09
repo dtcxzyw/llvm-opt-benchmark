@@ -1736,7 +1736,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8TGParser11AddSubClassEPNS_6RecordE
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 104
@@ -2352,7 +2352,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8TGParser7resolveERKSt6vectorINS_12
 53:                                               ; preds = %50
   store ptr null, ptr %19, align 8
   store i8 0, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
   %54 = load ptr, ptr %2, align 8
   %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
@@ -2647,7 +2647,7 @@ _ZNSt10unique_ptrIN4llvm6Record13AssertionInfoESt14default_deleteIS2_EED2Ev.exit
 207:                                              ; preds = %204
   store ptr null, ptr %30, align 8
   store i8 0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %32, i8 0, i64 20, i1 false)
   %208 = load ptr, ptr %2, align 8
   %209 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
@@ -2831,7 +2831,7 @@ _ZN4llvm6Record9appendLocENS_5SMLocE.exit:        ; preds = %281, %286
 294:                                              ; preds = %_ZN4llvm6Record9appendLocENS_5SMLocE.exit, %278
   store ptr %280, ptr %37, align 8
   store i8 0, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %39, i8 0, i64 20, i1 false)
   %295 = load ptr, ptr %2, align 8
   %296 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
@@ -3180,7 +3180,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8TGParser7resolveERKNS_11ForeachLoo
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 0, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm11MapResolverE, i64 16), ptr %8, align 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
   %21 = load ptr, ptr %2, align 8
@@ -4972,7 +4972,7 @@ _ZL27QualifiedNameOfImplicitNamePN4llvm10MultiClassE.exit: ; preds = %15, %32
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm20HasReferenceResolverE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20HasReferenceResolverE, i64 16), ptr %3, align 8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.0.i.i.i, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -16465,7 +16465,7 @@ _ZNSt10unique_ptrIN4llvm6Record8DumpInfoESt14default_deleteIS2_EED2Ev.exit: ; pr
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm20HasReferenceResolverE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20HasReferenceResolverE, i64 16), ptr %6, align 8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 32

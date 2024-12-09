@@ -246,11 +246,11 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3app6launchERKSt9nothrow_tPFvvEP11
   br i1 %15, label %18, label %19
 
 18:                                               ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_119StandardLogAppenderE, i64 16), ptr @_ZN12_GLOBAL__N_125standardLogAppenderMemoryE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_119StandardLogAppenderE, i64 16), ptr @_ZN12_GLOBAL__N_125standardLogAppenderMemoryE, align 8
   br label %20
 
 19:                                               ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14NopLogAppender, i64 16), ptr @_ZN12_GLOBAL__N_120nopLogAppenderMemoryE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV14NopLogAppender, i64 16), ptr @_ZN12_GLOBAL__N_120nopLogAppenderMemoryE, align 8
   br label %20
 
 20:                                               ; preds = %19, %18
@@ -515,7 +515,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr no
           to label %4 unwind label %22
 
 4:                                                ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20WithExtraLogAppender, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20WithExtraLogAppender, i64 16), ptr %3, align 8
   %5 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
           to label %.noexc unwind label %24
 
@@ -531,7 +531,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr no
 .noexc6:                                          ; preds = %.noexc
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14TeeLogAppender, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV14TeeLogAppender, i64 16), ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -786,7 +786,7 @@ define linkonce_odr hidden void @_ZN14TeeLogAppenderD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20WithExtraLogAppenderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20WithExtraLogAppender, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20WithExtraLogAppender, i64 16), ptr %0, align 8
   %2 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
           to label %3 unwind label %7
 
@@ -807,7 +807,7 @@ define linkonce_odr hidden void @_ZN20WithExtraLogAppenderD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20WithExtraLogAppenderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20WithExtraLogAppender, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20WithExtraLogAppender, i64 16), ptr %0, align 8
   %2 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
           to label %_ZN20WithExtraLogAppenderD2Ev.exit unwind label %3
 

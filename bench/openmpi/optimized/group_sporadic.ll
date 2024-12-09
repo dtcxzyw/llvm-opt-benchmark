@@ -209,14 +209,14 @@ define range(i32 0, 10) i32 @ompi_group_incl_spor(ptr noundef %0, i32 noundef %1
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
+  %12 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
 13:                                               ; preds = %8
-  %14 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %14 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   %15 = add nsw i32 %14, 1
-  store volatile i32 %15, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
-  %16 = load volatile i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  store volatile i32 %15, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
+  %16 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_group_empty, i64 8), align 8
   br label %opal_thread_add_fetch_32.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

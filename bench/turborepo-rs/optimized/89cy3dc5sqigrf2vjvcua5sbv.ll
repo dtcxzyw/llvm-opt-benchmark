@@ -64,7 +64,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCsapf13pIxsjn_3std3env8VarError
 
 ; Function Attrs: nonlazybind uwtable
 define noundef align 8 dereferenceable_or_null(208) ptr @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer() unnamed_addr #0 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %_RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockINtNtCs1LoaDTb72WA_4core6option6OptionRNtNtCsjIaN6dkKMFO_12turborepo_ci7vendors6VendorEE15get_or_try_initNCINvB2_11get_or_initNvMB1A_B1w_11infer_innerE0zEB1A_.exit, label %2
 
@@ -81,7 +81,7 @@ _RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockINtNtCs1LoaDTb72WA_4co
 define void @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor8get_user(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %.sroa.6 = alloca [16 x i8], align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
   %.not.i.i = icmp eq i32 %3, 4
   br i1 %.not.i.i, label %_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer.exit, label %4
 
@@ -152,7 +152,7 @@ define hidden noundef align 8 dereferenceable_or_null(208) ptr @_RNvMCsjIaN6dkKM
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [40 x i8], align 8
-  %8 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_RNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors7VENDORS, i64 9360) acquire, align 8
+  %8 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_RNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors7VENDORS, i64 9360) acquire, align 8
   %.not.i.i = icmp eq i32 %8, 4
   br i1 %.not.i.i, label %_RNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors11get_vendors.exit, label %9
 
@@ -546,7 +546,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor8get_name() unnamed_addr #0 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
   %.not.i.i = icmp eq i32 %1, 4
   br i1 %.not.i.i, label %_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer.exit, label %2
 
@@ -576,7 +576,7 @@ _RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer.exit: ; preds = %0
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor2is(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
   %.not.i.i = icmp eq i32 %3, 4
   br i1 %.not.i.i, label %_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer.exit, label %4
 
@@ -605,7 +605,7 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtCsjIaN6dkKMFO_12turborepo_ci
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor12get_constant() unnamed_addr #0 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
   %.not.i.i = icmp eq i32 %1, 4
   br i1 %.not.i.i, label %_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer.exit, label %2
 

@@ -204,7 +204,7 @@ nxtask_save_parent.exit:                          ; preds = %58, %71, %89, %.thr
   br i1 %.not, label %103, label %104
 
 103:                                              ; preds = %nxtask_save_parent.exit
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @g_inactivetasks, i64 8), align 8
   br label %106
 
 104:                                              ; preds = %nxtask_save_parent.exit

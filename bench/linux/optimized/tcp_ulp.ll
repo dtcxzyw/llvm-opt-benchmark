@@ -48,13 +48,13 @@ define dso_local noundef range(i32 -17, 1) i32 @tcp_register_ulp(ptr noundef %0)
   br i1 %12, label %.thread, label %15
 
 .thread:                                          ; preds = %3, %11
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @tcp_ulp_list, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tcp_ulp_list, i64 8), align 8
   store ptr @tcp_ulp_list, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
   store volatile ptr %0, ptr %13, align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @tcp_ulp_list, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @tcp_ulp_list, i64 8), align 8
   br label %15
 
 15:                                               ; preds = %.thread, %11

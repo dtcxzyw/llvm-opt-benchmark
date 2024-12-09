@@ -2852,7 +2852,7 @@ define internal fastcc noundef ptr @vring_create_virtqueue_packed(i32 noundef %0
   br i1 %13, label %14, label %100
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %16 = tail call noalias align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 208) #20
   %17 = icmp eq ptr %16, null
   br i1 %17, label %99, label %18
@@ -3761,7 +3761,7 @@ define internal fastcc noundef ptr @__vring_new_virtqueue(i32 noundef %0, ptr no
   br i1 %14, label %15, label %100
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %17 = tail call noalias align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %16, i32 noundef 3264, i64 noundef 208) #20
   %18 = icmp eq ptr %17, null
   br i1 %18, label %100, label %19

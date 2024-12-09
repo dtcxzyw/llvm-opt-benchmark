@@ -149,7 +149,7 @@ define internal void @_ZL22_Tf_RegistryFunction70PN32pxrInternal_v0_24__pxrReser
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18Ar_ResolverFactoryI14_TestResolver1EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18Ar_ResolverFactoryI14_TestResolver1EE, i64 16), ptr %7, align 8
   store ptr %7, ptr %3, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__6TfType10SetFactoryESt10unique_ptrINS0_11FactoryBaseESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
           to label %8 unwind label %13
@@ -208,7 +208,7 @@ define internal void @_ZL22_Tf_RegistryFunction71PN32pxrInternal_v0_24__pxrReser
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18Ar_ResolverFactoryI14_TestResolver2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18Ar_ResolverFactoryI14_TestResolver2EE, i64 16), ptr %7, align 8
   store ptr %7, ptr %3, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__6TfType10SetFactoryESt10unique_ptrINS0_11FactoryBaseESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
           to label %8 unwind label %13
@@ -331,7 +331,7 @@ define linkonce_odr void @_ZN14_TestResolver1C2Ev(ptr noundef nonnull align 8 de
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTV14_TestResolver1, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTV14_TestResolver1, i64 16), ptr %0, align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %.sink99.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sink99.sroa.gep116 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -664,7 +664,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__23ArGetAvailableResolversEv(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolverE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -897,7 +897,7 @@ define linkonce_odr void @_ZN14_TestResolver2C2Ev(ptr noundef nonnull align 8 de
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTV14_TestResolver2, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTV14_TestResolver2, i64 16), ptr %0, align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %.sink117.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sink117.sroa.gep134 = getelementptr inbounds nuw i8, ptr %5, i64 8

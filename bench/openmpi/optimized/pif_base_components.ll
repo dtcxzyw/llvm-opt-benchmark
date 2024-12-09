@@ -73,7 +73,7 @@ define internal i32 @pmix_pif_base_open(i32 noundef %0) #1 {
 2:                                                ; preds = %1
   store i1 true, ptr @frameopen, align 1
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -82,9 +82,9 @@ define internal i32 @pmix_pif_base_open(i32 noundef %0) #1 {
   br label %6
 
 6:                                                ; preds = %5, %2
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_if_list, i64 56), i8 0, i64 64, i1 false)
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 56), i8 0, i64 64, i1 false)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %8 = load ptr, ptr %7, align 8
   %.not1.i = icmp eq ptr %8, null
@@ -115,15 +115,15 @@ define internal i32 @pmix_pif_base_close() #1 {
 
 1:                                                ; preds = %0
   store i1 false, ptr @frameopen, align 1
-  %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 264), align 8
+  %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 264), align 8
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %37
-  %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 264), align 8
+  %4 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 264), align 8
   %5 = add i64 %4, -1
-  store volatile i64 %5, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 264), align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  store volatile i64 %5, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 264), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 240), align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load volatile ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 120
@@ -131,7 +131,7 @@ define internal i32 @pmix_pif_base_close() #1 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store volatile ptr %8, ptr %11, align 8
   %12 = load volatile ptr, ptr %9, align 8
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 240), align 8
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 240), align 8
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #9
   %14 = icmp eq i32 %13, 35
   br i1 %14, label %15, label %17
@@ -186,7 +186,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %23
   br label %37
 
 37:                                               ; preds = %34, %36, %17
-  %38 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_if_list, i64 264), align 8
+  %38 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 264), align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 

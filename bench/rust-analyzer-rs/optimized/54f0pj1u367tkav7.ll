@@ -3443,7 +3443,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   %1 = alloca { {} }, align 1
   %2 = alloca ptr, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !785
+  %4 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !785
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %_ZN3std4sync4once4Once15call_once_force17h763b23fd26c72bf7E.exit, label %6
 
@@ -3454,7 +3454,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   store ptr %1, ptr %7, align 8, !noalias !785
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !785
   store ptr %3, ptr %2, align 8, !noalias !785
-  call void @_ZN3std10sys_common4once5futex4Once4call17hf1f3131d6dadbd9cE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14dc1be636f00d3fc1a2b30eeced2adf.33.llvm.8462471242219372772)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hf1f3131d6dadbd9cE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14dc1be636f00d3fc1a2b30eeced2adf.33.llvm.8462471242219372772)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !785
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !785
   br label %_ZN3std4sync4once4Once15call_once_force17h763b23fd26c72bf7E.exit
@@ -3468,7 +3468,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   %1 = alloca { {} }, align 1
   %2 = alloca ptr, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !788
+  %4 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !788
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %_ZN3std4sync4once4Once15call_once_force17h4fc9ecdf00571025E.exit, label %6
 
@@ -3479,7 +3479,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   store ptr %1, ptr %7, align 8, !noalias !788
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !788
   store ptr %3, ptr %2, align 8, !noalias !788
-  call void @_ZN3std10sys_common4once5futex4Once4call17h4d926b16ec7dd628E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14dc1be636f00d3fc1a2b30eeced2adf.33.llvm.8462471242219372772)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h4d926b16ec7dd628E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14dc1be636f00d3fc1a2b30eeced2adf.33.llvm.8462471242219372772)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !788
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !788
   br label %_ZN3std4sync4once4Once15call_once_force17h4fc9ecdf00571025E.exit
@@ -3493,7 +3493,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   %1 = alloca { {} }, align 1
   %2 = alloca ptr, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !791
+  %4 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !791
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %_ZN3std4sync4once4Once15call_once_force17h6d83dcc99a544342E.exit, label %6
 
@@ -3504,7 +3504,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   store ptr %1, ptr %7, align 8, !noalias !791
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !791
   store ptr %3, ptr %2, align 8, !noalias !791
-  call void @_ZN3std10sys_common4once5futex4Once4call17hef6091a92609785eE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14dc1be636f00d3fc1a2b30eeced2adf.33.llvm.8462471242219372772)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hef6091a92609785eE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24), i1 noundef zeroext true, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14dc1be636f00d3fc1a2b30eeced2adf.33.llvm.8462471242219372772)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !791
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !791
   br label %_ZN3std4sync4once4Once15call_once_force17h6d83dcc99a544342E.exit
@@ -13409,7 +13409,7 @@ define void @_ZN10hir_expand11declarative24DeclarativeMacroExpander6expand17h5ff
 
 29:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3041)
-  %30 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !3044
+  %30 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !3044
   %.not.i.i.i = icmp eq i32 %30, 4
   br i1 %.not.i.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h37ee527daf0a5c26E.exit.i.i", label %31
 
@@ -13683,7 +13683,7 @@ define void @_ZN10hir_expand11declarative24DeclarativeMacroExpander17expand_unhy
 
 19:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3086)
-  %20 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !3089
+  %20 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !3089
   %.not.i.i.i = icmp eq i32 %20, 4
   br i1 %.not.i.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hfc0dfe4420ad03a0E.exit.i.i", label %21
 
@@ -14002,7 +14002,7 @@ define hidden noundef nonnull ptr @_ZN10hir_expand11declarative24DeclarativeMacr
 
 79:                                               ; preds = %76
   call void @llvm.experimental.noalias.scope.decl(metadata !3126)
-  %80 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !3129
+  %80 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10hir_expand11declarative11REQUIREMENT17h45bae8ccde317515E, i64 24) acquire, align 8, !noalias !3129
   %.not.i.i.i = icmp eq i32 %80, 4
   br i1 %.not.i.i.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hbf46c56e0603e724E.exit.i.i", label %81
 

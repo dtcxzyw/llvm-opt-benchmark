@@ -262,7 +262,7 @@ declare dso_local i32 @__SCT__tp_func_thermal_temperature(ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_thermal_temperature(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_thermal_temperature, i64 72), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_temperature, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -297,7 +297,7 @@ declare dso_local i32 @__SCT__tp_func_cdev_update(ptr noundef, ptr noundef, i64 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_cdev_update(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_cdev_update, i64 72), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_cdev_update, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
 
@@ -326,7 +326,7 @@ declare dso_local i32 @__SCT__tp_func_thermal_zone_trip(ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__traceiter_thermal_zone_trip(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_thermal_zone_trip, i64 72), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_zone_trip, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -1285,11 +1285,11 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
   store i32 %17, ptr %18, align 4
   %19 = load i32, ptr %3, align 4
   store i32 %19, ptr %16, align 8
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_thermal_temperature, i64 8), i32 2) #20
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_temperature, i64 8), i32 2) #20
           to label %40 [label %20], !srcloc !23
 
 20:                                               ; preds = %15
-  %21 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !24
+  %21 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !24
   %22 = zext i32 %21 to i64
   %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %22) #20, !srcloc !25
   %24 = icmp ult i8 %23, 2
@@ -1298,9 +1298,9 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
   br i1 %25, label %40, label %26
 
 26:                                               ; preds = %20
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !26
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !26
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !27
-  %27 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_thermal_temperature, i64 72), align 8
+  %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_temperature, i64 72), align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
 
@@ -1312,7 +1312,7 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
 
 33:                                               ; preds = %29, %26
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !28
-  %34 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !29
+  %34 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !29
   %35 = icmp ult i8 %34, 2
   call void @llvm.assume(i1 %35)
   %36 = icmp eq i8 %34, 0
@@ -1415,11 +1415,11 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
 95:                                               ; preds = %92
   %96 = call i32 @thermal_zone_trip_id(ptr noundef %0, ptr noundef %53) #20
   %97 = load i32, ptr %86, align 4
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_thermal_zone_trip, i64 8), i32 2) #20
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_zone_trip, i64 8), i32 2) #20
           to label %118 [label %98], !srcloc !23
 
 98:                                               ; preds = %95
-  %99 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !31
+  %99 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !31
   %100 = zext i32 %99 to i64
   %101 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %100) #20, !srcloc !25
   %102 = icmp ult i8 %101, 2
@@ -1428,9 +1428,9 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
   br i1 %103, label %118, label %104
 
 104:                                              ; preds = %98
-  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !26
+  call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !26
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !32
-  %105 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_thermal_zone_trip, i64 72), align 8
+  %105 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_thermal_zone_trip, i64 72), align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %111, label %107
 
@@ -1442,7 +1442,7 @@ define dso_local void @__thermal_zone_device_update(ptr noundef %0, i32 noundef 
 
 111:                                              ; preds = %107, %104
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !33
-  %112 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !29
+  %112 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !29
   %113 = icmp ult i8 %112, 2
   call void @llvm.assume(i1 %113)
   %114 = icmp eq i8 %112, 0
@@ -1804,7 +1804,7 @@ define dso_local i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %1, 
   br i1 %35, label %129, label %36
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %38 = tail call noalias align 8 dereferenceable_or_null(232) ptr @kmalloc_trace(ptr noundef %37, i32 noundef 3520, i64 noundef 232) #23
   %39 = icmp eq ptr %38, null
   br i1 %39, label %129, label %40
@@ -2187,7 +2187,7 @@ define internal fastcc ptr @__thermal_cooling_device_register(ptr noundef %0, pt
   br i1 %19, label %89, label %20
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %22 = tail call noalias align 8 dereferenceable_or_null(856) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3520, i64 noundef 856) #23
   %23 = icmp eq ptr %22, null
   br i1 %23, label %89, label %24
@@ -2740,7 +2740,7 @@ define dso_local ptr @thermal_zone_device_register_with_trips(ptr noundef %0, pt
   br i1 %41, label %144, label %42
 
 42:                                               ; preds = %39
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %44 = tail call noalias align 8 dereferenceable_or_null(1136) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3520, i64 noundef 1136) #23
   %45 = icmp eq ptr %44, null
   br i1 %45, label %144, label %46
@@ -2893,8 +2893,8 @@ define dso_local ptr @thermal_zone_device_register_with_trips(ptr noundef %0, pt
 125:                                              ; preds = %122, %118
   tail call void @mutex_lock(ptr noundef nonnull @thermal_list_lock) #20
   tail call void @mutex_lock(ptr noundef nonnull %60) #20
-  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @thermal_tz_list, i64 8), align 8
-  store ptr %55, ptr getelementptr inbounds (i8, ptr @thermal_tz_list, i64 8), align 8
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @thermal_tz_list, i64 8), align 8
+  store ptr %55, ptr getelementptr inbounds nuw (i8, ptr @thermal_tz_list, i64 8), align 8
   store ptr @thermal_tz_list, ptr %55, align 8
   store ptr %126, ptr %56, align 8
   store volatile ptr %55, ptr %126, align 8
@@ -3269,7 +3269,7 @@ define internal i32 @thermal_init() #12 section ".init.text" align 16 {
   br i1 %2, label %3, label %.loopexit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 96) #23
   store ptr %5, ptr @thermal_class, align 8
   %6 = icmp eq ptr %5, null

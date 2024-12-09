@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr nocapture noundef nonnull readnone align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 34, ptr noundef %3, ptr noundef nonnull @.str.4) #6
   ret void
 }
@@ -25,7 +25,7 @@ declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr nound
 define hidden void @_ZN15ClassFileStreamC2EPKhiPKcbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(42) initializes((0, 42)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
   %7 = zext i1 %4 to i8
   %8 = zext i1 %5 to i8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15ClassFileStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15ClassFileStream, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -142,7 +142,7 @@ _ZNK15ClassFileStream12clone_sourceEv.exit:       ; preds = %1, %22
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %31, 1
   %35 = and i8 %33, 1
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15ClassFileStream, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15ClassFileStream, i64 16), ptr %17, align 8
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %10, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 16

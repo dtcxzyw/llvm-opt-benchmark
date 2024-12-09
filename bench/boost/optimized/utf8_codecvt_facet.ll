@@ -28,7 +28,7 @@ $_ZZN5boost7archive6detail6detail25get_octet1_modifier_tableEvE21octet1_modifier
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5boost7archive6detail18utf8_codecvt_facetC2Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZNSt7codecvtIwc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive6detail18utf8_codecvt_facetE, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN5boost7archive6detail18utf8_codecvt_facetE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
 }
 

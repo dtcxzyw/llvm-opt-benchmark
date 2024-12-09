@@ -1934,7 +1934,7 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   br i1 %129, label %169, label %155
 
 155:                                              ; preds = %154
-  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %157 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %156, i32 noundef 3520, i64 noundef 32) #22
   %158 = icmp eq ptr %157, null
   br i1 %158, label %169, label %159

@@ -1403,7 +1403,7 @@ _ZN2cv4implL19getPluginCandidatesERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i32 1, ptr %353, align 8, !noalias !22
   %354 = getelementptr inbounds nuw i8, ptr %352, i64 12
   store i32 1, ptr %354, align 4, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6plugin4impl10DynamicLibESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %352, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6plugin4impl10DynamicLibESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %352, align 8, !noalias !22
   %355 = getelementptr inbounds nuw i8, ptr %352, i64 16
   invoke void @_ZN2cv6plugin4impl10DynamicLibC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(41) %355, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.057.073)
           to label %357 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6plugin4impl10DynamicLibESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !22
@@ -2201,9 +2201,9 @@ define hidden void @_ZN2cv8parallel34createPluginParallelBackendFactoryERKNSt7__
   store i32 1, ptr %4, align 8, !noalias !25
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !25
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl28PluginParallelBackendFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl28PluginParallelBackendFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !25
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl28PluginParallelBackendFactoryE, i64 16), ptr %6, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl28PluginParallelBackendFactoryE, i64 16), ptr %6, align 8, !noalias !25
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNSt10shared_ptrIN2cv4impl28PluginParallelBackendFactoryEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl28PluginParallelBackendFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !25
@@ -5967,9 +5967,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   store i32 1, ptr %145, align 8, !noalias !41
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 12
   store i32 1, ptr %146, align 4, !noalias !41
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl28PluginParallelBackendFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %144, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl28PluginParallelBackendFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %144, align 8, !noalias !41
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl28PluginParallelBackendFactoryE, i64 16), ptr %147, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl28PluginParallelBackendFactoryE, i64 16), ptr %147, align 8, !noalias !41
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %148, ptr noundef nonnull align 8 dereferenceable(32) %58)
           to label %150 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4impl28PluginParallelBackendFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !41
@@ -10281,7 +10281,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv4impl21PluginParallelBa
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl21PluginParallelBackendESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl21PluginParallelBackendESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -11956,7 +11956,7 @@ _ZNSt10shared_ptrIN2cv8parallel14ParallelForAPIEEC2IS2_ZNKS0_4impl21PluginParall
   store i32 1, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %46, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2cv8parallel14ParallelForAPIEZNKS0_4impl21PluginParallelBackend6createEvEUlS3_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2cv8parallel14ParallelForAPIEZNKS0_4impl21PluginParallelBackend6createEvEUlS3_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %24, ptr %47, align 8
   store ptr %34, ptr %33, align 8

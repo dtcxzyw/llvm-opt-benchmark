@@ -1039,7 +1039,7 @@ entry:
   store i64 1, ptr %refs_.i.i, align 8
   %min_security_level_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 2, ptr %min_security_level_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV31grpc_composite_call_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV31grpc_composite_call_credentials, i64 16), ptr %this, align 8
   %inner_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %inner_, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %creds1, align 8
@@ -1808,7 +1808,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit: ; preds = %do
   %2 = atomicrmw add ptr %refs_.i.i8, i64 1 monotonic, align 8, !noalias !68
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34grpc_composite_channel_credentials, i64 16), ptr %call5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34grpc_composite_channel_credentials, i64 16), ptr %call5, align 8
   %inner_creds_.i = getelementptr inbounds nuw i8, ptr %call5, i64 16
   store ptr %channel_creds, ptr %inner_creds_.i, align 8
   %call_creds_.i = getelementptr inbounds nuw i8, ptr %call5, i64 24
@@ -1825,7 +1825,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN34grpc_composite_channel_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34grpc_composite_channel_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34grpc_composite_channel_credentials, i64 16), ptr %this, align 8
   %call_creds_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_creds_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1870,7 +1870,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN34grpc_composite_channel_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34grpc_composite_channel_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34grpc_composite_channel_credentials, i64 16), ptr %this, align 8
   %call_creds_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_creds_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2097,7 +2097,7 @@ return:                                           ; preds = %_ZNK24grpc_channel_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN31grpc_composite_call_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV31grpc_composite_call_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV31grpc_composite_call_credentials, i64 16), ptr %this, align 8
   %inner_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %inner_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2149,7 +2149,7 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrI21grpc_call_credentialsEESaIS3_EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN31grpc_composite_call_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV31grpc_composite_call_credentials, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV31grpc_composite_call_credentials, i64 16), ptr %this, align 8
   %inner_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %inner_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2265,7 +2265,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

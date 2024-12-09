@@ -50,7 +50,7 @@ define internal range(i32 -1, 1) i32 @prte_mca_plm_slurm_component_query(ptr noc
 
 4:                                                ; preds = %2
   store i32 75, ptr %1, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %5, 64
   br i1 %or.cond, label %6, label %13
 
@@ -75,10 +75,10 @@ define internal range(i32 -1, 1) i32 @prte_mca_plm_slurm_component_query(ptr noc
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @plm_slurm_register() #1 {
-  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_slurm_component, i64 224), align 8
-  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_slurm_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_slurm_component, i64 224)) #4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_slurm_component, i64 232), align 8
-  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_slurm_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_plm_slurm_component, i64 232)) #4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_plm_slurm_component, i64 224), align 8
+  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_slurm_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_plm_slurm_component, i64 224)) #4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_plm_slurm_component, i64 232), align 8
+  %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_plm_slurm_component, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_plm_slurm_component, i64 232)) #4
   ret i32 0
 }
 

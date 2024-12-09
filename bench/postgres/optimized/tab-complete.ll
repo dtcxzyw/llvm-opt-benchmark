@@ -1817,7 +1817,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @initialize_readline() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 320), align 8
   store ptr %1, ptr @rl_readline_name, align 8
   store ptr @psql_completion, ptr @rl_attempted_completion_function, align 8
   store ptr @quote_file_name, ptr @rl_filename_quoting_function, align 8
@@ -7023,7 +7023,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2120, label %2121, label %2128
 
 2121:                                             ; preds = %2119
-  %2122 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2123 = icmp sgt i32 %2122, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2123, label %2124, label %2126
@@ -7055,7 +7055,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2135, label %2136, label %2143
 
 2136:                                             ; preds = %2134, %2132
-  %2137 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2138 = icmp sgt i32 %2137, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2138, label %2139, label %2141
@@ -7123,7 +7123,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2166, label %2167, label %2174
 
 2167:                                             ; preds = %2165, %2163
-  %2168 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2168 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2169 = icmp sgt i32 %2168, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2169, label %2170, label %2172
@@ -7155,7 +7155,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2181, label %2182, label %2189
 
 2182:                                             ; preds = %2180, %2178
-  %2183 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2183 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2184 = icmp sgt i32 %2183, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2184, label %2185, label %2187
@@ -7195,7 +7195,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2200, label %2201, label %2208
 
 2201:                                             ; preds = %2199, %2197, %2195, %2193
-  %2202 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2203 = icmp sgt i32 %2202, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2203, label %2204, label %2206
@@ -7263,7 +7263,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2231, label %2232, label %2239
 
 2232:                                             ; preds = %2230, %2228
-  %2233 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2233 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2234 = icmp sgt i32 %2233, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2234, label %2235, label %2237
@@ -7291,7 +7291,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2244, label %2245, label %2252
 
 2245:                                             ; preds = %2243
-  %2246 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2246 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2247 = icmp sgt i32 %2246, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2247, label %2248, label %2250
@@ -7319,7 +7319,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2257, label %2258, label %2265
 
 2258:                                             ; preds = %2256
-  %2259 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2259 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2260 = icmp sgt i32 %2259, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2260, label %2261, label %2263
@@ -7687,7 +7687,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2410, label %2411, label %2418
 
 2411:                                             ; preds = %2409
-  %2412 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2412 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2413 = icmp sgt i32 %2412, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2413, label %2414, label %2416
@@ -7711,7 +7711,7 @@ ends_with.exit1966.thread:                        ; preds = %1839, %ends_with.ex
   br i1 %2421, label %2422, label %2429
 
 2422:                                             ; preds = %2420
-  %2423 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %2423 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   %2424 = icmp sgt i32 %2423, 109999
   store i1 false, ptr @completion_case_sensitive, align 1
   br i1 %2424, label %2425, label %2427
@@ -11992,7 +11992,7 @@ define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr
   %5 = load ptr, ptr @completion_charp, align 8
   %6 = load i8, ptr %5, align 1
   %.b18 = load i1, ptr @completion_force_quote, align 1
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %8 = tail call ptr @quote_if_needed(ptr noundef %0, ptr noundef nonnull @.str.1700, i8 noundef signext 39, i8 noundef signext %6, i1 noundef zeroext %.b18, i32 noundef %7) #12
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
@@ -12074,7 +12074,7 @@ define internal ptr @dequote_file_name(ptr noundef %0, i32 noundef %1) #0 {
   %9 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #12
   %10 = load ptr, ptr @completion_charp, align 8
   %11 = load i8, ptr %10, align 1
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %13 = tail call ptr @strtokx(ptr noundef nonnull %7, ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef nonnull @.str.1, i8 noundef signext %11, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef %12) #12
   tail call void @free(ptr noundef %7) #12
   br label %19
@@ -12082,7 +12082,7 @@ define internal ptr @dequote_file_name(ptr noundef %0, i32 noundef %1) #0 {
 14:                                               ; preds = %2
   %15 = load ptr, ptr @completion_charp, align 8
   %16 = load i8, ptr %15, align 1
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %18 = tail call ptr @strtokx(ptr noundef %0, ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef nonnull @.str.1, i8 noundef signext %16, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef %17) #12
   br label %19
 
@@ -12242,7 +12242,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @complete_from_variables(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = tail call ptr @pg_malloc(i64 noundef 808) #12
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %.0.in28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.029 = load ptr, ptr %.0.in28, align 8
   %.not30 = icmp eq ptr %.029, null
@@ -12729,7 +12729,7 @@ define internal ptr @complete_from_query(ptr noundef %0, i32 noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal ptr @complete_from_versioned_schema_query(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr @completion_squery, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   br label %5
 
 5:                                                ; preds = %5, %2
@@ -12841,7 +12841,7 @@ declare zeroext i1 @recognized_connection_string(ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal ptr @complete_from_versioned_query(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr @completion_vquery, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 316), align 4
   br label %5
 
 5:                                                ; preds = %5, %2
@@ -12913,7 +12913,7 @@ declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @pg_strdup_keyword_case(ptr noundef %0, i8 %.0.val) unnamed_addr #0 {
   %2 = tail call ptr @pg_strdup(ptr noundef %0) #12
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 416), align 8
   switch i32 %3, label %.thread [
     i32 3, label %14
     i32 1, label %4
@@ -13211,7 +13211,7 @@ define internal fastcc ptr @_complete_from_query(ptr noundef %0, ptr noundef rea
   br i1 %.not23.i, label %40, label %31
 
 31:                                               ; preds = %29
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %33 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.018.i, i32 noundef %32) #12
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph.i, label %.loopexit.i
@@ -14160,7 +14160,7 @@ declare void @PQclear(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture noundef initializes((0, 1)) %4) unnamed_addr #0 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %7 = add i64 %6, 1
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %9 = tail call i32 @pg_encoding_max_length(i32 noundef %8) #12
   %10 = tail call ptr @pg_malloc(i64 noundef %7) #12
   store i8 0, ptr %4, align 1
@@ -14322,7 +14322,7 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noun
   br i1 %.not62, label %.thread, label %68
 
 68:                                               ; preds = %67
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %70 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.05676, i32 noundef %69) #12
   store i8 %49, ptr %.05079, align 1
   %.271 = getelementptr i8, ptr %.05079, i64 1

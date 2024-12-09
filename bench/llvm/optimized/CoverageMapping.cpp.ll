@@ -4789,7 +4789,7 @@ define dso_local void @_ZN4llvm8coverage15CoverageMapping18loadFunctionRecordERK
   store ptr @.str.2, ptr %24, align 8, !noalias !78
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 3, ptr %53, align 8, !noalias !78
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %51, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %51, align 8, !noalias !78
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 5, ptr %54, align 8, !noalias !78
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -4918,7 +4918,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %102, %97
   store i8 1, ptr %106, align 8, !noalias !84
   %107 = getelementptr inbounds nuw i8, ptr %22, i64 33
   store i8 1, ptr %107, align 1, !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %105, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %105, align 8, !noalias !84
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i32 %76, ptr %108, align 8, !noalias !84
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 16
@@ -5155,7 +5155,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit118:               ; preds = %206, %201
   store i8 1, ptr %210, align 8, !noalias !90
   %211 = getelementptr inbounds nuw i8, ptr %20, i64 33
   store i8 1, ptr %211, align 1, !noalias !90
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %209, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm14InstrProfErrorE, i64 16), ptr %209, align 8, !noalias !90
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i32 %180, ptr %212, align 8, !noalias !90
   %213 = getelementptr inbounds nuw i8, ptr %209, i64 16
@@ -7159,7 +7159,7 @@ _ZN4llvm8ExpectedIRNS_8coverage21CoverageMappingRecordEED2Ev.exit29: ; preds = %
   %21 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26, !noalias !164
   store i8 1, ptr %12, align 8, !noalias !164
   store i8 1, ptr %13, align 1, !noalias !164
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %21, align 8, !noalias !164
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %21, align 8, !noalias !164
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %17, ptr %22, align 8, !noalias !164
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -7389,7 +7389,7 @@ _ZN4llvm8ExpectedISt6vectorISt10unique_ptrINS_8coverage20BinaryCoverageReaderESt
   store i8 4, ptr %77, align 8, !noalias !193
   store i8 1, ptr %78, align 1, !noalias !193
   store ptr %92, ptr %18, align 8, !noalias !193
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %93, align 8, !noalias !193
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %93, align 8, !noalias !193
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 %89, ptr %94, align 8, !noalias !193
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
@@ -7470,7 +7470,7 @@ _ZN4llvm5ErrorD2Ev.exit22.thread:                 ; preds = %113
   %126 = getelementptr inbounds nuw i8, ptr %17, i64 33
   store i8 1, ptr %126, align 1, !noalias !211
   store ptr %123, ptr %17, align 8, !noalias !211
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %124, align 8, !noalias !211
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %124, align 8, !noalias !211
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i32 %120, ptr %127, align 8, !noalias !211
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 16
@@ -8772,7 +8772,7 @@ _ZNSt6vectorIN4llvm11SmallVectorIhLj10EEESaIS2_EED2Ev.exit94: ; preds = %285, %_
   store i8 1, ptr %297, align 8, !noalias !264
   %298 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %298, align 1, !noalias !264
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %296, align 8, !noalias !264
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %296, align 8, !noalias !264
   %299 = getelementptr inbounds nuw i8, ptr %296, i64 8
   store i32 2, ptr %299, align 8, !noalias !264
   %300 = getelementptr inbounds nuw i8, ptr %296, i64 16
@@ -12387,7 +12387,7 @@ define internal fastcc void @_ZL23getCoverageMapErrStringN4llvm8coverage17covera
   store i32 1, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %0, ptr %9, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #28
@@ -12652,7 +12652,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm8coverage16CoverageMapErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   ret void
@@ -12660,7 +12660,7 @@ define linkonce_odr hidden void @_ZN4llvm8coverage16CoverageMapErrorD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm8coverage16CoverageMapErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm8coverage16CoverageMapErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #27
@@ -13253,7 +13253,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !386
   %155 = load ptr, ptr %2, align 8, !noalias !389
   store ptr null, ptr %2, align 8, !noalias !389
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
@@ -17387,7 +17387,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %15, %5
   %21 = inttoptr i64 %20 to ptr
   store ptr null, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9FileErrorE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9FileErrorE, i64 16), ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #28
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 48

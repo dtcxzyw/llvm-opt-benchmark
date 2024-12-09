@@ -992,7 +992,7 @@ call3.i.noexc:
   store i64 0, ptr %size_.i.i.i.i, align 8, !alias.scope !17
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i13, i64 24
   store i64 256, ptr %capacity_.i.i.i.i, align 8, !alias.scope !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorISt6vectorIcSaIcEEEcNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i13, align 8, !alias.scope !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorISt6vectorIcSaIcEEEcNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i13, align 8, !alias.scope !17
   %out_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i13, i64 32
   store ptr %out, ptr %out_.i.i.i, align 8, !alias.scope !17
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i13, ptr nonnull @.str.1, i64 2, i64 1, ptr nonnull %ref.tmp.i72, ptr null)
@@ -1040,7 +1040,7 @@ call2.i88.noexc:                                  ; preds = %_ZN3fmt3v106detail1
   store i64 0, ptr %size_.i.i.i, align 8
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 24
   store i64 3, ptr %capacity_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferIPccNS1_19fixed_buffer_traitsEEE, i64 16), ptr %buf.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferIPccNS1_19fixed_buffer_traitsEEE, i64 16), ptr %buf.i, align 8
   %out_.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 48
   store ptr %buffer, ptr %out_.i.i, align 8
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %buf.i, ptr nonnull @.str.1, i64 2, i64 1, ptr nonnull %ref.tmp.i86, ptr null)
@@ -1061,7 +1061,7 @@ invoke.cont3.i:                                   ; preds = %call2.i88.noexc
   store i64 0, ptr %size_.i.i.i.i24, align 8
   %capacity_.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 24
   store i64 3, ptr %capacity_.i.i.i.i25, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferIPwwNS1_19fixed_buffer_traitsEEE, i64 16), ptr %buf.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferIPwwNS1_19fixed_buffer_traitsEEE, i64 16), ptr %buf.i.i, align 8
   %out_.i.i.i26 = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 48
   store ptr %wbuffer, ptr %out_.i.i.i26, align 8
   invoke void @_ZN3fmt3v106detail10vformat_toIwEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %buf.i.i, ptr nonnull @.str.42, i64 2, i64 1, ptr nonnull %ref.tmp.i21, ptr null)
@@ -1326,7 +1326,7 @@ invoke.cont:
   store i64 %call.i.i.i.i.i, ptr %size_.i.i.i.i.i.i, align 8, !alias.scope !43
   %capacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i25, i64 24
   store i64 %call.i.i.i.i.i, ptr %capacity_.i.i.i.i.i.i, align 8, !alias.scope !43
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i25, align 8, !alias.scope !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i25, align 8, !alias.scope !43
   %container_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i25, i64 32
   store ptr %out, ptr %container_.i.i.i.i.i, align 8, !alias.scope !43
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EERKNS0_10text_styleENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISH_EEEE4typeESH_EEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i25, ptr noundef nonnull align 4 dereferenceable(19) %ts, ptr nonnull @.str.60, i64 20, i64 273, ptr nonnull %ref.tmp.i26)
@@ -1488,7 +1488,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buf, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buf, i64 2032
   call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buf, i64 32
@@ -5200,7 +5200,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -7033,7 +7033,7 @@ invoke.cont4:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %separators, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %separators, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %separators, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i64 16), ptr %separators, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i64 16), ptr %separators, align 8
   %store_.i = getelementptr inbounds nuw i8, ptr %separators, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
@@ -7360,7 +7360,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -11951,7 +11951,7 @@ invoke.cont12:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -12500,7 +12500,7 @@ if.end:                                           ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 2032
   call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -12653,7 +12653,7 @@ invoke.cont4:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %separators, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %separators, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %separators, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i64 16), ptr %separators, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i64 16), ptr %separators, align 8
   %store_.i = getelementptr inbounds nuw i8, ptr %separators, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
@@ -14716,7 +14716,7 @@ invoke.cont12:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -15263,7 +15263,7 @@ if.end:                                           ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 2032
   call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -15972,7 +15972,7 @@ if.end68:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i15 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp69) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -17140,7 +17140,7 @@ invoke.cont4:
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %numerator, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %numerator, i64 16
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %numerator, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %numerator, align 8
   %store_.i.i = getelementptr inbounds nuw i8, ptr %numerator, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -17150,7 +17150,7 @@ invoke.cont4:
   %capacity_.i.i.i62 = getelementptr inbounds nuw i8, ptr %denominator, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %denominator, i64 16
   store i64 0, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %denominator, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %denominator, align 8
   %store_.i.i63 = getelementptr inbounds nuw i8, ptr %denominator, i64 32
   store ptr %store_.i.i63, ptr %ptr_.i.i.i61, align 8
   store i64 32, ptr %capacity_.i.i.i62, align 8
@@ -17160,7 +17160,7 @@ invoke.cont4:
   %capacity_.i.i.i66 = getelementptr inbounds nuw i8, ptr %lower, i64 24
   %2 = getelementptr inbounds nuw i8, ptr %lower, i64 16
   store i64 0, ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %lower, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %lower, align 8
   %store_.i.i67 = getelementptr inbounds nuw i8, ptr %lower, i64 32
   store ptr %store_.i.i67, ptr %ptr_.i.i.i65, align 8
   store i64 32, ptr %capacity_.i.i.i66, align 8
@@ -17170,7 +17170,7 @@ invoke.cont4:
   %capacity_.i.i.i70 = getelementptr inbounds nuw i8, ptr %upper_store, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %upper_store, i64 16
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %upper_store, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %upper_store, align 8
   %store_.i.i71 = getelementptr inbounds nuw i8, ptr %upper_store, i64 32
   store ptr %store_.i.i71, ptr %ptr_.i.i.i69, align 8
   store i64 32, ptr %capacity_.i.i.i70, align 8
@@ -18380,7 +18380,7 @@ if.then.i:                                        ; preds = %if.then94
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN3fmt3v1012format_errorE, ptr nonnull @_ZN3fmt3v1012format_errorD2Ev) #28
           to label %.noexc623 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -19962,7 +19962,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %n, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %n, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %n, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 16), ptr %n, align 8
   %ptr_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr_.i.i.i, align 8
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -20262,7 +20262,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr hidden void @_ZN3fmt3v1012format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -21519,7 +21519,7 @@ invoke.cont12:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -22083,7 +22083,7 @@ if.end:                                           ; preds = %entry
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 2032
   call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -31149,7 +31149,7 @@ if.end68:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i15 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp69) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -32897,7 +32897,7 @@ if.end68:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i14 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp69) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buffer, i64 32
@@ -34340,7 +34340,7 @@ invoke.cont7:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buf, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buf, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buf, i64 32
@@ -37602,7 +37602,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %ref.tmp, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
@@ -37646,7 +37646,7 @@ entry:
   %ref.tmp1 = alloca %"class.std::basic_ostream", align 8
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail9formatbufISt15basic_streambufIcSt11char_traitsIcEEEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail9formatbufISt15basic_streambufIcSt11char_traitsIcEEEE, i64 16), ptr %ref.tmp, align 8
   %buffer_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 64
   store ptr %buf, ptr %buffer_.i, align 8
   invoke void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1, ptr noundef nonnull %ref.tmp)
@@ -37701,7 +37701,7 @@ if.then:                                          ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3fmt3v1012format_errorE, ptr nonnull @_ZN3fmt3v1012format_errorD2Ev) #28
           to label %unreachable unwind label %lpad2
 
@@ -37786,7 +37786,7 @@ invoke.cont:                                      ; preds = %_ZN3fmt3v106detail1
   %ptr_.i.i.i = getelementptr inbounds nuw i8, ptr %u, i64 8
   %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %u, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm128ESaIcEEE, i64 16), ptr %u, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm128ESaIcEEE, i64 16), ptr %u, align 8
   %alloc_.i.i = getelementptr inbounds nuw i8, ptr %u, i64 160
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #24
   %store_.i.i = getelementptr inbounds nuw i8, ptr %u, i64 32
@@ -37831,7 +37831,7 @@ if.then8:                                         ; preds = %call.i4.noexc
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.then8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3fmt3v1012format_errorE, ptr nonnull @_ZN3fmt3v1012format_errorD2Ev) #28
           to label %unreachable unwind label %lpad.loopexit.split-lp
 
@@ -41358,7 +41358,7 @@ invoke.cont7:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIwLm500ESaIwEEE, i64 16), ptr %buf, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buf, i64 2032
   call void @_ZNSaIwEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buf, i64 32
@@ -43563,7 +43563,7 @@ if.end:                                           ; preds = %entry
   store i64 %5, ptr %size_.i2.i.i.i.i.i, align 8, !alias.scope !355
   %capacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i64 %5, ptr %capacity_.i.i.i.i.i.i, align 8, !alias.scope !355
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !355
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !355
   %container_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %container_.i.i.i.i.i, align 8, !alias.scope !355
   call void @_ZN3fmt3v106detail8do_writeIwEEvRNS1_6bufferIT_EERK2tmRKSt6localecc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef signext 72, i8 noundef signext 79)
@@ -43720,7 +43720,7 @@ entry:
   %ref.tmp1 = alloca %"class.std::basic_ostream.210", align 8
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
   call void @_ZNSt15basic_streambufIwSt11char_traitsIwEEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail9formatbufISt15basic_streambufIwSt11char_traitsIwEEEE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail9formatbufISt15basic_streambufIwSt11char_traitsIwEEEE, i64 16), ptr %ref.tmp, align 8
   %buffer_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 64
   store ptr %buf, ptr %buffer_.i, align 8
   invoke void @_ZNSt13basic_ostreamIwSt11char_traitsIwEEC1EPSt15basic_streambufIwS1_E(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1, ptr noundef nonnull %ref.tmp)
@@ -43775,7 +43775,7 @@ if.then:                                          ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3fmt3v1012format_errorE, ptr nonnull @_ZN3fmt3v1012format_errorD2Ev) #28
           to label %unreachable unwind label %lpad2
 
@@ -44040,7 +44040,7 @@ if.end:                                           ; preds = %entry
   store i64 %5, ptr %size_.i2.i.i.i.i.i, align 8, !alias.scope !359
   %capacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i64 %5, ptr %capacity_.i.i.i.i.i.i, align 8, !alias.scope !359
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !359
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !359
   %container_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %container_.i.i.i.i.i, align 8, !alias.scope !359
   call void @_ZN3fmt3v106detail8do_writeIwEEvRNS1_6bufferIT_EERK2tmRKSt6localecc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef signext 73, i8 noundef signext 79)
@@ -44086,7 +44086,7 @@ if.end:                                           ; preds = %entry
   store i64 %5, ptr %size_.i2.i.i.i.i.i, align 8, !alias.scope !362
   %capacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i64 %5, ptr %capacity_.i.i.i.i.i.i, align 8, !alias.scope !362
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !362
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !362
   %container_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %container_.i.i.i.i.i, align 8, !alias.scope !362
   call void @_ZN3fmt3v106detail8do_writeIwEEvRNS1_6bufferIT_EERK2tmRKSt6localecc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef signext 77, i8 noundef signext 79)
@@ -44246,7 +44246,7 @@ if.else:                                          ; preds = %entry
   store i64 %5, ptr %size_.i2.i.i.i.i.i, align 8, !alias.scope !365
   %capacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i64 %5, ptr %capacity_.i.i.i.i.i.i, align 8, !alias.scope !365
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !365
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !365
   %container_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %container_.i.i.i.i.i, align 8, !alias.scope !365
   call void @_ZN3fmt3v106detail8do_writeIwEEvRNS1_6bufferIT_EERK2tmRKSt6localecc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef signext 83, i8 noundef signext 79)
@@ -44531,7 +44531,7 @@ if.else:                                          ; preds = %entry
   store i64 %18, ptr %size_.i2.i.i.i.i.i, align 8, !alias.scope !369
   %capacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i64 %18, ptr %capacity_.i.i.i.i.i.i, align 8, !alias.scope !369
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !369
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !369
   %container_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %container_.i.i.i.i.i, align 8, !alias.scope !369
   call void @_ZN3fmt3v106detail8do_writeIwEEvRNS1_6bufferIT_EERK2tmRKSt6localecc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef signext 114, i8 noundef signext 0)
@@ -44627,7 +44627,7 @@ if.else:                                          ; preds = %entry
   store i64 %15, ptr %size_.i2.i.i.i.i.i, align 8, !alias.scope !372
   %capacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i64 %15, ptr %capacity_.i.i.i.i.i.i, align 8, !alias.scope !372
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !372
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINS0_19basic_memory_bufferIwLm500ESaIwEEEEwNS1_13buffer_traitsEEE, i64 16), ptr %ref.tmp.i.i, align 8, !alias.scope !372
   %container_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %container_.i.i.i.i.i, align 8, !alias.scope !372
   call void @_ZN3fmt3v106detail8do_writeIwEEvRNS1_6bufferIT_EERK2tmRKSt6localecc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, i8 noundef signext 112, i8 noundef signext 0)
@@ -44649,7 +44649,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buf, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buf, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buf, i64 32
@@ -45207,7 +45207,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 16), ptr %buf, align 8
   %alloc_.i = getelementptr inbounds nuw i8, ptr %buf, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   %store_.i = getelementptr inbounds nuw i8, ptr %buf, i64 32

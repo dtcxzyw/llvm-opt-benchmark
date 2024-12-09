@@ -437,7 +437,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %65, %_ZNSt
 152:                                              ; preds = %128
   %153 = load i32, ptr @var, align 4
   store i32 %153, ptr @flag, align 4
-  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @src, i64 64), align 8
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @src, i64 64), align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %156 = load i32, ptr %155, align 4
   %157 = load i32, ptr %154, align 4
@@ -460,7 +460,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %152
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %163) #16
   %164 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %164) #16
-  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @src, i64 64), align 8
+  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @src, i64 64), align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %167 = load i32, ptr %166, align 4
   %168 = load i32, ptr %165, align 4

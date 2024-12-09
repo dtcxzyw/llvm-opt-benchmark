@@ -208,7 +208,7 @@ define void @_ZN2cv5AKAZE6createENS0_14DescriptorTypeEiifiiNS_4KAZE15Diffusivity
   store i32 1, ptr %11, align 8, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1, ptr %12, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10AKAZE_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10AKAZE_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13)
           to label %_ZN2cv3PtrINS_10AKAZE_ImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10AKAZE_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit17.i.i.i.i.i, !noalias !4
@@ -220,7 +220,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10AKAZE_ImplESaIvELN9_
   resume { ptr, i32 } %14
 
 _ZN2cv3PtrINS_10AKAZE_ImplEED2Ev.exit:            ; preds = %9
-  store ptr getelementptr inbounds inrange(-80, 256) (i8, ptr @_ZTVN2cv10AKAZE_ImplE, i64 80), ptr %13, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-80, 256) (i8, ptr @_ZTVN2cv10AKAZE_ImplE, i64 80), ptr %13, align 8, !noalias !4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %1, ptr %15, align 8, !noalias !4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 28

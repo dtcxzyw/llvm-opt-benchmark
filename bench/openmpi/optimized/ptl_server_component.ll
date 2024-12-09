@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1366, 1) i32 @component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 6
@@ -42,7 +42,7 @@ define internal range(i32 -1366, 1) i32 @component_query(ptr nocapture noundef w
 
 7:                                                ; preds = %2
   store ptr @pmix_ptl_server_module, ptr %0, align 8
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_ptl_server_component, i64 224), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_ptl_server_component, i64 224), align 8
   br label %10
 
 9:                                                ; preds = %2

@@ -192,7 +192,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv3MatEEbP7_objectRT_RK7ArgI
   br i1 %.not.i, label %_Z17GetNumpyAllocatorv.exit, label %28
 
 28:                                               ; preds = %26
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV14NumpyAllocator, i64 16), ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV14NumpyAllocator, i64 16), ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, align 8
   %29 = invoke noundef ptr @_ZN2cv3Mat15getStdAllocatorEv()
           to label %30 unwind label %31
 
@@ -1058,7 +1058,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_Z17
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV14NumpyAllocator, i64 16), ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV14NumpyAllocator, i64 16), ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, align 8
   %6 = invoke noundef ptr @_ZN2cv3Mat15getStdAllocatorEv()
           to label %7 unwind label %9
 
@@ -1404,7 +1404,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv3MatEEP7_objectRKT_(ptr noundef
   br i1 %.not.i, label %_Z17GetNumpyAllocatorv.exit, label %18
 
 18:                                               ; preds = %16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV14NumpyAllocator, i64 16), ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV14NumpyAllocator, i64 16), ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, align 8
   %19 = invoke noundef ptr @_ZN2cv3Mat15getStdAllocatorEv()
           to label %20 unwind label %21
 
@@ -1434,7 +1434,7 @@ _Z17GetNumpyAllocatorv.exit:                      ; preds = %20, %16, %11
   br i1 %.not.i29, label %_Z17GetNumpyAllocatorv.exit32, label %28
 
 28:                                               ; preds = %26
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV14NumpyAllocator, i64 16), ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV14NumpyAllocator, i64 16), ptr @_ZZ17GetNumpyAllocatorvE15gNumpyAllocator, align 8
   %29 = invoke noundef ptr @_ZN2cv3Mat15getStdAllocatorEv()
           to label %30 unwind label %31
 

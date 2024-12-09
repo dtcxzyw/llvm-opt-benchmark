@@ -132,7 +132,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN2cv7optflow24OpticalFlowSparseToDenseESaIvELN9
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv7optflow21OpticalFlowSimpleFlowC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow21OpticalFlowSimpleFlowE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow21OpticalFlowSimpleFlowE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -208,7 +208,7 @@ define void @_ZN2cv7optflow24createOptFlow_SimpleFlowEv(ptr dead_on_unwind noali
   store i32 1, ptr %3, align 8, !noalias !4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow21OpticalFlowSimpleFlowESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow21OpticalFlowSimpleFlowESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5)
           to label %_ZN2cv3PtrINS_7optflow21OpticalFlowSimpleFlowEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow21OpticalFlowSimpleFlowESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !4
@@ -220,7 +220,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow21OpticalFlowS
   resume { ptr, i32 } %6
 
 _ZN2cv3PtrINS_7optflow21OpticalFlowSimpleFlowEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow21OpticalFlowSimpleFlowE, i64 16), ptr %5, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow21OpticalFlowSimpleFlowE, i64 16), ptr %5, align 8, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 3, ptr %7, align 8, !noalias !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -256,7 +256,7 @@ _ZN2cv3PtrINS_7optflow21OpticalFlowSimpleFlowEED2Ev.exit: ; preds = %1
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv7optflow20OpticalFlowFarnebackC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow20OpticalFlowFarnebackE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow20OpticalFlowFarnebackE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 5, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -310,7 +310,7 @@ define void @_ZN2cv7optflow23createOptFlow_FarnebackEv(ptr dead_on_unwind noalia
   store i32 1, ptr %3, align 8, !noalias !9
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow20OpticalFlowFarnebackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow20OpticalFlowFarnebackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %5)
           to label %_ZN2cv3PtrINS_7optflow20OpticalFlowFarnebackEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow20OpticalFlowFarnebackESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !9
@@ -322,7 +322,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow20OpticalFlowF
   resume { ptr, i32 } %6
 
 _ZN2cv3PtrINS_7optflow20OpticalFlowFarnebackEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow20OpticalFlowFarnebackE, i64 16), ptr %5, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow20OpticalFlowFarnebackE, i64 16), ptr %5, align 8, !noalias !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 5, ptr %7, align 8, !noalias !9
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -349,7 +349,7 @@ _ZN2cv3PtrINS_7optflow20OpticalFlowFarnebackEED2Ev.exit: ; preds = %1
 define hidden void @_ZN2cv7optflow24OpticalFlowSparseToDenseC2Eiifbff(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i1 noundef zeroext %4, float noundef %5, float noundef %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %4 to i8
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow24OpticalFlowSparseToDenseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow24OpticalFlowSparseToDenseE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -398,7 +398,7 @@ define void @_ZN2cv7optflow27createOptFlow_SparseToDenseEv(ptr dead_on_unwind no
   store i32 1, ptr %3, align 8, !noalias !14
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !14
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow24OpticalFlowSparseToDenseESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv7optflow24OpticalFlowSparseToDenseESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !14
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN2cv3PtrINS_7optflow24OpticalFlowSparseToDenseEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow24OpticalFlowSparseToDenseESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i, !noalias !14
@@ -410,7 +410,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow24OpticalFlowS
   resume { ptr, i32 } %6
 
 _ZN2cv3PtrINS_7optflow24OpticalFlowSparseToDenseEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow24OpticalFlowSparseToDenseE, i64 16), ptr %5, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv7optflow24OpticalFlowSparseToDenseE, i64 16), ptr %5, align 8, !noalias !14
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 8, ptr %7, align 8, !noalias !14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 28

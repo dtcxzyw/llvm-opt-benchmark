@@ -432,7 +432,7 @@ define internal void @_ZL11on_trackbariPv(i32 %0, ptr nocapture readnone %1) #4 
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #13
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #13
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @img, i64 64), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img, i64 64), align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %28, align 4
@@ -531,7 +531,7 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2c
   br label %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EED2Ev.exit44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @img, i64 64), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img, i64 64), align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = load i32, ptr %61, align 4

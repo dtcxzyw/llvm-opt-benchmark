@@ -211,7 +211,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %cond.false, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
-  %gep = getelementptr inbounds nuw [3 x %struct.anon], ptr getelementptr inbounds (i8, ptr @storeutl_main.map, i64 4), i64 0, i64 %i.0352
+  %gep = getelementptr inbounds nuw [3 x %struct.anon], ptr getelementptr inbounds nuw (i8, ptr @storeutl_main.map, i64 4), i64 0, i64 %i.0352
   %3 = load i32, ptr %gep, align 4
   %cmp20.not = icmp eq i32 %3, 0
   br i1 %cmp20.not, label %cond.false, label %while.cond.backedge

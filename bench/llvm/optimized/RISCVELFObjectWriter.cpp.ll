@@ -29,7 +29,7 @@ define dso_local void @_ZN4llvm26createRISCVELFObjectWriterEhb(ptr dead_on_unwin
 _ZNSt10unique_ptrIN12_GLOBAL__N_120RISCVELFObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #5, !noalias !4
   tail call void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr noundef nonnull align 8 dereferenceable(13) %3, i1 noundef zeroext %2, i8 noundef zeroext %1, i16 noundef zeroext 243, i1 noundef zeroext true, i8 noundef zeroext 0) #6, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVELFObjectWriterE, i64 16), ptr %3, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVELFObjectWriterE, i64 16), ptr %3, align 8, !noalias !4
   store ptr %3, ptr %0, align 8
   ret void
 }

@@ -204,8 +204,8 @@ define void @_ZN3g2o15EdgeProjectP2MCC2Ev(ptr noundef nonnull align 16 dereferen
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 2, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_14VertexPointXYZENS_9VertexCamEEEE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_14VertexPointXYZENS_9VertexCamEEEE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_14VertexPointXYZENS_9VertexCamEEEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_14VertexPointXYZENS_9VertexCamEEEE, i64 264), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 0, ptr %5, align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -258,8 +258,8 @@ define void @_ZN3g2o15EdgeProjectP2MCC2Ev(ptr noundef nonnull align 16 dereferen
   store ptr %9, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %8, ptr %29, align 16
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o15EdgeProjectP2MCE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o15EdgeProjectP2MCE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o15EdgeProjectP2MCE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o15EdgeProjectP2MCE, i64 264), ptr %3, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double 1.000000e+00, ptr %30, align 16
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 200

@@ -232,7 +232,7 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @noop_qdisc_ops, i64 40), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @noop_qdisc_ops, i64 40), align 8
   store ptr %16, ptr %12, align 8
   br label %17
 
@@ -249,7 +249,7 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
   br i1 %23, label %.thread4, label %.thread
 
 .thread4:                                         ; preds = %24
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @noop_qdisc_ops, i64 56), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @noop_qdisc_ops, i64 56), align 8
   store ptr %25, ptr %18, align 8
   br label %27
 
@@ -258,7 +258,7 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
 
 27:                                               ; preds = %.thread4, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @noop_qdisc_ops, i64 48), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @noop_qdisc_ops, i64 48), align 8
   store ptr %29, ptr %28, align 8
   br label %30
 
@@ -939,7 +939,7 @@ define dso_local noundef ptr @qdisc_get_rtab(ptr nocapture noundef %0, ptr nound
   br i1 %39, label %.loopexit, label %24, !llvm.loop !29
 
 .loopexit:                                        ; preds = %36, %16
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %41 = tail call noalias align 8 dereferenceable_or_null(1056) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3264, i64 noundef 1056) #20
   %42 = icmp eq ptr %41, null
   br i1 %42, label %55, label %43
@@ -1887,7 +1887,7 @@ define internal i32 @pktsched_init() #10 section ".init.text" align 16 {
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 40, ptr noundef nonnull @tc_ctl_tclass, ptr noundef null, i32 noundef 0) #19
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 41, ptr noundef nonnull @tc_ctl_tclass, ptr noundef null, i32 noundef 0) #19
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 42, ptr noundef nonnull @tc_ctl_tclass, ptr noundef nonnull @tc_dump_tclass, i32 noundef 0) #19
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 364, i32 16, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 85)) #19
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 364, i32 16, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 85)) #19
           to label %13 [label %13, label %12], !srcloc !49
 
 12:                                               ; preds = %5
@@ -5108,8 +5108,8 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
 
 96:                                               ; preds = %94, %91
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @qdisc_stab_list, i64 8), align 8
-  store ptr %97, ptr getelementptr inbounds (i8, ptr @qdisc_stab_list, i64 8), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @qdisc_stab_list, i64 8), align 8
+  store ptr %97, ptr getelementptr inbounds nuw (i8, ptr @qdisc_stab_list, i64 8), align 8
   store ptr @qdisc_stab_list, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store ptr %98, ptr %99, align 8
@@ -5530,11 +5530,11 @@ declare dso_local i32 @gen_new_estimator(ptr noundef, ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @trace_qdisc_create(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #14 align 16 {
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_qdisc_create, i64 8), i32 2) #19
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_qdisc_create, i64 8), i32 2) #19
           to label %24 [label %4], !srcloc !74
 
 4:                                                ; preds = %3
-  %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !75
+  %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !75
   %6 = zext i32 %5 to i64
   %7 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %6) #19, !srcloc !76
   %8 = icmp ult i8 %7, 2
@@ -5543,9 +5543,9 @@ define internal fastcc void @trace_qdisc_create(ptr noundef nonnull %0, ptr noun
   br i1 %9, label %24, label %10
 
 10:                                               ; preds = %4
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !77
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !77
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !78
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @__tracepoint_qdisc_create, i64 72), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_qdisc_create, i64 72), align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
 
@@ -5557,7 +5557,7 @@ define internal fastcc void @trace_qdisc_create(ptr noundef nonnull %0, ptr noun
 
 17:                                               ; preds = %13, %10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !79
-  %18 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !80
+  %18 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !80
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i8 %18, 0

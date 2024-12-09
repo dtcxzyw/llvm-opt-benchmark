@@ -26,13 +26,13 @@ define void @_ZN6icu_7518CollationTailoringC2EPKNS_17CollationSettingsE(ptr noun
 invoke.cont:
   %softRefCount.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518CollationTailoringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518CollationTailoringE, i64 16), ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %data, align 8
   %settings = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %baseSettings, ptr %settings, align 8
   %rules = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %rules, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %rules, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i16 2, ptr %fUnion2.i, align 8
   %actualLocale = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -58,7 +58,7 @@ if.else:                                          ; preds = %invoke.cont3
 new.notnull:                                      ; preds = %if.else
   %softRefCount.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationSettingsE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CollationSettingsE, i64 16), ptr %call, align 8
   %options.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 8208, ptr %options.i, align 8
   %variableTop.i = getelementptr inbounds nuw i8, ptr %call, i64 28
@@ -140,7 +140,7 @@ declare void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518CollationTailoringD2Ev(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518CollationTailoringE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518CollationTailoringE, i64 16), ptr %this, align 8
   %settings = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %settings, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -393,7 +393,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7519CollationCacheEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 16), ptr %this, align 8
   %tailoring = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %tailoring, align 8
   %cmp.not.i = icmp eq ptr %0, null

@@ -112,11 +112,11 @@ _ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.exit: ; preds = %37, %4
 43:                                               ; preds = %_ZL12start_thread14instanceHandlePFvP10JavaThreadS1_ES1_.exit
   store i8 14, ptr %6, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValue(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef nonnull %6) #4
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
   call void @_ZN16JfrJavaArguments9set_klassEPK5Klass(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %44) #4
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3168), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3168), align 8
   call void @_ZN16JfrJavaArguments8set_nameEPK6Symbol(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %45) #4
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7216), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7216), align 8
   call void @_ZN16JfrJavaArguments13set_signatureEPK6Symbol(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %46) #4
   %47 = call noundef ptr @_ZN8Universe19system_thread_groupEv() #4
   call void @_ZN16JfrJavaArguments12set_receiverEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %47) #4

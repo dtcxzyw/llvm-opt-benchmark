@@ -132,7 +132,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %25
 
 25:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load volatile ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -143,13 +143,13 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %33 = load volatile ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store volatile ptr %32, ptr %34, align 8
-  %35 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  %35 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %36 = add i64 %35, -1
-  store volatile i64 %36, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  store volatile i64 %36, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %37 = load volatile ptr, ptr %29, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = tail call i32 @opal_hash_table_remove_value_ptr(ptr noundef nonnull @ompi_proc_hash, ptr noundef nonnull %38, i64 noundef 8) #13
-  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   ret void
 }
 
@@ -164,7 +164,7 @@ define noundef i32 @ompi_proc_complete_init_single(ptr nocapture noundef %0) loc
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 4), align 4
   %10 = icmp eq i32 %8, %9
   br i1 %10, label %14, label %11
 
@@ -204,11 +204,11 @@ define ptr @ompi_proc_for_name(i64 %0) local_unnamed_addr #1 {
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %7 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %8 = load i64, ptr %2, align 8
   %9 = call fastcc ptr @ompi_proc_for_name_nolock(i64 %8)
   store ptr %9, ptr %3, align 8
-  %10 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %10 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   br label %11
 
 11:                                               ; preds = %1, %6
@@ -234,10 +234,10 @@ define internal fastcc ptr @ompi_proc_for_name_nolock(i64 %0) unnamed_addr #1 {
   %7 = load i32, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_t_class, i64 56), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_t_class, i64 56), align 8
   %11 = call noalias ptr @malloc(i64 noundef %10) #14
   %12 = load i32, ptr @opal_class_init_epoch, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_proc_t_class, i64 32), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %12, %13
   br i1 %.not.i.i, label %15, label %14
 
@@ -268,18 +268,18 @@ define internal fastcc ptr @ompi_proc_for_name_nolock(i64 %0) unnamed_addr #1 {
   br i1 %.not.i.i.i, label %ompi_proc_allocate.exit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %15, %16
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store volatile ptr %23, ptr %24, align 8
-  %25 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
+  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store volatile ptr %11, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store volatile ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16), ptr %27, align 8
-  store volatile ptr %11, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
-  %28 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16), ptr %27, align 8
+  store volatile ptr %11, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
+  %28 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %29 = add i64 %28, 1
-  store volatile i64 %29, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  store volatile i64 %29, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 %7, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 44
@@ -294,7 +294,7 @@ ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %15, 
 
 37:                                               ; preds = %ompi_proc_allocate.exit
   %38 = load i32, ptr %31, align 4
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 4), align 4
   %40 = icmp eq i32 %38, %39
   br i1 %40, label %ompi_proc_complete_init_single.exit, label %41
 
@@ -311,12 +311,12 @@ ompi_proc_complete_init_single.exit:              ; preds = %.ompi_proc_complete
 
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_proc_init() local_unnamed_addr #1 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 340), align 4
   %2 = load i32, ptr @ompi_add_procs_cutoff, align 4
   %3 = icmp ult i32 %1, %2
   %4 = select i1 %3, i32 %1, i32 1024
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 
@@ -326,7 +326,7 @@ define i32 @ompi_proc_init() local_unnamed_addr #1 {
 
 8:                                                ; preds = %7, %0
   store ptr @opal_list_t_class, ptr @ompi_proc_list, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 8), align 8
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i = icmp eq ptr %10, null
@@ -343,7 +343,7 @@ define i32 @ompi_proc_init() local_unnamed_addr #1 {
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
   %14 = load i32, ptr @opal_class_init_epoch, align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not6 = icmp eq i32 %14, %15
   br i1 %.not6, label %17, label %16
 
@@ -353,7 +353,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
 
 17:                                               ; preds = %16, %opal_obj_run_constructors.exit
   store ptr @opal_mutex_t_class, ptr @ompi_proc_lock, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 8), align 8
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %19 = load ptr, ptr %18, align 8
   %.not6.i9 = icmp eq ptr %19, null
@@ -370,7 +370,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
 
 opal_obj_run_constructors.exit13:                 ; preds = %.lr.ph.i10, %17
   %23 = load i32, ptr @opal_class_init_epoch, align 4
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not7 = icmp eq i32 %23, %24
   br i1 %.not7, label %26, label %25
 
@@ -380,7 +380,7 @@ opal_obj_run_constructors.exit13:                 ; preds = %.lr.ph.i10, %17
 
 26:                                               ; preds = %25, %opal_obj_run_constructors.exit13
   store ptr @opal_hash_table_t_class, ptr @ompi_proc_hash, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_proc_hash, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_hash, i64 8), align 8
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i14 = icmp eq ptr %28, null
@@ -403,11 +403,11 @@ opal_obj_run_constructors.exit18:                 ; preds = %.lr.ph.i15, %26
 
 34:                                               ; preds = %opal_obj_run_constructors.exit18
   %35 = load i32, ptr @opal_process_info, align 8
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_t_class, i64 56), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 4), align 4
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_t_class, i64 56), align 8
   %38 = tail call noalias ptr @malloc(i64 noundef %37) #14
   %39 = load i32, ptr @opal_class_init_epoch, align 4
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_proc_t_class, i64 32), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %39, %40
   br i1 %.not.i.i, label %42, label %41
 
@@ -438,18 +438,18 @@ opal_obj_run_constructors.exit18:                 ; preds = %.lr.ph.i15, %26
   br i1 %.not.i.i.i, label %ompi_proc_allocate.exit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %42, %43
-  %50 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
+  %50 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store volatile ptr %50, ptr %51, align 8
-  %52 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
+  %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store volatile ptr %38, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store volatile ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16), ptr %54, align 8
-  store volatile ptr %38, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
-  %55 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16), ptr %54, align 8
+  store volatile ptr %38, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
+  %55 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %56 = add i64 %55, 1
-  store volatile i64 %56, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  store volatile i64 %56, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %57 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 %35, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %38, i64 44
@@ -490,9 +490,9 @@ define noundef i32 @ompi_proc_complete_init() local_unnamed_addr #1 {
   %11 = alloca %struct.pmix_info, align 8
   %12 = alloca i64, align 8
   store ptr null, ptr %3, align 8
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %14 = load i32, ptr @opal_process_info, align 8
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @opal_name_wildcard, i64 4), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_name_wildcard, i64 4), align 4
   store ptr null, ptr %5, align 8
   %16 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %4, i32 noundef %14) #13
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 256
@@ -550,16 +550,16 @@ define noundef i32 @ompi_proc_complete_init() local_unnamed_addr #1 {
   %37 = call i64 @strtoul(ptr nocapture noundef nonnull %36, ptr noundef null, i32 noundef 10) #13
   %38 = trunc i64 %37 to i32
   store ptr %7, ptr %8, align 8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 4), align 4
   %40 = icmp eq i32 %39, %38
   br i1 %40, label %.thread65, label %41
 
 41:                                               ; preds = %35
   %42 = load i32, ptr @opal_process_info, align 8
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_t_class, i64 56), align 8
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_t_class, i64 56), align 8
   %44 = call noalias ptr @malloc(i64 noundef %43) #14
   %45 = load i32, ptr @opal_class_init_epoch, align 4
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_proc_t_class, i64 32), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %45, %46
   br i1 %.not.i.i, label %48, label %47
 
@@ -590,18 +590,18 @@ define noundef i32 @ompi_proc_complete_init() local_unnamed_addr #1 {
   br i1 %.not.i.i.i, label %ompi_proc_allocate.exit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %48, %49
-  %56 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
+  %56 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store volatile ptr %56, ptr %57, align 8
-  %58 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
+  %58 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store volatile ptr %44, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store volatile ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16), ptr %60, align 8
-  store volatile ptr %44, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
-  %61 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16), ptr %60, align 8
+  store volatile ptr %44, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
+  %61 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %62 = add i64 %61, 1
-  store volatile i64 %62, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  store volatile i64 %62, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %63 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store i32 %42, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %44, i64 44
@@ -667,13 +667,13 @@ ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %48, 
   br label %.thread56
 
 .thread56:                                        ; preds = %0, %._crit_edge, %27
-  %storemerge69 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 32), align 8
-  %.not4570 = icmp eq ptr %storemerge69, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %storemerge69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
+  %.not4570 = icmp eq ptr %storemerge69, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not4570, label %._crit_edge73, label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %.thread56
   %86 = load i32, ptr @opal_process_info, align 8
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 4), align 4
   %88 = load i32, ptr @opal_local_arch, align 4
   br label %89
 
@@ -698,18 +698,18 @@ ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %48, 
 ompi_proc_complete_init_single.exit:              ; preds = %93, %97
   %99 = getelementptr inbounds nuw i8, ptr %storemerge71, i64 16
   %storemerge = load volatile ptr, ptr %99, align 8
-  %.not45 = icmp eq ptr %storemerge, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.not45 = icmp eq ptr %storemerge, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not45, label %._crit_edge73, label %89, !llvm.loop !8
 
 ._crit_edge73:                                    ; preds = %ompi_proc_complete_init_single.exit, %.thread56
-  %100 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 340), align 4
   %101 = load i32, ptr @ompi_add_procs_cutoff, align 4
   %102 = icmp ult i32 %100, %101
   br i1 %102, label %103, label %118
 
 103:                                              ; preds = %._crit_edge73
-  %104 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
+  %104 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 340), align 4
   %.not78 = icmp eq i32 %105, 0
   br i1 %.not78, label %._crit_edge77, label %.lr.ph76
 
@@ -728,29 +728,29 @@ ompi_proc_complete_init_single.exit:              ; preds = %93, %97
   br i1 %108, label %ompi_proc_for_name.exit, label %109
 
 109:                                              ; preds = %.lr.ph76
-  %110 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %110 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %111 = load i64, ptr %1, align 8
   %112 = call fastcc ptr @ompi_proc_for_name_nolock(i64 %111)
   store ptr %112, ptr %2, align 8
-  %113 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %113 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   br label %ompi_proc_for_name.exit
 
 ompi_proc_for_name.exit:                          ; preds = %.lr.ph76, %109
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %114 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 340), align 4
   %115 = zext i32 %114 to i64
   %116 = icmp samesign ult i64 %indvars.iv.next81, %115
   br i1 %116, label %.lr.ph76, label %._crit_edge77, !llvm.loop !9
 
 ._crit_edge77:                                    ; preds = %ompi_proc_for_name.exit, %103
-  %117 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %117 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   br label %118
 
 118:                                              ; preds = %._crit_edge77, %._crit_edge73
   %119 = call i32 @opal_list_sort(ptr noundef nonnull @ompi_proc_list, ptr noundef nonnull @ompi_proc_compare_vid) #13
-  %120 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %120 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   ret i32 0
 }
 
@@ -794,8 +794,8 @@ define internal range(i32 -1, 2) i32 @ompi_proc_compare_vid(ptr nocapture nounde
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_proc_finalize() local_unnamed_addr #1 {
   %1 = tail call i32 @opal_proc_local_set(ptr noundef null) #13
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 32), align 8
-  %.not19 = icmp eq ptr %2, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
+  %.not19 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not19, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
@@ -850,8 +850,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 
 23:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
   %24 = phi i8 [ %3, %opal_thread_add_fetch_32.exit ], [ %.pre, %opal_obj_run_destructors.exit ]
-  %25 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 32), align 8
-  %.not = icmp eq ptr %25, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
+  %.not = icmp eq ptr %25, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %23, %0
@@ -911,7 +911,7 @@ opal_obj_run_destructors.exit18:                  ; preds = %.lr.ph.i15, %opal_o
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @ompi_proc_world_size() local_unnamed_addr #7 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 340), align 4
   ret i32 %1
 }
 
@@ -926,9 +926,9 @@ define noalias noundef ptr @ompi_proc_get_allocated(ptr nocapture noundef writeo
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %2, align 8
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
-  %.01823 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 32), align 8
-  %.not24 = icmp eq ptr %.01823, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %.01823 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
+  %.not24 = icmp eq ptr %.01823, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
@@ -941,7 +941,7 @@ define noalias noundef ptr @ompi_proc_get_allocated(ptr nocapture noundef writeo
   %spec.select = add i64 %.01725, %12
   %13 = getelementptr inbounds nuw i8, ptr %.01826, i64 16
   %.018 = load volatile ptr, ptr %13, align 8
-  %.not = icmp eq ptr %.018, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.not = icmp eq ptr %.018, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -955,12 +955,12 @@ define noalias noundef ptr @ompi_proc_get_allocated(ptr nocapture noundef writeo
   br i1 %16, label %17, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %.11927 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 32), align 8
-  %.not2228 = icmp eq ptr %.11927, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.11927 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
+  %.not2228 = icmp eq ptr %.11927, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not2228, label %._crit_edge32, label %.lr.ph31
 
 17:                                               ; preds = %._crit_edge
-  %18 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %18 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   br label %28
 
 .lr.ph31:                                         ; preds = %.preheader, %25
@@ -981,12 +981,12 @@ define noalias noundef ptr @ompi_proc_get_allocated(ptr nocapture noundef writeo
   %.3 = phi i64 [ %23, %22 ], [ %.229, %.lr.ph31 ]
   %26 = getelementptr inbounds nuw i8, ptr %.11930, i64 16
   %.119 = load volatile ptr, ptr %26, align 8
-  %.not22 = icmp eq ptr %.119, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.not22 = icmp eq ptr %.119, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not22, label %._crit_edge32, label %.lr.ph31, !llvm.loop !12
 
 ._crit_edge32:                                    ; preds = %25, %.preheader
   %.2.lcssa = phi i64 [ 0, %.preheader ], [ %.3, %25 ]
-  %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   store i64 %.2.lcssa, ptr %0, align 8
   br label %28
 
@@ -1009,7 +1009,7 @@ define noalias noundef ptr @ompi_proc_world(ptr nocapture noundef writeonly %0) 
   br i1 %5, label %24, label %6
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 340), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 340), align 4
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #14
@@ -1037,11 +1037,11 @@ define noalias noundef ptr @ompi_proc_world(ptr nocapture noundef writeonly %0) 
   br i1 %16, label %ompi_proc_for_name.exit, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %18 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %19 = load i64, ptr %2, align 8
   %20 = call fastcc ptr @ompi_proc_for_name_nolock(i64 %19)
   store ptr %20, ptr %3, align 8
-  %21 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %21 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   br label %ompi_proc_for_name.exit
 
 ompi_proc_for_name.exit:                          ; preds = %.lr.ph, %17
@@ -1065,16 +1065,16 @@ ompi_proc_for_name.exit:                          ; preds = %.lr.ph, %17
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @ompi_proc_all(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
-  %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %3 = shl i64 %2, 3
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #14
   %5 = icmp eq ptr %4, null
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
-  %.01215 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 32), align 8
-  %.not16 = icmp eq ptr %.01215, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %.01215 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
+  %.not16 = icmp eq ptr %.01215, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
@@ -1092,7 +1092,7 @@ opal_thread_add_fetch_32.exit.us:                 ; preds = %.lr.ph, %opal_threa
   store ptr %.01218.us, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.01218.us, i64 16
   %.012.us = load volatile ptr, ptr %14, align 8
-  %.not.us = icmp eq ptr %.012.us, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.not.us = icmp eq ptr %.012.us, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not.us, label %._crit_edge, label %opal_thread_add_fetch_32.exit.us, !llvm.loop !14
 
 opal_thread_add_fetch_32.exit:                    ; preds = %.lr.ph, %opal_thread_add_fetch_32.exit
@@ -1108,12 +1108,12 @@ opal_thread_add_fetch_32.exit:                    ; preds = %.lr.ph, %opal_threa
   store ptr %.01218, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.01218, i64 16
   %.012 = load volatile ptr, ptr %21, align 8
-  %.not = icmp eq ptr %.012, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.not = icmp eq ptr %.012, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not, label %._crit_edge, label %opal_thread_add_fetch_32.exit, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %opal_thread_add_fetch_32.exit, %opal_thread_add_fetch_32.exit.us, %6
   %.0.lcssa = phi i64 [ 0, %6 ], [ %12, %opal_thread_add_fetch_32.exit.us ], [ %19, %opal_thread_add_fetch_32.exit ]
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   store i64 %.0.lcssa, ptr %0, align 8
   br label %23
 
@@ -1156,9 +1156,9 @@ opal_thread_add_fetch_32.exit:                    ; preds = %9, %11
 
 ; Function Attrs: nounwind uwtable
 define ptr @ompi_proc_find(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
-  %.07 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 32), align 8
-  %.not8 = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %.07 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
+  %.not8 = icmp eq ptr %.07, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %6
@@ -1171,24 +1171,24 @@ define ptr @ompi_proc_find(ptr noundef %0) local_unnamed_addr #1 {
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %.0 = load volatile ptr, ptr %7, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %6, %.lr.ph, %1
   %.06 = phi ptr [ null, %1 ], [ %.09, %.lr.ph ], [ null, %6 ]
-  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   ret ptr %.06
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_proc_refresh() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
-  %.01114 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 32), align 8
-  %.not15 = icmp eq ptr %.01114, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %.01114 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
+  %.not15 = icmp eq ptr %.01114, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 4), align 4
   %3 = icmp eq i32 %2, 0
   %.pre18 = load i32, ptr @opal_process_info, align 8
   br i1 %3, label %.lr.ph.split, label %.lr.ph.split.us
@@ -1216,7 +1216,7 @@ define noundef i32 @ompi_proc_refresh() local_unnamed_addr #1 {
 ompi_proc_complete_init_single.exit.us:           ; preds = %11, %5
   %13 = getelementptr inbounds nuw i8, ptr %.01116.us, i64 16
   %.011.us = load volatile ptr, ptr %13, align 8
-  %.not.us = icmp eq ptr %.011.us, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.not.us = icmp eq ptr %.011.us, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not.us, label %._crit_edge, label %5, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %ompi_proc_complete_init_single.exit
@@ -1238,7 +1238,7 @@ ompi_proc_complete_init_single.exit.us:           ; preds = %11, %5
   store i32 %20, ptr %21, align 8
   %22 = tail call i32 @opal_proc_local_set(ptr noundef %.01116) #13
   %.pre = load i32, ptr @opal_process_info, align 8
-  %.pre19 = load i32, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 4), align 4
+  %.pre19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 4), align 4
   br label %ompi_proc_complete_init_single.exit
 
 23:                                               ; preds = %.lr.ph.split
@@ -1258,11 +1258,11 @@ ompi_proc_complete_init_single.exit:              ; preds = %27, %23, %19
   %31 = phi i32 [ %15, %27 ], [ %15, %23 ], [ %.pre, %19 ]
   %32 = getelementptr inbounds nuw i8, ptr %.01116, i64 16
   %.011 = load volatile ptr, ptr %32, align 8
-  %.not = icmp eq ptr %.011, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.not = icmp eq ptr %.011, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %ompi_proc_complete_init_single.exit.us, %ompi_proc_complete_init_single.exit, %0
-  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   ret i32 0
 }
 
@@ -1270,7 +1270,7 @@ ompi_proc_complete_init_single.exit:              ; preds = %27, %23, %19
 define i32 @ompi_proc_pack(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.pmix_proc, align 4
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1318,7 +1318,7 @@ define i32 @ompi_proc_pack(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 27:                                               ; preds = %20
   %28 = call ptr @PMIx_Error_string(i32 noundef %26) #13
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 656, ptr noundef %28) #13
-  %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %30 = call i32 @opal_pmix_convert_status(i32 noundef %26) #13
   br label %48
 
@@ -1334,7 +1334,7 @@ define i32 @ompi_proc_pack(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 36:                                               ; preds = %31
   %37 = call ptr @PMIx_Error_string(i32 noundef %35) #13
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 665, ptr noundef %37) #13
-  %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %39 = call i32 @opal_pmix_convert_status(i32 noundef %35) #13
   br label %48
 
@@ -1347,12 +1347,12 @@ define i32 @ompi_proc_pack(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 43:                                               ; preds = %40
   %44 = call ptr @PMIx_Error_string(i32 noundef %42) #13
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 672, ptr noundef %44) #13
-  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   %46 = call i32 @opal_pmix_convert_status(i32 noundef %42) #13
   br label %48
 
 ._crit_edge:                                      ; preds = %9, %3
-  %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   br label %48
 
 48:                                               ; preds = %._crit_edge, %43, %36, %27
@@ -1370,9 +1370,9 @@ declare i32 @opal_pmix_convert_status(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @ompi_proc_find_and_add(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
-  %.013 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 32), align 8
-  %.not14 = icmp eq ptr %.013, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %.013 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 32), align 8
+  %.not14 = icmp eq ptr %.013, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not14, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %7
@@ -1385,7 +1385,7 @@ define ptr @ompi_proc_find_and_add(ptr noundef %0, ptr nocapture noundef writeon
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %.0 = load volatile ptr, ptr %8, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16)
+  %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16)
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !20
 
 9:                                                ; preds = %.lr.ph
@@ -1398,10 +1398,10 @@ define ptr @ompi_proc_find_and_add(ptr noundef %0, ptr nocapture noundef writeon
   %11 = load i32, ptr %0, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_t_class, i64 56), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_t_class, i64 56), align 8
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #14
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_proc_t_class, i64 32), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %16, %17
   br i1 %.not.i.i, label %19, label %18
 
@@ -1432,18 +1432,18 @@ define ptr @ompi_proc_find_and_add(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %.not.i.i.i, label %ompi_proc_allocate.exit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %19, %20
-  %27 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
+  %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store volatile ptr %27, ptr %28, align 8
-  %29 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
+  %29 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store volatile ptr %15, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store volatile ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 16), ptr %31, align 8
-  store volatile ptr %15, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 40), align 8
-  %32 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 16), ptr %31, align 8
+  store volatile ptr %15, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 40), align 8
+  %32 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %33 = add i64 %32, 1
-  store volatile i64 %33, ptr getelementptr inbounds (i8, ptr @ompi_proc_list, i64 56), align 8
+  store volatile i64 %33, ptr getelementptr inbounds nuw (i8, ptr @ompi_proc_list, i64 56), align 8
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 %11, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 44
@@ -1455,7 +1455,7 @@ ompi_proc_allocate.exit:                          ; preds = %.lr.ph.i.i.i, %19, 
 
 38:                                               ; preds = %ompi_proc_allocate.exit, %9
   %.1 = phi ptr [ %15, %ompi_proc_allocate.exit ], [ %.015, %9 ]
-  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_proc_lock, i64 16)) #13
+  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_proc_lock, i64 16)) #13
   ret ptr %.1
 }
 
@@ -1578,7 +1578,7 @@ define i32 @ompi_proc_unpack(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   %61 = load ptr, ptr @opal_get_proc_hostname, align 8
   %62 = call ptr %61(ptr noundef nonnull %50) #13
   %63 = load ptr, ptr @opal_show_help, align 8
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %65 = call i32 (ptr, ptr, i32, ...) %63(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 1, ptr noundef %64, ptr noundef %62) #13
   call void @free(ptr noundef nonnull %19) #13
   call void @free(ptr noundef nonnull %22) #13

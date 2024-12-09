@@ -268,7 +268,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 78:                                               ; preds = %76
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #8
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @img, i64 64), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img, i64 64), align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = load i32, ptr %79, align 4

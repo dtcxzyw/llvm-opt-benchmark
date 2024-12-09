@@ -180,8 +180,8 @@ define void @_ZN3nix20getDefaultPublicKeysB5cxx11Ev(ptr dead_on_unwind noalias w
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %12, align 8
-  %.sroa.046.051 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 7600), align 8
-  %13 = icmp eq ptr %.sroa.046.051, getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 7600)
+  %.sroa.046.051 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3nix8settingsE, i64 7600), align 8
+  %13 = icmp eq ptr %.sroa.046.051, getelementptr inbounds nuw (i8, ptr @_ZN3nix8settingsE, i64 7600)
   br i1 %13, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
@@ -195,8 +195,8 @@ define void @_ZN3nix20getDefaultPublicKeysB5cxx11Ev(ptr dead_on_unwind noalias w
   br label %36
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %1
-  %.sroa.042.053 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 7792), align 8
-  %21 = icmp eq ptr %.sroa.042.053, getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 7792)
+  %.sroa.042.053 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3nix8settingsE, i64 7792), align 8
+  %21 = icmp eq ptr %.sroa.042.053, getelementptr inbounds nuw (i8, ptr @_ZN3nix8settingsE, i64 7792)
   br i1 %21, label %._crit_edge, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.preheader
@@ -282,7 +282,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   %.sroa.046.0 = load ptr, ptr %.sroa.046.052, align 8
-  %56 = icmp eq ptr %.sroa.046.0, getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 7600)
+  %56 = icmp eq ptr %.sroa.046.0, getelementptr inbounds nuw (i8, ptr @_ZN3nix8settingsE, i64 7600)
   br i1 %56, label %.preheader, label %36
 
 .loopexit:                                        ; preds = %62
@@ -480,7 +480,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   %.sroa.042.0 = load ptr, ptr %.sroa.042.054, align 8
-  %111 = icmp eq ptr %.sroa.042.0, getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 7792)
+  %111 = icmp eq ptr %.sroa.042.0, getelementptr inbounds nuw (i8, ptr @_ZN3nix8settingsE, i64 7792)
   br i1 %111, label %._crit_edge, label %62
 
 112:                                              ; preds = %104

@@ -200,7 +200,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nocapt
   br i1 %21, label %151, label %22
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %24 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 24) #19
   %25 = icmp eq ptr %24, null
   br i1 %25, label %151, label %26
@@ -1471,7 +1471,7 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   br i1 %15, label %192, label %16
 
 16:                                               ; preds = %12, %1
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %18 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 160) #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %192, label %20
@@ -1707,8 +1707,8 @@ define internal i32 @acpi_video_bus_add(ptr noundef %0) #0 align 16 {
   %156 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull %21, ptr noundef nonnull %149, ptr noundef nonnull %152, ptr noundef nonnull %155) #21
   tail call void @mutex_lock(ptr noundef nonnull @video_list_lock) #18
   %157 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @video_bus_head, i64 8), align 8
-  store ptr %157, ptr getelementptr inbounds (i8, ptr @video_bus_head, i64 8), align 8
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @video_bus_head, i64 8), align 8
+  store ptr %157, ptr getelementptr inbounds nuw (i8, ptr @video_bus_head, i64 8), align 8
   store ptr @video_bus_head, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %18, i64 88
   store ptr %158, ptr %159, align 8
@@ -2503,7 +2503,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr
   br i1 %7, label %8, label %175
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %10 = call noalias align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 168) #19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %179, label %12

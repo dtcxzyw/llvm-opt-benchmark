@@ -7771,7 +7771,7 @@ entry:
   store i8 1, ptr %EnableGenerator_, align 8
   %CrashMgr_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   %call = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm15NopCrashManagerE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm15NopCrashManagerE, i64 16), ptr %call, align 8
   store ptr %call, ptr %CrashMgr_, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   %call.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
@@ -7779,7 +7779,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6hermes2vm15NopCrashManagerELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN6hermes2vm15NopCrashManagerELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i, align 8
@@ -7949,7 +7949,7 @@ entry:
   %frombool.i = and i8 %0, 1
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordE, i64 16), ptr %call, align 8
   %sourceURL_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #17
   %sourceHash_.i = getelementptr inbounds nuw i8, ptr %call, i64 48
@@ -8053,11 +8053,11 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #17
   %call.i.i3 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 15)) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 15)) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 noundef 15) #17
   %time_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 16), ptr %call, align 8
   %tag_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %tag_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
@@ -8066,7 +8066,7 @@ entry:
   store i32 %agg.tmp4.sroa.0.0.copyload, ptr %0, align 8
   %value.sroa.21.0.retVal_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i64 %agg.tmp4.sroa.21.0.copyload, ptr %value.sroa.21.0.retVal_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace15EndExecJSRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace15EndExecJSRecordE, i64 16), ptr %call, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8173,7 +8173,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull %0, ptr noundef nonnull %add.ptr.i)
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 16), ptr %call, align 8
   %tag_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %tag_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #17
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8265,7 +8265,7 @@ entry:
   %conv = fptoui double %0 to i64
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateObjectRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateObjectRecordE, i64 16), ptr %call, align 8
   %objID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8354,7 +8354,7 @@ entry:
   %0 = load i32, ptr %args1, align 4
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace21DrainMicrotasksRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace21DrainMicrotasksRecordE, i64 16), ptr %call, align 8
   %maxMicrotasksHint_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 %0, ptr %maxMicrotasksHint_.i, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8446,7 +8446,7 @@ entry:
   %2 = load i64, ptr %args5, align 8
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateBigIntRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateBigIntRecordE, i64 16), ptr %call, align 8
   %objID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i, align 8
   %method_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -8543,7 +8543,7 @@ entry:
   %2 = load i32, ptr %args5, align 4
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20BigIntToStringRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20BigIntToStringRecordE, i64 16), ptr %call, align 8
   %strID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %strID_.i, align 8
   %bigintID_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -8641,7 +8641,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i64 16), ptr %call, align 8
   %objID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i, align 8
   %chars_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -8742,7 +8742,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i64 16), ptr %call, align 8
   %objID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i, align 8
   %chars_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -8842,7 +8842,7 @@ entry:
   %agg.tmp6.sroa.21.0.copyload = load i64, ptr %agg.tmp6.sroa.21.0..sroa_idx, align 8
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 16), ptr %call, align 8
   %propNameID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %propNameID_.i, align 8
   %chars_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -8944,7 +8944,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 16), ptr %call, align 8
   %propNameID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %propNameID_.i, align 8
   %chars_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -9047,7 +9047,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 16), ptr %call, align 8
   %propNameID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %propNameID_.i, align 8
   %chars_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -9148,7 +9148,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
   %objID_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreateHostObjectRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreateHostObjectRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -9241,7 +9241,7 @@ entry:
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
   %objID_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace24CreateHostFunctionRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace24CreateHostFunctionRecordE, i64 16), ptr %call, align 8
   %propNameID_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %conv.i = trunc i64 %conv8 to i32
   store i32 %conv.i, ptr %propNameID_.i, align 8
@@ -9345,7 +9345,7 @@ entry:
   store i32 %agg.tmp8.sroa.0.0.copyload, ptr %propID_.i.i, align 8
   %propID.sroa.21.0.propID_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %agg.tmp8.sroa.21.0.copyload, ptr %propID.sroa.21.0.propID_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17GetPropertyRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17GetPropertyRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -9444,7 +9444,7 @@ entry:
   store i32 %agg.tmp8.sroa.0.0.copyload, ptr %propID_.i.i, align 8
   %propID.sroa.21.0.propID_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %agg.tmp8.sroa.21.0.copyload, ptr %propID.sroa.21.0.propID_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17SetPropertyRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17SetPropertyRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -9535,7 +9535,7 @@ entry:
   %agg.tmp6.sroa.21.0.copyload = load i64, ptr %agg.tmp6.sroa.21.0..sroa_idx, align 8
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17HasPropertyRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17HasPropertyRecordE, i64 16), ptr %call, align 8
   %objID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i, align 8
   %propID_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -9630,7 +9630,7 @@ entry:
   %1 = load i64, ptr %args3, align 8
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecordE, i64 16), ptr %call, align 8
   %objID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i, align 8
   %propNamesID_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -9723,7 +9723,7 @@ entry:
   %1 = load i64, ptr %args3, align 8
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17CreateArrayRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17CreateArrayRecordE, i64 16), ptr %call, align 8
   %objID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i, align 8
   %length_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -9828,7 +9828,7 @@ entry:
   store i32 %agg.tmp9.sroa.0.0.copyload, ptr %value_.i.i, align 8
   %value.sroa.21.0.value_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 %agg.tmp9.sroa.21.0.copyload, ptr %value.sroa.21.0.value_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace15ArrayReadRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace15ArrayReadRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -9929,7 +9929,7 @@ entry:
   store i32 %agg.tmp9.sroa.0.0.copyload, ptr %value_.i.i, align 8
   %value.sroa.21.0.value_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 %agg.tmp9.sroa.21.0.copyload, ptr %value.sroa.21.0.value_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace16ArrayWriteRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace16ArrayWriteRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10073,7 +10073,7 @@ _ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordCI2NS2_10CallRecord
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EEC2EmRKS5_.exit.i.i.i.thread ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10354,7 +10354,7 @@ _ZN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordCI2NS2_10CallR
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EEC2EmRKS5_.exit.i.i.i.i.thread ], [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i7, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10447,7 +10447,7 @@ entry:
   store i32 %agg.tmp4.sroa.0.0.copyload, ptr %0, align 8
   %value.sroa.21.0.retVal_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %agg.tmp4.sroa.21.0.copyload, ptr %value.sroa.21.0.retVal_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22ReturnFromNativeRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22ReturnFromNativeRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10540,7 +10540,7 @@ entry:
   store i32 %agg.tmp4.sroa.0.0.copyload, ptr %0, align 8
   %value.sroa.21.0.retVal_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %agg.tmp4.sroa.21.0.copyload, ptr %value.sroa.21.0.retVal_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20ReturnToNativeRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20ReturnToNativeRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10684,7 +10684,7 @@ _ZN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordCI2NS2_10CallRecordEE
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EEC2EmRKS5_.exit.i.i.i.thread ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10791,14 +10791,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i)
   %time_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 16), ptr %call, align 8
   %hostObjectID_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %hostObjectID_.i.i, align 8
   %propNameID_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %conv8, ptr %propNameID_.i.i, align 8
   %propName_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23GetPropertyNativeRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23GetPropertyNativeRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10893,7 +10893,7 @@ entry:
   store i32 %agg.tmp4.sroa.0.0.copyload, ptr %0, align 8
   %value.sroa.21.0.retVal_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %agg.tmp4.sroa.21.0.copyload, ptr %value.sroa.21.0.retVal_.sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29GetPropertyNativeReturnRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29GetPropertyNativeReturnRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -11003,14 +11003,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp131, ptr noundef nonnull align 8 dereferenceable(16) %args7, i64 16, i1 false)
   %time_.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 16), ptr %call, align 8
   %hostObjectID_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %hostObjectID_.i.i, align 8
   %propNameID_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %conv10, ptr %propNameID_.i.i, align 8
   %propName_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23SetPropertyNativeRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23SetPropertyNativeRecordE, i64 16), ptr %call, align 8
   %value_.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp131, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp131)
@@ -11101,7 +11101,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29SetPropertyNativeReturnRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29SetPropertyNativeReturnRecordE, i64 16), ptr %call, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -11189,7 +11189,7 @@ entry:
   %conv = fptoui double %0 to i64
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetNativePropertyNamesRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetNativePropertyNamesRecordE, i64 16), ptr %call, align 8
   %hostObjectID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %hostObjectID_.i, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -11277,7 +11277,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace34GetNativePropertyNamesReturnRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace34GetNativePropertyNamesReturnRecordE, i64 16), ptr %call, align 8
   %propNames_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %args1, i64 8
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -11416,7 +11416,7 @@ entry:
   %1 = load i64, ptr %args3, align 8
   %time_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace31SetExternalMemoryPressureRecordE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace31SetExternalMemoryPressureRecordE, i64 16), ptr %call, align 8
   %objID_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %objID_.i, align 8
   %amount_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -12105,7 +12105,7 @@ _ZN8facebook6hermes7tracing10SynthTrace6Record18pushIfTrackedValueERKNS2_10Trace
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
   %args_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -12122,7 +12122,7 @@ _ZN8facebook6hermes7tracing10SynthTrace10CallRecordD2Ev.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
   %args_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -12473,7 +12473,7 @@ if.end102:                                        ; preds = %if.then.i.i.i.i.i39
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
   %args_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -12490,7 +12490,7 @@ _ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordD2Ev.exit: ; preds 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
   %args_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -12514,7 +12514,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
   %args_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -12531,7 +12531,7 @@ _ZN8facebook6hermes7tracing10SynthTrace10CallRecordD2Ev.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 16), ptr %this, align 8
   %args_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null

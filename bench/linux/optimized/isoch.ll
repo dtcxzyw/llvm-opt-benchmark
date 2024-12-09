@@ -50,7 +50,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   br i1 %22, label %335, label %23
 
 23:                                               ; preds = %1
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %25 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3264, i64 noundef 32) #8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %335, label %27
@@ -93,7 +93,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   ]
 
 46:                                               ; preds = %40, %40
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %48 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3264, i64 noundef 32) #8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.loopexit40, label %50

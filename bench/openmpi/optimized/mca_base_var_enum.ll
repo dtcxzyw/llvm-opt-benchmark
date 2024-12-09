@@ -286,7 +286,7 @@ define internal noundef i32 @mca_base_var_enum_bool_sfv(ptr nocapture readnone %
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2, 1) i32 @mca_base_var_enum_bool_dump(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = icmp eq i32 %2, 1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_var_dump_color, i64 16), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_var_dump_color, i64 16), align 16
   %spec.select = select i1 %4, ptr %5, ptr @.str.15
   %spec.select30 = select i1 %4, ptr @.str.16, ptr @.str.15
   %6 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30, ptr noundef %spec.select, ptr noundef nonnull %spec.select30) #16
@@ -438,7 +438,7 @@ define internal noundef i32 @mca_base_var_enum_auto_bool_sfv(ptr nocapture readn
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2, 1) i32 @mca_base_var_enum_auto_bool_dump(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = icmp eq i32 %2, 1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_var_dump_color, i64 16), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_var_dump_color, i64 16), align 16
   %spec.select = select i1 %4, ptr %5, ptr @.str.15
   %spec.select34 = select i1 %4, ptr @.str.16, ptr @.str.15
   %6 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34, ptr noundef %spec.select, ptr noundef nonnull %spec.select34) #16
@@ -629,7 +629,7 @@ define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef
 
 6:                                                ; preds = %3
   %7 = icmp eq i32 %2, 1
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_var_dump_color, i64 16), align 16
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_var_dump_color, i64 16), align 16
   %spec.select.i = select i1 %7, ptr %8, ptr @.str.15
   %spec.select31.i = select i1 %7, ptr @.str.16, ptr @.str.15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -674,7 +674,7 @@ define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i, %25
   %30 = phi ptr [ %.02633.i, %.lr.ph.i ], [ %26, %25 ]
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @opal_var_dump_color, i64 16), align 16
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_var_dump_color, i64 16), align 16
   %.pre21 = select i1 %7, ptr %.pre, ptr @.str.15
   br label %.loopexit
 
@@ -1074,7 +1074,7 @@ define internal range(i32 -2, 1) i32 @enum_dump(ptr noundef readonly %0, ptr nou
 
 5:                                                ; preds = %3
   %6 = icmp eq i32 %2, 1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_var_dump_color, i64 16), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_var_dump_color, i64 16), align 16
   %spec.select = select i1 %6, ptr %7, ptr @.str.15
   %spec.select31 = select i1 %6, ptr @.str.16, ptr @.str.15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1517,7 +1517,7 @@ define internal range(i32 -2, 1) i32 @enum_dump_flag(ptr noundef readonly %0, pt
 
 5:                                                ; preds = %3
   %6 = icmp eq i32 %2, 1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_var_dump_color, i64 16), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_var_dump_color, i64 16), align 16
   %spec.select = select i1 %6, ptr %7, ptr @.str.15
   %spec.select27 = select i1 %6, ptr @.str.16, ptr @.str.15
   %8 = tail call noalias dereferenceable_or_null(26) ptr @strdup(ptr noundef nonnull @.str.35) #16

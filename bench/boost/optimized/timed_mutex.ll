@@ -200,7 +200,7 @@ define void @_ZN5boost6fibers11timed_mutex4lockEv(ptr noundef nonnull align 8 de
           to label %13 unwind label %14
 
 13:                                               ; preds = %10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers10lock_errorE, i64 16), ptr %11, align 8, !tbaa !27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers10lock_errorE, i64 16), ptr %11, align 8, !tbaa !27
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN5boost6fibers10lock_errorE, ptr nonnull @_ZNSt12system_errorD2Ev) #22
           to label %30 unwind label %.loopexit.split-lp
 
@@ -304,7 +304,7 @@ define noundef zeroext i1 @_ZN5boost6fibers11timed_mutex8try_lockEv(ptr noundef 
           to label %9 unwind label %10
 
 9:                                                ; preds = %6
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers10lock_errorE, i64 16), ptr %7, align 8, !tbaa !27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers10lock_errorE, i64 16), ptr %7, align 8, !tbaa !27
   invoke void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN5boost6fibers10lock_errorE, ptr nonnull @_ZNSt12system_errorD2Ev) #22
           to label %19 unwind label %12
 
@@ -362,7 +362,7 @@ define void @_ZN5boost6fibers11timed_mutex6unlockEv(ptr noundef nonnull align 8 
           to label %8 unwind label %9
 
 8:                                                ; preds = %5
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers10lock_errorE, i64 16), ptr %6, align 8, !tbaa !27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6fibers10lock_errorE, i64 16), ptr %6, align 8, !tbaa !27
   invoke void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN5boost6fibers10lock_errorE, ptr nonnull @_ZNSt12system_errorD2Ev) #22
           to label %15 unwind label %11
 
@@ -560,7 +560,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12system_error, i64 16), ptr %0, align 8, !tbaa !27
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %63, align 8, !tbaa !46
   %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

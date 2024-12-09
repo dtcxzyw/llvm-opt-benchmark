@@ -1701,7 +1701,7 @@ _ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE10lookUpPassEPNS_11AnalysisKey
   %262 = extractvalue { ptr, i64 } %261, 0
   %263 = extractvalue { ptr, i64 } %261, 1
   %264 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %264, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %264, align 8, !noalias !26
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   store ptr %1, ptr %265, align 8, !noalias !26
   store ptr %264, ptr %4, align 8
@@ -2125,7 +2125,7 @@ _ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE10lookUpPassEPNS_11AnalysisKey
   %58 = extractvalue { ptr, i64 } %57, 0
   %59 = extractvalue { ptr, i64 } %57, 1
   %60 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !33
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %60, align 8, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %60, align 8, !noalias !33
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %2, ptr %61, align 8, !noalias !33
   store ptr %60, ptr %5, align 8
@@ -2278,7 +2278,7 @@ _ZNSt10unique_ptrIN4llvm6detail21AnalysisResultConceptINS0_15MachineFunctionENS0
   %131 = extractvalue { ptr, i64 } %130, 0
   %132 = extractvalue { ptr, i64 } %130, 1
   %133 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !36
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %133, align 8, !noalias !36
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %133, align 8, !noalias !36
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %2, ptr %134, align 8, !noalias !36
   store ptr %133, ptr %4, align 8
@@ -4089,7 +4089,7 @@ define dso_local void @_ZN4llvm36FunctionToMachineFunctionPassAdaptor3runERNS_8F
   %78 = extractvalue { ptr, i64 } %77, 0
   %79 = extractvalue { ptr, i64 } %77, 1
   %80 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !70
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %80, align 8, !noalias !70
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %80, align 8, !noalias !70
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %47, ptr %81, align 8, !noalias !70
   store ptr %80, ptr %5, align 8
@@ -4210,7 +4210,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19PassInstrumentation13r
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = extractvalue { ptr, i64 } %21, 1
   %24 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !73
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %24, align 8, !noalias !73
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %24, align 8, !noalias !73
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %2, ptr %25, align 8, !noalias !73
   store ptr %24, ptr %4, align 8
@@ -4263,7 +4263,7 @@ _ZN4llvm3AnyD2Ev.exit:                            ; preds = %.lr.ph, %_ZNKSt14de
   %46 = extractvalue { ptr, i64 } %45, 0
   %47 = extractvalue { ptr, i64 } %45, 1
   %48 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !76
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %48, align 8, !noalias !76
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %48, align 8, !noalias !76
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %2, ptr %49, align 8, !noalias !76
   store ptr %48, ptr %5, align 8
@@ -4312,7 +4312,7 @@ _ZN4llvm3AnyD2Ev.exit51:                          ; preds = %.lr.ph73, %_ZNKSt14
   %69 = extractvalue { ptr, i64 } %68, 0
   %70 = extractvalue { ptr, i64 } %68, 1
   %71 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !79
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %71, align 8, !noalias !79
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %71, align 8, !noalias !79
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %2, ptr %72, align 8, !noalias !79
   store ptr %71, ptr %6, align 8
@@ -4792,7 +4792,7 @@ define dso_local void @_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisM
   %47 = extractvalue { ptr, i64 } %46, 0
   %48 = extractvalue { ptr, i64 } %46, 1
   %49 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !94
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %49, align 8, !noalias !94
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %49, align 8, !noalias !94
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %2, ptr %50, align 8, !noalias !94
   store ptr %49, ptr %5, align 8
@@ -6305,7 +6305,7 @@ define linkonce_odr hidden void @_ZNK4llvm3Any11StorageImplIPKNS_15MachineFuncti
 _ZNSt10unique_ptrIN4llvm3Any11StorageImplIPKNS0_15MachineFunctionEEESt14default_deleteIS6_EED2Ev.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16, !noalias !104
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %3, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm3Any11StorageImplIPKNS_15MachineFunctionEEE, i64 16), ptr %3, align 8, !noalias !104
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %2, align 8, !noalias !104
   store ptr %5, ptr %4, align 8, !noalias !104

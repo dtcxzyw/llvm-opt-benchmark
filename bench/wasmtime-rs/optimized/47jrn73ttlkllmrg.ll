@@ -5988,7 +5988,7 @@ _ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit.i:
   br i1 %143, label %144, label %.thread145.i
 
 144:                                              ; preds = %141
-  %145 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11wasi_common4sync5sched4unix11poll_oneoff28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h0327bb73408b2aeaE", i64 16) monotonic, align 8
+  %145 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN11wasi_common4sync5sched4unix11poll_oneoff28_$u7b$$u7b$closure$u7d$$u7d$8CALLSITE17h0327bb73408b2aeaE", i64 16) monotonic, align 8
   switch i8 %145, label %146 [
     i8 0, label %.thread145.i
     i8 1, label %.thread142.i

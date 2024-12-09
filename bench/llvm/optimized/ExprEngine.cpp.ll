@@ -685,7 +685,7 @@ $_ZTVN5clang4ento31PrettyStackTraceLocationContextE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento10ExprEngineC2ERNS_8cross_tu27CrossTranslationUnitContextERNS0_15AnalysisManagerEPN4llvm8DenseSetIPKNS_4DeclENS7_12DenseMapInfoISB_vEEEEPNS0_19FunctionSummariesTyENS1_13InliningModesE(ptr noundef nonnull align 8 dereferenceable(796) initializes((0, 17), (24, 40)) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -749,7 +749,7 @@ define dso_local void @_ZN5clang4ento10ExprEngineC2ERNS_8cross_tu27CrossTranslat
   tail call void @_ZN5clang12ObjCNoReturnC1ERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(23096) %53) #20
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 656
   tail call void @_ZN5clang4ento11BugReporterC2ERNS0_15BugReporterDataE(ptr noundef nonnull align 8 dereferenceable(128) %54, ptr noundef nonnull align 8 dereferenceable(8) %2) #20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento24PathSensitiveBugReporterE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento24PathSensitiveBugReporterE, i64 16), ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 776
   store ptr %0, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 784
@@ -8064,7 +8064,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine18processEndWorklistEv(ptr noun
   %7 = and i64 %.sroa.1.0.copyload.i, -8
   %8 = inttoptr i64 %7 to ptr
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8094,7 +8094,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine17processCFGElementENS_10CFGEle
   %8 = and i64 %.sroa.1.0.copyload.i, -8
   %9 = inttoptr i64 %8 to ptr
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -8172,7 +8172,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine11ProcessStmtEPKNS_4StmtEPNS0_1
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #22
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -8388,7 +8388,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine18ProcessInitializerENS_14CFGIn
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @_ZNK5clang18CXXCtorInitializer17getSourceLocationEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #20
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %14, align 8
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %44, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -8483,7 +8483,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread: ; pr
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %56) #20
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %78 = load ptr, ptr %77, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %21, align 8
   %79 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -8859,7 +8859,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %242, %249
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %264, ptr noundef nonnull %265, i64 noundef 4) #20
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %267 = load ptr, ptr %266, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %29, align 8
   %268 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %267, ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -8993,7 +8993,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine19ProcessNewAllocatorEPKNS_10CX
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %21 = load ptr, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -9211,7 +9211,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine15ProcessLoopExitEPKNS_4StmtEPN
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #22
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %20, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -9242,7 +9242,7 @@ _ZN5clang4ento15ExplodedNodeSet3AddEPNS0_12ExplodedNodeE.exit: ; preds = %3, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %34 = load ptr, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %9, align 8
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -9643,7 +9643,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %_ZN4llvm18Intrusive
   %122 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %2, ptr %122, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %19)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %21, align 8
   %123 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %123, align 8
   %124 = load ptr, ptr %100, align 8
@@ -10053,7 +10053,7 @@ declare void @_ZN5clang21SimpleProgramPointTagC1EN4llvm9StringRefES2_(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang21SimpleProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang21SimpleProgramPointTagE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang21SimpleProgramPointTagE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
@@ -10188,7 +10188,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine5VisitEPKNS_4StmtEPNS0_12Explod
   %117 = load ptr, ptr %116, align 8
   %118 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #22
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %54) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %54, align 8
   %119 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %117, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %54, i64 24
@@ -10201,7 +10201,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine5VisitEPKNS_4StmtEPNS0_12Explod
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull %123, i64 noundef 4) #20
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %125 = load ptr, ptr %124, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %56, align 8
   %126 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %125, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -10228,7 +10228,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine5VisitEPKNS_4StmtEPNS0_12Explod
 
 _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPNS0_11NodeBuilderE.exit: ; preds = %4, %130, %134
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %56, align 8
   %136 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr null, ptr %136, align 8
   %137 = load i8, ptr %1, align 8
@@ -10751,7 +10751,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit415:      ; preds = %_ZN5clang4ento15Exp
   %267 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store ptr %67, ptr %267, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %67, ptr noundef nonnull align 8 dereferenceable(72) %65)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %68, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %68, align 8
   %268 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr null, ptr %268, align 8
   %269 = load i8, ptr %1, align 8
@@ -10966,7 +10966,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit436: ; preds 
   %342 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store ptr %75, ptr %342, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %75, ptr noundef nonnull align 8 dereferenceable(72) %73)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %76, align 8
   %343 = getelementptr inbounds nuw i8, ptr %76, i64 32
   store ptr null, ptr %343, align 8
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12403,7 +12403,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %9, %44
   %55 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %1, ptr %55, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %18)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %20, align 8
   %56 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %56, align 8
   %57 = add i8 %5, -2
@@ -13108,7 +13108,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %88, %_ZNK4llvm5APIn
   store ptr %112, ptr %125, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i64 %115, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %18, align 8
   %126 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %107, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -13200,7 +13200,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit75: ; pre
 147:                                              ; preds = %146, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit75
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %149 = load ptr, ptr %148, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %22, align 8
   %150 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %149, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -13562,7 +13562,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %62, %_ZNK4llvm5APIn
   store ptr %86, ptr %99, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i64 %89, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %18, align 8
   %100 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %81, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -13651,7 +13651,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit84: ; pre
 120:                                              ; preds = %119, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit84
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %122 = load ptr, ptr %121, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %21, align 8
   %123 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %122, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -14008,7 +14008,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit54: ; preds =
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.086.0103) #20
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %92 = load ptr, ptr %91, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %19, align 8
   %93 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -14143,7 +14143,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit63: ; preds =
 
 _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPNS0_11NodeBuilderE.exit: ; preds = %141, %150, %154
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %22, align 8
   %156 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %156, align 8
   %.0.copyload.i.i.i.i65 = load i64, ptr %13, align 8
@@ -14368,7 +14368,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   store ptr %68, ptr %80, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i64 %71, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %17, align 8
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %63, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -14556,7 +14556,7 @@ _ZNK5clang4ento10ExprEngine16getCFGElementRefEv.exit92: ; preds = %142, %151
   store ptr %154, ptr %167, align 8
   %.sroa.4.0..sroa_idx.i93 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i64 %157, ptr %.sroa.4.0..sroa_idx.i93, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %23, align 8
   %168 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %150, ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -14640,7 +14640,7 @@ _ZNK5clang4ento12ProgramState9getLValueENS_8QualTypeENS0_4SValES3_.exit: ; preds
   %.0 = phi ptr [ null, %._crit_edge ], [ %201, %_ZNK5clang4ento12ProgramState9getLValueENS_8QualTypeENS0_4SValES3_.exit ], [ %100, %99 ]
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %204 = load ptr, ptr %203, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %25, align 8
   %205 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %204, ptr %205, align 8
   %206 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -14834,7 +14834,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine29processCleanupTemporaryBranch
 
 _ZN5clang4ento17BranchNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPKNS_8CFGBlockESB_.exit: ; preds = %7, %20, %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento17BranchNodeBuilderE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento17BranchNodeBuilderE, i64 16), ptr %10, align 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %5, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -15022,7 +15022,7 @@ _ZN5clang4ento15ExplodedNodeSetaSERKS1_.exit:     ; preds = %21, %30, %44
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %54, align 8
   tail call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %2)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %7, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -15170,7 +15170,7 @@ define dso_local void @_ZNK5clang4ento10ExprEngine12escapeValuesEN4llvm18Intrusi
   %9 = alloca %class.CollectReachableSymbolsCallback, align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVZNK5clang4ento10ExprEngine12escapeValuesEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS2_8ArrayRefINS0_4SValEEENS0_17PointerEscapeKindEPKNS0_9CallEventEE31CollectReachableSymbolsCallback, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZNK5clang4ento10ExprEngine12escapeValuesEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS2_8ArrayRefINS0_4SValEEENS0_17PointerEscapeKindEPKNS0_9CallEventEE31CollectReachableSymbolsCallback, i64 16), ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds %"class.clang::ento::SVal", ptr %3, i64 %4
@@ -15414,7 +15414,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %4, %26
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %10, ptr %39, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %11, align 8
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -15827,7 +15827,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %_ZNK5clang18ArraySu
   %116 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %14, ptr %116, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %12)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %15, align 8
   %117 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %117, align 8
   %118 = load ptr, ptr %17, align 8
@@ -16235,7 +16235,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine15VisitGCCAsmStmtEPKNS_10GCCAsm
 
 _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPNS0_11NodeBuilderE.exit: ; preds = %4, %19, %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %10, align 8
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -16446,7 +16446,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine14VisitMSAsmStmtEPKNS_9MSAsmStm
 
 _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPNS0_11NodeBuilderE.exit: ; preds = %4, %15, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %8, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -16532,7 +16532,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine33evalEagerlyAssumeBinOpBifurca
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %1, ptr %20, align 8
   tail call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -16887,7 +16887,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine22VisitCommonDeclRefExprEPKNS_4
   %25 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %27 = load ptr, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %14, align 8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -16914,7 +16914,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine22VisitCommonDeclRefExprEPKNS_4
 
 _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPNS0_11NodeBuilderE.exit: ; preds = %5, %32, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %14, align 8
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -17778,7 +17778,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %4, %39
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %14, ptr %64, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %12)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %15, align 8
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %65, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, i8 0, i64 20, i1 false)
@@ -18283,7 +18283,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %4, %29
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %12, ptr %42, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %10)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %13, align 8
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %43, align 8
   %44 = load ptr, ptr %17, align 8
@@ -18731,7 +18731,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine23processCFGBlockEntranceERKNS_
   %16 = and i64 %.sroa.1.0.copyload.i, -8
   %17 = inttoptr i64 %16 to ptr
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19621,7 +19621,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine13processBranchEPKNS_4StmtERNS0
   %27 = and i64 %.sroa.1.0.copyload.i, -8
   %28 = inttoptr i64 %27 to ptr
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %17, align 8
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -19652,7 +19652,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine13processBranchEPKNS_4StmtERNS0
 
 _ZN5clang4ento17BranchNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPKNS_8CFGBlockESB_.exit: ; preds = %31, %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento17BranchNodeBuilderE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento17BranchNodeBuilderE, i64 16), ptr %18, align 8
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %5, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -19769,7 +19769,7 @@ _ZL16ResolveConditionPKN5clang4StmtEPKNS_8CFGBlockE.exit: ; preds = %65, %69, %8
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #22
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang19PrettyStackTraceLocE, i64 16), ptr %20, align 8
   %100 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %98, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -19797,7 +19797,7 @@ _ZL16ResolveConditionPKN5clang4StmtEPKNS_8CFGBlockE.exit: ; preds = %65, %69, %8
   %113 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %4, ptr %113, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %21)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento17BranchNodeBuilderE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento17BranchNodeBuilderE, i64 16), ptr %22, align 8
   %114 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %5, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -20441,7 +20441,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine24processStaticInitializerEPKNS
   %17 = and i64 %.sroa.1.0.copyload.i, -8
   %18 = inttoptr i64 %17 to ptr
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %13, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -20526,7 +20526,7 @@ _ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_121InitializedGlobalsSetEEE
 
 _ZN5clang4ento17BranchNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPKNS_8CFGBlockESB_.exit: ; preds = %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_121InitializedGlobalsSetEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit, %45, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento17BranchNodeBuilderE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento17BranchNodeBuilderE, i64 16), ptr %14, align 8
   %51 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %5, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -21122,7 +21122,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62: ; preds =
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 40
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %110, ptr noundef nonnull %111, i64 noundef 4) #20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11NodeBuilderE, i64 16), ptr %17, align 8
   %112 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %1, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -21201,7 +21201,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %_ZN4llvm18Intrusive
   %140 = and i64 %.sroa.1.0.copyload.i69, -8
   %141 = inttoptr i64 %140 to ptr
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #20
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento31PrettyStackTraceLocationContextE, i64 16), ptr %19, align 8
   %142 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %141, ptr %142, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 20, i1 false)
@@ -21793,7 +21793,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %1, ptr %27, align 8
   call void @_ZN5clang4ento15ExplodedNodeSet6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %12)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %14, align 8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -22716,7 +22716,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine12evalLocationERNS0_15ExplodedN
 
 _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPNS0_11NodeBuilderE.exit: ; preds = %8, %24, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %14, align 8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -22759,7 +22759,7 @@ _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKN
 
 _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPNS0_11NodeBuilderE.exit12: ; preds = %34, %43, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento15StmtNodeBuilderE, i64 16), ptr %16, align 8
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -23576,7 +23576,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine6anchorEv(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento10ExprEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(796) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   tail call void @_ZN5clang4ento11BugReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -23588,7 +23588,7 @@ define linkonce_odr hidden void @_ZN5clang4ento10ExprEngineD2Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento10ExprEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(796) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   tail call void @_ZN5clang4ento11BugReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -37651,7 +37651,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit97:               ; preds = %263, %265
   store i32 1, ptr %274, align 4
   %275 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %275, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %15, align 8
   %276 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %14, ptr %276, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef null, i64 noundef 0, i32 noundef 0) #20
@@ -38037,7 +38037,7 @@ define linkonce_odr hidden void @_ZN4llvm14DOTGraphTraitsIPN5clang4ento13Explode
   store i32 1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %0, ptr %10, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #20

@@ -395,8 +395,8 @@ define hidden void @proto_register_raknet() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %8, label %1, !llvm.loop !4
 
 8:                                                ; preds = %1
-  store i32 0, ptr getelementptr inbounds (i8, ptr @raknet_offline_message_names, i64 224), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @raknet_offline_message_names, i64 232), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @raknet_offline_message_names, i64 224), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @raknet_offline_message_names, i64 232), align 8
   br label %9
 
 9:                                                ; preds = %9, %8
@@ -414,8 +414,8 @@ define hidden void @proto_register_raknet() local_unnamed_addr #0 {
   br i1 %exitcond20.not.i, label %raknet_init_message_names.exit, label %9, !llvm.loop !6
 
 raknet_init_message_names.exit:                   ; preds = %9
-  store i32 0, ptr getelementptr inbounds (i8, ptr @raknet_system_message_names, i64 80), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @raknet_system_message_names, i64 88), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @raknet_system_message_names, i64 80), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @raknet_system_message_names, i64 88), align 8
   %16 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.147) #3
   store i32 %16, ptr @proto_raknet, align 4
   %17 = tail call ptr @expert_register_protocol(i32 noundef %16) #3

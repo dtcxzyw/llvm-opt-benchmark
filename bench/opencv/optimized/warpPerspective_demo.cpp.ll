@@ -86,7 +86,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #3 sect
   br label %2
 
 2:                                                ; preds = %2, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 128), %1 ], [ %4, %2 ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_Z6labelsB5cxx11, i64 128), %1 ], [ %4, %2 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %5 = icmp eq ptr %4, @_Z6labelsB5cxx11
@@ -1736,17 +1736,17 @@ __cxx_global_var_init.1.exit:                     ; preds = %0
 
 10:                                               ; preds = %__cxx_global_var_init.1.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 32), ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z6labelsB5cxx11, i64 32), ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %11 unwind label %14
 
 11:                                               ; preds = %10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 64), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z6labelsB5cxx11, i64 64), ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %12 unwind label %16
 
 12:                                               ; preds = %11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 96), ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_Z6labelsB5cxx11, i64 96), ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %__cxx_global_var_init.2.exit unwind label %18
 
 .thread.i:                                        ; preds = %__cxx_global_var_init.1.exit
@@ -1771,13 +1771,13 @@ __cxx_global_var_init.1.exit:                     ; preds = %0
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.29.i = phi ptr [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 96), %18 ], [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 64), %16 ]
+  %.29.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_Z6labelsB5cxx11, i64 96), %18 ], [ getelementptr inbounds nuw (i8, ptr @_Z6labelsB5cxx11, i64 64), %16 ]
   %.pn.i = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   br label %21
 
 21:                                               ; preds = %20, %14
-  %.18.i = phi ptr [ %.29.i, %20 ], [ getelementptr inbounds (i8, ptr @_Z6labelsB5cxx11, i64 32), %14 ]
+  %.18.i = phi ptr [ %.29.i, %20 ], [ getelementptr inbounds nuw (i8, ptr @_Z6labelsB5cxx11, i64 32), %14 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %20 ], [ %15, %14 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #19

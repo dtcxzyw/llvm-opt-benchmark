@@ -1027,7 +1027,7 @@ decode_iei_reset_flag.exit.i:                     ; preds = %235, %224
   ]
 
 250:                                              ; preds = %241
-  %251 = load i32, ptr getelementptr inbounds (i8, ptr @ipv4_element, i64 4), align 4
+  %251 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ipv4_element, i64 4), align 4
   %252 = trunc i32 %251 to i16
   %253 = add i16 %252, 2
   %254 = getelementptr inbounds nuw i8, ptr %10, i64 10
@@ -1045,7 +1045,7 @@ decode_iei_reset_flag.exit.i:                     ; preds = %235, %224
   br label %279
 
 265:                                              ; preds = %241
-  %266 = load i32, ptr getelementptr inbounds (i8, ptr @ipv6_element, i64 4), align 4
+  %266 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ipv6_element, i64 4), align 4
   %267 = trunc i32 %266 to i16
   %268 = add i16 %267, 2
   %269 = getelementptr inbounds nuw i8, ptr %10, i64 10

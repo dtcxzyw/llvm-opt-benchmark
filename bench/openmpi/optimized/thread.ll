@@ -65,10 +65,10 @@ declare i64 @pthread_self() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @pmix_thread_get_self() local_unnamed_addr #1 {
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_thread_t_class, i64 56), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_thread_t_class, i64 56), align 8
   %2 = tail call noalias noundef ptr @malloc(i64 noundef %1) #13
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_thread_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_thread_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %3, %4
   br i1 %.not.i, label %6, label %5
 

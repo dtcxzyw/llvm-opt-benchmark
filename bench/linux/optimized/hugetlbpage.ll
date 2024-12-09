@@ -298,7 +298,7 @@ define dso_local noundef zeroext i1 @arch_hugetlb_valid_size(i64 noundef %0) loc
   ]
 
 2:                                                ; preds = %1
-  %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
+  %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 40), align 8
   %4 = and i64 %3, 288230376151711744
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %7

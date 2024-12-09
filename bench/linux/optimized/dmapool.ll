@@ -88,7 +88,7 @@ define dso_local noundef ptr @dma_pool_create(ptr noundef %0, ptr noundef %1, i6
 
 29:                                               ; preds = %24, %16
   %30 = phi i64 [ %22, %16 ], [ %4, %24 ]
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %32 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 3520, i64 noundef 128) #7
   %33 = icmp eq ptr %32, null
   br i1 %33, label %61, label %34

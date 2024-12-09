@@ -28,7 +28,7 @@ define internal void @mca_pml_ob1_comm_proc_construct(ptr noundef initializes((1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 -1, ptr %6, align 2
   %7 = load i32, ptr @opal_class_init_epoch, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %7, %8
   br i1 %.not, label %10, label %9
 
@@ -57,7 +57,7 @@ define internal void @mca_pml_ob1_comm_proc_construct(ptr noundef initializes((1
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
   %18 = load i32, ptr @opal_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not11 = icmp eq i32 %18, %19
   br i1 %.not11, label %21, label %20
 
@@ -189,7 +189,7 @@ opal_obj_run_destructors.exit17:                  ; preds = %opal_obj_run_destru
 ; Function Attrs: nounwind uwtable
 define internal void @mca_pml_ob1_comm_construct(ptr noundef initializes((88, 96)) %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -218,7 +218,7 @@ define internal void @mca_pml_ob1_comm_construct(ptr noundef initializes((88, 96
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not13 = icmp eq i32 %13, %14
   br i1 %.not13, label %16, label %15
 
@@ -247,7 +247,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 opal_obj_run_constructors.exit19:                 ; preds = %.lr.ph.i16, %16
   %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not14 = icmp eq i32 %24, %25
   br i1 %.not14, label %27, label %26
 
@@ -457,10 +457,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define ptr @mca_pml_ob1_peer_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1_comm_proc_t_class, i64 56), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1_comm_proc_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #9
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1_comm_proc_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1_comm_proc_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %6, %7
   br i1 %.not.i, label %9, label %8
 

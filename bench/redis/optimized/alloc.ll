@@ -37,10 +37,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @hiredisResetAllocators() local_unnamed_addr #7 {
 entry:
   store ptr @malloc, ptr @hiredisAllocFns, align 8
-  store ptr @calloc, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 8), align 8
-  store ptr @realloc, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 16), align 8
-  store ptr @strdup, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 24), align 8
-  store ptr @free, ptr getelementptr inbounds (i8, ptr @hiredisAllocFns, i64 32), align 8
+  store ptr @calloc, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8
+  store ptr @realloc, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 16), align 8
+  store ptr @strdup, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 24), align 8
+  store ptr @free, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8
   ret void
 }
 

@@ -55,7 +55,7 @@ define hidden void @_ZN14AbstractICache10initializeEv() local_unnamed_addr #0 al
 18:                                               ; preds = %0
   call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull %15) #5
   call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %1, i1 noundef zeroext false) #5
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV19ICacheStubGenerator, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV19ICacheStubGenerator, i64 16), ptr %2, align 8
   call void @_ZN19ICacheStubGenerator21generate_icache_flushEPPFiPhiiE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull @_ZN14AbstractICache18_flush_icache_stubE) #5
   call void @_ZN17StubCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #5
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %1) #5

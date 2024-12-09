@@ -248,7 +248,7 @@ entry:
 define void @izrule_getName_75(ptr noundef nonnull %rule, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %name, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nameLength) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512TimeZoneRule7getNameERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(80) %rule, ptr noundef nonnull align 8 dereferenceable(64) %s)

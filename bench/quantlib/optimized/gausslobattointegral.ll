@@ -54,7 +54,7 @@ define void @_ZN8QuantLib20GaussLobattoIntegralC2Emddb(ptr noundef nonnull align
 entry:
   %storedv = zext i1 %useConvergenceEstimate to i8
   tail call void @_ZN8QuantLib10IntegratorC2Edm(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %absAccuracy, i64 noundef %maxIterations)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib20GaussLobattoIntegralE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib20GaussLobattoIntegralE, i64 16), ptr %this, align 8, !tbaa !3
   %relAccuracy_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %relAccuracy, ptr %relAccuracy_, align 8, !tbaa !6
   %useConvergenceEstimate_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1129,7 +1129,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !29
   %cmp.not.i.i = icmp eq ptr %0, null

@@ -413,7 +413,7 @@ define internal fastcc range(i32 -22, 1) i32 @i915_gem_object_shmem_to_phys(ptr 
   br i1 %26, label %131, label %27
 
 27:                                               ; preds = %15
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %29 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3264, i64 noundef 16) #8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %109, label %31

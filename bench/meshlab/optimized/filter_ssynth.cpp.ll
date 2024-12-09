@@ -1909,7 +1909,7 @@ define void @_ZN12FilterSSynthC1Ev(ptr noundef nonnull align 8 dereferenceable(1
   %4 = alloca %"class.std::__cxx11::list.19", align 8
   %5 = alloca %class.QString, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -1924,14 +1924,14 @@ define void @_ZN12FilterSSynthC1Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT12FilterSSynth, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT12FilterSSynth, i64 8), align 8
   store ptr %13, ptr %12, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT12FilterSSynth, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT12FilterSSynth, i64 16), align 8
   %15 = getelementptr i8, ptr %13, i64 -24
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %12, i64 %16
   store ptr %14, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT12FilterSSynth, i64 24), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT12FilterSSynth, i64 24), align 8
   %19 = load ptr, ptr %12, align 8
   %20 = getelementptr i8, ptr %19, i64 -32
   %21 = load i64, ptr %20, align 8
@@ -1940,14 +1940,14 @@ define void @_ZN12FilterSSynthC1Ev(ptr noundef nonnull align 8 dereferenceable(1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @_ZN10QArrayData11shared_nullE, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT12FilterSSynth, i64 32), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT12FilterSSynth, i64 32), align 8
   store ptr %25, ptr %24, align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT12FilterSSynth, i64 40), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT12FilterSSynth, i64 40), align 8
   %27 = getelementptr i8, ptr %25, i64 -24
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %24, i64 %28
   store ptr %26, ptr %29, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT12FilterSSynth, i64 48), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTT12FilterSSynth, i64 48), align 8
   %31 = load ptr, ptr %24, align 8
   %32 = getelementptr i8, ptr %31, i64 -32
   %33 = load i64, ptr %32, align 8
@@ -1967,11 +1967,11 @@ define void @_ZN12FilterSSynthC1Ev(ptr noundef nonnull align 8 dereferenceable(1
   store ptr %39, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %41, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterSSynth, i64 32), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterSSynth, i64 296), ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterSSynth, i64 720), ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterSSynth, i64 784), ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12FilterSSynth, i64 488), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12FilterSSynth, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12FilterSSynth, i64 296), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12FilterSSynth, i64 720), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12FilterSSynth, i64 784), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12FilterSSynth, i64 488), ptr %24, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZN10QArrayData11shared_nullE, ptr %42, align 8
   br label %43
@@ -2199,14 +2199,14 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit33:            ; preds = %.lr.ph.i.i.i30, %95
 
 100:                                              ; preds = %98
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #31
-  call void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT12FilterSSynth, i64 32)) #31
-  call void @_ZN8IOPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT12FilterSSynth, i64 8)) #31
+  call void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT12FilterSSynth, i64 32)) #31
+  call void @_ZN8IOPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT12FilterSSynth, i64 8)) #31
   call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
   br label %101
 
 101:                                              ; preds = %66, %100, %64
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %.pn.pn.pn, %100 ], [ %67, %66 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %6, align 8
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
@@ -2217,7 +2217,7 @@ declare void @_ZN9QFileInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   ret void
@@ -2962,7 +2962,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterX3DI6CMeshOE8LoadMaskEP
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri2io17AdditionalInfoX3DE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg3tri2io17AdditionalInfoX3DE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr @_ZN10QArrayData11shared_nullE, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -10135,7 +10135,7 @@ _ZNSt12_Vector_baseI7QStringSaIS0_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIP7QSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri2io17AdditionalInfoX3DD2Ev(ptr noundef nonnull align 8 dereferenceable(269) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri2io17AdditionalInfoX3DE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg3tri2io17AdditionalInfoX3DE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -66046,7 +66046,7 @@ _ZN7QStringD2Ev.exit104:                          ; preds = %_ZN14StructureSynth
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -66119,7 +66119,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -66190,7 +66190,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -66463,7 +66463,7 @@ define linkonce_odr void @_ZN11MyTrendererC2EN14StructureSynth5Model9Rendering8T
 
 4:                                                ; preds = %2
   call void @_ZN14StructureSynth5Model9Rendering8TemplateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #31
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MyTrenderer, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MyTrenderer, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr @_ZN12QMapDataBase11shared_nullE, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -66752,7 +66752,7 @@ _ZN7QVectorIPN14StructureSynth6Parser12GuiParameterEED2Ev.exit: ; preds = %1, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MyTrendererD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MyTrenderer, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MyTrenderer, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @_ZN5QListI7QStringE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %3 = load ptr, ptr %2, align 8

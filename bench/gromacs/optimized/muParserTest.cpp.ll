@@ -23305,7 +23305,7 @@ _ZNSt6vectorIN2mu6ParserESaIS1_EE9push_backERKS1_.exit: ; preds = %863
           to label %865 unwind label %903
 
 865:                                              ; preds = %_ZNSt6vectorIN2mu6ParserESaIS1_EE9push_backERKS1_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %186, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %186, align 8
   %866 = load ptr, ptr %185, align 8
   %867 = load ptr, ptr %864, align 8
   %.not.i.i411 = icmp eq ptr %867, %866
@@ -26588,7 +26588,7 @@ _ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
           to label %24 unwind label %.body
 
 24:                                               ; preds = %_ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %23, align 8
   %.not14.i.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not14.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -26599,7 +26599,7 @@ _ZNSt12_Vector_baseIN2mu6ParserESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
           to label %25 unwind label %28
 
 25:                                               ; preds = %.lr.ph.i.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %.016.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %.016.i.i.i.i.i, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 600
   %27 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 600
   %.not.i.i.i.i.i = icmp eq ptr %26, %1
@@ -26661,7 +26661,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2mu6ParserES2_SaIS1_EET0_T_S5_S4_RT1_
           to label %43 unwind label %45
 
 43:                                               ; preds = %.lr.ph.i.i.i.i.i29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %.016.i.i.i.i.i30.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2mu6ParserE, i64 16), ptr %.016.i.i.i.i.i30.ptr, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i31, i64 600
   %.016.i.i.i.i.i30.add = add nuw nsw i64 %.016.i.i.i.i.i30.idx, 600
   %.not.i.i.i.i.i37 = icmp eq ptr %44, %5

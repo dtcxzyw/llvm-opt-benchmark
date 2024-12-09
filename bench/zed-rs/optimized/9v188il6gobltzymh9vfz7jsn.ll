@@ -2680,7 +2680,7 @@ _ZN10serde_json3ser9to_string17h626ba9bcf16d7a8aE.exit.thread.i: ; preds = %_ZN1
   store i8 1, ptr %85, align 2, !noalias !463
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15), !noalias !463
-  %127 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48) acquire, align 8, !noalias !463
+  %127 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48) acquire, align 8, !noalias !463
   %128 = icmp eq i32 %127, 4
   br i1 %128, label %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb9b5b2cc3c13740eE.exit.i", label %129
 
@@ -2689,7 +2689,7 @@ _ZN10serde_json3ser9to_string17h626ba9bcf16d7a8aE.exit.thread.i: ; preds = %_ZN1
   store ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, ptr %8, align 8, !noalias !463
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !463
   store ptr %8, ptr %7, align 8, !noalias !463
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h0602a1ba269fbcb3E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176eccb4aaa204b4255665c57a8f0547.27)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h0602a1ba269fbcb3E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN2db3kvp15KEY_VALUE_STORE17h2e937b7ef350bffaE, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.176eccb4aaa204b4255665c57a8f0547.27)
           to label %.noexc22.i unwind label %130
 
 .noexc22.i:                                       ; preds = %129

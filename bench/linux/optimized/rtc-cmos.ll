@@ -103,12 +103,12 @@ define internal i32 @cmos_init() #0 section ".init.text" align 16 {
 
 3:                                                ; preds = %0
   store i1 true, ptr @pnp_driver_registered, align 1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 8), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %12
 
 .thread3:                                         ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 8), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %.thread2
 
@@ -197,7 +197,7 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(152) @__const.cmos_do_probe.nvmem_cfg, i64 152, i1 false)
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 8), align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %225
 
@@ -216,8 +216,8 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   br i1 %17, label %225, label %18
 
 18:                                               ; preds = %11
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 16), align 8
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 24), align 8
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 16), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 24), align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = load i64, ptr %16, align 8
@@ -236,13 +236,13 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   %32 = select i1 %31, i32 %24, i32 %30
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %34 = load i8, ptr %33, align 8
-  store i8 %34, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 58), align 2
+  store i8 %34, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 58), align 2
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 25
   %36 = load i8, ptr %35, align 1
-  store i8 %36, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 59), align 1
+  store i8 %36, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 59), align 1
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 26
   %38 = load i8, ptr %37, align 2
-  store i8 %38, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 60), align 4
+  store i8 %38, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 60), align 4
   %39 = load ptr, ptr %6, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %78, label %41
@@ -254,9 +254,9 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   br i1 %44, label %78, label %45
 
 45:                                               ; preds = %41
-  store ptr %39, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 40), align 8
+  store ptr %39, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 40), align 8
   %46 = load ptr, ptr %42, align 8
-  store ptr %46, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 48), align 8
+  store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 48), align 8
   br label %78
 
 47:                                               ; preds = %18
@@ -265,7 +265,7 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   br i1 %49, label %50, label %78
 
 50:                                               ; preds = %47
-  %51 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   switch i8 %51, label %62 [
     i8 0, label %52
     i8 2, label %55
@@ -292,26 +292,26 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   br label %62
 
 62:                                               ; preds = %61, %58, %55, %52, %50
-  store ptr @rtc_wake_on, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 40), align 8
-  store ptr @rtc_wake_off, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 48), align 8
-  %63 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 107), align 1
+  store ptr @rtc_wake_on, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 40), align 8
+  store ptr @rtc_wake_off, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 48), align 8
+  %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 107), align 1
   %64 = icmp eq i8 %63, 0
-  %65 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 106), align 1
+  %65 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 106), align 1
   %66 = icmp ne i8 %65, 0
   %67 = select i1 %64, i1 true, i1 %66
   br i1 %67, label %69, label %68
 
 68:                                               ; preds = %62
-  store i8 0, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 107), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 107), align 1
   br label %69
 
 69:                                               ; preds = %68, %62
   %70 = phi i8 [ 0, %68 ], [ %63, %62 ]
-  store i8 %65, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 58), align 2
-  store i8 %70, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 59), align 1
-  %71 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 108), align 1
-  store i8 %71, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 60), align 4
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
+  store i8 %65, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 58), align 2
+  store i8 %70, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 59), align 1
+  %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 108), align 1
+  store i8 %71, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 60), align 4
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %73 = and i32 %72, 128
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %76, label %75
@@ -328,34 +328,34 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
 78:                                               ; preds = %76, %47, %45, %41, %26
   %79 = phi i32 [ %32, %45 ], [ %32, %41 ], [ %32, %26 ], [ %24, %47 ], [ %24, %76 ]
   %80 = phi i32 [ %28, %45 ], [ %28, %41 ], [ %28, %26 ], [ 0, %47 ], [ 0, %76 ]
-  %81 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 58), align 2
+  %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 58), align 2
   %82 = icmp slt i8 %81, 0
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %78
-  store i8 0, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 58), align 2
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 58), align 2
   br label %84
 
 84:                                               ; preds = %83, %78
-  %85 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 59), align 1
+  %85 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 59), align 1
   %86 = icmp slt i8 %85, 0
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %84
-  store i8 0, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 59), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 59), align 1
   br label %88
 
 88:                                               ; preds = %87, %84
-  %89 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 60), align 4
+  %89 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 60), align 4
   %90 = icmp slt i8 %89, 0
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %88
-  store i8 0, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 60), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 60), align 4
   br label %92
 
 92:                                               ; preds = %91, %88
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 8), align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @cmos_rtc, ptr %93, align 8
   %94 = tail call ptr @devm_rtc_allocate_device(ptr noundef %0) #9
@@ -369,7 +369,7 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   br label %220
 
 99:                                               ; preds = %92
-  %100 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 59), align 1
+  %100 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 59), align 1
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %104, label %102
 
@@ -379,7 +379,7 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   br label %110
 
 104:                                              ; preds = %99
-  %105 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 58), align 2
+  %105 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 58), align 2
   %106 = icmp eq i8 %105, 0
   %107 = getelementptr inbounds nuw i8, ptr %94, i64 1232
   br i1 %106, label %109, label %108
@@ -545,19 +545,19 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
   br i1 %140, label %196, label %203
 
 196:                                              ; preds = %195
-  %197 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 59), align 1
+  %197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 59), align 1
   %198 = icmp eq i8 %197, 0
   br i1 %198, label %199, label %203
 
 199:                                              ; preds = %196
-  %200 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 58), align 2
+  %200 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 58), align 2
   %201 = icmp eq i8 %200, 0
   %202 = select i1 %201, ptr @.str.8, ptr @.str.7
   br label %203
 
 203:                                              ; preds = %199, %196, %195
   %204 = phi ptr [ @.str.5, %195 ], [ %202, %199 ], [ @.str.6, %196 ]
-  %205 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 60), align 4
+  %205 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 60), align 4
   %206 = icmp eq i8 %205, 0
   %207 = select i1 %206, ptr @.str.10, ptr @.str.9
   %208 = load i32, ptr %192, align 8
@@ -580,7 +580,7 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly %
 
 .thread:                                          ; preds = %176, %166, %216, %215, %147, %120
   %219 = phi i32 [ %186, %216 ], [ %186, %215 ], [ -6, %147 ], [ -6, %120 ], [ %164, %166 ], [ %178, %176 ]
-  store ptr null, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 8), align 8
   br label %220
 
 220:                                              ; preds = %.thread, %96
@@ -823,7 +823,7 @@ define internal noundef range(i32 0, 2) i32 @cmos_interrupt(i32 noundef %0, ptr 
   %9 = select i1 %6, i1 true, i1 %8
   %10 = trunc i32 %0 to i8
   %11 = select i1 %9, i8 %3, i8 %10
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 57), align 1
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 57), align 1
   %13 = icmp eq i8 %12, 0
   %14 = select i1 %13, i8 %4, i8 %12
   %15 = and i8 %14, 112
@@ -835,7 +835,7 @@ define internal noundef range(i32 0, 2) i32 @cmos_interrupt(i32 noundef %0, ptr 
 
 20:                                               ; preds = %2
   %21 = and i8 %12, -33
-  store i8 %21, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 57), align 1
+  store i8 %21, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 57), align 1
   %22 = and i8 %4, -33
   tail call void @rtc_cmos_write(i8 noundef zeroext %22, i8 noundef zeroext 11) #9
   %23 = tail call i32 @is_hpet_enabled() #9
@@ -1689,7 +1689,7 @@ define internal noundef i32 @rtc_handler(ptr noundef %0) #3 align 16 {
 
 9:                                                ; preds = %1
   %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtc_lock) #9
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 57), align 1
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 57), align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %.thread, label %13
 
@@ -1700,9 +1700,9 @@ define internal noundef i32 @rtc_handler(ptr noundef %0) #3 align 16 {
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 57), align 1
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 57), align 1
   %19 = and i8 %18, -33
-  store i8 %19, ptr getelementptr inbounds (i8, ptr @cmos_rtc, i64 57), align 1
+  store i8 %19, ptr getelementptr inbounds nuw (i8, ptr @cmos_rtc, i64 57), align 1
   tail call void @rtc_cmos_write(i8 noundef zeroext %14, i8 noundef zeroext 11) #9
   %20 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 12) #9
   %21 = load ptr, ptr %3, align 8
@@ -2250,7 +2250,7 @@ define internal noundef i32 @cmos_resume(ptr noundef %0) #3 align 16 {
   %122 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   store i32 0, ptr %2, align 4, !annotation !14
-  %123 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
+  %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %124 = and i32 %123, 64
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %126, label %139

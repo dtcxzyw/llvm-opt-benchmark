@@ -863,7 +863,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %.invoke, %74, %68, 
   %101 = icmp eq ptr %97, %100
   %brmerge249.not = and i1 %12, %101
   %.mux = or i1 %12, %101
-  %.mux250 = select i1 %101, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detailL11method_argsE, i64 40), ptr %6
+  %.mux250 = select i1 %101, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detailL11method_argsE, i64 40), ptr %6
   br i1 %brmerge249.not, label %102, label %.thread
 
 102:                                              ; preds = %98

@@ -67,7 +67,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hwdep_new(ptr noundef %0, pt
   br label %9
 
 9:                                                ; preds = %8, %6
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 328) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %47, label %13
@@ -214,8 +214,8 @@ define internal range(i32 -2147483648, 1) i32 @snd_hwdep_dev_register(ptr nocapt
 
 .loopexit:                                        ; preds = %17, %20, %1
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @snd_hwdep_devices, i64 8), align 8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @snd_hwdep_devices, i64 8), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @snd_hwdep_devices, i64 8), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @snd_hwdep_devices, i64 8), align 8
   store ptr @snd_hwdep_devices, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %24, ptr %25, align 8

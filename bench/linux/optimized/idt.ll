@@ -161,7 +161,7 @@ define dso_local void @idt_setup_apic_and_irq_gates() local_unnamed_addr #1 sect
   %36 = load i64, ptr @__default_kernel_pte_mask, align 8
   %37 = and i64 %36, -9223372036854775519
   tail call void @cea_set_pte(ptr noundef nonnull inttoptr (i64 -2199023255552 to ptr), i64 noundef %35, i64 %37) #4
-  store i64 -2199023255552, ptr getelementptr inbounds (i8, ptr @idt_descr, i64 2), align 1
+  store i64 -2199023255552, ptr getelementptr inbounds nuw (i8, ptr @idt_descr, i64 2), align 1
   tail call void asm sideeffect "lidt $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.desc_ptr) @idt_descr) #4, !srcloc !5
   %38 = tail call i32 @set_memory_ro(i64 noundef ptrtoint (ptr @idt_table to i64), i32 noundef 1) #4
   store i1 true, ptr @idt_setup_done, align 1

@@ -139,7 +139,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -194,7 +194,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8QuantLib23ArithmeticASOPathPricerC2ENS_6Option4TypeEddm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %this, i32 noundef %type, double noundef %discount, double noundef %runningSum, i64 noundef %pastFixings) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23ArithmeticASOPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23ArithmeticASOPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %type, ptr %type_, align 8, !tbaa !18
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -459,7 +459,7 @@ invoke.cont45:                                    ; preds = %_ZSt10accumulateIPK
   store i32 %34, ptr %type_.i.i.i, align 8, !tbaa !41
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 16
   store double %div, ptr %strike_.i.i, align 8, !tbaa !44
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %ref.tmp43, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %ref.tmp43, align 8, !tbaa !14
   %35 = getelementptr double, ptr %25, i64 %26
   %arrayidx.i.i = getelementptr i8, ptr %35, i64 -8
   %36 = load double, ptr %arrayidx.i.i, align 8, !tbaa !29

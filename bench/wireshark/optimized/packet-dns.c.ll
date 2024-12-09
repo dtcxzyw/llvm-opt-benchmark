@@ -5946,7 +5946,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %217, %225
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.1248, ptr noundef %258) #10
   %261 = load i32, ptr @hf_dns_a, align 4
   %262 = call ptr @proto_tree_add_item(ptr noundef %.02075, i32 noundef %261, ptr noundef %0, i32 noundef %122, i32 noundef 4, i32 noundef 0) #10
-  %263 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 12), align 4
+  %263 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 12), align 4
   %.not2195 = icmp eq i32 %263, 0
   br i1 %.not2195, label %.loopexit, label %264
 
@@ -6313,7 +6313,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %217, %225
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %485, ptr noundef nonnull @.str.1258, ptr noundef %483) #10
   %486 = load i32, ptr @hf_dns_ptr_domain_name, align 4
   %487 = call ptr @proto_tree_add_string(ptr noundef %.02075, i32 noundef %486, ptr noundef %0, i32 noundef %122, i32 noundef %478, ptr noundef %483) #10
-  %488 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 12), align 4
+  %488 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 12), align 4
   %.not2159 = icmp ne i32 %488, 0
   %489 = and i16 %.02188, 127
   %490 = icmp eq i16 %489, 1
@@ -6820,7 +6820,7 @@ proto_item_set_generated.exit:                    ; preds = %795, %792, %787, %7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %853, ptr noundef nonnull @.str.1248, ptr noundef %851) #10
   %854 = load i32, ptr @hf_dns_aaaa, align 4
   %855 = call ptr @proto_tree_add_item(ptr noundef %.02075, i32 noundef %854, ptr noundef %0, i32 noundef %122, i32 noundef 16, i32 noundef 0) #10
-  %856 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 12), align 4
+  %856 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 12), align 4
   %.not2153 = icmp ne i32 %856, 0
   %857 = and i16 %.02188, 127
   %858 = icmp eq i16 %857, 1

@@ -556,7 +556,7 @@ define void @_ZN2cv8Stitcher6createENS0_4ModeE(ptr dead_on_unwind noalias writab
   store i32 1, ptr %7, align 8, !noalias !7
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !7
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv8StitcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv8StitcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !noalias !7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(560) %9, i8 0, i64 560, i1 false), !noalias !7
@@ -585,7 +585,7 @@ define void @_ZN2cv8Stitcher6createENS0_4ModeE(ptr dead_on_unwind noalias writab
   store i32 1, ptr %19, align 8, !noalias !10
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %20, align 4, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail18GraphCutSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail18GraphCutSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !10
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   invoke void @_ZN2cv6detail18GraphCutSeamFinderC1Eiff(ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 0, float noundef 1.000000e+04, float noundef 1.000000e+03)
           to label %23 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail18GraphCutSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !10
@@ -772,7 +772,7 @@ _ZN2cv3PtrINS_6detail18GraphCutSeamFinderEED2Ev.exit: ; preds = %81, %93, %_ZNSt
   store i32 1, ptr %99, align 8, !noalias !15
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store i32 1, ptr %100, align 4, !noalias !15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail16MultiBandBlenderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %98, align 8, !noalias !15
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail16MultiBandBlenderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %98, align 8, !noalias !15
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 16
   invoke void @_ZN2cv6detail16MultiBandBlenderC1Eiii(ptr noundef nonnull align 8 dereferenceable(264) %101, i32 noundef 0, i32 noundef 5, i32 noundef 5)
           to label %103 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail16MultiBandBlenderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !15
@@ -1242,9 +1242,9 @@ _ZN2cv3PtrINS_3ORBEED2Ev.exit:                    ; preds = %_ZN2cv3PtrINS_9Feat
   store i32 1, ptr %309, align 8, !noalias !20
   %310 = getelementptr inbounds nuw i8, ptr %307, i64 12
   store i32 1, ptr %310, align 4, !noalias !20
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail24HomographyBasedEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %307, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail24HomographyBasedEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %307, align 8, !noalias !20
   %311 = getelementptr inbounds nuw i8, ptr %307, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail24HomographyBasedEstimatorE, i64 16), ptr %311, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail24HomographyBasedEstimatorE, i64 16), ptr %311, align 8, !noalias !20
   %312 = getelementptr inbounds nuw i8, ptr %307, i64 24
   store i8 0, ptr %312, align 8, !noalias !20
   %313 = getelementptr inbounds nuw i8, ptr %298, i64 168
@@ -1425,7 +1425,7 @@ _ZN2cv3PtrINS_6detail24HomographyBasedEstimatorEED2Ev.exit: ; preds = %370, %382
   store i32 1, ptr %390, align 8, !noalias !25
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 12
   store i32 1, ptr %391, align 4, !noalias !25
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21BestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %389, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21BestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %389, align 8, !noalias !25
   %392 = getelementptr inbounds nuw i8, ptr %389, i64 16
   invoke void @_ZN2cv6detail21BestOf2NearestMatcherC1Ebfiid(ptr noundef nonnull align 8 dereferenceable(48) %392, i1 noundef zeroext false, float noundef 0x3FD3333340000000, i32 noundef 6, i32 noundef 6, double noundef 3.000000e+00)
           to label %394 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail21BestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !25
@@ -1611,7 +1611,7 @@ _ZN2cv3PtrINS_6detail21BestOf2NearestMatcherEED2Ev.exit: ; preds = %452, %464, %
   store i32 1, ptr %470, align 8, !noalias !30
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 12
   store i32 1, ptr %471, align 4, !noalias !30
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjusterRayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %469, align 8, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjusterRayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %469, align 8, !noalias !30
   %472 = getelementptr inbounds nuw i8, ptr %469, i64 16
   invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(472) %472, i32 noundef 4, i32 noundef 3)
           to label %474 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjusterRayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !30
@@ -1623,7 +1623,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail17BundleAdjuste
   br label %.body
 
 474:                                              ; preds = %.noexc125
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail17BundleAdjusterRayE, i64 16), ptr %472, align 8, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail17BundleAdjusterRayE, i64 16), ptr %472, align 8, !noalias !30
   %475 = getelementptr inbounds nuw i8, ptr %469, i64 296
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %475) #23, !noalias !30
   %476 = getelementptr inbounds nuw i8, ptr %469, i64 392
@@ -1802,9 +1802,9 @@ _ZN2cv3PtrINS_6detail17BundleAdjusterRayEED2Ev.exit: ; preds = %534, %546, %_ZNS
   store i32 1, ptr %553, align 8, !noalias !35
   %554 = getelementptr inbounds nuw i8, ptr %551, i64 12
   store i32 1, ptr %554, align 4, !noalias !35
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv15SphericalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %551, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv15SphericalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %551, align 8, !noalias !35
   %555 = getelementptr inbounds nuw i8, ptr %551, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15SphericalWarperE, i64 16), ptr %555, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15SphericalWarperE, i64 16), ptr %555, align 8, !noalias !35
   %556 = getelementptr inbounds nuw i8, ptr %.pre418, i64 192
   store ptr %555, ptr %556, align 8
   %557 = getelementptr inbounds nuw i8, ptr %.pre418, i64 200
@@ -1979,7 +1979,7 @@ _ZN2cv3PtrINS_15SphericalWarperEED2Ev.exit:       ; preds = %613, %625, %_ZNSt16
   store i32 1, ptr %632, align 8, !noalias !40
   %633 = getelementptr inbounds nuw i8, ptr %630, i64 12
   store i32 1, ptr %633, align 4, !noalias !40
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21BlocksGainCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %630, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21BlocksGainCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %630, align 8, !noalias !40
   %634 = getelementptr inbounds nuw i8, ptr %630, i64 16
   %635 = getelementptr inbounds nuw i8, ptr %630, i64 24
   store i8 1, ptr %635, align 8, !noalias !40
@@ -1995,7 +1995,7 @@ _ZN2cv3PtrINS_15SphericalWarperEED2Ev.exit:       ; preds = %613, %625, %_ZNSt16
   store i32 2, ptr %640, align 4, !noalias !40
   %641 = getelementptr inbounds nuw i8, ptr %630, i64 72
   store double 1.000000e+00, ptr %641, align 8, !noalias !40
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail21BlocksGainCompensatorE, i64 16), ptr %634, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail21BlocksGainCompensatorE, i64 16), ptr %634, align 8, !noalias !40
   %642 = getelementptr inbounds nuw i8, ptr %.pre420, i64 208
   store ptr %634, ptr %642, align 8
   %643 = getelementptr inbounds nuw i8, ptr %.pre420, i64 216
@@ -2158,9 +2158,9 @@ _ZN2cv8Stitcher22setExposureCompensatorENS_3PtrINS_6detail19ExposureCompensatorE
   store i32 1, ptr %713, align 8, !noalias !45
   %714 = getelementptr inbounds nuw i8, ptr %711, i64 12
   store i32 1, ptr %714, align 4, !noalias !45
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail20AffineBasedEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %711, align 8, !noalias !45
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail20AffineBasedEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %711, align 8, !noalias !45
   %715 = getelementptr inbounds nuw i8, ptr %711, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail20AffineBasedEstimatorE, i64 16), ptr %715, align 8, !noalias !45
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail20AffineBasedEstimatorE, i64 16), ptr %715, align 8, !noalias !45
   %716 = getelementptr inbounds nuw i8, ptr %298, i64 168
   store ptr %715, ptr %716, align 8
   %717 = getelementptr inbounds nuw i8, ptr %298, i64 176
@@ -2337,7 +2337,7 @@ _ZN2cv3PtrINS_6detail20AffineBasedEstimatorEED2Ev.exit: ; preds = %773, %785, %_
   store i32 1, ptr %792, align 8, !noalias !50
   %793 = getelementptr inbounds nuw i8, ptr %791, i64 12
   store i32 1, ptr %793, align 4, !noalias !50
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27AffineBestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %791, align 8, !noalias !50
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27AffineBestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %791, align 8, !noalias !50
   %794 = getelementptr inbounds nuw i8, ptr %791, i64 16
   invoke void @_ZN2cv6detail21BestOf2NearestMatcherC2Ebfiid(ptr noundef nonnull align 8 dereferenceable(49) %794, i1 noundef zeroext false, float noundef 0x3FD3333340000000, i32 noundef 6, i32 noundef 6, double noundef 3.000000e+00)
           to label %796 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27AffineBestOf2NearestMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !50
@@ -2349,7 +2349,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27AffineBestOf2
   br label %.body
 
 796:                                              ; preds = %.noexc233
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail27AffineBestOf2NearestMatcherE, i64 16), ptr %794, align 8, !noalias !50
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv6detail27AffineBestOf2NearestMatcherE, i64 16), ptr %794, align 8, !noalias !50
   %797 = getelementptr inbounds nuw i8, ptr %791, i64 64
   store i8 0, ptr %797, align 8, !noalias !50
   %798 = getelementptr inbounds nuw i8, ptr %.pre405, i64 56
@@ -2526,7 +2526,7 @@ _ZN2cv3PtrINS_6detail27AffineBestOf2NearestMatcherEED2Ev.exit: ; preds = %855, %
   store i32 1, ptr %873, align 8, !noalias !55
   %874 = getelementptr inbounds nuw i8, ptr %872, i64 12
   store i32 1, ptr %874, align 4, !noalias !55
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjusterAffinePartialESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %872, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjusterAffinePartialESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %872, align 8, !noalias !55
   %875 = getelementptr inbounds nuw i8, ptr %872, i64 16
   invoke void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(472) %875, i32 noundef 4, i32 noundef 2)
           to label %877 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjusterAffinePartialESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !55
@@ -2538,7 +2538,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6detail27BundleAdjuste
   br label %.body
 
 877:                                              ; preds = %.noexc263
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail27BundleAdjusterAffinePartialE, i64 16), ptr %875, align 8, !noalias !55
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail27BundleAdjusterAffinePartialE, i64 16), ptr %875, align 8, !noalias !55
   %878 = getelementptr inbounds nuw i8, ptr %872, i64 296
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %878) #23, !noalias !55
   %879 = getelementptr inbounds nuw i8, ptr %872, i64 392
@@ -2717,9 +2717,9 @@ _ZN2cv3PtrINS_6detail27BundleAdjusterAffinePartialEED2Ev.exit: ; preds = %937, %
   store i32 1, ptr %956, align 8, !noalias !60
   %957 = getelementptr inbounds nuw i8, ptr %954, i64 12
   store i32 1, ptr %957, align 4, !noalias !60
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12AffineWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %954, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12AffineWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %954, align 8, !noalias !60
   %958 = getelementptr inbounds nuw i8, ptr %954, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv12AffineWarperE, i64 16), ptr %958, align 8, !noalias !60
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv12AffineWarperE, i64 16), ptr %958, align 8, !noalias !60
   %959 = getelementptr inbounds nuw i8, ptr %.pre409, i64 192
   store ptr %958, ptr %959, align 8
   %960 = getelementptr inbounds nuw i8, ptr %.pre409, i64 200
@@ -2894,11 +2894,11 @@ _ZN2cv3PtrINS_12AffineWarperEED2Ev.exit:          ; preds = %1016, %1028, %_ZNSt
   store i32 1, ptr %1035, align 8, !noalias !65
   %1036 = getelementptr inbounds nuw i8, ptr %1033, i64 12
   store i32 1, ptr %1036, align 4, !noalias !65
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21NoExposureCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1033, align 8, !noalias !65
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail21NoExposureCompensatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1033, align 8, !noalias !65
   %1037 = getelementptr inbounds nuw i8, ptr %1033, i64 16
   %1038 = getelementptr inbounds nuw i8, ptr %1033, i64 24
   store i64 1, ptr %1038, align 8, !noalias !65
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail21NoExposureCompensatorE, i64 16), ptr %1037, align 8, !noalias !65
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv6detail21NoExposureCompensatorE, i64 16), ptr %1037, align 8, !noalias !65
   %1039 = getelementptr inbounds nuw i8, ptr %.pre411, i64 208
   store ptr %1037, ptr %1039, align 8
   %1040 = getelementptr inbounds nuw i8, ptr %.pre411, i64 216
@@ -10480,7 +10480,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 define linkonce_odr hidden void @_ZN2cv6detail18BundleAdjusterBaseC2Eii(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::MatExpr", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail18BundleAdjusterBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv6detail18BundleAdjusterBaseE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -10730,9 +10730,9 @@ _ZN2cv3PtrINS_6detail15SphericalWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !135
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !135
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail15SphericalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !135
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail15SphericalWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !135
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail15SphericalWarperE, i64 16), ptr %6, align 8, !noalias !135
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv6detail15SphericalWarperE, i64 16), ptr %6, align 8, !noalias !135
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !135
   store ptr %6, ptr %0, align 8
@@ -11110,11 +11110,11 @@ _ZN2cv3PtrINS_6detail12AffineWarperEED2Ev.exit:
   store i32 1, ptr %4, align 8, !noalias !140
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !140
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12AffineWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !140
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6detail12AffineWarperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !140
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float %2, ptr %7, align 8, !noalias !140
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv6detail12AffineWarperE, i64 16), ptr %6, align 8, !noalias !140
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv6detail12AffineWarperE, i64 16), ptr %6, align 8, !noalias !140
   store ptr %6, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %8, align 8

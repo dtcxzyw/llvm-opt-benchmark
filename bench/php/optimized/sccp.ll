@@ -7963,7 +7963,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8
   %7 = tail call ptr @zend_hash_find(ptr noundef %6, ptr noundef %2) #13
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %8
@@ -8065,7 +8065,7 @@ can_ct_eval_func_call.exit:                       ; preds = %23
   br i1 %.not40.i, label %can_ct_eval_func_call.exit.thread65, label %can_ct_eval_func_call.exit.thread
 
 can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_eval_func_call.exit
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %53, i8 0, i64 72, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -8079,11 +8079,11 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %57, i8 0, i64 80, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   store ptr %6, ptr %58, align 8
-  store ptr %57, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 804), align 4
+  store ptr %57, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 804), align 4
   %60 = icmp eq i32 %59, 0
   call void @llvm.assume(i1 %60)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 804), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 804), align 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store ptr %2, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 44
@@ -8167,7 +8167,7 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
   br i1 %exitcond74.not, label %._crit_edge71, label %.lr.ph70
 
 ._crit_edge71:                                    ; preds = %97, %._crit_edge.thread
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %99, null
   br i1 %.not, label %101, label %100
 
@@ -8178,7 +8178,7 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
 
 101:                                              ; preds = %100, %._crit_edge71
   %.0 = phi i32 [ -1, %100 ], [ 0, %._crit_edge71 ]
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 804), align 4
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 804), align 4
   %103 = icmp sgt i32 %102, 1
   br i1 %103, label %104, label %105
 
@@ -8188,9 +8188,9 @@ can_ct_eval_func_call.exit.thread65:              ; preds = %20, %42, %can_ct_ev
 
 105:                                              ; preds = %104, %101
   %.1 = phi i32 [ -1, %104 ], [ %.0, %101 ]
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 804), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 804), align 4
   call void @_efree(ptr noundef nonnull %57) #13
-  store ptr %52, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   br label %can_ct_eval_func_call.exit.thread
 
 can_ct_eval_func_call.exit.thread:                ; preds = %.critedge.i, %29, %31, %36, %42, %can_ct_eval_func_call.exit, %16, %105

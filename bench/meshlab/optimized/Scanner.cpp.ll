@@ -150,7 +150,7 @@ $_ZTIN14VrmlTranslator10KeywordMap4ElemE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -184,7 +184,7 @@ _ZN14VrmlTranslator6BufferD2Ev.exit:              ; preds = %_ZN14VrmlTranslator
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1243,7 +1243,7 @@ _Z18coco_string_deleteRPw.exit:                   ; preds = %1, %5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6BufferC2EP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 32), (40, 49)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
   %4 = zext i1 %2 to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1364,7 +1364,7 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 36), (40, 49)) %0, ptr nocapture noundef %1) unnamed_addr #13 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1405,7 +1405,7 @@ define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr nocapture noundef nonnull wri
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6BufferC2EPKhi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 36), (40, 48)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %4 = sext i32 %2 to i64
   %5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1431,7 +1431,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14VrmlTranslator6BufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1549,13 +1549,13 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7ScannerC2EPKhi(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
           to label %9 unwind label %16
 
@@ -2255,7 +2255,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit61:      ; preds = %248, %274, %279
   %313 = getelementptr inbounds nuw i8, ptr %289, i64 48
   %314 = and i8 %312, 1
   store i8 %314, ptr %313, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i64 16), ptr %289, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i64 16), ptr %289, align 8
   store ptr %289, ptr %175, align 8
   store i32 0, ptr %173, align 4
   %315 = load ptr, ptr %288, align 8
@@ -2385,7 +2385,7 @@ _ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %_ZN14VrmlTranslator
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
@@ -2428,7 +2428,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
@@ -2471,7 +2471,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
@@ -2512,7 +2512,7 @@ _ZN14VrmlTranslator11StartStatesD2Ev.exit:        ; preds = %9, %12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
@@ -2558,13 +2558,13 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %12, %15
 define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
           to label %9 unwind label %28
 
@@ -2676,13 +2676,13 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7ScannerC2EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %3, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %4, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %6, align 8
   %7 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
           to label %8 unwind label %15
 
@@ -2773,7 +2773,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr nocapture noundef nonnull align
 
 18:                                               ; preds = %14, %10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %21
 
@@ -2812,7 +2812,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr nocapture noundef nonnull align
 
 _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %30, %33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %36
 
@@ -2856,7 +2856,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i64 16), ptr %4, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_Z18coco_string_createPKw.exit.i, label %5
 
@@ -3072,7 +3072,7 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit: ; preds = %_ZN14VrmlTransla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3089,7 +3089,7 @@ _Z18coco_string_deleteRPw.exit:                   ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

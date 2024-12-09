@@ -408,7 +408,7 @@ _ZNK2cv11_InputArray6getMatEi.exit83:             ; preds = %85, %88
   store i32 0, ptr %11, align 4
   %111 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %110, ptr %111, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv20ParallelStackBlurRowIhiEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv20ParallelStackBlurRowIhiEE, i64 16), ptr %12, align 8
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -452,7 +452,7 @@ _ZNK2cv11_InputArray6getMatEi.exit83:             ; preds = %85, %88
   store i32 0, ptr %13, align 4
   %132 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %97, ptr %132, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv23ParallelStackBlurColumnIhiEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv23ParallelStackBlurColumnIhiEE, i64 16), ptr %14, align 8
   %133 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %10, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -521,7 +521,7 @@ _ZN2cv23ParallelStackBlurColumnIhiEC2ERKNS_3MatERS2_i.exit: ; preds = %131, %155
   store i32 0, ptr %15, align 4
   %172 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %171, ptr %172, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv20ParallelStackBlurRowIsiEE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv20ParallelStackBlurRowIsiEE, i64 16), ptr %16, align 8
   %173 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %9, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -565,7 +565,7 @@ _ZN2cv23ParallelStackBlurColumnIhiEC2ERKNS_3MatERS2_i.exit: ; preds = %131, %155
   store i32 0, ptr %17, align 4
   %193 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %97, ptr %193, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv23ParallelStackBlurColumnIsiEE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv23ParallelStackBlurColumnIsiEE, i64 16), ptr %18, align 8
   %194 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %10, ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -634,7 +634,7 @@ _ZN2cv23ParallelStackBlurColumnIsiEC2ERKNS_3MatERS2_i.exit: ; preds = %192, %216
   store i32 0, ptr %19, align 4
   %233 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %232, ptr %233, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv20ParallelStackBlurRowItiEE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv20ParallelStackBlurRowItiEE, i64 16), ptr %20, align 8
   %234 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %9, ptr %234, align 8
   %235 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -678,7 +678,7 @@ _ZN2cv23ParallelStackBlurColumnIsiEC2ERKNS_3MatERS2_i.exit: ; preds = %192, %216
   store i32 0, ptr %21, align 4
   %254 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %97, ptr %254, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv23ParallelStackBlurColumnItiEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv23ParallelStackBlurColumnItiEE, i64 16), ptr %22, align 8
   %255 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %10, ptr %255, align 8
   %256 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -747,7 +747,7 @@ _ZN2cv23ParallelStackBlurColumnItiEC2ERKNS_3MatERS2_i.exit: ; preds = %253, %277
   store i32 0, ptr %23, align 4
   %294 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %293, ptr %294, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv20ParallelStackBlurRowIffEE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv20ParallelStackBlurRowIffEE, i64 16), ptr %24, align 8
   %295 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %9, ptr %295, align 8
   %296 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -791,7 +791,7 @@ _ZN2cv23ParallelStackBlurColumnItiEC2ERKNS_3MatERS2_i.exit: ; preds = %253, %277
   store i32 0, ptr %25, align 4
   %315 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %97, ptr %315, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv23ParallelStackBlurColumnIffEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv23ParallelStackBlurColumnIffEE, i64 16), ptr %26, align 8
   %316 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %10, ptr %316, align 8
   %317 = getelementptr inbounds nuw i8, ptr %26, i64 16

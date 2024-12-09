@@ -398,7 +398,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define void @_ZN7rocksdb15CompactedDBImplC2ERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 64 dereferenceable(6704) %this, ptr noundef nonnull align 8 dereferenceable(688) %options, ptr noundef nonnull align 8 dereferenceable(32) %dbname) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7rocksdb6DBImplC2ERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbb(ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull align 8 dereferenceable(688) %options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15CompactedDBImplE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15CompactedDBImplE, i64 16), ptr %this, align 64
   %cfd_ = getelementptr inbounds nuw i8, ptr %this, i64 6664
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cfd_, i8 0, i64 40, i1 false)
   ret void
@@ -709,7 +709,7 @@ invoke.cont57:                                    ; preds = %if.end53, %if.then5
   store i64 72057594037927935, ptr %max_visible_seq_.i.i, align 8
   %min_uncommitted_.i.i = getelementptr inbounds nuw i8, ptr %read_cb, i64 16
   store i64 1, ptr %min_uncommitted_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28GetWithTimestampReadCallbackE, i64 16), ptr %read_cb, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28GetWithTimestampReadCallbackE, i64 16), ptr %read_cb, align 8
   %user_comparator_ = getelementptr inbounds nuw i8, ptr %this, i64 6680
   %34 = load ptr, ptr %user_comparator_, align 8
   %timestamp_size_.i = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -1977,7 +1977,7 @@ invoke.cont75:                                    ; preds = %for.body, %if.then6
   store i64 72057594037927935, ptr %max_visible_seq_.i.i, align 8
   %min_uncommitted_.i.i = getelementptr inbounds nuw i8, ptr %read_cb, i64 16
   store i64 1, ptr %min_uncommitted_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28GetWithTimestampReadCallbackE, i64 16), ptr %read_cb, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28GetWithTimestampReadCallbackE, i64 16), ptr %read_cb, align 8
   store i64 0, ptr %reader_list, align 8
   %values_.i = getelementptr inbounds nuw i8, ptr %reader_list, i64 136
   %buf_.i = getelementptr inbounds nuw i8, ptr %reader_list, i64 8

@@ -4565,7 +4565,7 @@ define void @_ZN13sentencepiece20SentencePieceTrainer5TrainERKNS_11TrainerSpecER
 
 62:                                               ; preds = %60
   store i8 0, ptr %14, align 1
-  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 4))
+  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 4))
           to label %64 unwind label %92
 
 64:                                               ; preds = %62
@@ -6750,7 +6750,7 @@ _ZN13sentencepiece14NormalizerSpec28mutable_precompiled_charsmapB5cxx11Ev.exit: 
 
 31:                                               ; preds = %29
   store i8 1, ptr %5, align 1
-  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 4))
+  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 4))
           to label %33 unwind label %53
 
 33:                                               ; preds = %31
@@ -8003,7 +8003,7 @@ define void @_ZN13sentencepiece20SentencePieceTrainer5TrainESt17basic_string_vie
 
 12:                                               ; preds = %5
   store i8 0, ptr %6, align 1
-  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 4))
+  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 4))
           to label %14 unwind label %37
 
 14:                                               ; preds = %12
@@ -8181,7 +8181,7 @@ _ZN13sentencepiece14NormalizerSpecC2Ev.exit12:    ; preds = %_ZN13sentencepiece1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13sentencepiece20SentencePieceTrainer5TrainESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS3_SaIcEEESaIS9_EEPS9_(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, i64 %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.sentencepiece::(anonymous namespace)::VectorSentenceIterator", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %3, align 8
   store ptr %8, ptr %7, align 8
@@ -8201,7 +8201,7 @@ define internal void @_ZN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorD2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13sentencepiece20SentencePieceTrainer5TrainERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S7_EEERKSt6vectorIS7_SaIS7_EEPS7_(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.sentencepiece::(anonymous namespace)::VectorSentenceIterator", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece12_GLOBAL__N_122VectorSentenceIteratorE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %2, align 8
   store ptr %7, ptr %6, align 8
@@ -8592,7 +8592,7 @@ define noundef ptr @_ZN13sentencepiece20SentencePieceTrainer26GetPretokenizerFor
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN13sentencepiece23SentencePieceNormalizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece23SentencePieceNormalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece23SentencePieceNormalizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -8600,7 +8600,7 @@ define void @_ZN13sentencepiece23SentencePieceNormalizerC2Ev(ptr nocapture nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13sentencepiece23SentencePieceNormalizerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece23SentencePieceNormalizerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece23SentencePieceNormalizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

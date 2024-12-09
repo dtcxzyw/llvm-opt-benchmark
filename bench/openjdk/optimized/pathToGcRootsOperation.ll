@@ -98,7 +98,7 @@ define hidden void @_ZN22PathToGcRootsOperationC2EP13ObjectSamplerP9EdgeStorelbb
   %8 = zext i1 %5 to i8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV22PathToGcRootsOperation, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV22PathToGcRootsOperation, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24

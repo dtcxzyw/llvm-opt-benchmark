@@ -260,7 +260,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @tty_alloc_file(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 32) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -1827,7 +1827,7 @@ declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @alloc_tty_struct(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(656) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 4197824, i64 noundef 656) #21
   %6 = icmp eq ptr %5, null
   br i1 %6, label %65, label %7
@@ -2022,7 +2022,7 @@ define internal fastcc void @release_tty(ptr noundef %0, i32 noundef %1) unnamed
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %24
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %34 = tail call noalias align 8 dereferenceable_or_null(44) ptr @kmalloc_trace(ptr noundef %33, i32 noundef 3264, i64 noundef 44) #21
   %35 = icmp eq ptr %34, null
   %.pre15 = load ptr, ptr %18, align 8
@@ -2194,7 +2194,7 @@ define dso_local void @tty_save_termios(ptr nocapture noundef readonly %0) #0 al
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %19 = tail call noalias align 8 dereferenceable_or_null(44) ptr @kmalloc_trace(ptr noundef %18, i32 noundef 3264, i64 noundef 44) #21
   %20 = icmp eq ptr %19, null
   br i1 %20, label %29, label %21
@@ -3890,7 +3890,7 @@ define dso_local void @__do_SAK(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br label %.loopexit12
 
 .loopexit12:                                      ; preds = %46, %.split.us, %59, %16
-  %60 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1112), align 8
+  %60 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1112), align 8
   %61 = getelementptr i8, ptr %60, i64 -1112
   %62 = icmp eq ptr %61, @init_task
   br i1 %62, label %.loopexit11, label %63
@@ -4242,7 +4242,7 @@ define dso_local ptr @tty_register_device_attr(ptr nocapture noundef readonly %0
   br label %59
 
 59:                                               ; preds = %54, %52, %34
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %61 = call noalias align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %60, i32 noundef 3520, i64 noundef 728) #21
   %62 = icmp eq ptr %61, null
   br i1 %62, label %124, label %63
@@ -4423,7 +4423,7 @@ define dso_local noundef ptr @__tty_alloc_driver(i32 noundef %0, ptr noundef %1,
   br i1 %9, label %54, label %10
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %12 = tail call noalias align 8 dereferenceable_or_null(184) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 184) #21
   %13 = icmp eq ptr %12, null
   br i1 %13, label %54, label %14
@@ -5668,7 +5668,7 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @nonseekable_open(ptr noundef %0, ptr noundef %1) #22
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 32) #21
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.critedge, label %12
@@ -5948,7 +5948,7 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %.critedge27
 
 .critedge27:                                      ; preds = %237, %240, %238, %151
-  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %153 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %152, i32 noundef 3264, i64 noundef 32) #21
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.critedge, label %17

@@ -713,7 +713,7 @@ define internal void @_ZL11UserHandleriP9siginfo_tPv(i32 noundef %0, ptr nocaptu
   br i1 %.not.i3, label %_ZN2os13signal_notifyEi.exit, label %21
 
 21:                                               ; preds = %.split2
-  %22 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull getelementptr inbounds (i8, ptr @_ZL15pending_signals, i64 8)) #20, !srcloc !8
+  %22 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @_ZL15pending_signals, i64 8)) #20, !srcloc !8
   br label %_ZN2os13signal_notifyEi.exit.sink.split
 
 23:                                               ; preds = %18

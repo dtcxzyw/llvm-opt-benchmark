@@ -533,7 +533,7 @@ define linkonce_odr hidden void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_Debug
   %5 = alloca %"class.std::allocator.15", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.15", align 1
-  %8 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  %8 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %15
 
@@ -549,11 +549,11 @@ define linkonce_odr hidden void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_Debug
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc.exit.i: ; preds = %12, %10
   %.0.i.i.i = phi ptr [ %.0.i.i.i.i, %10 ], [ %13, %12 ]
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
           to label %.noexc1 unwind label %64
 
 .noexc1:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc.exit.i
-  %14 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  %14 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   br label %15
 
 15:                                               ; preds = %.noexc1, %1
@@ -571,7 +571,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc.e
           to label %.noexc3 unwind label %64
 
 .noexc3:                                          ; preds = %.noexc2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryD2Ev, ptr noundef nonnull getelementptr inbounds (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryD2Ev, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryD2Ev, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryD2Ev, i64 23))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %19
 
 19:                                               ; preds = %.noexc3
@@ -590,7 +590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc5 unwind label %64
 
 .noexc5:                                          ; preds = %.noexc4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryD2Ev, ptr noundef nonnull getelementptr inbounds (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryD2Ev, i64 83))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryD2Ev, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryD2Ev, i64 83))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit8 unwind label %22
 
 22:                                               ; preds = %.noexc5
@@ -812,7 +812,7 @@ define linkonce_odr hidden void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_Debug
           to label %40 unwind label %.body59
 
 40:                                               ; preds = %38
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %39, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.29, i64 8)) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %39, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.29, i64 8)) #12
   store ptr null, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 8)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body59
@@ -1026,7 +1026,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
 
 98:                                               ; preds = %93, %96
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug24_RegisterDebugSymbolImplEPNS0_5_NodeEPKcS4_(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.32)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug24_RegisterDebugSymbolImplEPNS0_5_NodeEPKcS4_(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.32)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit unwind label %91
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit: ; preds = %98
@@ -1034,19 +1034,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISC
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit31 unwind label %91
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit31: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug24_RegisterDebugSymbolImplEPNS0_5_NodeEPKcS4_(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.34)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug24_RegisterDebugSymbolImplEPNS0_5_NodeEPKcS4_(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.34)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit33 unwind label %91
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit33: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit31
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug24_RegisterDebugSymbolImplEPNS0_5_NodeEPKcS4_(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 12), ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.35)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug24_RegisterDebugSymbolImplEPNS0_5_NodeEPKcS4_(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 12), ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.35)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit35 unwind label %91
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit35: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit33
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug24_RegisterDebugSymbolImplEPNS0_5_NodeEPKcS4_(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 16), ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.36)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug24_RegisterDebugSymbolImplEPNS0_5_NodeEPKcS4_(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 16), ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.36)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit37 unwind label %91
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit37: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit35
-  %99 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  %99 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %106
 
@@ -1062,11 +1062,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISC
 
 .noexc52:                                         ; preds = %101, %103
   %.0.i56 = phi ptr [ %.0.i.i54, %101 ], [ %104, %103 ]
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i56, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i56, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
           to label %.noexc38 unwind label %91
 
 .noexc38:                                         ; preds = %.noexc52
-  %105 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  %105 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   br label %106
 
 106:                                              ; preds = %.noexc38, %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISCOVERY_TERSE__DebugCodesEEEvT_PKcS5_.exit37
@@ -1084,7 +1084,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug20_RegisterDebugSymbolINS_30TF_DISC
           to label %.noexc40 unwind label %122
 
 .noexc40:                                         ; preds = %.noexc39
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryC2Ev, ptr noundef nonnull getelementptr inbounds (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryC2Ev, i64 22))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryC2Ev, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryC2Ev, i64 22))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit43 unwind label %110
 
 110:                                              ; preds = %.noexc40
@@ -1103,7 +1103,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit43: ; 
           to label %.noexc45 unwind label %124
 
 .noexc45:                                         ; preds = %.noexc44
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryC2Ev, ptr noundef nonnull getelementptr inbounds (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryC2Ev, i64 82))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryC2Ev, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistryC2Ev, i64 82))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48 unwind label %113
 
 113:                                              ; preds = %.noexc45
@@ -1511,7 +1511,7 @@ define linkonce_odr hidden void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_Debug
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator.15", align 1
   %17 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDebugSymbolsChangedNotice", align 8
-  %18 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  %18 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit
 
@@ -1527,8 +1527,8 @@ define linkonce_odr hidden void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_Debug
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc.exit.i: ; preds = %22, %20
   %.0.i.i.i = phi ptr [ %.0.i.i.i.i, %20 ], [ %23, %22 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
-  %24 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
+  %24 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit: ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc.exit.i
@@ -1546,7 +1546,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE_
           to label %.noexc45 unwind label %44
 
 .noexc45:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, ptr noundef nonnull getelementptr inbounds (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %28
 
 28:                                               ; preds = %.noexc45
@@ -1565,7 +1565,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc47 unwind label %46
 
 .noexc47:                                         ; preds = %.noexc46
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, ptr noundef nonnull getelementptr inbounds (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, i64 117))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, i64 117))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50 unwind label %31
 
 31:                                               ; preds = %.noexc47
@@ -1804,7 +1804,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %.not104, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %103
-  %112 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  %112 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %119
 
@@ -1820,11 +1820,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc.exit.i61: ; preds = %116, %114
   %.0.i.i.i62 = phi ptr [ %.0.i.i.i.i59, %114 ], [ %117, %116 ]
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i.i.i62, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i.i.i62, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
           to label %.noexc64 unwind label %100
 
 .noexc64:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc.exit.i61
-  %118 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  %118 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   br label %119
 
 119:                                              ; preds = %.noexc64, %._crit_edge
@@ -1842,7 +1842,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc.e
           to label %.noexc67 unwind label %133
 
 .noexc67:                                         ; preds = %.noexc66
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, ptr noundef nonnull getelementptr inbounds (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70 unwind label %123
 
 123:                                              ; preds = %.noexc67
@@ -1861,7 +1861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70: ; 
           to label %.noexc72 unwind label %135
 
 .noexc72:                                         ; preds = %.noexc71
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, ptr noundef nonnull getelementptr inbounds (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, i64 117))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry13_SetByPatternENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS6_SaIS6_EE, i64 117))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75 unwind label %126
 
 126:                                              ; preds = %.noexc72
@@ -1942,7 +1942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75: ; 
 
 147:                                              ; preds = %144
   store atomic i8 0, ptr %0 release, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27TfDebugSymbolsChangedNoticeE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27TfDebugSymbolsChangedNoticeE, i64 16), ptr %17, align 8
   %148 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__8TfNotice4SendEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %149 unwind label %150
 
@@ -2922,7 +2922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28: ; 
   br i1 %82, label %83, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
 83:                                               ; preds = %80
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27TfDebugSymbolsChangedNoticeE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27TfDebugSymbolsChangedNoticeE, i64 16), ptr %9, align 8
   %84 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__8TfNotice4SendEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %.thread unwind label %89
 
@@ -3404,7 +3404,7 @@ define linkonce_odr hidden void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_Debug
   %11 = alloca %"class.std::allocator.15", align 1
   %12 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %13 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDebugSymbolsChangedNotice", align 8
-  %14 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  %14 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit
 
@@ -3420,8 +3420,8 @@ define linkonce_odr hidden void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_Debug
 
 _ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_22Tf_DebugSymbolRegistryEE11GetInstanceEv.exit: ; preds = %16, %18
   %.0.i41 = phi ptr [ %.0.i.i, %16 ], [ %19, %18 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i41, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
-  %20 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry15_InitializeNodeERNS_7TfDebug5_NodeEPKc(ptr noundef nonnull align 8 dereferenceable(176) %.0.i41, ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8), ptr noundef nonnull @.str.21)
+  %20 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 8) seq_cst, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE__DebugCodesEEEbT_.exit: ; preds = %4, %_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_22Tf_DebugSymbolRegistryEE11GetInstanceEv.exit
@@ -3456,7 +3456,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_30TF_DISCOVERY_TERSE_
           to label %30 unwind label %.body77
 
 30:                                               ; preds = %28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry9_RegisterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_7TfDebug5_NodeES8_, ptr noundef nonnull getelementptr inbounds (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry9_RegisterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_7TfDebug5_NodeES8_, i64 9)) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef nonnull @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry9_RegisterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_7TfDebug5_NodeES8_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry9_RegisterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_7TfDebug5_NodeES8_, i64 9)) #12
   store ptr null, ptr %5, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body77
@@ -3479,7 +3479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc28 unwind label %41
 
 .noexc28:                                         ; preds = %.noexc27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry9_RegisterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_7TfDebug5_NodeES8_, ptr noundef nonnull getelementptr inbounds (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry9_RegisterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_7TfDebug5_NodeES8_, i64 132))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry9_RegisterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_7TfDebug5_NodeES8_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22Tf_DebugSymbolRegistry9_RegisterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_7TfDebug5_NodeES8_, i64 132))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31 unwind label %33
 
 33:                                               ; preds = %.noexc28
@@ -3742,7 +3742,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfType4FindINS_27TfDebugSymbolsChangedNoti
   br i1 %116, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, label %117
 
 117:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__6TfType4FindINS_27TfDebugSymbolsChangedNoticeEEERKS0_v.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27TfDebugSymbolsChangedNoticeE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27TfDebugSymbolsChangedNoticeE, i64 16), ptr %13, align 8
   %118 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__8TfNotice4SendEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %119 unwind label %.thread58
 

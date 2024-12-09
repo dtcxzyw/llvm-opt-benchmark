@@ -47,7 +47,7 @@ define hidden void @_ZN17FilteredFieldsMap10initializeEv() local_unnamed_addr #1
   %1 = load i32, ptr @_ZN20reflect_ConstantPool11_oop_offsetE, align 4
   %2 = load ptr, ptr @_ZN17FilteredFieldsMap16_filtered_fieldsE, align 8
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #7
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 424), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 424), align 8
   store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %5, align 8

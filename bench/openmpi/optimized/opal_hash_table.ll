@@ -1678,10 +1678,10 @@ opal_hash_table_get_value_uint32.exit:            ; preds = %.lr.ph.i
   br label %94
 
 .loopexit:                                        ; preds = %13, %3
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 56), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 56), align 8
   %25 = tail call noalias ptr @malloc(i64 noundef %24) #19
   %26 = load i32, ptr @opal_class_init_epoch, align 4
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not.i18 = icmp eq i32 %26, %27
   br i1 %.not.i18, label %29, label %28
 

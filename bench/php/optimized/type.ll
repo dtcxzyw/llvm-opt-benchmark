@@ -657,7 +657,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %193
 
 193:                                              ; preds = %191, %192
-  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %195 = icmp ne ptr %194, null
   call void @llvm.assume(i1 %195)
   br label %203

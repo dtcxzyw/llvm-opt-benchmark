@@ -4922,7 +4922,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 58:                                               ; preds = %56
   %59 = icmp samesign ult i64 %57, 5
   call void @llvm.assume(i1 %59)
-  %60 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb7d7892aa10a7cb6E", i64 16) monotonic, align 8, !noalias !1638
+  %60 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb7d7892aa10a7cb6E", i64 16) monotonic, align 8, !noalias !1638
   switch i8 %60, label %61 [
     i8 0, label %.thread85.i
     i8 1, label %.thread.i
@@ -143599,8 +143599,8 @@ define hidden { i64, i64 } @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u2
   br label %7
 
 7:                                                ; preds = %6, %2
-  %.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 76), align 4, !range !13135, !noundef !4
-  %.val8.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 77), align 1
+  %.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 76), align 4, !range !13135, !noundef !4
+  %.val8.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 77), align 1
   %8 = trunc nuw i8 %.val.i to i1
   %9 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17he1cdcf8cecc91160E(i1 noundef zeroext %8, i8 %.val8.i)
   %10 = zext i1 %9 to i8
@@ -143700,8 +143700,8 @@ common.resume:                                    ; preds = %55, %53, %30
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24": ; preds = %35, %37
-  %.val.i21 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 76), align 4, !range !13135, !noundef !4
-  %.val8.i22 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 77), align 1
+  %.val.i21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 76), align 4, !range !13135, !noundef !4
+  %.val8.i22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 77), align 1
   %38 = trunc nuw i8 %.val.i21 to i1
   %39 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17he1cdcf8cecc91160E(i1 noundef zeroext %38, i8 %.val8.i22)
   %.sroa.05.0.not = xor i1 %.sroa.05.0, true

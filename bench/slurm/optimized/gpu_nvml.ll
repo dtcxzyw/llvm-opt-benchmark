@@ -528,7 +528,7 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
   br i1 %105, label %90, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %102, %84
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 244), align 4
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 244), align 4
   %107 = and i32 %106, 8192
   %.not.i = icmp eq i32 %107, 0
   br i1 %.not.i, label %108, label %.loopexit.i
@@ -1888,9 +1888,9 @@ define void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) local_unna
 
 66:                                               ; preds = %57
   %67 = call i32 @slurm_cgroup_conf_init() #12
-  %68 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
+  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 64), align 8
   %69 = trunc i8 %68 to i1
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1416), align 8
   %71 = call ptr @slurm_xstrstr(ptr noundef %70, ptr noundef nonnull @.str.121) #12
   %.not.not.i = icmp ne ptr %71, null
   %brmerge.not.i = select i1 %69, i1 %.not.not.i, i1 false
@@ -2094,7 +2094,7 @@ _nvml_set_freqs.exit.i:                           ; preds = %131, %130
   br label %149
 
 149:                                              ; preds = %148, %146
-  %150 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %150 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %151 = and i64 %150, 64
   %.not47.i = icmp eq i64 %151, 0
   br i1 %.not.i49.i, label %152, label %160
@@ -2161,7 +2161,7 @@ _nvml_set_freqs.exit.i:                           ; preds = %131, %130
   br i1 %.not.i, label %_set_freq.exit, label %175
 
 175:                                              ; preds = %._crit_edge.i
-  %176 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %176 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %177 = and i64 %176, 64
   %.not42.i = icmp eq i64 %177, 0
   br i1 %.not42.i, label %182, label %178
@@ -2385,7 +2385,7 @@ _nvml_reset_freqs.exit.i:                         ; preds = %38, %37
   br label %50
 
 50:                                               ; preds = %48, %45
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %52 = and i64 %51, 64
   %.not23.i = icmp eq i64 %52, 0
   br i1 %.not.i24.i, label %53, label %60
@@ -2430,7 +2430,7 @@ _nvml_reset_freqs.exit.i:                         ; preds = %38, %37
   br i1 %.not.i, label %_reset_freq.exit, label %66
 
 66:                                               ; preds = %._crit_edge.i
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %68 = and i64 %67, 64
   %.not20.i = icmp eq i64 %68, 0
   br i1 %.not20.i, label %73, label %69
@@ -2825,7 +2825,7 @@ _nvml_get_handle.exit:                            ; preds = %.lr.ph
   br label %55
 
 42:                                               ; preds = %37
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %44 = and i64 %43, 18014398509481984
   %.not34.i.i = icmp eq i64 %44, 0
   br i1 %.not34.i.i, label %53, label %45
@@ -2874,7 +2874,7 @@ _nvml_get_handle.exit:                            ; preds = %.lr.ph
 
 .loopexit.i.i:                                    ; preds = %54, %58, %.preheader.i.i
   call void @slurm_xfree(ptr noundef nonnull %7) #12
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %67 = and i64 %66, 18014398509481984
   %.not33.i.i = icmp eq i64 %67, 0
   br i1 %.not33.i.i, label %81, label %68
@@ -2944,7 +2944,7 @@ _get_nvml_process_info.exit.i:                    ; preds = %53, %32
   br label %106
 
 93:                                               ; preds = %88
-  %94 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %94 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %95 = and i64 %94, 18014398509481984
   %.not34.i9.i = icmp eq i64 %95, 0
   br i1 %.not34.i9.i, label %104, label %96
@@ -2993,7 +2993,7 @@ _get_nvml_process_info.exit.i:                    ; preds = %53, %32
 
 .loopexit.i19.i:                                  ; preds = %105, %109, %.preheader.i11.i
   call void @slurm_xfree(ptr noundef nonnull %5) #12
-  %117 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %117 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %118 = and i64 %117, 18014398509481984
   %.not33.i20.i = icmp eq i64 %118, 0
   br i1 %.not33.i20.i, label %132, label %119
@@ -3151,7 +3151,7 @@ _get_gpuutil.exit:                                ; preds = %133, %145, %160, %1
   br label %189
 
 189:                                              ; preds = %_get_gpumem.exit, %_get_gpuutil.exit
-  %190 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %190 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %191 = and i64 %190, 18014398509481984
   %.not16 = icmp eq i64 %191, 0
   br i1 %.not16, label %205, label %192

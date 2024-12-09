@@ -317,7 +317,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -758,8 +758,8 @@ entry:
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8, !tbaa !24
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !25
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %this, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %0, align 8, !tbaa !14
   %settlementDate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %date, align 8, !tbaa !8
   store i64 %2, ptr %settlementDate_, align 8, !tbaa !8
@@ -1192,8 +1192,8 @@ entry:
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8, !tbaa !24
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !25
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %this, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %0, align 8, !tbaa !14
   %settlementDate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %date, align 8, !tbaa !8
   store i64 %2, ptr %settlementDate_, align 8, !tbaa !8
@@ -1506,7 +1506,7 @@ entry:
   %9 = load i64, ptr %creditEventDate, align 8, !tbaa !8
   store i64 %9, ptr %defaultDate_, align 8, !tbaa !8
   %eventType_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib11DefaultTypeE, i64 16), ptr %eventType_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib11DefaultTypeE, i64 16), ptr %eventType_, align 8, !tbaa !14
   %defTypes_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %defTypes_2.i = getelementptr inbounds nuw i8, ptr %atomicEvType, i64 8
   %10 = load i64, ptr %defTypes_2.i, align 8
@@ -2014,9 +2014,9 @@ unreachable:                                      ; preds = %invoke.cont81, %inv
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib12DefaultEvent17DefaultSettlementD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %this, align 8, !tbaa !14
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i, align 8, !tbaa !14
   %recoveryRates_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !22
@@ -2031,7 +2031,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN8QuantLib12DefaultEvent17DefaultSettlementD2Ev.exit: ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i, align 8, !tbaa !14
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_parent.i.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i1, align 8, !tbaa !22
@@ -2129,8 +2129,8 @@ entry:
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8, !tbaa !24
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !25
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 112), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 112), ptr %0, align 8, !tbaa !14
   %bondsCurrency_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %curr, align 8, !tbaa !41
   store ptr %2, ptr %bondsCurrency_, align 8, !tbaa !41
@@ -2143,7 +2143,7 @@ entry:
   %4 = load i64, ptr %creditEventDate, align 8, !tbaa !8
   store i64 %4, ptr %defaultDate_, align 8, !tbaa !8
   %eventType_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib11DefaultTypeE, i64 16), ptr %eventType_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib11DefaultTypeE, i64 16), ptr %eventType_, align 8, !tbaa !14
   %defTypes_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %defTypes_2.i = getelementptr inbounds nuw i8, ptr %atomicEvType, i64 8
   %5 = load i64, ptr %defTypes_2.i, align 8
@@ -2689,7 +2689,7 @@ entry:
   %9 = load i64, ptr %creditEventDate, align 8, !tbaa !8
   store i64 %9, ptr %defaultDate_, align 8, !tbaa !8
   %eventType_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib11DefaultTypeE, i64 16), ptr %eventType_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib11DefaultTypeE, i64 16), ptr %eventType_, align 8, !tbaa !14
   %defTypes_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %defTypes_2.i = getelementptr inbounds nuw i8, ptr %atomicEvType, i64 8
   %10 = load i64, ptr %defTypes_2.i, align 8
@@ -2710,8 +2710,8 @@ entry:
   store ptr %12, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !24
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !25
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %11, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %11, align 8, !tbaa !14
   %settlementDate_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %13 = load i64, ptr %settleDate, align 8, !tbaa !8
   store i64 %13, ptr %settlementDate_.i, align 8, !tbaa !8
@@ -2990,8 +2990,8 @@ entry:
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8, !tbaa !24
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !25
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 112), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 112), ptr %0, align 8, !tbaa !14
   %bondsCurrency_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %curr, align 8, !tbaa !41
   store ptr %2, ptr %bondsCurrency_, align 8, !tbaa !41
@@ -3004,7 +3004,7 @@ entry:
   %4 = load i64, ptr %creditEventDate, align 8, !tbaa !8
   store i64 %4, ptr %defaultDate_, align 8, !tbaa !8
   %eventType_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib11DefaultTypeE, i64 16), ptr %eventType_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib11DefaultTypeE, i64 16), ptr %eventType_, align 8, !tbaa !14
   %defTypes_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %defTypes_2.i = getelementptr inbounds nuw i8, ptr %atomicEvType, i64 8
   %5 = load i64, ptr %defTypes_2.i, align 8
@@ -3025,8 +3025,8 @@ entry:
   store ptr %7, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !24
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !25
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %6, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %6, align 8, !tbaa !14
   %settlementDate_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %8 = load i64, ptr %settleDate, align 8, !tbaa !8
   store i64 %8, ptr %settlementDate_.i, align 8, !tbaa !8
@@ -3807,7 +3807,7 @@ entry:
   %ref.tmp = alloca %"class.QuantLib::DefaultType", align 8
   %agg.tmp = alloca %"class.QuantLib::Currency", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !14
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 200
   store i32 0, ptr %1, align 8, !tbaa !18
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -3838,7 +3838,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZN8QuantLib8CurrencyC2ERKS0_.exit
 
 _ZN8QuantLib8CurrencyC2ERKS0_.exit:               ; preds = %invoke.cont, %if.then.i.i.i
-  invoke void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_RKSt3mapIS8_dSt4lessIS8_ESaISt4pairIKS8_dEEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib17FailureToPayEventE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %creditEventDate, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, i32 noundef %bondsSen, ptr noundef nonnull align 8 dereferenceable(8) %settleDate, ptr noundef nonnull align 8 dereferenceable(48) %recoveryRates)
+  invoke void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_RKSt3mapIS8_dSt4lessIS8_ESaISt4pairIKS8_dEEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib17FailureToPayEventE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %creditEventDate, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, i32 noundef %bondsSen, ptr noundef nonnull align 8 dereferenceable(8) %settleDate, ptr noundef nonnull align 8 dereferenceable(48) %recoveryRates)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZN8QuantLib8CurrencyC2ERKS0_.exit
@@ -3881,8 +3881,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
 
 _ZN8QuantLib8CurrencyD2Ev.exit:                   ; preds = %invoke.cont3, %if.then.i.i.i4, %.noexc.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib17FailureToPayEventE, i64 24), ptr %this, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib17FailureToPayEventE, i64 112), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib17FailureToPayEventE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib17FailureToPayEventE, i64 112), ptr %0, align 8, !tbaa !14
   %defaultedAmount_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   store double %defaultedAmount, ptr %defaultedAmount_, align 8, !tbaa !75
   ret void
@@ -3997,7 +3997,7 @@ entry:
   %ref.tmp = alloca %"class.QuantLib::DefaultType", align 8
   %agg.tmp = alloca %"class.QuantLib::Currency", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !14
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 200
   store i32 0, ptr %1, align 8, !tbaa !18
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -4028,7 +4028,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZN8QuantLib8CurrencyC2ERKS0_.exit
 
 _ZN8QuantLib8CurrencyC2ERKS0_.exit:               ; preds = %invoke.cont, %if.then.i.i.i
-  invoke void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_d(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib17FailureToPayEventE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %creditEventDate, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, i32 noundef %bondsSen, ptr noundef nonnull align 8 dereferenceable(8) %settleDate, double noundef %recoveryRates)
+  invoke void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_d(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib17FailureToPayEventE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %creditEventDate, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, i32 noundef %bondsSen, ptr noundef nonnull align 8 dereferenceable(8) %settleDate, double noundef %recoveryRates)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZN8QuantLib8CurrencyC2ERKS0_.exit
@@ -4071,8 +4071,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
 
 _ZN8QuantLib8CurrencyD2Ev.exit:                   ; preds = %invoke.cont3, %if.then.i.i.i4, %.noexc.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib17FailureToPayEventE, i64 24), ptr %this, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib17FailureToPayEventE, i64 112), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib17FailureToPayEventE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib17FailureToPayEventE, i64 112), ptr %0, align 8, !tbaa !14
   %defaultedAmount_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   store double %defaultedAmount, ptr %defaultedAmount_, align 8, !tbaa !75
   ret void
@@ -4430,9 +4430,9 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !14
   %defSettlement_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_, align 8, !tbaa !14
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !14
   %recoveryRates_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !22
@@ -4447,7 +4447,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
   unreachable
 
 _ZN8QuantLib12DefaultEvent17DefaultSettlementD2Ev.exit.i: ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
   %observers_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_parent.i.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i1.i, align 8, !tbaa !22
@@ -4518,7 +4518,7 @@ entry:
   %ref.tmp23 = alloca %"class.std::allocator.6", align 1
   %ref.tmp26 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !14
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i32 0, ptr %1, align 8, !tbaa !18
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -4549,7 +4549,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZN8QuantLib8CurrencyC2ERKS0_.exit
 
 _ZN8QuantLib8CurrencyC2ERKS0_.exit:               ; preds = %invoke.cont, %if.then.i.i.i
-  invoke void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_RKSt3mapIS8_dSt4lessIS8_ESaISt4pairIKS8_dEEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15BankruptcyEventE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %creditEventDate, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, i32 noundef %bondsSen, ptr noundef nonnull align 8 dereferenceable(8) %settleDate, ptr noundef nonnull align 8 dereferenceable(48) %recoveryRates)
+  invoke void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_RKSt3mapIS8_dSt4lessIS8_ESaISt4pairIKS8_dEEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib15BankruptcyEventE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %creditEventDate, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, i32 noundef %bondsSen, ptr noundef nonnull align 8 dereferenceable(8) %settleDate, ptr noundef nonnull align 8 dereferenceable(48) %recoveryRates)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZN8QuantLib8CurrencyC2ERKS0_.exit
@@ -4592,8 +4592,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
 
 _ZN8QuantLib8CurrencyD2Ev.exit:                   ; preds = %invoke.cont3, %if.then.i.i.i13, %.noexc.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib15BankruptcyEventE, i64 24), ptr %this, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15BankruptcyEventE, i64 112), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib15BankruptcyEventE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15BankruptcyEventE, i64 112), ptr %0, align 8, !tbaa !14
   %settlementDate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %settlementDate_.i.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i.i)
@@ -4833,7 +4833,7 @@ if.end44:                                         ; preds = %_ZNSt3mapIN8QuantLi
 
 ehcleanup45:                                      ; preds = %ehcleanup43, %lpad8, %lpad4
   %.pn3.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn3.pn.pn.pn.pn, %ehcleanup43 ], [ %21, %lpad8 ], [ %20, %lpad4 ]
-  call void @_ZN8QuantLib12DefaultEventD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15BankruptcyEventE, i64 8)) #26
+  call void @_ZN8QuantLib12DefaultEventD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib15BankruptcyEventE, i64 8)) #26
   br label %ehcleanup46
 
 ehcleanup46:                                      ; preds = %ehcleanup45, %ehcleanup
@@ -4935,7 +4935,7 @@ entry:
   %ref.tmp = alloca %"class.QuantLib::DefaultType", align 8
   %agg.tmp = alloca %"class.QuantLib::Currency", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !14
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i32 0, ptr %1, align 8, !tbaa !18
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -4966,7 +4966,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZN8QuantLib8CurrencyC2ERKS0_.exit
 
 _ZN8QuantLib8CurrencyC2ERKS0_.exit:               ; preds = %invoke.cont, %if.then.i.i.i
-  invoke void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_d(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15BankruptcyEventE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %creditEventDate, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, i32 noundef %bondsSen, ptr noundef nonnull align 8 dereferenceable(8) %settleDate, double noundef %recoveryRates)
+  invoke void @_ZN8QuantLib12DefaultEventC2ERKNS_4DateERKNS_11DefaultTypeENS_8CurrencyENS_9SeniorityES3_d(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib15BankruptcyEventE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %creditEventDate, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %agg.tmp, i32 noundef %bondsSen, ptr noundef nonnull align 8 dereferenceable(8) %settleDate, double noundef %recoveryRates)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZN8QuantLib8CurrencyC2ERKS0_.exit
@@ -5009,8 +5009,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
 
 _ZN8QuantLib8CurrencyD2Ev.exit:                   ; preds = %invoke.cont3, %if.then.i.i.i4, %.noexc.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib15BankruptcyEventE, i64 24), ptr %this, align 8, !tbaa !14
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15BankruptcyEventE, i64 112), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib15BankruptcyEventE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15BankruptcyEventE, i64 112), ptr %0, align 8, !tbaa !14
   ret void
 
 lpad:                                             ; preds = %entry
@@ -5066,13 +5066,13 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib12DefaultEventD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 64) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 112), ptr %add.ptr.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEventE, i64 112), ptr %add.ptr.i, align 8, !tbaa !14
   %defSettlement_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_.i, align 8, !tbaa !14
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !14
   %recoveryRates_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !22
@@ -5087,7 +5087,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8QuantLib12DefaultEvent17DefaultSettlementD2Ev.exit.i.i: ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i.i, align 8, !tbaa !14
   %observers_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_parent.i.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i1.i.i, align 8, !tbaa !22
@@ -5141,7 +5141,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib12DefaultEventD2Ev.exit:              ; preds = %_ZN8QuantLib12DefaultEvent17DefaultSettlementD1Ev.exit.i, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i, align 8, !tbaa !14
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %13 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !22
@@ -5252,9 +5252,9 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib12DefaultEvent17DefaultSettlementD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %this, align 8, !tbaa !14
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !14
   %recoveryRates_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !22
@@ -5269,7 +5269,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
   unreachable
 
 _ZN8QuantLib12DefaultEvent17DefaultSettlementD2Ev.exit.i: ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
   %observers_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_parent.i.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i1.i, align 8, !tbaa !22
@@ -5295,9 +5295,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %vtable, i64 -24
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %2, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %2, align 8, !tbaa !14
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !14
   %recoveryRates_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !22
@@ -5312,7 +5312,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
   unreachable
 
 _ZN8QuantLib12DefaultEvent17DefaultSettlementD2Ev.exit.i: ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
   %observers_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
   %_M_parent.i.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i1.i, align 8, !tbaa !22
@@ -5337,9 +5337,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %vtable, i64 -24
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %2, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %2, align 8, !tbaa !14
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !14
   %recoveryRates_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !22
@@ -5354,7 +5354,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %entry
   unreachable
 
 _ZN8QuantLib12DefaultEvent17DefaultSettlementD2Ev.exit.i.i: ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i.i, align 8, !tbaa !14
   %observers_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
   %_M_parent.i.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i1.i.i, align 8, !tbaa !22
@@ -5376,13 +5376,13 @@ _ZN8QuantLib12DefaultEvent17DefaultSettlementD0Ev.exit: ; preds = %_ZN8QuantLib1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17FailureToPayEventD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTCN8QuantLib17FailureToPayEventE0_NS_12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 64) (i8, ptr @_ZTCN8QuantLib17FailureToPayEventE0_NS_12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN8QuantLib17FailureToPayEventE0_NS_12DefaultEventE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTCN8QuantLib17FailureToPayEventE0_NS_12DefaultEventE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !14
   %defSettlement_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_.i.i, align 8, !tbaa !14
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i.i.i, align 8, !tbaa !14
   %recoveryRates_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8, !tbaa !22
@@ -5397,7 +5397,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib12DefaultEvent17DefaultSettlementD2Ev.exit.i.i.i: ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i.i.i, align 8, !tbaa !14
   %observers_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_parent.i.i.i.i.i1.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i1.i.i.i, align 8, !tbaa !22
@@ -5451,7 +5451,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib17FailureToPayEventD2Ev.exit:         ; preds = %_ZN8QuantLib12DefaultEvent17DefaultSettlementD1Ev.exit.i.i, %if.then.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %13 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !22
@@ -5503,13 +5503,13 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib15BankruptcyEventD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTCN8QuantLib15BankruptcyEventE0_NS_12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 64) (i8, ptr @_ZTCN8QuantLib15BankruptcyEventE0_NS_12DefaultEventE, i64 24), ptr %this, align 8, !tbaa !14
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN8QuantLib15BankruptcyEventE0_NS_12DefaultEventE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTCN8QuantLib15BankruptcyEventE0_NS_12DefaultEventE, i64 112), ptr %add.ptr.i.i, align 8, !tbaa !14
   %defSettlement_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 40) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 24), ptr %defSettlement_.i.i, align 8, !tbaa !14
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib12DefaultEvent17DefaultSettlementE, i64 88), ptr %add.ptr.i.i.i.i, align 8, !tbaa !14
   %recoveryRates_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8, !tbaa !22
@@ -5524,7 +5524,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib12DefaultEvent17DefaultSettlementD2Ev.exit.i.i.i: ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i.i.i, align 8, !tbaa !14
   %observers_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_parent.i.i.i.i.i1.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i1.i.i.i, align 8, !tbaa !22
@@ -5578,7 +5578,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15BankruptcyEventD2Ev.exit:           ; preds = %_ZN8QuantLib12DefaultEvent17DefaultSettlementD1Ev.exit.i.i, %if.then.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i.i, align 8, !tbaa !14
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %13 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !22
@@ -5815,7 +5815,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !14
   %observers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !22
@@ -5836,7 +5836,7 @@ _ZNSt3setIPN8QuantLib8ObserverESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !14
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !22

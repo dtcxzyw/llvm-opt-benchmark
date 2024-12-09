@@ -782,7 +782,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052113TorchImporterC2ENSt
   store i32 1, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 1, ptr %50, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2TH8THFile__EPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2TH8THFile__EPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %36, align 8
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr @_ZN2TH11THFile_freeEPNS_8THFile__E, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -1633,7 +1633,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052113TorchImporter11popu
   store i32 1, ptr %21, align 8, !noalias !11
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 1, ptr %22, align 4, !noalias !11
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052113TorchImporter6ModuleESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052113TorchImporter6ModuleESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8, !noalias !11
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   invoke void @_ZSt10_ConstructIN2cv3dnn14dnn4_v2024052113TorchImporter6ModuleEJRA11_KcEEvPT_DpOT0_(ptr noundef nonnull %23, ptr noundef nonnull align 1 dereferenceable(11) @.str.9)
           to label %25 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052113TorchImporter6ModuleESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !11
@@ -2963,7 +2963,7 @@ _ZN2cv3dnn14dnn4_v2024052113TorchImporter16parseStorageTypeERKNSt7__cxx1112basic
   store i32 1, ptr %628, align 8
   %629 = getelementptr inbounds nuw i8, ptr %616, i64 12
   store i32 1, ptr %629, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14dnn4_v2024052113TorchImporter6ModuleELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %616, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14dnn4_v2024052113TorchImporter6ModuleELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %616, align 8
   %630 = getelementptr inbounds nuw i8, ptr %616, i64 16
   store ptr %601, ptr %630, align 8
   store ptr %616, ptr %615, align 8
@@ -16039,7 +16039,7 @@ define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_polic
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14dnn4_v2024052113TorchImporter6ModuleELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14dnn4_v2024052113TorchImporter6ModuleELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
   store ptr %3, ptr %0, align 8

@@ -356,7 +356,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN22b3GpuRigidBodyPipelineC2EP11_cl_contextP13_cl_device_idP17_cl_command_queueP16b3GpuNarrowPhaseP24b3GpuBroadphaseInterfaceP22b3DynamicBvhBroadphaseRK8b3Config(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %q, ptr noundef %narrowphase, ptr noundef %broadphaseSap, ptr noundef %broadphaseDbvt, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %config) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %errNum = alloca i32, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22b3GpuRigidBodyPipeline, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22b3GpuRigidBodyPipeline, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #19
   %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
@@ -411,7 +411,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9
   store ptr %call11, ptr %m_gpuSolver, align 8
   %call15 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   %2 = load i32, ptr %config, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 16), ptr %call15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 16), ptr %call15, align 8
   %m_size.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
   %m_clContext.i = getelementptr inbounds nuw i8, ptr %call15, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
@@ -438,7 +438,7 @@ invoke.cont17:                                    ; preds = %invoke.cont13, %if.
   %call19 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
   %m_maxBroadphasePairs = getelementptr inbounds nuw i8, ptr %config, i64 8
   %4 = load i32, ptr %m_maxBroadphasePairs, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %call19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %call19, align 8
   %m_size.i29 = getelementptr inbounds nuw i8, ptr %call19, i64 8
   %m_clContext.i30 = getelementptr inbounds nuw i8, ptr %call19, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i29, i8 0, i64 24, i1 false)
@@ -463,7 +463,7 @@ invoke.cont26:                                    ; preds = %if.then.i35, %invok
   %m_overlappingPairsGPU = getelementptr inbounds nuw i8, ptr %5, i64 144
   store ptr %call19, ptr %m_overlappingPairsGPU, align 16
   %call24 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI22b3GpuGenericConstraintE, i64 16), ptr %call24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI22b3GpuGenericConstraintE, i64 16), ptr %call24, align 8
   %m_size.i38 = getelementptr inbounds nuw i8, ptr %call24, i64 8
   %m_clContext.i39 = getelementptr inbounds nuw i8, ptr %call24, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i38, i8 0, i64 24, i1 false)
@@ -637,7 +637,7 @@ declare void @_ZN12b3GpuRaycastC1EP11_cl_contextP13_cl_device_idP17_cl_command_q
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22b3GpuRigidBodyPipelineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22b3GpuRigidBodyPipeline, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22b3GpuRigidBodyPipeline, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
   %m_integrateTransformsKernel = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1934,7 +1934,7 @@ invoke.cont131:                                   ; preds = %_ZN13b3OpenCLArrayI
   %82 = load ptr, ptr %81, align 16
   %m_queue = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %m_queue, align 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %gpuPairs, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %gpuPairs, align 8
   %m_size.i70 = getelementptr inbounds nuw i8, ptr %gpuPairs, i64 8
   %m_clContext.i = getelementptr inbounds nuw i8, ptr %gpuPairs, i64 32
   store ptr %82, ptr %m_clContext.i, align 8
@@ -2325,7 +2325,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit:      ; preds = %invoke.cont157, %if
   br label %if.end158
 
 if.end158:                                        ; preds = %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit, %invoke.cont141
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %gpuPairs, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %gpuPairs, align 8
   %131 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i108 = icmp eq ptr %131, null
   br i1 %tobool.not.i.i108, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit, label %land.lhs.true.i.i109
@@ -2354,7 +2354,7 @@ _ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit:             ; preds = %if.end158, %land.lh
 
 ehcleanup:                                        ; preds = %lpad144, %lpad138, %lpad130
   %.pn = phi { ptr, i32 } [ %108, %lpad138 ], [ %107, %lpad130 ], [ %126, %lpad144 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %gpuPairs, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %gpuPairs, align 8
   %136 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i116 = icmp eq ptr %136, null
   br i1 %tobool.not.i.i116, label %eh.resume, label %land.lhs.true.i.i117
@@ -2479,7 +2479,7 @@ if.end206:                                        ; preds = %if.end185, %for.end
   %166 = load ptr, ptr %165, align 16
   %m_queue210 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %167 = load ptr, ptr %m_queue210, align 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %gpuBodies, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %gpuBodies, align 8
   %m_size.i130 = getelementptr inbounds nuw i8, ptr %gpuBodies, i64 8
   %m_clContext.i131 = getelementptr inbounds nuw i8, ptr %gpuBodies, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i130, i8 0, i64 24, i1 false)
@@ -2530,7 +2530,7 @@ invoke.cont226:                                   ; preds = %if.then.i.i145, %in
   %175 = load ptr, ptr %174, align 16
   %m_queue225 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load ptr, ptr %m_queue225, align 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %gpuInertias, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %gpuInertias, align 8
   %m_size.i148 = getelementptr inbounds nuw i8, ptr %gpuInertias, i64 8
   %m_clContext.i149 = getelementptr inbounds nuw i8, ptr %gpuInertias, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i148, i8 0, i64 24, i1 false)
@@ -2887,7 +2887,7 @@ if.end413:                                        ; preds = %if.else359, %if.els
           to label %_ZN13b3OpenCLArrayI10b3Contact4ED2Ev.exit unwind label %ehcleanup415
 
 _ZN13b3OpenCLArrayI10b3Contact4ED2Ev.exit:        ; preds = %if.end413
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %gpuInertias, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %gpuInertias, align 8
   %235 = load ptr, ptr %m_clBuffer.i.i154, align 8
   %tobool.not.i.i270 = icmp eq ptr %235, null
   br i1 %tobool.not.i.i270, label %_ZN13b3OpenCLArrayI13b3InertiaDataED2Ev.exit, label %land.lhs.true.i.i271
@@ -2911,7 +2911,7 @@ terminate.lpad.i277:                              ; preds = %if.then.i.i275
 
 _ZN13b3OpenCLArrayI13b3InertiaDataED2Ev.exit:     ; preds = %_ZN13b3OpenCLArrayI10b3Contact4ED2Ev.exit, %land.lhs.true.i.i271, %if.then.i.i275
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i148, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %gpuBodies, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %gpuBodies, align 8
   %240 = load ptr, ptr %m_clBuffer.i.i136, align 8
   %tobool.not.i.i279 = icmp eq ptr %240, null
   br i1 %tobool.not.i.i279, label %_ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit, label %land.lhs.true.i.i280
@@ -2943,7 +2943,7 @@ ehcleanup415:                                     ; preds = %invoke.cont242, %in
 
 ehcleanup416:                                     ; preds = %ehcleanup415, %ehcleanup415.thread, %lpad229
   %.pn29.pn = phi { ptr, i32 } [ %197, %lpad229 ], [ %245, %ehcleanup415 ], [ %.pn27, %ehcleanup415.thread ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %gpuInertias, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %gpuInertias, align 8
   %m_clBuffer.i.i297 = getelementptr inbounds nuw i8, ptr %gpuInertias, i64 24
   %246 = load ptr, ptr %m_clBuffer.i.i297, align 8
   %tobool.not.i.i298 = icmp eq ptr %246, null
@@ -2972,7 +2972,7 @@ _ZN13b3OpenCLArrayI13b3InertiaDataED2Ev.exit306:  ; preds = %ehcleanup416, %land
 
 ehcleanup417:                                     ; preds = %_ZN13b3OpenCLArrayI13b3InertiaDataED2Ev.exit306, %lpad213
   %.pn29.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %_ZN13b3OpenCLArrayI13b3InertiaDataED2Ev.exit306 ], [ %196, %lpad213 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %gpuBodies, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %gpuBodies, align 8
   %m_clBuffer.i.i307 = getelementptr inbounds nuw i8, ptr %gpuBodies, i64 24
   %251 = load ptr, ptr %m_clBuffer.i.i307, align 8
   %tobool.not.i.i308 = icmp eq ptr %251, null
@@ -3720,7 +3720,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -4756,7 +4756,7 @@ if.end25:                                         ; preds = %if.then, %for.end, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI13b3InertiaDataED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -4789,7 +4789,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -5562,7 +5562,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3SapAabbED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -5595,7 +5595,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3SapAabbED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -5725,7 +5725,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI6b3Int4ED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -5757,7 +5757,7 @@ _ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit:             ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI22b3GpuGenericConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI22b3GpuGenericConstraintE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI22b3GpuGenericConstraintE, i64 16), ptr %this, align 8
   %m_clBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -5790,7 +5790,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI22b3GpuGenericConstraintED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI22b3GpuGenericConstraintE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI22b3GpuGenericConstraintE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -6127,7 +6127,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI15b3RigidBodyDataED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI15b3RigidBodyDataE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -6159,7 +6159,7 @@ _ZN13b3OpenCLArrayI15b3RigidBodyDataED2Ev.exit:   ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI13b3InertiaDataED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13b3OpenCLArrayI13b3InertiaDataE, i64 16), ptr %this, align 8
   %m_clBuffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null

@@ -1773,7 +1773,7 @@ entry:
   %agg.tmp = alloca %"struct.proxygen::HTTPPriority", align 8
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 16), ptr %agg.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 16), ptr %agg.tmp, align 8
   %urgency.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %urgency2.i = getelementptr inbounds nuw i8, ptr %priority, i64 8
   %1 = load i64, ptr %urgency2.i, align 8
@@ -1797,7 +1797,7 @@ entry:
   %agg.tmp = alloca %"struct.proxygen::HTTPPriority", align 8
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 16), ptr %agg.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 16), ptr %agg.tmp, align 8
   %urgency.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %urgency2.i = getelementptr inbounds nuw i8, ptr %priority, i64 8
   %1 = load i64, ptr %urgency2.i, align 8
@@ -1990,9 +1990,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen26PassThroughHTTPCodecFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %add.ptr.i, align 8
   %callbackSource_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_.i, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2029,9 +2029,9 @@ _ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen26PassThroughHTTPCodecFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %add.ptr.i.i, align 8
   %callbackSource_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_.i.i, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2119,8 +2119,8 @@ entry:
 define linkonce_odr void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilterD1Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %this, align 8
   %callbackSource_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %callbackSource_.i.i, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2158,8 +2158,8 @@ _ZN8proxygen26PassThroughHTTPCodecFilterD2Ev.exit: ; preds = %invoke.cont.i.i, %
 define linkonce_odr void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilterD0Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %this, align 8
   %callbackSource_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %callbackSource_.i.i.i, align 8
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2318,9 +2318,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %add.ptr, align 8
   %callbackSource_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_, align 8
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2692,8 +2692,8 @@ entry:
 define linkonce_odr void @_ZThn8_N8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EED1Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %this, align 8
   %callbackSource_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %callbackSource_.i, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 32

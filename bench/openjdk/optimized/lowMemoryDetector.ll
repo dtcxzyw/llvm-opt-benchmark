@@ -1216,8 +1216,8 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %21
   store i32 2, ptr %52, align 8
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %56, align 8
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8736), align 8
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8736), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
   call void @_ZN9JavaCalls12call_virtualEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %4, ptr noundef %42, ptr noundef %57, ptr noundef %58, ptr noundef nonnull %5, ptr noundef nonnull %2) #12
   br label %_ZNK6HandleclEv.exit.thread
 
@@ -1301,11 +1301,11 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %3
 
 44:                                               ; preds = %29
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %2) #12
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
   br label %58
 
 46:                                               ; preds = %29
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8744), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8744), align 8
   %48 = load ptr, ptr %34, align 8
   %49 = load i32, ptr %36, align 8
   %50 = sext i32 %49 to i64
@@ -1323,7 +1323,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %3
 
 58:                                               ; preds = %46, %44
   %.0 = phi ptr [ %45, %44 ], [ %47, %46 ]
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8728), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8728), align 8
   call void @_ZN9JavaCalls12call_virtualEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %4, ptr noundef %26, ptr noundef %59, ptr noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %2) #12
   %60 = load ptr, ptr %27, align 8
   %.not25 = icmp eq ptr %60, null

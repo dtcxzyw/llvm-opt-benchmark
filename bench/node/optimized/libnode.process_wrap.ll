@@ -403,10 +403,10 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %19 = load ptr, ptr %values_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 -8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_111ProcessWrapE, i64 16), ptr %call6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node12_GLOBAL__N_111ProcessWrapE, i64 16), ptr %call6, align 8
   %process_.i = getelementptr inbounds nuw i8, ptr %call6, i64 88
   tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(224) %call6, ptr noundef %retval.0.i.i, ptr nonnull %add.ptr.i, ptr noundef nonnull %process_.i, i32 noundef 25) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_111ProcessWrapE, i64 16), ptr %call6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node12_GLOBAL__N_111ProcessWrapE, i64 16), ptr %call6, align 8
   tail call void @_ZN4node10HandleWrap19MarkAsUninitializedEv(ptr noundef nonnull align 8 dereferenceable(224) %call6) #17
   ret void
 }
@@ -1569,7 +1569,7 @@ declare void @_ZN4node10HandleWrap19MarkAsUninitializedEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_111ProcessWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %next_.i.i.i, align 8
@@ -1587,7 +1587,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_111ProcessWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %next_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %next_.i.i.i.i, align 8

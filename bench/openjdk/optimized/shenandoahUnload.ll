@@ -299,7 +299,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK30ShenandoahIsUnloadingBehavi
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(112) %6) #6
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV31ShenandoahIsUnloadingOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV31ShenandoahIsUnloadingOopClosure, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2248

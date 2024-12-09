@@ -117,7 +117,7 @@ if.then27:                                        ; preds = %if.end21
   store ptr null, ptr %m_manager.i.i, align 8
   %m_family_id.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 16
   store i32 -1, ptr %m_family_id.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8datatype4decl6pluginE, i64 16), ptr %call29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8datatype4decl6pluginE, i64 16), ptr %call29, align 8
   %m_util.i = getelementptr inbounds nuw i8, ptr %call29, i64 24
   store ptr null, ptr %m_util.i, align 8
   %m_defs.i = getelementptr inbounds nuw i8, ptr %call29, i64 32

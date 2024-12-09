@@ -1201,14 +1201,14 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %58, %68
 
 73:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %74) #18
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 3, ptr %75, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE169ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %6, align 8
   call void @_ZN10JavaThread21print_active_stack_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1800) %1, ptr noundef nonnull %6) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #18
   br label %78
@@ -1957,7 +1957,7 @@ define hidden noundef i32 @_ZN18ObjectSynchronizer4waitE6HandlelP10JavaThread(pt
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef 806, ptr noundef %6, ptr noundef nonnull @.str.11) #18
   br label %_ZL19dtrace_waited_probeP13ObjectMonitor6HandleP10JavaThread.exit
 
@@ -2118,7 +2118,7 @@ define hidden void @_ZN18ObjectSynchronizer19waitUninterruptiblyE6HandlelP10Java
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef 826, ptr noundef %6, ptr noundef nonnull @.str.11) #18
   br label %21
 
@@ -2360,15 +2360,15 @@ define hidden noundef range(i64 0, 2147483648) i64 @_ZN18ObjectSynchronizer12Fas
   br label %_ZL13get_next_hashP6ThreadP7oopDesc.exit
 
 27:                                               ; preds = %22
-  %28 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_ZL5GVars, i64 64), align 4
+  %28 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 64), align 4
   %29 = zext i32 %28 to i64
   %30 = xor i64 %7, %29
   br label %_ZL13get_next_hashP6ThreadP7oopDesc.exit
 
 31:                                               ; preds = %22
-  %32 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_ZL5GVars, i64 128), align 4
+  %32 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 128), align 4
   %33 = add nsw i32 %32, 1
-  store volatile i32 %33, ptr getelementptr inbounds (i8, ptr @_ZL5GVars, i64 128), align 4
+  store volatile i32 %33, ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 128), align 4
   %34 = zext i32 %33 to i64
   br label %_ZL13get_next_hashP6ThreadP7oopDesc.exit
 
@@ -2524,15 +2524,15 @@ _ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit: ; pred
   br label %_ZL13get_next_hashP6ThreadP7oopDesc.exit47
 
 116:                                              ; preds = %111
-  %117 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_ZL5GVars, i64 64), align 4
+  %117 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 64), align 4
   %118 = zext i32 %117 to i64
   %119 = xor i64 %7, %118
   br label %_ZL13get_next_hashP6ThreadP7oopDesc.exit47
 
 120:                                              ; preds = %111
-  %121 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_ZL5GVars, i64 128), align 4
+  %121 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 128), align 4
   %122 = add nsw i32 %121, 1
-  store volatile i32 %122, ptr getelementptr inbounds (i8, ptr @_ZL5GVars, i64 128), align 4
+  store volatile i32 %122, ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 128), align 4
   %123 = zext i32 %122 to i64
   br label %_ZL13get_next_hashP6ThreadP7oopDesc.exit47
 
@@ -3430,11 +3430,11 @@ _ZN9LockStack6removeEP7oopDesc.exit:              ; preds = %_ZN13ObjectMonitor2
 
 81:                                               ; preds = %72
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %17) #18
   store i32 1, ptr %18, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %6, align 8
   %82 = load i32, ptr @LockingMode, align 4
   switch i32 %82, label %.thread [
     i32 2, label %83
@@ -4244,24 +4244,24 @@ define hidden noundef i64 @_ZN18ObjectSynchronizer21deflate_idle_monitorsEv() lo
   store i64 %8, ptr @_ZN18ObjectSynchronizer29_last_async_deflation_time_nsE, align 8
   store volatile i8 0, ptr @_ZN18ObjectSynchronizer29_is_async_deflation_requestedE, align 1
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(352) %1, i1 noundef zeroext false) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %9) #18
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 2, ptr %10, align 8
   %.sroa.21.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE2ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE2ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %1, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %11, i1 noundef zeroext false) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 216
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %12) #18
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i32 3, ptr %13, align 8
   %.sroa.21.0..sroa_idx.i.i.i1.i = getelementptr inbounds nuw i8, ptr %1, i64 312
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i1.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE3ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE3ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 344
   store i8 0, ptr %15, align 8
@@ -4376,11 +4376,11 @@ _ZN13GrowableArrayIP13ObjectMonitorEC2Ei.exit:    ; preds = %40, %.lr.ph.prehead
 _ZN29ObjectMonitorDeflationLogging16before_handshakeEm.exit: ; preds = %_ZN13GrowableArrayIP13ObjectMonitorEC2Ei.exit, %61
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.80, ptr %67, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV21HandshakeForDeflation, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV21HandshakeForDeflation, i64 16), ptr %4, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %4) #18
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %68, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV22VM_RendezvousGCThreads, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV22VM_RendezvousGCThreads, i64 16), ptr %5, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %5) #18
   %69 = load ptr, ptr %14, align 8
   %.not.i18 = icmp eq ptr %69, null
@@ -4564,7 +4564,7 @@ _ZN29ObjectMonitorDeflationLogging3endEmm.exit:   ; preds = %_ZN12ResourceMarkD2
 
 137:                                              ; preds = %132, %129, %127
   %138 = call noundef i32 @_ZN2os6randomEv() #18
-  store volatile i32 %138, ptr getelementptr inbounds (i8, ptr @_ZL5GVars, i64 64), align 4
+  store volatile i32 %138, ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 64), align 4
   br i1 %.not34, label %140, label %139
 
 139:                                              ; preds = %137
@@ -4605,7 +4605,7 @@ declare noundef i32 @_ZN2os6randomEv() local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18ObjectSynchronizer32release_monitors_owned_by_threadEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ReleaseJavaMonitorsClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV26ReleaseJavaMonitorsClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26ReleaseJavaMonitorsClosure, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
   %4 = load volatile ptr, ptr @_ZN18ObjectSynchronizer12_in_use_listE, align 8
@@ -4677,7 +4677,7 @@ define hidden noundef nonnull ptr @_ZN18ObjectSynchronizer14get_gvars_addrEv() l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @_ZN18ObjectSynchronizer26get_gvars_hc_sequence_addrEv() local_unnamed_addr #9 align 2 {
-  ret ptr getelementptr inbounds (i8, ptr @_ZL5GVars, i64 128)
+  ret ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 128)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -4687,7 +4687,7 @@ define hidden noundef i64 @_ZN18ObjectSynchronizer14get_gvars_sizeEv() local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @_ZN18ObjectSynchronizer25get_gvars_stw_random_addrEv() local_unnamed_addr #9 align 2 {
-  ret ptr getelementptr inbounds (i8, ptr @_ZL5GVars, i64 64)
+  ret ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 64)
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4714,14 +4714,14 @@ define hidden void @_ZN18ObjectSynchronizer30do_final_audit_and_print_statsEv() 
 
 9:                                                ; preds = %7
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %10) #18
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 3, ptr %11, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE3ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE3ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %1, align 8
   call void @_ZN18ObjectSynchronizer21audit_and_print_statsEP12outputStreamb(ptr noundef nonnull %1, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   br label %12
@@ -4764,14 +4764,14 @@ define hidden void @_ZN18ObjectSynchronizer21audit_and_print_statsEP12outputStre
 
 14:                                               ; preds = %12
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #18
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i32 1, ptr %16, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE90ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %4, align 8
   call void @_ZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreamb(ptr noundef nonnull %4, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #18
   br label %17
@@ -6669,7 +6669,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
   ret void

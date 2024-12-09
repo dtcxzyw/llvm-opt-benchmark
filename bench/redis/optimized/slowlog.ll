@@ -212,9 +212,9 @@ for.end:                                          ; preds = %for.inc, %entry
   store i64 %call76, ptr %time, align 8
   %duration77 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %duration, ptr %duration77, align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2208), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2208), align 8
   %inc78 = add nsw i64 %17, 1
-  store i64 %inc78, ptr getelementptr inbounds (i8, ptr @server, i64 2208), align 8
+  store i64 %inc78, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2208), align 8
   %id = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %17, ptr %id, align 8
   %call79 = tail call ptr @getClientPeerId(ptr noundef %c) #8
@@ -306,8 +306,8 @@ declare void @sdsfree(ptr noundef) local_unnamed_addr #2
 define dso_local void @slowlogInit() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @listCreate() #8
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @server, i64 2208), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2208), align 8
   %free = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr @slowlogFreeEntry, ptr %free, align 8
   ret void
@@ -318,7 +318,7 @@ declare ptr @listCreate() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @slowlogPushEntryIfNeeded(ptr noundef %c, ptr nocapture noundef readonly %argv, i32 noundef %argc, i64 noundef %duration) local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2216), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2216), align 8
   %cmp = icmp slt i64 %0, 0
   br i1 %cmp, label %while.end, label %if.end
 
@@ -327,16 +327,16 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   %call = tail call ptr @slowlogCreateEntry(ptr noundef %c, ptr noundef %argv, i32 noundef %argc, i64 noundef %duration)
   %call3 = tail call ptr @listAddNodeHead(ptr noundef %1, ptr noundef %call) #8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   %len2 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load i64, ptr %len2, align 8
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2224), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2224), align 8
   %cmp53 = icmp ugt i64 %3, %4
   br i1 %cmp53, label %while.body, label %while.end
 
@@ -345,10 +345,10 @@ while.body:                                       ; preds = %if.end4, %while.bod
   %tail = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %tail, align 8
   tail call void @listDelNode(ptr noundef nonnull %5, ptr noundef %6) #8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   %len = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load i64, ptr %len, align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2224), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2224), align 8
   %cmp5 = icmp ugt i64 %8, %9
   br i1 %cmp5, label %while.body, label %while.end, !llvm.loop !8
 
@@ -363,7 +363,7 @@ declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @slowlogReset() local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   %len1 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load i64, ptr %len1, align 8
   %cmp.not2 = icmp eq i64 %1, 0
@@ -374,7 +374,7 @@ while.body:                                       ; preds = %entry, %while.body
   %tail = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %tail, align 8
   tail call void @listDelNode(ptr noundef nonnull %2, ptr noundef %3) #8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   %len = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %5, 0
@@ -417,7 +417,7 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   br i1 %tobool8.not, label %if.then9, label %land.lhs.true13
 
 if.then9:                                         ; preds = %land.lhs.true3
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   %len1.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load i64, ptr %len1.i, align 8
   %cmp.not2.i = icmp eq i64 %5, 0
@@ -428,7 +428,7 @@ while.body.i:                                     ; preds = %if.then9, %while.bo
   %tail.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %tail.i, align 8
   tail call void @listDelNode(ptr noundef nonnull %6, ptr noundef %7) #8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   %len.i = getelementptr inbounds nuw i8, ptr %8, i64 40
   %9 = load i64, ptr %len.i, align 8
   %cmp.not.i = icmp eq i64 %9, 0
@@ -445,7 +445,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true3
   br i1 %tobool18.not, label %if.then19, label %land.lhs.true25
 
 if.then19:                                        ; preds = %land.lhs.true13
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   %len = getelementptr inbounds nuw i8, ptr %11, i64 40
   %12 = load i64, ptr %len, align 8
   tail call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %12) #8
@@ -478,7 +478,7 @@ if.then31:                                        ; preds = %land.lhs.true25
   br i1 %cmp33, label %if.then34, label %if.then31.if.end44_crit_edge
 
 if.then31.if.end44_crit_edge:                     ; preds = %if.then31
-  %.pre65 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %.pre65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   br label %if.end44
 
 if.then34:                                        ; preds = %if.then31
@@ -491,7 +491,7 @@ if.then34:                                        ; preds = %if.then31
 if.end:                                           ; preds = %if.then34
   %17 = load i64, ptr %count, align 8
   %cmp40 = icmp eq i64 %17, -1
-  %.pre66 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %.pre66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   br i1 %cmp40, label %if.then41, label %if.end44
 
 if.then41:                                        ; preds = %if.end
@@ -515,7 +515,7 @@ if.then47:                                        ; preds = %if.end44
 if.end49:                                         ; preds = %if.then47, %if.end44
   %22 = phi i64 [ %21, %if.then47 ], [ %20, %if.end44 ]
   call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %22) #8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 2200), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2200), align 8
   call void @listRewind(ptr noundef %23, ptr noundef nonnull %li) #8
   %24 = load i64, ptr %count, align 8
   %dec60 = add nsw i64 %24, -1

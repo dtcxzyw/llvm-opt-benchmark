@@ -1949,163 +1949,163 @@ entry:
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %mb.i694)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7584) @_ZN6hermes2vm8Metadata13metadataTableE, ptr noundef nonnull align 8 dereferenceable(7584) %ref.tmp, i64 7584, i1 false)
   %316 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 88), align 8
-  %317 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 184), align 8
-  %318 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 280), align 8
-  %319 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 376), align 8
-  %320 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 472), align 8
-  %321 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 568), align 8
-  %322 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 664), align 8
-  %323 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 760), align 8
-  %324 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 856), align 8
-  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 952), align 8
-  %326 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1048), align 8
-  %327 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1144), align 8
-  %328 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1240), align 8
-  %329 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1336), align 8
-  %330 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1432), align 8
-  %331 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1528), align 8
-  %332 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1624), align 8
-  %333 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1720), align 8
-  %334 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1816), align 8
-  %335 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1912), align 8
-  %336 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2008), align 8
-  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2104), align 8
-  %338 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2200), align 8
-  %339 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2296), align 8
-  %340 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2392), align 8
-  %341 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2488), align 8
-  %342 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2584), align 8
-  %343 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2680), align 8
-  %344 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2776), align 8
-  %345 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2872), align 8
-  %346 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2968), align 8
-  %347 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3064), align 8
-  %348 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3160), align 8
-  %349 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3256), align 8
-  %350 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3352), align 8
-  %351 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3448), align 8
-  %352 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3544), align 8
-  %353 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3640), align 8
-  %354 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3736), align 8
-  %355 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3832), align 8
-  %356 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3928), align 8
-  %357 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4024), align 8
-  %358 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4120), align 8
-  %359 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4216), align 8
-  %360 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4312), align 8
-  %361 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4408), align 8
-  %362 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4504), align 8
-  %363 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4600), align 8
-  %364 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4696), align 8
-  %365 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4792), align 8
-  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4888), align 8
-  %367 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4984), align 8
-  %368 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5080), align 8
-  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5176), align 8
-  %370 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5272), align 8
-  %371 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5368), align 8
-  %372 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5464), align 8
-  %373 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5560), align 8
-  %374 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5656), align 8
-  %375 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5752), align 8
-  %376 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5848), align 8
-  %377 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5944), align 8
-  %378 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6040), align 8
-  %379 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6136), align 8
-  %380 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6232), align 8
-  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6328), align 8
-  %382 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6424), align 8
-  %383 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6520), align 8
-  %384 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6616), align 8
-  %385 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6712), align 8
-  %386 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6808), align 8
-  %387 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6904), align 8
-  %388 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7000), align 8
-  %389 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7096), align 8
-  %390 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7192), align 8
-  %391 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7288), align 8
-  %392 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7384), align 8
-  %393 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7480), align 8
-  %394 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7576), align 8
+  %317 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 184), align 8
+  %318 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 280), align 8
+  %319 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 376), align 8
+  %320 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 472), align 8
+  %321 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 568), align 8
+  %322 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 664), align 8
+  %323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 760), align 8
+  %324 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 856), align 8
+  %325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 952), align 8
+  %326 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1048), align 8
+  %327 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1144), align 8
+  %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1240), align 8
+  %329 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1336), align 8
+  %330 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1432), align 8
+  %331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1528), align 8
+  %332 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1624), align 8
+  %333 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1720), align 8
+  %334 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1816), align 8
+  %335 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 1912), align 8
+  %336 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2008), align 8
+  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2104), align 8
+  %338 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2200), align 8
+  %339 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2296), align 8
+  %340 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2392), align 8
+  %341 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2488), align 8
+  %342 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2584), align 8
+  %343 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2680), align 8
+  %344 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2776), align 8
+  %345 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2872), align 8
+  %346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 2968), align 8
+  %347 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3064), align 8
+  %348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3160), align 8
+  %349 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3256), align 8
+  %350 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3352), align 8
+  %351 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3448), align 8
+  %352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3544), align 8
+  %353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3640), align 8
+  %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3736), align 8
+  %355 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3832), align 8
+  %356 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 3928), align 8
+  %357 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4024), align 8
+  %358 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4120), align 8
+  %359 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4216), align 8
+  %360 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4312), align 8
+  %361 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4408), align 8
+  %362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4504), align 8
+  %363 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4600), align 8
+  %364 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4696), align 8
+  %365 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4792), align 8
+  %366 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4888), align 8
+  %367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 4984), align 8
+  %368 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5080), align 8
+  %369 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5176), align 8
+  %370 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5272), align 8
+  %371 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5368), align 8
+  %372 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5464), align 8
+  %373 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5560), align 8
+  %374 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5656), align 8
+  %375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5752), align 8
+  %376 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5848), align 8
+  %377 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 5944), align 8
+  %378 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6040), align 8
+  %379 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6136), align 8
+  %380 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6232), align 8
+  %381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6328), align 8
+  %382 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6424), align 8
+  %383 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6520), align 8
+  %384 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6616), align 8
+  %385 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6712), align 8
+  %386 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6808), align 8
+  %387 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 6904), align 8
+  %388 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7000), align 8
+  %389 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7096), align 8
+  %390 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7192), align 8
+  %391 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7288), align 8
+  %392 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7384), align 8
+  %393 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7480), align 8
+  %394 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm8Metadata13metadataTableE, i64 7576), align 8
   store ptr %316, ptr @_ZN6hermes2vm6VTable11vtableArrayE, align 8
-  store ptr %317, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 8), align 8
-  store ptr %318, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 16), align 8
-  store ptr %319, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 24), align 8
-  store ptr %320, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 32), align 8
-  store ptr %321, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 40), align 8
-  store ptr %322, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 48), align 8
-  store ptr %323, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 56), align 8
-  store ptr %324, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 64), align 8
-  store ptr %325, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 72), align 8
-  store ptr %326, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 80), align 8
-  store ptr %327, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 88), align 8
-  store ptr %328, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 96), align 8
-  store ptr %329, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 104), align 8
-  store ptr %330, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 112), align 8
-  store ptr %331, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 120), align 8
-  store ptr %332, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 128), align 8
-  store ptr %333, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 136), align 8
-  store ptr %334, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 144), align 8
-  store ptr %335, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 152), align 8
-  store ptr %336, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 160), align 8
-  store ptr %337, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 168), align 8
-  store ptr %338, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 176), align 8
-  store ptr %339, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 184), align 8
-  store ptr %340, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 192), align 8
-  store ptr %341, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 200), align 8
-  store ptr %342, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 208), align 8
-  store ptr %343, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 216), align 8
-  store ptr %344, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 224), align 8
-  store ptr %345, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 232), align 8
-  store ptr %346, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 240), align 8
-  store ptr %347, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 248), align 8
-  store ptr %348, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 256), align 8
-  store ptr %349, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 264), align 8
-  store ptr %350, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 272), align 8
-  store ptr %351, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 280), align 8
-  store ptr %352, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 288), align 8
-  store ptr %353, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 296), align 8
-  store ptr %354, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 304), align 8
-  store ptr %355, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 312), align 8
-  store ptr %356, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 320), align 8
-  store ptr %357, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 328), align 8
-  store ptr %358, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 336), align 8
-  store ptr %359, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 344), align 8
-  store ptr %360, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 352), align 8
-  store ptr %361, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 360), align 8
-  store ptr %362, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 368), align 8
-  store ptr %363, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 376), align 8
-  store ptr %364, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 384), align 8
-  store ptr %365, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 392), align 8
-  store ptr %366, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 400), align 8
-  store ptr %367, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 408), align 8
-  store ptr %368, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 416), align 8
-  store ptr %369, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 424), align 8
-  store ptr %370, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 432), align 8
-  store ptr %371, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 440), align 8
-  store ptr %372, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 448), align 8
-  store ptr %373, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 456), align 8
-  store ptr %374, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 464), align 8
-  store ptr %375, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 472), align 8
-  store ptr %376, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 480), align 8
-  store ptr %377, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 488), align 8
-  store ptr %378, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 496), align 8
-  store ptr %379, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 504), align 8
-  store ptr %380, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 512), align 8
-  store ptr %381, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 520), align 8
-  store ptr %382, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 528), align 8
-  store ptr %383, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 536), align 8
-  store ptr %384, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 544), align 8
-  store ptr %385, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 552), align 8
-  store ptr %386, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 560), align 8
-  store ptr %387, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 568), align 8
-  store ptr %388, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 576), align 8
-  store ptr %389, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 584), align 8
-  store ptr %390, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 592), align 8
-  store ptr %391, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 600), align 8
-  store ptr %392, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 608), align 8
-  store ptr %393, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 616), align 8
-  store ptr %394, ptr getelementptr inbounds (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 624), align 8
+  store ptr %317, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 8), align 8
+  store ptr %318, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 16), align 8
+  store ptr %319, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 24), align 8
+  store ptr %320, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 32), align 8
+  store ptr %321, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 40), align 8
+  store ptr %322, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 48), align 8
+  store ptr %323, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 56), align 8
+  store ptr %324, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 64), align 8
+  store ptr %325, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 72), align 8
+  store ptr %326, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 80), align 8
+  store ptr %327, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 88), align 8
+  store ptr %328, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 96), align 8
+  store ptr %329, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 104), align 8
+  store ptr %330, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 112), align 8
+  store ptr %331, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 120), align 8
+  store ptr %332, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 128), align 8
+  store ptr %333, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 136), align 8
+  store ptr %334, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 144), align 8
+  store ptr %335, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 152), align 8
+  store ptr %336, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 160), align 8
+  store ptr %337, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 168), align 8
+  store ptr %338, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 176), align 8
+  store ptr %339, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 184), align 8
+  store ptr %340, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 192), align 8
+  store ptr %341, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 200), align 8
+  store ptr %342, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 208), align 8
+  store ptr %343, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 216), align 8
+  store ptr %344, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 224), align 8
+  store ptr %345, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 232), align 8
+  store ptr %346, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 240), align 8
+  store ptr %347, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 248), align 8
+  store ptr %348, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 256), align 8
+  store ptr %349, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 264), align 8
+  store ptr %350, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 272), align 8
+  store ptr %351, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 280), align 8
+  store ptr %352, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 288), align 8
+  store ptr %353, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 296), align 8
+  store ptr %354, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 304), align 8
+  store ptr %355, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 312), align 8
+  store ptr %356, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 320), align 8
+  store ptr %357, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 328), align 8
+  store ptr %358, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 336), align 8
+  store ptr %359, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 344), align 8
+  store ptr %360, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 352), align 8
+  store ptr %361, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 360), align 8
+  store ptr %362, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 368), align 8
+  store ptr %363, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 376), align 8
+  store ptr %364, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 384), align 8
+  store ptr %365, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 392), align 8
+  store ptr %366, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 400), align 8
+  store ptr %367, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 408), align 8
+  store ptr %368, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 416), align 8
+  store ptr %369, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 424), align 8
+  store ptr %370, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 432), align 8
+  store ptr %371, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 440), align 8
+  store ptr %372, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 448), align 8
+  store ptr %373, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 456), align 8
+  store ptr %374, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 464), align 8
+  store ptr %375, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 472), align 8
+  store ptr %376, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 480), align 8
+  store ptr %377, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 488), align 8
+  store ptr %378, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 496), align 8
+  store ptr %379, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 504), align 8
+  store ptr %380, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 512), align 8
+  store ptr %381, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 520), align 8
+  store ptr %382, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 528), align 8
+  store ptr %383, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 536), align 8
+  store ptr %384, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 544), align 8
+  store ptr %385, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 552), align 8
+  store ptr %386, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 560), align 8
+  store ptr %387, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 568), align 8
+  store ptr %388, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 576), align 8
+  store ptr %389, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 584), align 8
+  store ptr %390, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 592), align 8
+  store ptr %391, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 600), align 8
+  store ptr %392, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 608), align 8
+  store ptr %393, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 616), align 8
+  store ptr %394, ptr getelementptr inbounds nuw (i8, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 624), align 8
   ret void
 }
 

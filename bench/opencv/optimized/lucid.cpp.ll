@@ -113,7 +113,7 @@ define void @_ZN2cv11xfeatures2d5LUCID6createEii(ptr dead_on_unwind noalias noca
   store i32 1, ptr %5, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d9LUCIDImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d9LUCIDImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZN2cv3PtrINS_11xfeatures2d9LUCIDImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d9LUCIDImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !4
@@ -125,7 +125,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d9LUCIDImp
   resume { ptr, i32 } %8
 
 _ZN2cv3PtrINS_11xfeatures2d9LUCIDImplEED2Ev.exit: ; preds = %3
-  store ptr getelementptr inbounds inrange(-80, 160) (i8, ptr @_ZTVN2cv11xfeatures2d9LUCIDImplE, i64 80), ptr %7, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-80, 160) (i8, ptr @_ZTVN2cv11xfeatures2d9LUCIDImplE, i64 80), ptr %7, align 8, !noalias !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %1, ptr %9, align 8, !noalias !4
   %10 = shl nsw i32 %2, 1
@@ -178,7 +178,7 @@ define hidden void @_ZN2cv11xfeatures2d9LUCIDImplC2Eii(ptr nocapture noundef non
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv11xfeatures2d9LUCIDImplC1Eii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-80, 160) (i8, ptr @_ZTVN2cv11xfeatures2d9LUCIDImplE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 160) (i8, ptr @_ZTVN2cv11xfeatures2d9LUCIDImplE, i64 80), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8
   %5 = shl nsw i32 %2, 1

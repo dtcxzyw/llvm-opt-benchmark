@@ -130,7 +130,7 @@ define dso_local i32 @nlm_lookup_file(ptr noundef %0, ptr nocapture noundef writ
   br label %75
 
 .critedge._crit_edge:                             ; preds = %.critedge.backedge, %14
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %52 = tail call noalias noundef align 8 dereferenceable_or_null(232) ptr @kmalloc_trace(ptr noundef %51, i32 noundef 3520, i64 noundef 232) #13
   %53 = icmp eq ptr %52, null
   br i1 %53, label %83, label %54

@@ -1351,7 +1351,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 define dso_local void @_ZN4Luau12AnyificationC2EPNS_9TypeArenaENS_7NotNullINS_5ScopeEEENS3_INS_12BuiltinTypesEEEPNS_21InternalErrorReporterEPKNS_4TypeEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(513) %0, ptr noundef %1, ptr %2, ptr %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 align 2 {
   %8 = tail call noundef ptr @_ZN4Luau6TxnLog5emptyEv()
   tail call void @_ZN4Luau12SubstitutionC2EPKNS_6TxnLogEPNS_9TypeArenaE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %8, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4Luau12AnyificationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4Luau12AnyificationE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr %2, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -1379,7 +1379,7 @@ define dso_local void @_ZN4Luau12AnyificationC2EPNS_9TypeArenaERKSt10shared_ptrI
   %8 = load ptr, ptr %2, align 8
   %9 = tail call noundef ptr @_ZN4Luau6TxnLog5emptyEv()
   tail call void @_ZN4Luau12SubstitutionC2EPKNS_6TxnLogEPNS_9TypeArenaE(ptr noundef nonnull align 8 dereferenceable(513) %0, ptr noundef %9, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4Luau12AnyificationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4Luau12AnyificationE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr %8, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 480

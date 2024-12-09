@@ -360,7 +360,7 @@ _ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit: ; preds = %if.
 call.i.noexc:                                     ; preds = %_ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit
   %refs_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducer19ConnectivityWatcherE, i64 16), ptr %call.i21, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducer19ConnectivityWatcherE, i64 16), ptr %call.i21, align 8, !noalias !10
   %producer_.i.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 16
   store ptr %this, ptr %producer_.i.i, align 8, !noalias !10
   %call.i.i = invoke noundef ptr @_Z23grpc_pollset_set_createv()
@@ -683,7 +683,7 @@ if.end:                                           ; preds = %entry
 invoke.cont:                                      ; preds = %if.end
   %report_interval_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %report_interval_, align 8, !noalias !18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandlerE, i64 16), ptr %call.i2, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandlerE, i64 16), ptr %call.i2, align 8, !noalias !18
   %producer_.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 8
   store ptr %this, ptr %producer_.i.i, align 8, !noalias !18
   %report_interval_.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 16
@@ -1242,7 +1242,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit19:      ; preds = %if.end9
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core11OrcaWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11OrcaWatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11OrcaWatcherE, i64 16), ptr %this, align 8
   %producer_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %producer_, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -1542,7 +1542,7 @@ _ZNSt10unique_ptrIN9grpc_core11OrcaWatcherESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !35
   %0 = load i64, ptr %watcher, align 8, !noalias !35
   store ptr null, ptr %watcher, align 8, !noalias !35
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11OrcaWatcherE, i64 16), ptr %call.i, align 8, !noalias !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11OrcaWatcherE, i64 16), ptr %call.i, align 8, !noalias !35
   %report_interval_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %report_interval.coerce, ptr %report_interval_.i.i, align 8, !noalias !35
   %watcher_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -1595,7 +1595,7 @@ _ZN9grpc_core12OrcaProducer4TypeEv.exit:          ; preds = %entry, %init.check.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core12OrcaProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducerE, i64 16), ptr %this, align 8
   %stream_client_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %stream_client_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1748,7 +1748,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -1852,7 +1852,7 @@ declare noundef ptr @_Z23grpc_pollset_set_createv() local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer19ConnectivityWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducer19ConnectivityWatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducer19ConnectivityWatcherE, i64 16), ptr %this, align 8
   %interested_parties_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %interested_parties_, align 8
   invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %0)
@@ -1891,7 +1891,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer19ConnectivityWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducer19ConnectivityWatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducer19ConnectivityWatcherE, i64 16), ptr %this, align 8
   %interested_parties_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %interested_parties_.i, align 8
   invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %0)
@@ -2105,7 +2105,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandlerE, i64 16), ptr %this, align 8
   %producer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %producer_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2131,7 +2131,7 @@ _ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit: ; preds = %entry,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandlerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandlerE, i64 16), ptr %this, align 8
   %producer_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %producer_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2343,7 +2343,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN9grpc_core17WeakRefCountedPtrINS_12OrcaProducerEED2Ev.exit: ; preds = %if.then.i, %entry
   %3 = phi ptr [ %.pre.i, %if.then.i ], [ null, %entry ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocatorE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocatorE, i64 16), ptr %call, align 8
   %producer_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %3, ptr %producer_.i, align 8
   %backend_metric_data_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -2491,7 +2491,7 @@ declare void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_view
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducer22OrcaStreamEventHandler22BackendMetricAllocatorE, i64 16), ptr %this, align 8
   %string_storage_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %string_storage_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -2851,7 +2851,7 @@ _ZN9grpc_core13RefCountedPtrINS_12OrcaProducerEED2Ev.exit.i.i.i: ; preds = %if.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %14, i8 0, i64 32, i1 false), !noalias !80
   %refs_.i.i.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i64 4294967296, ptr %refs_.i.i.i.i6.i.i.i, align 8, !noalias !80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12OrcaProducerE, i64 16), ptr %call.i.i.i.i, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12OrcaProducerE, i64 16), ptr %call.i.i.i.i, align 8, !noalias !80
   %subchannel_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 56
   %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 64

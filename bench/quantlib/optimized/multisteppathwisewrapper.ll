@@ -77,7 +77,7 @@ define void @_ZN8QuantLib27MultiProductPathwiseWrapperC2ERKNS_31MarketModelPathw
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp = alloca %"class.std::vector.2", align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib27MultiProductPathwiseWrapperE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib27MultiProductPathwiseWrapperE, i64 16), ptr %this, align 8, !tbaa !3
   %innerProduct_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #15
   %vtable.i = load ptr, ptr %innerProduct, align 8, !tbaa !3
@@ -763,7 +763,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 define linkonce_odr void @_ZN8QuantLib27MultiProductPathwiseWrapperC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib27MultiProductPathwiseWrapperE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib27MultiProductPathwiseWrapperE, i64 16), ptr %this, align 8, !tbaa !3
   %innerProduct_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %innerProduct_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %innerProduct_2, align 8, !tbaa !6
@@ -876,7 +876,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib27MultiProductPathwiseWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib27MultiProductPathwiseWrapperE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib27MultiProductPathwiseWrapperE, i64 16), ptr %this, align 8, !tbaa !3
   %cashFlowsGenerated_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %cashFlowsGenerated_, align 8, !tbaa !13
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -975,7 +975,7 @@ _ZN8QuantLib5CloneINS_31MarketModelPathwiseMultiProductEED2Ev.exit: ; preds = %_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib27MultiProductPathwiseWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib27MultiProductPathwiseWrapperE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib27MultiProductPathwiseWrapperE, i64 16), ptr %this, align 8, !tbaa !3
   %cashFlowsGenerated_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %cashFlowsGenerated_.i, align 8, !tbaa !13
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24

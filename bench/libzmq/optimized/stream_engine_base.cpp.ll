@@ -138,8 +138,8 @@ entry:
   %frombool = zext i1 %has_handshake_stage_ to i8
   tail call void @_ZN3zmq11io_object_tC2EPNS_11io_thread_tE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef null)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq20stream_engine_base_tE, i64 16), ptr %this, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq20stream_engine_base_tE, i64 208), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq20stream_engine_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq20stream_engine_base_tE, i64 208), ptr %0, align 8
   %_options = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN3zmq9options_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1336) %_options, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
           to label %invoke.cont unwind label %lpad
@@ -1244,9 +1244,9 @@ declare void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689) initializes((0, 8), (16, 24)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq20stream_engine_base_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq20stream_engine_base_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq20stream_engine_base_tE, i64 208), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq20stream_engine_base_tE, i64 208), ptr %add.ptr, align 8
   %_plugged = getelementptr inbounds nuw i8, ptr %this, i64 1592
   %0 = load i8, ptr %_plugged, align 8
   %tobool = trunc i8 %0 to i1

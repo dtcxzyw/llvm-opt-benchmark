@@ -373,7 +373,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %2, %_ZN14ZReentrant
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %_ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22ZIsUnloadingOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22ZIsUnloadingOopClosure, i64 16), ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = tail call noundef i64 @_ZN8ZNMethod5colorEP7nmethod(ptr noundef %1) #8
   store i64 %18, ptr %17, align 8

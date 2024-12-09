@@ -105,7 +105,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
   br i1 %50, label %66, label %88
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %68 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %67, i32 noundef 3520, i64 noundef 80) #8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %78, label %70
@@ -305,7 +305,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
   br i1 %180, label %186, label %181
 
 181:                                              ; preds = %179
-  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %183 = call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %182, i32 noundef 3264, i64 noundef 128) #8
   %184 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store ptr %183, ptr %184, align 8

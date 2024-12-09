@@ -18531,7 +18531,7 @@ _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.i: ; preds 
   %.075 = phi i8 [ 1, %310 ], [ 0, %263 ], [ 0, %196 ], [ 0, %252 ], [ 0, %317 ], [ 0, %.critedge ], [ 0, %294 ], [ 0, %306 ], [ 0, %336 ], [ 0, %315 ], [ 0, %244 ], [ 0, %224 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", ptr %17, align 8
-  %247 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32) acquire, align 8, !noalias !4021
+  %247 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32) acquire, align 8, !noalias !4021
   %248 = icmp eq i32 %247, 4
   br i1 %248, label %339, label %249
 
@@ -18540,7 +18540,7 @@ _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.i: ; preds 
   store ptr %17, ptr %16, align 8, !noalias !4021
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !4021
   store ptr %16, ptr %15, align 8, !noalias !4021
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h209055d8f70f1103E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h209055d8f70f1103E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
           to label %.noexc115 unwind label %.loopexit232.loopexit
 
 .noexc115:                                        ; preds = %249
@@ -24954,7 +24954,7 @@ _ZN3std2fs14read_to_string17hb7b79a14688c9f36E.exit: ; preds = %130
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %95), !noalias !5105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75), !noalias !5105
   store ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", ptr %75, align 8, !noalias !5105
-  %144 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32) acquire, align 8, !noalias !5107
+  %144 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32) acquire, align 8, !noalias !5107
   %145 = icmp eq i32 %144, 4
   br i1 %145, label %151, label %146
 
@@ -24963,7 +24963,7 @@ _ZN3std2fs14read_to_string17hb7b79a14688c9f36E.exit: ; preds = %130
   store ptr %75, ptr %74, align 8, !noalias !5107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73), !noalias !5107
   store ptr %74, ptr %73, align 8, !noalias !5107
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h9e07b3352e990782E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h9e07b3352e990782E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
           to label %.noexc.i unwind label %149, !noalias !5110
 
 .noexc.i:                                         ; preds = %146
@@ -25447,7 +25447,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %94), !noalias !5105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63), !noalias !5105
   store ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", ptr %63, align 8, !noalias !5105
-  %304 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32) acquire, align 8, !noalias !5218
+  %304 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32) acquire, align 8, !noalias !5218
   %305 = icmp eq i32 %304, 4
   br i1 %305, label %313, label %306
 
@@ -25456,7 +25456,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   store ptr %63, ptr %62, align 8, !noalias !5218
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61), !noalias !5218
   store ptr %62, ptr %61, align 8, !noalias !5218
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h9e07b3352e990782E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h9e07b3352e990782E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
           to label %.noexc160.i unwind label %311, !noalias !5110
 
 .noexc160.i:                                      ; preds = %306
@@ -26162,7 +26162,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ccfb115892170c0E.exit.i.i: ; preds = %
 485:                                              ; preds = %450
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50), !noalias !5105
   store ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", ptr %50, align 8, !noalias !5105
-  %486 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32) acquire, align 8, !noalias !5377
+  %486 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32) acquire, align 8, !noalias !5377
   %487 = icmp eq i32 %486, 4
   br i1 %487, label %489, label %488
 
@@ -26171,7 +26171,7 @@ _ZN4core3ops8function6FnOnce9call_once17h3ccfb115892170c0E.exit.i.i: ; preds = %
   store ptr %50, ptr %49, align 8, !noalias !5377
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48), !noalias !5377
   store ptr %49, ptr %48, align 8, !noalias !5377
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h8f9b004a2d9683e0E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h8f9b004a2d9683e0E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
           to label %.noexc201.i unwind label %.loopexit537.i, !noalias !5110
 
 .noexc201.i:                                      ; preds = %488
@@ -26533,7 +26533,7 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %84), !noalias !5105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36), !noalias !5105
   store ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", ptr %36, align 8, !noalias !5105
-  %583 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32) acquire, align 8, !noalias !5480
+  %583 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32) acquire, align 8, !noalias !5480
   %584 = icmp eq i32 %583, 4
   br i1 %584, label %586, label %585
 
@@ -26542,7 +26542,7 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
   store ptr %36, ptr %35, align 8, !noalias !5480
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34), !noalias !5480
   store ptr %35, ptr %34, align 8, !noalias !5480
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17hbe0c8a5443451013E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17hbe0c8a5443451013E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
           to label %.noexc240.i unwind label %572, !noalias !5110
 
 .noexc240.i:                                      ; preds = %585
@@ -26622,7 +26622,7 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83), !noalias !5105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32), !noalias !5105
   store ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", ptr %32, align 8, !noalias !5105
-  %608 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32) acquire, align 8, !noalias !5498
+  %608 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32) acquire, align 8, !noalias !5498
   %609 = icmp eq i32 %608, 4
   br i1 %609, label %611, label %610
 
@@ -26631,7 +26631,7 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
   store ptr %32, ptr %31, align 8, !noalias !5498
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30), !noalias !5498
   store ptr %31, ptr %30, align 8, !noalias !5498
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17hd60ccd3ccb2ecbadE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17hd60ccd3ccb2ecbadE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
           to label %.noexc248.i unwind label %606, !noalias !5110
 
 .noexc248.i:                                      ; preds = %610
@@ -26841,7 +26841,7 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !5504
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25), !noalias !5105
   store ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", ptr %25, align 8, !noalias !5105
-  %677 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32) acquire, align 8, !noalias !5544
+  %677 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32) acquire, align 8, !noalias !5544
   %678 = icmp eq i32 %677, 4
   br i1 %678, label %680, label %679
 
@@ -26850,7 +26850,7 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h687f2686f91fe358E.ex
   store ptr %25, ptr %24, align 8, !noalias !5544
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23), !noalias !5544
   store ptr %24, ptr %23, align 8, !noalias !5544
-  invoke void @_ZN3std10sys_common4once5futex4Once4call17h871512785faed0ecE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  invoke void @_ZN3std10sys_common4once5futex4Once4call17h871512785faed0ecE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
           to label %.noexc263.i unwind label %.loopexit542.i, !noalias !5110
 
 .noexc263.i:                                      ; preds = %679
@@ -27843,7 +27843,7 @@ define void @_ZN15tree_sitter_cli4test17strip_sexp_fields17heb7512eb74b4d9a8E(pt
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", ptr %7, align 8
-  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32) acquire, align 8, !noalias !5765
+  %9 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32) acquire, align 8, !noalias !5765
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %14, label %11
 
@@ -27852,7 +27852,7 @@ define void @_ZN15tree_sitter_cli4test17strip_sexp_fields17heb7512eb74b4d9a8E(pt
   store ptr %7, ptr %6, align 8, !noalias !5765
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !5765
   store ptr %6, ptr %5, align 8, !noalias !5765
-  call void @_ZN3std10sys_common4once5futex4Once4call17h871512785faed0ecE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h871512785faed0ecE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !5765
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !5765
   br label %14
@@ -27936,7 +27936,7 @@ define void @_ZN15tree_sitter_cli4test12strip_points17h6bac315901dfca6dE(ptr noa
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", ptr %7, align 8
-  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32) acquire, align 8, !noalias !5783
+  %9 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32) acquire, align 8, !noalias !5783
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %14, label %11
 
@@ -27945,7 +27945,7 @@ define void @_ZN15tree_sitter_cli4test12strip_points17h6bac315901dfca6dE(ptr noa
   store ptr %7, ptr %6, align 8, !noalias !5783
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !5783
   store ptr %6, ptr %5, align 8, !noalias !5783
-  call void @_ZN3std10sys_common4once5futex4Once4call17hcd7171173d6daa86E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hcd7171173d6daa86E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !5783
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !5783
   br label %14
@@ -28062,7 +28062,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN94_$LT$tree_sitter_c
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32) acquire, align 8, !noalias !5805
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32) acquire, align 8, !noalias !5805
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17ha7a6b42141aab94bE.exit, label %7
 
@@ -28071,7 +28071,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN94_$LT$tree_sitter_c
   store ptr %4, ptr %3, align 8, !noalias !5805
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5805
   store ptr %3, ptr %2, align 8, !noalias !5805
-  call void @_ZN3std10sys_common4once5futex4Once4call17h209055d8f70f1103E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h209055d8f70f1103E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5805
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5805
   br label %_ZN3std4sync4once4Once9call_once17ha7a6b42141aab94bE.exit
@@ -28092,7 +28092,7 @@ define void @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$a
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32) acquire, align 8, !noalias !5808
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32) acquire, align 8, !noalias !5808
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h6f85e653e4beeacbE.exit", label %7
 
@@ -28101,7 +28101,7 @@ define void @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$a
   store ptr %4, ptr %3, align 8, !noalias !5808
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5808
   store ptr %3, ptr %2, align 8, !noalias !5808
-  call void @_ZN3std10sys_common4once5futex4Once4call17h209055d8f70f1103E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h209055d8f70f1103E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5808
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5808
   br label %"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h6f85e653e4beeacbE.exit"
@@ -28122,7 +28122,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN79_$LT$tree_sitter_c
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32) acquire, align 8, !noalias !5811
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32) acquire, align 8, !noalias !5811
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hef6f5ce167229d38E.exit, label %7
 
@@ -28131,7 +28131,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN79_$LT$tree_sitter_c
   store ptr %4, ptr %3, align 8, !noalias !5811
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5811
   store ptr %3, ptr %2, align 8, !noalias !5811
-  call void @_ZN3std10sys_common4once5futex4Once4call17h9e07b3352e990782E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h9e07b3352e990782E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5811
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5811
   br label %_ZN3std4sync4once4Once9call_once17hef6f5ce167229d38E.exit
@@ -28152,7 +28152,7 @@ define void @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$lazy_stat
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32) acquire, align 8, !noalias !5814
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32) acquire, align 8, !noalias !5814
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h84d81df67efdb244E.exit", label %7
 
@@ -28161,7 +28161,7 @@ define void @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$lazy_stat
   store ptr %4, ptr %3, align 8, !noalias !5814
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5814
   store ptr %3, ptr %2, align 8, !noalias !5814
-  call void @_ZN3std10sys_common4once5futex4Once4call17h9e07b3352e990782E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h9e07b3352e990782E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb2e2939e035f216cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5814
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5814
   br label %"_ZN79_$LT$tree_sitter_cli..test..HEADER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h84d81df67efdb244E.exit"
@@ -28182,7 +28182,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN80_$LT$tree_sitter_c
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32) acquire, align 8, !noalias !5817
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32) acquire, align 8, !noalias !5817
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h364afe4ce6c7da38E.exit, label %7
 
@@ -28191,7 +28191,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN80_$LT$tree_sitter_c
   store ptr %4, ptr %3, align 8, !noalias !5817
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5817
   store ptr %3, ptr %2, align 8, !noalias !5817
-  call void @_ZN3std10sys_common4once5futex4Once4call17h8f9b004a2d9683e0E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h8f9b004a2d9683e0E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5817
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5817
   br label %_ZN3std4sync4once4Once9call_once17h364afe4ce6c7da38E.exit
@@ -28212,7 +28212,7 @@ define void @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$lazy_sta
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32) acquire, align 8, !noalias !5820
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32) acquire, align 8, !noalias !5820
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf0537af06b92eaaeE.exit", label %7
 
@@ -28221,7 +28221,7 @@ define void @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$lazy_sta
   store ptr %4, ptr %3, align 8, !noalias !5820
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5820
   store ptr %3, ptr %2, align 8, !noalias !5820
-  call void @_ZN3std10sys_common4once5futex4Once4call17h8f9b004a2d9683e0E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h8f9b004a2d9683e0E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h175724d342dc9f4bE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5820
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5820
   br label %"_ZN80_$LT$tree_sitter_cli..test..DIVIDER_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf0537af06b92eaaeE.exit"
@@ -28242,7 +28242,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN80_$LT$tree_sitter_c
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32) acquire, align 8, !noalias !5823
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32) acquire, align 8, !noalias !5823
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h79b7db2b6db7ae87E.exit, label %7
 
@@ -28251,7 +28251,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN80_$LT$tree_sitter_c
   store ptr %4, ptr %3, align 8, !noalias !5823
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5823
   store ptr %3, ptr %2, align 8, !noalias !5823
-  call void @_ZN3std10sys_common4once5futex4Once4call17hbe0c8a5443451013E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hbe0c8a5443451013E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5823
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5823
   br label %_ZN3std4sync4once4Once9call_once17h79b7db2b6db7ae87E.exit
@@ -28272,7 +28272,7 @@ define void @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$lazy_sta
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32) acquire, align 8, !noalias !5826
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32) acquire, align 8, !noalias !5826
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h29c2be1d1370111aE.exit", label %7
 
@@ -28281,7 +28281,7 @@ define void @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$lazy_sta
   store ptr %4, ptr %3, align 8, !noalias !5826
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5826
   store ptr %3, ptr %2, align 8, !noalias !5826
-  call void @_ZN3std10sys_common4once5futex4Once4call17hbe0c8a5443451013E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hbe0c8a5443451013E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hed90e0aa1a27678cE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5826
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5826
   br label %"_ZN80_$LT$tree_sitter_cli..test..COMMENT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h29c2be1d1370111aE.exit"
@@ -28302,7 +28302,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN83_$LT$tree_sitter_c
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32) acquire, align 8, !noalias !5829
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32) acquire, align 8, !noalias !5829
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h317f63a9eef4706bE.exit, label %7
 
@@ -28311,7 +28311,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN83_$LT$tree_sitter_c
   store ptr %4, ptr %3, align 8, !noalias !5829
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5829
   store ptr %3, ptr %2, align 8, !noalias !5829
-  call void @_ZN3std10sys_common4once5futex4Once4call17hd60ccd3ccb2ecbadE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hd60ccd3ccb2ecbadE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5829
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5829
   br label %_ZN3std4sync4once4Once9call_once17h317f63a9eef4706bE.exit
@@ -28332,7 +28332,7 @@ define void @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$lazy_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32) acquire, align 8, !noalias !5832
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32) acquire, align 8, !noalias !5832
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17hde777975299a8babE.exit", label %7
 
@@ -28341,7 +28341,7 @@ define void @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$lazy_
   store ptr %4, ptr %3, align 8, !noalias !5832
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5832
   store ptr %3, ptr %2, align 8, !noalias !5832
-  call void @_ZN3std10sys_common4once5futex4Once4call17hd60ccd3ccb2ecbadE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hd60ccd3ccb2ecbadE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha7173e582d6a1277E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5832
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5832
   br label %"_ZN83_$LT$tree_sitter_cli..test..WHITESPACE_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17hde777975299a8babE.exit"
@@ -28362,7 +28362,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN83_$LT$tree_sitter_c
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32) acquire, align 8, !noalias !5835
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32) acquire, align 8, !noalias !5835
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hfeba9c7f5adfdbd2E.exit, label %7
 
@@ -28371,7 +28371,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN83_$LT$tree_sitter_c
   store ptr %4, ptr %3, align 8, !noalias !5835
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5835
   store ptr %3, ptr %2, align 8, !noalias !5835
-  call void @_ZN3std10sys_common4once5futex4Once4call17h871512785faed0ecE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h871512785faed0ecE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5835
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5835
   br label %_ZN3std4sync4once4Once9call_once17hfeba9c7f5adfdbd2E.exit
@@ -28392,7 +28392,7 @@ define void @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$lazy_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32) acquire, align 8, !noalias !5838
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32) acquire, align 8, !noalias !5838
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h4c79098e28a5af9aE.exit", label %7
 
@@ -28401,7 +28401,7 @@ define void @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$lazy_
   store ptr %4, ptr %3, align 8, !noalias !5838
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5838
   store ptr %3, ptr %2, align 8, !noalias !5838
-  call void @_ZN3std10sys_common4once5futex4Once4call17h871512785faed0ecE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h871512785faed0ecE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h52b5783e5666e0d9E", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5838
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5838
   br label %"_ZN83_$LT$tree_sitter_cli..test..SEXP_FIELD_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h4c79098e28a5af9aE.exit"
@@ -28422,7 +28422,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN78_$LT$tree_sitter_c
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32) acquire, align 8, !noalias !5841
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32) acquire, align 8, !noalias !5841
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hae8d445f281340e9E.exit, label %7
 
@@ -28431,7 +28431,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN78_$LT$tree_sitter_c
   store ptr %4, ptr %3, align 8, !noalias !5841
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5841
   store ptr %3, ptr %2, align 8, !noalias !5841
-  call void @_ZN3std10sys_common4once5futex4Once4call17hcd7171173d6daa86E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hcd7171173d6daa86E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5841
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5841
   br label %_ZN3std4sync4once4Once9call_once17hae8d445f281340e9E.exit
@@ -28452,7 +28452,7 @@ define void @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$lazy_stati
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32) acquire, align 8, !noalias !5844
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32) acquire, align 8, !noalias !5844
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0bc42b1d123cdffbE.exit", label %7
 
@@ -28461,7 +28461,7 @@ define void @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$lazy_stati
   store ptr %4, ptr %3, align 8, !noalias !5844
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !5844
   store ptr %3, ptr %2, align 8, !noalias !5844
-  call void @_ZN3std10sys_common4once5futex4Once4call17hcd7171173d6daa86E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hcd7171173d6daa86E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17ha068fe9da92f939dE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0af3f26833e13fc8eded44d8b0371b09.342)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !5844
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !5844
   br label %"_ZN78_$LT$tree_sitter_cli..test..POINT_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0bc42b1d123cdffbE.exit"

@@ -8,12 +8,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @VP8FiltersInitSSE2() local_unnamed_addr #0 {
-  store ptr @HorizontalUnfilter_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUnfilters, i64 8), align 8
-  store ptr @VerticalUnfilter_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUnfilters, i64 16), align 16
-  store ptr @GradientUnfilter_SSE2, ptr getelementptr inbounds (i8, ptr @WebPUnfilters, i64 24), align 8
-  store ptr @HorizontalFilter_SSE2, ptr getelementptr inbounds (i8, ptr @WebPFilters, i64 8), align 8
-  store ptr @VerticalFilter_SSE2, ptr getelementptr inbounds (i8, ptr @WebPFilters, i64 16), align 16
-  store ptr @GradientFilter_SSE2, ptr getelementptr inbounds (i8, ptr @WebPFilters, i64 24), align 8
+  store ptr @HorizontalUnfilter_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUnfilters, i64 8), align 8
+  store ptr @VerticalUnfilter_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUnfilters, i64 16), align 16
+  store ptr @GradientUnfilter_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPUnfilters, i64 24), align 8
+  store ptr @HorizontalFilter_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPFilters, i64 8), align 8
+  store ptr @VerticalFilter_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPFilters, i64 16), align 16
+  store ptr @GradientFilter_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPFilters, i64 24), align 8
   ret void
 }
 

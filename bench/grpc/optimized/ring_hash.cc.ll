@@ -715,7 +715,7 @@ invoke.cont4:                                     ; preds = %init.check
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_14RingHashConfigELm2EvEE, i64 16), ptr %call.i1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_14RingHashConfigELm2EvEE, i64 16), ptr %call.i1, align 8
   %elements_.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderImEEE6value_E, ptr %elements_.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
@@ -879,7 +879,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %lb_policy_registry_.i = getelementptr inbounds nuw i8, ptr %builder, i64 760
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26, !noalias !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115RingHashFactoryE, i64 16), ptr %call.i, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115RingHashFactoryE, i64 16), ptr %call.i, align 8, !noalias !8
   store ptr %call.i, ptr %agg.tmp, align 8
   invoke void @_ZN9grpc_core27LoadBalancingPolicyRegistry7Builder34RegisterLoadBalancingPolicyFactoryESt10unique_ptrINS_26LoadBalancingPolicyFactoryESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %lb_policy_registry_.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -928,7 +928,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -944,7 +944,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderImEEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderImEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderImEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderImEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderImEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -960,7 +960,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_14RingHashConfigEEEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_14RingHashConfigEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_14RingHashConfigEEEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail10AutoLoaderINS_14RingHashConfigEEE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_14RingHashConfigEEEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -1077,7 +1077,7 @@ invoke.cont4.i:                                   ; preds = %init.check.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont4.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_14RingHashConfigELm2EvEE, i64 16), ptr %call.i1.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_14RingHashConfigELm2EvEE, i64 16), ptr %call.i1.i, align 8
   %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderImEEE6value_E, ptr %elements_.i.i.i, align 8
   %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
@@ -1257,7 +1257,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i
 
 _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14default_deleteIS2_EED2Ev.exit.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHashE, i64 16), ptr %call.i, align 8, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHashE, i64 16), ptr %call.i, align 8, !noalias !11
   %endpoints_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %endpoints_.i.i, i8 0, i64 24, i1 false), !noalias !11
   %args_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
@@ -1451,7 +1451,7 @@ define internal void @_ZNK9grpc_core12_GLOBAL__N_115RingHashFactory24ParseLoadBa
 entry:
   %config = alloca %"class.absl::lts_20230802::StatusOr.367", align 8
   %ref.tmp = alloca %"class.grpc_core::JsonArgs", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8JsonArgsE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core8JsonArgsE, i64 16), ptr %ref.tmp, align 8
   call void @_ZN9grpc_core12LoadFromJsonINS_14RingHashConfigEEEN4absl12lts_202308028StatusOrIT_EERKNS_12experimental4JsonERKNS_8JsonArgsESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.367") align 8 %config, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i64 44, ptr nonnull @.str.49)
   %0 = load i64, ptr %config, align 8
   %cmp.i.i = icmp eq i64 %0, 0
@@ -1481,7 +1481,7 @@ invoke.cont10:                                    ; preds = %entry
 cleanup.thread:                                   ; preds = %invoke.cont10
   %refs_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i8, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116RingHashLbConfigE, i64 16), ptr %call.i8, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116RingHashLbConfigE, i64 16), ptr %call.i8, align 8, !noalias !14
   %min_ring_size_.i.i = getelementptr inbounds nuw i8, ptr %call.i8, i64 16
   store i64 %call9.val, ptr %min_ring_size_.i.i, align 8, !noalias !14
   %max_ring_size_.i.i = getelementptr inbounds nuw i8, ptr %call.i8, i64 24
@@ -1700,7 +1700,7 @@ declare void @_ZN9grpc_core19LoadBalancingPolicy6OrphanEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_18RingHashD2Ev(ptr noundef nonnull align 8 dereferenceable(153) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHashE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHashE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core23grpc_lb_ring_hash_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
@@ -2002,7 +2002,7 @@ if.end24:                                         ; preds = %invoke.cont8, %if.e
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp103.i.i), !noalias !19
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash4RingE, i64 16), ptr %call.i, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash4RingE, i64 16), ptr %call.i, align 8, !noalias !19
   %ring_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ring_.i.i, i8 0, i64 24, i1 false), !noalias !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %endpoint_weights.i.i, i8 0, i64 24, i1 false), !noalias !19
@@ -3098,7 +3098,7 @@ invoke.cont60:                                    ; preds = %invoke.cont40, %_ZN
 invoke.cont62:                                    ; preds = %invoke.cont60
   %refs_.i.i.i39 = getelementptr inbounds nuw i8, ptr %call.i3840, i64 8
   store i64 1, ptr %refs_.i.i.i39, align 8, !noalias !46
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpointE, i64 16), ptr %call.i3840, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpointE, i64 16), ptr %call.i3840, align 8, !noalias !46
   %ring_hash_.i.i = getelementptr inbounds nuw i8, ptr %call.i3840, i64 16
   store ptr %this, ptr %ring_hash_.i.i, align 8, !noalias !46
   %index_.i.i = getelementptr inbounds nuw i8, ptr %call.i3840, i64 24
@@ -3698,7 +3698,7 @@ call.i.noexc:                                     ; preds = %cond.true
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.23, i64 2))
           to label %cleanup.action unwind label %lpad.body.thread
 
 lpad.body.thread:                                 ; preds = %.noexc
@@ -4179,7 +4179,7 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
           to label %.noexc unwind label %lpad1
 
 .noexc:                                           ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i64 16), ptr %call, align 8
   %status_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %0, ptr %status_.i, align 8
   br i1 %cmp.i.i.i, label %invoke.cont2.thread, label %if.then.i.i4
@@ -4598,7 +4598,7 @@ call.i59.noexc:                                   ; preds = %if.end63
           to label %.noexc.i unwind label %if.then.i5.i, !noalias !67
 
 .noexc.i:                                         ; preds = %call.i59.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash6PickerE, i64 16), ptr %call.i5960, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash6PickerE, i64 16), ptr %call.i5960, align 8, !noalias !67
   %ring_hash_.i.i = getelementptr inbounds nuw i8, ptr %call.i5960, i64 16
   store ptr %this, ptr %ring_hash_.i.i, align 8, !noalias !67
   %ring_.i.i = getelementptr inbounds nuw i8, ptr %call.i5960, i64 24
@@ -6471,7 +6471,7 @@ _ZNSt12_Vector_baseIZN9grpc_core12_GLOBAL__N_18RingHash4RingC1EPS2_PNS1_16RingHa
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_18RingHash4RingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash4RingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash4RingE, i64 16), ptr %this, align 8
   %ring_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %ring_.val = load ptr, ptr %ring_, align 8
   %tobool.not.i.i.i = icmp eq ptr %ring_.val, null
@@ -6488,7 +6488,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESaIS4_EED2Ev.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_18RingHash4RingD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash4RingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash4RingE, i64 16), ptr %this, align 8
   %ring_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %ring_.val.i = load ptr, ptr %ring_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %ring_.val.i, null
@@ -7885,14 +7885,14 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %invoke.cont77
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !126
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i49, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !126
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core22SingleEndpointIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i49, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core22SingleEndpointIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i49, align 8, !noalias !126
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i49, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !126
   invoke void @_ZN9grpc_core17EndpointAddressesC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
           to label %.noexc.i.i.i.i48 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core22SingleEndpointIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !126
 
 .noexc.i.i.i.i48:                                 ; preds = %call5.i.i.i3.i.i.i.i.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22SingleEndpointIteratorE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22SingleEndpointIteratorE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !126
   %endpoint_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i49, i64 24
   call void @_ZN9grpc_core17EndpointAddressesC1EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %endpoint_.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i.i) #25, !noalias !126
   %args_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i, i64 24
@@ -10472,7 +10472,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22SingleEndpointIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22SingleEndpointIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22SingleEndpointIteratorE, i64 16), ptr %this, align 8
   %endpoint_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %args_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_.i) #25
@@ -10491,7 +10491,7 @@ _ZN9grpc_core17EndpointAddressesD2Ev.exit:        ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core22SingleEndpointIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22SingleEndpointIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core22SingleEndpointIteratorE, i64 16), ptr %this, align 8
   %endpoint_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %args_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args_.i.i) #25
@@ -10776,7 +10776,7 @@ _ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_18RingHash16RingHashEndpoint
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpointD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpointE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpointE, i64 16), ptr %this, align 8
   %picker_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %picker_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -10896,7 +10896,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core19LoadBalancingPolicy22TransientFailurePickerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %status_, align 8
   %and.i.i.i = and i64 %0, 1
@@ -10921,7 +10921,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core19LoadBalancingPolicy22TransientFailurePickerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core19LoadBalancingPolicy22TransientFailurePickerE, i64 16), ptr %this, align 8
   %status_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %status_.i, align 8
   %and.i.i.i.i = and i64 %0, 1
@@ -11204,7 +11204,7 @@ invoke.cont16.i:                                  ; preds = %invoke.cont.i
           to label %invoke.cont18.i unwind label %if.then.i79.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont16.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint6HelperE, i64 16), ptr %call.i19.i, align 8, !noalias !139
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint6HelperE, i64 16), ptr %call.i19.i, align 8, !noalias !139
   %endpoint_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i19.i, i64 8
   store ptr %this, ptr %endpoint_.i.i.i, align 8, !noalias !139
   %21 = load ptr, ptr %channel_control_helper.i.i, align 8
@@ -11758,7 +11758,7 @@ _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint12Endpoi
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_18RingHash6PickerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash6PickerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash6PickerE, i64 16), ptr %this, align 8
   %endpoints_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call fastcc void @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint12EndpointInfoESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %endpoints_) #25
   %ring_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -11805,7 +11805,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHashEED2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_18RingHash6PickerD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash6PickerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash6PickerE, i64 16), ptr %this, align 8
   %endpoints_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call fastcc void @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint12EndpointInfoESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %endpoints_.i) #25
   %ring_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -12576,7 +12576,7 @@ declare void @_Z32grpc_pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint6HelperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint6HelperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint6HelperE, i64 16), ptr %this, align 8
   %endpoint_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %endpoint_, align 8
   store ptr null, ptr %endpoint_, align 8
@@ -12621,7 +12621,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_18RingHash16RingHashEndpointEED2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint6HelperD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint6HelperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_18RingHash16RingHashEndpoint6HelperE, i64 16), ptr %this, align 8
   %endpoint_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %endpoint_.i, align 8
   store ptr null, ptr %endpoint_.i, align 8

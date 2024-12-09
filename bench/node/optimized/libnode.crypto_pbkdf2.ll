@@ -168,7 +168,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6crypto12PBKDF2ConfigC2EOS1_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(80) %other) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto12PBKDF2ConfigE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto12PBKDF2ConfigE, i64 16), ptr %this, align 8
   %mode = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mode2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i32, ptr %mode2, align 8
@@ -208,7 +208,7 @@ if.end:                                           ; preds = %entry
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %salt.i) #18
   %pass.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %pass.i) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto12PBKDF2ConfigE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto12PBKDF2ConfigE, i64 16), ptr %this, align 8
   %mode.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mode2.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i32, ptr %mode2.i, align 8
@@ -264,7 +264,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -346,7 +346,7 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %if.then, %_
 if.then.i5:                                       ; preds = %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i3)
   %call.i.i6 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i6, align 8
   %retainer_.i.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i6, i64 8
   %is_root_node_.i.i.i8 = getelementptr inbounds nuw i8, ptr %call.i.i6, i64 24
   %size_.i.i.i9 = getelementptr inbounds nuw i8, ptr %call.i.i6, i64 40

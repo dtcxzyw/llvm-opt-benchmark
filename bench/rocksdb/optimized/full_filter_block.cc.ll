@@ -111,7 +111,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define void @_ZN7rocksdb22FullFilterBlockBuilderC2EPKNS_14SliceTransformEbPNS_17FilterBitsBuilderE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 26)) %this, ptr noundef %_prefix_extractor, i1 noundef zeroext %whole_key_filtering, ptr noundef %filter_bits_builder) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %whole_key_filtering to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i64 16), ptr %this, align 8
   %filter_bits_builder_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %filter_bits_builder_, align 8
   %prefix_extractor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -393,7 +393,7 @@ return:                                           ; preds = %_ZN7rocksdb6StatusD
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb21FullFilterBlockReaderC2EPKNS_15BlockBasedTableEONS_13CachableEntryINS_21ParsedFullFilterBlockEEE(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 41), (48, 57)) %this, ptr noundef %t, ptr nocapture noundef nonnull align 8 dereferenceable(25) %filter_block) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i64 16), ptr %this, align 8
   %table_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %t, ptr %table_.i, align 8
   %filter_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -443,7 +443,7 @@ lpad.i:                                           ; preds = %if.then.i, %entry
   resume { ptr, i32 } %5
 
 _ZN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEC2EPKNS_15BlockBasedTableEONS_13CachableEntryIS1_EE.exit: ; preds = %invoke.cont.i, %invoke.cont3.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21FullFilterBlockReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21FullFilterBlockReaderE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -1525,7 +1525,7 @@ declare i64 @malloc_usable_size(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb22FullFilterBlockBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i64 16), ptr %this, align 8
   %filter_data_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %filter_data_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1561,7 +1561,7 @@ _ZNSt10unique_ptrIN7rocksdb17FilterBitsBuilderESt14default_deleteIS1_EED2Ev.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb22FullFilterBlockBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i64 16), ptr %this, align 8
   %filter_data_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %filter_data_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1653,7 +1653,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21FullFilterBlockReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i64 16), ptr %this, align 8
   %filter_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cache_handle_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %cache_handle_.i.i.i, align 8
@@ -1699,7 +1699,7 @@ _ZN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEED2Ev.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21FullFilterBlockReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i64 16), ptr %this, align 8
   %filter_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cache_handle_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %cache_handle_.i.i.i.i, align 8
@@ -1756,7 +1756,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 20))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 20))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1826,7 +1826,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i64 16), ptr %this, align 8
   %filter_block_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cache_handle_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %cache_handle_.i.i, align 8

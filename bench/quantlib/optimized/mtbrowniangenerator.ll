@@ -114,7 +114,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib19MTBrownianGeneratorEEE = comd
 define void @_ZN8QuantLib19MTBrownianGeneratorC2Emmm(ptr noundef nonnull align 8 dereferenceable(5112) initializes((0, 32)) %this, i64 noundef %factors, i64 noundef %steps, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::MersenneTwisterUniformRng", align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib19MTBrownianGeneratorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib19MTBrownianGeneratorE, i64 16), ptr %this, align 8, !tbaa !3
   %factors_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %factors, ptr %factors_, align 8, !tbaa !6
   %steps_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -606,7 +606,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8QuantLib26MTBrownianGeneratorFactoryC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %seed) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26MTBrownianGeneratorFactoryE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26MTBrownianGeneratorFactoryE, i64 16), ptr %this, align 8, !tbaa !3
   %seed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %seed, ptr %seed_, align 8, !tbaa !51
   ret void
@@ -669,7 +669,7 @@ _ZN5boost10shared_ptrIN8QuantLib17BrownianGeneratorEEC2INS1_19MTBrownianGenerato
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !58
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !61
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib19MTBrownianGeneratorEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib19MTBrownianGeneratorEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !3
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !62
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !57
@@ -691,7 +691,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib19MTBrownianGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(5112) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib19MTBrownianGeneratorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib19MTBrownianGeneratorE, i64 16), ptr %this, align 8, !tbaa !3
   %int32Sequence_.i = getelementptr inbounds nuw i8, ptr %this, i64 5072
   %0 = load ptr, ptr %int32Sequence_.i, align 8, !tbaa !38
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -728,7 +728,7 @@ _ZN8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEED2Ev.exit:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib19MTBrownianGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(5112) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib19MTBrownianGeneratorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib19MTBrownianGeneratorE, i64 16), ptr %this, align 8, !tbaa !3
   %int32Sequence_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 5072
   %0 = load ptr, ptr %int32Sequence_.i.i, align 8, !tbaa !38
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -843,7 +843,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !57
   %cmp.not.i.i = icmp eq ptr %0, null

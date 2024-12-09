@@ -2130,7 +2130,7 @@ if.end104.i:                                      ; preds = %do.end.i
 if.then107.i:                                     ; preds = %if.end104.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i)
   store ptr %call95.i, ptr %self.addr.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 48816), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #5
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 48816), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i.i)
   %cmp109.i = icmp eq ptr %call.i.i, null
   br i1 %cmp109.i, label %if.then193.i, label %if.end112.i
@@ -2166,7 +2166,7 @@ if.end118.i:                                      ; preds = %if.end104.i
 
 if.then127.i:                                     ; preds = %if.end118.i, %if.end118.thread.i
   %or.cond5301.i = phi i1 [ %or.cond5298.i, %if.end118.thread.i ], [ true, %if.end118.i ]
-  %call128.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call95.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35712)) #5
+  %call128.i = call ptr @PyObject_GetAttr(ptr noundef nonnull %call95.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35712)) #5
   %cmp129.i = icmp eq ptr %call128.i, null
   br i1 %cmp129.i, label %if.then193.i, label %if.end132.i
 
@@ -2312,7 +2312,7 @@ if.then1.i212.i:                                  ; preds = %if.end.i209.i
   br label %Py_DECREF.exit214.i
 
 Py_DECREF.exit214.i:                              ; preds = %if.then1.i212.i, %if.end.i209.i, %if.end185.i
-  %call186.i = call i32 @PyObject_SetAttr(ptr noundef nonnull %call181.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 51792), ptr noundef nonnull %call100.i) #5
+  %call186.i = call i32 @PyObject_SetAttr(ptr noundef nonnull %call181.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 51792), ptr noundef nonnull %call100.i) #5
   %cmp187.i = icmp slt i32 %call186.i, 0
   br i1 %cmp187.i, label %if.then193.i, label %if.end190.i
 
@@ -2333,7 +2333,7 @@ if.then193.i:                                     ; preds = %Py_DECREF.exit214.i
   %call194.i = call ptr @PyErr_GetRaisedException() #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i109.i)
   store ptr %result.0.ph.i, ptr %self.addr.i109.i, align 8
-  %call.i110.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %self.addr.i109.i, i64 noundef -9223372036854775807, ptr noundef null) #5
+  %call.i110.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %self.addr.i109.i, i64 noundef -9223372036854775807, ptr noundef null) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i109.i)
   call void @_PyErr_ChainExceptions1(ptr noundef %call194.i) #5
   %cmp.not.i.i = icmp eq ptr %call.i110.i, null
@@ -2470,9 +2470,9 @@ if.then3.i:                                       ; preds = %if.then.i
   br i1 %tobool5.not.i, label %if.end7.i, label %exit
 
 if.end7.i:                                        ; preds = %if.then3.i, %if.then.i
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3564), align 4
   %tobool8.not.i = icmp eq i32 %8, 0
-  %..i = select i1 %tobool8.not.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 50800), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25696)
+  %..i = select i1 %tobool8.not.i, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50800), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25696)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end7.i, %skip_optional

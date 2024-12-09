@@ -519,7 +519,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIcEENS0_20bas
           to label %.noexc unwind label %112
 
 .noexc:                                           ; preds = %._crit_edge
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %10, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %10, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   invoke void @_ZN5boost10shared_ptrISiE5resetISiNS_15program_options6detail12null_deleterEEEvPT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -568,7 +568,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIcEENS0_20bas
           to label %40 unwind label %46
 
 40:                                               ; preds = %39
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %6, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %6, align 8, !tbaa !26
   invoke void @_ZN5boost15throw_exceptionINS_15program_options5errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
           to label %41 unwind label %48
 
@@ -681,7 +681,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 216
   store i64 0, ptr %91, align 8, !tbaa !31
   store i8 0, ptr %90, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %11, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %11, align 8, !tbaa !26
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   store i8 1, ptr %73, align 8, !tbaa !46
@@ -859,7 +859,7 @@ define linkonce_odr hidden ptr @_ZSt4copyIN5boost15program_options6detail26basic
   %6 = alloca %"class.boost::program_options::detail::basic_config_file_iterator", align 8
   %7 = alloca %"class.boost::program_options::detail::basic_config_file_iterator", align 8
   call void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %5, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load ptr, ptr %9, align 8, !tbaa !53
@@ -882,7 +882,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit: ;
           to label %17 unwind label %38
 
 17:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %4, align 8, !tbaa !26, !alias.scope !56
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %4, align 8, !tbaa !26, !alias.scope !56
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %19 = load ptr, ptr %8, align 8, !tbaa !53, !noalias !56
   store ptr %19, ptr %18, align 8, !tbaa !53, !alias.scope !56
@@ -894,7 +894,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit: ;
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %7, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %7, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %24 = load ptr, ptr %23, align 8, !tbaa !53
@@ -917,7 +917,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit10:
           to label %31 unwind label %42
 
 31:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %6, align 8, !tbaa !26, !alias.scope !59
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %6, align 8, !tbaa !26, !alias.scope !59
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %33 = load ptr, ptr %22, align 8, !tbaa !53, !noalias !59
   store ptr %33, ptr %32, align 8, !tbaa !53, !alias.scope !59
@@ -974,7 +974,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit10:
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost15program_options6detail26basic_config_file_iteratorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %3, null
@@ -1014,7 +1014,7 @@ define linkonce_odr hidden void @_ZN5boost15program_options6detail26basic_config
   unreachable
 
 _ZN5boost10shared_ptrISiED2Ev.exit:               ; preds = %1, %4, %.noexc.i.i, %15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1164,7 +1164,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIwEENS0_20bas
           to label %.noexc unwind label %111
 
 .noexc:                                           ; preds = %._crit_edge
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %10, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %10, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   invoke void @_ZN5boost10shared_ptrISt13basic_istreamIwSt11char_traitsIwEEE5resetIS4_NS_15program_options6detail12null_deleterEEEvPT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -1213,7 +1213,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIwEENS0_20bas
           to label %40 unwind label %46
 
 40:                                               ; preds = %39
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %6, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %6, align 8, !tbaa !26
   invoke void @_ZN5boost15throw_exceptionINS_15program_options5errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
           to label %41 unwind label %48
 
@@ -1326,7 +1326,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 216
   store i64 0, ptr %91, align 8, !tbaa !31
   store i8 0, ptr %90, align 8, !tbaa !35
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %11, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %11, align 8, !tbaa !26
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   store i8 1, ptr %73, align 8, !tbaa !46
@@ -1420,7 +1420,7 @@ define linkonce_odr hidden ptr @_ZSt4copyIN5boost15program_options6detail26basic
   %6 = alloca %"class.boost::program_options::detail::basic_config_file_iterator.36", align 8
   %7 = alloca %"class.boost::program_options::detail::basic_config_file_iterator.36", align 8
   call void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %5, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load ptr, ptr %9, align 8, !tbaa !63
@@ -1443,7 +1443,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit: ;
           to label %17 unwind label %38
 
 17:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %4, align 8, !tbaa !26, !alias.scope !65
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %4, align 8, !tbaa !26, !alias.scope !65
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %19 = load ptr, ptr %8, align 8, !tbaa !63, !noalias !65
   store ptr %19, ptr %18, align 8, !tbaa !63, !alias.scope !65
@@ -1455,7 +1455,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit: ;
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %7, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %7, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %24 = load ptr, ptr %23, align 8, !tbaa !63
@@ -1478,7 +1478,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit10:
           to label %31 unwind label %42
 
 31:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %6, align 8, !tbaa !26, !alias.scope !68
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %6, align 8, !tbaa !26, !alias.scope !68
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %33 = load ptr, ptr %22, align 8, !tbaa !63, !noalias !68
   store ptr %33, ptr %32, align 8, !tbaa !63, !alias.scope !68
@@ -1535,7 +1535,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit10:
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost15program_options6detail26basic_config_file_iteratorIwED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %3, null
@@ -1575,7 +1575,7 @@ define linkonce_odr hidden void @_ZN5boost15program_options6detail26basic_config
   unreachable
 
 _ZN5boost10shared_ptrISt13basic_istreamIwSt11char_traitsIwEEED2Ev.exit: ; preds = %1, %4, %.noexc.i.i, %15
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1807,7 +1807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit10: ; preds
           to label %18 unwind label %25
 
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %0, align 8, !tbaa !26
   %19 = load ptr, ptr %3, align 8, !tbaa !34
   %20 = icmp eq ptr %19, %4
   br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1826,7 +1826,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options12reading_fileE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options12reading_fileE, i64 16), ptr %0, align 8, !tbaa !26
   ret void
 
 25:                                               ; preds = %.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -3050,7 +3050,7 @@ define linkonce_odr hidden void @_ZNK5boost10function_nINSt7__cxx1112basic_strin
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.9)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost17bad_function_callE, i64 16), ptr %4, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost17bad_function_callE, i64 16), ptr %4, align 8, !tbaa !26
   invoke void @_ZN5boost15throw_exceptionINS_17bad_function_callEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
           to label %8 unwind label %9
 
@@ -4073,7 +4073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost15program_options6detail27common_config_file_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(241) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -4129,7 +4129,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost15program_options6detail27common_config_file_iteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(241) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -6066,7 +6066,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options5errorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6076,9 +6076,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options5erro
   store i32 -1, ptr %6, align 8, !tbaa !190
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 -1, ptr %7, align 4, !tbaa !193
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 16), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 64), ptr %3, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 104), ptr %4, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 64), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 104), ptr %4, align 8, !tbaa !26
   ret void
 }
 
@@ -6087,7 +6087,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options5errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i = icmp eq ptr %4, null
@@ -6126,13 +6126,13 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_15program_options5errorEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !194
@@ -6158,9 +6158,9 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_15program_opti
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 16), ptr %2, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 64), ptr %3, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 104), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 64), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 104), ptr %5, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %5, ptr noundef nonnull %17)
           to label %_ZN5boost10wrapexceptINS_15program_options5errorEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_15program_options5errorEE7deleterD2Ev.exit7
@@ -6202,7 +6202,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_15program_options5err
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options5errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -6239,7 +6239,7 @@ _ZN5boost10wrapexceptINS_15program_options5errorEED2Ev.exit: ; preds = %1, %.noe
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_15program_options5errorEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -6274,7 +6274,7 @@ _ZN5boost10wrapexceptINS_15program_options5errorEED2Ev.exit: ; preds = %1, %.noe
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_15program_options5errorEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -6310,7 +6310,7 @@ _ZN5boost10wrapexceptINS_15program_options5errorEED0Ev.exit: ; preds = %1, %.noe
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_15program_options5errorEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -6345,7 +6345,7 @@ _ZN5boost10wrapexceptINS_15program_options5errorEED2Ev.exit: ; preds = %1, %.noe
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_15program_options5errorEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !194
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -6401,13 +6401,13 @@ declare void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options5errorEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options5errorE, i64 16), ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !194
@@ -6426,9 +6426,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options5erro
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 16), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 64), ptr %3, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 104), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 64), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options5errorEEE, i64 104), ptr %5, align 8, !tbaa !26
   ret void
 
 16:                                               ; preds = %9
@@ -6899,7 +6899,7 @@ _ZN5boost10shared_ptrISiEC2ISiNS_15program_options6detail12null_deleterEEEPT_T0_
   store i32 1, ptr %14, align 8, !tbaa !198
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %15, align 4, !tbaa !200
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSiNS_15program_options6detail12null_deleterEEE, i64 16), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSiNS_15program_options6detail12null_deleterEEE, i64 16), ptr %3, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %16, align 8, !tbaa !201
   store ptr %1, ptr %0, align 8, !tbaa !101
@@ -7019,7 +7019,7 @@ define linkonce_odr hidden ptr @_ZSt13__copy_move_aILb0EN5boost15program_options
   %6 = alloca %"class.boost::program_options::detail::basic_config_file_iterator", align 8
   %7 = alloca %"class.boost::program_options::detail::basic_config_file_iterator", align 8
   call void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %5, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load ptr, ptr %9, align 8, !tbaa !53
@@ -7042,7 +7042,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit: ;
           to label %17 unwind label %38
 
 17:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %4, align 8, !tbaa !26, !alias.scope !206
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %4, align 8, !tbaa !26, !alias.scope !206
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %19 = load ptr, ptr %8, align 8, !tbaa !53, !noalias !206
   store ptr %19, ptr %18, align 8, !tbaa !53, !alias.scope !206
@@ -7054,7 +7054,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit: ;
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %7, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %7, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %24 = load ptr, ptr %23, align 8, !tbaa !53
@@ -7077,7 +7077,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit11:
           to label %31 unwind label %42
 
 31:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit11
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %6, align 8, !tbaa !26, !alias.scope !209
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %6, align 8, !tbaa !26, !alias.scope !209
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %33 = load ptr, ptr %22, align 8, !tbaa !53, !noalias !209
   store ptr %33, ptr %32, align 8, !tbaa !53, !alias.scope !209
@@ -7137,7 +7137,7 @@ define linkonce_odr hidden ptr @_ZSt14__copy_move_a1ILb0EN5boost15program_option
   %4 = alloca %"class.boost::program_options::detail::basic_config_file_iterator", align 8
   %5 = alloca %"class.boost::program_options::detail::basic_config_file_iterator", align 8
   call void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %4, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !53
@@ -7159,7 +7159,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit: ;
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %5, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %17 = load ptr, ptr %16, align 8, !tbaa !53
@@ -7207,7 +7207,7 @@ define linkonce_odr hidden ptr @_ZSt14__copy_move_a2ILb0EN5boost15program_option
   %4 = alloca %"class.boost::program_options::detail::basic_config_file_iterator", align 8
   %5 = alloca %"class.boost::program_options::detail::basic_config_file_iterator", align 8
   call void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %4, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !53
@@ -7229,7 +7229,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit: ;
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %5, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %17 = load ptr, ptr %16, align 8, !tbaa !53
@@ -7322,7 +7322,7 @@ define linkonce_odr hidden void @_ZN5boost15program_options6detail27common_confi
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN5boost15program_options12basic_optionIcEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(90) %9, ptr noundef nonnull align 8 dereferenceable(90) %10)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail27common_config_file_iteratorE, i64 16), ptr %0, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %12, align 8, !tbaa !3
@@ -7656,7 +7656,7 @@ _ZN5boost10shared_ptrISt13basic_istreamIwSt11char_traitsIwEEEC2IS4_NS_15program_
   store i32 1, ptr %15, align 8, !tbaa !198
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %16, align 4, !tbaa !200
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSt13basic_istreamIwSt11char_traitsIwEENS_15program_options6detail12null_deleterEEE, i64 16), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPSt13basic_istreamIwSt11char_traitsIwEENS_15program_options6detail12null_deleterEEE, i64 16), ptr %3, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %17, align 8, !tbaa !227
   store ptr %1, ptr %0, align 8, !tbaa !101
@@ -7767,7 +7767,7 @@ define linkonce_odr hidden ptr @_ZSt13__copy_move_aILb0EN5boost15program_options
   %6 = alloca %"class.boost::program_options::detail::basic_config_file_iterator.36", align 8
   %7 = alloca %"class.boost::program_options::detail::basic_config_file_iterator.36", align 8
   call void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %5, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load ptr, ptr %9, align 8, !tbaa !63
@@ -7790,7 +7790,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit: ;
           to label %17 unwind label %38
 
 17:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %4, align 8, !tbaa !26, !alias.scope !229
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %4, align 8, !tbaa !26, !alias.scope !229
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %19 = load ptr, ptr %8, align 8, !tbaa !63, !noalias !229
   store ptr %19, ptr %18, align 8, !tbaa !63, !alias.scope !229
@@ -7802,7 +7802,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit: ;
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %7, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %7, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %24 = load ptr, ptr %23, align 8, !tbaa !63
@@ -7825,7 +7825,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit11:
           to label %31 unwind label %42
 
 31:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit11
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %6, align 8, !tbaa !26, !alias.scope !232
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %6, align 8, !tbaa !26, !alias.scope !232
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %33 = load ptr, ptr %22, align 8, !tbaa !63, !noalias !232
   store ptr %33, ptr %32, align 8, !tbaa !63, !alias.scope !232
@@ -7885,7 +7885,7 @@ define linkonce_odr hidden ptr @_ZSt14__copy_move_a1ILb0EN5boost15program_option
   %4 = alloca %"class.boost::program_options::detail::basic_config_file_iterator.36", align 8
   %5 = alloca %"class.boost::program_options::detail::basic_config_file_iterator.36", align 8
   call void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %4, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !63
@@ -7907,7 +7907,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit: ;
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %5, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %17 = load ptr, ptr %16, align 8, !tbaa !63
@@ -7955,7 +7955,7 @@ define linkonce_odr hidden ptr @_ZSt14__copy_move_a2ILb0EN5boost15program_option
   %4 = alloca %"class.boost::program_options::detail::basic_config_file_iterator.36", align 8
   %5 = alloca %"class.boost::program_options::detail::basic_config_file_iterator.36", align 8
   call void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %4, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !63
@@ -7977,7 +7977,7 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit: ;
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %5, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %17 = load ptr, ptr %16, align 8, !tbaa !63
@@ -8060,7 +8060,7 @@ _ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_o
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options12reading_fileEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8070,16 +8070,16 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options12rea
   store i32 -1, ptr %6, align 8, !tbaa !190
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 -1, ptr %7, align 4, !tbaa !193
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 16), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 64), ptr %3, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 104), ptr %4, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 64), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 104), ptr %4, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options12reading_fileEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i = icmp eq ptr %4, null
@@ -8115,13 +8115,13 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_15program_options12reading_fileEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options12reading_fileE, i64 16), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options12reading_fileE, i64 16), ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !194
@@ -8147,9 +8147,9 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_15program_opti
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 16), ptr %2, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 64), ptr %3, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 104), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 64), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 104), ptr %5, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %5, ptr noundef nonnull %17)
           to label %_ZN5boost10wrapexceptINS_15program_options12reading_fileEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_15program_options12reading_fileEE7deleterD2Ev.exit7
@@ -8191,7 +8191,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_15program_options12re
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options12reading_fileEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -8228,7 +8228,7 @@ _ZN5boost10wrapexceptINS_15program_options12reading_fileEED2Ev.exit: ; preds = %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_15program_options12reading_fileEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -8263,7 +8263,7 @@ _ZN5boost10wrapexceptINS_15program_options12reading_fileEED2Ev.exit: ; preds = %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_15program_options12reading_fileEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -8299,7 +8299,7 @@ _ZN5boost10wrapexceptINS_15program_options12reading_fileEED0Ev.exit: ; preds = %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_15program_options12reading_fileEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -8334,7 +8334,7 @@ _ZN5boost10wrapexceptINS_15program_options12reading_fileEED2Ev.exit: ; preds = %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_15program_options12reading_fileEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !194
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -8371,13 +8371,13 @@ _ZN5boost10wrapexceptINS_15program_options12reading_fileEED0Ev.exit: ; preds = %
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options12reading_fileEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options12reading_fileE, i64 16), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options12reading_fileE, i64 16), ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !194
@@ -8396,9 +8396,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_15program_options12rea
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 16), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 64), ptr %3, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 104), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 64), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_15program_options12reading_fileEEE, i64 104), ptr %5, align 8, !tbaa !26
   ret void
 
 16:                                               ; preds = %9
@@ -8430,7 +8430,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8440,16 +8440,16 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEEC
   store i32 -1, ptr %6, align 8, !tbaa !190
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 -1, ptr %7, align 4, !tbaa !193
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 16), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 64), ptr %3, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 104), ptr %4, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 64), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 104), ptr %4, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i = icmp eq ptr %4, null
@@ -8485,13 +8485,13 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_17bad_function_callEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost17bad_function_callE, i64 16), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost17bad_function_callE, i64 16), ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !194
@@ -8517,9 +8517,9 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_17bad_function
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 16), ptr %2, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 64), ptr %3, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 104), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 64), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 104), ptr %5, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %5, ptr noundef nonnull %17)
           to label %_ZN5boost10wrapexceptINS_17bad_function_callEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_17bad_function_callEE7deleterD2Ev.exit7
@@ -8561,7 +8561,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_17bad_function_callEE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -8598,7 +8598,7 @@ _ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit: ; preds = %1, %.noexc.i
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_17bad_function_callEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -8633,7 +8633,7 @@ _ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit: ; preds = %1, %.noexc.i
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_17bad_function_callEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !194
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -8672,7 +8672,7 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_17bad_function_callEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -8707,7 +8707,7 @@ _ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit: ; preds = %1, %.noexc.i
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_17bad_function_callEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !194
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -8754,13 +8754,13 @@ define linkonce_odr hidden void @_ZN5boost17bad_function_callD0Ev(ptr noundef no
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #23
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost17bad_function_callE, i64 16), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost17bad_function_callE, i64 16), ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !194
@@ -8779,9 +8779,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEEC
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 16), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 64), ptr %3, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 104), ptr %5, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 16), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 64), ptr %3, align 8, !tbaa !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 104), ptr %5, align 8, !tbaa !26
   ret void
 
 16:                                               ; preds = %9

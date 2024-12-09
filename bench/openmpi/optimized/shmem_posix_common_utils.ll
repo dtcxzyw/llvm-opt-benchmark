@@ -33,12 +33,12 @@ define i32 @opal_shmem_posix_shm_open(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %14 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %13) #5
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @opal_shmem_base_framework, i64 76), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %17 = tail call ptr @strerror(i32 noundef %10) #5
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %16, ptr noundef nonnull @.str.2, ptr noundef %17, i32 noundef %10) #5
   br label %.loopexit

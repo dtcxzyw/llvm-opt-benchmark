@@ -132407,7 +132407,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
 18:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", ptr %7, align 8
-  %19 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48) acquire, align 8, !noalias !28548
+  %19 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48) acquire, align 8, !noalias !28548
   %20 = icmp eq i32 %19, 4
   br i1 %20, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref17h27e66a4824876708E.exit", label %21
 
@@ -132416,7 +132416,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
   store ptr %7, ptr %6, align 8, !noalias !28548
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !28548
   store ptr %6, ptr %5, align 8, !noalias !28548
-  call void @_ZN3std10sys_common4once5futex4Once4call17hc5423f84c91f1ab6E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hc5423f84c91f1ab6E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !28548
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !28548
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref17h27e66a4824876708E.exit"
@@ -132642,7 +132642,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
 36:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", ptr %19, align 8
-  %37 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48) acquire, align 8, !noalias !28581
+  %37 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48) acquire, align 8, !noalias !28581
   %38 = icmp eq i32 %37, 4
   br i1 %38, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref17he63ba74bcbd498a3E.exit", label %39
 
@@ -132651,7 +132651,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
   store ptr %19, ptr %18, align 8, !noalias !28581
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !28581
   store ptr %18, ptr %17, align 8, !noalias !28581
-  call void @_ZN3std10sys_common4once5futex4Once4call17h6bbae5fedee2dd57E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h6bbae5fedee2dd57E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !28581
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18), !noalias !28581
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref17he63ba74bcbd498a3E.exit"
@@ -132667,7 +132667,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
 43:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", ptr %16, align 8
-  %44 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48) acquire, align 8, !noalias !28584
+  %44 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48) acquire, align 8, !noalias !28584
   %45 = icmp eq i32 %44, 4
   br i1 %45, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd1b4823b550ac39E.exit", label %46
 
@@ -132676,7 +132676,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
   store ptr %16, ptr %15, align 8, !noalias !28584
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !28584
   store ptr %15, ptr %14, align 8, !noalias !28584
-  call void @_ZN3std10sys_common4once5futex4Once4call17h36752db26b4814eeE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h36752db26b4814eeE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !28584
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15), !noalias !28584
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd1b4823b550ac39E.exit"
@@ -132692,7 +132692,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
 50:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", ptr %13, align 8
-  %51 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48) acquire, align 8, !noalias !28587
+  %51 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48) acquire, align 8, !noalias !28587
   %52 = icmp eq i32 %51, 4
   br i1 %52, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b356cea9b3cbfc9E.exit", label %53
 
@@ -132701,7 +132701,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
   store ptr %13, ptr %12, align 8, !noalias !28587
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !28587
   store ptr %12, ptr %11, align 8, !noalias !28587
-  call void @_ZN3std10sys_common4once5futex4Once4call17h2cf45e5cdee3a1e4E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h2cf45e5cdee3a1e4E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !28587
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !28587
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b356cea9b3cbfc9E.exit"
@@ -132717,7 +132717,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
 57:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", ptr %10, align 8
-  %58 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48) acquire, align 8, !noalias !28590
+  %58 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48) acquire, align 8, !noalias !28590
   %59 = icmp eq i32 %58, 4
   br i1 %59, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref17h18808992a99ff5fbE.exit", label %60
 
@@ -132726,7 +132726,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
   store ptr %10, ptr %9, align 8, !noalias !28590
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !28590
   store ptr %9, ptr %8, align 8, !noalias !28590
-  call void @_ZN3std10sys_common4once5futex4Once4call17hd9e1649954aac706E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hd9e1649954aac706E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !28590
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !28590
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref17h18808992a99ff5fbE.exit"
@@ -132742,7 +132742,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
 64:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", ptr %7, align 8
-  %65 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48) acquire, align 8, !noalias !28593
+  %65 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48) acquire, align 8, !noalias !28593
   %66 = icmp eq i32 %65, 4
   br i1 %66, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe1a3da87b4ba504E.exit", label %67
 
@@ -132751,7 +132751,7 @@ define void @_ZN14deltalake_core10operations11transaction8protocol15ProtocolChec
   store ptr %7, ptr %6, align 8, !noalias !28593
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !28593
   store ptr %6, ptr %5, align 8, !noalias !28593
-  call void @_ZN3std10sys_common4once5futex4Once4call17h7c7f346b1598d74eE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h7c7f346b1598d74eE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !28593
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !28593
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe1a3da87b4ba504E.exit"
@@ -133587,7 +133587,7 @@ define void @_ZN14deltalake_core8protocol11checkpoints24parquet_bytes_from_state
   %175 = load i64, ptr %174, align 8, !alias.scope !28700, !noalias !28703, !noundef !7
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !28697
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !28697
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3188.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.9879281d3383c0c102598d7b28966b25.62.llvm.18123795597341512700, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3188.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.9879281d3383c0c102598d7b28966b25.62.llvm.18123795597341512700, i64 8), i64 24, i1 false)
   br label %176
 
 176:                                              ; preds = %171, %170
@@ -133699,7 +133699,7 @@ define void @_ZN14deltalake_core8protocol11checkpoints24parquet_bytes_from_state
   %200 = load i64, ptr %199, align 8, !alias.scope !28718, !noalias !28721, !noundef !7
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !28715
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !28715
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3197.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.9879281d3383c0c102598d7b28966b25.62.llvm.18123795597341512700, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3197.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.9879281d3383c0c102598d7b28966b25.62.llvm.18123795597341512700, i64 8), i64 24, i1 false)
   br label %201
 
 201:                                              ; preds = %196, %195
@@ -141826,7 +141826,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48) acquire, align 8, !noalias !29886
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48) acquire, align 8, !noalias !29886
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h69e81a6d5e9ddb19E.exit, label %7
 
@@ -141835,7 +141835,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   store ptr %4, ptr %3, align 8, !noalias !29886
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29886
   store ptr %3, ptr %2, align 8, !noalias !29886
-  call void @_ZN3std10sys_common4once5futex4Once4call17hc5423f84c91f1ab6E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hc5423f84c91f1ab6E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29886
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29886
   br label %_ZN3std4sync4once4Once9call_once17h69e81a6d5e9ddb19E.exit
@@ -141856,7 +141856,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READ
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48) acquire, align 8, !noalias !29889
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48) acquire, align 8, !noalias !29889
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref17h27e66a4824876708E.exit", label %7
 
@@ -141865,7 +141865,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READ
   store ptr %4, ptr %3, align 8, !noalias !29889
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29889
   store ptr %3, ptr %2, align 8, !noalias !29889
-  call void @_ZN3std10sys_common4once5futex4Once4call17hc5423f84c91f1ab6E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hc5423f84c91f1ab6E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h2d68ee31390306bbE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29889
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29889
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..READER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref17h27e66a4824876708E.exit"
@@ -141886,7 +141886,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48) acquire, align 8, !noalias !29892
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48) acquire, align 8, !noalias !29892
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hc0b9c8762184ee6aE.exit, label %7
 
@@ -141895,7 +141895,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   store ptr %4, ptr %3, align 8, !noalias !29892
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29892
   store ptr %3, ptr %2, align 8, !noalias !29892
-  call void @_ZN3std10sys_common4once5futex4Once4call17h6bbae5fedee2dd57E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h6bbae5fedee2dd57E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29892
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29892
   br label %_ZN3std4sync4once4Once9call_once17hc0b9c8762184ee6aE.exit
@@ -141916,7 +141916,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48) acquire, align 8, !noalias !29895
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48) acquire, align 8, !noalias !29895
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref17he63ba74bcbd498a3E.exit", label %7
 
@@ -141925,7 +141925,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   store ptr %4, ptr %3, align 8, !noalias !29895
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29895
   store ptr %3, ptr %2, align 8, !noalias !29895
-  call void @_ZN3std10sys_common4once5futex4Once4call17h6bbae5fedee2dd57E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h6bbae5fedee2dd57E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h27c7951cc380e5b3E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29895
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29895
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V2$u20$as$u20$core..ops..deref..Deref$GT$5deref17he63ba74bcbd498a3E.exit"
@@ -141946,7 +141946,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48) acquire, align 8, !noalias !29898
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48) acquire, align 8, !noalias !29898
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h6ea45486f33b45eeE.exit, label %7
 
@@ -141955,7 +141955,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   store ptr %4, ptr %3, align 8, !noalias !29898
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29898
   store ptr %3, ptr %2, align 8, !noalias !29898
-  call void @_ZN3std10sys_common4once5futex4Once4call17h36752db26b4814eeE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h36752db26b4814eeE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29898
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29898
   br label %_ZN3std4sync4once4Once9call_once17h6ea45486f33b45eeE.exit
@@ -141976,7 +141976,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48) acquire, align 8, !noalias !29901
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48) acquire, align 8, !noalias !29901
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd1b4823b550ac39E.exit", label %7
 
@@ -141985,7 +141985,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   store ptr %4, ptr %3, align 8, !noalias !29901
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29901
   store ptr %3, ptr %2, align 8, !noalias !29901
-  call void @_ZN3std10sys_common4once5futex4Once4call17h36752db26b4814eeE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h36752db26b4814eeE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17haea857feac97d78eE", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29901
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29901
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V3$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd1b4823b550ac39E.exit"
@@ -142006,7 +142006,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48) acquire, align 8, !noalias !29904
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48) acquire, align 8, !noalias !29904
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h215f30a67a6f6010E.exit, label %7
 
@@ -142015,7 +142015,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   store ptr %4, ptr %3, align 8, !noalias !29904
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29904
   store ptr %3, ptr %2, align 8, !noalias !29904
-  call void @_ZN3std10sys_common4once5futex4Once4call17h2cf45e5cdee3a1e4E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h2cf45e5cdee3a1e4E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29904
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29904
   br label %_ZN3std4sync4once4Once9call_once17h215f30a67a6f6010E.exit
@@ -142036,7 +142036,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48) acquire, align 8, !noalias !29907
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48) acquire, align 8, !noalias !29907
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b356cea9b3cbfc9E.exit", label %7
 
@@ -142045,7 +142045,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   store ptr %4, ptr %3, align 8, !noalias !29907
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29907
   store ptr %3, ptr %2, align 8, !noalias !29907
-  call void @_ZN3std10sys_common4once5futex4Once4call17h2cf45e5cdee3a1e4E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h2cf45e5cdee3a1e4E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h12e5d2b27374ef02E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29907
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29907
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V4$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b356cea9b3cbfc9E.exit"
@@ -142066,7 +142066,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48) acquire, align 8, !noalias !29910
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48) acquire, align 8, !noalias !29910
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h10f41b306227484cE.exit, label %7
 
@@ -142075,7 +142075,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   store ptr %4, ptr %3, align 8, !noalias !29910
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29910
   store ptr %3, ptr %2, align 8, !noalias !29910
-  call void @_ZN3std10sys_common4once5futex4Once4call17hd9e1649954aac706E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hd9e1649954aac706E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29910
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29910
   br label %_ZN3std4sync4once4Once9call_once17h10f41b306227484cE.exit
@@ -142096,7 +142096,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48) acquire, align 8, !noalias !29913
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48) acquire, align 8, !noalias !29913
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref17h18808992a99ff5fbE.exit", label %7
 
@@ -142105,7 +142105,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   store ptr %4, ptr %3, align 8, !noalias !29913
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29913
   store ptr %3, ptr %2, align 8, !noalias !29913
-  call void @_ZN3std10sys_common4once5futex4Once4call17hd9e1649954aac706E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hd9e1649954aac706E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hc041af5851cafd13E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29913
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29913
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V5$u20$as$u20$core..ops..deref..Deref$GT$5deref17h18808992a99ff5fbE.exit"
@@ -142126,7 +142126,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48) acquire, align 8, !noalias !29916
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48) acquire, align 8, !noalias !29916
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h7662fb6d3342a7d6E.exit, label %7
 
@@ -142135,7 +142135,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @"_ZN104_$LT$deltalake_co
   store ptr %4, ptr %3, align 8, !noalias !29916
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29916
   store ptr %3, ptr %2, align 8, !noalias !29916
-  call void @_ZN3std10sys_common4once5futex4Once4call17h7c7f346b1598d74eE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h7c7f346b1598d74eE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29916
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29916
   br label %_ZN3std4sync4once4Once9call_once17h7662fb6d3342a7d6E.exit
@@ -142156,7 +142156,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48) acquire, align 8, !noalias !29919
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48) acquire, align 8, !noalias !29919
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe1a3da87b4ba504E.exit", label %7
 
@@ -142165,7 +142165,7 @@ define void @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRIT
   store ptr %4, ptr %3, align 8, !noalias !29919
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !29919
   store ptr %3, ptr %2, align 8, !noalias !29919
-  call void @_ZN3std10sys_common4once5futex4Once4call17h7c7f346b1598d74eE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17h7c7f346b1598d74eE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4ec2c079b3f38105E", i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !29919
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29919
   br label %"_ZN104_$LT$deltalake_core..operations..transaction..protocol..WRITER_V6$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfe1a3da87b4ba504E.exit"
@@ -143101,7 +143101,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN153_$LT$deltalake_co
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", i64 32) acquire, align 8, !noalias !30194
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", i64 32) acquire, align 8, !noalias !30194
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17h3a0f0c52c9d92c89E.exit, label %7
 
@@ -143110,7 +143110,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN153_$LT$deltalake_co
   store ptr %4, ptr %3, align 8, !noalias !30194
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !30194
   store ptr %3, ptr %2, align 8, !noalias !30194
-  call void @_ZN3std10sys_common4once5futex4Once4call17hab84083ba859ff0dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hab84083ba859ff0dE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !30194
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !30194
   br label %_ZN3std4sync4once4Once9call_once17h3a0f0c52c9d92c89E.exit
@@ -143131,7 +143131,7 @@ define void @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", i64 32) acquire, align 8, !noalias !30197
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", i64 32) acquire, align 8, !noalias !30197
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd8cd2d45d79568f2E.exit", label %7
 
@@ -143140,7 +143140,7 @@ define void @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_
   store ptr %4, ptr %3, align 8, !noalias !30197
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !30197
   store ptr %3, ptr %2, align 8, !noalias !30197
-  call void @_ZN3std10sys_common4once5futex4Once4call17hab84083ba859ff0dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
+  call void @_ZN3std10sys_common4once5futex4Once4call17hab84083ba859ff0dE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h5701631aac09d68eE", i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1334)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !30197
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !30197
   br label %"_ZN153_$LT$deltalake_core..protocol..checkpoints..cleanup_expired_logs_for..$u7b$$u7b$closure$u7d$$u7d$..DELTA_LOG_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd8cd2d45d79568f2E.exit"

@@ -49,7 +49,7 @@ define dso_local ptr @pps_register_source(ptr noundef %0, i32 noundef %1) #0 ali
   br label %41
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %16 = tail call noalias noundef align 8 dereferenceable_or_null(352) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 352) #8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %41, label %18

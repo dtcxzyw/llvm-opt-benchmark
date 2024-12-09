@@ -113,7 +113,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN10OreManagerC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %gamedef) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %gamedef, i32 noundef 2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreManager, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreManager, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
 
@@ -337,7 +337,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %m_objects.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_objects.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreManager, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreManager, i64 16), ptr %call, align 8, !tbaa !4
   tail call void @_ZNK13ObjDefManager7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull %call)
   ret ptr %call
 }
@@ -676,7 +676,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 define dso_local noundef nonnull ptr @_ZNK10OreScatter5cloneEv(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %name.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
@@ -690,7 +690,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i.i, align 8, !tbaa !62
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i9.i.i
@@ -737,8 +737,8 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !84
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreScatter, i64 16), ptr %call, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreScatter, i64 72), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreScatter, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreScatter, i64 72), ptr %1, align 8, !tbaa !4
   tail call void @_ZNK6ObjDef7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %call)
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZNK12NodeResolver7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(73) %add.ptr.i, ptr noundef nonnull %1)
@@ -1119,7 +1119,7 @@ declare noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef, float n
 define dso_local noundef nonnull ptr @_ZNK8OreSheet5cloneEv(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %name.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
@@ -1133,7 +1133,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i.i, align 8, !tbaa !62
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i9.i.i
@@ -1180,8 +1180,8 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !84
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8OreSheet, i64 16), ptr %call, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8OreSheet, i64 72), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8OreSheet, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8OreSheet, i64 72), ptr %1, align 8, !tbaa !4
   tail call void @_ZNK6ObjDef7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %call)
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZNK12NodeResolver7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(73) %add.ptr.i, ptr noundef nonnull %1)
@@ -1628,9 +1628,9 @@ declare float @llvm.fmuladd.f32(float, float, float) #14
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN7OrePuffD2Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 72), ptr %add.ptr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 72), ptr %add.ptr, align 8, !tbaa !4
   %noise_puff_top = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load ptr, ptr %noise_puff_top, align 8, !tbaa !115
   %isnull = icmp eq ptr %0, null
@@ -1661,8 +1661,8 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 define dso_local void @_ZThn56_N7OrePuffD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 16), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 72), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 72), ptr %this, align 8, !tbaa !4
   %noise_puff_top.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %1 = load ptr, ptr %noise_puff_top.i, align 8, !tbaa !115
   %isnull.i = icmp eq ptr %1, null
@@ -1692,9 +1692,9 @@ _ZN7OrePuffD2Ev.exit:                             ; preds = %delete.notnull3.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN7OrePuffD0Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 72), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 72), ptr %add.ptr.i, align 8, !tbaa !4
   %noise_puff_top.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load ptr, ptr %noise_puff_top.i, align 8, !tbaa !115
   %isnull.i = icmp eq ptr %0, null
@@ -1726,8 +1726,8 @@ _ZN7OrePuffD2Ev.exit:                             ; preds = %delete.notnull3.i, 
 define dso_local void @_ZThn56_N7OrePuffD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 16), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 72), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 72), ptr %this, align 8, !tbaa !4
   %noise_puff_top.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %1 = load ptr, ptr %noise_puff_top.i.i, align 8, !tbaa !115
   %isnull.i.i = icmp eq ptr %1, null
@@ -1759,7 +1759,7 @@ _ZN7OrePuffD0Ev.exit:                             ; preds = %delete.notnull3.i.i
 define dso_local noundef nonnull ptr @_ZNK7OrePuff5cloneEv(ptr noundef nonnull align 8 dereferenceable(384) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %name.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
@@ -1773,7 +1773,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i.i, align 8, !tbaa !62
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i9.i.i
@@ -1820,8 +1820,8 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !84
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 16), ptr %call, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 72), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OrePuff, i64 72), ptr %1, align 8, !tbaa !4
   %np_puff_top.i = getelementptr inbounds nuw i8, ptr %call, i64 288
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np_puff_top.i, align 8, !tbaa !70
   %Z.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 304
@@ -2334,7 +2334,7 @@ cleanup146:                                       ; preds = %lor.lhs.false.i.i.i
 define dso_local noundef nonnull ptr @_ZNK7OreBlob5cloneEv(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %name.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
@@ -2348,7 +2348,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i.i, align 8, !tbaa !62
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i9.i.i
@@ -2395,8 +2395,8 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !84
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreBlob, i64 16), ptr %call, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreBlob, i64 72), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreBlob, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreBlob, i64 72), ptr %1, align 8, !tbaa !4
   tail call void @_ZNK6ObjDef7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %call)
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZNK12NodeResolver7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(73) %add.ptr.i, ptr noundef nonnull %1)
@@ -2830,9 +2830,9 @@ declare noundef ptr @_ZN5Noise11perlinMap3DEfffPf(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN7OreVeinD2Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 72), ptr %add.ptr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 72), ptr %add.ptr, align 8, !tbaa !4
   %noise2 = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %noise2, align 8, !tbaa !125
   %isnull = icmp eq ptr %0, null
@@ -2852,8 +2852,8 @@ delete.end:                                       ; preds = %delete.notnull, %en
 define dso_local void @_ZThn56_N7OreVeinD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 16), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 72), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 72), ptr %this, align 8, !tbaa !4
   %noise2.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   %1 = load ptr, ptr %noise2.i, align 8, !tbaa !125
   %isnull.i = icmp eq ptr %1, null
@@ -2872,9 +2872,9 @@ _ZN7OreVeinD2Ev.exit:                             ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN7OreVeinD0Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 72), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 72), ptr %add.ptr.i, align 8, !tbaa !4
   %noise2.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %noise2.i, align 8, !tbaa !125
   %isnull.i = icmp eq ptr %0, null
@@ -2895,8 +2895,8 @@ _ZN7OreVeinD2Ev.exit:                             ; preds = %delete.notnull.i, %
 define dso_local void @_ZThn56_N7OreVeinD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 16), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 72), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 72), ptr %this, align 8, !tbaa !4
   %noise2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   %1 = load ptr, ptr %noise2.i.i, align 8, !tbaa !125
   %isnull.i.i = icmp eq ptr %1, null
@@ -2917,7 +2917,7 @@ _ZN7OreVeinD0Ev.exit:                             ; preds = %delete.notnull.i.i,
 define dso_local noundef nonnull ptr @_ZNK7OreVein5cloneEv(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %name.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
@@ -2931,7 +2931,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i.i, align 8, !tbaa !62
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i9.i.i
@@ -2978,8 +2978,8 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !84
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 16), ptr %call, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 72), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7OreVein, i64 72), ptr %1, align 8, !tbaa !4
   %noise2.i = getelementptr inbounds nuw i8, ptr %call, i64 296
   store ptr null, ptr %noise2.i, align 8, !tbaa !125
   %sizey_prev.i = getelementptr inbounds nuw i8, ptr %call, i64 304
@@ -3461,9 +3461,9 @@ declare noundef float @_Z7contourf(float noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10OreStratumD2Ev(ptr noundef nonnull align 8 dereferenceable(338) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 72), ptr %add.ptr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 72), ptr %add.ptr, align 8, !tbaa !4
   %noise_stratum_thickness = getelementptr inbounds nuw i8, ptr %this, i64 328
   %0 = load ptr, ptr %noise_stratum_thickness, align 8, !tbaa !132
   %isnull = icmp eq ptr %0, null
@@ -3483,8 +3483,8 @@ delete.end:                                       ; preds = %delete.notnull, %en
 define dso_local void @_ZThn56_N10OreStratumD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 16), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 72), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 72), ptr %this, align 8, !tbaa !4
   %noise_stratum_thickness.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %1 = load ptr, ptr %noise_stratum_thickness.i, align 8, !tbaa !132
   %isnull.i = icmp eq ptr %1, null
@@ -3503,9 +3503,9 @@ _ZN10OreStratumD2Ev.exit:                         ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10OreStratumD0Ev(ptr noundef nonnull align 8 dereferenceable(338) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 72), ptr %add.ptr.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 72), ptr %add.ptr.i, align 8, !tbaa !4
   %noise_stratum_thickness.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %0 = load ptr, ptr %noise_stratum_thickness.i, align 8, !tbaa !132
   %isnull.i = icmp eq ptr %0, null
@@ -3526,8 +3526,8 @@ _ZN10OreStratumD2Ev.exit:                         ; preds = %delete.notnull.i, %
 define dso_local void @_ZThn56_N10OreStratumD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 16), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 72), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 72), ptr %this, align 8, !tbaa !4
   %noise_stratum_thickness.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %1 = load ptr, ptr %noise_stratum_thickness.i.i, align 8, !tbaa !132
   %isnull.i.i = icmp eq ptr %1, null
@@ -3548,7 +3548,7 @@ _ZN10OreStratumD0Ev.exit:                         ; preds = %delete.notnull.i.i,
 define dso_local noundef nonnull ptr @_ZNK10OreStratum5cloneEv(ptr noundef nonnull align 8 dereferenceable(338) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %name.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %0, ptr %name.i.i.i, align 8, !tbaa !59
@@ -3562,7 +3562,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %call, align 8, !tbaa !4
   %3 = load ptr, ptr %name.i.i.i, align 8, !tbaa !62
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i9.i.i
@@ -3609,8 +3609,8 @@ invoke.cont:                                      ; preds = %entry
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8, !tbaa !84
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 16), ptr %call, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 72), ptr %1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 16), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10OreStratum, i64 72), ptr %1, align 8, !tbaa !4
   %np_stratum_thickness.i = getelementptr inbounds nuw i8, ptr %call, i64 288
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %np_stratum_thickness.i, align 4, !tbaa !70
   %Z.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 304
@@ -4170,9 +4170,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3OreD2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Ore, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Ore, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV3Ore, i64 72), ptr %add.ptr, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV3Ore, i64 72), ptr %add.ptr, align 8, !tbaa !4
   %noise = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %noise, align 8, !tbaa !72
   %isnull = icmp eq ptr %0, null
@@ -4225,7 +4225,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt13unordered_se
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %if.then.i.i.i, %_ZNSt13unordered_setItSt4hashItESt8equal_toItESaItEED2Ev.exit
   tail call void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %add.ptr) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !4
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load ptr, ptr %name.i, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -4346,7 +4346,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6ObjDef, i64 16), ptr %this, align 8, !tbaa !4
   %name = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %name, align 8, !tbaa !62
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 40

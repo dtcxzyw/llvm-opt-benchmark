@@ -78,7 +78,7 @@ $_ZTIN8QuantLib18OptimizationMethodE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8QuantLib18LevenbergMarquardtC2Edddb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(89) initializes((0, 8), (16, 60), (64, 89)) %this, double noundef %epsfcn, double noundef %xtol, double noundef %gtol, i1 noundef zeroext %useCostFunctionsJacobian) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18LevenbergMarquardtE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18LevenbergMarquardtE, i64 16), ptr %this, align 8, !tbaa !3
   %initCostValues_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %storedv = zext i1 %useCostFunctionsJacobian to i8
   %epsfcn_ = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -2365,7 +2365,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !52
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2874,7 +2874,7 @@ _ZN8QuantLib5ArrayD2Ev.exit92:                    ; preds = %ehcleanup40, %_ZNKS
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18LevenbergMarquardtD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18LevenbergMarquardtE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18LevenbergMarquardtE, i64 16), ptr %this, align 8, !tbaa !3
   %initJacobian_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %initJacobian_, align 8, !tbaa !35
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2903,7 +2903,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %_ZN8QuantLib6Matrix
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18LevenbergMarquardtD0Ev(ptr noundef nonnull align 8 dereferenceable(89) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18LevenbergMarquardtE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18LevenbergMarquardtE, i64 16), ptr %this, align 8, !tbaa !3
   %initJacobian_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %initJacobian_.i, align 8, !tbaa !35
   %cmp.not.i.i.i = icmp eq ptr %0, null

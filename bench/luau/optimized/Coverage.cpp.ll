@@ -89,20 +89,20 @@ define dso_local noundef zeroext i1 @_Z14coverageActivev() local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z13coverageTrackP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @_Z7lua_refP9lua_Statei(ptr noundef %0, i32 noundef %1)
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 16), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 24), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 24), align 8
   %.not.i = icmp eq ptr %4, %5
   br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %2
   store i32 %3, ptr %4, align 4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 16), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 16), align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 16), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 16), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 8), align 8
   %11 = ptrtoint ptr %4 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -143,10 +143,10 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %25, %_ZNKS
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %27, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 8), align 8
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 16), align 8
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 8), align 8
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 16), align 8
   %28 = getelementptr inbounds nuw i32, ptr %22, i64 %20
-  store ptr %28, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 24), align 8
+  store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 24), align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %6, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
@@ -170,8 +170,8 @@ define dso_local void @_Z12coverageDumpPKc(ptr noundef %0) local_unnamed_addr #2
 
 8:                                                ; preds = %1
   %9 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 4, i64 1, ptr nonnull %4)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 8), align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 16), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 16), align 8
   %.not1617 = icmp eq ptr %10, %11
   br i1 %.not1617, label %._crit_edge, label %.lr.ph
 
@@ -196,8 +196,8 @@ define dso_local void @_Z12coverageDumpPKc(ptr noundef %0) local_unnamed_addr #2
 
 ._crit_edge:                                      ; preds = %13, %8
   %21 = call i32 @fclose(ptr noundef nonnull %4)
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 16), align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @gCoverage, i64 8), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gCoverage, i64 8), align 8
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25

@@ -41,7 +41,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7516IcuToolErrorCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %this, align 8
   %errorCode.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %errorCode.i, align 8
   %cmp.i.i = icmp slt i32 %0, 1

@@ -165,8 +165,8 @@ define void @_ZN3g2o12EdgeSE2PriorC2Ev(ptr noundef nonnull align 16 dereferencea
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 3, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3ENS_3SE2EJNS_9VertexSE2EEEE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3ENS_3SE2EJNS_9VertexSE2EEEE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3ENS_3SE2EJNS_9VertexSE2EEEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi3ENS_3SE2EJNS_9VertexSE2EEEE, i64 264), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -209,8 +209,8 @@ define void @_ZN3g2o12EdgeSE2PriorC2Ev(ptr noundef nonnull align 16 dereferencea
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %7, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o12EdgeSE2PriorE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o12EdgeSE2PriorE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o12EdgeSE2PriorE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o12EdgeSE2PriorE, i64 264), ptr %3, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store double 0.000000e+00, ptr %28, align 16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 352

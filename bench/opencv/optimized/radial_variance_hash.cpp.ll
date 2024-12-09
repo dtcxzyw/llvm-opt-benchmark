@@ -139,7 +139,7 @@ define void @_ZN2cv8img_hash18RadialVarianceHash6createEdi(ptr dead_on_unwind no
           to label %5 unwind label %110
 
 5:                                                ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv8img_hash18RadialVarianceHashE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv8img_hash18RadialVarianceHashE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
@@ -183,7 +183,7 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEEC2IS2_EEPT_.exit: ; preds = %5
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8img_hash18RadialVarianceHashELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv8img_hash18RadialVarianceHashELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %4, ptr %23, align 8
   store ptr %7, ptr %6, align 8
@@ -195,9 +195,9 @@ _ZN2cv3PtrINS_8img_hash18RadialVarianceHashEEC2IS2_EEPT_.exit: ; preds = %5
   store i32 1, ptr %26, align 8, !noalias !4
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %27, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_122RadialVarianceHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_122RadialVarianceHashImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !4
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122RadialVarianceHashImplE, i64 16), ptr %28, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122RadialVarianceHashImplE, i64 16), ptr %28, align 8, !noalias !4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #22, !noalias !4
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 120
@@ -1705,7 +1705,7 @@ _ZN12_GLOBAL__N_112getLocalImplEPN2cv8img_hash11ImgHashBase11ImgHashImplE.exit: 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8img_hash18radialVarianceHashERKNS_11_InputArrayERKNS_12_OutputArrayEdi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.(anonymous namespace)::RadialVarianceHashImpl", align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122RadialVarianceHashImplE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122RadialVarianceHashImplE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #22
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 104

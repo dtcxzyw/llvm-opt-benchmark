@@ -85,7 +85,7 @@ define i32 @onig_initialize_encoding(ptr noundef %0) local_unnamed_addr #2 {
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not16 = icmp eq i32 %5, 0
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @OnigEncodingASCII, i64 120), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @OnigEncodingASCII, i64 120), align 8
   %.not17 = icmp eq ptr %6, null
   %or.cond = select i1 %.not16, i1 true, i1 %.not17
   br i1 %or.cond, label %enc_inited_entry.exit, label %7

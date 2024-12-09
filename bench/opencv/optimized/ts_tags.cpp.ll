@@ -2808,7 +2808,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %310 unwind label %270
 
 310:                                              ; preds = %308
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN6cvtest16TestTagsListenerE, i64 16), ptr %309, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6cvtest16TestTagsListenerE, i64 16), ptr %309, align 8
   invoke void @_ZN7testing18TestEventListeners6AppendEPNS_17TestEventListenerE(ptr noundef nonnull align 8 dereferenceable(24) %307, ptr noundef nonnull %309)
           to label %311 unwind label %270
 

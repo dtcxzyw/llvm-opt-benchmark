@@ -26878,7 +26878,7 @@ define internal fastcc void @"_ZN64_$LT$lsp..LanguageServerBinary$u20$as$u20$cor
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.525, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.2b3f11ae85ba4fffcae25b43c2433dfd.34.llvm.13196489250334621223, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.525, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.2b3f11ae85ba4fffcae25b43c2433dfd.34.llvm.13196489250334621223, i64 8), i64 24, i1 false)
   br label %42
 
 35:                                               ; preds = %30

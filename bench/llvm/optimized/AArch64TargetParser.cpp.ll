@@ -3993,7 +3993,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit23:          ; preds = %100, %101
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
   %102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
   store ptr %87, ptr %56, align 8, !alias.scope !32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcS2_S2_EEE, i64 16), ptr %6, align 8, !alias.scope !32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcS2_S2_EEE, i64 16), ptr %6, align 8, !alias.scope !32
   store ptr %102, ptr %57, align 8, !alias.scope !32
   store ptr %98, ptr %58, align 8, !alias.scope !32
   store ptr %91, ptr %59, align 8, !alias.scope !32
@@ -4414,7 +4414,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit24:          ; preds = %140, %141
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %144 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #26
   store ptr @.str.118, ptr %113, align 8, !alias.scope !60
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcS2_EEE, i64 16), ptr %8, align 8, !alias.scope !60
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcS2_EEE, i64 16), ptr %8, align 8, !alias.scope !60
   store ptr %144, ptr %114, align 8, !alias.scope !60
   store ptr %137, ptr %115, align 8, !alias.scope !60
   %145 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %8) #26
@@ -4736,7 +4736,7 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet14addCPUDefaultsERKNS0_7Cpu
 
 9:                                                ; preds = %2, %20
   %.0.idx10 = phi i64 [ 0, %2 ], [ %.0.add, %20 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 40), i64 %.0.idx10
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 40), i64 %.0.idx10
   %10 = load i32, ptr %gep, align 8
   %11 = and i32 %10, 63
   %12 = zext nneg i32 %11 to i64
@@ -4771,7 +4771,7 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet15addArchDefaultsERKNS0_8Ar
 
 5:                                                ; preds = %2, %16
   %.0.idx10 = phi i64 [ 0, %2 ], [ %.0.add, %16 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 40), i64 %.0.idx10
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 40), i64 %.0.idx10
   %6 = load i32, ptr %gep, align 8
   %7 = and i32 %6, 63
   %8 = zext nneg i32 %7 to i64
@@ -4918,7 +4918,7 @@ define dso_local void @_ZN4llvm7AArch6412ExtensionSet29reconstructFromParsedFeat
 
 .split.us.i:                                      ; preds = %10, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.i
   %.0.idx14.us.i = phi i64 [ %.0.add.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.i ], [ 0, %10 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 88), i64 %.0.idx14.us.i
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 88), i64 %.0.idx14.us.i
   %.sroa.2.0.copyload.us.i = load i64, ptr %gep, align 8, !noalias !66
   %.not.i.us.i = icmp eq i64 %.sroa.2.0.copyload.us.i, 0
   br i1 %.not.i.us.i, label %.loopexit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.i
@@ -4950,7 +4950,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11.i:     ; preds = %_ZN4llvmeqENS_9Stri
 
 .loopexit:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us.i
   %18 = phi i64 [ %.0.idx14.us.i, %.split.us.i ], [ %.0.idx14.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %gep26 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 40), i64 %18
+  %gep26 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 40), i64 %18
   %.sroa.1.0.copyload = load i32, ptr %gep26, align 8
   %19 = icmp eq i8 %12, 45
   %20 = and i32 %.sroa.1.0.copyload, 63

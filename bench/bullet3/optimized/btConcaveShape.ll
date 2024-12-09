@@ -31,7 +31,7 @@ entry:
   store i32 -1, ptr %m_userIndex.i, align 8
   %m_userIndex2.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 -1, ptr %m_userIndex2.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14btConcaveShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14btConcaveShape, i64 16), ptr %this, align 8
   %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 32
   store float 0.000000e+00, ptr %m_collisionMargin, align 8
   ret void

@@ -456,7 +456,7 @@ switch.lookup:                                    ; preds = %33
   store i32 0, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %50, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %1, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -916,7 +916,7 @@ switch.lookup:                                    ; preds = %73
   store i32 0, ptr %89, align 4
   %90 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store ptr null, ptr %90, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i.i, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i64 %.sroa.0.0.copyload.i, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
@@ -2173,7 +2173,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV11LIR_OpLabel, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV11LIR_OpLabel, i64 16), ptr %.0.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %1, ptr %29, align 8
   br label %32
@@ -2938,7 +2938,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %39, %37
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 17, ptr %43, align 8
   %44 = ptrtoint ptr %1 to i64
@@ -2962,7 +2962,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %39, %37
   store i32 0, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %46, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -3068,7 +3068,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   store i8 0, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14RangeCheckStub, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14RangeCheckStub, i64 16), ptr %.0.i.i.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
   store i64 %2, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 104
@@ -3427,7 +3427,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i32 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -3546,7 +3546,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i32 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -3666,7 +3666,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -3770,7 +3770,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %21, %19
   br i1 %23, label %_ZN11LIR_OprFact8intConstEi.exit, label %24
 
 24:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 10, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -3834,7 +3834,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -3953,7 +3953,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -4073,7 +4073,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -4191,7 +4191,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -4438,7 +4438,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i32 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -4557,7 +4557,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i32 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -4676,7 +4676,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i32 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -4801,7 +4801,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %23, %25
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
   store i64 %1, ptr %37, align 8
   store i64 %2, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV16MonitorEnterStub, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV16MonitorEnterStub, i64 16), ptr %.0.i.i.i, align 8
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1808
   %41 = load ptr, ptr %40, align 8
@@ -4926,7 +4926,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %39, %37
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 10, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -4949,7 +4949,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %39, %37
   store i32 0, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %52, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %45, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -5065,7 +5065,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %21, %23
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
   store i64 %.sroa.01.0.copyload.i, ptr %38, align 8
   store i64 %3, ptr %39, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV15MonitorExitStub, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV15MonitorExitStub, i64 16), ptr %.0.i.i.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 104
   store i8 %29, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 108
@@ -6198,7 +6198,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %66, %64
   br i1 %68, label %_ZN11LIR_OprFact11intptrConstEl.exit, label %69
 
 69:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 11, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -6239,7 +6239,7 @@ _ZN22CompilationResourceObjnwEm.exit.i43:         ; preds = %89, %87
   br i1 %91, label %_ZN11LIR_OprFact11intptrConstEl.exit45, label %92
 
 92:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i43
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i44, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i44, i64 8
   store i8 11, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i44, i64 16
@@ -6308,7 +6308,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %124, %126
   br i1 %128, label %134, label %_ZNK7LIR_Opr4typeEv.exit
 
 _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -6355,7 +6355,7 @@ _ZN22CompilationResourceObjnwEm.exit55:           ; preds = %149, %151
   br i1 %153, label %160, label %154
 
 154:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit55
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i54, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i54, i64 8
   store i64 %.sroa.015.0.i.i.i47, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i54, i64 16
@@ -6433,7 +6433,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %23, %25
   store i32 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op4, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op4, i64 16), ptr %.0.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %2, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -6561,7 +6561,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i32 0, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %24, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -6665,7 +6665,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %1, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -6774,7 +6774,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i32 0, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %1, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -7541,7 +7541,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %100, %102
   br i1 %104, label %111, label %105
 
 105:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %106 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %83, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -7590,7 +7590,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %129, %127
   br i1 %131, label %_ZN11LIR_OprFact8oopConstEP8_jobject.exit, label %132
 
 132:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %133 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 12, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -7630,7 +7630,7 @@ _ZN22CompilationResourceObjnwEm.exit63:           ; preds = %149, %151
   br i1 %153, label %160, label %154
 
 154:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit63
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i62, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i62, i64 8
   store i64 %83, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i62, i64 16
@@ -7678,7 +7678,7 @@ _ZN22CompilationResourceObjnwEm.exit.i66:         ; preds = %177, %175
   br i1 %179, label %_ZN11LIR_OprFact8oopConstEP8_jobject.exit68, label %180
 
 180:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i66
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i67, align 8
   %181 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i67, i64 8
   store i8 12, ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i67, i64 16
@@ -7718,7 +7718,7 @@ _ZN22CompilationResourceObjnwEm.exit71:           ; preds = %197, %199
   br i1 %201, label %208, label %202
 
 202:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit71
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i70, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i70, align 8
   %203 = getelementptr inbounds nuw i8, ptr %.0.i.i.i70, i64 8
   store i64 %83, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %.0.i.i.i70, i64 16
@@ -7824,7 +7824,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   store i32 0, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %27, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -7947,7 +7947,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   store i32 0, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %38, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %1, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -8913,7 +8913,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %81, %79
   br i1 %83, label %_ZN11LIR_OprFact8intConstEi.exit, label %84
 
 84:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i8, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i8, i64 8
   store i8 10, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i8, i64 16
@@ -9446,7 +9446,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i32 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV15LIR_OpLoadKlass, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV15LIR_OpLoadKlass, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %1, ptr %31, align 8
   br label %34
@@ -9707,7 +9707,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %102, %104
   br i1 %106, label %113, label %107
 
 107:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %108 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i20, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -9758,7 +9758,7 @@ _ZN22CompilationResourceObjnwEm.exit28._crit_edge: ; preds = %_ZN22CompilationRe
   br label %138
 
 132:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit28
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i27, align 8
   %133 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27, i64 8
   store i64 %.sroa.015.0.i.i, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27, i64 16
@@ -10052,7 +10052,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %89, %91
   %95 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %96 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %97 = sext i32 %96 to i64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %95, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -10100,7 +10100,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %120, %118
   br i1 %122, label %_ZN11LIR_OprFact13metadataConstEP8Metadata.exit, label %123
 
 123:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i19, align 8
   %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i19, i64 8
   store i8 17, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i19, i64 16
@@ -10142,7 +10142,7 @@ _ZN22CompilationResourceObjnwEm.exit.i21:         ; preds = %143, %141
   br i1 %145, label %_ZN11LIR_OprFact8intConstEi.exit, label %146
 
 146:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i21
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i22, align 8
   %147 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i22, i64 8
   store i8 10, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i22, i64 16
@@ -10181,7 +10181,7 @@ _ZN22CompilationResourceObjnwEm.exit.i24:         ; preds = %164, %162
   br i1 %166, label %_ZN11LIR_OprFact8intConstEi.exit26, label %167
 
 167:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i24
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i25, align 8
   %168 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i25, i64 8
   store i8 10, ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i25, i64 16
@@ -10245,7 +10245,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -10477,7 +10477,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %80, %78
   br i1 %82, label %_ZN11LIR_OprFact13metadataConstEP8Metadata.exit, label %83
 
 83:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i26, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i26, i64 8
   store i8 17, ptr %84, align 8
   %85 = ptrtoint ptr %63 to i64
@@ -10545,7 +10545,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %113, %115
   %119 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %120 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %121 = sext i32 %120 to i64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %122 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %119, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -10615,7 +10615,7 @@ _ZN22CompilationResourceObjnwEm.exit.i35:         ; preds = %154, %152
   br i1 %156, label %_ZN11LIR_OprFact13metadataConstEP8Metadata.exit37, label %157
 
 157:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i35
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i36, align 8
   %158 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i36, i64 8
   store i8 17, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i36, i64 16
@@ -10660,7 +10660,7 @@ _ZN22CompilationResourceObjnwEm.exit40:           ; preds = %176, %178
   br i1 %180, label %187, label %181
 
 181:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i39, align 8
   %182 = getelementptr inbounds nuw i8, ptr %.0.i.i.i39, i64 8
   store i64 %.sroa.015.0.i.i29, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %.0.i.i.i39, i64 16
@@ -10875,7 +10875,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %94, %96
   br i1 %98, label %105, label %99
 
 99:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -11005,7 +11005,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %168, %166
   br i1 %170, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit, label %171
 
 171:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
   %172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store i8 10, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
@@ -11112,7 +11112,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %224, %222
   br i1 %226, label %_ZN11LIR_OprFact8intConstEi.exit, label %227
 
 227:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i129, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i129, align 8
   %228 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i129, i64 8
   store i8 10, ptr %228, align 8
   %229 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i129, i64 16
@@ -11183,7 +11183,7 @@ _ZN22CompilationResourceObjnwEm.exit138:          ; preds = %257, %259
   %264 = load i8, ptr @UseCompressedClassPointers, align 1
   %265 = trunc i8 %264 to i1
   %266 = select i1 %265, i64 12, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i137, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i137, align 8
   %267 = getelementptr inbounds nuw i8, ptr %.0.i.i.i137, i64 8
   store i64 %263, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %.0.i.i.i137, i64 16
@@ -11339,7 +11339,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i154:      ; preds = %347, %345
   br i1 %349, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit156, label %350
 
 350:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i154
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i155, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i155, align 8
   %351 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i155, i64 8
   store i8 10, ptr %351, align 8
   %352 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i155, i64 16
@@ -11383,7 +11383,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i158:      ; preds = %371, %369
   br i1 %373, label %_ZN8LIR_List10shift_leftE7LIR_OpriS0_.exit, label %374
 
 374:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i158
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i159, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i159, align 8
   %375 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i159, i64 8
   store i8 10, ptr %375, align 8
   %376 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i159, i64 16
@@ -11426,7 +11426,7 @@ _ZN22CompilationResourceObjnwEm.exit.i161:        ; preds = %394, %392
   br i1 %396, label %_ZN11LIR_OprFact8intConstEi.exit163, label %397
 
 397:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i161
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i162, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i162, align 8
   %398 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i162, i64 8
   store i8 10, ptr %398, align 8
   %399 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i162, i64 16
@@ -11534,7 +11534,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -11556,7 +11556,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   store i64 %35, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 120
   store i32 %1, ptr %40, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV12LIR_OpBranch, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV12LIR_OpBranch, i64 16), ptr %.0.i.i.i, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 128
   store ptr %2, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 136
@@ -11666,7 +11666,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store i8 99, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 60
   store i32 0, ptr %34, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV13LIR_OpConvert, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV13LIR_OpConvert, i64 16), ptr %.0.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store i32 %1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -11835,7 +11835,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %50, %52
 55:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
   %56 = tail call i64 @_ZN12LIRGenerator16getThreadPointerEv(ptr noundef nonnull align 8 dereferenceable(232) %0) #17
   %57 = sext i32 %2 to i64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %56, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -11886,7 +11886,7 @@ _ZN22CompilationResourceObjnwEm.exit12._crit_edge: ; preds = %_ZN22CompilationRe
   br label %88
 
 82:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit12
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i11, align 8
   %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 8
   store i64 %.sroa.015.0.i.i, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i11, i64 16
@@ -13124,7 +13124,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %176, %174
   br i1 %178, label %_ZN11LIR_OprFact8intConstEi.exit, label %179
 
 179:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %180 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 10, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -13758,7 +13758,7 @@ _ZN22CompilationResourceObjnwEm.exit74:           ; preds = %237, %239
   store ptr null, ptr %251, align 8
   %252 = getelementptr inbounds nuw i8, ptr %.0.i.i.i73, i64 80
   store i8 0, ptr %252, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14RangeCheckStub, i64 16), ptr %.0.i.i.i73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14RangeCheckStub, i64 16), ptr %.0.i.i.i73, align 8
   %253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i73, i64 96
   store i64 %243, ptr %253, align 8
   %254 = getelementptr inbounds nuw i8, ptr %.0.i.i.i73, i64 104
@@ -14272,7 +14272,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %121, %119
   br i1 %123, label %_ZN11LIR_OprFact8intConstEi.exit, label %124
 
 124:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %125 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 10, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -14669,7 +14669,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %156, %154
   br i1 %158, label %_ZN11LIR_OprFact8intConstEi.exit, label %159
 
 159:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i52, align 8
   %160 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i52, i64 8
   store i8 10, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i52, i64 16
@@ -14729,7 +14729,7 @@ _ZN22CompilationResourceObjnwEm.exit.i54:         ; preds = %192, %190
   br i1 %194, label %_ZN11LIR_OprFact8intConstEi.exit56, label %195
 
 195:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i54
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i55, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i55, align 8
   %196 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i55, i64 8
   store i8 10, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i55, i64 16
@@ -14758,7 +14758,7 @@ _ZN22CompilationResourceObjnwEm.exit.i58:         ; preds = %202, %200
   br i1 %204, label %_ZN11LIR_OprFact9longConstEl.exit, label %205
 
 205:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i58
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i59, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i59, align 8
   %206 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i59, i64 8
   store i8 11, ptr %206, align 8
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i59, i64 16
@@ -14818,7 +14818,7 @@ _ZN22CompilationResourceObjnwEm.exit.i62:         ; preds = %238, %236
   br i1 %240, label %_ZN11LIR_OprFact9longConstEl.exit64, label %241
 
 241:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i62
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i63, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i63, align 8
   %242 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i63, i64 8
   store i8 11, ptr %242, align 8
   %243 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i63, i64 16
@@ -14930,7 +14930,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %278, %280
   store ptr null, ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   store i8 0, ptr %291, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14DeoptimizeStub, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14DeoptimizeStub, i64 16), ptr %.0.i.i.i, align 8
   %292 = load ptr, ptr %264, align 8
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 1808
   %294 = load ptr, ptr %293, align 8
@@ -15036,7 +15036,7 @@ _ZN22CompilationResourceObjnwEm.exit71:           ; preds = %340, %342
   store ptr null, ptr %352, align 8
   %353 = getelementptr inbounds nuw i8, ptr %.0.i.i.i70, i64 80
   store i8 0, ptr %353, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14DeoptimizeStub, i64 16), ptr %.0.i.i.i70, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14DeoptimizeStub, i64 16), ptr %.0.i.i.i70, align 8
   %354 = load ptr, ptr %264, align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 1808
   %356 = load ptr, ptr %355, align 8
@@ -15521,7 +15521,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %78, %80
   %85 = load i8, ptr @UseCompressedClassPointers, align 1
   %86 = trunc i8 %85 to i1
   %87 = select i1 %86, i64 12, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %84, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -15838,7 +15838,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %141, %143
   store ptr null, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   store i8 0, ptr %156, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14RangeCheckStub, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14RangeCheckStub, i64 16), ptr %.0.i.i.i, align 8
   %157 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
   store i64 %147, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 104
@@ -16379,7 +16379,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -16484,7 +16484,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i32 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op2, i64 16), ptr %.0.i.i.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -16749,7 +16749,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %19, %21
   store i8 99, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 60
   store i32 0, ptr %33, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV13LIR_OpRoundFP, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV13LIR_OpRoundFP, i64 16), ptr %.0.i.i.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store i64 %2, ptr %34, align 8
   br label %37
@@ -17040,7 +17040,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %128, %130
 
 133:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit
   %134 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %135 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %134, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -17619,7 +17619,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %37, %35
   br i1 %39, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit, label %40
 
 40:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store i8 10, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
@@ -17671,7 +17671,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i38:       ; preds = %65, %63
   br i1 %67, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit40, label %68
 
 68:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i38
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i39, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i39, i64 8
   store i8 10, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i39, i64 16
@@ -17715,7 +17715,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i42:       ; preds = %89, %87
   br i1 %91, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit44, label %92
 
 92:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i42
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i43, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i43, i64 8
   store i8 10, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i43, i64 16
@@ -17803,7 +17803,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i46:       ; preds = %137, %135
   br i1 %139, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit48, label %140
 
 140:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i46
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i47, align 8
   %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i47, i64 8
   store i8 10, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i47, i64 16
@@ -17847,7 +17847,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i50:       ; preds = %161, %159
   br i1 %163, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit52, label %164
 
 164:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i50
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i51, align 8
   %165 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i51, i64 8
   store i8 10, ptr %165, align 8
   %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i51, i64 16
@@ -18729,7 +18729,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %126, %124
   br i1 %128, label %_ZN11LIR_OprFact11intptrConstEl.exit, label %129
 
 129:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 11, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -18780,7 +18780,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %154, %152
   br i1 %156, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit, label %157
 
 157:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
   %158 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store i8 10, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
@@ -18825,7 +18825,7 @@ _ZN22CompilationResourceObjnwEm.exit.i68:         ; preds = %179, %177
   br i1 %181, label %_ZN11LIR_OprFact11intptrConstEl.exit70, label %182
 
 182:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i68
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i69, align 8
   %183 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i69, i64 8
   store i8 11, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i69, i64 16
@@ -18893,7 +18893,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %209, %211
   br i1 %213, label %219, label %_ZNK7LIR_Opr4typeEv.exit
 
 _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %214 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -18941,7 +18941,7 @@ _ZN22CompilationResourceObjnwEm.exit.i80:         ; preds = %237, %235
   br i1 %239, label %_ZN11LIR_OprFact11intptrConstEl.exit82, label %240
 
 240:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i80
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i81, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i81, align 8
   %241 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i81, i64 8
   store i8 11, ptr %241, align 8
   %242 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i81, i64 16
@@ -19026,7 +19026,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %29, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %1, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -19309,7 +19309,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %124, %122
   br i1 %126, label %_ZN11LIR_OprFact11intptrConstEl.exit, label %127
 
 127:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 11, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -19370,7 +19370,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %158, %156
   br i1 %160, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit, label %161
 
 161:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
   %162 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store i8 10, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
@@ -19415,7 +19415,7 @@ _ZN22CompilationResourceObjnwEm.exit.i67:         ; preds = %183, %181
   br i1 %185, label %_ZN11LIR_OprFact11intptrConstEl.exit69, label %186
 
 186:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i67
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i68, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i68, align 8
   %187 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i68, i64 8
   store i8 11, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i68, i64 16
@@ -19483,7 +19483,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %212, %214
   br i1 %216, label %222, label %_ZNK7LIR_Opr4typeEv.exit
 
 _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %217 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -19531,7 +19531,7 @@ _ZN22CompilationResourceObjnwEm.exit.i79:         ; preds = %240, %238
   br i1 %242, label %_ZN11LIR_OprFact11intptrConstEl.exit81, label %243
 
 243:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i79
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i80, align 8
   %244 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80, i64 8
   store i8 11, ptr %244, align 8
   %245 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80, i64 16
@@ -19801,7 +19801,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %118, %116
   br i1 %120, label %_ZN11LIR_OprFact8intConstEi.exit.i, label %121
 
 121:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
   %122 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store i8 10, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
@@ -19901,7 +19901,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %171, %173
 
 176:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit
   %177 = sext i32 %141 to i64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %178 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -20000,7 +20000,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   store ptr %1, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %4, ptr %33, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV12LIR_OpRTCall, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV12LIR_OpRTCall, i64 16), ptr %.0.i.i.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store i64 %2, ptr %34, align 8
   br label %37
@@ -20279,7 +20279,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %116, %118
 121:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit
   %.sroa.09.0.copyload = load i64, ptr %6, align 8
   %122 = sext i32 %2 to i64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.09.0.copyload, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -20415,7 +20415,7 @@ _ZN22CompilationResourceObjnwEm.exit114:          ; preds = %184, %186
 189:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit114
   %.sroa.05.0.copyload = load i64, ptr %6, align 8
   %190 = sext i32 %3 to i64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i113, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i113, align 8
   %191 = getelementptr inbounds nuw i8, ptr %.0.i.i.i113, i64 8
   store i64 %.sroa.05.0.copyload, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %.0.i.i.i113, i64 16
@@ -20516,7 +20516,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %23, %25
   store i32 0, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV17LIR_OpProfileType, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV17LIR_OpProfileType, i64 16), ptr %.0.i.i.i, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %28, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -21461,7 +21461,7 @@ _ZN22CompilationResourceObjnwEm.exit83:           ; preds = %341, %343
   %356 = getelementptr inbounds nuw i8, ptr %.0.i.i.i82, i64 96
   store i64 %.sroa.0.0, ptr %355, align 8
   store i64 %275, ptr %356, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV16MonitorEnterStub, i64 16), ptr %.0.i.i.i82, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV16MonitorEnterStub, i64 16), ptr %.0.i.i.i82, align 8
   %357 = load ptr, ptr %277, align 8
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 1808
   %359 = load ptr, ptr %358, align 8
@@ -21671,7 +21671,7 @@ _ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %474, %472
   br i1 %476, label %_ZN11LIR_OprFact8intConstEi.exit.i, label %477
 
 477:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
   %478 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store i8 10, ptr %478, align 8
   %479 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
@@ -21754,7 +21754,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %31
 
 29:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -21871,7 +21871,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %39, %37
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 12, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -21894,7 +21894,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %39, %37
   store i32 0, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %52, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %45, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -22066,7 +22066,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %31
 
 29:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -22897,7 +22897,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %21, %23
   store ptr %3, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %4, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV14LIR_OpJavaCall, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV14LIR_OpJavaCall, i64 16), ptr %.0.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -23006,7 +23006,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   store ptr %4, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %5, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV14LIR_OpJavaCall, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV14LIR_OpJavaCall, i64 16), ptr %.0.i.i.i, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %1, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -23115,7 +23115,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   store ptr %4, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %5, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV14LIR_OpJavaCall, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV14LIR_OpJavaCall, i64 16), ptr %.0.i.i.i, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %1, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -23224,7 +23224,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %22, %24
   store ptr %4, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %5, ptr %35, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV14LIR_OpJavaCall, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV14LIR_OpJavaCall, i64 16), ptr %.0.i.i.i, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %1, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -24214,7 +24214,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %30
 
 28:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -24313,7 +24313,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %30
 
 28:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -24412,7 +24412,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %30
 
 28:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -24511,7 +24511,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %30
 
 28:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -24610,7 +24610,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %30
 
 28:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -25635,7 +25635,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %23, %25
   store i32 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV17LIR_OpProfileCall, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV17LIR_OpProfileCall, i64 16), ptr %.0.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -25827,7 +25827,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %37, %35
   br i1 %39, label %_ZN11LIR_OprFact8intConstEi.exit, label %40
 
 40:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 10, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -25932,7 +25932,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %48, %46
   br i1 %50, label %_ZN11LIR_OprFact11intptrConstEPv.exit, label %51
 
 51:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 11, ptr %52, align 8
   %53 = ptrtoint ptr %15 to i64
@@ -26020,7 +26020,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %88, %90
   br i1 %92, label %99, label %93
 
 93:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.0.0, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -26108,7 +26108,7 @@ _ZN22CompilationResourceObjnwEm.exit.i72:         ; preds = %136, %134
   br i1 %138, label %_ZN11LIR_OprFact13metadataConstEP8Metadata.exit, label %139
 
 139:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i72
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i73, align 8
   %140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i73, i64 8
   store i8 17, ptr %140, align 8
   %141 = ptrtoint ptr %120 to i64
@@ -26165,7 +26165,7 @@ _ZN22CompilationResourceObjnwEm.exit76:           ; preds = %157, %159
   store ptr null, ptr %169, align 8
   %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i75, i64 80
   store i8 0, ptr %170, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV19CounterOverflowStub, i64 16), ptr %.0.i.i.i75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV19CounterOverflowStub, i64 16), ptr %.0.i.i.i75, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i75, i64 88
   store ptr %1, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i75, i64 96
@@ -26236,7 +26236,7 @@ _ZN22CompilationResourceObjnwEm.exit.i78:         ; preds = %210, %208
   br i1 %212, label %_ZN11LIR_OprFact8intConstEi.exit, label %213
 
 213:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i78
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i79, align 8
   %214 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i79, i64 8
   store i8 10, ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i79, i64 16
@@ -26296,7 +26296,7 @@ _ZN22CompilationResourceObjnwEm.exit.i82:         ; preds = %242, %240
   br i1 %244, label %_ZN11LIR_OprFact8intConstEi.exit84, label %245
 
 245:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i82
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i83, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i83, align 8
   %246 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i83, i64 8
   store i8 10, ptr %246, align 8
   %247 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i83, i64 16
@@ -26338,7 +26338,7 @@ _ZN22CompilationResourceObjnwEm.exit.i86:         ; preds = %265, %263
   br i1 %267, label %_ZN11LIR_OprFact8intConstEi.exit88, label %268
 
 268:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i86
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i87, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i87, align 8
   %269 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i87, i64 8
   store i8 10, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i87, i64 16
@@ -26386,7 +26386,7 @@ _ZN22CompilationResourceObjnwEm.exit.i90:         ; preds = %290, %288
   br i1 %292, label %_ZN11LIR_OprFact8intConstEi.exit92, label %293
 
 293:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i90
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i91, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i91, align 8
   %294 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i91, i64 8
   store i8 10, ptr %294, align 8
   %295 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i91, i64 16
@@ -26485,7 +26485,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %46, %44
   br i1 %48, label %_ZN11LIR_OprFact8intConstEi.exit, label %49
 
 49:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 10, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -26525,7 +26525,7 @@ _ZN22CompilationResourceObjnwEm.exit.i23:         ; preds = %68, %66
   br i1 %70, label %_ZN11LIR_OprFact8intConstEi.exit25, label %71
 
 71:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i23
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i24, align 8
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24, i64 8
   store i8 10, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24, i64 16
@@ -27817,7 +27817,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %21, %23
   store ptr %1, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %4, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV12LIR_OpRTCall, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV12LIR_OpRTCall, i64 16), ptr %.0.i.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store i64 %2, ptr %35, align 8
   br label %38
@@ -27984,7 +27984,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %30
 
 28:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -28083,7 +28083,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %30
 
 28:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -28182,7 +28182,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %16, %18
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op0, i64 16), ptr %.0.i.i.i, align 8
   br label %30
 
 28:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
@@ -28271,7 +28271,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %25, %23
   br i1 %27, label %_ZN11LIR_OprFact8intConstEi.exit, label %28
 
 28:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store i8 10, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -28362,7 +28362,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %69, %71
   br i1 %73, label %80, label %74
 
 74:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -28423,7 +28423,7 @@ _ZN22CompilationResourceObjnwEm.exit.i44:         ; preds = %104, %102
   br i1 %106, label %_ZN11LIR_OprFact8intConstEi.exit46, label %107
 
 107:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i44
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i45, align 8
   %108 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i45, i64 8
   store i8 10, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i45, i64 16
@@ -28465,7 +28465,7 @@ _ZN22CompilationResourceObjnwEm.exit.i48:         ; preds = %127, %125
   br i1 %129, label %_ZN11LIR_OprFact8intConstEi.exit50, label %130
 
 130:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i48
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i49, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i49, align 8
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i49, i64 8
   store i8 10, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i49, i64 16

@@ -8896,7 +8896,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha67f311278698a4dE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1677
   store ptr @anon.347014ade22dd8316e82c560a89d6049.383, ptr %7, align 8, !noalias !1681
   %.sroa.4.0..sroa_idx5.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.347014ade22dd8316e82c560a89d6049.383, i64 9296), ptr %.sroa.4.0..sroa_idx5.i.i.i.i, align 8, !noalias !1681
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.347014ade22dd8316e82c560a89d6049.383, i64 9296), ptr %.sroa.4.0..sroa_idx5.i.i.i.i, align 8, !noalias !1681
   %.sroa.5.0..sroa_idx6.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx6.i.i.i.i, align 8, !noalias !1681
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1677

@@ -137,7 +137,7 @@ define dso_local noundef i32 @scsi_complete_async_scans() local_unnamed_addr #2 
   br i1 %2, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %0, %6
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 56) #16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
@@ -161,8 +161,8 @@ define dso_local noundef i32 @scsi_complete_async_scans() local_unnamed_addr #2 
   br i1 %14, label %26, label %15
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @scanning_hosts, i64 8), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @scanning_hosts, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @scanning_hosts, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @scanning_hosts, i64 8), align 8
   store ptr @scanning_hosts, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
@@ -731,7 +731,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 48:                                               ; preds = %.thread, %45
   %49 = phi ptr [ %24, %.thread ], [ %46, %45 ]
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %51 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3264, i64 noundef 256) #16
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.thread22, label %53
@@ -2360,7 +2360,7 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
   br label %41
 
 21:                                               ; preds = %13
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %23 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3264, i64 noundef 56) #16
   %24 = icmp eq ptr %23, null
   br i1 %24, label %41, label %25
@@ -2451,8 +2451,8 @@ define dso_local void @scsi_scan_host(ptr noundef %0) #2 align 16 {
   br label %74
 
 70:                                               ; preds = %40, %29
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @scanning_hosts, i64 8), align 8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @scanning_hosts, i64 8), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @scanning_hosts, i64 8), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @scanning_hosts, i64 8), align 8
   store ptr @scanning_hosts, ptr %23, align 8
   %72 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %71, ptr %72, align 8

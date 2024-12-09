@@ -206,7 +206,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN9SResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 10), (12, 40)) %this) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 -1, ptr %fType, align 8
   %fWritten = getelementptr inbounds nuw i8, ptr %this, i64 9
@@ -227,7 +227,7 @@ declare void @ustr_init(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef readonly %tag, i8 noundef signext %type, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %type, ptr %fType, align 8
   %fWritten = getelementptr inbounds nuw i8, ptr %this, i64 9
@@ -412,7 +412,7 @@ declare void @ustr_cpy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN9SResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment)
           to label %invoke.cont unwind label %terminate.lpad
@@ -447,7 +447,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN9SResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i)
           to label %_ZN9SResourceD2Ev.exit unwind label %terminate.lpad.i
@@ -470,7 +470,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17ContainerResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fFirst, align 8
   %cmp.not3 = icmp eq ptr %0, null
@@ -488,7 +488,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i)
           to label %_ZN9SResourceD2Ev.exit unwind label %terminate.lpad.i
@@ -507,7 +507,7 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %while.end
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17ContainerResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fFirst.i, align 8
   %cmp.not3.i = icmp eq ptr %0, null
@@ -525,7 +525,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.body.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN17ContainerResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -545,7 +545,7 @@ _ZN17ContainerResourceD2Ev.exit:                  ; preds = %while.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13TableResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fFirst.i, align 8
   %cmp.not3.i = icmp eq ptr %0, null
@@ -563,7 +563,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.body.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN17ContainerResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -582,7 +582,7 @@ _ZN17ContainerResourceD2Ev.exit:                  ; preds = %while.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13TableResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fFirst.i.i, align 8
   %cmp.not3.i.i = icmp eq ptr %0, null
@@ -600,7 +600,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !5
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i)
           to label %_ZN13TableResourceD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -731,7 +731,7 @@ declare void @error(i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13ArrayResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fFirst.i, align 8
   %cmp.not3.i = icmp eq ptr %0, null
@@ -749,7 +749,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.body.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN17ContainerResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -768,7 +768,7 @@ _ZN17ContainerResourceD2Ev.exit:                  ; preds = %while.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13ArrayResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fFirst.i.i, align 8
   %cmp.not3.i.i = icmp eq ptr %0, null
@@ -786,7 +786,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !5
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i)
           to label %_ZN13ArrayResourceD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -844,7 +844,7 @@ if.end7:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN18PseudoListResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fFirst.i, align 8
   %cmp.not3.i = icmp eq ptr %0, null
@@ -862,7 +862,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.body.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN17ContainerResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -881,7 +881,7 @@ _ZN17ContainerResourceD2Ev.exit:                  ; preds = %while.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN18PseudoListResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fFirst.i.i, align 8
   %cmp.not3.i.i = icmp eq ptr %0, null
@@ -899,7 +899,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !5
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i)
           to label %_ZN18PseudoListResourceD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -944,9 +944,9 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local void @_ZN18StringBaseResourceC2EP7SRBRootPKcaPKDsiPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext %type, ptr noundef %value, i32 noundef %len, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext %type, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i16 2, ptr %fUnion2.i, align 8
   %cmp = icmp eq i32 %len, 0
@@ -1028,7 +1028,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18StringBaseResourceC2EP7SRBRootaRKN6icu_7513UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, ptr nocapture readnone %bundle, i8 noundef signext %type, ptr noundef nonnull align 8 dereferenceable(64) %value, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fType.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %type, ptr %fType.i, align 8
   %fWritten.i = getelementptr inbounds nuw i8, ptr %this, i64 9
@@ -1041,7 +1041,7 @@ entry:
   store ptr null, ptr %fNext.i, align 8
   %fComment2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @ustr_init(ptr noundef nonnull %fComment2.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString = getelementptr inbounds nuw i8, ptr %this, i64 56
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString, ptr noundef nonnull align 8 dereferenceable(64) %value)
           to label %invoke.cont unwind label %lpad
@@ -1108,7 +1108,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 define dso_local void @_ZN18StringBaseResourceC2EaPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, i8 noundef signext %type, ptr noundef %value, i32 noundef %len, ptr nocapture nonnull readnone align 4 %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fType.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %type, ptr %fType.i, align 8
   %fWritten.i = getelementptr inbounds nuw i8, ptr %this, i64 9
@@ -1121,7 +1121,7 @@ entry:
   store ptr null, ptr %fNext.i, align 8
   %fComment2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @ustr_init(ptr noundef nonnull %fComment2.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %value, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %fString, i8 noundef signext 1, ptr noundef nonnull %agg.tmp, i32 noundef %len)
@@ -1146,10 +1146,10 @@ declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN18StringBaseResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i)
           to label %_ZN9SResourceD2Ev.exit unwind label %terminate.lpad.i
@@ -1168,10 +1168,10 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN18StringBaseResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN18StringBaseResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -1191,10 +1191,10 @@ _ZN18StringBaseResourceD2Ev.exit:                 ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14StringResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(141) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN18StringBaseResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -1213,10 +1213,10 @@ _ZN18StringBaseResourceD2Ev.exit:                 ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14StringResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(141) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i)
           to label %_ZN14StringResourceD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -1236,10 +1236,10 @@ _ZN14StringResourceD2Ev.exit:                     ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13AliasResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN18StringBaseResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -1258,10 +1258,10 @@ _ZN18StringBaseResourceD2Ev.exit:                 ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13AliasResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i)
           to label %_ZN13AliasResourceD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -1282,7 +1282,7 @@ _ZN13AliasResourceD2Ev.exit:                      ; preds = %entry
 define dso_local void @_ZN11IntResourceC2EP7SRBRootPKciPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, i32 noundef %value, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext 7, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11IntResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11IntResource, i64 16), ptr %this, align 8
   %fValue = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %value, ptr %fValue, align 8
   %and = and i32 %value, 268435455
@@ -1297,7 +1297,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11IntResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i)
           to label %_ZN9SResourceD2Ev.exit unwind label %terminate.lpad.i
@@ -1316,7 +1316,7 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11IntResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN11IntResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -1337,7 +1337,7 @@ _ZN11IntResourceD2Ev.exit:                        ; preds = %entry
 define dso_local void @_ZN17IntVectorResourceC2EP7SRBRootPKcPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext 14, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %this, align 8
   %fCount = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i64 0, ptr %fCount, align 8
   %fSize = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1363,7 +1363,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17IntVectorResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %this, align 8
   %fArray = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %fArray, align 8
   %isnull = icmp eq ptr %0, null
@@ -1374,7 +1374,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i)
           to label %_ZN9SResourceD2Ev.exit unwind label %terminate.lpad.i
@@ -1396,7 +1396,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17IntVectorResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %this, align 8
   %fArray.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %fArray.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -1407,7 +1407,7 @@ delete.notnull.i:                                 ; preds = %entry
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN17IntVectorResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -1485,7 +1485,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN14BinaryResourceC2EP7SRBRootPKcjPhS3_PK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, i32 noundef %length, ptr nocapture noundef readonly %data, ptr noundef readonly %fileName, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext 1, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
   %fLength = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %length, ptr %fLength, align 8
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1560,7 +1560,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14BinaryResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %0, null
@@ -1581,7 +1581,7 @@ delete.notnull3:                                  ; preds = %delete.end
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i)
           to label %_ZN9SResourceD2Ev.exit unwind label %terminate.lpad.i
@@ -1600,7 +1600,7 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %delete.end4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN14BinaryResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
   %fData.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fData.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -1621,7 +1621,7 @@ delete.notnull3.i:                                ; preds = %delete.end.i
   br label %delete.end4.i
 
 delete.end4.i:                                    ; preds = %delete.notnull3.i, %delete.end.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i)
           to label %_ZN14BinaryResourceD2Ev.exit unwind label %terminate.lpad.i.i
@@ -3470,7 +3470,7 @@ do.body:                                          ; preds = %if.then140, %if.els
   %idx.ext152 = sext i32 %formatVersion.0 to i64
   %add.ptr153 = getelementptr inbounds [4 x i8], ptr @_ZL15gFormatVersions, i64 %idx.ext152
   %39 = load i32, ptr %add.ptr153, align 4
-  store i32 %39, ptr getelementptr inbounds (i8, ptr @_ZL8dataInfo, i64 12), align 2
+  store i32 %39, ptr getelementptr inbounds nuw (i8, ptr @_ZL8dataInfo, i64 12), align 2
   %40 = load i8, ptr @_ZL17gIncludeCopyright, align 1
   %cmp156 = icmp eq i8 %40, 1
   %cond = select i1 %cmp156, ptr @.str.6, ptr null
@@ -4941,7 +4941,7 @@ lpad213:                                          ; preds = %invoke.cont209
   br label %_ZN6icu_7510LocalArrayIP14StringResourceED2Ev.exit148
 
 if.end220:                                        ; preds = %invoke.cont209
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14StringResource, i64 16), ptr %call210, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14StringResource, i64 16), ptr %call210, align 8
   %fSame.i = getelementptr inbounds nuw i8, ptr %call210, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %fSame.i, i8 0, i64 21, i1 false)
   %76 = load ptr, ptr %fFirst.i, align 8
@@ -5064,7 +5064,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %fCount.i.i, align 8
   %fFirst.i.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr null, ptr %fFirst.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13TableResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TableResource, i64 16), ptr %call, align 8
   %fTableType.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i8 2, ptr %fTableType.i, align 8
   %fRoot.i = getelementptr inbounds nuw i8, ptr %call, i64 80
@@ -5074,7 +5074,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.i, label %while.end.i.i.i, label %_ZN6icu_7512LocalPointerI13TableResourceED2Ev.exit
 
 while.end.i.i.i:                                  ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
   %fComment.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i.i)
           to label %_ZN13TableResourceD0Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -5116,7 +5116,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %fCount.i.i, align 8
   %fFirst.i.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr null, ptr %fFirst.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13ArrayResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13ArrayResource, i64 16), ptr %call, align 8
   %fLast.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr null, ptr %fLast.i, align 8
   %0 = load i32, ptr %status, align 4
@@ -5124,7 +5124,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.i, label %while.end.i.i.i, label %_ZN6icu_7512LocalPointerI13ArrayResourceED2Ev.exit
 
 while.end.i.i.i:                                  ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
   %fComment.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i.i)
           to label %_ZN13ArrayResourceD0Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -5159,7 +5159,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14StringResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14StringResource, i64 16), ptr %call, align 8
   %fSame.i = getelementptr inbounds nuw i8, ptr %call, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %fSame.i, i8 0, i64 21, i1 false)
   %0 = load i32, ptr %status, align 4
@@ -5167,10 +5167,10 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.i, label %delete.notnull.i, label %_ZN6icu_7512LocalPointerI9SResourceED2Ev.exit
 
 delete.notnull.i:                                 ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %call, align 8
   %fString.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
   %fComment.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i.i)
           to label %_ZN14StringResourceD0Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -5205,16 +5205,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13AliasResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13AliasResource, i64 16), ptr %call, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %delete.notnull.i, label %_ZN6icu_7512LocalPointerI9SResourceED2Ev.exit
 
 delete.notnull.i:                                 ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %call, align 8
   %fString.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i.i) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
   %fComment.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i.i)
           to label %_ZN13AliasResourceD0Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -5249,7 +5249,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %call, align 8
   %fCount.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i64 0, ptr %fCount.i, align 8
   %fSize.i = getelementptr inbounds nuw i8, ptr %call, i64 64
@@ -5271,9 +5271,9 @@ invoke.cont:                                      ; preds = %.noexc
   br i1 %cmp.i, label %delete.end.i.i, label %_ZN6icu_7512LocalPointerI17IntVectorResourceED2Ev.exit
 
 delete.end.i.i:                                   ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %call, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %call.i) #34
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
   %fComment.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i)
           to label %_ZN17IntVectorResourceD0Ev.exit unwind label %terminate.lpad.i.i.i
@@ -5312,7 +5312,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11IntResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11IntResource, i64 16), ptr %call, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i32 %value, ptr %fValue.i, align 8
   %and.i = and i32 %value, 268435455
@@ -5326,7 +5326,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.i, label %delete.notnull.i, label %_ZN6icu_7512LocalPointerI9SResourceED2Ev.exit
 
 delete.notnull.i:                                 ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %call, align 8
   %fComment.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   invoke void @ustr_deinit(ptr noundef nonnull %fComment.i.i.i)
           to label %_ZN11IntResourceD0Ev.exit unwind label %terminate.lpad.i.i.i
@@ -5398,7 +5398,7 @@ entry:
   %fKeysCapacity = getelementptr inbounds nuw i8, ptr %this, i64 56
   %f16BitUnits = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %fKeys, i8 0, i64 36, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %f16BitUnits, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %f16BitUnits, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i16 2, ptr %fUnion2.i, align 8
   %f16BitStringsLength = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -5451,7 +5451,7 @@ if.then11:                                        ; preds = %invoke.cont7
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %if.then11
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %call13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %call13, align 8
   %fType.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 8
   store i8 2, ptr %fType.i.i, align 8
   %fWritten.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 9
@@ -5471,7 +5471,7 @@ _ZN18PseudoListResourceC2EP7SRBRootR10UErrorCode.exit: ; preds = %invoke.cont12
   store i32 0, ptr %fCount.i.i, align 8
   %fFirst.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 64
   store ptr null, ptr %fFirst.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18PseudoListResource, i64 16), ptr %call13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18PseudoListResource, i64 16), ptr %call13, align 8
   br label %if.end22
 
 lpad14:                                           ; preds = %invoke.cont12
@@ -5485,7 +5485,7 @@ if.else:                                          ; preds = %invoke.cont7
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %if.else
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %call18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr %call18, align 8
   %fType.i = getelementptr inbounds nuw i8, ptr %call18, i64 8
   store i8 2, ptr %fType.i, align 8
   %fWritten.i = getelementptr inbounds nuw i8, ptr %call18, i64 9
@@ -5513,7 +5513,7 @@ _ZN13TableResourceC2EP7SRBRootPKcPK7UStringR10UErrorCode.exit: ; preds = %.noexc
   store i32 0, ptr %fCount.i.i10, align 8
   %fFirst.i.i11 = getelementptr inbounds nuw i8, ptr %call18, i64 64
   store ptr null, ptr %fFirst.i.i11, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13TableResource, i64 16), ptr %call18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13TableResource, i64 16), ptr %call18, align 8
   %fTableType.i = getelementptr inbounds nuw i8, ptr %call18, i64 72
   store i8 2, ptr %fTableType.i, align 8
   %fRoot.i = getelementptr inbounds nuw i8, ptr %call18, i64 80
@@ -6913,7 +6913,7 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @_ZL13kNoPoolBundle, i8 0, i64 48, i1 false)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7ResFileD2Ev, ptr nonnull @_ZL13kNoPoolBundle, ptr nonnull @__dso_handle) #33
-  store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr @_ZL11kNoResource, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV9SResource, i64 16), ptr @_ZL11kNoResource, align 8
   store i8 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZL11kNoResource, i64 8), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL11kNoResource, i64 9), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL11kNoResource, i64 12), i8 -1, i64 16, i1 false)

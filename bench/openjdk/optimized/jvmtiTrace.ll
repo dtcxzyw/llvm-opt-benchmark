@@ -194,7 +194,7 @@ _ZN16SafeResourceMarkC2Ev.exit:                   ; preds = %6, %12, %14
   %.1103220 = phi ptr [ %.0102, %44 ], [ %spec.select, %.lr.ph199 ]
   %.0104218 = phi i1 [ %47, %44 ], [ true, %.lr.ph199 ]
   %.0109216 = phi ptr [ %45, %44 ], [ @.str.5, %.lr.ph199 ]
-  %.0112215 = phi ptr [ %spec.select, %44 ], [ getelementptr inbounds (i8, ptr @.str.5, i64 3), %.lr.ph199 ]
+  %.0112215 = phi ptr [ %spec.select, %44 ], [ getelementptr inbounds nuw (i8, ptr @.str.5, i64 3), %.lr.ph199 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %68

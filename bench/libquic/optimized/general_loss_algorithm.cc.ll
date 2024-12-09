@@ -28,7 +28,7 @@ $_ZTIN3net22LossDetectionInterfaceE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net20GeneralLossAlgorithmC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net20GeneralLossAlgorithmE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net20GeneralLossAlgorithmE, i64 16), ptr %this, align 8
   %loss_detection_timeout_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %reordering_shift_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %loss_detection_timeout_, i8 0, i64 20, i1 false)
@@ -41,7 +41,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net20GeneralLossAlgorithmC2ENS_17LossDetectionTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, i32 noundef %loss_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net20GeneralLossAlgorithmE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net20GeneralLossAlgorithmE, i64 16), ptr %this, align 8
   %loss_detection_timeout_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %loss_type_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %loss_detection_timeout_, i8 0, i64 16, i1 false)

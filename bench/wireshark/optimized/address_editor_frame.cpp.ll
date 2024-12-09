@@ -86,9 +86,9 @@ $_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPosit
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18AddressEditorFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AddressEditorFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AddressEditorFrame, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AddressEditorFrame, i64 456), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AddressEditorFrame, i64 456), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
           to label %6 unwind label %13
@@ -264,7 +264,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37:    ; preds = %44
   %52 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 0, ptr %53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i32 81, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -349,7 +349,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49:    ; preds = %79
   %87 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i32 0, ptr %88, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 12
   store i32 10, ptr %89, align 4
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -442,7 +442,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i61:    ; preds = %114
   %128 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i32 0, ptr %129, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %128, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 12
   store i32 20, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
@@ -676,9 +676,9 @@ declare void @_ZN9QComboBox19setSizeAdjustPolicyENS_16SizeAdjustPolicyE(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN18AddressEditorFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AddressEditorFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AddressEditorFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18AddressEditorFrame, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18AddressEditorFrame, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2224,7 +2224,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58:    ; preds = %_ZN7QStringD2Ev.exi
           to label %_ZN18AddressEditorFrame21on_buttonBox_rejectedEv.exit unwind label %71
 
 _ZN18AddressEditorFrame21on_buttonBox_rejectedEv.exit: ; preds = %.noexc61
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not8 = icmp eq i32 %116, 0
   br i1 %.not8, label %_ZN7QStringD2Ev.exit36, label %117
 

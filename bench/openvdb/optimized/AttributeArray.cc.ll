@@ -172,11 +172,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   store i8 0, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7openvdb5v11_06points12_GLOBAL__N_123LockedAttributeRegistryD2Ev, ptr nonnull @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry) #12
   br label %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
@@ -277,7 +277,7 @@ lpad:                                             ; preds = %_ZN3tbb6detail2d118
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7openvdb5v11_06points14AttributeArrayC2ERKS2_RKN3tbb6detail2d118unique_scoped_lockINS7_10spin_mutexEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rhs, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 16), ptr %this, align 8
   %mIsUniform = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mIsUniform2 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %1 = load i8, ptr %mIsUniform2, align 8
@@ -777,11 +777,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   store i8 0, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7openvdb5v11_06points12_GLOBAL__N_123LockedAttributeRegistryD2Ev, ptr nonnull @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry) #12
   br label %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
@@ -832,11 +832,11 @@ lpad:                                             ; preds = %if.end, %if.end24
 
 if.end:                                           ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i, %if.then, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
   %_lock.sroa.0.0 = phi ptr [ null, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %if.then ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i ]
-  %call.i7 = invoke ptr @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef nonnull align 8 dereferenceable(64) %type)
+  %call.i7 = invoke ptr @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef nonnull align 8 dereferenceable(64) %type)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.end
-  %cmp.i = icmp eq ptr %call.i7, getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16)
+  %cmp.i = icmp eq ptr %call.i7, getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16)
   br i1 %cmp.i, label %if.then7, label %if.end24
 
 if.then7:                                         ; preds = %invoke.cont1
@@ -892,7 +892,7 @@ catch:                                            ; preds = %lpad10, %lpad8
 try.cont:                                         ; preds = %catch, %invoke.cont20
   %exception = call ptr @__cxa_allocate_exception(i64 40) #12
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_011LookupErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_011LookupErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_011LookupErrorE, ptr nonnull @_ZN7openvdb5v11_011LookupErrorD2Ev) #19
           to label %unreachable unwind label %lpad22
 
@@ -962,7 +962,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_011LookupErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
@@ -986,11 +986,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   store i8 0, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7openvdb5v11_06points12_GLOBAL__N_123LockedAttributeRegistryD2Ev, ptr nonnull @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry) #12
   br label %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
@@ -1048,7 +1048,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %lp
 
 if.end:                                           ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i, %if.then, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
   %_lock.sroa.0.0 = phi ptr [ null, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %if.then ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i ]
-  %call.i4 = invoke ptr @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef nonnull align 8 dereferenceable(64) %type)
+  %call.i4 = invoke ptr @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE4findERS8_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef nonnull align 8 dereferenceable(64) %type)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.end
@@ -1059,7 +1059,7 @@ if.then.i6:                                       ; preds = %invoke.cont1
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7: ; preds = %invoke.cont1, %if.then.i6
-  %cmp.i = icmp ne ptr %call.i4, getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16)
+  %cmp.i = icmp ne ptr %call.i4, getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16)
   ret i1 %cmp.i
 }
 
@@ -1077,11 +1077,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   store i8 0, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7openvdb5v11_06points12_GLOBAL__N_123LockedAttributeRegistryD2Ev, ptr nonnull @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry) #12
   br label %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
@@ -1127,8 +1127,8 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i: ; preds = %if.else.i.i.i, %_
 
 if.end:                                           ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i, %if.then, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
   %_lock.sroa.0.0 = phi ptr [ null, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %if.then ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i ]
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
-  invoke void @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE8_M_eraseEPSt13_Rb_tree_nodeISK_E(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef %5)
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
+  invoke void @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE8_M_eraseEPSt13_Rb_tree_nodeISK_E(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef %5)
           to label %_ZNSt3mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EPFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSA_8MetadataEESt4lessIS7_ESaIS0_IKS7_SI_EEE5clearEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end
@@ -1139,10 +1139,10 @@ terminate.lpad.i.i:                               ; preds = %if.end
   unreachable
 
 _ZNSt3mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EPFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSA_8MetadataEESt4lessIS7_ESaIS0_IKS7_SI_EEE5clearEv.exit: ; preds = %if.end
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
   br i1 %tobool.not.not, label %if.then.i4, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit5
 
 if.then.i4:                                       ; preds = %_ZNSt3mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EPFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSA_8MetadataEESt4lessIS7_ESaIS0_IKS7_SI_EEE5clearEv.exit
@@ -1251,7 +1251,7 @@ catch:                                            ; preds = %lpad6, %lpad4
 try.cont:                                         ; preds = %catch, %invoke.cont27
   %exception = call ptr @__cxa_allocate_exception(i64 40) #12
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_08KeyErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_08KeyErrorE, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_08KeyErrorE, ptr nonnull @_ZN7openvdb5v11_08KeyErrorD2Ev) #19
           to label %unreachable unwind label %lpad29
 
@@ -1347,11 +1347,11 @@ init.check.i:                                     ; preds = %_ZNSt10shared_ptrIN
 
 init.i:                                           ; preds = %init.check.i
   store i8 0, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
   %20 = call i32 @__cxa_atexit(ptr nonnull @_ZN7openvdb5v11_06points12_GLOBAL__N_123LockedAttributeRegistryD2Ev, ptr nonnull @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, ptr nonnull @__dso_handle) #12
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry) #12
   br label %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
@@ -1411,7 +1411,7 @@ if.then.i:                                        ; preds = %lpad33
 
 if.end35:                                         ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i, %if.then32, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
   %_lock.sroa.0.0 = phi ptr [ null, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %if.then32 ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i ]
-  %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EPFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSA_8MetadataEESt4lessIS7_ESaIS0_IKS7_SI_EEEixERSL_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef nonnull align 8 dereferenceable(64) %type)
+  %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EPFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSA_8MetadataEESt4lessIS7_ESaIS0_IKS7_SI_EEEixERSL_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef nonnull align 8 dereferenceable(64) %type)
           to label %invoke.cont36 unwind label %lpad33
 
 invoke.cont36:                                    ; preds = %if.end35
@@ -1436,7 +1436,7 @@ unreachable:                                      ; preds = %try.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_08KeyErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
@@ -1606,11 +1606,11 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   store i8 0, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 32), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 40), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 48), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7openvdb5v11_06points12_GLOBAL__N_123LockedAttributeRegistryD2Ev, ptr nonnull @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry) #12
   br label %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
@@ -1668,13 +1668,13 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %lp
 
 if.end:                                           ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i, %if.then, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit
   %_lock.sroa.0.0 = phi ptr [ null, %_ZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEv.exit ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %if.then ], [ @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i ]
-  %call.i.i3 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE11equal_rangeERS8_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef nonnull align 8 dereferenceable(64) %type)
+  %call.i.i3 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE11equal_rangeERS8_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr noundef nonnull align 8 dereferenceable(64) %type)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %if.end
   %6 = extractvalue { ptr, ptr } %call.i.i3, 0
   %7 = extractvalue { ptr, ptr } %call.i.i3, 1
-  invoke void @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISK_ESS_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr %6, ptr %7)
+  invoke void @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_PFSt10shared_ptrIN7openvdb5v11_06points14AttributeArrayEEjjbPKNSB_8MetadataEEESt10_Select1stISK_ESt4lessIS7_ESaISK_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISK_ESS_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN7openvdb5v11_06points12_GLOBAL__N_120getAttributeRegistryEvE8registry, i64 8), ptr %6, ptr %7)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %call.i.i.noexc
@@ -1777,7 +1777,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_06points14AttributeArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 16), ptr %this, align 8
   %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags, align 2
   %1 = and i8 %0, 32
@@ -1875,7 +1875,7 @@ declare void @_ZN7openvdb5v11_011compression10PageHandleC1ERKSt10shared_ptrINS1_
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %eType, ptr noundef %msg) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #12
   %tobool.not = icmp eq ptr %eType, null
@@ -1933,7 +1933,7 @@ terminate.lpad:                                   ; preds = %catch
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_011LookupErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
@@ -1990,7 +1990,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
@@ -2000,7 +2000,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12
@@ -2089,7 +2089,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7openvdb5v11_08KeyErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
   %mMessage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #12
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #12

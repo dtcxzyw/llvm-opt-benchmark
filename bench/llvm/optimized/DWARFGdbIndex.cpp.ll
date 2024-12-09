@@ -211,7 +211,7 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex10dumpCUListERNS_11raw_ostreamE(p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str, ptr %8, align 8, !alias.scope !4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %3, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %3, align 8, !alias.scope !4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %7, ptr %9, align 8, !alias.scope !4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -256,7 +256,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %17, %19
   %30 = getelementptr inbounds nuw i8, ptr %.01114, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   store ptr @.str.1, ptr %24, align 8, !alias.scope !7
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmmEEE, i64 16), ptr %4, align 8, !alias.scope !7
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmmEEE, i64 16), ptr %4, align 8, !alias.scope !7
   %31 = load i64, ptr %30, align 8, !noalias !7
   store i64 %31, ptr %25, align 8, !alias.scope !7
   %32 = load i64, ptr %.01114, align 8, !noalias !7
@@ -293,11 +293,11 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE(p
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %10, align 8, !alias.scope !10
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterImEE, i64 16), ptr %11, align 8, !alias.scope !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterImEE, i64 16), ptr %11, align 8, !alias.scope !10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %7, ptr %12, align 8, !alias.scope !10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKjEE, i64 16), ptr %13, align 8, !alias.scope !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKjEE, i64 16), ptr %13, align 8, !alias.scope !10
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %5, ptr %14, align 8, !alias.scope !10
   store ptr %13, ptr %8, align 8, !alias.scope !10
@@ -340,13 +340,13 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE(p
   store ptr %19, ptr %20, align 8, !alias.scope !15
   store i64 4, ptr %.sroa.2.0..sroa_idx.i.i.i.i14, align 8, !alias.scope !15
   store i8 1, ptr %21, align 8, !alias.scope !15
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %22, align 8, !alias.scope !15
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %22, align 8, !alias.scope !15
   store ptr %33, ptr %23, align 8, !alias.scope !15
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %24, align 8, !alias.scope !15
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %24, align 8, !alias.scope !15
   store ptr %32, ptr %25, align 8, !alias.scope !15
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %26, align 8, !alias.scope !15
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKmEE, i64 16), ptr %26, align 8, !alias.scope !15
   store ptr %.01218, ptr %27, align 8, !alias.scope !15
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIjEE, i64 16), ptr %28, align 8, !alias.scope !15
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIjEE, i64 16), ptr %28, align 8, !alias.scope !15
   store i32 %.019, ptr %29, align 8, !alias.scope !15
   store ptr %28, ptr %19, align 8, !alias.scope !15
   store ptr %26, ptr %.sroa.2.0..sroa_idx.i.i.i15, align 8, !alias.scope !15
@@ -373,7 +373,7 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex15dumpAddressAreaERNS_11raw_ostre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.4, ptr %8, align 8, !alias.scope !20
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %3, align 8, !alias.scope !20
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %3, align 8, !alias.scope !20
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %7, ptr %9, align 8, !alias.scope !20
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -421,7 +421,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %17, %19
   %34 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   store ptr @.str.5, ptr %24, align 8, !alias.scope !23
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmmjEEE, i64 16), ptr %4, align 8, !alias.scope !23
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmmjEEE, i64 16), ptr %4, align 8, !alias.scope !23
   %35 = load i32, ptr %34, align 4, !noalias !23
   store i32 %35, ptr %25, align 8, !alias.scope !23
   store i64 %33, ptr %26, align 8, !alias.scope !23
@@ -447,7 +447,7 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex15dumpSymbolTableERNS_11raw_ostre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.6, ptr %9, align 8, !alias.scope !26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %3, align 8, !alias.scope !26
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %3, align 8, !alias.scope !26
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %8, ptr %10, align 8, !alias.scope !26
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -508,7 +508,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %18, %20
 ._crit_edge38:                                    ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %.033, i64 4
   store ptr @.str.7, ptr %25, align 8, !alias.scope !29
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjjEEE, i64 16), ptr %4, align 8, !alias.scope !29
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjjEEE, i64 16), ptr %4, align 8, !alias.scope !29
   store i32 %41, ptr %26, align 8, !alias.scope !29
   store i32 %39, ptr %27, align 4, !alias.scope !29
   store i32 %38, ptr %28, align 8, !alias.scope !29
@@ -642,7 +642,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %18, %20
   %93 = sdiv exact i64 %92, 24
   %94 = trunc i64 %93 to i32
   store ptr @.str.8, ptr %34, align 8, !alias.scope !34
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcjEEE, i64 16), ptr %5, align 8, !alias.scope !34
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcjEEE, i64 16), ptr %5, align 8, !alias.scope !34
   store i32 %94, ptr %35, align 8, !alias.scope !34
   store ptr %52, ptr %36, align 8, !alias.scope !34
   %95 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %5) #14
@@ -668,7 +668,7 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex16dumpConstantPoolERNS_11raw_ostr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.9, ptr %9, align 8, !alias.scope !37
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %3, align 8, !alias.scope !37
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjmEEE, i64 16), ptr %3, align 8, !alias.scope !37
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %8, ptr %10, align 8, !alias.scope !37
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -695,7 +695,7 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex16dumpConstantPoolERNS_11raw_ostr
   %23 = add i32 %.028, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
   store ptr @.str.10, ptr %17, align 8, !alias.scope !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjEEE, i64 16), ptr %4, align 8, !alias.scope !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjEEE, i64 16), ptr %4, align 8, !alias.scope !40
   %24 = load i32, ptr %.02027, align 4, !noalias !40
   store i32 %24, ptr %18, align 8, !alias.scope !40
   store i32 %.028, ptr %19, align 4, !alias.scope !40
@@ -711,7 +711,7 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex16dumpConstantPoolERNS_11raw_ostr
   %.01925 = phi ptr [ %32, %.lr.ph ], [ %27, %22 ]
   %30 = load i32, ptr %.01925, align 4
   store ptr @.str.11, ptr %20, align 8, !alias.scope !43
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %5, align 8, !alias.scope !43
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjEEE, i64 16), ptr %5, align 8, !alias.scope !43
   store i32 %30, ptr %21, align 8, !alias.scope !43
   %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   %32 = getelementptr inbounds nuw i8, ptr %.01925, i64 4

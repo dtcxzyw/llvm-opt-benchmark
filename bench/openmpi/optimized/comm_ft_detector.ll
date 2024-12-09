@@ -152,7 +152,7 @@ define i32 @ompi_comm_failure_detector_init() local_unnamed_addr #0 {
   %22 = tail call i32 @evthread_use_pthreads() #10
   store i8 1, ptr @opal_uses_threads, align 1
   %23 = load i32, ptr @opal_class_init_epoch, align 4
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @opal_thread_t_class, i64 32), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_thread_t_class, i64 32), align 8
   %.not = icmp eq i32 %23, %24
   br i1 %.not, label %26, label %25
 
@@ -162,7 +162,7 @@ define i32 @ompi_comm_failure_detector_init() local_unnamed_addr #0 {
 
 26:                                               ; preds = %25, %21
   store ptr @opal_thread_t_class, ptr @fd_thread, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @fd_thread, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @fd_thread, i64 8), align 8
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_thread_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i = icmp eq ptr %28, null
@@ -178,8 +178,8 @@ define i32 @ompi_comm_failure_detector_init() local_unnamed_addr #0 {
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %26
-  store ptr @fd_progress, ptr getelementptr inbounds (i8, ptr @fd_thread, i64 16), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @fd_thread, i64 24), align 8
+  store ptr @fd_progress, ptr getelementptr inbounds nuw (i8, ptr @fd_thread, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @fd_thread, i64 24), align 8
   %32 = tail call i32 @opal_thread_start(ptr noundef nonnull @fd_thread) #10
   %.not12 = icmp eq i32 %32, 0
   br i1 %.not12, label %.preheader, label %38
@@ -228,22 +228,22 @@ define internal noundef i32 @fd_heartbeat_recv_cb(ptr nocapture noundef readonly
   br label %15
 
 15:                                               ; preds = %8, %11
-  store i32 -2, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 16), align 8
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 32), align 8
+  store i32 -2, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 16), align 8
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 32), align 8
   br label %31
 
 16:                                               ; preds = %2
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 16), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 16), align 8
   %.not = icmp eq i32 %6, %17
   br i1 %.not, label %18, label %31
 
 18:                                               ; preds = %16
   %19 = tail call double @PMPI_Wtime() #10
-  %20 = load double, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 40), align 8
-  %21 = load double, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 32), align 8
+  %20 = load double, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 40), align 8
+  %21 = load double, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 32), align 8
   %22 = fsub double %19, %21
   %23 = fsub double %20, %22
-  store double %19, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 32), align 8
+  store double %19, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 32), align 8
   %24 = fcmp olt double %23, 0.000000e+00
   br i1 %24, label %25, label %31
 
@@ -275,7 +275,7 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %7, %9
   %11 = srem i32 %10, %.val49.val
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 20), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 20), align 4
   %13 = add nsw i32 %12, %7
   %14 = srem i32 %13, %.val49.val
   %15 = icmp slt i32 %11, %14
@@ -293,13 +293,13 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
   %23 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %0) #10
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %25 = load i32, ptr %24, align 8
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 20), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 20), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %20, ptr noundef nonnull @.str.13, ptr noundef %21, ptr noundef nonnull @__func__.fd_heartbeat_request_cb, i32 noundef %22, ptr noundef %23, i32 noundef %25, i32 noundef %26) #10
   br label %118
 
 27:                                               ; preds = %2
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 20), align 4
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 56), align 8
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 20), align 4
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 56), align 8
   %28 = load i32, ptr @comm_detector_use_rdma_hb, align 4
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %117, label %29
@@ -368,7 +368,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %29, %40, %54, %56
   br i1 %68, label %.thread.i, label %71
 
 .thread.i:                                        ; preds = %66, %63
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 8), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_bml, i64 8), align 8
   %70 = tail call i32 %69(ptr noundef nonnull %.0.i.i.i.i) #10
   br label %71
 
@@ -400,16 +400,16 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %mca_bml_base_btl_array_get_index.exit
-  %85 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @comm_world_detector, i64 144)) #10
+  %85 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 144)) #10
   br label %86
 
 86:                                               ; preds = %mca_bml_base_btl_array_get_index.exit, %84
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 88), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 88), align 8
   %.not45 = icmp eq ptr %87, null
   br i1 %.not45, label %94, label %88
 
 88:                                               ; preds = %86
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 64), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 64), align 8
   %90 = getelementptr i8, ptr %89, i64 8
   %.val48 = load ptr, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.val48, i64 264
@@ -428,9 +428,9 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
 99:                                               ; preds = %94
   %100 = getelementptr i8, ptr %.0.i, i64 16
   %.val51 = load ptr, ptr %100, align 8
-  %101 = tail call ptr %98(ptr noundef nonnull %96, ptr noundef %.val51, ptr noundef nonnull getelementptr inbounds (i8, ptr @comm_world_detector, i64 80), i64 noundef 4, i32 noundef 0) #10
-  store ptr %101, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 88), align 8
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 120), align 8
+  %101 = tail call ptr %98(ptr noundef nonnull %96, ptr noundef %.val51, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 80), i64 noundef 4, i32 noundef 0) #10
+  store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 88), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 120), align 8
   %.not47 = icmp eq ptr %102, null
   br i1 %.not47, label %104, label %103
 
@@ -443,22 +443,22 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 80
   %107 = load i64, ptr %106, align 8
   %108 = tail call noalias ptr @malloc(i64 noundef %107) #11
-  store ptr %108, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 120), align 8
+  store ptr %108, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 120), align 8
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %108, ptr nonnull align 8 %109, i64 %107, i1 false)
   br label %110
 
 110:                                              ; preds = %104, %94
-  store ptr %.0.i, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 64), align 8
+  store ptr %.0.i, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 64), align 8
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load i64, ptr %111, align 8
-  store i64 %112, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 112), align 8
+  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 112), align 8
   %113 = load i8, ptr @opal_uses_threads, align 1
   %114 = trunc i8 %113 to i1
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %110
-  %116 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @comm_world_detector, i64 144)) #10
+  %116 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 144)) #10
   br label %117
 
 117:                                              ; preds = %115, %110, %27
@@ -522,7 +522,7 @@ opal_thread_add_fetch_32.exit3:                   ; preds = %opal_thread_add_fet
   br i1 %22, label %opal_thread_add_fetch_32.exit3, label %23, !llvm.loop !7
 
 23:                                               ; preds = %opal_thread_add_fetch_32.exit3
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %25 = call i32 %24(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 0, i32 noundef -30, ptr noundef nonnull @ompi_mpi_comm_self, ptr noundef nonnull %2) #10
   %26 = load volatile i32, ptr @fd_thread_active, align 4
   %.not15 = icmp eq i32 %26, 0
@@ -550,7 +550,7 @@ opal_thread_add_fetch_32.exit3:                   ; preds = %opal_thread_add_fet
   br label %ompi_request_cancel.exit
 
 ompi_request_cancel.exit:                         ; preds = %._crit_edge, %35
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %38 = call i32 %37(ptr noundef nonnull %2, ptr noundef null) #10
   br label %opal_thread_add_fetch_32.exit
 
@@ -563,20 +563,20 @@ declare i32 @opal_thread_start(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_comm_failure_detector_finalize() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 20), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 20), align 4
   %.not = icmp eq i32 %2, -2
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %0
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 80), align 8
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 80), align 8
   tail call fastcc void @fd_heartbeat_send(ptr noundef nonnull @comm_world_detector)
-  store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 48), align 8
-  store i32 -2, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 20), align 4
+  store double 0x7FF0000000000000, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 48), align 8
+  store i32 -2, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 20), align 4
   fence seq_cst
   br label %4
 
 4:                                                ; preds = %3, %0
-  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 16), align 8
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 16), align 8
   %.not2430 = icmp eq i32 %.pr, -2
   br i1 %.not2430, label %._crit_edge, label %.lr.ph.preheader
 
@@ -595,7 +595,7 @@ define noundef i32 @ompi_comm_failure_detector_finalize() local_unnamed_addr #0 
 
 8:                                                ; preds = %.lr.ph
   %9 = tail call i32 @opal_progress() #10
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 16), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 16), align 8
   br label %10
 
 10:                                               ; preds = %8, %.lr.ph
@@ -633,15 +633,15 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
   br label %29
 
 29:                                               ; preds = %opal_thread_add_fetch_32.exit, %._crit_edge
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 8), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 8), align 8
   %.not25 = icmp eq ptr %30, null
   br i1 %.not25, label %34, label %31
 
 31:                                               ; preds = %29
   %32 = call i32 @event_del(ptr noundef nonnull %30) #10
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 8), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 8), align 8
   call void @event_free(ptr noundef %33) #10
-  store ptr null, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 8), align 8
   br label %34
 
 34:                                               ; preds = %31, %29
@@ -655,12 +655,12 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
   br label %38
 
 38:                                               ; preds = %37, %34
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 88), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 88), align 8
   %.not27 = icmp eq ptr %39, null
   br i1 %.not27, label %46, label %40
 
 40:                                               ; preds = %38
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 64), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 64), align 8
   %42 = getelementptr i8, ptr %41, i64 8
   %.val = load ptr, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 264
@@ -669,12 +669,12 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
   br label %46
 
 46:                                               ; preds = %40, %38
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 104), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 104), align 8
   %.not28 = icmp eq ptr %47, null
   br i1 %.not28, label %54, label %48
 
 48:                                               ; preds = %46
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 72), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 72), align 8
   %50 = getelementptr i8, ptr %49, i64 8
   %.val29 = load ptr, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.val29, i64 264
@@ -683,8 +683,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
   br label %54
 
 54:                                               ; preds = %48, %46
-  store i32 -2, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 16), align 8
-  store i32 -2, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 20), align 4
+  store i32 -2, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 16), align 8
+  store i32 -2, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 20), align 4
   ret i32 0
 }
 
@@ -734,32 +734,32 @@ define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone %0) l
   %4 = tail call double @PMPI_Wtime() #10
   store double %4, ptr @startdate, align 8
   store ptr @ompi_mpi_comm_world, ptr @comm_world_detector, align 8
-  %ompi_mpi_comm_world.val = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 248), align 8
+  %ompi_mpi_comm_world.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 248), align 8
   %5 = getelementptr i8, ptr %ompi_mpi_comm_world.val, i64 16
   %ompi_mpi_comm_world.val.val = load i32, ptr %5, align 8
-  %ompi_mpi_comm_world.val43 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 220), align 4
+  %ompi_mpi_comm_world.val43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 220), align 4
   %6 = add nsw i32 %ompi_mpi_comm_world.val43, %ompi_mpi_comm_world.val.val
   %7 = add nsw i32 %6, -1
   %8 = srem i32 %7, %ompi_mpi_comm_world.val.val
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 16), align 8
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 16), align 8
   %9 = add nsw i32 %6, 1
   %10 = srem i32 %9, %ompi_mpi_comm_world.val.val
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 20), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 20), align 4
   %11 = load double, ptr @comm_heartbeat_period, align 8
-  store double %11, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 48), align 8
+  store double %11, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 48), align 8
   %12 = load double, ptr @comm_heartbeat_timeout, align 8
-  store double %12, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 40), align 8
+  store double %12, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 40), align 8
   %13 = fcmp ugt double %12, %11
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %3
   %15 = fdiv double %12, 3.000000e+00
-  store double %15, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 48), align 8
+  store double %15, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 48), align 8
   br label %16
 
 16:                                               ; preds = %14, %3
-  store double %4, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 24), align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 56), align 8
+  store double %4, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 24), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 56), align 8
   %17 = tail call double @PMPI_Wtime() #10
   %18 = load double, ptr @comm_heartbeat_timeout, align 8
   %19 = fadd double %17, %18
@@ -767,13 +767,13 @@ define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone %0) l
   %21 = sitofp i32 %ompi_mpi_comm_world.val.val to double
   %22 = tail call double @log(double noundef %21) #10
   %23 = fadd double %22, %20
-  store double %23, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 32), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @comm_world_detector, i64 64), i8 0, i64 16, i1 false)
-  store i32 %ompi_mpi_comm_world.val43, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 80), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 88), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @comm_world_detector, i64 104), i8 0, i64 24, i1 false)
+  store double %23, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 64), i8 0, i64 16, i1 false)
+  store i32 %ompi_mpi_comm_world.val43, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 80), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 88), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 104), i8 0, i64 24, i1 false)
   %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not41 = icmp eq i32 %24, %25
   br i1 %.not41, label %27, label %26
 
@@ -782,8 +782,8 @@ define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone %0) l
   br label %27
 
 27:                                               ; preds = %26, %16
-  store ptr @opal_mutex_t_class, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 128), align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 136), align 8
+  store ptr @opal_mutex_t_class, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 128), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 136), align 8
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i = icmp eq ptr %29, null
@@ -792,7 +792,7 @@ define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone %0) l
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %30 = phi ptr [ %32, %.lr.ph.i ], [ %29, %27 ]
   %.07.i = phi ptr [ %31, %.lr.ph.i ], [ %28, %27 ]
-  tail call void %30(ptr noundef nonnull getelementptr inbounds (i8, ptr @comm_world_detector, i64 128)) #10
+  tail call void %30(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 128)) #10
   %31 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
@@ -801,8 +801,8 @@ define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone %0) l
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %27
   %33 = load ptr, ptr @fd_event_base, align 8
   %34 = tail call ptr @event_new(ptr noundef %33, i32 noundef -1, i16 noundef signext 17, ptr noundef nonnull @fd_event_cb, ptr noundef nonnull @comm_world_detector) #10
-  store ptr %34, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 8), align 8
-  %35 = load double, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 48), align 8
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 8), align 8
+  %35 = load double, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 48), align 8
   %36 = fdiv double %35, 1.000000e+01
   %37 = fptosi double %36 to i32
   %38 = sext i32 %37 to i64
@@ -815,7 +815,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %27
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %43, ptr %44, align 8
   %45 = call i32 @event_add(ptr noundef %34, ptr noundef nonnull %2) #10
-  %46 = load double, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 48), align 8
+  %46 = load double, ptr getelementptr inbounds nuw (i8, ptr @comm_world_detector, i64 48), align 8
   %47 = fcmp olt double %46, 1.000000e-05
   br i1 %47, label %48, label %49
 
@@ -942,9 +942,9 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   br label %fd_heartbeat_rdma_put.exit
 
 65:                                               ; preds = %23
-  %ompi_mpi_comm_world.val = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 216), align 8
+  %ompi_mpi_comm_world.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 216), align 8
   store i32 %ompi_mpi_comm_world.val, ptr %2, align 4
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 232), align 8
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 232), align 8
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %66, ptr %67, align 4
   %68 = load i32, ptr @comm_heartbeat_recv_cb_type, align 4
@@ -957,7 +957,7 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   store i32 %72, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %75 = load i32, ptr %74, align 4
-  %ompi_mpi_comm_world.val20 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 256), align 8
+  %ompi_mpi_comm_world.val20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_comm_world, i64 256), align 8
   %76 = getelementptr inbounds nuw i8, ptr %ompi_mpi_comm_world.val20, i64 32
   %77 = load ptr, ptr %76, align 8
   %78 = sext i32 %75 to i64
@@ -1349,7 +1349,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
   br i1 %72, label %.thread.i, label %75
 
 .thread.i:                                        ; preds = %70, %67
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 8), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_bml, i64 8), align 8
   %74 = tail call i32 %73(ptr noundef nonnull %.0.i.i.i.i) #10
   br label %75
 

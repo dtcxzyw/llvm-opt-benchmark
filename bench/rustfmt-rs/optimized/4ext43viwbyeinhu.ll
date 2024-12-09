@@ -5125,7 +5125,7 @@ _RNvXso_Cs3QyEqtpuK7A_20rustc_error_messagesNtB5_9MultiSpanNtNtCs9nhK3FOW46N_4co
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !836
   store ptr @anon.21be9a90e725640ba5b7aff756abf24e.164, ptr %6, align 8, !noalias !836
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.21be9a90e725640ba5b7aff756abf24e.164, i64 3), ptr %93, align 8, !noalias !836
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.21be9a90e725640ba5b7aff756abf24e.164, i64 3), ptr %93, align 8, !noalias !836
   tail call void @llvm.experimental.noalias.scope.decl(metadata !838)
   %94 = load i8, ptr %92, align 1, !range !841, !alias.scope !842, !noalias !843
   br label %95
@@ -5626,7 +5626,7 @@ _RNvXso_Cs3QyEqtpuK7A_20rustc_error_messagesNtB5_9MultiSpanNtNtCs9nhK3FOW46N_4co
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !928
   store ptr @anon.21be9a90e725640ba5b7aff756abf24e.164, ptr %6, align 8, !noalias !928
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.21be9a90e725640ba5b7aff756abf24e.164, i64 3), ptr %98, align 8, !noalias !928
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.21be9a90e725640ba5b7aff756abf24e.164, i64 3), ptr %98, align 8, !noalias !928
   tail call void @llvm.experimental.noalias.scope.decl(metadata !930)
   %99 = load i8, ptr %97, align 1, !range !841, !alias.scope !933, !noalias !934
   br label %100
@@ -15536,7 +15536,7 @@ _ZN15rustfmt_nightly6macros18rewrite_macro_name17ha93830b46cac681aE.exit: ; pred
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %104), !noalias !2644
   store ptr @anon.21be9a90e725640ba5b7aff756abf24e.302, ptr %104, align 8, !noalias !2644
   %210 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.21be9a90e725640ba5b7aff756abf24e.302, i64 16), ptr %210, align 8, !noalias !2644
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.21be9a90e725640ba5b7aff756abf24e.302, i64 16), ptr %210, align 8, !noalias !2644
   br label %211
 
 211:                                              ; preds = %.noexc130, %_ZN15rustfmt_nightly6macros18rewrite_macro_name17ha93830b46cac681aE.exit
@@ -28366,7 +28366,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit156
   br i1 %993, label %994, label %995
 
 994:                                              ; preds = %986
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.sroa.5.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.a7bafd4e2c56697d606b799d0f61b449.154.llvm.8986235990505969818, i64 8), i64 24, i1 false), !noalias !5089
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.sroa.5.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.a7bafd4e2c56697d606b799d0f61b449.154.llvm.8986235990505969818, i64 8), i64 24, i1 false), !noalias !5089
   br label %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4131282f514a096E.exit.i.i.i"
 
 995:                                              ; preds = %986

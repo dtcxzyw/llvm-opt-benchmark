@@ -1327,7 +1327,7 @@ entryPreparePage.exit:                            ; preds = %25, %35
 85:                                               ; preds = %81
   %86 = load i8, ptr %22, align 8
   %87 = and i8 %86, 1
-  store i8 %87, ptr getelementptr inbounds (i8, ptr @entryExecPlaceToPage.data, i64 2), align 2
+  store i8 %87, ptr getelementptr inbounds nuw (i8, ptr @entryExecPlaceToPage.data, i64 2), align 2
   store i16 %21, ptr @entryExecPlaceToPage.data, align 2
   tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #11
   tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull @entryExecPlaceToPage.data, i32 noundef 4) #11

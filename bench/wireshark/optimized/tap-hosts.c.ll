@@ -162,9 +162,9 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 define internal void @hosts_draw(ptr nocapture readnone %0) #0 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts6 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 32), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 32), align 8
   %.not = icmp eq i32 %2, 0
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
   %4 = select i1 %.not, ptr %3, ptr @.str.11
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %4)
   %putchar = tail call i32 @putchar(i32 10)

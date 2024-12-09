@@ -502,7 +502,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7513LocaleBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 30), (32, 48)) %this) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513LocaleBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513LocaleBuilderE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %variant_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %status_, i8 0, i64 22, i1 false)
@@ -516,7 +516,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513LocaleBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513LocaleBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513LocaleBuilderE, i64 16), ptr %this, align 8
   %variant_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %variant_, align 8
   %isnull = icmp eq ptr %0, null

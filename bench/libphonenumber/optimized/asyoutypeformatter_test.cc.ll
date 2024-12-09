@@ -3159,7 +3159,7 @@ define dso_local void @_ZN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructo
           to label %.noexc13 unwind label %25
 
 .noexc13:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1303, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1303, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %12
 
 12:                                               ; preds = %.noexc13
@@ -3366,7 +3366,7 @@ define dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlu
           to label %.noexc68 unwind label %57
 
 .noexc68:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1304, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1304, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1304, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1304, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %41
 
 41:                                               ; preds = %.noexc68
@@ -4692,7 +4692,7 @@ define dso_local void @_ZN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNum
           to label %.noexc93 unwind label %72
 
 .noexc93:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1304, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1304, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1304, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1304, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %56
 
 56:                                               ; preds = %.noexc93
@@ -6542,7 +6542,7 @@ define dso_local void @_ZN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWit
           to label %.noexc51 unwind label %48
 
 .noexc51:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1305, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1305, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1305, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1305, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %32
 
 32:                                               ; preds = %.noexc51
@@ -7518,7 +7518,7 @@ define dso_local void @_ZN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWit
           to label %.noexc63 unwind label %54
 
 .noexc63:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1305, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1305, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1305, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1305, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %38
 
 38:                                               ; preds = %.noexc63
@@ -8921,7 +8921,7 @@ define dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_Te
           to label %.noexc458 unwind label %261
 
 .noexc458:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1303, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1303, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %245
 
 245:                                              ; preds = %.noexc458
@@ -17729,7 +17729,7 @@ define dso_local void @_ZN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFul
           to label %.noexc63 unwind label %74
 
 .noexc63:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1303, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1303, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %48
 
 48:                                               ; preds = %.noexc63
@@ -19322,7 +19322,7 @@ define dso_local void @_ZN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMob
           to label %.noexc31 unwind label %39
 
 .noexc31:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1303, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1303, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %23
 
 23:                                               ; preds = %.noexc31
@@ -19974,7 +19974,7 @@ define dso_local void @_ZN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVan
           to label %.noexc73 unwind label %60
 
 .noexc73:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1303, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1303, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %44
 
 44:                                               ; preds = %.noexc73
@@ -21768,7 +21768,7 @@ define dso_local void @_ZN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRem
           to label %.noexc683 unwind label %432
 
 .noexc683:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1303, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1303, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %416
 
 416:                                              ; preds = %.noexc683
@@ -34712,7 +34712,7 @@ define dso_local void @_ZN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFix
           to label %.noexc78 unwind label %67
 
 .noexc78:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1306, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1306, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1306, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1306, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %51
 
 51:                                               ; preds = %.noexc78
@@ -36245,7 +36245,7 @@ define dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTol
           to label %.noexc68 unwind label %57
 
 .noexc68:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1306, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1306, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1306, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1306, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %41
 
 41:                                               ; preds = %.noexc68
@@ -37554,7 +37554,7 @@ define dso_local void @_ZN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPre
           to label %.noexc68 unwind label %57
 
 .noexc68:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1306, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1306, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1306, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1306, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %41
 
 41:                                               ; preds = %.noexc68
@@ -38857,7 +38857,7 @@ define dso_local void @_ZN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMob
           to label %.noexc58 unwind label %51
 
 .noexc58:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1307, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1307, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1307, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1307, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %35
 
 35:                                               ; preds = %.noexc58
@@ -40000,7 +40000,7 @@ define dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_Te
           to label %.noexc158 unwind label %111
 
 .noexc158:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1308, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1308, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1308, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1308, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %95
 
 95:                                               ; preds = %.noexc158
@@ -43293,7 +43293,7 @@ define dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_Te
           to label %.noexc68 unwind label %57
 
 .noexc68:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1309, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1309, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1309, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1309, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %41
 
 41:                                               ; preds = %.noexc68
@@ -44611,7 +44611,7 @@ define dso_local void @_ZN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMob
           to label %.noexc83 unwind label %66
 
 .noexc83:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1309, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1309, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1309, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1309, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %50
 
 50:                                               ; preds = %.noexc83
@@ -46418,7 +46418,7 @@ define dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_Te
           to label %.noexc374 unwind label %225
 
 .noexc374:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1310, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1310, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %209
 
 209:                                              ; preds = %.noexc374
@@ -54097,7 +54097,7 @@ define dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_Te
           to label %.noexc444 unwind label %255
 
 .noexc444:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1311, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1311, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1311, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1311, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %239
 
 239:                                              ; preds = %.noexc444
@@ -62679,7 +62679,7 @@ define dso_local void @_ZN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_Inter
           to label %.noexc73 unwind label %60
 
 .noexc73:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1303, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1303, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %44
 
 44:                                               ; preds = %.noexc73
@@ -64194,7 +64194,7 @@ define dso_local void @_ZN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_Multi
           to label %.noexc228 unwind label %153
 
 .noexc228:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1312, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1312, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1312, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1312, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %137
 
 137:                                              ; preds = %.noexc228
@@ -69134,7 +69134,7 @@ define dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongI
           to label %.noexc243 unwind label %162
 
 .noexc243:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1313, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1313, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1313, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1313, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %146
 
 146:                                              ; preds = %.noexc243
@@ -74312,7 +74312,7 @@ define dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongI
           to label %.noexc93 unwind label %72
 
 .noexc93:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1310, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1310, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %56
 
 56:                                               ; preds = %.noexc93
@@ -76222,7 +76222,7 @@ define dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongN
           to label %.noexc153 unwind label %108
 
 .noexc153:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1310, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1310, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %92
 
 92:                                               ; preds = %.noexc153
@@ -79412,7 +79412,7 @@ define dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongN
           to label %.noexc83 unwind label %66
 
 .noexc83:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1314, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1314, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1314, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1314, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %50
 
 50:                                               ; preds = %.noexc83
@@ -81180,7 +81180,7 @@ define dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_Short
           to label %.noexc283 unwind label %186
 
 .noexc283:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1313, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1313, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1313, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1313, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %170
 
 170:                                              ; preds = %.noexc283
@@ -87269,7 +87269,7 @@ define dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_Short
           to label %.noexc138 unwind label %99
 
 .noexc138:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1310, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1310, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %83
 
 83:                                               ; preds = %.noexc138
@@ -90169,7 +90169,7 @@ define dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_Short
           to label %.noexc143 unwind label %102
 
 .noexc143:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1311, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1311, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1311, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1311, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %86
 
 86:                                               ; preds = %.noexc143
@@ -93117,7 +93117,7 @@ define dso_local void @_ZN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNat
           to label %.noexc37 unwind label %42
 
 .noexc37:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1315, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1315, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1315, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1315, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %26
 
 26:                                               ; preds = %.noexc37
@@ -93861,7 +93861,7 @@ define dso_local void @_ZN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNat
           to label %.noexc37 unwind label %42
 
 .noexc37:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1316, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1316, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1316, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1316, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %26
 
 26:                                               ; preds = %.noexc37
@@ -94614,7 +94614,7 @@ define dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_Short
           to label %.noexc58 unwind label %51
 
 .noexc58:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1303, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1303, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1303, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %35
 
 35:                                               ; preds = %.noexc58
@@ -95746,7 +95746,7 @@ define dso_local void @_ZN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_Clear
           to label %.noexc133 unwind label %96
 
 .noexc133:                                        ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1310, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1310, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1310, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %80
 
 80:                                               ; preds = %.noexc133
@@ -98485,7 +98485,7 @@ define dso_local void @_ZN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatt
           to label %.noexc68 unwind label %57
 
 .noexc68:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1317, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1317, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1317, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1317, i64 2))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %41
 
 41:                                               ; preds = %.noexc68
@@ -99749,7 +99749,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99769,7 +99769,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99799,7 +99799,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99819,7 +99819,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99840,7 +99840,7 @@ _ZN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestD2Ev.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99860,7 +99860,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99881,7 +99881,7 @@ _ZN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestD2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99901,7 +99901,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99922,7 +99922,7 @@ _ZN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLead
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99942,7 +99942,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99963,7 +99963,7 @@ _ZN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixF
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -99983,7 +99983,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100004,7 +100004,7 @@ _ZN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixF
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100024,7 +100024,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100045,7 +100045,7 @@ _ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestD2Ev.exit: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100065,7 +100065,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100086,7 +100086,7 @@ _ZN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestD2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100106,7 +100106,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100127,7 +100127,7 @@ _ZN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestD2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100147,7 +100147,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100168,7 +100168,7 @@ _ZN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestD2Ev.exit
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100188,7 +100188,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100209,7 +100209,7 @@ _ZN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestD2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100229,7 +100229,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100250,7 +100250,7 @@ _ZN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestD2Ev.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100270,7 +100270,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100291,7 +100291,7 @@ _ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestD2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100311,7 +100311,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100332,7 +100332,7 @@ _ZN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestD2Ev.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100352,7 +100352,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100373,7 +100373,7 @@ _ZN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestD2Ev.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100393,7 +100393,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100414,7 +100414,7 @@ _ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestD2Ev.exit: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100434,7 +100434,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100455,7 +100455,7 @@ _ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestD2Ev.exit: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100475,7 +100475,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100496,7 +100496,7 @@ _ZN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestD2Ev.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100516,7 +100516,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100537,7 +100537,7 @@ _ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestD2Ev.exit: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100557,7 +100557,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100578,7 +100578,7 @@ _ZN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestD2Ev.exit: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100598,7 +100598,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100619,7 +100619,7 @@ _ZN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_Test
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100639,7 +100639,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100660,7 +100660,7 @@ _ZN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100680,7 +100680,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100701,7 +100701,7 @@ _ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestD2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100721,7 +100721,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100742,7 +100742,7 @@ _ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestD2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100762,7 +100762,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100783,7 +100783,7 @@ _ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestD2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100803,7 +100803,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100824,7 +100824,7 @@ _ZN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestD2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100844,7 +100844,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100865,7 +100865,7 @@ _ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100885,7 +100885,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100906,7 +100906,7 @@ _ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100926,7 +100926,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100947,7 +100947,7 @@ _ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100967,7 +100967,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -100988,7 +100988,7 @@ _ZN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestD2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101008,7 +101008,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101029,7 +101029,7 @@ _ZN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101049,7 +101049,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101070,7 +101070,7 @@ _ZN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101090,7 +101090,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101111,7 +101111,7 @@ _ZN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101131,7 +101131,7 @@ _ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101170,7 +101170,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101186,7 +101186,7 @@ declare void @llvm.trap() #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %3 unwind label %13
 
@@ -101208,7 +101208,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTe
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 2, ptr %11, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 16), ptr %9, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %9)
           to label %12 unwind label %15
 
@@ -101265,7 +101265,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers22AsYouTypeFormatterTestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers22AsYouTypeFormatterTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101379,7 +101379,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101407,7 +101407,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101435,7 +101435,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101463,7 +101463,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101491,7 +101491,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101519,7 +101519,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101547,7 +101547,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101575,7 +101575,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101603,7 +101603,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101631,7 +101631,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101659,7 +101659,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101687,7 +101687,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101715,7 +101715,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101743,7 +101743,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101771,7 +101771,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101799,7 +101799,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101827,7 +101827,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101855,7 +101855,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101883,7 +101883,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101911,7 +101911,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101939,7 +101939,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101967,7 +101967,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -101995,7 +101995,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102023,7 +102023,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102051,7 +102051,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102079,7 +102079,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102107,7 +102107,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102135,7 +102135,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102163,7 +102163,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102191,7 +102191,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102219,7 +102219,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102247,7 +102247,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -102277,7 +102277,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -104413,7 +104413,7 @@ define internal void @_GLOBAL__sub_I_asyoutypeformatter_test.cc() #12 section ".
           to label %.noexc7.i unwind label %116
 
 .noexc7.i:                                        ; preds = %.noexc.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %105
 
 105:                                              ; preds = %.noexc7.i
@@ -104441,7 +104441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %114 unwind label %120
 
 114:                                              ; preds = %112
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestEEE, i64 16), ptr %113, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56AsYouTypeFormatterTest_ConvertUnicodeStringPosition_TestEEE, i64 16), ptr %113, align 8
   %115 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %100, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %109, ptr noundef %111, ptr noundef nonnull %113)
           to label %__cxx_global_var_init.1.exit unwind label %120
 
@@ -104492,7 +104492,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %114
           to label %.noexc5.i unwind label %135
 
 .noexc5.i:                                        ; preds = %.noexc.i3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4 unwind label %124
 
 124:                                              ; preds = %.noexc5.i
@@ -104520,7 +104520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4: ;
           to label %133 unwind label %139
 
 133:                                              ; preds = %131
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestEEE, i64 16), ptr %132, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39AsYouTypeFormatterTest_Constructor_TestEEE, i64 16), ptr %132, align 8
   %134 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef null, ptr noundef nonnull %97, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %128, ptr noundef %130, ptr noundef nonnull %132)
           to label %__cxx_global_var_init.17.exit unwind label %139
 
@@ -104565,7 +104565,7 @@ __cxx_global_var_init.17.exit:                    ; preds = %133
           to label %.noexc5.i8 unwind label %154
 
 .noexc5.i8:                                       ; preds = %.noexc.i7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9 unwind label %143
 
 143:                                              ; preds = %.noexc5.i8
@@ -104593,7 +104593,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9: ;
           to label %152 unwind label %158
 
 152:                                              ; preds = %150
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestEEE, i64 16), ptr %151, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_InvalidPlusSign_TestEEE, i64 16), ptr %151, align 8
   %153 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef null, ptr noundef nonnull %94, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %147, ptr noundef %149, ptr noundef nonnull %151)
           to label %__cxx_global_var_init.22.exit unwind label %158
 
@@ -104638,7 +104638,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %152
           to label %.noexc5.i14 unwind label %173
 
 .noexc5.i14:                                      ; preds = %.noexc.i13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15 unwind label %162
 
 162:                                              ; preds = %.noexc5.i14
@@ -104666,7 +104666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15: 
           to label %171 unwind label %177
 
 171:                                              ; preds = %169
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestEEE, i64 16), ptr %170, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers70AsYouTypeFormatterTest_TooLongNumberMatchingMultipleLeadingDigits_TestEEE, i64 16), ptr %170, align 8
   %172 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef null, ptr noundef nonnull %91, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %166, ptr noundef %168, ptr noundef nonnull %170)
           to label %__cxx_global_var_init.52.exit unwind label %177
 
@@ -104711,7 +104711,7 @@ __cxx_global_var_init.52.exit:                    ; preds = %171
           to label %.noexc5.i20 unwind label %192
 
 .noexc5.i20:                                      ; preds = %.noexc.i19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21 unwind label %181
 
 181:                                              ; preds = %.noexc5.i20
@@ -104739,7 +104739,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21: 
           to label %190 unwind label %196
 
 190:                                              ; preds = %188
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestEEE, i64 16), ptr %189, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers74AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRule_TestEEE, i64 16), ptr %189, align 8
   %191 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.90, ptr noundef null, ptr noundef null, ptr noundef nonnull %88, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %185, ptr noundef %187, ptr noundef nonnull %189)
           to label %__cxx_global_var_init.89.exit unwind label %196
 
@@ -104784,7 +104784,7 @@ __cxx_global_var_init.89.exit:                    ; preds = %190
           to label %.noexc5.i26 unwind label %211
 
 .noexc5.i26:                                      ; preds = %.noexc.i25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27 unwind label %200
 
 200:                                              ; preds = %.noexc5.i26
@@ -104812,7 +104812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27: 
           to label %209 unwind label %215
 
 209:                                              ; preds = %207
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestEEE, i64 16), ptr %208, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers84AsYouTypeFormatterTest_CountryWithSpaceInNationalPrefixFormattingRuleAndLongNdd_TestEEE, i64 16), ptr %208, align 8
   %210 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.108, ptr noundef null, ptr noundef null, ptr noundef nonnull %85, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %204, ptr noundef %206, ptr noundef nonnull %208)
           to label %__cxx_global_var_init.107.exit unwind label %215
 
@@ -104857,7 +104857,7 @@ __cxx_global_var_init.107.exit:                   ; preds = %209
           to label %.noexc5.i32 unwind label %230
 
 .noexc5.i32:                                      ; preds = %.noexc.i31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33 unwind label %219
 
 219:                                              ; preds = %.noexc5.i32
@@ -104885,7 +104885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33: 
           to label %228 unwind label %234
 
 228:                                              ; preds = %226
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestEEE, i64 16), ptr %227, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_US_TestEEE, i64 16), ptr %227, align 8
   %229 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.130, ptr noundef null, ptr noundef null, ptr noundef nonnull %82, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %223, ptr noundef %225, ptr noundef nonnull %227)
           to label %__cxx_global_var_init.129.exit unwind label %234
 
@@ -104930,7 +104930,7 @@ __cxx_global_var_init.129.exit:                   ; preds = %228
           to label %.noexc5.i38 unwind label %249
 
 .noexc5.i38:                                      ; preds = %.noexc.i37
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39 unwind label %238
 
 238:                                              ; preds = %.noexc5.i38
@@ -104958,7 +104958,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39: 
           to label %247 unwind label %253
 
 247:                                              ; preds = %245
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestEEE, i64 16), ptr %246, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54AsYouTypeFormatterTest_AYTF_USFullWidthCharacters_TestEEE, i64 16), ptr %246, align 8
   %248 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.259, ptr noundef null, ptr noundef null, ptr noundef nonnull %79, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %242, ptr noundef %244, ptr noundef nonnull %246)
           to label %__cxx_global_var_init.258.exit unwind label %253
 
@@ -105003,7 +105003,7 @@ __cxx_global_var_init.258.exit:                   ; preds = %247
           to label %.noexc5.i44 unwind label %268
 
 .noexc5.i44:                                      ; preds = %.noexc.i43
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45 unwind label %257
 
 257:                                              ; preds = %.noexc5.i44
@@ -105031,7 +105031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45: 
           to label %266 unwind label %272
 
 266:                                              ; preds = %264
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestEEE, i64 16), ptr %265, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50AsYouTypeFormatterTest_AYTF_USMobileShortCode_TestEEE, i64 16), ptr %265, align 8
   %267 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.273, ptr noundef null, ptr noundef null, ptr noundef nonnull %76, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %261, ptr noundef %263, ptr noundef nonnull %265)
           to label %__cxx_global_var_init.272.exit unwind label %272
 
@@ -105076,7 +105076,7 @@ __cxx_global_var_init.272.exit:                   ; preds = %266
           to label %.noexc5.i50 unwind label %287
 
 .noexc5.i50:                                      ; preds = %.noexc.i49
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i51 unwind label %276
 
 276:                                              ; preds = %.noexc5.i50
@@ -105104,7 +105104,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i51: 
           to label %285 unwind label %291
 
 285:                                              ; preds = %283
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestEEE, i64 16), ptr %284, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47AsYouTypeFormatterTest_AYTF_USVanityNumber_TestEEE, i64 16), ptr %284, align 8
   %286 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.287, ptr noundef null, ptr noundef null, ptr noundef nonnull %73, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %280, ptr noundef %282, ptr noundef nonnull %284)
           to label %__cxx_global_var_init.286.exit unwind label %291
 
@@ -105149,7 +105149,7 @@ __cxx_global_var_init.286.exit:                   ; preds = %285
           to label %.noexc5.i56 unwind label %306
 
 .noexc5.i56:                                      ; preds = %.noexc.i55
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i57 unwind label %295
 
 295:                                              ; preds = %.noexc5.i56
@@ -105177,7 +105177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i57: 
           to label %304 unwind label %310
 
 304:                                              ; preds = %302
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestEEE, i64 16), ptr %303, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53AsYouTypeFormatterTest_AYTFAndRememberPositionUS_TestEEE, i64 16), ptr %303, align 8
   %305 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.318, ptr noundef null, ptr noundef null, ptr noundef nonnull %70, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %299, ptr noundef %301, ptr noundef nonnull %303)
           to label %__cxx_global_var_init.317.exit unwind label %310
 
@@ -105222,7 +105222,7 @@ __cxx_global_var_init.317.exit:                   ; preds = %304
           to label %.noexc5.i62 unwind label %325
 
 .noexc5.i62:                                      ; preds = %.noexc.i61
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i63 unwind label %314
 
 314:                                              ; preds = %.noexc5.i62
@@ -105250,7 +105250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i63: 
           to label %323 unwind label %329
 
 323:                                              ; preds = %321
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestEEE, i64 16), ptr %322, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44AsYouTypeFormatterTest_AYTF_GBFixedLine_TestEEE, i64 16), ptr %322, align 8
   %324 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.401, ptr noundef null, ptr noundef null, ptr noundef nonnull %67, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %318, ptr noundef %320, ptr noundef nonnull %322)
           to label %__cxx_global_var_init.400.exit unwind label %329
 
@@ -105295,7 +105295,7 @@ __cxx_global_var_init.400.exit:                   ; preds = %323
           to label %.noexc5.i68 unwind label %344
 
 .noexc5.i68:                                      ; preds = %.noexc.i67
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69 unwind label %333
 
 333:                                              ; preds = %.noexc5.i68
@@ -105323,7 +105323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
           to label %342 unwind label %348
 
 342:                                              ; preds = %340
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestEEE, i64 16), ptr %341, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_GBTollFree_TestEEE, i64 16), ptr %341, align 8
   %343 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.424, ptr noundef null, ptr noundef null, ptr noundef nonnull %64, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %337, ptr noundef %339, ptr noundef nonnull %341)
           to label %__cxx_global_var_init.423.exit unwind label %348
 
@@ -105368,7 +105368,7 @@ __cxx_global_var_init.423.exit:                   ; preds = %342
           to label %.noexc5.i74 unwind label %363
 
 .noexc5.i74:                                      ; preds = %.noexc.i73
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i75 unwind label %352
 
 352:                                              ; preds = %.noexc5.i74
@@ -105396,7 +105396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i75: 
           to label %361 unwind label %367
 
 361:                                              ; preds = %359
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestEEE, i64 16), ptr %360, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46AsYouTypeFormatterTest_AYTF_GBPremiumRate_TestEEE, i64 16), ptr %360, align 8
   %362 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.446, ptr noundef null, ptr noundef null, ptr noundef nonnull %61, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %356, ptr noundef %358, ptr noundef nonnull %360)
           to label %__cxx_global_var_init.445.exit unwind label %367
 
@@ -105441,7 +105441,7 @@ __cxx_global_var_init.445.exit:                   ; preds = %361
           to label %.noexc5.i80 unwind label %382
 
 .noexc5.i80:                                      ; preds = %.noexc.i79
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i81 unwind label %371
 
 371:                                              ; preds = %.noexc5.i80
@@ -105469,7 +105469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i81: 
           to label %380 unwind label %386
 
 380:                                              ; preds = %378
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestEEE, i64 16), ptr %379, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_NZMobile_TestEEE, i64 16), ptr %379, align 8
   %381 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.468, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %375, ptr noundef %377, ptr noundef nonnull %379)
           to label %__cxx_global_var_init.467.exit unwind label %386
 
@@ -105514,7 +105514,7 @@ __cxx_global_var_init.467.exit:                   ; preds = %380
           to label %.noexc5.i86 unwind label %401
 
 .noexc5.i86:                                      ; preds = %.noexc.i85
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i87 unwind label %390
 
 390:                                              ; preds = %.noexc5.i86
@@ -105542,7 +105542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i87: 
           to label %399 unwind label %405
 
 399:                                              ; preds = %397
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestEEE, i64 16), ptr %398, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_DE_TestEEE, i64 16), ptr %398, align 8
   %400 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.484, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %394, ptr noundef %396, ptr noundef nonnull %398)
           to label %__cxx_global_var_init.483.exit unwind label %405
 
@@ -105587,7 +105587,7 @@ __cxx_global_var_init.483.exit:                   ; preds = %399
           to label %.noexc5.i92 unwind label %420
 
 .noexc5.i92:                                      ; preds = %.noexc.i91
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i93 unwind label %409
 
 409:                                              ; preds = %.noexc5.i92
@@ -105615,7 +105615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i93: 
           to label %418 unwind label %424
 
 418:                                              ; preds = %416
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestEEE, i64 16), ptr %417, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_AR_TestEEE, i64 16), ptr %417, align 8
   %419 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.534, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %413, ptr noundef %415, ptr noundef nonnull %417)
           to label %__cxx_global_var_init.533.exit unwind label %424
 
@@ -105660,7 +105660,7 @@ __cxx_global_var_init.533.exit:                   ; preds = %418
           to label %.noexc5.i98 unwind label %439
 
 .noexc5.i98:                                      ; preds = %.noexc.i97
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i99 unwind label %428
 
 428:                                              ; preds = %.noexc5.i98
@@ -105688,7 +105688,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i99: 
           to label %437 unwind label %443
 
 437:                                              ; preds = %435
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestEEE, i64 16), ptr %436, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41AsYouTypeFormatterTest_AYTF_ARMobile_TestEEE, i64 16), ptr %436, align 8
   %438 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.554, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %432, ptr noundef %434, ptr noundef nonnull %436)
           to label %__cxx_global_var_init.553.exit unwind label %443
 
@@ -105733,7 +105733,7 @@ __cxx_global_var_init.553.exit:                   ; preds = %437
           to label %.noexc5.i104 unwind label %458
 
 .noexc5.i104:                                     ; preds = %.noexc.i103
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i105 unwind label %447
 
 447:                                              ; preds = %.noexc5.i104
@@ -105761,7 +105761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i105:
           to label %456 unwind label %462
 
 456:                                              ; preds = %454
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestEEE, i64 16), ptr %455, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_KR_TestEEE, i64 16), ptr %455, align 8
   %457 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.582, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %451, ptr noundef %453, ptr noundef nonnull %455)
           to label %__cxx_global_var_init.581.exit unwind label %462
 
@@ -105806,7 +105806,7 @@ __cxx_global_var_init.581.exit:                   ; preds = %456
           to label %.noexc5.i110 unwind label %477
 
 .noexc5.i110:                                     ; preds = %.noexc.i109
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i111 unwind label %466
 
 466:                                              ; preds = %.noexc5.i110
@@ -105834,7 +105834,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i111:
           to label %475 unwind label %481
 
 475:                                              ; preds = %473
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestEEE, i64 16), ptr %474, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35AsYouTypeFormatterTest_AYTF_MX_TestEEE, i64 16), ptr %474, align 8
   %476 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.674, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %470, ptr noundef %472, ptr noundef nonnull %474)
           to label %__cxx_global_var_init.673.exit unwind label %481
 
@@ -105879,7 +105879,7 @@ __cxx_global_var_init.673.exit:                   ; preds = %475
           to label %.noexc5.i116 unwind label %496
 
 .noexc5.i116:                                     ; preds = %.noexc.i115
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i117 unwind label %485
 
 485:                                              ; preds = %.noexc5.i116
@@ -105907,7 +105907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i117:
           to label %494 unwind label %500
 
 494:                                              ; preds = %492
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestEEE, i64 16), ptr %493, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56AsYouTypeFormatterTest_AYTF_International_Toll_Free_TestEEE, i64 16), ptr %493, align 8
   %495 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.796, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %489, ptr noundef %491, ptr noundef nonnull %493)
           to label %__cxx_global_var_init.795.exit unwind label %500
 
@@ -105952,7 +105952,7 @@ __cxx_global_var_init.795.exit:                   ; preds = %494
           to label %.noexc5.i122 unwind label %515
 
 .noexc5.i122:                                     ; preds = %.noexc.i121
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i123 unwind label %504
 
 504:                                              ; preds = %.noexc5.i122
@@ -105980,7 +105980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i123:
           to label %513 unwind label %519
 
 513:                                              ; preds = %511
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestEEE, i64 16), ptr %512, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers61AsYouTypeFormatterTest_AYTF_MultipleLeadingDigitPatterns_TestEEE, i64 16), ptr %512, align 8
   %514 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.818, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %508, ptr noundef %510, ptr noundef nonnull %512)
           to label %__cxx_global_var_init.817.exit unwind label %519
 
@@ -106025,7 +106025,7 @@ __cxx_global_var_init.817.exit:                   ; preds = %513
           to label %.noexc5.i128 unwind label %534
 
 .noexc5.i128:                                     ; preds = %.noexc.i127
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i129 unwind label %523
 
 523:                                              ; preds = %.noexc5.i128
@@ -106053,7 +106053,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i129:
           to label %532 unwind label %538
 
 532:                                              ; preds = %530
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestEEE, i64 16), ptr %531, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_AU_TestEEE, i64 16), ptr %531, align 8
   %533 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.882, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %527, ptr noundef %529, ptr noundef nonnull %531)
           to label %__cxx_global_var_init.881.exit unwind label %538
 
@@ -106098,7 +106098,7 @@ __cxx_global_var_init.881.exit:                   ; preds = %532
           to label %.noexc5.i134 unwind label %553
 
 .noexc5.i134:                                     ; preds = %.noexc.i133
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i135 unwind label %542
 
 542:                                              ; preds = %.noexc5.i134
@@ -106126,7 +106126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i135:
           to label %551 unwind label %557
 
 551:                                              ; preds = %549
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestEEE, i64 16), ptr %550, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongIDD_KR_TestEEE, i64 16), ptr %550, align 8
   %552 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.956, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %546, ptr noundef %548, ptr noundef nonnull %550)
           to label %__cxx_global_var_init.955.exit unwind label %557
 
@@ -106171,7 +106171,7 @@ __cxx_global_var_init.955.exit:                   ; preds = %551
           to label %.noexc5.i140 unwind label %572
 
 .noexc5.i140:                                     ; preds = %.noexc.i139
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i141 unwind label %561
 
 561:                                              ; preds = %.noexc5.i140
@@ -106199,7 +106199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i141:
           to label %570 unwind label %576
 
 570:                                              ; preds = %568
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestEEE, i64 16), ptr %569, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_KR_TestEEE, i64 16), ptr %569, align 8
   %571 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.986, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %565, ptr noundef %567, ptr noundef nonnull %569)
           to label %__cxx_global_var_init.985.exit unwind label %576
 
@@ -106244,7 +106244,7 @@ __cxx_global_var_init.985.exit:                   ; preds = %570
           to label %.noexc5.i146 unwind label %591
 
 .noexc5.i146:                                     ; preds = %.noexc.i145
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i147 unwind label %580
 
 580:                                              ; preds = %.noexc5.i146
@@ -106272,7 +106272,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i147:
           to label %589 unwind label %595
 
 589:                                              ; preds = %587
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestEEE, i64 16), ptr %588, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43AsYouTypeFormatterTest_AYTF_LongNDD_SG_TestEEE, i64 16), ptr %588, align 8
   %590 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1036, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %584, ptr noundef %586, ptr noundef nonnull %588)
           to label %__cxx_global_var_init.1035.exit unwind label %595
 
@@ -106317,7 +106317,7 @@ __cxx_global_var_init.1035.exit:                  ; preds = %589
           to label %.noexc5.i152 unwind label %610
 
 .noexc5.i152:                                     ; preds = %.noexc.i151
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i153 unwind label %599
 
 599:                                              ; preds = %.noexc5.i152
@@ -106345,7 +106345,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i153:
           to label %608 unwind label %614
 
 608:                                              ; preds = %606
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestEEE, i64 16), ptr %607, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_AU_TestEEE, i64 16), ptr %607, align 8
   %609 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1065, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %603, ptr noundef %605, ptr noundef nonnull %607)
           to label %__cxx_global_var_init.1064.exit unwind label %614
 
@@ -106390,7 +106390,7 @@ __cxx_global_var_init.1064.exit:                  ; preds = %608
           to label %.noexc5.i158 unwind label %629
 
 .noexc5.i158:                                     ; preds = %.noexc.i157
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i159 unwind label %618
 
 618:                                              ; preds = %.noexc5.i158
@@ -106418,7 +106418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i159:
           to label %627 unwind label %633
 
 627:                                              ; preds = %625
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestEEE, i64 16), ptr %626, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_KR_TestEEE, i64 16), ptr %626, align 8
   %628 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1158, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %622, ptr noundef %624, ptr noundef nonnull %626)
           to label %__cxx_global_var_init.1157.exit unwind label %633
 
@@ -106463,7 +106463,7 @@ __cxx_global_var_init.1157.exit:                  ; preds = %627
           to label %.noexc5.i164 unwind label %648
 
 .noexc5.i164:                                     ; preds = %.noexc.i163
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i165 unwind label %637
 
 637:                                              ; preds = %.noexc5.i164
@@ -106491,7 +106491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i165:
           to label %646 unwind label %652
 
 646:                                              ; preds = %644
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestEEE, i64 16), ptr %645, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_MX_TestEEE, i64 16), ptr %645, align 8
   %647 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1195, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %641, ptr noundef %643, ptr noundef nonnull %645)
           to label %__cxx_global_var_init.1194.exit unwind label %652
 
@@ -106536,7 +106536,7 @@ __cxx_global_var_init.1194.exit:                  ; preds = %646
           to label %.noexc5.i170 unwind label %667
 
 .noexc5.i170:                                     ; preds = %.noexc.i169
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i171 unwind label %656
 
 656:                                              ; preds = %.noexc5.i170
@@ -106564,7 +106564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i171:
           to label %665 unwind label %671
 
 665:                                              ; preds = %663
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestEEE, i64 16), ptr %664, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49AsYouTypeFormatterTest_AYTF_NoNationalPrefix_TestEEE, i64 16), ptr %664, align 8
   %666 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1215, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %660, ptr noundef %662, ptr noundef nonnull %664)
           to label %__cxx_global_var_init.1214.exit unwind label %671
 
@@ -106609,7 +106609,7 @@ __cxx_global_var_init.1214.exit:                  ; preds = %665
           to label %.noexc5.i176 unwind label %686
 
 .noexc5.i176:                                     ; preds = %.noexc.i175
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i177 unwind label %675
 
 675:                                              ; preds = %.noexc5.i176
@@ -106637,7 +106637,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i177:
           to label %684 unwind label %690
 
 684:                                              ; preds = %682
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestEEE, i64 16), ptr %683, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63AsYouTypeFormatterTest_AYTF_NoNationalPrefixFormattingRule_TestEEE, i64 16), ptr %683, align 8
   %685 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1228, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %679, ptr noundef %681, ptr noundef nonnull %683)
           to label %__cxx_global_var_init.1227.exit unwind label %690
 
@@ -106682,7 +106682,7 @@ __cxx_global_var_init.1227.exit:                  ; preds = %684
           to label %.noexc5.i182 unwind label %705
 
 .noexc5.i182:                                     ; preds = %.noexc.i181
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183 unwind label %694
 
 694:                                              ; preds = %.noexc5.i182
@@ -106710,7 +106710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183:
           to label %703 unwind label %709
 
 703:                                              ; preds = %701
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestEEE, i64 16), ptr %702, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60AsYouTypeFormatterTest_AYTF_ShortNumberFormattingFix_US_TestEEE, i64 16), ptr %702, align 8
   %704 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1230, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %698, ptr noundef %700, ptr noundef nonnull %702)
           to label %__cxx_global_var_init.1229.exit unwind label %709
 
@@ -106755,7 +106755,7 @@ __cxx_global_var_init.1229.exit:                  ; preds = %703
           to label %.noexc5.i188 unwind label %724
 
 .noexc5.i188:                                     ; preds = %.noexc.i187
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i189 unwind label %713
 
 713:                                              ; preds = %.noexc5.i188
@@ -106783,7 +106783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i189:
           to label %722 unwind label %728
 
 722:                                              ; preds = %720
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestEEE, i64 16), ptr %721, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59AsYouTypeFormatterTest_AYTF_ClearNDDAfterIDDExtraction_TestEEE, i64 16), ptr %721, align 8
   %723 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1239, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %717, ptr noundef %719, ptr noundef nonnull %721)
           to label %__cxx_global_var_init.1238.exit unwind label %728
 
@@ -106828,7 +106828,7 @@ __cxx_global_var_init.1238.exit:                  ; preds = %722
           to label %.noexc5.i194 unwind label %743
 
 .noexc5.i194:                                     ; preds = %.noexc.i193
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 155))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 155))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i195 unwind label %732
 
 732:                                              ; preds = %.noexc5.i194
@@ -106856,7 +106856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i195:
           to label %741 unwind label %747
 
 741:                                              ; preds = %739
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestEEE, i64 16), ptr %740, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers83AsYouTypeFormatterTest_NumberPatternsBecomingInvalidShouldNotResultInDigitLoss_TestEEE, i64 16), ptr %740, align 8
   %742 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1284, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers22AsYouTypeFormatterTestEE6dummy_E, ptr noundef %736, ptr noundef %738, ptr noundef nonnull %740)
           to label %__cxx_global_var_init.1283.exit unwind label %747
 

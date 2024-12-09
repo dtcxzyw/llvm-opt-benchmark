@@ -449,11 +449,11 @@ BufFileFlush.exit:                                ; preds = %5, %12
   %64 = mul i64 %63, 1000000000
   %65 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 112), align 8
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 112), align 8
   %67 = add i64 %65, %.sroa.03.0.neg18.i
   %68 = add i64 %67, %64
   %69 = add i64 %68, %66
-  store i64 %69, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 112), align 8
+  store i64 %69, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 112), align 8
   %.pr.i = load i32, ptr %14, align 4
   br label %70
 
@@ -463,9 +463,9 @@ BufFileFlush.exit:                                ; preds = %5, %12
   br i1 %72, label %BufFileLoadBuffer.exit, label %BufFileLoadBuffer.exit._crit_edge
 
 BufFileLoadBuffer.exit:                           ; preds = %70
-  %73 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 64), align 8
+  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 64), align 8
   %74 = add i64 %73, 1
-  store i64 %74, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 64), align 8
+  store i64 %74, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 64), align 8
   %.pre60 = load i32, ptr %14, align 4
   %75 = icmp slt i32 %.pre60, 1
   br i1 %75, label %BufFileLoadBuffer.exit._crit_edge, label %BufFileLoadBuffer.exit._crit_edge61
@@ -777,11 +777,11 @@ extendBufFile.exit:                               ; preds = %30, %34
   %96 = mul i64 %95, 1000000000
   %97 = load i64, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %98 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 120), align 8
+  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 120), align 8
   %99 = add i64 %97, %.sroa.03.0.neg56
   %100 = add i64 %99, %96
   %101 = add i64 %100, %98
-  store i64 %101, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 120), align 8
+  store i64 %101, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 120), align 8
   br label %102
 
 102:                                              ; preds = %93, %90
@@ -790,9 +790,9 @@ extendBufFile.exit:                               ; preds = %30, %34
   %105 = add i64 %104, %103
   store i64 %105, ptr %9, align 8
   %106 = add i32 %.049, %83
-  %107 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 72), align 8
+  %107 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 72), align 8
   %108 = add i64 %107, 1
-  store i64 %108, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 72), align 8
+  store i64 %108, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 72), align 8
   %109 = load i32, ptr %6, align 4
   %110 = icmp slt i32 %106, %109
   br i1 %110, label %20, label %._crit_edge52, !llvm.loop !10

@@ -153,7 +153,7 @@ $_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__33HdMaterialFilteringSceneIndexBaseC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__33HdMaterialFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__33HdMaterialFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -243,7 +243,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %.noexc8 unwind label %118
 
 .noexc8:                                          ; preds = %38
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceE, i64 16), ptr %40, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceE, i64 16), ptr %40, align 8, !noalias !4
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %1, ptr %41, align 8, !noalias !4
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -328,7 +328,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceC2EPKNS_33Hd
   store i32 1, ptr %80, align 8, !noalias !4
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 12
   store i32 1, ptr %81, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %68, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %68, align 8, !noalias !4
   %82 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %40, ptr %82, align 8, !noalias !4
   store ptr %40, ptr %36, align 8
@@ -579,7 +579,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase17_SendPrim
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__33HdMaterialFilteringSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1033,7 +1033,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__33HdMaterialFilteringSceneIndexBase20GetFi
           to label %.noexc16 unwind label %176
 
 .noexc16:                                         ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__33HdMaterialFilteringSceneIndexBase20GetFilteringFunctionEv.exit
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDataSourceE, i64 16), ptr %57, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDataSourceE, i64 16), ptr %57, align 8, !noalias !17
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %.val47, ptr %58, align 8, !noalias !17
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -1192,7 +1192,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDa
   store i32 1, ptr %128, align 8, !noalias !17
   %129 = getelementptr inbounds nuw i8, ptr %117, i64 12
   store i32 1, ptr %129, align 4, !noalias !17
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %117, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_MaterialDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %117, align 8, !noalias !17
   %130 = getelementptr inbounds nuw i8, ptr %117, i64 16
   store ptr %57, ptr %130, align 8, !noalias !17
   store ptr %57, ptr %0, align 8
@@ -2278,7 +2278,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__36HdDataSourceMat
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
   %7 = alloca %"class.std::shared_ptr", align 8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetworkInterfaceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetworkInterfaceE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %1, align 4
   store i32 %9, ptr %8, align 8
@@ -2943,7 +2943,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetwork
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetworkInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetworkInterfaceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdDataSourceMaterialNetworkInterfaceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null

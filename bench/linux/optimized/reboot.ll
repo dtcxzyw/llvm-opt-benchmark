@@ -160,12 +160,12 @@ define weak dso_local void @mach_reboot_fixups() local_unnamed_addr #3 align 16 
 define dso_local void @native_machine_shutdown() #3 align 16 {
   tail call void @clear_IO_APIC() #7
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @smp_ops, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @smp_ops, i64 24), align 8
   tail call void %1(i32 noundef 1) #7
   tail call void @lapic_shutdown() #7
   tail call void @restore_boot_irq_mode() #7
   tail call void @hpet_disable() #7
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_platform, i64 32), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_platform, i64 32), align 8
   tail call void %2() #7
   ret void
 }
@@ -190,19 +190,19 @@ define internal void @native_machine_restart(ptr nocapture readnone %0) #4 align
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 24), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 24), align 8
   tail call void %6() #7
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 40), align 8
   tail call void %8() #7
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
 define internal void @native_machine_halt() #0 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 24), align 8
   tail call void %1() #7
   tail call void @stop_this_cpu(ptr noundef null) #9
   unreachable
@@ -219,7 +219,7 @@ define internal void @native_machine_power_off() #3 align 16 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 24), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 24), align 8
   tail call void %6() #7
   br label %7
 
@@ -351,21 +351,21 @@ define internal void @native_machine_emergency_restart() #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @machine_power_off() local_unnamed_addr #3 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 16), align 8
   tail call void %1() #7
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @machine_shutdown() local_unnamed_addr #3 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 24), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 24), align 8
   tail call void %1() #7
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @machine_emergency_restart() local_unnamed_addr #3 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 40), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 40), align 8
   tail call void %1() #7
   ret void
 }
@@ -379,14 +379,14 @@ define dso_local void @machine_restart(ptr noundef %0) local_unnamed_addr #3 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @machine_halt() local_unnamed_addr #3 align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 8), align 8
   tail call void %1() #7
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @machine_crash_shutdown(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @machine_ops, i64 32), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @machine_ops, i64 32), align 8
   tail call void %2(ptr noundef %0) #7
   ret void
 }
@@ -405,7 +405,7 @@ define dso_local void @nmi_shootdown_cpus(ptr noundef %0) local_unnamed_addr #3 
   br label %.loopexit
 
 5:                                                ; preds = %1
-  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #11, !srcloc !20
+  %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #11, !srcloc !20
   store i32 %6, ptr @crashing_cpu, align 4
   store ptr %0, ptr @shootdown_callback, align 8
   %7 = load volatile i32, ptr @__num_online_cpus, align 4
@@ -439,7 +439,7 @@ define dso_local void @nmi_shootdown_cpus(ptr noundef %0) local_unnamed_addr #3 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @crash_nmi_callback(i32 %0, ptr noundef %1) #3 align 16 {
-  %3 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
+  %3 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
   %4 = load i32, ptr @crashing_cpu, align 4
   %5 = icmp eq i32 %3, %4
   br i1 %5, label %6, label %7
@@ -491,7 +491,7 @@ define dso_local void @run_crash_ipi_callback(ptr noundef %0) local_unnamed_addr
   br i1 %3, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
+  %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
   %6 = load i32, ptr @crashing_cpu, align 4
   %7 = icmp eq i32 %5, %6
   br i1 %7, label %16, label %8
@@ -537,7 +537,7 @@ define dso_local void @nmi_panic_self_stop(ptr noundef %0) local_unnamed_addr #0
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
+  %6 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
   %7 = load i32, ptr @crashing_cpu, align 4
   %8 = icmp eq i32 %6, %7
   br i1 %8, label %17, label %9

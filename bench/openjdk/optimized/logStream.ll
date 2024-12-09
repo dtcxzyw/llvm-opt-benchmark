@@ -304,7 +304,7 @@ define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleEC2ES0_(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 0, ptr %7, align 8
   store i8 0, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI15LogTargetHandleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI15LogTargetHandleE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %8, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -314,7 +314,7 @@ define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleEC2ES0_(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat($_ZN13LogStreamImplI15LogTargetHandleED5Ev) align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI15LogTargetHandleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI15LogTargetHandleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
@@ -332,7 +332,7 @@ define weak_odr hidden void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr nound
   br label %11
 
 11:                                               ; preds = %6, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, %2
@@ -438,7 +438,7 @@ define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleEC2ES0_(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 0, ptr %7, align 8
   store i8 0, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI16LogMessageHandleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI16LogMessageHandleE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %8, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -448,7 +448,7 @@ define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleEC2ES0_(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 comdat($_ZN13LogStreamImplI16LogMessageHandleED5Ev) align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI16LogMessageHandleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13LogStreamImplI16LogMessageHandleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
@@ -466,7 +466,7 @@ define weak_odr hidden void @_ZN13LogStreamImplI16LogMessageHandleED2Ev(ptr noun
   br label %11
 
 11:                                               ; preds = %6, %1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, %2
@@ -603,7 +603,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8

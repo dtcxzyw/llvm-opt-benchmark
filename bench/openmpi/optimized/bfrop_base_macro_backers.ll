@@ -1644,7 +1644,7 @@ pmix_bfrops_base_tma_regattr_destruct.exit.i:     ; preds = %pmix_bfrops_base_tm
   br i1 %.not96, label %132, label %101
 
 101:                                              ; preds = %98
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg, i64 64), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg, i64 64), align 8
   %103 = tail call i32 %102(ptr noundef nonnull %100) #38
   br label %132
 
@@ -6535,7 +6535,7 @@ pmix_bfrops_base_tma_endpoint_destruct.exit.i:    ; preds = %239, %236
   br i1 %.not, label %252, label %249
 
 249:                                              ; preds = %.lr.ph11
-  %250 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg, i64 64), align 8
+  %250 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg, i64 64), align 8
   %251 = tail call i32 %250(ptr noundef nonnull %248) #38
   %.pre66 = load i64, ptr %244, align 8
   br label %252
@@ -7552,7 +7552,7 @@ pmix_bfrops_base_tma_load_key.exit1042:           ; preds = %.lr.ph.i.i1035, %25
 .lr.ph116:                                        ; preds = %267, %pmix_bfrops_base_tma_copy_payload.exit
   %.0827115 = phi i64 [ %367, %pmix_bfrops_base_tma_copy_payload.exit ], [ 0, %267 ]
   %272 = load i32, ptr @pmix_class_init_epoch, align 4
-  %273 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 32), align 8
+  %273 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_buffer_t_class, i64 32), align 8
   %.not948 = icmp eq i32 %272, %273
   br i1 %.not948, label %275, label %274
 
@@ -7642,7 +7642,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %275
 
 322:                                              ; preds = %310
   %323 = add i64 %317, %313
-  %324 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 288), align 8
+  %324 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 288), align 8
   %.not54.i.i = icmp ult i64 %323, %324
   br i1 %.not54.i.i, label %330, label %325
 
@@ -7656,7 +7656,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %275
 
 330:                                              ; preds = %322
   %331 = icmp eq i64 %315, 0
-  %332 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 280), align 8
+  %332 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 280), align 8
   %spec.select.i.i = select i1 %331, i64 %332, i64 %315
   br label %333
 

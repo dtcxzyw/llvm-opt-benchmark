@@ -6884,7 +6884,7 @@ define hidden zeroext i1 @_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3ne
   store ptr %0, ptr %3, align 8
   store ptr @anon.16a1457f15a8bdd65dd860daa07f2c8d.62, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.16a1457f15a8bdd65dd860daa07f2c8d.62, i64 192), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.16a1457f15a8bdd65dd860daa07f2c8d.62, i64 192), ptr %4, align 8
   %5 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1e7929455bf97e74E"(ptr nonnull align 8 %2, ptr nonnull align 8 %3)
   ret i1 %5
 }

@@ -373,7 +373,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -385,7 +385,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKjEED2Ev.exit
 
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -1779,7 +1779,7 @@ _ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit: ; preds = %17
   br i1 %18, label %_ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit.thread9, label %_ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit.thread
 
 _ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit.thread: ; preds = %17, %4, %_ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit
-  %19 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %_ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit.thread9
 
@@ -2138,7 +2138,7 @@ _ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit.i: ; preds = %128
   br i1 %129, label %_ZN4llvm20SampleProfileMatcher22functionMatchesProfileERKNS_10sampleprof10FunctionIdES4_b.exit.thread85, label %_ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit.i.thread
 
 _ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit.i.thread: ; preds = %128, %.lr.ph, %_ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit.i
-  %130 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %130 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %131 = trunc i8 %130 to i1
   br i1 %131, label %132, label %.critedge.thread
 
@@ -3414,7 +3414,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher23runStaleProfileMatchingER
   %23 = ptrtoint ptr %12 to i64
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 24
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 128), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 128), align 8
   %27 = zext i32 %26 to i64
   %28 = icmp ugt i64 %25, %27
   br i1 %28, label %_ZNSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit, label %29
@@ -3527,7 +3527,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher13runOnFunctionERNS_8Functi
   %20 = call ptr @_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_13SampleContextENS0_15FunctionSamplesEJEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(40) %4)
   %.not.i.i = icmp eq ptr %20, null
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %22 = trunc i8 %21 to i1
   %or.cond.not = and i1 %.not.i.i, %22
   br i1 %or.cond.not, label %23, label %58
@@ -3636,12 +3636,12 @@ _ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ES
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 0, ptr %68, align 8
   call void @_ZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(176) %.040, ptr noundef nonnull align 8 dereferenceable(48) %7)
-  %69 = load i8, ptr getelementptr inbounds (i8, ptr @ReportProfileStaleness, i64 128), align 8
+  %69 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ReportProfileStaleness, i64 128), align 8
   %70 = trunc i8 %69 to i1
   br i1 %70, label %74, label %71
 
 71:                                               ; preds = %.thread37
-  %72 = load i8, ptr getelementptr inbounds (i8, ptr @PersistProfileStaleness, i64 128), align 8
+  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @PersistProfileStaleness, i64 128), align 8
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %75
 
@@ -3650,7 +3650,7 @@ _ZNSt13unordered_mapIPN4llvm8FunctionENS0_10sampleprof10FunctionIdESt4hashIS2_ES
   br label %75
 
 75:                                               ; preds = %74, %71
-  %76 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageStaleProfile, i64 128), align 8
+  %76 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageStaleProfile, i64 128), align 8
   %77 = trunc i8 %76 to i1
   br i1 %77, label %78, label %117
 
@@ -3689,7 +3689,7 @@ _ZNK4llvm18PseudoProbeManager14profileIsValidERKNS_8FunctionERKNS_10sampleprof15
   %100 = trunc i8 %99 to i1
   %not. = xor i1 %100, true
   %101 = or i1 %98, %not.
-  %102 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %103 = trunc i8 %102 to i1
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %105 = load i32, ptr %104, align 8
@@ -3707,12 +3707,12 @@ _ZNK4llvm18PseudoProbeManager14profileIsValidERKNS_8FunctionERKNS_10sampleprof15
   br i1 %101, label %110, label %117
 
 110:                                              ; preds = %108
-  %111 = load i8, ptr getelementptr inbounds (i8, ptr @ReportProfileStaleness, i64 128), align 8
+  %111 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ReportProfileStaleness, i64 128), align 8
   %112 = trunc i8 %111 to i1
   br i1 %112, label %116, label %113
 
 113:                                              ; preds = %110
-  %114 = load i8, ptr getelementptr inbounds (i8, ptr @PersistProfileStaleness, i64 128), align 8
+  %114 = load i8, ptr getelementptr inbounds nuw (i8, ptr @PersistProfileStaleness, i64 128), align 8
   %115 = trunc i8 %114 to i1
   br i1 %115, label %116, label %117
 
@@ -4940,12 +4940,12 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher32computeAndReportProfileSt
   %3 = alloca %"class.std::unordered_set", align 8
   %4 = alloca %"class.llvm::MDBuilder", align 8
   %5 = alloca %"class.llvm::SmallVector.387", align 8
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @ReportProfileStaleness, i64 128), align 8
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ReportProfileStaleness, i64 128), align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %1
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @PersistProfileStaleness, i64 128), align 8
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @PersistProfileStaleness, i64 128), align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %_ZNSt13unordered_setIN4llvm10sampleprof10FunctionIdESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit
 
@@ -4960,7 +4960,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher32computeAndReportProfileSt
   store float 1.000000e+00, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %.loopexit
 
@@ -5049,7 +5049,7 @@ _ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit: ; preds = %42
   %61 = load i64, ptr %40, align 8
   %62 = add i64 %61, %60
   store i64 %62, ptr %40, align 8
-  %63 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %64 = trunc i8 %63 to i1
   %65 = load i64, ptr %41, align 8
   %66 = icmp ne i64 %65, 0
@@ -5081,7 +5081,7 @@ _ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.thread: ; preds = %42, %5
   br i1 %.not90, label %._crit_edge, label %42
 
 ._crit_edge:                                      ; preds = %_ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.thread, %.loopexit
-  %74 = load i8, ptr getelementptr inbounds (i8, ptr @ReportProfileStaleness, i64 128), align 8
+  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ReportProfileStaleness, i64 128), align 8
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %_ZN4llvm11raw_ostreamlsEPKc.exit75
 
@@ -5209,7 +5209,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %128, %130
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
 _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %146, %144, %76
-  %149 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %149 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %_ZN4llvm11raw_ostreamlsEPKc.exit45
 
@@ -5574,7 +5574,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit72:               ; preds = %343, %345
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit75
 
 _ZN4llvm11raw_ostreamlsEPKc.exit75:               ; preds = %362, %360, %._crit_edge
-  %365 = load i8, ptr getelementptr inbounds (i8, ptr @PersistProfileStaleness, i64 128), align 8
+  %365 = load i8, ptr getelementptr inbounds nuw (i8, ptr @PersistProfileStaleness, i64 128), align 8
   %366 = trunc i8 %365 to i1
   br i1 %366, label %367, label %_ZN4llvm11SmallVectorISt4pairINS_9StringRefEmELj2EED2Ev.exit
 
@@ -5600,7 +5600,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit75:               ; preds = %362, %360, %._crit_
   br label %382
 
 382:                                              ; preds = %373, %367
-  %383 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %383 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %384 = trunc i8 %383 to i1
   br i1 %384, label %385, label %390
 
@@ -6448,7 +6448,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20SampleProfileMatcher28functionMat
 
 _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i, %14
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %14 ], [ %20, %.lr.ph.i.i.i.i ]
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 128), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 128), align 8
   %22 = zext i32 %21 to i64
   %23 = icmp ult i64 %.0.lcssa.i.i.i.i, %22
   br i1 %23, label %107, label %24
@@ -6512,7 +6512,7 @@ _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i, %14
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = sdiv exact i64 %56, 24
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL25MinCallCountForCGMatching, i64 128), align 8
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 128), align 8
   %59 = zext i32 %58 to i64
   %60 = icmp ult i64 %57, %59
   %.pre = load ptr, ptr %8, align 8
@@ -6538,7 +6538,7 @@ _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i, %14
   %75 = uitofp i64 %74 to float
   %76 = fdiv float %73, %75
   %77 = fmul float %76, 1.000000e+02
-  %78 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 128), align 8
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 128), align 8
   %79 = uitofp i32 %78 to float
   %80 = fcmp ogt float %77, %79
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -6738,7 +6738,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher11runOnModuleEv(ptr noundef
 
 _ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit: ; preds = %.lr.ph.i, %21, %19, %26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %31
 
@@ -6972,7 +6972,7 @@ _ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.thread: ; preds = %.lr.ph
 ._crit_edge:                                      ; preds = %_ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.thread, %_ZN4llvmL21buildTopDownFuncOrderERNS_13LazyCallGraphERSt6vectorIPNS_8FunctionESaIS4_EE.exit.thread, %_ZN4llvmL21buildTopDownFuncOrderERNS_13LazyCallGraphERSt6vectorIPNS_8FunctionESaIS4_EE.exit
   %.sroa.16.18492 = phi ptr [ %.sroa.16.0, %_ZN4llvmL21buildTopDownFuncOrderERNS_13LazyCallGraphERSt6vectorIPNS_8FunctionESaIS4_EE.exit.thread ], [ %.sroa.16.7, %_ZN4llvmL21buildTopDownFuncOrderERNS_13LazyCallGraphERSt6vectorIPNS_8FunctionESaIS4_EE.exit ], [ %.sroa.16.7, %_ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.thread ]
   %.sroa.039.18691 = phi ptr [ %.sroa.8.0, %_ZN4llvmL21buildTopDownFuncOrderERNS_13LazyCallGraphERSt6vectorIPNS_8FunctionESaIS4_EE.exit.thread ], [ %.sroa.039.7, %_ZN4llvmL21buildTopDownFuncOrderERNS_13LazyCallGraphERSt6vectorIPNS_8FunctionESaIS4_EE.exit ], [ %.sroa.039.7, %_ZN4llvmL22skipProfileForFunctionERKNS_8FunctionE.exit.thread ]
-  %107 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageUnusedProfile, i64 128), align 8
+  %107 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageUnusedProfile, i64 128), align 8
   %108 = trunc i8 %107 to i1
   br i1 %108, label %109, label %.loopexit
 
@@ -7208,7 +7208,7 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8Function
   br i1 %.not57, label %.loopexit, label %113
 
 .loopexit:                                        ; preds = %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8FunctionEJEE7emplaceIJRS3_RKS5_EEESt4pairINSt8__detail14_Node_iteratorISB_IKmS5_ELb0ELb0EEEbEDpOT_.exit, %109, %._crit_edge
-  %192 = load i8, ptr getelementptr inbounds (i8, ptr @SalvageStaleProfile, i64 128), align 8
+  %192 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SalvageStaleProfile, i64 128), align 8
   %193 = trunc i8 %192 to i1
   br i1 %193, label %194, label %_ZN4llvm20SampleProfileMatcher32distributeIRToProfileLocationMapEv.exit
 
@@ -13650,7 +13650,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -16865,10 +16865,10 @@ define internal void @_GLOBAL__sub_I_SampleProfileMatcher.cpp() #14 section ".te
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL30FuncProfileSimilarityThreshold, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL30FuncProfileSimilarityThreshold, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL30FuncProfileSimilarityThreshold, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL30FuncProfileSimilarityThreshold) #19
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL30FuncProfileSimilarityThreshold, i64 176), align 8
@@ -16888,10 +16888,10 @@ define internal void @_GLOBAL__sub_I_SampleProfileMatcher.cpp() #14 section ".te
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL25MinFuncCountForCGMatching, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL25MinFuncCountForCGMatching, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL25MinFuncCountForCGMatching, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL25MinFuncCountForCGMatching) #19
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinFuncCountForCGMatching, i64 176), align 8
@@ -16911,10 +16911,10 @@ define internal void @_GLOBAL__sub_I_SampleProfileMatcher.cpp() #14 section ".te
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL25MinCallCountForCGMatching, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL25MinCallCountForCGMatching, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL25MinCallCountForCGMatching, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL25MinCallCountForCGMatching) #19
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL25MinCallCountForCGMatching, i64 176), align 8
@@ -16936,10 +16936,10 @@ define internal void @_GLOBAL__sub_I_SampleProfileMatcher.cpp() #14 section ".te
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL31SalvageStaleProfileMaxCallsites, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL31SalvageStaleProfileMaxCallsites, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL31SalvageStaleProfileMaxCallsites, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL31SalvageStaleProfileMaxCallsites) #19
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL31SalvageStaleProfileMaxCallsites, i64 176), align 8

@@ -88,8 +88,8 @@ define dso_local void @register_vmcore_cb(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr %2, ptr %3, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @vmcore_cb_lock) #11
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @vmcore_cb_list, i64 8), align 8
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @vmcore_cb_list, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vmcore_cb_list, i64 8), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @vmcore_cb_list, i64 8), align 8
   store ptr @vmcore_cb_list, ptr %2, align 8
   store ptr %4, ptr %3, align 8
   store volatile ptr %2, ptr %4, align 8
@@ -961,7 +961,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @process_ptload_program_hea
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %21 = load i64, ptr %20, align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %23 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 40) #16
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit, label %25
@@ -977,8 +977,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @process_ptload_program_hea
   store i64 %29, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 %30, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @vmcore_list, i64 8), align 8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @vmcore_list, i64 8), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vmcore_list, i64 8), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @vmcore_list, i64 8), align 8
   store ptr @vmcore_list, ptr %23, align 8
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %34, ptr %35, align 8
@@ -1315,7 +1315,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @process_ptload_program_hea
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %21 = load i32, ptr %20, align 4
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %23 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 40) #16
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit, label %25
@@ -1333,8 +1333,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @process_ptload_program_hea
   store i64 %31, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 %32, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @vmcore_list, i64 8), align 8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @vmcore_list, i64 8), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vmcore_list, i64 8), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @vmcore_list, i64 8), align 8
   store ptr @vmcore_list, ptr %23, align 8
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %36, ptr %37, align 8

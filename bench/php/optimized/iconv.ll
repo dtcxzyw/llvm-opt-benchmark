@@ -624,7 +624,7 @@ define hidden void @zif_iconv_strlen(ptr nocapture noundef readonly %0, ptr noca
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %42
@@ -635,7 +635,7 @@ define hidden void @zif_iconv_strlen(ptr nocapture noundef readonly %0, ptr noca
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %21, label %19
 
@@ -866,7 +866,7 @@ define hidden void @zif_iconv_substr(ptr nocapture noundef readonly %0, ptr noca
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %206
@@ -877,7 +877,7 @@ define hidden void @zif_iconv_substr(ptr nocapture noundef readonly %0, ptr noca
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %30, label %28
 
@@ -1304,7 +1304,7 @@ define hidden void @zif_iconv_strpos(ptr nocapture noundef readonly %0, ptr noca
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %76
@@ -1315,7 +1315,7 @@ define hidden void @zif_iconv_strpos(ptr nocapture noundef readonly %0, ptr noca
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %24, label %22
 
@@ -1376,7 +1376,7 @@ get_internal_encoding.exit:                       ; preds = %22, %24
 
 49:                                               ; preds = %44
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #16
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %51 = icmp ne ptr %50, null
   call void @llvm.assume(i1 %51)
   br label %76
@@ -1639,7 +1639,7 @@ define hidden void @zif_iconv_strrpos(ptr nocapture noundef readonly %0, ptr noc
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %54
@@ -1662,7 +1662,7 @@ define hidden void @zif_iconv_strrpos(ptr nocapture noundef readonly %0, ptr noc
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %29, label %27
 
@@ -1743,7 +1743,7 @@ define hidden void @zif_iconv_mime_encode(ptr nocapture noundef readonly %0, ptr
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %14, label %12
 
@@ -1765,7 +1765,7 @@ get_internal_encoding.exit:                       ; preds = %12, %14
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %get_internal_encoding.exit
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %568
@@ -2947,7 +2947,7 @@ define hidden void @zif_iconv_mime_decode(ptr nocapture noundef readonly %0, ptr
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %111
@@ -2958,7 +2958,7 @@ define hidden void @zif_iconv_mime_decode(ptr nocapture noundef readonly %0, ptr
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %22, label %20
 
@@ -3802,7 +3802,7 @@ define hidden void @zif_iconv_mime_decode_headers(ptr nocapture noundef readonly
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %.thread116
@@ -3813,7 +3813,7 @@ define hidden void @zif_iconv_mime_decode_headers(ptr nocapture noundef readonly
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %24, label %22
 
@@ -4073,7 +4073,7 @@ define hidden void @zif_iconv(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
   br label %42
@@ -4142,7 +4142,7 @@ define hidden void @zif_iconv_set_encoding(ptr nocapture noundef readonly %0, pt
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %81
@@ -4314,7 +4314,7 @@ define hidden void @zif_iconv_get_encoding(ptr nocapture noundef readonly %0, pt
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %109
@@ -4363,7 +4363,7 @@ define hidden void @zif_iconv_get_encoding(ptr nocapture noundef readonly %0, pt
 get_input_encoding.exit:                          ; preds = %24, %26
   %.0.i = phi ptr [ %27, %26 ], [ %23, %24 ]
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, i64 noundef 14, ptr noundef %.0.i) #16
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 16), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 16), align 8
   %.not.i211 = icmp eq ptr %28, null
   br i1 %.not.i211, label %31, label %29
 
@@ -4379,7 +4379,7 @@ get_input_encoding.exit:                          ; preds = %24, %26
 get_output_encoding.exit:                         ; preds = %29, %31
   %.0.i213 = phi ptr [ %32, %31 ], [ %28, %29 ]
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.29, i64 noundef 15, ptr noundef %.0.i213) #16
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i214 = icmp eq ptr %33, null
   br i1 %.not.i214, label %36, label %34
 
@@ -4470,7 +4470,7 @@ get_input_encoding.exit220:                       ; preds = %47, %49
   br label %84
 
 68:                                               ; preds = %65
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 16), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 16), align 8
   %.not.i221 = icmp eq ptr %69, null
   br i1 %.not.i221, label %72, label %70
 
@@ -4518,7 +4518,7 @@ get_output_encoding.exit224:                      ; preds = %70, %72
   br i1 %.not210, label %91, label %107
 
 91:                                               ; preds = %88
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i225 = icmp eq ptr %92, null
   br i1 %.not.i225, label %95, label %93
 
@@ -4668,7 +4668,7 @@ define internal range(i32 -1, 1) i32 @php_iconv_output_handler(ptr nocapture rea
   br i1 %.not35, label %10, label %118
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 224), align 8
   %.not36 = icmp eq ptr %11, null
   br i1 %.not36, label %22, label %12
 
@@ -4690,12 +4690,12 @@ define internal range(i32 -1, 1) i32 @php_iconv_output_handler(ptr nocapture rea
   br label %select.unfold
 
 22:                                               ; preds = %12, %10
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 220), align 4
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 220), align 4
   %.not38 = icmp eq i8 %23, 0
   br i1 %.not38, label %77, label %24
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 400), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 400), align 8
   %.not39 = icmp eq ptr %25, null
   %spec.select = select i1 %.not39, ptr @.str.72, ptr %25
   br label %select.unfold
@@ -4712,7 +4712,7 @@ select.unfold:                                    ; preds = %24, %17, %14
   br i1 %or.cond84, label %29, label %77
 
 29:                                               ; preds = %select.unfold
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 16), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 16), align 8
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %33, label %31
 
@@ -4742,7 +4742,7 @@ get_output_encoding.exit:                         ; preds = %31, %33
 
 40:                                               ; preds = %36, %37
   %41 = phi i32 [ %39, %37 ], [ %.028.ph, %36 ]
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 16), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 16), align 8
   %.not.i50 = icmp eq ptr %42, null
   br i1 %.not.i50, label %get_output_encoding.exit53, label %43
 
@@ -4759,7 +4759,7 @@ get_output_encoding.exit:                         ; preds = %31, %33
 
 get_output_encoding.exit53:                       ; preds = %40, %43
   %48 = tail call ptr @php_get_output_encoding() #16
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 16), align 8
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 16), align 8
   %49 = ptrtoint ptr %35 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
@@ -4792,7 +4792,7 @@ get_output_encoding.exit57:                       ; preds = %.thread, %52, %54
 
 62:                                               ; preds = %58, %59
   %63 = phi i32 [ %61, %59 ], [ %.028.ph, %58 ]
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 16), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 16), align 8
   %.not.i58 = icmp eq ptr %64, null
   br i1 %.not.i58, label %67, label %65
 
@@ -4822,7 +4822,7 @@ get_output_encoding.exit61:                       ; preds = %65, %67
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %72
-  store i8 0, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 220), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 220), align 4
   %76 = call i32 @php_output_handler_hook(i32 noundef 3, ptr noundef null) #16
   br label %77
 
@@ -4840,7 +4840,7 @@ get_output_encoding.exit61:                       ; preds = %65, %67
   %85 = or i32 %84, 1
   store i32 %85, ptr %83, align 8
   %86 = load ptr, ptr %81, align 8
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 16), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 16), align 8
   %.not.i62 = icmp eq ptr %87, null
   br i1 %.not.i62, label %90, label %88
 
@@ -4855,7 +4855,7 @@ get_output_encoding.exit61:                       ; preds = %65, %67
 
 get_output_encoding.exit65:                       ; preds = %88, %90
   %.0.i64 = phi ptr [ %91, %90 ], [ %87, %88 ]
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i66 = icmp eq ptr %92, null
   br i1 %.not.i66, label %95, label %93
 
@@ -4871,7 +4871,7 @@ get_output_encoding.exit65:                       ; preds = %88, %90
 get_internal_encoding.exit:                       ; preds = %93, %95
   %.0.i68 = phi ptr [ %96, %95 ], [ %92, %93 ]
   %97 = call i32 @php_iconv_string(ptr noundef %86, i64 noundef %79, ptr noundef nonnull %4, ptr noundef %.0.i64, ptr noundef %.0.i68)
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 16), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 16), align 8
   %.not.i69 = icmp eq ptr %98, null
   br i1 %.not.i69, label %101, label %99
 
@@ -4886,7 +4886,7 @@ get_internal_encoding.exit:                       ; preds = %93, %95
 
 get_output_encoding.exit72:                       ; preds = %99, %101
   %.0.i71 = phi ptr [ %102, %101 ], [ %98, %99 ]
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @iconv_globals, i64 8), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @iconv_globals, i64 8), align 8
   %.not.i73 = icmp eq ptr %103, null
   br i1 %.not.i73, label %106, label %104
 

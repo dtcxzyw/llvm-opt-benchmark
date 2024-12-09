@@ -36,7 +36,7 @@ if.end3:                                          ; preds = %entry
 if.then5:                                         ; preds = %if.end3
   %1 = load i8, ptr @gdbserver_state, align 8
   %tobool.i = trunc i8 %1 to i1
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   %tobool1.i = icmp ne ptr %2, null
   %3 = select i1 %tobool.i, i1 %tobool1.i, i1 false
   %cond = select i1 %3, i32 1, i32 2
@@ -66,14 +66,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @gdb_syscall_reset() local_unnamed_addr #2 {
 entry:
-  store ptr null, ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_syscall_state, i64 256), align 8
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @gdb_handled_syscall() local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_syscall_state, i64 256), align 8
   %tobool.not = icmp ne ptr %0, null
   br i1 %tobool.not, label %if.then, label %return
 
@@ -93,13 +93,13 @@ entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i8, ptr @gdbserver_state, align 8
   %tobool.i = trunc i8 %0 to i1
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   %tobool1.i = icmp ne ptr %1, null
   %2 = select i1 %tobool.i, i1 %tobool1.i, i1 false
   br i1 %2, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr %cb, ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256), align 8
+  store ptr %cb, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_syscall_state, i64 256), align 8
   call void @llvm.va_start.p0(ptr nonnull %va)
   store i8 70, ptr @gdbserver_syscall_state, align 8
   %overflow_arg_area_p42 = getelementptr inbounds nuw i8, ptr %va, i64 8
@@ -107,7 +107,7 @@ if.end:                                           ; preds = %entry
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end
-  %p.0.ph = phi ptr [ getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 1), %if.end ], [ %p.0.ph.be, %while.cond.outer.backedge ]
+  %p.0.ph = phi ptr [ getelementptr inbounds nuw (i8, ptr @gdbserver_syscall_state, i64 1), %if.end ], [ %p.0.ph.be, %while.cond.outer.backedge ]
   %fmt.addr.0.ph = phi ptr [ %fmt, %if.end ], [ %fmt.addr.0.ph.be, %while.cond.outer.backedge ]
   br label %while.cond
 
@@ -152,7 +152,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %vaarg.addr = phi ptr [ %7, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
   %9 = load i32, ptr %vaarg.addr, align 4
   %sub.ptr.rhs.cast = ptrtoint ptr %p.0.ph to i64
-  %sub.ptr.sub = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256) to i64), %sub.ptr.rhs.cast
+  %sub.ptr.sub = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @gdbserver_syscall_state, i64 256) to i64), %sub.ptr.rhs.cast
   %call7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %p.0.ph, i64 noundef %sub.ptr.sub, ptr noundef nonnull @.str, i32 noundef %9) #5
   %idx.ext = sext i32 %call7 to i64
   %add.ptr8 = getelementptr i8, ptr %p.0.ph, i64 %idx.ext
@@ -187,7 +187,7 @@ vaarg.end26:                                      ; preds = %vaarg.in_mem22, %va
   %vaarg.addr27 = phi ptr [ %12, %vaarg.in_reg20 ], [ %overflow_arg_area24, %vaarg.in_mem22 ]
   %14 = load i64, ptr %vaarg.addr27, align 8
   %sub.ptr.rhs.cast29 = ptrtoint ptr %p.0.ph to i64
-  %sub.ptr.sub30 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256) to i64), %sub.ptr.rhs.cast29
+  %sub.ptr.sub30 = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @gdbserver_syscall_state, i64 256) to i64), %sub.ptr.rhs.cast29
   %call31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %p.0.ph, i64 noundef %sub.ptr.sub30, ptr noundef nonnull @.str.1, i64 noundef %14) #5
   %idx.ext32 = sext i32 %call31 to i64
   %add.ptr33 = getelementptr i8, ptr %p.0.ph, i64 %idx.ext32
@@ -235,7 +235,7 @@ vaarg.end57:                                      ; preds = %vaarg.in_mem53, %va
   %vaarg.addr58 = phi ptr [ %21, %vaarg.in_reg51 ], [ %overflow_arg_area55, %vaarg.in_mem53 ]
   %25 = load i32, ptr %vaarg.addr58, align 4
   %sub.ptr.rhs.cast60 = ptrtoint ptr %p.0.ph to i64
-  %sub.ptr.sub61 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256) to i64), %sub.ptr.rhs.cast60
+  %sub.ptr.sub61 = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @gdbserver_syscall_state, i64 256) to i64), %sub.ptr.rhs.cast60
   %call62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %p.0.ph, i64 noundef %sub.ptr.sub61, ptr noundef nonnull @.str.2, i64 noundef %24, i32 noundef %25) #5
   %idx.ext63 = sext i32 %call62 to i64
   %add.ptr64 = getelementptr i8, ptr %p.0.ph, i64 %idx.ext63
@@ -281,7 +281,7 @@ entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp = icmp ne i32 %0, 0
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_syscall_state, i64 256), align 8
   %tobool = icmp ne ptr %1, null
   %or.cond = select i1 %cmp, i1 %tobool, i1 false
   br i1 %or.cond, label %if.then, label %if.end25
@@ -326,9 +326,9 @@ sw.default:                                       ; preds = %if.end
 
 sw.epilog:                                        ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.then, %if.end, %sw.default, %sw.bb24
   %err.1 = phi i32 [ 22, %sw.default ], [ 36, %sw.bb24 ], [ %conv, %if.end ], [ 0, %if.then ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ], [ %conv, %if.end ]
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   tail call void %1(ptr noundef %5, i64 noundef %3, i32 noundef %err.1) #5
-  store ptr null, ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_syscall_state, i64 256), align 8
   %.pr = load i32, ptr %len, align 8
   br label %if.end25
 

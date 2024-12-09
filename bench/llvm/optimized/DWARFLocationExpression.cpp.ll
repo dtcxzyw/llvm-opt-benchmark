@@ -107,7 +107,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %21
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %30, align 8, !alias.scope !4
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_14iterator_rangeIPKhEEEE, i64 16), ptr %31, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_14iterator_rangeIPKhEEEE, i64 16), ptr %31, align 8, !alias.scope !4
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %25, ptr %32, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56

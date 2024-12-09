@@ -170,7 +170,7 @@ define linkonce_odr hidden void @_ZN4perf8TestBase21PerfSkipTestExceptionC2Ev(pt
   tail call void @_ZN6cvtest7details21SkipTestExceptionBaseC2Eb(ptr noundef nonnull align 8 dereferenceable(152) %0, i1 noundef zeroext false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %2, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4perf8TestBase21PerfSkipTestExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4perf8TestBase21PerfSkipTestExceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %3, align 8
   ret void

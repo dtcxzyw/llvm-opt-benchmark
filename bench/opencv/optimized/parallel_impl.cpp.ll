@@ -1661,7 +1661,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12WorkerThreadEEET_.
   store i32 1, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %146, i64 12
   store i32 1, ptr %158, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12WorkerThreadELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %146, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12WorkerThreadELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %146, align 8
   %159 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store ptr %143, ptr %159, align 8
   store ptr %146, ptr %18, align 8
@@ -2878,7 +2878,7 @@ _ZN2cv3PtrINS_11ParallelJobEEC2IS1_EEPT_.exit:    ; preds = %35
   store i32 1, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i32 1, ptr %64, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv11ParallelJobELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv11ParallelJobELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %52, align 8
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %39, ptr %65, align 8
   store ptr %39, ptr %13, align 8

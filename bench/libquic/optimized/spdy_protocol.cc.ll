@@ -1489,7 +1489,7 @@ call.i.noexc:                                     ; preds = %sw.bb
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.14, i64 8))
           to label %return unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1518,7 +1518,7 @@ call.i.noexc7:                                    ; preds = %sw.bb1
           to label %.noexc9 unwind label %lpad3
 
 .noexc9:                                          ; preds = %call.i.noexc7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 2))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.15, i64 2))
           to label %return unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %.noexc9
@@ -1565,7 +1565,7 @@ call.i.noexc15:                                   ; preds = %cleanup.done
           to label %.noexc17 unwind label %lpad19
 
 .noexc17:                                         ; preds = %call.i.noexc15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 8))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.14, i64 8))
           to label %return unwind label %lpad.i14
 
 lpad.i14:                                         ; preds = %.noexc17
@@ -1613,7 +1613,7 @@ entry:
   store i32 %stream_id, ptr %stream_id_.i.i.i, align 8
   %fin_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockC1EOS0_(ptr noundef nonnull align 8 dereferenceable(88) %header_block_, ptr noundef nonnull align 8 dereferenceable(88) %header_block)
   ret void
@@ -1624,7 +1624,7 @@ declare void @_ZN3net15SpdyHeaderBlockC1EOS0_(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net26SpdyFrameWithHeaderBlockIRD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_) #16
   ret void
@@ -1650,7 +1650,7 @@ entry:
   store i32 %stream_id, ptr %stream_id_.i.i.i, align 8
   %fin_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
   %data_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %data_store_, align 8
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1768,7 +1768,7 @@ entry:
   store i32 %stream_id, ptr %stream_id_.i.i.i.i, align 8
   %fin_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
   %data_store_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %data_store_.i, align 8
   %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1802,7 +1802,7 @@ entry:
   store i32 %stream_id, ptr %stream_id_.i.i.i, align 8
   %fin_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
   %data_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %call.i2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
@@ -1835,7 +1835,7 @@ entry:
   store i32 %stream_id, ptr %stream_id_.i.i.i, align 8
   %fin_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %fin_.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
   %data_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %data_store_, align 8
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1859,7 +1859,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net10SpdyDataIRD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
   %data_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_store_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1878,7 +1878,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net10SpdyDataIRD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net10SpdyDataIRE, i64 16), ptr %this, align 8
   %data_store_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_store_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1931,7 +1931,7 @@ define dso_local void @_ZN3net15SpdyRstStreamIRC2EjNS_19SpdyRstStreamStatusE(ptr
 entry:
   %stream_id_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %stream_id, ptr %stream_id_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15SpdyRstStreamIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net15SpdyRstStreamIRE, i64 16), ptr %this, align 8
   %status_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %status, ptr %status_.i, align 4
   ret void
@@ -1963,7 +1963,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net14SpdySettingsIRC2Ev(ptr noundef nonnull align 8 dereferenceable(58) initializes((0, 8), (16, 20), (24, 32)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net14SpdySettingsIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net14SpdySettingsIRE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1984,7 +1984,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net14SpdySettingsIRD2Ev(ptr noundef nonnull align 8 dereferenceable(58) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net14SpdySettingsIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net14SpdySettingsIRE, i64 16), ptr %this, align 8
   %values_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -2005,7 +2005,7 @@ _ZNSt3mapIN3net15SpdySettingsIdsENS0_14SpdySettingsIR5ValueESt4lessIS1_ESaISt4pa
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net14SpdySettingsIRD0Ev(ptr noundef nonnull align 8 dereferenceable(58) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net14SpdySettingsIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net14SpdySettingsIRE, i64 16), ptr %this, align 8
   %values_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -2047,7 +2047,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12SpdyGoAwayIRC2EjNS_16SpdyGoAwayStatusEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, i32 noundef %last_good_stream_id, i32 noundef %status, ptr %description.coerce0, i64 %description.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
   %description_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #16
   %description_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2075,7 +2075,7 @@ entry:
   %0 = load ptr, ptr %agg.tmp, align 8
   %1 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
   %description_store_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_.i) #16
   %description_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2092,7 +2092,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12SpdyGoAwayIRC2EjNS_16SpdyGoAwayStatusENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, i32 noundef %last_good_stream_id, i32 noundef %status, ptr noundef nonnull %description) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
   %description_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %description_store_, ptr noundef nonnull align 8 dereferenceable(32) %description) #16
   %description_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2119,7 +2119,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12SpdyGoAwayIRD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
   %description_store_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #16
   ret void
@@ -2128,7 +2128,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12SpdyGoAwayIRD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12SpdyGoAwayIRE, i64 16), ptr %this, align 8
   %description_store_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -2200,7 +2200,7 @@ define dso_local void @_ZN3net12SpdyAltSvcIRC2Ej(ptr noundef nonnull align 8 der
 entry:
   %stream_id_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %stream_id, ptr %stream_id_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyAltSvcIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12SpdyAltSvcIRE, i64 16), ptr %this, align 8
   %origin_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %origin_) #16
   %altsvc_vector_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2211,7 +2211,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12SpdyAltSvcIRD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyAltSvcIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12SpdyAltSvcIRE, i64 16), ptr %this, align 8
   %altsvc_vector_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %altsvc_vector_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -2248,7 +2248,7 @@ _ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EED2Ev.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net12SpdyAltSvcIRD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12SpdyAltSvcIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12SpdyAltSvcIRE, i64 16), ptr %this, align 8
   %altsvc_vector_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %altsvc_vector_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -2306,7 +2306,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net15SpdySynStreamIRD2Ev(ptr noundef nonnull align 8 dereferenceable(110) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
@@ -2315,7 +2315,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net15SpdySynStreamIRD0Ev(ptr noundef nonnull align 8 dereferenceable(110) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -2325,7 +2325,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net14SpdySynReplyIRD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
@@ -2334,7 +2334,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net14SpdySynReplyIRD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -2357,7 +2357,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net13SpdyHeadersIRD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
@@ -2366,7 +2366,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net13SpdyHeadersIRD0Ev(ptr noundef nonnull align 8 dereferenceable(124) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -2402,7 +2402,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net17SpdyPushPromiseIRD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
@@ -2411,7 +2411,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net17SpdyPushPromiseIRD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -2421,7 +2421,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net18SpdyContinuationIRD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i) #16
   ret void
@@ -2430,7 +2430,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net18SpdyContinuationIRD0Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i64 16), ptr %this, align 8
   %header_block_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_.i.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19

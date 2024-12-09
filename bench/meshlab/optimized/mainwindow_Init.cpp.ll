@@ -946,9 +946,9 @@ define void @_ZN10MainWindowC2Ev(ptr noundef nonnull align 8 dereferenceable(137
   %44 = alloca %"class.QMetaObject::Connection", align 8
   %45 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef null, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10MainWindow, i64 16), ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 456), ptr %46, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10MainWindow, i64 456), ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_ZN10QArrayData11shared_nullE, ptr %48, align 8
@@ -2066,7 +2066,7 @@ _ZN7QStringD2Ev.exit171:                          ; preds = %_ZN9QtPrivate8RefCo
   store i64 %372, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %370, i64 16
   store i64 %372, ptr %374, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg22QtThreadSafeMemoryInfoE, i64 16), ptr %370, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg22QtThreadSafeMemoryInfoE, i64 16), ptr %370, align 8
   %375 = getelementptr inbounds nuw i8, ptr %370, i64 24
   invoke void @_ZN14QReadWriteLockC1ENS_13RecursionModeE(ptr noundef nonnull align 8 dereferenceable(8) %375, i32 noundef 1)
           to label %_ZN3vcg22QtThreadSafeMemoryInfoC2El.exit unwind label %469
@@ -12370,7 +12370,7 @@ declare void @_ZN14QReadWriteLockC1ENS_13RecursionModeE(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg22QtThreadSafeMemoryInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg22QtThreadSafeMemoryInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg22QtThreadSafeMemoryInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   ret void
@@ -12378,7 +12378,7 @@ define linkonce_odr void @_ZN3vcg22QtThreadSafeMemoryInfoD2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg22QtThreadSafeMemoryInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg22QtThreadSafeMemoryInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg22QtThreadSafeMemoryInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
@@ -12582,9 +12582,9 @@ declare void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind writable sret
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10MainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(1376) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10MainWindow, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10MainWindow, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -24843,7 +24843,7 @@ define void @_ZNK10MainWindow27defaultPerViewRenderingDataER15MLRenderingData(pt
   store i8 1, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store float 1.000000e+00, ptr %26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 66
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 70
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 74

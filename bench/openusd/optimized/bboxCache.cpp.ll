@@ -1834,7 +1834,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %63, %
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %8, ptr %70, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN3tbb6detail2d119task_arena_functionIZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache8_ResolveERKNS3_7UsdPrimEPSt3mapINS3_7TfTokenENS3_8GfBBox3dENS3_28TfTokenFastArbitraryLessThanESaISt4pairIKS9_SA_EEEE3$_0vEE", i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN3tbb6detail2d119task_arena_functionIZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache8_ResolveERKNS3_7UsdPrimEPSt3mapINS3_7TfTokenENS3_8GfBBox3dENS3_28TfTokenFastArbitraryLessThanESaISt4pairIKS9_SA_EEEE3$_0vEE", i64 16), ptr %5, align 8
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %71, align 8
   invoke void @_ZN3tbb6detail2r120isolate_within_arenaERNS0_2d113delegate_baseEl(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
@@ -7807,13 +7807,13 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCac
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache5ClearEv(ptr noundef nonnull align 8 dereferenceable(522) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %2 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit
 
 4:                                                ; preds = %1
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit: ; preds = %1, %4
@@ -7901,13 +7901,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit: ; preds = %
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit15: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit6.i
   %13 = phi double [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit ], [ %9, %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit6.i ]
   %or.cond = fcmp uno double %13, %1
-  %14 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %14 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit
 
 16:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit15
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
-  %17 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  %17 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit15, %16
@@ -7960,13 +7960,13 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfToke
   store ptr %32, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.024.030.us, i64 88
   store i64 0, ptr %35, align 8
-  %36 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %36 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit23.us
 
 38:                                               ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S2_EEE5clearEv.exit.us
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
-  %39 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  %39 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit23.us
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit23.us: ; preds = %38, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S2_EEE5clearEv.exit.us
@@ -8036,13 +8036,13 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfToke
   store ptr %59, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.024.030, i64 88
   store i64 0, ptr %62, align 8
-  %63 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %63 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit23
 
 65:                                               ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S2_EEE5clearEv.exit
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
-  %66 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  %66 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit23
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit23: ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S2_EEE5clearEv.exit, %65
@@ -8435,16 +8435,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim3IsAINS_16UsdGeomImageableEEEbv.ex
   br i1 %28, label %122, label %29
 
 29:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim3IsAINS_16UsdGeomImageableEEEbv.exit
-  %30 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %30 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc26 unwind label %23
 
 .noexc26:                                         ; preds = %32
-  %33 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %33 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %34
 
 34:                                               ; preds = %.noexc26, %29
@@ -8619,7 +8619,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %90, %9
           to label %127 unwind label %23
 
 127:                                              ; preds = %126
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %6, align 8
   store ptr null, ptr %7, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomImageable17GetVisibilityAttrEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %128 unwind label %192
@@ -8741,16 +8741,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit: ; preds = %_ZN32px
   br i1 %151, label %185, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit48
 
 185:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit
-  %186 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %186 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %190
 
 188:                                              ; preds = %185
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc38 unwind label %192
 
 .noexc38:                                         ; preds = %188
-  %189 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %189 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %190
 
 190:                                              ; preds = %.noexc38, %185
@@ -9145,7 +9145,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCac
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15UsdGeomModelAPIE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15UsdGeomModelAPIE, i64 16), ptr %5, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__15UsdGeomModelAPI18GetExtentsHintAttrEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %18 unwind label %77
 
@@ -9509,7 +9509,7 @@ define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCa
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
-  %28 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %28 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %27, label %30, label %48
 
@@ -9517,8 +9517,8 @@ define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCa
   br i1 %29, label %31, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit
 
 31:                                               ; preds = %30
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
-  %32 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  %32 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit: ; preds = %30, %31
@@ -9583,8 +9583,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__Deb
   br i1 %29, label %49, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit42
 
 49:                                               ; preds = %48
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
-  %50 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  %50 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit42
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_26USDGEOM_EXTENT__DebugCodesEEEbT_.exit42: ; preds = %48, %49
@@ -11206,7 +11206,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i37: ; preds
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim11IsPrototypeEv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleptEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim11IsPrototypeEv.exit
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %4, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim9GetParentEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %76 unwind label %275
 
@@ -11698,16 +11698,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i64: ; preds = %311, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev.exit67
 
 _ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev.exit67: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %76, %78, %319, %316, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i64, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
-  %320 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %320 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %321 = icmp eq i32 %320, 0
   br i1 %321, label %322, label %324
 
 322:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev.exit67
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc68 unwind label %277
 
 .noexc68:                                         ; preds = %322
-  %323 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %323 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %324
 
 324:                                              ; preds = %.noexc68, %_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev.exit67
@@ -12242,16 +12242,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery3GetINS_7VtArrayINS_7Gf
   br i1 %33, label %198, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread: ; preds = %16, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery3GetINS_7VtArrayINS_7GfVec3fEEEEEbPT_NS_11UsdTimeCodeE.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit
-  %34 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %34 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc33 unwind label %.loopexit.split-lp
 
 .noexc33:                                         ; preds = %36
-  %37 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %37 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %38
 
 38:                                               ; preds = %.noexc33, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread
@@ -12356,16 +12356,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %81, %_ZN32pxr
   br i1 %.not, label %85, label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit52
 
 85:                                               ; preds = %84, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
-  %86 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %86 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc38 unwind label %.loopexit.split-lp
 
 .noexc38:                                         ; preds = %88
-  %89 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %89 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %90
 
 90:                                               ; preds = %.noexc38, %85
@@ -12590,16 +12590,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i49: ; preds = %183, %1
   br label %382
 
 198:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery3GetINS_7VtArrayINS_7GfVec3fEEEEEbPT_NS_11UsdTimeCodeE.exit
-  %199 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %199 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %201, label %203
 
 201:                                              ; preds = %198
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc54 unwind label %.loopexit.split-lp
 
 .noexc54:                                         ; preds = %201
-  %202 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %202 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %203
 
 203:                                              ; preds = %.noexc54, %198
@@ -13108,7 +13108,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %115 = getelementptr inbounds nuw i8, ptr %105, i64 80
   %116 = load i8, ptr %115, align 8
   %117 = trunc i8 %116 to i1
-  %118 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %118 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %119 = icmp eq i32 %118, 0
   br i1 %117, label %120, label %140
 
@@ -13116,11 +13116,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   br i1 %119, label %121, label %123
 
 121:                                              ; preds = %120
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc unwind label %113
 
 .noexc:                                           ; preds = %121
-  %122 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %122 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %123
 
 123:                                              ; preds = %.noexc, %120
@@ -13188,11 +13188,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   br i1 %119, label %141, label %143
 
 141:                                              ; preds = %140
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc178 unwind label %113
 
 .noexc178:                                        ; preds = %141
-  %142 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %142 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %143
 
 143:                                              ; preds = %.noexc178, %140
@@ -13305,7 +13305,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 181:                                              ; preds = %180
   %182 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr null, ptr %182, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15UsdGeomModelAPIE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15UsdGeomModelAPIE, i64 16), ptr %50, align 8
   %183 = load ptr, ptr %161, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 120
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
@@ -13642,7 +13642,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread.i193:
           to label %.noexc211 unwind label %464
 
 .noexc211:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread.i193
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %33, align 8
   %321 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %322 = load ptr, ptr %321, align 8
   %.not.i.i.i = icmp eq ptr %322, null
@@ -13656,7 +13656,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i: ; pred
   br i1 %.not3.i.i.i, label %326, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit.i
 
 326:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i
-  %327 = load ptr, ptr getelementptr inbounds inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 48), align 8
+  %327 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 48), align 8
   %328 = invoke noundef zeroext i1 %327(ptr noundef nonnull align 8 dereferenceable(24) %33)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.i unwind label %422
 
@@ -14014,7 +14014,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread.i217:
           to label %.noexc252 unwind label %464
 
 .noexc252:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread.i217
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomBoundableE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomBoundableE, i64 16), ptr %28, align 8
   %486 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %487 = load ptr, ptr %486, align 8
   %.not.i.i.i218 = icmp eq ptr %487, null
@@ -14028,7 +14028,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i219: ; p
   br i1 %.not3.i.i.i220, label %491, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit.i221
 
 491:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i219
-  %492 = load ptr, ptr getelementptr inbounds inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomBoundableE, i64 48), align 8
+  %492 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomBoundableE, i64 48), align 8
   %493 = invoke noundef zeroext i1 %492(ptr noundef nonnull align 8 dereferenceable(24) %28)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.i223 unwind label %587
 
@@ -14326,7 +14326,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit.i221: ; preds = %62
           to label %630 unwind label %464
 
 630:                                              ; preds = %629
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformableE, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformableE, i64 16), ptr %52, align 8
   %631 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %632 = load ptr, ptr %631, align 8
   %.not.i.i256 = icmp eq ptr %632, null
@@ -14340,7 +14340,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i: ; preds 
   br i1 %.not3.i.i, label %636, label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit.thread
 
 636:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i
-  %637 = load ptr, ptr getelementptr inbounds inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformableE, i64 48), align 8
+  %637 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformableE, i64 48), align 8
   %638 = invoke noundef zeroext i1 %637(ptr noundef nonnull align 8 dereferenceable(24) %52)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit unwind label %727
 
@@ -14585,7 +14585,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit277.thread: ;
           to label %730 unwind label %113
 
 730:                                              ; preds = %729
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomBoundableE, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomBoundableE, i64 16), ptr %53, align 8
   %731 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %732 = load ptr, ptr %731, align 8
   %.not.i.i285 = icmp eq ptr %732, null
@@ -14599,7 +14599,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i286: ; pre
   br i1 %.not3.i.i287, label %736, label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit289.thread
 
 736:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i286
-  %737 = load ptr, ptr getelementptr inbounds inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomBoundableE, i64 48), align 8
+  %737 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomBoundableE, i64 48), align 8
   %738 = invoke noundef zeroext i1 %737(ptr noundef nonnull align 8 dereferenceable(24) %53)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit289 unwind label %787
 
@@ -15125,7 +15125,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19UsdPrimSiblingRange3endEv.exit: ; preds 
   %967 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %968 = getelementptr inbounds nuw i8, ptr %0, i64 521
   %969 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %970 = load ptr, ptr getelementptr inbounds inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 48), align 8
+  %970 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 48), align 8
   %971 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %972 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %973 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -15453,7 +15453,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextC2ERKNS_7Us
           to label %1142 unwind label %1122
 
 1142:                                             ; preds = %1141
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %69, align 8
   %1143 = load ptr, ptr %969, align 8
   %.not.i.i371 = icmp eq ptr %1143, null
   br i1 %.not.i.i371, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i372
@@ -16487,7 +16487,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSiblingIteratorppEv.exit: ; preds 
 1636:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSiblingIteratorD2Ev.exit358
   store ptr %58, ptr %74, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN3tbb6detail2d119task_arena_functionIZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_ResolvePrimEPKNS4_9_BBoxTaskERKNS4_12_PrimContextERKNS3_10GfMatrix4dEE3$_0vEE", i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN3tbb6detail2d119task_arena_functionIZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_ResolvePrimEPKNS4_9_BBoxTaskERKNS4_12_PrimContextERKNS3_10GfMatrix4dEE3$_0vEE", i64 16), ptr %13, align 8
   %1637 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %74, ptr %1637, align 8
   invoke void @_ZN3tbb6detail2r120isolate_within_arenaERNS0_2d113delegate_baseEl(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0)
@@ -17001,16 +17001,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit457: ; preds = %.loopexit.
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextENS2_9_BBoxTaskEESaIS5_EED2Ev.exit: ; preds = %1819, %_ZSt8_DestroyIPSt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextENS2_9_BBoxTaskEES5_EvT_S7_RSaIT0_E.exit.i, %791
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBoundableD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #15
   store i8 1, ptr %115, align 8
-  %1829 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %1829 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %1830 = icmp eq i32 %1829, 0
   br i1 %1830, label %1831, label %1833
 
 1831:                                             ; preds = %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextENS2_9_BBoxTaskEESaIS5_EED2Ev.exit
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc459 unwind label %113
 
 .noexc459:                                        ; preds = %1831
-  %1832 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %1832 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %1833
 
 1833:                                             ; preds = %.noexc459, %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextENS2_9_BBoxTaskEESaIS5_EED2Ev.exit
@@ -17279,7 +17279,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i44: ; preds
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim11IsPrototypeEv.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleptEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim11IsPrototypeEv.exit
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomImageableE, i64 16), ptr %4, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim9GetParentEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %78 unwind label %276
 
@@ -17697,16 +17697,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i: ; preds = %267, %2
   br label %340
 
 284:                                              ; preds = %212
-  %285 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %285 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %286 = icmp eq i32 %285, 0
   br i1 %286, label %287, label %289
 
 287:                                              ; preds = %284
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc66 unwind label %282
 
 .noexc66:                                         ; preds = %287
-  %288 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %288 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %289
 
 289:                                              ; preds = %.noexc66, %284
@@ -17828,16 +17828,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i72: ; preds = %331, 
   br label %411
 
 _ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev.exit75: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %78, %80, %339, %336, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i72, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
-  %341 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %341 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %342 = icmp eq i32 %341, 0
   br i1 %342, label %343, label %345
 
 343:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev.exit75
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.54)
           to label %.noexc77 unwind label %278
 
 .noexc77:                                         ; preds = %343
-  %344 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %344 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_26USDGEOM_EXTENT__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %345
 
 345:                                              ; preds = %.noexc77, %_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev.exit75
@@ -18035,7 +18035,7 @@ _ZNSt12__shared_ptrIA_N32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryELN9
   store i32 1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %17, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESt17__sp_array_deleteSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESt17__sp_array_deleteSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -18363,7 +18363,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__11UsdModelAPIE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__11UsdModelAPIE, i64 16), ptr %2, align 8
   store ptr null, ptr %3, align 8
   %5 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__11UsdModelAPI7GetKindEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3)
           to label %6 unwind label %7
@@ -21565,9 +21565,9 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
 24:                                               ; preds = %23, %1
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %9, align 8
   %26 = call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 8)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEEEE, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -22230,7 +22230,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i: ; preds = %328, %3
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.i: ; preds = %337, %334, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %9, align 8
   %338 = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %338, null
   br i1 %.not.i.i, label %343, label %339
@@ -22404,12 +22404,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 ._crit_edge:                                      ; preds = %29, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %6, align 8
   %34 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 8)
           to label %35 unwind label %43
 
 35:                                               ; preds = %._crit_edge
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEEEE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEEEE, i64 16), ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %34, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -22432,7 +22432,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 43:                                               ; preds = %._crit_edge
   %44 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %6, align 8
   br label %.body
 
 _ZN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEC2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -22489,7 +22489,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved_
           to label %57 unwind label %.loopexit.split-lp
 
 57:                                               ; preds = %._crit_edge38
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %6, align 8
   %58 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %63, label %59
@@ -22557,7 +22557,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved_
   unreachable
 
 _ZN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EED2Ev.exit: ; preds = %.loopexit1.i
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %6, align 8
   %82 = load ptr, ptr %24, align 8
   invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextENS4_22_PrototypeBBoxResolver14_PrototypeTaskEELb1EEEEE19_M_deallocate_nodesEPSA_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %82)
           to label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextESt4pairIKS2_NS1_22_PrototypeBBoxResolver14_PrototypeTaskEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_6TfHashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i unwind label %83
@@ -22679,7 +22679,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
 .noexc3:                                          ; preds = %_ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_16UsdGeomBBoxCache9_BBoxTaskEEEEEPNS1_4taskEOT_.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %30, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %30, align 64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i32, ptr %4, align 8
   store i32 %33, ptr %32, align 8
@@ -22738,7 +22738,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher4WaitEv(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -22793,7 +22793,7 @@ define linkonce_odr void @_ZN3tbb6detail2d126enumerable_thread_specificIN32pxrIn
   unreachable
 
 _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEELm128EEENS1_23cache_aligned_allocatorIS9_EEED2Ev.exit: ; preds = %.loopexit1
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i
@@ -24908,7 +24908,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
 .noexc3:                                          ; preds = %_ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS4_16UsdGeomBBoxCache22_PrototypeBBoxResolverEFvRKNS8_12_PrimContextEPNS4_9TfHashMapISA_NS9_14_PrototypeTaskENS4_6TfHashESt8equal_toISA_ESaISt4pairISB_SE_EEEEPNS1_26enumerable_thread_specificINS4_17UsdGeomXformCacheENS1_23cache_aligned_allocatorISO_EELNS1_18ets_key_usage_typeE1EEEPS5_EPS9_SA_SM_ST_SU_EEEEEEPNS1_4taskEOT_.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %43, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_16UsdGeomBBoxCache22_PrototypeBBoxResolverEFvRKNS7_12_PrimContextEPNS3_9TfHashMapIS9_NS8_14_PrototypeTaskENS3_6TfHashESt8equal_toIS9_ESaISt4pairISA_SD_EEEEPNS1_26enumerable_thread_specificINS3_17UsdGeomXformCacheENS1_23cache_aligned_allocatorISN_EELNS1_18ets_key_usage_typeE1EEEPS4_EPS8_S9_SL_SS_ST_EEEEEE, i64 16), ptr %42, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_16UsdGeomBBoxCache22_PrototypeBBoxResolverEFvRKNS7_12_PrimContextEPNS3_9TfHashMapIS9_NS8_14_PrototypeTaskENS3_6TfHashESt8equal_toIS9_ESaISt4pairISA_SD_EEEEPNS1_26enumerable_thread_specificINS3_17UsdGeomXformCacheENS1_23cache_aligned_allocatorISN_EELNS1_18ets_key_usage_typeE1EEEPS4_EPS8_S9_SL_SS_ST_EEEEEE, i64 16), ptr %42, align 64
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %.unpack.i.i.i.i.i.i = load i64, ptr %4, align 8
   %.unpack4.i.i.i.i.i.i = load i64, ptr %.repack5.i.i, align 8
@@ -24987,7 +24987,7 @@ declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_16UsdGeomBBoxCache22_PrototypeBBoxResolverEFvRKNS7_12_PrimContextEPNS3_9TfHashMapIS9_NS8_14_PrototypeTaskENS3_6TfHashESt8equal_toIS9_ESaISt4pairISA_SD_EEEEPNS1_26enumerable_thread_specificINS3_17UsdGeomXformCacheENS1_23cache_aligned_allocatorISN_EELNS1_18ets_key_usage_typeE1EEEPS4_EPS8_S9_SL_SS_ST_EEEEED2Ev(ptr noundef nonnull align 64 dereferenceable(176) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_16UsdGeomBBoxCache22_PrototypeBBoxResolverEFvRKNS7_12_PrimContextEPNS3_9TfHashMapIS9_NS8_14_PrototypeTaskENS3_6TfHashESt8equal_toIS9_ESaISt4pairISA_SD_EEEEPNS1_26enumerable_thread_specificINS3_17UsdGeomXformCacheENS1_23cache_aligned_allocatorISN_EELNS1_18ets_key_usage_typeE1EEEPS4_EPS8_S9_SL_SS_ST_EEEEEE, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_16UsdGeomBBoxCache22_PrototypeBBoxResolverEFvRKNS7_12_PrimContextEPNS3_9TfHashMapIS9_NS8_14_PrototypeTaskENS3_6TfHashESt8equal_toIS9_ESaISt4pairISA_SD_EEEEPNS1_26enumerable_thread_specificINS3_17UsdGeomXformCacheENS1_23cache_aligned_allocatorISN_EELNS1_18ets_key_usage_typeE1EEEPS4_EPS8_S9_SL_SS_ST_EEEEEE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
   ret void
@@ -24995,7 +24995,7 @@ define linkonce_odr void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_16UsdGeomBBoxCache22_PrototypeBBoxResolverEFvRKNS7_12_PrimContextEPNS3_9TfHashMapIS9_NS8_14_PrototypeTaskENS3_6TfHashESt8equal_toIS9_ESaISt4pairISA_SD_EEEEPNS1_26enumerable_thread_specificINS3_17UsdGeomXformCacheENS1_23cache_aligned_allocatorISN_EELNS1_18ets_key_usage_typeE1EEEPS4_EPS8_S9_SL_SS_ST_EEEEED0Ev(ptr noundef nonnull align 64 dereferenceable(176) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_16UsdGeomBBoxCache22_PrototypeBBoxResolverEFvRKNS7_12_PrimContextEPNS3_9TfHashMapIS9_NS8_14_PrototypeTaskENS3_6TfHashESt8equal_toIS9_ESaISt4pairISA_SD_EEEEPNS1_26enumerable_thread_specificINS3_17UsdGeomXformCacheENS1_23cache_aligned_allocatorISN_EELNS1_18ets_key_usage_typeE1EEEPS4_EPS8_S9_SL_SS_ST_EEEEEE, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_16UsdGeomBBoxCache22_PrototypeBBoxResolverEFvRKNS7_12_PrimContextEPNS3_9TfHashMapIS9_NS8_14_PrototypeTaskENS3_6TfHashESt8equal_toIS9_ESaISt4pairISA_SD_EEEEPNS1_26enumerable_thread_specificINS3_17UsdGeomXformCacheENS1_23cache_aligned_allocatorISN_EELNS1_18ets_key_usage_typeE1EEEPS4_EPS8_S9_SL_SS_ST_EEEEEE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
   tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 192, i64 noundef 64) #25
@@ -25707,7 +25707,7 @@ define linkonce_odr void @_ZN3tbb6detail2d126enumerable_thread_specificIN32pxrIn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheENS1_23cache_aligned_allocatorIS4_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -25784,7 +25784,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIN32pxrInternal_v0_24__pxrReserved_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -25799,7 +25799,7 @@ declare noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef) local_unn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 8)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_20construct_by_defaultIN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheEEEEE, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -27117,7 +27117,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit: ; preds = %_ZN32pxrIn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEED2Ev(ptr noundef nonnull align 64 dereferenceable(272) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #15
   ret void
@@ -27125,7 +27125,7 @@ define linkonce_odr void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEED0Ev(ptr noundef nonnull align 64 dereferenceable(272) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_PrimContextD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #15
   tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %0, i64 noundef 320, i64 noundef 64) #25
@@ -29282,7 +29282,7 @@ _ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserv
 .noexc3:                                          ; preds = %_ZN3tbb6detail2d115task_group_base12prepare_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_16UsdGeomBBoxCache9_BBoxTaskEEEEEPNS1_4taskEOT_.exit.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %58, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_16UsdGeomBBoxCache9_BBoxTaskEEEEE, i64 16), ptr %58, align 64
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %61 = load i32, ptr %4, align 8
   store i32 %61, ptr %60, align 8

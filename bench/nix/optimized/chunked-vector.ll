@@ -2355,7 +2355,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Ch
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ChunkedVector_InitEmpty_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix28ChunkedVector_InitEmpty_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2425,7 +2425,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Ch
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33ChunkedVector_GrowsCorrectly_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33ChunkedVector_GrowsCorrectly_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2453,7 +2453,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28Ch
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix28ChunkedVector_AddAndGet_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix28ChunkedVector_AddAndGet_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2481,7 +2481,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26Ch
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26ChunkedVector_ForEach_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix26ChunkedVector_ForEach_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2509,7 +2509,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Ch
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29ChunkedVector_OverflowOK_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29ChunkedVector_OverflowOK_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3264,7 +3264,7 @@ define internal void @_GLOBAL__sub_I_chunked_vector.cc() #12 section ".text.star
           to label %27 unwind label %46
 
 27:                                               ; preds = %25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ChunkedVector_InitEmpty_TestEEE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ChunkedVector_InitEmpty_TestEEE, i64 16), ptr %26, align 8
   %28 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef %20, ptr noundef %22, ptr noundef %24, ptr noundef nonnull %26)
           to label %29 unwind label %46
 
@@ -3367,7 +3367,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %59 unwind label %78
 
 59:                                               ; preds = %57
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ChunkedVector_GrowsCorrectly_TestEEE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33ChunkedVector_GrowsCorrectly_TestEEE, i64 16), ptr %58, align 8
   %60 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef %52, ptr noundef %54, ptr noundef %56, ptr noundef nonnull %58)
           to label %61 unwind label %78
 
@@ -3464,7 +3464,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %91 unwind label %110
 
 91:                                               ; preds = %89
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ChunkedVector_AddAndGet_TestEEE, i64 16), ptr %90, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28ChunkedVector_AddAndGet_TestEEE, i64 16), ptr %90, align 8
   %92 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %84, ptr noundef %86, ptr noundef %88, ptr noundef nonnull %90)
           to label %93 unwind label %110
 
@@ -3561,7 +3561,7 @@ __cxx_global_var_init.9.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %123 unwind label %142
 
 123:                                              ; preds = %121
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ChunkedVector_ForEach_TestEEE, i64 16), ptr %122, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26ChunkedVector_ForEach_TestEEE, i64 16), ptr %122, align 8
   %124 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %116, ptr noundef %118, ptr noundef %120, ptr noundef nonnull %122)
           to label %125 unwind label %142
 
@@ -3658,7 +3658,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %155 unwind label %174
 
 155:                                              ; preds = %153
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ChunkedVector_OverflowOK_TestEEE, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29ChunkedVector_OverflowOK_TestEEE, i64 16), ptr %154, align 8
   %156 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %148, ptr noundef %150, ptr noundef %152, ptr noundef nonnull %154)
           to label %157 unwind label %174
 

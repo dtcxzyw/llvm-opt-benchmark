@@ -23178,7 +23178,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h2d2805babc5
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %756
-  %155 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24) acquire, align 8
+  %155 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -23206,7 +23206,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h2d2805babc5
   unreachable
 
 161:                                              ; preds = %.backedge, %.backedge
-  %162 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24), i32 %.sroa.0.0, i32 2 acquire acquire, align 4
+  %162 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24), i32 %.sroa.0.0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %162, 1
   br i1 %.sroa.18.0.in.i, label %163, label %.backedge.backedge
 
@@ -23220,7 +23220,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h2d2805babc5
 
 163:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %154)
-  store ptr getelementptr inbounds (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24), ptr %154, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24), ptr %154, align 8
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i32 1, ptr %164, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !108, !noundef !5
@@ -25202,12 +25202,12 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h2d2805babc5
   resume { ptr, i32 } %eh.lpad-body
 
 754:                                              ; preds = %.backedge
-  %755 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24), i32 2, i32 3 monotonic acquire, align 4
+  %755 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %755, 1
   br i1 %.sroa.18.0.in.i12, label %756, label %.backedge.backedge
 
 756:                                              ; preds = %754, %.backedge
-  %757 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %757 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -25221,7 +25221,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17hc29592df1c2
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %34
-  %7 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32) acquire, align 8
+  %7 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -25249,7 +25249,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17hc29592df1c2
   unreachable
 
 13:                                               ; preds = %.backedge
-  %14 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32), i32 0, i32 2 acquire acquire, align 4
+  %14 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %14, 1
   br i1 %.sroa.18.0.in.i, label %20, label %.backedge.backedge
 
@@ -25277,7 +25277,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17hc29592df1c2
 
 20:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store ptr getelementptr inbounds (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32), ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %21, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !108, !noundef !5
@@ -25323,12 +25323,12 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17hc29592df1c2
   resume { ptr, i32 } %28
 
 32:                                               ; preds = %.backedge
-  %33 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32), i32 2, i32 3 monotonic acquire, align 4
+  %33 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %33, 1
   br i1 %.sroa.18.0.in.i12, label %34, label %.backedge.backedge
 
 34:                                               ; preds = %32, %.backedge
-  %35 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %35 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -25337,7 +25337,7 @@ define internal fastcc void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initial
   %2 = alloca [0 x i8], align 1
   %3 = alloca [8 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24) acquire, align 8, !noalias !5313
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24) acquire, align 8, !noalias !5313
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once15call_once_force17hf95a6033ce278d08E.exit, label %7
 
@@ -61466,19 +61466,19 @@ default.unreachable24.i:                          ; preds = %240
   br i1 %271, label %.thread285, label %272
 
 272:                                              ; preds = %270
-  %.ptr = getelementptr inbounds i8, ptr @anon.c6982e44894a2416dfab6f1fd54f614d.280, i64 %.idx
-  %.add = add nsw i64 %.idx, 1
+  %.ptr = getelementptr inbounds nuw i8, ptr @anon.c6982e44894a2416dfab6f1fd54f614d.280, i64 %.idx
+  %.add = add nuw nsw i64 %.idx, 1
   %273 = load i8, ptr %.ptr, align 1, !noalias !12960, !noundef !5
   %274 = icmp sgt i8 %273, -1
   br i1 %274, label %284, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i.i": ; preds = %272
-  %.ptr351 = getelementptr inbounds i8, ptr @anon.c6982e44894a2416dfab6f1fd54f614d.280, i64 %.add
+  %.ptr351 = getelementptr inbounds nuw i8, ptr @anon.c6982e44894a2416dfab6f1fd54f614d.280, i64 %.add
   %275 = and i8 %273, 31
   %276 = zext nneg i8 %275 to i32
-  %277 = icmp ne i64 %.add, 10
+  %277 = icmp samesign ne i64 %.add, 10
   call void @llvm.assume(i1 %277)
-  %.add349 = add nsw i64 %.idx, 2
+  %.add349 = add nuw nsw i64 %.idx, 2
   %278 = load i8, ptr %.ptr351, align 1, !noalias !12960, !noundef !5
   %279 = shl nuw nsw i32 %276, 6
   %280 = and i8 %278, 63
@@ -61492,10 +61492,10 @@ default.unreachable24.i:                          ; preds = %240
   br label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h4c96223a7613744eE.exit.i.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i.i"
-  %.ptr354 = getelementptr inbounds i8, ptr @anon.c6982e44894a2416dfab6f1fd54f614d.280, i64 %.add349
-  %286 = icmp ne i64 %.add349, 10
+  %.ptr354 = getelementptr inbounds nuw i8, ptr @anon.c6982e44894a2416dfab6f1fd54f614d.280, i64 %.add349
+  %286 = icmp samesign ne i64 %.add349, 10
   call void @llvm.assume(i1 %286)
-  %.add348 = add nsw i64 %.idx, 3
+  %.add348 = add nuw nsw i64 %.idx, 3
   %287 = load i8, ptr %.ptr354, align 1, !noalias !12960, !noundef !5
   %288 = shl nuw nsw i32 %281, 6
   %289 = and i8 %287, 63
@@ -61507,10 +61507,10 @@ default.unreachable24.i:                          ; preds = %240
   br i1 %294, label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h4c96223a7613744eE.exit.i", label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h4c96223a7613744eE.exit.i.thread"
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h4c96223a7613744eE.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i"
-  %.ptr353 = getelementptr inbounds i8, ptr @anon.c6982e44894a2416dfab6f1fd54f614d.280, i64 %.add348
-  %295 = icmp ne i64 %.add348, 10
+  %.ptr353 = getelementptr inbounds nuw i8, ptr @anon.c6982e44894a2416dfab6f1fd54f614d.280, i64 %.add348
+  %295 = icmp samesign ne i64 %.add348, 10
   call void @llvm.assume(i1 %295)
-  %.add347 = add nsw i64 %.idx, 4
+  %.add347 = add nuw nsw i64 %.idx, 4
   %296 = load i8, ptr %.ptr353, align 1, !noalias !12960, !noundef !5
   %297 = shl nuw nsw i32 %276, 18
   %298 = and i32 %297, 1835008
@@ -61867,7 +61867,7 @@ default.unreachable24.i:                          ; preds = %240
   br label %433
 
 433:                                              ; preds = %.sink.split, %262
-  %434 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24) acquire, align 8, !noalias !13011
+  %434 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 24) acquire, align 8, !noalias !13011
   %.not.i.i153 = icmp eq i32 %434, 4
   br i1 %.not.i.i153, label %_ZN3vim7command8commands17h84d7746bc2459339E.exit, label %435
 
@@ -63219,7 +63219,7 @@ define hidden { ptr, i64 } @_ZN3vim7digraph14lookup_digraph17he6653c063f8999f7E(
 
 select.unfold:                                    ; preds = %._crit_edge.i.i, %33
   call void @llvm.experimental.noalias.scope.decl(metadata !13318)
-  %72 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32) acquire, align 8, !noalias !13321
+  %72 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32) acquire, align 8, !noalias !13321
   %73 = icmp eq i32 %72, 4
   br i1 %73, label %_ZN3std4sync4once4Once9call_once17h1209ef8ff87be1a8E.exit.i.i, label %74
 
@@ -63416,7 +63416,7 @@ select.unfold88:                                  ; preds = %._crit_edge.i.i.i.i
 select.unfold98:                                  ; preds = %._crit_edge.i.i.i.i41, %select.unfold88
   call void @llvm.experimental.noalias.scope.decl(metadata !13417)
   call void @llvm.experimental.noalias.scope.decl(metadata !13420)
-  %148 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32) acquire, align 8, !noalias !13423
+  %148 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7digraph20DEFAULT_DIGRAPHS_MAP17hb0503424d6de6f0cE, i64 32) acquire, align 8, !noalias !13423
   %149 = icmp eq i32 %148, 4
   br i1 %149, label %_ZN3std4sync4once4Once9call_once17h1209ef8ff87be1a8E.exit.i.i51, label %150
 

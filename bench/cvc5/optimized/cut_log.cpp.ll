@@ -540,7 +540,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfoC2ENS3_12CutInfoKlassEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 36), (40, 68), (72, 88)) %this, i32 noundef %kl, i32 noundef %eid, i32 noundef %o) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i64 16), ptr %this, align 8
   %d_klass = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %kl, ptr %d_klass, align 8
   %d_execOrd = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -569,7 +569,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i64 16), ptr %this, align 8
   %d_explanation = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %d_explanation, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3965,7 +3965,7 @@ entry:
   store i32 -1, ptr %d_rowId.i, align 8
   %d_exactPrecision.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_exactPrecision.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear11RowsDeletedE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear11RowsDeletedE, i64 16), ptr %this, align 8
   store i32 %nrows, ptr %d_cutVec.i, align 8
   %add.i = add i32 %nrows, 1
   %conv.i = sext i32 %add.i to i64
@@ -4040,7 +4040,7 @@ entry:
   store i32 -1, ptr %d_rowId.i, align 8
   %d_exactPrecision.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_exactPrecision.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear13BranchCutInfoE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear13BranchCutInfoE, i64 16), ptr %this, align 8
   store i32 1, ptr %d_cutVec.i, align 8
   %call.i1 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znam(i64 noundef 8) #27
           to label %call.i.noexc unwind label %lpad

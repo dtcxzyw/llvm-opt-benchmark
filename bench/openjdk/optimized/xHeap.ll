@@ -790,7 +790,7 @@ define hidden void @_ZN5XHeap29process_non_strong_referencesEv(ptr noundef nonnu
   call void @_ZN7XUnload6unlinkEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.25, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV18XRendezvousClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV18XRendezvousClosure, i64 16), ptr %3, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %3) #12
   call void @_ZN13XResurrection7unblockEv() #12
   call void @_ZN7XUnload5purgeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12

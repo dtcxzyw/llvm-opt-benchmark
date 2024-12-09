@@ -492,7 +492,7 @@ scan.exit:                                        ; preds = %80, %70, %70, %21, 
   br i1 %113, label %119, label %123
 
 119:                                              ; preds = %.loopexit667
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 504), align 8
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zend_one_char_string, i64 504), align 8
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr %120, ptr %121, align 8
   %122 = add nsw i32 %.0533.ph776, 1
@@ -803,8 +803,8 @@ thread-pre-split:                                 ; preds = %235, %240, %231
 252:                                              ; preds = %._crit_edge
   %253 = tail call i32 @zend_is_true(ptr noundef nonnull %.0507) #10
   %.not590 = icmp eq i32 %253, 0
-  %254 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 392), align 8
-  %255 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 384), align 16
+  %254 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zend_one_char_string, i64 392), align 8
+  %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zend_one_char_string, i64 384), align 16
   %256 = select i1 %.not590, ptr %255, ptr %254
   %257 = getelementptr inbounds nuw i8, ptr %.1511803, i64 16
   store ptr %256, ptr %257, align 8
@@ -861,7 +861,7 @@ thread-pre-split:                                 ; preds = %235, %240, %231
 
 285:                                              ; preds = %275, %280, %283
   %.0495 = phi ptr [ %284, %283 ], [ %276, %280 ], [ %276, %275 ]
-  %286 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %286 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not592 = icmp eq ptr %286, null
   br i1 %.not592, label %292, label %287
 
@@ -1281,7 +1281,7 @@ thread-pre-split:                                 ; preds = %235, %240, %231
   %500 = load ptr, ptr %499, align 8
   %501 = icmp ne ptr %500, null
   call void @llvm.assume(i1 %501)
-  %502 = load ptr, ptr getelementptr inbounds (i8, ptr @zend_one_char_string, i64 504), align 8
+  %502 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zend_one_char_string, i64 504), align 8
   %503 = getelementptr inbounds nuw i8, ptr %.4791, i64 16
   store ptr %502, ptr %503, align 8
   %504 = load i64, ptr %485, align 8

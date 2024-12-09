@@ -23,7 +23,7 @@ entry:
   %4 = load i32, ptr @OPENSSL_ia32cap_P, align 16
   %and.i = and i32 %4, 16777216
   %tobool.i = icmp eq i32 %and.i, 0
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and1.i = and i32 %5, 2
   %tobool2.i = icmp eq i32 %and1.i, 0
   %.not = select i1 %tobool.i, i1 true, i1 %tobool2.i
@@ -174,7 +174,7 @@ entry:
   %0 = load i32, ptr @OPENSSL_ia32cap_P, align 16
   %and = and i32 %0, 16777216
   %tobool = icmp ne i32 %and, 0
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and1 = and i32 %1, 2
   %tobool2 = icmp ne i32 %and1, 0
   %2 = select i1 %tobool, i1 %tobool2, i1 false

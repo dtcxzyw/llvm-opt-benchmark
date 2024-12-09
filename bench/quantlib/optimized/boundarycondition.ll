@@ -64,7 +64,7 @@ $_ZTIN8QuantLib17BoundaryConditionINS_19TridiagonalOperatorEEE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8QuantLib9NeumannBCC2EdNS_17BoundaryConditionINS_19TridiagonalOperatorEE4SideE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, double noundef %value, i32 noundef %side) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib9NeumannBCE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib9NeumannBCE, i64 16), ptr %this, align 8, !tbaa !3
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %value, ptr %value_, align 8, !tbaa !6
   %side_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -346,7 +346,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !35
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -827,7 +827,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8QuantLib11DirichletBCC2EdNS_17BoundaryConditionINS_19TridiagonalOperatorEE4SideE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, double noundef %value, i32 noundef %side) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib11DirichletBCE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib11DirichletBCE, i64 16), ptr %this, align 8, !tbaa !3
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %value, ptr %value_, align 8, !tbaa !37
   %side_ = getelementptr inbounds nuw i8, ptr %this, i64 16

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @ras_testrm_component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8
   %.not = icmp eq ptr %3, null
   %.prte_ras_testrm_module = select i1 %.not, ptr null, ptr @prte_ras_testrm_module
   %. = select i1 %.not, i32 0, i32 1000
@@ -26,8 +26,8 @@ define internal range(i32 -1, 1) i32 @ras_testrm_component_query(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ras_testrm_register() #1 {
-  store ptr null, ptr getelementptr inbounds (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8
-  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_testrm_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_mca_ras_testrm_component, i64 224)) #3
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_testrm_component, i64 224), align 8
+  %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_testrm_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_testrm_component, i64 224)) #3
   ret i32 0
 }
 

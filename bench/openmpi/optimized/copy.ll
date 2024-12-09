@@ -58,12 +58,12 @@ define i32 @pmix20_bfrop_copy(ptr noundef %0, ptr noundef %1, i16 noundef zeroex
 
 11:                                               ; preds = %7
   %12 = zext i16 %2 to i32
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v20_component, i64 360), align 8
   %.not.i = icmp sgt i32 %13, %12
   br i1 %.not.i, label %pmix_pointer_array_get_item.exit, label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit:                 ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %15 = zext i16 %2 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
@@ -1458,7 +1458,7 @@ define i32 @pmix20_bfrop_value_xfer(ptr nocapture noundef initializes((0, 2)) %0
 .lr.ph679:                                        ; preds = %483, %pmix_obj_run_constructors.exit
   %.5677 = phi i64 [ %501, %pmix_obj_run_constructors.exit ], [ 0, %483 ]
   %486 = load i32, ptr @pmix_class_init_epoch, align 4
-  %487 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 32), align 8
+  %487 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_buffer_t_class, i64 32), align 8
   %.not622 = icmp eq i32 %486, %487
   br i1 %.not622, label %489, label %488
 
@@ -3083,7 +3083,7 @@ define i32 @pmix20_bfrop_copy_darray(ptr nocapture noundef writeonly %0, ptr noc
 .lr.ph655:                                        ; preds = %250, %pmix_obj_run_constructors.exit
   %.5654 = phi i64 [ %271, %pmix_obj_run_constructors.exit ], [ 0, %250 ]
   %256 = load i32, ptr @pmix_class_init_epoch, align 4
-  %257 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 32), align 8
+  %257 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_buffer_t_class, i64 32), align 8
   %.not600 = icmp eq i32 %256, %257
   br i1 %.not600, label %259, label %258
 

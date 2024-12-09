@@ -119,7 +119,7 @@ entry:
   %ref.tmp85 = alloca %"class.std::allocator.10", align 1
   %ref.tmp88 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp137 = alloca %"class.boost::shared_ptr.13", align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib36VolatilityInterpolationSpecifierabcdE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib36VolatilityInterpolationSpecifierabcdE, i64 16), ptr %this, align 8, !tbaa !3
   %period_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %period, ptr %period_, align 8, !tbaa !6
   %offset_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -856,7 +856,7 @@ invoke.cont145:                                   ; preds = %invoke.cont143
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !53
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !56
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !3
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call140, ptr %px_.i.i.i.i, align 8, !tbaa !57
   %90 = load ptr, ptr %originalVariances_, align 8, !tbaa !28
@@ -1204,7 +1204,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !52
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1264,7 +1264,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib29PiecewiseConstantAbcdVarianceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib29PiecewiseConstantAbcdVarianceE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib29PiecewiseConstantAbcdVarianceE, i64 16), ptr %this, align 8, !tbaa !3
   %variances_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %variances_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1631,7 +1631,7 @@ if.then.i.i.i.i.i20.i:                            ; preds = %_ZNSt6vectorIdSaIdE
 _ZN8QuantLib29PiecewiseConstantAbcdVarianceaSEOS0_.exit: ; preds = %_ZNSt6vectorIdSaIdEEaSEOS1_.exit14.i, %if.then.i.i.i.i.i20.i
   %a_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i32, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %a_.i, ptr noundef nonnull align 8 dereferenceable(32) %a_8.i, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib29PiecewiseConstantAbcdVarianceE, i64 16), ptr %ref.tmp, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib29PiecewiseConstantAbcdVarianceE, i64 16), ptr %ref.tmp, align 8, !tbaa !3
   %30 = load ptr, ptr %rateTimes_6.i, align 8, !tbaa !27
   %tobool.not.i.i.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -1755,7 +1755,7 @@ _ZN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEC2INS1_29PiecewiseC
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !53
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !56
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !3
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call26, ptr %px_.i.i.i.i, align 8, !tbaa !57
   %48 = load ptr, ptr %interpolatedVariances_, align 8, !tbaa !28
@@ -1988,7 +1988,7 @@ _ZN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEC2INS1_29PiecewiseC
   store i32 1, ptr %use_count_.i.i.i.i.i61, align 8, !tbaa !53
   %weak_count_.i.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %call.i.i.i52, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i62, align 4, !tbaa !56
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i52, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i52, align 8, !tbaa !3
   %px_.i.i.i.i63 = getelementptr inbounds nuw i8, ptr %call.i.i.i52, i64 16
   store ptr %call59, ptr %px_.i.i.i.i63, align 8, !tbaa !57
   %89 = load i64, ptr %period_, align 8, !tbaa !6
@@ -2195,7 +2195,7 @@ _ZN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEC2INS1_29PiecewiseC
   store i32 1, ptr %use_count_.i.i.i.i.i110, align 8, !tbaa !53
   %weak_count_.i.i.i.i.i111 = getelementptr inbounds nuw i8, ptr %call.i.i.i101, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i111, align 4, !tbaa !56
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i101, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i101, align 8, !tbaa !3
   %px_.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %call.i.i.i101, i64 16
   store ptr %call100, ptr %px_.i.i.i.i112, align 8, !tbaa !57
   %131 = load ptr, ptr %interpolatedVariances_104, align 8, !tbaa !28
@@ -2337,7 +2337,7 @@ _ZN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEC2INS1_29PiecewiseC
   store i32 1, ptr %use_count_.i.i.i.i.i158, align 8, !tbaa !53
   %weak_count_.i.i.i.i.i159 = getelementptr inbounds nuw i8, ptr %call.i.i.i149, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i159, align 4, !tbaa !56
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i149, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVarianceEEE, i64 16), ptr %call.i.i.i149, align 8, !tbaa !3
   %px_.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %call.i.i.i149, i64 16
   store ptr %call122, ptr %px_.i.i.i.i160, align 8, !tbaa !57
   %154 = load i64, ptr %noSmallRates_, align 8, !tbaa !41
@@ -2926,7 +2926,7 @@ declare void @_ZN8QuantLib29PiecewiseConstantAbcdVarianceC1EddddmRKSt6vectorIdSa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib36VolatilityInterpolationSpecifierabcdD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib36VolatilityInterpolationSpecifierabcdE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib36VolatilityInterpolationSpecifierabcdE, i64 16), ptr %this, align 8, !tbaa !3
   %scalingFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %scalingFactors_, align 8, !tbaa !27
   %tobool.not.i.i.i = icmp eq ptr %0, null

@@ -720,8 +720,8 @@ entry:
   %agg.tmp471 = alloca %"class.icu_75::StringPiece", align 8
   %outputFileName = alloca [256 x i8], align 16
   store i32 0, ptr %status, align 4
-  store ptr @.str.26, ptr getelementptr inbounds (i8, ptr @options, i64 448), align 16
-  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @options, i64 488), align 8
+  store ptr @.str.26, ptr getelementptr inbounds nuw (i8, ptr @options, i64 448), align 16
+  store ptr @.str.27, ptr getelementptr inbounds nuw (i8, ptr @options, i64 488), align 8
   %call = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef %argv, i32 noundef 25, ptr noundef nonnull @options)
   %cmp = icmp slt i32 %call, 0
   %agg.tmp180.sink210.sroa.gep = getelementptr inbounds nuw i8, ptr %agg.tmp180, i64 8
@@ -745,9 +745,9 @@ if.else:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %if.else, %if.then
   %illegalArg.0 = phi i8 [ 1, %if.then ], [ %spec.select, %if.else ]
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 794), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 794), align 2
   %tobool = icmp ne i8 %3, 0
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 834), align 2
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 834), align 2
   %tobool6 = icmp ne i8 %4, 0
   %or.cond = select i1 %tobool, i1 %tobool6, i1 false
   br i1 %or.cond, label %if.then7, label %if.end10
@@ -760,9 +760,9 @@ if.then7:                                         ; preds = %if.end5
 
 if.end10:                                         ; preds = %if.then7, %if.end5
   %illegalArg.1 = phi i8 [ 1, %if.then7 ], [ %illegalArg.0, %if.end5 ]
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 954), align 2
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 954), align 2
   %tobool11 = icmp eq i8 %7, 0
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 994), align 2
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 994), align 2
   %tobool13 = icmp ne i8 %8, 0
   %or.cond4 = select i1 %tobool11, i1 true, i1 %tobool13
   br i1 %or.cond4, label %if.end17, label %if.then14
@@ -775,12 +775,12 @@ if.then14:                                        ; preds = %if.end10
 
 if.end17:                                         ; preds = %if.then14, %if.end10
   %illegalArg.2 = phi i8 [ %illegalArg.1, %if.end10 ], [ 1, %if.then14 ]
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 754), align 2
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 754), align 2
   %tobool18.not = icmp eq i8 %11, 0
   br i1 %tobool18.not, label %if.end48, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 728), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 728), align 8
   %call20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #24
   %cmp21.not = icmp eq i64 %call20, 1
   br i1 %cmp21.not, label %lor.lhs.false, label %if.then28
@@ -797,9 +797,9 @@ if.then28:                                        ; preds = %if.then19
   br label %if.end48
 
 land.lhs.true35:                                  ; preds = %lor.lhs.false
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 794), align 2
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 794), align 2
   %tobool36 = icmp ne i8 %16, 0
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 834), align 2
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 834), align 2
   %tobool38 = icmp ne i8 %17, 0
   %or.cond6 = select i1 %tobool36, i1 true, i1 %tobool38
   br i1 %or.cond6, label %if.then39, label %if.else42
@@ -818,12 +818,12 @@ if.else42:                                        ; preds = %land.lhs.true35, %l
 
 if.end48:                                         ; preds = %if.then28, %if.else42, %if.then39, %if.end17
   %illegalArg.3 = phi i8 [ 1, %if.then28 ], [ 1, %if.then39 ], [ %illegalArg.2, %if.else42 ], [ %illegalArg.2, %if.end17 ]
-  %20 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 474), align 2
+  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 474), align 2
   %tobool49 = icmp eq i8 %20, 0
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 514), align 2
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 514), align 2
   %tobool51 = icmp eq i8 %21, 0
   %or.cond8.not130 = select i1 %tobool49, i1 %tobool51, i1 false
-  %22 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 394), align 2
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 394), align 2
   %tobool53 = icmp ne i8 %22, 0
   %or.cond10 = select i1 %or.cond8.not130, i1 true, i1 %tobool53
   br i1 %or.cond10, label %if.end57, label %if.then54
@@ -836,7 +836,7 @@ if.then54:                                        ; preds = %if.end48
 
 if.end57:                                         ; preds = %if.end48, %if.then54
   %illegalArg.4 = phi i8 [ %illegalArg.3, %if.end48 ], [ 1, %if.then54 ]
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 194), align 2
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 194), align 2
   %tobool58.not = icmp eq i8 %25, 0
   br i1 %tobool58.not, label %if.end65, label %if.then59
 
@@ -849,10 +849,10 @@ if.then59:                                        ; preds = %if.end57
 
 if.end65:                                         ; preds = %if.then59, %if.end57
   %tobool66 = icmp ne i8 %illegalArg.4, 0
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 34), align 2
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 34), align 2
   %tobool68 = icmp ne i8 %28, 0
   %or.cond12 = select i1 %tobool66, i1 true, i1 %tobool68
-  %29 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 74), align 2
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 74), align 2
   %tobool70 = icmp ne i8 %29, 0
   %or.cond14 = select i1 %or.cond12, i1 true, i1 %tobool70
   br i1 %or.cond14, label %if.then71, label %if.end86
@@ -884,7 +884,7 @@ if.then71:                                        ; preds = %if.end65
   br label %return
 
 if.end86:                                         ; preds = %if.end65
-  %47 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 114), align 2
+  %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 114), align 2
   %tobool87.not = icmp eq i8 %47, 0
   br i1 %tobool87.not, label %if.end89, label %if.then88
 
@@ -893,7 +893,7 @@ if.then88:                                        ; preds = %if.end86
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then88, %if.end86
-  %48 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 154), align 2
+  %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 154), align 2
   %tobool90.not = icmp eq i8 %48, 0
   br i1 %tobool90.not, label %if.end92, label %if.then91
 
@@ -902,7 +902,7 @@ if.then91:                                        ; preds = %if.end89
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then91, %if.end89
-  %49 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 594), align 2
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 594), align 2
   %tobool93.not = icmp eq i8 %49, 0
   br i1 %tobool93.not, label %if.end95, label %if.then94
 
@@ -911,7 +911,7 @@ if.then94:                                        ; preds = %if.end92
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then94, %if.end92
-  %50 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 434), align 2
+  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 434), align 2
   %tobool96.not = icmp eq i8 %50, 0
   br i1 %tobool96.not, label %if.end98, label %if.then97
 
@@ -920,29 +920,29 @@ if.then97:                                        ; preds = %if.end95
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then97, %if.end95
-  %51 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 234), align 2
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 234), align 2
   %tobool99.not = icmp eq i8 %51, 0
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 208), align 16
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 208), align 16
   %spec.select135 = select i1 %tobool99.not, ptr null, ptr %52
   %spec.select135.fr = freeze ptr %spec.select135
-  %53 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 274), align 2
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 274), align 2
   %tobool102.not = icmp eq i8 %53, 0
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 248), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 248), align 8
   %outputDir.0 = select i1 %tobool102.not, ptr null, ptr %54
-  %55 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 914), align 2
+  %55 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 914), align 2
   %tobool105.not = icmp eq i8 %55, 0
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 888), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 888), align 8
   %filterDir.0 = select i1 %tobool105.not, ptr null, ptr %56
-  %57 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 314), align 2
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 314), align 2
   %tobool108.not = icmp eq i8 %57, 0
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 288), align 16
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 288), align 16
   %encoding.0 = select i1 %tobool108.not, ptr @.str.25, ptr %58
-  %59 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 354), align 2
+  %59 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 354), align 2
   %tobool111.not = icmp eq i8 %59, 0
   br i1 %tobool111.not, label %if.end113, label %if.then112
 
 if.then112:                                       ; preds = %if.end98
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 328), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 328), align 8
   tail call void @u_setDataDirectory_75(ptr noundef %60)
   br label %if.end113
 
@@ -964,24 +964,24 @@ if.then118:                                       ; preds = %if.end113
 
 if.end122:                                        ; preds = %if.end113
   store i32 0, ptr %status, align 4
-  %64 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 394), align 2
+  %64 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 394), align 2
   %tobool123.not = icmp eq i8 %64, 0
   br i1 %tobool123.not, label %if.end125, label %if.then124
 
 if.then124:                                       ; preds = %if.end122
   store i1 true, ptr @_ZL10write_java, align 1
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 368), align 16
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 368), align 16
   store ptr %65, ptr @_ZL9outputEnc, align 8
   br label %if.end125
 
 if.end125:                                        ; preds = %if.then124, %if.end122
-  %66 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 554), align 2
+  %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 554), align 2
   %tobool126.not = icmp eq i8 %66, 0
   br i1 %tobool126.not, label %if.end131, label %if.then127
 
 if.then127:                                       ; preds = %if.end125
   store i1 true, ptr @_ZL11write_xliff, align 1
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 528), align 16
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 528), align 16
   %cmp128.not = icmp eq ptr %67, null
   br i1 %cmp128.not, label %if.end131, label %if.then129
 
@@ -990,29 +990,29 @@ if.then129:                                       ; preds = %if.then127
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then127, %if.then129, %if.end125
-  %68 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 994), align 2
+  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 994), align 2
   %tobool132.not = icmp eq i8 %68, 0
   br i1 %tobool132.not, label %if.end134, label %if.then133
 
 if.then133:                                       ; preds = %if.end131
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 968), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 968), align 8
   call void @_ZN6icu_7513CollationRoot17forceLoadFromFileEPKcR10UErrorCode(ptr noundef %69, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then133, %if.end131
   call void @initParser()
-  %70 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 674), align 2
+  %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 674), align 2
   %tobool135.not = icmp eq i8 %70, 0
   br i1 %tobool135.not, label %if.end137, label %if.then136
 
 if.then136:                                       ; preds = %if.end134
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 648), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 648), align 8
   store ptr %71, ptr @_ZL8language, align 8
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then136, %if.end134
   store ptr null, ptr %newPoolBundle, align 8
-  %72 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 794), align 2
+  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 794), align 2
   %tobool138.not = icmp eq i8 %72, 0
   br i1 %tobool138.not, label %if.end166, label %if.then139
 
@@ -1089,7 +1089,7 @@ if.end160:                                        ; preds = %invoke.cont154
   br label %if.end166
 
 if.end166:                                        ; preds = %if.end160, %if.end137
-  %80 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 834), align 2
+  %80 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 834), align 2
   %tobool167.not = icmp eq i8 %80, 0
   br i1 %tobool167.not, label %if.end430, label %if.then168
 
@@ -1102,7 +1102,7 @@ invoke.cont170:                                   ; preds = %if.then168
   store i32 0, ptr %len.i, align 8
   %81 = load ptr, ptr %poolFileName, align 8
   store i8 0, ptr %81, align 1
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 808), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 808), align 8
   %cmp171.not = icmp eq ptr %82, null
   br i1 %cmp171.not, label %if.else177, label %if.then172
 
@@ -1267,7 +1267,7 @@ if.end272:                                        ; preds = %if.end263
   %idx.ext = zext i16 %111 to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %107, i64 %idx.ext
   %add.ptr274 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
-  store ptr %add.ptr274, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 8), align 8
+  store ptr %add.ptr274, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 8), align 8
   %112 = load i32, ptr %add.ptr274, align 4
   %and276 = and i32 %112, 255
   %cmp277 = icmp samesign ult i32 %and276, 8
@@ -1285,18 +1285,18 @@ if.end283:                                        ; preds = %if.end272
   %115 = load i32, ptr %arrayidx285, align 4
   %idx.ext286 = zext nneg i32 %add284 to i64
   %add.ptr287 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %idx.ext286
-  store ptr %add.ptr287, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 16), align 8
+  store ptr %add.ptr287, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 16), align 8
   %sub288 = sub nsw i32 %115, %add284
   %mul = shl i32 %sub288, 2
-  store i32 %mul, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 24), align 8
+  store i32 %mul, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 24), align 8
   %arrayidx289 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   %116 = load i32, ptr %arrayidx289, align 4
-  store i32 %116, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 44), align 4
+  store i32 %116, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 44), align 4
   %cmp290178 = icmp sgt i32 %sub288, 0
   br i1 %cmp290178, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end283
-  %.promoted = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 28), align 4
+  %.promoted = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 28), align 4
   %smax = call i32 @llvm.smax.i32(i32 %mul, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %for.body
@@ -1311,7 +1311,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then295:                                       ; preds = %for.body
   %inc = add nsw i32 %inc177179, 1
-  store i32 %inc, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 28), align 4
+  store i32 %inc, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 28), align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then295
@@ -1349,8 +1349,8 @@ invoke.cont310:                                   ; preds = %invoke.cont307
   store i32 0, ptr %fCount.i.i, align 8
   %fFirst.i.i = getelementptr inbounds nuw i8, ptr %call308, i64 64
   store ptr null, ptr %fFirst.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18PseudoListResource, i64 16), ptr %call308, align 8
-  store ptr %call308, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 32), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18PseudoListResource, i64 16), ptr %call308, align 8
+  store ptr %call308, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 32), align 8
   %idx.ext318 = sext i32 %115 to i64
   %add.ptr319 = getelementptr inbounds i32, ptr %add.ptr, i64 %idx.ext318
   br label %do.body
@@ -1476,7 +1476,7 @@ lpad391:                                          ; preds = %invoke.cont389
   br label %ehcleanup
 
 if.end399:                                        ; preds = %invoke.cont389
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14StringResource, i64 16), ptr %call390, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14StringResource, i64 16), ptr %call390, align 8
   %fSame.i = getelementptr inbounds nuw i8, ptr %call390, i64 120
   %fNumCharsForLength.i = getelementptr inbounds nuw i8, ptr %call390, i64 140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fSame.i, i8 0, i64 20, i1 false)
@@ -1486,12 +1486,12 @@ if.end399:                                        ; preds = %invoke.cont389
   store i32 %or.i, ptr %fRes.i, align 4
   %fWritten.i = getelementptr inbounds nuw i8, ptr %call390, i64 9
   store i8 1, ptr %fWritten.i, align 1
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 32), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 32), align 8
   invoke void @_ZN18PseudoListResource3addEP9SResource(ptr noundef nonnull align 8 dereferenceable(72) %129, ptr noundef nonnull %call390)
           to label %invoke.cont400 unwind label %lpad173.loopexit
 
 invoke.cont400:                                   ; preds = %if.end399
-  store i32 %add377, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 40), align 8
+  store i32 %add377, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 40), align 8
   br label %if.end402
 
 if.end402:                                        ; preds = %invoke.cont400, %if.end381
@@ -1505,7 +1505,7 @@ if.end402:                                        ; preds = %invoke.cont400, %if
   br i1 %cmp408, label %do.body, label %do.end, !llvm.loop !8
 
 do.end:                                           ; preds = %if.end373, %if.end361, %lor.lhs.false365, %if.else346, %if.end402
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 32), align 8
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 32), align 8
   %fCount = getelementptr inbounds nuw i8, ptr %132, i64 56
   %133 = load i32, ptr %fCount, align 8
   %cmp409 = icmp eq i32 %133, 0
@@ -1516,7 +1516,7 @@ delete.end:                                       ; preds = %do.end
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %134 = load ptr, ptr %vfn, align 8
   call void %134(ptr noundef nonnull align 8 dereferenceable(72) %132) #19
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 32), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 32), align 8
   br label %if.end412
 
 if.end412:                                        ; preds = %do.end, %delete.end, %invoke.cont303, %for.end
@@ -1533,7 +1533,7 @@ invoke.cont414:                                   ; preds = %invoke.cont413
 
 invoke.cont415:                                   ; preds = %invoke.cont414
   %tobool417 = icmp ne i8 %call416, 0
-  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 32), align 8
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 32), align 8
   %cmp419 = icmp ne ptr %135, null
   %or.cond20 = select i1 %tobool417, i1 %cmp419, i1 false
   br i1 %or.cond20, label %if.then420, label %cleanup
@@ -1542,7 +1542,7 @@ if.then420:                                       ; preds = %invoke.cont415
   %fCount421 = getelementptr inbounds nuw i8, ptr %135, i64 56
   %136 = load i32, ptr %fCount421, align 8
   %call423 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, i32 noundef %136)
-  %137 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 40), align 8
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 40), align 8
   %add425 = add nsw i32 %137, 1
   %mul426 = shl nsw i32 %add425, 1
   %call428 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %add425, i32 noundef %mul426)
@@ -1563,7 +1563,7 @@ ehcleanup:                                        ; preds = %lpad173.loopexit, %
   br label %ehcleanup531
 
 if.end430:                                        ; preds = %cleanup, %if.end166
-  %138 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 754), align 2
+  %138 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 754), align 2
   %tobool431.not = icmp eq i8 %138, 0
   br i1 %tobool431.not, label %land.lhs.true432, label %if.end442
 
@@ -1573,10 +1573,10 @@ land.lhs.true432:                                 ; preds = %if.end430
 
 invoke.cont433:                                   ; preds = %land.lhs.true432
   %cmp435 = icmp ne i32 %call434, 3
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10poolBundle, i64 32), align 8
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 32), align 8
   %cmp437 = icmp ne ptr %139, null
   %or.cond22.not132 = select i1 %cmp435, i1 true, i1 %cmp437
-  %140 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 794), align 2
+  %140 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 794), align 2
   %tobool439 = icmp ne i8 %140, 0
   %or.cond24 = select i1 %or.cond22.not132, i1 true, i1 %tobool439
   br i1 %or.cond24, label %if.end442, label %if.then440
@@ -1586,7 +1586,7 @@ if.then440:                                       ; preds = %invoke.cont433
           to label %if.end442 unwind label %lpad.loopexit.split-lp
 
 if.end442:                                        ; preds = %if.then440, %invoke.cont433, %if.end430
-  %141 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 874), align 2
+  %141 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 874), align 2
   %tobool443.not = icmp eq i8 %141, 0
   br i1 %tobool443.not, label %if.end447, label %if.then444
 
@@ -1659,7 +1659,7 @@ if.then485.us:                                    ; preds = %invoke.cont482.us
 
 if.end490.us:                                     ; preds = %if.then485.us, %invoke.cont482.us
   %151 = load ptr, ptr %newPoolBundle, align 8
-  %152 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 634), align 2
+  %152 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 634), align 2
   invoke void @_Z11processFilePKcS0_S0_S0_S0_S0_P7SRBRootaR10UErrorCode(ptr noundef %call461.us, ptr noundef %encoding.0, ptr noundef null, ptr noundef %outputDir.0, ptr noundef %filterDir.0, ptr noundef null, ptr noundef %151, i8 noundef signext %152, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %for.inc498.us unwind label %lpad466.split.us
 
@@ -1746,7 +1746,7 @@ if.then485:                                       ; preds = %invoke.cont482
 
 if.end490:                                        ; preds = %if.then485, %invoke.cont482
   %164 = load ptr, ptr %newPoolBundle, align 8
-  %165 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 634), align 2
+  %165 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 634), align 2
   invoke void @_Z11processFilePKcS0_S0_S0_S0_S0_P7SRBRootaR10UErrorCode(ptr noundef %call461, ptr noundef %encoding.0, ptr noundef nonnull %spec.select135.fr, ptr noundef %outputDir.0, ptr noundef %filterDir.0, ptr noundef null, ptr noundef %164, i8 noundef signext %165, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %for.inc498 unwind label %lpad466.split
 
@@ -1786,13 +1786,13 @@ _ZN7ResFile5closeEv.exit:                         ; preds = %delete.end.i157, %d
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL10poolBundle, i64 32), align 8
   %169 = load i32, ptr %status, align 4
   %cmp.i158 = icmp slt i32 %169, 1
-  %170 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 794), align 2
+  %170 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 794), align 2
   %tobool505 = icmp ne i8 %170, 0
   %or.cond26 = select i1 %cmp.i158, i1 %tobool505, i1 false
   br i1 %or.cond26, label %if.then506, label %if.end523
 
 if.then506:                                       ; preds = %_ZN7ResFile5closeEv.exit
-  %171 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 768), align 16
+  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 768), align 16
   %cmp507.not = icmp eq ptr %171, null
   %outputDir.0. = select i1 %cmp507.not, ptr %outputDir.0, ptr %171
   %172 = load ptr, ptr %newPoolBundle, align 8
@@ -2125,8 +2125,8 @@ if.then88:                                        ; preds = %invoke.cont85
 if.end91:                                         ; preds = %if.then88, %invoke.cont85, %if.end82
   %tobool94.not = icmp eq i8 %omitBinaryCollation, 0
   %conv95 = zext i1 %tobool94.not to i8
-  %24 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 714), align 2
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 954), align 2
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 714), align 2
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 954), align 2
   %call97 = invoke ptr @parse(ptr noundef nonnull %call60, ptr noundef %inputDir.addr.0, ptr noundef %outputDir, ptr noundef nonnull %filename, i8 noundef signext %conv95, i8 noundef signext %24, i8 noundef signext %25, ptr noundef nonnull %status)
           to label %_ZN6icu_7512LocalPointerI7SRBRootE12adoptInsteadEPS1_.exit unwind label %lpad5
 
@@ -2198,7 +2198,7 @@ lpad118:                                          ; preds = %invoke.cont119, %in
   br label %ehcleanup186
 
 if.end126:                                        ; preds = %invoke.cont120
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 16), ptr %filter, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 16), ptr %filter, align 8
   %fRoot.i = getelementptr inbounds nuw i8, ptr %filter, i64 8
   store i32 1, ptr %fRoot.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %filter, i64 24
@@ -2372,7 +2372,7 @@ ehcleanup186:                                     ; preds = %ehcleanup184, %lpad
   br label %ehcleanup266
 
 if.end187:                                        ; preds = %cleanup, %if.end111
-  %47 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 794), align 2
+  %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 794), align 2
   %tobool188.not = icmp eq i8 %47, 0
   br i1 %tobool188.not, label %if.end216, label %if.then189
 
@@ -2434,7 +2434,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %cmp211, label %for.body, label %if.end216, !llvm.loop !11
 
 if.end216:                                        ; preds = %for.inc, %if.end209, %if.end187
-  %54 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 834), align 2
+  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 834), align 2
   %tobool217.not = icmp eq i8 %54, 0
   br i1 %tobool217.not, label %if.end221, label %if.then218
 
@@ -2619,8 +2619,8 @@ if.end233:                                        ; preds = %invoke.cont224
 if.then236:                                       ; preds = %if.end233
   %60 = load ptr, ptr %data, align 8
   %61 = load ptr, ptr @_ZL9outputEnc, align 8
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 448), align 16
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 488), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 448), align 16
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 488), align 8
   invoke void @bundle_write_java(ptr noundef %60, ptr noundef %outputDir, ptr noundef %61, ptr noundef nonnull %outputFileName, i32 noundef 256, ptr noundef %62, ptr noundef %63, ptr noundef nonnull %status)
           to label %if.end254 unwind label %lpad5
 
@@ -2791,7 +2791,7 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25SimpleRuleBasedPathFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 16), ptr %this, align 8
   %fWildcard.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %fWildcard.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

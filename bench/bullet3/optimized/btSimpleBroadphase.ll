@@ -47,7 +47,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18btSimpleBroadphaseC2EiP22btOverlappingPairCache(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (32, 40), (48, 57), (60, 64)) %this, i32 noundef %maxProxies, ptr noundef %overlappingPairCache) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18btSimpleBroadphase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18btSimpleBroadphase, i64 16), ptr %this, align 8
   %m_pairCache = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %overlappingPairCache, ptr %m_pairCache, align 8
   %m_ownsPairCache = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -151,7 +151,7 @@ declare void @_ZN28btHashedOverlappingPairCacheC1Ev(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN18btSimpleBroadphaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18btSimpleBroadphase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18btSimpleBroadphase, i64 16), ptr %this, align 8
   %m_pHandlesRawPtr = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_pHandlesRawPtr, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
@@ -201,7 +201,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN18btSimpleBroadphaseD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18btSimpleBroadphase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18btSimpleBroadphase, i64 16), ptr %this, align 8
   %m_pHandlesRawPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_pHandlesRawPtr.i, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %0)

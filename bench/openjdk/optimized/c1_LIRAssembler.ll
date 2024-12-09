@@ -1380,7 +1380,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   store ptr null, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   store i8 0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV21ImplicitNullCheckStub, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV21ImplicitNullCheckStub, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   store ptr %2, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
@@ -1388,7 +1388,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   br label %_ZN22CompilationResourceObjnwEm.exit._crit_edge
 
 _ZN22CompilationResourceObjnwEm.exit._crit_edge:  ; preds = %_ZN22CompilationResourceObjnwEm.exit, %23
-  %34 = load ptr, ptr getelementptr inbounds inrange(-48, 16) (i8, ptr @_ZTV21ImplicitNullCheckStub, i64 48), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 16) (i8, ptr @_ZTV21ImplicitNullCheckStub, i64 48), align 8
   %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i) #11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %37 = load i32, ptr %36, align 4
@@ -1519,7 +1519,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   store ptr null, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
   store i8 0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV13DivByZeroStub, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV13DivByZeroStub, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
   store ptr %2, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
@@ -1527,7 +1527,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   br label %_ZN22CompilationResourceObjnwEm.exit._crit_edge
 
 _ZN22CompilationResourceObjnwEm.exit._crit_edge:  ; preds = %_ZN22CompilationResourceObjnwEm.exit, %23
-  %34 = load ptr, ptr getelementptr inbounds inrange(-48, 16) (i8, ptr @_ZTV13DivByZeroStub, i64 48), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw inrange(-48, 16) (i8, ptr @_ZTV13DivByZeroStub, i64 48), align 8
   %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i) #11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %37 = load i32, ptr %36, align 4

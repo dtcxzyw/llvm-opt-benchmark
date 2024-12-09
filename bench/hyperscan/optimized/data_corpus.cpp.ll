@@ -222,7 +222,7 @@ init.end:                                         ; preds = %invoke.cont20, %ini
   store ptr null, ptr %statement, align 8
   %19 = load ptr, ptr %db, align 8
   %20 = load ptr, ptr @_ZZ10readCorpusRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5queryB5cxx11, align 8
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ10readCorpusRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5queryB5cxx11, i64 8), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ10readCorpusRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5queryB5cxx11, i64 8), align 8
   %conv = trunc i64 %21 to i32
   %call26 = call i32 @sqlite3_prepare_v2(ptr noundef %19, ptr noundef %20, i32 noundef %conv, ptr noundef nonnull %statement, ptr noundef null)
   %cmp27.not = icmp eq i32 %call26, 0
@@ -240,7 +240,7 @@ if.then28:                                        ; preds = %init.end
 
 invoke.cont32:                                    ; preds = %if.then28
   %24 = load ptr, ptr @_ZZ10readCorpusRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5queryB5cxx11, align 8
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ10readCorpusRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5queryB5cxx11, i64 8), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ10readCorpusRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5queryB5cxx11, i64 8), align 8
   %call2.i149 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %oss, ptr noundef %24, i64 noundef %25)
           to label %invoke.cont34 unwind label %lpad31
 

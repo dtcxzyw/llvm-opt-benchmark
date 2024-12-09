@@ -639,7 +639,7 @@ define dso_local void @_ZN5clang4ento18EnvironmentManager18removeDeadBindingsENS
   %10 = alloca %"class.llvm::ImmutableMap<clang::ento::EnvironmentEntry, clang::ento::SVal>::iterator", align 8
   %.sroa.429 = alloca [7 x i8], align 1
   store ptr null, ptr %0, align 8, !alias.scope !7
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_116MarkLiveCallbackE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN12_GLOBAL__N_116MarkLiveCallbackE, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %11, align 8
   %12 = load ptr, ptr %4, align 8

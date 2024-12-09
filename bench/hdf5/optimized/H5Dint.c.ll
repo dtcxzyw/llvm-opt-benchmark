@@ -445,8 +445,8 @@ define range(i32 -1, 1) i32 @H5D_init() local_unnamed_addr #0 {
 
 7:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4672) @H5D_def_dset, i8 0, i64 4672, i1 false)
-  store i64 -1, ptr getelementptr inbounds (i8, ptr @H5D_def_dset, i64 16), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @H5D_def_dset, i64 40), i8 -1, i64 16, i1 false)
+  store i64 -1, ptr getelementptr inbounds nuw (i8, ptr @H5D_def_dset, i64 16), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @H5D_def_dset, i64 40), i8 -1, i64 16, i1 false)
   %8 = load i64, ptr @H5P_LST_DATASET_CREATE_ID_g, align 8
   %9 = tail call ptr @H5I_object(i64 noundef %8) #12
   %10 = icmp eq ptr %9, null
@@ -459,7 +459,7 @@ define range(i32 -1, 1) i32 @H5D_init() local_unnamed_addr #0 {
   br label %46
 
 15:                                               ; preds = %7
-  %16 = tail call i32 @H5P_get(ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @H5D_def_dset, i64 248)) #12
+  %16 = tail call i32 @H5P_get(ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @H5D_def_dset, i64 248)) #12
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %22
 
@@ -470,7 +470,7 @@ define range(i32 -1, 1) i32 @H5D_init() local_unnamed_addr #0 {
   br label %46
 
 22:                                               ; preds = %15
-  %23 = tail call i32 @H5P_get(ptr noundef nonnull %9, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @H5D_def_dset, i64 216)) #12
+  %23 = tail call i32 @H5P_get(ptr noundef nonnull %9, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @H5D_def_dset, i64 216)) #12
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %29
 
@@ -481,7 +481,7 @@ define range(i32 -1, 1) i32 @H5D_init() local_unnamed_addr #0 {
   br label %46
 
 29:                                               ; preds = %22
-  %30 = tail call i32 @H5P_get(ptr noundef nonnull %9, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @H5D_def_dset, i64 56)) #12
+  %30 = tail call i32 @H5P_get(ptr noundef nonnull %9, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @H5D_def_dset, i64 56)) #12
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %36
 
@@ -492,7 +492,7 @@ define range(i32 -1, 1) i32 @H5D_init() local_unnamed_addr #0 {
   br label %46
 
 36:                                               ; preds = %29
-  %37 = tail call i32 @H5P_get(ptr noundef nonnull %9, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @H5D_def_dset, i64 144)) #12
+  %37 = tail call i32 @H5P_get(ptr noundef nonnull %9, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @H5D_def_dset, i64 144)) #12
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %43
 
@@ -3128,7 +3128,7 @@ switch.lookup:                                    ; preds = %173
   br label %308
 
 264:                                              ; preds = %257, %212, %.thread139.i
-  %265 = call i32 @H5P_fill_value_cmp(ptr noundef nonnull getelementptr inbounds (i8, ptr @H5D_def_dset, i64 56), ptr noundef nonnull %143, i64 noundef 88) #12
+  %265 = call i32 @H5P_fill_value_cmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @H5D_def_dset, i64 56), ptr noundef nonnull %143, i64 noundef 88) #12
   %.not128.i = icmp eq i32 %265, 0
   br i1 %.not128.i, label %280, label %266
 

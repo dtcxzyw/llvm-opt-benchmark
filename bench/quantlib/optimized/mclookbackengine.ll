@@ -280,7 +280,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -593,7 +593,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !34
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !37
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib23LookbackFixedPathPricerEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib23LookbackFixedPathPricerEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call30, ptr %px_.i.i.i.i, align 8, !tbaa !38
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !16
@@ -978,7 +978,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !34
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !37
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib30LookbackPartialFixedPathPricerEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib30LookbackPartialFixedPathPricerEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call32, ptr %px_.i.i.i.i, align 8, !tbaa !43
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !16
@@ -1301,7 +1301,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !34
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !37
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib26LookbackFloatingPathPricerEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib26LookbackFloatingPathPricerEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call30, ptr %px_.i.i.i.i, align 8, !tbaa !50
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !16
@@ -1678,7 +1678,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !34
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !37
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib33LookbackPartialFloatingPathPricerEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib33LookbackPartialFloatingPathPricerEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call32, ptr %px_.i.i.i.i, align 8, !tbaa !55
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !16
@@ -1751,13 +1751,13 @@ invoke.cont:
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator.6", align 1
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23LookbackFixedPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23LookbackFixedPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %type, ptr %type_.i.i.i, align 8, !tbaa !25
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %strike, ptr %strike_.i.i, align 8, !tbaa !29
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %discount, ptr %discount_, align 8, !tbaa !57
   %cmp = fcmp ult double %strike, 0.000000e+00
@@ -2354,7 +2354,7 @@ invoke.cont:
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator.6", align 1
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib30LookbackPartialFixedPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib30LookbackPartialFixedPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %lookbackStart_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %lookbackStart, ptr %lookbackStart_, align 8, !tbaa !74
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2362,7 +2362,7 @@ invoke.cont:
   store i32 %type, ptr %type_.i.i.i, align 8, !tbaa !25
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %strike, ptr %strike_.i.i, align 8, !tbaa !29
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %discount, ptr %discount_, align 8, !tbaa !76
   %cmp = fcmp ult double %strike, 0.000000e+00
@@ -2958,11 +2958,11 @@ declare noundef i64 @_ZNK8QuantLib8TimeGrid12closestIndexEd(ptr noundef nonnull 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8QuantLib26LookbackFloatingPathPricerC2ENS_6Option4TypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %this, i32 noundef %type, double noundef %discount) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26LookbackFloatingPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26LookbackFloatingPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %type_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %type, ptr %type_.i.i, align 8, !tbaa !25
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FloatingTypePayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FloatingTypePayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %discount, ptr %discount_, align 8, !tbaa !77
   ret void
@@ -3388,13 +3388,13 @@ declare noundef double @_ZNK8QuantLib18FloatingTypePayoffclEdd(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8QuantLib33LookbackPartialFloatingPathPricerC2EdNS_6Option4TypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, double noundef %lookbackEnd, i32 noundef %type, double noundef %discount) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib33LookbackPartialFloatingPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib33LookbackPartialFloatingPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %lookbackEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %lookbackEnd, ptr %lookbackEnd_, align 8, !tbaa !80
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %type_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %type, ptr %type_.i.i, align 8, !tbaa !25
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FloatingTypePayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FloatingTypePayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %discount, ptr %discount_, align 8, !tbaa !82
   ret void

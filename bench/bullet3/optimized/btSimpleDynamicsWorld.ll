@@ -129,7 +129,7 @@ entry:
   store i32 0, ptr %m_reportSolverAnalytics.i.i, align 8
   %m_numNonContactInnerIterations.i.i = getelementptr inbounds nuw i8, ptr %this, i64 276
   store i32 1, ptr %m_numNonContactInnerIterations.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
   %m_constraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 280
   store ptr %constraintSolver, ptr %m_constraintSolver, align 8
   %m_ownsConstraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -150,7 +150,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
   %m_ownsConstraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load i8, ptr %m_ownsConstraintSolver, align 8
   %tobool = trunc i8 %0 to i1
@@ -191,7 +191,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
   %m_ownsConstraintSolver.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load i8, ptr %m_ownsConstraintSolver.i, align 8
   %tobool.i = trunc i8 %0 to i1

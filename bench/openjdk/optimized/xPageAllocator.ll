@@ -317,7 +317,7 @@ define hidden void @_ZN14XPageAllocatorC2EP8XWorkersmmm(ptr noundef nonnull alig
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %62 = load i64, ptr %61, align 8
   call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull @.str.30) #14
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13XPreTouchTask, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13XPreTouchTask, i64 16), ptr %6, align 8
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %16, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -397,7 +397,7 @@ define hidden noundef zeroext i1 @_ZN14XPageAllocator11prime_cacheEP8XWorkersm(p
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load i64, ptr %14, align 8
   call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull @.str.30) #14
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13XPreTouchTask, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13XPreTouchTask, i64 16), ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %11, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48

@@ -88,13 +88,13 @@ $_ZTV30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EE = comdat an
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ShenandoahSTWMarkTaskC2EP17ShenandoahSTWMark(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %5, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21ShenandoahSTWMarkTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21ShenandoahSTWMarkTask, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   ret void
@@ -127,7 +127,7 @@ _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %2, %9
   %16 = zext i32 %1 to i64
   %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -172,7 +172,7 @@ define hidden void @_ZN17ShenandoahSTWMark10mark_rootsEj(ptr noundef nonnull ali
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -277,7 +277,7 @@ define hidden void @_ZN17ShenandoahSTWMark4markEv(ptr noundef nonnull align 8 de
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %23, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21ShenandoahSTWMarkTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21ShenandoahSTWMarkTask, i64 16), ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %24, align 8
   %25 = load ptr, ptr %15, align 8
@@ -324,10 +324,10 @@ define linkonce_odr hidden void @_ZN24ShenandoahSTWRootScanner8roots_doI30Shenan
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21MarkingNMethodClosure, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21MarkingNMethodClosure, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 17
   store i8 1, ptr %10, align 1
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -750,7 +750,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refI9narrowOo
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %5 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9

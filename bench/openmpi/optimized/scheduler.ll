@@ -74,7 +74,7 @@ define dso_local void @psched_scheduler_init() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0
   %6 = load i32, ptr @pmix_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_stream_t_class, i64 32), align 8
   %.not = icmp eq i32 %6, %7
   br i1 %.not, label %9, label %8
 
@@ -107,7 +107,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 154
   store i8 1, ptr %18, align 2
   %19 = call i32 @pmix_output_open(ptr noundef nonnull %1) #10
-  store i32 %19, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 712), align 8
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 712), align 8
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -125,7 +125,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   br i1 %.not.i4, label %pmix_obj_run_destructors.exit.loopexit, label %.lr.ph.i2, !llvm.loop !7
 
 pmix_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i2
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 712), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 712), align 8
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destructors.exit.loopexit, %pmix_obj_run_constructors.exit
@@ -135,7 +135,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destru
   br label %29
 
 29:                                               ; preds = %pmix_obj_run_destructors.exit, %0
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 712), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 712), align 8
   %or.cond = icmp ult i32 %30, 64
   br i1 %or.cond, label %31, label %38
 
@@ -176,7 +176,7 @@ define dso_local void @psched_scheduler_finalize() local_unnamed_addr #2 {
 define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 708), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %14
 
@@ -905,7 +905,7 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   br i1 %398, label %399, label %424
 
 399:                                              ; preds = %397
-  %400 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 704), align 8
+  %400 = load i32, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 704), align 8
   %401 = icmp sgt i32 %400, 0
   br i1 %401, label %402, label %423
 
@@ -918,7 +918,7 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   %408 = sitofp i64 %407 to double
   %409 = fdiv double %408, 1.000000e+06
   %410 = fadd double %409, %405
-  %411 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
+  %411 = load i32, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 708), align 4
   %or.cond420 = icmp ult i32 %411, 64
   br i1 %or.cond420, label %412, label %423
 
@@ -1002,7 +1002,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
   br i1 %450, label %.thread452, label %475
 
 .thread452:                                       ; preds = %14, %449
-  %451 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 704), align 8
+  %451 = load i32, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 704), align 8
   %452 = icmp sgt i32 %451, 0
   br i1 %452, label %453, label %474
 
@@ -1015,7 +1015,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
   %459 = sitofp i64 %458 to double
   %460 = fdiv double %459, 1.000000e+06
   %461 = fadd double %460, %456
-  %462 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
+  %462 = load i32, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 708), align 4
   %or.cond422 = icmp ult i32 %462, 64
   br i1 %or.cond422, label %463, label %474
 
@@ -1131,7 +1131,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psched_request_queue(i32 noundef %0, i16 noundef signext %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 708), align 4
   %or.cond = icmp ult i32 %4, 64
   br i1 %or.cond, label %5, label %12
 
@@ -1219,7 +1219,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %29
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psched_session_complete(i32 noundef %0, i16 noundef signext %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 708), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @psched_globals, i64 708), align 4
   %or.cond = icmp ult i32 %4, 64
   br i1 %or.cond, label %5, label %12
 

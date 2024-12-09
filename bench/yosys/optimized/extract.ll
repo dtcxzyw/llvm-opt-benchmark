@@ -1018,7 +1018,7 @@ define internal void @_ZN12_GLOBAL__N_111ExtractPass7executeESt6vectorINSt7__cxx
   tail call void (ptr, ptr, ...) @_ZN5Yosys10log_headerEPNS_5RTLIL6DesignEPKcz(ptr noundef %2, ptr noundef nonnull @.str.64)
   tail call void @_ZN5Yosys8log_pushEv()
   call void @_ZN10SubCircuit6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %10)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_116SubCircuitSolverE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_116SubCircuitSolverE, i64 16), ptr %10, align 8
   %215 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 0, ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -20948,7 +20948,7 @@ declare void @_ZN5Yosys7log_popEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116SubCircuitSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_116SubCircuitSolverE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_116SubCircuitSolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
@@ -36282,7 +36282,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111ExtractPassE, i64 16), ptr @_ZN12_GLOBAL__N_111ExtractPassE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_111ExtractPassE, i64 16), ptr @_ZN12_GLOBAL__N_111ExtractPassE, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

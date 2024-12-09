@@ -1349,7 +1349,7 @@ define hidden void @_ZN2cv12KAZEFeatures25Compute_Detector_ResponseEv(ptr nounde
   store i32 0, ptr %2, align 4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %12, ptr %13, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv32MultiscaleDerivativesKAZEInvokerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv32MultiscaleDerivativesKAZEInvokerE, i64 16), ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %14, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef -1.000000e+00)
@@ -1495,7 +1495,7 @@ define hidden void @_ZN2cv12KAZEFeatures30Compute_Multiscale_DerivativesEv(ptr n
   store i32 0, ptr %2, align 4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %12, ptr %13, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv32MultiscaleDerivativesKAZEInvokerE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv32MultiscaleDerivativesKAZEInvokerE, i64 16), ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %14, align 8
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef -1.000000e+00)
@@ -1715,7 +1715,7 @@ _ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE9push_backERKS3_.exit: ; preds = %
   store i32 1, ptr %4, align 4
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %71, ptr %72, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv23FindExtremumKAZEInvokerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv23FindExtremumKAZEInvokerE, i64 16), ptr %5, align 8
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %25, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2744,7 +2744,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %52, %45
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %65, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv23KAZE_Descriptor_InvokerE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv23KAZE_Descriptor_InvokerE, i64 16), ptr %9, align 8
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 16

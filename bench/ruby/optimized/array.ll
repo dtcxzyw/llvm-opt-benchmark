@@ -6451,7 +6451,7 @@ sort_reentered.exit:                              ; preds = %3
   br i1 %or.cond, label %17, label %25
 
 17:                                               ; preds = %sort_reentered.exit
-  %18 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %18 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %19 = and i16 %18, 1
   %20 = icmp eq i16 %19, 0
   br i1 %20, label %21, label %25
@@ -6509,7 +6509,7 @@ rb_class_of.exit66:                               ; preds = %42
   br i1 %48, label %49, label %RB_FLOAT_TYPE_P.exit.thread71
 
 49:                                               ; preds = %rb_class_of.exit66
-  %50 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %50 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %51 = and i16 %50, 4
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %53, label %RB_FLOAT_TYPE_P.exit.thread71
@@ -6524,7 +6524,7 @@ rb_class_of.exit66:                               ; preds = %42
   br i1 %56, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread71
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %30, %.critedge.thread
-  %57 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %57 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %58 = and i16 %57, 2
   %59 = icmp eq i16 %58, 0
   br i1 %59, label %60, label %RB_FLOAT_TYPE_P.exit.thread71
@@ -16995,7 +16995,7 @@ RARRAY_AREF.exit62:                               ; preds = %50, %52
   br i1 %.not82, label %102, label %58
 
 58:                                               ; preds = %56
-  %59 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %59 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %60 = and i16 %59, 1
   %61 = icmp eq i16 %60, 0
   br i1 %61, label %62, label %102
@@ -17127,7 +17127,7 @@ ary_max_generic.exit.i:                           ; preds = %rb_array_len.exit.t
   br i1 %114, label %115, label %RB_FLOAT_TYPE_P.exit.thread77
 
 115:                                              ; preds = %111
-  %116 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %116 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %117 = and i16 %116, 4
   %118 = icmp eq i16 %117, 0
   br i1 %118, label %119, label %RB_FLOAT_TYPE_P.exit.thread77
@@ -17142,7 +17142,7 @@ ary_max_generic.exit.i:                           ; preds = %rb_array_len.exit.t
   br i1 %122, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread77
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %107, %.critedge.thread
-  %123 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %123 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %124 = and i16 %123, 2
   %125 = icmp eq i16 %124, 0
   br i1 %125, label %126, label %RB_FLOAT_TYPE_P.exit.thread77
@@ -17340,7 +17340,7 @@ RARRAY_AREF.exit62:                               ; preds = %50, %52
   br i1 %.not82, label %102, label %58
 
 58:                                               ; preds = %56
-  %59 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %59 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %60 = and i16 %59, 1
   %61 = icmp eq i16 %60, 0
   br i1 %61, label %62, label %102
@@ -17472,7 +17472,7 @@ ary_min_generic.exit.i:                           ; preds = %rb_array_len.exit.t
   br i1 %114, label %115, label %RB_FLOAT_TYPE_P.exit.thread77
 
 115:                                              ; preds = %111
-  %116 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %116 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %117 = and i16 %116, 4
   %118 = icmp eq i16 %117, 0
   br i1 %118, label %119, label %RB_FLOAT_TYPE_P.exit.thread77
@@ -17487,7 +17487,7 @@ ary_min_generic.exit.i:                           ; preds = %rb_array_len.exit.t
   br i1 %122, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread77
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %107, %.critedge.thread
-  %123 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %123 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %124 = and i16 %123, 2
   %125 = icmp eq i16 %124, 0
   br i1 %125, label %126, label %RB_FLOAT_TYPE_P.exit.thread77

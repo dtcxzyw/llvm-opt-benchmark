@@ -290,7 +290,7 @@ define dso_local void @taskstats_exit(ptr noundef %0, i32 noundef %1) local_unna
   %100 = phi ptr [ null, %.lr.ph ], [ %97, %96 ]
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %102 = load i32, ptr %101, align 8
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 280), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 280), align 8
   %104 = tail call i32 @netlink_unicast(ptr noundef %103, ptr noundef %92, i32 noundef %102, i32 noundef 64) #10
   %105 = icmp eq i32 %104, -111
   br i1 %105, label %106, label %109
@@ -1142,7 +1142,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @add_del_listener(i32 nound
   %29 = add i64 %28, ptrtoint (ptr @numa_node to i64)
   %30 = inttoptr i64 %29 to ptr
   %31 = load i32, ptr %30, align 4
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %33 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_node_trace(ptr noundef %32, i32 noundef 3264, i32 noundef %31, i64 noundef 24) #15
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.loopexit14, label %35

@@ -1411,7 +1411,7 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i, i64 4
   store i8 %conv.i84, ptr %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i.sroa_idx, align 1
   %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i, i64 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @__const.virtio_pci_device_plugged.cap, i64 5), i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @__const.virtio_pci_device_plugged.cap, i64 5), i64 3, i1 false)
   %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i, i64 8
   store i32 %26, ptr %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i.sroa_idx, align 1
   %cap.sroa.1.sroa.13.0.add.ptr3.i.i.i.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i, i64 12
@@ -1438,7 +1438,7 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i104.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i103, i64 4
   store i8 %conv.i87, ptr %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i104.sroa_idx, align 1
   %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i104.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i103, i64 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i104.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @__const.virtio_pci_device_plugged.cap, i64 5), i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i104.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @__const.virtio_pci_device_plugged.cap, i64 5), i64 3, i1 false)
   %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i104.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i103, i64 8
   store i32 %32, ptr %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i104.sroa_idx, align 1
   %cap.sroa.1.sroa.13.0.add.ptr3.i.i.i104.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i103, i64 12
@@ -1465,7 +1465,7 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i127.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i126, i64 4
   store i8 %conv.i110, ptr %cap.sroa.1.sroa.7.0.add.ptr3.i.i.i127.sroa_idx, align 1
   %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i127.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i126, i64 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i127.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @__const.virtio_pci_device_plugged.cap, i64 5), i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %cap.sroa.1.sroa.10.0.add.ptr3.i.i.i127.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @__const.virtio_pci_device_plugged.cap, i64 5), i64 3, i1 false)
   %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i127.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i126, i64 8
   store i32 %38, ptr %cap.sroa.1.sroa.10211.0.add.ptr3.i.i.i127.sroa_idx, align 1
   %cap.sroa.1.sroa.13.0.add.ptr3.i.i.i127.sroa_idx = getelementptr i8, ptr %add.ptr.i.i.i126, i64 12
@@ -1546,7 +1546,7 @@ if.end58:                                         ; preds = %virtio_pci_modern_i
   %idx.ext.i = sext i32 %call.i174 to i64
   %add.ptr.i = getelementptr i8, ptr %55, i64 %idx.ext.i
   %add.ptr3.i = getelementptr i8, ptr %add.ptr.i, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr3.i, ptr noundef nonnull readonly align 2 dereferenceable(18) getelementptr inbounds (i8, ptr @__const.virtio_pci_device_plugged.cfg, i64 2), i64 18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr3.i, ptr noundef nonnull readonly align 2 dereferenceable(18) getelementptr inbounds nuw (i8, ptr @__const.virtio_pci_device_plugged.cfg, i64 2), i64 18, i1 false)
   %config_cap = getelementptr inbounds nuw i8, ptr %call.i, i64 4880
   store i32 %call.i174, ptr %config_cap, align 16
   %wmask = getelementptr inbounds nuw i8, ptr %call.i, i64 184

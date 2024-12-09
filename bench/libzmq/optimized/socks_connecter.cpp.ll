@@ -50,9 +50,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN3zmq17socks_connecter_tC2EPNS_11io_thread_tEPNS_14session_base_tERKNS_9options_tEPNS_9address_tES9_b(ptr noundef nonnull align 8 dereferenceable(3032) %this, ptr noundef %io_thread_, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, ptr noundef %addr_, ptr noundef %proxy_addr_, i1 noundef zeroext %delayed_start_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3zmq23stream_connecter_base_tC2EPNS_11io_thread_tEPNS_14session_base_tERKNS_9options_tEPNS_9address_tEb(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef %io_thread_, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, ptr noundef %addr_, i1 noundef zeroext %delayed_start_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq17socks_connecter_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq17socks_connecter_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq17socks_connecter_tE, i64 264), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq17socks_connecter_tE, i64 264), ptr %add.ptr, align 8
   %_greeting_encoder = getelementptr inbounds nuw i8, ptr %this, i64 1544
   invoke void @_ZN3zmq24socks_greeting_encoder_tC1Ev(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder)
           to label %invoke.cont unwind label %lpad

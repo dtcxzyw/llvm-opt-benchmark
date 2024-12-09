@@ -69,7 +69,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator.66", align 1
   %ref.tmp91 = alloca %"class.cvc5::internal::FatalStream", align 1
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 16), ptr %this, align 8
   %d_te = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %te, ptr %d_te, align 8
   %d_valuation = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -152,7 +152,7 @@ call.i.noexc:                                     ; preds = %invoke.cont10
           to label %.noexc21 unwind label %lpad13
 
 .noexc21:                                         ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 19))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 19))
           to label %invoke.cont14 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc21
@@ -567,7 +567,7 @@ declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 der
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory17CombinationEngineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 16), ptr %this, align 8
   %d_cmbsPg = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %d_cmbsPg, align 8
   %cmp.not.i = icmp eq ptr %0, null

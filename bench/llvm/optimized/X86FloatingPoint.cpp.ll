@@ -191,7 +191,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm36createX86FloatingPointStackifier
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_13FPSE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_13FPSE, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -218,7 +218,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_13F
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_13FPSE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_13FPSE, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -239,7 +239,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_13FPSD2Ev(ptr noundef nonnull align 8 dereferenceable(292) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_13FPSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_13FPSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #16
   %4 = load ptr, ptr %2, align 8
@@ -258,7 +258,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_13FPS10LiveBundleELj8EED2Ev.exit: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_13FPSD0Ev(ptr noundef nonnull align 8 dereferenceable(292) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_13FPSE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_13FPSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #16
   %4 = load ptr, ptr %2, align 8
@@ -1759,7 +1759,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %231, %237
 
 _ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %259 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %.not.i.i.i62 = icmp eq ptr %.1.i.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL11OpcodeTable, i64 648)
+  %.not.i.i.i62 = icmp eq ptr %.1.i.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL11OpcodeTable, i64 648)
   br i1 %.not.i.i.i62, label %_ZL17getConcreteOpcodej.exit.i, label %260
 
 260:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i
@@ -1873,7 +1873,7 @@ _ZN12_GLOBAL__N_13FPS15handleZeroArgFPERN4llvm26MachineInstrBundleIteratorINS1_1
 
 _ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i74: ; preds = %.lr.ph.i.i.i.i.i.i66
   %306 = getelementptr inbounds nuw i8, ptr %297, i64 8
-  %.not.i.i.i75 = icmp eq ptr %.1.i.i.i.i.i.i73, getelementptr inbounds (i8, ptr @_ZL11OpcodeTable, i64 648)
+  %.not.i.i.i75 = icmp eq ptr %.1.i.i.i.i.i.i73, getelementptr inbounds nuw (i8, ptr @_ZL11OpcodeTable, i64 648)
   br i1 %.not.i.i.i75, label %_ZL17getConcreteOpcodej.exit.i76, label %307
 
 307:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i74
@@ -2010,7 +2010,7 @@ _ZN12_GLOBAL__N_13FPS7pushRegEj.exit.i80:         ; preds = %336
   br i1 %362, label %.lr.ph.i.i.i.i.i.i81, label %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i89, !llvm.loop !34
 
 _ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i89: ; preds = %.lr.ph.i.i.i.i.i.i81
-  %.not.i.i.i90 = icmp eq ptr %.1.i.i.i.i.i.i88, getelementptr inbounds (i8, ptr @_ZL11OpcodeTable, i64 648)
+  %.not.i.i.i90 = icmp eq ptr %.1.i.i.i.i.i.i88, getelementptr inbounds nuw (i8, ptr @_ZL11OpcodeTable, i64 648)
   br i1 %.not.i.i.i90, label %_ZN12_GLOBAL__N_13FPS16handleOneArgFPRWERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit, label %363
 
 363:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i89
@@ -2404,7 +2404,7 @@ _ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.
   %.not43.i = icmp eq i32 %524, -1
   %.not44.i = icmp eq i32 %525, -1
   %543 = getelementptr inbounds nuw i8, ptr %534, i64 8
-  %.not.i.i.i112 = icmp eq ptr %.1.i.i.i.i.i.i110, getelementptr inbounds (i8, ptr @_ZL11OpcodeTable, i64 648)
+  %.not.i.i.i112 = icmp eq ptr %.1.i.i.i.i.i.i110, getelementptr inbounds nuw (i8, ptr @_ZL11OpcodeTable, i64 648)
   br i1 %.not.i.i.i112, label %_ZL17getConcreteOpcodej.exit.i113, label %544
 
 544:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i111
@@ -2580,7 +2580,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i33.i: ; p
 _ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i135: ; preds = %.lr.ph.i.i.i.i.i.i127
   %.not22.i = icmp eq i32 %604, -1
   %622 = getelementptr inbounds nuw i8, ptr %613, i64 8
-  %.not.i.i.i136 = icmp eq ptr %.1.i.i.i.i.i.i134, getelementptr inbounds (i8, ptr @_ZL11OpcodeTable, i64 648)
+  %.not.i.i.i136 = icmp eq ptr %.1.i.i.i.i.i.i134, getelementptr inbounds nuw (i8, ptr @_ZL11OpcodeTable, i64 648)
   br i1 %.not.i.i.i136, label %_ZL17getConcreteOpcodej.exit.i137, label %623
 
 623:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i.i.i135
@@ -4615,7 +4615,7 @@ _ZN12_GLOBAL__N_13FPS6popRegEv.exit:              ; preds = %2
   br i1 %29, label %.lr.ph.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i, !llvm.loop !34
 
 _ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %.not.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL8PopTable, i64 68)
+  %.not.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL8PopTable, i64 68)
   br i1 %.not.i, label %_ZL6LookupN4llvm8ArrayRefIN12_GLOBAL__N_110TableEntryEEEj.exit.thread, label %30
 
 30:                                               ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_110TableEntryEEERjEEDaOT_OT0_.exit.i

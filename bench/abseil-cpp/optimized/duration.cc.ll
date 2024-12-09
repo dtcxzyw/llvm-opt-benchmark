@@ -497,7 +497,7 @@ if.end.i.i:                                       ; preds = %if.end
 
 cond.false18.i.i:                                 ; preds = %if.end.i.i
   %agg.tmp21.sroa.0.0.copyload.i.i = load i64, ptr @_ZN4absl11kuint128maxE, align 16
-  %agg.tmp21.sroa.2.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl11kuint128maxE, i64 8), align 8
+  %agg.tmp21.sroa.2.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl11kuint128maxE, i64 8), align 8
   %coerce.sroa.2.0.insert.ext.i25.i.i = zext i64 %agg.tmp21.sroa.2.0.copyload.i.i to i128
   %coerce.sroa.2.0.insert.shift.i26.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i25.i.i, 64
   %coerce.sroa.0.0.insert.ext.i27.i.i = zext i64 %agg.tmp21.sroa.0.0.copyload.i.i to i128

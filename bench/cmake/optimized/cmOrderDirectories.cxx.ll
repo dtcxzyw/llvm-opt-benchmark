@@ -1729,7 +1729,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 33:                                               ; preds = %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !49
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 24), align 8, !noalias !52
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 24), align 8, !noalias !52
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %37
 
@@ -1738,7 +1738,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %45
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 280), align 8, !noalias !52
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 280), align 8, !noalias !52
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %34 to i64
   %41 = sub i64 %39, %40
@@ -1759,7 +1759,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 45:                                               ; preds = %42, %36
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !49
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !55
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 16), align 8, !noalias !58
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 16), align 8, !noalias !58
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %49
 
@@ -1768,7 +1768,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.critedge
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 272), align 8, !noalias !58
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 272), align 8, !noalias !58
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %46 to i64
   %53 = sub i64 %51, %52
@@ -1797,7 +1797,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 57:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !61
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 8), align 8, !noalias !64
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 8), align 8, !noalias !64
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %61
 
@@ -1806,7 +1806,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %69
 
 61:                                               ; preds = %57
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 264), align 8, !noalias !64
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN18cmOrderDirectories17AddRuntimeLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE14splitFramework, i64 264), align 8, !noalias !64
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %58 to i64
   %65 = sub i64 %63, %64
@@ -2284,7 +2284,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   br label %.body
 
 36:                                               ; preds = %.noexc13
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35cmOrderDirectoriesConstraintLibrary, i64 16), ptr %33, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35cmOrderDirectoriesConstraintLibrary, i64 16), ptr %33, align 8, !noalias !85
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = load ptr, ptr %38, align 8
@@ -2408,7 +2408,7 @@ common.resume:                                    ; preds = %.body, %_ZNSt10uniq
   br label %common.resume
 
 _ZSt11make_uniqueI35cmOrderDirectoriesConstraintLibraryJP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit24: ; preds = %73
-  store ptr getelementptr inbounds (i8, ptr @_ZTV35cmOrderDirectoriesConstraintLibrary, i64 16), ptr %75, align 8, !noalias !93
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV35cmOrderDirectoriesConstraintLibrary, i64 16), ptr %75, align 8, !noalias !93
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -4123,10 +4123,10 @@ declare void @_ZN5cmsys11SystemTools11GetRealPathERKNSt7__cxx1112basic_stringIcS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN34cmOrderDirectoriesConstraintSONameD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4138,10 +4138,10 @@ define linkonce_odr dso_local void @_ZN34cmOrderDirectoriesConstraintSONameD2Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN34cmOrderDirectoriesConstraintSONameD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4166,7 +4166,7 @@ define linkonce_odr dso_local void @_ZN34cmOrderDirectoriesConstraintSOName6Repo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35cmOrderDirectoriesConstraintLibraryD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4178,7 +4178,7 @@ define linkonce_odr dso_local void @_ZN35cmOrderDirectoriesConstraintLibraryD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN35cmOrderDirectoriesConstraintLibraryD0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4321,7 +4321,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN28cmOrderDirectoriesConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4620,7 +4620,7 @@ define linkonce_odr dso_local void @_ZN34cmOrderDirectoriesConstraintSONameC2EP1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN28cmOrderDirectoriesConstraintC2EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.not = icmp eq ptr %3, null
   %8 = select i1 %.not, ptr @.str.22, ptr %3
@@ -4703,7 +4703,7 @@ define linkonce_odr dso_local void @_ZN28cmOrderDirectoriesConstraintC2EP18cmOrd
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28cmOrderDirectoriesConstraint, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4759,7 +4759,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 35:                                               ; preds = %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !144
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 24), align 8, !noalias !147
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 24), align 8, !noalias !147
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %39
 
@@ -4768,7 +4768,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %47
 
 39:                                               ; preds = %35
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 280), align 8, !noalias !147
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 280), align 8, !noalias !147
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %36 to i64
   %43 = sub i64 %41, %42
@@ -4789,7 +4789,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 47:                                               ; preds = %44, %38
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !144
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !150
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 16), align 8, !noalias !153
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 16), align 8, !noalias !153
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %51
 
@@ -4798,7 +4798,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.critedge
 
 51:                                               ; preds = %47
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 272), align 8, !noalias !153
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 272), align 8, !noalias !153
   %53 = ptrtoint ptr %52 to i64
   %54 = ptrtoint ptr %48 to i64
   %55 = sub i64 %53, %54
@@ -4827,7 +4827,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 59:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !156
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 8), align 8, !noalias !159
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 8), align 8, !noalias !159
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %63
 
@@ -4836,7 +4836,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %71
 
 63:                                               ; preds = %59
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 264), align 8, !noalias !159
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN28cmOrderDirectoriesConstraintC1EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14splitFramework, i64 264), align 8, !noalias !159
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %60 to i64
   %67 = sub i64 %65, %66

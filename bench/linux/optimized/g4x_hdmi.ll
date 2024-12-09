@@ -266,7 +266,7 @@ define dso_local void @g4x_hdmi_init(ptr noundef %0, i32 %1, i32 noundef %2) loc
   br label %37
 
 37:                                               ; preds = %34, %26
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %39 = tail call noalias noundef align 8 dereferenceable_or_null(4056) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 4056) #7
   %40 = icmp eq ptr %39, null
   br i1 %40, label %118, label %41

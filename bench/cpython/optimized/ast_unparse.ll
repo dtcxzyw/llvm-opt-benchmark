@@ -2610,7 +2610,7 @@ expr_as_unicode.exit:                             ; preds = %lor.lhs.false.i
   br i1 %tobool.not, label %do.end39, label %if.end
 
 if.end:                                           ; preds = %expr_as_unicode.exit
-  %call1 = call i64 @PyUnicode_Find(ptr noundef nonnull %call3.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25544), i64 noundef 0, i64 noundef 1, i32 noundef 1) #4
+  %call1 = call i64 @PyUnicode_Find(ptr noundef nonnull %call3.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25544), i64 noundef 0, i64 noundef 1, i32 noundef 1) #4
   %cmp = icmp eq i64 %call1, 0
   %.str.60..str.36 = select i1 %cmp, ptr @.str.60, ptr @.str.36
   %call.i = call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef nonnull %writer, ptr noundef nonnull %.str.60..str.36, i64 noundef -1) #4
@@ -3235,7 +3235,7 @@ if.then7:                                         ; preds = %lor.lhs.false, %lan
   %5 = load ptr, ptr %interp.i, align 8
   %str_replace_inf = getelementptr inbounds nuw i8, ptr %5, i64 416144
   %6 = load ptr, ptr %str_replace_inf, align 8
-  %call9 = tail call ptr @PyUnicode_Replace(ptr noundef nonnull %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 47960), ptr noundef %6, i64 noundef -1) #4
+  %call9 = tail call ptr @PyUnicode_Replace(ptr noundef nonnull %call, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 47960), ptr noundef %6, i64 noundef -1) #4
   %7 = load i64, ptr %call, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i25.not = icmp eq i64 %8, 0
@@ -3290,12 +3290,12 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @append_fstring_unicode(ptr noundef nonnull %writer, ptr noundef %unicode) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @PyUnicode_Replace(ptr noundef %unicode, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25544), ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24960), i64 noundef -1) #4
+  %call.i = tail call ptr @PyUnicode_Replace(ptr noundef %unicode, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25544), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 24960), i64 noundef -1) #4
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.end, label %if.end.i5
 
 if.end.i5:                                        ; preds = %entry
-  %call1.i = tail call ptr @PyUnicode_Replace(ptr noundef nonnull %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24864), ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 24912), i64 noundef -1) #4
+  %call1.i = tail call ptr @PyUnicode_Replace(ptr noundef nonnull %call.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 24864), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 24912), i64 noundef -1) #4
   %0 = load i64, ptr %call.i, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i3.not.i = icmp eq i64 %1, 0

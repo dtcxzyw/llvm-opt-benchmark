@@ -16,13 +16,13 @@ $_ZTV10WorkerTask = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XTask4TaskC2EPS_PKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #4
   store i32 %6, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN5XTask4TaskE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN5XTask4TaskE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %7, align 8
   ret void
@@ -46,15 +46,15 @@ declare void @_ZN7XThread15clear_worker_idEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 28)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV5XTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV5XTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #4
   store i32 %6, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN5XTask4TaskE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN5XTask4TaskE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %0, ptr %7, align 8
   ret void

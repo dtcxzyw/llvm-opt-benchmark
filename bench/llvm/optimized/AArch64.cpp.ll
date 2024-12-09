@@ -14521,7 +14521,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %2, %5, %7
 define hidden void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #23
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -14536,7 +14536,7 @@ define hidden void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %4) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 5))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %13 = load i32, ptr %12, align 4
@@ -16517,7 +16517,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo16getTargetDefinesERKNS
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #23
   %305 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %58) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef %305, ptr noundef nonnull align 1 dereferenceable(1) %59) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.33, i64 1))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.33, i64 1))
   %306 = load ptr, ptr %297, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %308 = load i32, ptr %307, align 8
@@ -21559,7 +21559,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo17convertConstraintB5cx
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #23
   %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %7) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.533, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.533, i64 2))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.533, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.533, i64 2))
   %19 = load ptr, ptr %2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %19, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %9) #23
@@ -21759,7 +21759,7 @@ define linkonce_odr hidden void @_ZNK5clang10TargetInfo17convertConstraintB5cxx1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.13435, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13435, i64 1))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.13435, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.13435, i64 1))
   br label %13
 
 11:                                               ; preds = %3
@@ -22030,7 +22030,7 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo13hasInt1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5clang7targets19AArch64leTargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
   tail call void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2)
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets19AArch64leTargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets19AArch64leTargetInfoE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -22088,7 +22088,7 @@ define hidden void @_ZNK5clang7targets19AArch64leTargetInfo16getTargetDefinesERK
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5clang7targets19AArch64beTargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
   tail call void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2)
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets19AArch64beTargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets19AArch64beTargetInfoE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -22150,7 +22150,7 @@ define hidden void @_ZN5clang7targets22WindowsARM64TargetInfoC2ERKN4llvm6TripleE
   store i32 4, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 4, ptr %5, align 4
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %1) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -22254,7 +22254,7 @@ define hidden void @_ZN5clang7targets24MicrosoftARM64TargetInfoC2ERKN4llvm6Tripl
   store i32 4, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 4, ptr %5, align 4
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %1) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -22289,7 +22289,7 @@ define hidden void @_ZN5clang7targets24MicrosoftARM64TargetInfoC2ERKN4llvm6Tripl
   store i32 9, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 9, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets24MicrosoftARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets24MicrosoftARM64TargetInfoE, i64 16), ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 340
   store i32 10, ptr %24, align 4
   ret void
@@ -22472,7 +22472,7 @@ define hidden void @_ZN5clang7targets20MinGWARM64TargetInfoC2ERKN4llvm6TripleERK
   store i32 4, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 4, ptr %5, align 4
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %1) #23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -22507,7 +22507,7 @@ define hidden void @_ZN5clang7targets20MinGWARM64TargetInfoC2ERKN4llvm6TripleERK
   store i32 9, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 9, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets20MinGWARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets20MinGWARM64TargetInfoE, i64 16), ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 340
   store i32 5, ptr %24, align 4
   ret void
@@ -22516,7 +22516,7 @@ define hidden void @_ZN5clang7targets20MinGWARM64TargetInfoC2ERKN4llvm6TripleERK
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5clang7targets23DarwinAArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
   tail call void @_ZN5clang7targets16DarwinTargetInfoINS0_19AArch64leTargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2)
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets23DarwinAArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets23DarwinAArch64TargetInfoE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 9, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -22566,7 +22566,7 @@ define hidden void @_ZN5clang7targets23DarwinAArch64TargetInfoC2ERKN4llvm6Triple
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_19AArch64leTargetInfoEEC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) unnamed_addr #1 comdat align 2 {
   tail call void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 dereferenceable(536) %2)
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets16DarwinTargetInfoINS0_19AArch64leTargetInfoEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets16DarwinTargetInfoINS0_19AArch64leTargetInfoEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -22833,9 +22833,9 @@ define hidden void @_ZN5clang7targets24RenderScript64TargetInfoC2ERKN4llvm6Tripl
   store i64 %25, ptr %28, align 8
   call void @_ZN4llvm6TripleC1ERKNS_5TwineES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(34) %8) #23
   call void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(536) %2)
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets19AArch64leTargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets19AArch64leTargetInfoE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets24RenderScript64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets24RenderScript64TargetInfoE, i64 16), ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %30 = load i32, ptr %29, align 8
   %31 = or i32 %30, 512
@@ -22887,7 +22887,7 @@ define hidden void @_ZNK5clang7targets24RenderScript64TargetInfo16getTargetDefin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets17AArch64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %0) #23
@@ -23765,7 +23765,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets19AArch64leTargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -23774,7 +23774,7 @@ define linkonce_odr hidden void @_ZN5clang7targets19AArch64leTargetInfoD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets19AArch64leTargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -23784,7 +23784,7 @@ define linkonce_odr hidden void @_ZN5clang7targets19AArch64leTargetInfoD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets19AArch64beTargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -23793,7 +23793,7 @@ define linkonce_odr hidden void @_ZN5clang7targets19AArch64beTargetInfoD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets19AArch64beTargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -23803,10 +23803,10 @@ define linkonce_odr hidden void @_ZN5clang7targets19AArch64beTargetInfoD0Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22WindowsARM64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -23815,10 +23815,10 @@ define linkonce_odr hidden void @_ZN5clang7targets22WindowsARM64TargetInfoD2Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets22WindowsARM64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) #23
@@ -23834,10 +23834,10 @@ define linkonce_odr hidden void @_ZNK5clang7targets17WindowsTargetInfoINS0_19AAr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets24MicrosoftARM64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) #23
@@ -23846,10 +23846,10 @@ define linkonce_odr hidden void @_ZN5clang7targets24MicrosoftARM64TargetInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets24MicrosoftARM64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) #23
@@ -23859,7 +23859,7 @@ define linkonce_odr hidden void @_ZN5clang7targets24MicrosoftARM64TargetInfoD0Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23DarwinAArch64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -23868,7 +23868,7 @@ define linkonce_odr hidden void @_ZN5clang7targets23DarwinAArch64TargetInfoD2Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets23DarwinAArch64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -23966,7 +23966,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets16DarwinTargetI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets24RenderScript64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -23975,7 +23975,7 @@ define linkonce_odr hidden void @_ZN5clang7targets24RenderScript64TargetInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets24RenderScript64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -23985,10 +23985,10 @@ define linkonce_odr hidden void @_ZN5clang7targets24RenderScript64TargetInfoD0Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets20MinGWARM64TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) #23
@@ -23997,10 +23997,10 @@ define linkonce_odr hidden void @_ZN5clang7targets20MinGWARM64TargetInfoD2Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets20MinGWARM64TargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 984) (i8, ptr @_ZTVN5clang7targets22WindowsARM64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #23
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) #23
@@ -24708,7 +24708,7 @@ declare noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_19AArch64leTargetInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23
@@ -24717,7 +24717,7 @@ define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_19AArch
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7targets16DarwinTargetInfoINS0_19AArch64leTargetInfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   tail call void @_ZN5clang10TargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) #23

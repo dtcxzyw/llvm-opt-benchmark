@@ -46,7 +46,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %p0.coerce0, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -86,7 +86,7 @@ if.then:                                          ; preds = %entry
   %call8 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %color.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call8, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call8, i64 16
   store double %p0.coerce0, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
@@ -101,7 +101,7 @@ if.end:                                           ; preds = %entry
   %call11 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %color.i.i7 = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store i32 %edgeColor, ptr %color.i.i7, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call11, align 8
   %scevgep.i8 = getelementptr inbounds nuw i8, ptr %call11, i64 16
   store double %p0.coerce0, ptr %scevgep.i8, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %call11, i64 24
@@ -147,7 +147,7 @@ if.then:                                          ; preds = %land.lhs.true
   %call15 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %color.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call15, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call15, i64 16
   store double %p0.coerce0, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call15, i64 24
@@ -180,7 +180,7 @@ if.then35:                                        ; preds = %if.end
   %call36 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %color.i.i35 = getelementptr inbounds nuw i8, ptr %call36, i64 8
   store i32 %edgeColor, ptr %color.i.i35, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call36, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call36, align 8
   %scevgep.i36 = getelementptr inbounds nuw i8, ptr %call36, i64 16
   store double %p0.coerce0, ptr %scevgep.i36, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %call36, i64 24
@@ -199,7 +199,7 @@ if.end42:                                         ; preds = %if.end
   %call43 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %color.i.i38 = getelementptr inbounds nuw i8, ptr %call43, i64 8
   store i32 %edgeColor, ptr %color.i.i38, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call43, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call43, align 8
   %scevgep.i39 = getelementptr inbounds nuw i8, ptr %call43, i64 16
   store double %p0.coerce0, ptr %scevgep.i39, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %call43, i64 24
@@ -328,7 +328,7 @@ define dso_local void @_ZN7msdfgen13LinearSegmentC2ENS_7Vector2ES1_NS_9EdgeColor
 entry:
   %color.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %this, align 8
   %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %p0.coerce0, ptr %scevgep, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -345,7 +345,7 @@ define dso_local void @_ZN7msdfgen16QuadraticSegmentC2ENS_7Vector2ES1_S1_NS_9Edg
 entry:
   %color.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %this, align 8
   %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %p0.coerce0, ptr %scevgep, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -366,7 +366,7 @@ define dso_local void @_ZN7msdfgen12CubicSegmentC2ENS_7Vector2ES1_S1_S1_NS_9Edge
 entry:
   %color.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %this, align 8
   %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %p0.coerce0, ptr %scevgep, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -402,7 +402,7 @@ invoke.cont:
   %0 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -434,7 +434,7 @@ invoke.cont:
   %0 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -474,7 +474,7 @@ invoke.cont:
   %0 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -2862,7 +2862,7 @@ invoke.cont4:                                     ; preds = %entry
   %3 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %3, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -2894,7 +2894,7 @@ invoke.cont18:                                    ; preds = %invoke.cont10
   %10 = load i32, ptr %color, align 8
   %color.i.i2 = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store i32 %10, ptr %color.i.i2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call5, align 8
   %scevgep.i3 = getelementptr inbounds nuw i8, ptr %call5, i64 16
   store double %7, ptr %scevgep.i3, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %call5, i64 24
@@ -2921,7 +2921,7 @@ invoke.cont30:                                    ; preds = %invoke.cont18
   %14 = load i32, ptr %color, align 8
   %color.i.i7 = getelementptr inbounds nuw i8, ptr %call19, i64 8
   store i32 %14, ptr %color.i.i7, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 16), ptr %call19, align 8
   %scevgep.i8 = getelementptr inbounds nuw i8, ptr %call19, i64 16
   store double %12, ptr %scevgep.i8, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %call19, i64 24
@@ -2986,7 +2986,7 @@ invoke.cont13:                                    ; preds = %invoke.cont
   %3 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %3, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -3046,7 +3046,7 @@ invoke.cont48:                                    ; preds = %invoke.cont40
   %10 = load i32, ptr %color, align 8
   %color.i.i26 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store i32 %10, ptr %color.i.i26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call14, align 8
   %scevgep.i27 = getelementptr inbounds nuw i8, ptr %call14, i64 16
   store double %7, ptr %scevgep.i27, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %call14, i64 24
@@ -3083,7 +3083,7 @@ invoke.cont69:                                    ; preds = %invoke.cont48
   %14 = load i32, ptr %color, align 8
   %color.i.i41 = getelementptr inbounds nuw i8, ptr %call49, i64 8
   store i32 %14, ptr %color.i.i41, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call49, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 16), ptr %call49, align 8
   %scevgep.i42 = getelementptr inbounds nuw i8, ptr %call49, i64 16
   store double %13, ptr %scevgep.i42, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %call49, i64 24
@@ -3185,7 +3185,7 @@ invoke.cont44:                                    ; preds = %invoke.cont39
   %4 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %4, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -3307,7 +3307,7 @@ invoke.cont148:                                   ; preds = %invoke.cont140
   %11 = load i32, ptr %color, align 8
   %color.i.i138 = getelementptr inbounds nuw i8, ptr %call45, i64 8
   store i32 %11, ptr %color.i.i138, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call45, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call45, align 8
   %scevgep.i139 = getelementptr inbounds nuw i8, ptr %call45, i64 16
   store double %8, ptr %scevgep.i139, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i140 = getelementptr inbounds nuw i8, ptr %call45, i64 24
@@ -3367,7 +3367,7 @@ invoke.cont175:                                   ; preds = %invoke.cont148
   %16 = load i32, ptr %color, align 8
   %color.i.i181 = getelementptr inbounds nuw i8, ptr %call149, i64 8
   store i32 %16, ptr %color.i.i181, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call149, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call149, align 8
   %scevgep.i182 = getelementptr inbounds nuw i8, ptr %call149, i64 16
   store double %13, ptr %scevgep.i182, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i183 = getelementptr inbounds nuw i8, ptr %call149, i64 24
@@ -3441,7 +3441,7 @@ invoke.cont22:
   %0 = load i32, ptr %color, align 8
   %color.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 16), ptr %call, align 8
   %scevgep.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store double %agg.tmp.sroa.0.0.copyload, ptr %scevgep.i, align 8
   %p0.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 24

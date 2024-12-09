@@ -20,7 +20,7 @@ $_ZNK9NumberSeq4lastEv = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6HdrSeqC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN9NumberSeqC2Ed(ptr noundef nonnull align 8 dereferenceable(72) %0, double noundef 3.000000e-01) #9
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6HdrSeq, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV6HdrSeq, i64 16), ptr %0, align 8
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 192, i8 noundef zeroext 9, i32 noundef 0) #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %3, align 8
@@ -45,7 +45,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6HdrSeqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6HdrSeq, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV6HdrSeq, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %3
 

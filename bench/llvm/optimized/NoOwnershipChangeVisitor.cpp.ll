@@ -71,7 +71,7 @@ define dso_local void @_ZN5clang4ento24NoOwnershipChangeVisitor15getOwnersAtNode
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %3, %12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %14 = load ptr, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_124OwnershipBindingsHandlerE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_124OwnershipBindingsHandlerE, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -283,7 +283,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit13: ; preds =
 _ZN5clang4ento24NoOwnershipChangeVisitor15getOwnersAtNodeEPKNS0_12ExplodedNodeE.exit: ; preds = %47, %54
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %56 = load ptr, ptr %55, align 8, !noalias !9
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_124OwnershipBindingsHandlerE, i64 16), ptr %4, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_124OwnershipBindingsHandlerE, i64 16), ptr %4, align 8, !noalias !9
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %56, ptr %57, align 8, !noalias !9
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -323,7 +323,7 @@ _ZN5clang4ento24NoOwnershipChangeVisitor15getOwnersAtNodeEPKNS0_12ExplodedNodeE.
 
 _ZN5clang4ento24NoOwnershipChangeVisitor15getOwnersAtNodeEPKNS0_12ExplodedNodeE.exit15: ; preds = %_ZN5clang4ento24NoOwnershipChangeVisitor15getOwnersAtNodeEPKNS0_12ExplodedNodeE.exit, %74
   %75 = load ptr, ptr %55, align 8, !noalias !12
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_124OwnershipBindingsHandlerE, i64 16), ptr %3, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_124OwnershipBindingsHandlerE, i64 16), ptr %3, align 8, !noalias !12
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %75, ptr %76, align 8, !noalias !12
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -627,7 +627,7 @@ declare noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento24NoOwnershipChangeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento24NoStateChangeFuncVisitorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento24NoStateChangeFuncVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8

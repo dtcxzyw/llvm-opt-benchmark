@@ -158,7 +158,7 @@ define dso_local void @_ZN27cmGeneratorExpressionParser12ParseContentERSt6vector
   %36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #12, !noalias !7
   %37 = load ptr, ptr %34, align 8, !noalias !7
   %38 = load i64, ptr %35, align 8, !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11TextContent, i64 16), ptr %36, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11TextContent, i64 16), ptr %36, align 8, !noalias !7
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %37, ptr %39, align 8, !noalias !7
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -1659,7 +1659,7 @@ define internal fastcc void @_ZL10extendTextRSt6vectorISt10unique_ptrI30cmGenera
   %26 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #12, !noalias !63
   %27 = load ptr, ptr %24, align 8, !noalias !63
   %28 = load i64, ptr %25, align 8, !noalias !63
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11TextContent, i64 16), ptr %26, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11TextContent, i64 16), ptr %26, align 8, !noalias !63
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %27, ptr %29, align 8, !noalias !63
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16

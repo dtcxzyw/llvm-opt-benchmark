@@ -218,7 +218,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm29createAArch64SLSHardenin
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 324
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %5, i8 0, i64 296, i1 false)
   store i8 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119AArch64SLSHardeningE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119AArch64SLSHardeningE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 
@@ -238,7 +238,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 324
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %5, i8 0, i64 296, i1 false)
   store i8 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119AArch64SLSHardeningE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119AArch64SLSHardeningE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 
@@ -879,11 +879,11 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i.i:         ; preds = %278, %275
   store ptr %87, ptr %88, align 8, !alias.scope !13, !noalias !10
   store i64 3, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !10
   store i8 1, ptr %89, align 8, !alias.scope !13, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %90, align 8, !alias.scope !13, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %90, align 8, !alias.scope !13, !noalias !10
   store ptr %29, ptr %91, align 8, !alias.scope !13, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_9StringRefEEE, i64 16), ptr %92, align 8, !alias.scope !13, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_9StringRefEEE, i64 16), ptr %92, align 8, !alias.scope !13, !noalias !10
   store ptr %296, ptr %93, align 8, !alias.scope !13, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_9StringRefEEE, i64 16), ptr %94, align 8, !alias.scope !13, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_9StringRefEEE, i64 16), ptr %94, align 8, !alias.scope !13, !noalias !10
   store ptr @_ZL16CommonNamePrefix, ptr %95, align 8, !alias.scope !13, !noalias !10
   store ptr %94, ptr %87, align 8, !alias.scope !13, !noalias !10
   store ptr %92, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !10
@@ -894,7 +894,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i.i:         ; preds = %278, %275
   store i8 0, ptr %98, align 8, !noalias !21
   store i32 1, ptr %99, align 4, !noalias !21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false), !noalias !21
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %28, align 8, !noalias !21
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %28, align 8, !noalias !21
   store ptr %34, ptr %101, align 8, !noalias !21
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef null, i64 noundef 0, i32 noundef 0) #16, !noalias !4
   %297 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(33) %30) #16, !noalias !4
@@ -915,13 +915,13 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i.i:         ; preds = %278, %275
   store ptr %102, ptr %103, align 8, !alias.scope !24, !noalias !10
   store i64 4, ptr %.sroa.2.0..sroa_idx.i.i.i.i9.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !10
   store i8 1, ptr %104, align 8, !alias.scope !24, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %105, align 8, !alias.scope !24, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %105, align 8, !alias.scope !24, !noalias !10
   store ptr %31, ptr %106, align 8, !alias.scope !24, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %107, align 8, !alias.scope !24, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %107, align 8, !alias.scope !24, !noalias !10
   store ptr %29, ptr %108, align 8, !alias.scope !24, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_9StringRefEEE, i64 16), ptr %109, align 8, !alias.scope !24, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_9StringRefEEE, i64 16), ptr %109, align 8, !alias.scope !24, !noalias !10
   store ptr %302, ptr %110, align 8, !alias.scope !24, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_9StringRefEEE, i64 16), ptr %111, align 8, !alias.scope !24, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNS_9StringRefEEE, i64 16), ptr %111, align 8, !alias.scope !24, !noalias !10
   store ptr @_ZL16CommonNamePrefix, ptr %112, align 8, !alias.scope !24, !noalias !10
   store ptr %111, ptr %102, align 8, !alias.scope !24, !noalias !10
   store ptr %109, ptr %.sroa.2.0..sroa_idx.i.i.i10.i.i.i.i.i.i, align 8, !alias.scope !24, !noalias !10
@@ -933,7 +933,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i.i:         ; preds = %278, %275
   store i8 0, ptr %114, align 8, !noalias !32
   store i32 1, ptr %115, align 4, !noalias !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false), !noalias !32
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %27, align 8, !noalias !32
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %27, align 8, !noalias !32
   store ptr %34, ptr %117, align 8, !noalias !32
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef null, i64 noundef 0, i32 noundef 0) #16, !noalias !4
   %303 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(33) %32) #16, !noalias !4
@@ -1110,8 +1110,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread8.i.i.i.i.i.i: ; preds = %_ZN4llvmneENS_
   store i8 2, ptr %142, align 1, !noalias !4
   store i8 7, ptr %143, align 2, !noalias !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, i8 0, i64 16, i1 false), !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %133, align 8, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %134, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %133, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %134, align 8, !noalias !4
   store ptr %368, ptr %145, align 8, !noalias !4
   %370 = getelementptr inbounds nuw i8, ptr %368, i64 48
   store ptr %370, ptr %146, align 8, !noalias !4

@@ -516,7 +516,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
 
 35:                                               ; preds = %.thread140
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.1) #6
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
   br label %60
@@ -534,7 +534,7 @@ define hidden void @zim_Random_Engine_Mt19937___construct(ptr noundef %0, ptr no
 43:                                               ; preds = %40
   %44 = load ptr, ptr @random_ce_Random_RandomException, align 8
   %45 = call ptr @zend_throw_exception(ptr noundef %44, ptr noundef nonnull @.str.2, i64 noundef 0) #6
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %47 = icmp ne ptr %46, null
   call void @llvm.assume(i1 %47)
   br label %60
@@ -605,7 +605,7 @@ define hidden void @zim_Random_Engine_Mt19937_generate(ptr nocapture noundef rea
   %12 = tail call { i64, i64 } %11(ptr noundef %.sroa.213.0.copyload) #6
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not66 = icmp eq ptr %15, null
   br i1 %.not66, label %16, label %36
 
@@ -699,7 +699,7 @@ define hidden void @zim_Random_Engine_Mt19937___serialize(ptr nocapture noundef 
 
 26:                                               ; preds = %7
   %27 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef 0) #6
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
   br label %33
@@ -762,7 +762,7 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %22) #6
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %25)
   br label %83
@@ -785,7 +785,7 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %36) #6
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   tail call void @llvm.assume(i1 %39)
   br label %83
@@ -793,7 +793,7 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
 40:                                               ; preds = %28
   %41 = load ptr, ptr %27, align 8
   tail call void @object_properties_load(ptr noundef nonnull %4, ptr noundef %41) #6
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not92 = icmp eq ptr %42, null
   br i1 %.not92, label %52, label %43
 
@@ -804,7 +804,7 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %48) #6
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %51 = icmp ne ptr %50, null
   tail call void @llvm.assume(i1 %51)
   br label %83
@@ -827,7 +827,7 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %62) #6
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %65 = icmp ne ptr %64, null
   tail call void @llvm.assume(i1 %65)
   br label %83
@@ -849,7 +849,7 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %79) #6
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %82 = icmp ne ptr %81, null
   tail call void @llvm.assume(i1 %82)
   br label %83
@@ -917,7 +917,7 @@ define hidden void @zim_Random_Engine_Mt19937___debugInfo(ptr nocapture noundef 
 
 30:                                               ; preds = %21
   %31 = tail call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef 0) #6
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %33)
   br label %37

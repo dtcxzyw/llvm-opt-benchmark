@@ -13189,7 +13189,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38ni
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38nix_isAllowedURI_http_example_com_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38nix_isAllowedURI_http_example_com_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13219,7 +13219,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42ni
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix42nix_isAllowedURI_http_example_com_foo_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix42nix_isAllowedURI_http_example_com_foo_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13247,7 +13247,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26ni
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26nix_isAllowedURI_http_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix26nix_isAllowedURI_http_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13275,7 +13275,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27ni
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27nix_isAllowedURI_https_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix27nix_isAllowedURI_https_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13303,7 +13303,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35ni
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35nix_isAllowedURI_absolute_path_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix35nix_isAllowedURI_absolute_path_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13331,7 +13331,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30ni
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30nix_isAllowedURI_file_url_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30nix_isAllowedURI_file_url_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13359,7 +13359,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32ni
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32nix_isAllowedURI_github_all_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32nix_isAllowedURI_github_all_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13387,7 +13387,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32ni
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32nix_isAllowedURI_github_org_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32nix_isAllowedURI_github_org_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13415,7 +13415,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38ni
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38nix_isAllowedURI_non_scheme_colon_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38nix_isAllowedURI_non_scheme_colon_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13503,7 +13503,7 @@ define internal void @_GLOBAL__sub_I_eval.cc() #11 section ".text.startup" perso
           to label %39 unwind label %58
 
 39:                                               ; preds = %37
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38nix_isAllowedURI_http_example_com_TestEEE, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38nix_isAllowedURI_http_example_com_TestEEE, i64 16), ptr %38, align 8
   %40 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef %32, ptr noundef %34, ptr noundef %36, ptr noundef nonnull %38)
           to label %41 unwind label %58
 
@@ -13606,7 +13606,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %71 unwind label %90
 
 71:                                               ; preds = %69
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42nix_isAllowedURI_http_example_com_foo_TestEEE, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42nix_isAllowedURI_http_example_com_foo_TestEEE, i64 16), ptr %70, align 8
   %72 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef %64, ptr noundef %66, ptr noundef %68, ptr noundef nonnull %70)
           to label %73 unwind label %90
 
@@ -13703,7 +13703,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %103 unwind label %122
 
 103:                                              ; preds = %101
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26nix_isAllowedURI_http_TestEEE, i64 16), ptr %102, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26nix_isAllowedURI_http_TestEEE, i64 16), ptr %102, align 8
   %104 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef %96, ptr noundef %98, ptr noundef %100, ptr noundef nonnull %102)
           to label %105 unwind label %122
 
@@ -13800,7 +13800,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %135 unwind label %154
 
 135:                                              ; preds = %133
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27nix_isAllowedURI_https_TestEEE, i64 16), ptr %134, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27nix_isAllowedURI_https_TestEEE, i64 16), ptr %134, align 8
   %136 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef %128, ptr noundef %130, ptr noundef %132, ptr noundef nonnull %134)
           to label %137 unwind label %154
 
@@ -13897,7 +13897,7 @@ __cxx_global_var_init.38.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %167 unwind label %186
 
 167:                                              ; preds = %165
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35nix_isAllowedURI_absolute_path_TestEEE, i64 16), ptr %166, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35nix_isAllowedURI_absolute_path_TestEEE, i64 16), ptr %166, align 8
   %168 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef %160, ptr noundef %162, ptr noundef %164, ptr noundef nonnull %166)
           to label %169 unwind label %186
 
@@ -13994,7 +13994,7 @@ __cxx_global_var_init.46.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %199 unwind label %218
 
 199:                                              ; preds = %197
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30nix_isAllowedURI_file_url_TestEEE, i64 16), ptr %198, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30nix_isAllowedURI_file_url_TestEEE, i64 16), ptr %198, align 8
   %200 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.71, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef %192, ptr noundef %194, ptr noundef %196, ptr noundef nonnull %198)
           to label %201 unwind label %218
 
@@ -14091,7 +14091,7 @@ __cxx_global_var_init.70.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %231 unwind label %250
 
 231:                                              ; preds = %229
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32nix_isAllowedURI_github_all_TestEEE, i64 16), ptr %230, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32nix_isAllowedURI_github_all_TestEEE, i64 16), ptr %230, align 8
   %232 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.99, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %224, ptr noundef %226, ptr noundef %228, ptr noundef nonnull %230)
           to label %233 unwind label %250
 
@@ -14188,7 +14188,7 @@ __cxx_global_var_init.98.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %263 unwind label %282
 
 263:                                              ; preds = %261
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32nix_isAllowedURI_github_org_TestEEE, i64 16), ptr %262, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32nix_isAllowedURI_github_org_TestEEE, i64 16), ptr %262, align 8
   %264 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.119, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %256, ptr noundef %258, ptr noundef %260, ptr noundef nonnull %262)
           to label %265 unwind label %282
 
@@ -14285,7 +14285,7 @@ __cxx_global_var_init.118.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %295 unwind label %314
 
 295:                                              ; preds = %293
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38nix_isAllowedURI_non_scheme_colon_TestEEE, i64 16), ptr %294, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38nix_isAllowedURI_non_scheme_colon_TestEEE, i64 16), ptr %294, align 8
   %296 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.122, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %288, ptr noundef %290, ptr noundef %292, ptr noundef nonnull %294)
           to label %297 unwind label %314
 

@@ -291,7 +291,7 @@ define dso_local void @emit_json() local_unnamed_addr #0 {
   %1 = load ptr, ptr @stdout, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr %1)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 14, i64 1, ptr %1)
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %5
 
@@ -328,7 +328,7 @@ define dso_local void @emit_json() local_unnamed_addr #0 {
 ._crit_edge.i.i:                                  ; preds = %12, %5, %0
   %17 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 5, i64 1, ptr %1)
   %18 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 22, i64 1, ptr %1)
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %.not36.i.i = icmp eq ptr %19, null
   br i1 %.not36.i.i, label %emit_modules.exit.i, label %20
 
@@ -365,7 +365,7 @@ define dso_local void @emit_json() local_unnamed_addr #0 {
 emit_modules.exit.i:                              ; preds = %27, %20, %._crit_edge.i.i
   %32 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 4, i64 1, ptr %1)
   %33 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 12, i64 1, ptr %1)
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %.not.i5.i = icmp eq ptr %34, null
   br i1 %.not.i5.i, label %._crit_edge139.i.i, label %35
 
@@ -382,7 +382,7 @@ emit_modules.exit.i:                              ; preds = %27, %20, %._crit_ed
 .lr.ph138.i.i:                                    ; preds = %._crit_edge133.i.i, %.lr.ph138.preheader.i.i
   %indvars.iv167.i.i = phi i64 [ 0, %.lr.ph138.preheader.i.i ], [ %indvars.iv.next168.i.i, %._crit_edge133.i.i ]
   %.096136.i.i = phi i1 [ true, %.lr.ph138.preheader.i.i ], [ %.197.lcssa.i.i, %._crit_edge133.i.i ]
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv167.i.i
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
@@ -484,7 +484,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i8.i
 ._crit_edge139.i.i:                               ; preds = %._crit_edge133.i.i, %35, %emit_modules.exit.i
   %71 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 5, i64 1, ptr %1)
   %72 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 20, i64 1, ptr %1)
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %.not110.i.i = icmp eq ptr %73, null
   br i1 %.not110.i.i, label %emit_types.exit.i, label %74
 
@@ -501,7 +501,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i8.i
 .lr.ph155.i.i:                                    ; preds = %._crit_edge150.i.i, %.lr.ph155.preheader.i.i
   %indvars.iv179.i.i = phi i64 [ 0, %.lr.ph155.preheader.i.i ], [ %indvars.iv.next180.i.i, %._crit_edge150.i.i ]
   %.095152.i.i = phi i1 [ true, %.lr.ph155.preheader.i.i ], [ %.1.lcssa.i.i, %._crit_edge150.i.i ]
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv179.i.i
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
@@ -603,7 +603,7 @@ switch.early.test117.i.i:                         ; preds = %.lr.ph143.i.i
 emit_types.exit.i:                                ; preds = %._crit_edge150.i.i, %74, %._crit_edge139.i.i
   %110 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 4, i64 1, ptr %1)
   %111 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 16, i64 1, ptr %1)
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %.not.i13.i = icmp eq ptr %112, null
   br i1 %.not.i13.i, label %._crit_edge121.i.i, label %113
 
@@ -620,7 +620,7 @@ emit_types.exit.i:                                ; preds = %._crit_edge150.i.i,
 .lr.ph120.i.i:                                    ; preds = %._crit_edge115.i.i, %.lr.ph120.preheader.i.i
   %indvars.iv149.i.i = phi i64 [ 0, %.lr.ph120.preheader.i.i ], [ %indvars.iv.next150.i.i, %._crit_edge115.i.i ]
   %.082118.i.i = phi i1 [ true, %.lr.ph120.preheader.i.i ], [ %.183.lcssa.i.i, %._crit_edge115.i.i ]
-  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
   %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv149.i.i
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 56
@@ -706,7 +706,7 @@ emit_types.exit.i:                                ; preds = %._crit_edge150.i.i,
 ._crit_edge121.i.i:                               ; preds = %._crit_edge115.i.i, %113, %emit_types.exit.i
   %144 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 5, i64 1, ptr %1)
   %145 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 24, i64 1, ptr %1)
-  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %.not96.i.i = icmp eq ptr %146, null
   br i1 %.not96.i.i, label %emit_json_to_file.exit, label %147
 
@@ -723,7 +723,7 @@ emit_types.exit.i:                                ; preds = %._crit_edge150.i.i,
 .lr.ph137.i.i:                                    ; preds = %._crit_edge132.i.i, %.lr.ph137.preheader.i.i
   %indvars.iv161.i.i = phi i64 [ 0, %.lr.ph137.preheader.i.i ], [ %indvars.iv.next162.i.i, %._crit_edge132.i.i ]
   %.081134.i.i = phi i1 [ true, %.lr.ph137.preheader.i.i ], [ %.1.lcssa.i23.i, %._crit_edge132.i.i ]
-  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv161.i.i
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 56

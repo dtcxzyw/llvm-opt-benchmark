@@ -60478,7 +60478,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i: ; 
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h4d78a68bc7aa8aedE.exit"
 
 203:                                              ; preds = %196
@@ -61613,7 +61613,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i: ; 
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h4d78a68bc7aa8aedE.exit"
 
 203:                                              ; preds = %196
@@ -62748,7 +62748,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i: ; 
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h4d78a68bc7aa8aedE.exit"
 
 203:                                              ; preds = %196
@@ -63883,7 +63883,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i: ; 
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h4d78a68bc7aa8aedE.exit"
 
 203:                                              ; preds = %196
@@ -65018,7 +65018,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.exit.i: ; 
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @anon.ba92da305e83b5c6df8a3e9a5e69fe1b.1007, i64 16), i64 16, i1 false)
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h4d78a68bc7aa8aedE.exit"
 
 203:                                              ; preds = %196

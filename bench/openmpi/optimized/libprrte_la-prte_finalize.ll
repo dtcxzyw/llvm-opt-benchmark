@@ -33,38 +33,38 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @prte_finalize() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #7
-  %2 = load volatile i8, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #7
+  %2 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
-  %4 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 168), ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #7
-  %5 = load volatile i8, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  %4 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #7
+  %5 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   fence acquire
-  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  store volatile i8 1, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   %7 = load i8, ptr @prte_initialized, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %._crit_edge
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   fence release
-  %10 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 168)) #7
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #7
+  %10 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 168)) #7
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #7
   br label %365
 
 12:                                               ; preds = %._crit_edge
   store i8 0, ptr @prte_initialized, align 1
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @prte_init_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 216), align 8
   fence release
-  %13 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 168)) #7
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #7
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_finalize_lock, i64 120)) #7
+  %13 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 168)) #7
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_init_lock, i64 128)) #7
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_finalize_lock, i64 120)) #7
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %365
 
@@ -131,7 +131,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %28
   br label %45
 
 45:                                               ; preds = %22, %44
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_ess, i64 8), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_ess, i64 8), align 8
   %47 = tail call i32 %46() #7
   %.not175 = icmp eq i32 %47, 0
   br i1 %.not175, label %48, label %365

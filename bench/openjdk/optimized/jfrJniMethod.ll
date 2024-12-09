@@ -1070,7 +1070,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19JfrPeriodicEventSet12requestEventE10JfrEventIdl12PeriodicType(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   store i64 %1, ptr @_ZN19JfrPeriodicEventSet10_timestampE, align 8
-  store i64 %1, ptr getelementptr inbounds (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
   store i32 %2, ptr @_ZN19JfrPeriodicEventSet5_typeE, align 4
   switch i32 %0, label %58 [
     i32 7, label %4

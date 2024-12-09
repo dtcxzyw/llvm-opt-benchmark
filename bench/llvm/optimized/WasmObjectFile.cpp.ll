@@ -909,7 +909,7 @@ define dso_local void @_ZN4llvm6object14WasmObjectFileC2ENS_15MemoryBufferRefERN
   %14 = alloca %"struct.llvm::object::WasmSection", align 8
   %15 = alloca %"class.llvm::Error", align 8
   tail call void @_ZN4llvm6object10ObjectFileC2EjNS_15MemoryBufferRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 22, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %1) #25
-  store ptr getelementptr inbounds inrange(-16, 456) (i8, ptr @_ZTVN4llvm6object14WasmObjectFileE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 456) (i8, ptr @_ZTVN4llvm6object14WasmObjectFileE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1212,7 +1212,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit.i: ; preds = %_
   store i32 1, ptr %144, align 4, !noalias !52
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false), !noalias !52
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !52
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !52
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %146, align 8, !noalias !52
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #25, !noalias !35
@@ -19523,7 +19523,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm6object14WasmObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(684) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 456) (i8, ptr @_ZTVN4llvm6object14WasmObjectFileE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 456) (i8, ptr @_ZTVN4llvm6object14WasmObjectFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

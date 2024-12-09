@@ -1712,7 +1712,7 @@ _ZN2os27dll_address_to_library_nameEPhPciPi.exit: ; preds = %13
 
 70:                                               ; preds = %._crit_edge, %59, %67, %37, %35, %21
   %71 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZL14saved_jvm_path, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4096) #26
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL14saved_jvm_path, i64 4095), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14saved_jvm_path, i64 4095), align 1
   br label %.critedge60
 
 .critedge60:                                      ; preds = %_ZN2os27dll_address_to_library_nameEPhPciPi.exit.thread66, %_ZN2os27dll_address_to_library_nameEPhPciPi.exit.thread, %_ZN2os27dll_address_to_library_nameEPhPciPi.exit, %67, %42, %39, %17, %70, %9, %6
@@ -2069,14 +2069,14 @@ _ZL24get_static_tls_area_sizePK14pthread_attr_t.exit: ; preds = %43, %41, %44
 
 132:                                              ; preds = %128, %130
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %7, i1 noundef zeroext false) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
   %133 = getelementptr inbounds nuw i8, ptr %7, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %133) #26
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store i32 3, ptr %134, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %7, align 8
   call void @_ZN2os5Posix17print_rlimit_infoEP12outputStream(ptr noundef nonnull %7) #26
   call void @_ZN2os17print_memory_infoEP12outputStream(ptr noundef nonnull %7)
   call fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109, ptr noundef nonnull %7, i1 noundef zeroext true)
@@ -3414,7 +3414,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   store volatile i32 6, ptr %19, align 4
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %40, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15VM_LinuxDllLoad, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV15VM_LinuxDllLoad, i64 16), ptr %4, align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7858,14 +7858,14 @@ define linkonce_odr hidden void @_ZN33LargePageInitializationLoggerMarkD2Ev(ptr 
 
 4:                                                ; preds = %1
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 3, ptr %6, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   %7 = load i8, ptr @UseLargePages, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %31
@@ -8433,7 +8433,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2os19get_native_priorityEPK6Threa
   br i1 %or.cond.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 20), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 20), align 4
   store i32 %8, ptr %1, align 4
   br label %20
 
@@ -8745,14 +8745,14 @@ _ZN2os5Linux13numa_max_nodeEv.exit.thread:        ; preds = %9, %_ZN2os5Linux23i
 
 _ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread: ; preds = %13, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %29) #26
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i32 3, ptr %30, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
   br label %31
 
 31:                                               ; preds = %36, %_ZN2os5Linux23is_bound_to_single_nodeEv.exit.thread
@@ -9128,8 +9128,8 @@ _ZL37init_adjust_stacksize_for_guard_pagesv.exit: ; preds = %57, %59, %70
   br i1 %112, label %113, label %_ZL9prio_initv.exit
 
 113:                                              ; preds = %110
-  %114 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 44), align 4
-  store i32 %114, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 40), align 8
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 44), align 4
+  store i32 %114, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 40), align 8
   br label %_ZL9prio_initv.exit
 
 _ZL9prio_initv.exit:                              ; preds = %110, %113
@@ -10896,7 +10896,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #26
   ret void

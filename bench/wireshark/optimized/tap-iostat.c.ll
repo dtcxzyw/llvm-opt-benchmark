@@ -1836,9 +1836,9 @@ define internal void @iostat_draw(ptr nocapture noundef readonly %0) #0 {
   %11 = tail call noalias ptr @g_malloc_n(i64 noundef %10, i64 noundef 8) #19
   %12 = shl nuw nsw i64 %10, 3
   %13 = tail call noalias ptr @g_malloc(i64 noundef %12) #20
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @cfile, i64 120), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 120), align 8
   %15 = mul i64 %14, 1000000
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 128), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 128), align 8
   %17 = add i32 %16, 500
   %18 = sdiv i32 %17, 1000
   %19 = sext i32 %18 to i64

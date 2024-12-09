@@ -844,7 +844,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define void @_ZN7rocksdb15DBImplSecondaryC2ERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 64 dereferenceable(6824) %this, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef %secondary_path) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7rocksdb6DBImplC2ERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbb(ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr noundef nonnull align 8 dereferenceable(32) %dbname, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15DBImplSecondaryE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15DBImplSecondaryE, i64 16), ptr %this, align 64
   %manifest_reader_ = getelementptr inbounds nuw i8, ptr %this, i64 6664
   %manifest_reporter_ = getelementptr inbounds nuw i8, ptr %this, i64 6672
   %manifest_reader_status_ = getelementptr inbounds nuw i8, ptr %this, i64 6680
@@ -1021,7 +1021,7 @@ declare void @_ZN7rocksdb6DBImplD2Ev(ptr noundef nonnull align 64 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb15DBImplSecondaryD2Ev(ptr noundef nonnull align 64 dereferenceable(6824) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15DBImplSecondaryE, i64 16), ptr %this, align 64
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb15DBImplSecondaryE, i64 16), ptr %this, align 64
   %secondary_path_ = getelementptr inbounds nuw i8, ptr %this, i64 6792
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %secondary_path_) #23
   %cfd_to_current_log_ = getelementptr inbounds nuw i8, ptr %this, i64 6736
@@ -5667,7 +5667,7 @@ entry:
   %agg.tmp = alloca %"class.std::shared_ptr.16", align 8
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %call, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18LogReaderContainer11LogReporterE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb18LogReaderContainer11LogReporterE, i64 16), ptr %call, align 8
   %fname.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname.i) #23
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
@@ -6886,7 +6886,7 @@ invoke.cont39:                                    ; preds = %invoke.cont29
   store i64 %48, ptr %max_visible_seq_.i.i, align 8
   %min_uncommitted_.i.i = getelementptr inbounds nuw i8, ptr %read_cb, i64 16
   store i64 1, ptr %min_uncommitted_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28GetWithTimestampReadCallbackE, i64 16), ptr %read_cb, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28GetWithTimestampReadCallbackE, i64 16), ptr %read_cb, align 8
   %49 = load ptr, ptr %get_impl_options, align 8
   %vtable44 = load ptr, ptr %49, align 8
   %vfn45 = getelementptr inbounds nuw i8, ptr %vtable44, i64 48
@@ -11508,7 +11508,7 @@ invoke.cont40:                                    ; preds = %_ZNSt10unique_ptrIN
   %31 = load ptr, ptr %versions_, align 8
   %column_family_set_.i = getelementptr inbounds nuw i8, ptr %31, i64 64
   %32 = load ptr, ptr %column_family_set_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 16), ptr %call41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 16), ptr %call41, align 8
   %column_family_set_.i48 = getelementptr inbounds nuw i8, ptr %call41, i64 8
   store ptr %32, ptr %column_family_set_.i48, align 8
   %current_.i = getelementptr inbounds nuw i8, ptr %call41, i64 16
@@ -11518,7 +11518,7 @@ invoke.cont40:                                    ; preds = %_ZNSt10unique_ptrIN
           to label %invoke.cont47 unwind label %lpad44
 
 invoke.cont47:                                    ; preds = %invoke.cont40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 16), ptr %handle_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 16), ptr %handle_.i, align 8
   %internal_cfd_.i.i = getelementptr inbounds nuw i8, ptr %call41, i64 56
   store ptr null, ptr %internal_cfd_.i.i, align 8
   %33 = load ptr, ptr %column_family_memtables_, align 64
@@ -14893,7 +14893,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 invoke.cont119:                                   ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i131, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i128, %cond.end.i126, %_ZNSt10unique_ptrIN7rocksdb10CompactionESt14default_deleteIS1_EE5resetEPS1_.exit107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i108)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 16), ptr %compaction_job, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 16), ptr %compaction_job, align 8
   %output_path_.i = getelementptr inbounds nuw i8, ptr %compaction_job, i64 1456
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_path_.i) #23
   call void @_ZN7rocksdb13CompactionJobD2Ev(ptr noundef nonnull align 8 dereferenceable(1504) %compaction_job) #23
@@ -14980,7 +14980,7 @@ _ZN7rocksdb6StatusD2Ev.exit142:                   ; preds = %lpad116, %_ZNKSt14d
 
 ehcleanup121:                                     ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11.i, %_ZN7rocksdb6StatusD2Ev.exit.i, %lpad100, %_ZN7rocksdb6StatusD2Ev.exit142
   %.pn28 = phi { ptr, i32 } [ %99, %_ZN7rocksdb6StatusD2Ev.exit142 ], [ %80, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11.i ], [ %98, %lpad100 ], [ %71, %_ZN7rocksdb6StatusD2Ev.exit.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 16), ptr %compaction_job, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 16), ptr %compaction_job, align 8
   %output_path_.i143 = getelementptr inbounds nuw i8, ptr %compaction_job, i64 1456
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_path_.i143) #23
   call void @_ZN7rocksdb13CompactionJobD2Ev(ptr noundef nonnull align 8 dereferenceable(1504) %compaction_job) #23
@@ -20194,12 +20194,12 @@ invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN
   %9 = load ptr, ptr %fs, align 8
   %target_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %9, ptr %target_.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %fs_tracer_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %fs_tracer_, align 8
   %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load i64, ptr %fs, align 8
   store i64 %10, ptr %guard_.i.i, align 8
   store ptr null, ptr %fs, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i64 16), ptr %fs_tracer_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i64 16), ptr %fs_tracer_, align 8
   %io_tracer_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %11 = load ptr, ptr %agg.tmp, align 8
   store ptr %11, ptr %io_tracer_.i, align 8
@@ -20241,7 +20241,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %_ZN
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN7rocksdb8IOTracerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %io_tracer_.i) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %fs_tracer_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %fs_tracer_, align 8
   %18 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i13 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i13, label %_ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev.exit.i, label %_ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i.i
@@ -20351,7 +20351,7 @@ ehcleanup:                                        ; preds = %_ZN7rocksdb28FSSequ
 define linkonce_odr void @_ZN7rocksdb19FSSequentialFilePtrD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fs_tracer_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i64 16), ptr %fs_tracer_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb30FSSequentialFileTracingWrapperE, i64 16), ptr %fs_tracer_, align 8
   %file_name_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_name_.i) #23
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -20428,7 +20428,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEED2Ev.exit.i
 
 _ZNSt10shared_ptrIN7rocksdb8IOTracerEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %fs_tracer_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %fs_tracer_, align 8
   %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %11 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %11, null
@@ -20610,7 +20610,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb11SystemCloc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %this, align 8
   %guard_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %guard_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -20631,7 +20631,7 @@ _ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb28FSSequentialFileOwnerWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %this, align 8
   %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -20959,7 +20959,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit
 
 _ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit:    ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb3log22FragmentBufferedReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb3log22FragmentBufferedReaderE, i64 16), ptr %this, align 8
   %fragments_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fragments_) #23
   %in_fragmented_record_ = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -20976,7 +20976,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18LogReaderContainer11LogReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18LogReaderContainer11LogReporterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb18LogReaderContainer11LogReporterE, i64 16), ptr %this, align 8
   %fname = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname) #23
   tail call void @_ZN7rocksdb3log6Reader8ReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #23
@@ -20986,7 +20986,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18LogReaderContainer11LogReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18LogReaderContainer11LogReporterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb18LogReaderContainer11LogReporterE, i64 16), ptr %this, align 8
   %fname.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname.i) #23
   tail call void @_ZN7rocksdb3log6Reader8ReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #23

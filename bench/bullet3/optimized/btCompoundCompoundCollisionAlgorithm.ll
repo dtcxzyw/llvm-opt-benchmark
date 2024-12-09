@@ -80,7 +80,7 @@ $_ZTI30btCompoundCompoundLeafCallback = comdat any
 define dso_local void @_ZN36btCompoundCompoundCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_b(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap, i1 noundef zeroext %isSwapped) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN28btCompoundCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_b(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap, i1 noundef zeroext %isSwapped)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV36btCompoundCompoundCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV36btCompoundCompoundCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -172,7 +172,7 @@ declare void @_ZN28btCompoundCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN36btCompoundCompoundCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV36btCompoundCompoundCollisionAlgorithm, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV36btCompoundCompoundCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_childCollisionAlgorithmCache.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %m_childCollisionAlgorithmCache.i, align 8
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -739,7 +739,7 @@ invoke.cont59:                                    ; preds = %for.end50, %if.then
   %53 = load ptr, ptr %m_childCollisionAlgorithmCache, align 8
   %m_sharedManifold = getelementptr inbounds nuw i8, ptr %this, i64 120
   %54 = load ptr, ptr %m_sharedManifold, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30btCompoundCompoundLeafCallback, i64 16), ptr %callback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30btCompoundCompoundLeafCallback, i64 16), ptr %callback, align 8
   %m_numOverlapPairs.i = getelementptr inbounds nuw i8, ptr %callback, i64 8
   store i32 0, ptr %m_numOverlapPairs.i, align 8
   %m_compound0ColObjWrap.i = getelementptr inbounds nuw i8, ptr %callback, i64 16

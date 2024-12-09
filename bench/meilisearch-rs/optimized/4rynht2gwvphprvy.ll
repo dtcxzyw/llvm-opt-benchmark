@@ -57048,7 +57048,7 @@ define hidden void @"_ZN6rustls7builder59ConfigBuilder$LT$S$C$rustls..builder..W
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %6 = load ptr, ptr @_ZN6rustls6suites21DEFAULT_CIPHER_SUITES17h3fb19d04a928354cE, align 8, !nonnull !12, !align !129, !noundef !12
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6rustls6suites21DEFAULT_CIPHER_SUITES17h3fb19d04a928354cE, i64 8), align 8, !noundef !12
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6rustls6suites21DEFAULT_CIPHER_SUITES17h3fb19d04a928354cE, i64 8), align 8, !noundef !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11534)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !11537
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h1e1cd7a822a1b07dE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, i64 noundef %7, i1 noundef zeroext false), !noalias !11537
@@ -57116,7 +57116,7 @@ define hidden void @"_ZN6rustls7builder59ConfigBuilder$LT$S$C$rustls..builder..W
   %.sroa.6.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 3, ptr %.sroa.6.0..sroa_idx.i6, align 8, !alias.scope !11540, !noalias !11545
   %27 = load ptr, ptr @_ZN6rustls8versions16DEFAULT_VERSIONS17h0f94d3451eb8988bE, align 8, !nonnull !12, !align !129, !noundef !12
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6rustls8versions16DEFAULT_VERSIONS17h0f94d3451eb8988bE, i64 8), align 8, !noundef !12
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6rustls8versions16DEFAULT_VERSIONS17h0f94d3451eb8988bE, i64 8), align 8, !noundef !12
   %29 = invoke { ptr, ptr } @_ZN6rustls8versions15EnabledVersions3new17h67bfd8854ca6b6d8E(ptr noalias noundef nonnull readonly align 8 %27, i64 noundef %28)
           to label %32 unwind label %30
 

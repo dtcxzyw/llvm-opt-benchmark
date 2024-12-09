@@ -145,7 +145,7 @@ if.end25.tail:                                    ; preds = %sub_128
 
 if.then28:                                        ; preds = %if.end25.tail
   tail call void @ensure_full_index(ptr noundef nonnull @the_index) #7
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %cmp6.not.i = icmp eq i32 %29, 0
   br i1 %cmp6.not.i, label %for.inc, label %for.body.preheader.i
 
@@ -172,7 +172,7 @@ if.end.i:                                         ; preds = %for.body.i
   %sub.i = add nsw i32 %i.07.i, -1
   %add.i = add i32 %sub.i, %call.i
   %.pre.i = load ptr, ptr @the_index, align 8
-  %.pre9.i = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %.pre9.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
@@ -262,7 +262,7 @@ entry:
   %arrayinit.element7 = getelementptr inbounds nuw i8, ptr %arguments, i64 64
   store ptr null, ptr %arrayinit.element7, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd, ptr noundef nonnull align 8 dereferenceable(120) @__const.merge_entry.cmd, i64 120, i1 false)
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %cmp.not = icmp ult i32 %pos, %1
   br i1 %cmp.not, label %do.body.preheader, label %if.then
 
@@ -306,7 +306,7 @@ if.end9:                                          ; preds = %do.body
   %arrayidx27 = getelementptr inbounds nuw [9 x ptr], ptr %arguments, i64 0, i64 %idxprom26
   store ptr %arrayidx15, ptr %arrayidx27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %8 = trunc nsw i64 %indvars.iv.next to i32
   %cmp29 = icmp ugt i32 %7, %8
   br i1 %cmp29, label %do.body, label %if.end32, !llvm.loop !8

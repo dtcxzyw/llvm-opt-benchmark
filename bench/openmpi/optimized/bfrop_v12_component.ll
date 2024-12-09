@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @component_open() #0 {
   %1 = load i32, ptr @pmix_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 32), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_pointer_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -31,9 +31,9 @@ define internal noundef i32 @component_open() #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v12_component, i64 272), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v12_component, i64 280), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v12_component, i64 288), i8 0, i64 64, i1 false)
+  store ptr @pmix_pointer_array_t_class, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 272), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 280), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 288), i8 0, i64 64, i1 false)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pointer_array_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not1.i = icmp eq ptr %6, null
@@ -42,7 +42,7 @@ define internal noundef i32 @component_open() #0 {
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %4 ]
   %.02.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %4 ]
-  tail call void %7(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v12_component, i64 232)) #5
+  tail call void %7(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232)) #5
   %8 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -54,7 +54,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @component_close() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v12_component, i64 272), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 272), align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -64,7 +64,7 @@ define internal noundef i32 @component_close() #0 {
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %5 = phi ptr [ %7, %.lr.ph.i ], [ %4, %0 ]
   %.02.i = phi ptr [ %6, %.lr.ph.i ], [ %3, %0 ]
-  tail call void %5(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v12_component, i64 232)) #5
+  tail call void %5(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 232)) #5
   %6 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
@@ -76,7 +76,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal noundef i32 @component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v12_component, i64 224), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v12_component, i64 224), align 8
   store i32 %3, ptr %1, align 4
   store ptr @pmix_bfrops_pmix12_module, ptr %0, align 8
   ret i32 0

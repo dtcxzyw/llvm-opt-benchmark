@@ -695,7 +695,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm29createFreeMachineFunctio
   store ptr @_ZN12_GLOBAL__N_119FreeMachineFunction2IDE, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 2, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_119FreeMachineFunctionE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_119FreeMachineFunctionE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 
@@ -709,7 +709,7 @@ define dso_local void @_ZN4llvm28MachineModuleInfoWrapperPassC2EPKNS_17LLVMTarge
   store ptr @_ZN4llvm28MachineModuleInfoWrapperPass2IDE, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 4, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN4llvm28MachineModuleInfoWrapperPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN4llvm28MachineModuleInfoWrapperPassE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm17MachineModuleInfoC1EPKNS_17LLVMTargetMachineE(ptr noundef nonnull align 8 dereferenceable(2512) %8, ptr noundef %1) #17
   %9 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #17
@@ -779,7 +779,7 @@ define dso_local void @_ZN4llvm28MachineModuleInfoWrapperPassC2EPKNS_17LLVMTarge
   store ptr @_ZN4llvm28MachineModuleInfoWrapperPass2IDE, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 4, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN4llvm28MachineModuleInfoWrapperPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN4llvm28MachineModuleInfoWrapperPassE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm17MachineModuleInfoC1EPKNS_17LLVMTargetMachineEPNS_9MCContextE(ptr noundef nonnull align 8 dereferenceable(2512) %9, ptr noundef %1, ptr noundef %2) #17
   %10 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #17
@@ -941,7 +941,7 @@ _ZNSt8functionIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm28MachineModuleInfoWrapperPassD2Ev(ptr noundef nonnull align 8 dereferenceable(2544) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN4llvm28MachineModuleInfoWrapperPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN4llvm28MachineModuleInfoWrapperPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm17MachineModuleInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(2512) %2) #17
   tail call void @_ZN4llvm13ImmutablePassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #17
@@ -950,7 +950,7 @@ define linkonce_odr hidden void @_ZN4llvm28MachineModuleInfoWrapperPassD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm28MachineModuleInfoWrapperPassD0Ev(ptr noundef nonnull align 8 dereferenceable(2544) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN4llvm28MachineModuleInfoWrapperPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN4llvm28MachineModuleInfoWrapperPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm17MachineModuleInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(2512) %2) #17
   tail call void @_ZN4llvm13ImmutablePassD2Ev(ptr noundef nonnull align 8 dereferenceable(2544) %0) #17
@@ -1712,7 +1712,7 @@ switch.lookup:                                    ; preds = %8, %5
   store i32 21, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 %switch.idx.cast, ptr %20, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1918,7 +1918,7 @@ switch.lookup:                                    ; preds = %8, %5
   store i32 21, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 %switch.idx.cast, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20DiagnosticInfoSrcMgrE, i64 16), ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 24

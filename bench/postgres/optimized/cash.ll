@@ -1341,7 +1341,7 @@ define internal fastcc ptr @num_word(i64 noundef range(i64 0, 1000) %0) unnamed_
   %.lhs.trunc38 = trunc nuw nsw i16 %2 to i8
   %24 = udiv i8 %.lhs.trunc38, 10
   %25 = zext nneg i8 %24 to i64
-  %26 = getelementptr ptr, ptr getelementptr inbounds (i8, ptr @num_word.small, i64 144), i64 %25
+  %26 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @num_word.small, i64 144), i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.53, ptr noundef %23, ptr noundef %27) #12
   br label %73
@@ -1363,7 +1363,7 @@ define internal fastcc ptr @num_word(i64 noundef range(i64 0, 1000) %0) unnamed_
   %.lhs.trunc44 = trunc nuw nsw i16 %2 to i8
   %38 = udiv i8 %.lhs.trunc44, 10
   %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr ptr, ptr getelementptr inbounds (i8, ptr @num_word.small, i64 144), i64 %39
+  %40 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @num_word.small, i64 144), i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = urem i8 %.lhs.trunc44, 10
   %43 = zext nneg i8 %42 to i64
@@ -1384,7 +1384,7 @@ define internal fastcc ptr @num_word(i64 noundef range(i64 0, 1000) %0) unnamed_
   %.lhs.trunc50 = trunc nuw nsw i16 %2 to i8
   %52 = udiv i8 %.lhs.trunc50, 10
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr ptr, ptr getelementptr inbounds (i8, ptr @num_word.small, i64 144), i64 %53
+  %54 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @num_word.small, i64 144), i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.56, ptr noundef %55) #12
   br label %73
@@ -1403,7 +1403,7 @@ define internal fastcc ptr @num_word(i64 noundef range(i64 0, 1000) %0) unnamed_
   %.lhs.trunc52 = trunc nuw nsw i16 %2 to i8
   %64 = udiv i8 %.lhs.trunc52, 10
   %65 = zext nneg i8 %64 to i64
-  %66 = getelementptr ptr, ptr getelementptr inbounds (i8, ptr @num_word.small, i64 144), i64 %65
+  %66 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @num_word.small, i64 144), i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = urem i8 %.lhs.trunc52, 10
   %69 = zext nneg i8 %68 to i64

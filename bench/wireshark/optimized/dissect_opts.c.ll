@@ -213,7 +213,7 @@ sub_180:                                          ; preds = %.tail74
 
 64:                                               ; preds = %63
   store i8 46, ptr %13, align 1
-  store i32 %.041, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 4), align 4
+  store i32 %.041, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 4), align 4
   br label %.loopexit
 
 sub_084:                                          ; preds = %2
@@ -246,27 +246,27 @@ sub_084:                                          ; preds = %2
   br label %93
 
 74:                                               ; preds = %2
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 16), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 16), align 8
   %76 = tail call ptr @g_slist_append(ptr noundef %75, ptr noundef %1) #5
-  store ptr %76, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 16), align 8
+  store ptr %76, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 16), align 8
   br label %.loopexit
 
 77:                                               ; preds = %2
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 24), align 8
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 24), align 8
   %79 = tail call ptr @g_slist_append(ptr noundef %78, ptr noundef %1) #5
-  store ptr %79, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 24), align 8
+  store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 24), align 8
   br label %.loopexit
 
 80:                                               ; preds = %2
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 32), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 32), align 8
   %82 = tail call ptr @g_slist_append(ptr noundef %81, ptr noundef %1) #5
-  store ptr %82, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 32), align 8
+  store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 32), align 8
   br label %.loopexit
 
 83:                                               ; preds = %2
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 8), align 8
   %85 = tail call ptr @g_slist_append(ptr noundef %84, ptr noundef %1) #5
-  store ptr %85, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
+  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 8), align 8
   br label %.loopexit
 
 86:                                               ; preds = %2
@@ -277,9 +277,9 @@ sub_084:                                          ; preds = %2
 
 .lr.ph:                                           ; preds = %86, %.lr.ph
   %.088 = phi ptr [ %90, %.lr.ph ], [ %87, %86 ]
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 8), align 8
   %89 = tail call ptr @g_slist_append(ptr noundef %88, ptr noundef nonnull %.088) #5
-  store ptr %89, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
+  store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 8), align 8
   %90 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.20) #5
   %.not48 = icmp eq ptr %90, null
   br i1 %.not48, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -334,7 +334,7 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @setup_enabled_and_disabled_protocols() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 16), align 8
   %.not37.i = icmp eq ptr %1, null
   br i1 %.not37.i, label %process_enable_disable_list.exit, label %.lr.ph.i
 
@@ -401,7 +401,7 @@ define hidden range(i32 0, 2) i32 @setup_enabled_and_disabled_protocols() local_
 
 process_enable_disable_list.exit:                 ; preds = %.loopexit.i, %0
   %.027.lcssa.i = phi i32 [ 1, %0 ], [ %.330.i, %.loopexit.i ]
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 8), align 8
   %.not37.i5 = icmp eq ptr %20, null
   br i1 %.not37.i5, label %process_enable_disable_list.exit26, label %.lr.ph.i6
 
@@ -468,7 +468,7 @@ process_enable_disable_list.exit:                 ; preds = %.loopexit.i, %0
 
 process_enable_disable_list.exit26:               ; preds = %.loopexit.i20, %process_enable_disable_list.exit
   %.027.lcssa.i24 = phi i32 [ 1, %process_enable_disable_list.exit ], [ %.330.i21, %.loopexit.i20 ]
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 24), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 24), align 8
   %.not37.i27 = icmp eq ptr %39, null
   br i1 %.not37.i27, label %process_enable_disable_list.exit48, label %.lr.ph.i28
 
@@ -535,7 +535,7 @@ process_enable_disable_list.exit26:               ; preds = %.loopexit.i20, %pro
 
 process_enable_disable_list.exit48:               ; preds = %.loopexit.i42, %process_enable_disable_list.exit26
   %.027.lcssa.i46 = phi i32 [ 1, %process_enable_disable_list.exit26 ], [ %.330.i43, %.loopexit.i42 ]
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 32), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_dissect_options, i64 32), align 8
   %.not37.i49 = icmp eq ptr %58, null
   br i1 %.not37.i49, label %process_enable_disable_list.exit70, label %.lr.ph.i50
 

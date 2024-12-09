@@ -349,7 +349,7 @@ define hidden noundef i32 @_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc(
 
 19:                                               ; preds = %4
   store i32 1, ptr @_ZL6nHeaps, align 4
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZL17CodeHeapStatArray, i64 32), align 16
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZL17CodeHeapStatArray, i64 32), align 16
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %10
@@ -420,7 +420,7 @@ define hidden void @_ZN13CodeHeapState19get_HeapStatGlobalsEP12outputStreamPKc(p
 
 _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread19: ; preds = %4
   store i32 1, ptr @_ZL6nHeaps, align 4
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZL17CodeHeapStatArray, i64 32), align 16
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZL17CodeHeapStatArray, i64 32), align 16
   br label %20
 
 .loopexit.loopexit.i:                             ; preds = %10
@@ -565,7 +565,7 @@ define hidden void @_ZN13CodeHeapState19set_HeapStatGlobalsEP12outputStreamPKc(p
 
 _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread18: ; preds = %4
   store i32 1, ptr @_ZL6nHeaps, align 4
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZL17CodeHeapStatArray, i64 32), align 16
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZL17CodeHeapStatArray, i64 32), align 16
   br label %20
 
 .loopexit.loopexit.i:                             ; preds = %10

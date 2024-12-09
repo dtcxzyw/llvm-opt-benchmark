@@ -1143,9 +1143,9 @@ define void @_ZN22SimpleStatisticsDialogC2ER7QWidgetR11CaptureFileP18_stat_tap_t
   %13 = alloca %class.QList.5, align 8
   %14 = alloca %class.QString, align 8
   tail call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %5)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 560), ptr %15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 560), ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %3, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -1761,7 +1761,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %.body
           to label %_ZN30SimpleStatisticsTreeWidgetItemC2EP15QTreeWidgetItemiPK25_stat_tap_table_item_type.exit unwind label %92
 
 _ZN30SimpleStatisticsTreeWidgetItemC2EP15QTreeWidgetItemiPK25_stat_tap_table_item_type.exit: ; preds = %69
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30SimpleStatisticsTreeWidgetItem, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30SimpleStatisticsTreeWidgetItem, i64 16), ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 92
   store i32 %71, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 96
@@ -2718,9 +2718,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22SimpleStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 560), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 560), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112

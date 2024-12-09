@@ -907,7 +907,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3564), align 4
   %tobool2.not = icmp eq i32 %0, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -916,7 +916,7 @@ if.end4:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
-  %retval.0 = phi ptr [ %call5, %if.end4 ], [ @_Py_NoneStruct, %entry ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 25696), %if.end ]
+  %retval.0 = phi ptr [ %call5, %if.end4 ], [ @_Py_NoneStruct, %entry ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25696), %if.end ]
   ret ptr %retval.0
 }
 
@@ -978,13 +978,13 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, -1) i32 @_Py_GetForceASCII() local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3128), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3128), align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call fastcc i32 @check_force_ascii()
-  store i32 %call, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3128), align 8
+  store i32 %call, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3128), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1080,7 +1080,7 @@ return:                                           ; preds = %for.cond, %for.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_Py_ResetForceASCII() local_unnamed_addr #3 {
 entry:
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3128), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3128), align 8
   ret void
 }
 
@@ -1095,7 +1095,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3564), align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then2, label %if.end5
 
@@ -1105,13 +1105,13 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3128), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3128), align 8
   %cmp6 = icmp eq i32 %1, -1
   br i1 %cmp6, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end5
   %call9 = tail call fastcc i32 @check_force_ascii()
-  store i32 %call9, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3128), align 8
+  store i32 %call9, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3128), align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %if.end5
@@ -1529,7 +1529,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3564), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3564), align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then2, label %if.end4
 
@@ -1538,13 +1538,13 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3128), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3128), align 8
   %cmp5 = icmp eq i32 %1, -1
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end4
   %call8 = tail call fastcc i32 @check_force_ascii()
-  store i32 %call8, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3128), align 8
+  store i32 %call8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3128), align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end4

@@ -2489,7 +2489,7 @@ gmtload.exit.i:                                   ; preds = %15, %13, %7
   %18 = tail call fastcc ptr @timesub(ptr noundef nonnull readonly %1, i32 noundef 0, ptr noundef %17)
   %19 = load ptr, ptr @gmtsub.gmtptr, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 22120
-  store ptr %20, ptr getelementptr inbounds (i8, ptr @tm, i64 48), align 8
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 48), align 8
   br label %gmtsub.exit
 
 21:                                               ; preds = %2
@@ -2702,7 +2702,7 @@ gmtload.exit.i:                                   ; preds = %9, %7, %1
   %12 = tail call fastcc ptr @timesub(ptr noundef readonly %0, i32 noundef 0, ptr noundef %11)
   %13 = load ptr, ptr @gmtsub.gmtptr, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 22120
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @tm, i64 48), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 48), align 8
   br label %gmtsub.exit
 
 gmtsub.exit:                                      ; preds = %4, %gmtload.exit.i
@@ -3491,14 +3491,14 @@ increment_overflow.exit103:                       ; preds = %.thread26
   br label %.preheader, !llvm.loop !50
 
 175:                                              ; preds = %.thread105, %.thread, %159
-  store i32 %.319, ptr getelementptr inbounds (i8, ptr @tm, i64 20), align 4
+  store i32 %.319, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 20), align 4
   %176 = icmp slt i32 %.319, -2147481748
   br i1 %176, label %increment_overflow.exit.thread, label %177
 
 177:                                              ; preds = %175
   %178 = add nsw i32 %.319, -1900
-  store i32 %178, ptr getelementptr inbounds (i8, ptr @tm, i64 20), align 4
-  store i32 %.3, ptr getelementptr inbounds (i8, ptr @tm, i64 28), align 4
+  store i32 %178, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 20), align 4
+  store i32 %.3, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 28), align 4
   %179 = add i32 %.319, -1970
   %180 = srem i32 %179, 7
   %181 = icmp slt i32 %.319, 1
@@ -3532,15 +3532,15 @@ leaps_thru_end_of.exit106:                        ; preds = %182, %190
   %202 = icmp slt i32 %201, 0
   %203 = add nsw i32 %201, 7
   %spec.select98 = select i1 %202, i32 %203, i32 %201
-  store i32 %spec.select98, ptr getelementptr inbounds (i8, ptr @tm, i64 24), align 8
+  store i32 %spec.select98, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 24), align 8
   %204 = udiv i64 %.180.lcssa, 3600
   %205 = trunc i64 %204 to i32
-  store i32 %205, ptr getelementptr inbounds (i8, ptr @tm, i64 8), align 8
+  store i32 %205, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 8), align 8
   %206 = urem i64 %.180.lcssa, 3600
   %.lhs.trunc = trunc nuw nsw i64 %206 to i16
   %207 = udiv i16 %.lhs.trunc, 60
   %208 = zext nneg i16 %207 to i32
-  store i32 %208, ptr getelementptr inbounds (i8, ptr @tm, i64 4), align 4
+  store i32 %208, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 4), align 4
   %209 = urem i16 %.lhs.trunc, 60
   %210 = zext nneg i16 %209 to i32
   %211 = add nuw nsw i32 %.076, %210
@@ -3580,11 +3580,11 @@ leaps_thru_end_of.exit106:                        ; preds = %182, %190
 ._crit_edge:                                      ; preds = %.lr.ph76, %218
   %storemerge94.lcssa = phi i32 [ 0, %218 ], [ %224, %.lr.ph76 ]
   %.4.lcssa = phi i32 [ %.3, %218 ], [ %223, %.lr.ph76 ]
-  store i32 %storemerge94.lcssa, ptr getelementptr inbounds (i8, ptr @tm, i64 16), align 8
+  store i32 %storemerge94.lcssa, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 16), align 8
   %228 = add nsw i32 %.4.lcssa, 1
-  store i32 %228, ptr getelementptr inbounds (i8, ptr @tm, i64 12), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @tm, i64 32), align 8
-  store i64 %108, ptr getelementptr inbounds (i8, ptr @tm, i64 40), align 8
+  store i32 %228, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 32), align 8
+  store i64 %108, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 40), align 8
   br label %230
 
 increment_overflow.exit.thread:                   ; preds = %57, %60, %.critedge, %.lr.ph70, %.thread26, %175

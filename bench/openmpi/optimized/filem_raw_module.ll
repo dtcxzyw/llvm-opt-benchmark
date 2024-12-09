@@ -113,7 +113,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @raw_init() #0 {
   %1 = load i32, ptr @pmix_class_init_epoch, align 4
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %4, label %3
 
@@ -122,8 +122,8 @@ define internal noundef i32 @raw_init() #0 {
   br label %4
 
 4:                                                ; preds = %3, %0
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @incoming_files, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @incoming_files, i64 48), align 8
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @incoming_files, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @incoming_files, i64 48), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @incoming_files, i64 56), i8 0, i64 64, i1 false)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
@@ -157,14 +157,14 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 17:                                               ; preds = %16, %11, %pmix_obj_run_constructors.exit
   tail call void @prte_rml_recv_buffer_nb(ptr noundef nonnull @prte_name_wildcard, i32 noundef 21, i1 noundef zeroext true, ptr noundef nonnull @recv_files, ptr noundef null) #15
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4
   %19 = and i8 %18, 4
   %.not5 = icmp eq i8 %19, 0
   br i1 %.not5, label %47, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr @pmix_class_init_epoch, align 4
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not6 = icmp eq i32 %21, %22
   br i1 %.not6, label %24, label %23
 
@@ -173,8 +173,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
   br label %24
 
 24:                                               ; preds = %23, %20
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @outbound_files, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @outbound_files, i64 48), align 8
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @outbound_files, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @outbound_files, i64 48), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @outbound_files, i64 56), i8 0, i64 64, i1 false)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %26 = load ptr, ptr %25, align 8
@@ -192,7 +192,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 
 pmix_obj_run_constructors.exit12:                 ; preds = %.lr.ph.i9, %24
   %30 = load i32, ptr @pmix_class_init_epoch, align 4
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not7 = icmp eq i32 %30, %31
   br i1 %.not7, label %33, label %32
 
@@ -201,8 +201,8 @@ pmix_obj_run_constructors.exit12:                 ; preds = %.lr.ph.i9, %24
   br label %33
 
 33:                                               ; preds = %32, %pmix_obj_run_constructors.exit12
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @positioned_files, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @positioned_files, i64 48), align 8
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @positioned_files, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @positioned_files, i64 48), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @positioned_files, i64 56), i8 0, i64 64, i1 false)
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %35 = load ptr, ptr %34, align 8
@@ -337,7 +337,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   br i1 %.not.i56, label %pmix_obj_run_destructors.exit57, label %.lr.ph.i54, !llvm.loop !6
 
 pmix_obj_run_destructors.exit57:                  ; preds = %.lr.ph.i54, %._crit_edge
-  %46 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
+  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4
   %47 = and i8 %46, 4
   %.not46 = icmp eq i8 %47, 0
   br i1 %.not46, label %pmix_obj_run_destructors.exit83, label %.preheader
@@ -552,7 +552,7 @@ declare i32 @prte_filem_base_none_wait_all(ptr noundef) #1
 define internal range(i32 -1, 1) i32 @raw_preposition_files(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.pmix_list_t, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %16
 
@@ -572,7 +572,7 @@ define internal range(i32 -1, 1) i32 @raw_preposition_files(ptr noundef %0, ptr 
 
 16:                                               ; preds = %3, %7, %12
   %17 = load i32, ptr @pmix_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %17, %18
   br i1 %.not, label %20, label %19
 
@@ -631,7 +631,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %45, label %46, label %100
 
 46:                                               ; preds = %43
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond311 = icmp ult i32 %47, 64
   br i1 %or.cond311, label %48, label %57
 
@@ -799,7 +799,7 @@ pmix_obj_new_tma.exit336:                         ; preds = %.lr.ph.i.i333, %113
   br i1 %132, label %133, label %sub_0
 
 133:                                              ; preds = %130
-  %134 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %134 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond312 = icmp ult i32 %134, 64
   br i1 %or.cond312, label %135, label %.tail399.thread
 
@@ -834,7 +834,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %148, label %149, label %sub_1401
 
 149:                                              ; preds = %.tail
-  %150 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond313 = icmp ult i32 %150, 64
   br i1 %or.cond313, label %151, label %.tail399.thread
 
@@ -864,7 +864,7 @@ sub_1401:                                         ; preds = %.tail, %sub_1
   br i1 %163, label %164, label %.tail399.thread
 
 164:                                              ; preds = %.tail399
-  %165 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %165 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond314 = icmp ult i32 %165, 64
   br i1 %or.cond314, label %166, label %.tail399.thread
 
@@ -978,7 +978,7 @@ sub_1401:                                         ; preds = %.tail, %sub_1
   %217 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %218 = load volatile i64, ptr %217, align 8
   %219 = icmp eq i64 %218, 0
-  %220 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond315 = icmp ult i32 %220, 64
   br i1 %219, label %221, label %239
 
@@ -1119,7 +1119,7 @@ pmix_obj_new_tma.exit347:                         ; preds = %.lr.ph.i.i344, %255
   store volatile ptr %286, ptr %289, align 8
   %290 = load volatile ptr, ptr %287, align 8
   store ptr %290, ptr %277, align 8
-  %291 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %291 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond317 = icmp ult i32 %291, 64
   br i1 %or.cond317, label %292, label %301
 
@@ -1142,7 +1142,7 @@ pmix_obj_new_tma.exit347:                         ; preds = %.lr.ph.i.i344, %255
   br label %303
 
 303:                                              ; preds = %301, %304
-  %.0257417.in = phi ptr [ getelementptr inbounds (i8, ptr @positioned_files, i64 240), %301 ], [ %310, %304 ]
+  %.0257417.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @positioned_files, i64 240), %301 ], [ %310, %304 ]
   %.0416 = phi i8 [ 0, %301 ], [ %spec.select, %304 ]
   %.0257417 = load ptr, ptr %.0257417.in, align 8
   %.not295 = icmp eq ptr %.0257417, getelementptr inbounds nuw (i8, ptr @positioned_files, i64 120)
@@ -1160,7 +1160,7 @@ pmix_obj_new_tma.exit347:                         ; preds = %.lr.ph.i.i344, %255
   br i1 %311, label %.critedge318, label %303, !llvm.loop !13
 
 .critedge318:                                     ; preds = %304
-  %312 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %312 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond319 = icmp ult i32 %312, 64
   br i1 %or.cond319, label %313, label %321
 
@@ -1241,7 +1241,7 @@ pmix_obj_run_destructors.exit353:                 ; preds = %.lr.ph.i350, %332
   br i1 %348, label %.critedge321, label %.lr.ph427
 
 .lr.ph427:                                        ; preds = %.critedge
-  %outbound_files.val = load ptr, ptr getelementptr inbounds (i8, ptr @outbound_files, i64 240), align 8
+  %outbound_files.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @outbound_files, i64 240), align 8
   br label %349
 
 349:                                              ; preds = %.lr.ph427, %363
@@ -1290,7 +1290,7 @@ pmix_obj_run_destructors.exit353:                 ; preds = %.lr.ph.i350, %332
   br i1 %365, label %.critedge321, label %349, !llvm.loop !16
 
 .critedge321:                                     ; preds = %363, %.critedge
-  %366 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %366 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond322 = icmp ult i32 %366, 64
   br i1 %or.cond322, label %367, label %375
 
@@ -1501,14 +1501,14 @@ pmix_obj_run_destructors.exit371:                 ; preds = %.lr.ph.i368, %448
 
 .sink.split:                                      ; preds = %465, %462
   %.sink467 = phi i32 [ 459, %462 ], [ 465, %465 ]
-  %469 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %469 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %470 = tail call ptr @__errno_location() #16
   %471 = load i32, ptr %470, align 4
   call void (i32, ptr, ...) @pmix_output(i32 noundef %469, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.5, i32 noundef %.sink467, i32 noundef %471) #15
   br label %472
 
 472:                                              ; preds = %.sink.split, %465
-  %473 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %473 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond323 = icmp ult i32 %473, 64
   br i1 %or.cond323, label %474, label %482
 
@@ -1698,7 +1698,7 @@ pmix_obj_run_destructors.exit390:                 ; preds = %.lr.ph.i387, %._cri
   %561 = getelementptr inbounds nuw i8, ptr %251, i64 408
   %562 = load volatile i64, ptr %561, align 8
   %563 = icmp eq i64 %562, 0
-  %564 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %564 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   br i1 %563, label %565, label %607
 
 565:                                              ; preds = %pmix_obj_run_destructors.exit390
@@ -1890,7 +1890,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %40, label %190, label %41
 
 41:                                               ; preds = %pmix_pointer_array_get_item.exit
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %42, 64
   br i1 %or.cond, label %43, label %52
 
@@ -1914,7 +1914,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %54, label %66, label %55
 
 55:                                               ; preds = %52
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond75 = icmp ult i32 %56, 64
   br i1 %or.cond75, label %57, label %190
 
@@ -1940,7 +1940,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %.not, label %81, label %70
 
 70:                                               ; preds = %66
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond76 = icmp ult i32 %71, 64
   br i1 %or.cond76, label %72, label %190
 
@@ -1973,7 +1973,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %switch, label %88, label %190
 
 88:                                               ; preds = %85
-  %89 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond77 = icmp ult i32 %89, 64
   br i1 %or.cond77, label %90, label %98
 
@@ -1995,13 +1995,13 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %100 = load i32, ptr %99, align 8
   %101 = call ptr @pmix_util_print_rank(i32 noundef %100) #15
   %102 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.58, ptr noundef nonnull %8, ptr noundef %101) #15
-  %incoming_files.val = load ptr, ptr getelementptr inbounds (i8, ptr @incoming_files, i64 240), align 8
+  %incoming_files.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @incoming_files, i64 240), align 8
   %.not6892 = icmp eq ptr %incoming_files.val, getelementptr inbounds nuw (i8, ptr @incoming_files, i64 120)
   br i1 %.not6892, label %._crit_edge97, label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %98, %187
   %.04993 = phi ptr [ %188, %187 ], [ %incoming_files.val, %98 ]
-  %103 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond78 = icmp ult i32 %103, 64
   br i1 %or.cond78, label %104, label %113
 
@@ -2048,7 +2048,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %126 = getelementptr inbounds nuw i8, ptr %.04993, i64 320
   %127 = load ptr, ptr %126, align 8
   %.not70 = icmp eq ptr %127, null
-  %128 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond80 = icmp ult i32 %128, 64
   br i1 %.not70, label %176, label %129
 
@@ -2087,7 +2087,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br i1 %.not.i81, label %167, label %146
 
 146:                                              ; preds = %.lr.ph91
-  %147 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond.i = icmp ult i32 %147, 64
   br i1 %or.cond.i, label %148, label %155
 
@@ -2290,7 +2290,7 @@ define internal void @xfer_destruct(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @out_construct(ptr noundef initializes((184, 196), (200, 264)) %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -2446,7 +2446,7 @@ define internal void @in_construct(ptr noundef initializes((144, 148), (280, 281
   store ptr null, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %7 = load i32, ptr @pmix_class_init_epoch, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %7, %8
   br i1 %.not, label %10, label %9
 
@@ -2751,7 +2751,7 @@ define internal void @recv_files(i32 %0, ptr nocapture readnone %1, ptr noundef 
   br label %215
 
 42:                                               ; preds = %.thread, %35, %33
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %43, 64
   br i1 %or.cond, label %44, label %54
 
@@ -2771,7 +2771,7 @@ define internal void @recv_files(i32 %0, ptr nocapture readnone %1, ptr noundef 
   br label %54
 
 54:                                               ; preds = %49, %44, %42
-  %incoming_files.val = load ptr, ptr getelementptr inbounds (i8, ptr @incoming_files, i64 240), align 8
+  %incoming_files.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @incoming_files, i64 240), align 8
   %.not92108 = icmp eq ptr %incoming_files.val, getelementptr inbounds nuw (i8, ptr @incoming_files, i64 120)
   br i1 %.not92108, label %.thread105, label %.lr.ph
 
@@ -2805,7 +2805,7 @@ define internal void @recv_files(i32 %0, ptr nocapture readnone %1, ptr noundef 
   br i1 %61, label %.thread105, label %91
 
 .thread105:                                       ; preds = %66, %54, %68
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond101 = icmp ult i32 %69, 64
   br i1 %or.cond101, label %70, label %78
 
@@ -2868,11 +2868,11 @@ define internal void @recv_files(i32 %0, ptr nocapture readnone %1, ptr noundef 
   %102 = getelementptr inbounds nuw i8, ptr %.1, i64 296
   store ptr %101, ptr %102, align 8
   call void @free(ptr noundef %96) #15
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 832), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 832), align 8
   %104 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef %103, ptr noundef %100, ptr noundef null) #15
   %105 = getelementptr inbounds nuw i8, ptr %.1, i64 304
   store ptr %104, ptr %105, align 8
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond102 = icmp ult i32 %106, 64
   br i1 %or.cond102, label %107, label %115
 
@@ -3134,7 +3134,7 @@ define internal void @recv_ack(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3, p
   br label %.loopexit
 
 16:                                               ; preds = %12
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %17, 64
   br i1 %or.cond, label %18, label %28
 
@@ -3154,7 +3154,7 @@ define internal void @recv_ack(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3, p
   br label %28
 
 28:                                               ; preds = %23, %18, %16
-  %outbound_files.val = load ptr, ptr getelementptr inbounds (i8, ptr @outbound_files, i64 240), align 8
+  %outbound_files.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @outbound_files, i64 240), align 8
   %.not3244 = icmp eq ptr %outbound_files.val, getelementptr inbounds nuw (i8, ptr @outbound_files, i64 120)
   br i1 %.not3244, label %.loopexit, label %.lr.ph47
 
@@ -3193,12 +3193,12 @@ define internal void @recv_ack(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3, p
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 792), align 8
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8
   %46 = icmp eq i32 %44, %45
   br i1 %46, label %47, label %xfer_complete.exit
 
 47:                                               ; preds = %41
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond39 = icmp ult i32 %48, 64
   br i1 %or.cond39, label %49, label %59
 
@@ -3424,13 +3424,13 @@ define internal fastcc void @send_complete(ptr noundef %0, i32 noundef %1) unnam
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %17
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 516), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 516), align 4
   %24 = call ptr @pmix_util_print_rank(i32 noundef %23) #15
   call void (i32, ptr, ...) @pmix_output(i32 noundef %16, ptr noundef nonnull @.str.11, ptr noundef %24, i32 noundef 22, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.send_complete, i32 noundef 835) #15
   br label %25
 
 25:                                               ; preds = %22, %17, %15
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 516), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 516), align 4
   %27 = call i32 @prte_rml_send_buffer_nb(i32 noundef %26, ptr noundef %5, i32 noundef 22) #15
   switch i32 %27, label %28 [
     i32 0, label %55
@@ -3578,7 +3578,7 @@ define internal void @write_handler(i32 %0, i16 signext %1, ptr noundef initiali
   %4 = alloca ptr, align 8
   %5 = alloca [4096 x i8], align 16
   fence acquire
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %6, 64
   br i1 %or.cond, label %7, label %16
 
@@ -3629,7 +3629,7 @@ define internal void @write_handler(i32 %0, i16 signext %1, ptr noundef initiali
   br i1 %36, label %37, label %109
 
 37:                                               ; preds = %24
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond120 = icmp ult i32 %38, 64
   br i1 %or.cond120, label %39, label %47
 
@@ -3713,7 +3713,7 @@ define internal void @write_handler(i32 %0, i16 signext %1, ptr noundef initiali
   br label %pmix_list_remove_first.exit.thread
 
 79:                                               ; preds = %71
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond121 = icmp ult i32 %80, 64
   br i1 %or.cond121, label %81, label %90
 
@@ -3782,7 +3782,7 @@ define internal void @write_handler(i32 %0, i16 signext %1, ptr noundef initiali
   %112 = sext i32 %35 to i64
   %113 = tail call i64 @write(i32 noundef %110, ptr noundef nonnull %111, i64 noundef %112) #15
   %114 = trunc i64 %113 to i32
-  %115 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond122 = icmp ult i32 %115, 64
   br i1 %or.cond122, label %116, label %124
 
@@ -3832,7 +3832,7 @@ define internal void @write_handler(i32 %0, i16 signext %1, ptr noundef initiali
   br label %pmix_list_remove_first.exit.thread
 
 140:                                              ; preds = %126
-  %141 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond123 = icmp ult i32 %141, 64
   br i1 %or.cond123, label %142, label %152
 
@@ -4118,7 +4118,7 @@ declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #
 define internal fastcc range(i32 -21, 1) i32 @link_archive(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [4096 x i8], align 16
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %4, 64
   br i1 %or.cond, label %5, label %14
 
@@ -4162,7 +4162,7 @@ define internal fastcc range(i32 -21, 1) i32 @link_archive(ptr noundef %0) unnam
   br label %78
 
 26:                                               ; preds = %.lr.ph, %.backedge
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond13 = icmp ult i32 %27, 64
   br i1 %or.cond13, label %28, label %35
 
@@ -4195,7 +4195,7 @@ define internal fastcc range(i32 -21, 1) i32 @link_archive(ptr noundef %0) unnam
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %38
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond14 = icmp ult i32 %47, 64
   br i1 %or.cond14, label %48, label %.backedge
 
@@ -4219,7 +4219,7 @@ define internal fastcc range(i32 -21, 1) i32 @link_archive(ptr noundef %0) unnam
 56:                                               ; preds = %38
   %57 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.27) #20
   %.not12 = icmp eq ptr %57, null
-  %58 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond16 = icmp ult i32 %58, 64
   br i1 %.not12, label %67, label %59
 
@@ -4340,7 +4340,7 @@ define internal void @send_chunk(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %147
 
 17:                                               ; preds = %11
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %18, 64
   br i1 %or.cond, label %19, label %31
 
@@ -4422,7 +4422,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %45
   br label %147
 
 59:                                               ; preds = %31
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @prte_filem_base_framework, i64 76), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4
   %or.cond91 = icmp ult i32 %60, 64
   br i1 %or.cond91, label %61, label %72
 

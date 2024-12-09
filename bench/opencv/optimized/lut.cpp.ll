@@ -231,7 +231,7 @@ _ZNK2cv11_InputArray6getMatEi.exit54:             ; preds = %50, %53
   br i1 %79, label %80, label %.critedge
 
 80:                                               ; preds = %78
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15LUTParallelBodyE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15LUTParallelBodyE, i64 16), ptr %11, align 8
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %10, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 16

@@ -55,7 +55,7 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [5 x i64], align 16
-  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !5
+  %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !5
   %8 = sext i32 %7 to i64
   %9 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %8
   %10 = load i64, ptr %9, align 8

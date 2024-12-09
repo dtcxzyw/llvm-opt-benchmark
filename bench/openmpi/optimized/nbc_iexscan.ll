@@ -147,10 +147,10 @@ opal_datatype_span.exit:                          ; preds = %25, %31
   %.086 = phi ptr [ %55, %57 ], [ %65, %64 ], [ null, %62 ]
   %.085 = phi ptr [ %59, %57 ], [ null, %64 ], [ null, %62 ]
   %.084 = phi ptr [ %61, %57 ], [ null, %64 ], [ null, %62 ]
-  %68 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %69 = tail call noalias ptr @malloc(i64 noundef %68) #5
   %70 = load i32, ptr @opal_class_init_epoch, align 4
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i = icmp eq i32 %70, %71
   br i1 %.not.i, label %73, label %72
 

@@ -39,7 +39,7 @@ $_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingC2Em(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, i64 noundef %dimension) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
   %m_dimension = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %dimension, ptr %m_dimension, align 8
   %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -90,7 +90,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %_ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit, %entry
@@ -116,7 +116,7 @@ arraydestroy.done2:                               ; preds = %_ZNSt6vectorISt4pai
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZNSt6vectorISt4pairIffESaIS1_EED2Ev.exit.i, %entry

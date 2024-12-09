@@ -407,13 +407,13 @@ define hidden void @proto_register_q932() local_unnamed_addr #0 {
   tail call void @rose_ctx_init(ptr noundef nonnull @q932_rose_ctx) #3
   %8 = load i32, ptr @proto_q932, align 4
   %9 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, i32 noundef %8, i32 noundef 26, i32 noundef 0) #3
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @q932_rose_ctx, i64 8), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 8), align 8
   %10 = load i32, ptr @proto_q932, align 4
   %11 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, i32 noundef %10, i32 noundef 26, i32 noundef 0) #3
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @q932_rose_ctx, i64 24), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 24), align 8
   %12 = load i32, ptr @proto_q932, align 4
   %13 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, i32 noundef %12, i32 noundef 26, i32 noundef 0) #3
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @q932_rose_ctx, i64 40), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 40), align 8
   %14 = load i32, ptr @proto_q932, align 4
   %15 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119, i32 noundef %14, i32 noundef 7, i32 noundef 2) #3
   store ptr %15, ptr @qsig_arg_local_dissector_table, align 8
@@ -564,7 +564,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %14, %17
   br label %85
 
 58:                                               ; preds = %47, %47, %47, %47
-  store i32 1, ptr getelementptr inbounds (i8, ptr @q932_rose_ctx, i64 56), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 56), align 8
   %59 = load ptr, ptr @q932_ros_handle, align 8
   %60 = call i32 @call_dissector_with_data(ptr noundef %59, ptr noundef %45, ptr noundef %1, ptr noundef %26, ptr noundef nonnull @q932_rose_ctx) #3
   br label %85
@@ -708,15 +708,15 @@ define hidden void @proto_reg_handoff_q932() #0 {
   %qsig_arg_local_dissector_table.val = load ptr, ptr @qsig_arg_local_dissector_table, align 8
   %etsi_arg_local_dissector_table.val = load ptr, ptr @etsi_arg_local_dissector_table, align 8
   %storemerge2 = select i1 %8, ptr %qsig_arg_local_dissector_table.val, ptr %etsi_arg_local_dissector_table.val
-  store ptr %storemerge2, ptr getelementptr inbounds (i8, ptr @q932_rose_ctx, i64 16), align 8
+  store ptr %storemerge2, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 16), align 8
   %qsig_res_local_dissector_table.val = load ptr, ptr @qsig_res_local_dissector_table, align 8
   %etsi_res_local_dissector_table.val = load ptr, ptr @etsi_res_local_dissector_table, align 8
   %storemerge1 = select i1 %8, ptr %qsig_res_local_dissector_table.val, ptr %etsi_res_local_dissector_table.val
-  store ptr %storemerge1, ptr getelementptr inbounds (i8, ptr @q932_rose_ctx, i64 32), align 8
+  store ptr %storemerge1, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 32), align 8
   %qsig_err_local_dissector_table.val = load ptr, ptr @qsig_err_local_dissector_table, align 8
   %etsi_err_local_dissector_table.val = load ptr, ptr @etsi_err_local_dissector_table, align 8
   %storemerge = select i1 %8, ptr %qsig_err_local_dissector_table.val, ptr %etsi_err_local_dissector_table.val
-  store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @q932_rose_ctx, i64 48), align 8
+  store ptr %storemerge, ptr getelementptr inbounds nuw (i8, ptr @q932_rose_ctx, i64 48), align 8
   ret void
 }
 

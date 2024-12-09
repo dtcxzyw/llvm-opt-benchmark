@@ -53,7 +53,7 @@ $_ZTV11C2OptAccess = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11PhaseVector21optimize_vector_boxesEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.Compile::TracePhase", align 8
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 288)) #6
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 288)) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 121
@@ -493,7 +493,7 @@ define hidden void @_ZN11PhaseVector10do_cleanupEv(ptr nocapture noundef nonnull
   br i1 %15, label %67, label %16
 
 16:                                               ; preds = %1
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 336)) #6
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 336)) #6
   %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 800
@@ -547,7 +547,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %45, %47
   br i1 %.not8, label %48, label %67
 
 48:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 312)) #6
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 312)) #6
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %5, align 8
@@ -2299,7 +2299,7 @@ define hidden void @_ZN11PhaseVector18expand_vunbox_nodeEP15VectorUnboxNode(ptr 
   store ptr null, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i8 0, ptr %76, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11C2OptAccess, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV11C2OptAccess, i64 16), ptr %5, align 8
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %10, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -2365,7 +2365,7 @@ _ZN4NodenwEm.exit:                                ; preds = %111, %113
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %96, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %.0.i.i.i, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store i32 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -2411,7 +2411,7 @@ _ZN4NodenwEm.exit:                                ; preds = %111, %113
   br label %_ZN10CastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple.exit
 
 _ZN10CastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple.exit: ; preds = %116, %125, %136
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10CastPPNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10CastPPNode, i64 16), ptr %.0.i.i.i, align 8
   store i32 2068, ptr %118, align 4
   br label %142
 
@@ -2489,7 +2489,7 @@ _ZN4NodenwEm.exit70:                              ; preds = %187, %189
   %197 = getelementptr inbounds nuw i8, ptr %.0.i.i.i69, i64 56
   store ptr %196, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %.0.i.i.i69, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %.0.i.i.i69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %.0.i.i.i69, align 8
   store i32 1028, ptr %198, align 4
   %199 = getelementptr inbounds nuw i8, ptr %.0.i.i.i69, i64 8
   %200 = load ptr, ptr %199, align 8
@@ -2529,7 +2529,7 @@ _ZN4NodenwEm.exit70:                              ; preds = %187, %189
   br label %_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect.exit
 
 _ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect.exit: ; preds = %192, %202, %213
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV18VectorLoadMaskNode, i64 16), ptr %.0.i.i.i69, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV18VectorLoadMaskNode, i64 16), ptr %.0.i.i.i69, align 8
   br label %.sink.split
 
 219:                                              ; preds = %142
@@ -2584,7 +2584,7 @@ _ZN4NodenwEm.exit74:                              ; preds = %241, %243
   %251 = getelementptr inbounds nuw i8, ptr %.0.i.i.i73, i64 56
   store ptr %250, ptr %251, align 8
   %252 = getelementptr inbounds nuw i8, ptr %.0.i.i.i73, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %.0.i.i.i73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %.0.i.i.i73, align 8
   store i32 1028, ptr %252, align 4
   %253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i73, i64 8
   %254 = load ptr, ptr %253, align 8
@@ -2624,7 +2624,7 @@ _ZN4NodenwEm.exit74:                              ; preds = %241, %243
   br label %_ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect.exit
 
 _ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect.exit: ; preds = %246, %256, %267
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV21VectorLoadShuffleNode, i64 16), ptr %.0.i.i.i73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV21VectorLoadShuffleNode, i64 16), ptr %.0.i.i.i73, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4NodenwEm.exit74, %_ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect.exit, %_ZN4NodenwEm.exit70, %_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect.exit
@@ -2843,7 +2843,7 @@ _ZN4NodenwEm.exit:                                ; preds = %25, %27
 30:                                               ; preds = %_ZN4NodenwEm.exit
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i, i32 noundef %9) #6
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV13SafePointNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV13SafePointNode, i64 16), ptr %.0.i.i.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %7, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64

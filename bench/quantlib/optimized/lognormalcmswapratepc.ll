@@ -136,7 +136,7 @@ entry:
   %ref.tmp92 = alloca %"class.boost::shared_ptr.10", align 8
   %fixed = alloca %"class.std::vector.16", align 8
   store i64 %spanningForwards, ptr %spanningForwards.addr, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib21LogNormalCmSwapRatePcE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib21LogNormalCmSwapRatePcE, i64 16), ptr %this, align 8, !tbaa !7
   %spanningForwards_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %spanningForwards, ptr %spanningForwards_, align 8, !tbaa !9
   %marketModel_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1916,7 +1916,7 @@ _ZNSt12_Vector_baseIN8QuantLib20CMSMMDriftCalculatorESaIS1_EED2Ev.exit: ; preds 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib16CMSwapCurveStateD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib16CMSwapCurveStateE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib16CMSwapCurveStateE, i64 16), ptr %this, align 8, !tbaa !7
   %cotAnnuities_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %cotAnnuities_, align 8, !tbaa !45
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2037,7 +2037,7 @@ if.then.i.i.i44:                                  ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit49
 
 _ZNSt6vectorIdSaIdEED2Ev.exit49:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit42, %if.then.i.i.i44
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib10CurveStateE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib10CurveStateE, i64 16), ptr %this, align 8, !tbaa !7
   %rateTaus_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load ptr, ptr %rateTaus_.i, align 8, !tbaa !45
   %tobool.not.i.i.i.i = icmp eq ptr %16, null
@@ -2241,7 +2241,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !7
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !35
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2585,7 +2585,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21LogNormalCmSwapRatePcD2Ev(ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib21LogNormalCmSwapRatePcE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib21LogNormalCmSwapRatePcE, i64 16), ptr %this, align 8, !tbaa !7
   %calculators_ = getelementptr inbounds nuw i8, ptr %this, i64 640
   %0 = load ptr, ptr %calculators_, align 8, !tbaa !74
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 648
@@ -2930,7 +2930,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10CurveStateD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib10CurveStateE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib10CurveStateE, i64 16), ptr %this, align 8, !tbaa !7
   %rateTaus_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %rateTaus_, align 8, !tbaa !45
   %tobool.not.i.i.i = icmp eq ptr %0, null

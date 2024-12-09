@@ -83,11 +83,11 @@ cond.false18.i:                                   ; preds = %if.else.i
 
 if.end26.i:                                       ; preds = %if.else.i, %if.end.i
   %minsize.addr.0.i = phi i64 [ 16, %if.end.i ], [ %minsize, %if.else.i ]
-  store i64 %size, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
-  store i64 %minsize.addr.0.i, ptr getelementptr inbounds (i8, ptr @sh, i64 48), align 8
+  store i64 %size, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
+  store i64 %minsize.addr.0.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 48), align 8
   %div.i = udiv i64 %size, %minsize.addr.0.i
   %mul.i = shl nuw nsw i64 %div.i, 1
-  store i64 %mul.i, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  store i64 %mul.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp28.i = icmp samesign ult i64 %div.i, 4
   br i1 %cmp28.i, label %err.i, label %for.body.i
 
@@ -100,10 +100,10 @@ for.body.i:                                       ; preds = %if.end26.i, %for.bo
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i
-  store i64 %inc31.i, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  store i64 %inc31.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %mul33.i = shl i64 %inc31.i, 3
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %mul33.i, ptr noundef nonnull @.str.1, i32 noundef 485) #8
-  store ptr %call.i, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  store ptr %call.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %cmp34.not.i = icmp eq ptr %call.i, null
   br i1 %cmp34.not.i, label %cond.false36.i, label %if.end41.i
 
@@ -112,10 +112,10 @@ cond.false36.i:                                   ; preds = %for.end.i
   unreachable
 
 if.end41.i:                                       ; preds = %for.end.i
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %shr42.i = lshr i64 %2, 3
   %call43.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %shr42.i, ptr noundef nonnull @.str.1, i32 noundef 490) #8
-  store ptr %call43.i, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  store ptr %call43.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   %cmp44.not.i = icmp eq ptr %call43.i, null
   br i1 %cmp44.not.i, label %cond.false46.i, label %if.end51.i
 
@@ -124,10 +124,10 @@ cond.false46.i:                                   ; preds = %if.end41.i
   unreachable
 
 if.end51.i:                                       ; preds = %if.end41.i
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %shr52.i = lshr i64 %3, 3
   %call53.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %shr52.i, ptr noundef nonnull @.str.1, i32 noundef 495) #8
-  store ptr %call53.i, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  store ptr %call53.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   %cmp54.not.i = icmp eq ptr %call53.i, null
   br i1 %cmp54.not.i, label %cond.false56.i, label %if.end61.i
 
@@ -139,31 +139,31 @@ if.end61.i:                                       ; preds = %if.end51.i
   %call62.i = tail call i64 @sysconf(i32 noundef 30) #8
   %cmp63.i = icmp slt i64 %call62.i, 1
   %.call62.i = select i1 %cmp63.i, i64 4096, i64 %call62.i
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %reass.add.i = shl i64 %.call62.i, 1
   %add67.i = add i64 %reass.add.i, %4
-  store i64 %add67.i, ptr getelementptr inbounds (i8, ptr @sh, i64 8), align 8
+  store i64 %add67.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
   %call68.i = tail call ptr @mmap(ptr noundef null, i64 noundef %add67.i, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
   store ptr %call68.i, ptr @sh, align 8
   %cmp69.i = icmp eq ptr %call68.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp69.i, label %if.end61.err_crit_edge.i, label %if.end71.i
 
 if.end61.err_crit_edge.i:                         ; preds = %if.end61.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   br label %err.i
 
 if.end71.i:                                       ; preds = %if.end61.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call68.i, i64 %.call62.i
-  store ptr %add.ptr.i, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  store ptr %add.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   tail call fastcc void @sh_setbit(ptr noundef nonnull %add.ptr.i, i32 noundef 0, ptr noundef %5)
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   tail call fastcc void @sh_add_to_list(ptr noundef %6, ptr noundef %7)
   %8 = load ptr, ptr @sh, align 8
   %call72.i = tail call i32 @mprotect(ptr noundef %8, i64 noundef %.call62.i, i32 noundef 0) #8
   %cmp73.i = icmp slt i32 %call72.i, 0
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %sub77.i = add i64 %reass.add.i, -1
   %add78.i = add i64 %sub77.i, %9
   %not.i = sub nsw i64 0, %.call62.i
@@ -174,8 +174,8 @@ if.end71.i:                                       ; preds = %if.end61.i
   %cmp83.i = icmp slt i32 %call82.i, 0
   %11 = select i1 %cmp83.i, i1 true, i1 %cmp73.i
   %ret.1.i = select i1 %11, i32 2, i32 1
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %call86.i = tail call i64 (i64, ...) @syscall(i64 noundef 325, ptr noundef %12, i64 noundef %13, i32 noundef 1) #8
   %cmp87.i = icmp slt i64 %call86.i, 0
   br i1 %cmp87.i, label %if.then88.i, label %sh_init.exit
@@ -187,8 +187,8 @@ if.then88.i:                                      ; preds = %if.end71.i
   br i1 %cmp90.i, label %if.then91.i, label %sh_init.exit
 
 if.then91.i:                                      ; preds = %if.then88.i
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %call92.i = tail call i32 @mlock(ptr noundef %15, i64 noundef %16) #8
   %cmp93.i = icmp slt i32 %call92.i, 0
   %spec.select26.i = select i1 %cmp93.i, i32 2, i32 %ret.1.i
@@ -197,13 +197,13 @@ if.then91.i:                                      ; preds = %if.then88.i
 err.i:                                            ; preds = %if.end61.err_crit_edge.i, %if.end26.i
   %17 = phi ptr [ %.pre.i, %if.end61.err_crit_edge.i ], [ null, %if.end26.i ]
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.1, i32 noundef 602) #8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.1, i32 noundef 603) #8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 604) #8
   %20 = load ptr, ptr @sh, align 8
   %cmp.i.i = icmp ne ptr %20, inttoptr (i64 -1 to ptr)
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 8), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
   %tobool.i.i = icmp ne i64 %21, 0
   %or.cond.i.i = select i1 %cmp.i.i, i1 %tobool.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then.i.i, label %sh_init.exit.thread
@@ -221,8 +221,8 @@ sh_init.exit.thread:                              ; preds = %err.i, %if.then.i.i
 
 sh_init.exit:                                     ; preds = %if.end71.i, %if.then88.i, %if.then91.i
   %ret.2.i = phi i32 [ %ret.1.i, %if.end71.i ], [ %spec.select26.i, %if.then91.i ], [ 2, %if.then88.i ]
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %call99.i = tail call i32 @madvise(ptr noundef %23, i64 noundef %24, i32 noundef 16) #8
   %cmp100.i = icmp slt i32 %call99.i, 0
   %spec.select27.i = select i1 %cmp100.i, i32 2, i32 %ret.2.i
@@ -246,15 +246,15 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 602) #8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 603) #8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 604) #8
   %4 = load ptr, ptr @sh, align 8
   %cmp.i = icmp ne ptr %4, inttoptr (i64 -1 to ptr)
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 8), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
   %tobool.i = icmp ne i64 %5, 0
   %or.cond.i = select i1 %cmp.i, i1 %tobool.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %sh_done.exit
@@ -301,13 +301,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %land.lhs.true, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %cmp.i = icmp ugt i64 %num, %1
   br i1 %cmp.i, label %err, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 48), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 48), align 8
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i, %if.end.i
@@ -323,7 +323,7 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %cmp6181.i, label %for.body7.lr.ph.i, label %err
 
 for.body7.lr.ph.i:                                ; preds = %for.end.i
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   br label %for.body7.i
 
 for.body7.i:                                      ; preds = %for.inc11.i, %for.body7.lr.ph.i
@@ -338,7 +338,7 @@ while.cond.i.preheader:                           ; preds = %for.body7.i
   br i1 %cmp17.not.i55, label %while.cond.i.preheader.while.end.i_crit_edge, label %while.body.i
 
 while.cond.i.preheader.while.end.i_crit_edge:     ; preds = %while.cond.i.preheader
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   br label %while.end.i
 
 for.inc11.i:                                      ; preds = %for.body7.i
@@ -355,10 +355,10 @@ while.body.i:                                     ; preds = %while.cond.i.prehea
   %6 = phi ptr [ %41, %while.cond.i ], [ %5, %while.cond.i.preheader ]
   %7 = phi i64 [ %42, %while.cond.i ], [ %1, %while.cond.i.preheader ]
   %conv.i = trunc i64 %slist.1.i56 to i32
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   %cmp.i.i = icmp sgt i32 %conv.i, -1
   %conv.i.i = and i64 %slist.1.i56, 4294967295
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %cmp1.i.i = icmp sgt i64 %9, %conv.i.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
   br i1 %or.cond.i.i, label %cond.end.i.i, label %cond.false.i.i
@@ -368,7 +368,7 @@ cond.false.i.i:                                   ; preds = %while.body.i
   unreachable
 
 cond.end.i.i:                                     ; preds = %while.body.i
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -387,7 +387,7 @@ cond.end7.i.i:                                    ; preds = %cond.end.i.i
   %div.i.i = udiv i64 %sub.ptr.sub.i.i, %shr.i.i
   %add.i.i = add i64 %div.i.i, %shl.i.i
   %cmp15.not.i.i = icmp ne i64 %add.i.i, 0
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18.i.i = icmp ult i64 %add.i.i, %11
   %or.cond9.i.i = select i1 %cmp15.not.i.i, i1 %cmp18.i.i, i1 false
   br i1 %or.cond9.i.i, label %sh_testbit.exit.i, label %cond.false21.i.i
@@ -412,7 +412,7 @@ cond.false.i:                                     ; preds = %sh_testbit.exit.i
   unreachable
 
 cond.end.i:                                       ; preds = %sh_testbit.exit.i
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   tail call fastcc void @sh_clearbit(ptr noundef %6, i32 noundef %conv.i, ptr noundef %13)
   %14 = load ptr, ptr %6, align 8
   %cmp.not.i.i = icmp eq ptr %14, null
@@ -431,23 +431,23 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %cond.
   store ptr %15, ptr %.pre16.i.i, align 8
   %16 = load ptr, ptr %6, align 8
   %cmp6.i.i = icmp eq ptr %16, null
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   br i1 %cmp6.i.i, label %sh_remove_from_list.exit.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   %p_next10.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load ptr, ptr %p_next10.i.i, align 8
   %cmp11.not.i.i = icmp uge ptr %17, %.pre.i
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %arrayidx.i51.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %18
   %cmp13.i.i = icmp ult ptr %17, %arrayidx.i51.i
   %or.cond.i52.i = select i1 %cmp11.not.i.i, i1 %cmp13.i.i, i1 false
   br i1 %or.cond.i52.i, label %sh_remove_from_list.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end8.i.i
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %cmp15.not.i53.i = icmp uge ptr %17, %19
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %arrayidx18.i.i = getelementptr inbounds i8, ptr %19, i64 %20
   %cmp19.i.i = icmp ult ptr %17, %arrayidx18.i.i
   %or.cond15.i.i = select i1 %cmp15.not.i53.i, i1 %cmp19.i.i, i1 false
@@ -470,10 +470,10 @@ cond.false24.i:                                   ; preds = %sh_remove_from_list
 cond.end25.i:                                     ; preds = %sh_remove_from_list.exit.i
   %inc.i = add nuw nsw i64 %slist.1.i56, 1
   %conv27.i = trunc i64 %inc.i to i32
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   %cmp.i55.i = icmp sgt i32 %conv27.i, -1
   %conv.i56.i = and i64 %inc.i, 4294967295
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %cmp1.i57.i = icmp sgt i64 %23, %conv.i56.i
   %or.cond.i58.i = select i1 %cmp.i55.i, i1 %cmp1.i57.i, i1 false
   br i1 %or.cond.i58.i, label %cond.end.i60.i, label %cond.false.i59.i
@@ -483,10 +483,10 @@ cond.false.i59.i:                                 ; preds = %cond.end25.i
   unreachable
 
 cond.end.i60.i:                                   ; preds = %cond.end25.i
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.rhs.cast.i62.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i63.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i62.i
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %shr.i64.i = lshr i64 %25, %conv.i56.i
   %sub.i65.i = add i64 %shr.i64.i, -1
   %and.i66.i = and i64 %sub.i65.i, %sub.ptr.sub.i63.i
@@ -502,7 +502,7 @@ cond.end7.i69.i:                                  ; preds = %cond.end.i60.i
   %div.i71.i = udiv i64 %sub.ptr.sub.i63.i, %shr.i64.i
   %add.i72.i = add i64 %div.i71.i, %shl.i70.i
   %cmp15.not.i73.i = icmp ne i64 %add.i72.i, 0
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18.i74.i = icmp ult i64 %add.i72.i, %26
   %or.cond9.i75.i = select i1 %cmp15.not.i73.i, i1 %cmp18.i74.i, i1 false
   br i1 %or.cond9.i75.i, label %sh_testbit.exit84.i, label %cond.false21.i76.i
@@ -527,12 +527,12 @@ cond.false31.i:                                   ; preds = %sh_testbit.exit84.i
   unreachable
 
 cond.end32.i:                                     ; preds = %sh_testbit.exit84.i
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   tail call fastcc void @sh_setbit(ptr noundef nonnull %6, i32 noundef %conv27.i, ptr noundef %28)
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %arrayidx35.i = getelementptr inbounds nuw ptr, ptr %29, i64 %inc.i
   tail call fastcc void @sh_add_to_list(ptr noundef nonnull %arrayidx35.i, ptr noundef nonnull %6)
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %arrayidx36.i = getelementptr inbounds nuw ptr, ptr %30, i64 %inc.i
   %31 = load ptr, ptr %arrayidx36.i, align 8
   %cmp37.i = icmp eq ptr %31, %6
@@ -543,11 +543,11 @@ cond.false40.i:                                   ; preds = %cond.end32.i
   unreachable
 
 cond.end41.i:                                     ; preds = %cond.end32.i
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %shr.i = lshr i64 %32, %inc.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %shr.i
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %cmp1.i87.i = icmp sgt i64 %34, %conv.i56.i
   br i1 %cmp1.i87.i, label %cond.end.i90.i, label %cond.false.i89.i
 
@@ -556,7 +556,7 @@ cond.false.i89.i:                                 ; preds = %cond.end41.i
   unreachable
 
 cond.end.i90.i:                                   ; preds = %cond.end41.i
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.lhs.cast.i91.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i92.i = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i93.i = sub i64 %sub.ptr.lhs.cast.i91.i, %sub.ptr.rhs.cast.i92.i
@@ -574,7 +574,7 @@ cond.end7.i99.i:                                  ; preds = %cond.end.i90.i
   %div.i101.i = udiv i64 %sub.ptr.sub.i93.i, %shr.i94.i
   %add.i102.i = add i64 %div.i101.i, %shl.i70.i
   %cmp15.not.i103.i = icmp ne i64 %add.i102.i, 0
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18.i104.i = icmp ult i64 %add.i102.i, %36
   %or.cond9.i105.i = select i1 %cmp15.not.i103.i, i1 %cmp18.i104.i, i1 false
   br i1 %or.cond9.i105.i, label %sh_testbit.exit114.i, label %cond.false21.i106.i
@@ -599,12 +599,12 @@ cond.false47.i:                                   ; preds = %sh_testbit.exit114.
   unreachable
 
 cond.end48.i:                                     ; preds = %sh_testbit.exit114.i
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   tail call fastcc void @sh_setbit(ptr noundef nonnull %add.ptr.i, i32 noundef %conv27.i, ptr noundef %38)
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %arrayidx51.i = getelementptr inbounds nuw ptr, ptr %39, i64 %inc.i
   tail call fastcc void @sh_add_to_list(ptr noundef nonnull %arrayidx51.i, ptr noundef nonnull %add.ptr.i)
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %arrayidx52.i = getelementptr inbounds nuw ptr, ptr %40, i64 %inc.i
   %41 = load ptr, ptr %arrayidx52.i, align 8
   %cmp53.i = icmp eq ptr %41, %add.ptr.i
@@ -615,18 +615,18 @@ cond.false56.i:                                   ; preds = %cond.end48.i
   unreachable
 
 cond.end57.i:                                     ; preds = %cond.end48.i
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %shr59.i = lshr i64 %42, %inc.i
   %idx.neg.i = sub nsw i64 0, %shr59.i
   %add.ptr60.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.rhs.cast.i117.i = ptrtoint ptr %43 to i64
   %sub.ptr.sub.i118.i = sub i64 %sub.ptr.lhs.cast.i91.i, %sub.ptr.rhs.cast.i117.i
   %shr.i119.i = lshr i64 %42, %conv.i56.i
   %div.i120.i = udiv i64 %sub.ptr.sub.i118.i, %shr.i119.i
   %add.i121.i = add i64 %div.i120.i, %shl.i70.i
   %xor.i.i = xor i64 %add.i121.i, 1
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   %shr2.i.i = lshr i64 %add.i121.i, 3
   %arrayidx.i122.i = getelementptr inbounds nuw i8, ptr %44, i64 %shr2.i.i
   %45 = load i8, ptr %arrayidx.i122.i, align 1
@@ -638,7 +638,7 @@ cond.end57.i:                                     ; preds = %cond.end48.i
   br i1 %tobool.not.i.i, label %sh_find_my_buddy.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %cond.end57.i
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %46, i64 %shr2.i.i
   %47 = load i8, ptr %arrayidx6.i.i, align 1
   %conv7.i.i = zext i8 %47 to i64
@@ -663,7 +663,7 @@ cond.false66.i:                                   ; preds = %sh_find_my_buddy.ex
   unreachable
 
 while.end.i.loopexit:                             ; preds = %while.cond.i
-  %.pre66 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %.pre66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.cond.i.preheader.while.end.i_crit_edge, %while.end.i.loopexit
@@ -685,7 +685,7 @@ cond.false.i132.i:                                ; preds = %while.end.i
   unreachable
 
 cond.end.i133.i:                                  ; preds = %while.end.i
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.lhs.cast.i134.i = ptrtoint ptr %50 to i64
   %sub.ptr.rhs.cast.i135.i = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i136.i = sub i64 %sub.ptr.lhs.cast.i134.i, %sub.ptr.rhs.cast.i135.i
@@ -704,7 +704,7 @@ cond.end7.i142.i:                                 ; preds = %cond.end.i133.i
   %div.i144.i = udiv i64 %sub.ptr.sub.i136.i, %shr.i137.i
   %add.i145.i = add i64 %div.i144.i, %shl.i143.i
   %cmp15.not.i146.i = icmp ne i64 %add.i145.i, 0
-  %52 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18.i147.i = icmp ult i64 %add.i145.i, %52
   %or.cond9.i148.i = select i1 %cmp15.not.i146.i, i1 %cmp18.i147.i, i1 false
   br i1 %or.cond9.i148.i, label %sh_testbit.exit157.i, label %cond.false21.i149.i
@@ -729,7 +729,7 @@ cond.false74.i:                                   ; preds = %sh_testbit.exit157.
   unreachable
 
 cond.end75.i:                                     ; preds = %sh_testbit.exit157.i
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   tail call fastcc void @sh_setbit(ptr noundef %50, i32 noundef %conv70.i, ptr noundef %54)
   %55 = load ptr, ptr %50, align 8
   %cmp.not.i158.i = icmp eq ptr %55, null
@@ -751,21 +751,21 @@ if.end.i164.i:                                    ; preds = %if.then.i161.i, %co
   br i1 %cmp6.i165.i, label %if.end.i164.sh_remove_from_list.exit178_crit_edge.i, label %if.end8.i166.i
 
 if.end.i164.sh_remove_from_list.exit178_crit_edge.i: ; preds = %if.end.i164.i
-  %.pre185.i = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %.pre187.i = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %.pre185.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  %.pre187.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   br label %sh_remove_from_list.exit178.i
 
 if.end8.i166.i:                                   ; preds = %if.end.i164.i
   %p_next10.i167.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %58 = load ptr, ptr %p_next10.i167.i, align 8
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %cmp11.not.i168.i = icmp uge ptr %58, %59
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %arrayidx.i169.i = getelementptr inbounds ptr, ptr %59, i64 %60
   %cmp13.i170.i = icmp ult ptr %58, %arrayidx.i169.i
   %or.cond.i171.i = select i1 %cmp11.not.i168.i, i1 %cmp13.i170.i, i1 false
-  %.pre186.i = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
-  %.pre188.i = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %.pre186.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
+  %.pre188.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   br i1 %or.cond.i171.i, label %sh_remove_from_list.exit178.i, label %lor.lhs.false.i172.i
 
 lor.lhs.false.i172.i:                             ; preds = %if.end8.i166.i
@@ -833,9 +833,9 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @sh_actual_size(ptr noundef %ptr) unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %cmp.not = icmp uge ptr %ptr, %0
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %1
   %cmp1 = icmp ult ptr %ptr, %arrayidx
   %or.cond = select i1 %cmp.not, i1 %cmp1, i1 false
@@ -846,15 +846,15 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 %1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 48), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 48), align 8
   %list.07.i = add nsw i64 %2, -1
   %tobool.not8.i = icmp ugt i64 %3, %sub.ptr.sub.i
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   br i1 %tobool.not8.i, label %sh_getlist.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
@@ -920,7 +920,7 @@ cond.end7.i:                                      ; preds = %cond.end.i
   %div.i17 = udiv i64 %sub.ptr.sub.i13, %shr.i14
   %add.i = add i64 %div.i17, %shl.i16
   %cmp15.not.i = icmp ne i64 %add.i, 0
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18.i = icmp ult i64 %add.i, %6
   %or.cond9.i = select i1 %cmp15.not.i, i1 %cmp18.i, i1 false
   br i1 %or.cond9.i, label %sh_testbit.exit, label %cond.false21.i
@@ -990,9 +990,9 @@ if.end:                                           ; preds = %entry
   br i1 %.b.i, label %CRYPTO_secure_allocated.exit, label %if.then1
 
 CRYPTO_secure_allocated.exit:                     ; preds = %if.end
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %cmp.i.i = icmp ult ptr %ptr, %0
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %1
   %cmp1.i.i = icmp uge ptr %ptr, %arrayidx.i.i
   %.not = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
@@ -1030,9 +1030,9 @@ entry:
   br i1 %.b, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %cmp.i = icmp uge ptr %ptr, %0
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %1
   %cmp1.i = icmp ult ptr %ptr, %arrayidx.i
   %2 = select i1 %cmp.i, i1 %cmp1.i, i1 false
@@ -1051,9 +1051,9 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sh_free(ptr noundef nonnull %ptr) unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %cmp1.not = icmp uge ptr %ptr, %0
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %1
   %cmp2 = icmp ult ptr %ptr, %arrayidx
   %or.cond = select i1 %cmp1.not, i1 %cmp2, i1 false
@@ -1064,15 +1064,15 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 if.end8:                                          ; preds = %entry
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 %1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 48), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 48), align 8
   %list.07.i = add nsw i64 %2, -1
   %tobool.not8.i = icmp ugt i64 %3, %sub.ptr.sub.i
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   br i1 %tobool.not8.i, label %sh_getlist.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end8
@@ -1138,7 +1138,7 @@ cond.end7.i:                                      ; preds = %cond.end.i
   %div.i51 = udiv i64 %sub.ptr.sub.i47, %shr.i48
   %add.i = add i64 %div.i51, %shl.i50
   %cmp15.not.i = icmp ne i64 %add.i, 0
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18.i = icmp ult i64 %add.i, %5
   %or.cond9.i = select i1 %cmp15.not.i, i1 %cmp18.i, i1 false
   br i1 %or.cond9.i, label %sh_testbit.exit, label %cond.false21.i
@@ -1163,9 +1163,9 @@ cond.false11:                                     ; preds = %sh_testbit.exit
   unreachable
 
 cond.end12:                                       ; preds = %sh_testbit.exit
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   tail call fastcc void @sh_clearbit(ptr noundef nonnull %ptr, i32 noundef %conv, ptr noundef %7)
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %arrayidx15 = getelementptr inbounds ptr, ptr %8, i64 %list.0.lcssa.i
   tail call fastcc void @sh_add_to_list(ptr noundef %arrayidx15, ptr noundef nonnull %ptr)
   br label %while.cond
@@ -1176,16 +1176,16 @@ while.cond:                                       ; preds = %cond.end65, %cond.e
   %conv16 = trunc i64 %list.0 to i32
   %sh_prom.i = and i64 %list.0, 4294967295
   %shl.i53 = shl nuw i64 1, %sh_prom.i
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.lhs.cast.i54 = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.rhs.cast.i55 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i56 = sub i64 %sub.ptr.lhs.cast.i54, %sub.ptr.rhs.cast.i55
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %shr.i57 = lshr i64 %10, %sh_prom.i
   %div.i58 = udiv i64 %sub.ptr.sub.i56, %shr.i57
   %add.i59 = add i64 %div.i58, %shl.i53
   %xor.i = xor i64 %add.i59, 1
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   %shr2.i = lshr i64 %add.i59, 3
   %arrayidx.i60 = getelementptr inbounds nuw i8, ptr %11, i64 %shr2.i
   %12 = load i8, ptr %arrayidx.i60, align 1
@@ -1197,7 +1197,7 @@ while.cond:                                       ; preds = %cond.end65, %cond.e
   br i1 %tobool.not.i63, label %while.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.cond
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   %arrayidx6.i = getelementptr inbounds nuw i8, ptr %13, i64 %shr2.i
   %14 = load i8, ptr %arrayidx6.i, align 1
   %conv7.i = zext i8 %14 to i64
@@ -1251,7 +1251,7 @@ cond.false25:                                     ; preds = %sh_find_my_buddy.ex
   unreachable
 
 cond.end32:                                       ; preds = %sh_find_my_buddy.exit95
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %cmp1.i98 = icmp sgt i64 %17, %sh_prom.i
   br i1 %cmp1.i98, label %cond.end.i101, label %cond.false.i100
 
@@ -1271,7 +1271,7 @@ cond.false6.i109:                                 ; preds = %cond.end.i101
 
 cond.end7.i110:                                   ; preds = %cond.end.i101
   %cmp15.not.i114 = icmp ne i64 %add.i59, 0
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18.i115 = icmp ult i64 %add.i59, %18
   %or.cond9.i116 = select i1 %cmp15.not.i114, i1 %cmp18.i115, i1 false
   br i1 %or.cond9.i116, label %sh_testbit.exit125, label %cond.false21.i117
@@ -1310,13 +1310,13 @@ if.end.i127:                                      ; preds = %if.then.i126, %cond
   store ptr %20, ptr %.pre16.i, align 8
   %21 = load ptr, ptr %ptr.addr.0, align 8
   %cmp6.i = icmp eq ptr %21, null
-  %.pre215 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %.pre215 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   br i1 %cmp6.i, label %sh_remove_from_list.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i127
   %p_next10.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %22 = load ptr, ptr %p_next10.i, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %cmp11.not.i = icmp uge ptr %22, %23
   %arrayidx.i128 = getelementptr inbounds ptr, ptr %23, i64 %.pre215
   %cmp13.i = icmp ult ptr %22, %arrayidx.i128
@@ -1324,9 +1324,9 @@ if.end8.i:                                        ; preds = %if.end.i127
   br i1 %or.cond.i129, label %sh_remove_from_list.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end8.i
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %cmp15.not.i130 = icmp uge ptr %22, %24
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %arrayidx18.i = getelementptr inbounds i8, ptr %24, i64 %25
   %cmp19.i = icmp ult ptr %22, %arrayidx18.i
   %or.cond15.i = select i1 %cmp15.not.i130, i1 %cmp19.i, i1 false
@@ -1337,7 +1337,7 @@ cond.false.i131:                                  ; preds = %lor.lhs.false.i
   unreachable
 
 sh_remove_from_list.exit:                         ; preds = %if.end.i127, %if.end8.i, %lor.lhs.false.i
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   %cmp1.i134 = icmp sgt i64 %.pre215, %sh_prom.i
   br i1 %cmp1.i134, label %cond.end.i137, label %cond.false.i136
 
@@ -1346,10 +1346,10 @@ cond.false.i136:                                  ; preds = %sh_remove_from_list
   unreachable
 
 cond.end.i137:                                    ; preds = %sh_remove_from_list.exit
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.rhs.cast.i139 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i140 = sub i64 %sub.ptr.lhs.cast.i54, %sub.ptr.rhs.cast.i139
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %shr.i141 = lshr i64 %28, %sh_prom.i
   %sub.i142 = add i64 %shr.i141, -1
   %and.i143 = and i64 %sub.i142, %sub.ptr.sub.i140
@@ -1364,7 +1364,7 @@ cond.end7.i146:                                   ; preds = %cond.end.i137
   %div.i148 = udiv i64 %sub.ptr.sub.i140, %shr.i141
   %add.i149 = add i64 %div.i148, %shl.i53
   %cmp15.not.i150 = icmp ne i64 %add.i149, 0
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18.i151 = icmp ult i64 %add.i149, %29
   %or.cond9.i152 = select i1 %cmp15.not.i150, i1 %cmp18.i151, i1 false
   br i1 %or.cond9.i152, label %sh_testbit.exit161, label %cond.false21.i153
@@ -1389,7 +1389,7 @@ cond.false46:                                     ; preds = %sh_testbit.exit161
   unreachable
 
 cond.end47:                                       ; preds = %sh_testbit.exit161
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   tail call fastcc void @sh_clearbit(ptr noundef nonnull %add.ptr.i66, i32 noundef %conv16, ptr noundef %31)
   %32 = load ptr, ptr %add.ptr.i66, align 8
   %cmp.not.i162 = icmp eq ptr %32, null
@@ -1408,13 +1408,13 @@ if.end.i168:                                      ; preds = %if.then.i165, %cond
   store ptr %33, ptr %.pre16.i164, align 8
   %34 = load ptr, ptr %add.ptr.i66, align 8
   %cmp6.i169 = icmp eq ptr %34, null
-  %.pre216 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %.pre216 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   br i1 %cmp6.i169, label %sh_remove_from_list.exit182, label %if.end8.i170
 
 if.end8.i170:                                     ; preds = %if.end.i168
   %p_next10.i171 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %35 = load ptr, ptr %p_next10.i171, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %cmp11.not.i172 = icmp uge ptr %35, %36
   %arrayidx.i173 = getelementptr inbounds ptr, ptr %36, i64 %.pre216
   %cmp13.i174 = icmp ult ptr %35, %arrayidx.i173
@@ -1422,9 +1422,9 @@ if.end8.i170:                                     ; preds = %if.end.i168
   br i1 %or.cond.i175, label %sh_remove_from_list.exit182, label %lor.lhs.false.i176
 
 lor.lhs.false.i176:                               ; preds = %if.end8.i170
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %cmp15.not.i177 = icmp uge ptr %35, %37
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %arrayidx18.i178 = getelementptr inbounds i8, ptr %37, i64 %38
   %cmp19.i179 = icmp ult ptr %35, %arrayidx18.i178
   %or.cond15.i180 = select i1 %cmp15.not.i177, i1 %cmp19.i179, i1 false
@@ -1441,7 +1441,7 @@ sh_remove_from_list.exit182:                      ; preds = %if.end.i168, %if.en
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %cond55, i8 0, i64 16, i1 false)
   %spec.select = select i1 %cmp50, ptr %add.ptr.i66, ptr %ptr.addr.0
   %conv60 = trunc i64 %dec to i32
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8
   %cmp.i183 = icmp sgt i32 %conv60, -1
   %conv.i184 = and i64 %dec, 4294967295
   %cmp1.i185 = icmp sgt i64 %.pre216, %conv.i184
@@ -1453,11 +1453,11 @@ cond.false.i187:                                  ; preds = %sh_remove_from_list
   unreachable
 
 cond.end.i188:                                    ; preds = %sh_remove_from_list.exit182
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.lhs.cast.i189 = ptrtoint ptr %spec.select to i64
   %sub.ptr.rhs.cast.i190 = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i191 = sub i64 %sub.ptr.lhs.cast.i189, %sub.ptr.rhs.cast.i190
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %shr.i192 = lshr i64 %41, %conv.i184
   %sub.i193 = add i64 %shr.i192, -1
   %and.i194 = and i64 %sub.i193, %sub.ptr.sub.i191
@@ -1473,7 +1473,7 @@ cond.end7.i197:                                   ; preds = %cond.end.i188
   %div.i199 = udiv i64 %sub.ptr.sub.i191, %shr.i192
   %add.i200 = add i64 %div.i199, %shl.i198
   %cmp15.not.i201 = icmp ne i64 %add.i200, 0
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18.i202 = icmp ult i64 %add.i200, %42
   %or.cond9.i203 = select i1 %cmp15.not.i201, i1 %cmp18.i202, i1 false
   br i1 %or.cond9.i203, label %sh_testbit.exit212, label %cond.false21.i204
@@ -1498,12 +1498,12 @@ cond.false64:                                     ; preds = %sh_testbit.exit212
   unreachable
 
 cond.end65:                                       ; preds = %sh_testbit.exit212
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 56), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8
   tail call fastcc void @sh_setbit(ptr noundef nonnull %spec.select, i32 noundef %conv60, ptr noundef %44)
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %arrayidx68 = getelementptr inbounds ptr, ptr %45, i64 %dec
   tail call fastcc void @sh_add_to_list(ptr noundef %arrayidx68, ptr noundef nonnull %spec.select)
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %arrayidx69 = getelementptr inbounds ptr, ptr %46, i64 %dec
   %47 = load ptr, ptr %arrayidx69, align 8
   %cmp70 = icmp eq ptr %47, %spec.select
@@ -1528,9 +1528,9 @@ if.end:                                           ; preds = %entry
   br i1 %.b.i, label %CRYPTO_secure_allocated.exit, label %if.then1
 
 CRYPTO_secure_allocated.exit:                     ; preds = %if.end
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %cmp.i.i = icmp ult ptr %ptr, %0
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 %1
   %cmp1.i.i = icmp uge ptr %ptr, %arrayidx.i.i
   %.not = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
@@ -1619,7 +1619,7 @@ define internal fastcc void @sh_setbit(ptr noundef %ptr, i32 noundef %list, ptr 
 entry:
   %cmp = icmp sgt i32 %list, -1
   %conv = zext nneg i32 %list to i64
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %cmp1 = icmp sgt i64 %0, %conv
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %cond.end, label %cond.false
@@ -1629,11 +1629,11 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %shr = lshr i64 %2, %conv
   %sub = add i64 %shr, -1
   %and = and i64 %sub, %sub.ptr.sub
@@ -1649,7 +1649,7 @@ cond.end7:                                        ; preds = %cond.end
   %div = udiv i64 %sub.ptr.sub, %shr
   %add = add i64 %div, %shl
   %cmp15.not = icmp ne i64 %add, 0
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18 = icmp ult i64 %add, %3
   %or.cond12 = select i1 %cmp15.not, i1 %cmp18, i1 false
   br i1 %or.cond12, label %cond.end22, label %cond.false21
@@ -1683,9 +1683,9 @@ cond.end31:                                       ; preds = %cond.end22
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sh_add_to_list(ptr noundef %list, ptr noundef %ptr) unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8
   %cmp.not = icmp uge ptr %list, %0
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %1
   %cmp1 = icmp ult ptr %list, %arrayidx
   %or.cond = select i1 %cmp.not, i1 %cmp1, i1 false
@@ -1696,9 +1696,9 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %cmp2.not = icmp uge ptr %ptr, %2
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %arrayidx4 = getelementptr inbounds i8, ptr %2, i64 %3
   %cmp5 = icmp ult ptr %ptr, %arrayidx4
   %or.cond21 = select i1 %cmp2.not, i1 %cmp5, i1 false
@@ -1773,7 +1773,7 @@ define internal fastcc void @sh_clearbit(ptr noundef %ptr, i32 noundef %list, pt
 entry:
   %cmp = icmp sgt i32 %list, -1
   %conv = zext nneg i32 %list to i64
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 40), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %cmp1 = icmp sgt i64 %0, %conv
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %cond.end, label %cond.false
@@ -1783,11 +1783,11 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 24), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %shr = lshr i64 %2, %conv
   %sub = add i64 %shr, -1
   %and = and i64 %sub, %sub.ptr.sub
@@ -1803,7 +1803,7 @@ cond.end7:                                        ; preds = %cond.end
   %div = udiv i64 %sub.ptr.sub, %shr
   %add = add i64 %div, %shl
   %cmp15.not = icmp ne i64 %add, 0
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8
   %cmp18 = icmp ult i64 %add, %3
   %or.cond12 = select i1 %cmp15.not, i1 %cmp18, i1 false
   br i1 %or.cond12, label %cond.end22, label %cond.false21

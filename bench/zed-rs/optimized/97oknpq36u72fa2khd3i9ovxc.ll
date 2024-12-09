@@ -1162,7 +1162,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h5c25affe2f1
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %34
-  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8) acquire, align 8
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -1190,7 +1190,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h5c25affe2f1
   unreachable
 
 12:                                               ; preds = %.backedge
-  %13 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8), i32 0, i32 2 acquire acquire, align 4
+  %13 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %13, 1
   br i1 %.sroa.18.0.in.i, label %19, label %.backedge.backedge
 
@@ -1218,7 +1218,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h5c25affe2f1
 
 19:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8), ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %20, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !180, !noundef !9
@@ -1262,12 +1262,12 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h5c25affe2f1
   resume { ptr, i32 } %28
 
 32:                                               ; preds = %.backedge
-  %33 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8), i32 2, i32 3 monotonic acquire, align 4
+  %33 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %33, 1
   br i1 %.sroa.18.0.in.i12, label %34, label %.backedge.backedge
 
 34:                                               ; preds = %32, %.backedge
-  %35 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %35 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -18191,7 +18191,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i.i.i: ; preds =
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7caabadea8bf6b4bE.exit.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i.i.i, %23
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %32, %_ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %23 ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %32, %_ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %23 ]
   %35 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !4446, !noundef !9
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %37 = load i64, ptr %36, align 8, !noalias !4446, !noundef !9
@@ -23200,7 +23200,7 @@ _ZN8language6buffer6Buffer5local17h079fe478d2ac3b6fE.exit.i: ; preds = %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !5128
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %8), !noalias !5128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !5120
-  %35 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8) acquire, align 8, !noalias !5120
+  %35 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8) acquire, align 8, !noalias !5120
   %36 = icmp eq i32 %35, 4
   br i1 %36, label %_ZN3std4sync4once4Once9call_once17h0646ba1bc01f7308E.exit.i, label %37
 
@@ -23403,7 +23403,7 @@ _ZN8language6buffer6Buffer5local17h079fe478d2ac3b6fE.exit.i: ; preds = %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !5166
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %8), !noalias !5166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !5158
-  %35 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8) acquire, align 8, !noalias !5158
+  %35 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language10PLAIN_TEXT17ha704c813a9a6dda3E, i64 8) acquire, align 8, !noalias !5158
   %36 = icmp eq i32 %35, 4
   br i1 %36, label %_ZN3std4sync4once4Once9call_once17h0646ba1bc01f7308E.exit.i, label %37
 
@@ -47734,7 +47734,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i: ; preds = %1
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h88eafc59ef37454bE.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %4, %_ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %1 ]
   %7 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !9348, !noundef !9
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !9348, !noundef !9
@@ -56012,7 +56012,7 @@ _ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i: ; preds = %27
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7caabadea8bf6b4bE.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i, %27
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %29, %_ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %27 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %29, %_ZN4core3ops8function6FnOnce9call_once17hcbb4402f44874489E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %27 ]
   %32 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !11766, !noundef !9
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %34 = load i64, ptr %33, align 8, !noalias !11766, !noundef !9
@@ -69372,7 +69372,7 @@ default.unreachable:                              ; preds = %.noexc38.i, %1234, 
   br i1 %1173, label %1174, label %1175
 
 1174:                                             ; preds = %1166
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i73.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.21dde5bd8b62bbc85691f80d79278885.64.llvm.12747463095052445964, i64 8), i64 24, i1 false), !noalias !14246
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i73.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.21dde5bd8b62bbc85691f80d79278885.64.llvm.12747463095052445964, i64 8), i64 24, i1 false), !noalias !14246
   br label %"_ZN85_$LT$runtimelib..messaging..content..ExecuteRequest$u20$as$u20$core..clone..Clone$GT$5clone17hc9c13b4b31fb75bbE.exit.i.i"
 
 1175:                                             ; preds = %1166
@@ -74303,7 +74303,7 @@ define internal fastcc void @"_ZN73_$LT$repl..kernels..KernelSpecification$u20$a
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.21dde5bd8b62bbc85691f80d79278885.64.llvm.12747463095052445964, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.21dde5bd8b62bbc85691f80d79278885.64.llvm.12747463095052445964, i64 8), i64 24, i1 false)
   br label %108
 
 94:                                               ; preds = %85

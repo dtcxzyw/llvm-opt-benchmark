@@ -39,16 +39,16 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @initialize_the_repository() local_unnamed_addr #0 {
 entry:
   store ptr @the_repo, ptr @the_repository, align 8
-  store ptr @the_index, ptr getelementptr inbounds (i8, ptr @the_repo, i64 240), align 8
+  store ptr @the_index, ptr getelementptr inbounds nuw (i8, ptr @the_repo, i64 240), align 8
   %call = tail call ptr @raw_object_store_new() #8
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @the_repo, i64 16), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @the_repo, i64 16), align 8
   %call1 = tail call ptr @remote_state_new() #8
-  store ptr %call1, ptr getelementptr inbounds (i8, ptr @the_repo, i64 248), align 8
+  store ptr %call1, ptr getelementptr inbounds nuw (i8, ptr @the_repo, i64 248), align 8
   %call2 = tail call ptr @parsed_object_pool_new() #8
-  store ptr %call2, ptr getelementptr inbounds (i8, ptr @the_repo, i64 24), align 8
+  store ptr %call2, ptr getelementptr inbounds nuw (i8, ptr @the_repo, i64 24), align 8
   %0 = load ptr, ptr @the_repository, align 8
   tail call void @index_state_init(ptr noundef nonnull @the_index, ptr noundef %0) #8
-  store ptr getelementptr inbounds (i8, ptr @hash_algos, i64 104), ptr getelementptr inbounds nuw (i8, ptr @the_repo, i64 256), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 104), ptr getelementptr inbounds nuw (i8, ptr @the_repo, i64 256), align 8
   ret void
 }
 

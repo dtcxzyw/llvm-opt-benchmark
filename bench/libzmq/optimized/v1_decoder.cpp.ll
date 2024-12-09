@@ -53,7 +53,7 @@ $_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE = comdat
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq12v1_decoder_tC2Eml(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 64), (136, 144)) %this, i64 noundef %bufsize_, i64 noundef %maxmsgsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE, i64 16), ptr %this, align 8
   %_next.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_allocator.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_next.i, i8 0, i64 32, i1 false)
@@ -77,7 +77,7 @@ _ZN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEC2Em.exit: ; 
   %2 = phi ptr [ %.pre.i, %if.then.i.i ], [ %call.i.i, %entry ]
   %_buf.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %2, ptr %_buf.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12v1_decoder_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq12v1_decoder_tE, i64 16), ptr %this, align 8
   %_max_msg_size = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i64 %maxmsgsize_, ptr %_max_msg_size, align 8
   %_in_progress2 = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -102,7 +102,7 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %if.then, %_ZN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEC2Em.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE, i64 16), ptr %this, align 8
   %7 = load ptr, ptr %_buf.i.i, align 8
   tail call void @free(ptr noundef %7) #19
   resume { ptr, i32 } %6
@@ -261,7 +261,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %do.end unwind label %terminate.lpad
 
 do.end:                                           ; preds = %if.then, %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE, i64 16), ptr %this, align 8
   %_buf.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %_buf.i.i, align 8
   tail call void @free(ptr noundef %3) #19
@@ -653,7 +653,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE, i64 16), ptr %this, align 8
   %_buf.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_buf.i, align 8
   tail call void @free(ptr noundef %0) #19

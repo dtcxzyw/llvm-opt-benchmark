@@ -608,11 +608,11 @@ _ZNSt10unique_ptrIN4llvm2gi25CodeGenInstructionPatternESt14default_deleteIS2_EED
   store ptr %59, ptr %63, align 8, !noalias !43
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 24
   store i64 %60, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !noalias !43
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi18InstructionPatternE, i64 16), ptr %61, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi18InstructionPatternE, i64 16), ptr %61, align 8, !noalias !43
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 48
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %64, ptr noundef nonnull %65, i64 noundef 4) #16, !noalias !43
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi25CodeGenInstructionPatternE, i64 16), ptr %61, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi25CodeGenInstructionPatternE, i64 16), ptr %61, align 8, !noalias !43
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 304
   store ptr %57, ptr %66, align 8, !noalias !43
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 312
@@ -846,11 +846,11 @@ _ZNSt10unique_ptrIN4llvm2gi25CodeGenInstructionPatternESt14default_deleteIS2_EED
   store ptr %184, ptr %188, align 8, !noalias !51
   %.sroa.2.0..sroa_idx.i.i.i.i80 = getelementptr inbounds nuw i8, ptr %186, i64 24
   store i64 %185, ptr %.sroa.2.0..sroa_idx.i.i.i.i80, align 8, !noalias !51
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi18InstructionPatternE, i64 16), ptr %186, align 8, !noalias !51
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi18InstructionPatternE, i64 16), ptr %186, align 8, !noalias !51
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 48
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %189, ptr noundef nonnull %190, i64 noundef 4) #16, !noalias !51
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi25CodeGenInstructionPatternE, i64 16), ptr %186, align 8, !noalias !51
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi25CodeGenInstructionPatternE, i64 16), ptr %186, align 8, !noalias !51
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 304
   store ptr %182, ptr %191, align 8, !noalias !51
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 312
@@ -904,11 +904,11 @@ _ZNSt10unique_ptrIN4llvm2gi14PatFragPatternESt14default_deleteIS2_EED2Ev.exit: ;
   store ptr %209, ptr %213, align 8, !noalias !54
   %.sroa.2.0..sroa_idx.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %211, i64 24
   store i64 %210, ptr %.sroa.2.0..sroa_idx.i.i.i.i95, align 8, !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi18InstructionPatternE, i64 16), ptr %211, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi18InstructionPatternE, i64 16), ptr %211, align 8, !noalias !54
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 32
   %215 = getelementptr inbounds nuw i8, ptr %211, i64 48
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %214, ptr noundef nonnull %215, i64 noundef 4) #16, !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi14PatFragPatternE, i64 16), ptr %211, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi14PatFragPatternE, i64 16), ptr %211, align 8, !noalias !54
   %216 = getelementptr inbounds nuw i8, ptr %211, i64 304
   store ptr %206, ptr %216, align 8, !noalias !54
   br label %238
@@ -949,11 +949,11 @@ _ZNSt10unique_ptrIN4llvm2gi14BuiltinPatternESt14default_deleteIS2_EED2Ev.exit: ;
   store ptr %230, ptr %234, align 8, !noalias !57
   %.sroa.2.0..sroa_idx.i.i.i.i107 = getelementptr inbounds nuw i8, ptr %232, i64 24
   store i64 %231, ptr %.sroa.2.0..sroa_idx.i.i.i.i107, align 8, !noalias !57
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi18InstructionPatternE, i64 16), ptr %232, align 8, !noalias !57
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi18InstructionPatternE, i64 16), ptr %232, align 8, !noalias !57
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %236 = getelementptr inbounds nuw i8, ptr %232, i64 48
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %235, ptr noundef nonnull %236, i64 noundef 4) #16, !noalias !57
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi14BuiltinPatternE, i64 16), ptr %232, align 8, !noalias !57
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm2gi14BuiltinPatternE, i64 16), ptr %232, align 8, !noalias !57
   %237 = getelementptr inbounds nuw i8, ptr %232, i64 304
   tail call void @_ZN4llvm2gi14BuiltinPattern14getBuiltinInfoERKNS_6RecordE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::gi::BuiltinPattern::BuiltinInfo") align 8 %237, ptr noundef nonnull align 8 dereferenceable(192) %228) #16, !noalias !57
   br label %238
@@ -1116,7 +1116,7 @@ _ZN4llvm26getDagWithSpecificOperatorERKNS_4InitENS_9StringRefE.exit: ; preds = %
   store ptr %26, ptr %30, align 8, !noalias !61
   %.sroa.2.0..sroa_idx.i.i.i24 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 %27, ptr %.sroa.2.0..sroa_idx.i.i.i24, align 8, !noalias !61
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm2gi16AnyOpcodePatternE, i64 16), ptr %28, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm2gi16AnyOpcodePatternE, i64 16), ptr %28, align 8, !noalias !61
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 48
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull %32, i64 noundef 4) #16, !noalias !61
@@ -2391,7 +2391,7 @@ define dso_local void @_ZN4llvm2gi13PatternParser16parsePatFragImplEPKNS_6Record
   %17 = alloca %"class.llvm::Twine", align 8
   %18 = alloca %"class.llvm::Twine", align 8
   call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm2gi12_GLOBAL__N_121PrettyStackTraceParseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm2gi12_GLOBAL__N_121PrettyStackTraceParseE, i64 16), ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %19, align 8
   %20 = call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull @.str.48, i64 16)

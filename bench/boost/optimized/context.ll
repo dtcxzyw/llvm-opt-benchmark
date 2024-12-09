@@ -1523,7 +1523,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers19context_initializer10initiali
   store i32 2, ptr %21, align 8, !tbaa !106
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 228
   store i32 1, ptr %22, align 4, !tbaa !107
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers12main_contextE, i64 16), ptr %7, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers12main_contextE, i64 16), ptr %7, align 8, !tbaa !10
   %23 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #36
   %24 = load ptr, ptr %1, align 8, !tbaa !7
   store ptr %24, ptr %5, align 8, !tbaa !7
@@ -1686,7 +1686,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers18dispatcher_contextC2ERKNS_7co
   store i32 4, ptr %16, align 8, !tbaa !106
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 1, ptr %17, align 4, !tbaa !107
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers18dispatcher_contextE, i64 16), ptr %0, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers18dispatcher_contextE, i64 16), ptr %0, align 8, !tbaa !10
   %.sroa.011.0.copyload = load ptr, ptr %1, align 8, !tbaa !13
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3
@@ -1761,7 +1761,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers18dispatcher_context4run_EONS_7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost6fibers7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers7contextE, i64 16), ptr %0, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers7contextE, i64 16), ptr %0, align 8, !tbaa !10
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN5boost6fibers6detail13spinlock_ttas4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %2) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -2046,7 +2046,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers19context_initializer10initiali
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #36
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6fibers4algo11round_robinE, i64 16), ptr %4, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6fibers4algo11round_robinE, i64 16), ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %6, ptr %6, align 8, !tbaa !94
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2065,7 +2065,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers19context_initializer10initiali
           to label %13 unwind label %.thread
 
 13:                                               ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6fibers6detail32polymorphic_stack_allocator_implINS_7context21basic_fixedsize_stackINS3_12stack_traitsEEEEE, i64 16), ptr %12, align 8, !tbaa !10, !noalias !152
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost6fibers6detail32polymorphic_stack_allocator_implINS_7context21basic_fixedsize_stackINS3_12stack_traitsEEEEE, i64 16), ptr %12, align 8, !tbaa !10, !noalias !152
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = tail call noundef i64 @_ZN5boost7context12stack_traits12default_sizeEv() #8, !noalias !152
   store i64 %15, ptr %14, align 8, !tbaa !155, !noalias !152
@@ -2183,7 +2183,7 @@ define linkonce_odr hidden { i64, ptr } @_ZN5boost6fibers6detail32polymorphic_st
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__cxa_allocate_exception(i64 8) #8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %6, align 8, !tbaa !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %6, align 8, !tbaa !10
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #35
   unreachable
 

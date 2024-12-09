@@ -5189,7 +5189,7 @@ Dss_ObjFindOrAdd.exit:                            ; preds = %364, %369
 
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @Dss_ManOperationFun(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call i32 @Dss_ManOperation(ptr noundef %0, i32 noundef 3, ptr noundef %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
+  %4 = tail call i32 @Dss_ManOperation(ptr noundef %0, i32 noundef 3, ptr noundef %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
   %5 = and i32 %4, 67108863
   %6 = shl i32 %2, 26
   %7 = or disjoint i32 %5, %6
@@ -5526,7 +5526,7 @@ Dss_NtkFree.exit:                                 ; preds = %Vec_PtrFree.exit.i,
   %149 = shl nsw i32 %147, 1
   %150 = or disjoint i32 %149, %148
   %151 = trunc i32 %150 to i8
-  %152 = getelementptr inbounds nuw [0 x i8], ptr getelementptr inbounds (i8, ptr @Dss_ManBooleanAnd.Buffer, i64 4), i64 0, i64 %indvars.iv109
+  %152 = getelementptr inbounds nuw [0 x i8], ptr getelementptr inbounds nuw (i8, ptr @Dss_ManBooleanAnd.Buffer, i64 4), i64 0, i64 %indvars.iv109
   store i8 %151, ptr %152, align 1
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
@@ -5543,12 +5543,12 @@ declare i32 @Dau_DsdDecompose(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 define noundef nonnull ptr @Dss_ManSharedMap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #16 {
   %6 = alloca [12 x i32], align 16
   %7 = load i32, ptr %1, align 4
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
   %9 = and i32 %7, 134217727
   %10 = zext nneg i32 %9 to i64
   %11 = and i64 %8, -134217728
   %12 = or disjoint i64 %11, %10
-  store i64 %12, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
+  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 134217727
@@ -5556,7 +5556,7 @@ define noundef nonnull ptr @Dss_ManSharedMap(ptr nocapture readnone %0, ptr noca
   %17 = shl nuw nsw i64 %16, 32
   %18 = and i64 %12, 4294967295
   %19 = or disjoint i64 %17, %18
-  store i64 %19, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
+  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %20
 
@@ -5615,7 +5615,7 @@ define noundef nonnull ptr @Dss_ManSharedMap(ptr nocapture readnone %0, ptr noca
   %47 = trunc i64 %indvars.iv39 to i8
   %sh.diff = lshr i64 %39, 58
   %48 = and i64 %sh.diff, 62
-  %49 = getelementptr inbounds nuw [0 x i8], ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMap.Buffer, i64 24), i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [0 x i8], ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMap.Buffer, i64 24), i64 0, i64 %48
   store i8 %47, ptr %49, align 2
   %50 = sext i32 %43 to i64
   %51 = getelementptr inbounds [12 x i32], ptr %6, i64 0, i64 %50
@@ -5627,13 +5627,13 @@ define noundef nonnull ptr @Dss_ManSharedMap(ptr nocapture readnone %0, ptr noca
   %57 = xor i32 %56, %52
   %58 = trunc i32 %57 to i8
   %59 = or i64 %sh.diff, 1
-  %60 = getelementptr inbounds nuw [0 x i8], ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMap.Buffer, i64 24), i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [0 x i8], ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMap.Buffer, i64 24), i64 0, i64 %59
   store i8 %58, ptr %60, align 1
   %61 = and i64 %39, -576460752303423488
   %62 = add i64 %61, 576460752303423488
   %63 = and i64 %39, 576460752303423487
   %64 = or disjoint i64 %62, %63
-  store i64 %64, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
+  store i64 %64, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
   %.pre = load i32, ptr %24, align 4
   br label %65
 
@@ -5656,7 +5656,7 @@ define noundef nonnull ptr @Dss_ManSharedMap(ptr nocapture readnone %0, ptr noca
   %76 = shl nuw nsw i64 %75, 27
   %77 = and i64 %Dss_ManSharedMap.Buffer.val, -4160749569
   %78 = or disjoint i64 %76, %77
-  store i64 %78, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
+  store i64 %78, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMap.Buffer, i64 16), align 16
   ret ptr @Dss_ManSharedMap.Buffer
 }
 
@@ -5780,7 +5780,7 @@ Abc_Clock.exit127:                                ; preds = %57, %60
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = add nsw i32 %67, %65
-  %69 = call i32 @Dss_ManOperation(ptr noundef nonnull readonly %0, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
+  %69 = call i32 @Dss_ManOperation(ptr noundef nonnull readonly %0, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
   %70 = and i32 %69, 67108863
   %71 = shl i32 %68, 26
   %72 = or disjoint i32 %70, %71
@@ -5955,7 +5955,7 @@ Abc_Clock.exit133:                                ; preds = %Abc_Clock.exit131, 
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = add nsw i32 %160, %158
-  %162 = call i32 @Dss_ManOperation(ptr noundef nonnull readonly %0, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
+  %162 = call i32 @Dss_ManOperation(ptr noundef nonnull readonly %0, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
   %163 = and i32 %162, 67108863
   %164 = shl i32 %161, 26
   %165 = or disjoint i32 %163, %164
@@ -6176,7 +6176,7 @@ Abc_Clock.exit139:                                ; preds = %.loopexit, %257
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef nonnull ptr @Dss_ManSharedMapDerive(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #18 {
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %6 = and i32 %1, 134217727
   %7 = zext nneg i32 %6 to i64
   %8 = and i64 %5, -576460748142673920
@@ -6185,7 +6185,7 @@ define noundef nonnull ptr @Dss_ManSharedMapDerive(ptr nocapture noundef readnon
   %11 = zext nneg i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 32
   %13 = or disjoint i64 %9, %12
-  store i64 %13, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %14 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %14, align 4
   %15 = sdiv i32 %.val, 2
@@ -6194,12 +6194,12 @@ define noundef nonnull ptr @Dss_ManSharedMapDerive(ptr nocapture noundef readnon
   %18 = shl nuw i64 %17, 59
   %19 = and i64 %13, 576460752303423487
   %20 = or disjoint i64 %18, %19
-  store i64 %20, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
+  store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %21 = getelementptr i8, ptr %3, i64 8
   %.val12 = load ptr, ptr %21, align 8
   %.val11 = load i32, ptr %14, align 4
   %22 = sext i32 %.val11 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 24), ptr align 1 %.val12, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 24), ptr align 1 %.val12, i64 %22, i1 false)
   %23 = lshr i32 %16, 2
   %24 = add nuw nsw i32 %23, 3
   %25 = and i64 %17, 3
@@ -6210,7 +6210,7 @@ define noundef nonnull ptr @Dss_ManSharedMapDerive(ptr nocapture noundef readnon
   %30 = zext nneg i32 %29 to i64
   %31 = and i64 %20, -4160749569
   %32 = or disjoint i64 %31, %30
-  store i64 %32, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
+  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   ret ptr @Dss_ManSharedMapDerive.Buffer
 }
 
@@ -6250,7 +6250,7 @@ define range(i32 -1, 67108864) i32 @Mpm_FuncCompute(ptr noundef %0, i32 noundef 
 Abc_Clock.exit:                                   ; preds = %17, %20
   %.0.i.neg = phi i64 [ %.neg58, %20 ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %25 = and i32 %1, 134217727
   %26 = zext nneg i32 %25 to i64
   %27 = and i64 %24, -576460748142673920
@@ -6259,7 +6259,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %30 = shl nuw nsw i64 %29, 32
   %31 = or disjoint i64 %27, %26
   %32 = or disjoint i64 %31, %30
-  store i64 %32, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
+  store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %33 = getelementptr i8, ptr %3, i64 4
   %.val.i = load i32, ptr %33, align 4
   %34 = sdiv i32 %.val.i, 2
@@ -6268,12 +6268,12 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %37 = shl nuw i64 %36, 59
   %38 = and i64 %32, 576460752303423487
   %39 = or disjoint i64 %37, %38
-  store i64 %39, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
+  store i64 %39, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %40 = getelementptr i8, ptr %3, i64 8
   %.val12.i = load ptr, ptr %40, align 8
   %.val11.i = load i32, ptr %33, align 4
   %41 = sext i32 %.val11.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 24), ptr align 1 %.val12.i, i64 %41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 24), ptr align 1 %.val12.i, i64 %41, i1 false)
   %42 = lshr i32 %35, 2
   %43 = add nuw nsw i32 %42, 3
   %44 = and i64 %36, 3
@@ -6284,14 +6284,14 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %49 = zext nneg i32 %48 to i64
   %50 = and i64 %39, -4160749569
   %51 = or disjoint i64 %50, %49
-  store i64 %51, ptr getelementptr inbounds (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
+  store i64 %51, ptr getelementptr inbounds nuw (i8, ptr @Dss_ManSharedMapDerive.Buffer, i64 16), align 16
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load ptr, ptr %52, align 8
   %54 = mul nuw nsw i32 %35, 7103
   %55 = mul nuw nsw i32 %25, 7873
-  %56 = add nuw nsw i32 %54, %55
-  %57 = mul nuw nsw i32 %28, 8147
-  %58 = add nuw nsw i32 %56, %57
+  %56 = mul nuw nsw i32 %28, 8147
+  %57 = add nuw nsw i32 %56, %55
+  %58 = add nuw nsw i32 %57, %54
   %.not.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i, label %Dss_ManCacheHashKey.exit.i, label %.lr.ph.i.i
 
@@ -6414,7 +6414,7 @@ Abc_Clock.exit50:                                 ; preds = %Abc_Clock.exit48, %
 
 .thread:                                          ; preds = %115
   %117 = load i32, ptr %5, align 4
-  %118 = call i32 @Dss_ManOperation(ptr noundef nonnull readonly %0, i32 noundef 3, ptr noundef nonnull %11, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
+  %118 = call i32 @Dss_ManOperation(ptr noundef nonnull readonly %0, i32 noundef 3, ptr noundef nonnull %11, i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @Dss_ManOperationFun.Buffer, i64 4), ptr noundef null)
   %119 = and i32 %118, 67108863
   %120 = shl i32 %117, 26
   %121 = or disjoint i32 %119, %120

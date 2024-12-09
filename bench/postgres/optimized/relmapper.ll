@@ -58,7 +58,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
   br i1 %1, label %.preheader34, label %.preheader37
 
 .preheader37:                                     ; preds = %2
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %.preheader35
 
@@ -67,7 +67,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
   br label %.lr.ph
 
 .preheader34:                                     ; preds = %2
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph48.preheader, label %.preheader
 
@@ -81,7 +81,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
   br i1 %exitcond76.not, label %.preheader, label %.lr.ph48, !llvm.loop !5
 
 .preheader:                                       ; preds = %7, %.preheader34
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @shared_map, i64 4), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @shared_map, i64 4), align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph51.preheader, label %.loopexit
 
@@ -91,7 +91,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %7
   %indvars.iv72 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next73, %7 ]
-  %10 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %indvars.iv72
+  %10 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %indvars.iv72
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %0, %11
   br i1 %12, label %.loopexit.sink.split, label %7
@@ -103,7 +103,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %13
   %indvars.iv77 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next78, %13 ]
-  %14 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @shared_map, i64 8), i64 0, i64 %indvars.iv77
+  %14 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @shared_map, i64 8), i64 0, i64 %indvars.iv77
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %0, %15
   br i1 %16, label %.loopexit.sink.split, label %13
@@ -114,7 +114,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
   br i1 %exitcond.not, label %.preheader35, label %.lr.ph, !llvm.loop !8
 
 .preheader35:                                     ; preds = %17, %.preheader37
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @local_map, i64 4), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @local_map, i64 4), align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph45.preheader, label %.loopexit
 
@@ -124,7 +124,7 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %20 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
+  %20 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %0, %21
   br i1 %22, label %.loopexit.sink.split, label %17
@@ -136,14 +136,14 @@ define dso_local i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zero
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %23
   %indvars.iv67 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next68, %23 ]
-  %24 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @local_map, i64 8), i64 0, i64 %indvars.iv67
+  %24 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @local_map, i64 8), i64 0, i64 %indvars.iv67
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %0, %25
   br i1 %26, label %.loopexit.sink.split, label %23
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph45, %.lr.ph48, %.lr.ph51
   %indvars.iv67.lcssa.sink = phi i64 [ %indvars.iv77, %.lr.ph51 ], [ %indvars.iv72, %.lr.ph48 ], [ %indvars.iv67, %.lr.ph45 ], [ %indvars.iv, %.lr.ph ]
-  %.sink87 = phi ptr [ getelementptr inbounds (i8, ptr @shared_map, i64 8), %.lr.ph51 ], [ getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), %.lr.ph48 ], [ getelementptr inbounds (i8, ptr @local_map, i64 8), %.lr.ph45 ], [ getelementptr inbounds (i8, ptr @active_local_updates, i64 8), %.lr.ph ]
+  %.sink87 = phi ptr [ getelementptr inbounds nuw (i8, ptr @shared_map, i64 8), %.lr.ph51 ], [ getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 8), %.lr.ph48 ], [ getelementptr inbounds nuw (i8, ptr @local_map, i64 8), %.lr.ph45 ], [ getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 8), %.lr.ph ]
   %.idx = shl nuw nsw i64 %indvars.iv67.lcssa.sink, 3
   %.offs = or disjoint i64 %.idx, 4
   %27 = getelementptr i8, ptr %.sink87, i64 %.offs
@@ -160,7 +160,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
   br i1 %1, label %.preheader34, label %.preheader37
 
 .preheader37:                                     ; preds = %2
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %.preheader35
 
@@ -169,7 +169,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
   br label %.lr.ph
 
 .preheader34:                                     ; preds = %2
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph45.preheader, label %.preheader
 
@@ -183,7 +183,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
   br i1 %exitcond66.not, label %.preheader, label %.lr.ph45, !llvm.loop !10
 
 .preheader:                                       ; preds = %7, %.preheader34
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @shared_map, i64 4), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @shared_map, i64 4), align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph47.preheader, label %.loopexit
 
@@ -193,7 +193,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %7
   %indvars.iv62 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next63, %7 ]
-  %10 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %indvars.iv62
+  %10 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 8), i64 0, i64 %indvars.iv62
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %0, %12
@@ -206,7 +206,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %14
   %indvars.iv67 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next68, %14 ]
-  %15 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @shared_map, i64 8), i64 0, i64 %indvars.iv67
+  %15 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @shared_map, i64 8), i64 0, i64 %indvars.iv67
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %0, %17
@@ -218,7 +218,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
   br i1 %exitcond.not, label %.preheader35, label %.lr.ph, !llvm.loop !12
 
 .preheader35:                                     ; preds = %19, %.preheader37
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @local_map, i64 4), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @local_map, i64 4), align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph43.preheader, label %.loopexit
 
@@ -228,7 +228,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %22 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
+  %22 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %0, %24
@@ -241,7 +241,7 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %26
   %indvars.iv57 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next58, %26 ]
-  %27 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @local_map, i64 8), i64 0, i64 %indvars.iv57
+  %27 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @local_map, i64 8), i64 0, i64 %indvars.iv57
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %0, %29
@@ -713,7 +713,7 @@ declare zeroext i1 @IsInParallelMode() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_addr #1 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -728,21 +728,21 @@ define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_ad
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
+  %5 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %0, %6
   br i1 %7, label %8, label %4
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
+  %9 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
   %10 = add nsw i32 %2, -1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 8), i64 0, i64 %11
+  %12 = getelementptr [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 8), i64 0, i64 %11
   %13 = load i64, ptr %12, align 4
   store i64 %13, ptr %9, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   %15 = add i32 %14, -1
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   ret void
 
 ._crit_edge:                                      ; preds = %4, %1
@@ -809,7 +809,7 @@ define dso_local void @RelationMapInvalidateAll() local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtCCI_RelationMap() local_unnamed_addr #1 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pending_shared_updates, i64 4), align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %27, label %2
 
@@ -886,11 +886,11 @@ apply_map_update.exit.us.i:                       ; preds = %22, %._crit_edge.i.
   unreachable
 
 merge_map_updates.exit:                           ; preds = %apply_map_update.exit.us.i, %2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pending_shared_updates, i64 4), align 4
   br label %27
 
 27:                                               ; preds = %merge_map_updates.exit, %0
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 4), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pending_local_updates, i64 4), align 4
   %.not1 = icmp eq i32 %28, 0
   br i1 %.not1, label %54, label %29
 
@@ -967,7 +967,7 @@ apply_map_update.exit.us.i9:                      ; preds = %49, %._crit_edge.i.
   unreachable
 
 merge_map_updates.exit20:                         ; preds = %apply_map_update.exit.us.i9, %29
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pending_local_updates, i64 4), align 4
   br label %54
 
 54:                                               ; preds = %merge_map_updates.exit20, %27
@@ -981,30 +981,30 @@ define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef ze
   br i1 %brmerge, label %9, label %3
 
 3:                                                ; preds = %2
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
   tail call fastcc void @perform_relmap_update(i1 noundef zeroext true, ptr noundef nonnull @active_shared_updates)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
   br label %6
 
 6:                                                ; preds = %5, %3
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   %.not2 = icmp eq i32 %7, 0
   br i1 %.not2, label %10, label %8
 
 8:                                                ; preds = %6
   tail call fastcc void @perform_relmap_update(i1 noundef zeroext false, ptr noundef nonnull @active_local_updates)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   br label %10
 
 9:                                                ; preds = %2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pending_shared_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pending_local_updates, i64 4), align 4
   br label %10
 
 10:                                               ; preds = %6, %8, %9
@@ -1189,15 +1189,15 @@ merge_map_updates.exit:                           ; preds = %apply_map_update.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtPrepare_RelationMap() local_unnamed_addr #1 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
   %2 = icmp ne i32 %1, 0
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   %4 = icmp ne i32 %3, 0
   %or.cond = select i1 %2, i1 true, i1 %4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 4), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pending_shared_updates, i64 4), align 4
   %6 = icmp ne i32 %5, 0
   %or.cond5 = select i1 %or.cond, i1 true, i1 %6
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 4), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pending_local_updates, i64 4), align 4
   %8 = icmp ne i32 %7, 0
   %or.cond8 = select i1 %or.cond5, i1 true, i1 %8
   br i1 %or.cond8, label %9, label %13
@@ -1249,12 +1249,12 @@ define dso_local void @RelationMapFinishBootstrap() local_unnamed_addr #1 {
 define dso_local void @RelationMapInitialize() local_unnamed_addr #5 {
   store i32 0, ptr @shared_map, align 4
   store i32 0, ptr @local_map, align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @shared_map, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @local_map, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 4), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @shared_map, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @local_map, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pending_shared_updates, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @pending_local_updates, i64 4), align 4
   ret void
 }
 
@@ -1302,15 +1302,15 @@ define dso_local void @SerializeRelationMap(i64 noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RestoreRelationMap(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @active_shared_updates, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
   %3 = icmp ne i32 %2, 0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @active_local_updates, i64 4), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
   %5 = icmp ne i32 %4, 0
   %or.cond = select i1 %3, i1 true, i1 %5
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pending_shared_updates, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pending_shared_updates, i64 4), align 4
   %7 = icmp ne i32 %6, 0
   %or.cond5 = select i1 %or.cond, i1 true, i1 %7
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pending_local_updates, i64 4), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pending_local_updates, i64 4), align 4
   %9 = icmp ne i32 %8, 0
   %or.cond8 = select i1 %or.cond5, i1 true, i1 %9
   br i1 %or.cond8, label %10, label %13

@@ -142,7 +142,7 @@ declare noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(968) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm24TargetLoweringObjectFileE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 256) (i8, ptr @_ZTVN4llvm24TargetLoweringObjectFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

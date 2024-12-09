@@ -224,8 +224,8 @@ for.body69:                                       ; preds = %stop_progress.exit,
   br i1 %exitcond65.not, label %do.body, label %for.body69, !llvm.loop !8
 
 do.body:                                          ; preds = %for.body69, %stop_progress.exit
-  %trace_perf_key.val = load i32, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 8), align 8
-  %trace_perf_key.val33 = load i8, ptr getelementptr inbounds (i8, ptr @trace_perf_key, i64 12), align 4
+  %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8
+  %trace_perf_key.val33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_perf_key.val, 0
   %bf.clear.i = and i8 %trace_perf_key.val33, 1
   %tobool76.not37 = icmp ne i8 %bf.clear.i, 0
@@ -425,8 +425,8 @@ if.end.i:                                         ; preds = %if.then.i
   %22 = load i32, ptr %ce_flags, align 8
   %or5.i = or i32 %22, 2097152
   store i32 %or5.i, ptr %ce_flags, align 8
-  %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 8), align 8
-  %trace_fsmonitor.val5.i = load i8, ptr getelementptr inbounds (i8, ptr @trace_fsmonitor, i64 12), align 4
+  %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
+  %trace_fsmonitor.val5.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i.i = icmp eq i32 %trace_fsmonitor.val.i, 0
   %bf.clear.i.i = and i8 %trace_fsmonitor.val5.i, 1
   %tobool7.not6.i = icmp ne i8 %bf.clear.i.i, 0

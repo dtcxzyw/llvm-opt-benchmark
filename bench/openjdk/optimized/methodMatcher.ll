@@ -562,12 +562,12 @@ _ZL10check_modePcRPKc.exit48:                     ; preds = %52, %70, %.sink.spl
   br i1 %.not36, label %100, label %93
 
 93:                                               ; preds = %91, %89
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %95 = call noundef zeroext i1 @_ZNK6Symbol6equalsEPKc(ptr noundef nonnull align 4 dereferenceable(8) %94, ptr noundef nonnull %6)
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %93
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
   %98 = call noundef zeroext i1 @_ZNK6Symbol6equalsEPKc(ptr noundef nonnull align 4 dereferenceable(8) %97, ptr noundef nonnull %6)
   br i1 %98, label %100, label %99
 

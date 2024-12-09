@@ -106,7 +106,7 @@ define internal fastcc range(i32 0, 4) i32 @prepend_path(ptr nocapture noundef r
   br label %20
 
 19:                                               ; preds = %8
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mount_lock, i64 4)) #9
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mount_lock, i64 4)) #9
   br label %20
 
 20:                                               ; preds = %19, %.loopexit30
@@ -141,7 +141,7 @@ define internal fastcc range(i32 0, 4) i32 @prepend_path(ptr nocapture noundef r
   br label %37
 
 36:                                               ; preds = %22
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rename_lock, i64 4)) #9
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rename_lock, i64 4)) #9
   br label %37
 
 37:                                               ; preds = %36, %.loopexit
@@ -282,7 +282,7 @@ define internal fastcc range(i32 0, 4) i32 @prepend_path(ptr nocapture noundef r
   br i1 %.not, label %.critedge, label %22
 
 .critedge16:                                      ; preds = %.thread25
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rename_lock, i64 4)) #9
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rename_lock, i64 4)) #9
   br label %.critedge
 
 .critedge:                                        ; preds = %121, %.critedge16
@@ -298,7 +298,7 @@ define internal fastcc range(i32 0, 4) i32 @prepend_path(ptr nocapture noundef r
   br i1 %.not13, label %.critedge15, label %8
 
 .critedge17:                                      ; preds = %.critedge
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mount_lock, i64 4)) #9
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mount_lock, i64 4)) #9
   br label %.critedge15
 
 .critedge15:                                      ; preds = %125, %.critedge17
@@ -727,7 +727,7 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr %.0.val, i32 %.8.v
   br label %15
 
 14:                                               ; preds = %3
-  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rename_lock, i64 4)) #9
+  tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rename_lock, i64 4)) #9
   br label %15
 
 15:                                               ; preds = %14, %.loopexit
@@ -811,7 +811,7 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr %.0.val, i32 %.8.v
 
 .critedge8:                                       ; preds = %.thread2
   %.fr.le33.le76.le138 = freeze i32 %57
-  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @rename_lock, i64 4)) #9
+  tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rename_lock, i64 4)) #9
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %60

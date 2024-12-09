@@ -12084,7 +12084,7 @@ land.lhs.true:                                    ; preds = %invoke.cont406
   br i1 %tobool408, label %if.then409, label %if.end597
 
 if.then409:                                       ; preds = %land.lhs.true
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %subs, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %subs, align 8
   %d_vars.i = getelementptr inbounds nuw i8, ptr %subs, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %d_vars.i, i8 0, i64 48, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
@@ -35886,7 +35886,7 @@ ehcleanup172:                                     ; preds = %lpad6, %lpad.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal4SubsD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %this, align 8
   %d_subs = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_subs, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -44492,7 +44492,7 @@ invoke.cont160:                                   ; preds = %invoke.cont.i.i653,
   br i1 %cmp.i647, label %cleanup219, label %if.then162
 
 if.then162:                                       ; preds = %invoke.cont160
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %subs, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %subs, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %d_vars.i, i8 0, i64 48, i1 false)
   store ptr %.pre, ptr %agg.tmp164, align 8
   %bf.load.i.i657 = load i64, ptr %.pre, align 8
@@ -46163,7 +46163,7 @@ declare void @_ZN4cvc58internal6theory7strings17SequencesRewriter18rewriteEquali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory7strings17SequencesRewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings17SequencesRewriterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory7strings17SequencesRewriterE, i64 16), ptr %this, align 8
   %d_false = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %d_false, align 8
   %bf.load.i.i = load i64, ptr %0, align 8

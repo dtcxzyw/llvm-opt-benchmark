@@ -63,7 +63,7 @@ define hidden i64 @_mi_bin_size(i8 noundef zeroext %bin) local_unnamed_addr #0 {
 entry:
   %idxprom = zext i8 %bin to i64
   %block_size.idx = mul nuw nsw i64 %idxprom, 24
-  %block_size = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1056), i64 %block_size.idx
+  %block_size = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1056), i64 %block_size.idx
   %0 = load i64, ptr %block_size, align 8
   ret i64 %0
 }
@@ -105,7 +105,7 @@ if.else7.i:                                       ; preds = %if.else.i
 mi_bin.exit:                                      ; preds = %if.then, %if.then2.i, %if.else7.i
   %bin.0.i = phi i64 [ %conv.i, %if.then2.i ], [ %3, %if.else7.i ], [ 1, %if.then ]
   %block_size.idx.i = mul nuw nsw i64 %bin.0.i, 24
-  %block_size.i = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_mi_heap_empty, i64 1056), i64 %block_size.idx.i
+  %block_size.i = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1056), i64 %block_size.idx.i
   %4 = load i64, ptr %block_size.i, align 8
   br label %return
 

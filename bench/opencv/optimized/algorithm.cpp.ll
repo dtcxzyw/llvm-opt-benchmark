@@ -66,7 +66,7 @@ $_ZNK2cv9Algorithm5emptyEv = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv9AlgorithmC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::utils::trace::details::Region", align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv9AlgorithmE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv9AlgorithmE, i64 16), ptr %0, align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv9AlgorithmC1EvE24__cv_trace_location_fn50)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -115,7 +115,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv9AlgorithmD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::utils::trace::details::Region", align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv9AlgorithmE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv9AlgorithmE, i64 16), ptr %0, align 8
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv9AlgorithmD1EvE24__cv_trace_location_fn55)
           to label %3 unwind label %10
 

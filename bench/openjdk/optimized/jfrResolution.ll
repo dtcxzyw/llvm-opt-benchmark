@@ -232,7 +232,7 @@ define hidden void @_ZN13JfrResolution21on_runtime_resolutionERK8CallInfoP10Java
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
   store ptr %12, ptr @_ZZN13JfrResolution21on_runtime_resolutionERK8CallInfoP10JavaThreadE24event_writer_method_name, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13JfrResolution21on_runtime_resolutionERK8CallInfoP10JavaThreadE24event_writer_method_name) #12
   br label %13
@@ -306,7 +306,7 @@ _ZL21on_runtime_deprecatedPK6MethodP10JavaThread.exit: ; preds = %20, %_ZL17ljf_
   br i1 %.not13, label %46, label %44
 
 44:                                               ; preds = %42
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9168), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9168), align 8
   store ptr %45, ptr @_ZZN13JfrResolution21on_runtime_resolutionERK8CallInfoP10JavaThreadE31event_writer_factory_klass_name, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN13JfrResolution21on_runtime_resolutionERK8CallInfoP10JavaThreadE31event_writer_factory_klass_name) #12
   br label %46
@@ -354,7 +354,7 @@ _ZL17ljf_sender_methodP10JavaThread.exit:         ; preds = %51
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2440), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2440), align 8
   %71 = icmp eq ptr %69, %70
   br i1 %71, label %72, label %80
 
@@ -369,7 +369,7 @@ _ZL17ljf_sender_methodP10JavaThread.exit:         ; preds = %51
   br i1 %79, label %82, label %80
 
 80:                                               ; preds = %72, %61
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, i32 noundef 227, ptr noundef %81, ptr noundef nonnull @.str.5) #12
   br label %82
 
@@ -436,7 +436,7 @@ define hidden void @_ZN13JfrResolution16on_c1_resolutionEPK12GraphBuilderPK7ciKl
   br i1 %.not.i.i, label %25, label %23
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9168), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9168), align 8
   store ptr %24, ptr @_ZZL32is_compiler_linking_event_writerPK6SymbolS1_E31event_writer_factory_klass_name, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL32is_compiler_linking_event_writerPK6SymbolS1_E31event_writer_factory_klass_name) #12
   br label %25
@@ -457,7 +457,7 @@ define hidden void @_ZN13JfrResolution16on_c1_resolutionEPK12GraphBuilderPK7ciKl
   br i1 %.not4.i.i, label %_ZL32is_compiler_linking_event_writerPK7ciKlassPK8ciMethod.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
   store ptr %33, ptr @_ZZL32is_compiler_linking_event_writerPK6SymbolS1_E24event_writer_method_name, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL32is_compiler_linking_event_writerPK6SymbolS1_E24event_writer_method_name) #12
   br label %_ZL32is_compiler_linking_event_writerPK7ciKlassPK8ciMethod.exit
@@ -557,7 +557,7 @@ define hidden void @_ZN13JfrResolution16on_c2_resolutionEPK5ParsePK7ciKlassPK8ci
   br i1 %.not.i.i, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9168), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9168), align 8
   store ptr %21, ptr @_ZZL32is_compiler_linking_event_writerPK6SymbolS1_E31event_writer_factory_klass_name, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL32is_compiler_linking_event_writerPK6SymbolS1_E31event_writer_factory_klass_name) #12
   br label %22
@@ -578,7 +578,7 @@ define hidden void @_ZN13JfrResolution16on_c2_resolutionEPK5ParsePK7ciKlassPK8ci
   br i1 %.not4.i.i, label %_ZL32is_compiler_linking_event_writerPK7ciKlassPK8ciMethod.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
   store ptr %30, ptr @_ZZL32is_compiler_linking_event_writerPK6SymbolS1_E24event_writer_method_name, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL32is_compiler_linking_event_writerPK6SymbolS1_E24event_writer_method_name) #12
   br label %_ZL32is_compiler_linking_event_writerPK7ciKlassPK8ciMethod.exit
@@ -673,7 +673,7 @@ define hidden void @_ZN13JfrResolution19on_jvmci_resolutionEPK6MethodS2_P10JavaT
   br i1 %.not.i, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9168), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9168), align 8
   store ptr %23, ptr @_ZZL32is_compiler_linking_event_writerPK6SymbolS1_E31event_writer_factory_klass_name, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL32is_compiler_linking_event_writerPK6SymbolS1_E31event_writer_factory_klass_name) #12
   br label %24
@@ -694,7 +694,7 @@ define hidden void @_ZN13JfrResolution19on_jvmci_resolutionEPK6MethodS2_P10JavaT
   br i1 %.not4.i, label %_ZL32is_compiler_linking_event_writerPK6SymbolS1_.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
   store ptr %32, ptr @_ZZL32is_compiler_linking_event_writerPK6SymbolS1_E24event_writer_method_name, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL32is_compiler_linking_event_writerPK6SymbolS1_E24event_writer_method_name) #12
   br label %_ZL32is_compiler_linking_event_writerPK6SymbolS1_.exit
@@ -716,7 +716,7 @@ _ZL32is_compiler_linking_event_writerPK6SymbolS1_.exit: ; preds = %26, %29, %31
   br i1 %.not, label %41, label %_ZL32is_compiler_linking_event_writerPK6SymbolS1_.exit.thread
 
 41:                                               ; preds = %37, %35
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1312), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef 291, ptr noundef %42, ptr noundef nonnull @.str.5) #12
   br label %_ZL32is_compiler_linking_event_writerPK6SymbolS1_.exit.thread
 
@@ -1019,7 +1019,7 @@ _ZNK11RegisterMap7in_contEv.exit:                 ; preds = %37
   %46 = sext i32 %45 to i64
   %47 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %48 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef %46) #12
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 304), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 304), align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = load ptr, ptr %50, align 8, !nonnull !16, !noundef !16
   %52 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
@@ -2378,7 +2378,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2397,7 +2397,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2416,7 +2416,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2435,7 +2435,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -2454,7 +2454,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -2482,7 +2482,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9

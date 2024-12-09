@@ -28,7 +28,7 @@ define dso_local i32 @acpi_ex_opcode_3A_0T_0R(ptr nocapture noundef readonly %0)
   %8 = and i64 %7, 512
   %9 = icmp eq i64 %8, 0
   %10 = select i1 %9, i32 2080, i32 3264
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %12 = call noalias noundef align 8 dereferenceable_or_null(12) ptr @kmalloc_trace(ptr noundef %11, i32 noundef %10, i64 noundef 12) #7
   %13 = icmp eq ptr %12, null
   br i1 %13, label %31, label %14

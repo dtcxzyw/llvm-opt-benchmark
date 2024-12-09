@@ -12554,7 +12554,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$15is_other_format17h28bc780b87b3bc16E.llvm.14140520316429159617"(i32 noundef %0) unnamed_addr #2 {
   %2 = load ptr, ptr @_ZN18unicode_categories6tables12OTHER_FORMAT17hb98ed9a88a43a8d8E, align 8, !nonnull !4, !align !1225, !noundef !4
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables12OTHER_FORMAT17hb98ed9a88a43a8d8E, i64 8), align 8, !noundef !4
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables12OTHER_FORMAT17hb98ed9a88a43a8d8E, i64 8), align 8, !noundef !4
   %4 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
   ret i1 %4
 }
@@ -12573,7 +12573,7 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$char$u20$as$u20$unicode_categories.
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @_ZN18unicode_categories6tables17OTHER_PRIVATE_USE17h6b7b1ee9b970c795E, align 8, !nonnull !4, !align !1225, !noundef !4
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables17OTHER_PRIVATE_USE17h6b7b1ee9b970c795E, i64 8), align 8, !noundef !4
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables17OTHER_PRIVATE_USE17h6b7b1ee9b970c795E, i64 8), align 8, !noundef !4
   %8 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %6, i64 noundef %7)
   br label %9
 
@@ -18882,7 +18882,7 @@ define hidden noundef zeroext i1 @_ZN10tokenizers11normalizers4bert10is_control1
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @_ZN18unicode_categories6tables13OTHER_CONTROL17h5048d2e3d8b8060bE, align 8, !nonnull !4, !align !1225, !noundef !4
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables13OTHER_CONTROL17h5048d2e3d8b8060bE, i64 8), align 8, !noundef !4
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables13OTHER_CONTROL17h5048d2e3d8b8060bE, i64 8), align 8, !noundef !4
   %5 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4)
   br i1 %5, label %"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$20is_other_private_use17h4b03492d94830fa5E.llvm.14140520316429159617.exit", label %6
 
@@ -18892,7 +18892,7 @@ define hidden noundef zeroext i1 @_ZN10tokenizers11normalizers4bert10is_control1
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @_ZN18unicode_categories6tables12OTHER_FORMAT17hb98ed9a88a43a8d8E, align 8, !nonnull !4, !align !1225, !noundef !4
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables12OTHER_FORMAT17hb98ed9a88a43a8d8E, i64 8), align 8, !noundef !4
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables12OTHER_FORMAT17hb98ed9a88a43a8d8E, i64 8), align 8, !noundef !4
   %9 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %8)
   br i1 %9, label %"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$20is_other_private_use17h4b03492d94830fa5E.llvm.14140520316429159617.exit", label %10
 
@@ -18909,7 +18909,7 @@ define hidden noundef zeroext i1 @_ZN10tokenizers11normalizers4bert10is_control1
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr @_ZN18unicode_categories6tables17OTHER_PRIVATE_USE17h6b7b1ee9b970c795E, align 8, !nonnull !4, !align !1225, !noundef !4
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables17OTHER_PRIVATE_USE17h6b7b1ee9b970c795E, i64 8), align 8, !noundef !4
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables17OTHER_PRIVATE_USE17h6b7b1ee9b970c795E, i64 8), align 8, !noundef !4
   %17 = tail call noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef %0, ptr noalias noundef nonnull readonly align 4 %15, i64 noundef %16)
   br label %"_ZN62_$LT$char$u20$as$u20$unicode_categories..UnicodeCategories$GT$20is_other_private_use17h4b03492d94830fa5E.llvm.14140520316429159617.exit"
 }

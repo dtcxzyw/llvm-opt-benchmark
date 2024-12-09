@@ -7833,8 +7833,8 @@ common.resume:                                    ; preds = %106, %27
   br label %common.resume
 
 _ZN2cvL9getCodecsEv.exit:                         ; preds = %.critedge, %22, %25
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 32), align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 24), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 32), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 24), align 8
   %.not83 = icmp eq ptr %29, %30
   br i1 %.not83, label %._crit_edge76, label %.lr.ph
 
@@ -7863,8 +7863,8 @@ _ZN2cvL9getCodecsEv.exit:                         ; preds = %.critedge, %22, %25
 ._crit_edge.split.us.us:                          ; preds = %69, %.lr.ph63.us, %.lr.ph.split.us
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %39 = add nuw i64 %.04172.us, 1
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 32), align 8
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 24), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 32), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 24), align 8
   %42 = ptrtoint ptr %40 to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
@@ -7946,8 +7946,8 @@ _ZN2cvL9getCodecsEv.exit:                         ; preds = %.critedge, %22, %25
 ._crit_edge.split.us:                             ; preds = %97, %.lr.ph63.us80, %.lr.ph.split.split.us
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %82 = add nuw i64 %.04172.us78, 1
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 32), align 8
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 24), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 32), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 24), align 8
   %85 = ptrtoint ptr %83 to i64
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
@@ -7978,7 +7978,7 @@ _ZN2cvL9getCodecsEv.exit:                         ; preds = %.critedge, %22, %25
 
 .split.us:                                        ; preds = %.critedge2.us.us.thread, %.critedge2.us66.us
   %.us-phi = phi i64 [ %.04172.us78, %.critedge2.us66.us ], [ %.04172.us, %.critedge2.us.us.thread ]
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 24), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cvL9getCodecsEvE8g_codecs, i64 24), align 8
   %101 = getelementptr inbounds %"struct.cv::Ptr", ptr %100, i64 %.us-phi
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %102, align 8
@@ -10391,7 +10391,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4Im
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15ImageCollection4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15ImageCollection4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %21, align 8
   store ptr %7, ptr %6, align 8
@@ -10452,7 +10452,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv15ImageCollection4Im
   store i32 1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %19, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15ImageCollection4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv15ImageCollection4ImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %4, ptr %20, align 8
   store ptr %7, ptr %6, align 8
@@ -11467,7 +11467,7 @@ define linkonce_odr hidden void @_ZN2cv21ImageCodecInitializerC2Ev(ptr noundef n
   store i32 1, ptr %60, align 8, !noalias !47
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 12
   store i32 1, ptr %61, align 4, !noalias !47
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10BmpDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %59, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10BmpDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %59, align 8, !noalias !47
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   invoke void @_ZN2cv10BmpDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(1424) %62)
           to label %64 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10BmpDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !47
@@ -11664,7 +11664,7 @@ _ZN2cv3PtrINS_10BmpDecoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %148, align 8, !noalias !52
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 12
   store i32 1, ptr %149, align 4, !noalias !52
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10BmpEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %147, align 8, !noalias !52
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10BmpEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %147, align 8, !noalias !52
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 16
   invoke void @_ZN2cv10BmpEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %150)
           to label %152 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10BmpEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !52
@@ -11861,7 +11861,7 @@ _ZN2cv3PtrINS_10BmpEncoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %236, align 8, !noalias !57
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 12
   store i32 1, ptr %237, align 4, !noalias !57
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10HdrDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %235, align 8, !noalias !57
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10HdrDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %235, align 8, !noalias !57
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 16
   invoke void @_ZN2cv10HdrDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(312) %238)
           to label %240 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10HdrDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !57
@@ -12056,7 +12056,7 @@ _ZN2cv3PtrINS_10HdrDecoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %322, align 8, !noalias !62
   %323 = getelementptr inbounds nuw i8, ptr %321, i64 12
   store i32 1, ptr %323, align 4, !noalias !62
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10HdrEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %321, align 8, !noalias !62
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10HdrEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %321, align 8, !noalias !62
   %324 = getelementptr inbounds nuw i8, ptr %321, i64 16
   invoke void @_ZN2cv10HdrEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %324)
           to label %326 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10HdrEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !62
@@ -12251,7 +12251,7 @@ _ZN2cv3PtrINS_10HdrEncoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %408, align 8, !noalias !67
   %409 = getelementptr inbounds nuw i8, ptr %407, i64 12
   store i32 1, ptr %409, align 4, !noalias !67
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11JpegDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %407, align 8, !noalias !67
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11JpegDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %407, align 8, !noalias !67
   %410 = getelementptr inbounds nuw i8, ptr %407, i64 16
   invoke void @_ZN2cv11JpegDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %410)
           to label %412 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11JpegDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !67
@@ -12446,7 +12446,7 @@ _ZN2cv3PtrINS_11JpegDecoderEED2Ev.exit:           ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %494, align 8, !noalias !72
   %495 = getelementptr inbounds nuw i8, ptr %493, i64 12
   store i32 1, ptr %495, align 4, !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11JpegEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %493, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11JpegEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %493, align 8, !noalias !72
   %496 = getelementptr inbounds nuw i8, ptr %493, i64 16
   invoke void @_ZN2cv11JpegEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %496)
           to label %498 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11JpegEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !72
@@ -12641,7 +12641,7 @@ _ZN2cv3PtrINS_11JpegEncoderEED2Ev.exit:           ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %580, align 8, !noalias !77
   %581 = getelementptr inbounds nuw i8, ptr %579, i64 12
   store i32 1, ptr %581, align 4, !noalias !77
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11WebPDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %579, align 8, !noalias !77
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11WebPDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %579, align 8, !noalias !77
   %582 = getelementptr inbounds nuw i8, ptr %579, i64 16
   invoke void @_ZN2cv11WebPDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(904) %582)
           to label %584 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11WebPDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !77
@@ -12836,7 +12836,7 @@ _ZN2cv3PtrINS_11WebPDecoderEED2Ev.exit:           ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %666, align 8, !noalias !82
   %667 = getelementptr inbounds nuw i8, ptr %665, i64 12
   store i32 1, ptr %667, align 4, !noalias !82
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11WebPEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %665, align 8, !noalias !82
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11WebPEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %665, align 8, !noalias !82
   %668 = getelementptr inbounds nuw i8, ptr %665, i64 16
   invoke void @_ZN2cv11WebPEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %668)
           to label %670 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11WebPEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !82
@@ -13031,7 +13031,7 @@ _ZN2cv3PtrINS_11WebPEncoderEED2Ev.exit:           ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %752, align 8, !noalias !87
   %753 = getelementptr inbounds nuw i8, ptr %751, i64 12
   store i32 1, ptr %753, align 4, !noalias !87
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16SunRasterDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %751, align 8, !noalias !87
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16SunRasterDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %751, align 8, !noalias !87
   %754 = getelementptr inbounds nuw i8, ptr %751, i64 16
   invoke void @_ZN2cv16SunRasterDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(1384) %754)
           to label %756 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16SunRasterDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !87
@@ -13226,7 +13226,7 @@ _ZN2cv3PtrINS_16SunRasterDecoderEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %838, align 8, !noalias !92
   %839 = getelementptr inbounds nuw i8, ptr %837, i64 12
   store i32 1, ptr %839, align 4, !noalias !92
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16SunRasterEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %837, align 8, !noalias !92
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16SunRasterEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %837, align 8, !noalias !92
   %840 = getelementptr inbounds nuw i8, ptr %837, i64 16
   invoke void @_ZN2cv16SunRasterEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %840)
           to label %842 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16SunRasterEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !92
@@ -13421,7 +13421,7 @@ _ZN2cv3PtrINS_16SunRasterEncoderEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %924, align 8, !noalias !97
   %925 = getelementptr inbounds nuw i8, ptr %923, i64 12
   store i32 1, ptr %925, align 4, !noalias !97
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %923, align 8, !noalias !97
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %923, align 8, !noalias !97
   %926 = getelementptr inbounds nuw i8, ptr %923, i64 16
   invoke void @_ZN2cv10PxMDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(1376) %926)
           to label %928 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PxMDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !97
@@ -13616,7 +13616,7 @@ _ZN2cv3PtrINS_10PxMDecoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1010, align 8, !noalias !102
   %1011 = getelementptr inbounds nuw i8, ptr %1009, i64 12
   store i32 1, ptr %1011, align 4, !noalias !102
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1009, align 8, !noalias !102
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1009, align 8, !noalias !102
   %1012 = getelementptr inbounds nuw i8, ptr %1009, i64 16
   invoke void @_ZN2cv10PxMEncoderC1ENS_7PxMModeE(ptr noundef nonnull align 8 dereferenceable(128) %1012, i32 noundef 0)
           to label %1014 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !102
@@ -13811,7 +13811,7 @@ _ZN2cv3PtrINS_10PxMEncoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1096, align 8, !noalias !107
   %1097 = getelementptr inbounds nuw i8, ptr %1095, i64 12
   store i32 1, ptr %1097, align 4, !noalias !107
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1095, align 8, !noalias !107
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1095, align 8, !noalias !107
   %1098 = getelementptr inbounds nuw i8, ptr %1095, i64 16
   invoke void @_ZN2cv10PxMEncoderC1ENS_7PxMModeE(ptr noundef nonnull align 8 dereferenceable(128) %1098, i32 noundef 1)
           to label %1100 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i221, !noalias !107
@@ -14006,7 +14006,7 @@ _ZN2cv3PtrINS_10PxMEncoderEED2Ev.exit242:         ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1182, align 8, !noalias !112
   %1183 = getelementptr inbounds nuw i8, ptr %1181, i64 12
   store i32 1, ptr %1183, align 4, !noalias !112
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1181, align 8, !noalias !112
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1181, align 8, !noalias !112
   %1184 = getelementptr inbounds nuw i8, ptr %1181, i64 16
   invoke void @_ZN2cv10PxMEncoderC1ENS_7PxMModeE(ptr noundef nonnull align 8 dereferenceable(128) %1184, i32 noundef 2)
           to label %1186 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i243, !noalias !112
@@ -14201,7 +14201,7 @@ _ZN2cv3PtrINS_10PxMEncoderEED2Ev.exit264:         ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1268, align 8, !noalias !117
   %1269 = getelementptr inbounds nuw i8, ptr %1267, i64 12
   store i32 1, ptr %1269, align 4, !noalias !117
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1267, align 8, !noalias !117
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1267, align 8, !noalias !117
   %1270 = getelementptr inbounds nuw i8, ptr %1267, i64 16
   invoke void @_ZN2cv10PxMEncoderC1ENS_7PxMModeE(ptr noundef nonnull align 8 dereferenceable(128) %1270, i32 noundef 3)
           to label %1272 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PxMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i265, !noalias !117
@@ -14396,7 +14396,7 @@ _ZN2cv3PtrINS_10PxMEncoderEED2Ev.exit286:         ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1354, align 8, !noalias !122
   %1355 = getelementptr inbounds nuw i8, ptr %1353, i64 12
   store i32 1, ptr %1355, align 4, !noalias !122
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PAMDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1353, align 8, !noalias !122
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PAMDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1353, align 8, !noalias !122
   %1356 = getelementptr inbounds nuw i8, ptr %1353, i64 16
   invoke void @_ZN2cv10PAMDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %1356)
           to label %1358 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PAMDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !122
@@ -14591,7 +14591,7 @@ _ZN2cv3PtrINS_10PAMDecoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1440, align 8, !noalias !127
   %1441 = getelementptr inbounds nuw i8, ptr %1439, i64 12
   store i32 1, ptr %1441, align 4, !noalias !127
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PAMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1439, align 8, !noalias !127
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PAMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1439, align 8, !noalias !127
   %1442 = getelementptr inbounds nuw i8, ptr %1439, i64 16
   invoke void @_ZN2cv10PAMEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %1442)
           to label %1444 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PAMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !127
@@ -14786,7 +14786,7 @@ _ZN2cv3PtrINS_10PAMEncoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1526, align 8, !noalias !132
   %1527 = getelementptr inbounds nuw i8, ptr %1525, i64 12
   store i32 1, ptr %1527, align 4, !noalias !132
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PFMDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1525, align 8, !noalias !132
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PFMDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1525, align 8, !noalias !132
   %1528 = getelementptr inbounds nuw i8, ptr %1525, i64 16
   invoke void @_ZN2cv10PFMDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %1528)
           to label %1530 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PFMDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !132
@@ -14981,7 +14981,7 @@ _ZN2cv3PtrINS_10PFMDecoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1612, align 8, !noalias !137
   %1613 = getelementptr inbounds nuw i8, ptr %1611, i64 12
   store i32 1, ptr %1613, align 4, !noalias !137
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PFMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1611, align 8, !noalias !137
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PFMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1611, align 8, !noalias !137
   %1614 = getelementptr inbounds nuw i8, ptr %1611, i64 16
   invoke void @_ZN2cv10PFMEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %1614)
           to label %1616 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PFMEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !137
@@ -15176,7 +15176,7 @@ _ZN2cv3PtrINS_10PFMEncoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1698, align 8, !noalias !142
   %1699 = getelementptr inbounds nuw i8, ptr %1697, i64 12
   store i32 1, ptr %1699, align 4, !noalias !142
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11TiffDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1697, align 8, !noalias !142
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11TiffDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1697, align 8, !noalias !142
   %1700 = getelementptr inbounds nuw i8, ptr %1697, i64 16
   invoke void @_ZN2cv11TiffDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(304) %1700)
           to label %1702 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11TiffDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !142
@@ -15371,7 +15371,7 @@ _ZN2cv3PtrINS_11TiffDecoderEED2Ev.exit:           ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1784, align 8, !noalias !147
   %1785 = getelementptr inbounds nuw i8, ptr %1783, i64 12
   store i32 1, ptr %1785, align 4, !noalias !147
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11TiffEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1783, align 8, !noalias !147
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11TiffEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1783, align 8, !noalias !147
   %1786 = getelementptr inbounds nuw i8, ptr %1783, i64 16
   invoke void @_ZN2cv11TiffEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %1786)
           to label %1788 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11TiffEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !147
@@ -15566,7 +15566,7 @@ _ZN2cv3PtrINS_11TiffEncoderEED2Ev.exit:           ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1870, align 8, !noalias !152
   %1871 = getelementptr inbounds nuw i8, ptr %1869, i64 12
   store i32 1, ptr %1871, align 4, !noalias !152
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PngDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1869, align 8, !noalias !152
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PngDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1869, align 8, !noalias !152
   %1872 = getelementptr inbounds nuw i8, ptr %1869, i64 16
   invoke void @_ZN2cv10PngDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(328) %1872)
           to label %1874 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PngDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !152
@@ -15761,7 +15761,7 @@ _ZN2cv3PtrINS_10PngDecoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %1956, align 8, !noalias !157
   %1957 = getelementptr inbounds nuw i8, ptr %1955, i64 12
   store i32 1, ptr %1957, align 4, !noalias !157
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PngEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1955, align 8, !noalias !157
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10PngEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1955, align 8, !noalias !157
   %1958 = getelementptr inbounds nuw i8, ptr %1955, i64 16
   invoke void @_ZN2cv10PngEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %1958)
           to label %1960 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10PngEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !157
@@ -15956,7 +15956,7 @@ _ZN2cv3PtrINS_10PngEncoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %2042, align 8, !noalias !162
   %2043 = getelementptr inbounds nuw i8, ptr %2041, i64 12
   store i32 1, ptr %2043, align 4, !noalias !162
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19Jpeg2KJP2OpjDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2041, align 8, !noalias !162
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19Jpeg2KJP2OpjDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2041, align 8, !noalias !162
   %2044 = getelementptr inbounds nuw i8, ptr %2041, i64 16
   invoke void @_ZN2cv19Jpeg2KJP2OpjDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(328) %2044)
           to label %2046 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv19Jpeg2KJP2OpjDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !162
@@ -16151,7 +16151,7 @@ _ZN2cv3PtrINS_19Jpeg2KJP2OpjDecoderEED2Ev.exit:   ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %2128, align 8, !noalias !167
   %2129 = getelementptr inbounds nuw i8, ptr %2127, i64 12
   store i32 1, ptr %2129, align 4, !noalias !167
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19Jpeg2KJ2KOpjDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2127, align 8, !noalias !167
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19Jpeg2KJ2KOpjDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2127, align 8, !noalias !167
   %2130 = getelementptr inbounds nuw i8, ptr %2127, i64 16
   invoke void @_ZN2cv19Jpeg2KJ2KOpjDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(328) %2130)
           to label %2132 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv19Jpeg2KJ2KOpjDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !167
@@ -16346,7 +16346,7 @@ _ZN2cv3PtrINS_19Jpeg2KJ2KOpjDecoderEED2Ev.exit:   ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %2214, align 8, !noalias !172
   %2215 = getelementptr inbounds nuw i8, ptr %2213, i64 12
   store i32 1, ptr %2215, align 4, !noalias !172
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16Jpeg2KOpjEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2213, align 8, !noalias !172
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16Jpeg2KOpjEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2213, align 8, !noalias !172
   %2216 = getelementptr inbounds nuw i8, ptr %2213, i64 16
   invoke void @_ZN2cv16Jpeg2KOpjEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2216)
           to label %2218 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16Jpeg2KOpjEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !172
@@ -16541,7 +16541,7 @@ _ZN2cv3PtrINS_16Jpeg2KOpjEncoderEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %2300, align 8, !noalias !177
   %2301 = getelementptr inbounds nuw i8, ptr %2299, i64 12
   store i32 1, ptr %2301, align 4, !noalias !177
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10ExrDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2299, align 8, !noalias !177
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10ExrDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2299, align 8, !noalias !177
   %2302 = getelementptr inbounds nuw i8, ptr %2299, i64 16
   invoke void @_ZN2cv10ExrDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %2302)
           to label %2304 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10ExrDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !177
@@ -16736,7 +16736,7 @@ _ZN2cv3PtrINS_10ExrDecoderEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_16Bas
   store i32 1, ptr %2386, align 8, !noalias !182
   %2387 = getelementptr inbounds nuw i8, ptr %2385, i64 12
   store i32 1, ptr %2387, align 4, !noalias !182
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10ExrEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2385, align 8, !noalias !182
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv10ExrEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2385, align 8, !noalias !182
   %2388 = getelementptr inbounds nuw i8, ptr %2385, i64 16
   invoke void @_ZN2cv10ExrEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2388)
           to label %2390 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv10ExrEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !182
@@ -21011,7 +21011,7 @@ declare void @_ZN2cv19Jpeg2KJP2OpjDecoderC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6detail20Jpeg2KOpjDecoderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv6detail20Jpeg2KOpjDecoderBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv6detail20Jpeg2KOpjDecoderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -21066,7 +21066,7 @@ _ZNSt10unique_ptrIPvN2cv6detail15OpjCodecDeleterEED2Ev.exit: ; preds = %_ZNSt10u
 
 _ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIPvN2cv6detail15OpjCodecDeleterEED2Ev.exit, %16
   store ptr null, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv16BaseImageDecoderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv16BaseImageDecoderE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZN2cv10ExifReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %20) #27
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -21159,7 +21159,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16Jpeg2KOpjE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16Jpeg2KOpjEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56

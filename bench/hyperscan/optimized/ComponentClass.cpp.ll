@@ -2141,7 +2141,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont
 define hidden void @_ZN3ue214ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %mode_in) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue214ComponentClassE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue214ComponentClassE, i64 16), ptr %this, align 8
   %m_negate = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %m_negate, align 8
   %mode = getelementptr inbounds nuw i8, ptr %this, i64 17

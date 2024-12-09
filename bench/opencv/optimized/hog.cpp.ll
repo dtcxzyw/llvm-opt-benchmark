@@ -420,7 +420,7 @@ define hidden void @_ZN3App3runEv(ptr noundef nonnull align 8 dereferenceable(19
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %58 = load i8, ptr %57, align 8
   %59 = and i8 %58, 1
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN2cv13HOGDescriptorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN2cv13HOGDescriptorE, i64 16), ptr %5, align 8
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.0119.0.insert.insert, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1407,7 +1407,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit100:  ; preds = %416, %.body, %260, 
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit84
 
 ._crit_edge193:                                   ; preds = %.critedge, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN2cv13HOGDescriptorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN2cv13HOGDescriptorE, i64 16), ptr %5, align 8
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %71) #17
   %420 = load ptr, ptr %70, align 8
   %.not.i.i.i.i = icmp eq ptr %420, null
@@ -1423,7 +1423,7 @@ _ZN2cv13HOGDescriptorD2Ev.exit:                   ; preds = %._crit_edge193, %42
 
 _ZNSt6vectorIfSaIfEED2Ev.exit84:                  ; preds = %.loopexit142, %.loopexit.split-lp143, %174, %171, %419
   %.pn76.pn.pn.pn = phi { ptr, i32 } [ %.pn76.pn.pn, %419 ], [ %172, %171 ], [ %172, %174 ], [ %lpad.loopexit144, %.loopexit142 ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp143 ]
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN2cv13HOGDescriptorE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN2cv13HOGDescriptorE, i64 16), ptr %5, align 8
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %71) #17
   %422 = load ptr, ptr %70, align 8
   %.not.i.i.i.i101 = icmp eq ptr %422, null

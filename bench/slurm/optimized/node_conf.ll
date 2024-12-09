@@ -145,7 +145,7 @@ next_node.exit:                                   ; preds = %.preheader.i
   br label %25
 
 25:                                               ; preds = %22, %16
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1072), align 8
   %27 = tail call ptr @xstrcasestr(ptr noundef %26, ptr noundef nonnull @.str.24) #15
   %.not2 = icmp ne ptr %27, null
   %. = zext i1 %.not2 to i8
@@ -696,7 +696,7 @@ declare i32 @slurm_conf_nodename_array(ptr noundef) local_unnamed_addr #1
 define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %7 = trunc i32 %6 to i16
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
@@ -1413,7 +1413,7 @@ define void @grow_node_record_table_ptr() local_unnamed_addr #0 {
   %1 = load i32, ptr @node_record_count, align 4
   %2 = add nsw i32 %1, 100
   store i32 %2, ptr @node_record_table_size, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 656), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 656), align 8
   %.not = icmp eq i32 %3, -2
   br i1 %.not, label %6, label %4
 
@@ -1534,7 +1534,7 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %5 = alloca ptr, align 8
   %6 = tail call i64 @time(ptr noundef null) #15
   store i64 %6, ptr @last_node_update, align 8
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 656), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 656), align 8
   %.not = icmp eq i32 %7, -2
   %.not14 = icmp ult i32 %0, %7
   %or.cond = or i1 %.not, %.not14
@@ -1585,7 +1585,7 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
   store i32 -2, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 320
   store i32 -2, ptr %34, align 8
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %36 = trunc i32 %35 to i16
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 336
   store i16 %36, ptr %37, align 8

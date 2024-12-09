@@ -571,7 +571,7 @@ declare void @llvm.trap() #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_756number4impl15DecimalQuantityC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) initializes((0, 9), (12, 22), (24, 56), (64, 66)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
   %bogus = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %bogus, align 8
   %usingBytes = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -621,7 +621,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number4impl15DecimalQuantityD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(66) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
   %usingBytes = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
   %tobool = trunc i8 %0 to i1
@@ -663,7 +663,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl15DecimalQuantityC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) initializes((0, 9), (36, 48), (64, 66)) %this, ptr noundef nonnull readonly align 8 dereferenceable(66) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
   %bogus = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %bogus, align 8
   %lReqPos = getelementptr inbounds nuw i8, ptr %this, i64 36
@@ -782,7 +782,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number4impl15DecimalQuantityC2EOS2_(ptr noundef nonnull align 8 dereferenceable(66) initializes((0, 9), (36, 48), (64, 66)) %this, ptr noundef nonnull align 8 dereferenceable(66) %src) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
   %bogus = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %bogus, align 8
   %lReqPos = getelementptr inbounds nuw i8, ptr %this, i64 36
@@ -4726,7 +4726,7 @@ entry:
   %srcChar.addr.i16 = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %flags.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -6665,7 +6665,7 @@ entry:
   %srcChar.addr.i15 = alloca i16, align 2
   %srcChar.addr.i12 = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %flags.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -6880,7 +6880,7 @@ entry:
   %srcChar.addr.i16 = alloca i16, align 2
   %srcChar.addr.i12 = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %flags.i = getelementptr inbounds nuw i8, ptr %this, i64 20

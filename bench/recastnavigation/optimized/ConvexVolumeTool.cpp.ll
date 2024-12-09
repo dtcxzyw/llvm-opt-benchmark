@@ -35,7 +35,7 @@ $_ZN16ConvexVolumeTool4typeEv = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16ConvexVolumeToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((0, 32), (176, 180), (228, 232)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16ConvexVolumeTool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16ConvexVolumeTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

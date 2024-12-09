@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @exerror(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -35,7 +35,7 @@ define void @exerror(ptr nocapture noundef readonly %0, ...) local_unnamed_addr 
   call void @llvm.va_start.p0(ptr nonnull %2)
   %12 = call fastcc ptr @make_msg(ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
@@ -54,7 +54,7 @@ define void @exerror(ptr nocapture noundef readonly %0, ...) local_unnamed_addr 
 define internal fastcc noalias noundef ptr @make_msg(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %6 = call ptr @excontext(ptr noundef %5, ptr noundef nonnull %3, i32 noundef 64) #7
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %3) #7
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %1)
@@ -95,7 +95,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @exwarn(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -107,7 +107,7 @@ define void @exwarn(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #
   call void @llvm.va_start.p0(ptr nonnull %2)
   %9 = call fastcc ptr @make_msg(ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96

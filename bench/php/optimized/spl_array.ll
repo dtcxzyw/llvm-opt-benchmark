@@ -174,7 +174,7 @@ define hidden void @zim_ArrayObject_offsetExists(ptr nocapture noundef readonly 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %18
@@ -464,7 +464,7 @@ define hidden void @zim_ArrayObject_offsetGet(ptr nocapture noundef readonly %0,
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %43
@@ -540,7 +540,7 @@ define hidden void @zim_ArrayObject_offsetSet(ptr nocapture noundef readonly %0,
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %17
@@ -951,7 +951,7 @@ define hidden void @zim_ArrayObject_append(ptr nocapture noundef readonly %0, pt
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %spl_array_iterator_append.exit
@@ -1016,7 +1016,7 @@ define hidden void @zim_ArrayObject_offsetUnset(ptr nocapture noundef readonly %
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %15
@@ -1206,7 +1206,7 @@ spl_array_set_refcount.exit:                      ; preds = %spl_array_get_hash_
 
 86:                                               ; preds = %85, %78
   %87 = phi i32 [ %.pre, %85 ], [ %83, %78 ]
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %89 = zext i32 %87 to i64
   %90 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %88, i64 %89, i32 1
   %91 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %61, ptr noundef nonnull %90) #11
@@ -1306,7 +1306,7 @@ define hidden void @zim_ArrayObject_getArrayCopy(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %49
@@ -1427,7 +1427,7 @@ define hidden void @zim_ArrayObject___construct(ptr nocapture noundef readonly %
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %31
@@ -1697,7 +1697,7 @@ define hidden void @zim_ArrayObject_getIteratorClass(ptr nocapture noundef reado
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %27
@@ -1749,7 +1749,7 @@ define hidden void @zim_ArrayObject_getFlags(ptr nocapture noundef readonly %0, 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %15
@@ -1783,7 +1783,7 @@ define hidden void @zim_ArrayObject_setFlags(ptr nocapture noundef readonly %0, 
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %21
@@ -1816,7 +1816,7 @@ define hidden void @zim_ArrayObject_exchangeArray(ptr nocapture noundef readonly
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %60
@@ -1829,7 +1829,7 @@ define hidden void @zim_ArrayObject_exchangeArray(ptr nocapture noundef readonly
 
 17:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.6) #11
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %60
@@ -1934,7 +1934,7 @@ define hidden void @zim_ArrayObject_getIterator(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
@@ -2228,7 +2228,7 @@ define hidden void @zim_ArrayObject_count(ptr nocapture noundef readonly %0, ptr
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -2778,7 +2778,7 @@ define hidden void @zim_ArrayObject_serialize(ptr nocapture noundef readonly %0,
 
 12:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %14)
   br label %124
@@ -3032,7 +3032,7 @@ define hidden void @zim_ArrayObject_unserialize(ptr nocapture noundef readonly %
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %127
@@ -3050,7 +3050,7 @@ define hidden void @zim_ArrayObject_unserialize(ptr nocapture noundef readonly %
 
 23:                                               ; preds = %20
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.6) #11
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
   br label %127
@@ -3243,7 +3243,7 @@ define hidden void @zim_ArrayObject_unserialize(ptr nocapture noundef readonly %
   %122 = sub i64 %120, %121
   %123 = load i64, ptr %4, align 8
   %124 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %117, i64 noundef 0, ptr noundef nonnull @.str.16, i64 noundef %122, i64 noundef %123) #11
-  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %126 = icmp ne ptr %125, null
   call void @llvm.assume(i1 %126)
   br label %127
@@ -3279,7 +3279,7 @@ define hidden void @zim_ArrayObject___serialize(ptr nocapture noundef readonly %
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %54
@@ -3385,7 +3385,7 @@ define hidden void @zim_ArrayObject___unserialize(ptr nocapture noundef readonly
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %91
@@ -3433,7 +3433,7 @@ define hidden void @zim_ArrayObject___unserialize(ptr nocapture noundef readonly
 36:                                               ; preds = %33, %29, %26, %14
   %37 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %38 = call ptr @zend_throw_exception(ptr noundef %37, ptr noundef nonnull @.str.18, i64 noundef 0) #11
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
   br label %91
@@ -3467,7 +3467,7 @@ define hidden void @zim_ArrayObject___unserialize(ptr nocapture noundef readonly
 55:                                               ; preds = %52
   %56 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8
   %57 = call ptr @zend_throw_exception(ptr noundef %56, ptr noundef nonnull @.str.19, i64 noundef 0) #11
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %59 = icmp ne ptr %58, null
   call void @llvm.assume(i1 %59)
   br label %91
@@ -3479,7 +3479,7 @@ define hidden void @zim_ArrayObject___unserialize(ptr nocapture noundef readonly
 61:                                               ; preds = %60, %50
   %62 = load ptr, ptr %20, align 8
   call void @object_properties_load(ptr noundef nonnull %5, ptr noundef %62) #11
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not60 = icmp ne ptr %63, null
   %brmerge = or i1 %.not54, %.not60
   br i1 %brmerge, label %91, label %64
@@ -3501,7 +3501,7 @@ define hidden void @zim_ArrayObject___unserialize(ptr nocapture noundef readonly
   %73 = load ptr, ptr %22, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %72, i64 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull %74) #11
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %77 = icmp ne ptr %76, null
   call void @llvm.assume(i1 %77)
   br label %91
@@ -3520,7 +3520,7 @@ define hidden void @zim_ArrayObject___unserialize(ptr nocapture noundef readonly
   %85 = load ptr, ptr %22, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %84, i64 noundef 0, ptr noundef nonnull @.str.21, ptr noundef nonnull %86) #11
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %89 = icmp ne ptr %88, null
   call void @llvm.assume(i1 %89)
   br label %91
@@ -3550,7 +3550,7 @@ define hidden void @zim_ArrayObject___debugInfo(ptr nocapture noundef readonly %
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)
   br label %71
@@ -3693,7 +3693,7 @@ define hidden void @zim_ArrayIterator___construct(ptr nocapture noundef readonly
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %23
@@ -3723,7 +3723,7 @@ define hidden void @zim_ArrayIterator_rewind(ptr nocapture noundef readonly %0, 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %11
@@ -3832,7 +3832,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 44:                                               ; preds = %spl_array_get_hash_table.exit, %41
   %.sink = phi i32 [ %43, %41 ], [ %39, %spl_array_get_hash_table.exit ]
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %46 = zext i32 %.sink to i64
   %47 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %45, i64 %46, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %37, ptr noundef nonnull %47) #11
@@ -3931,7 +3931,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %spl_array_get_hash_table.exit
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %49 = icmp ne ptr %48, null
   call void @llvm.assume(i1 %49)
   br label %114
@@ -4044,7 +4044,7 @@ spl_array_next.exit:                              ; preds = %tailrecurse._crit_e
   %100 = call i32 @zend_hash_get_current_pos(ptr noundef %42) #11
   %101 = call i32 @zend_hash_iterator_add(ptr noundef %42, i32 noundef %100) #11
   store i32 %101, ptr %96, align 8
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %103 = zext i32 %101 to i64
   %104 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %102, i64 %103, i32 1
   call void @zend_hash_internal_pointer_reset_ex(ptr noundef %42, ptr noundef nonnull %104) #11
@@ -4054,7 +4054,7 @@ spl_array_next.exit:                              ; preds = %tailrecurse._crit_e
 
 106:                                              ; preds = %99, %.critedge18
   %107 = phi i32 [ %.pre, %99 ], [ %97, %.critedge18 ]
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %109 = zext i32 %107 to i64
   %110 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %108, i64 %109, i32 1
   %111 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef %42, ptr noundef nonnull %110) #11
@@ -4160,7 +4160,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 44:                                               ; preds = %spl_array_get_hash_table.exit
   tail call void @zend_wrong_parameters_none_error() #11
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %46)
   br label %99
@@ -4175,7 +4175,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %51 = tail call i32 @zend_hash_get_current_pos(ptr noundef %41) #11
   %52 = tail call i32 @zend_hash_iterator_add(ptr noundef %41, i32 noundef %51) #11
   store i32 %52, ptr %47, align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %53, i64 %54, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %55) #11
@@ -4185,7 +4185,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 57:                                               ; preds = %50, %.critedge
   %58 = phi i32 [ %.pre, %50 ], [ %48, %.critedge ]
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %60 = zext i32 %58 to i64
   %61 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %59, i64 %60, i32 1
   %62 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %41, ptr noundef nonnull %61) #11
@@ -4356,7 +4356,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %45 = tail call i32 @zend_hash_get_current_pos(ptr noundef %40) #11
   %46 = tail call i32 @zend_hash_iterator_add(ptr noundef %40, i32 noundef %45) #11
   store i32 %46, ptr %41, align 8
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %47, i64 %48, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %40, ptr noundef nonnull %49) #11
@@ -4366,7 +4366,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 51:                                               ; preds = %44, %spl_array_get_hash_table.exit
   %52 = phi i32 [ %.pre, %44 ], [ %42, %spl_array_get_hash_table.exit ]
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %53, i64 %54, i32 1
   tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %40, ptr noundef %1, ptr noundef nonnull %55) #11
@@ -4384,7 +4384,7 @@ define hidden void @zim_ArrayIterator_key(ptr nocapture noundef readonly %0, ptr
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %9
@@ -4487,7 +4487,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 43:                                               ; preds = %spl_array_get_hash_table.exit
   tail call void @zend_wrong_parameters_none_error() #11
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %45 = icmp ne ptr %44, null
   tail call void @llvm.assume(i1 %45)
   br label %48
@@ -4512,7 +4512,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_array_next_ex(ptr nocapture nou
   %7 = tail call i32 @zend_hash_get_current_pos(ptr noundef %1) #11
   %8 = tail call i32 @zend_hash_iterator_add(ptr noundef %1, i32 noundef %7) #11
   store i32 %8, ptr %3, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %10 = zext i32 %8 to i64
   %11 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %9, i64 %10, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %1, ptr noundef nonnull %11) #11
@@ -4522,7 +4522,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_array_next_ex(ptr nocapture nou
 
 13:                                               ; preds = %6, %2
   %14 = phi i32 [ %.pre, %6 ], [ %4, %2 ]
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %16 = zext i32 %14 to i64
   %17 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %15, i64 %16, i32 1
   %18 = tail call i32 @zend_hash_move_forward_ex(ptr noundef %1, ptr noundef nonnull %17) #11
@@ -4660,7 +4660,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 44:                                               ; preds = %spl_array_get_hash_table.exit
   tail call void @zend_wrong_parameters_none_error() #11
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %46)
   br label %65
@@ -4675,7 +4675,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %51 = tail call i32 @zend_hash_get_current_pos(ptr noundef %41) #11
   %52 = tail call i32 @zend_hash_iterator_add(ptr noundef %41, i32 noundef %51) #11
   store i32 %52, ptr %47, align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %53, i64 %54, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %55) #11
@@ -4685,7 +4685,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 57:                                               ; preds = %50, %.critedge
   %58 = phi i32 [ %.pre, %50 ], [ %48, %.critedge ]
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %60 = zext i32 %58 to i64
   %61 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %59, i64 %60, i32 1
   %62 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %41, ptr noundef nonnull %61) #11
@@ -4789,7 +4789,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 44:                                               ; preds = %spl_array_get_hash_table.exit
   tail call void @zend_wrong_parameters_none_error() #11
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %46 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %46)
   br label %87
@@ -4804,7 +4804,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %51 = tail call i32 @zend_hash_get_current_pos(ptr noundef %41) #11
   %52 = tail call i32 @zend_hash_iterator_add(ptr noundef %41, i32 noundef %51) #11
   store i32 %52, ptr %47, align 8
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %53, i64 %54, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %55) #11
@@ -4814,7 +4814,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 57:                                               ; preds = %50, %.critedge
   %58 = phi i32 [ %.pre, %50 ], [ %48, %.critedge ]
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %60 = zext i32 %58 to i64
   %61 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %59, i64 %60, i32 1
   %62 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %41, ptr noundef nonnull %61) #11
@@ -4968,7 +4968,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 45:                                               ; preds = %spl_array_get_hash_table.exit
   tail call void @zend_wrong_parameters_none_error() #11
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %47 = icmp ne ptr %46, null
   tail call void @llvm.assume(i1 %47)
   br label %115
@@ -4983,7 +4983,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %52 = tail call i32 @zend_hash_get_current_pos(ptr noundef %42) #11
   %53 = tail call i32 @zend_hash_iterator_add(ptr noundef %42, i32 noundef %52) #11
   store i32 %53, ptr %48, align 8
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %55 = zext i32 %53 to i64
   %56 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %54, i64 %55, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %42, ptr noundef nonnull %56) #11
@@ -4993,7 +4993,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 58:                                               ; preds = %51, %.critedge46
   %59 = phi i32 [ %.pre, %51 ], [ %49, %.critedge46 ]
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %61 = zext i32 %59 to i64
   %62 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %60, i64 %61, i32 1
   %63 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %42, ptr noundef nonnull %62) #11
@@ -5223,21 +5223,21 @@ register_class_ArrayObject.exit:                  ; preds = %43, %52, %59, %60
   store ptr @spl_handler_ArrayObject, ptr %62, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_ArrayObject, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 184, i1 false)
   store i32 88, ptr @spl_handler_ArrayObject, align 8
-  store ptr @spl_array_object_clone, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 24), align 8
-  store ptr @spl_array_read_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 48), align 8
-  store ptr @spl_array_write_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 56), align 8
-  store ptr @spl_array_unset_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 96), align 8
-  store ptr @spl_array_has_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 88), align 8
-  store ptr @spl_array_object_count_elements, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 144), align 8
-  store ptr @spl_array_get_properties_for, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 192), align 8
-  store ptr @spl_array_get_gc, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 168), align 8
-  store ptr @spl_array_read_property, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 32), align 8
-  store ptr @spl_array_write_property, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 40), align 8
-  store ptr @spl_array_get_property_ptr_ptr, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 64), align 8
-  store ptr @spl_array_has_property, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 72), align 8
-  store ptr @spl_array_unset_property, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 80), align 8
-  store ptr @spl_array_compare_objects, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 184), align 8
-  store ptr @spl_array_object_free_storage, ptr getelementptr inbounds (i8, ptr @spl_handler_ArrayObject, i64 8), align 8
+  store ptr @spl_array_object_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 24), align 8
+  store ptr @spl_array_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 48), align 8
+  store ptr @spl_array_write_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 56), align 8
+  store ptr @spl_array_unset_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 96), align 8
+  store ptr @spl_array_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 88), align 8
+  store ptr @spl_array_object_count_elements, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 144), align 8
+  store ptr @spl_array_get_properties_for, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 192), align 8
+  store ptr @spl_array_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 168), align 8
+  store ptr @spl_array_read_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 32), align 8
+  store ptr @spl_array_write_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 40), align 8
+  store ptr @spl_array_get_property_ptr_ptr, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 64), align 8
+  store ptr @spl_array_has_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 72), align 8
+  store ptr @spl_array_unset_property, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 80), align 8
+  store ptr @spl_array_compare_objects, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 184), align 8
+  store ptr @spl_array_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_ArrayObject, i64 8), align 8
   %63 = load ptr, ptr @spl_ce_SeekableIterator, align 8
   %64 = load ptr, ptr @zend_ce_arrayaccess, align 8
   %65 = load ptr, ptr @zend_ce_serializable, align 8
@@ -6470,7 +6470,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 58:                                               ; preds = %55
   call void @zend_illegal_container_offset(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #11
-  %59 = select i1 %or.cond3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 16), ptr @executor_globals
+  %59 = select i1 %or.cond3, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), ptr @executor_globals
   br label %spl_hash_key_release.exit
 
 60:                                               ; preds = %55
@@ -6620,7 +6620,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   br label %spl_hash_key_release.exit
 
 spl_hash_key_release.exit:                        ; preds = %106, %101, %97, %94, %112, %115, %118, %107, %spl_array_get_hash_table.exit, %44, %58, %54
-  %.0 = phi ptr [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %54 ], [ %59, %58 ], [ @executor_globals, %44 ], [ @executor_globals, %spl_array_get_hash_table.exit ], [ null, %112 ], [ %121, %118 ], [ @executor_globals, %115 ], [ %110, %107 ], [ %.033, %94 ], [ %.033, %97 ], [ %.033, %101 ], [ %.033, %106 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %54 ], [ %59, %58 ], [ @executor_globals, %44 ], [ @executor_globals, %spl_array_get_hash_table.exit ], [ null, %112 ], [ %121, %118 ], [ @executor_globals, %115 ], [ %110, %107 ], [ %.033, %94 ], [ %.033, %97 ], [ %.033, %101 ], [ %.033, %106 ]
   ret ptr %.0
 }
 
@@ -6679,7 +6679,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   %21 = tail call i32 @zend_hash_get_current_pos(ptr noundef %1) #11
   %22 = tail call i32 @zend_hash_iterator_add(ptr noundef %1, i32 noundef %21) #11
   store i32 %22, ptr %17, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %24 = zext i32 %22 to i64
   %25 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %23, i64 %24, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %1, ptr noundef nonnull %25) #11
@@ -6689,7 +6689,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
 
 27:                                               ; preds = %20, %spl_array_is_object.exit.thread
   %28 = phi i32 [ %.pre, %20 ], [ %18, %spl_array_is_object.exit.thread ]
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %30 = zext i32 %28 to i64
   %31 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %29, i64 %30, i32 1
   %32 = call i32 @zend_hash_get_current_key_ex(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %31) #11
@@ -6791,7 +6791,7 @@ define internal fastcc void @spl_array_create_ht_iter(ptr noundef %0, ptr nocapt
   %4 = tail call i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %3) #11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %4, ptr %5, align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %7 = zext i32 %4 to i64
   %8 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %6, i64 %7, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %0, ptr noundef nonnull %8) #11
@@ -6936,7 +6936,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %45 = tail call i32 @zend_hash_get_current_pos(ptr noundef %40) #11
   %46 = tail call i32 @zend_hash_iterator_add(ptr noundef %40, i32 noundef %45) #11
   store i32 %46, ptr %41, align 8
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %47, i64 %48, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %40, ptr noundef nonnull %49) #11
@@ -6946,7 +6946,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 51:                                               ; preds = %44, %spl_array_get_hash_table.exit
   %52 = phi i32 [ %.pre, %44 ], [ %42, %spl_array_get_hash_table.exit ]
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %53, i64 %54, i32 1
   %56 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %40, ptr noundef nonnull %55) #11
@@ -7048,7 +7048,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %46 = tail call i32 @zend_hash_get_current_pos(ptr noundef %41) #11
   %47 = tail call i32 @zend_hash_iterator_add(ptr noundef %41, i32 noundef %46) #11
   store i32 %47, ptr %42, align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %49 = zext i32 %47 to i64
   %50 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %48, i64 %49, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %50) #11
@@ -7058,7 +7058,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 52:                                               ; preds = %45, %spl_array_get_hash_table.exit
   %53 = phi i32 [ %.pre, %45 ], [ %43, %spl_array_get_hash_table.exit ]
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %55 = zext i32 %53 to i64
   %56 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %54, i64 %55, i32 1
   %57 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %41, ptr noundef nonnull %56) #11
@@ -7112,7 +7112,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 82:                                               ; preds = %81, %78
   %83 = phi i32 [ %.pre63, %81 ], [ %79, %78 ]
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %85 = zext i32 %83 to i64
   %86 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %84, i64 %85, i32 1
   %87 = call i32 @zend_hash_get_current_key_ex(ptr noundef %41, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %86) #11
@@ -7266,7 +7266,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   %46 = tail call i32 @zend_hash_get_current_pos(ptr noundef %41) #11
   %47 = tail call i32 @zend_hash_iterator_add(ptr noundef %41, i32 noundef %46) #11
   store i32 %47, ptr %42, align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %49 = zext i32 %47 to i64
   %50 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %48, i64 %49, i32 1
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %41, ptr noundef nonnull %50) #11
@@ -7276,7 +7276,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 52:                                               ; preds = %45, %spl_array_get_hash_table.exit
   %53 = phi i32 [ %.pre, %45 ], [ %43, %spl_array_get_hash_table.exit ]
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1016), align 8
   %55 = zext i32 %53 to i64
   %56 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %54, i64 %55, i32 1
   tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %41, ptr noundef %1, ptr noundef nonnull %56) #11

@@ -3386,7 +3386,7 @@ define hidden noundef zeroext i1 @_ZN2os11message_boxEPKcS1_(ptr noundef %0, ptr
   %8 = load i32, ptr @_ZN13defaultStream9_error_fdE, align 4
   %9 = select i1 %6, i32 %7, i32 %8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(60) %3, i1 noundef zeroext false) #28
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %9, ptr %10, align 8
   br label %11

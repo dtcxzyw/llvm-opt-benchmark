@@ -205,7 +205,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtio_gpu_gem_object_open(ptr n
 
 12:                                               ; preds = %2
   tail call void @virtio_gpu_create_context(ptr noundef %4, ptr noundef %1) #6
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 56) #7
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16
@@ -334,7 +334,7 @@ define dso_local void @virtio_gpu_gem_object_close(ptr noundef %0, ptr nocapture
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3264, i64 noundef 56) #7
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16

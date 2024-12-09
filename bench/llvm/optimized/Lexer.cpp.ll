@@ -411,7 +411,7 @@ define dso_local void @_ZN5clang5LexerC2ENS_6FileIDERKN4llvm15MemoryBufferRefERN
   %6 = alloca i8, align 1
   %7 = zext i1 %4 to i8
   tail call void @_ZN5clang17PreprocessorLexerC2EPNS_12PreprocessorENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %3, i32 %1) #24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang5LexerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang5LexerE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %10 = load ptr, ptr %9, align 8
@@ -551,7 +551,7 @@ define dso_local void @_ZN5clang5Lexer22resetExtendedTokenModeEv(ptr nocapture n
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang5LexerC2ENS_14SourceLocationERKNS_11LangOptionsEPKcS6_S6_b(ptr noundef nonnull align 8 dereferenceable(204) initializes((0, 27), (32, 35), (40, 64)) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %6 to i8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %10, align 8
@@ -565,7 +565,7 @@ define dso_local void @_ZN5clang5LexerC2ENS_14SourceLocationERKNS_11LangOptionsE
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %9, i8 0, i64 19, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %15, i64 noundef 4) #24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang5LexerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang5LexerE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -666,7 +666,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i: ; pr
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 %17
   %19 = zext i1 %5 to i8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %21, align 8
@@ -680,7 +680,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i: ; pr
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %20, i8 0, i64 19, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull %26, i64 noundef 4) #24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang5LexerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang5LexerE, i64 16), ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %.sroa.0.0.i, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1370,7 +1370,7 @@ _ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit: ; preds = %_Z
 104:                                              ; preds = %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit
   %.sroa.5.1 = phi i64 [ %103, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit ], [ %57, %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit ]
   %.sroa.024.1 = phi ptr [ %102, %_ZL15getSpellingSlowRKN5clang5TokenEPKcRKNS_11LangOptionsEPc.exit ], [ %19, %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %8, align 8
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %105) #24
   %107 = load ptr, ptr %105, align 8
@@ -1488,7 +1488,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang5LexerD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #24
   %4 = load ptr, ptr %2, align 8
@@ -2042,7 +2042,7 @@ _ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit: ; preds = %48, %53
   %58 = trunc i8 %57 to i1
   store i8 0, ptr %56, align 1
   %59 = call noundef zeroext i1 @_ZN5clang5Lexer16LexTokenInternalERNS_5TokenEb(ptr noundef nonnull align 8 dereferenceable(204) %8, ptr noundef nonnull align 8 dereferenceable(20) %1, i1 noundef zeroext %58)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %8, align 8
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %60) #24
   %62 = load ptr, ptr %60, align 8
@@ -2266,7 +2266,7 @@ _ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit: ; preds = %65, %69
 
 .loopexit:                                        ; preds = %83, %76
   %.sroa.013.1 = phi i32 [ %spec.select, %76 ], [ %0, %83 ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %5, align 8
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %85) #24
   %87 = load ptr, ptr %85, align 8
@@ -2706,7 +2706,7 @@ _ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit228: ; preds = %136, %140
 149:                                              ; preds = %.thread480, %147
   %storemerge = phi i32 [ %148, %147 ], [ %.sroa.0298.0, %.thread480 ]
   %150 = load i16, ptr %28, align 2
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %5, align 8
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %152 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %151) #24
   %153 = load ptr, ptr %151, align 8
@@ -4618,7 +4618,7 @@ _ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit: ; preds = %59, %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %10, align 8
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %73 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %72) #24
   %74 = load ptr, ptr %72, align 8
@@ -5307,7 +5307,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i: ; preds = %1
   br i1 %24, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
-  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL27UnicodeWhitespaceCharRanges, i64 72)
+  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL27UnicodeWhitespaceCharRanges, i64 72)
   br i1 %.not.i.i.i, label %_ZL19isUnicodeWhitespacej.exit.thread, label %_ZL19isUnicodeWhitespacej.exit
 
 _ZL19isUnicodeWhitespacej.exit:                   ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i
@@ -5700,7 +5700,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %10,
   br i1 %18, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i
-  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZL14XIDStartRanges, i64 5336)
+  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL14XIDStartRanges, i64 5336)
   br i1 %.not.i.i, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i20.preheader, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit:    ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i
@@ -5730,7 +5730,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i20: ; preds = %_
   br i1 %25, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i20, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i30, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i30: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i20
-  %.not.i.i31 = icmp eq ptr %.1.i.i.i29, getelementptr inbounds (i8, ptr @_ZL17XIDContinueRanges, i64 3024)
+  %.not.i.i31 = icmp eq ptr %.1.i.i.i29, getelementptr inbounds nuw (i8, ptr @_ZL17XIDContinueRanges, i64 3024)
   br i1 %.not.i.i31, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit34.thread, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit34
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit34:  ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i30
@@ -5766,7 +5766,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i35: ; preds = %2
   br i1 %35, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i35, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i45, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i45: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i35
-  %.not.i.i46 = icmp eq ptr %.1.i.i.i44, getelementptr inbounds (i8, ptr @_ZL22C11AllowedIDCharRanges, i64 360)
+  %.not.i.i46 = icmp eq ptr %.1.i.i.i44, getelementptr inbounds nuw (i8, ptr @_ZL22C11AllowedIDCharRanges, i64 360)
   br i1 %.not.i.i46, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit49, label %36
 
 36:                                               ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i45
@@ -5793,7 +5793,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i50: ; preds = %2
   br i1 %44, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i50, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i60, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i60: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i50
-  %.not.i.i61 = icmp eq ptr %.1.i.i.i59, getelementptr inbounds (i8, ptr @_ZL22C99AllowedIDCharRanges, i64 1968)
+  %.not.i.i61 = icmp eq ptr %.1.i.i.i59, getelementptr inbounds nuw (i8, ptr @_ZL22C99AllowedIDCharRanges, i64 1968)
   br i1 %.not.i.i61, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit49, label %45
 
 45:                                               ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i60
@@ -5907,7 +5907,7 @@ _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit: ; preds = %.lr.p
   store i32 1, ptr %48, align 4, !noalias !41
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !noalias !41
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %8, align 8, !noalias !41
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %8, align 8, !noalias !41
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %12, ptr %50, align 8, !noalias !41
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #24
@@ -6086,7 +6086,7 @@ _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit49: ; preds = %.lr
   store i32 1, ptr %122, align 4, !noalias !50
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, i8 0, i64 24, i1 false), !noalias !50
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8, !noalias !50
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8, !noalias !50
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %15, ptr %124, align 8, !noalias !50
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #24
@@ -6333,7 +6333,7 @@ _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit: ; preds = %.lr.p
   store i32 1, ptr %31, align 4, !noalias !59
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false), !noalias !59
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %5, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %5, align 8, !noalias !59
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %8, ptr %33, align 8, !noalias !59
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #24
@@ -6438,7 +6438,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %5, 
   br i1 %20, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i
-  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZL22C99AllowedIDCharRanges, i64 1968)
+  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL22C99AllowedIDCharRanges, i64 1968)
   br i1 %.not.i.i, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.thread, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit:    ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i
@@ -6584,7 +6584,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i14: ; preds = %7
   br i1 %81, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i14, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i24, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i24: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i14
-  %.not.i.i25 = icmp eq ptr %.1.i.i.i23, getelementptr inbounds (i8, ptr @_ZL32C99DisallowedInitialIDCharRanges, i64 112)
+  %.not.i.i25 = icmp eq ptr %.1.i.i.i23, getelementptr inbounds nuw (i8, ptr @_ZL32C99DisallowedInitialIDCharRanges, i64 112)
   br i1 %.not.i.i25, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit28
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit28:  ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i24
@@ -6800,7 +6800,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i: ; preds = %3
   br i1 %43, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
-  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL27UnicodeWhitespaceCharRanges, i64 72)
+  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL27UnicodeWhitespaceCharRanges, i64 72)
   br i1 %.not.i.i.i, label %_ZL19isUnicodeWhitespacej.exit.thread, label %_ZL19isUnicodeWhitespacej.exit
 
 _ZL19isUnicodeWhitespacej.exit:                   ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i
@@ -7007,7 +7007,7 @@ _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit: ; preds = %.lr.p
   store i32 1, ptr %50, align 4, !noalias !72
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false), !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %6, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %6, align 8, !noalias !72
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %10, ptr %52, align 8, !noalias !72
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #24
@@ -7155,7 +7155,7 @@ _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit19: ; preds = %.lr
   store i32 1, ptr %117, align 4, !noalias !78
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false), !noalias !78
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %5, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %5, align 8, !noalias !78
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %12, ptr %119, align 8, !noalias !78
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #24
@@ -7343,7 +7343,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i: ; preds = %5
   br i1 %70, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
-  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL27UnicodeWhitespaceCharRanges, i64 72)
+  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL27UnicodeWhitespaceCharRanges, i64 72)
   br i1 %.not.i.i.i, label %_ZL19isUnicodeWhitespacej.exit.thread, label %_ZL19isUnicodeWhitespacej.exit
 
 _ZL19isUnicodeWhitespacej.exit:                   ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i
@@ -7450,7 +7450,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %6, 
   br i1 %14, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i
-  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZL14XIDStartRanges, i64 5336)
+  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL14XIDStartRanges, i64 5336)
   br i1 %.not.i.i, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit:    ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i
@@ -7480,7 +7480,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i: ; preds = %_
   br i1 %21, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
-  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL40MathematicalNotationProfileIDStartRanges, i64 104)
+  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL40MathematicalNotationProfileIDStartRanges, i64 104)
   br i1 %.not.i.i.i, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i:  ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i
@@ -7521,7 +7521,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i17: ; preds = %2
   br i1 %34, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i17, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i27, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i27: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i17
-  %.not.i.i28 = icmp eq ptr %.1.i.i.i26, getelementptr inbounds (i8, ptr @_ZL32C11DisallowedInitialIDCharRanges, i64 32)
+  %.not.i.i28 = icmp eq ptr %.1.i.i.i26, getelementptr inbounds nuw (i8, ptr @_ZL32C11DisallowedInitialIDCharRanges, i64 32)
   br i1 %.not.i.i28, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit, label %35
 
 35:                                               ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i27
@@ -7548,7 +7548,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i32: ; preds = %2
   br i1 %43, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i32, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i42, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i42: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i32
-  %.not.i.i43 = icmp eq ptr %.1.i.i.i41, getelementptr inbounds (i8, ptr @_ZL32C99DisallowedInitialIDCharRanges, i64 112)
+  %.not.i.i43 = icmp eq ptr %.1.i.i.i41, getelementptr inbounds nuw (i8, ptr @_ZL32C99DisallowedInitialIDCharRanges, i64 112)
   br i1 %.not.i.i43, label %_ZL25isMathematicalExtensionIDjRKN5clang11LangOptionsEbRb.exit, label %44
 
 44:                                               ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i42
@@ -16226,7 +16226,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i: ; preds = %1
   br i1 %22, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
-  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL27UnicodeWhitespaceCharRanges, i64 72)
+  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL27UnicodeWhitespaceCharRanges, i64 72)
   br i1 %.not.i.i.i, label %_ZL19isUnicodeWhitespacej.exit.thread, label %_ZL19isUnicodeWhitespacej.exit
 
 _ZL19isUnicodeWhitespacej.exit:                   ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i
@@ -19847,7 +19847,7 @@ _ZN5clang5Lexer31convertDependencyDirectiveTokenERKNS_26dependency_directives_sc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang5LexerD0Ev(ptr noundef nonnull align 8 dereferenceable(204) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #24
   %4 = load ptr, ptr %2, align 8
@@ -20281,7 +20281,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %_ZS
   br i1 %10, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i
-  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZL40MathematicalNotationProfileIDStartRanges, i64 104)
+  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL40MathematicalNotationProfileIDStartRanges, i64 104)
   br i1 %.not.i.i, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.thread, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit:    ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i
@@ -20311,7 +20311,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4: ; preds = %_Z
   br i1 %17, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14, !llvm.loop !36
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4
-  %.not.i.i15 = icmp eq ptr %.1.i.i.i13, getelementptr inbounds (i8, ptr @_ZL43MathematicalNotationProfileIDContinueRanges, i64 40)
+  %.not.i.i15 = icmp eq ptr %.1.i.i.i13, getelementptr inbounds nuw (i8, ptr @_ZL43MathematicalNotationProfileIDContinueRanges, i64 40)
   br i1 %.not.i.i15, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.thread, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18:  ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14

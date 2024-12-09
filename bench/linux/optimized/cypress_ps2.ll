@@ -202,7 +202,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cypress_init(ptr noundef %0) loc
   %2 = alloca [3 x i8], align 1
   %3 = alloca [8 x i8], align 8
   %4 = alloca [3 x i8], align 1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 48) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %163, label %8

@@ -374,7 +374,7 @@ _get_system_gpu_list_fake.exit:                   ; preds = %37, %._crit_edge40.
   br i1 %.not27, label %94, label %.thread44
 
 .thread44:                                        ; preds = %_get_system_gpu_list_fake.exit
-  %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %93 = and i64 %92, 64
   %.not2846 = icmp eq i64 %93, 0
   %.47 = select i1 %.not2846, i32 5, i32 4
@@ -388,7 +388,7 @@ _get_system_gpu_list_fake.exit:                   ; preds = %37, %._crit_edge40.
 
 98:                                               ; preds = %94
   %99 = call ptr @gpu_g_get_system_gpu_list(ptr noundef nonnull %1) #14
-  %100 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %100 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %101 = and i64 %100, 64
   %.not28 = icmp eq i64 %101, 0
   %. = select i1 %.not28, i32 5, i32 4

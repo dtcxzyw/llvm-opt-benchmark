@@ -304,9 +304,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_range2f.cpp() #10 section ".text.startup" {
   store i32 0, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2f10UnitSquareE, align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2f10UnitSquareE, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2f10UnitSquareE, i64 4), align 4
   store i32 1065353216, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2f10UnitSquareE, i64 8), align 4
-  store i32 1065353216, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2f10UnitSquareE, i64 12), align 4
+  store i32 1065353216, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2f10UnitSquareE, i64 12), align 4
   ret void
 }
 

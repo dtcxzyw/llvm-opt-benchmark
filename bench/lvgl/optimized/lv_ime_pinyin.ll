@@ -906,14 +906,14 @@ init_pinyin_dict.exit:                            ; preds = %26, %45
 
 pinyin_k9_init_data.exit:                         ; preds = %87
   store i32 257, ptr @default_kb_ctrl_k9_map, align 16, !tbaa !30
-  store i32 545, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 4), align 4, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 16), align 16, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 20), align 4, !tbaa !30
-  store i32 801, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 36), align 4, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 40), align 8, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 56), align 8, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 60), align 4, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 76), align 4, !tbaa !30
+  store i32 545, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 4), align 4, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 16), align 16, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 20), align 4, !tbaa !30
+  store i32 801, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 36), align 4, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 40), align 8, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 56), align 8, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 60), align 4, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 76), align 4, !tbaa !30
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @lv_ll_init(ptr noundef nonnull %91, i32 noundef 7) #6
   ret void
@@ -1435,14 +1435,14 @@ define void @lv_ime_pinyin_set_mode(ptr nocapture noundef initializes((260, 264)
 
 pinyin_k9_init_data.exit:                         ; preds = %.preheader
   store i32 257, ptr @default_kb_ctrl_k9_map, align 16, !tbaa !30
-  store i32 545, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 4), align 4, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 16), align 16, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 20), align 4, !tbaa !30
-  store i32 801, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 36), align 4, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 40), align 8, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 56), align 8, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 60), align 4, !tbaa !30
-  store i32 257, ptr getelementptr inbounds (i8, ptr @default_kb_ctrl_k9_map, i64 76), align 4, !tbaa !30
+  store i32 545, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 4), align 4, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 16), align 16, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 20), align 4, !tbaa !30
+  store i32 801, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 36), align 4, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 40), align 8, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 56), align 8, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 60), align 4, !tbaa !30
+  store i32 257, ptr getelementptr inbounds nuw (i8, ptr @default_kb_ctrl_k9_map, i64 76), align 4, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !31
   tail call void @lv_keyboard_set_map(ptr noundef %9, i32 noundef 4, ptr noundef nonnull @lv_btnm_def_pinyin_k9_map, ptr noundef nonnull @default_kb_ctrl_k9_map) #6
@@ -1762,8 +1762,8 @@ define internal fastcc void @pinyin_ime_clear_data(ptr noundef %0) unnamed_addr 
   br label %15
 
 10:                                               ; preds = %15
-  %11 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @lv_pinyin_k9_cand_str, i64 21), ptr noundef nonnull @.str.660) #6
-  %12 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @lv_pinyin_k9_cand_str, i64 28), ptr noundef nonnull @.str.18) #6
+  %11 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_pinyin_k9_cand_str, i64 21), ptr noundef nonnull @.str.660) #6
+  %12 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_pinyin_k9_cand_str, i64 28), ptr noundef nonnull @.str.18) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !31
   tail call void @lv_buttonmatrix_set_map(ptr noundef %14, ptr noundef nonnull @lv_btnm_def_pinyin_k9_map) #6
@@ -2203,8 +2203,8 @@ define internal fastcc void @pinyin_k9_fill_cand(ptr noundef %0) unnamed_addr #0
 
 6:                                                ; preds = %1
   tail call void @lv_memset(ptr noundef nonnull @lv_pinyin_k9_cand_str, i8 noundef zeroext 0, i64 noundef 35) #6
-  %7 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @lv_pinyin_k9_cand_str, i64 21), ptr noundef nonnull @.str.660) #6
-  %8 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @lv_pinyin_k9_cand_str, i64 28), ptr noundef nonnull @.str.18) #6
+  %7 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_pinyin_k9_cand_str, i64 21), ptr noundef nonnull @.str.660) #6
+  %8 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_pinyin_k9_cand_str, i64 28), ptr noundef nonnull @.str.18) #6
   store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 888), align 8, !tbaa !50
   br label %9
 
@@ -2321,8 +2321,8 @@ define internal fastcc void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 nounde
 .thread:                                          ; preds = %16
   %19 = icmp eq i16 %1, 0
   tail call void @lv_memset(ptr noundef nonnull @lv_pinyin_k9_cand_str, i8 noundef zeroext 0, i64 noundef 35) #6
-  %20 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @lv_pinyin_k9_cand_str, i64 21), ptr noundef nonnull @.str.660) #6
-  %21 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @lv_pinyin_k9_cand_str, i64 28), ptr noundef nonnull @.str.18) #6
+  %20 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_pinyin_k9_cand_str, i64 21), ptr noundef nonnull @.str.660) #6
+  %21 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_pinyin_k9_cand_str, i64 28), ptr noundef nonnull @.str.18) #6
   br i1 %19, label %.preheader, label %.preheader63
 
 22:                                               ; preds = %16
@@ -2363,8 +2363,8 @@ define internal fastcc void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 nounde
 
 .critedge61:                                      ; preds = %._crit_edge
   tail call void @lv_memset(ptr noundef nonnull @lv_pinyin_k9_cand_str, i8 noundef zeroext 0, i64 noundef 35) #6
-  %37 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @lv_pinyin_k9_cand_str, i64 21), ptr noundef nonnull @.str.660) #6
-  %38 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @lv_pinyin_k9_cand_str, i64 28), ptr noundef nonnull @.str.18) #6
+  %37 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_pinyin_k9_cand_str, i64 21), ptr noundef nonnull @.str.660) #6
+  %38 = tail call ptr @lv_strcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_pinyin_k9_cand_str, i64 28), ptr noundef nonnull @.str.18) #6
   br label %.preheader
 
 .preheader:                                       ; preds = %.thread, %.critedge61

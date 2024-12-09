@@ -557,7 +557,7 @@ _ZN9Bytecodes12must_rewriteENS_4CodeE.exit:       ; preds = %82
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr @_ZN19AbstractInterpreter12_entry_tableE, align 16
   %.not = icmp eq ptr %91, %92
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 8), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 8), align 8
   %.not19 = icmp eq ptr %91, %93
   %or.cond = select i1 %.not, i1 true, i1 %.not19
   br label %_ZN9Bytecodes12must_rewriteENS_4CodeE.exit.thread
@@ -1205,7 +1205,7 @@ define hidden noundef zeroext i1 @_ZN19AbstractInterpreter25bytecode_should_reex
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_ZN19AbstractInterpreter32initialize_method_handle_entriesEv() local_unnamed_addr #7 align 2 {
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 56), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 56), align 8
   br label %1
 
 1:                                                ; preds = %0, %1

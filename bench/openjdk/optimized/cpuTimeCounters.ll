@@ -182,7 +182,7 @@ define hidden void @_ZN15CPUTimeCounters14update_counterEN13CPUTimeGroups11CPUTi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN25ThreadTotalCPUTimeClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

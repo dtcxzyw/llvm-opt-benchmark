@@ -573,7 +573,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMecha
   %53 = phi ptr [ %36, %34 ], [ %29, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr null, ptr %54, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %56 = load i8, ptr @UseCompressedClassPointers, align 1
   %57 = trunc i8 %56 to i1
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -719,7 +719,7 @@ define hidden void @_ZN12JVMCIRuntime17new_array_or_nullEP10JavaThreadP5Klassi(p
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr null, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %22 = load i8, ptr @UseCompressedClassPointers, align 1
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -821,7 +821,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %62, %60
 73:                                               ; preds = %64
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr null, ptr %74, align 8
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %76 = load i8, ptr @UseCompressedClassPointers, align 1
   %77 = trunc i8 %76 to i1
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -1046,7 +1046,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %4, %_ZN10HandleArea
 
 34:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   store ptr null, ptr %33, align 8
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %36 = load i8, ptr @UseCompressedClassPointers, align 1
   %37 = trunc i8 %36 to i1
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1179,7 +1179,7 @@ define hidden void @_ZN12JVMCIRuntime25dynamic_new_array_or_nullEP10JavaThreadP7
 
 12:                                               ; preds = %3
   store ptr null, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %14 = load i8, ptr @UseCompressedClassPointers, align 1
   %15 = trunc i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1313,7 +1313,7 @@ define hidden void @_ZN12JVMCIRuntime28dynamic_new_instance_or_nullEP10JavaThrea
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1144), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1144), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 195, ptr noundef %18, ptr noundef null) #16
   %19 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %19, null
@@ -1375,7 +1375,7 @@ define hidden void @_ZN12JVMCIRuntime28dynamic_new_instance_or_nullEP10JavaThrea
   %43 = phi ptr [ %39, %37 ], [ %32, %24 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr null, ptr %44, align 8
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 192), align 8
   %46 = load i8, ptr @UseCompressedClassPointers, align 1
   %47 = trunc i8 %46 to i1
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -2548,7 +2548,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %3, %_ZN26GrowableAr
   br i1 %.not, label %61, label %63
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 524, ptr noundef %62, ptr noundef nonnull @.str.4) #16
   br label %136
 
@@ -2838,7 +2838,7 @@ define hidden void @_ZN12JVMCIRuntime10log_objectEP10JavaThreadP7oopDescbb(ptr n
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit: ; preds = %17, %27
   %.0.i.i = phi ptr [ %26, %17 ], [ %28, %27 ]
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %30 = icmp eq ptr %.0.i.i, %29
   br i1 %30, label %56, label %31
 
@@ -7193,8 +7193,8 @@ _Z9type2char9BasicType.exit:                      ; preds = %_ZN6HandleC2EP6Thre
   %65 = getelementptr inbounds i64, ptr %61, i64 %64
   store i32 %56, ptr %65, align 4
   %66 = load ptr, ptr @_ZN12HotSpotJVMCI28HotSpotResolvedPrimitiveType6_klassE, align 8
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2824), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2856), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %4, ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef nonnull %5, ptr noundef %8) #16
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %70 = load ptr, ptr %69, align 8
@@ -8386,12 +8386,12 @@ define hidden noundef ptr @_ZN12JVMCIRuntime24get_method_by_index_implERK18const
   br i1 %.not43, label %50, label %59
 
 50:                                               ; preds = %26
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 464), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 464), align 8
   %52 = icmp eq ptr %29, %51
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 472), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 472), align 8
   %55 = icmp eq ptr %29, %54
   br i1 %55, label %56, label %62
 
@@ -8739,14 +8739,14 @@ define internal fastcc noundef zeroext i1 @_ZL21after_compiler_upcallP8JVMCIEnvP
 
 46:                                               ; preds = %41
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %9, i1 noundef zeroext false) #16
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %47) #16
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store i32 3, ptr %48, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE65ELS1_21ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %9, align 8
   %49 = load ptr, ptr %6, align 8
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #17
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %49, i64 noundef %50) #16
@@ -12022,7 +12022,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #16
   ret void

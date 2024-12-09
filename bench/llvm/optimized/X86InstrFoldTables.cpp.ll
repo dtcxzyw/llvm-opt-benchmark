@@ -58,7 +58,7 @@ _ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i: ; preds = %1, %
   br i1 %9, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i, !llvm.loop !4
 
 _ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i
-  %.not.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL10Table2Addr, i64 4224)
+  %.not.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL10Table2Addr, i64 4224)
   br i1 %.not.i, label %17, label %10
 
 10:                                               ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i

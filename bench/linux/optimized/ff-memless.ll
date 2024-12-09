@@ -28,7 +28,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_input_ff_cre
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @input_ff_create_memless(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %5 = tail call noalias noundef align 8 dereferenceable_or_null(840) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 840) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7

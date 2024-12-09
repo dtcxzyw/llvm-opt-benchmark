@@ -7179,7 +7179,7 @@ _ZSt11max_elementIPiET_S1_S1_.exit538:            ; preds = %.lr.ph.i.i533, %._c
   %575 = fpext float %574 to double
   %576 = tail call double @fmod(double noundef %575, double noundef 0x400921FB60000000) #27
   %577 = fptrunc double %576 to float
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %9, align 8
   %578 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %579 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store float %88, ptr %578, align 8
@@ -7455,7 +7455,7 @@ _ZSt11max_elementIPiET_S1_S1_.exit538:            ; preds = %.lr.ph.i.i533, %._c
   br i1 %.not.i, label %812, label %800
 
 800:                                              ; preds = %793
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %797, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %797, align 8
   %801 = getelementptr inbounds nuw i8, ptr %797, i64 8
   %802 = load i64, ptr %578, align 8
   store i64 %802, ptr %801, align 8
@@ -16906,7 +16906,7 @@ _ZNSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit: ;
   br i1 %.not.i57, label %117, label %100
 
 100:                                              ; preds = %.critedge
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %98, align 8
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store float 0.000000e+00, ptr %101, align 4
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 12
@@ -20004,7 +20004,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %36 = load float, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 28
   %38 = load float, ptr %37, align 4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %4, align 8
   store i32 %29, ptr %20, align 8
   store i32 %30, ptr %21, align 4
   store float %32, ptr %22, align 8
@@ -20051,7 +20051,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc7EllipseESt6vec
   %61 = ptrtoint ptr %49 to i64
   %62 = sub i64 %61, %6
   %63 = ashr exact i64 %62, 5
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %5, align 8
   store i32 %51, ptr %42, align 8
   store i32 %52, ptr %43, align 4
   store float %54, ptr %44, align 8
@@ -20795,7 +20795,7 @@ _ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
   %19 = shl nuw nsw i64 %16, 5
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load i64, ptr %23, align 8
@@ -20822,7 +20822,7 @@ _ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i.i
   %.015.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i ], [ %20, %_ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.01214.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i ], [ %6, %_ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %.015.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %.015.i.i.i.i.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
   %39 = load i64, ptr %38, align 8
@@ -20857,7 +20857,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv8ximgproc7EllipseES3_SaIS2_EET0_T_
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv8ximgproc7EllipseES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i.i.i.i29
   %.015.i.i.i.i.i30 = phi ptr [ %72, %.lr.ph.i.i.i.i.i29 ], [ %54, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv8ximgproc7EllipseES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %.01214.i.i.i.i.i31 = phi ptr [ %71, %.lr.ph.i.i.i.i.i29 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv8ximgproc7EllipseES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %.015.i.i.i.i.i30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %.015.i.i.i.i.i30, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 8
   store float 0.000000e+00, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 12
@@ -20946,7 +20946,7 @@ _ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
   %19 = shl nuw nsw i64 %16, 5
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load i64, ptr %23, align 8
@@ -20973,7 +20973,7 @@ _ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i.i
   %.015.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i ], [ %20, %_ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.01214.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i ], [ %6, %_ZNKSt6vectorIN2cv8ximgproc7EllipseESaIS2_EE12_M_check_lenEmPKc.exit ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %.015.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %.015.i.i.i.i.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
   %39 = load i64, ptr %38, align 8
@@ -21008,7 +21008,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv8ximgproc7EllipseES3_SaIS2_EET0_T_
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv8ximgproc7EllipseES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i.i.i.i29
   %.015.i.i.i.i.i30 = phi ptr [ %72, %.lr.ph.i.i.i.i.i29 ], [ %54, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv8ximgproc7EllipseES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %.01214.i.i.i.i.i31 = phi ptr [ %71, %.lr.ph.i.i.i.i.i29 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv8ximgproc7EllipseES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %.015.i.i.i.i.i30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv8ximgproc7EllipseE, i64 16), ptr %.015.i.i.i.i.i30, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 8
   store float 0.000000e+00, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 12

@@ -87,7 +87,7 @@ define internal void @file_set_destruct(ptr nocapture noundef initializes((160, 
 ; Function Attrs: nounwind uwtable
 define internal void @req_construct(ptr noundef initializes((184, 196), (200, 264)) %0) #3 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -119,7 +119,7 @@ define internal void @req_construct(ptr noundef initializes((184, 196), (200, 26
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %15 = load i32, ptr @pmix_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not13 = icmp eq i32 %15, %16
   br i1 %.not13, label %18, label %17
 

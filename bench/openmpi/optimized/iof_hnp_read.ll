@@ -47,7 +47,7 @@ define void @prte_iof_hnp_read_local_handler(i32 noundef %0, i16 noundef signext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %4, i8 0, i64 4096, i1 false)
   %10 = call i64 @read(i32 noundef %9, ptr noundef nonnull %4, i64 noundef 4096) #11
   %11 = trunc i64 %10 to i32
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %12, 64
   br i1 %or.cond, label %13, label %29
 
@@ -123,10 +123,10 @@ define void @prte_iof_hnp_read_local_handler(i32 noundef %0, i16 noundef signext
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %53 = load i16, ptr %52, align 4
   %.2 = and i16 %53, 14
-  %54 = load i64, ptr getelementptr inbounds (i8, ptr @prte_iof_deliver_t_class, i64 56), align 8
+  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_iof_deliver_t_class, i64 56), align 8
   %55 = tail call noalias noundef ptr @malloc(i64 noundef %54) #13
   %56 = load i32, ptr @pmix_class_init_epoch, align 4
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_deliver_t_class, i64 32), align 8
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_iof_deliver_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %56, %57
   br i1 %.not.i, label %59, label %58
 
@@ -426,7 +426,7 @@ pmix_obj_run_destructors.exit161:                 ; preds = %.lr.ph.i158, %175
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %202 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8
+  %202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 72), align 8
   %203 = icmp sgt i32 %202, 0
   br i1 %203, label %204, label %223
 
@@ -439,7 +439,7 @@ pmix_obj_run_destructors.exit161:                 ; preds = %.lr.ph.i158, %175
   %210 = sitofp i64 %209 to double
   %211 = fdiv double %210, 1.000000e+06
   %212 = fadd double %211, %207
-  %213 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 76), align 4
+  %213 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4
   %or.cond148 = icmp ult i32 %213, 64
   br i1 %or.cond148, label %214, label %223
 
@@ -458,7 +458,7 @@ pmix_obj_run_destructors.exit161:                 ; preds = %.lr.ph.i158, %175
   br label %223
 
 223:                                              ; preds = %204, %214, %219, %200
-  %224 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_state, i64 48), align 8
+  %224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 48), align 8
   tail call void %224(ptr noundef nonnull %201, i32 noundef 6) #11
   br label %225
 

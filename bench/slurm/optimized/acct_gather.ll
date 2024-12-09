@@ -914,7 +914,7 @@ define range(i32 0, 2) i32 @acct_gather_check_acct_freq_task(i64 noundef %0, ptr
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 448), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 448), align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.sink.split, label %11
 

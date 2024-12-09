@@ -11159,10 +11159,10 @@ define internal i32 @dissect_gsm_map(ptr noundef %0, ptr noundef %1, ptr noundef
   %24 = zext i1 %23 to i32
   store i32 %24, ptr @dissect_gsm_map.tap_rec, align 4
   %25 = load i32, ptr @opcode, align 4
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @dissect_gsm_map.tap_rec, i64 4), align 4
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @dissect_gsm_map.tap_rec, i64 4), align 4
   %26 = load i8, ptr @gsm_map_pdu_size, align 1
   %27 = zext i8 %26 to i16
-  store i16 %27, ptr getelementptr inbounds (i8, ptr @dissect_gsm_map.tap_rec, i64 8), align 4
+  store i16 %27, ptr getelementptr inbounds nuw (i8, ptr @dissect_gsm_map.tap_rec, i64 8), align 4
   %28 = load i32, ptr @gsm_map_tap, align 4
   call void @tap_queue_packet(i32 noundef %28, ptr noundef nonnull %1, ptr noundef nonnull @dissect_gsm_map.tap_rec) #5
   br label %29
@@ -11206,10 +11206,10 @@ define internal i32 @dissect_gsm_map_sccp(ptr noundef %0, ptr noundef %1, ptr no
   %25 = zext i1 %24 to i32
   store i32 %25, ptr @dissect_gsm_map_sccp.tap_rec, align 4
   %26 = load i32, ptr @opcode, align 4
-  store i32 %26, ptr getelementptr inbounds (i8, ptr @dissect_gsm_map_sccp.tap_rec, i64 4), align 4
+  store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @dissect_gsm_map_sccp.tap_rec, i64 4), align 4
   %27 = load i8, ptr @gsm_map_pdu_size, align 1
   %28 = zext i8 %27 to i16
-  store i16 %28, ptr getelementptr inbounds (i8, ptr @dissect_gsm_map_sccp.tap_rec, i64 8), align 4
+  store i16 %28, ptr getelementptr inbounds nuw (i8, ptr @dissect_gsm_map_sccp.tap_rec, i64 8), align 4
   %29 = load i32, ptr @gsm_map_tap, align 4
   call void @tap_queue_packet(i32 noundef %29, ptr noundef nonnull %1, ptr noundef nonnull @dissect_gsm_map_sccp.tap_rec) #5
   br label %30

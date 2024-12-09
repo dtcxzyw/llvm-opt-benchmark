@@ -2668,27 +2668,27 @@ TransactionIdOlder.exit150:                       ; preds = %TransactionIdOlder.
   %159 = sub i32 %156, %158
   %160 = sext i32 %159 to i64
   %161 = add i64 %157, %160
-  store i64 %161, ptr getelementptr inbounds (i8, ptr @GlobalVisSharedRels, i64 8), align 8
+  store i64 %161, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisSharedRels, i64 8), align 8
   %162 = load i32, ptr %7, align 4
   %163 = load i64, ptr %0, align 8
   %164 = trunc i64 %163 to i32
   %165 = sub i32 %162, %164
   %166 = sext i32 %165 to i64
   %167 = add i64 %163, %166
-  store i64 %167, ptr getelementptr inbounds (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
+  store i64 %167, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
   %168 = load i64, ptr %0, align 8
   %169 = trunc i64 %168 to i32
   %170 = sub i32 %155, %169
   %171 = sext i32 %170 to i64
   %172 = add i64 %168, %171
-  store i64 %172, ptr getelementptr inbounds (i8, ptr @GlobalVisDataRels, i64 8), align 8
+  store i64 %172, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisDataRels, i64 8), align 8
   %173 = load i32, ptr %22, align 4
   %174 = load i64, ptr %0, align 8
   %175 = trunc i64 %174 to i32
   %176 = sub i32 %173, %175
   %177 = sext i32 %176 to i64
   %178 = add i64 %174, %177
-  store i64 %178, ptr getelementptr inbounds (i8, ptr @GlobalVisTempRels, i64 8), align 8
+  store i64 %178, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisTempRels, i64 8), align 8
   %179 = load i64, ptr @GlobalVisSharedRels, align 8
   %180 = and i64 %161, 4294967295
   %.not.i.i = icmp eq i64 %180, 0
@@ -3140,7 +3140,7 @@ FullTransactionIdNewer.exit139:                   ; preds = %FullTransactionIdNe
 188:                                              ; preds = %179, %175
   %189 = phi i64 [ %storemerge.i, %179 ], [ %178, %175 ]
   store i64 %189, ptr @GlobalVisTempRels, align 8
-  %190 = load i64, ptr getelementptr inbounds (i8, ptr @GlobalVisSharedRels, i64 8), align 8
+  %190 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisSharedRels, i64 8), align 8
   %191 = and i64 %190, 4294967295
   %.not.i140 = icmp eq i64 %191, 0
   br i1 %.not.i140, label %FullTransactionIdNewer.exit144, label %192
@@ -3156,8 +3156,8 @@ FullTransactionIdNewer.exit139:                   ; preds = %FullTransactionIdNe
 
 FullTransactionIdNewer.exit144:                   ; preds = %188, %192, %194
   %.sroa.06.0.i143 = phi i64 [ %149, %188 ], [ %190, %192 ], [ %..i142, %194 ]
-  store i64 %.sroa.06.0.i143, ptr getelementptr inbounds (i8, ptr @GlobalVisSharedRels, i64 8), align 8
-  %195 = load i64, ptr getelementptr inbounds (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
+  store i64 %.sroa.06.0.i143, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisSharedRels, i64 8), align 8
+  %195 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
   %196 = and i64 %195, 4294967295
   %.not.i145 = icmp eq i64 %196, 0
   br i1 %.not.i145, label %FullTransactionIdNewer.exit149, label %197
@@ -3173,8 +3173,8 @@ FullTransactionIdNewer.exit144:                   ; preds = %188, %192, %194
 
 FullTransactionIdNewer.exit149:                   ; preds = %FullTransactionIdNewer.exit144, %197, %199
   %.sroa.06.0.i148 = phi i64 [ %149, %FullTransactionIdNewer.exit144 ], [ %195, %197 ], [ %..i147, %199 ]
-  store i64 %.sroa.06.0.i148, ptr getelementptr inbounds (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
-  %200 = load i64, ptr getelementptr inbounds (i8, ptr @GlobalVisDataRels, i64 8), align 8
+  store i64 %.sroa.06.0.i148, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
+  %200 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisDataRels, i64 8), align 8
   %201 = and i64 %200, 4294967295
   %.not.i150 = icmp eq i64 %201, 0
   br i1 %.not.i150, label %FullTransactionIdNewer.exit154, label %202
@@ -3190,8 +3190,8 @@ FullTransactionIdNewer.exit149:                   ; preds = %FullTransactionIdNe
 
 FullTransactionIdNewer.exit154:                   ; preds = %FullTransactionIdNewer.exit149, %202, %204
   %.sroa.06.0.i153 = phi i64 [ %149, %FullTransactionIdNewer.exit149 ], [ %200, %202 ], [ %..i152, %204 ]
-  store i64 %.sroa.06.0.i153, ptr getelementptr inbounds (i8, ptr @GlobalVisDataRels, i64 8), align 8
-  store i64 %189, ptr getelementptr inbounds (i8, ptr @GlobalVisTempRels, i64 8), align 8
+  store i64 %.sroa.06.0.i153, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisDataRels, i64 8), align 8
+  store i64 %189, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisTempRels, i64 8), align 8
   store i32 %135, ptr @RecentXmin, align 4
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %135, ptr %205, align 4
@@ -3492,7 +3492,7 @@ define dso_local noundef ptr @GetRunningTransactionData() local_unnamed_addr #0 
   %2 = load ptr, ptr @ProcGlobal, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 24), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 24), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %20
 
@@ -3504,7 +3504,7 @@ define dso_local noundef ptr @GetRunningTransactionData() local_unnamed_addr #0 
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #17
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 24), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 24), align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
@@ -3632,16 +3632,16 @@ define dso_local noundef ptr @GetRunningTransactionData() local_unnamed_addr #0 
   %82 = trunc i64 %30 to i32
   %83 = sub i32 %.251, %.052
   store i32 %83, ptr @GetRunningTransactionData.CurrentRunningXactsData, align 8
-  store i32 %.052, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 4), align 4
+  store i32 %.052, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 4), align 4
   %84 = and i8 %.055.lcssa82, 1
-  store i8 %84, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 8), align 8
+  store i8 %84, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 8), align 8
   %85 = load ptr, ptr @TransamVariables, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load i64, ptr %86, align 8
   %88 = trunc i64 %87 to i32
-  store i32 %88, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 12), align 4
-  store i32 %.0.lcssa85, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 16), align 8
-  store i32 %82, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 20), align 4
+  store i32 %88, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 12), align 4
+  store i32 %.0.lcssa85, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 16), align 8
+  store i32 %82, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 20), align 4
   ret ptr @GetRunningTransactionData.CurrentRunningXactsData
 }
 

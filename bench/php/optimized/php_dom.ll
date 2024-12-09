@@ -1045,7 +1045,7 @@ define hidden ptr @dom_write_property(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %37
 
 37:                                               ; preds = %28, %34
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -1074,7 +1074,7 @@ define hidden ptr @dom_write_property(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %54
 
 54:                                               ; preds = %46, %49, %52, %45, %17
-  %.039 = phi ptr [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %45 ], [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %17 ], [ %53, %52 ], [ %2, %49 ], [ %2, %46 ]
+  %.039 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %45 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %17 ], [ %53, %52 ], [ %2, %49 ], [ %2, %46 ]
   ret ptr %.039
 }
 
@@ -1115,7 +1115,7 @@ define hidden void @zif_dom_import_simplexml(ptr nocapture noundef readonly %0, 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %31
@@ -1148,7 +1148,7 @@ define hidden void @zif_dom_import_simplexml(ptr nocapture noundef readonly %0, 
 
 28:                                               ; preds = %23, %11
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.2) #16
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %31
@@ -1718,24 +1718,24 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %349 = alloca %struct._zend_array, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 24, ptr @dom_object_handlers, align 8
-  store ptr @dom_objects_free_storage, ptr getelementptr inbounds (i8, ptr @dom_object_handlers, i64 8), align 8
-  store ptr @dom_read_property, ptr getelementptr inbounds (i8, ptr @dom_object_handlers, i64 32), align 8
-  store ptr @dom_write_property, ptr getelementptr inbounds (i8, ptr @dom_object_handlers, i64 40), align 8
-  store ptr @dom_get_property_ptr_ptr, ptr getelementptr inbounds (i8, ptr @dom_object_handlers, i64 64), align 8
-  store ptr @dom_objects_store_clone_obj, ptr getelementptr inbounds (i8, ptr @dom_object_handlers, i64 24), align 8
-  store ptr @dom_property_exists, ptr getelementptr inbounds (i8, ptr @dom_object_handlers, i64 72), align 8
-  store ptr @dom_get_debug_info, ptr getelementptr inbounds (i8, ptr @dom_object_handlers, i64 152), align 8
+  store ptr @dom_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 8), align 8
+  store ptr @dom_read_property, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 32), align 8
+  store ptr @dom_write_property, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 40), align 8
+  store ptr @dom_get_property_ptr_ptr, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 64), align 8
+  store ptr @dom_objects_store_clone_obj, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 24), align 8
+  store ptr @dom_property_exists, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 72), align 8
+  store ptr @dom_get_debug_info, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 152), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_nnodemap_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, i64 200, i1 false)
-  store ptr @dom_nnodemap_objects_free_storage, ptr getelementptr inbounds (i8, ptr @dom_nnodemap_object_handlers, i64 8), align 8
-  store ptr @dom_nodemap_read_dimension, ptr getelementptr inbounds (i8, ptr @dom_nnodemap_object_handlers, i64 48), align 8
-  store ptr @dom_nodemap_has_dimension, ptr getelementptr inbounds (i8, ptr @dom_nnodemap_object_handlers, i64 88), align 8
+  store ptr @dom_nnodemap_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_nnodemap_object_handlers, i64 8), align 8
+  store ptr @dom_nodemap_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nnodemap_object_handlers, i64 48), align 8
+  store ptr @dom_nodemap_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nnodemap_object_handlers, i64 88), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_nodelist_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_nnodemap_object_handlers, i64 200, i1 false)
-  store ptr @dom_nodelist_read_dimension, ptr getelementptr inbounds (i8, ptr @dom_nodelist_object_handlers, i64 48), align 8
-  store ptr @dom_nodelist_has_dimension, ptr getelementptr inbounds (i8, ptr @dom_nodelist_object_handlers, i64 88), align 8
+  store ptr @dom_nodelist_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nodelist_object_handlers, i64 48), align 8
+  store ptr @dom_nodelist_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nodelist_object_handlers, i64 88), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_object_namespace_node_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, i64 200, i1 false)
   store i32 32, ptr @dom_object_namespace_node_handlers, align 8
-  store ptr @dom_object_namespace_node_free_storage, ptr getelementptr inbounds (i8, ptr @dom_object_namespace_node_handlers, i64 8), align 8
-  store ptr @dom_object_namespace_node_clone_obj, ptr getelementptr inbounds (i8, ptr @dom_object_namespace_node_handlers, i64 24), align 8
+  store ptr @dom_object_namespace_node_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_object_namespace_node_handlers, i64 8), align 8
+  store ptr @dom_object_namespace_node_clone_obj, ptr getelementptr inbounds nuw (i8, ptr @dom_object_namespace_node_handlers, i64 24), align 8
   tail call void @_zend_hash_init(ptr noundef nonnull @classes, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #16
   %350 = load ptr, ptr @zend_ce_exception, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %326)
@@ -11211,9 +11211,9 @@ dom_register_prop_handler.exit422:                ; preds = %4469, %4473, %4478
 4487:                                             ; preds = %dom_register_prop_handler.exit422, %4484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_xpath_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, i64 200, i1 false)
   store i32 56, ptr @dom_xpath_object_handlers, align 8
-  store ptr @dom_xpath_objects_free_storage, ptr getelementptr inbounds (i8, ptr @dom_xpath_object_handlers, i64 8), align 8
-  store ptr @dom_xpath_get_gc, ptr getelementptr inbounds (i8, ptr @dom_xpath_object_handlers, i64 168), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @dom_xpath_object_handlers, i64 24), align 8
+  store ptr @dom_xpath_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 8), align 8
+  store ptr @dom_xpath_get_gc, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 168), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -12538,7 +12538,7 @@ define internal noundef nonnull ptr @dom_objects_namespace_node_new(ptr noundef 
   %11 = add nsw i64 %10, 88
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 24, i1 false)
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @dom_module_entry, i64 152), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dom_module_entry, i64 152), align 8
   br label %14
 
 14:                                               ; preds = %21, %1
@@ -13447,7 +13447,7 @@ define internal fastcc noundef ptr @dom_objects_set_class(ptr noundef %0) unname
   %11 = add nsw i64 %10, 80
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %12, i8 0, i64 16, i1 false)
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @dom_module_entry, i64 152), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dom_module_entry, i64 152), align 8
   br label %14
 
 14:                                               ; preds = %21, %1

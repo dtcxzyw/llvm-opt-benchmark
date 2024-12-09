@@ -11045,7 +11045,7 @@ define internal void @_ZN5salsa8Database19unwind_if_cancelled17h5dbf1ed3c6f81e63
   br i1 %20, label %21, label %.critedge38
 
 21:                                               ; preds = %18
-  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5salsa8Database19unwind_if_cancelled10__CALLSITE17he051bd3f9f8d2932E, i64 16) monotonic, align 8
   switch i8 %22, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
     i8 0, label %.critedge38
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
@@ -48364,7 +48364,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17h9da073be9d6da377E.exit.i: ; preds 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !13910
   store ptr @anon.bed1d66be63dd231e8b8b1711bb97b08.328, ptr %8, align 8, !noalias !13910
   %265 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.bed1d66be63dd231e8b8b1711bb97b08.328, i64 20), ptr %265, align 8, !noalias !13910
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.bed1d66be63dd231e8b8b1711bb97b08.328, i64 20), ptr %265, align 8, !noalias !13910
   br label %266
 
 266:                                              ; preds = %268, %.noexc91.i

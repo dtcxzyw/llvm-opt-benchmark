@@ -908,7 +908,7 @@ lpad:                                             ; preds = %new.notnull
 define void @_ZN6icu_7522UnescapeTransliteratorC2ERKNS_13UnicodeStringEPKDs(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %newID, ptr nocapture noundef readonly %newSpec) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %newID, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i64 16), ptr %this, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %entry
@@ -955,7 +955,7 @@ declare void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 derefer
 define void @_ZN6icu_7522UnescapeTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %o)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i64 16), ptr %this, align 8
   %spec = getelementptr inbounds nuw i8, ptr %o, i64 88
   %0 = load ptr, ptr %spec, align 8
   br label %while.cond.i
@@ -1000,7 +1000,7 @@ declare void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522UnescapeTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i64 16), ptr %this, align 8
   %spec = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %spec, align 8
   invoke void @uprv_free_75(ptr noundef %0)

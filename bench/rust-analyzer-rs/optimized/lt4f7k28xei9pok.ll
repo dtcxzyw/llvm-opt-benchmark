@@ -50847,7 +50847,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %38,
   %.sroa.010.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr getelementptr inbounds nuw (i8, ptr @anon.26d2c8a87f4bfa638a02c66113af3c5c.18.llvm.18263967998570167583, i64 16), ptr %.sroa.010.sroa.5.0..sroa_idx, align 8
   %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds (i8, ptr @anon.26d2c8a87f4bfa638a02c66113af3c5c.18.llvm.18263967998570167583, i64 1), ptr %.sroa.010.sroa.6.0..sroa_idx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.26d2c8a87f4bfa638a02c66113af3c5c.18.llvm.18263967998570167583, i64 1), ptr %.sroa.010.sroa.6.0..sroa_idx, align 8
   %.sroa.010.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 0, ptr %.sroa.010.sroa.7.0..sroa_idx, align 8
   %.sroa.010.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56

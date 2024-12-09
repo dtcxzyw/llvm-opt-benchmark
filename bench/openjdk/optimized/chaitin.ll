@@ -335,7 +335,7 @@ define hidden void @_ZN12PhaseChaitinC2EjR8PhaseCFGR7Matcherb(ptr noundef nonnul
   %9 = alloca [3 x double], align 16
   %10 = zext i1 %4 to i8
   tail call void @_ZN13PhaseRegAllocC2EjR8PhaseCFGR7MatcherPFvvE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 8 dereferenceable(1008) %3, ptr noundef null) #14
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV12PhaseChaitin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12PhaseChaitin, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -436,7 +436,7 @@ _ZN12LiveRangeMapC2EP5Arenaj.exit:                ; preds = %_ZN13GrowableArrayI
   store i32 %55, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i32 0, ptr %59, align 8
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 672)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 672)) #14
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 136
@@ -959,7 +959,7 @@ declare noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12PhaseChaitin7compactEv(ptr noundef nonnull align 8 dereferenceable(364) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %"class.Compile::TracePhase", align 8
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 864)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 864)) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 1
@@ -1157,7 +1157,7 @@ define hidden void @_ZN12PhaseChaitin17Register_AllocateEv(ptr noundef nonnull a
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %5, ptr %34, align 8
   call void @_ZN12PhaseChaitin6de_ssaEv(ptr noundef nonnull align 8 dereferenceable(364) %0)
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %35, align 8
   %36 = load ptr, ptr %23, align 8
@@ -1199,7 +1199,7 @@ _ZN12ResourceMark13reset_to_markEv.exit:          ; preds = %38, %40
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %_ZN12ResourceMark13reset_to_markEv.exit
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %7, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %7, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
   store ptr null, ptr %35, align 8
   %49 = load ptr, ptr %23, align 8
   %.not.i.i.i59 = icmp eq ptr %49, null
@@ -1241,12 +1241,12 @@ _ZN12ResourceMark13reset_to_markEv.exit61:        ; preds = %51, %53
   call void @_ZN12PhaseChaitin17build_ifg_virtualEv(ptr noundef nonnull align 8 dereferenceable(364) %0) #14
   %60 = load ptr, ptr %34, align 8
   call void @_ZN8PhaseIFG8SquareUpEv(ptr noundef nonnull align 8 dereferenceable(64) %60) #14
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %8, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 888)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %8, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 888)) #14
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef 13) #14
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %0, ptr %62, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23PhaseAggressiveCoalesce, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23PhaseAggressiveCoalesce, i64 16), ptr %9, align 8
   call void @_ZN13PhaseCoalesce15coalesce_driverEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %63 = load ptr, ptr %19, align 8
   call void @_ZN23PhaseAggressiveCoalesce13insert_copiesER7Matcher(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 8 dereferenceable(1008) %63) #14
@@ -1264,7 +1264,7 @@ _ZN12ResourceMark13reset_to_markEv.exit61:        ; preds = %51, %53
   br i1 %73, label %.loopexit, label %74
 
 74:                                               ; preds = %59
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %10, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %10, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
   store ptr null, ptr %35, align 8
   %75 = load ptr, ptr %23, align 8
   %.not.i.i.i62 = icmp eq ptr %75, null
@@ -1406,7 +1406,7 @@ _ZN7Compile16check_node_countEjPKc.exit66:        ; preds = %126, %127, %140
 
 153:                                              ; preds = %_ZN7Compile16check_node_countEjPKc.exit66
   call void @_ZN12PhaseChaitin7compactEv(ptr noundef nonnull align 8 dereferenceable(364) %0)
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %11, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %11, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
   store ptr null, ptr %35, align 8
   %154 = load ptr, ptr %23, align 8
   %.not.i.i.i67 = icmp eq ptr %154, null
@@ -1447,7 +1447,7 @@ _ZN12ResourceMark13reset_to_markEv.exit69:        ; preds = %156, %158
   call void @_ZN8PhaseIFG8SquareUpEv(ptr noundef nonnull align 8 dereferenceable(64) %165) #14
   %166 = load ptr, ptr %34, align 8
   call void @_ZN8PhaseIFG24Compute_Effective_DegreeEv(ptr noundef nonnull align 8 dereferenceable(64) %166) #14
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %12, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 912)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %12, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 912)) #14
   call void @_ZN25PhaseConservativeCoalesceC1ER12PhaseChaitin(ptr noundef nonnull align 8 dereferenceable(192) %13, ptr noundef nonnull align 8 dereferenceable(364) %0) #14
   call void @_ZN13PhaseCoalesce15coalesce_driverEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %12) #14
@@ -1594,7 +1594,7 @@ _ZN7Compile16check_node_countEjPKc.exit72:        ; preds = %207, %208, %221
 
 234:                                              ; preds = %_ZN7Compile16check_node_countEjPKc.exit72
   call void @_ZN12PhaseChaitin7compactEv(ptr noundef nonnull align 8 dereferenceable(364) %0)
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %14, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %14, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
   store ptr null, ptr %35, align 8
   %235 = load ptr, ptr %23, align 8
   %.not.i.i.i73 = icmp eq ptr %235, null
@@ -1635,7 +1635,7 @@ _ZN12ResourceMark13reset_to_markEv.exit75:        ; preds = %237, %239
   call void @_ZN8PhaseIFG8SquareUpEv(ptr noundef nonnull align 8 dereferenceable(64) %246) #14
   %247 = load ptr, ptr %34, align 8
   call void @_ZN8PhaseIFG24Compute_Effective_DegreeEv(ptr noundef nonnull align 8 dereferenceable(64) %247) #14
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %15, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 936)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %15, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 936)) #14
   call void @_ZN25PhaseConservativeCoalesceC1ER12PhaseChaitin(ptr noundef nonnull align 8 dereferenceable(192) %16, ptr noundef nonnull align 8 dereferenceable(364) %0) #14
   call void @_ZN13PhaseCoalesce15coalesce_driverEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %15) #14
@@ -3150,7 +3150,7 @@ _ZN4NodenwEm.exit:                                ; preds = %162, %164
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
   store i32 2, ptr %171, align 4
-  store ptr getelementptr inbounds inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i, align 8
   %172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr %147, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -3635,7 +3635,7 @@ declare void @_ZN25PhaseConservativeCoalesceC1ER12PhaseChaitin(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12PhaseChaitin14cache_lrg_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(364) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %"class.Compile::TracePhase", align 8
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 960)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 960)) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 1
@@ -3758,7 +3758,7 @@ define hidden void @_ZN12PhaseChaitin8SimplifyEv(ptr nocapture noundef nonnull a
   %2 = alloca %"class.Compile::TracePhase", align 8
   %3 = alloca %class.IndexSetIterator, align 8
   %4 = alloca %class.IndexSetIterator, align 8
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 984)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 984)) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -4263,7 +4263,7 @@ _ZNK3LRG5scoreEv.exit111:                         ; preds = %197, %206, %211, %2
 define hidden noundef i32 @_ZN12PhaseChaitin6SelectEv(ptr nocapture noundef nonnull align 8 dereferenceable(364) initializes((84, 88)) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %"class.Compile::TracePhase", align 8
   %3 = alloca %class.IndexSetIterator, align 8
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1008)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 1008)) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -4631,7 +4631,7 @@ declare void @_ZN12PhaseChaitin15merge_multidefsEv(ptr noundef nonnull align 8 d
 define hidden void @_ZN12PhaseChaitin12fixup_spillsEv(ptr noundef nonnull align 8 dereferenceable(364) %0) local_unnamed_addr #2 align 2 {
 _ZNK5Block4headEv.exit:
   %1 = alloca %"class.Compile::TracePhase", align 8
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 840)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 840)) #14
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -6301,7 +6301,7 @@ define linkonce_odr hidden void @_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii(ptr n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72

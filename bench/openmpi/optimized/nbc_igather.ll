@@ -101,10 +101,10 @@ define internal fastcc i32 @nbc_gather_init(ptr noundef %0, i32 noundef %1, ptr 
   %.0150183206 = phi i64 [ %25, %22 ], [ %21, %.thread187 ], [ 0, %.thread ], [ %25, %26 ]
   %.val118.val162185204 = phi i32 [ %.val118.val162, %22 ], [ %.val118.val162196, %.thread187 ], [ %.val118.val162176, %.thread ], [ %.val118.val162, %26 ]
   %29 = phi i32 [ %4, %22 ], [ %4, %.thread187 ], [ %1, %.thread ], [ %1, %26 ]
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #5
   %32 = load i32, ptr @opal_class_init_epoch, align 4
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i = icmp eq i32 %32, %33
   br i1 %.not.i, label %35, label %34
 
@@ -453,10 +453,10 @@ ompi_comm_remote_size.exit:                       ; preds = %11, %15
 
 26:                                               ; preds = %22, %ompi_comm_remote_size.exit
   %.097 = phi i64 [ %25, %22 ], [ 0, %ompi_comm_remote_size.exit ]
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #5
   %29 = load i32, ptr @opal_class_init_epoch, align 4
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i74 = icmp eq i32 %29, %30
   br i1 %.not.i74, label %32, label %31
 

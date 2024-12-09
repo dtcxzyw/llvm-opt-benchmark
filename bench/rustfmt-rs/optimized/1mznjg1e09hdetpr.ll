@@ -2443,7 +2443,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h89e229f3
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %53
-  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16) acquire, align 8
+  %9 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -2471,7 +2471,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h89e229f3
   unreachable
 
 15:                                               ; preds = %.backedge
-  %16 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16), i32 0, i32 2 acquire acquire, align 4
+  %16 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %16, 1
   br i1 %.sroa.18.0.in.i, label %22, label %.backedge.backedge
 
@@ -2499,7 +2499,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h89e229f3
 
 22:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  store ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16), ptr %7, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %23, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !8, !align !56, !noundef !8
@@ -2597,12 +2597,12 @@ _ZN4core3ops8function6FnOnce9call_once17h148a166bc205137dE.exit.i.i: ; preds = %
   resume { ptr, i32 } %eh.lpad-body
 
 51:                                               ; preds = %.backedge
-  %52 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16), i32 2, i32 3 monotonic acquire, align 4
+  %52 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i19 = extractvalue { i32, i1 } %52, 1
   br i1 %.sroa.18.0.in.i19, label %53, label %.backedge.backedge
 
 53:                                               ; preds = %.backedge, %51
-  %54 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17ha7ba9a56f06a3480E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %54 = tail call noundef zeroext i1 @_ZN3std3sys4unix5futex10futex_wait17ha7ba9a56f06a3480E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -11758,7 +11758,7 @@ _ZN15rustfmt_nightly7comment12CommentStyle10line_start17h4a0602fcbf52a401E.exit:
   %.sroa.5.0..sroa_idx.i.i83 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr @anon.ac9b56db96481140084a14b3a62254c9.144, ptr %.sroa.5.0..sroa_idx.i.i83, align 8, !alias.scope !1891, !noalias !1894
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i.i84 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr getelementptr inbounds (i8, ptr @anon.ac9b56db96481140084a14b3a62254c9.144, i64 3), ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i.i84, align 8, !alias.scope !1891, !noalias !1894
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.ac9b56db96481140084a14b3a62254c9.144, i64 3), ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i.i84, align 8, !alias.scope !1891, !noalias !1894
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i85 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i64 0, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i85, align 8, !alias.scope !1891, !noalias !1894
   %63 = call { i64, i32 } @"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7e5a3ea120b44ecE.llvm.5923418642108526555"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i.i83), !noalias !1896
@@ -18052,7 +18052,7 @@ _ZN5alloc6string6String3pop17hdad2d31967b342a0E.llvm.17476841346288807550.exit.i
 1624:                                             ; preds = %.noexc132
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20), !noalias !3164
   store ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", ptr %20, align 8, !noalias !3164
-  %1625 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16) acquire, align 8, !noalias !3167
+  %1625 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16) acquire, align 8, !noalias !3167
   %1626 = icmp eq i32 %1625, 4
   br i1 %1626, label %_ZN15rustfmt_nightly7comment7has_url17h45fcf7e00c9e0d3eE.exit.i, label %1627
 
@@ -20570,7 +20570,7 @@ define void @"_ZN102_$LT$rustfmt_nightly..comment..CommentCodeSlices$u20$as$u20$
 45:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3619
   store ptr @anon.ac9b56db96481140084a14b3a62254c9.225, ptr %4, align 8, !noalias !3619
-  store ptr getelementptr inbounds (i8, ptr @anon.ac9b56db96481140084a14b3a62254c9.225, i64 8), ptr %35, align 8, !noalias !3619
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.ac9b56db96481140084a14b3a62254c9.225, i64 8), ptr %35, align 8, !noalias !3619
   br label %46
 
 46:                                               ; preds = %48, %45
@@ -20641,7 +20641,7 @@ define void @"_ZN102_$LT$rustfmt_nightly..comment..CommentCodeSlices$u20$as$u20$
 60:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3619
   store ptr @anon.ac9b56db96481140084a14b3a62254c9.225, ptr %4, align 8, !noalias !3619
-  store ptr getelementptr inbounds (i8, ptr @anon.ac9b56db96481140084a14b3a62254c9.225, i64 8), ptr %35, align 8, !noalias !3619
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.ac9b56db96481140084a14b3a62254c9.225, i64 8), ptr %35, align 8, !noalias !3619
   br label %61
 
 61:                                               ; preds = %63, %60
@@ -33835,7 +33835,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN88_$LT$rustfmt_night
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16) acquire, align 8, !noalias !5933
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16) acquire, align 8, !noalias !5933
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %_ZN3std4sync4once4Once9call_once17hd2f279a12d86a5ffE.exit, label %7
 
@@ -33865,7 +33865,7 @@ define void @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16) acquire, align 8, !noalias !5936
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h79683d5175bfb1adE", i64 16) acquire, align 8, !noalias !5936
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN88_$LT$rustfmt_nightly..comment..REFERENCE_LINK_URL$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb5a2bea306c6204dE.exit", label %7
 
@@ -35179,7 +35179,7 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   br i1 %637, label %638, label %639
 
 638:                                              ; preds = %630
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.a7bafd4e2c56697d606b799d0f61b449.154.llvm.8986235990505969818, i64 8), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.a7bafd4e2c56697d606b799d0f61b449.154.llvm.8986235990505969818, i64 8), i64 24, i1 false)
   br label %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc4131282f514a096E.exit.i.i"
 
 639:                                              ; preds = %630

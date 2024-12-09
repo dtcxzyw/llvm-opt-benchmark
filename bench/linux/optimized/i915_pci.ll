@@ -158,7 +158,7 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %12 = load i16, ptr %11, align 2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @i915_modparams, i64 64), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @i915_modparams, i64 64), align 8
   %14 = tail call fastcc zeroext i1 @device_id_in_list(i16 noundef zeroext %12, ptr noundef %13, i1 noundef zeroext false)
   br i1 %14, label %19, label %15
 
@@ -172,7 +172,7 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
 19:                                               ; preds = %10, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %21 = load i16, ptr %20, align 2
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @i915_modparams, i64 64), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @i915_modparams, i64 64), align 8
   %23 = tail call fastcc zeroext i1 @device_id_in_list(i16 noundef zeroext %21, ptr noundef %22, i1 noundef zeroext true)
   br i1 %23, label %24, label %28
 

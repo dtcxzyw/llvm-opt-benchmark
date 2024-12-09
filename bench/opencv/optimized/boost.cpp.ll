@@ -376,13 +376,13 @@ define void @_ZN2cv2ml5Boost6createEv(ptr dead_on_unwind noalias nocapture writa
   store i32 1, ptr %3, align 8, !noalias !4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %4, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2, align 8, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(496) %5)
           to label %.noexc.i.i.i.i.i unwind label %8, !noalias !4
 
 .noexc.i.i.i.i.i:                                 ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %5, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %5, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   invoke void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %6)
           to label %_ZN2cv3PtrINS_2ml9BoostImplEED2Ev.exit unwind label %.body.i.i.i.i.i.i, !noalias !4
@@ -404,7 +404,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i
 
 _ZN2cv3PtrINS_2ml9BoostImplEED2Ev.exit:           ; preds = %.noexc.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN2cv2ml18DTreesImplForBoostE, i64 16), ptr %6, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 520) (i8, ptr @_ZTVN2cv2ml18DTreesImplForBoostE, i64 16), ptr %6, align 8, !noalias !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 472
   store i32 1, ptr %10, align 8, !noalias !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 476
@@ -521,13 +521,13 @@ define linkonce_odr hidden void @_ZN2cv9Algorithm4loadINS_2ml5BoostEEENS_3PtrIT_
   store i32 1, ptr %35, align 8, !noalias !12
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !noalias !12
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !12
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(496) %37)
           to label %.noexc.i.i.i.i.i.i unwind label %40, !noalias !12
 
 .noexc.i.i.i.i.i.i:                               ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %37, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %37, align 8, !noalias !12
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
   invoke void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %38)
           to label %42 unwind label %.body.i.i.i.i.i.i.i, !noalias !12
@@ -549,7 +549,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml9BoostImplESaIvELN9
   br label %.body
 
 42:                                               ; preds = %.noexc.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN2cv2ml18DTreesImplForBoostE, i64 16), ptr %38, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 520) (i8, ptr @_ZTVN2cv2ml18DTreesImplForBoostE, i64 16), ptr %38, align 8, !noalias !12
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 472
   store i32 1, ptr %43, align 8, !noalias !12
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 476
@@ -762,7 +762,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv2ml9BoostImplD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -781,7 +781,7 @@ _ZN2cv2ml18DTreesImplForBoostD2Ev.exit:           ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv2ml9BoostImplD0Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 344) (i8, ptr @_ZTVN2cv2ml9BoostImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null

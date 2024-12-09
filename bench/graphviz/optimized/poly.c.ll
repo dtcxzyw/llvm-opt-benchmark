@@ -1185,7 +1185,7 @@ transCopy.exit54:                                 ; preds = %transCopy.exit54.lo
   %159 = load double, ptr %158, align 8
   call void @subpt(ptr noundef nonnull %8, double %154, double %156, double %157, double %159) #15
   %160 = load double, ptr @origin, align 8
-  %161 = load double, ptr getelementptr inbounds (i8, ptr @origin, i64 8), align 8
+  %161 = load double, ptr getelementptr inbounds nuw (i8, ptr @origin, i64 8), align 8
   %162 = load double, ptr %7, align 8
   %163 = load double, ptr %131, align 8
   %164 = load double, ptr %8, align 8

@@ -81,7 +81,7 @@ $_ZTI23btSoftSingleRayCallback = comdat any
 define dso_local void @_ZN24btSoftRigidDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP18btConstraintSolverP24btCollisionConfigurationP16btSoftBodySolver(ptr noundef nonnull align 8 dereferenceable(689) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %constraintSolver, ptr noundef %collisionConfiguration, ptr noundef %softBodySolver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   tail call void @_ZN23btDiscreteDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP18btConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(508) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %constraintSolver, ptr noundef %collisionConfiguration)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24btSoftRigidDynamicsWorld, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24btSoftRigidDynamicsWorld, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
@@ -493,7 +493,7 @@ declare void @_ZN23btDiscreteDynamicsWorldD2Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24btSoftRigidDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(689) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24btSoftRigidDynamicsWorld, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24btSoftRigidDynamicsWorld, i64 16), ptr %this, align 8
   %m_ownsSolver = getelementptr inbounds nuw i8, ptr %this, i64 688
   %0 = load i8, ptr %m_ownsSolver, align 8
   %tobool = trunc i8 %0 to i1
@@ -1165,7 +1165,7 @@ invoke.cont:
   %ref.tmp = alloca %class.btVector3, align 4
   %ref.tmp7 = alloca %class.btVector3, align 4
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btSoftSingleRayCallback, i64 16), ptr %rayCB, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btSoftSingleRayCallback, i64 16), ptr %rayCB, align 8
   %m_rayFromWorld.i = getelementptr inbounds nuw i8, ptr %rayCB, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rayFromWorld.i, ptr noundef nonnull align 4 dereferenceable(16) %rayFromWorld, i64 16, i1 false)
   %m_rayToWorld.i = getelementptr inbounds nuw i8, ptr %rayCB, i64 56

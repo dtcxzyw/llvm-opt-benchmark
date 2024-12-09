@@ -18236,7 +18236,7 @@ rb_class_of.exit:                                 ; preds = %13, %15, %16, %17, 
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
-  %34 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @rb_io_inspect.closed, i64 1), i64 noundef 8) #24
+  %34 = tail call i64 @rb_str_cat(i64 noundef %8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rb_io_inspect.closed, i64 1), i64 noundef 8) #24
   br label %44
 
 35:                                               ; preds = %29

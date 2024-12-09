@@ -2395,13 +2395,13 @@ define dso_local void @_Z23cmParseXcFrameworkPlistRKNSt7__cxx1112basic_stringIcS
 74:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   store i32 1, ptr %20, align 4, !noalias !34
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8, !noalias !34
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8, !noalias !34
   %.not.i.i.i = icmp eq ptr %75, null
   br i1 %.not.i.i.i, label %.invoke.i, label %76
 
 76:                                               ; preds = %74
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 56), align 8, !noalias !34
-  invoke void %77(ptr dead_on_unwind nonnull writable sret(%"class.std::function.3") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 56), align 8, !noalias !34
+  invoke void %77(ptr dead_on_unwind nonnull writable sret(%"class.std::function.3") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %78 unwind label %71
 
 78:                                               ; preds = %76
@@ -2528,7 +2528,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %117, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   %_ZN12_GLOBAL__N_119PlistMetadataHelperE.val.i = load ptr, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, align 8
-  %_ZN12_GLOBAL__N_119PlistMetadataHelperE.val48.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 8), align 8
+  %_ZN12_GLOBAL__N_119PlistMetadataHelperE.val48.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 8), align 8
   %.not19.i = icmp eq ptr %_ZN12_GLOBAL__N_119PlistMetadataHelperE.val.i, %_ZN12_GLOBAL__N_119PlistMetadataHelperE.val48.i
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2685,13 +2685,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 177:                                              ; preds = %164
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 3, ptr %13, align 4, !noalias !39
-  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8, !noalias !39
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8, !noalias !39
   %.not.i.i67.i = icmp eq ptr %178, null
   br i1 %.not.i.i67.i, label %.invoke22.i, label %179
 
 179:                                              ; preds = %177
-  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 56), align 8, !noalias !39
-  invoke void %180(ptr dead_on_unwind nonnull writable sret(%"class.std::function.3") align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 56), align 8, !noalias !39
+  invoke void %180(ptr dead_on_unwind nonnull writable sret(%"class.std::function.3") align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %181 unwind label %.loopexit.i
 
 181:                                              ; preds = %179
@@ -2779,7 +2779,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit78.i: ; preds = %195, %
 
 ._crit_edge.i:                                    ; preds = %200, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
   %.036.lcssa.i = phi i1 [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i ], [ %.2.i, %200 ]
-  %202 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 64), align 8
+  %202 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 64), align 8
   %203 = trunc i8 %202 to i1
   br i1 %203, label %_ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit.i, label %204
 
@@ -2792,7 +2792,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit78.i: ; preds = %195, %
 208:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 2, ptr %10, align 4, !noalias !42
-  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8, !noalias !42
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8, !noalias !42
   %.not.i.i79.i = icmp eq ptr %209, null
   br i1 %.not.i.i79.i, label %.invoke.i, label %210
 
@@ -2804,8 +2804,8 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEED2Ev.exit78.i: ; preds = %195, %
   unreachable
 
 210:                                              ; preds = %208
-  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 56), align 8, !noalias !42
-  invoke void %211(ptr dead_on_unwind nonnull writable sret(%"class.std::function.3") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 56), align 8, !noalias !42
+  invoke void %211(ptr dead_on_unwind nonnull writable sret(%"class.std::function.3") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %212 unwind label %71
 
 212:                                              ; preds = %210
@@ -3956,7 +3956,7 @@ define dso_local noundef ptr @_ZNK18cmXcFrameworkPlist21SelectSuitableLibraryERK
           to label %.noexc24 unwind label %43
 
 .noexc24:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 17))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.23, i64 17))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %12
 
 12:                                               ; preds = %.noexc24
@@ -9728,7 +9728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit18.i: 
 .noexc21.thread.i:                                ; preds = %99
   %104 = getelementptr inbounds i8, ptr null, i64 %103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i8 0, i64 16, i1 false)
-  store ptr %104, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 16), align 8
+  store ptr %104, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 16), align 8
   br label %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistMetadataEE6MemberESaIS5_EEC2ERKS7_.exit.i.i
 
 105:                                              ; preds = %99
@@ -9749,9 +9749,9 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistM
 
 .noexc21.i:                                       ; preds = %_ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistMetadataEE6MemberEEE8allocateERS6_m.exit.i.i.i.i.i.i
   store ptr %108, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, align 8
-  store ptr %108, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 8), align 8
+  store ptr %108, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 8), align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 %103
-  store ptr %109, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 16), align 8
+  store ptr %109, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 16), align 8
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %129, %.noexc21.i
@@ -9846,36 +9846,36 @@ _ZNSt16allocator_traitsISaIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistM
 
 _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistMetadataEE6MemberESaIS5_EEC2ERKS7_.exit.i.i: ; preds = %129, %.noexc21.thread.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %.noexc21.thread.i ], [ %135, %129 ]
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 8), align 8
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 8), align 8
   %146 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %147 = load i8, ptr %146, align 8
   %148 = and i8 %147, 1
-  store i8 %148, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 24), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), i8 0, i64 32, i1 false)
+  store i8 %148, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 24), align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), i8 0, i64 32, i1 false)
   %149 = load ptr, ptr %66, align 8
   %.not.i.i.not.i.i19.i = icmp eq ptr %149, null
   br i1 %.not.i.i.not.i.i19.i, label %163, label %150
 
 150:                                              ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistMetadataEE6MemberESaIS5_EEC2ERKS7_.exit.i.i
-  %151 = invoke noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 2)
+  %151 = invoke noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 2)
           to label %152 unwind label %155
 
 152:                                              ; preds = %150
   %153 = load ptr, ptr %65, align 8
-  store ptr %153, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 56), align 8
+  store ptr %153, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 56), align 8
   %154 = load ptr, ptr %66, align 8
-  store ptr %154, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8
+  store ptr %154, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8
   br label %163
 
 155:                                              ; preds = %150
   %156 = landingpad { ptr, i32 }
           cleanup
-  %157 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8
+  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 48), align 8
   %.not.i.i.i.i = icmp eq ptr %157, null
   br i1 %.not.i.i.i.i, label %.body.i.i, label %158
 
 158:                                              ; preds = %155
-  %159 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), i32 noundef 3)
+  %159 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 32), i32 noundef 3)
           to label %.body.i.i unwind label %160
 
 160:                                              ; preds = %158
@@ -9892,7 +9892,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistMetadataEE6Memb
 163:                                              ; preds = %152, %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_113PlistMetadataEE6MemberESaIS5_EEC2ERKS7_.exit.i.i
   %164 = load i8, ptr %67, align 8
   %165 = and i8 %164, 1
-  store i8 %165, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 64), align 8
+  store i8 %165, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PlistMetadataHelperE, i64 64), align 8
   %166 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %167 = load ptr, ptr %166, align 8
   %.not.i.i.i = icmp eq ptr %167, null
@@ -10430,7 +10430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit47.i: 
           to label %323 unwind label %.body50
 
 323:                                              ; preds = %321
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %322, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 5)) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %322, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.11, i64 5)) #23
   store ptr null, ptr %5, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 5)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit52.i unwind label %.body50
@@ -11243,7 +11243,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %_ZN19cmJSONHelperBu
           to label %593 unwind label %.body62
 
 593:                                              ; preds = %591
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %592, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.11, i64 5)) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %592, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.11, i64 5)) #23
   store ptr null, ptr %1, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 5)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i24 unwind label %.body62

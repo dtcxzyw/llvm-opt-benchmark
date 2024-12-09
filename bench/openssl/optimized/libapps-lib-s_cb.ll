@@ -352,7 +352,7 @@ entry:
   %call = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef %ctx) #6
   %call1 = tail call i32 @X509_STORE_CTX_get_error(ptr noundef %ctx) #6
   %call2 = tail call i32 @X509_STORE_CTX_get_error_depth(ptr noundef %ctx) #6
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 4), align 4
   %tobool = icmp ne i32 %0, 0
   %tobool3 = icmp ne i32 %ok, 0
   %or.cond = and i1 %tobool3, %tobool
@@ -389,12 +389,12 @@ if.then13:                                        ; preds = %if.end11
   %cmp16 = icmp slt i32 %5, 0
   %cmp19.not = icmp sge i32 %5, %call2
   %or.cond23.not = select i1 %cmp16, i1 true, i1 %cmp19.not
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 12), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 12), align 4
   %tobool22.not = icmp eq i32 %6, 0
   %call1.sink = select i1 %or.cond23.not, i32 %call1, i32 22
   %narrow = select i1 %or.cond23.not, i1 %tobool22.not, i1 false
   %ok.addr.0.ph = zext i1 %narrow to i32
-  store i32 %call1.sink, ptr getelementptr inbounds (i8, ptr @verify_args, i64 8), align 4
+  store i32 %call1.sink, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 8), align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then13, %entry, %if.end11
@@ -452,7 +452,7 @@ if.then49:                                        ; preds = %sw.bb46
   br label %if.end66
 
 sw.bb55:                                          ; preds = %if.end27
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 4), align 4
   %tobool56.not = icmp eq i32 %16, 0
   br i1 %tobool56.not, label %if.then57, label %if.end66
 
@@ -464,7 +464,7 @@ sw.epilog:                                        ; preds = %if.end27
   %cmp59 = icmp eq i32 %call1, 0
   %cmp61 = icmp eq i32 %ok.addr.0, 2
   %or.cond1 = and i1 %cmp59, %cmp61
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 4), align 4
   %tobool64.not = icmp eq i32 %17, 0
   %or.cond24 = select i1 %or.cond1, i1 %tobool64.not, i1 false
   br i1 %or.cond24, label %if.then65, label %if.end66
@@ -475,7 +475,7 @@ if.then65:                                        ; preds = %sw.epilog
 
 if.end66:                                         ; preds = %if.then30, %sw.bb, %if.then40, %sw.bb37, %if.then49, %sw.bb46, %if.then57, %sw.bb55, %if.then65, %sw.epilog
   %tobool67.not = icmp ne i32 %ok.addr.0, 0
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @verify_args, i64 4), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @verify_args, i64 4), align 4
   %tobool69.not = icmp eq i32 %18, 0
   %or.cond25 = select i1 %tobool67.not, i1 %tobool69.not, i1 false
   br i1 %or.cond25, label %if.then70, label %if.end72
@@ -2959,9 +2959,9 @@ define void @ssl_ctx_security_debug(ptr noundef %ctx, i32 noundef %verbose) loca
 entry:
   %0 = load ptr, ptr @bio_err, align 8
   store ptr %0, ptr @ssl_ctx_security_debug.sdb, align 8
-  store i32 %verbose, ptr getelementptr inbounds (i8, ptr @ssl_ctx_security_debug.sdb, i64 8), align 8
+  store i32 %verbose, ptr getelementptr inbounds nuw (i8, ptr @ssl_ctx_security_debug.sdb, i64 8), align 8
   %call = tail call ptr @SSL_CTX_get_security_callback(ptr noundef %ctx) #6
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @ssl_ctx_security_debug.sdb, i64 16), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @ssl_ctx_security_debug.sdb, i64 16), align 8
   tail call void @SSL_CTX_set_security_callback(ptr noundef %ctx, ptr noundef nonnull @security_callback_debug) #6
   tail call void @SSL_CTX_set0_security_ex_data(ptr noundef %ctx, ptr noundef nonnull @ssl_ctx_security_debug.sdb) #6
   ret void

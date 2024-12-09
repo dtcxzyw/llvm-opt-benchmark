@@ -473,7 +473,7 @@ invoke.cont11.i:                                  ; preds = %.noexc28.i, %for.en
   br i1 %cmp.i.not.i.i.i31.i, label %invoke.cont12.thread.i, label %if.then.i.i.i32.i
 
 invoke.cont12.thread.i:                           ; preds = %invoke.cont11.i
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %indices_to_delete.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %indices_to_delete.i, align 8
   %slots_.i.i.i.i.i.i248.i = getelementptr inbounds nuw i8, ptr %indices_to_delete.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i248.i, i8 0, i64 24, i1 false)
   br label %invoke.cont46.i
@@ -496,7 +496,7 @@ if.then.i.i.i32.i:                                ; preds = %invoke.cont11.i
 invoke.cont12.i:                                  ; preds = %.noexc39.i
   %.pre.i = load ptr, ptr %stripped_paths, align 8
   %.pre231.i = load ptr, ptr %_M_finish.i.i.i.i30.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %indices_to_delete.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %indices_to_delete.i, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %indices_to_delete.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %cmp.i42221.i = icmp ne ptr %.pre.i, %.pre231.i

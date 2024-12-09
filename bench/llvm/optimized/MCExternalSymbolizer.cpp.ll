@@ -876,7 +876,7 @@ _ZNSt10unique_ptrIN4llvm16MCRelocationInfoESt14default_deleteIS1_EED2Ev.exit:
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %7, ptr %9, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm20MCExternalSymbolizerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm20MCExternalSymbolizerE, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32

@@ -34,7 +34,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o21ParameterStereoCameraC2Ev(ptr noundef nonnull align 16 dereferenceable(496) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferenceable(488) %0)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o21ParameterStereoCameraE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3g2o21ParameterStereoCameraE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store double 0x3FB3333333333333, ptr %2, align 8
   ret void

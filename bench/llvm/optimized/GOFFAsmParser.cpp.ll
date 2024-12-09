@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef nonnull ptr @_ZN4llvm19createGOFFAsmParserEv() local_unnamed_addr #0 {
   %1 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #5
   tail call void @_ZN4llvm20MCAsmParserExtensionC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %1) #6
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113GOFFAsmParserE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113GOFFAsmParserE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 

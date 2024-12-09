@@ -46,10 +46,10 @@ define void @prte_rml_recv_buffer_nb(ptr noundef %0, i32 noundef %1, i1 noundef 
   br label %15
 
 15:                                               ; preds = %12, %7, %5
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 56), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rml_recv_request_t_class, i64 56), align 8
   %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #6
   %18 = load i32, ptr @pmix_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 32), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rml_recv_request_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %18, %19
   br i1 %.not.i, label %21, label %20
 
@@ -149,10 +149,10 @@ define void @prte_rml_recv_cancel(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %14, label %15, label %42
 
 15:                                               ; preds = %12
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 56), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_rml_recv_request_t_class, i64 56), align 8
   %17 = tail call noalias noundef ptr @malloc(i64 noundef %16) #6
   %18 = load i32, ptr @pmix_class_init_epoch, align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rml_recv_request_t_class, i64 32), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rml_recv_request_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %18, %19
   br i1 %.not.i, label %21, label %20
 

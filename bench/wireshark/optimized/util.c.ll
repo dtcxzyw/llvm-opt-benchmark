@@ -521,7 +521,7 @@ declare noalias ptr @g_strconcat(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @get_open_dialog_initial_dir() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 164), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 164), align 4
   switch i32 %1, label %8 [
     i32 0, label %2
     i32 1, label %5
@@ -533,7 +533,7 @@ define hidden ptr @get_open_dialog_initial_dir() local_unnamed_addr #0 {
   br i1 %4, label %.sink.split, label %10
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 168), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 168), align 8
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %.sink.split, label %10

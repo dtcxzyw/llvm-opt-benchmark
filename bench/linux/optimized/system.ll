@@ -118,7 +118,7 @@ define internal fastcc void @reserve_range(ptr noundef %0, ptr noundef nonnull %
   %11 = load i64, ptr %1, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3264, i64 noundef 16) #7
   %16 = icmp eq ptr %15, null
   br i1 %16, label %31, label %17

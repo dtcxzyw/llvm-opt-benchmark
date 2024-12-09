@@ -52,7 +52,7 @@ entry:
 
 invoke.cont.i.i:                                  ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %mark.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mark.i.i, ptr noundef nonnull align 4 dereferenceable(12) %mark_, i64 12, i1 false)
   %msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -77,7 +77,7 @@ eh.resume.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
 
 _ZN4YAML15ParserExceptionC2ERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML13DeepRecursionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML13DeepRecursionE, i64 16), ptr %this, align 8
   %m_depth = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %depth, ptr %m_depth, align 8
   ret void

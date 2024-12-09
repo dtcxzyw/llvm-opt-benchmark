@@ -139,7 +139,7 @@ define void @_ZN2cv7GScalarC2Ev(ptr nocapture noundef nonnull writeonly align 8 
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %4, ptr %22, align 8
   store ptr %8, ptr %7, align 8
@@ -412,7 +412,7 @@ define void @_ZN2cv7GScalarC2ERKNS_5GNodeEm(ptr nocapture noundef nonnull writeo
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %5, ptr %22, align 8
   store ptr %8, ptr %7, align 8
@@ -515,7 +515,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_7Scalar_IdEENS_6detail9VectorRefENS_3MatE
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %3, ptr %21, align 8
   store ptr %7, ptr %6, align 8
@@ -630,7 +630,7 @@ define void @_ZN2cv7GScalarC2EONS_7Scalar_IdEE(ptr nocapture noundef nonnull wri
   store i32 1, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %31, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %4, ptr %32, align 8
   store ptr %18, ptr %17, align 8
@@ -732,7 +732,7 @@ define void @_ZN2cv7GScalarC2Ed(ptr nocapture noundef nonnull writeonly align 8 
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %4, ptr %23, align 8
   store ptr %9, ptr %8, align 8

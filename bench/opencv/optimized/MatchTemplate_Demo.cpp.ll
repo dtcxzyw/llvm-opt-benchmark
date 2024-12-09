@@ -605,12 +605,12 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
           to label %35 unwind label %62
 
 35:                                               ; preds = %2
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 12), align 4
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @templ, i64 12), align 4
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 12), align 4
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @templ, i64 12), align 4
   %38 = add i32 %36, 1
   %39 = sub i32 %38, %37
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @img, i64 8), align 8
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @templ, i64 8), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @img, i64 8), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @templ, i64 8), align 8
   %42 = add i32 %40, 1
   %43 = sub i32 %42, %41
   invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) @result, i32 noundef %43, i32 noundef %39, i32 noundef 5)
@@ -782,9 +782,9 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
   store i64 0, ptr %104, align 8
   store i32 50397184, ptr %23, align 8
   store ptr %3, ptr %103, align 8
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @templ, i64 12), align 4
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @templ, i64 12), align 4
   %106 = add nsw i32 %105, %.sroa.039.0.extract.trunc
-  %107 = load i32, ptr getelementptr inbounds (i8, ptr @templ, i64 8), align 8
+  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @templ, i64 8), align 8
   %108 = add nsw i32 %107, %.sroa.6.0.extract.trunc
   %.sroa.238.0.insert.ext = zext i32 %108 to i64
   %.sroa.238.0.insert.shift = shl nuw i64 %.sroa.238.0.insert.ext, 32
@@ -800,9 +800,9 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
   store i64 0, ptr %111, align 8
   store i32 50397184, ptr %25, align 8
   store ptr @result, ptr %110, align 8
-  %112 = load i32, ptr getelementptr inbounds (i8, ptr @templ, i64 12), align 4
+  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @templ, i64 12), align 4
   %113 = add nsw i32 %112, %.sroa.039.0.extract.trunc
-  %114 = load i32, ptr getelementptr inbounds (i8, ptr @templ, i64 8), align 8
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @templ, i64 8), align 8
   %115 = add nsw i32 %114, %.sroa.6.0.extract.trunc
   %.sroa.2.0.insert.ext = zext i32 %115 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32

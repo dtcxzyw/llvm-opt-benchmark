@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @opal_interval_tree_construct(ptr noundef initializes((16, 24)) %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_interval_tree_node_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_interval_tree_node_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -64,7 +64,7 @@ define internal void @opal_interval_tree_construct(ptr noundef initializes((16, 
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_interval_tree_node_t_class, i64 32), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_interval_tree_node_t_class, i64 32), align 8
   %.not33 = icmp eq i32 %13, %14
   br i1 %.not33, label %16, label %15
 
@@ -93,7 +93,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 opal_obj_run_constructors.exit40:                 ; preds = %.lr.ph.i37, %16
   %24 = load i32, ptr @opal_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 32), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 32), align 8
   %.not34 = icmp eq i32 %24, %25
   br i1 %.not34, label %27, label %26
 
@@ -122,7 +122,7 @@ opal_obj_run_constructors.exit40:                 ; preds = %.lr.ph.i37, %16
 
 opal_obj_run_constructors.exit45:                 ; preds = %.lr.ph.i42, %27
   %35 = load i32, ptr @opal_class_init_epoch, align 4
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not35 = icmp eq i32 %35, %36
   br i1 %.not35, label %38, label %37
 

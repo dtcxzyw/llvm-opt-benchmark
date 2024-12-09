@@ -7792,7 +7792,7 @@ _ZN4core3ops8function6FnOnce9call_once17he382b48438465769E.exit.i: ; preds = %2
   unreachable
 
 12:                                               ; preds = %2, %.noexc
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %9, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %2 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %9, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = icmp eq i64 %14, 0
@@ -115164,13 +115164,13 @@ define void @"_ZN81_$LT$language..syntax_map..QueryCursorHandle$u20$as$u20$core.
   %29 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %29, ptr %2, align 8
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 24), align 8, !noundef !4
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 8), align 8, !noundef !4
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 24), align 8, !noundef !4
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 8), align 8, !noundef !4
   %32 = icmp eq i64 %30, %31
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %28
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17heaf61dd3d567013fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 8))
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17heaf61dd3d567013fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 8))
           to label %41 unwind label %34
 
 34:                                               ; preds = %33
@@ -115195,11 +115195,11 @@ define void @"_ZN81_$LT$language..syntax_map..QueryCursorHandle$u20$as$u20$core.
           to label %"_ZN4core3ptr45drop_in_place$LT$tree_sitter..QueryCursor$GT$17h41af3dfa3663fdd5E.exit" unwind label %48
 
 41:                                               ; preds = %33, %28
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 16), align 8, !nonnull !4, !noundef !4
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 16), align 8, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds ptr, ptr %42, i64 %30
   store ptr %29, ptr %43, align 8
   %44 = add i64 %30, 1
-  store i64 %44, ptr getelementptr inbounds (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 24), align 8
+  store i64 %44, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %45 = cmpxchg ptr @_ZN8language13QUERY_CURSORS17h89e5dabd1932103bE, i8 1, i8 0 release monotonic, align 1

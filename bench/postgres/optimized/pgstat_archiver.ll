@@ -58,7 +58,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @pgstat_fetch_stat_archiver() local_unnamed_addr #0 {
   tail call void @pgstat_snapshot_fixed(i32 noundef 6) #3
-  ret ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 56)
+  ret ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 56)
 }
 
 declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #1
@@ -130,7 +130,7 @@ pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changeco
 
 pgstat_begin_changecount_read.exit.i:             ; preds = %7, %pgstat_end_changecount_read.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds (i8, ptr @pgStatLocal, i64 56), ptr noundef nonnull readonly align 1 dereferenceable(136) %3, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 56), ptr noundef nonnull readonly align 1 dereferenceable(136) %3, i64 136, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
   %8 = and i32 %5, 1
   %.not.i5.i = icmp eq i32 %8, 0
@@ -151,30 +151,30 @@ pgstat_copy_changecounted_stats.exit:             ; preds = %9
   %.sroa.32.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.sroa.32.0.copyload = load i64, ptr %.sroa.32.0..sroa_idx, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %2) #3
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 56), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 56), align 8
   %15 = icmp eq i64 %14, %.sroa.0.0.copyload
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %pgstat_copy_changecounted_stats.exit
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 64), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 112), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 64), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 112), align 8
   br label %17
 
 17:                                               ; preds = %16, %pgstat_copy_changecounted_stats.exit
   %18 = sub i64 %14, %.sroa.0.0.copyload
-  store i64 %18, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 56), align 8
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 120), align 8
+  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 56), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 120), align 8
   %20 = icmp eq i64 %19, %.sroa.32.0.copyload
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 176), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 176), align 8
   br label %22
 
 22:                                               ; preds = %21, %17
   %23 = sub i64 %19, %.sroa.32.0.copyload
-  store i64 %23, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 120), align 8
+  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 120), align 8
   ret void
 }
 

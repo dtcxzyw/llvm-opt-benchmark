@@ -34,7 +34,7 @@ define internal noundef i32 @posix_open() #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal noundef i32 @posix_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_shmem_posix_component, i64 272), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_shmem_posix_component, i64 272), align 8
   store i32 %3, ptr %1, align 4
   store ptr @opal_shmem_posix_module, ptr %0, align 8
   ret i32 0
@@ -42,8 +42,8 @@ define internal noundef i32 @posix_query(ptr nocapture noundef writeonly initial
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @posix_register() #2 {
-  store i32 40, ptr getelementptr inbounds (i8, ptr @mca_shmem_posix_component, i64 272), align 8
-  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_shmem_posix_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_shmem_posix_component, i64 272)) #7
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @mca_shmem_posix_component, i64 272), align 8
+  %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_shmem_posix_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_shmem_posix_component, i64 272)) #7
   ret i32 0
 }
 
@@ -56,12 +56,12 @@ define internal noundef i32 @posix_runtime_query(ptr nocapture noundef writeonly
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_shmem_posix_component, i64 84)) #8
+  %6 = tail call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_shmem_posix_component, i64 84)) #8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @mca_shmem_posix_component, i64 272), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_shmem_posix_component, i64 272), align 8
   store i32 %9, ptr %1, align 4
   store ptr @opal_shmem_posix_module, ptr %0, align 8
   br label %28
@@ -84,13 +84,13 @@ define internal noundef i32 @posix_runtime_query(ptr nocapture noundef writeonly
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #9
   %17 = load i32, ptr %16, align 4
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %opal_gethostname.exit
 
 20:                                               ; preds = %15
   %21 = call i32 @opal_init_gethostname() #7
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %15, %20
@@ -101,7 +101,7 @@ opal_gethostname.exit:                            ; preds = %15, %20
   br label %28
 
 26:                                               ; preds = %13
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @mca_shmem_posix_component, i64 272), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_shmem_posix_component, i64 272), align 8
   store i32 %27, ptr %1, align 4
   store ptr @opal_shmem_posix_module, ptr %0, align 8
   br label %28

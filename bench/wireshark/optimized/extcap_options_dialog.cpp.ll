@@ -265,9 +265,9 @@ define void @_ZN19ExtcapOptionsDialogC2EbP7QWidget(ptr noundef nonnull align 8 d
   %9 = alloca %class.QString, align 8
   %10 = alloca %class.QString, align 8
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %2, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19ExtcapOptionsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19ExtcapOptionsDialog, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19ExtcapOptionsDialog, i64 488), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19ExtcapOptionsDialog, i64 488), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
           to label %14 unwind label %76
@@ -386,7 +386,7 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %_ZN7QStringD2Ev.exi
   %54 = load ptr, ptr %12, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 584), align 8
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 584), align 8
   %.not = icmp eq i32 %57, 0
   %58 = select i1 %.not, i32 0, i32 2
   invoke void @_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(ptr noundef nonnull align 8 dereferenceable(40) %56, i32 noundef %58)
@@ -1154,7 +1154,7 @@ define noundef ptr @_ZN19ExtcapOptionsDialog15createForDeviceER7QStringbP7QWidge
   br i1 %12, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @global_capture_opts, i64 16), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_capture_opts, i64 16), align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
@@ -1233,7 +1233,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %.critedge
 
 _ZN7QStringD2Ev.exit38:                           ; preds = %41, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36, %.critedge, %_ZN7QStringD2Ev.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @global_capture_opts, i64 16), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_capture_opts, i64 16), align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
@@ -3092,7 +3092,7 @@ _ZN7QStringC2ERKS_.exit240:                       ; preds = %576, %583
 591:                                              ; preds = %589
   %592 = getelementptr inbounds nuw i8, ptr %590, i64 8
   store i32 0, ptr %592, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %590, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %590, align 8
   %593 = getelementptr inbounds nuw i8, ptr %590, i64 12
   store i32 0, ptr %593, align 4
   %594 = getelementptr inbounds nuw i8, ptr %590, i64 16
@@ -3279,7 +3279,7 @@ _ZN5QListI7QStringED2Ev.exit272:                  ; preds = %530, %_ZN9QtPrivate
 667:                                              ; preds = %662
   %668 = getelementptr inbounds nuw i8, ptr %666, i64 8
   store i32 0, ptr %668, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %666, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %666, align 8
   %669 = getelementptr inbounds nuw i8, ptr %666, i64 12
   store i32 20, ptr %669, align 4
   %670 = getelementptr inbounds nuw i8, ptr %666, i64 16
@@ -3712,9 +3712,9 @@ define void @_ZN19ExtcapOptionsDialog15anyValueChangedEv(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19ExtcapOptionsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19ExtcapOptionsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19ExtcapOptionsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19ExtcapOptionsDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19ExtcapOptionsDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -4853,7 +4853,7 @@ define void @_ZN19ExtcapOptionsDialog26on_buttonBox_helpRequestedEv(ptr noundef 
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @global_capture_opts, i64 16), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_capture_opts, i64 16), align 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load i32, ptr %24, align 8
@@ -5362,7 +5362,7 @@ define noundef zeroext i1 @_ZN19ExtcapOptionsDialog23saveOptionToCaptureInfoEv(p
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @global_capture_opts, i64 16), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_capture_opts, i64 16), align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8
@@ -5755,7 +5755,7 @@ define void @_ZN19ExtcapOptionsDialog20on_buttonBox_clickedEP15QAbstractButton(p
   %18 = tail call noundef i32 @_ZNK9QCheckBox10checkStateEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   %19 = icmp eq i32 %18, 2
   %20 = zext i1 %19 to i32
-  store i32 %20, ptr getelementptr inbounds (i8, ptr @prefs, i64 584), align 8
+  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 584), align 8
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -5788,7 +5788,7 @@ _ZN19ExtcapOptionsDialog11storeValuesEv.exit:     ; preds = %26, %29, %31
   br label %49
 
 36:                                               ; preds = %13
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 584), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 584), align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %45, label %38
 
@@ -7327,7 +7327,7 @@ _ZN7QStringC2ERKS_.exit84:                        ; preds = %_ZN7QStringC2ERKS_.
   %159 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %17, align 8
   store ptr %146, ptr %107, align 8
   store ptr %147, ptr %108, align 8
   store i64 %148, ptr %109, align 8
@@ -13604,7 +13604,7 @@ _ZNK17QArrayDataPointerI11ExtcapValueE14freeSpaceAtEndEv.exit: ; preds = %9
 
 22:                                               ; preds = %_ZNK17QArrayDataPointerI11ExtcapValueE14freeSpaceAtEndEv.exit
   %23 = getelementptr %class.ExtcapValue, ptr %16, i64 %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -13690,7 +13690,7 @@ _ZNK17QArrayDataPointerI11ExtcapValueE16freeSpaceAtBeginEv.exit: ; preds = %62
 
 70:                                               ; preds = %_ZNK17QArrayDataPointerI11ExtcapValueE16freeSpaceAtBeginEv.exit
   %71 = getelementptr i8, ptr %65, i64 -88
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %71, align 8
   %72 = getelementptr i8, ptr %65, i64 -80
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load ptr, ptr %73, align 8
@@ -13764,7 +13764,7 @@ _ZN11ExtcapValueC2ERKS_.exit22:                   ; preds = %_ZN7QStringC2ERKS_.
   br label %212
 
 _ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.thread: ; preds = %3, %62, %_ZNK17QArrayDataPointerI11ExtcapValueE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %4, align 8
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %114 = load ptr, ptr %113, align 8
@@ -13845,7 +13845,7 @@ _ZN11ExtcapValueC2ERKS_.exit28:                   ; preds = %_ZN7QStringC2ERKS_.
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr i8, ptr %157, i64 -88
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %158, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %158, align 8
   %159 = getelementptr i8, ptr %157, i64 -80
   %160 = load ptr, ptr %112, align 8
   store ptr %160, ptr %159, align 8
@@ -14061,7 +14061,7 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8Inserte
   store i64 %17, ptr %15, align 8
   store i64 0, ptr %18, align 8
   store i64 %14, ptr %19, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %8, align 8
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -14132,7 +14132,7 @@ _ZN11ExtcapValueC2ERKS_.exit:                     ; preds = %_ZN7QStringC2ERKS_.
   br label %_ZN11ExtcapValueaSERKS_.exit26
 
 60:                                               ; preds = %3
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %8, align 8
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %62 = getelementptr i8, ptr %8, i64 -80
   %63 = load ptr, ptr %62, align 8
@@ -14535,7 +14535,7 @@ _ZNK17QArrayDataPointerI11ExtcapValueE11needsDetachEv.exit.thread: ; preds = %16
   %29 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %69, %_ZN11ExtcapValueC2ERKS_.exit.i ]
   %.010.i = phi ptr [ %23, %.lr.ph.i ], [ %67, %_ZN11ExtcapValueC2ERKS_.exit.i ]
   %30 = getelementptr %class.ExtcapValue, ptr %8, i64 %29
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -14626,7 +14626,7 @@ _ZN11ExtcapValueC2ERKS_.exit.i:                   ; preds = %65, %_ZN7QStringC2E
   %79 = phi i64 [ %.pre.i20, %.lr.ph.i19 ], [ %119, %_ZN11ExtcapValueC2ERKS_.exit.i27 ]
   %.010.i21 = phi ptr [ %73, %.lr.ph.i19 ], [ %117, %_ZN11ExtcapValueC2ERKS_.exit.i27 ]
   %80 = getelementptr %class.ExtcapValue, ptr %8, i64 %79
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %.010.i21, i64 8
   %83 = load ptr, ptr %82, align 8
@@ -14784,7 +14784,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveIP11Extca
 .lr.ph:                                           ; preds = %3, %_ZN11ExtcapValueC2ERKS_.exit
   %.0 = phi ptr [ %50, %_ZN11ExtcapValueC2ERKS_.exit ], [ %0, %3 ]
   %11 = phi ptr [ %49, %_ZN11ExtcapValueC2ERKS_.exit ], [ %2, %3 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -15016,7 +15016,7 @@ define linkonce_odr void @_ZN9QtPrivate30q_relocate_overlap_n_left_moveISt16reve
   %15 = phi ptr [ %57, %_ZN11ExtcapValueC2ERKS_.exit ], [ %10, %3 ]
   %16 = phi ptr [ %58, %_ZN11ExtcapValueC2ERKS_.exit ], [ %6, %3 ]
   %17 = getelementptr i8, ptr %16, i64 -88
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %17, align 8
   %18 = getelementptr i8, ptr %16, i64 -80
   %19 = getelementptr i8, ptr %15, i64 -80
   %20 = load ptr, ptr %19, align 8

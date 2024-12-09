@@ -84,9 +84,9 @@ $_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPosit
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14SyntaxLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14SyntaxLineEdit, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14SyntaxLineEdit, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14SyntaxLineEdit, i64 464), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14SyntaxLineEdit, i64 464), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -154,7 +154,7 @@ define void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef n
   %33 = alloca %class.QString, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %1, ptr %34, align 8
-  %35 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 36))
+  %35 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 36))
   %36 = extractvalue { i64, i64 } %35, 0
   store i64 %36, ptr %4, align 8
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -166,7 +166,7 @@ define void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef n
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = extractvalue { i64, i64 } %39, 1
   store i64 %42, ptr %41, align 8
-  %43 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 42))
+  %43 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 42))
   %44 = extractvalue { i64, i64 } %43, 0
   store i64 %44, ptr %6, align 8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -178,7 +178,7 @@ define void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef n
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %50 = extractvalue { i64, i64 } %47, 1
   store i64 %50, ptr %49, align 8
-  %51 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 48))
+  %51 = tail call { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 48))
   %52 = extractvalue { i64, i64 } %51, 0
   store i64 %52, ptr %8, align 8
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3558,7 +3558,7 @@ define void @_ZN14SyntaxLineEdit23completionKeyPressEventEP9QKeyEvent(ptr nounde
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
   %.not11 = icmp eq ptr %32, null
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 196), align 4
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 196), align 4
   %.not12 = icmp eq i32 %33, 0
   %or.cond16 = select i1 %.not11, i1 true, i1 %.not12
   br i1 %or.cond16, label %_ZN5QListI7QStringED2Ev.exit44, label %34
@@ -4363,7 +4363,7 @@ define void @_ZN14SyntaxLineEdit10paintEventEP11QPaintEvent(ptr noundef nonnull 
   br label %182
 
 54:                                               ; preds = %47
-  %55 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 36))
+  %55 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 36))
           to label %56 unwind label %60
 
 56:                                               ; preds = %54
@@ -4381,7 +4381,7 @@ define void @_ZN14SyntaxLineEdit10paintEventEP11QPaintEvent(ptr noundef nonnull 
   br label %_ZN7QStringD2Ev.exit46
 
 62:                                               ; preds = %47
-  %63 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 42))
+  %63 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 42))
           to label %64 unwind label %60
 
 64:                                               ; preds = %62
@@ -4394,7 +4394,7 @@ define void @_ZN14SyntaxLineEdit10paintEventEP11QPaintEvent(ptr noundef nonnull 
           to label %.sink.split unwind label %60
 
 68:                                               ; preds = %47
-  %69 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 48))
+  %69 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 48))
           to label %70 unwind label %60
 
 70:                                               ; preds = %68

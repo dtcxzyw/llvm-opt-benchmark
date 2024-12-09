@@ -18,7 +18,7 @@ define i32 @ompi_coll_base_exscan_intra_linear(ptr noundef %0, ptr noundef %1, i
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %13 = sext i32 %2 to i64
   %14 = tail call i32 %12(ptr noundef %spec.select, i64 noundef %13, ptr noundef %3, i32 noundef 1, i32 noundef -18, i32 noundef 4, ptr noundef nonnull %5) #5
   br label %67
@@ -33,7 +33,7 @@ define i32 @ompi_coll_base_exscan_intra_linear(ptr noundef %0, ptr noundef %1, i
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %22 = sext i32 %2 to i64
   %23 = add nsw i32 %.val, -1
   %24 = tail call i32 %21(ptr noundef %1, i64 noundef %22, ptr noundef %3, i32 noundef %23, i32 noundef -18, ptr noundef nonnull %5, ptr noundef null) #5
@@ -100,7 +100,7 @@ opal_datatype_span.exit:                          ; preds = %25, %31
   br i1 %.not.i, label %ompi_datatype_copy_content_same_ddt.exit, label %.lr.ph.i, !llvm.loop !4
 
 ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i, %54, %47
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %60 = add nsw i32 %.val, -1
   %61 = tail call i32 %59(ptr noundef %1, i64 noundef %26, ptr noundef %3, i32 noundef %60, i32 noundef -18, ptr noundef %5, ptr noundef null) #5
   %.not = icmp eq i32 %61, 0
@@ -108,7 +108,7 @@ ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i, %54, %47
 
 62:                                               ; preds = %ompi_datatype_copy_content_same_ddt.exit
   tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %49, i64 noundef %26, ptr noundef %3)
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %64 = add nsw i32 %.val, 1
   %65 = tail call i32 %63(ptr noundef nonnull %49, i64 noundef %26, ptr noundef %3, i32 noundef %64, i32 noundef -18, i32 noundef 4, ptr noundef %5) #5
   br label %66

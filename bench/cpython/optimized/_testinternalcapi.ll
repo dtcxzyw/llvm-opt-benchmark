@@ -2886,7 +2886,7 @@ if.else9:                                         ; preds = %if.else
   br label %return
 
 if.end12:                                         ; preds = %if.else, %if.then1, %cond.true
-  %interp.0.in = phi ptr [ %interp4, %cond.true ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), %if.then1 ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), %if.else ]
+  %interp.0.in = phi ptr [ %interp4, %cond.true ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), %if.then1 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), %if.else ]
   %interp.0 = load ptr, ptr %interp.0.in, align 8
   %cmp13.not = icmp eq ptr %interp.0, null
   br i1 %cmp13.not, label %cond.false15, label %cond.end16
@@ -3690,7 +3690,7 @@ if.end.i:                                         ; preds = %if.else
   br label %if.end26
 
 if.end26:                                         ; preds = %for.body, %if.end.i, %if.else
-  %item.0 = phi ptr [ %7, %if.else ], [ %7, %if.end.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 24648), %for.body ]
+  %item.0 = phi ptr [ %7, %if.else ], [ %7, %if.end.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 24648), %for.body ]
   %op.val.i = load ptr, ptr %6, align 8
   %9 = getelementptr i8, ptr %op.val.i, i64 168
   %call.val.i = load i64, ptr %9, align 8

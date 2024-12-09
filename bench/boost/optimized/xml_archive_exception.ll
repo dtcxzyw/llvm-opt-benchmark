@@ -82,11 +82,11 @@ declare noundef i32 @_ZN5boost7archive17archive_exception6appendEjPKc(ptr nounde
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5boost7archive21xml_archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9exception, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9exception, i64 16), ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5boost7archive17archive_exceptionC2ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24), i32 noundef 1, ptr noundef %2, ptr noundef %3) #8
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive21xml_archive_exceptionE, i64 112), ptr %5, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-48, 24) (i8, ptr @_ZTVN5boost7archive21xml_archive_exceptionE, i64 48), ptr %0, align 8, !tbaa !3
+  tail call void @_ZN5boost7archive17archive_exceptionC2ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24), i32 noundef 1, ptr noundef %2, ptr noundef %3) #8
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive21xml_archive_exceptionE, i64 112), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-48, 24) (i8, ptr @_ZTVN5boost7archive21xml_archive_exceptionE, i64 48), ptr %0, align 8, !tbaa !3
   switch i32 %1, label %26 [
     i32 0, label %6
     i32 1, label %9
@@ -143,7 +143,7 @@ define void @_ZN5boost7archive21xml_archive_exceptionC1ENS1_14exception_codeEPKc
 
 30:                                               ; preds = %24, %7
   %.pn = phi { ptr, i32 } [ %8, %7 ], [ %25, %24 ]
-  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
+  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
   resume { ptr, i32 } %.pn
 }
@@ -181,15 +181,15 @@ define void @_ZN5boost7archive21xml_archive_exceptionC2ERKS1_(ptr nocapture noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost7archive21xml_archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9exception, i64 16), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9exception, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8, !tbaa !3
   %5 = getelementptr i8, ptr %4, i64 -40
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
-  tail call void @_ZN5boost7archive17archive_exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(140) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24), ptr noundef nonnull align 8 dereferenceable(140) %7) #8
-  store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive21xml_archive_exceptionE, i64 112), ptr %3, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-48, 24) (i8, ptr @_ZTVN5boost7archive21xml_archive_exceptionE, i64 48), ptr %0, align 8, !tbaa !3
+  tail call void @_ZN5boost7archive17archive_exceptionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(140) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24), ptr noundef nonnull align 8 dereferenceable(140) %7) #8
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive21xml_archive_exceptionE, i64 112), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-48, 24) (i8, ptr @_ZTVN5boost7archive21xml_archive_exceptionE, i64 48), ptr %0, align 8, !tbaa !3
   ret void
 }
 
@@ -204,7 +204,7 @@ define void @_ZN5boost7archive21xml_archive_exceptionD2Ev(ptr nocapture noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost7archive21xml_archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
+  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
   ret void
 }
@@ -216,7 +216,7 @@ define void @_ZTv0_n24_N5boost7archive21xml_archive_exceptionD1Ev(ptr noundef %0
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
+  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   ret void
 }
@@ -224,7 +224,7 @@ define void @_ZTv0_n24_N5boost7archive21xml_archive_exceptionD1Ev(ptr noundef %0
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost7archive21xml_archive_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
+  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #9
   ret void
@@ -240,7 +240,7 @@ define void @_ZTv0_n24_N5boost7archive21xml_archive_exceptionD0Ev(ptr noundef %0
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
+  tail call void @_ZN5boost7archive17archive_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN5boost7archive21xml_archive_exceptionE, i64 24)) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 152) #9
   ret void

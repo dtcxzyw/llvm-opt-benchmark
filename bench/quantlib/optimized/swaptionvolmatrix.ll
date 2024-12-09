@@ -1099,7 +1099,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !42
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !31
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1571,13 +1571,13 @@ invoke.cont18:                                    ; preds = %call.i.noexc64, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i66 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i66, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i67 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i67, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -1697,7 +1697,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont51, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp, align 8, !tbaa !42
   %56 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %56, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i87
@@ -1898,7 +1898,7 @@ terminate.lpad.i.i.i.i131:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit138:     ; preds = %invoke.cont84, %if.then.i.i.i.i125, %.noexc.i.i.i.i132, %if.then.i.i.i.i.i.i135
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp60, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp60, align 8, !tbaa !42
   %93 = load ptr, ptr %pn3.i.i.i122, align 8, !tbaa !31
   %cmp.not.i.i.i140 = icmp eq ptr %93, null
   br i1 %cmp.not.i.i.i140, label %_ZN8QuantLib15Interpolation2DD2Ev.exit154, label %if.then.i.i.i141
@@ -2164,7 +2164,7 @@ terminate.lpad.i.i.i.i202:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit209:     ; preds = %invoke.cont115, %if.then.i.i.i.i196, %.noexc.i.i.i.i203, %if.then.i.i.i.i.i.i206
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp96, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp96, align 8, !tbaa !42
   %137 = load ptr, ptr %pn3.i.i.i193, align 8, !tbaa !31
   %cmp.not.i.i.i211 = icmp eq ptr %137, null
   br i1 %cmp.not.i.i.i211, label %_ZN8QuantLib15Interpolation2DD2Ev.exit225, label %if.then.i.i.i212
@@ -2274,7 +2274,7 @@ terminate.lpad.i.i.i.i241:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit248:     ; preds = %invoke.cont142, %if.then.i.i.i.i235, %.noexc.i.i.i.i242, %if.then.i.i.i.i.i.i245
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp123, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp123, align 8, !tbaa !42
   %158 = load ptr, ptr %pn3.i.i.i232, align 8, !tbaa !31
   %cmp.not.i.i.i250 = icmp eq ptr %158, null
   br i1 %cmp.not.i.i.i250, label %_ZN8QuantLib15Interpolation2DD2Ev.exit264, label %if.then.i.i.i251
@@ -3498,7 +3498,7 @@ cond.true.i.i:                                    ; preds = %entry
   store i32 1, ptr %use_count_.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib21BilinearInterpolationENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %call.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib21BilinearInterpolationENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %call.i.i, align 8, !tbaa !42
   %ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr null, ptr %ptr.i.i.i, align 8, !tbaa !134
   %del.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
@@ -3565,7 +3565,7 @@ entry:
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib18FlatExtrapolator2DE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib18FlatExtrapolator2DE, i64 16), ptr %this, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #27
   %call = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %invoke.cont unwind label %lpad
@@ -3584,7 +3584,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i.i, %invoke.cont
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplE, i64 16), ptr %call, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplE, i64 16), ptr %call, align 8, !tbaa !42
   %decoratedInterp_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %0, ptr %decoratedInterp_.i, align 8, !tbaa !114
   %pn.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -3634,7 +3634,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
@@ -3868,7 +3868,7 @@ entry:
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib21BilinearInterpolationE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib21BilinearInterpolationE, i64 16), ptr %this, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #27
   %call = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %invoke.cont unwind label %lpad
@@ -3878,7 +3878,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib6detail25BilinearInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS_6MatrixEEE, i64 16), ptr %call, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib6detail25BilinearInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS_6MatrixEEE, i64 16), ptr %call, align 8, !tbaa !42
   store ptr %call, ptr %ref.tmp, align 8, !tbaa !116
   %pn.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !31
@@ -3922,7 +3922,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6detail25BilinearInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEESB_NS2_6MatrixEEEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6detail25BilinearInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEESB_NS2_6MatrixEEEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
@@ -4029,7 +4029,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.body.i,
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib15Interpolation2DD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %this, align 8, !tbaa !42
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !31
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -4328,7 +4328,7 @@ if.then.i.i.i22:                                  ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt6vectorIdSaIdEED2Ev.exit27:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit20, %if.then.i.i.i22
   %optionInterpolator_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %optionInterpolator_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %optionInterpolator_, align 8, !tbaa !42
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %17 = load ptr, ptr %pn.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %17, null
@@ -4446,7 +4446,7 @@ entry:
   %ref.tmp130 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %ref.tmp134 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 504
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i32 0, ptr %1, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
@@ -4458,7 +4458,7 @@ entry:
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 552
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 560
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 576
   store i32 0, ptr %3, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 584
@@ -4469,15 +4469,15 @@ entry:
   store ptr %3, ptr %_M_right.i.i.i.i.i.i19, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 608
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i20, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_jRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
+  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_jRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
   %volHandles_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %vols, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
@@ -4670,13 +4670,13 @@ invoke.cont16:                                    ; preds = %call.i.noexc69, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i71 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i71, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i72 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i72, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -4796,7 +4796,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont49, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp, align 8, !tbaa !42
   %52 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i92
@@ -4997,7 +4997,7 @@ terminate.lpad.i.i.i.i136:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit143:     ; preds = %invoke.cont82, %if.then.i.i.i.i130, %.noexc.i.i.i.i137, %if.then.i.i.i.i.i.i140
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp58, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp58, align 8, !tbaa !42
   %89 = load ptr, ptr %pn3.i.i.i127, align 8, !tbaa !31
   %cmp.not.i.i.i145 = icmp eq ptr %89, null
   br i1 %cmp.not.i.i.i145, label %_ZN8QuantLib15Interpolation2DD2Ev.exit159, label %if.then.i.i.i146
@@ -5268,7 +5268,7 @@ terminate.lpad.i.i.i.i207:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit214:     ; preds = %invoke.cont113, %if.then.i.i.i.i201, %.noexc.i.i.i.i208, %if.then.i.i.i.i.i.i211
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp94, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp94, align 8, !tbaa !42
   %134 = load ptr, ptr %pn3.i.i.i198, align 8, !tbaa !31
   %cmp.not.i.i.i216 = icmp eq ptr %134, null
   br i1 %cmp.not.i.i.i216, label %_ZN8QuantLib15Interpolation2DD2Ev.exit230, label %if.then.i.i.i217
@@ -5378,7 +5378,7 @@ terminate.lpad.i.i.i.i246:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit253:     ; preds = %invoke.cont140, %if.then.i.i.i.i240, %.noexc.i.i.i.i247, %if.then.i.i.i.i.i.i250
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
   %155 = load ptr, ptr %pn3.i.i.i237, align 8, !tbaa !31
   %cmp.not.i.i.i255 = icmp eq ptr %155, null
   br i1 %cmp.not.i.i.i255, label %_ZN8QuantLib15Interpolation2DD2Ev.exit269, label %if.then.i.i.i256
@@ -5490,7 +5490,7 @@ ehcleanup153:                                     ; preds = %lpad6, %if.then.i.i
 
 ehcleanup154:                                     ; preds = %lpad4, %if.then.i.i.i, %lpad10.i, %ehcleanup153
   %.pn9.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9.pn.pn.pn.pn, %ehcleanup153 ], [ %111, %lpad4 ], [ %8, %if.then.i.i.i ], [ %8, %lpad10.i ]
-  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
+  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
   br label %ehcleanup155
 
 ehcleanup155:                                     ; preds = %ehcleanup154, %lpad
@@ -5740,13 +5740,13 @@ invoke.cont18:                                    ; preds = %call.i.noexc64, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i66 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i66, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i67 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i67, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -5866,7 +5866,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont51, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp, align 8, !tbaa !42
   %56 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %56, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i87
@@ -6067,7 +6067,7 @@ terminate.lpad.i.i.i.i131:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit138:     ; preds = %invoke.cont84, %if.then.i.i.i.i125, %.noexc.i.i.i.i132, %if.then.i.i.i.i.i.i135
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp60, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp60, align 8, !tbaa !42
   %93 = load ptr, ptr %pn3.i.i.i122, align 8, !tbaa !31
   %cmp.not.i.i.i140 = icmp eq ptr %93, null
   br i1 %cmp.not.i.i.i140, label %_ZN8QuantLib15Interpolation2DD2Ev.exit154, label %if.then.i.i.i141
@@ -6333,7 +6333,7 @@ terminate.lpad.i.i.i.i202:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit209:     ; preds = %invoke.cont115, %if.then.i.i.i.i196, %.noexc.i.i.i.i203, %if.then.i.i.i.i.i.i206
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp96, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp96, align 8, !tbaa !42
   %137 = load ptr, ptr %pn3.i.i.i193, align 8, !tbaa !31
   %cmp.not.i.i.i211 = icmp eq ptr %137, null
   br i1 %cmp.not.i.i.i211, label %_ZN8QuantLib15Interpolation2DD2Ev.exit225, label %if.then.i.i.i212
@@ -6443,7 +6443,7 @@ terminate.lpad.i.i.i.i241:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit248:     ; preds = %invoke.cont142, %if.then.i.i.i.i235, %.noexc.i.i.i.i242, %if.then.i.i.i.i.i.i245
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp123, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp123, align 8, !tbaa !42
   %158 = load ptr, ptr %pn3.i.i.i232, align 8, !tbaa !31
   %cmp.not.i.i.i250 = icmp eq ptr %158, null
   br i1 %cmp.not.i.i.i250, label %_ZN8QuantLib15Interpolation2DD2Ev.exit264, label %if.then.i.i.i251
@@ -6589,7 +6589,7 @@ entry:
   %ref.tmp130 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %ref.tmp134 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 504
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i32 0, ptr %1, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
@@ -6601,7 +6601,7 @@ entry:
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 552
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 560
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 576
   store i32 0, ptr %3, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 584
@@ -6612,15 +6612,15 @@ entry:
   store ptr %3, ptr %_M_right.i.i.i.i.i.i19, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 608
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i20, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_RKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
+  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_RKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
   %volHandles_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %vols, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
@@ -6813,13 +6813,13 @@ invoke.cont16:                                    ; preds = %call.i.noexc69, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i71 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i71, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i72 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i72, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -6939,7 +6939,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont49, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp, align 8, !tbaa !42
   %52 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i92
@@ -7140,7 +7140,7 @@ terminate.lpad.i.i.i.i136:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit143:     ; preds = %invoke.cont82, %if.then.i.i.i.i130, %.noexc.i.i.i.i137, %if.then.i.i.i.i.i.i140
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp58, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp58, align 8, !tbaa !42
   %89 = load ptr, ptr %pn3.i.i.i127, align 8, !tbaa !31
   %cmp.not.i.i.i145 = icmp eq ptr %89, null
   br i1 %cmp.not.i.i.i145, label %_ZN8QuantLib15Interpolation2DD2Ev.exit159, label %if.then.i.i.i146
@@ -7411,7 +7411,7 @@ terminate.lpad.i.i.i.i207:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit214:     ; preds = %invoke.cont113, %if.then.i.i.i.i201, %.noexc.i.i.i.i208, %if.then.i.i.i.i.i.i211
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp94, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp94, align 8, !tbaa !42
   %134 = load ptr, ptr %pn3.i.i.i198, align 8, !tbaa !31
   %cmp.not.i.i.i216 = icmp eq ptr %134, null
   br i1 %cmp.not.i.i.i216, label %_ZN8QuantLib15Interpolation2DD2Ev.exit230, label %if.then.i.i.i217
@@ -7521,7 +7521,7 @@ terminate.lpad.i.i.i.i246:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit253:     ; preds = %invoke.cont140, %if.then.i.i.i.i240, %.noexc.i.i.i.i247, %if.then.i.i.i.i.i.i250
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
   %155 = load ptr, ptr %pn3.i.i.i237, align 8, !tbaa !31
   %cmp.not.i.i.i255 = icmp eq ptr %155, null
   br i1 %cmp.not.i.i.i255, label %_ZN8QuantLib15Interpolation2DD2Ev.exit269, label %if.then.i.i.i256
@@ -7633,7 +7633,7 @@ ehcleanup153:                                     ; preds = %lpad6, %if.then.i.i
 
 ehcleanup154:                                     ; preds = %lpad4, %if.then.i.i.i, %lpad10.i, %ehcleanup153
   %.pn9.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn9.pn.pn.pn.pn, %ehcleanup153 ], [ %111, %lpad4 ], [ %8, %if.then.i.i.i ], [ %8, %lpad10.i ]
-  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
+  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
   br label %ehcleanup155
 
 ehcleanup155:                                     ; preds = %ehcleanup154, %lpad
@@ -7831,13 +7831,13 @@ invoke.cont27:                                    ; preds = %call.i.noexc67, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i69, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i70 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i70, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -8046,8 +8046,8 @@ invoke.cont64:                                    ; preds = %for.body57
   store ptr %55, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call62, i64 64
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call62, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %54, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call62, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %54, align 8, !tbaa !42
   %value_.i = getelementptr inbounds nuw i8, ptr %call62, i64 8
   store double %53, ptr %value_.i, align 8, !tbaa !56
   store ptr %call62, ptr %ref.tmp59, align 8, !tbaa !152
@@ -8092,7 +8092,7 @@ invoke.cont67:                                    ; preds = %invoke.cont64
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call62, ptr %px_.i.i.i.i, align 8, !tbaa !154
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !31
@@ -8152,7 +8152,7 @@ invoke.cont69:                                    ; preds = %invoke.cont.i
   store i32 1, ptr %use_count_.i.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call.i99, ptr %px_.i.i.i.i.i, align 8, !tbaa !156
   %71 = load ptr, ptr %volHandles_, align 8, !tbaa !62
@@ -8409,7 +8409,7 @@ terminate.lpad.i.i.i.i145:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont109, %if.then.i.i.i.i139, %.noexc.i.i.i.i146, %if.then.i.i.i.i.i.i149
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp89, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp89, align 8, !tbaa !42
   %119 = load ptr, ptr %pn3.i.i.i136, align 8, !tbaa !31
   %cmp.not.i.i.i153 = icmp eq ptr %119, null
   br i1 %cmp.not.i.i.i153, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i154
@@ -8610,7 +8610,7 @@ terminate.lpad.i.i.i.i214:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit221:     ; preds = %invoke.cont145, %if.then.i.i.i.i208, %.noexc.i.i.i.i215, %if.then.i.i.i.i.i.i218
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
   %156 = load ptr, ptr %pn3.i.i.i205, align 8, !tbaa !31
   %cmp.not.i.i.i223 = icmp eq ptr %156, null
   br i1 %cmp.not.i.i.i223, label %_ZN8QuantLib15Interpolation2DD2Ev.exit237, label %if.then.i.i.i224
@@ -8851,7 +8851,7 @@ terminate.lpad.i.i.i.i285:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit292:     ; preds = %invoke.cont176, %if.then.i.i.i.i279, %.noexc.i.i.i.i286, %if.then.i.i.i.i.i.i289
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp157, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp157, align 8, !tbaa !42
   %195 = load ptr, ptr %pn3.i.i.i276, align 8, !tbaa !31
   %cmp.not.i.i.i294 = icmp eq ptr %195, null
   br i1 %cmp.not.i.i.i294, label %_ZN8QuantLib15Interpolation2DD2Ev.exit308, label %if.then.i.i.i295
@@ -8961,7 +8961,7 @@ terminate.lpad.i.i.i.i324:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit331:     ; preds = %invoke.cont203, %if.then.i.i.i.i318, %.noexc.i.i.i.i325, %if.then.i.i.i.i.i.i328
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp184, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp184, align 8, !tbaa !42
   %216 = load ptr, ptr %pn3.i.i.i315, align 8, !tbaa !31
   %cmp.not.i.i.i333 = icmp eq ptr %216, null
   br i1 %cmp.not.i.i.i333, label %_ZN8QuantLib15Interpolation2DD2Ev.exit347, label %if.then.i.i.i334
@@ -9138,7 +9138,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEEC2IS5_EEPT_.exit: ; p
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !156
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !31
@@ -9226,7 +9226,7 @@ entry:
   %ref.tmp191 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %ref.tmp195 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 504
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i32 0, ptr %1, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
@@ -9238,7 +9238,7 @@ entry:
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 552
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 560
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 576
   store i32 0, ptr %3, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 584
@@ -9249,15 +9249,15 @@ entry:
   store ptr %3, ptr %_M_right.i.i.i.i.i.i44, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %this, i64 608
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i45, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_jRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
+  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_jRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
   %volHandles_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %rows_.i = getelementptr inbounds nuw i8, ptr %vols, i64 8
   %4 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -9396,13 +9396,13 @@ invoke.cont25:                                    ; preds = %call.i.noexc72, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i74 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i74, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i75 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i75, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -9616,8 +9616,8 @@ invoke.cont62:                                    ; preds = %for.body55
   store ptr %52, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call60, i64 64
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call60, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %51, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call60, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %51, align 8, !tbaa !42
   %value_.i = getelementptr inbounds nuw i8, ptr %call60, i64 8
   store double %50, ptr %value_.i, align 8, !tbaa !56
   store ptr %call60, ptr %ref.tmp57, align 8, !tbaa !152
@@ -9662,7 +9662,7 @@ invoke.cont65:                                    ; preds = %invoke.cont62
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call60, ptr %px_.i.i.i.i, align 8, !tbaa !154
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !31
@@ -9722,7 +9722,7 @@ invoke.cont67:                                    ; preds = %invoke.cont.i
   store i32 1, ptr %use_count_.i.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call.i104, ptr %px_.i.i.i.i.i, align 8, !tbaa !156
   %68 = load ptr, ptr %volHandles_, align 8, !tbaa !62
@@ -9979,7 +9979,7 @@ terminate.lpad.i.i.i.i150:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont107, %if.then.i.i.i.i144, %.noexc.i.i.i.i151, %if.then.i.i.i.i.i.i154
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp87, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp87, align 8, !tbaa !42
   %116 = load ptr, ptr %pn3.i.i.i141, align 8, !tbaa !31
   %cmp.not.i.i.i158 = icmp eq ptr %116, null
   br i1 %cmp.not.i.i.i158, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i159
@@ -10180,7 +10180,7 @@ terminate.lpad.i.i.i.i219:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit226:     ; preds = %invoke.cont143, %if.then.i.i.i.i213, %.noexc.i.i.i.i220, %if.then.i.i.i.i.i.i223
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp119, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp119, align 8, !tbaa !42
   %153 = load ptr, ptr %pn3.i.i.i210, align 8, !tbaa !31
   %cmp.not.i.i.i228 = icmp eq ptr %153, null
   br i1 %cmp.not.i.i.i228, label %_ZN8QuantLib15Interpolation2DD2Ev.exit242, label %if.then.i.i.i229
@@ -10421,7 +10421,7 @@ terminate.lpad.i.i.i.i290:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit297:     ; preds = %invoke.cont174, %if.then.i.i.i.i284, %.noexc.i.i.i.i291, %if.then.i.i.i.i.i.i294
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp155, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp155, align 8, !tbaa !42
   %192 = load ptr, ptr %pn3.i.i.i281, align 8, !tbaa !31
   %cmp.not.i.i.i299 = icmp eq ptr %192, null
   br i1 %cmp.not.i.i.i299, label %_ZN8QuantLib15Interpolation2DD2Ev.exit313, label %if.then.i.i.i300
@@ -10531,7 +10531,7 @@ terminate.lpad.i.i.i.i329:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit336:     ; preds = %invoke.cont201, %if.then.i.i.i.i323, %.noexc.i.i.i.i330, %if.then.i.i.i.i.i.i333
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp182, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp182, align 8, !tbaa !42
   %213 = load ptr, ptr %pn3.i.i.i320, align 8, !tbaa !31
   %cmp.not.i.i.i338 = icmp eq ptr %213, null
   br i1 %cmp.not.i.i.i338, label %_ZN8QuantLib15Interpolation2DD2Ev.exit352, label %if.then.i.i.i339
@@ -10643,7 +10643,7 @@ ehcleanup214:                                     ; preds = %ehcleanup213, %lpad
 
 ehcleanup215:                                     ; preds = %ehcleanup214, %lpad6
   %.pn33.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn.pn.pn, %ehcleanup214 ], [ %24, %lpad6 ]
-  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
+  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
   br label %ehcleanup216
 
 ehcleanup216:                                     ; preds = %ehcleanup215, %lpad
@@ -10843,13 +10843,13 @@ invoke.cont27:                                    ; preds = %call.i.noexc67, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i69, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i70 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i70, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -11056,8 +11056,8 @@ invoke.cont64:                                    ; preds = %for.body57
   store ptr %55, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call62, i64 64
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call62, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %54, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call62, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %54, align 8, !tbaa !42
   %value_.i = getelementptr inbounds nuw i8, ptr %call62, i64 8
   store double %53, ptr %value_.i, align 8, !tbaa !56
   store ptr %call62, ptr %ref.tmp59, align 8, !tbaa !152
@@ -11102,7 +11102,7 @@ invoke.cont67:                                    ; preds = %invoke.cont64
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call62, ptr %px_.i.i.i.i, align 8, !tbaa !154
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !31
@@ -11162,7 +11162,7 @@ invoke.cont69:                                    ; preds = %invoke.cont.i
   store i32 1, ptr %use_count_.i.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call.i99, ptr %px_.i.i.i.i.i, align 8, !tbaa !156
   %71 = load ptr, ptr %volHandles_, align 8, !tbaa !62
@@ -11419,7 +11419,7 @@ terminate.lpad.i.i.i.i145:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont109, %if.then.i.i.i.i139, %.noexc.i.i.i.i146, %if.then.i.i.i.i.i.i149
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp89, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp89, align 8, !tbaa !42
   %119 = load ptr, ptr %pn3.i.i.i136, align 8, !tbaa !31
   %cmp.not.i.i.i153 = icmp eq ptr %119, null
   br i1 %cmp.not.i.i.i153, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i154
@@ -11620,7 +11620,7 @@ terminate.lpad.i.i.i.i214:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit221:     ; preds = %invoke.cont145, %if.then.i.i.i.i208, %.noexc.i.i.i.i215, %if.then.i.i.i.i.i.i218
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
   %156 = load ptr, ptr %pn3.i.i.i205, align 8, !tbaa !31
   %cmp.not.i.i.i223 = icmp eq ptr %156, null
   br i1 %cmp.not.i.i.i223, label %_ZN8QuantLib15Interpolation2DD2Ev.exit237, label %if.then.i.i.i224
@@ -11861,7 +11861,7 @@ terminate.lpad.i.i.i.i285:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit292:     ; preds = %invoke.cont176, %if.then.i.i.i.i279, %.noexc.i.i.i.i286, %if.then.i.i.i.i.i.i289
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp157, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp157, align 8, !tbaa !42
   %195 = load ptr, ptr %pn3.i.i.i276, align 8, !tbaa !31
   %cmp.not.i.i.i294 = icmp eq ptr %195, null
   br i1 %cmp.not.i.i.i294, label %_ZN8QuantLib15Interpolation2DD2Ev.exit308, label %if.then.i.i.i295
@@ -11971,7 +11971,7 @@ terminate.lpad.i.i.i.i324:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit331:     ; preds = %invoke.cont203, %if.then.i.i.i.i318, %.noexc.i.i.i.i325, %if.then.i.i.i.i.i.i328
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp184, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp184, align 8, !tbaa !42
   %216 = load ptr, ptr %pn3.i.i.i315, align 8, !tbaa !31
   %cmp.not.i.i.i333 = icmp eq ptr %216, null
   br i1 %cmp.not.i.i.i333, label %_ZN8QuantLib15Interpolation2DD2Ev.exit347, label %if.then.i.i.i334
@@ -12117,7 +12117,7 @@ entry:
   %ref.tmp191 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %ref.tmp195 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 504
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i32 0, ptr %1, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
@@ -12129,7 +12129,7 @@ entry:
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 552
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 560
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 576
   store i32 0, ptr %3, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 584
@@ -12140,15 +12140,15 @@ entry:
   store ptr %3, ptr %_M_right.i.i.i.i.i.i44, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %this, i64 608
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i45, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_RKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
+  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_RKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
   %volHandles_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %rows_.i = getelementptr inbounds nuw i8, ptr %vols, i64 8
   %4 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -12289,13 +12289,13 @@ invoke.cont25:                                    ; preds = %call.i.noexc72, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i74 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i74, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i75 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i75, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -12507,8 +12507,8 @@ invoke.cont62:                                    ; preds = %for.body55
   store ptr %52, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call60, i64 64
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call60, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %51, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call60, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %51, align 8, !tbaa !42
   %value_.i = getelementptr inbounds nuw i8, ptr %call60, i64 8
   store double %50, ptr %value_.i, align 8, !tbaa !56
   store ptr %call60, ptr %ref.tmp57, align 8, !tbaa !152
@@ -12553,7 +12553,7 @@ invoke.cont65:                                    ; preds = %invoke.cont62
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call60, ptr %px_.i.i.i.i, align 8, !tbaa !154
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !31
@@ -12613,7 +12613,7 @@ invoke.cont67:                                    ; preds = %invoke.cont.i
   store i32 1, ptr %use_count_.i.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call.i104, ptr %px_.i.i.i.i.i, align 8, !tbaa !156
   %68 = load ptr, ptr %volHandles_, align 8, !tbaa !62
@@ -12870,7 +12870,7 @@ terminate.lpad.i.i.i.i150:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont107, %if.then.i.i.i.i144, %.noexc.i.i.i.i151, %if.then.i.i.i.i.i.i154
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp87, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp87, align 8, !tbaa !42
   %116 = load ptr, ptr %pn3.i.i.i141, align 8, !tbaa !31
   %cmp.not.i.i.i158 = icmp eq ptr %116, null
   br i1 %cmp.not.i.i.i158, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i159
@@ -13071,7 +13071,7 @@ terminate.lpad.i.i.i.i219:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit226:     ; preds = %invoke.cont143, %if.then.i.i.i.i213, %.noexc.i.i.i.i220, %if.then.i.i.i.i.i.i223
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp119, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp119, align 8, !tbaa !42
   %153 = load ptr, ptr %pn3.i.i.i210, align 8, !tbaa !31
   %cmp.not.i.i.i228 = icmp eq ptr %153, null
   br i1 %cmp.not.i.i.i228, label %_ZN8QuantLib15Interpolation2DD2Ev.exit242, label %if.then.i.i.i229
@@ -13312,7 +13312,7 @@ terminate.lpad.i.i.i.i290:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit297:     ; preds = %invoke.cont174, %if.then.i.i.i.i284, %.noexc.i.i.i.i291, %if.then.i.i.i.i.i.i294
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp155, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp155, align 8, !tbaa !42
   %192 = load ptr, ptr %pn3.i.i.i281, align 8, !tbaa !31
   %cmp.not.i.i.i299 = icmp eq ptr %192, null
   br i1 %cmp.not.i.i.i299, label %_ZN8QuantLib15Interpolation2DD2Ev.exit313, label %if.then.i.i.i300
@@ -13422,7 +13422,7 @@ terminate.lpad.i.i.i.i329:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit336:     ; preds = %invoke.cont201, %if.then.i.i.i.i323, %.noexc.i.i.i.i330, %if.then.i.i.i.i.i.i333
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp182, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp182, align 8, !tbaa !42
   %213 = load ptr, ptr %pn3.i.i.i320, align 8, !tbaa !31
   %cmp.not.i.i.i338 = icmp eq ptr %213, null
   br i1 %cmp.not.i.i.i338, label %_ZN8QuantLib15Interpolation2DD2Ev.exit352, label %if.then.i.i.i339
@@ -13534,7 +13534,7 @@ ehcleanup214:                                     ; preds = %ehcleanup213, %lpad
 
 ehcleanup215:                                     ; preds = %ehcleanup214, %lpad6
   %.pn33.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn.pn.pn, %ehcleanup214 ], [ %24, %lpad6 ]
-  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
+  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
   br label %ehcleanup216
 
 ehcleanup216:                                     ; preds = %ehcleanup215, %lpad
@@ -13734,13 +13734,13 @@ invoke.cont27:                                    ; preds = %call.i.noexc67, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i69, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i70 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i70, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -13947,8 +13947,8 @@ invoke.cont64:                                    ; preds = %for.body57
   store ptr %55, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call62, i64 64
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call62, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %54, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call62, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %54, align 8, !tbaa !42
   %value_.i = getelementptr inbounds nuw i8, ptr %call62, i64 8
   store double %53, ptr %value_.i, align 8, !tbaa !56
   store ptr %call62, ptr %ref.tmp59, align 8, !tbaa !152
@@ -13993,7 +13993,7 @@ invoke.cont67:                                    ; preds = %invoke.cont64
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call62, ptr %px_.i.i.i.i, align 8, !tbaa !154
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !31
@@ -14053,7 +14053,7 @@ invoke.cont69:                                    ; preds = %invoke.cont.i
   store i32 1, ptr %use_count_.i.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call.i99, ptr %px_.i.i.i.i.i, align 8, !tbaa !156
   %71 = load ptr, ptr %volHandles_, align 8, !tbaa !62
@@ -14310,7 +14310,7 @@ terminate.lpad.i.i.i.i145:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont109, %if.then.i.i.i.i139, %.noexc.i.i.i.i146, %if.then.i.i.i.i.i.i149
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp89, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp89, align 8, !tbaa !42
   %119 = load ptr, ptr %pn3.i.i.i136, align 8, !tbaa !31
   %cmp.not.i.i.i153 = icmp eq ptr %119, null
   br i1 %cmp.not.i.i.i153, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i154
@@ -14511,7 +14511,7 @@ terminate.lpad.i.i.i.i214:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit221:     ; preds = %invoke.cont145, %if.then.i.i.i.i208, %.noexc.i.i.i.i215, %if.then.i.i.i.i.i.i218
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp121, align 8, !tbaa !42
   %156 = load ptr, ptr %pn3.i.i.i205, align 8, !tbaa !31
   %cmp.not.i.i.i223 = icmp eq ptr %156, null
   br i1 %cmp.not.i.i.i223, label %_ZN8QuantLib15Interpolation2DD2Ev.exit237, label %if.then.i.i.i224
@@ -14752,7 +14752,7 @@ terminate.lpad.i.i.i.i285:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit292:     ; preds = %invoke.cont176, %if.then.i.i.i.i279, %.noexc.i.i.i.i286, %if.then.i.i.i.i.i.i289
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp157, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp157, align 8, !tbaa !42
   %195 = load ptr, ptr %pn3.i.i.i276, align 8, !tbaa !31
   %cmp.not.i.i.i294 = icmp eq ptr %195, null
   br i1 %cmp.not.i.i.i294, label %_ZN8QuantLib15Interpolation2DD2Ev.exit308, label %if.then.i.i.i295
@@ -14862,7 +14862,7 @@ terminate.lpad.i.i.i.i324:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit331:     ; preds = %invoke.cont203, %if.then.i.i.i.i318, %.noexc.i.i.i.i325, %if.then.i.i.i.i.i.i328
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp184, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp184, align 8, !tbaa !42
   %216 = load ptr, ptr %pn3.i.i.i315, align 8, !tbaa !31
   %cmp.not.i.i.i333 = icmp eq ptr %216, null
   br i1 %cmp.not.i.i.i333, label %_ZN8QuantLib15Interpolation2DD2Ev.exit347, label %if.then.i.i.i334
@@ -15010,7 +15010,7 @@ entry:
   %ref.tmp191 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %ref.tmp195 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 504
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i32 0, ptr %1, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
@@ -15022,7 +15022,7 @@ entry:
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 552
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 560
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !42
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 576
   store i32 0, ptr %3, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 584
@@ -15033,15 +15033,15 @@ entry:
   store ptr %3, ptr %_M_right.i.i.i.i.i.i44, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %this, i64 608
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i45, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_4DateESaIS2_EERKS1_INS_6PeriodESaIS7_EERKS2_RKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionDates, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull align 8 dereferenceable(8) %today, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
+  invoke void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_4DateESaIS2_EERKS1_INS_6PeriodESaIS7_EERKS2_RKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %optionDates, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull align 8 dereferenceable(8) %today, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 104) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 32), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 352), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 408), ptr %2, align 8, !tbaa !42
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-32, 160) (i8, ptr @_ZTVN8QuantLib24SwaptionVolatilityMatrixE, i64 168), ptr %add.ptr3, align 8, !tbaa !42
   %volHandles_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %rows_.i = getelementptr inbounds nuw i8, ptr %vols, i64 8
   %4 = load i64, ptr %rows_.i, align 8, !tbaa !72
@@ -15182,13 +15182,13 @@ invoke.cont25:                                    ; preds = %call.i.noexc72, %co
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %extrapolate_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i8 0, ptr %extrapolate_.i.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i, i8 0, i64 16, i1 false)
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
   %extrapolate_.i.i74 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i8 0, ptr %extrapolate_.i.i74, align 8, !tbaa !82
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %impl_.i75 = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i75, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -15400,8 +15400,8 @@ invoke.cont62:                                    ; preds = %for.body55
   store ptr %52, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call60, i64 64
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call60, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %51, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 24), ptr %call60, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib11SimpleQuoteE, i64 80), ptr %51, align 8, !tbaa !42
   %value_.i = getelementptr inbounds nuw i8, ptr %call60, i64 8
   store double %50, ptr %value_.i, align 8, !tbaa !56
   store ptr %call60, ptr %ref.tmp57, align 8, !tbaa !152
@@ -15446,7 +15446,7 @@ invoke.cont65:                                    ; preds = %invoke.cont62
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib11SimpleQuoteEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call60, ptr %px_.i.i.i.i, align 8, !tbaa !154
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !31
@@ -15506,7 +15506,7 @@ invoke.cont67:                                    ; preds = %invoke.cont.i
   store i32 1, ptr %use_count_.i.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_5QuoteEE4LinkEEE, i64 16), ptr %call.i.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call.i104, ptr %px_.i.i.i.i.i, align 8, !tbaa !156
   %68 = load ptr, ptr %volHandles_, align 8, !tbaa !62
@@ -15763,7 +15763,7 @@ terminate.lpad.i.i.i.i150:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit:        ; preds = %invoke.cont107, %if.then.i.i.i.i144, %.noexc.i.i.i.i151, %if.then.i.i.i.i.i.i154
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp87, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp87, align 8, !tbaa !42
   %116 = load ptr, ptr %pn3.i.i.i141, align 8, !tbaa !31
   %cmp.not.i.i.i158 = icmp eq ptr %116, null
   br i1 %cmp.not.i.i.i158, label %_ZN8QuantLib15Interpolation2DD2Ev.exit, label %if.then.i.i.i159
@@ -15964,7 +15964,7 @@ terminate.lpad.i.i.i.i219:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit226:     ; preds = %invoke.cont143, %if.then.i.i.i.i213, %.noexc.i.i.i.i220, %if.then.i.i.i.i.i.i223
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp119, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp119, align 8, !tbaa !42
   %153 = load ptr, ptr %pn3.i.i.i210, align 8, !tbaa !31
   %cmp.not.i.i.i228 = icmp eq ptr %153, null
   br i1 %cmp.not.i.i.i228, label %_ZN8QuantLib15Interpolation2DD2Ev.exit242, label %if.then.i.i.i229
@@ -16205,7 +16205,7 @@ terminate.lpad.i.i.i.i290:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit297:     ; preds = %invoke.cont174, %if.then.i.i.i.i284, %.noexc.i.i.i.i291, %if.then.i.i.i.i.i.i294
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp155, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp155, align 8, !tbaa !42
   %192 = load ptr, ptr %pn3.i.i.i281, align 8, !tbaa !31
   %cmp.not.i.i.i299 = icmp eq ptr %192, null
   br i1 %cmp.not.i.i.i299, label %_ZN8QuantLib15Interpolation2DD2Ev.exit313, label %if.then.i.i.i300
@@ -16315,7 +16315,7 @@ terminate.lpad.i.i.i.i329:                        ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15Interpolation2DaSEOS0_.exit336:     ; preds = %invoke.cont201, %if.then.i.i.i.i323, %.noexc.i.i.i.i330, %if.then.i.i.i.i.i.i333
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp182, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %ref.tmp182, align 8, !tbaa !42
   %213 = load ptr, ptr %pn3.i.i.i320, align 8, !tbaa !31
   %cmp.not.i.i.i338 = icmp eq ptr %213, null
   br i1 %cmp.not.i.i.i338, label %_ZN8QuantLib15Interpolation2DD2Ev.exit352, label %if.then.i.i.i339
@@ -16427,7 +16427,7 @@ ehcleanup214:                                     ; preds = %ehcleanup213, %lpad
 
 ehcleanup215:                                     ; preds = %ehcleanup214, %lpad6
   %.pn33.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn.pn.pn, %ehcleanup214 ], [ %24, %lpad6 ]
-  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
+  call void @_ZN8QuantLib26SwaptionVolatilityDiscreteD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib24SwaptionVolatilityMatrixE, i64 8)) #27
   br label %ehcleanup216
 
 ehcleanup216:                                     ; preds = %ehcleanup215, %lpad
@@ -16850,7 +16850,7 @@ invoke.cont17:                                    ; preds = %invoke.cont16
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !131
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !133
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib16FlatSmileSectionEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib16FlatSmileSectionEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !42
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call2, ptr %px_.i.i.i.i, align 8, !tbaa !174
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !31
@@ -16982,7 +16982,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !42
   %observables_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !14
@@ -17651,7 +17651,7 @@ entry:
 define linkonce_odr void @_ZN8QuantLib11SimpleQuoteD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !13
@@ -17673,7 +17673,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %entry
 define linkonce_odr void @_ZN8QuantLib11SimpleQuoteD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !42
   %observers_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !13
@@ -17709,7 +17709,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %3, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %3, align 8, !tbaa !42
   %observers_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !13
@@ -17735,7 +17735,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %3, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %3, align 8, !tbaa !42
   %observers_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !13
@@ -17809,7 +17809,7 @@ define linkonce_odr void @_ZN8QuantLib24SwaptionVolatilityMatrixD1Ev(ptr noundef
 entry:
   tail call void @_ZN8QuantLib24SwaptionVolatilityMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef nonnull @_ZTTN8QuantLib24SwaptionVolatilityMatrixE) #27
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 560
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %0, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %0, align 8, !tbaa !42
   %observables_.i = getelementptr inbounds nuw i8, ptr %this, i64 568
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %1 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !14
@@ -17864,7 +17864,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i, %con
 
 _ZN8QuantLib8ObserverD2Ev.exit:                   ; preds = %for.cond.cleanup.i
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 504
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %9, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %9, align 8, !tbaa !42
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 512
   %_M_parent.i.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 528
   %10 = load ptr, ptr %_M_parent.i.i.i.i.i1, align 8, !tbaa !13
@@ -18596,7 +18596,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib15Interpolation2DD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %this, align 8, !tbaa !42
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -18643,7 +18643,7 @@ _ZN8QuantLib15Interpolation2DD2Ev.exit:           ; preds = %entry, %if.then.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18FlatExtrapolator2DD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %this, align 8, !tbaa !42
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -18696,7 +18696,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplE, i64 16), ptr %this, align 8, !tbaa !42
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !31
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -18742,7 +18742,7 @@ _ZN5boost10shared_ptrIN8QuantLib15Interpolation2DEED2Ev.exit: ; preds = %entry, 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib18FlatExtrapolator2D22FlatExtrapolator2DImplE, i64 16), ptr %this, align 8, !tbaa !42
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -19619,7 +19619,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib13InterpolationD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %this, align 8, !tbaa !42
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !31
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -19665,7 +19665,7 @@ _ZN5boost10shared_ptrIN8QuantLib13Interpolation4ImplEED2Ev.exit: ; preds = %entr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib13InterpolationD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %this, align 8, !tbaa !42
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -19811,7 +19811,7 @@ _ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %_ZN8QuantLib10DayCo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !42
   %observers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !13
@@ -19832,7 +19832,7 @@ _ZNSt3setIPN8QuantLib8ObserverESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !42
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !13
@@ -19889,7 +19889,7 @@ entry:
   %add.ptr7 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %6, ptr %add.ptr7, align 8, !tbaa !42
   %interpolationShifts_ = getelementptr inbounds nuw i8, ptr %this, i64 464
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolationShifts_, align 8, !tbaa !42
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %7 = load ptr, ptr %pn.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %7, null
@@ -19930,7 +19930,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
 
 _ZN8QuantLib15Interpolation2DD2Ev.exit:           ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
   %interpolation_ = getelementptr inbounds nuw i8, ptr %this, i64 432
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %interpolation_, align 8, !tbaa !42
   %pn.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 456
   %14 = load ptr, ptr %pn.i.i1, align 8, !tbaa !31
   %cmp.not.i.i.i2 = icmp eq ptr %14, null
@@ -20462,7 +20462,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib21BilinearInterpolationENS0_13sp_ms_deleterIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib21BilinearInterpolationENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib21BilinearInterpolationENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !42
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %del, align 8, !tbaa !137, !range !26, !noundef !27
   %loadedv.i.i = trunc nuw i8 %0 to i1
@@ -20483,7 +20483,7 @@ _ZN5boost6detail13sp_ms_deleterIN8QuantLib21BilinearInterpolationEED2Ev.exit: ; 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib21BilinearInterpolationENS0_13sp_ms_deleterIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib21BilinearInterpolationENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib21BilinearInterpolationENS0_13sp_ms_deleterIS3_EEEE, i64 16), ptr %this, align 8, !tbaa !42
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %del.i, align 8, !tbaa !137, !range !26, !noundef !27
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
@@ -20570,7 +20570,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21BilinearInterpolationD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib15Interpolation2DE, i64 16), ptr %this, align 8, !tbaa !42
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !31
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -20629,7 +20629,7 @@ entry:
   %ref.tmp61 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp62 = alloca %"class.std::allocator.9", align 1
   %ref.tmp65 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib15Interpolation2D12templateImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS_6MatrixEEE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib15Interpolation2D12templateImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS_6MatrixEEE, i64 16), ptr %this, align 8, !tbaa !42
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %xBegin, align 8, !tbaa !3
   store i64 %0, ptr %xBegin_, align 8, !tbaa !3
@@ -21815,8 +21815,8 @@ entry:
   store ptr %2, ptr %_M_right.i.i.i.i.i.i3, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4, align 8, !tbaa !16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib6HandleINS_5QuoteEE4LinkE, i64 16), ptr %this, align 8, !tbaa !42
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib6HandleINS_5QuoteEE4LinkE, i64 56), ptr %1, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib6HandleINS_5QuoteEE4LinkE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib6HandleINS_5QuoteEE4LinkE, i64 56), ptr %1, align 8, !tbaa !42
   %h_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %h_, i8 0, i64 17, i1 false)
   %3 = load ptr, ptr %h, align 8, !tbaa !152
@@ -22330,9 +22330,9 @@ eh.resume:                                        ; preds = %lpad26, %lpad
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib6HandleINS_5QuoteEE4LinkD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib6HandleINS_5QuoteEE4LinkE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib6HandleINS_5QuoteEE4LinkE, i64 16), ptr %this, align 8, !tbaa !42
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib6HandleINS_5QuoteEE4LinkE, i64 56), ptr %add.ptr, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib6HandleINS_5QuoteEE4LinkE, i64 56), ptr %add.ptr, align 8, !tbaa !42
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !31
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -22372,7 +22372,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib5QuoteEED2Ev.exit: ; preds = %entry, %if.then.i.i, %.noexc.i.i, %if.then.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %add.ptr, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %add.ptr, align 8, !tbaa !42
   %observables_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !14
@@ -22426,7 +22426,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i, %con
   unreachable
 
 _ZN8QuantLib8ObserverD2Ev.exit:                   ; preds = %for.cond.cleanup.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !42
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !42
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %15 = load ptr, ptr %_M_parent.i.i.i.i.i2, align 8, !tbaa !13

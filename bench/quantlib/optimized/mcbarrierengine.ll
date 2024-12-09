@@ -160,7 +160,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -227,7 +227,7 @@ invoke.cont:
   %ref.tmp43 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp44 = alloca %"class.std::allocator.6", align 1
   %ref.tmp47 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib17BarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib17BarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %barrierType_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %barrierType, ptr %barrierType_, align 8, !tbaa !18
   %barrier_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -279,7 +279,7 @@ invoke.cont:
   store i32 %type, ptr %type_.i.i.i, align 8, !tbaa !50
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 5128
   store double %strike, ptr %strike_.i.i, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
   %discounts_ = getelementptr inbounds nuw i8, ptr %this, i64 5136
   %9 = load ptr, ptr %discounts, align 8, !tbaa !43
   store ptr %9, ptr %discounts_, align 8, !tbaa !43
@@ -1809,7 +1809,7 @@ invoke.cont:
   %ref.tmp43 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp44 = alloca %"class.std::allocator.6", align 1
   %ref.tmp47 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23BiasedBarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23BiasedBarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %barrierType_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %barrierType, ptr %barrierType_, align 8, !tbaa !67
   %barrier_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1821,7 +1821,7 @@ invoke.cont:
   store i32 %type, ptr %type_.i.i.i, align 8, !tbaa !50
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store double %strike, ptr %strike_.i.i, align 8, !tbaa !51
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
   %discounts_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %discounts, align 8, !tbaa !43
   store ptr %0, ptr %discounts_, align 8, !tbaa !43
@@ -2868,7 +2868,7 @@ unreachable:                                      ; preds = %invoke.cont154, %in
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17BarrierPathPricerD2Ev(ptr noundef nonnull align 8 dereferenceable(5160) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib17BarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib17BarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %discounts_ = getelementptr inbounds nuw i8, ptr %this, i64 5136
   %0 = load ptr, ptr %discounts_, align 8, !tbaa !43
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2959,7 +2959,7 @@ _ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEED2Ev.exit: ; preds = %_ZN
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib17BarrierPathPricerD0Ev(ptr noundef nonnull align 8 dereferenceable(5160) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib17BarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib17BarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %discounts_.i = getelementptr inbounds nuw i8, ptr %this, i64 5136
   %0 = load ptr, ptr %discounts_.i, align 8, !tbaa !43
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3051,7 +3051,7 @@ _ZN8QuantLib17BarrierPathPricerD2Ev.exit:         ; preds = %_ZN8QuantLib23Rando
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib23BiasedBarrierPathPricerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23BiasedBarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23BiasedBarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %discounts_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %discounts_, align 8, !tbaa !43
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3073,7 +3073,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib23BiasedBarrierPathPricerD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23BiasedBarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib23BiasedBarrierPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %discounts_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %discounts_.i, align 8, !tbaa !43
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

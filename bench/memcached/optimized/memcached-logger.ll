@@ -162,7 +162,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 244), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 244), align 4
   %call1 = tail call ptr @bipbuf_new(i32 noundef %0) #18
   %buf = getelementptr inbounds nuw i8, ptr %call, i64 88
   store ptr %call1, ptr %buf, align 8
@@ -366,7 +366,7 @@ if.end10:                                         ; preds = %for.end
   %5 = add i64 %4, 1
   %min_gid = getelementptr inbounds nuw i8, ptr %call6, i64 24
   store i64 %5, ptr %min_gid, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 240), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 240), align 8
   %call19 = tail call ptr @bipbuf_new(i32 noundef %6) #18
   %buf = getelementptr inbounds nuw i8, ptr %call6, i64 48
   store ptr %call19, ptr %buf, align 8
@@ -728,19 +728,19 @@ if.else:                                          ; preds = %for.end
 if.end26:                                         ; preds = %if.else, %if.then11
   %to_sleep.2 = phi i32 [ %spec.store.select1, %if.else ], [ %spec.store.select, %if.then11 ]
   call void @STATS_LOCK() #18
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 120), align 8
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 120), align 8
   %add.i14 = add i64 %40, %ls.sroa.0.1.lcssa
-  store i64 %add.i14, ptr getelementptr inbounds (i8, ptr @stats, i64 120), align 8
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 128), align 8
+  store i64 %add.i14, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 120), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 128), align 8
   %add1.i = add i64 %41, %ls.sroa.4.1.lcssa
-  store i64 %add1.i, ptr getelementptr inbounds (i8, ptr @stats, i64 128), align 8
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 136), align 8
+  store i64 %add1.i, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 128), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 136), align 8
   %add2.i = add i64 %42, %ls.sroa.7.1.lcssa
-  store i64 %add2.i, ptr getelementptr inbounds (i8, ptr @stats, i64 136), align 8
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 144), align 8
+  store i64 %add2.i, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 136), align 8
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 144), align 8
   %add3.i = add i64 %43, %ls.sroa.12.1.lcssa
-  store i64 %add3.i, ptr getelementptr inbounds (i8, ptr @stats, i64 144), align 8
-  store i32 %39, ptr getelementptr inbounds (i8, ptr @stats_state, i64 44), align 4
+  store i64 %add3.i, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 144), align 8
+  store i32 %39, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 44), align 4
   call void @STATS_UNLOCK() #18
   %44 = load volatile i32, ptr @do_run_logger_thread, align 4
   %tobool.not = icmp eq i32 %44, 0

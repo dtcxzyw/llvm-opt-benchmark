@@ -231,9 +231,9 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i68, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i68, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i68, align 8, !noalias !4
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i68, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !4
   %expr_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i68, i64 24
   store ptr %x, ptr %expr_.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
   %input_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i68, i64 32
@@ -246,9 +246,9 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i69, align 8, !noalias !9
   %_M_weak_count.i.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i75, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i70, align 4, !noalias !9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i75, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i75, align 8, !noalias !9
   %_M_impl.i.i.i.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i75, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i71, align 8, !noalias !9
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i71, align 8, !noalias !9
   %expr_.i.i.i.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i75, i64 24
   store ptr %y, ptr %expr_.i.i.i.i.i.i.i.i.i72, align 8, !noalias !9
   %input_.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i75, i64 32
@@ -265,9 +265,9 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i77, align 8, !noalias !14
   %_M_weak_count.i.i.i.i.i.i.i78 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i81, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i78, align 4, !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i81, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i81, align 8, !noalias !14
   %_M_impl.i.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i81, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i79, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i79, align 8, !noalias !14
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i81, i64 24
   store ptr %c1, ptr %value_.i.i.i.i.i.i.i.i.i, align 8, !noalias !14
   %call5.i.i.i5.i.i.i.i.i88 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
@@ -278,9 +278,9 @@ invoke.cont14:                                    ; preds = %invoke.cont9
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i82, align 8, !noalias !19
   %_M_weak_count.i.i.i.i.i.i.i83 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i88, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i83, align 4, !noalias !19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i88, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i88, align 8, !noalias !19
   %_M_impl.i.i.i.i.i.i.i84 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i88, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i84, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i84, align 8, !noalias !19
   %expr_.i.i.i.i.i.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i88, i64 24
   store ptr %u, ptr %expr_.i.i.i.i.i.i.i.i.i85, align 8, !noalias !19
   %input_.i.i.i.i.i.i.i.i.i86 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i88, i64 32
@@ -293,9 +293,9 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i90, align 8, !noalias !24
   %_M_weak_count.i.i.i.i.i.i.i91 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i96, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i91, align 4, !noalias !24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i96, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i96, align 8, !noalias !24
   %_M_impl.i.i.i.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i96, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i92, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i92, align 8, !noalias !24
   %expr_.i.i.i.i.i.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i96, i64 24
   store ptr %v, ptr %expr_.i.i.i.i.i.i.i.i.i93, align 8, !noalias !24
   %input_.i.i.i.i.i.i.i.i.i94 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i96, i64 32
@@ -312,9 +312,9 @@ invoke.cont22:                                    ; preds = %invoke.cont19
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i98, align 8, !noalias !29
   %_M_weak_count.i.i.i.i.i.i.i99 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i103, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i99, align 4, !noalias !29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i103, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i103, align 8, !noalias !29
   %_M_impl.i.i.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i103, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i100, align 8, !noalias !29
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i100, align 8, !noalias !29
   %value_.i.i.i.i.i.i.i.i.i101 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i103, i64 24
   store ptr %c2, ptr %value_.i.i.i.i.i.i.i.i.i101, align 8, !noalias !29
   %call5.i.i.i5.i.i.i.i.i110 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
@@ -325,9 +325,9 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i105, align 8, !noalias !34
   %_M_weak_count.i.i.i.i.i.i.i106 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i110, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i106, align 4, !noalias !34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i110, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i.i110, align 8, !noalias !34
   %_M_impl.i.i.i.i.i.i.i107 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i110, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i107, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i.i107, align 8, !noalias !34
   %value_.i.i.i.i.i.i.i.i.i108 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i.i110, i64 24
   store ptr %c3, ptr %value_.i.i.i.i.i.i.i.i.i108, align 8, !noalias !34
   %ref.tmp11.val54 = load ptr, ptr %ref.tmp11, align 8
@@ -2850,12 +2850,12 @@ call5.i.i.i5.i.i.i.i.noexc:                       ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !44
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i23, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i23, align 8, !noalias !44
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i23, align 8, !noalias !44
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i23, i64 16
   %15 = load ptr, ptr %ref.tmp1, align 8, !noalias !44
   %16 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !noalias !44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, i8 0, i64 24, i1 false), !noalias !44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !44
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !44
   %inputMatchers_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i23, i64 24
   store ptr %15, ptr %inputMatchers_.i.i.i.i.i.i.i.i, align 8, !noalias !44
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i23, i64 32
@@ -3101,7 +3101,7 @@ call5.i.i.i5.i.i.i.i.noexc:                       ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !47
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i13, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !47
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i13, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i13, align 8, !noalias !47
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i13, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !47
   %12 = load ptr, ptr %ref.tmp1, align 8, !noalias !47
@@ -3112,7 +3112,7 @@ call5.i.i.i5.i.i.i.i.noexc:                       ; preds = %invoke.cont
   %13 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !noalias !47
   store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, i8 0, i64 24, i1 false), !noalias !47
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !47
   %prefix_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i13, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %prefix_.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %prefix)
           to label %.noexc.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i, !noalias !47
@@ -4167,7 +4167,7 @@ return:                                           ; preds = %for.cond.i, %for.bo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherE, i64 16), ptr %this, align 8
   %inputMatchers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %inputMatchers_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4275,7 +4275,7 @@ _ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17M
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherE, i64 16), ptr %this, align 8
   %inputMatchers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %inputMatchers_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4659,7 +4659,7 @@ return:                                           ; preds = %for.body.i, %return
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherE, i64 16), ptr %this, align 8
   %inputMatchers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %inputMatchers_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -6072,7 +6072,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox4core20FieldAccessTypedExprESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox4core20FieldAccessTypedExprESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i)
   %0 = load ptr, ptr %__args, align 8
@@ -6121,7 +6121,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox4core20Fie
   store ptr %7, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %inputs_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %inputs_.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4core20FieldAccessTypedExprE, i64 16), ptr %_M_impl.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4core20FieldAccessTypedExprE, i64 16), ptr %_M_impl.i.i, align 8
   %name_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i) #18
   %isInputColumn_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 96

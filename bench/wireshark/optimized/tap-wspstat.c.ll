@@ -45,7 +45,7 @@ define internal void @wspstat_init(ptr noundef %0, ptr nocapture readnone %1) #0
   %6 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %6, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @wsp_vals_status_ext, i64 16), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wsp_vals_status_ext, i64 16), align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not4042 = icmp eq ptr %10, null

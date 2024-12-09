@@ -156,7 +156,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define internal void @_ZL55InitDefaultsscc_info_NumberFormat_phonemetadata_2eprotov() #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str)
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers31_NumberFormat_default_instance_E, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr @_ZN4i18n12phonenumbers31_NumberFormat_default_instance_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr @_ZN4i18n12phonenumbers31_NumberFormat_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers31_NumberFormat_default_instance_E, i64 16), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers31_NumberFormat_default_instance_E, i64 20), align 4
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers31_NumberFormat_default_instance_E, i64 24), ptr noundef null)
@@ -213,7 +213,7 @@ define internal void @_ZL56InitDefaultsscc_info_PhoneMetadata_phonemetadata_2epr
 define internal void @_ZL66InitDefaultsscc_info_PhoneMetadataCollection_phonemetadata_2eprotov() #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str)
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers42_PhoneMetadataCollection_default_instance_E, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr @_ZN4i18n12phonenumbers42_PhoneMetadataCollection_default_instance_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr @_ZN4i18n12phonenumbers42_PhoneMetadataCollection_default_instance_E, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers42_PhoneMetadataCollection_default_instance_E, i64 16), i8 0, i64 28, i1 false)
   %1 = load atomic i32, ptr @scc_info_PhoneMetadataCollection_phonemetadata_2eproto acquire, align 8
   %.not.i.i.i.i = icmp eq i32 %1, 0
@@ -238,7 +238,7 @@ _ZN4i18n12phonenumbers23PhoneMetadataCollectionC2Ev.exit: ; preds = %0, %2
 define internal void @_ZL58InitDefaultsscc_info_PhoneNumberDesc_phonemetadata_2eprotov() #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str)
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, i64 16), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, i64 20), align 4
   tail call void @_ZN6google8protobuf13RepeatedFieldIiEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, i64 24), ptr noundef null)
@@ -286,7 +286,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat21InitAsDefaultInstan
 define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -332,7 +332,7 @@ declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcS
 define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -2107,7 +2107,7 @@ define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat11GetTypeNameB5cxx11
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 30))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 30))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc1
@@ -2146,7 +2146,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc21InitAsDefaultIns
 define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2199,7 +2199,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull alig
 define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -3600,7 +3600,7 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc11GetTypeNameB5cx
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 33))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 33))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc1
@@ -3769,7 +3769,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phon
 define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 72)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers13PhoneMetadataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers13PhoneMetadataE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3844,7 +3844,7 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2ERKS1_(ptr noundef
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEEC2ERKS5_.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers13PhoneMetadataE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers13PhoneMetadataE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
@@ -12873,7 +12873,7 @@ define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata11GetTypeNameB5cxx1
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.22, i64 31))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc1
@@ -12906,7 +12906,7 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollection21InitAsDe
 define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12984,7 +12984,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMeta
 define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -14042,7 +14042,7 @@ define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection11GetType
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.23, i64 41))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.23, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.23, i64 41))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %5
 
 5:                                                ; preds = %.noexc1
@@ -14075,7 +14075,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -14127,7 +14127,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %15, %18
   %19 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 88)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %0, ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 20
@@ -14172,7 +14172,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -14239,7 +14239,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %20, %23
   %24 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 72)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %0, ptr %25, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
@@ -14329,7 +14329,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   %7 = load atomic i32, ptr @scc_info_PhoneMetadataCollection_phonemetadata_2eproto acquire, align 8
@@ -14365,7 +14365,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %10, %13
   %14 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 48)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %0, ptr %15, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -14394,7 +14394,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -14545,7 +14545,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers23PhoneMetadat
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
   %5 = load atomic i32, ptr @scc_info_PhoneMetadataCollection_phonemetadata_2eproto acquire, align 8

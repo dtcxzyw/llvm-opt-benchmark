@@ -84,7 +84,7 @@ define dso_local ptr @ptp_clock_register(ptr noundef %0, ptr noundef %1) #0 alig
   br i1 %9, label %194, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %12 = tail call noalias align 8 dereferenceable_or_null(1312) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3520, i64 noundef 1312) #15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %191, label %14
@@ -108,7 +108,7 @@ define dso_local ptr @ptp_clock_register(ptr noundef %0, ptr noundef %1) #0 alig
   store volatile ptr %22, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 1008
   store volatile ptr %22, ptr %23, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %25 = tail call noalias align 8 dereferenceable_or_null(4160) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3520, i64 noundef 4160) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %186, label %27
@@ -259,7 +259,7 @@ define dso_local ptr @ptp_clock_register(ptr noundef %0, ptr noundef %1) #0 alig
 108:                                              ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %12, i64 1248
   store i32 20, ptr %109, align 8
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %111 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %110, i32 noundef 3520, i64 noundef 80) #15
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 1256
   store ptr %111, ptr %112, align 8

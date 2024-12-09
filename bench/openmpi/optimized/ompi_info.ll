@@ -67,10 +67,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 12:                                               ; preds = %2
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @opal_cmd_line_t_class, i64 56), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_cmd_line_t_class, i64 56), align 8
   %14 = call noalias ptr @malloc(i64 noundef %13) #10
   %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @opal_cmd_line_t_class, i64 32), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_cmd_line_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %15, %16
   br i1 %.not.i, label %18, label %17
 
@@ -131,7 +131,7 @@ opal_obj_new.exit.thread86:                       ; preds = %.lr.ph.i.i, %19
 
 39:                                               ; preds = %34
   %40 = load i32, ptr @opal_class_init_epoch, align 4
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @opal_pointer_array_t_class, i64 32), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_pointer_array_t_class, i64 32), align 8
   %.not51 = icmp eq i32 %40, %41
   br i1 %.not51, label %43, label %42
 
@@ -162,7 +162,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %43
   call void @opal_info_register_types(ptr noundef nonnull %5) #8
   call void @ompi_info_register_types(ptr noundef nonnull %5) #8
   %51 = load i32, ptr @opal_class_init_epoch, align 4
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @opal_pointer_array_t_class, i64 32), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_pointer_array_t_class, i64 32), align 8
   %.not52 = icmp eq i32 %51, %52
   br i1 %.not52, label %54, label %53
 

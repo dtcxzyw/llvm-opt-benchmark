@@ -82,7 +82,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util11simple_infoC2ERKNSt7__cx
   %.not.i.i = icmp ne i64 %2, 0
   %6 = zext i1 %.not.i.i to i32
   store i32 %6, ptr %5, align 8, !tbaa !3
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6locale4util11simple_infoE, i64 16), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost6locale4util11simple_infoE, i64 16), ptr %0, align 8, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5boost6locale4util11locale_dataC1Ev(ptr noundef nonnull align 8 dereferenceable(129) %7)
           to label %8 unwind label %28
@@ -343,7 +343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale4util11simple_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6locale4util11simple_infoE, i64 16), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost6locale4util11simple_infoE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168

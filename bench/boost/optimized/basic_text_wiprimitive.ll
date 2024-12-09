@@ -816,7 +816,7 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators15filter_
 
 .thread.i:                                        ; preds = %16, %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators15filter_iteratorIN12_GLOBAL__N_127remove_whitespace_predicateIwEENS4_16istream_iteratorIwEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEdeEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %2, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %21, align 8, !tbaa !74
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive9iterators18dataflow_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(12) %2) #15
@@ -840,7 +840,7 @@ _ZNK5boost7archive9iterators6detail8to_6_bitIjEclEj.exit: ; preds = %16
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7archive9iterators18dataflow_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #14
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %2, align 8, !tbaa !19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %2, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !74

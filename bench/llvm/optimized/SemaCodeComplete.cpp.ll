@@ -2740,11 +2740,11 @@ _ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit: ; preds = %4,
   br i1 %.not44, label %101, label %100
 
 100:                                              ; preds = %89
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 5))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 5))
   br label %102
 
 101:                                              ; preds = %89
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 3))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 3))
   br label %102
 
 102:                                              ; preds = %101, %100
@@ -4224,7 +4224,7 @@ define internal fastcc void @_ZL30AddQualifierToCompletionStringRN5clang21CodeCo
   store i32 1, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %14, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #29
@@ -4490,7 +4490,7 @@ define internal fastcc void @_ZL26AddTemplateParameterChunksRN5clang10ASTContext
   store i8 0, ptr %28, align 8
   store i32 1, ptr %29, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %9, align 8
   store ptr %8, ptr %31, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #29
   %52 = getelementptr inbounds nuw i8, ptr %36, i64 88
@@ -5104,7 +5104,7 @@ define internal fastcc void @_ZL23FormatFunctionParameterB5cxx11RKN5clang14Print
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #29
   %31 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %11) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.191, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.191, i64 3))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.191, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.191, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #29
   br label %215
 
@@ -5963,7 +5963,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %108, %98
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %113, ptr noundef nonnull align 1 dereferenceable(1) %18) #29
   %114 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #29
   %115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %115, ptr noundef nonnull @.str.208, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.208, i64 4)) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %115, ptr noundef nonnull @.str.208, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.208, i64 4)) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 4) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #29
   br label %_ZL18templateResultTypeB5cxx11PKN5clang12TemplateDeclERKNS_14PrintingPolicyE.exit.i
@@ -5972,7 +5972,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %108, %98
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #29, !noalias !41
   %117 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %117, ptr noundef nonnull align 1 dereferenceable(1) %19) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.183, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.183, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.183, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.183, i64 5))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #29
   br label %_ZL18templateResultTypeB5cxx11PKN5clang12TemplateDeclERKNS_14PrintingPolicyE.exit.i
 
@@ -5980,7 +5980,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %108, %98
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #29, !noalias !41
   %119 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %119, ptr noundef nonnull align 1 dereferenceable(1) %20) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.209, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.209, i64 7))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.209, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.209, i64 7))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #29
   br label %_ZL18templateResultTypeB5cxx11PKN5clang12TemplateDeclERKNS_14PrintingPolicyE.exit.i
 
@@ -6072,7 +6072,7 @@ _ZL34formatTemplateParameterPlaceholderB5cxx11PKN5clang9NamedDeclERbRKNS_14Print
   store i8 0, ptr %135, align 8, !noalias !47
   store i32 1, ptr %136, align 4, !noalias !47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, i8 0, i64 24, i1 false), !noalias !47
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %14, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %14, align 8, !noalias !47
   store ptr %27, ptr %138, align 8, !noalias !47
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef null, i64 noundef 0, i32 noundef 0) #29
   call void @_ZNK5clang4Decl5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEjb(ptr noundef nonnull align 8 dereferenceable(33) %144, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 0, i1 noundef zeroext false) #29
@@ -6277,7 +6277,7 @@ _ZN5clang19getParameterCommentERKNS_10ASTContextERKNS_20CodeCompleteConsumer17Ov
   store i32 1, ptr %235, align 4
   %236 = getelementptr inbounds nuw i8, ptr %33, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %236, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %33, align 8
   %237 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store ptr %32, ptr %237, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef null, i64 noundef 0, i32 noundef 0) #29
@@ -8634,7 +8634,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %239, %248
   %259 = load ptr, ptr %0, align 8
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 560
   %261 = load ptr, ptr %260, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %262 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %262, align 8
   %263 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8742,7 +8742,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %258, %278, %283
   %322 = sdiv exact i64 %321, 96
   %323 = trunc i64 %322 to i32
   call fastcc void @_ZL25HandleCodeCompleteResultsPN5clang4SemaEPNS_20CodeCompleteConsumerERKNS_21CodeCompletionContextEPNS_20CodeCompletionResultEj(ptr noundef %315, ptr noundef %314, ptr noundef nonnull align 8 dereferenceable(192) %316, ptr noundef %spec.select.i, i32 noundef %323)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %324 = load ptr, ptr %265, align 8
   %325 = load ptr, ptr %266, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %324, %325
@@ -9170,7 +9170,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %109, %116
   store i8 0, ptr %71, align 8
   store i32 1, ptr %72, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %7, align 8
   store ptr %6, ptr %74, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #29
   call void @_ZNK5clang19NestedNameSpecifier5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEb(ptr noundef nonnull align 8 dereferenceable(24) %118, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext false) #29
@@ -9385,7 +9385,7 @@ declare i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_126CodeCompletionDeclConsumerC2ERNS_13ResultBuilderEPN5clang11DeclContextENS3_8QualTypeESt6vectorINS3_9FixItHintESaIS8_EE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef %2, i64 %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14860,7 +14860,7 @@ _ZN4llvm16DenseMapIteratorIPKN5clang14IdentifierInfoENS1_12Preprocessor10MacroSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_126CodeCompletionDeclConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -15303,7 +15303,7 @@ _ZN5clang20CodeCompletionResultD2Ev.exit67:       ; preds = %186, %_ZSt8_Destroy
   %195 = load ptr, ptr %0, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 560
   %197 = load ptr, ptr %196, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %13, align 8
   %198 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %6, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -15357,7 +15357,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %192, %214, %219
   %231 = icmp ne i8 %230, 0
   call void @_ZN5clang4Sema18LookupVisibleDeclsEPNS_5ScopeENS0_14LookupNameKindERNS_19VisibleDeclConsumerEbb(ptr noundef nonnull align 8 dereferenceable(17560) %224, ptr noundef %1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(8) %13, i1 noundef zeroext %229, i1 noundef zeroext %231) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %194, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %13, align 8
   %232 = load ptr, ptr %201, align 8
   %233 = load ptr, ptr %202, align 8
   %.not4.i.i.i.i.i71 = icmp eq ptr %232, %233
@@ -17062,7 +17062,7 @@ _ZN12_GLOBAL__N_113ResultBuilder6IgnoreEPKN5clang4DeclE.exit: ; preds = %.lr.ph.
   %150 = load ptr, ptr %0, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 560
   %152 = load ptr, ptr %151, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %17, align 8
   %153 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %15, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -17660,7 +17660,7 @@ _ZL26TryDeconstructFunctionLikeN5clang8QualTypeE.exit.thread: ; preds = %292, %2
   %450 = sdiv exact i64 %449, 96
   %451 = trunc i64 %450 to i32
   call fastcc void @_ZL25HandleCodeCompleteResultsPN5clang4SemaEPNS_20CodeCompleteConsumerERKNS_21CodeCompletionContextEPNS_20CodeCompletionResultEj(ptr noundef %442, ptr noundef %443, ptr noundef nonnull align 8 dereferenceable(192) %444, ptr noundef %spec.select.i88, i32 noundef %451)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %17, align 8
   %452 = load ptr, ptr %156, align 8
   %453 = load ptr, ptr %157, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %452, %453
@@ -21467,7 +21467,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit.i: ;
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %53, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -21627,7 +21627,7 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit.i
 
 _ZN5clang20CodeCompletionResultD2Ev.exit.i:       ; preds = %146, %163, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i.i, %144, %.preheader.i, %131, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit.i
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %169 = load ptr, ptr %95, align 8
   %170 = load ptr, ptr %96, align 8
   %.not4.i.i.i.i.i29.i = icmp eq ptr %169, %170
@@ -22983,7 +22983,7 @@ _ZN4llvm11SmallPtrSetIPN5clang11DeclContextELj8EED2Ev.exit.i: ; preds = %36, %13
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 560
   %48 = load ptr, ptr %47, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -23075,7 +23075,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %45, %65, %70
   %104 = sdiv exact i64 %103, 96
   %105 = trunc i64 %104 to i32
   call fastcc void @_ZL25HandleCodeCompleteResultsPN5clang4SemaEPNS_20CodeCompleteConsumerERKNS_21CodeCompletionContextEPNS_20CodeCompletionResultEj(ptr noundef %97, ptr noundef %96, ptr noundef nonnull align 8 dereferenceable(192) %98, ptr noundef %spec.select.i, i32 noundef %105)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %106 = load ptr, ptr %52, align 8
   %107 = load ptr, ptr %53, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %106, %107
@@ -27967,7 +27967,7 @@ _ZN4llvm11SmallPtrSetIPN5clang11DeclContextELj8EED2Ev.exit.i: ; preds = %35, %3
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 560
   %54 = load ptr, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -28267,7 +28267,7 @@ _ZN4llvm11SmallVectorIPKcLj2EED2Ev.exit.i:        ; preds = %192, %178
   br label %_ZN5clang21CodeCompletionBuilderD2Ev.exit
 
 _ZN5clang21CodeCompletionBuilderD2Ev.exit:        ; preds = %_ZN4llvm11SmallVectorIPKcLj2EED2Ev.exit.i, %196
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %197 = load ptr, ptr %58, align 8
   %198 = load ptr, ptr %59, align 8
   %.not4.i.i.i.i.i32 = icmp eq ptr %197, %198
@@ -28470,7 +28470,7 @@ _ZN5clang12CXXScopeSpecD2Ev.exit:                 ; preds = %_ZN5clang21CodeComp
   br i1 %.not50, label %130, label %91
 
 91:                                               ; preds = %85
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %11, align 8
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %10, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -28520,7 +28520,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %91, %106, %109, %11
   store i64 %.sroa.09.0.i, ptr %94, align 8
   %119 = load ptr, ptr %0, align 8
   call void @_ZN5clang4Sema18LookupVisibleDeclsEPNS_5ScopeENS0_14LookupNameKindERNS_19VisibleDeclConsumerEbb(ptr noundef nonnull align 8 dereferenceable(17560) %119, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i1 noundef zeroext false, i1 noundef zeroext false) #29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %11, align 8
   %120 = load ptr, ptr %95, align 8
   %121 = load ptr, ptr %96, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %120, %121
@@ -28934,7 +28934,7 @@ _ZNSt6vectorIN12_GLOBAL__N_111ConceptInfo6MemberESaIS2_EED2Ev.exit: ; preds = %_
   ]
 
 ._crit_edge170:                                   ; preds = %289, %297
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %17, align 8
   %298 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %12, ptr %298, align 8
   %299 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -28986,7 +28986,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit114: ; preds = %._crit_edge170, 
   %326 = and i8 %325, 32
   %327 = icmp ne i8 %326, 0
   call void @_ZN5clang4Sema18LookupVisibleDeclsEPNS_11DeclContextENS0_14LookupNameKindERNS_19VisibleDeclConsumerEbbb(ptr noundef nonnull align 8 dereferenceable(17560) %322, ptr noundef nonnull %134, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext %327) #29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %17, align 8
   %328 = load ptr, ptr %301, align 8
   %329 = load ptr, ptr %302, align 8
   %.not4.i.i.i.i.i115 = icmp eq ptr %328, %329
@@ -29601,7 +29601,7 @@ define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_111ConceptInfo6Member6rende
   store i32 1, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %7, align 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %6, ptr %31, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #29
@@ -29925,7 +29925,7 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 560
   %63 = load ptr, ptr %62, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -29993,7 +29993,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %60, %80, %85
   %106 = sdiv exact i64 %105, 96
   %107 = trunc i64 %106 to i32
   call fastcc void @_ZL25HandleCodeCompleteResultsPN5clang4SemaEPNS_20CodeCompleteConsumerERKNS_21CodeCompletionContextEPNS_20CodeCompletionResultEj(ptr noundef %98, ptr noundef %99, ptr noundef nonnull align 8 dereferenceable(192) %100, ptr noundef %spec.select.i, i32 noundef %107)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %6, align 8
   %108 = load ptr, ptr %67, align 8
   %109 = load ptr, ptr %68, align 8
   %.not4.i.i.i.i.i10 = icmp eq ptr %108, %109
@@ -30138,7 +30138,7 @@ _ZN4llvm11SmallPtrSetIPN5clang11DeclContextELj8EED2Ev.exit.i: ; preds = %31, %8
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 560
   %49 = load ptr, ptr %48, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -30206,7 +30206,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %40, %66, %71
   %92 = sdiv exact i64 %91, 96
   %93 = trunc i64 %92 to i32
   call fastcc void @_ZL25HandleCodeCompleteResultsPN5clang4SemaEPNS_20CodeCompleteConsumerERKNS_21CodeCompletionContextEPNS_20CodeCompletionResultEj(ptr noundef %84, ptr noundef %85, ptr noundef nonnull align 8 dereferenceable(192) %86, ptr noundef %spec.select.i, i32 noundef %93)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
   %94 = load ptr, ptr %53, align 8
   %95 = load ptr, ptr %54, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %94, %95
@@ -30742,7 +30742,7 @@ _ZN4llvm11SmallPtrSetIPN5clang11DeclContextELj8EED2Ev.exit.i: ; preds = %31, %8
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 560
   %43 = load ptr, ptr %42, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -30809,7 +30809,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %40, %60, %65
   %86 = sdiv exact i64 %85, 96
   %87 = trunc i64 %86 to i32
   call fastcc void @_ZL25HandleCodeCompleteResultsPN5clang4SemaEPNS_20CodeCompleteConsumerERKNS_21CodeCompletionContextEPNS_20CodeCompletionResultEj(ptr noundef %78, ptr noundef %79, ptr noundef nonnull align 8 dereferenceable(192) %80, ptr noundef %spec.select.i, i32 noundef %87)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
   %88 = load ptr, ptr %47, align 8
   %89 = load ptr, ptr %48, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %88, %89
@@ -33439,7 +33439,7 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i391: ; preds = %_ZSt
   %1148 = load ptr, ptr %0, align 8
   %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 560
   %1150 = load ptr, ptr %1149, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %49, align 8
   %1151 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %3, ptr %1151, align 8
   %1152 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -33509,7 +33509,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %1146, %1167, %1172
   %1194 = sdiv exact i64 %1193, 96
   %1195 = trunc i64 %1194 to i32
   call fastcc void @_ZL25HandleCodeCompleteResultsPN5clang4SemaEPNS_20CodeCompleteConsumerERKNS_21CodeCompletionContextEPNS_20CodeCompletionResultEj(ptr noundef %1186, ptr noundef %1187, ptr noundef nonnull align 8 dereferenceable(192) %1188, ptr noundef %spec.select.i, i32 noundef %1195)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %49, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %49, align 8
   %1196 = load ptr, ptr %1154, align 8
   %1197 = load ptr, ptr %1155, align 8
   %.not4.i.i.i.i.i396 = icmp eq ptr %1196, %1197
@@ -43118,7 +43118,7 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i113: ; preds = %_ZSt
   %410 = load ptr, ptr %0, align 8
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 560
   %412 = load ptr, ptr %411, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %21, align 8
   %413 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %6, ptr %413, align 8
   %414 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -43203,7 +43203,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %407, %429, %434
   %466 = sdiv exact i64 %465, 96
   %467 = trunc i64 %466 to i32
   call fastcc void @_ZL25HandleCodeCompleteResultsPN5clang4SemaEPNS_20CodeCompleteConsumerERKNS_21CodeCompletionContextEPNS_20CodeCompletionResultEj(ptr noundef %459, ptr noundef %458, ptr noundef nonnull align 8 dereferenceable(192) %460, ptr noundef %spec.select.i, i32 noundef %467)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %21, align 8
   %468 = load ptr, ptr %416, align 8
   %469 = load ptr, ptr %417, align 8
   %.not4.i.i.i.i.i119 = icmp eq ptr %468, %469
@@ -43313,7 +43313,7 @@ _ZN4llvm11SmallPtrSetIPN5clang11DeclContextELj8EED2Ev.exit.i: ; preds = %34, %2
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 560
   %46 = load ptr, ptr %45, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -43494,7 +43494,7 @@ _ZN5clang20CodeCompletionResultD2Ev.exit:         ; preds = %_ZSt8_DestroyIPN5cl
   %143 = sdiv exact i64 %142, 96
   %144 = trunc i64 %143 to i32
   call fastcc void @_ZL25HandleCodeCompleteResultsPN5clang4SemaEPNS_20CodeCompleteConsumerERKNS_21CodeCompletionContextEPNS_20CodeCompletionResultEj(ptr noundef %136, ptr noundef %135, ptr noundef nonnull align 8 dereferenceable(192) %137, ptr noundef %spec.select.i, i32 noundef %144)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %5, align 8
   %145 = load ptr, ptr %50, align 8
   %146 = load ptr, ptr %51, align 8
   %.not4.i.i.i.i.i18 = icmp eq ptr %145, %146
@@ -59036,7 +59036,7 @@ _ZN5clang21CodeCompletionContextD2Ev.exit:        ; preds = %_ZN4llvm11SmallPtrS
   %44 = icmp eq ptr %43, null
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %spec.select = select i1 %44, ptr null, ptr %45
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %7, align 8
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -59105,7 +59105,7 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %36, %62, %67
 89:                                               ; preds = %84, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit
   %90 = phi i1 [ true, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit ], [ %88, %84 ]
   call void @_ZN5clang4Sema18LookupVisibleDeclsEPNS_11DeclContextENS0_14LookupNameKindERNS_19VisibleDeclConsumerEbbb(ptr noundef nonnull align 8 dereferenceable(17560) %72, ptr noundef %82, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext %90, i1 noundef zeroext false, i1 noundef zeroext true) #29
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %7, align 8
   %91 = load ptr, ptr %49, align 8
   %92 = load ptr, ptr %50, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %91, %92
@@ -62184,7 +62184,7 @@ declare noundef ptr @_ZN5clang11DeclContext17getPrimaryContextEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_126CodeCompletionDeclConsumerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_126CodeCompletionDeclConsumerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -63538,17 +63538,17 @@ define internal fastcc void @"_ZZZN5clang18SemaCodeCompletion21CodeCompleteAttri
 20:                                               ; preds = %5
   %21 = getelementptr inbounds i8, ptr %0, i64 %1
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %0, ptr noundef nonnull %21)
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 2))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 2))
   br label %22
 
 22:                                               ; preds = %20, %5
   br i1 %4, label %23, label %.critedge
 
 23:                                               ; preds = %22
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.290, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.290, i64 2))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.290, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.290, i64 2))
   %24 = getelementptr inbounds i8, ptr %2, i64 %3
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %2, ptr noundef %24)
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.290, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.290, i64 2))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.290, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.290, i64 2))
   br label %26
 
 .critedge:                                        ; preds = %22

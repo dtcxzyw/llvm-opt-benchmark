@@ -356,7 +356,7 @@ define void @lv_keyboard_def_event_cb(ptr noundef %0) #0 {
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 1, ptr %18, align 8, !tbaa !13
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kb_map, i64 8), align 8, !tbaa !14
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kb_map, i64 8), align 8, !tbaa !14
   tail call void @lv_buttonmatrix_set_map(ptr noundef %2, ptr noundef %19) #3
   tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %2)
   br label %104
@@ -369,7 +369,7 @@ define void @lv_keyboard_def_event_cb(ptr noundef %0) #0 {
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 2, ptr %24, align 8, !tbaa !13
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kb_map, i64 16), align 16, !tbaa !14
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kb_map, i64 16), align 16, !tbaa !14
   tail call void @lv_buttonmatrix_set_map(ptr noundef %2, ptr noundef %25) #3
   tail call fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %2)
   br label %104

@@ -283,7 +283,7 @@ define dso_local void @notifyKeyspaceEvent(i32 noundef %type, ptr noundef %event
 entry:
   %buf = alloca [24 x i8], align 16
   tail call void @moduleNotifyKeyspaceEvent(i32 noundef %type, ptr noundef %event, ptr noundef %key, i32 noundef %dbid) #4
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5152), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5152), align 8
   %and = and i32 %0, %type
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -291,7 +291,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %event) #5
   %call1 = tail call ptr @createStringObject(ptr noundef %event, i64 noundef %call) #4
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5152), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5152), align 8
   %and2 = and i32 %1, 1
   %tobool3.not = icmp eq i32 %and2, 0
   br i1 %tobool3.not, label %if.end14, label %if.then4
@@ -309,7 +309,7 @@ if.then4:                                         ; preds = %if.end
   %call12 = call ptr @createObject(i32 noundef 0, ptr noundef %call11) #4
   %call13 = call i32 @pubsubPublishMessage(ptr noundef %call12, ptr noundef %call1, i32 noundef 0) #4
   call void @decrRefCount(ptr noundef %call12) #4
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5152), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5152), align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then4, %if.end

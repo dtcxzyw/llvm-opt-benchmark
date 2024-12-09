@@ -657,7 +657,7 @@ for.end193:                                       ; preds = %for.inc191, %correc
   call void @dir_clear(ptr noundef nonnull %dir) #14
   %52 = load i32, ptr @interactive, align 4
   %tobool194 = icmp ne i32 %52, 0
-  %53 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %cmp196 = icmp ne i64 %53, 0
   %or.cond6 = select i1 %tobool194, i1 %cmp196, i1 false
   br i1 %or.cond6, label %while.body.preheader.i, label %if.end199
@@ -685,7 +685,7 @@ while.body.i36:                                   ; preds = %do.body.i, %while.b
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @clean_colors, i64 225)
   %call1.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %retval.0.i.i.i)
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %56 = load i32, ptr @git_gettext_enabled, align 4
   %tobool.not.i.i = icmp eq i32 %56, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
@@ -723,7 +723,7 @@ if.then.i37:                                      ; preds = %Q_.exit.i
 
 do.body.i:                                        ; preds = %if.then.i37
   call void @free(ptr noundef nonnull %call2.i) #14
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %tobool6.not.i = icmp eq i64 %60, 0
   br i1 %tobool6.not.i, label %if.then7.i, label %while.body.i36, !llvm.loop !12
 
@@ -787,7 +787,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end199
   %tobool206.not = icmp eq ptr %prefix, null
   %st_mode215 = getelementptr inbounds nuw i8, ptr %st205, i64 24
   %66 = load ptr, ptr @del_list, align 8
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %add.ptr109 = getelementptr inbounds %struct.string_list_item, ptr %66, i64 %67
   %cmp202110 = icmp ult ptr %65, %add.ptr109
   br i1 %cmp202110, label %for.body204, label %for.end269
@@ -918,7 +918,7 @@ for.inc268:                                       ; preds = %cond.end, %if.then2
   %errors.1 = phi i32 [ %errors.081112, %if.end208 ], [ %spec.select, %if.then219 ], [ %spec.select, %cond.end ], [ %inc251, %_.exit56 ], [ %errors.081112, %if.else252 ], [ %errors.081112, %cond.end262 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.082111, i64 16
   %88 = load ptr, ptr @del_list, align 8
-  %89 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %89 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %88, i64 %89
   %cmp202 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp202, label %for.body204, label %land.rhs.for.end269.loopexit_crit_edge
@@ -1612,7 +1612,7 @@ entry:
   %dtype = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %dir, i8 0, i64 312, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %confirm, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_dirs.real_ocwd, i64 24, i1 false)
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %tobool.not42 = icmp eq i64 %0, 0
   br i1 %tobool.not42, label %for.end44, label %if.end.lr.ph
 
@@ -1706,7 +1706,7 @@ for.end:                                          ; preds = %for.inc, %if.end11
   br i1 %tobool27.not38, label %if.else, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %for.end
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %cmp2850 = icmp sgt i64 %14, 0
   br i1 %cmp2850, label %for.body29, label %for.end37
 
@@ -1729,7 +1729,7 @@ for.inc36:                                        ; preds = %for.body29, %if.the
   %changed.2 = phi i32 [ %inc34, %if.then32 ], [ %changed.14051, %for.body29 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.03952, i64 16
   %.pre = load ptr, ptr @del_list, align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %.pre, i64 %17
   %cmp28 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp28, label %for.body29, label %for.end37, !llvm.loop !17
@@ -1772,7 +1772,7 @@ if.end43:                                         ; preds = %_.exit30, %if.then3
   %changed.1.lcssa47 = phi i32 [ 0, %_.exit30 ], [ %changed.140.lcssa, %if.then39 ]
   call void @strbuf_list_free(ptr noundef nonnull %call.i21) #14
   call void @dir_clear(ptr noundef nonnull %dir) #14
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %tobool.not = icmp eq i64 %22, 0
   br i1 %tobool.not, label %for.end44, label %if.end
 
@@ -1794,13 +1794,13 @@ entry:
   store i32 1, ptr %menu_stuff, align 8
   %stuff = getelementptr inbounds nuw i8, ptr %menu_stuff, i64 8
   store ptr @del_list, ptr %stuff, align 8
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %conv = trunc i64 %0 to i32
   %nr = getelementptr inbounds nuw i8, ptr %menu_stuff, i64 4
   store i32 %conv, ptr %nr, align 4
   %call = call fastcc ptr @list_and_choose(ptr noundef %menu_opts, ptr noundef %menu_stuff)
   %1 = load ptr, ptr @del_list, align 8
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %cmp11.not = icmp eq i64 %2, 0
   br i1 %cmp11.not, label %for.end, label %for.body
 
@@ -1838,7 +1838,7 @@ if.else12:                                        ; preds = %if.else
 for.inc:                                          ; preds = %if.then, %if.else12, %if.then11
   %j.1 = phi i32 [ %j.013, %if.then ], [ %inc, %if.then11 ], [ %j.013, %if.else12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %cmp = icmp ugt i64 %8, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
@@ -1863,7 +1863,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %len = getelementptr inbounds nuw i8, ptr %confirm, i64 8
   %buf10 = getelementptr inbounds nuw i8, ptr %confirm, i64 16
   %1 = load ptr, ptr @del_list, align 8
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %add.ptr12 = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %2
   %cmp13 = icmp ult ptr %0, %add.ptr12
   br i1 %cmp13, label %for.body, label %if.end19
@@ -1919,7 +1919,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %if.
   %changed.1 = phi i32 [ %inc, %if.then14 ], [ %changed.0815, %lor.lhs.false ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.0716, i64 16
   %8 = load ptr, ptr @del_list, align 8
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %8, i64 %9
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %land.rhs.for.end_crit_edge
@@ -2001,7 +2001,7 @@ entry:
 
 land.rhs.preheader:                               ; preds = %entry
   %2 = load ptr, ptr @del_list, align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %add.ptr6 = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %3
   %cmp7 = icmp ult ptr %1, %add.ptr6
   br i1 %cmp7, label %for.body, label %for.end
@@ -2013,7 +2013,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %call1 = call ptr @string_list_append(ptr noundef nonnull %list, ptr noundef %call) #14
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.058, i64 16
   %5 = load ptr, ptr @del_list, align 8
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @del_list, i64 8), align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %5, i64 %6
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end

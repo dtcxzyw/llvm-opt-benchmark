@@ -200,8 +200,8 @@ define void @_ZN23ResolvedAddressesDialogC2EP7QWidget7QStringP4wtap(ptr noundef 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 488), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 488), ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = invoke noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #17
           to label %35 unwind label %98
@@ -3712,9 +3712,9 @@ declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN23ResolvedAddressesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

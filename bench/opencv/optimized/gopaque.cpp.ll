@@ -138,7 +138,7 @@ define void @_ZN2cv6detail8GOpaqueUC2Ev(ptr nocapture noundef nonnull writeonly 
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %4, ptr %22, align 8
   store ptr %8, ptr %7, align 8
@@ -413,7 +413,7 @@ define void @_ZN2cv6detail8GOpaqueUC2ERKNS_5GNodeEm(ptr nocapture noundef nonnul
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7GOriginELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %5, ptr %22, align 8
   store ptr %8, ptr %7, align 8

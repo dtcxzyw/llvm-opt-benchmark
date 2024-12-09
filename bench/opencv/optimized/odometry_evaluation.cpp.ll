@@ -431,7 +431,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %110
   store i32 1, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %138, i64 12
   store i32 1, ptr %154, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4rgbd13OdometryFrameELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %138, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4rgbd13OdometryFrameELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %138, align 8
   %155 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store ptr %134, ptr %155, align 8
   store ptr %138, ptr %137, align 8
@@ -482,7 +482,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %110
   store i32 1, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %160, i64 12
   store i32 1, ptr %176, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4rgbd13OdometryFrameELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %160, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4rgbd13OdometryFrameELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %160, align 8
   %177 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store ptr %156, ptr %177, align 8
   store ptr %160, ptr %159, align 8

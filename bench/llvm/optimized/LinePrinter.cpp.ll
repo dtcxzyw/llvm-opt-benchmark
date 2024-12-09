@@ -949,7 +949,7 @@ define dso_local void @_ZN4llvm3pdb11LinePrinter19formatMsfStreamDataENS_9String
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i8 1, ptr %29, align 8, !alias.scope !14
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %30, align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %30, align 8, !alias.scope !14
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %15, ptr %31, align 8, !alias.scope !14
   store ptr %30, ptr %27, align 8, !alias.scope !14
@@ -1012,7 +1012,7 @@ _ZN4llvm3pdb11LinePrinter10formatLineIJRjEEEvPKcDpOT_.exit: ; preds = %40, %42
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 1, ptr %61, align 8, !alias.scope !19
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %62, align 8, !alias.scope !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %62, align 8, !alias.scope !19
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %15, ptr %63, align 8, !alias.scope !19
   store ptr %62, ptr %59, align 8, !alias.scope !19
@@ -1096,7 +1096,7 @@ _ZN4llvm3pdb11LinePrinter7NewLineEv.exit:         ; preds = %92, %94
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 1, ptr %103, align 8, !alias.scope !24
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %104, align 8, !alias.scope !24
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %104, align 8, !alias.scope !24
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %15, ptr %105, align 8, !alias.scope !24
   store ptr %104, ptr %101, align 8, !alias.scope !24
@@ -1731,19 +1731,19 @@ _ZN4llvm7formatvIJRjRNS_9StringRefERmmEEEDaPKcDpOT_.exit: ; preds = %6, %10
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 1, ptr %15, align 8, !alias.scope !48
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterImEE, i64 16), ptr %16, align 8, !alias.scope !48
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterImEE, i64 16), ptr %16, align 8, !alias.scope !48
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 %9, ptr %17, align 8, !alias.scope !48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRmEE, i64 16), ptr %18, align 8, !alias.scope !48
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRmEE, i64 16), ptr %18, align 8, !alias.scope !48
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr %4, ptr %19, align 8, !alias.scope !48
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNS_9StringRefEEE, i64 16), ptr %20, align 8, !alias.scope !48
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNS_9StringRefEEE, i64 16), ptr %20, align 8, !alias.scope !48
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %3, ptr %21, align 8, !alias.scope !48
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %22, align 8, !alias.scope !48
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %22, align 8, !alias.scope !48
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %2, ptr %23, align 8, !alias.scope !48
   store ptr %22, ptr %13, align 8, !alias.scope !48
@@ -2360,7 +2360,7 @@ _ZN4llvm3pdb11LinePrinter7NewLineEv.exit23:       ; preds = %285, %287
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !64
   store i8 1, ptr %180, align 8, !alias.scope !64
   store ptr @.str.7, ptr %182, align 8, !alias.scope !64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12AlignAdapterIRA16_KcEE, i64 16), ptr %181, align 8, !alias.scope !64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12AlignAdapterIRA16_KcEE, i64 16), ptr %181, align 8, !alias.scope !64
   store i32 1, ptr %183, align 8
   store i64 114, ptr %.sroa.530.16..sroa_idx, align 8
   store i8 45, ptr %.sroa.6.16..sroa_idx, align 8
@@ -2423,7 +2423,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %313, %315
   br label %_ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN12_GLOBAL__N_13RunESaIS1_EED2Ev.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit27, %318
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %10, align 8
   %322 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %323 = load ptr, ptr %322, align 8
   %.not.i.i.i.i.i.i29 = icmp eq ptr %323, null
@@ -2514,7 +2514,7 @@ define linkonce_odr hidden void @_ZN4llvm7support6detail12AlignAdapterIRA16_KcED
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -2660,7 +2660,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %32, %34
   store ptr %12, ptr %13, align 8, !alias.scope !70
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !70
   store i8 1, ptr %14, align 8, !alias.scope !70
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIjEE, i64 16), ptr %15, align 8, !alias.scope !70
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIjEE, i64 16), ptr %15, align 8, !alias.scope !70
   store i32 %.0.copyload.i.i.i, ptr %16, align 8, !alias.scope !70
   store ptr %15, ptr %12, align 8, !alias.scope !70
   %41 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(33) %4) #16
@@ -3541,7 +3541,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !126
   %155 = load ptr, ptr %2, align 8, !noalias !129
   store ptr null, ptr %2, align 8, !noalias !129
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18
@@ -3680,7 +3680,7 @@ define linkonce_odr hidden void @_ZN4llvm7support6detail12AlignAdapterIRA16_KcE6
   %6 = alloca %"struct.llvm::FmtAlign", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRA16_KcEE, i64 16), ptr %5, align 8, !alias.scope !147
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRA16_KcEE, i64 16), ptr %5, align 8, !alias.scope !147
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !alias.scope !147
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3728,7 +3728,7 @@ define linkonce_odr hidden void @_ZN4llvm8FmtAlign6formatERNS_11raw_ostreamENS_9
   store i32 1, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %21, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
@@ -3995,7 +3995,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null

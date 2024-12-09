@@ -83,7 +83,7 @@ $_ZTV37AdaptiveSizePolicySpaceOverheadTester = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18AdaptiveSizePolicyC2Emmmdj(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV18AdaptiveSizePolicy, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV18AdaptiveSizePolicy, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = uitofp i32 %5 to double
   %9 = fadd double %8, 1.000000e+00
@@ -688,7 +688,7 @@ define hidden void @_ZN18AdaptiveSizePolicy23check_gc_overhead_limitEmmmbN7GCCau
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef double %12(ptr noundef nonnull align 8 dereferenceable(232) %0) #10
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV36AdaptiveSizePolicyTimeOverheadTester, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV36AdaptiveSizePolicyTimeOverheadTester, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -701,7 +701,7 @@ define hidden void @_ZN18AdaptiveSizePolicy23check_gc_overhead_limitEmmmbN7GCCau
   %22 = load ptr, ptr %21, align 8
   %23 = load float, ptr %22, align 4
   %24 = fpext float %23 to double
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV37AdaptiveSizePolicySpaceOverheadTester, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37AdaptiveSizePolicySpaceOverheadTester, i64 16), ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 16

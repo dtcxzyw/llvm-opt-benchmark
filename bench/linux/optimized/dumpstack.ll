@@ -82,7 +82,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @in_entry_stack(ptr noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 section ".noinstr.text" align 16 {
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !5
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !5
   %4 = tail call ptr @get_cpu_entry_area(i32 noundef %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4096
   %6 = getelementptr i8, ptr %4, i64 8192
@@ -521,7 +521,7 @@ define dso_local i64 @oops_begin() #3 align 16 {
   %2 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
-  %3 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !15
+  %3 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !15
   %4 = load volatile i32, ptr @die_lock, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %11, !prof !16
@@ -623,7 +623,7 @@ define dso_local void @oops_end(i64 noundef %0, ptr noundef %1, i32 noundef %2) 
   ret void
 
 23:                                               ; preds = %20
-  %24 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !21
+  %24 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !21
   %25 = and i32 %24, 16776960
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %28, label %27
@@ -682,7 +682,7 @@ define internal void @__die_header(ptr noundef %0, ptr nocapture noundef readonl
   %8 = and i64 %2, 65535
   %9 = add i32 %4, 1
   store i32 %9, ptr @die_counter, align 4
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 64), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %11 = and i64 %10, 8796093022208
   %12 = icmp eq i64 %11, 0
   %13 = select i1 %12, ptr @.str.18, ptr @.str.17
@@ -737,7 +737,7 @@ define dso_local range(i32 0, 2) i32 @__die(ptr noundef %0, ptr noundef %1, i64 
   %8 = and i64 %2, 65535
   %9 = add i32 %4, 1
   store i32 %9, ptr @die_counter, align 4
-  %10 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 64), align 8
+  %10 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %11 = and i64 %10, 8796093022208
   %12 = icmp eq i64 %11, 0
   %13 = select i1 %12, ptr @.str.18, ptr @.str.17
@@ -761,7 +761,7 @@ define dso_local void @die(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   %9 = and i64 %2, 65535
   %10 = add i32 %5, 1
   store i32 %10, ptr @die_counter, align 4
-  %11 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 64), align 8
+  %11 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %12 = and i64 %11, 8796093022208
   %13 = icmp eq i64 %12, 0
   %14 = select i1 %13, ptr @.str.18, ptr @.str.17
@@ -788,7 +788,7 @@ define dso_local void @die_addr(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %10 = and i64 %2, 65535
   %11 = add i32 %6, 1
   store i32 %11, ptr @die_counter, align 4
-  %12 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 64), align 8
+  %12 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %13 = and i64 %12, 8796093022208
   %14 = icmp eq i64 %13, 0
   %15 = select i1 %14, ptr @.str.18, ptr @.str.17

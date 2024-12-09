@@ -92,7 +92,7 @@ $_ZN17ZRuntimeCallSpill7restoreEv = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN20ZBarrierSetAssemblerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV20ZBarrierSetAssembler, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV20ZBarrierSetAssembler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   ret void
@@ -179,7 +179,7 @@ define hidden void @_ZN20ZBarrierSetAssembler7load_atEP14MacroAssemblerm9BasicTy
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -473,7 +473,7 @@ _ZL17is_c2_compilationv.exit.thread:              ; preds = %24, %_ZL17is_c2_com
   store ptr null, ptr %88, align 8, !alias.scope !6
   %89 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 18, ptr %89, align 8, !alias.scope !6
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %17, align 8, !alias.scope !6
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %17, align 8, !alias.scope !6
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -485,7 +485,7 @@ _ZL17is_c2_compilationv.exit.thread:              ; preds = %24, %_ZL17is_c2_com
   store ptr null, ptr %94, align 8, !alias.scope !11
   %95 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 18, ptr %95, align 8, !alias.scope !11
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %18, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %18, align 8, !alias.scope !11
   %96 = load ptr, ptr %90, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
@@ -513,7 +513,7 @@ _ZL17is_c2_compilationv.exit.thread:              ; preds = %24, %_ZL17is_c2_com
   %109 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %109, align 4
   %110 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %110, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -557,7 +557,7 @@ _ZL17is_c2_compilationv.exit.thread:              ; preds = %24, %_ZL17is_c2_com
   %125 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %125, align 4
   %126 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %126, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -591,7 +591,7 @@ define internal fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7Ad
   store ptr null, ptr %16, align 8, !alias.scope !16
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 18, ptr %17, align 8, !alias.scope !16
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !16
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !16
   %18 = load ptr, ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
@@ -610,7 +610,7 @@ define internal fastcc void @_ZL26emit_store_fast_path_checkP14MacroAssembler7Ad
   store ptr null, ptr %26, align 8, !alias.scope !21
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 18, ptr %27, align 8, !alias.scope !21
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %8, align 8, !alias.scope !21
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %8, align 8, !alias.scope !21
   %28 = load ptr, ptr %10, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -703,7 +703,7 @@ define hidden void @_ZNK20ZBarrierSetAssembler20store_barrier_mediumEP14MacroAss
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -722,7 +722,7 @@ define hidden void @_ZNK20ZBarrierSetAssembler20store_barrier_mediumEP14MacroAss
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -785,14 +785,14 @@ define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Addr
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %27 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %26) #13
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, ptr noundef nonnull %9) #13
   %28 = call noundef i32 @_ZN19ZStoreBarrierBuffer14current_offsetEv() #13
@@ -808,7 +808,7 @@ define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Addr
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -834,7 +834,7 @@ define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Addr
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -854,7 +854,7 @@ define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Addr
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -873,7 +873,7 @@ define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Addr
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -913,7 +913,7 @@ define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Addr
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -931,7 +931,7 @@ define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Addr
   %88 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -950,7 +950,7 @@ define internal fastcc void @_ZL24store_barrier_buffer_addP14MacroAssembler7Addr
   %97 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %97, align 4
   %98 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -1023,7 +1023,7 @@ define hidden void @_ZN20ZBarrierSetAssembler8store_atEP14MacroAssemblerm9BasicT
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1590,7 +1590,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %52, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -1608,7 +1608,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1626,7 +1626,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -1644,7 +1644,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -1711,7 +1711,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %106 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -1736,7 +1736,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %118 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %118, align 4
   %119 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %119, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -1754,7 +1754,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %126 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %126, align 4
   %127 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %127, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -1813,7 +1813,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %150 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i8 0, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %151, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -1838,7 +1838,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %162 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %162, align 4
   %163 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %163, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %164, align 8
   %165 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -1846,7 +1846,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %29, i32 %7) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 21, i1 false)
   %166 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %167 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %167 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %167(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(40) %166) #13
   call void @_ZN20ZBarrierSetAssembler12copy_load_atEP14MacroAssemblerm9BasicTypem8Register7AddressS3_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1, i64 noundef %2, i8 noundef zeroext %3, i64 noundef 8, i32 %7, ptr noundef nonnull %30, i32 -1)
   store i32 4, ptr %31, align 8
@@ -1861,7 +1861,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %172 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -1886,7 +1886,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %184 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 0, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr null, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -1904,7 +1904,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   %192 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %192, align 4
   %193 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %193, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -2002,7 +2002,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -2020,7 +2020,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -2038,7 +2038,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2056,7 +2056,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2131,7 +2131,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %113 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 0, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %114, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -2149,7 +2149,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %121 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 0, ptr %121, align 4
   %122 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %122, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -2174,7 +2174,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %133 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %133, align 4
   %134 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %134, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -2246,7 +2246,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %164 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %164, align 4
   %165 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %165, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %165, align 8
   %166 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %166, align 8
   %167 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -2264,7 +2264,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %172 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -2289,7 +2289,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %184 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -2314,7 +2314,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %196 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i8 0, ptr %196, align 4
   %197 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %197, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -2339,7 +2339,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10
   %208 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i8 0, ptr %208, align 4
   %209 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %209, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %209, align 8
   %210 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr null, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %36, i64 40
@@ -2440,7 +2440,7 @@ define hidden void @_ZN20ZBarrierSetAssembler18arraycopy_prologueEP14MacroAssemb
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -2467,7 +2467,7 @@ define hidden void @_ZN20ZBarrierSetAssembler18arraycopy_prologueEP14MacroAssemb
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -2494,7 +2494,7 @@ define hidden void @_ZN20ZBarrierSetAssembler18arraycopy_prologueEP14MacroAssemb
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2524,7 +2524,7 @@ define hidden void @_ZN20ZBarrierSetAssembler18arraycopy_prologueEP14MacroAssemb
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -2551,7 +2551,7 @@ define hidden void @_ZN20ZBarrierSetAssembler18arraycopy_prologueEP14MacroAssemb
   %93 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i8 0, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %94, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -2578,7 +2578,7 @@ define hidden void @_ZN20ZBarrierSetAssembler18arraycopy_prologueEP14MacroAssemb
   %106 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %106, align 4
   %107 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -2670,7 +2670,7 @@ define hidden void @_ZN20ZBarrierSetAssembler29try_resolve_jobject_in_nativeEP14
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -2692,7 +2692,7 @@ define hidden void @_ZN20ZBarrierSetAssembler29try_resolve_jobject_in_nativeEP14
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2718,7 +2718,7 @@ define hidden void @_ZN20ZBarrierSetAssembler29try_resolve_jobject_in_nativeEP14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %55, i8 -1, i64 16, i1 false)
   store i8 0, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2791,7 +2791,7 @@ define hidden void @_ZNK20ZBarrierSetAssembler19generate_c1_uncolorEP13LIR_Assem
   store ptr null, ptr %7, align 8, !alias.scope !29
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 18, ptr %8, align 8, !alias.scope !29
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !29
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !29
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2819,7 +2819,7 @@ define hidden void @_ZNK20ZBarrierSetAssembler17generate_c1_colorEP13LIR_Assembl
   store ptr null, ptr %8, align 8, !alias.scope !34
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 18, ptr %9, align 8, !alias.scope !34
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !34
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %5, align 8, !alias.scope !34
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -2836,7 +2836,7 @@ define hidden void @_ZNK20ZBarrierSetAssembler17generate_c1_colorEP13LIR_Assembl
   store ptr null, ptr %19, align 8, !alias.scope !39
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 18, ptr %20, align 8, !alias.scope !39
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !39
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %6, align 8, !alias.scope !39
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -2868,7 +2868,7 @@ define hidden void @_ZNK20ZBarrierSetAssembler24generate_c1_load_barrierEP13LIR_
   store ptr null, ptr %16, align 8, !alias.scope !44
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 18, ptr %17, align 8, !alias.scope !44
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %11, align 8, !alias.scope !44
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %11, align 8, !alias.scope !44
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -2886,7 +2886,7 @@ define hidden void @_ZNK20ZBarrierSetAssembler24generate_c1_load_barrierEP13LIR_
   store ptr null, ptr %25, align 8, !alias.scope !49
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 18, ptr %26, align 8, !alias.scope !49
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %9, align 8, !alias.scope !49
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %9, align 8, !alias.scope !49
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -2908,7 +2908,7 @@ define hidden void @_ZNK20ZBarrierSetAssembler24generate_c1_load_barrierEP13LIR_
   store ptr null, ptr %35, align 8, !alias.scope !54
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 18, ptr %36, align 8, !alias.scope !54
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %7, align 8, !alias.scope !54
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %7, align 8, !alias.scope !54
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -3449,7 +3449,7 @@ define linkonce_odr hidden void @_ZN15ZSetupArgumentsC2EP14MacroAssemblerP18ZLoa
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %71, align 4
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -3457,7 +3457,7 @@ define linkonce_odr hidden void @_ZN15ZSetupArgumentsC2EP14MacroAssemblerP18ZLoa
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 21, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %76 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %76(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %75) #13
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %62, i32 6, ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
@@ -3486,7 +3486,7 @@ define linkonce_odr hidden void @_ZN15ZSetupArgumentsC2EP14MacroAssemblerP18ZLoa
   %88 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -3494,7 +3494,7 @@ define linkonce_odr hidden void @_ZN15ZSetupArgumentsC2EP14MacroAssemblerP18ZLoa
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 21, i1 false)
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %93 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %93(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr noundef nonnull align 8 dereferenceable(40) %92) #13
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %79, i32 6, ptr noundef nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
@@ -3853,7 +3853,7 @@ define hidden void @_ZN20ZBarrierSetAssembler9check_oopEP14MacroAssembler8Regist
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %38, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -4061,7 +4061,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -4081,7 +4081,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 0, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -4101,7 +4101,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 0, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -4121,7 +4121,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -4141,7 +4141,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %74, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -4161,7 +4161,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i8 0, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -4180,7 +4180,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %92, align 4
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -4198,7 +4198,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -4219,7 +4219,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %109, align 4
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %110, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -4239,7 +4239,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %119, align 4
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %120, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -4259,7 +4259,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %129 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %130, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -4279,7 +4279,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %139 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %139, align 4
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %140, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -4299,7 +4299,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -4319,7 +4319,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %159 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %159, align 4
   %160 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %160, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -4338,7 +4338,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %168 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %168, align 4
   %169 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %169, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %169, align 8
   %170 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -4356,7 +4356,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill4saveEv(ptr noundef nonnu
   %176 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %176, align 4
   %177 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %177, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -4419,7 +4419,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 0, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -4438,7 +4438,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -4458,7 +4458,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 0, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -4478,7 +4478,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %61, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -4498,7 +4498,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -4518,7 +4518,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i8 0, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -4538,7 +4538,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %91, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -4558,7 +4558,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -4579,7 +4579,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %109, align 4
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %110, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -4598,7 +4598,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %118, align 4
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %119, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -4618,7 +4618,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %128 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %128, align 4
   %129 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %129, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -4638,7 +4638,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %138 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %138, align 4
   %139 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %139, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -4658,7 +4658,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %148 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %148, align 4
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %149, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %149, align 8
   %150 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -4678,7 +4678,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %158 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %158, align 4
   %159 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %159, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -4698,7 +4698,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %168 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %168, align 4
   %169 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %169, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %169, align 8
   %170 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -4718,7 +4718,7 @@ define linkonce_odr hidden void @_ZN17ZRuntimeCallSpill7restoreEv(ptr noundef no
   %178 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %178, align 4
   %179 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %179, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %180, align 8
   %181 = getelementptr inbounds nuw i8, ptr %17, i64 40

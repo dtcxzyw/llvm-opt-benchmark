@@ -412,7 +412,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 12
   store i32 1, ptr %81, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3MatELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %68, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3MatELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %68, align 8
   %82 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %19, ptr %82, align 8
   store ptr %19, ptr @img, align 8

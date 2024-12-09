@@ -121,7 +121,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
   br label %29
 
 29:                                               ; preds = %26, %28, %9, %3
-  %30 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_quit_lock, i64 120)) #8
+  %30 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_quit_lock, i64 120)) #8
   %.not17 = icmp eq i32 %30, 0
   br i1 %.not17, label %31, label %34
 
@@ -453,7 +453,7 @@ pmix_pointer_array_get_item.exit23:               ; preds = %35, %41, %44
   br label %print_aborted_job.exit
 
 139:                                              ; preds = %54
-  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8
   %141 = getelementptr inbounds nuw i8, ptr %.0.i22, i64 136
   %142 = load ptr, ptr %141, align 8
   %143 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.13, i32 noundef 1, ptr noundef %140, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef %142) #8

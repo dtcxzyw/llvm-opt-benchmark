@@ -4305,7 +4305,7 @@ while.end21.i.i.us.us.us.i:                       ; preds = %while.end.i.i33.us.
 
 while.end.us.us.us.i:                             ; preds = %rcu_read_auto_lock.exit.split.us.split.us.i, %while.end.us.us.us.i
   %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %while.end.us.us.us.i ], [ 0, %rcu_read_auto_lock.exit.split.us.split.us.i ]
-  %arrayidx.us.us.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv76.i
+  %arrayidx.us.us.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv76.i
   %13 = load atomic i64, ptr %arrayidx.us.us.us.i monotonic, align 8
   %14 = inttoptr i64 %13 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
@@ -4347,7 +4347,7 @@ while.end21.i.i.us.us.i:                          ; preds = %while.end.i.i33.us.
 
 while.end.us.us.i:                                ; preds = %rcu_read_auto_lock.exit.split.us.split.us.i, %while.end.us.us.i
   %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %while.end.us.us.i ], [ 0, %rcu_read_auto_lock.exit.split.us.split.us.i ]
-  %arrayidx.us.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv72.i
+  %arrayidx.us.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv72.i
   %17 = load atomic i64, ptr %arrayidx.us.us.i monotonic, align 8
   %18 = inttoptr i64 %17 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
@@ -4412,7 +4412,7 @@ while.end21.i.i.us.i:                             ; preds = %while.end.i.i33.us.
 
 while.end.us.i:                                   ; preds = %rcu_read_auto_lock.exit.split.us.i, %while.end.us.i
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %while.end.us.i ], [ 0, %rcu_read_auto_lock.exit.split.us.i ]
-  %arrayidx.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv68.i
+  %arrayidx.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv68.i
   %23 = load atomic i64, ptr %arrayidx.us.i monotonic, align 8
   %24 = inttoptr i64 %23 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
@@ -4458,7 +4458,7 @@ if.end55.us.us.i:                                 ; preds = %if.then50.us.us.i, 
 
 while.end.i:                                      ; preds = %rcu_read_auto_lock.exit.i, %while.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.end.i ], [ 0, %rcu_read_auto_lock.exit.i ]
-  %arrayidx.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [3 x ptr], ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv.i
   %29 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %30 = inttoptr i64 %29 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
@@ -7233,7 +7233,7 @@ if.then8:                                         ; preds = %trace_global_dirty_
   store i32 %inc.i, ptr @memory_region_transaction_depth, align 4
   store i8 1, ptr @memory_region_update_pending, align 1
   tail call void @memory_region_transaction_commit()
-  %.pn9 = load ptr, ptr getelementptr inbounds (i8, ptr @memory_listeners, i64 8), align 8
+  %.pn9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memory_listeners, i64 8), align 8
   %_listener.0.in.in10 = getelementptr inbounds nuw i8, ptr %.pn9, i64 8
   %_listener.0.in11 = load ptr, ptr %_listener.0.in.in10, align 8
   %_listener.012 = load ptr, ptr %_listener.0.in11, align 8
@@ -7288,7 +7288,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   store ptr %as, ptr %address_space, align 8
   %2 = load ptr, ptr @memory_listeners, align 8
   %cmp = icmp eq ptr %2, null
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @memory_listeners, i64 8), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memory_listeners, i64 8), align 8
   br i1 %cmp, label %do.body, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
@@ -7308,7 +7308,7 @@ do.body:                                          ; preds = %if.end, %lor.lhs.fa
   %tql_prev6 = getelementptr inbounds nuw i8, ptr %listener, i64 168
   store ptr %.pre, ptr %tql_prev6, align 8
   store ptr %listener, ptr %.pre, align 8
-  store ptr %link, ptr getelementptr inbounds (i8, ptr @memory_listeners, i64 8), align 8
+  store ptr %link, ptr getelementptr inbounds nuw (i8, ptr @memory_listeners, i64 8), align 8
   br label %if.end30
 
 for.body:                                         ; preds = %lor.lhs.false, %for.inc
@@ -7704,7 +7704,7 @@ if.then7:                                         ; preds = %listener_del_addres
   br label %if.end14
 
 if.else:                                          ; preds = %listener_del_address_space.exit
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @memory_listeners, i64 8), align 8
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @memory_listeners, i64 8), align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then7
@@ -7789,11 +7789,11 @@ memory_region_ref.exit:                           ; preds = %entry, %land.lhs.tr
   store ptr %listeners, ptr %tql_prev, align 8
   %address_spaces_link = getelementptr inbounds nuw i8, ptr %as, i64 72
   store ptr null, ptr %address_spaces_link, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @address_spaces, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @address_spaces, i64 8), align 8
   %tql_prev6 = getelementptr inbounds nuw i8, ptr %as, i64 80
   store ptr %1, ptr %tql_prev6, align 8
   store ptr %as, ptr %1, align 8
-  store ptr %address_spaces_link, ptr getelementptr inbounds (i8, ptr @address_spaces, i64 8), align 8
+  store ptr %address_spaces_link, ptr getelementptr inbounds nuw (i8, ptr @address_spaces, i64 8), align 8
   %tobool.not = icmp eq ptr %name, null
   %cond = select i1 %tobool.not, ptr @.str.40, ptr %name
   %call = tail call noalias ptr @g_strdup(ptr noundef nonnull %cond) #19
@@ -7986,7 +7986,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @address_spaces, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @address_spaces, i64 8), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

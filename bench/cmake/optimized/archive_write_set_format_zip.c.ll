@@ -615,7 +615,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br i1 %.not316, label %64, label %60
 
 60:                                               ; preds = %40
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 48), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 48), align 8
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %63 = tail call i32 %61(ptr noundef nonnull %62) #13
   br label %64
@@ -627,7 +627,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br i1 %.not317, label %70, label %67
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 24), align 8
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 24), align 8
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 200
   tail call void %68(ptr noundef nonnull %69) #13
   br label %70
@@ -2189,7 +2189,7 @@ trad_enc_encrypt_update.exit.i:                   ; preds = %74
   %130 = shl nuw nsw i64 %..i, 1
   %131 = or disjoint i64 %130, 2
   %132 = call i32 %128(ptr noundef nonnull %118, i64 noundef %129, ptr noundef nonnull %8, i64 noundef %.40.i, i32 noundef 1000, ptr noundef nonnull %9, i64 noundef %131) #13
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 32), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 32), align 8
   %134 = getelementptr inbounds nuw i8, ptr %117, i64 104
   %135 = call i32 %133(ptr noundef nonnull %134, ptr noundef nonnull %9, i64 noundef %..i) #13
   %.not37.i = icmp eq i32 %135, 0
@@ -2209,7 +2209,7 @@ trad_enc_encrypt_update.exit.i:                   ; preds = %74
   br i1 %.not38.i, label %144, label %141
 
 141:                                              ; preds = %137
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 48), align 8
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 48), align 8
   %143 = call i32 %142(ptr noundef nonnull %134) #13
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.49) #13
   br label %154
@@ -2286,9 +2286,9 @@ trad_enc_encrypt_update.exit.i:                   ; preds = %74
   %179 = getelementptr inbounds nuw i8, ptr %19, i64 432
   %180 = getelementptr i8, ptr %19, i64 88
   %181 = getelementptr inbounds nuw i8, ptr %19, i64 84
-  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 40), align 8
+  %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 40), align 8
   %183 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 8), align 8
+  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 8), align 8
   %185 = getelementptr inbounds nuw i8, ptr %19, i64 200
   %186 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %187 = getelementptr inbounds nuw i8, ptr %19, i64 272
@@ -2441,9 +2441,9 @@ trad_enc_encrypt_update.exit:                     ; preds = %197, %190
   %271 = getelementptr i8, ptr %19, i64 88
   %272 = getelementptr inbounds nuw i8, ptr %19, i64 84
   %273 = getelementptr inbounds nuw i8, ptr %19, i64 192
-  %274 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 40), align 8
+  %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 40), align 8
   %275 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %276 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 8), align 8
+  %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 8), align 8
   %277 = getelementptr inbounds nuw i8, ptr %19, i64 200
   %278 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %279 = getelementptr inbounds nuw i8, ptr %19, i64 272
@@ -2642,9 +2642,9 @@ define internal i32 @archive_write_zip_finish_entry(ptr noundef %0) #0 {
   %22 = getelementptr i8, ptr %10, i64 88
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 84
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 192
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 40), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 40), align 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 8), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 8), align 8
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 200
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 272
@@ -2774,7 +2774,7 @@ trad_enc_encrypt_update.exit:                     ; preds = %41, %38, %69, %76
 
 97:                                               ; preds = %94
   store i64 20, ptr %6, align 8
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 16), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 16), align 8
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 200
   call void %98(ptr noundef nonnull %99, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
   %100 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 10) #13
@@ -3644,7 +3644,7 @@ define internal noundef i32 @archive_write_zip_free(ptr nocapture noundef %0) #0
   br i1 %.not15, label %21, label %17
 
 17:                                               ; preds = %._crit_edge
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 48), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 48), align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %20 = tail call i32 %18(ptr noundef nonnull %19) #13
   br label %21
@@ -3656,7 +3656,7 @@ define internal noundef i32 @archive_write_zip_free(ptr nocapture noundef %0) #0
   br i1 %.not16, label %27, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 24), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 24), align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 200
   tail call void %25(ptr noundef nonnull %26) #13
   br label %27
@@ -3694,7 +3694,7 @@ define internal fastcc range(i32 0, 2) i32 @is_winzip_aes_encryption_supported(i
   br i1 %.not13, label %13, label %23
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 32), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 32), align 8
   %15 = call i32 %14(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %.) #13
   %.not14 = icmp eq i32 %15, 0
   br i1 %.not14, label %16, label %23
@@ -3704,13 +3704,13 @@ define internal fastcc range(i32 0, 2) i32 @is_winzip_aes_encryption_supported(i
   %..sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %6, i64 16, i64 32
   %..sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %..sroa.sel.v.sroa.sel.v.sroa.sel.v
   %18 = call i32 %17(ptr noundef nonnull %5, ptr noundef nonnull %..sroa.sel.v.sroa.sel.v.sroa.sel, i64 noundef %.) #13
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_cryptor, i64 48), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_cryptor, i64 48), align 8
   %20 = call i32 %19(ptr noundef nonnull %4) #13
   %.not15 = icmp eq i32 %18, 0
   br i1 %.not15, label %21, label %23
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_hmac, i64 24), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_hmac, i64 24), align 8
   call void %22(ptr noundef nonnull %5) #13
   br label %23
 

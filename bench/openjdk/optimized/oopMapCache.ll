@@ -187,7 +187,7 @@ $_ZTV17LogStreamImplBase = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OopMapForCacheEntryC2ERK12methodHandleiP16OopMapCacheEntry(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN14GenerateOopMapC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #17
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV19OopMapForCacheEntry, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV19OopMapForCacheEntry, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -637,7 +637,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 define hidden noundef zeroext i1 @_ZN16OopMapCacheEntry11verify_maskEP13CellTypeStateS1_ii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.VerifyClosure, align 8
   %7 = alloca %class.LogStream, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13VerifyClosure, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13VerifyClosure, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -701,14 +701,14 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   %36 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %36, null
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %7, i1 noundef zeroext false) #17
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %37) #17
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store i32 1, ptr %38, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %7, align 8
   br i1 %.not, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread
@@ -899,7 +899,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
   store i8 99, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %41, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV23NativeSignatureIterator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV23NativeSignatureIterator, i64 16), ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %43 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %1) #17
@@ -919,7 +919,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
   %49 = select i1 %.not.i.i, i32 1, i32 2
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %49, ptr %50, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV19MaskFillerForNative, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV19MaskFillerForNative, i64 16), ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %27, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -945,7 +945,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
 
 _ZN19MaskFillerForNativeC2ERK12methodHandlePmi.exit: ; preds = %.lr.ph.i, %_ZN16OopMapCacheEntry17allocate_bit_maskEv.exit
   call void @_ZN23NativeSignatureIterator7iterateEv(ptr noundef nonnull align 8 dereferenceable(76) %4)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV23NativeSignatureIterator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV23NativeSignatureIterator, i64 16), ptr %4, align 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #17
   ret void
 }
@@ -995,7 +995,7 @@ _ZN16OopMapCacheEntry5flushEv.exit:               ; preds = %3, %8, %11
 
 22:                                               ; preds = %_ZN16OopMapCacheEntry5flushEv.exit
   call void @_ZN14GenerateOopMapC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(16) %1) #17
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV19OopMapForCacheEntry, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV19OopMapForCacheEntry, i64 16), ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store i32 %2, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -1005,7 +1005,7 @@ _ZN16OopMapCacheEntry5flushEv.exit:               ; preds = %3, %8, %11
   %26 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef zeroext i1 @_ZN19OopMapForCacheEntry11compute_mapEP6Thread(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef %27)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14GenerateOopMap, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV14GenerateOopMap, i64 16), ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #17
   br label %30
@@ -1495,7 +1495,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %4, %46, %44
   br i1 %51, label %52, label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
 52:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %53 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %53 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %54 = or i64 %53, 1
   br label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
@@ -2683,7 +2683,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #17
   ret void

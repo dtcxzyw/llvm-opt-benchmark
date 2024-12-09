@@ -6924,7 +6924,7 @@ define dso_local void @refresh_utf8format(ptr nocapture noundef readonly %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr [2 x %struct.unicodeStyleBorderFormat], ptr getelementptr inbounds (i8, ptr @unicode_style, i64 192), i64 0, i64 %4
+  %5 = getelementptr [2 x %struct.unicodeStyleBorderFormat], ptr getelementptr inbounds nuw (i8, ptr @unicode_style, i64 192), i64 0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
@@ -6932,61 +6932,61 @@ define dso_local void @refresh_utf8format(ptr nocapture noundef readonly %0) loc
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr [2 x %struct.unicodeStyleColumnFormat], ptr getelementptr inbounds (i8, ptr @unicode_style, i64 80), i64 0, i64 %12
+  %13 = getelementptr [2 x %struct.unicodeStyleColumnFormat], ptr getelementptr inbounds nuw (i8, ptr @unicode_style, i64 80), i64 0, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 8), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 8), align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 16), align 8
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 16), align 8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = getelementptr [2 x ptr], ptr %18, i64 0, i64 %4
   %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 24), align 8
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 24), align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 32), align 8
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 32), align 8
   %23 = load ptr, ptr %9, align 8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 40), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 40), align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = getelementptr [2 x ptr], ptr %24, i64 0, i64 %4
   %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 48), align 8
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 48), align 8
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %28 = getelementptr [2 x ptr], ptr %27, i64 0, i64 %8
   %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 56), align 8
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 56), align 8
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %31 = getelementptr [2 x ptr], ptr %30, i64 0, i64 %4
   %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 64), align 8
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 72), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 64), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 72), align 8
   %33 = load ptr, ptr %5, align 8
-  store ptr %33, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 80), align 8
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 80), align 8
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %35 = getelementptr [2 x ptr], ptr %34, i64 0, i64 %4
   %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 88), align 8
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 88), align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 96), align 8
-  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 104), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 96), align 8
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 104), align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 112), align 8
+  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 112), align 8
   %41 = load ptr, ptr %13, align 8
-  store ptr %41, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 120), align 8
-  store ptr %40, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 128), align 8
-  store ptr %41, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 136), align 8
-  store ptr %41, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 144), align 8
-  store ptr %41, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 152), align 8
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 160), align 8
-  store ptr @.str.193, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 168), align 8
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 176), align 8
-  store ptr @.str.193, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 184), align 8
-  store ptr @.str.194, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 192), align 8
-  store ptr @.str.194, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 200), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pg_utf8format, i64 208), align 8
+  store ptr %41, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 120), align 8
+  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 128), align 8
+  store ptr %41, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 136), align 8
+  store ptr %41, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 144), align 8
+  store ptr %41, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 152), align 8
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 160), align 8
+  store ptr @.str.193, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 168), align 8
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 176), align 8
+  store ptr @.str.193, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 184), align 8
+  store ptr @.str.194, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 192), align 8
+  store ptr @.str.194, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 200), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pg_utf8format, i64 208), align 8
   ret void
 }
 

@@ -310,7 +310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 16)) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.16", align 8
   %6 = zext i1 %3 to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = atomicrmw add ptr @_ZN10cmDebugger19cmDebuggerVariables6NextIdE, i64 1 seq_cst, align 8
   store i64 %8, ptr %7, align 8
@@ -609,7 +609,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt8functionIFSt6vectorINS_23cmDebuggerVariableEntryESaISC_EEvEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 16)) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::function.16", align 8
   %7 = zext i1 %3 to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = atomicrmw add ptr @_ZN10cmDebugger19cmDebuggerVariables6NextIdE, i64 1 seq_cst, align 8
   store i64 %9, ptr %8, align 8
@@ -1593,7 +1593,7 @@ _ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EE5clearEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -4303,12 +4303,12 @@ _ZN3dap24VariablePresentationHintC2ERKS0_.exit:   ; preds = %9
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_cmDebuggerVariables.cxx() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i8 0, i64 32, i1 false)
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA9_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 32), ptr noundef nonnull align 1 dereferenceable(9) @.str)
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA9_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds nuw (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 32), ptr noundef nonnull align 1 dereferenceable(9) @.str)
           to label %1 unwind label %2
 
 1:                                                ; preds = %0
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 72), align 8
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 80), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 72), align 8
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds nuw (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 80), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
           to label %__cxx_global_var_init.exit unwind label %4
 
 2:                                                ; preds = %0
@@ -4319,7 +4319,7 @@ define internal void @_GLOBAL__sub_I_cmDebuggerVariables.cxx() #15 section ".tex
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 32)) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds nuw (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, i64 32)) #20
   br label %common.resume
 
 common.resume:                                    ; preds = %8, %10, %2, %4
@@ -4331,12 +4331,12 @@ common.resume:                                    ; preds = %8, %10, %2, %4
 __cxx_global_var_init.exit:                       ; preds = %1
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3dap24VariablePresentationHintD2Ev, ptr nonnull @_ZN10cmDebugger12_GLOBAL__N_119PrivatePropertyHintE, ptr nonnull @__dso_handle) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i8 0, i64 32, i1 false)
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA5_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 32), ptr noundef nonnull align 1 dereferenceable(5) @.str.3)
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA5_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds nuw (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 32), ptr noundef nonnull align 1 dereferenceable(5) @.str.3)
           to label %7 unwind label %8
 
 7:                                                ; preds = %__cxx_global_var_init.exit
-  store i16 0, ptr getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 72), align 8
-  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 80), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 72), align 8
+  invoke void @_ZN3dap8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA8_KcvEEOT_(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds nuw (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 80), ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
           to label %__cxx_global_var_init.2.exit unwind label %10
 
 8:                                                ; preds = %__cxx_global_var_init.exit
@@ -4347,7 +4347,7 @@ __cxx_global_var_init.exit:                       ; preds = %1
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 32)) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) getelementptr inbounds nuw (i8, ptr @_ZN10cmDebugger12_GLOBAL__N_115PrivateDataHintE, i64 32)) #20
   br label %common.resume
 
 __cxx_global_var_init.2.exit:                     ; preds = %7

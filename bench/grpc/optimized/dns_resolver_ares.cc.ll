@@ -348,7 +348,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %resolver_registry_.i = getelementptr inbounds nuw i8, ptr %builder, i64 680
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25, !noalias !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactoryE, i64 16), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_135AresClientChannelDNSResolverFactoryE, i64 16), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.tmp, align 8
   invoke void @_ZN9grpc_core16ResolverRegistry7Builder23RegisterResolverFactoryESt10unique_ptrINS_15ResolverFactoryESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(80) %resolver_registry_.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -502,7 +502,7 @@ if.end:                                           ; preds = %invoke.cont
 
 call.i8.noexc:                                    ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %call.i810, i8 0, i64 72, i1 false), !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i64 16), ptr %call.i810, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i64 16), ptr %call.i810, align 8, !noalias !7
   %default_resolver_.i.i = getelementptr inbounds nuw i8, ptr %call.i810, i64 8
   invoke void @_ZN9grpc_core14GetDNSResolverEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %default_resolver_.i.i)
           to label %if.end.i.i.i unwind label %lpad.i9, !noalias !7
@@ -517,7 +517,7 @@ if.end.i.i.i:                                     ; preds = %call.i8.noexc
   %mu_.i.i = getelementptr inbounds nuw i8, ptr %call.i810, i64 24
   store i64 0, ptr %mu_.i.i, align 8, !noalias !7
   %open_requests_.i.i = getelementptr inbounds nuw i8, ptr %call.i810, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %open_requests_.i.i, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %open_requests_.i.i, align 8, !noalias !7
   %slots_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i810, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false), !noalias !7
   store ptr %call.i810, ptr %agg.tmp10, align 8
@@ -531,7 +531,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i4.i4.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i4.i4.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN9grpc_core12_GLOBAL__N_115AresDNSResolverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i4.i4.i.i, align 8
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i4.i4.i.i, i64 16
   store ptr %call.i810, ptr %_M_impl.i.i.i.i.i.i, align 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
@@ -1171,7 +1171,7 @@ entry:
 
 invoke.cont21.i.i:                                ; preds = %entry
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp.i.i) #24, !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i64 16), ptr %call.i, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i64 16), ptr %call.i, align 8, !noalias !10
   %channel_args_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %call28.i.i = invoke i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %channel_args_.i.i.i, i64 38, ptr nonnull @.str.7)
           to label %invoke.cont27.i.i unwind label %lpad23.i.i, !noalias !10
@@ -1485,7 +1485,7 @@ _ZN9grpc_core20InternallyRefCountedINS_8ResolverENS_11UnrefDeleteEE5UnrefEv.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.end
@@ -1509,7 +1509,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i, label %_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverD2Ev.exit
@@ -1550,7 +1550,7 @@ entry:
 call.i.noexc:                                     ; preds = %entry
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperE, i64 16), ptr %call.i1, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperE, i64 16), ptr %call.i1, align 8, !noalias !16
   %on_resolved_mu_.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
   %resolver_.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 24
   store i64 0, ptr %on_resolved_mu_.i.i, align 8, !noalias !16
@@ -2854,7 +2854,7 @@ _ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResol
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperE, i64 16), ptr %this, align 8
   %service_config_json_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %service_config_json_, align 8
   invoke void @gpr_free(ptr noundef %0)
@@ -5231,7 +5231,7 @@ declare void @_ZN9grpc_core14GetDNSResolverEv(ptr sret(%"class.std::shared_ptr")
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i64 16), ptr %this, align 8
   %capacity_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %capacity_.i.i.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
@@ -5327,7 +5327,7 @@ _ZNSt10shared_ptrIN9grpc_core11DNSResolverEED2Ev.exit: ; preds = %_ZN4absl12lts_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i64 16), ptr %this, align 8
   %capacity_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %capacity_.i.i.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %0, 0
@@ -5464,7 +5464,7 @@ _ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_address
           to label %.noexc unwind label %lpad7
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS4_EEEEEEC2EOS9_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestE, i64 16), ptr %call, align 8
   %default_port_.i = getelementptr inbounds nuw i8, ptr %call, i64 168
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
@@ -5712,7 +5712,7 @@ _ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_address
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS4_EEEEEEC2EOS9_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestE, i64 16), ptr %call, align 8
   %on_resolve_address_done_.i = getelementptr inbounds nuw i8, ptr %call, i64 168
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %call, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %on_resolve_address_done_.i, i8 0, i64 24, i1 false)
@@ -5913,7 +5913,7 @@ _ZNSt8functionIFvN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11ch
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %_ZNSt8functionIFvN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEC2EOSB_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i64 16), ptr %call, align 8
   %service_config_json_.i = getelementptr inbounds nuw i8, ptr %call, i64 168
   %on_resolved_.i = getelementptr inbounds nuw i8, ptr %call, i64 176
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %call, i64 200
@@ -6431,7 +6431,7 @@ entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestE, i64 16), ptr %this, align 8
   %name_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -6536,7 +6536,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestE, i64 16), ptr %this, align 8
   %addresses_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %addresses_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -7153,7 +7153,7 @@ declare void @_Z32grpc_pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr nou
 define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %handle.i = alloca %"struct.grpc_core::DNSResolver::LookupTaskHandle", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.end
@@ -7761,7 +7761,7 @@ invoke.cont5:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestE, i64 16), ptr %this, align 8
   %balancer_addresses_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %balancer_addresses_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -8242,7 +8242,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i56, %e
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i64 16), ptr %this, align 8
   %service_config_json_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %service_config_json_, align 8
   invoke void @gpr_free(ptr noundef %0)
@@ -8281,7 +8281,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestD0Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i64 16), ptr %this, align 8
   %service_config_json_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %service_config_json_.i, align 8
   invoke void @gpr_free(ptr noundef %0)

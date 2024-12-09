@@ -283,7 +283,7 @@ entry:
   %ref.tmp24 = alloca i8, align 1
   %frombool = zext i1 %enableFuncModels to i8
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11TheoryModelE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11TheoryModelE, i64 16), ptr %this, align 8
   %d_name = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_name, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %d_equalityEngine = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1202,7 +1202,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory11TheoryModelD2Ev(ptr noundef nonnull align 8 dereferenceable(904) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11TheoryModelE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory11TheoryModelE, i64 16), ptr %this, align 8
   %d_uf_models = getelementptr inbounds nuw i8, ptr %this, i64 856
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 872
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

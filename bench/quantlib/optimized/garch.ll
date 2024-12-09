@@ -445,7 +445,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %endCriteria) #27
   call void @_ZN8QuantLib11EndCriteriaC1Emmddd(ptr noundef nonnull align 8 dereferenceable(40) %endCriteria, i64 noundef 10000, i64 noundef 500, double noundef 1.000000e-08, double noundef 1.000000e-08, double noundef 1.000000e-08)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %method) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib7SimplexE, i64 16), ptr %method, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib7SimplexE, i64 16), ptr %method, align 8, !tbaa !28
   %lambda_.i = getelementptr inbounds nuw i8, ptr %method, i64 8
   store double 1.000000e-03, ptr %lambda_.i, align 8, !tbaa !30
   %vertices_.i = getelementptr inbounds nuw i8, ptr %method, i64 16
@@ -454,7 +454,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib7SimplexE, i64 16), ptr %method, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib7SimplexE, i64 16), ptr %method, align 8, !tbaa !28
   %sum_.i = getelementptr inbounds nuw i8, ptr %method, i64 56
   %0 = load ptr, ptr %sum_.i, align 8, !tbaa !26
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -1457,7 +1457,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt16allocator_tr
 _ZN8QuantLib5ArrayD2Ev.exit.i:                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont153.i
   %cond.i.i.i.i280.i = phi ptr [ %call5.i.i.i.i2.i6.i119.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %invoke.cont153.i ]
   %add.ptr.i.i.i281.i = getelementptr inbounds i8, ptr %cond.i.i.i.i280.i, i64 %sub.ptr.sub.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %pr.i, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %pr.i, align 8, !tbaa !28
   %A2_.i.i = getelementptr inbounds nuw i8, ptr %pr.i, i64 8
   store double %mean_r2, ptr %A2_.i.i, align 8, !tbaa !60
   %acf_.i.i = getelementptr inbounds nuw i8, ptr %pr.i, i64 16
@@ -1618,7 +1618,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib5ArrayD2Ev.exit156.i:                 ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i155.i, %if.end183.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %guess.i) #27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %pr.i, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %pr.i, align 8, !tbaa !28
   %120 = load ptr, ptr %idx_.i.i, align 8, !tbaa !67
   %tobool.not.i.i.i.i.i = icmp eq ptr %120, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i, label %if.then.i.i.i.i.i165
@@ -2222,7 +2222,7 @@ if.then.i.i.i.i.i.i.i.i.i.i249:                   ; preds = %_ZNSt16allocator_tr
 _ZN8QuantLib5ArrayD2Ev.exit.i250:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i.i249, %invoke.cont64.i
   %cond.i.i.i.i244.i = phi ptr [ %call5.i.i.i.i2.i6.i92.i, %if.then.i.i.i.i.i.i.i.i.i.i249 ], [ null, %invoke.cont64.i ]
   %add.ptr.i.i.i245.i = getelementptr inbounds i8, ptr %cond.i.i.i.i244.i, i64 %sub.ptr.sub.i.i.i245
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %pr.i193, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %pr.i193, align 8, !tbaa !28
   %A2_.i.i251 = getelementptr inbounds nuw i8, ptr %pr.i193, i64 8
   store double %mean_r2, ptr %A2_.i.i251, align 8, !tbaa !60
   %acf_.i.i252 = getelementptr inbounds nuw i8, ptr %pr.i193, i64 16
@@ -2383,7 +2383,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib5ArrayD2Ev.exit129.i:                 ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i128.i, %if.end94.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %guess.i194) #27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %pr.i193, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %pr.i193, align 8, !tbaa !28
   %199 = load ptr, ptr %idx_.i.i254, align 8, !tbaa !67
   %tobool.not.i.i.i.i.i268 = icmp eq ptr %199, null
   br i1 %tobool.not.i.i.i.i.i268, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i273, label %if.then.i.i.i.i.i269
@@ -3438,7 +3438,7 @@ unreachable:                                      ; preds = %invoke.cont125, %in
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib7SimplexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib7SimplexE, i64 16), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib7SimplexE, i64 16), ptr %this, align 8, !tbaa !28
   %sum_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %sum_, align 8, !tbaa !26
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3573,7 +3573,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !28
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !73
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3894,7 +3894,7 @@ define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_117Garch11ConstraintC2Edd(
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.15", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_117Garch11Constraint4ImplE, i64 16), ptr %call, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_117Garch11Constraint4ImplE, i64 16), ptr %call, align 8, !tbaa !28
   %gammaLower_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store double %gammaLower, ptr %gammaLower_.i, align 8, !tbaa !86
   %gammaUpper_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -3943,7 +3943,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEEC2INS1_12_GLOBAL__N_117Garch1
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !90
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !92
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12_GLOBAL__N_117Garch11Constraint4ImplEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12_GLOBAL__N_117Garch11Constraint4ImplEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !28
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !93
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !73
@@ -4004,7 +4004,7 @@ entry:
   %cost = alloca %"class.QuantLib::(anonymous namespace)::Garch11CostFunction", align 8
   %agg.tmp = alloca %"class.QuantLib::Array", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cost) #27
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_119Garch11CostFunctionE, i64 16), ptr %cost, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_119Garch11CostFunctionE, i64 16), ptr %cost, align 8, !tbaa !28
   %r2_.i = getelementptr inbounds nuw i8, ptr %cost, i64 8
   store ptr %r2, ptr %r2_.i, align 8, !tbaa !26
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -5364,7 +5364,7 @@ define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_116FitAcfConstraintC2Edd(p
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.15", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FitAcfConstraint4ImplE, i64 16), ptr %call, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FitAcfConstraint4ImplE, i64 16), ptr %call, align 8, !tbaa !28
   %gammaLower_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store double %gammaLower, ptr %gammaLower_.i, align 8, !tbaa !110
   %gammaUpper_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -5413,7 +5413,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEEC2INS1_12_GLOBAL__N_116FitAcf
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !90
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !92
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12_GLOBAL__N_116FitAcfConstraint4ImplEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib12_GLOBAL__N_116FitAcfConstraint4ImplEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !28
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !113
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !73
@@ -5475,7 +5475,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib20NonLinear
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN8QuantLib12_GLOBAL__N_113FitAcfProblemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %this, align 8, !tbaa !28
   %idx_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %idx_, align 8, !tbaa !67
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -5961,7 +5961,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN8QuantLib12_GLOBAL__N_113FitAcfProblemD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113FitAcfProblemE, i64 16), ptr %this, align 8, !tbaa !28
   %idx_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %idx_.i, align 8, !tbaa !67
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -7738,7 +7738,7 @@ _ZN5boost6detail12shared_countC2IN8QuantLib7ProblemEEEPT_.exit: ; preds = %entry
   store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !90
   %weak_count_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !92
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib7ProblemEEE, i64 16), ptr %call.i, align 8, !tbaa !28
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib7ProblemEEE, i64 16), ptr %call.i, align 8, !tbaa !28
   %px_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %p, ptr %px_.i.i, align 8, !tbaa !131
   %6 = load ptr, ptr %pn, align 8, !tbaa !73

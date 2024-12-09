@@ -92,7 +92,7 @@ define range(i32 -1, 1) i32 @bb_g_init() local_unnamed_addr #0 {
   br i1 %8, label %54, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 176), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 176), align 8
   %11 = tail call ptr @xstrdup(ptr noundef %10) #10
   store ptr %11, ptr @bb_plugin_list, align 8
   store i32 0, ptr @g_context_cnt, align 4

@@ -4545,7 +4545,7 @@ if.then16.i:                                      ; preds = %if.end.i
 
 for.body.i.i:                                     ; preds = %for.inc16.i.i, %if.then16.i
   %i.017.i.i = phi i64 [ 0, %if.then16.i ], [ %inc17.i.i, %for.inc16.i.i ]
-  %arrayidx2.i.i430 = getelementptr inbounds nuw [3 x [4 x i64]], ptr getelementptr inbounds (i8, ptr @g_pre_comp, i64 1536), i64 %i.017.i.i
+  %arrayidx2.i.i430 = getelementptr inbounds nuw [3 x [4 x i64]], ptr getelementptr inbounds nuw (i8, ptr @g_pre_comp, i64 1536), i64 %i.017.i.i
   %xor.i.i = xor i64 %i.017.i.i, %or3758.i
   %shr.i101.i = lshr i64 %xor.i.i, 4
   %or.i.i431 = or i64 %shr.i101.i, %xor.i.i

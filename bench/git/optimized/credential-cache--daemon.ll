@@ -341,7 +341,7 @@ if.end24.i.i:                                     ; preds = %if.end18.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %c.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) @__const.serve_one_client.c, i64 128, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %action.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.serve_one_client.action, i64 24, i1 false)
   %call.i.i9.i.i = call i32 @strbuf_getline_lf(ptr noundef nonnull @read_request.item, ptr noundef %call25.i.i) #15
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @read_request.item, i64 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @read_request.item, i64 16), align 8
   %scevgep.i.i.i.i = getelementptr i8, ptr %23, i64 7
   br label %do.body.i.i.i.i.i
 
@@ -368,7 +368,7 @@ if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i.i
   %call.i.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep.i.i.i.i) #18
   call void @strbuf_add(ptr noundef nonnull %action.i.i.i, ptr noundef %scevgep.i.i.i.i, i64 noundef %call.i.i.i.i.i) #15
   %call4.i.i.i.i = call i32 @strbuf_getline_lf(ptr noundef nonnull @read_request.item, ptr noundef %call25.i.i) #15
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @read_request.item, i64 16), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @read_request.item, i64 16), align 8
   %scevgep22.i.i.i.i = getelementptr i8, ptr %26, i64 8
   br label %do.body.i3.i.i.i.i
 

@@ -77,7 +77,7 @@ declare dso_local i32 @netlbl_domhsh_remove_af6(ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 2336, i64 noundef 64) #14
   %8 = icmp eq ptr %7, null
   br i1 %8, label %90, label %9
@@ -112,7 +112,7 @@ define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroe
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %27 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 2336, i64 noundef 32) #14
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
@@ -131,7 +131,7 @@ define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroe
   ]
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %35 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 2336, i64 noundef 48) #14
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37
@@ -152,7 +152,7 @@ define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroe
   br i1 %45, label %74, label %.thread
 
 46:                                               ; preds = %29
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %48 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 2336, i64 noundef 72) #14
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread, label %50
@@ -315,7 +315,7 @@ define dso_local i32 @netlbl_cfg_cipsov4_map_add(i32 noundef %0, ptr noundef %1,
   br i1 %7, label %70, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 2336, i64 noundef 64) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %68, label %12
@@ -345,7 +345,7 @@ define dso_local i32 @netlbl_cfg_cipsov4_map_add(i32 noundef %0, ptr noundef %1,
   br i1 %25, label %26, label %63
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %28 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 2336, i64 noundef 32) #14
   %29 = icmp eq ptr %28, null
   br i1 %29, label %63, label %30
@@ -358,7 +358,7 @@ define dso_local i32 @netlbl_cfg_cipsov4_map_add(i32 noundef %0, ptr noundef %1,
   store volatile ptr %32, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store volatile ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %35 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 2336, i64 noundef 48) #14
   %36 = icmp eq ptr %35, null
   br i1 %36, label %60, label %37
@@ -458,7 +458,7 @@ define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1,
   br i1 %7, label %85, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 2336, i64 noundef 64) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %83, label %12
@@ -488,7 +488,7 @@ define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1,
   br i1 %25, label %26, label %78
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %28 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 2336, i64 noundef 32) #14
   %29 = icmp eq ptr %28, null
   br i1 %29, label %78, label %30
@@ -501,7 +501,7 @@ define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1,
   store volatile ptr %32, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store volatile ptr %32, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %35 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 2336, i64 noundef 72) #14
   %36 = icmp eq ptr %35, null
   br i1 %36, label %75, label %37

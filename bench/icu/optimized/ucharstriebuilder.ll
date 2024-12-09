@@ -269,9 +269,9 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_7517UCharsTrieBuilderC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN6icu_7517StringTrieBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517UCharsTrieBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517UCharsTrieBuilderE, i64 16), ptr %this, align 8
   %strings = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %strings, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %strings, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
   %elements = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -287,7 +287,7 @@ declare void @_ZN6icu_7517StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7517UCharsTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517UCharsTrieBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517UCharsTrieBuilderE, i64 16), ptr %this, align 8
   %elements = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %elements, align 8
   %isnull = icmp eq ptr %0, null
@@ -1228,7 +1228,7 @@ _ZN6icu_7517StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit: ; preds = %e
   store i32 %len, ptr %length.i, align 8
   %next.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %nextNode, ptr %next.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517UCharsTrieBuilder18UCTLinearMatchNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517UCharsTrieBuilder18UCTLinearMatchNodeE, i64 16), ptr %this, align 8
   %s = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %units, ptr %s, align 8
   %call = invoke i32 @ustr_hashUCharsN_75(ptr noundef %units, i32 noundef %len)

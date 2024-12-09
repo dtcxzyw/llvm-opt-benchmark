@@ -845,7 +845,7 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_frame() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @proto_register_frame.hf_encap, i64 32), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @proto_register_frame.hf_encap, i64 32), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %20
 
@@ -858,7 +858,7 @@ define hidden void @proto_register_frame() local_unnamed_addr #0 {
   %9 = shl nuw nsw i64 %8, 4
   %10 = select i1 %6, i64 0, i64 %9
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef %10) #5
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @proto_register_frame.hf_encap, i64 32), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @proto_register_frame.hf_encap, i64 32), align 8
   %12 = icmp sgt i32 %4, 0
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3009,7 +3009,7 @@ proto_item_set_generated.exit707:                 ; preds = %1135, %1132, %ensur
   br label %1143
 
 1143:                                             ; preds = %1142, %proto_item_set_generated.exit707
-  %1144 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 428), align 4
+  %1144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 428), align 4
   %.not656 = icmp eq i32 %1144, 0
   br i1 %.not656, label %.loopexit, label %1145
 
@@ -3066,7 +3066,7 @@ proto_item_set_generated.exit707:                 ; preds = %1135, %1132, %ensur
   br i1 %.not661, label %1191, label %1171
 
 1171:                                             ; preds = %1166
-  %1172 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 432), align 8
+  %1172 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 432), align 8
   %.not662 = icmp eq i32 %1172, 0
   br i1 %.not662, label %1179, label %1173
 

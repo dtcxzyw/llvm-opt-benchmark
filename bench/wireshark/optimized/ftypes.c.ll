@@ -1308,7 +1308,7 @@ define noundef ptr @fvalue_slice(ptr noundef %0, ptr noundef %1) local_unnamed_a
   store i8 0, ptr %10, align 8
   call void @drange_foreach_drange_node(ptr noundef %1, ptr noundef nonnull @slice_func, ptr noundef nonnull %4) #9
   %11 = call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @type_list, i64 208), align 16
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @type_list, i64 208), align 16
   store ptr %12, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -1347,7 +1347,7 @@ slice_string.exit:                                ; preds = %fvalue_new.exit.i, 
   store i8 0, ptr %25, align 8
   call void @drange_foreach_drange_node(ptr noundef %1, ptr noundef nonnull @slice_func, ptr noundef nonnull %3) #9
   %26 = call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @type_list, i64 240), align 16
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @type_list, i64 240), align 16
   store ptr %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8

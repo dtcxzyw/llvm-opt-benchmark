@@ -9492,7 +9492,7 @@ _ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i: ; preds = %
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb0e0956d860ce072E.exit.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i, %23
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %27, %_ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %23 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %27, %_ZN4core3ops8function6FnOnce9call_once17h37fb45b56787581dE.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %23 ]
   %.val.i.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i, align 8, !noalias !2407, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %31 = load atomic i64, ptr %30 acquire, align 8, !noalias !2407
@@ -19296,7 +19296,7 @@ define hidden noundef zeroext i1 @"_ZN8worktree17BackgroundScanner22update_ignor
   br i1 %27, label %_ZN8worktree9Traversal5entry17h246d3aa443d6fcf7E.exit.i, label %28
 
 28:                                               ; preds = %_ZN8worktree8Snapshot14entry_for_path17h77461133318a6dedE.exit.thread, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h92c7acb56b36d8acE.exit", %24
-  %29 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN3git9GITIGNORE17hab4463db663bf3bcE, i64 16) acquire, align 8
+  %29 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3git9GITIGNORE17hab4463db663bf3bcE, i64 16) acquire, align 8
   %30 = icmp eq i32 %29, 4
   br i1 %30, label %_ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit, label %31
 
@@ -19305,14 +19305,14 @@ define hidden noundef zeroext i1 @"_ZN8worktree17BackgroundScanner22update_ignor
   store ptr @_ZN3git9GITIGNORE17hab4463db663bf3bcE, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %9, ptr %8, align 8
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h43ecbb66308c3a9dE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN3git9GITIGNORE17hab4463db663bf3bcE, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f534c424786624140f0d538a0a88d2cf.150)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h43ecbb66308c3a9dE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN3git9GITIGNORE17hab4463db663bf3bcE, i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f534c424786624140f0d538a0a88d2cf.150)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %_ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit
 
 _ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit: ; preds = %28, %31
   %32 = load ptr, ptr @_ZN3git9GITIGNORE17hab4463db663bf3bcE, align 8, !nonnull !4, !align !614, !noundef !4
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3git9GITIGNORE17hab4463db663bf3bcE, i64 8), align 8, !noundef !4
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3git9GITIGNORE17hab4463db663bf3bcE, i64 8), align 8, !noundef !4
   call void @_ZN3std4path4Path5_join17hc64a8ee8d1be349fE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %22, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %33)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !align !5, !noundef !4

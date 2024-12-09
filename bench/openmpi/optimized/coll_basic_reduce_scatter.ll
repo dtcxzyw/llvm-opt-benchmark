@@ -129,14 +129,14 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %77 = or disjoint i32 %.val, 1
   %78 = tail call i32 %76(ptr noundef %62, i64 noundef %36, ptr noundef nonnull %3, i32 noundef %77, i32 noundef -22, i32 noundef 4, ptr noundef %5) #6
   %.not317 = icmp eq i32 %78, 0
   br i1 %.not317, label %.thread340.thread, label %.thread341
 
 79:                                               ; preds = %72
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %81 = add nsw i32 %.val, -1
   %82 = tail call i32 %80(ptr noundef nonnull %58, i64 noundef %36, ptr noundef nonnull %3, i32 noundef %81, i32 noundef -22, ptr noundef %5, ptr noundef null) #6
   %.not316 = icmp eq i32 %82, 0
@@ -333,7 +333,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %156, label %157, label %.loopexit.thread
 
 157:                                              ; preds = %.loopexit
-  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %159 = zext nneg i32 %.1258 to i64
   %160 = getelementptr inbounds nuw i32, ptr %95, i64 %159
   %161 = load i32, ptr %160, align 4
@@ -360,7 +360,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %169, label %170, label %181
 
 170:                                              ; preds = %.loopexit.thread
-  %171 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %172 = zext nneg i32 %.1260434 to i64
   %173 = getelementptr inbounds nuw i32, ptr %95, i64 %172
   %174 = load i32, ptr %173, align 4
@@ -381,7 +381,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %168, label %182, label %195
 
 182:                                              ; preds = %181
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %184 = call i32 %183(ptr noundef nonnull %8, ptr noundef null) #6
   %.not324 = icmp eq i32 %184, 0
   br i1 %.not324, label %186, label %185
@@ -452,7 +452,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %.not321, label %260, label %215
 
 215:                                              ; preds = %.thread340.thread
-  %216 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %217 = sext i32 %214 to i64
   %218 = or disjoint i32 %.val, 1
   %219 = call i32 %216(ptr noundef %1, i64 noundef %217, ptr noundef %3, i32 noundef %218, i32 noundef -22, ptr noundef %5, ptr noundef null) #6
@@ -467,7 +467,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %.not320, label %260, label %225
 
 225:                                              ; preds = %220
-  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %227 = getelementptr inbounds i32, ptr %14, i64 %222
   %228 = load i32, ptr %227, align 4
   %229 = sext i32 %228 to i64
@@ -785,19 +785,19 @@ opal_datatype_span.exit:                          ; preds = %26, %32
   %63 = sub i64 0, %.0113
   %64 = getelementptr inbounds i8, ptr %58, i64 %63
   %65 = getelementptr inbounds i8, ptr %59, i64 %63
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %67 = call i32 %66(ptr noundef %0, i64 noundef %27, ptr noundef %3, i32 noundef 0, i32 noundef -22, i32 noundef 4, ptr noundef %5, ptr noundef nonnull %8) #6
   %.not105 = icmp eq i32 %67, 0
   br i1 %.not105, label %68, label %.thread
 
 68:                                               ; preds = %62
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %70 = call i32 %69(ptr noundef %64, i64 noundef %27, ptr noundef %3, i32 noundef 0, i32 noundef -22, ptr noundef %5, ptr noundef null) #6
   %.not106 = icmp eq i32 %70, 0
   br i1 %.not106, label %71, label %.thread
 
 71:                                               ; preds = %68
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %73 = call i32 %72(ptr noundef nonnull %8, ptr noundef null) #6
   %.not107 = icmp eq i32 %73, 0
   br i1 %.not107, label %.preheader, label %.thread
@@ -810,7 +810,7 @@ opal_datatype_span.exit:                          ; preds = %26, %32
   %.086153 = phi ptr [ %.087152, %77 ], [ %65, %.preheader ]
   %.087152 = phi ptr [ %.086153, %77 ], [ %64, %.preheader ]
   %.2151 = phi i32 [ %78, %77 ], [ 1, %.preheader ]
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %76 = call i32 %75(ptr noundef %.086153, i64 noundef %27, ptr noundef %3, i32 noundef %.2151, i32 noundef -22, ptr noundef %5, ptr noundef null) #6
   %.not108 = icmp eq i32 %76, 0
   br i1 %.not108, label %77, label %.loopexit143
@@ -822,7 +822,7 @@ opal_datatype_span.exit:                          ; preds = %26, %32
   br i1 %exitcond165.not, label %.loopexit, label %.lr.ph154, !llvm.loop !16
 
 79:                                               ; preds = %._crit_edge
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %81 = sext i32 %.093.lcssa to i64
   %82 = tail call i32 %80(ptr noundef %0, i64 noundef %81, ptr noundef %3, i32 noundef 0, i32 noundef -22, i32 noundef 4, ptr noundef %5) #6
   %.not = icmp eq i32 %82, 0

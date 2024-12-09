@@ -1741,7 +1741,7 @@ default.unreachable:                              ; preds = %45
   br i1 %169, label %170, label %.thread248.i
 
 170:                                              ; preds = %167
-  %171 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11meilisearch6routes4logs12entry_stream28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h92be65a6dd61f48cE", i64 16) monotonic, align 8, !noalias !116
+  %171 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN11meilisearch6routes4logs12entry_stream28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h92be65a6dd61f48cE", i64 16) monotonic, align 8, !noalias !116
   switch i8 %171, label %172 [
     i8 0, label %.thread248.i
     i8 1, label %.thread.i
@@ -29483,7 +29483,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc364, %
   br i1 %127, label %128, label %.thread529
 
 128:                                              ; preds = %125
-  %129 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw10__CALLSITE17h59e2e8aacae23b82E", i64 16) monotonic, align 8
+  %129 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw10__CALLSITE17h59e2e8aacae23b82E", i64 16) monotonic, align 8
   switch i8 %129, label %130 [
     i8 0, label %.thread529
     i8 1, label %.thread525
@@ -33484,7 +33484,7 @@ default.unreachable:                              ; preds = %174
   br i1 %486, label %487, label %.thread639
 
 487:                                              ; preds = %484
-  %488 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7879b6c22da79132E", i64 16) monotonic, align 8
+  %488 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7879b6c22da79132E", i64 16) monotonic, align 8
   switch i8 %488, label %489 [
     i8 0, label %.thread639
     i8 1, label %.thread636
@@ -35930,7 +35930,7 @@ default.unreachable:                              ; preds = %175
   br i1 %487, label %488, label %.thread659
 
 488:                                              ; preds = %485
-  %489 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7879b6c22da79132E", i64 16) monotonic, align 8
+  %489 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7879b6c22da79132E", i64 16) monotonic, align 8
   switch i8 %489, label %490 [
     i8 0, label %.thread659
     i8 1, label %.thread656
@@ -36418,7 +36418,7 @@ define internal fastcc void @"_ZN5milli6update15index_documents29IndexDocuments$
   br i1 %48, label %49, label %.thread131
 
 49:                                               ; preds = %46
-  %50 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$13add_documents10__CALLSITE17h34a29e0b2ddc96c3E", i64 16) monotonic, align 8
+  %50 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$13add_documents10__CALLSITE17h34a29e0b2ddc96c3E", i64 16) monotonic, align 8
   switch i8 %50, label %51 [
     i8 0, label %.thread131
     i8 1, label %.thread127
@@ -37112,7 +37112,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc220, %
   br i1 %129, label %130, label %.thread376
 
 130:                                              ; preds = %127
-  %131 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$24execute_prefix_databases10__CALLSITE17h0cbce6ff6b53338cE", i64 16) monotonic, align 8
+  %131 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$24execute_prefix_databases10__CALLSITE17h0cbce6ff6b53338cE", i64 16) monotonic, align 8
   switch i8 %131, label %132 [
     i8 0, label %.thread376
     i8 1, label %.thread372
@@ -37473,7 +37473,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc220, %
   br i1 %234, label %235, label %.thread418
 
 235:                                              ; preds = %232
-  %236 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$24execute_prefix_databases10__CALLSITE17h823d412a21d0e8afE", i64 16) monotonic, align 8
+  %236 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$24execute_prefix_databases10__CALLSITE17h823d412a21d0e8afE", i64 16) monotonic, align 8
   switch i8 %236, label %237 [
     i8 0, label %.thread418
     i8 1, label %.thread414
@@ -39603,7 +39603,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc220, %
   br i1 %129, label %130, label %.thread396
 
 130:                                              ; preds = %127
-  %131 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$24execute_prefix_databases10__CALLSITE17h0cbce6ff6b53338cE", i64 16) monotonic, align 8
+  %131 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$24execute_prefix_databases10__CALLSITE17h0cbce6ff6b53338cE", i64 16) monotonic, align 8
   switch i8 %131, label %132 [
     i8 0, label %.thread396
     i8 1, label %.thread392
@@ -39964,7 +39964,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc220, %
   br i1 %234, label %235, label %.thread438
 
 235:                                              ; preds = %232
-  %236 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$24execute_prefix_databases10__CALLSITE17h823d412a21d0e8afE", i64 16) monotonic, align 8
+  %236 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$24execute_prefix_databases10__CALLSITE17h823d412a21d0e8afE", i64 16) monotonic, align 8
   switch i8 %236, label %237 [
     i8 0, label %.thread438
     i8 1, label %.thread434
@@ -42318,7 +42318,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc102, %
   br i1 %134, label %135, label %.thread192
 
 135:                                              ; preds = %132
-  %136 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$7execute10__CALLSITE17h5c0aa997d9780e91E", i64 16) monotonic, align 8
+  %136 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$7execute10__CALLSITE17h5c0aa997d9780e91E", i64 16) monotonic, align 8
   switch i8 %136, label %137 [
     i8 0, label %.thread192
     i8 1, label %.thread188
@@ -42617,7 +42617,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit.i: ; preds = %.noexc365.
   br i1 %237, label %238, label %.thread529.i
 
 238:                                              ; preds = %235
-  %239 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw10__CALLSITE17h59e2e8aacae23b82E", i64 16) monotonic, align 8, !noalias !7276
+  %239 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5milli6update15index_documents29IndexDocuments$LT$FP$C$FA$GT$11execute_raw10__CALLSITE17h59e2e8aacae23b82E", i64 16) monotonic, align 8, !noalias !7276
   switch i8 %239, label %240 [
     i8 0, label %.thread529.i
     i8 1, label %.thread525.i
@@ -45438,7 +45438,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc204, %
   br i1 %84, label %85, label %.thread302
 
 85:                                               ; preds = %82
-  %86 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN5milli6update15index_documents7extract28extract_word_position_docids28extract_word_position_docids10__CALLSITE17h66a45aef06adcdeeE, i64 16) monotonic, align 8
+  %86 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5milli6update15index_documents7extract28extract_word_position_docids28extract_word_position_docids10__CALLSITE17h66a45aef06adcdeeE, i64 16) monotonic, align 8
   switch i8 %86, label %87 [
     i8 0, label %.thread302
     i8 1, label %.thread298
@@ -71441,7 +71441,7 @@ _ZN9actix_web7request11HttpRequest15connection_info17h7796592ab8043be9E.exit: ; 
   br i1 %173, label %174, label %.thread380
 
 174:                                              ; preds = %171
-  %175 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN104_$LT$meilisearch..AwebTracingLogger$u20$as$u20$tracing_actix_web..root_span_builder..RootSpanBuilder$GT$16on_request_start10__CALLSITE17hf82ecfb0f5245487E", i64 16) monotonic, align 8
+  %175 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN104_$LT$meilisearch..AwebTracingLogger$u20$as$u20$tracing_actix_web..root_span_builder..RootSpanBuilder$GT$16on_request_start10__CALLSITE17hf82ecfb0f5245487E", i64 16) monotonic, align 8
   switch i8 %175, label %176 [
     i8 0, label %.thread380
     i8 1, label %.thread
@@ -75614,7 +75614,7 @@ define internal fastcc noundef ptr @_ZN11meilisearch11import_dump17h849dfb1c3ea7
   br i1 %242, label %243, label %.thread1390
 
 243:                                              ; preds = %240
-  %244 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h5a315e87219f445eE, i64 16) monotonic, align 8
+  %244 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h5a315e87219f445eE, i64 16) monotonic, align 8
   switch i8 %244, label %245 [
     i8 0, label %.thread1390
     i8 1, label %.thread
@@ -75976,7 +75976,7 @@ define internal fastcc noundef ptr @_ZN11meilisearch11import_dump17h849dfb1c3ea7
   br i1 %343, label %344, label %.thread1406
 
 344:                                              ; preds = %341
-  %345 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h5c82428c48d45e53E, i64 16) monotonic, align 8
+  %345 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h5c82428c48d45e53E, i64 16) monotonic, align 8
   switch i8 %345, label %346 [
     i8 0, label %.thread1406
     i8 1, label %.thread1403
@@ -77302,7 +77302,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %443
   br i1 %747, label %748, label %.thread1426
 
 748:                                              ; preds = %745
-  %749 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h3386d183e22a6a4aE, i64 16) monotonic, align 8
+  %749 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h3386d183e22a6a4aE, i64 16) monotonic, align 8
   switch i8 %749, label %750 [
     i8 0, label %.thread1426
     i8 1, label %.thread1423
@@ -77631,7 +77631,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %443
   br i1 %835, label %836, label %.thread1452
 
 836:                                              ; preds = %833
-  %837 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h00fc77539bfa58edE, i64 16) monotonic, align 8
+  %837 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h00fc77539bfa58edE, i64 16) monotonic, align 8
   switch i8 %837, label %838 [
     i8 0, label %.thread1452
     i8 1, label %.thread1449
@@ -77867,7 +77867,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %443
   br i1 %902, label %903, label %.thread1468
 
 903:                                              ; preds = %900
-  %904 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17hcc48360b7bbd10b6E, i64 16) monotonic, align 8
+  %904 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17hcc48360b7bbd10b6E, i64 16) monotonic, align 8
   switch i8 %904, label %905 [
     i8 0, label %.thread1468
     i8 1, label %.thread1465
@@ -78419,7 +78419,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %443
   br i1 %1036, label %1037, label %.thread1527
 
 1037:                                             ; preds = %1034
-  %1038 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h283800fc79d9f802E, i64 16) monotonic, align 8
+  %1038 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17h283800fc79d9f802E, i64 16) monotonic, align 8
   switch i8 %1038, label %1039 [
     i8 0, label %.thread1527
     i8 1, label %.thread1524
@@ -78678,7 +78678,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %443
   br i1 %1102, label %1103, label %.thread1555
 
 1103:                                             ; preds = %1100
-  %1104 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17he5248d82b3417d0eE, i64 16) monotonic, align 8
+  %1104 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN11meilisearch11import_dump10__CALLSITE17he5248d82b3417d0eE, i64 16) monotonic, align 8
   switch i8 %1104, label %1105 [
     i8 0, label %.thread1555
     i8 1, label %.thread1552
@@ -79541,7 +79541,7 @@ define hidden void @"_ZN11meilisearch11import_dump28_$u7b$$u7b$closure$u7d$$u7d$
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %19
-  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11meilisearch11import_dump28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7db5daaaa68ff767E", i64 16) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN11meilisearch11import_dump28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h7db5daaaa68ff767E", i64 16) monotonic, align 8
   switch i8 %23, label %26 [
     i8 0, label %.critedge
     i8 1, label %.thread
@@ -79801,7 +79801,7 @@ define hidden void @"_ZN11meilisearch11import_dump28_$u7b$$u7b$closure$u7d$$u7d$
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %19
-  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN11meilisearch11import_dump28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf1feee4f98a55870E", i64 16) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN11meilisearch11import_dump28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hf1feee4f98a55870E", i64 16) monotonic, align 8
   switch i8 %23, label %26 [
     i8 0, label %.critedge
     i8 1, label %.thread
@@ -91653,8 +91653,8 @@ _ZN3std3env6var_os17h46bd6cfc0e6a774aE.exit.i:    ; preds = %732
           to label %756 unwind label %4572
 
 756:                                              ; preds = %755, %753
-  %.val173 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17h6a826e82fea8d4a6E", i64 8), align 8, !nonnull !5, !noundef !5
-  %.val174 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17h6a826e82fea8d4a6E", i64 16), align 8, !noundef !5
+  %.val173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17h6a826e82fea8d4a6E", i64 8), align 8, !nonnull !5, !noundef !5
+  %.val174 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17h6a826e82fea8d4a6E", i64 16), align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %405), !noalias !14048
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %405, ptr noundef nonnull readonly align 8 dereferenceable(592) %628, i64 592, i1 false), !noalias !14053
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %403), !noalias !14048
@@ -99061,8 +99061,8 @@ _ZN3std3env6var_os17h46bd6cfc0e6a774aE.exit.i1247: ; preds = %2773
           to label %2797 unwind label %4553
 
 2797:                                             ; preds = %2796, %2794
-  %.val171 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17h88522c6c7c93b141E", i64 8), align 8, !nonnull !5, !noundef !5
-  %.val172 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17h88522c6c7c93b141E", i64 16), align 8, !noundef !5
+  %.val171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17h88522c6c7c93b141E", i64 8), align 8, !nonnull !5, !noundef !5
+  %.val172 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17h88522c6c7c93b141E", i64 16), align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %191), !noalias !16453
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %191, ptr noundef nonnull readonly align 8 dereferenceable(592) %513, i64 592, i1 false), !noalias !16458
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %189), !noalias !16453
@@ -101457,8 +101457,8 @@ _ZN3std3env6var_os17h46bd6cfc0e6a774aE.exit.i1587: ; preds = %3437
           to label %3461 unwind label %4548
 
 3461:                                             ; preds = %3460, %3458
-  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17hb4876bd97489146aE", i64 8), align 8, !nonnull !5, !noundef !5
-  %.val170 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17hb4876bd97489146aE", i64 16), align 8, !noundef !5
+  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17hb4876bd97489146aE", i64 8), align 8, !nonnull !5, !noundef !5
+  %.val170 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$12augment_args13DEFAULT_VALUE17hb4876bd97489146aE", i64 16), align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %120), !noalias !17232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %120, ptr noundef nonnull readonly align 8 dereferenceable(592) %478, i64 592, i1 false), !noalias !17237
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %118), !noalias !17232
@@ -106859,8 +106859,8 @@ _ZN3std3env6var_os17h46bd6cfc0e6a774aE.exit.i:    ; preds = %732
           to label %756 unwind label %4605
 
 756:                                              ; preds = %755, %753
-  %.val173 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17h5940b998a3b37761E", i64 8), align 8, !nonnull !5, !noundef !5
-  %.val174 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17h5940b998a3b37761E", i64 16), align 8, !noundef !5
+  %.val173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17h5940b998a3b37761E", i64 8), align 8, !nonnull !5, !noundef !5
+  %.val174 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17h5940b998a3b37761E", i64 16), align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %405), !noalias !18658
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %405, ptr noundef nonnull readonly align 8 dereferenceable(592) %628, i64 592, i1 false), !noalias !18663
   call void @llvm.experimental.noalias.scope.decl(metadata !18664)
@@ -114451,8 +114451,8 @@ _ZN3std3env6var_os17h46bd6cfc0e6a774aE.exit.i1247: ; preds = %2791
           to label %2815 unwind label %4586
 
 2815:                                             ; preds = %2814, %2812
-  %.val171 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17hcbaabfdd52bd5674E", i64 8), align 8, !nonnull !5, !noundef !5
-  %.val172 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17hcbaabfdd52bd5674E", i64 16), align 8, !noundef !5
+  %.val171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17hcbaabfdd52bd5674E", i64 8), align 8, !nonnull !5, !noundef !5
+  %.val172 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17hcbaabfdd52bd5674E", i64 16), align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %191), !noalias !21257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %191, ptr noundef nonnull readonly align 8 dereferenceable(592) %513, i64 592, i1 false), !noalias !21262
   call void @llvm.experimental.noalias.scope.decl(metadata !21263)
@@ -116899,8 +116899,8 @@ _ZN3std3env6var_os17h46bd6cfc0e6a774aE.exit.i1587: ; preds = %3460
           to label %3484 unwind label %4581
 
 3484:                                             ; preds = %3483, %3481
-  %.val = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17hfa199674569b6b56E", i64 8), align 8, !nonnull !5, !noundef !5
-  %.val170 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17hfa199674569b6b56E", i64 16), align 8, !noundef !5
+  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17hfa199674569b6b56E", i64 8), align 8, !nonnull !5, !noundef !5
+  %.val170 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN71_$LT$meilisearch..option..Opt$u20$as$u20$clap_builder..derive..Args$GT$23augment_args_for_update13DEFAULT_VALUE17hfa199674569b6b56E", i64 16), align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %120), !noalias !22095
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %120, ptr noundef nonnull readonly align 8 dereferenceable(592) %478, i64 592, i1 false), !noalias !22100
   call void @llvm.experimental.noalias.scope.decl(metadata !22101)

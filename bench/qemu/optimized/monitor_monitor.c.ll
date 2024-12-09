@@ -1164,7 +1164,7 @@ if.then3:                                         ; preds = %do.body1
   br label %if.end10.thread
 
 if.else:                                          ; preds = %do.body1
-  store ptr %entry2, ptr getelementptr inbounds (i8, ptr @mon_list, i64 8), align 8
+  store ptr %entry2, ptr getelementptr inbounds nuw (i8, ptr @mon_list, i64 8), align 8
   br label %if.end10.thread
 
 if.end10.thread:                                  ; preds = %if.then3, %if.else
@@ -1359,7 +1359,7 @@ if.then53:                                        ; preds = %while.body49
   br label %if.end61
 
 if.else58:                                        ; preds = %while.body49
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @mon_list, i64 8), align 8
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @mon_list, i64 8), align 8
   br label %if.end61
 
 if.end61:                                         ; preds = %if.else58, %if.then53

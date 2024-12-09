@@ -140,7 +140,7 @@ entry:
   %ref.tmp187 = alloca %"class.QuantLib::NumericalDifferentiation", align 8
   %agg.tmp188 = alloca %"class.std::function", align 8
   %agg.tmp191 = alloca %"class.QuantLib::Array", align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib20NthOrderDerivativeOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib20NthOrderDerivativeOpE, i64 16), ptr %this, align 8, !tbaa !3
   %m_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mesher, align 8, !tbaa !6
   %cmp.not.i = icmp eq ptr %0, null
@@ -1864,7 +1864,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !89
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2552,7 +2552,7 @@ ehcleanup14:                                      ; preds = %if.then.i57, %ehcle
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib20NthOrderDerivativeOpD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib20NthOrderDerivativeOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib20NthOrderDerivativeOpE, i64 16), ptr %this, align 8, !tbaa !3
   %size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i64, ptr %size_.i.i, align 8, !tbaa !83
   %tobool.not.i.i = icmp eq i64 %0, 0
@@ -2598,7 +2598,7 @@ _ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib20NthOrderDerivativeOpD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib20NthOrderDerivativeOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib20NthOrderDerivativeOpE, i64 16), ptr %this, align 8, !tbaa !3
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i64, ptr %size_.i.i.i, align 8, !tbaa !83
   %tobool.not.i.i.i = icmp eq i64 %0, 0

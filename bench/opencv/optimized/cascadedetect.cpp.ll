@@ -2500,7 +2500,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %207, %210
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv16FeatureEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -2623,7 +2623,7 @@ define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator4readERKNS_8FileNodeEN
   store i32 1, ptr %11, align 8, !noalias !32
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1, ptr %12, align 4, !noalias !32
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !32
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !32
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !noalias !32
   store ptr %13, ptr %6, align 8
@@ -2978,7 +2978,7 @@ define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator15updateScaleDataENS_5
   store i32 1, ptr %9, align 8, !noalias !38
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4, !noalias !38
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !38
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !38
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !noalias !38
   store ptr %11, ptr %4, align 8
@@ -4005,7 +4005,7 @@ declare noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv13HaarEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 8), (12, 44)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -4022,7 +4022,7 @@ define hidden void @_ZN2cv13HaarEvaluatorC2Ev(ptr noundef nonnull align 8 derefe
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %8, i32 noundef 0) #33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv13HaarEvaluatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv13HaarEvaluatorE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -4334,7 +4334,7 @@ define hidden noundef zeroext i1 @_ZN2cv13HaarEvaluator4readERKNS_8FileNodeENS_5
   store i32 1, ptr %25, align 8, !noalias !56
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %26, align 4, !noalias !56
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv13HaarEvaluator7FeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !56
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv13HaarEvaluator7FeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !56
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false), !noalias !56
   store ptr %27, ptr %20, align 8
@@ -4511,7 +4511,7 @@ _ZN2cv3PtrISt6vectorINS_13HaarEvaluator7FeatureESaIS3_EEED2Ev.exit: ; preds = %_
   store i32 1, ptr %104, align 8, !noalias !61
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 12
   store i32 1, ptr %105, align 4, !noalias !61
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %103, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %103, align 8, !noalias !61
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, i8 0, i64 24, i1 false), !noalias !61
   store ptr %106, ptr %99, align 8
@@ -4688,7 +4688,7 @@ _ZN2cv3PtrISt6vectorINS_13HaarEvaluator10OptFeatureESaIS3_EEED2Ev.exit: ; preds 
   store i32 1, ptr %183, align 8, !noalias !66
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 12
   store i32 1, ptr %184, align 4, !noalias !66
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %182, align 8, !noalias !66
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %182, align 8, !noalias !66
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, i8 0, i64 24, i1 false), !noalias !66
   store ptr %185, ptr %178, align 8
@@ -4968,9 +4968,9 @@ define hidden void @_ZNK2cv13HaarEvaluator5cloneEv(ptr dead_on_unwind noalias no
   store i32 1, ptr %5, align 8, !noalias !75
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !75
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13HaarEvaluatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv13HaarEvaluatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !75
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %7, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %7, align 8, !noalias !75
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, i8 0, i64 32, i1 false), !noalias !75
@@ -4987,7 +4987,7 @@ define hidden void @_ZNK2cv13HaarEvaluator5cloneEv(ptr dead_on_unwind noalias no
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %14, i32 noundef 0) #33, !noalias !75
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 576
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !noalias !75
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv13HaarEvaluatorE, i64 16), ptr %7, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv13HaarEvaluatorE, i64 16), ptr %7, align 8, !noalias !75
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 592
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 652
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 688
@@ -6694,7 +6694,7 @@ define hidden noundef zeroext i1 @_ZN2cv12LBPEvaluator7Feature4readERKNS_8FileNo
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv12LBPEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8), (12, 44)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -6711,7 +6711,7 @@ define hidden void @_ZN2cv12LBPEvaluatorC2Ev(ptr noundef nonnull align 8 derefer
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %8, i32 noundef 0) #33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv12LBPEvaluatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv12LBPEvaluatorE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
@@ -6723,7 +6723,7 @@ define hidden void @_ZN2cv12LBPEvaluatorC2Ev(ptr noundef nonnull align 8 derefer
   store i32 1, ptr %14, align 8, !noalias !80
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 1, ptr %15, align 4, !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator7FeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator7FeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12, align 8, !noalias !80
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !noalias !80
   store ptr %16, ptr %10, align 8
@@ -6885,7 +6885,7 @@ _ZN2cv3PtrISt6vectorINS_12LBPEvaluator7FeatureESaIS3_EEED2Ev.exit: ; preds = %67
   store i32 1, ptr %86, align 8, !noalias !85
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store i32 1, ptr %87, align 4, !noalias !85
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %84, align 8, !noalias !85
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %84, align 8, !noalias !85
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false), !noalias !85
   store ptr %88, ptr %11, align 8
@@ -7059,7 +7059,7 @@ _ZN2cv3PtrISt6vectorINS_12LBPEvaluator10OptFeatureESaIS3_EEED2Ev.exit: ; preds =
   store i32 1, ptr %162, align 8, !noalias !90
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 12
   store i32 1, ptr %163, align 4, !noalias !90
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %160, align 8, !noalias !90
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %160, align 8, !noalias !90
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %164, i8 0, i64 24, i1 false), !noalias !90
   store ptr %164, ptr %9, align 8
@@ -7652,7 +7652,7 @@ define hidden noundef zeroext i1 @_ZN2cv12LBPEvaluator4readERKNS_8FileNodeENS_5S
   store i32 1, ptr %14, align 8, !noalias !95
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !noalias !95
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator7FeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator7FeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8, !noalias !95
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !noalias !95
   store ptr %16, ptr %9, align 8
@@ -7829,7 +7829,7 @@ _ZN2cv3PtrISt6vectorINS_12LBPEvaluator7FeatureESaIS3_EEED2Ev.exit: ; preds = %_Z
   store i32 1, ptr %93, align 8, !noalias !100
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 12
   store i32 1, ptr %94, align 4, !noalias !100
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %92, align 8, !noalias !100
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %92, align 8, !noalias !100
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, i8 0, i64 24, i1 false), !noalias !100
   store ptr %95, ptr %88, align 8
@@ -8006,7 +8006,7 @@ _ZN2cv3PtrISt6vectorINS_12LBPEvaluator10OptFeatureESaIS3_EEED2Ev.exit: ; preds =
   store i32 1, ptr %172, align 8, !noalias !105
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 12
   store i32 1, ptr %173, align 4, !noalias !105
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %171, align 8, !noalias !105
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN2cv12LBPEvaluator10OptFeatureESaIS3_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %171, align 8, !noalias !105
   %174 = getelementptr inbounds nuw i8, ptr %171, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %174, i8 0, i64 24, i1 false), !noalias !105
   store ptr %174, ptr %167, align 8
@@ -8307,7 +8307,7 @@ define hidden void @_ZNK2cv12LBPEvaluator5cloneEv(ptr dead_on_unwind noalias noc
   store i32 1, ptr %5, align 8, !noalias !119
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !119
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12LBPEvaluatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !119
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12LBPEvaluatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !119
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN2cv12LBPEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(640) %7)
           to label %_ZN2cvL7makePtrINS_12LBPEvaluatorEJEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12LBPEvaluatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !119
@@ -9333,7 +9333,7 @@ define hidden void @_ZN2cv16FeatureEvaluator6createEi(ptr dead_on_unwind noalias
 
 3:                                                ; preds = %2
   %4 = tail call noalias noundef nonnull dereferenceable(696) ptr @_Znwm(i64 noundef 696) #30
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv16FeatureEvaluatorE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -9350,7 +9350,7 @@ define hidden void @_ZN2cv16FeatureEvaluator6createEi(ptr dead_on_unwind noalias
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %11, i32 noundef 0) #33
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv13HaarEvaluatorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv13HaarEvaluatorE, i64 16), ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 576
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 636
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 672
@@ -9412,7 +9412,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv13HaarEvaluatorEEET_
   store i32 1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %36, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %4, ptr %37, align 8
   store ptr %24, ptr %23, align 8
@@ -9461,7 +9461,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12LBPEvaluatorEEET_.
   store i32 1, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 1, ptr %54, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12LBPEvaluatorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12LBPEvaluatorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %42, align 8
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %39, ptr %55, align 8
   store ptr %42, ptr %41, align 8
@@ -9487,7 +9487,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv21CascadeClassifierImplC2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv21CascadeClassifierImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv21CascadeClassifierImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %2, i8 0, i64 28, i1 false)
@@ -12709,7 +12709,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc155, %285
 
 ._crit_edge273:                                   ; preds = %310, %301
   %325 = trunc i64 %291 to i32
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv24CascadeClassifierInvokerE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv24CascadeClassifierInvokerE, i64 16), ptr %21, align 8
   %326 = getelementptr inbounds nuw i8, ptr %21, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %326, i8 0, i64 24, i1 false)
   %327 = getelementptr inbounds nuw i8, ptr %21, i64 88
@@ -12762,7 +12762,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %342, %339
           to label %347 unwind label %364
 
 347:                                              ; preds = %343
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv24CascadeClassifierInvokerE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv24CascadeClassifierInvokerE, i64 16), ptr %21, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %327) #33
   %348 = load ptr, ptr %326, align 8
   %.not.i.i.i.i166 = icmp eq ptr %348, null
@@ -12904,7 +12904,7 @@ declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv24CascadeClassifierInvokerD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv24CascadeClassifierInvokerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv24CascadeClassifierInvokerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -18063,7 +18063,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv24CascadeClassifierInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv24CascadeClassifierInvokerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv24CascadeClassifierInvokerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -20128,13 +20128,13 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierI
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(752) %6)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_.exit
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv21CascadeClassifierImplE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN2cv21CascadeClassifierImplE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, i8 0, i64 28, i1 false)

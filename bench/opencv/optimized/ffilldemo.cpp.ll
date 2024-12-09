@@ -324,9 +324,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %103 unwind label %152
 
 103:                                              ; preds = %97
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @image0, i64 8), align 8
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image0, i64 8), align 8
   %105 = add nsw i32 %104, 2
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @image0, i64 12), align 4
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @image0, i64 12), align 4
   %107 = add nsw i32 %106, 2
   invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) @mask, i32 noundef %105, i32 noundef %107, i32 noundef 0)
           to label %108 unwind label %.loopexit.split-lp

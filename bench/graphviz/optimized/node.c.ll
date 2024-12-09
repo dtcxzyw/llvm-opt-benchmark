@@ -21,8 +21,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @agfindnode_by_id(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
-  store i64 %1, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
+  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -130,8 +130,8 @@ define ptr @agprvnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @agidnode(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  store i64 %1, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
+  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -157,8 +157,8 @@ agfindnode_by_id.exit:                            ; preds = %3, %8
   br i1 %.not, label %agfindnode_by_id.exit27.thread, label %16
 
 16:                                               ; preds = %14
-  store i64 %1, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
+  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
@@ -274,8 +274,8 @@ define ptr @agsubnode(ptr noundef %0, ptr nocapture noundef readonly %1, i32 nou
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
+  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -348,8 +348,8 @@ define ptr @agnode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %4, align 8
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
+  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -371,8 +371,8 @@ agfindnode_by_id.exit.thread:                     ; preds = %7, %agfindnode_by_i
 
 15:                                               ; preds = %agfindnode_by_id.exit.thread
   %16 = load i64, ptr %4, align 8
-  store i64 %16, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
+  store i64 %16, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
+  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
@@ -487,7 +487,7 @@ declare void @agregister(ptr noundef, i32 noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define void @agdelnodeimage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @agdelnodeimage.template, i64 32), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @agdelnodeimage.template, i64 32), align 8
   %4 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %1) #5
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -521,8 +521,8 @@ declare void @agdeledgeimage(ptr noundef, ptr noundef, ptr noundef) local_unname
 define range(i32 -1, 1) i32 @agdelnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  store i64 %4, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
+  store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
+  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -617,8 +617,8 @@ define range(i32 -1, 1) i32 @agrelabel_node(ptr noundef %0, ptr noundef %1) loca
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %3, align 8
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
+  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
@@ -645,8 +645,8 @@ agfindnode_by_name.exit:                          ; preds = %8
 18:                                               ; preds = %16
   %19 = call ptr @agroot(ptr noundef %6) #5
   %20 = load i64, ptr %4, align 8
-  store i64 %20, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
-  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
+  store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
+  store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
@@ -866,7 +866,7 @@ agprvnode.exit49:                                 ; preds = %35, %37, %41
 
 ; Function Attrs: nounwind uwtable
 define internal void @agnodesetfinger(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @agnodesetfinger.template, i64 32), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @agnodesetfinger.template, i64 32), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

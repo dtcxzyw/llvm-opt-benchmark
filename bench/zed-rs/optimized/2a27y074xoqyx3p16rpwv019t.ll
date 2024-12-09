@@ -192628,7 +192628,7 @@ define hidden void @"_ZN107_$LT$gpui..platform..linux..x11..xim_handler..XimHand
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !52881
   store ptr @anon.4c99158258ee3b3a3d86145b1761aaa8.402.llvm.2317975020751253692, ptr %5, align 8, !noalias !52881
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.4c99158258ee3b3a3d86145b1761aaa8.402.llvm.2317975020751253692, i64 1), ptr %9, align 8, !noalias !52881
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.4c99158258ee3b3a3d86145b1761aaa8.402.llvm.2317975020751253692, i64 1), ptr %9, align 8, !noalias !52881
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %10, align 8, !noalias !52881
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8

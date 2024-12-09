@@ -2594,7 +2594,7 @@ define dso_local void @_ZN5vcpkg18create_remove_planERKSt6vectorINS_11PackageSpe
   %12 = alloca %"struct.std::equal_to", align 1
   %13 = alloca %"class.std::allocator.5", align 1
   %14 = alloca i32, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN5vcpkg18create_remove_planERKSt6vectorINS_11PackageSpecESaIS1_EERKNS_16StatusParagraphsEE23RemoveAdjacencyProvider, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN5vcpkg18create_remove_planERKSt6vectorINS_11PackageSpecESaIS1_EERKNS_16StatusParagraphsEE23RemoveAdjacencyProvider, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %16, ptr %15, align 8
@@ -3380,7 +3380,7 @@ _ZNSt13unordered_setIN5vcpkg11PackageSpecESt4hashIS1_ESt8equal_toIS1_ESaIS1_EEC2
           to label %12 unwind label %34
 
 12:                                               ; preds = %_ZNSt13unordered_setIN5vcpkg11PackageSpecESt4hashIS1_ESt8equal_toIS1_ESaIS1_EEC2IN9__gnu_cxx17__normal_iteratorIPKS1_St6vectorIS1_S6_EEEEET_SG_mRKS3_RKS5_RKS6_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZN5vcpkg18create_export_planERKSt6vectorINS_11PackageSpecESaIS1_EERKNS_16StatusParagraphsEE23ExportAdjacencyProvider, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN5vcpkg18create_export_planERKSt6vectorINS_11PackageSpecESaIS1_EERKNS_16StatusParagraphsEE23ExportAdjacencyProvider, i64 16), ptr %8, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6256,10 +6256,10 @@ define internal fastcc void @_ZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPN
   %.val96 = load ptr, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.val96, ptr %26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE18RemoveEdgeProvider, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE18RemoveEdgeProvider, i64 16), ptr %8, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.val96, ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE19InstallEdgeProvider, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZNK5vcpkg12_GLOBAL__N_112PackageGraph9serializeEPNS_15GraphRandomizerEE19InstallEdgeProvider, i64 16), ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %28 = getelementptr i8, ptr %.val96, i64 24

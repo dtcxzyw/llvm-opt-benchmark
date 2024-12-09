@@ -10319,7 +10319,7 @@ add_list_to_class.exit152:                        ; preds = %.preheader380, %.pr
   %1053 = load ptr, ptr %15, align 8
   %1054 = getelementptr inbounds nuw i8, ptr %1053, i64 12
   store ptr %1054, ptr %15, align 8
-  %1055 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
+  %1055 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %1056 = zext i8 %1055 to i64
   %1057 = getelementptr inbounds nuw i8, ptr %.11322.i, i64 %1056
   br label %1786
@@ -12796,7 +12796,7 @@ define internal fastcc range(i32 0, 2) i32 @is_startline(ptr noundef nonnull rea
   ]
 
 24:                                               ; preds = %21
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %26 = zext i8 %25 to i64
   br label %thread-pre-split
 

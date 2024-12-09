@@ -2114,7 +2114,7 @@ define linkonce_odr hidden void @_Z13createCaptureRKNSt7__cxx1112basic_stringIcS
   store i32 1, ptr %29, align 8, !noalias !12
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 1, ptr %30, align 4, !noalias !12
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28, align 8, !noalias !12
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   invoke void @_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) %31, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1800)
           to label %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !12
@@ -2445,7 +2445,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   store i32 1, ptr %141, align 8, !noalias !18
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 12
   store i32 1, ptr %142, align 4, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %140, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %140, align 8, !noalias !18
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 16
   invoke void @_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) %143, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 1800)
           to label %145 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i39, !noalias !18
@@ -2504,7 +2504,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN
   store i32 1, ptr %162, align 8, !noalias !24
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 12
   store i32 1, ptr %163, align 4, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %161, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %161, align 8, !noalias !24
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 16
   invoke void @_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) %164, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1900)
           to label %_ZN2cvL7makePtrINS_12VideoCaptureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16VideoCaptureAPIsEEEENS_3PtrIT_EEDpRKT0_.exit43 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i42, !noalias !24
@@ -2817,7 +2817,7 @@ define linkonce_odr hidden void @_Z17createSynthSourceN2cv5Size_IiEEj(ptr dead_o
   store i32 1, ptr %41, align 8, !noalias !30
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 1, ptr %42, align 4, !noalias !30
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %40, align 8, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %40, align 8, !noalias !30
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   invoke void @_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) %43, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 1800)
           to label %45 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv12VideoCaptureESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !30
@@ -2986,7 +2986,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   store i32 1, ptr %72, align 8, !noalias !37
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 1, ptr %73, align 4, !noalias !37
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11VideoWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %71, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11VideoWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %71, align 8, !noalias !37
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %75 = uitofp i32 %5 to double
   invoke void @_ZN2cv11VideoWriterC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiidNS_5Size_IiEEb(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1800, i32 noundef %70, double noundef %75, i64 %4, i1 noundef zeroext true)
@@ -3424,7 +3424,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   store i32 1, ptr %220, align 8, !noalias !43
   %221 = getelementptr inbounds nuw i8, ptr %219, i64 12
   store i32 1, ptr %221, align 4, !noalias !43
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11VideoWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %219, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11VideoWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %219, align 8, !noalias !43
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %223 = uitofp i32 %5 to double
   invoke void @_ZN2cv11VideoWriterC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiidNS_5Size_IiEEb(ptr noundef nonnull align 8 dereferenceable(40) %222, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 1800, i32 noundef 0, double noundef %223, i64 %4, i1 noundef zeroext true)
@@ -3599,7 +3599,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   store i32 1, ptr %280, align 8, !noalias !49
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 12
   store i32 1, ptr %281, align 4, !noalias !49
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11VideoWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %279, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11VideoWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %279, align 8, !noalias !49
   %282 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %283 = uitofp i32 %5 to double
   invoke void @_ZN2cv11VideoWriterC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiidNS_5Size_IiEEb(ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1900, i32 noundef %278, double noundef %283, i64 %4, i1 noundef zeroext true)

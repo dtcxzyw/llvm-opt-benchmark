@@ -3605,8 +3605,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6de
   %380 = getelementptr inbounds nuw i8, ptr %13, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %380, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %379, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %368, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %369, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %368, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %369, align 8
   %381 = load ptr, ptr %60, align 8
   %382 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #17
   %383 = getelementptr inbounds ptr, ptr %381, i64 %382
@@ -5019,7 +5019,7 @@ declare noundef zeroext i1 @_ZN4llvm7CmpInst10isEqualityENS0_9PredicateE(i32 nou
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.CmpCaptureTracker, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEE17CmpCaptureTracker, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEE17CmpCaptureTracker, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5362,7 +5362,7 @@ _ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit: 
 
 .loopexit:                                        ; preds = %178, %12, %_ZZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEEN17CmpCaptureTrackerC2ES2_.exit
   %.0 = phi i1 [ false, %_ZZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEEN17CmpCaptureTrackerC2ES2_.exit ], [ false, %12 ], [ %.1, %178 ]
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEE17CmpCaptureTracker, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEE17CmpCaptureTracker, i64 16), ptr %3, align 8
   %180 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #17
   %181 = load ptr, ptr %8, align 8
   %182 = icmp eq ptr %181, %9
@@ -5633,7 +5633,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit:  ; preds = %._crit_edge, %128
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEEN17CmpCaptureTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEE17CmpCaptureTracker, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEE17CmpCaptureTracker, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #17
@@ -61608,7 +61608,7 @@ declare void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEEN17CmpCaptureTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEE17CmpCaptureTracker, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVZN4llvm16InstCombinerImpl13foldAllocaCmpEPNS_10AllocaInstEE17CmpCaptureTracker, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #17

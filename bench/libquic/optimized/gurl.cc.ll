@@ -2407,7 +2407,7 @@ invoke.cont:                                      ; preds = %lor.lhs.false
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %ignored_output, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %ignored_output, i64 16
   store i64 128, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %ignored_output, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %ignored_output, align 8
   %fixed_buffer_.i = getelementptr inbounds nuw i8, ptr %ignored_output, i64 24
   store ptr %fixed_buffer_.i, ptr %buffer_.i.i, align 8
   store i32 0, ptr %host_info, align 4
@@ -2426,7 +2426,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %2 = load i32, ptr %host_info, align 4
   %3 = and i32 %2, -2
   %spec.select.i = icmp eq i32 %3, 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %ignored_output, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %ignored_output, align 8
   %4 = load ptr, ptr %buffer_.i.i, align 8
   %cmp.not.i = icmp eq ptr %4, %fixed_buffer_.i
   %isnull.i = icmp eq ptr %4, null
@@ -2440,7 +2440,7 @@ delete.notnull.i:                                 ; preds = %invoke.cont4
 lpad:                                             ; preds = %invoke.cont
   %5 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %ignored_output, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %ignored_output, align 8
   %6 = load ptr, ptr %buffer_.i.i, align 8
   %cmp.not.i4 = icmp eq ptr %6, %fixed_buffer_.i
   %isnull.i5 = icmp eq ptr %6, null
@@ -2467,7 +2467,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi128EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_, align 8
   %fixed_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2639,7 +2639,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi128EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 16), ptr %this, align 8
   %buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
   %fixed_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 24

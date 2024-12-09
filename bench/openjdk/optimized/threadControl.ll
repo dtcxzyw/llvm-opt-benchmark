@@ -2543,7 +2543,7 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   store i32 %1, ptr %30, align 8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr null, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @deferredEventModes, i64 8), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @deferredEventModes, i64 8), align 8
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %39, label %37
 
@@ -2557,7 +2557,7 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   br label %insertEventMode.exit.i
 
 insertEventMode.exit.i:                           ; preds = %39, %37
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @deferredEventModes, i64 8), align 8
+  store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @deferredEventModes, i64 8), align 8
   br label %addDeferredEventMode.exit
 
 40:                                               ; preds = %24
@@ -2991,7 +2991,7 @@ threadSetEventNotificationMode.exit.i:            ; preds = %133, %128
   br i1 %151, label %152, label %removeEventMode.exit.i
 
 152:                                              ; preds = %150
-  store ptr %.01924.i, ptr getelementptr inbounds (i8, ptr @deferredEventModes, i64 8), align 8
+  store ptr %.01924.i, ptr getelementptr inbounds nuw (i8, ptr @deferredEventModes, i64 8), align 8
   br label %removeEventMode.exit.i
 
 removeEventMode.exit.i:                           ; preds = %152, %150

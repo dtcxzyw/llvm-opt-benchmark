@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @transfer_all_new_tablespaces(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @user_opts, i64 4), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 4), align 4
   %6 = icmp ult i32 %5, 3
   br i1 %6, label %switch.lookup, label %8
 
@@ -50,7 +50,7 @@ switch.lookup:                                    ; preds = %4
   br label %8
 
 8:                                                ; preds = %4, %switch.lookup
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @user_opts, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 8), align 8
   %10 = icmp slt i32 %9, 2
   br i1 %10, label %11, label %12
 
@@ -60,18 +60,18 @@ switch.lookup:                                    ; preds = %4
 
 12:                                               ; preds = %8
   tail call void @parallel_transfer_all_new_dbs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %2) #6
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 32), align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.preheader.preheader
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 24), align 8
   %16 = getelementptr ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   tail call void @parallel_transfer_all_new_dbs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %17) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @os_info, i64 32), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 32), align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
   br i1 %20, label %.lr.ph, label %.preheader.preheader, !llvm.loop !5
@@ -143,9 +143,9 @@ define dso_local void @transfer_all_new_dbs(ptr nocapture noundef readonly %0, p
   br i1 %.not26.us, label %transfer_single_new_db.exit.us, label %27
 
 27:                                               ; preds = %23
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 4), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 4), align 4
   %29 = icmp ult i32 %28, 201603011
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 4), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 4), align 4
   %31 = icmp ugt i32 %30, 201603010
   %or.cond.i.us = select i1 %29, i1 %31, i1 false
   %32 = icmp sgt i32 %26, 0
@@ -228,9 +228,9 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
   br i1 %.not26, label %transfer_single_new_db.exit, label %65
 
 65:                                               ; preds = %61
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 4), align 4
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 4), align 4
   %67 = icmp ult i32 %66, 201603011
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 4), align 4
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 4), align 4
   %69 = icmp ugt i32 %68, 201603010
   %or.cond.i = select i1 %67, i1 %69, i1 false
   %70 = icmp sgt i32 %64, 0
@@ -369,7 +369,7 @@ define internal fastcc void @transfer_relfile(ptr nocapture noundef readonly %0,
   br label %67
 
 56:                                               ; preds = %50, %48
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @user_opts, i64 4), align 4
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 4), align 4
   switch i32 %57, label %67 [
     i32 0, label %58
     i32 1, label %61

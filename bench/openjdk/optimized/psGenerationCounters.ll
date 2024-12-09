@@ -27,7 +27,7 @@ define hidden void @_ZN20PSGenerationCountersC2EPKciimmP14PSVirtualSpace(ptr noc
   %8 = alloca %class.ExceptionMark, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20PSGenerationCounters, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20PSGenerationCounters, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %6, ptr %10, align 8
   %11 = load i8, ptr @UsePerfData, align 1

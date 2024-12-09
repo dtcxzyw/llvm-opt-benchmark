@@ -815,7 +815,7 @@ define hidden void @zim_SplObjectStorage_addAll(ptr nocapture noundef readonly %
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %46
@@ -892,7 +892,7 @@ define hidden void @zim_SplObjectStorage_removeAll(ptr nocapture noundef readonl
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %36
@@ -955,7 +955,7 @@ define hidden void @zim_SplObjectStorage_removeAllExcept(ptr nocapture noundef r
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %50
@@ -1153,7 +1153,7 @@ define hidden void @zim_SplObjectStorage_count(ptr nocapture noundef readonly %0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %25
@@ -1194,7 +1194,7 @@ define hidden void @zim_SplObjectStorage_rewind(ptr nocapture noundef readonly %
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -1224,7 +1224,7 @@ define hidden void @zim_SplObjectStorage_valid(ptr nocapture noundef readonly %0
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %15
@@ -1254,7 +1254,7 @@ define hidden void @zim_SplObjectStorage_key(ptr nocapture noundef readonly %0, 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -1282,7 +1282,7 @@ define hidden void @zim_SplObjectStorage_current(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %24
@@ -1299,7 +1299,7 @@ define hidden void @zim_SplObjectStorage_current(ptr nocapture noundef readonly 
 13:                                               ; preds = %.critedge
   %14 = load ptr, ptr @spl_ce_RuntimeException, align 8
   %15 = tail call ptr @zend_throw_exception(ptr noundef %14, ptr noundef nonnull @.str.3, i64 noundef 0) #10
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   br label %24
@@ -1330,7 +1330,7 @@ define hidden void @zim_SplObjectStorage_getInfo(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %26
@@ -1384,7 +1384,7 @@ define hidden void @zim_SplObjectStorage_setInfo(ptr nocapture noundef readonly 
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %31
@@ -1437,7 +1437,7 @@ define hidden void @zim_SplObjectStorage_next(ptr nocapture noundef readonly %0,
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %16
@@ -1479,7 +1479,7 @@ define hidden void @zim_SplObjectStorage_serialize(ptr nocapture noundef readonl
 
 14:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
   br label %161
@@ -1808,7 +1808,7 @@ define hidden void @zim_SplObjectStorage_unserialize(ptr nocapture noundef reado
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %151
@@ -2105,7 +2105,7 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %93, %112, %spl_obje
   %146 = sub i64 %144, %145
   %147 = load i64, ptr %6, align 8
   %148 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %141, i64 noundef 0, ptr noundef nonnull @.str.8, i64 noundef %146, i64 noundef %147) #10
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %150 = icmp ne ptr %149, null
   call void @llvm.assume(i1 %150)
   br label %151
@@ -2141,7 +2141,7 @@ define hidden void @zim_SplObjectStorage___serialize(ptr nocapture noundef reado
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %62
@@ -2255,7 +2255,7 @@ define hidden void @zim_SplObjectStorage___unserialize(ptr nocapture noundef rea
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %79
@@ -2285,7 +2285,7 @@ define hidden void @zim_SplObjectStorage___unserialize(ptr nocapture noundef rea
 27:                                               ; preds = %24, %21, %14
   %28 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %29 = call ptr @zend_throw_exception(ptr noundef %28, ptr noundef nonnull @.str.10, i64 noundef 0) #10
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
   call void @llvm.assume(i1 %31)
   br label %79
@@ -2301,7 +2301,7 @@ define hidden void @zim_SplObjectStorage___unserialize(ptr nocapture noundef rea
 37:                                               ; preds = %32
   %38 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %39 = call ptr @zend_throw_exception(ptr noundef %38, ptr noundef nonnull @.str.11, i64 noundef 0) #10
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %41 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %41)
   br label %79
@@ -2345,7 +2345,7 @@ define hidden void @zim_SplObjectStorage___unserialize(ptr nocapture noundef rea
 61:                                               ; preds = %58
   %62 = load ptr, ptr @spl_ce_UnexpectedValueException, align 8
   %63 = call ptr @zend_throw_exception(ptr noundef %62, ptr noundef nonnull @.str.12, i64 noundef 0) #10
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %65 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %65)
   br label %79
@@ -2397,7 +2397,7 @@ define hidden void @zim_SplObjectStorage___debugInfo(ptr nocapture noundef reado
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %83
@@ -2555,7 +2555,7 @@ define hidden void @zim_MultipleIterator___construct(ptr nocapture noundef reado
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %16
@@ -2581,7 +2581,7 @@ define hidden void @zim_MultipleIterator_getFlags(ptr nocapture noundef readonly
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %13
@@ -2612,7 +2612,7 @@ define hidden void @zim_MultipleIterator_setFlags(ptr nocapture noundef readonly
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
   br label %13
@@ -2781,7 +2781,7 @@ thread-pre-split:                                 ; preds = %22
 .critedge145:                                     ; preds = %64, %66
   %68 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8
   %69 = call ptr @zend_throw_exception(ptr noundef %68, ptr noundef nonnull @.str.14, i64 noundef 0) #10
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %71 = icmp ne ptr %70, null
   call void @llvm.assume(i1 %71)
   br label %77
@@ -2819,7 +2819,7 @@ define hidden void @zim_MultipleIterator_detachIterator(ptr nocapture noundef re
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %21
@@ -2852,7 +2852,7 @@ define hidden void @zim_MultipleIterator_containsIterator(ptr nocapture noundef 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %21
@@ -2880,7 +2880,7 @@ define hidden void @zim_MultipleIterator_countIterators(ptr nocapture noundef re
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %14
@@ -2912,7 +2912,7 @@ define hidden void @zim_MultipleIterator_rewind(ptr nocapture noundef readonly %
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %.thread
@@ -2922,7 +2922,7 @@ define hidden void @zim_MultipleIterator_rewind(ptr nocapture noundef readonly %
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %5, ptr noundef nonnull %11) #10
   %12 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %5, ptr noundef nonnull %11) #10
   %.not2630 = icmp ne ptr %12, null
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not2731 = icmp eq ptr %13, null
   %or.cond32 = select i1 %.not2630, i1 %.not2731, i1 false
   br i1 %or.cond32, label %.lr.ph, label %.thread
@@ -2941,7 +2941,7 @@ define hidden void @zim_MultipleIterator_rewind(ptr nocapture noundef readonly %
   %23 = tail call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %5, ptr noundef nonnull %11) #10
   %24 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %5, ptr noundef nonnull %11) #10
   %.not26 = icmp ne ptr %24, null
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not27 = icmp eq ptr %25, null
   %or.cond = select i1 %.not26, i1 %.not27, i1 false
   br i1 %or.cond, label %.lr.ph, label %.thread
@@ -2962,7 +2962,7 @@ define hidden void @zim_MultipleIterator_next(ptr nocapture noundef readonly %0,
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %10)
   br label %.thread
@@ -2972,7 +2972,7 @@ define hidden void @zim_MultipleIterator_next(ptr nocapture noundef readonly %0,
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %5, ptr noundef nonnull %11) #10
   %12 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %5, ptr noundef nonnull %11) #10
   %.not2630 = icmp ne ptr %12, null
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not2731 = icmp eq ptr %13, null
   %or.cond32 = select i1 %.not2630, i1 %.not2731, i1 false
   br i1 %or.cond32, label %.lr.ph, label %.thread
@@ -2991,7 +2991,7 @@ define hidden void @zim_MultipleIterator_next(ptr nocapture noundef readonly %0,
   %23 = tail call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %5, ptr noundef nonnull %11) #10
   %24 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %5, ptr noundef nonnull %11) #10
   %.not26 = icmp ne ptr %24, null
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not27 = icmp eq ptr %25, null
   %or.cond = select i1 %.not26, i1 %.not27, i1 false
   br i1 %or.cond, label %.lr.ph, label %.thread
@@ -3013,7 +3013,7 @@ define hidden void @zim_MultipleIterator_valid(ptr nocapture noundef readonly %0
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %49
@@ -3038,7 +3038,7 @@ define hidden void @zim_MultipleIterator_valid(ptr nocapture noundef readonly %0
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %6, ptr noundef nonnull %20) #10
   %21 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %6, ptr noundef nonnull %20) #10
   %.not4247 = icmp ne ptr %21, null
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not4348 = icmp eq ptr %22, null
   %or.cond49 = select i1 %.not4247, i1 %.not4348, i1 false
   br i1 %or.cond49, label %.lr.ph, label %.thread
@@ -3083,7 +3083,7 @@ define hidden void @zim_MultipleIterator_valid(ptr nocapture noundef readonly %0
   %44 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %6, ptr noundef nonnull %20) #10
   %45 = call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %6, ptr noundef nonnull %20) #10
   %.not42 = icmp ne ptr %45, null
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not43 = icmp eq ptr %46, null
   %or.cond = select i1 %.not42, i1 %.not43, i1 false
   br i1 %or.cond, label %24, label %.thread
@@ -3107,7 +3107,7 @@ define hidden void @zim_MultipleIterator_current(ptr nocapture noundef readonly 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %11
@@ -3137,7 +3137,7 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
   %11 = icmp eq i32 %1, 1
   %12 = select i1 %11, ptr @.str.21, ptr @.str.22
   %13 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %10, i64 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull %12) #10
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
   br label %.thread
@@ -3163,7 +3163,7 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
 24:                                               ; preds = %.lr.ph, %97
   %25 = phi ptr [ %20, %.lr.ph ], [ %99, %97 ]
   %26 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not102 = icmp eq ptr %27, null
   br i1 %.not102, label %28, label %.thread
 
@@ -3316,7 +3316,7 @@ define hidden void @zim_MultipleIterator_key(ptr nocapture noundef readonly %0, 
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #10
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %11
@@ -3396,14 +3396,14 @@ define hidden noundef i32 @zm_startup_spl_observer(i32 noundef %0, i32 noundef %
   store ptr @spl_handler_SplObjectStorage, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handler_SplObjectStorage, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 88, ptr @spl_handler_SplObjectStorage, align 8
-  store ptr @spl_object_storage_compare_objects, ptr getelementptr inbounds (i8, ptr @spl_handler_SplObjectStorage, i64 184), align 8
-  store ptr @spl_object_storage_clone, ptr getelementptr inbounds (i8, ptr @spl_handler_SplObjectStorage, i64 24), align 8
-  store ptr @spl_object_storage_get_gc, ptr getelementptr inbounds (i8, ptr @spl_handler_SplObjectStorage, i64 168), align 8
-  store ptr @spl_SplObjectStorage_free_storage, ptr getelementptr inbounds (i8, ptr @spl_handler_SplObjectStorage, i64 8), align 8
-  store ptr @spl_object_storage_read_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_SplObjectStorage, i64 48), align 8
-  store ptr @spl_object_storage_write_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_SplObjectStorage, i64 56), align 8
-  store ptr @spl_object_storage_has_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_SplObjectStorage, i64 88), align 8
-  store ptr @spl_object_storage_unset_dimension, ptr getelementptr inbounds (i8, ptr @spl_handler_SplObjectStorage, i64 96), align 8
+  store ptr @spl_object_storage_compare_objects, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplObjectStorage, i64 184), align 8
+  store ptr @spl_object_storage_clone, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplObjectStorage, i64 24), align 8
+  store ptr @spl_object_storage_get_gc, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplObjectStorage, i64 168), align 8
+  store ptr @spl_SplObjectStorage_free_storage, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplObjectStorage, i64 8), align 8
+  store ptr @spl_object_storage_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplObjectStorage, i64 48), align 8
+  store ptr @spl_object_storage_write_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplObjectStorage, i64 56), align 8
+  store ptr @spl_object_storage_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplObjectStorage, i64 88), align 8
+  store ptr @spl_object_storage_unset_dimension, ptr getelementptr inbounds nuw (i8, ptr @spl_handler_SplObjectStorage, i64 96), align 8
   %39 = load ptr, ptr @zend_ce_iterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

@@ -30,7 +30,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   br i1 %or.cond, label %9, label %41
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_prtedl_dlopen_component, i64 240), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_prtedl_dlopen_component, i64 240), align 8
   %.042 = load ptr, ptr %10, align 8
   %.not43 = icmp eq ptr %.042, null
   br i1 %.not43, label %do_dlopen.exit35.thread, label %.lr.ph
@@ -55,7 +55,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
 17:                                               ; preds = %14
   %18 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %18) #7
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_prtedl_dlopen_component, i64 240), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_prtedl_dlopen_component, i64 240), align 8
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next54
   %.0.us = load ptr, ptr %20, align 8
@@ -84,7 +84,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   br i1 %30, label %do_dlopen.exit35.thread, label %32
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_prtedl_dlopen_component, i64 240), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_prtedl_dlopen_component, i64 240), align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.next
   %.0 = load ptr, ptr %34, align 8

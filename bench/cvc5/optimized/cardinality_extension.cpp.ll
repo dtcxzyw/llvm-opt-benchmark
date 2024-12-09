@@ -602,12 +602,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionC2EPS4_PNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 16)) %this, ptr noundef %cf, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionE, i64 16), ptr %this, align 8
   %d_cf = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %cf, ptr %d_cf, align 8
   %d_testCliqueSize = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %d_testCliqueSize, ptr noundef %c)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_testCliqueSize, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_testCliqueSize, align 8
   %d_data.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i64 0, ptr %d_data.i, align 8
   %d_pScope.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -631,7 +631,7 @@ _ZN4cvc57context3CDOImEC2EPNS0_7ContextERKm.exit: ; preds = %entry, %if.then.i.i
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN4cvc57context3CDOImEC2EPNS0_7ContextERKm.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_splitsSize, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_splitsSize, align 8
   %d_data.i14 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 0, ptr %d_data.i14, align 8
   %d_pScope.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -655,7 +655,7 @@ invoke.cont:                                      ; preds = %.noexc, %if.then.i.
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_testClique, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_testClique, align 8
   %d_map.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i64 0, ptr %8, align 8
@@ -675,7 +675,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_splits, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_splits, align 8
   %d_map.i22 = getelementptr inbounds nuw i8, ptr %this, i64 264
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 296
   store i64 0, ptr %9, align 8
@@ -695,7 +695,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
           to label %.noexc37 unwind label %lpad8
 
 .noexc37:                                         ; preds = %invoke.cont6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_reps_size, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_reps_size, align 8
   %d_data.i31 = getelementptr inbounds nuw i8, ptr %this, i64 376
   store i64 0, ptr %d_data.i31, align 8
   %d_pScope.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 344
@@ -719,7 +719,7 @@ invoke.cont9:                                     ; preds = %.noexc37, %if.then.
           to label %.noexc46 unwind label %lpad11
 
 .noexc46:                                         ; preds = %invoke.cont9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_total_diseq_external, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_total_diseq_external, align 8
   %d_data.i40 = getelementptr inbounds nuw i8, ptr %this, i64 424
   store i32 0, ptr %d_data.i40, align 8
   %d_pScope.i.i41 = getelementptr inbounds nuw i8, ptr %this, i64 392
@@ -743,7 +743,7 @@ invoke.cont12:                                    ; preds = %.noexc46, %if.then.
           to label %.noexc55 unwind label %lpad14
 
 .noexc55:                                         ; preds = %invoke.cont12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_total_diseq_internal, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_total_diseq_internal, align 8
   %d_data.i49 = getelementptr inbounds nuw i8, ptr %this, i64 472
   store i32 0, ptr %d_data.i49, align 8
   %d_pScope.i.i50 = getelementptr inbounds nuw i8, ptr %this, i64 440
@@ -778,7 +778,7 @@ invoke.cont15:                                    ; preds = %.noexc55, %if.then.
           to label %.noexc64 unwind label %lpad17
 
 .noexc64:                                         ; preds = %invoke.cont15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_valid, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_valid, align 8
   %d_data.i58 = getelementptr inbounds nuw i8, ptr %this, i64 568
   store i8 0, ptr %d_data.i58, align 8
   %d_pScope.i.i59 = getelementptr inbounds nuw i8, ptr %this, i64 536
@@ -891,7 +891,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory2uf20
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIjED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -909,7 +909,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -927,7 +927,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1007,7 +1007,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionE, i64 16), ptr %this, align 8
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 504
   %0 = load ptr, ptr %_M_left.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
@@ -1053,7 +1053,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory2uf20CardinalityExtens
   %_M_node_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i64 0, ptr %_M_node_count.i.i.i, align 8
   %d_valid = getelementptr inbounds nuw i8, ptr %this, i64 528
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_valid, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_valid, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %d_valid)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit unwind label %terminate.lpad.i
 
@@ -1078,7 +1078,7 @@ terminate.lpad.i.i3:                              ; preds = %_ZN4cvc57context3CD
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeInfoESt4lessIS3_ESaISt4pairIKS3_SA_EEED2Ev.exit: ; preds = %_ZN4cvc57context3CDOIbED2Ev.exit
   %d_total_diseq_internal = getelementptr inbounds nuw i8, ptr %this, i64 432
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_total_diseq_internal, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_total_diseq_internal, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_total_diseq_internal)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit unwind label %terminate.lpad.i4
 
@@ -1091,7 +1091,7 @@ terminate.lpad.i4:                                ; preds = %_ZNSt3mapIN4cvc58in
 
 _ZN4cvc57context3CDOIjED2Ev.exit:                 ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeInfoESt4lessIS3_ESaISt4pairIKS3_SA_EEED2Ev.exit
   %d_total_diseq_external = getelementptr inbounds nuw i8, ptr %this, i64 384
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_total_diseq_external, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_total_diseq_external, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_total_diseq_external)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit6 unwind label %terminate.lpad.i5
 
@@ -1104,7 +1104,7 @@ terminate.lpad.i5:                                ; preds = %_ZN4cvc57context3CD
 
 _ZN4cvc57context3CDOIjED2Ev.exit6:                ; preds = %_ZN4cvc57context3CDOIjED2Ev.exit
   %d_reps_size = getelementptr inbounds nuw i8, ptr %this, i64 336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_reps_size, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_reps_size, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %d_reps_size)
           to label %_ZN4cvc57context3CDOImED2Ev.exit unwind label %terminate.lpad.i7
 
@@ -1121,7 +1121,7 @@ _ZN4cvc57context3CDOImED2Ev.exit:                 ; preds = %_ZN4cvc57context3CD
   %d_testClique = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %d_testClique) #24
   %d_splitsSize = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_splitsSize, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_splitsSize, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_splitsSize)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit9 unwind label %terminate.lpad.i8
 
@@ -1134,7 +1134,7 @@ terminate.lpad.i8:                                ; preds = %_ZN4cvc57context3CD
 
 _ZN4cvc57context3CDOIjED2Ev.exit9:                ; preds = %_ZN4cvc57context3CDOImED2Ev.exit
   %d_testCliqueSize = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_testCliqueSize, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_testCliqueSize, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %d_testCliqueSize)
           to label %_ZN4cvc57context3CDOImED2Ev.exit11 unwind label %terminate.lpad.i10
 
@@ -1165,7 +1165,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_valid = getelementptr inbounds nuw i8, ptr %this, i64 320
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_valid, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_valid, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %d_valid)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit unwind label %terminate.lpad.i
 
@@ -1180,7 +1180,7 @@ _ZN4cvc57context3CDOIbED2Ev.exit:                 ; preds = %entry
   %d_external = getelementptr inbounds nuw i8, ptr %this, i64 160
   %d_disequalities.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   tail call void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %d_disequalities.i) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %d_external, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %d_external, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(160) %d_external)
           to label %_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeInfo9DiseqListD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -1194,7 +1194,7 @@ terminate.lpad.i.i:                               ; preds = %_ZN4cvc57context3CD
 _ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeInfo9DiseqListD2Ev.exit: ; preds = %_ZN4cvc57context3CDOIbED2Ev.exit
   %d_disequalities.i1 = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %d_disequalities.i1) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(160) %this)
           to label %_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeInfo9DiseqListD2Ev.exit3 unwind label %terminate.lpad.i.i2
 
@@ -1215,7 +1215,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIbED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -6736,7 +6736,7 @@ declare noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull ali
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeInfoC2EPNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %c) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %c)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
   %d_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %d_data.i.i, align 8
   %d_pScope.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6770,7 +6770,7 @@ lpad.i:                                           ; preds = %_ZN4cvc57context3CD
   br label %common.resume
 
 _ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeInfo9DiseqListC2EPNS_7context7ContextE.exit: ; preds = %_ZN4cvc57context3CDOIiEC2EPNS0_7ContextERKi.exit.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_disequalities.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_disequalities.i, align 8
   %d_map.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %5 = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i64 0, ptr %5, align 8
@@ -6790,7 +6790,7 @@ _ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeIn
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6Region14RegionNodeInfo9DiseqListC2EPNS_7context7ContextE.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %d_external, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %d_external, align 8
   %d_data.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 200
   store i32 0, ptr %d_data.i.i4, align 8
   %d_pScope.i.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -6820,7 +6820,7 @@ lpad.i12:                                         ; preds = %_ZN4cvc57context3CD
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %_ZN4cvc57context3CDOIiEC2EPNS0_7ContextERKi.exit.i10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_disequalities.i11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_disequalities.i11, align 8
   %d_map.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 248
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 280
   store i64 0, ptr %11, align 8
@@ -6840,7 +6840,7 @@ invoke.cont:                                      ; preds = %_ZN4cvc57context3CD
           to label %.noexc21 unwind label %lpad2
 
 .noexc21:                                         ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_valid, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_valid, align 8
   %d_data.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   store i8 0, ptr %d_data.i, align 8
   %d_pScope.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
@@ -9265,7 +9265,7 @@ if.end257:                                        ; preds = %for.inc109, %cond.e
 define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyC2ERNS0_3EnvENS0_8TypeNodeENS1_9ValuationE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr nocapture noundef readonly %type, ptr %valuation.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6theory19DecisionStrategyFmfC2ERNS0_3EnvENS1_9ValuationE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr %valuation.coerce)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyE, i64 16), ptr %this, align 8
   %d_type = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %type, align 8
   store ptr %0, ptr %d_type, align 8
@@ -9343,7 +9343,7 @@ _ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory19DecisionStrategyFmfD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory19DecisionStrategyFmfE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory19DecisionStrategyFmfE, i64 16), ptr %this, align 8
   %d_literals = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %d_literals, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -9399,7 +9399,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
   %d_curr_literal = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_curr_literal, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_curr_literal, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_curr_literal)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit unwind label %terminate.lpad.i
 
@@ -9412,7 +9412,7 @@ terminate.lpad.i:                                 ; preds = %_ZNSt6vectorIN4cvc5
 
 _ZN4cvc57context3CDOIjED2Ev.exit:                 ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
   %d_has_curr_literal = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_has_curr_literal, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_has_curr_literal, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %d_has_curr_literal)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit unwind label %terminate.lpad.i2
 
@@ -9581,7 +9581,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 7))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.19, i64 7))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -9616,7 +9616,7 @@ define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModelC
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModelE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModelE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -9691,7 +9691,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %.noexc33 unwind label %lpad2
 
 .noexc33:                                         ; preds = %invoke.cont3
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_regions_index, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_regions_index, align 8
   %d_data.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   store i64 0, ptr %d_data.i, align 8
   %d_pScope.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -9720,7 +9720,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
           to label %invoke.cont8 unwind label %lpad5
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %d_regions_map, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %d_regions_map, align 8
   %d_map.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 336
   store i64 0, ptr %9, align 8
@@ -9744,7 +9744,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont12 unwind label %lpad9
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %d_split_score, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %d_split_score, align 8
   %d_map.i36 = getelementptr inbounds nuw i8, ptr %this, i64 416
   %10 = getelementptr inbounds nuw i8, ptr %this, i64 448
   store i64 0, ptr %10, align 8
@@ -9768,7 +9768,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %.noexc51 unwind label %lpad13
 
 .noexc51:                                         ; preds = %invoke.cont14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_disequalities_index, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_disequalities_index, align 8
   %d_data.i45 = getelementptr inbounds nuw i8, ptr %this, i64 528
   store i32 0, ptr %d_data.i45, align 8
   %d_pScope.i.i46 = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -9798,7 +9798,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %.noexc59 unwind label %lpad18
 
 .noexc59:                                         ; preds = %invoke.cont19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_reps, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_reps, align 8
   %d_data.i53 = getelementptr inbounds nuw i8, ptr %this, i64 600
   store i32 0, ptr %d_data.i53, align 8
   %d_pScope.i.i54 = getelementptr inbounds nuw i8, ptr %this, i64 568
@@ -9826,7 +9826,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %.noexc68 unwind label %lpad23
 
 .noexc68:                                         ; preds = %invoke.cont24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_cardinality, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_cardinality, align 8
   %d_data.i62 = getelementptr inbounds nuw i8, ptr %this, i64 648
   store i32 0, ptr %d_data.i62, align 8
   %d_pScope.i.i63 = getelementptr inbounds nuw i8, ptr %this, i64 616
@@ -9865,7 +9865,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %.noexc81 unwind label %lpad28
 
 .noexc81:                                         ; preds = %invoke.cont29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_hasCard, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_hasCard, align 8
   %d_data.i75 = getelementptr inbounds nuw i8, ptr %this, i64 744
   store i8 0, ptr %d_data.i75, align 8
   %d_pScope.i.i76 = getelementptr inbounds nuw i8, ptr %this, i64 712
@@ -9904,7 +9904,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
           to label %.noexc93 unwind label %lpad33
 
 .noexc93:                                         ; preds = %invoke.cont34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_maxNegCard, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_maxNegCard, align 8
   %d_data.i87 = getelementptr inbounds nuw i8, ptr %this, i64 840
   store i32 0, ptr %d_data.i87, align 8
   %d_pScope.i.i88 = getelementptr inbounds nuw i8, ptr %this, i64 808
@@ -9934,7 +9934,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
           to label %.noexc103 unwind label %lpad38
 
 .noexc103:                                        ; preds = %invoke.cont39
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_initialized, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_initialized, align 8
   %d_data.i96 = getelementptr inbounds nuw i8, ptr %this, i64 912
   store i8 0, ptr %d_data.i96, align 8
   %d_pScope.i.i97 = getelementptr inbounds nuw i8, ptr %this, i64 880
@@ -10009,7 +10009,7 @@ invoke.cont51:                                    ; preds = %if.else.i.i110, %if
           to label %.noexc122 unwind label %lpad53
 
 .noexc122:                                        ; preds = %invoke.cont51
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyE, i64 16), ptr %call48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyE, i64 16), ptr %call48, align 8
   %d_type.i = getelementptr inbounds nuw i8, ptr %call48, i64 144
   store ptr %40, ptr %d_type.i, align 8
   %bf.load.i.i.i = load i64, ptr %40, align 8
@@ -10327,7 +10327,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN4cvc58internal12NodeTemplateILb1EEEESt10_Select1stIS6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -10461,7 +10461,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St6vectorIiSaIiEE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(928) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModelE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModelE, i64 16), ptr %this, align 8
   %d_regions = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %d_regions, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 248
@@ -10515,7 +10515,7 @@ _ZNKSt14default_deleteIN4cvc58internal6theory2uf20CardinalityExtension9SortModel
 _ZNSt10unique_ptrIN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionESaIS7_EE5clearEv.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyEEclEPS6_.exit.i
   store ptr null, ptr %d_c_dec_strat, align 8
   %d_initialized = getelementptr inbounds nuw i8, ptr %this, i64 872
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_initialized, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_initialized, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %d_initialized)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit unwind label %terminate.lpad.i
 
@@ -10582,7 +10582,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
   %d_maxNegCard = getelementptr inbounds nuw i8, ptr %this, i64 800
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_maxNegCard, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_maxNegCard, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_maxNegCard)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit unwind label %terminate.lpad.i2
 
@@ -10609,7 +10609,7 @@ terminate.lpad.i.i:                               ; preds = %_ZN4cvc57context3CD
 
 _ZNSt3mapIiSt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEESaIS4_EESaIS6_EESt4lessIiESaISt4pairIKiS8_EEED2Ev.exit: ; preds = %_ZN4cvc57context3CDOIjED2Ev.exit
   %d_hasCard = getelementptr inbounds nuw i8, ptr %this, i64 704
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_hasCard, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_hasCard, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %d_hasCard)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit6 unwind label %terminate.lpad.i4
 
@@ -10636,7 +10636,7 @@ terminate.lpad.i.i8:                              ; preds = %_ZN4cvc57context3CD
 
 _ZNSt3mapIjN4cvc58internal12NodeTemplateILb1EEESt4lessIjESaISt4pairIKjS3_EEED2Ev.exit: ; preds = %_ZN4cvc57context3CDOIbED2Ev.exit6
   %d_cardinality = getelementptr inbounds nuw i8, ptr %this, i64 608
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_cardinality, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_cardinality, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_cardinality)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit11 unwind label %terminate.lpad.i9
 
@@ -10649,7 +10649,7 @@ terminate.lpad.i9:                                ; preds = %_ZNSt3mapIjN4cvc58i
 
 _ZN4cvc57context3CDOIjED2Ev.exit11:               ; preds = %_ZNSt3mapIjN4cvc58internal12NodeTemplateILb1EEESt4lessIjESaISt4pairIKjS3_EEED2Ev.exit
   %d_reps = getelementptr inbounds nuw i8, ptr %this, i64 560
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_reps, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_reps, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_reps)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit14 unwind label %terminate.lpad.i12
 
@@ -10716,7 +10716,7 @@ if.then.i.i.i34:                                  ; preds = %invoke.cont.i32
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit37: ; preds = %invoke.cont.i32, %if.then.i.i.i34
   %d_disequalities_index = getelementptr inbounds nuw i8, ptr %this, i64 488
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_disequalities_index, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_disequalities_index, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_disequalities_index)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit40 unwind label %terminate.lpad.i38
 
@@ -10742,7 +10742,7 @@ if.then.i.i.i43:                                  ; preds = %_ZN4cvc57context3CD
 
 _ZNSt6vectorIPN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionESaIS7_EED2Ev.exit: ; preds = %_ZN4cvc57context3CDOIjED2Ev.exit40, %if.then.i.i.i43
   %d_regions_index = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_regions_index, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_regions_index, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %d_regions_index)
           to label %_ZN4cvc57context3CDOImED2Ev.exit unwind label %terminate.lpad.i44
 
@@ -16166,7 +16166,7 @@ if.then.i:                                        ; preds = %_ZNSt4pairIKN4cvc58
           to label %.noexc unwind label %lpad5.i
 
 .noexc:                                           ; preds = %if.then.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %call.i.i, align 8
   %d_value.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
   %17 = load ptr, ptr %d_value.i.i, align 8
   store ptr %17, ptr %d_value.i, align 8
@@ -17364,7 +17364,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal14LogicExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %msg)
           to label %_ZN4cvc58internal9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i
@@ -17376,14 +17376,14 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %0
 
 _ZN4cvc58internal9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal14LogicExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal14LogicExceptionE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal14LogicExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #24
@@ -17677,7 +17677,7 @@ call.i496.noexc:                                  ; preds = %invoke.cont187
           to label %.noexc502 unwind label %lpad191
 
 .noexc502:                                        ; preds = %call.i496.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp189, ptr noundef nonnull @.str.87, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.87, i64 44))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp189, ptr noundef nonnull @.str.87, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.87, i64 44))
           to label %invoke.cont192 unwind label %lpad.i500
 
 lpad.i500:                                        ; preds = %.noexc502
@@ -18749,7 +18749,7 @@ declare void @_ZN4cvc58internal6theory19DecisionStrategyFmf10getLiteralEj(ptr sr
 define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtensionC2ERNS0_3EnvERNS1_11TheoryStateERNS1_22TheoryInferenceManagerEPNS2_8TheoryUFE(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(80) %state, ptr noundef nonnull align 8 dereferenceable(256) %im, ptr noundef %th) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtensionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtensionE, i64 16), ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4cvc58internal6EnvObj18statisticsRegistryEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %d_statistics = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal6theory2uf20CardinalityExtension10StatisticsC2ERNS0_18StatisticsRegistryE(ptr noundef nonnull align 8 dereferenceable(32) %d_statistics, ptr noundef nonnull align 8 dereferenceable(72) %call)
@@ -18777,7 +18777,7 @@ invoke.cont4:                                     ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_min_pos_com_card, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_min_pos_com_card, align 8
   %d_data.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 0, ptr %d_data.i, align 8
   %d_pScope.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -18805,7 +18805,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %.noexc20 unwind label %lpad7
 
 .noexc20:                                         ; preds = %invoke.cont8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_min_pos_com_card_set, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_min_pos_com_card_set, align 8
   %d_data.i14 = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i8 0, ptr %d_data.i14, align 8
   %d_pScope.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -18835,7 +18835,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %.noexc29 unwind label %lpad12
 
 .noexc29:                                         ; preds = %invoke.cont13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_initializedCombinedCardinality, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_initializedCombinedCardinality, align 8
   %d_data.i22 = getelementptr inbounds nuw i8, ptr %this, i64 264
   store i8 0, ptr %d_data.i22, align 8
   %d_pScope.i.i23 = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -18863,7 +18863,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_card_assertions_eqv_lemma, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_card_assertions_eqv_lemma, align 8
   %d_map.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %13 = getelementptr inbounds nuw i8, ptr %this, i64 344
   store i64 0, ptr %13, align 8
@@ -18931,7 +18931,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %.noexc43 unwind label %lpad23
 
 .noexc43:                                         ; preds = %invoke.cont24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_min_pos_tn_master_card, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_min_pos_tn_master_card, align 8
   %d_data.i37 = getelementptr inbounds nuw i8, ptr %this, i64 480
   store i32 0, ptr %d_data.i37, align 8
   %d_pScope.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 448
@@ -18959,7 +18959,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %.noexc53 unwind label %lpad28
 
 .noexc53:                                         ; preds = %invoke.cont29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_min_pos_tn_master_card_set, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_min_pos_tn_master_card_set, align 8
   %d_data.i46 = getelementptr inbounds nuw i8, ptr %this, i64 528
   store i8 0, ptr %d_data.i46, align 8
   %d_pScope.i.i47 = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -18987,7 +18987,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
           to label %invoke.cont36 unwind label %lpad33
 
 invoke.cont36:                                    ; preds = %invoke.cont34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_rel_eqc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %d_rel_eqc, align 8
   %d_map.i56 = getelementptr inbounds nuw i8, ptr %this, i64 576
   %27 = getelementptr inbounds nuw i8, ptr %this, i64 608
   store i64 0, ptr %27, align 8
@@ -19036,7 +19036,7 @@ invoke.cont44:                                    ; preds = %if.then
           to label %invoke.cont49 unwind label %lpad46
 
 invoke.cont49:                                    ; preds = %invoke.cont44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension35CombinedCardinalityDecisionStrategyE, i64 16), ptr %call45, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension35CombinedCardinalityDecisionStrategyE, i64 16), ptr %call45, align 8
   %32 = load ptr, ptr %d_cc_dec_strat, align 8
   store ptr %call45, ptr %d_cc_dec_strat, align 8
   %tobool.not.i.i66 = icmp eq ptr %32, null
@@ -19204,7 +19204,7 @@ _ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_PNS1_6theory2uf20Cardinality
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtensionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtensionE, i64 16), ptr %this, align 8
   %d_rep_model = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -19235,7 +19235,7 @@ for.end:                                          ; preds = %for.inc, %entry
   %d_rel_eqc = getelementptr inbounds nuw i8, ptr %this, i64 536
   tail call void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %d_rel_eqc) #24
   %d_min_pos_tn_master_card_set = getelementptr inbounds nuw i8, ptr %this, i64 488
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_min_pos_tn_master_card_set, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_min_pos_tn_master_card_set, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %d_min_pos_tn_master_card_set)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit unwind label %terminate.lpad.i
 
@@ -19248,7 +19248,7 @@ terminate.lpad.i:                                 ; preds = %for.end
 
 _ZN4cvc57context3CDOIbED2Ev.exit:                 ; preds = %for.end
   %d_min_pos_tn_master_card = getelementptr inbounds nuw i8, ptr %this, i64 440
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_min_pos_tn_master_card, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_min_pos_tn_master_card, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_min_pos_tn_master_card)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit unwind label %terminate.lpad.i1
 
@@ -19305,7 +19305,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZNSt3mapIN4cvc58in
   %d_card_assertions_eqv_lemma = getelementptr inbounds nuw i8, ptr %this, i64 272
   tail call void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %d_card_assertions_eqv_lemma) #24
   %d_initializedCombinedCardinality = getelementptr inbounds nuw i8, ptr %this, i64 224
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_initializedCombinedCardinality, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_initializedCombinedCardinality, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %d_initializedCombinedCardinality)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit4 unwind label %terminate.lpad.i3
 
@@ -19332,7 +19332,7 @@ _ZNKSt14default_deleteIN4cvc58internal6theory2uf20CardinalityExtension35Combined
 _ZNSt10unique_ptrIN4cvc58internal6theory2uf20CardinalityExtension35CombinedCardinalityDecisionStrategyESt14default_deleteIS5_EED2Ev.exit: ; preds = %_ZN4cvc57context3CDOIbED2Ev.exit4, %_ZNKSt14default_deleteIN4cvc58internal6theory2uf20CardinalityExtension35CombinedCardinalityDecisionStrategyEEclEPS5_.exit.i
   store ptr null, ptr %d_cc_dec_strat, align 8
   %d_min_pos_com_card_set = getelementptr inbounds nuw i8, ptr %this, i64 168
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_min_pos_com_card_set, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %d_min_pos_com_card_set, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %d_min_pos_com_card_set)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit6 unwind label %terminate.lpad.i5
 
@@ -19345,7 +19345,7 @@ terminate.lpad.i5:                                ; preds = %_ZNSt10unique_ptrIN
 
 _ZN4cvc57context3CDOIbED2Ev.exit6:                ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory2uf20CardinalityExtension35CombinedCardinalityDecisionStrategyESt14default_deleteIS5_EED2Ev.exit
   %d_min_pos_com_card = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_min_pos_com_card, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %d_min_pos_com_card, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %d_min_pos_com_card)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit8 unwind label %terminate.lpad.i7
 
@@ -24239,7 +24239,7 @@ for.end:                                          ; preds = %_ZN4cvc58internal6t
 define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension35CombinedCardinalityDecisionStrategyC2ERNS0_3EnvENS1_9ValuationE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr %valuation.coerce) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory19DecisionStrategyFmfC2ERNS0_3EnvENS1_9ValuationE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr %valuation.coerce)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension35CombinedCardinalityDecisionStrategyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension35CombinedCardinalityDecisionStrategyE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -24395,7 +24395,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.115, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.115, i64 16))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.115, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.115, i64 16))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -25368,7 +25368,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.124, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.124, i64 38))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.124, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.124, i64 38))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -25395,7 +25395,7 @@ call.i.noexc16:                                   ; preds = %invoke.cont4
           to label %.noexc18 unwind label %lpad8
 
 .noexc18:                                         ; preds = %call.i.noexc16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull @.str.125, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.125, i64 35))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull @.str.125, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.125, i64 35))
           to label %invoke.cont9 unwind label %lpad.i15
 
 lpad.i15:                                         ; preds = %.noexc18
@@ -25422,7 +25422,7 @@ call.i.noexc24:                                   ; preds = %invoke.cont11
           to label %.noexc26 unwind label %lpad19
 
 .noexc26:                                         ; preds = %call.i.noexc24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.126, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.126, i64 34))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull @.str.126, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.126, i64 34))
           to label %invoke.cont20 unwind label %lpad.i23
 
 lpad.i23:                                         ; preds = %.noexc26
@@ -25448,7 +25448,7 @@ call.i.noexc32:                                   ; preds = %invoke.cont22
           to label %.noexc34 unwind label %lpad30
 
 .noexc34:                                         ; preds = %call.i.noexc32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull @.str.127, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.127, i64 36))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull @.str.127, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.127, i64 36))
           to label %invoke.cont31 unwind label %lpad.i31
 
 lpad.i31:                                         ; preds = %.noexc34
@@ -25527,7 +25527,7 @@ declare void @_ZN4cvc58internal7IntStat9maxAssignEl(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyE, i64 16), ptr %this, align 8
   %d_type = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %d_type, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -25563,7 +25563,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel27CardinalityDecisionStrategyE, i64 16), ptr %this, align 8
   %d_type.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %d_type.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
@@ -25744,7 +25744,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtensi
 entry:
   %d_disequalities = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %d_disequalities) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %this)
           to label %_ZN4cvc57context3CDOIiED2Ev.exit unwind label %terminate.lpad.i
 
@@ -25762,7 +25762,7 @@ _ZN4cvc57context3CDOIiED2Ev.exit:                 ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIiED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -25783,11 +25783,11 @@ declare void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8
 define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOIiE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %pCMM) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %pCMM, i64 noundef 48)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
   %d_pScope.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %d_pScope2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i.i, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %call.i, align 8
   %d_data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %d_data2.i, align 8
@@ -25808,7 +25808,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIiED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIiEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %this)
           to label %_ZN4cvc57context3CDOIiED2Ev.exit unwind label %terminate.lpad.i
 
@@ -26331,7 +26331,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal14LogicExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #24
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #24
@@ -26674,11 +26674,11 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOIbE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %pCMM) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %pCMM, i64 noundef 48)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
   %d_pScope.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %d_pScope2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i.i, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %call.i, align 8
   %d_data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i8, ptr %d_data2.i, align 8
@@ -26701,7 +26701,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIbED0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %this)
           to label %_ZN4cvc57context3CDOIbED2Ev.exit unwind label %terminate.lpad.i
 
@@ -26721,11 +26721,11 @@ _ZN4cvc57context3CDOIbED2Ev.exit:                 ; preds = %entry
 define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOIjE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %pCMM) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %pCMM, i64 noundef 48)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
   %d_pScope.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %d_pScope2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i.i, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %call.i, align 8
   %d_data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %d_data2.i, align 8
@@ -26746,7 +26746,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOIjED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOIjEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(44) %this)
           to label %_ZN4cvc57context3CDOIjED2Ev.exit unwind label %terminate.lpad.i
 
@@ -27024,7 +27024,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEC2EPNS0_7ContextEPNS0_9CDHashMapIS4_bS6_EERKS4_RKb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %context, ptr noundef %map, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef nonnull align 1 dereferenceable(1) %data) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %context)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
   %d_value = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %key, align 8
   store ptr %0, ptr %d_value, align 8
@@ -27710,7 +27710,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %if.end28, %if.then.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -27756,7 +27756,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -27804,11 +27804,11 @@ _ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2E
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %this, align 8
   %d_pScope.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %d_pScope2.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EEE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !65
@@ -28573,11 +28573,11 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOImE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %pCMM) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %pCMM, i64 noundef 48)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %call.i, align 8
   %d_pScope.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %d_pScope2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i.i, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %call.i, align 8
   %d_data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %d_data2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %d_data2.i, align 8
@@ -28598,7 +28598,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOImED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
           to label %_ZN4cvc57context3CDOImED2Ev.exit unwind label %terminate.lpad.i
 
@@ -28654,7 +28654,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEC2EPNS0_7ContextEPNS0_9CDHashMapIS4_iS6_EERKS4_RKi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %context, ptr noundef %map, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef nonnull align 4 dereferenceable(4) %data) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %context)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
   %d_value = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %key, align 8
   store ptr %0, ptr %d_value, align 8
@@ -29323,7 +29323,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %if.end28, %if.then.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -29369,7 +29369,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -29417,11 +29417,11 @@ _ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EED2E
 define linkonce_odr hidden void @_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %this, align 8
   %d_pScope.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %d_pScope2.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i, i64 32, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEEiSt4hashIS4_EEE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !65

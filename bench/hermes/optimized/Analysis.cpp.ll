@@ -394,7 +394,7 @@ entry:
   %D = alloca %"struct.hermes::IRPrinter", align 8
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv() #12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %Indent.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   store i32 0, ptr %Indent.i, align 8
   %sm_.i = getelementptr inbounds nuw i8, ptr %D, i64 16
@@ -558,7 +558,7 @@ if.then4.i.i41:                                   ; preds = %for.end
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit46
 
 _ZN4llvh11raw_ostreamlsEPKc.exit46:               ; preds = %if.then.i.i44, %if.then4.i.i41
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes9IRPrinterE, i64 16), ptr %D, align 8
   %ScopeNamer.i = getelementptr inbounds nuw i8, ptr %D, i64 152
   %24 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(52) %ScopeNamer.i, ptr noundef %24)

@@ -137,7 +137,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryIm
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %12 unwind label %14
@@ -168,13 +168,13 @@ common.resume:                                    ; preds = %280, %18
   br label %common.resume
 
 _ZN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplC2Ev.exit: ; preds = %12
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %20 unwind label %251
 
 20:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplC2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimationE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimationE, i64 16), ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimation19GetTranslationsAttrEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %22 unwind label %253
@@ -2063,7 +2063,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImpl3NewERK
           to label %9 unwind label %.thread
 
 9:                                                ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimationE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimationE, i64 16), ptr %3, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplC1ERKNS_16UsdSkelAnimationE(ptr noundef nonnull align 8 dereferenceable(600) %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_30UsdSkel_SkelAnimationQueryImplEED2Ev.exit unwind label %.thread14
 
@@ -2104,7 +2104,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -2115,7 +2115,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAni
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimationD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2126,7 +2126,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAni
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplD0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -2137,7 +2137,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAni
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimationD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2177,7 +2177,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21UsdSkel_AnimQueryImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

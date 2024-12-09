@@ -242,27 +242,27 @@ define weak_odr noundef zeroext i1 @_ZN5boost3log11v2_mt_posix7trivial11from_str
   br i1 %5, label %.sink.split, label %6
 
 6:                                                ; preds = %4
-  %bcmp24 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 8), i64 5)
+  %bcmp24 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 8), i64 5)
   %7 = icmp eq i32 %bcmp24, 0
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %6
-  %bcmp25 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 32), i64 5)
+  %bcmp25 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 32), i64 5)
   %9 = icmp eq i32 %bcmp25, 0
   br i1 %9, label %.sink.split, label %10
 
 10:                                               ; preds = %8
-  %bcmp26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 40), i64 5)
+  %bcmp26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 40), i64 5)
   %11 = icmp eq i32 %bcmp26, 0
   br i1 %11, label %.sink.split, label %16
 
 12:                                               ; preds = %3
-  %bcmp22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 16), i64 4)
+  %bcmp22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 16), i64 4)
   %13 = icmp eq i32 %bcmp22, 0
   br i1 %13, label %.sink.split, label %16
 
 14:                                               ; preds = %3
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %0, ptr noundef nonnull dereferenceable(7) getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 24), i64 7)
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %0, ptr noundef nonnull dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIcE5namesE, i64 24), i64 7)
   %15 = icmp eq i32 %bcmp, 0
   br i1 %15, label %.sink.split, label %16
 
@@ -399,27 +399,27 @@ define weak_odr noundef zeroext i1 @_ZN5boost3log11v2_mt_posix7trivial11from_str
   br i1 %6, label %.sink.split, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 32), i64 noundef 5) #19
+  %8 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 32), i64 noundef 5) #19
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.sink.split, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 128), i64 noundef 5) #19
+  %11 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 128), i64 noundef 5) #19
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.sink.split, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 160), i64 noundef 5) #19
+  %14 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 160), i64 noundef 5) #19
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.sink.split, label %22
 
 16:                                               ; preds = %3
-  %17 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 64), i64 noundef 4) #19
+  %17 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 64), i64 noundef 4) #19
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.sink.split, label %22
 
 19:                                               ; preds = %3
-  %20 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 96), i64 noundef 7) #19
+  %20 = tail call i32 @wmemcmp(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5boost3log11v2_mt_posix7trivial9anonymous20severity_level_namesIwE5namesE, i64 96), i64 noundef 7) #19
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.sink.split, label %22
 
@@ -611,7 +611,7 @@ common.resume:                                    ; preds = %_ZN5boost3log11v2_m
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix7sources3aux14severity_levelINS1_7trivial14severity_levelEE4implE, i64 16), ptr %18, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix7sources3aux14severity_levelINS1_7trivial14severity_levelEE4implE, i64 16), ptr %18, align 8, !tbaa !8
   %21 = atomicrmw add ptr %20, i32 1 acq_rel, align 4
   store ptr %18, ptr %17, align 8, !tbaa !51
   %22 = invoke i32 @_ZN5boost3log11v2_mt_posix3aux23default_attribute_names8severityEv()
@@ -805,7 +805,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix7sources3aux14severit
 _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEEC2EPS4_b.exit: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %5, align 4, !tbaa !57
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix10attributes20attribute_value_implINS1_7trivial14severity_levelEEE, i64 16), ptr %3, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix10attributes20attribute_value_implINS1_7trivial14severity_levelEEE, i64 16), ptr %3, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = load i32, ptr %4, align 8, !tbaa !4
   store i32 %7, ptr %6, align 4, !tbaa !59
@@ -1338,7 +1338,7 @@ define linkonce_odr hidden void @_ZN5boost11make_sharedINS_3log11v2_mt_posix7sou
   store i32 1, ptr %17, align 8, !tbaa !89
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %18, align 4, !tbaa !91
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix7sources3aux13logger_holderINS4_18severity_logger_mtINS3_7trivial14severity_levelEEEEENS0_13sp_ms_deleterISB_EEEE, i64 16), ptr %5, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix7sources3aux13logger_holderINS4_18severity_logger_mtINS3_7trivial14severity_levelEEEEENS0_13sp_ms_deleterISB_EEEE, i64 16), ptr %5, align 8, !tbaa !8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %19, align 8, !tbaa !92
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1490,7 +1490,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix7sources3aux13logger_holderINS4_18severity_logger_mtINS3_7trivial14severity_levelEEEEENS0_13sp_ms_deleterISB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix7sources3aux13logger_holderINS4_18severity_logger_mtINS3_7trivial14severity_levelEEEEENS0_13sp_ms_deleterISB_EEEE, i64 16), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix7sources3aux13logger_holderINS4_18severity_logger_mtINS3_7trivial14severity_levelEEEEENS0_13sp_ms_deleterISB_EEEE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !96, !range !102, !noundef !103
   %4 = trunc nuw i8 %3 to i1
@@ -1568,7 +1568,7 @@ _ZN5boost6detail13sp_ms_deleterINS_3log11v2_mt_posix7sources3aux13logger_holderI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix7sources3aux13logger_holderINS4_18severity_logger_mtINS3_7trivial14severity_levelEEEEENS0_13sp_ms_deleterISB_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix7sources3aux13logger_holderINS4_18severity_logger_mtINS3_7trivial14severity_levelEEEEENS0_13sp_ms_deleterISB_EEEE, i64 16), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_3log11v2_mt_posix7sources3aux13logger_holderINS4_18severity_logger_mtINS3_7trivial14severity_levelEEEEENS0_13sp_ms_deleterISB_EEEE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !96, !range !102, !noundef !103
   %4 = trunc nuw i8 %3 to i1

@@ -2915,7 +2915,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringpLERKS_.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -2988,7 +2988,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -3053,7 +3053,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MLException, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -4774,67 +4774,67 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
           to label %86 unwind label %110
 
 86:                                               ; preds = %__cxx_global_var_init.5.exit
-  store ptr %85, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), align 8
+  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), align 8
   %87 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 17)
           to label %88 unwind label %110
 
 88:                                               ; preds = %86
-  store ptr %87, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 16), align 8
+  store ptr %87, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 16), align 8
   %89 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.10, i32 noundef 17)
           to label %90 unwind label %110
 
 90:                                               ; preds = %88
-  store ptr %89, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 24), align 8
+  store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 24), align 8
   %91 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.11, i32 noundef 18)
           to label %92 unwind label %110
 
 92:                                               ; preds = %90
-  store ptr %91, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 32), align 8
+  store ptr %91, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 32), align 8
   %93 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.12, i32 noundef 18)
           to label %94 unwind label %110
 
 94:                                               ; preds = %92
-  store ptr %93, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 40), align 8
+  store ptr %93, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 40), align 8
   %95 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.13, i32 noundef 17)
           to label %96 unwind label %110
 
 96:                                               ; preds = %94
-  store ptr %95, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 48), align 8
+  store ptr %95, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 48), align 8
   %97 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.14, i32 noundef 14)
           to label %98 unwind label %110
 
 98:                                               ; preds = %96
-  store ptr %97, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 56), align 8
+  store ptr %97, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 56), align 8
   %99 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.15, i32 noundef 15)
           to label %100 unwind label %110
 
 100:                                              ; preds = %98
-  store ptr %99, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 64), align 8
+  store ptr %99, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 64), align 8
   %101 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.16, i32 noundef 16)
           to label %102 unwind label %110
 
 102:                                              ; preds = %100
-  store ptr %101, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 72), align 8
+  store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 72), align 8
   %103 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.17, i32 noundef 16)
           to label %104 unwind label %110
 
 104:                                              ; preds = %102
-  store ptr %103, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 80), align 8
+  store ptr %103, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 80), align 8
   %105 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.18, i32 noundef 19)
           to label %106 unwind label %110
 
 106:                                              ; preds = %104
-  store ptr %105, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 88), align 8
+  store ptr %105, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 88), align 8
   %107 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.19, i32 noundef 17)
           to label %108 unwind label %110
 
 108:                                              ; preds = %106
-  store ptr %107, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 96), align 8
+  store ptr %107, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 96), align 8
   %109 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.20, i32 noundef 14)
           to label %__cxx_global_var_init.6.exit unwind label %110
 
 110:                                              ; preds = %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %__cxx_global_var_init.5.exit
-  %.0.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), %__cxx_global_var_init.5.exit ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 16), %86 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 24), %88 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 32), %90 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 40), %92 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 48), %94 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 56), %96 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 64), %98 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 72), %100 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 80), %102 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 88), %104 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 96), %106 ], [ getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 104), %108 ]
+  %.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 8), %__cxx_global_var_init.5.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 16), %86 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 24), %88 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 32), %90 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 40), %92 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 48), %94 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 56), %96 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 64), %98 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 72), %100 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 80), %102 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 88), %104 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 96), %106 ], [ getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 104), %108 ]
   %111 = landingpad { ptr, i32 }
           cleanup
   br label %112
@@ -4847,7 +4847,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   br i1 %115, label %common.resume, label %112
 
 __cxx_global_var_init.6.exit:                     ; preds = %108
-  store ptr %109, ptr getelementptr inbounds (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 104), align 8
+  store ptr %109, ptr getelementptr inbounds nuw (i8, ptr @_ZN9pymeshlabL23saveCapabilitiesStringsE, i64 104), align 8
   %116 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayI7QStringLm14EED2Ev, ptr nonnull @_ZN9pymeshlabL23saveCapabilitiesStringsE, ptr nonnull @__dso_handle) #21
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %1)
   %117 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.22, i32 noundef 5)

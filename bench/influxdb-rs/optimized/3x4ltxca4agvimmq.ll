@@ -6751,7 +6751,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5tokio7runtime7context7current12with
   br i1 %.not, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h33263ae2a46e7b83E.llvm.6305840527560983182.exit", label %switch.lookup
 
 switch.lookup:                                    ; preds = %6
-  %.val3.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 16), align 8, !alias.scope !1082, !noalias !1079, !nonnull !9, !noundef !9
+  %.val3.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hc0f9ba10d47cbf24E, i64 16), align 8, !alias.scope !1082, !noalias !1079, !nonnull !9, !noundef !9
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.val3.i.i.i, i64 %switch.load

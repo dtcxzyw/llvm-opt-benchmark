@@ -509,7 +509,7 @@ define hidden void @zim_PdoSqlite_loadExtension(ptr nocapture noundef readonly %
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
   br label %59
@@ -521,7 +521,7 @@ define hidden void @zim_PdoSqlite_loadExtension(ptr nocapture noundef readonly %
 
 18:                                               ; preds = %15
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.4) #11
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %59
@@ -542,7 +542,7 @@ define hidden void @zim_PdoSqlite_loadExtension(ptr nocapture noundef readonly %
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %31) #11
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %59
@@ -559,7 +559,7 @@ define hidden void @zim_PdoSqlite_loadExtension(ptr nocapture noundef readonly %
   %40 = call ptr @php_pdo_get_exception() #11
   %41 = load ptr, ptr %3, align 8
   %42 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %40, i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %41) #11
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %44 = icmp ne ptr %43, null
   call void @llvm.assume(i1 %44)
   br label %59
@@ -578,7 +578,7 @@ define hidden void @zim_PdoSqlite_loadExtension(ptr nocapture noundef readonly %
   %53 = load ptr, ptr %4, align 8
   call void @sqlite3_free(ptr noundef %53) #11
   %54 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %46, i32 noundef 1005, i32 noundef 0, ptr noundef null) #11
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %56 = icmp ne ptr %55, null
   call void @llvm.assume(i1 %56)
   br label %59
@@ -642,7 +642,7 @@ define hidden void @zim_PdoSqlite_openBlob(ptr nocapture noundef readonly %0, pt
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %22) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %24)
   br label %68
@@ -657,7 +657,7 @@ define hidden void @zim_PdoSqlite_openBlob(ptr nocapture noundef readonly %0, pt
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %25
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %34)
   br label %68

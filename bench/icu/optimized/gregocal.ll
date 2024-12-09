@@ -51,7 +51,7 @@ entry:
 define void @_ZN6icu_7517GregorianCalendarC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_758CalendarC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
   %fCutoverJulianDay = getelementptr inbounds nuw i8, ptr %this, i64 632
@@ -97,7 +97,7 @@ define void @_ZN6icu_7517GregorianCalendarC2EPNS_8TimeZoneER10UErrorCode(ptr nou
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %zone, ptr noundef nonnull align 8 dereferenceable(217) %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
   %fCutoverJulianDay = getelementptr inbounds nuw i8, ptr %this, i64 632
@@ -136,7 +136,7 @@ define void @_ZN6icu_7517GregorianCalendarC2ERKNS_8TimeZoneER10UErrorCode(ptr no
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2ERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(72) %zone, ptr noundef nonnull align 8 dereferenceable(217) %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
   %fCutoverJulianDay = getelementptr inbounds nuw i8, ptr %this, i64 632
@@ -173,7 +173,7 @@ define void @_ZN6icu_7517GregorianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noun
 entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
   %fCutoverJulianDay = getelementptr inbounds nuw i8, ptr %this, i64 632
@@ -209,7 +209,7 @@ declare noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr n
 define void @_ZN6icu_7517GregorianCalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
   %fCutoverJulianDay = getelementptr inbounds nuw i8, ptr %this, i64 632
@@ -243,7 +243,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 define void @_ZN6icu_7517GregorianCalendarC2ERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(72) %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_758CalendarC2ERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(72) %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
   %fCutoverJulianDay = getelementptr inbounds nuw i8, ptr %this, i64 632
@@ -279,7 +279,7 @@ entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeZone13createDefaultEv()
   %call2 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %call2, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
   %fCutoverJulianDay = getelementptr inbounds nuw i8, ptr %this, i64 632
@@ -327,7 +327,7 @@ entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeZone13createDefaultEv()
   %call2 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %call2, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
   %fCutoverJulianDay = getelementptr inbounds nuw i8, ptr %this, i64 632
@@ -379,7 +379,7 @@ entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeZone13createDefaultEv()
   %call2 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %call2, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   store double 0xC2A63A0D36A80000, ptr %fGregorianCutover, align 8
   %fCutoverJulianDay = getelementptr inbounds nuw i8, ptr %this, i64 632
@@ -451,7 +451,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 define void @_ZN6icu_7517GregorianCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(654) %source) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %source)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517GregorianCalendarE, i64 16), ptr %this, align 8
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   %fGregorianCutover2 = getelementptr inbounds nuw i8, ptr %source, i64 624
   %0 = load double, ptr %fGregorianCutover2, align 8

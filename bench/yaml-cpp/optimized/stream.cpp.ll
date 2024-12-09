@@ -1293,7 +1293,7 @@ entry:
   %m_charSet = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %m_charSet, align 4
   %cmp = icmp eq i32 %0, 4
-  %cond-lvalue = select i1 %cmp, ptr getelementptr inbounds (i8, ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, i64 16), ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes
+  %cond-lvalue = select i1 %cmp, ptr getelementptr inbounds nuw (i8, ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes, i64 16), ptr @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes
   %m_nPrefetchedUsed.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %1 = load i64, ptr %m_nPrefetchedUsed.i, align 8
   %m_nPrefetchedAvailable.i = getelementptr inbounds nuw i8, ptr %this, i64 112

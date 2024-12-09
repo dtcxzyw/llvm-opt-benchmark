@@ -41,7 +41,7 @@ define hidden void @_ZN19ContiguousSpacePoolC2EP15ContiguousSpacePKcmb(ptr nound
   %10 = ptrtoint ptr %6 to i64
   %11 = sub i64 %9, %10
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %2, i32 noundef 1, i64 noundef %11, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext true) #4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV19ContiguousSpacePool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV19ContiguousSpacePool, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %12, align 8
   ret void
@@ -111,7 +111,7 @@ define hidden void @_ZN27SurvivorContiguousSpacePoolC2EP16DefNewGenerationPKcmb(
   %12 = ptrtoint ptr %8 to i64
   %13 = sub i64 %11, %12
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %2, i32 noundef 1, i64 noundef %13, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext true) #4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV27SurvivorContiguousSpacePool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV27SurvivorContiguousSpacePool, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %14, align 8
   ret void
@@ -199,7 +199,7 @@ define hidden void @_ZN21TenuredGenerationPoolC2EP17TenuredGenerationPKcb(ptr no
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(152) %1) #4
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %2, i32 noundef 1, i64 noundef %7, i64 noundef %11, i1 noundef zeroext %3, i1 noundef zeroext true) #4
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV21TenuredGenerationPool, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV21TenuredGenerationPool, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %12, align 8
   ret void

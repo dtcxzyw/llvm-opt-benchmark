@@ -21948,7 +21948,7 @@ define noundef zeroext i1 @_ZN7hir_def4attr5Attrs7is_test17hc3c01896372ee0f5E(pt
   br label %15
 
 15:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h29e1d0964d3266caE.exit.i.i.i", %.lr.ph.i
-  %16 = phi ptr [ %23, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h29e1d0964d3266caE.exit.i.i.i" ], [ getelementptr inbounds (i8, ptr @anon.d0f8bd43c5d672c7cf4a1c9a6984c189.139, i64 64), %.lr.ph.i ]
+  %16 = phi ptr [ %23, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h29e1d0964d3266caE.exit.i.i.i" ], [ getelementptr inbounds nuw (i8, ptr @anon.d0f8bd43c5d672c7cf4a1c9a6984c189.139, i64 64), %.lr.ph.i ]
   %17 = phi ptr [ %20, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h29e1d0964d3266caE.exit.i.i.i" ], [ %13, %.lr.ph.i ]
   %18 = icmp eq ptr %11, %17
   br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0daec7a8579570e2E.exit", label %19

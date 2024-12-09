@@ -60,7 +60,7 @@ define hidden void @do_export_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 21:                                               ; preds = %12
   %22 = call i32 @wtap_pcapng_file_type_subtype() #2
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
   %24 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %23) #2
   %25 = load ptr, ptr %5, align 8
   %26 = call i32 @exp_pdu_open(ptr noundef nonnull %4, ptr noundef %25, i32 noundef %22, i32 noundef %13, ptr noundef %24, ptr noundef nonnull %6, ptr noundef nonnull %7) #2

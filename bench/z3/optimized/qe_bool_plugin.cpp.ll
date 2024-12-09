@@ -94,7 +94,7 @@ entry:
   store i32 0, ptr %m_fid.i.i, align 8
   %m_ctx.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %ctx, ptr %m_ctx.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2qe11bool_pluginE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2qe11bool_pluginE, i64 16), ptr %call, align 8
   %m_replace.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %call1, ptr %m_replace.i, align 8
   %m_src.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
@@ -131,7 +131,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2qe11bool_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2qe11bool_pluginE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2qe11bool_pluginE, i64 16), ptr %this, align 8
   %m_replace = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN17expr_safe_replaceD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %m_replace) #10
   ret void
@@ -140,7 +140,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2qe11bool_pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2qe11bool_pluginE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2qe11bool_pluginE, i64 16), ptr %this, align 8
   %m_replace.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN17expr_safe_replaceD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %m_replace.i) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11

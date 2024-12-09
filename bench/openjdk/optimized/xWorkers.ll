@@ -117,7 +117,7 @@ define hidden void @_ZN8XWorkersC2Ev(ptr noundef nonnull align 8 dereferenceable
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %32 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #8
   store i32 %32, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22XWorkersInitializeTask, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22XWorkersInitializeTask, i64 16), ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %29, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -126,7 +126,7 @@ define hidden void @_ZN8XWorkersC2Ev(ptr noundef nonnull align 8 dereferenceable
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %35, i8 0, i64 88, i1 false)
   call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %35) #8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %4) #8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22XWorkersInitializeTask, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22XWorkersInitializeTask, i64 16), ptr %4, align 8
   call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %35) #8
   ret void
 }

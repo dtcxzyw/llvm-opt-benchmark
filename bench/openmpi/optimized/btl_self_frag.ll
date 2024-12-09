@@ -36,8 +36,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal void @mca_btl_self_frag_eager_constructor(ptr noundef initializes((96, 100), (144, 160)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 304), ptr %2, align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 8), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @mca_btl_self_component, i64 304), ptr %2, align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_self, i64 8), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -58,8 +58,8 @@ define internal void @mca_btl_self_frag_eager_constructor(ptr noundef initialize
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal void @mca_btl_self_frag_send_constructor(ptr noundef initializes((96, 100), (144, 160)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 656), ptr %2, align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_self, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @mca_btl_self_component, i64 656), ptr %2, align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_self, i64 24), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -80,7 +80,7 @@ define internal void @mca_btl_self_frag_send_constructor(ptr noundef initializes
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @mca_btl_self_frag_rdma_constructor(ptr noundef initializes((96, 100), (144, 160)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr getelementptr inbounds (i8, ptr @mca_btl_self_component, i64 1008), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @mca_btl_self_component, i64 1008), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 128, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96

@@ -653,21 +653,21 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %34, %39
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv4face18FacemarkKazemiImplC1ERKNS0_14FacemarkKazemi6ParamsE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, i64 16), align 8
   store ptr %3, ptr %0, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, i64 24), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, i64 24), align 8
   %5 = getelementptr i8, ptr %3, i64 -80
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   store ptr %4, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, i64 8), align 8
   store ptr %8, ptr %0, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, i64 32), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, i64 32), align 8
   %10 = getelementptr i8, ptr %8, i64 -80
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   store ptr %9, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-80, 104) (i8, ptr @_ZTVN2cv4face18FacemarkKazemiImplE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 104) (i8, ptr @_ZTVN2cv4face18FacemarkKazemiImplE, i64 80), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN2cv4face14FacemarkKazemi6ParamsC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13)
           to label %14 unwind label %24
@@ -2669,7 +2669,7 @@ _ZN2cv3PtrINS_4face18FacemarkKazemiImplEED2Ev.exit: ; preds = %4
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4face18FacemarkKazemiImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4face18FacemarkKazemiImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %21, align 8
   store ptr %3, ptr %0, align 8
@@ -2735,7 +2735,7 @@ _ZN2cv3PtrINS_4face18FacemarkKazemiImplEED2Ev.exit: ; preds = %5
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4face18FacemarkKazemiImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv4face18FacemarkKazemiImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %22, align 8
   store ptr %3, ptr %0, align 8

@@ -2976,7 +2976,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9013, label %719, label %706
 
 706:                                              ; preds = %705
-  %707 = load i16, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
+  %707 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
   %708 = zext i16 %707 to i32
   %709 = shl nuw nsw i32 %708, 7
   %710 = and i32 %695, 127
@@ -3364,7 +3364,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %985, label %986, label %999
 
 986:                                              ; preds = %984
-  %987 = load i16, ptr getelementptr inbounds (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
+  %987 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_ucd_stage1_8, i64 2), align 2
   %988 = zext i16 %987 to i32
   %989 = shl nuw nsw i32 %988, 7
   %990 = and i32 %979, 127
@@ -28490,7 +28490,7 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef non
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 118), align 1
   %9 = zext i8 %8 to i64
   br label %19
 

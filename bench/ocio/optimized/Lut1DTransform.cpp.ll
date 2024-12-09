@@ -129,7 +129,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN19OpenColorIO_v2_4dev14Lut1DTransform6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(376) ptr @_Znwm(i64 noundef 376) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %call, align 8
   %m_data.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   invoke void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataC1Em(ptr noundef nonnull align 8 dereferenceable(364) %m_data.i, i64 noundef 2)
           to label %invoke.cont unwind label %lpad
@@ -178,7 +178,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14Lut1DTransformEEC2INS0_18Lut1DTransfor
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev18Lut1DTransformImplEPFvPNS0_14Lut1DTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev18Lut1DTransformImplEPFvPNS0_14Lut1DTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 16
   store ptr @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImpl7deleterEPNS_14Lut1DTransformE, ptr %_M_impl.i.i.i.i.i, align 8
   %_M_ptr.i.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 24
@@ -223,7 +223,7 @@ define void @_ZN19OpenColorIO_v2_4dev14Lut1DTransform6CreateEmb(ptr noalias noca
 entry:
   %cond = zext i1 %isHalfDomain to i32
   %call = tail call noalias noundef nonnull dereferenceable(376) ptr @_Znwm(i64 noundef 376) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %call, align 8
   %m_data.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   invoke void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataC1ENS0_9HalfFlagsEmb(ptr noundef nonnull align 8 dereferenceable(364) %m_data.i, i32 noundef %cond, i64 noundef %length, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
@@ -272,7 +272,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14Lut1DTransformEEC2INS0_18Lut1DTransfor
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev18Lut1DTransformImplEPFvPNS0_14Lut1DTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev18Lut1DTransformImplEPFvPNS0_14Lut1DTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 16
   store ptr @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImpl7deleterEPNS_14Lut1DTransformE, ptr %_M_impl.i.i.i.i.i, align 8
   %_M_ptr.i.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i.i, i64 24
@@ -290,7 +290,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImplC2Ev(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataC1Em(ptr noundef nonnull align 8 dereferenceable(364) %m_data, i64 noundef 2)
   ret void
@@ -301,7 +301,7 @@ declare void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataC1Em(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImplC2ENS_11Lut1DOpData9HalfFlagsEm(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this, i32 noundef %halfFlag, i64 noundef %length) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataC1ENS0_9HalfFlagsEmb(ptr noundef nonnull align 8 dereferenceable(364) %m_data, i32 noundef %halfFlag, i64 noundef %length, i1 noundef zeroext false)
   ret void
@@ -1069,7 +1069,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImplD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(364) %m_data) #20
   ret void
@@ -1078,7 +1078,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImplD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(364) %m_data.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23

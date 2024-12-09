@@ -90,8 +90,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @prte_schizo_base_detect_proxy(ptr noundef %0) local_unnamed_addr #0 {
-  %.015 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_schizo_base, i64 240), align 8
-  %.not16 = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @prte_schizo_base, i64 120)
+  %.015 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_schizo_base, i64 240), align 8
+  %.not16 = icmp eq ptr %.015, getelementptr inbounds nuw (i8, ptr @prte_schizo_base, i64 120)
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %11
@@ -119,7 +119,7 @@ define ptr @prte_schizo_base_detect_proxy(ptr noundef %0) local_unnamed_addr #0 
   %.1 = phi i32 [ %7, %9 ], [ %.0918, %6 ], [ %.0918, %.lr.ph ]
   %12 = getelementptr inbounds nuw i8, ptr %.019, i64 120
   %.0 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_schizo_base, i64 120)
+  %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @prte_schizo_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %11, %1
@@ -272,10 +272,10 @@ check_multi.exit:                                 ; preds = %.preheader
   br label %93
 
 .loopexit:                                        ; preds = %13, %5
-  %64 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 56), align 8
+  %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_item_t_class, i64 56), align 8
   %65 = tail call noalias noundef ptr @malloc(i64 noundef %64) #22
   %66 = load i32, ptr @pmix_class_init_epoch, align 4
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 32), align 8
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_item_t_class, i64 32), align 8
   %.not.i48 = icmp eq i32 %66, %67
   br i1 %.not.i48, label %69, label %68
 
@@ -431,10 +431,10 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   br label %70
 
 .loopexit:                                        ; preds = %13, %5
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 56), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_item_t_class, i64 56), align 8
   %39 = tail call noalias noundef ptr @malloc(i64 noundef %38) #22
   %40 = load i32, ptr @pmix_class_init_epoch, align 4
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_item_t_class, i64 32), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_item_t_class, i64 32), align 8
   %.not.i27 = icmp eq i32 %40, %41
   br i1 %.not.i27, label %43, label %42
 
@@ -690,7 +690,7 @@ sub_2:                                            ; preds = %sub_1
 
 55:                                               ; preds = %38
   %56 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef nonnull %41) #17
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %57, 64
   br i1 %or.cond, label %58, label %66
 
@@ -831,7 +831,7 @@ sub_2:                                            ; preds = %sub_1
 
 135:                                              ; preds = %134
   %136 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef %.1) #17
-  %137 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond79 = icmp ult i32 %137, 64
   br i1 %or.cond79, label %138, label %145
 
@@ -855,7 +855,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.sink.split95
 
 149:                                              ; preds = %134
-  %150 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
+  %150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond80 = icmp ult i32 %150, 64
   br i1 %or.cond80, label %151, label %158
 
@@ -1074,7 +1074,7 @@ sub_2:                                            ; preds = %sub_1
 
 60:                                               ; preds = %43
   %61 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.41, ptr noundef nonnull %46) #17
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %62, 64
   br i1 %or.cond, label %63, label %71
 
@@ -1220,7 +1220,7 @@ sub_2:                                            ; preds = %sub_1
 
 148:                                              ; preds = %147
   %149 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.41, ptr noundef %.1) #17
-  %150 = load i32, ptr getelementptr inbounds (i8, ptr @prte_schizo_base_framework, i64 76), align 4
+  %150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_schizo_base_framework, i64 76), align 4
   %or.cond97 = icmp ult i32 %150, 64
   br i1 %or.cond97, label %151, label %159
 

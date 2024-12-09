@@ -127,7 +127,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC2EPcil(ptr nou
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %13, align 8
   %14 = sext i32 %3 to i64
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 -2
@@ -191,18 +191,18 @@ declare void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8), ptr noun
 define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC1EPcil(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5)
-  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8), ptr noundef null)
+  invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8), ptr noundef null)
           to label %6 unwind label %21
 
 6:                                                ; preds = %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %7, align 8
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 -2
@@ -248,7 +248,7 @@ _ZN6google12base_logging12LogStreamBufC2EPci.exit: ; preds = %.noexc
 
 .body:                                            ; preds = %23, %11, %25
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ], [ %12, %11 ]
-  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
+  tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
   br label %27
 
 27:                                               ; preds = %.body, %21
@@ -268,9 +268,9 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %1 = alloca %"struct.google::logging::internal::CheckOpString", align 8
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = alloca %"class.google::LogMessageFatal", align 8
-  store ptr blockaddress(@_Z15CheckStackTracei, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit), ptr getelementptr inbounds (i8, ptr @expected_range, i64 80), align 16
-  store ptr blockaddress(@_Z15CheckStackTracei, %._crit_edge), ptr getelementptr inbounds (i8, ptr @expected_range, i64 88), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 80), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 88), ptr noundef nonnull @.str)
+  store ptr blockaddress(@_Z15CheckStackTracei, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16
+  store ptr blockaddress(@_Z15CheckStackTracei, %._crit_edge), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), ptr noundef nonnull @.str)
   %4 = load i64, ptr %2, align 8
   store i64 %4, ptr %1, align 8
   store ptr null, ptr %2, align 8
@@ -426,7 +426,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %7 = alloca %"class.google::LogMessageFatal", align 8
   %8 = tail call ptr @llvm.returnaddress(i32 0)
   store ptr %8, ptr %1, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 80), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
   %9 = load i64, ptr %3, align 8
   store i64 %9, ptr %2, align 8
   store ptr null, ptr %3, align 8
@@ -436,7 +436,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   store ptr null, ptr %2, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 88), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8
   %12 = icmp ugt ptr %10, %11
   br i1 %12, label %22, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
 
@@ -466,16 +466,16 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
   br label %.invoke
 
 22:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 80), align 16
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 80), align 16
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23, ptr noundef %11, ptr noundef %23, ptr noundef nonnull %10)
   %25 = load ptr, ptr %1, align 8
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @expected_range, i64 88), align 8
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 88), align 8
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %22
-  store ptr blockaddress(@_ZL16CheckStackTrace1i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15), ptr getelementptr inbounds (i8, ptr @expected_range, i64 64), align 16
-  store ptr blockaddress(@_ZL16CheckStackTrace1i, %39), ptr getelementptr inbounds (i8, ptr @expected_range, i64 72), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 64), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 72), ptr noundef nonnull @.str.5)
+  store ptr blockaddress(@_ZL16CheckStackTrace1i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16
+  store ptr blockaddress(@_ZL16CheckStackTrace1i, %39), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), ptr noundef nonnull @.str.5)
   %26 = load i64, ptr %6, align 8
   store i64 %26, ptr %5, align 8
   store ptr null, ptr %6, align 8
@@ -573,9 +573,9 @@ declare void @_ZTv0_n24_NSoD0Ev(ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #15
   tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
@@ -585,9 +585,9 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD1Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #15
   tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
@@ -602,9 +602,9 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD1Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
   tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
@@ -618,9 +618,9 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD0Ev(pt
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 24), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google10LogMessage9LogStreamE, i64 64), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #15
   tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN6google10LogMessage9LogStreamE, i64 8)) #15
@@ -736,7 +736,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %7 = alloca %"class.google::LogMessageFatal", align 8
   %8 = tail call ptr @llvm.returnaddress(i32 0)
   store ptr %8, ptr %1, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 64), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6)
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6)
   %9 = load i64, ptr %3, align 8
   store i64 %9, ptr %2, align 8
   store ptr null, ptr %3, align 8
@@ -746,7 +746,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   store ptr null, ptr %2, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 72), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8
   %12 = icmp ugt ptr %10, %11
   br i1 %12, label %22, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
 
@@ -776,16 +776,16 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
   br label %.invoke
 
 22:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 64), align 16
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 64), align 16
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23, ptr noundef %11, ptr noundef %23, ptr noundef nonnull %10)
   %25 = load ptr, ptr %1, align 8
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @expected_range, i64 72), align 8
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 72), align 8
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %22
-  store ptr blockaddress(@_ZL16CheckStackTrace2i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15), ptr getelementptr inbounds (i8, ptr @expected_range, i64 48), align 16
-  store ptr blockaddress(@_ZL16CheckStackTrace2i, %39), ptr getelementptr inbounds (i8, ptr @expected_range, i64 56), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 48), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 56), ptr noundef nonnull @.str.7)
+  store ptr blockaddress(@_ZL16CheckStackTrace2i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16
+  store ptr blockaddress(@_ZL16CheckStackTrace2i, %39), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), ptr noundef nonnull @.str.7)
   %26 = load i64, ptr %6, align 8
   store i64 %26, ptr %5, align 8
   store ptr null, ptr %6, align 8
@@ -877,7 +877,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %7 = alloca %"class.google::LogMessageFatal", align 8
   %8 = tail call ptr @llvm.returnaddress(i32 0)
   store ptr %8, ptr %1, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 48), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.8)
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.8)
   %9 = load i64, ptr %3, align 8
   store i64 %9, ptr %2, align 8
   store ptr null, ptr %3, align 8
@@ -887,7 +887,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   store ptr null, ptr %2, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8
   %12 = icmp ugt ptr %10, %11
   br i1 %12, label %22, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
 
@@ -917,16 +917,16 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
   br label %.invoke
 
 22:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 48), align 16
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 48), align 16
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23, ptr noundef %11, ptr noundef %23, ptr noundef nonnull %10)
   %25 = load ptr, ptr %1, align 8
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @expected_range, i64 56), align 8
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 56), align 8
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit12: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %22
-  store ptr blockaddress(@_ZL16CheckStackTrace3i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15), ptr getelementptr inbounds (i8, ptr @expected_range, i64 32), align 16
-  store ptr blockaddress(@_ZL16CheckStackTrace3i, %39), ptr getelementptr inbounds (i8, ptr @expected_range, i64 40), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 32), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 40), ptr noundef nonnull @.str.9)
+  store ptr blockaddress(@_ZL16CheckStackTrace3i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit15), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16
+  store ptr blockaddress(@_ZL16CheckStackTrace3i, %39), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), ptr noundef nonnull @.str.9)
   %26 = load i64, ptr %6, align 8
   store i64 %26, ptr %5, align 8
   store ptr null, ptr %6, align 8
@@ -1007,7 +1007,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %7 = alloca %"class.google::LogMessageFatal", align 8
   %8 = tail call ptr @llvm.returnaddress(i32 0)
   store ptr %8, ptr %1, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 32), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.10)
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.10)
   %9 = load i64, ptr %3, align 8
   store i64 %9, ptr %2, align 8
   store ptr null, ptr %3, align 8
@@ -1017,7 +1017,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   store ptr null, ptr %2, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 40), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8
   %12 = icmp ugt ptr %10, %11
   br i1 %12, label %22, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11
 
@@ -1047,16 +1047,16 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
   br label %.invoke
 
 22:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 32), align 16
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 32), align 16
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23, ptr noundef %11, ptr noundef %23, ptr noundef nonnull %10)
   %25 = load ptr, ptr %1, align 8
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @expected_range, i64 40), align 8
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 40), align 8
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit11: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %22
-  store ptr blockaddress(@_ZL16CheckStackTrace4i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit14), ptr getelementptr inbounds (i8, ptr @expected_range, i64 16), align 16
-  store ptr blockaddress(@_ZL16CheckStackTrace4i, %39), ptr getelementptr inbounds (i8, ptr @expected_range, i64 24), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 16), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 24), ptr noundef nonnull @.str.11)
+  store ptr blockaddress(@_ZL16CheckStackTrace4i, %_ZN6google7logging8internal13CheckOpStringD2Ev.exit14), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16
+  store ptr blockaddress(@_ZL16CheckStackTrace4i, %39), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), ptr noundef nonnull @.str.11)
   %26 = load i64, ptr %6, align 8
   store i64 %26, ptr %5, align 8
   store ptr null, ptr %6, align 8
@@ -1155,7 +1155,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %24 = alloca %"class.google::LogMessageFatal", align 8
   %25 = tail call ptr @llvm.returnaddress(i32 0)
   store ptr %25, ptr %12, align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.12)
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvPvEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISC_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.12)
   %26 = load i64, ptr %14, align 8
   store i64 %26, ptr %13, align 8
   store ptr null, ptr %14, align 8
@@ -1165,7 +1165,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   store ptr null, ptr %13, align 8
   %27 = load ptr, ptr %12, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 24), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8
   %29 = icmp ugt ptr %27, %28
   br i1 %29, label %39, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit29
 
@@ -1195,16 +1195,16 @@ _ZN6google7logging8internal13CheckOpStringD2Ev.exit: ; preds = %_ZNSt10unique_pt
   br label %.invoke
 
 39:                                               ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @expected_range, i64 16), align 16
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 16), align 16
   %41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %40, ptr noundef %28, ptr noundef %40, ptr noundef nonnull %27)
   %42 = load ptr, ptr %12, align 8
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @expected_range, i64 24), align 8
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 24), align 8
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit29
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit29: ; preds = %_ZN6google7logging8internal13CheckOpStringD2Ev.exit, %39
   store ptr blockaddress(@_ZL19CheckStackTraceLeafv, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit35), ptr @expected_range, align 16
-  store ptr blockaddress(@_ZL19CheckStackTraceLeafv, %121), ptr getelementptr inbounds (i8, ptr @expected_range, i64 8), align 8
-  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) @expected_range, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @expected_range, i64 8), ptr noundef nonnull @.str.13)
+  store ptr blockaddress(@_ZL19CheckStackTraceLeafv, %121), ptr getelementptr inbounds nuw (i8, ptr @expected_range, i64 8), align 8
+  call void @_ZN6google7logging8internal12Check_LTImplIPKvS4_EESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISB_EERKT_RKT0_PKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) @expected_range, ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @expected_range, i64 8), ptr noundef nonnull @.str.13)
   %43 = load i64, ptr %17, align 8
   store i64 %43, ptr %16, align 8
   store ptr null, ptr %17, align 8

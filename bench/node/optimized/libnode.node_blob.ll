@@ -1399,7 +1399,7 @@ _ZNK4node17BaseObjectPtrImplINS_4BlobELb0EE12pointer_dataEv.exit.i.i.i: ; preds 
   %89 = load i64, ptr %type, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp112) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109, ptr noundef %88, i64 noundef %89, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp112) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %ref.tmp107, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %ref.tmp107, align 8
   %blob.i = getelementptr inbounds nuw i8, ptr %ref.tmp107, i64 8
   store ptr %73, ptr %blob.i, align 8
   %call3.i.i.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %73) #22
@@ -1420,7 +1420,7 @@ _ZN4node15BlobBindingData16StoredDataObjectC2ERKNS_17BaseObjectPtrImplINS_4BlobE
   %data_objects_.i = getelementptr inbounds nuw i8, ptr %retval.023.i, i64 40
   %call.i.i = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N4node15BlobBindingData16StoredDataObjectEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %data_objects_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp103)
   %call2.i = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4node15BlobBindingData16StoredDataObjectaSERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp107)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %ref.tmp107, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %ref.tmp107, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type.i) #22
   %90 = load ptr, ptr %blob.i, align 8
   %cmp.not.i.i = icmp eq ptr %90, null
@@ -1689,7 +1689,7 @@ cleanup.sink.split:                               ; preds = %_ZNK4node10BaseObje
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.then24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %stored, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %stored, align 8
   %type.i = getelementptr inbounds nuw i8, ptr %stored, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type.i) #22
   %51 = load ptr, ptr %blob, align 8
@@ -1948,7 +1948,7 @@ cleanup:                                          ; preds = %if.then.i22, %if.en
   br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ada14url_aggregatorE, i64 16), ptr %out, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ada14url_aggregatorE, i64 16), ptr %out, align 8
   %buffer.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i.i.i.i.i.i.i.i) #22
   br label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit
@@ -3868,7 +3868,7 @@ _ZNSt10shared_ptrIN4node9DataQueueEEC2ERKS2_.exit: ; preds = %if.then.i.i.i.i.i,
   %principal_realm_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %6 = load ptr, ptr %principal_realm_.i.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef %6, ptr %agg.tmp.sroa.0.0.copyload) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %call, align 8
   %data_queue_.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %1, ptr %data_queue_.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
@@ -3891,7 +3891,7 @@ _ZN4node4BlobC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEESt10shared_ptrINS_9Da
   %principal_realm_.i.i.i.c = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %10 = load ptr, ptr %principal_realm_.i.i.i.c, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef %10, ptr %agg.tmp.sroa.0.0.copyload) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %call, align 8
   %data_queue_.i.c = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %1, ptr %data_queue_.i.c, align 8
   %_M_refcount.i.i.i.c = getelementptr inbounds nuw i8, ptr %call, i64 40
@@ -4643,7 +4643,7 @@ entry:
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %0, ptr %obj.coerce) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %this, align 8
   %data_queue_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_queue, align 8
   store ptr %1, ptr %data_queue_, align 8
@@ -4681,7 +4681,7 @@ declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 derefe
 define dso_local void @_ZN4node4Blob6ReaderC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEENS_17BaseObjectPtrImplIS0_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %env, ptr %obj.coerce, ptr nocapture noundef %strong_ptr) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %env, ptr %obj.coerce, i32 noundef 6, double noundef -1.000000e+00) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4Blob6ReaderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4Blob6ReaderE, i64 16), ptr %this, align 8
   %inner_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %strong_ptr, align 8
   %data_queue_ = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4964,7 +4964,7 @@ entry:
   %2 = inttoptr i64 %1 to ptr
   store ptr null, ptr %args3, align 8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef %0, ptr %agg.tmp.sroa.0.0.copyload, i32 noundef 6, double noundef -1.000000e+00) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4Blob6ReaderE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4Blob6ReaderE, i64 16), ptr %call, align 8
   %inner_.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   %data_queue_.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %data_queue_.i, align 8
@@ -5209,7 +5209,7 @@ if.then.i.i.i.i.thread:                           ; preds = %if.then.i.i.i
   %3 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i = add nsw i32 %3, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %call, align 8
   store ptr %0, ptr %data_queue2.i10, align 8
   store ptr %1, ptr %_M_refcount.i.i.i11, align 8
   br label %if.then.i.i.i.i.i.i
@@ -5218,7 +5218,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %4 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   %.pre = load i8, ptr @__libc_single_threaded, align 1
   %5 = icmp eq i8 %.pre, 0
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %call, align 8
   store ptr %0, ptr %data_queue2.i10, align 8
   store ptr %1, ptr %_M_refcount.i.i.i11, align 8
   br i1 %5, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -5234,7 +5234,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %if.then.i.i.i3
 
 _ZN4node4Blob16BlobTransferDataC2ESt10shared_ptrINS_9DataQueueEE.exit: ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %call, align 8
   %data_queue2.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %0, ptr %data_queue2.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -5333,7 +5333,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node15BlobBindingData16StoredDataObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %this, align 8
   %type = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type) #22
   %blob = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5394,7 +5394,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %agg.result, align 8
   %blob.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %blob.i, align 8
   %type.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -5402,7 +5402,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %agg.result, align 8
   %blob.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %blob2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %blob2.i, align 8
@@ -5571,7 +5571,7 @@ _ZN4node13MemoryTracker10TrackFieldINS_4BlobELb0EEEvPKcRKNS_17BaseObjectPtrImplI
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node15BlobBindingData16StoredDataObjectC2ERKNS_17BaseObjectPtrImplINS_4BlobELb0EEEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %blob_, i64 noundef %length_, ptr noundef nonnull align 8 dereferenceable(32) %type_) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %this, align 8
   %blob = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %blob_, align 8
   store ptr null, ptr %blob, align 8
@@ -5608,7 +5608,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define dso_local void @_ZN4node15BlobBindingDataC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %realm, ptr %wrap.coerce) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node18SnapshotableObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEENS_18EmbedderObjectTypeE(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef %realm, ptr %wrap.coerce, i8 noundef zeroext 4) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingDataE, i64 16), ptr %this, align 8
   %data_objects_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %_M_single_bucket.i.i, ptr %data_objects_, align 8
@@ -6453,7 +6453,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4Blob16BlobTransferDataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6534,7 +6534,7 @@ _ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit:    ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4Blob16BlobTransferDataD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4Blob16BlobTransferDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -6654,7 +6654,7 @@ declare i16 @_ZN4node6worker12TransferData21FinalizeTransferWriteEN2v85LocalINS2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4BlobD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -6736,7 +6736,7 @@ _ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit:    ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node4BlobD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4BlobE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -6904,7 +6904,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node15BlobBindingData16StoredDataObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %this, align 8
   %type.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type.i) #22
   %blob.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6936,7 +6936,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node15BlobBindingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingDataE, i64 16), ptr %this, align 8
   %data_objects_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -6947,7 +6947,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %_ZNSt8__det
   %__n.addr.04.i.i.i.i = phi ptr [ %1, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node15BlobBindingData16StoredDataObjectEELb1EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.04.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.04.i.i.i.i, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %second.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %second.i.i.i.i.i.i.i.i, align 8
   %type.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.04.i.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type.i.i.i.i.i.i.i.i.i) #22
   %blob.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.04.i.i.i.i, i64 48
@@ -7263,7 +7263,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2v812BackingStoreESt14de
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -7915,7 +7915,7 @@ entry:
   %0 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %args1, align 8
   tail call void @_ZN4node18SnapshotableObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEENS_18EmbedderObjectTypeE(ptr noundef nonnull align 8 dereferenceable(96) %call, ptr noundef %0, ptr %agg.tmp.sroa.0.0.copyload, i8 noundef zeroext 4) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingDataE, i64 16), ptr %call, align 8
   %data_objects_.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store ptr %_M_single_bucket.i.i.i, ptr %data_objects_.i, align 8
@@ -8440,7 +8440,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.27", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9428,7 +9428,7 @@ entry:
   %n = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %is_root_node_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %size_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -9680,7 +9680,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -9783,7 +9783,7 @@ if.end:                                           ; preds = %entry, %_ZNKSt10_Ha
   %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 40
   %2 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %second.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %second.i.i.i.i.i.i, align 8
   %blob.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 48
   store ptr null, ptr %blob.i.i.i.i.i.i.i, align 8
   %type.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 64
@@ -10221,7 +10221,7 @@ if.end15:                                         ; preds = %if.end11.i, %cond.e
   %9 = load ptr, ptr %__n, align 8
   store ptr %9, ptr %__prev_n, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %second.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %second.i.i.i.i, align 8
   %type.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type.i.i.i.i.i) #22
   %blob.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n, i64 48

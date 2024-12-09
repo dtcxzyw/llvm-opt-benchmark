@@ -37,21 +37,21 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
   %5 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   store ptr null, ptr %5, align 8
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 273), align 1
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 273), align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 273), align 1
-  %.03656 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 320), align 8
-  %.not57 = icmp eq ptr %.03656, getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 200)
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 273), align 1
+  %.03656 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 320), align 8
+  %.not57 = icmp eq ptr %.03656, getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 200)
   br i1 %.not57, label %._crit_edge, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %8, %102
   %.03658 = phi ptr [ %.036, %102 ], [ %.03656, %8 ]
   %9 = getelementptr inbounds nuw i8, ptr %.03658, i64 144
   %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 76), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %or.cond48 = icmp ult i32 %11, 64
   br i1 %or.cond48, label %12, label %19
 
@@ -71,7 +71,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 76), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %or.cond49 = icmp ult i32 %23, 64
   br i1 %22, label %24, label %32
 
@@ -116,7 +116,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
   br i1 %or.cond, label %46, label %55
 
 46:                                               ; preds = %40
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 76), align 4
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %or.cond51 = icmp ult i32 %47, 64
   br i1 %or.cond51, label %48, label %102
 
@@ -144,10 +144,10 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
   br i1 %.not46, label %60, label %102
 
 60:                                               ; preds = %58, %55
-  %61 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_active_module_t_class, i64 56), align 8
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_active_module_t_class, i64 56), align 8
   %62 = call noalias noundef ptr @malloc(i64 noundef %61) #6
   %63 = load i32, ptr @pmix_class_init_epoch, align 4
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_active_module_t_class, i64 32), align 8
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_active_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %63, %64
   br i1 %.not.i, label %66, label %65
 
@@ -192,8 +192,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %66, %6
   %81 = load ptr, ptr %9, align 8
   %82 = getelementptr inbounds nuw i8, ptr %62, i64 160
   store ptr %81, ptr %82, align 8
-  %.03553 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 240), align 8
-  %.not47.not54 = icmp eq ptr %.03553, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.03553 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 240), align 8
+  %.not47.not54 = icmp eq ptr %.03553, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not47.not54, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pmix_obj_new_tma.exit, %94
@@ -213,45 +213,45 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %66, %6
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 120
   store volatile ptr %62, ptr %91, align 8
   store ptr %62, ptr %88, align 8
-  %92 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 264), align 8
+  %92 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 264), align 8
   %93 = add i64 %92, 1
-  store volatile i64 %93, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 264), align 8
+  store volatile i64 %93, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 264), align 8
   br label %102
 
 94:                                               ; preds = %.lr.ph
   %95 = getelementptr inbounds nuw i8, ptr %.03555, i64 120
   %.035 = load ptr, ptr %95, align 8
-  %.not47.not = icmp eq ptr %.035, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.not47.not = icmp eq ptr %.035, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not47.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %94, %pmix_obj_new_tma.exit
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 248), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 248), align 8
   %97 = getelementptr inbounds nuw i8, ptr %62, i64 128
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 120
   store volatile ptr %62, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %62, i64 120
-  store ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120), ptr %99, align 8
-  store ptr %62, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 248), align 8
-  %100 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 264), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120), ptr %99, align 8
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 248), align 8
+  %100 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 264), align 8
   %101 = add i64 %100, 1
-  store volatile i64 %101, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 264), align 8
+  store volatile i64 %101, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 264), align 8
   br label %102
 
 102:                                              ; preds = %86, %.critedge, %58, %46, %48, %53, %24, %25, %30
   %103 = getelementptr inbounds nuw i8, ptr %.03658, i64 120
   %.036 = load ptr, ptr %103, align 8
-  %.not = icmp eq ptr %.036, getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 200)
+  %.not = icmp eq ptr %.036, getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 200)
   br i1 %.not, label %._crit_edge, label %.lr.ph59, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %102, %8
-  %104 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 264), align 8
+  %104 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 264), align 8
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %106, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %.160 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 240), align 8
-  %.not4361 = icmp eq ptr %.160, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 240), align 8
+  %.not4361 = icmp eq ptr %.160, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not4361, label %._crit_edge64, label %.lr.ph63
 
 106:                                              ; preds = %._crit_edge
@@ -266,7 +266,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %66, %6
   %111 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %5, ptr noundef %110) #5
   %112 = getelementptr inbounds nuw i8, ptr %.162, i64 120
   %.1 = load ptr, ptr %112, align 8
-  %.not43 = icmp eq ptr %.1, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.not43 = icmp eq ptr %.1, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not43, label %._crit_edge64.loopexit, label %.lr.ph63, !llvm.loop !8
 
 ._crit_edge64.loopexit:                           ; preds = %.lr.ph63
@@ -276,18 +276,18 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %66, %6
 ._crit_edge64:                                    ; preds = %._crit_edge64.loopexit, %.preheader
   %113 = phi ptr [ %.pre71, %._crit_edge64.loopexit ], [ null, %.preheader ]
   %114 = call ptr @PMIx_Argv_join(ptr noundef %113, i32 noundef 44) #5
-  store ptr %114, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 280), align 8
+  store ptr %114, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 280), align 8
   %115 = load ptr, ptr %5, align 8
   call void @PMIx_Argv_free(ptr noundef %115) #5
-  %116 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 76), align 4
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %117 = call i32 @pmix_output_get_verbosity(i32 noundef %116) #5
   %118 = icmp sgt i32 %117, 4
   br i1 %118, label %119, label %.loopexit
 
 119:                                              ; preds = %._crit_edge64
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.7) #5
-  %.265 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 240), align 8
-  %.not4466 = icmp eq ptr %.265, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 240), align 8
+  %.not4466 = icmp eq ptr %.265, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not4466, label %.loopexit, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %119, %.lr.ph69
@@ -300,7 +300,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %66, %6
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull %122, i32 noundef %124) #5
   %125 = getelementptr inbounds nuw i8, ptr %.267, i64 120
   %.2 = load ptr, ptr %125, align 8
-  %.not44 = icmp eq ptr %.2, getelementptr inbounds (i8, ptr @pmix_gds_globals, i64 120)
+  %.not44 = icmp eq ptr %.2, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not44, label %.loopexit, label %.lr.ph69, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph69, %119, %._crit_edge64, %2, %106

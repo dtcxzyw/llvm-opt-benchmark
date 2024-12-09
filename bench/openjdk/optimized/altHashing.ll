@@ -94,7 +94,7 @@ define hidden noundef i64 @_ZN10AltHashing12compute_seedEv() local_unnamed_addr 
   %1 = alloca [8 x i32], align 16
   %2 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #7
   %3 = tail call noundef i64 @_ZN2os14javaTimeMillisEv() #7
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %5 = getelementptr i8, ptr %4, i64 112
   %.val = load ptr, ptr %5, align 8
   %6 = icmp eq ptr %.val, null
@@ -122,7 +122,7 @@ _ZL11object_hashP5Klass.exit:                     ; preds = %_ZNK5Klass11java_mi
   %17 = phi i64 [ %16, %14 ], [ %13, %_ZNK5Klass11java_mirrorEv.exit.i ]
   %18 = trunc nuw i64 %17 to i32
   store i32 %18, ptr %1, align 16
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
   %20 = getelementptr i8, ptr %19, i64 112
   %.val4 = load ptr, ptr %20, align 8
   %21 = icmp eq ptr %.val4, null

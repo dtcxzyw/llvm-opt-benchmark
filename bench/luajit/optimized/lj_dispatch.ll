@@ -149,16 +149,16 @@ if.then:                                          ; preds = %entry
   br i1 %cmp48, label %if.then50, label %if.else
 
 if.then50:                                        ; preds = %if.then
-  %8 = load i16, ptr getelementptr inbounds (i8, ptr @lj_bc_ofs, i64 158), align 2
+  %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 158), align 2
   %idx.ext = zext i16 %8 to i64
   %add.ptr52 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %idx.ext
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @lj_bc_ofs, i64 164), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 164), align 2
   %idx.ext54 = zext i16 %9 to i64
   %add.ptr55 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %idx.ext54
-  %10 = load i16, ptr getelementptr inbounds (i8, ptr @lj_bc_ofs, i64 140), align 2
+  %10 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 140), align 2
   %idx.ext57 = zext i16 %10 to i64
   %add.ptr58 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %idx.ext57
-  %11 = load i16, ptr getelementptr inbounds (i8, ptr @lj_bc_ofs, i64 170), align 2
+  %11 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 170), align 2
   %idx.ext60 = zext i16 %11 to i64
   %add.ptr61 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %idx.ext60
   br label %if.end
@@ -177,8 +177,8 @@ if.end:                                           ; preds = %if.else, %if.then50
   %f_iterl.0 = phi ptr [ %add.ptr55, %if.then50 ], [ %13, %if.else ]
   %f_itern.0 = phi ptr [ %add.ptr58, %if.then50 ], [ @lj_vm_IITERN, %if.else ]
   %f_loop.0 = phi ptr [ %add.ptr61, %if.then50 ], [ %14, %if.else ]
-  %idx.ext63.pn.in.in = phi ptr [ getelementptr inbounds (i8, ptr @lj_bc_ofs, i64 178), %if.then50 ], [ getelementptr inbounds (i8, ptr @lj_bc_ofs, i64 180), %if.else ]
-  %idx.ext66.pn.in.in = phi ptr [ getelementptr inbounds (i8, ptr @lj_bc_ofs, i64 184), %if.then50 ], [ getelementptr inbounds (i8, ptr @lj_bc_ofs, i64 186), %if.else ]
+  %idx.ext63.pn.in.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 178), %if.then50 ], [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 180), %if.else ]
+  %idx.ext66.pn.in.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 184), %if.then50 ], [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 186), %if.else ]
   %idx.ext66.pn.in = load i16, ptr %idx.ext66.pn.in.in, align 2
   %idx.ext66.pn = zext i16 %idx.ext66.pn.in to i64
   %f_funcv.0 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %idx.ext66.pn

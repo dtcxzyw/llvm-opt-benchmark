@@ -557,7 +557,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %36 = sub i64 %29, %35
   store i64 %36, ptr %30, align 8
   %37 = load i64, ptr @pci_cardbus_io_size, align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %39 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 72) #14
   %40 = icmp eq ptr %39, null
   br i1 %40, label %55, label %41
@@ -614,7 +614,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %69 = sub i64 %62, %68
   store i64 %69, ptr %63, align 8
   %70 = load i64, ptr @pci_cardbus_io_size, align 8
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %72 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %71, i32 noundef 3520, i64 noundef 72) #14
   %73 = icmp eq ptr %72, null
   br i1 %73, label %88, label %74
@@ -705,7 +705,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %124 = sub i64 %117, %123
   store i64 %124, ptr %118, align 8
   %125 = load i64, ptr @pci_cardbus_mem_size, align 8
-  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %127 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %126, i32 noundef 3520, i64 noundef 72) #14
   %128 = icmp eq ptr %127, null
   br i1 %128, label %143, label %129
@@ -766,7 +766,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
   %160 = sub i64 %154, %146
   store i64 %160, ptr %155, align 8
   %161 = load i64, ptr @pci_cardbus_mem_size, align 8
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %163 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %162, i32 noundef 3520, i64 noundef 72) #14
   %164 = icmp eq ptr %163, null
   br i1 %164, label %179, label %165
@@ -2966,7 +2966,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   br i1 %26, label %27, label %51
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %29 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3520, i64 noundef 72) #14
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit25.loopexit, label %31
@@ -3230,7 +3230,7 @@ declare dso_local ptr @pci_resource_name(ptr noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @add_to_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, i64 noundef range(i64 1, 0) %4) unnamed_addr #5 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 72) #14
   %8 = icmp eq ptr %7, null
   br i1 %8, label %25, label %9
@@ -3424,7 +3424,7 @@ define internal fastcc void @__dev_sort_resources(ptr noundef %0, ptr noundef %1
   br label %93
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %52 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %51, i32 noundef 3520, i64 noundef 72) #14
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %55
@@ -3535,7 +3535,7 @@ define internal fastcc void @__assign_resources_sorted(ptr noundef %0, ptr nound
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %21 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 72) #14
   %22 = icmp eq ptr %21, null
   br i1 %22, label %40, label %23
@@ -4267,7 +4267,7 @@ define internal fastcc void @assign_requested_resources_sorted(ptr noundef reado
 
 57:                                               ; preds = %52, %50
   %58 = load ptr, ptr %34, align 8
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %60 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %59, i32 noundef 3520, i64 noundef 72) #14
   %61 = icmp eq ptr %60, null
   br i1 %61, label %76, label %62

@@ -1032,7 +1032,7 @@ if.end.i:                                         ; preds = %if.then4
   br i1 %cmp1.not.i, label %if.end4.i, label %fail
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call.i68 = tail call i64 @_PyDict_LookupIndex(ptr noundef nonnull %owner.val61, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29160)) #7
+  %call.i68 = tail call i64 @_PyDict_LookupIndex(ptr noundef nonnull %owner.val61, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29160)) #7
   %cmp5.not.i = icmp eq i64 %call.i68, -1
   br i1 %cmp5.not.i, label %if.end8.i, label %fail
 
@@ -1371,12 +1371,12 @@ if.else4:                                         ; preds = %if.else
   br i1 %or.cond, label %if.then7, label %if.else24
 
 if.then7:                                         ; preds = %if.else4
-  %call = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29216)) #7
+  %call = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29216)) #7
   %cmp9.not = icmp eq ptr %call, null
   br i1 %cmp9.not, label %land.end.thread, label %land.end
 
 land.end.thread:                                  ; preds = %if.then7
-  %call1139 = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29160)) #7
+  %call1139 = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29160)) #7
   %cmp1240 = icmp ne ptr %call1139, null
   br label %if.end27
 
@@ -1388,7 +1388,7 @@ land.end:                                         ; preds = %if.then7
   %object__getattribute__ = getelementptr inbounds nuw i8, ptr %4, i64 414912
   %5 = load ptr, ptr %object__getattribute__, align 8
   %cmp10.not = icmp eq ptr %call, %5
-  %call11 = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29160)) #7
+  %call11 = tail call ptr @_PyType_Lookup(ptr noundef nonnull %type, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29160)) #7
   %cmp12 = icmp ne ptr %call11, null
   br i1 %cmp10.not, label %if.end27, label %if.then15
 
@@ -2018,7 +2018,7 @@ if.then33:                                        ; preds = %if.end31
   br label %return
 
 if.end35:                                         ; preds = %if.end31
-  %call37 = tail call ptr @_PyType_Lookup(ptr noundef %container.val27, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29336)) #7
+  %call37 = tail call ptr @_PyType_Lookup(ptr noundef %container.val27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29336)) #7
   %tobool38.not = icmp eq ptr %call37, null
   br i1 %tobool38.not, label %fail, label %land.lhs.true
 
@@ -2341,7 +2341,7 @@ if.end19.i:                                       ; preds = %if.else12.i, %if.th
 if.end25.i:                                       ; preds = %if.then9
   %tp_new.i = getelementptr inbounds nuw i8, ptr %callable, i64 312
   %27 = load ptr, ptr %tp_new.i, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @PyBaseObject_Type, i64 312), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 312), align 8
   %cmp26.i = icmp eq ptr %27, %28
   br i1 %cmp26.i, label %if.then28.i, label %if.then32
 
@@ -2355,7 +2355,7 @@ if.then28.i:                                      ; preds = %if.end25.i
   br i1 %or.cond18.i, label %if.end7.i.i, label %if.then32
 
 if.end7.i.i:                                      ; preds = %if.then28.i
-  %call.i.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull %callable, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30176)) #7
+  %call.i.i = tail call ptr @_PyType_Lookup(ptr noundef nonnull %callable, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 30176)) #7
   %cmp8.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp8.i.i, label %if.then32, label %lor.lhs.false.i.i43
 

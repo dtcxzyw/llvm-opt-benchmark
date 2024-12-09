@@ -892,7 +892,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 96:                                               ; preds = %93
   tail call void @__rcu_read_lock() #12
-  %97 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_net, i64 2544), align 16
+  %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 2544), align 16
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %.thread67
 

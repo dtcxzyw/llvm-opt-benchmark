@@ -2444,7 +2444,7 @@ msgnum.exit.i:                                    ; preds = %if.then4.i.i.i, %sw
   %cur.i.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   %153 = load i32, ptr %cur.i.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @msgnum.sb, ptr noundef nonnull @.str.198, i32 noundef %152, i32 noundef %153) #21
-  %154 = load ptr, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 16), align 8
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @msgnum.sb, i64 16), align 8
   br label %sw.epilog.i138
 
 sw.epilog.i138:                                   ; preds = %if.end.i137, %msgnum.exit.i
@@ -3285,7 +3285,7 @@ msgnum.exit:                                      ; preds = %while.body, %if.the
   %10 = load i32, ptr %prec.i, align 4
   %11 = load i32, ptr %cur, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @msgnum.sb, ptr noundef nonnull @.str.198, i32 noundef %10, i32 noundef %11) #21
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 16), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @msgnum.sb, i64 16), align 8
   %state.val52 = load ptr, ptr %state, align 8
   %call.i58 = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.82, ptr noundef %state.val52, ptr noundef %12) #21
   call void @reset_ident_date() #21
@@ -5307,7 +5307,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   %cur = getelementptr inbounds nuw i8, ptr %state, i64 8
   %2 = load i32, ptr %cur, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @msgnum.sb, ptr noundef nonnull @.str.198, i32 noundef %1, i32 noundef %2) #21
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @msgnum.sb, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @msgnum.sb, i64 16), align 8
   ret ptr %3
 }
 

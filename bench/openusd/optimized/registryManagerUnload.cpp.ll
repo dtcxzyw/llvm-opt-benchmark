@@ -60,8 +60,8 @@ define internal noundef zeroext i1 @_ZL28Test_TfRegistryManagerUnloadv() #1 pers
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug8_SetNodeERNS0_5_NodeEPKcb(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 12), ptr noundef nonnull @.str.9, i1 noundef zeroext true)
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug8_SetNodeERNS0_5_NodeEPKcb(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 16), ptr noundef nonnull @.str.10, i1 noundef zeroext true)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug8_SetNodeERNS0_5_NodeEPKcb(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 12), ptr noundef nonnull @.str.9, i1 noundef zeroext true)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug8_SetNodeERNS0_5_NodeEPKcb(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 16), ptr noundef nonnull @.str.10, i1 noundef zeroext true)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
   %.sink18.sroa.gep19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sink18.sroa.gep22 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -345,7 +345,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define range(i32 0, 2) i32 @glslang_shader_preprocess(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %class.DirStackFileIncluder, align 8
   %4 = alloca %class.CallbackIncluder, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 0, ptr %6, align 8
@@ -363,7 +363,7 @@ define range(i32 0, 2) i32 @glslang_shader_preprocess(ptr noundef %0, ptr nocapt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %14 = load ptr, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV16CallbackIncluder, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV16CallbackIncluder, i64 16), ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -409,7 +409,7 @@ _ZL16c_shader_profile17glslang_profile_t.exit:    ; preds = %20, %switch.lookup
   %.15.i = and i32 %38, 98303
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = call noundef zeroext i1 @_ZN7glslang7TShader10preprocessEPK16TBuiltInResourcei8EProfilebb11EShMessagesPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_8IncluderE(ptr noundef nonnull align 8 dereferenceable(165) %22, ptr noundef %24, i32 noundef %26, i32 noundef %.0.i, i1 noundef zeroext %33, i1 noundef zeroext %36, i32 noundef %.15.i, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(8) %21) #15
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %3, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %42 = load ptr, ptr %7, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef %42)
@@ -461,7 +461,7 @@ define linkonce_odr void @_ZN16CallbackIncluderD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN20DirStackFileIncluderD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -523,7 +523,7 @@ define range(i32 0, 2) i32 @glslang_shader_parse(ptr noundef %0, ptr nocapture n
   %17 = load i32, ptr %16, align 8
   %.15.i = and i32 %17, 98303
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7glslang7TShader14ForbidIncluderE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7glslang7TShader14ForbidIncluderE, i64 16), ptr %3, align 8
   %18 = call noundef zeroext i1 @_ZN7glslang7TShader5parseEPK16TBuiltInResourcei8EProfilebb11EShMessagesRNS0_8IncluderE(ptr noundef nonnull align 8 dereferenceable(165) %8, ptr noundef %10, i32 noundef %12, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext %15, i32 noundef %.15.i, ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %19 = zext i1 %18 to i32
@@ -775,7 +775,7 @@ define linkonce_odr void @_ZN20DirStackFileIncluder14releaseIncludeEPN7glslang7T
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN20DirStackFileIncluderD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -1120,7 +1120,7 @@ define linkonce_odr void @_ZNK20DirStackFileIncluder12getDirectoryENSt7__cxx1112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %4) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 1))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 1))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   br label %10
 

@@ -1251,9 +1251,9 @@ _ZN12ResourceMarkD2Ev.exit152:                    ; preds = %375, %377
 define hidden void @_ZNK13XBarrierSetC210emit_stubsER10CodeBuffer(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(448) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.MacroAssembler, align 8
   call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %1) #12
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %3, align 8
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -1420,9 +1420,9 @@ define hidden noundef i32 @_ZNK13XBarrierSetC218estimate_stub_sizeEv(ptr nocaptu
   store ptr %47, ptr %42, align 8
   store ptr %26, ptr %28, align 8
   call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %2) #12
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %3, align 8
   %57 = call noundef ptr @_ZN11XBarrierSet9assemblerEv() #12
   %58 = load ptr, ptr %43, align 8
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
@@ -1708,7 +1708,7 @@ _ZN4NodenwEm.exit:                                ; preds = %67, %69
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef null, ptr noundef %36, ptr noundef %75) #12
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
   store i32 64, ptr %76, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubLNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubLNode, i64 16), ptr %.0.i.i.i, align 8
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit72
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit72: ; preds = %72, %_ZN4NodenwEm.exit
@@ -1766,7 +1766,7 @@ _ZN4NodenwEm.exit.i.i:                            ; preds = %108, %106
 
 111:                                              ; preds = %_ZN4NodenwEm.exit.i.i
   tail call void @_ZN4NodeC2EPS_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i.i, ptr noundef null, ptr noundef %28, ptr noundef %28, ptr noundef %.065) #12
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8AddPNode, i64 16), ptr %.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8AddPNode, i64 16), ptr %.0.i.i.i.i.i, align 8
   %112 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 44
   store i32 512, ptr %112, align 4
   br label %_ZN16PhaseMacroExpand14basic_plus_adrEP4NodeS1_.exit
@@ -1808,7 +1808,7 @@ _ZN4NodenwEm.exit.i.i74:                          ; preds = %132, %130
 
 135:                                              ; preds = %_ZN4NodenwEm.exit.i.i74
   tail call void @_ZN4NodeC2EPS_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i.i75, ptr noundef null, ptr noundef %32, ptr noundef %32, ptr noundef %.066) #12
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8AddPNode, i64 16), ptr %.0.i.i.i.i.i75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8AddPNode, i64 16), ptr %.0.i.i.i.i.i75, align 8
   %136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i75, i64 44
   store i32 512, ptr %136, align 4
   br label %_ZN16PhaseMacroExpand14basic_plus_adrEP4NodeS1_.exit76
@@ -1887,7 +1887,7 @@ _ZN4NodenwEm.exit79:                              ; preds = %184, %186
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i78, ptr noundef null, ptr noundef %162, ptr noundef %168) #12
   %190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i78, i64 44
   store i32 2048, ptr %190, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8AddLNode, i64 16), ptr %.0.i.i.i78, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8AddLNode, i64 16), ptr %.0.i.i.i78, align 8
   br label %191
 
 191:                                              ; preds = %189, %_ZN4NodenwEm.exit79

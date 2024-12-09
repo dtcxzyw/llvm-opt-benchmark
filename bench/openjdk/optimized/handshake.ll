@@ -345,7 +345,7 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef %0) lo
   %3 = alloca %class.VM_HandshakeAllThreads, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18HandshakeOperation, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18HandshakeOperation, i64 16), ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -356,7 +356,7 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef %0) lo
   store ptr %5, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV22VM_HandshakeAllThreads, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV22VM_HandshakeAllThreads, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %11, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #11
@@ -383,7 +383,7 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   %6 = alloca %class.HandshakeSpinYield, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18HandshakeOperation, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18HandshakeOperation, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1327,7 +1327,7 @@ define hidden void @_ZN9Handshake7executeEP21AsyncHandshakeClosureP10JavaThread(
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23AsyncHandshakeOperation, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23AsyncHandshakeOperation, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %3, ptr %9, align 8
   %.not = icmp eq ptr %1, null
@@ -2751,7 +2751,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState22suspend_with_handshakeEv(
   %36 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 2, i32 noundef 0) #11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @.str.51, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV29ThreadSelfSuspensionHandshake, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV29ThreadSelfSuspensionHandshake, i64 16), ptr %36, align 8
   %38 = load ptr, ptr %0, align 8
   tail call void @_ZN9Handshake7executeEP21AsyncHandshakeClosureP10JavaThread(ptr noundef nonnull %36, ptr noundef %38)
   br label %39
@@ -2906,7 +2906,7 @@ _ZN14HandshakeState13has_operationEbb.exit.thread: ; preds = %31, %57, %_ZN14Han
 63:                                               ; preds = %1
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.52, ptr %64, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22SuspendThreadHandshake, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV22SuspendThreadHandshake, i64 16), ptr %2, align 8
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %65, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandleP10JavaThread(ptr noundef nonnull %2, ptr noundef null, ptr noundef %5)
@@ -2965,7 +2965,7 @@ define hidden void @_ZN14HandshakeState26handle_unsafe_access_errorEv(ptr nounde
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 2, i32 noundef 0) #11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.53, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV26UnsafeAccessErrorHandshake, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV26UnsafeAccessErrorHandshake, i64 16), ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   tail call void @_ZN9Handshake7executeEP21AsyncHandshakeClosureP10JavaThread(ptr noundef nonnull %6, ptr noundef %8)
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -2987,7 +2987,7 @@ define hidden void @_ZN14HandshakeState26handle_unsafe_access_errorEv(ptr nounde
   %18 = and i8 %17, 1
   store i8 0, ptr %16, align 1
   %19 = load ptr, ptr %0, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1328), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1328), align 8
   %21 = tail call ptr @_ZN10Exceptions13new_exceptionEP10JavaThreadP6SymbolPKcNS_22ExceptionMsgToUtf8ModeE(ptr noundef %19, ptr noundef %20, ptr noundef nonnull @.str.33, i32 noundef 0) #11
   %22 = icmp eq ptr %21, null
   br i1 %22, label %_ZNK6HandleclEv.exit, label %23
@@ -2998,7 +2998,7 @@ define hidden void @_ZN14HandshakeState26handle_unsafe_access_errorEv(ptr nounde
 
 _ZNK6HandleclEv.exit:                             ; preds = %13, %23
   %25 = phi ptr [ %24, %23 ], [ null, %13 ]
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
   %27 = load i8, ptr @UseCompressedClassPointers, align 1
   %28 = trunc i8 %27 to i1
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -3679,7 +3679,7 @@ declare void @_ZN2os17naked_short_sleepEl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23AsyncHandshakeOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23AsyncHandshakeOperation, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23AsyncHandshakeOperation, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3698,7 +3698,7 @@ define linkonce_odr hidden void @_ZN23AsyncHandshakeOperationD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23AsyncHandshakeOperationD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23AsyncHandshakeOperation, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23AsyncHandshakeOperation, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

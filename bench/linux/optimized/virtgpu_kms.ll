@@ -852,7 +852,7 @@ define dso_local range(i32 -2147483648, 1) i32 @virtio_gpu_driver_open(ptr nocap
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 136) #10
   %11 = icmp eq ptr %10, null
   br i1 %11, label %21, label %12

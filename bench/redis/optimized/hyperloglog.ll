@@ -840,7 +840,7 @@ sw.bb13.i:                                        ; preds = %if.end
 
 sdsalloc.exit:                                    ; preds = %if.end, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %5, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end ]
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5040), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5040), align 8
   %cmp2 = icmp ult i64 %retval.0.i, %6
   br i1 %cmp2, label %land.lhs.true, label %if.end21
 
@@ -1263,7 +1263,7 @@ sdslen.exit202:                                   ; preds = %land.lhs.true271, %
   %retval.0.i189 = phi i64 [ %48, %sw.bb13.i187 ], [ %conv12.i192, %sw.bb9.i190 ], [ %conv8.i195, %sw.bb5.i193 ], [ %conv4.i198, %sw.bb3.i196 ], [ %conv2.i201, %sw.bb.i199 ], [ 0, %land.lhs.true271 ]
   %conv274 = zext nneg i32 %sub268 to i64
   %add275 = add i64 %retval.0.i189, %conv274
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5040), align 8
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5040), align 8
   %cmp276 = icmp ugt i64 %add275, %49
   br i1 %cmp276, label %promote, label %if.end279
 
@@ -2553,14 +2553,14 @@ if.then26:                                        ; preds = %for.end
   %30 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.7, ptr noundef %28, i32 noundef %30) #18
   %conv35 = sext i32 %updated.1.lcssa to i64
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %add = add nsw i64 %31, %conv35
-  store i64 %add, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %add, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then26, %for.end
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   %cond = select i1 %tobool.not, ptr %33, ptr %32
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %cond) #18
   br label %return
@@ -2648,7 +2648,7 @@ if.end17:                                         ; preds = %entry
   br i1 %cmp22, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.end17
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %9) #18
   br label %if.end120
 
@@ -2740,9 +2740,9 @@ if.end76:                                         ; preds = %if.else73
   %arrayidx117 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %23 = load ptr, ptr %arrayidx117, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %21, ptr noundef %23) #18
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc118 = add nsw i64 %24, 1
-  store i64 %inc118, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc118, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end119
 
 if.end119:                                        ; preds = %if.end76, %if.then36
@@ -2956,9 +2956,9 @@ for.end64:                                        ; preds = %for.inc62
   %id = getelementptr inbounds nuw i8, ptr %36, i64 48
   %37 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.7, ptr noundef %35, i32 noundef %37) #18
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc75 = add nsw i64 %38, 1
-  store i64 %inc75, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc75, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %39 = load ptr, ptr @shared, align 8
   tail call void @addReply(ptr noundef %c, ptr noundef %39) #18
   br label %return
@@ -3162,7 +3162,7 @@ hllDenseAdd.exit:                                 ; preds = %hllPatLen.exit, %do
   br i1 %cmp94, label %land.lhs.true, label %for.inc143
 
 land.lhs.true:                                    ; preds = %hllDenseAdd.exit
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5040), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5040), align 8
   %div9759 = lshr i64 %24, 1
   %cmp98 = icmp samesign ugt i64 %div9759, %indvars.iv96
   br i1 %cmp98, label %if.then100, label %land.lhs.true110
@@ -3305,9 +3305,9 @@ if.then23:                                        ; preds = %if.then19
   br label %return
 
 if.end24:                                         ; preds = %if.then19
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc = add nsw i64 %11, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %.pre = load ptr, ptr %ptr11, align 8
   br label %if.end25
 
@@ -3509,14 +3509,14 @@ if.then128:                                       ; preds = %if.then124
   br label %return
 
 if.end129:                                        ; preds = %if.then124
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc130 = add nsw i64 %31, 1
-  store i64 %inc130, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
+  store i64 %inc130, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end131
 
 if.end131:                                        ; preds = %if.end129, %if.end119
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   %cond = select i1 %cmp122.not, ptr %32, ptr %33
   tail call void @addReply(ptr noundef nonnull %c, ptr noundef %cond) #18
   br label %return

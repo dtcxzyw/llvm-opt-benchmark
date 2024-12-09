@@ -32,7 +32,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7512CollationKeyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 16)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
   %fFlagAndLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %fFlagAndLength, align 8
   %fHashCode = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -43,7 +43,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512CollationKeyC2EPKhi(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, ptr noundef readonly %newValues, i32 noundef %count) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
   %fFlagAndLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %count, ptr %fFlagAndLength, align 8
   %fHashCode = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -196,7 +196,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512CollationKeyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
   %fFlagAndLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fFlagAndLength.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i32, ptr %fFlagAndLength.i, align 8
@@ -294,7 +294,7 @@ if.end23:                                         ; preds = %do.body, %if.end16,
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512CollationKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512CollationKeyE, i64 16), ptr %this, align 8
   %fFlagAndLength = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength, align 8
   %cmp = icmp slt i32 %0, 0

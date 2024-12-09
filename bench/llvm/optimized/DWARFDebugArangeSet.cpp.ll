@@ -289,14 +289,14 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %35, %6
   store i32 1, ptr %55, align 4, !noalias !4
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false), !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %26, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %26, align 8, !noalias !4
   %57 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store ptr %25, ptr %57, align 8, !noalias !4
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef null, i64 noundef 0, i32 noundef 0) #16, !noalias !4
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @.str.1, ptr %58, align 8, !alias.scope !7, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmPKcEEE, i64 16), ptr %27, align 8, !alias.scope !7, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmPKcEEE, i64 16), ptr %27, align 8, !alias.scope !7, !noalias !4
   %59 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %52, ptr %59, align 8, !alias.scope !7, !noalias !4
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -362,14 +362,14 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %35, %6
   store i32 1, ptr %87, align 4, !noalias !18
   %88 = getelementptr inbounds nuw i8, ptr %22, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false), !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %22, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %22, align 8, !noalias !18
   %89 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr %21, ptr %89, align 8, !noalias !18
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef null, i64 noundef 0, i32 noundef 0) #16, !noalias !18
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %90 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @.str.2, ptr %90, align 8, !alias.scope !21, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %23, align 8, !alias.scope !21, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %23, align 8, !alias.scope !21, !noalias !18
   %91 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %92 = load i64, ptr %1, align 8, !noalias !24
   store i64 %92, ptr %91, align 8, !alias.scope !21, !noalias !18
@@ -420,14 +420,14 @@ _ZN4llvm5ErrorD2Ev.exit42:                        ; preds = %97
   store i32 1, ptr %106, align 4, !noalias !32
   %107 = getelementptr inbounds nuw i8, ptr %18, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, i8 0, i64 24, i1 false), !noalias !32
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %18, align 8, !noalias !32
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %18, align 8, !noalias !32
   %108 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %17, ptr %108, align 8, !noalias !32
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef null, i64 noundef 0, i32 noundef 0) #16, !noalias !32
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %109 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @.str.4, ptr %109, align 8, !alias.scope !35, !noalias !32
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %19, align 8, !alias.scope !35, !noalias !32
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %19, align 8, !alias.scope !35, !noalias !32
   %110 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %111 = load i64, ptr %1, align 8, !noalias !38
   store i64 %111, ptr %110, align 8, !alias.scope !35, !noalias !32
@@ -473,14 +473,14 @@ _ZN4llvm5ErrorD2Ev.exit42:                        ; preds = %97
   store i32 1, ptr %125, align 4, !noalias !46
   %126 = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, i8 0, i64 24, i1 false), !noalias !46
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %14, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %14, align 8, !noalias !46
   %127 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %13, ptr %127, align 8, !noalias !46
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef null, i64 noundef 0, i32 noundef 0) #16, !noalias !46
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %128 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @.str.5, ptr %128, align 8, !alias.scope !49, !noalias !46
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %15, align 8, !alias.scope !49, !noalias !46
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %15, align 8, !alias.scope !49, !noalias !46
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %130 = load i64, ptr %1, align 8, !noalias !52
   store i64 %130, ptr %129, align 8, !alias.scope !49, !noalias !46
@@ -577,12 +577,12 @@ _ZN4llvm12ErrorSuccessD2Ev.exit46:                ; preds = %171
   store i8 0, ptr %152, align 8, !noalias !62
   store i32 1, ptr %153, align 4, !noalias !62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %154, i8 0, i64 24, i1 false), !noalias !62
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %10, align 8, !noalias !62
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %10, align 8, !noalias !62
   store ptr %9, ptr %155, align 8, !noalias !62
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null, i64 noundef 0, i32 noundef 0) #16, !noalias !62
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   store ptr @.str.7, ptr %156, align 8, !alias.scope !65, !noalias !62
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmEEE, i64 16), ptr %11, align 8, !alias.scope !65, !noalias !62
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmEEE, i64 16), ptr %11, align 8, !alias.scope !65, !noalias !62
   store i64 %163, ptr %157, align 8, !alias.scope !65, !noalias !62
   %175 = load i64, ptr %1, align 8, !noalias !68
   store i64 %175, ptr %158, align 8, !alias.scope !65, !noalias !62
@@ -741,14 +741,14 @@ define linkonce_odr hidden void @_ZN4llvm17createStringErrorIJmEEENS_5ErrorESt10
   store i32 1, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %7, ptr %14, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %3, ptr %15, align 8, !alias.scope !76
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %9, align 8, !alias.scope !76
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %9, align 8, !alias.scope !76
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load i64, ptr %4, align 8, !noalias !76
   store i64 %17, ptr %16, align 8, !alias.scope !76
@@ -794,14 +794,14 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %6
   store i32 1, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %9, ptr %19, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %4, ptr %20, align 8, !alias.scope !85
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %11, align 8, !alias.scope !85
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %11, align 8, !alias.scope !85
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %22 = load i64, ptr %5, align 8, !noalias !85
   store i64 %22, ptr %21, align 8, !alias.scope !85
@@ -995,7 +995,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.10, ptr %24, align 8, !alias.scope !97
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJimEEE, i64 16), ptr %3, align 8, !alias.scope !97
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJimEEE, i64 16), ptr %3, align 8, !alias.scope !97
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %26 = load i64, ptr %8, align 8, !noalias !97
   store i64 %26, ptr %25, align 8, !alias.scope !97
@@ -1085,7 +1085,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %67, %69
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.12, ptr %74, align 8, !alias.scope !100
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJtEEE, i64 16), ptr %4, align 8, !alias.scope !100
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJtEEE, i64 16), ptr %4, align 8, !alias.scope !100
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %76 = load i16, ptr %73, align 8, !noalias !100
   store i16 %76, ptr %75, align 8, !alias.scope !100
@@ -1094,7 +1094,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %67, %69
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.13, ptr %79, align 8, !alias.scope !103
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJimEEE, i64 16), ptr %5, align 8, !alias.scope !103
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJimEEE, i64 16), ptr %5, align 8, !alias.scope !103
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %81 = load i64, ptr %78, align 8, !noalias !103
   store i64 %81, ptr %80, align 8, !alias.scope !103
@@ -1105,7 +1105,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %67, %69
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.14, ptr %85, align 8, !alias.scope !106
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJhEEE, i64 16), ptr %6, align 8, !alias.scope !106
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJhEEE, i64 16), ptr %6, align 8, !alias.scope !106
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %87 = load i8, ptr %84, align 2, !noalias !106
   store i8 %87, ptr %86, align 8, !alias.scope !106
@@ -1114,7 +1114,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %67, %69
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.15, ptr %90, align 8, !alias.scope !109
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJhEEE, i64 16), ptr %7, align 8, !alias.scope !109
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJhEEE, i64 16), ptr %7, align 8, !alias.scope !109
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %92 = load i8, ptr %89, align 1, !noalias !109
   store i8 %92, ptr %91, align 8, !alias.scope !109

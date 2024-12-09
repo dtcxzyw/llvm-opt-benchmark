@@ -507,7 +507,7 @@ define i32 @mca_base_component_repository_init() local_unnamed_addr #1 {
 4:                                                ; preds = %1
   %5 = tail call i32 @opal_dl_base_select() #13
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 32), align 8
   %.not12 = icmp eq i32 %6, %7
   br i1 %.not12, label %9, label %8
 
@@ -517,7 +517,7 @@ define i32 @mca_base_component_repository_init() local_unnamed_addr #1 {
 
 9:                                                ; preds = %8, %4
   store ptr @opal_hash_table_t_class, ptr @mca_base_component_repository, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_base_component_repository, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @mca_base_component_repository, i64 8), align 8
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null

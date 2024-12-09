@@ -264,7 +264,7 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4pugi15xml_writer_fileC2EPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %file_) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pugi15xml_writer_fileE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi15xml_writer_fileE, i64 16), ptr %this, align 8
   %file = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %file_, ptr %file, align 8
   ret void
@@ -285,7 +285,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4pugi17xml_writer_streamC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pugi17xml_writer_streamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi17xml_writer_streamE, i64 16), ptr %this, align 8
   %narrow_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %stream, ptr %narrow_stream, align 8
   %wide_stream = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -296,7 +296,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4pugi17xml_writer_streamC2ERSt13basic_ostreamIwSt11char_traitsIwEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pugi17xml_writer_streamE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi17xml_writer_streamE, i64 16), ptr %this, align 8
   %narrow_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %narrow_stream, align 8
   %wide_stream = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -334,7 +334,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4pugi15xml_tree_walkerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pugi15xml_tree_walkerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi15xml_tree_walkerE, i64 16), ptr %this, align 8
   %_depth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %_depth, align 8
   ret void
@@ -18408,7 +18408,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #22
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4pugi15xpath_exceptionC2ERKNS_18xpath_parse_resultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result_) unnamed_addr #15 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4pugi15xpath_exceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi15xpath_exceptionE, i64 16), ptr %this, align 8
   %_result = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_result, ptr noundef nonnull align 8 dereferenceable(16) %result_, i64 16, i1 false)
   ret void
@@ -18624,7 +18624,7 @@ cond.end:                                         ; preds = %entry
 
 if.then:                                          ; preds = %cond.end
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
   unreachable
 
@@ -18732,7 +18732,7 @@ cond.end.i:                                       ; preds = %entry
 
 if.then.i:                                        ; preds = %cond.end.i
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
   unreachable
 
@@ -18817,7 +18817,7 @@ cond.end.i:                                       ; preds = %entry
 
 if.then.i:                                        ; preds = %cond.end.i
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
   unreachable
 
@@ -18878,7 +18878,7 @@ cond.end.i:                                       ; preds = %if.end
 
 if.then.i:                                        ; preds = %cond.end.i
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
   unreachable
 
@@ -19449,7 +19449,7 @@ cond.end.i.i:                                     ; preds = %if.end.i
 
 if.then.i.i:                                      ; preds = %cond.end.i.i
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
   unreachable
 
@@ -19973,7 +19973,7 @@ cond.end.i.i.i.i:                                 ; preds = %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cond.end.i.i.i.i
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
   unreachable
 
@@ -20785,7 +20785,7 @@ cond.end.i.i.i:                                   ; preds = %if.end.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.end.i.i.i
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
   unreachable
 
@@ -20955,7 +20955,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
   unreachable
 
@@ -21048,7 +21048,7 @@ if.else14:                                        ; preds = %call6.i.i.i.noexc, 
 
 if.then16:                                        ; preds = %if.else14
   %exception17 = call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception17, align 8
   br label %invoke.cont21.invoke
 
 if.end:                                           ; preds = %if.else14
@@ -21740,7 +21740,7 @@ invoke.cont:                                      ; preds = %if.end
 
 if.then4:                                         ; preds = %invoke.cont
   %exception = call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
           to label %unreachable unwind label %lpad
 
@@ -23733,7 +23733,7 @@ invoke.cont:                                      ; preds = %if.end
 
 if.then5:                                         ; preds = %invoke.cont
   %exception = call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
           to label %unreachable unwind label %lpad
 
@@ -24635,7 +24635,7 @@ invoke.cont:                                      ; preds = %if.end
 
 if.then4:                                         ; preds = %invoke.cont
   %exception = call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
           to label %unreachable unwind label %lpad
 
@@ -26955,7 +26955,7 @@ cond.end:                                         ; preds = %cond.true
 
 if.then:                                          ; preds = %cond.end
   %exception = call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
           to label %unreachable unwind label %lpad
 
@@ -27142,7 +27142,7 @@ invoke.cont:                                      ; preds = %if.end
 
 if.then3:                                         ; preds = %invoke.cont
   %exception = call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
           to label %unreachable unwind label %lpad
 
@@ -27728,7 +27728,7 @@ invoke.cont:                                      ; preds = %if.end
 
 if.then3:                                         ; preds = %invoke.cont
   %exception = call ptr @__cxa_allocate_exception(i64 8) #44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #46
           to label %unreachable unwind label %lpad.loopexit.split-lp
 

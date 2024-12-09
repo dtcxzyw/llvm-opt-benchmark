@@ -150,7 +150,7 @@ declare void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13WorkerThreadsC2EPKcj(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 36), (40, 48)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13WorkerThreads, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13WorkerThreads, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -331,7 +331,7 @@ define hidden noundef ptr @_ZN13WorkerThreads13create_workerEj(ptr noundef nonnu
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(928) %8) #10
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV12WorkerThread, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV12WorkerThread, i64 16), ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 920
   store ptr %11, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(928) %8, ptr noundef nonnull @.str.5, ptr noundef %10, i32 noundef %1) #10
@@ -566,7 +566,7 @@ _ZN17WithActiveWorkersD2Ev.exit:                  ; preds = %.loopexit.i.i2, %60
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12WorkerThreadC2EPKcjP20WorkerTaskDispatcher(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #10
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV12WorkerThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV12WorkerThread, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %3, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %0, ptr noundef nonnull @.str.5, ptr noundef %1, i32 noundef %2) #10

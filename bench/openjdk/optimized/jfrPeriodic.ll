@@ -474,7 +474,7 @@ $_ZTV26JfrClassLoaderStatsClosure = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden { i64, i64 } @_ZN19JfrPeriodicEventSet9timestampEv() local_unnamed_addr #0 align 2 {
   %.sroa.0.0.copyload = load i64, ptr @_ZN19JfrPeriodicEventSet10_timestampE, align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1
   ret { i64, i64 } %.fca.1.insert
@@ -3310,7 +3310,7 @@ define hidden void @_ZN19JfrPeriodicEventSet18requestObjectCountEv() local_unnam
   store i8 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 1, ptr %11, align 4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV26VM_GC_SendObjectCountEvent, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV26VM_GC_SendObjectCountEvent, i64 16), ptr %1, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %1) #14
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #14
   ret void
@@ -4819,7 +4819,7 @@ define hidden void @_ZN19JfrPeriodicEventSet24requestGCHeapMemoryUsageEv() local
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %17, ptr %18, align 8
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN19JfrPeriodicEventSet10_timestampE, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
+  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
   %19 = load i8, ptr @_ZN7JfrTime11_ft_enabledE, align 1
   %20 = trunc i8 %19 to i1
   %21 = select i1 %20, i64 %.sroa.2.0.copyload.i, i64 %.sroa.0.0.copyload.i
@@ -4984,7 +4984,7 @@ define hidden void @_ZN19JfrPeriodicEventSet28requestGCHeapMemoryPoolUsageEv() l
   %50 = load i64, ptr %31, align 8
   store i64 %50, ptr %32, align 8
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN19JfrPeriodicEventSet10_timestampE, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
+  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
   %51 = load i8, ptr @_ZN7JfrTime11_ft_enabledE, align 1
   %52 = trunc i8 %51 to i1
   %53 = select i1 %52, i64 %.sroa.2.0.copyload.i, i64 %.sroa.0.0.copyload.i
@@ -5254,7 +5254,7 @@ define hidden void @_ZN19JfrPeriodicEventSet28requestClassLoaderStatisticsEv() l
   %1 = alloca %class.JfrClassLoaderStatsVMOperation, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV30JfrClassLoaderStatsVMOperation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV30JfrClassLoaderStatsVMOperation, i64 16), ptr %1, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %1) #14
   ret void
 }
@@ -5908,7 +5908,7 @@ define hidden void @_ZN19JfrPeriodicEventSet38requestShenandoahHeapRegionInforma
 4:                                                ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV37VM_ShenandoahSendHeapRegionInfoEvents, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV37VM_ShenandoahSendHeapRegionInfoEvents, i64 16), ptr %1, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %1) #14
   br label %6
 
@@ -5928,7 +5928,7 @@ declare void @_ZN27JfrFinalizerStatisticsEvent15generate_eventsEv() local_unname
 define hidden void @_ZN19JfrPeriodicEventSet24requestNativeMemoryUsageEv() local_unnamed_addr #2 align 2 {
   %1 = alloca %class.TimeInstant, align 8
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN19JfrPeriodicEventSet10_timestampE, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
+  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
   store i64 %.sroa.0.0.copyload.i, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %2, align 8
@@ -5942,7 +5942,7 @@ declare void @_ZN20JfrNativeMemoryEvent16send_type_eventsERK11TimeInstantI30Comp
 define hidden void @_ZN19JfrPeriodicEventSet29requestNativeMemoryUsageTotalEv() local_unnamed_addr #2 align 2 {
   %1 = alloca %class.TimeInstant, align 8
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN19JfrPeriodicEventSet10_timestampE, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
+  %.sroa.2.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19JfrPeriodicEventSet10_timestampE, i64 8), align 8
   store i64 %.sroa.0.0.copyload.i, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %2, align 8
@@ -8135,7 +8135,7 @@ _ZN26JfrClassLoaderStatsClosureC2Ev.exit:         ; preds = %1, %6
   store ptr %4, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26JfrClassLoaderStatsClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV26JfrClassLoaderStatsClosure, i64 16), ptr %2, align 8
   call void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef nonnull %2) #14
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2048
@@ -8144,7 +8144,7 @@ _ZN26JfrClassLoaderStatsClosureC2Ev.exit:         ; preds = %1, %6
   br i1 %12, label %.preheader.i.i.i, label %_ZN26JfrClassLoaderStatsClosure12createEventsEv.exit.thread
 
 _ZN26JfrClassLoaderStatsClosure12createEventsEv.exit.thread: ; preds = %_ZN26JfrClassLoaderStatsClosureC2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23ClassLoaderStatsClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23ClassLoaderStatsClosure, i64 16), ptr %2, align 8
   br label %.preheader.i.i.preheader
 
 .preheader.i.i.i:                                 ; preds = %_ZN26JfrClassLoaderStatsClosureC2Ev.exit, %._crit_edge.i.i.i
@@ -8183,7 +8183,7 @@ _ZN26JfrClassLoaderStatsClosure12createEventsEv.exit.thread: ; preds = %_ZN26Jfr
 
 _ZN26JfrClassLoaderStatsClosure12createEventsEv.exit: ; preds = %._crit_edge.i.i.i, %.lr.ph.i.i.i
   %.pr = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23ClassLoaderStatsClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV23ClassLoaderStatsClosure, i64 16), ptr %2, align 8
   %24 = icmp eq ptr %.pr, null
   br i1 %24, label %_ZN26JfrClassLoaderStatsClosureD2Ev.exit, label %.preheader.i.i.preheader
 

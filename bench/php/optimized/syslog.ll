@@ -33,13 +33,13 @@ define hidden noundef i32 @zm_startup_syslog(i32 noundef %0, i32 noundef %1) loc
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_deactivate_syslog(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   tail call void @php_closelog() #4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 840), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 840), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
   tail call void @free(ptr noundef nonnull %3) #4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 840), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 840), align 8
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -131,7 +131,7 @@ define hidden void @zif_openlog(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %46
 
 .thread196:                                       ; preds = %35, %.thread169
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 840), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 840), align 8
   %.not153 = icmp eq ptr %37, null
   br i1 %.not153, label %39, label %38
 
@@ -141,7 +141,7 @@ define hidden void @zif_openlog(ptr noundef %0, ptr nocapture noundef writeonly 
 
 39:                                               ; preds = %38, %.thread196
   %40 = call noalias ptr @zend_strndup(ptr noundef nonnull %21, i64 noundef %20) #4
-  store ptr %40, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 840), align 8
+  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 840), align 8
   %41 = load i64, ptr %4, align 8
   %42 = trunc i64 %41 to i32
   %43 = load i64, ptr %5, align 8
@@ -176,13 +176,13 @@ define hidden void @zif_closelog(ptr nocapture noundef readonly %0, ptr nocaptur
 
 6:                                                ; preds = %2
   tail call void @php_closelog() #4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 840), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 840), align 8
   %.not2 = icmp eq ptr %7, null
   br i1 %.not2, label %9, label %8
 
 8:                                                ; preds = %6
   tail call void @free(ptr noundef nonnull %7) #4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 840), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 840), align 8
   br label %9
 
 9:                                                ; preds = %8, %6

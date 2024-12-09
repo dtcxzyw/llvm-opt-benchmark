@@ -174,7 +174,7 @@ $_ZN4llvm12CallLowering12ValueHandler17assignCustomValueERNS0_7ArgInfoENS_8Array
 define dso_local void @_ZN4llvm15X86CallLoweringC2ERKNS_17X86TargetLoweringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(408160) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4llvm15X86CallLoweringE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4llvm15X86CallLoweringE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -386,7 +386,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86CallLowering11lowerReturnERNS
   %74 = getelementptr inbounds nuw i8, ptr %18, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %74, i8 0, i64 9, i1 false)
   store ptr @_ZN4llvm9RetCC_X86EjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, ptr %73, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124X86OutgoingValueAssignerE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124X86OutgoingValueAssignerE, i64 16), ptr %18, align 8
   %75 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 0, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %18, i64 48
@@ -397,7 +397,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86CallLowering11lowerReturnERNS
   store ptr %62, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i8 0, ptr %79, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_123X86OutgoingValueHandlerE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_123X86OutgoingValueHandlerE, i64 16), ptr %19, align 8
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %10, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -859,7 +859,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %132, i8 0, i64 9, i1 false)
   store ptr @_ZN4llvm6CC_X86EjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, ptr %131, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124X86OutgoingValueAssignerE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124X86OutgoingValueAssignerE, i64 16), ptr %11, align 8
   %133 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 0, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -874,7 +874,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
   %139 = load ptr, ptr %14, align 8
   %140 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1041) %139) #15
   store ptr %140, ptr %138, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_116FormalArgHandlerE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_116FormalArgHandlerE, i64 16), ptr %12, align 8
   %141 = load i16, ptr %56, align 2
   %142 = lshr i16 %141, 4
   %143 = and i16 %142, 1023
@@ -1206,7 +1206,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86CallLowering9lowerCallERNS_16
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %81, i8 0, i64 9, i1 false)
   store ptr @_ZN4llvm6CC_X86EjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, ptr %80, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124X86OutgoingValueAssignerE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124X86OutgoingValueAssignerE, i64 16), ptr %15, align 8
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i64 0, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -1217,7 +1217,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86CallLowering9lowerCallERNS_16
   store ptr %27, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i8 0, ptr %86, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_123X86OutgoingValueHandlerE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_123X86OutgoingValueHandlerE, i64 16), ptr %16, align 8
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %13, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1360,7 +1360,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86CallLowering9lowerCallERNS_16
   %171 = getelementptr inbounds nuw i8, ptr %19, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %171, i8 0, i64 9, i1 false)
   store ptr @_ZN4llvm9RetCC_X86EjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE, ptr %170, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124X86OutgoingValueAssignerE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_124X86OutgoingValueAssignerE, i64 16), ptr %19, align 8
   %172 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i64 0, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %19, i64 48
@@ -1375,7 +1375,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86CallLowering9lowerCallERNS_16
   %178 = load ptr, ptr %23, align 8
   %179 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1041) %178) #15
   store ptr %179, ptr %177, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_117CallReturnHandlerE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_117CallReturnHandlerE, i64 16), ptr %20, align 8
   %180 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store ptr %13, ptr %180, align 8
   %181 = load i32, ptr %2, align 8

@@ -347,7 +347,7 @@ define dso_local ptr @drm_atomic_state_alloc(ptr noundef %0) #0 align 16 {
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 120) #13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %17, label %11

@@ -833,8 +833,8 @@ define void @_ZN15EditPaintPluginC2Ev(ptr noundef nonnull align 8 dereferenceabl
           to label %3 unwind label %19
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 192), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15EditPaintPlugin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15EditPaintPlugin, i64 192), ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -1086,9 +1086,9 @@ define linkonce_odr void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE11delet
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15EditPaintPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(704) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15EditPaintPlugin, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 192), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15EditPaintPlugin, i64 192), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1321,7 +1321,7 @@ define void @_ZN15EditPaintPlugin22suggestedRenderingDataER9MeshModelR15MLRender
   store i8 1, ptr %31, align 1
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store float 1.000000e+00, ptr %32, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %5, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 66
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 70
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 74
@@ -6837,7 +6837,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit: ; preds = %153
           to label %194 unwind label %220
 
 194:                                              ; preds = %180
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %191, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %191, align 8
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store ptr %192, ptr %196, align 8
@@ -7012,7 +7012,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36: ; preds = %2
           to label %306 unwind label %332
 
 306:                                              ; preds = %298
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %303, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %303, align 8
   %307 = getelementptr inbounds nuw i8, ptr %303, i64 24
   %308 = getelementptr inbounds nuw i8, ptr %303, i64 16
   store ptr %304, ptr %308, align 8
@@ -7378,7 +7378,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8containsERKS1_.exit.thread: ; p
           to label %158 unwind label %176
 
 158:                                              ; preds = %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8containsERKS1_.exit.thread
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18SinglePositionUndo, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18SinglePositionUndo, i64 16), ptr %154, align 8
   %159 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %160 = getelementptr inbounds nuw i8, ptr %154, i64 36
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 16
@@ -7931,7 +7931,7 @@ _ZN8Paintbox12getUndoStackEv.exit:                ; preds = %103
           to label %109 unwind label %112
 
 109:                                              ; preds = %106
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %105, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %105, align 8
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %107, ptr %111, align 8
@@ -7966,7 +7966,7 @@ _ZN8Paintbox12getUndoStackEv.exit129:             ; preds = %114
           to label %121 unwind label %127
 
 121:                                              ; preds = %117
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18SinglePositionUndo, i64 16), ptr %116, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18SinglePositionUndo, i64 16), ptr %116, align 8
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 36
   %124 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -9249,7 +9249,7 @@ _ZN8Paintbox12getUndoStackEv.exit62:              ; preds = %_ZN5QHashIP8CVertex
           to label %184 unwind label %211
 
 184:                                              ; preds = %181
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %180, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %180, align 8
   %185 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 16
   store ptr %182, ptr %186, align 8
@@ -10527,7 +10527,7 @@ _ZN8Paintbox12getUndoStackEv.exit82:              ; preds = %269
           to label %277 unwind label %327
 
 277:                                              ; preds = %275
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %274, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %274, align 8
   %278 = getelementptr inbounds nuw i8, ptr %274, i64 24
   %279 = getelementptr inbounds nuw i8, ptr %274, i64 16
   store ptr %.pre192, ptr %279, align 8
@@ -13103,7 +13103,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %32, align 8
   %33 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %34 unwind label %48
 
@@ -13235,7 +13235,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
           to label %18 unwind label %13
 
 18:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %17, align 8
   %19 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %20 unwind label %37
 
@@ -13441,7 +13441,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg9AttributeIP18MLSelectionBuffersED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -13457,7 +13457,7 @@ define linkonce_odr void @_ZN3vcg9AttributeIP18MLSelectionBuffersED2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg9AttributeIP18MLSelectionBuffersED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg9AttributeIP18MLSelectionBuffersEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

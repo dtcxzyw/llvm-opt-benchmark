@@ -140,7 +140,7 @@ filename_to_module_in_buffer.exit.thread20:       ; preds = %._crit_edge.i
 
 filename_to_module_in_buffer.exit.thread:         ; preds = %char_is_letter.exit.thread.i, %19
   store i32 64, ptr %2, align 4
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %fnv1a.exit, label %.lr.ph.preheader.i13
 
@@ -177,7 +177,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i15, %filena
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 0, ptr %41, align 8
   store ptr %36, ptr %42, align 8
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i32 %43, ptr %44, align 8
   %45 = load ptr, ptr %3, align 8
@@ -318,7 +318,7 @@ define dso_local void @unit_register_external_symbol(ptr nocapture noundef reado
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %4
+  %. = select i1 %.not, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), ptr %4
   %5 = load ptr, ptr %., align 8
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %5, %6

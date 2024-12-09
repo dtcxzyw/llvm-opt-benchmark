@@ -162,7 +162,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZN5boost11this_thread14at_thread_exitIZNS_3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0EEvT_"(ptr %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN5boost6detail20thread_exit_functionIZNS_3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0EE", i64 16), ptr %2, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @"_ZTVN5boost6detail20thread_exit_functionIZNS_3log11v2_mt_posix7sources3aux18get_severity_levelEvE3$_0EE", i64 16), ptr %2, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8, !tbaa !8
   tail call void @_ZN5boost6detail24add_thread_exit_functionEPNS0_25thread_exit_function_baseE(ptr noundef nonnull %2)

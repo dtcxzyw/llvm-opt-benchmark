@@ -4985,7 +4985,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call4 = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32080), ptr noundef nonnull %notes) #10
+  %call4 = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32080), ptr noundef nonnull %notes) #10
   %cmp = icmp slt i32 %call4, 0
   br i1 %cmp, label %return, label %if.end6
 
@@ -5001,7 +5001,7 @@ if.then8:                                         ; preds = %if.end6
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.then8
-  %call13 = call i32 @PyObject_SetAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32080), ptr noundef nonnull %call9) #10
+  %call13 = call i32 @PyObject_SetAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32080), ptr noundef nonnull %call9) #10
   %cmp14 = icmp slt i32 %call13, 0
   %.pre = load ptr, ptr %notes, align 8
   br i1 %cmp14, label %if.then15, label %if.end22
@@ -6982,7 +6982,7 @@ if.then1.i.i.i47:                                 ; preds = %if.end.i.i.i44
   br label %PyException_SetCause.exit
 
 PyException_SetCause.exit:                        ; preds = %PyException_GetCause.exit, %if.then.i.i42, %if.end.i.i.i44, %if.then1.i.i.i47
-  %call21 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %_orig, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32080), ptr noundef nonnull %notes) #10
+  %call21 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %_orig, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32080), ptr noundef nonnull %notes) #10
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %error, label %if.end24
 
@@ -7020,7 +7020,7 @@ Py_DECREF.exit68:                                 ; preds = %if.then29, %if.then
   br i1 %cmp31, label %error, label %if.end33
 
 if.end33:                                         ; preds = %Py_DECREF.exit68
-  %call35 = call i32 @PyObject_SetAttr(ptr noundef nonnull %call4, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32080), ptr noundef nonnull %call30) #10
+  %call35 = call i32 @PyObject_SetAttr(ptr noundef nonnull %call4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32080), ptr noundef nonnull %call30) #10
   %31 = load i64, ptr %call30, align 8
   %32 = and i64 %31, 2147483648
   %cmp.i86.not = icmp eq i64 %32, 0
@@ -8533,7 +8533,7 @@ if.end.i12:                                       ; preds = %cond.end.i
   br i1 %tobool9.not.i, label %if.end14.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i12
-  %call11.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %cond.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52416), ptr noundef nonnull %4) #10
+  %call11.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %cond.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52416), ptr noundef nonnull %4) #10
   %cmp12.i = icmp slt i32 %call11.i, 0
   br i1 %cmp12.i, label %if.then13.i, label %if.end14.i
 
@@ -8556,7 +8556,7 @@ if.end14.i:                                       ; preds = %land.lhs.true.i, %i
   br i1 %tobool16.not.i, label %if.end22.i, label %land.lhs.true17.i
 
 land.lhs.true17.i:                                ; preds = %if.end14.i
-  %call19.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %cond.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 54680), ptr noundef nonnull %7) #10
+  %call19.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %cond.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 54680), ptr noundef nonnull %7) #10
   %cmp20.i = icmp slt i32 %call19.i, 0
   br i1 %cmp20.i, label %if.then21.i, label %if.end22.i
 
@@ -8579,7 +8579,7 @@ if.end22.i:                                       ; preds = %land.lhs.true17.i, 
   br i1 %tobool24.not.i, label %if.end, label %land.lhs.true25.i
 
 land.lhs.true25.i:                                ; preds = %if.end22.i
-  %call27.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %cond.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52464), ptr noundef nonnull %10) #10
+  %call27.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %cond.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52464), ptr noundef nonnull %10) #10
   %cmp28.i = icmp slt i32 %call27.i, 0
   br i1 %cmp28.i, label %if.then29.i, label %if.end
 

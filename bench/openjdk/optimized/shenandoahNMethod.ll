@@ -354,7 +354,7 @@ define hidden void @_ZN17ShenandoahNMethod17detect_reloc_oopsEP7nmethodR13Growab
   %4 = alloca %class.RelocIterator, align 8
   store i8 0, ptr %2, align 1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -424,7 +424,7 @@ define hidden void @_ZN17ShenandoahNMethod17detect_reloc_oopsEP7nmethodR13Growab
 39:                                               ; preds = %37
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !10
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !10
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !10
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !10
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #15
   br label %_ZN13RelocIterator9oop_relocEv.exit
 
@@ -632,7 +632,7 @@ define hidden void @_ZN17ShenandoahNMethod12heal_nmethodEP7nmethod(ptr nocapture
   br i1 %.not, label %43, label %10
 
 10:                                               ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV26ShenandoahKeepAliveClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV26ShenandoahKeepAliveClosure, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   store ptr %12, ptr %11, align 8
@@ -746,7 +746,7 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %59, %60, %64, %69
   store ptr null, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 3, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE, i64 16), ptr %2, align 8
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %73 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %73, ptr %72, align 8
@@ -2121,7 +2121,7 @@ define linkonce_odr hidden void @_ZN26ShenandoahKeepAliveClosure6do_oopEP9narrow
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %3 to i64
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %8, %10
   %12 = add i64 %11, %7
@@ -2247,7 +2247,7 @@ define linkonce_odr hidden void @_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %3 to i64
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %8, %10
   %12 = add i64 %11, %7
@@ -2283,7 +2283,7 @@ define linkonce_odr hidden void @_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %15, ptr noundef nonnull %13, ptr noundef %35) #15
   %.pre.i = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %.pre13.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %.pre13.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %.pre14.i = ptrtoint ptr %.pre.i to i64
   %.pre15.i = zext nneg i32 %.pre13.i to i64
   br label %37

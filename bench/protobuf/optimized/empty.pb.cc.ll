@@ -61,7 +61,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %_cached_size_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf5EmptyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf5EmptyE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -73,7 +73,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %_cached_size_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf5EmptyE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf5EmptyE, i64 16), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i16 = and i64 %1, 1

@@ -1006,7 +1006,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20BlockLocationPrinterI11Epsil
   %29 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %28, 4294967295
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %33 = zext nneg i32 %32 to i64
   %34 = shl i64 %31, %33
   %35 = add i64 %34, %30

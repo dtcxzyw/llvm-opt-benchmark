@@ -87,7 +87,7 @@ define void @batch_bind(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i16 256, ptr %13, align 8
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1424), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1424), align 8
   %15 = and i32 %14, 1
   %.not15 = icmp eq i32 %15, 0
   %spec.store.select = select i1 %.not15, i16 256, i16 257
@@ -1235,7 +1235,7 @@ switch.early.test:                                ; preds = %220
   br i1 %244, label %265, label %245
 
 245:                                              ; preds = %242
-  %246 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1424), align 8
+  %246 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1424), align 8
   %247 = and i32 %246, 16384
   %.not124 = icmp eq i32 %247, 0
   br i1 %.not124, label %248, label %265
@@ -1348,7 +1348,7 @@ switch.early.test:                                ; preds = %220
   br label %517
 
 297:                                              ; preds = %285, %285, %285, %285
-  %298 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %298 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %299 = and i16 %298, 4096
   %.not128 = icmp eq i16 %299, 0
   br i1 %.not128, label %308, label %300

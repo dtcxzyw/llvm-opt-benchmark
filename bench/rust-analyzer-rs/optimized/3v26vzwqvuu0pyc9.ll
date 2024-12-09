@@ -2421,7 +2421,7 @@ define void @"_ZN70_$LT$base_db..ParseQuery$u20$as$u20$salsa..plumbing..QueryFun
   br i1 %17, label %18, label %.thread.i
 
 18:                                               ; preds = %15
-  %19 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN7base_db5parse10__CALLSITE17h0eb53227273d9b74E, i64 16) monotonic, align 8, !noalias !435
+  %19 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN7base_db5parse10__CALLSITE17h0eb53227273d9b74E, i64 16) monotonic, align 8, !noalias !435
   switch i8 %19, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %.thread.i
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i

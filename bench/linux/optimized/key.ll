@@ -134,7 +134,7 @@ define dso_local ptr @key_user_lookup(i32 %0) local_unnamed_addr #0 align 16 {
 
 24:                                               ; preds = %20
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_user_lock) #12
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %26 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3264, i64 noundef 88) #13
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %2, !prof !8
@@ -1895,26 +1895,26 @@ declare dso_local void @key_gc_keytype(ptr noundef) local_unnamed_addr #2
 define dso_local void @key_init() local_unnamed_addr #8 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.4, i32 noundef 216, i32 noundef 0, i32 noundef 270336, ptr noundef null) #12
   store ptr %1, ptr @key_jar, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @key_types_list, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @key_type_keyring, i64 152), ptr getelementptr inbounds (i8, ptr @key_types_list, i64 8), align 8
-  store ptr @key_types_list, ptr getelementptr inbounds (i8, ptr @key_type_keyring, i64 152), align 8
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @key_type_keyring, i64 160), align 8
-  store volatile ptr getelementptr inbounds (i8, ptr @key_type_keyring, i64 152), ptr %2, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @key_types_list, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @key_type_dead, i64 152), ptr getelementptr inbounds (i8, ptr @key_types_list, i64 8), align 8
-  store ptr @key_types_list, ptr getelementptr inbounds (i8, ptr @key_type_dead, i64 152), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @key_type_dead, i64 160), align 8
-  store volatile ptr getelementptr inbounds (i8, ptr @key_type_dead, i64 152), ptr %3, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @key_types_list, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @key_type_user, i64 152), ptr getelementptr inbounds (i8, ptr @key_types_list, i64 8), align 8
-  store ptr @key_types_list, ptr getelementptr inbounds (i8, ptr @key_type_user, i64 152), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @key_type_user, i64 160), align 8
-  store volatile ptr getelementptr inbounds (i8, ptr @key_type_user, i64 152), ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @key_types_list, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @key_type_logon, i64 152), ptr getelementptr inbounds (i8, ptr @key_types_list, i64 8), align 8
-  store ptr @key_types_list, ptr getelementptr inbounds (i8, ptr @key_type_logon, i64 152), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @key_type_logon, i64 160), align 8
-  store volatile ptr getelementptr inbounds (i8, ptr @key_type_logon, i64 152), ptr %5, align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @key_types_list, i64 8), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @key_type_keyring, i64 152), ptr getelementptr inbounds nuw (i8, ptr @key_types_list, i64 8), align 8
+  store ptr @key_types_list, ptr getelementptr inbounds nuw (i8, ptr @key_type_keyring, i64 152), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @key_type_keyring, i64 160), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @key_type_keyring, i64 152), ptr %2, align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @key_types_list, i64 8), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @key_type_dead, i64 152), ptr getelementptr inbounds nuw (i8, ptr @key_types_list, i64 8), align 8
+  store ptr @key_types_list, ptr getelementptr inbounds nuw (i8, ptr @key_type_dead, i64 152), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @key_type_dead, i64 160), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @key_type_dead, i64 152), ptr %3, align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @key_types_list, i64 8), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @key_type_user, i64 152), ptr getelementptr inbounds nuw (i8, ptr @key_types_list, i64 8), align 8
+  store ptr @key_types_list, ptr getelementptr inbounds nuw (i8, ptr @key_type_user, i64 152), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @key_type_user, i64 160), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @key_type_user, i64 152), ptr %4, align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @key_types_list, i64 8), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @key_type_logon, i64 152), ptr getelementptr inbounds nuw (i8, ptr @key_types_list, i64 8), align 8
+  store ptr @key_types_list, ptr getelementptr inbounds nuw (i8, ptr @key_type_logon, i64 152), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @key_type_logon, i64 160), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @key_type_logon, i64 152), ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @root_key_user, i8 0, i64 24, i1 false)
   store ptr @root_key_user, ptr @key_user_tree, align 8
   tail call void @rb_insert_color(ptr noundef nonnull @root_key_user, ptr noundef nonnull @key_user_tree) #12

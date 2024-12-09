@@ -375,7 +375,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.then.i
   br label %rcu_read_auto_lock.exit.i.i.i
 
 rcu_read_auto_lock.exit.i.i.i:                    ; preds = %while.end.i.i.i.i.i, %if.then.i
-  %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
+  %2 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !14
   %tobool2.not10.i.i.i = icmp eq i64 %2, 0
   br i1 %tobool2.not10.i.i.i, label %for.inc12.i.i.i, label %for.body3.i.i.i
@@ -439,7 +439,7 @@ dirtyrate_manual_reset_protect.exit.i.i:          ; preds = %while.end21.i.i.i.i
   %div.i.i.i = sdiv i64 %call.i.i.i, 1000000
   %call.i1.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #12
   %div.i.i = sdiv i64 %call.i1.i.i, 1000000000
-  store i64 %div.i.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 8), align 8
+  store i64 %div.i.i, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 8), align 8
   %call.i.i.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #12
   %div.i.i.i.i = sdiv i64 %call.i.i.i.i, 1000000
   %sub.i.i.i = sub nsw i64 %div.i.i.i.i, %div.i.i.i
@@ -458,13 +458,13 @@ if.else.i3.i.i:                                   ; preds = %dirtyrate_manual_re
 
 calculate_dirtyrate_dirty_bitmap.exit.i:          ; preds = %if.else.i3.i.i, %dirtyrate_manual_reset_protect.exit.i.i
   %msec.addr.0.i.i.i = phi i64 [ %sub4.i.i.i, %if.else.i3.i.i ], [ %sub.i.i.i, %dirtyrate_manual_reset_protect.exit.i.i ]
-  store i64 %msec.addr.0.i.i.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 16), align 8
+  store i64 %msec.addr.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 16), align 8
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 109) #12
   tail call void @memory_global_dirty_log_sync(i1 noundef zeroext false) #12
   tail call void @memory_global_dirty_log_stop(i32 noundef 2) #12
   tail call void @qemu_mutex_unlock_iothread() #12
   %9 = load i64, ptr @total_dirty_pages, align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 16), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 16), align 8
   %sub.i5.i.i = sub i64 %9, %8
   %mul.i6.i.i = mul i64 %sub.i5.i.i, 1000
   %call.i7.i.i = tail call i64 @qemu_target_pages_to_MiB(i64 noundef %mul.i6.i.i) #12
@@ -478,15 +478,15 @@ if.then3.i:                                       ; preds = %if.end
   tail call void @qemu_mutex_unlock_iothread() #12
   %call.i.i2.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #12
   %div.i3.i = sdiv i64 %call.i.i2.i, 1000000000
-  store i64 %div.i3.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 8), align 8
-  %call1.i.i = tail call i64 @vcpu_calculate_dirtyrate(i64 noundef %config.sroa.2.0.copyload, ptr noundef nonnull getelementptr inbounds (i8, ptr @DirtyStat, i64 32), i32 noundef 2, i1 noundef zeroext true)
-  store i64 %call1.i.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 16), align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 32), align 8
+  store i64 %div.i3.i, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 8), align 8
+  %call1.i.i = tail call i64 @vcpu_calculate_dirtyrate(i64 noundef %config.sroa.2.0.copyload, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 32), i32 noundef 2, i1 noundef zeroext true)
+  store i64 %call1.i.i, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 16), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 32), align 8
   %cmp1.i.i = icmp sgt i32 %11, 0
   br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %calculate_dirtyrate_dirty_ring.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then3.i
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 40), align 8
   %wide.trip.count.i.i = zext nneg i32 %11 to i64
   br label %for.body.i.i
 
@@ -527,8 +527,8 @@ rcu_read_lock.exit.i.i:                           ; preds = %while.end.i.i.i, %i
   %div.i.i8.i = sdiv i64 %call.i1.i7.i, 1000000
   %call.i2.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #12
   %div.i9.i = sdiv i64 %call.i2.i.i, 1000000000
-  store i64 %div.i9.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 8), align 8
-  %16 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
+  store i64 %div.i9.i, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 8), align 8
+  %16 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
   %tobool.not22.i.i.i = icmp eq i64 %16, 0
   br i1 %tobool.not22.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
@@ -563,7 +563,7 @@ for.end.i.i.i:                                    ; preds = %while.end8.i.i.i, %
   br i1 %cmp.i.i.i, label %out.i.i, label %while.end18.i.i.i
 
 while.end18.i.i.i:                                ; preds = %for.end.i.i.i
-  %18 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
+  %18 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
   %tobool21.not26.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool21.not26.i.i.i, label %if.end.i.i, label %for.body22.i.i.i
@@ -723,7 +723,7 @@ if.else.i15.i.i:                                  ; preds = %rcu_read_unlock.exi
 
 dirty_stat_wait.exit.i.i:                         ; preds = %if.else.i15.i.i, %rcu_read_unlock.exit.i.i
   %msec.addr.0.i.i14.i = phi i64 [ %sub4.i.i20.i, %if.else.i15.i.i ], [ %sub.i.i13.i, %rcu_read_unlock.exit.i.i ]
-  store i64 %msec.addr.0.i.i14.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 16), align 8
+  store i64 %msec.addr.0.i.i14.i, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 16), align 8
   %call.i16.i.i = tail call ptr @get_ptr_rcu_reader() #12
   %depth.i17.i.i = getelementptr inbounds nuw i8, ptr %call.i16.i.i, i64 12
   %32 = load i32, ptr %depth.i17.i.i, align 4
@@ -741,7 +741,7 @@ while.end.i20.i.i:                                ; preds = %dirty_stat_wait.exi
   br label %rcu_read_lock.exit22.i.i
 
 rcu_read_lock.exit22.i.i:                         ; preds = %while.end.i20.i.i, %dirty_stat_wait.exit.i.i
-  %34 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
+  %34 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !26
   %tobool.not34.i.i.i = icmp eq i64 %34, 0
   br i1 %tobool.not34.i.i.i, label %compare_page_hash_info.exit.i.i, label %for.body.lr.ph.i.i.i
@@ -923,17 +923,17 @@ calc_page_dirty_rate.exit.i.i.i:                  ; preds = %for.inc.i15.i.i.i, 
   %57 = phi i64 [ 0, %if.end5.i.i.i ], [ %56, %for.inc.i15.i.i.i ]
   %sample_dirty_count.i26.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i.i.i.i, i64 288
   %58 = load i64, ptr %sample_dirty_count.i26.i.i.i, align 8
-  %59 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 32), align 8
+  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 32), align 8
   %add.i.i.i.i = add i64 %59, %58
-  store i64 %add.i.i.i.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 32), align 8
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
+  store i64 %add.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 32), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 40), align 8
   %add1.i.i.i.i = add i64 %60, %57
-  store i64 %add1.i.i.i.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
+  store i64 %add1.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 40), align 8
   %61 = load i64, ptr %ramblock_pages.i.i34.i.i, align 8
   %call.i29.i.i.i = tail call i64 @qemu_target_pages_to_MiB(i64 noundef %61) #12
-  %62 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 48), align 8
+  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 48), align 8
   %add2.i.i.i.i = add i64 %62, %call.i29.i.i.i
-  store i64 %add2.i.i.i.i, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 48), align 8
+  store i64 %add2.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 48), align 8
   br label %while.end11.i.i.i
 
 while.end11.i.i.i:                                ; preds = %for.inc.i.i.i.i, %calc_page_dirty_rate.exit.i.i.i, %find_block_matched.exit.i.i.i, %trace_find_page_matched.exit.i.i.i.i, %for.end.i.i31.i.i, %if.else.i28.i.i, %for.body.i23.i.i
@@ -944,14 +944,14 @@ while.end11.i.i.i:                                ; preds = %for.inc.i.i.i.i, %c
   br i1 %tobool.not.i26.i.i, label %compare_page_hash_info.exit.i.i, label %for.body.i23.i.i, !llvm.loop !30
 
 compare_page_hash_info.exit.i.i:                  ; preds = %while.end11.i.i.i, %rcu_read_lock.exit22.i.i
-  %64 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
+  %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 40), align 8
   %cmp13.i.not.i.i = icmp eq i64 %64, 0
   br i1 %cmp13.i.not.i.i, label %out.i.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %compare_page_hash_info.exit.i.i
-  %65 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 16), align 8
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 32), align 8
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 48), align 8
+  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 16), align 8
+  %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 32), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 48), align 8
   %mul.i48.i.i = mul i64 %66, 1000
   %mul1.i.i.i = mul i64 %mul.i48.i.i, %67
   %mul2.i.i.i = mul i64 %65, %64
@@ -1217,45 +1217,45 @@ if.then30:                                        ; preds = %if.end27
   br label %return
 
 if.end31:                                         ; preds = %if.end27
-  store i64 %value.addr.1.lcssa.i, ptr getelementptr inbounds (i8, ptr @qmp_calc_dirty_rate.config, i64 8), align 8
+  store i64 %value.addr.1.lcssa.i, ptr getelementptr inbounds nuw (i8, ptr @qmp_calc_dirty_rate.config, i64 8), align 8
   store i64 %sample_pages.addr.0, ptr @qmp_calc_dirty_rate.config, align 8
-  store i32 %spec.select, ptr getelementptr inbounds (i8, ptr @qmp_calc_dirty_rate.config, i64 16), align 8
+  store i32 %spec.select, ptr getelementptr inbounds nuw (i8, ptr @qmp_calc_dirty_rate.config, i64 16), align 8
   %5 = load i32, ptr @dirtyrate_mode, align 4
   %cmp.i = icmp eq i32 %5, 1
   br i1 %cmp.i, label %if.then.i, label %cleanup_dirtyrate_stat.exit
 
 if.then.i:                                        ; preds = %if.end31
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 40), align 8
   tail call void @free(ptr noundef %6) #12
-  store ptr null, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
-  %qmp_calc_dirty_rate.config.sroa.5.0.copyload.pr = load i32, ptr getelementptr inbounds (i8, ptr @qmp_calc_dirty_rate.config, i64 16), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 40), align 8
   %qmp_calc_dirty_rate.config.sroa.0.0.copyload.pre = load i64, ptr @qmp_calc_dirty_rate.config, align 8
-  %qmp_calc_dirty_rate.config.sroa.4.0.copyload.pre = load i64, ptr getelementptr inbounds (i8, ptr @qmp_calc_dirty_rate.config, i64 8), align 8
+  %qmp_calc_dirty_rate.config.sroa.4.0.copyload.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @qmp_calc_dirty_rate.config, i64 8), align 8
+  %qmp_calc_dirty_rate.config.sroa.5.0.copyload.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @qmp_calc_dirty_rate.config, i64 16), align 8
   br label %cleanup_dirtyrate_stat.exit
 
 cleanup_dirtyrate_stat.exit:                      ; preds = %if.end31, %if.then.i
+  %qmp_calc_dirty_rate.config.sroa.5.0.copyload = phi i32 [ %spec.select, %if.end31 ], [ %qmp_calc_dirty_rate.config.sroa.5.0.copyload.pre, %if.then.i ]
   %qmp_calc_dirty_rate.config.sroa.4.0.copyload = phi i64 [ %value.addr.1.lcssa.i, %if.end31 ], [ %qmp_calc_dirty_rate.config.sroa.4.0.copyload.pre, %if.then.i ]
   %qmp_calc_dirty_rate.config.sroa.0.0.copyload = phi i64 [ %sample_pages.addr.0, %if.end31 ], [ %qmp_calc_dirty_rate.config.sroa.0.0.copyload.pre, %if.then.i ]
-  %qmp_calc_dirty_rate.config.sroa.5.0.copyload = phi i32 [ %spec.select, %if.end31 ], [ %qmp_calc_dirty_rate.config.sroa.5.0.copyload.pr, %if.then.i ]
   store i32 %spec.select, ptr @dirtyrate_mode, align 4
   store i64 -1, ptr @DirtyStat, align 8
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #12
   %div.i14 = sdiv i64 %call.i.i, 1000000000
-  store i64 %div.i14, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 8), align 8
-  store i64 %qmp_calc_dirty_rate.config.sroa.4.0.copyload, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 16), align 8
-  store i64 %qmp_calc_dirty_rate.config.sroa.0.0.copyload, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 24), align 8
+  store i64 %div.i14, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 8), align 8
+  store i64 %qmp_calc_dirty_rate.config.sroa.4.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 16), align 8
+  store i64 %qmp_calc_dirty_rate.config.sroa.0.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 24), align 8
   switch i32 %qmp_calc_dirty_rate.config.sroa.5.0.copyload, label %init_dirtyrate_stat.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
   ]
 
 sw.bb.i:                                          ; preds = %cleanup_dirtyrate_stat.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @DirtyStat, i64 32), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 32), i8 0, i64 24, i1 false)
   br label %init_dirtyrate_stat.exit
 
 sw.bb1.i:                                         ; preds = %cleanup_dirtyrate_stat.exit
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 32), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 32), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 40), align 8
   br label %init_dirtyrate_stat.exit
 
 init_dirtyrate_stat.exit:                         ; preds = %cleanup_dirtyrate_stat.exit, %sw.bb.i, %sw.bb1.i
@@ -1293,10 +1293,10 @@ entry:
   %1 = load i32, ptr @CalculatingState, align 4
   %status = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 %1, ptr %status, align 8
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 8), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 8), align 8
   %start_time = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %2, ptr %start_time, align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 16), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 16), align 8
   switch i32 %calc_time_unit, label %sw.default.i8.i [
     i32 0, label %while.body.i
     i32 1, label %convert_time_unit.exit
@@ -1320,7 +1320,7 @@ convert_time_unit.exit:                           ; preds = %while.body.i, %entr
   store i64 %value.addr.1.lcssa.i, ptr %calc_time, align 8
   %calc_time_unit2 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 %calc_time_unit, ptr %calc_time_unit2, align 8
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 24), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 24), align 8
   %sample_pages = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i64 %4, ptr %sample_pages, align 8
   %5 = load i32, ptr @dirtyrate_mode, align 4
@@ -1341,7 +1341,7 @@ if.then5:                                         ; preds = %if.then
   store i64 0, ptr %sample_pages, align 8
   %has_vcpu_dirty_rate = getelementptr inbounds nuw i8, ptr %call, i64 60
   store i8 1, ptr %has_vcpu_dirty_rate, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 32), align 8
   %cmp725 = icmp sgt i32 %7, 0
   br i1 %cmp725, label %for.body, label %for.end
 
@@ -1349,7 +1349,7 @@ for.body:                                         ; preds = %if.then5, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then5 ]
   %tail.026 = phi ptr [ %11, %for.body ], [ %head, %if.then5 ]
   %call8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #13
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 40), align 8
   %arrayidx = getelementptr %struct.DirtyRateVcpu, ptr %8, i64 %indvars.iv
   %9 = load i64, ptr %arrayidx, align 8
   store i64 %9, ptr %call8, align 8
@@ -1363,7 +1363,7 @@ for.body:                                         ; preds = %if.then5, %for.body
   store ptr %call8, ptr %value, align 8
   %11 = load ptr, ptr %tail.026, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @DirtyStat, i64 32), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DirtyStat, i64 32), align 8
   %13 = sext i32 %12 to i64
   %cmp7 = icmp slt i64 %indvars.iv.next, %13
   br i1 %cmp7, label %for.body, label %for.end.loopexit, !llvm.loop !34

@@ -232,7 +232,7 @@ _ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit: ; pre
   store ptr %26, ptr %44, align 8
   store ptr null, ptr %26, align 8
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #10
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %3, align 8
   call void @_ZN37JvmtiSampledObjectAllocEventCollector5startEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #10
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24

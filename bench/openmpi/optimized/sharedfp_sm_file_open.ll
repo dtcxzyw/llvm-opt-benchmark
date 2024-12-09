@@ -43,7 +43,7 @@ define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %11, ptr noundef nonnull @.str) #10
   br label %12
 
@@ -63,7 +63,7 @@ define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not85, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %19, ptr noundef nonnull @.str.2) #10
   br label %20
 
@@ -110,7 +110,7 @@ define i32 @mca_sharedfp_sm_file_open(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %123
 
 41:                                               ; preds = %32
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 288), align 8
   %43 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %0) #10
   %44 = load i32, ptr %8, align 4
   %45 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef %42, ptr noundef %26, ptr noundef %43, i32 noundef %44) #10

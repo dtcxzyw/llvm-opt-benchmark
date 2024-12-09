@@ -112,7 +112,7 @@ define hidden noundef ptr @_ZN14XCollectedHeap4heapEv() local_unnamed_addr #0 al
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14XCollectedHeapC2Ev(ptr noundef nonnull align 64 dereferenceable(4432) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #10
-  store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTV14XCollectedHeap, i64 16), ptr %0, align 64
+  store ptr getelementptr inbounds nuw inrange(-16, 464) (i8, ptr @_ZTV14XCollectedHeap, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN11XBarrierSetC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -185,7 +185,7 @@ declare void @_ZN5XHeap25serviceability_initializeEv(ptr noundef nonnull align 6
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14XCollectedHeap4stopEv(ptr noundef nonnull align 64 dereferenceable(4432) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.XStopConcurrentGCThreadClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV30XStopConcurrentGCThreadClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV30XStopConcurrentGCThreadClosure, i64 16), ptr %2, align 8
   %3 = load ptr, ptr %0, align 64
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 352
   %5 = load ptr, ptr %4, align 8

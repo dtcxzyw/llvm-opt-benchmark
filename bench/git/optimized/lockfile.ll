@@ -303,7 +303,7 @@ while.body.i:                                     ; preds = %if.end4.i, %if.then
   br i1 %cmp.i, label %while.end.i, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @resolve_symlink.link, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @resolve_symlink.link, i64 16), align 8
   %.val.i = load i8, ptr %2, align 1
   %cmp.i.i.not.i = icmp eq i8 %.val.i, 47
   br i1 %cmp.i.i.not.i, label %if.then3.i, label %if.else.i

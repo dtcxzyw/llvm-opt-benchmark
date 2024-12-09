@@ -1278,7 +1278,7 @@ while.end49:                                      ; preds = %_ZNK6snappy8interna
 define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPKcmPK5iovecm(ptr noundef %compressed, i64 noundef %compressed_length, ptr noundef %iov, i64 noundef %iov_cnt) local_unnamed_addr #2 {
 entry:
   %reader = alloca %"class.snappy::ByteArraySource", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader, align 8
   %ptr_.i = getelementptr inbounds nuw i8, ptr %reader, i64 8
   store ptr %compressed, ptr %ptr_.i, align 8
   %left_.i = getelementptr inbounds nuw i8, ptr %reader, i64 16
@@ -1409,7 +1409,7 @@ declare void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 derefe
 define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPKcmPc(ptr noundef %compressed, i64 noundef %compressed_length, ptr noundef %uncompressed) local_unnamed_addr #2 {
 entry:
   %reader = alloca %"class.snappy::ByteArraySource", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader, align 8
   %ptr_.i = getelementptr inbounds nuw i8, ptr %reader, i64 8
   store ptr %compressed, ptr %ptr_.i, align 8
   %left_.i = getelementptr inbounds nuw i8, ptr %reader, i64 16
@@ -1609,7 +1609,7 @@ cond.false.i:                                     ; preds = %if.end3
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end3, %cond.false.i
   %cond.i = phi ptr [ %call1.i, %cond.false.i ], [ null, %if.end3 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reader.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader.i, align 8
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %reader.i, i64 8
   store ptr %compressed, ptr %ptr_.i.i, align 8
   %left_.i.i = getelementptr inbounds nuw i8, ptr %reader.i, i64 16
@@ -1632,7 +1632,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy23IsValidCompressedBufferEPKcm(pt
 entry:
   %reader = alloca %"class.snappy::ByteArraySource", align 8
   %writer = alloca %"class.snappy::SnappyDecompressionValidator", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader, align 8
   %ptr_.i = getelementptr inbounds nuw i8, ptr %reader, i64 8
   store ptr %compressed, ptr %ptr_.i, align 8
   %left_.i = getelementptr inbounds nuw i8, ptr %reader, i64 16
@@ -1745,12 +1745,12 @@ define dso_local void @_ZN6snappy11RawCompressEPKcmPcPm(ptr noundef %input, i64 
 entry:
   %reader = alloca %"class.snappy::ByteArraySource", align 8
   %writer = alloca %"class.snappy::UncheckedByteArraySink", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader, align 8
   %ptr_.i = getelementptr inbounds nuw i8, ptr %reader, i64 8
   store ptr %input, ptr %ptr_.i, align 8
   %left_.i = getelementptr inbounds nuw i8, ptr %reader, i64 16
   store i64 %input_length, ptr %left_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %writer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %writer, align 8
   %dest_.i = getelementptr inbounds nuw i8, ptr %writer, i64 8
   store ptr %compressed, ptr %dest_.i, align 8
   %call = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef nonnull %reader, ptr noundef nonnull %writer)
@@ -1772,7 +1772,7 @@ define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm(ptr nounde
 entry:
   %reader = alloca %"class.snappy::SnappyIOVecReader", align 8
   %writer = alloca %"class.snappy::UncheckedByteArraySink", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %reader, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %reader, align 8
   %curr_iov_.i = getelementptr inbounds nuw i8, ptr %reader, i64 8
   store ptr %iov, ptr %curr_iov_.i, align 8
   %curr_pos_.i = getelementptr inbounds nuw i8, ptr %reader, i64 16
@@ -1811,7 +1811,7 @@ _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit: ; preds = %do.body.i.i
   br label %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit
 
 _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit:   ; preds = %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit, %cond.true3.i, %if.end.critedge.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %writer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %writer, align 8
   %dest_.i = getelementptr inbounds nuw i8, ptr %writer, i64 8
   store ptr %compressed, ptr %dest_.i, align 8
   %call = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef nonnull %reader, ptr noundef nonnull %writer)
@@ -1852,12 +1852,12 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %cond.i = phi ptr [ %call1.i, %cond.false.i ], [ null, %entry ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reader.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %writer.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %reader.i, align 8
   %ptr_.i.i = getelementptr inbounds nuw i8, ptr %reader.i, i64 8
   store ptr %input, ptr %ptr_.i.i, align 8
   %left_.i.i = getelementptr inbounds nuw i8, ptr %reader.i, i64 16
   store i64 %input_length, ptr %left_.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %writer.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %writer.i, align 8
   %dest_.i.i = getelementptr inbounds nuw i8, ptr %writer.i, i64 8
   store ptr %cond.i, ptr %dest_.i.i, align 8
   %call.i4 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef nonnull %reader.i, ptr noundef nonnull %writer.i)
@@ -1910,7 +1910,7 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %cond.i = phi ptr [ %call1.i, %cond.false.i ], [ null, %for.end ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %writer.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %reader.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %reader.i, align 8
   %curr_iov_.i.i = getelementptr inbounds nuw i8, ptr %reader.i, i64 8
   store ptr %iov, ptr %curr_iov_.i.i, align 8
   %curr_pos_.i.i = getelementptr inbounds nuw i8, ptr %reader.i, i64 16
@@ -1949,7 +1949,7 @@ _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit.i: ; preds = %do.body.i.
   br label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm.exit
 
 _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm.exit: ; preds = %cond.true3.i.i, %if.end.critedge.i.i, %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %writer.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %writer.i, align 8
   %dest_.i.i = getelementptr inbounds nuw i8, ptr %writer.i, i64 8
   store ptr %cond.i, ptr %dest_.i.i, align 8
   %call.i8 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef nonnull %reader.i, ptr noundef nonnull %writer.i)
@@ -3014,7 +3014,7 @@ _ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit:
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   store i64 %.fca.0.load.i, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, align 8
-  store i64 %.fca.1.load.i, ptr getelementptr inbounds (i8, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i64 8), align 8
+  store i64 %.fca.1.load.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #19
   br label %init.end.i
 

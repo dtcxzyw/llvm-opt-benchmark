@@ -96,7 +96,7 @@ declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unname
 define internal fastcc i32 @create_setup_data_nodes(ptr noundef nonnull %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @boot_params, i64 592), align 1
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 592), align 1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %34, label %5
 
@@ -191,7 +191,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @version_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #3 align 16 {
-  %4 = load i16, ptr getelementptr inbounds (i8, ptr @boot_params, i64 518), align 1
+  %4 = load i16, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 518), align 1
   %5 = zext i16 %4 to i32
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %5) #11
   %7 = sext i32 %6 to i64
@@ -256,7 +256,7 @@ define internal fastcc i32 @create_setup_data_node(ptr noundef nonnull %0, ptr n
 
 12:                                               ; preds = %9
   %13 = load i64, ptr %4, align 8
-  store i64 %13, ptr getelementptr inbounds (i8, ptr @data_attr, i64 16), align 8
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @data_attr, i64 16), align 8
   %14 = call i32 @sysfs_create_group(ptr noundef nonnull %7, ptr noundef nonnull @setup_data_attr_group) #11
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
@@ -297,7 +297,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 -22, 1) i32 @get_setup_data_size(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 section ".init.text" align 16 {
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @boot_params, i64 592), align 1
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 592), align 1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -384,7 +384,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @setup_data_data_read(ptr
 
 13:                                               ; preds = %6
   %14 = load i32, ptr %7, align 4
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @boot_params, i64 592), align 1
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 592), align 1
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %.thread, label %.preheader
 
@@ -508,7 +508,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture 
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %4, align 4
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @boot_params, i64 592), align 1
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 592), align 1
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %.thread, label %.preheader
 

@@ -2526,7 +2526,7 @@ define linkonce_odr dso_local void @_ZN7Reducer4walkEPN4Luau12AstStatBlockE(ptr 
   store ptr %1, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   call void @_ZNSt11_Deque_baseIPN4Luau12AstStatBlockESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %4, i64 noundef 0)
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTV8Enqueuer, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTV8Enqueuer, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48

@@ -50,7 +50,7 @@ $_ZN9QtPrivate11QSlotObjectIM15ProfileTreeViewFvvENS_4ListIJEEEvE4implEiPNS_15QS
 ; Function Attrs: mustprogress uwtable
 define void @_ZN22ProfileUrlLinkDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN15UrlLinkDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22ProfileUrlLinkDelegate, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22ProfileUrlLinkDelegate, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -118,7 +118,7 @@ declare void @_ZNK19QStyledItemDelegate5paintEP8QPainterRK20QStyleOptionViewItem
 ; Function Attrs: mustprogress uwtable
 define void @_ZN23ProfileTreeEditDelegateC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN13QItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23ProfileTreeEditDelegate, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23ProfileTreeEditDelegate, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -232,9 +232,9 @@ define void @_ZN15ProfileTreeViewC2EP7QWidget(ptr noundef nonnull align 8 derefe
   %7 = alloca %"class.QMetaObject::Connection", align 8
   %8 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ProfileTreeView, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ProfileTreeView, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ProfileTreeView, i64 824), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ProfileTreeView, i64 824), ptr %9, align 8
   %10 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
           to label %11 unwind label %24
 
@@ -345,9 +345,9 @@ declare void @_ZN9QTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15ProfileTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ProfileTreeView, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ProfileTreeView, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ProfileTreeView, i64 824), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ProfileTreeView, i64 824), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

@@ -25,12 +25,12 @@ entry:
   br i1 %cmp, label %entry.err_crit_edge, label %if.end
 
 entry.err_crit_edge:                              ; preds = %entry
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   br label %err
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @OSSL_PROVIDER_load(ptr noundef nonnull %call, ptr noundef nonnull @.str) #6
-  store ptr %call1, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  store ptr %call1, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %err, label %if.end4
 
@@ -71,12 +71,12 @@ entry:
   %no_cache = alloca i32, align 4
   store i32 0, ptr %no_cache, align 4
   %call1 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %filterstr, ptr noundef nonnull @.str.1, i32 noundef 170) #6
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call2 = call ptr @OSSL_PROVIDER_query_operation(ptr noundef %0, i32 noundef %operation, ptr noundef nonnull %no_cache) #6
   %cmp = icmp eq ptr %call1, null
   %cmp3 = icmp eq ptr %call2, null
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2016), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8
   %cmp6 = icmp sgt i32 %1, 9
   %or.cond31 = select i1 %or.cond, i1 true, i1 %cmp6
   br i1 %or.cond31, label %err, label %for.body
@@ -134,10 +134,10 @@ for.inc:                                          ; preds = %if.end21, %land.lhs
   br i1 %cmp15.not, label %err, label %for.body16, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end39
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2016), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8
   %idxprom = sext i32 %7 to i64
   %alg.idx = mul nsw i64 %idxprom, 200
-  %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 24), i64 %alg.idx
+  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 24), i64 %alg.idx
   %arrayidx47 = getelementptr inbounds nuw [6 x %struct.ossl_algorithm_st], ptr %gep, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx47, ptr noundef nonnull align 8 dereferenceable(32) %algs.037, i64 32, i1 false)
   %.pr = load ptr, ptr %algs.037, align 8
@@ -150,20 +150,20 @@ for.inc53:                                        ; preds = %for.end
   br i1 %cmp10.not.not, label %for.end56, label %for.body, !llvm.loop !7
 
 for.end56:                                        ; preds = %for.inc53
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2016), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8
   %idxprom59 = sext i32 %8 to i64
-  %arrayidx60 = getelementptr inbounds [10 x %struct.anon], ptr getelementptr inbounds (i8, ptr @ourglobals, i64 16), i64 0, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds [10 x %struct.anon], ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 0, i64 %idxprom59
   store i32 %operation, ptr %arrayidx60, align 8
   %9 = load i32, ptr %no_cache, align 4
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2020), align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2016), align 8
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2020), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8
   %inc64 = add nsw i32 %10, 1
-  store i32 %inc64, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2016), align 8
+  store i32 %inc64, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8
   br label %err
 
 err:                                              ; preds = %for.end, %if.end39, %if.end12, %for.inc, %entry, %for.end56
   %ret.0 = phi i32 [ 0, %entry ], [ 1, %for.end56 ], [ 0, %for.inc ], [ 0, %if.end12 ], [ 0, %if.end39 ], [ 0, %for.end ]
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   call void @OSSL_PROVIDER_unquery_operation(ptr noundef %11, i32 noundef %operation, ptr noundef %call2) #6
   call void @CRYPTO_free(ptr noundef %call1, ptr noundef nonnull @.str.1, i32 noundef 225) #6
   ret i32 %ret.0
@@ -189,10 +189,10 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @filter_provider_check_clean_finish() local_unnamed_addr #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2024), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2024), align 8
   %call1 = tail call i32 @test_ulong_eq(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef 0) #6
   %tobool.not = icmp ne i32 %call1, 0
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2032), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2032), align 8
   %tobool2.not = icmp eq i32 %1, 0
   %narrow = select i1 %tobool.not, i1 %tobool2.not, i1 false
   %land.ext = zext i1 %narrow to i32
@@ -204,7 +204,7 @@ declare i32 @test_ulong_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define internal ptr @filter_gettable_params(ptr nocapture readnone %provctx) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call1 = tail call ptr @OSSL_PROVIDER_gettable_params(ptr noundef %0) #6
   ret ptr %call1
 }
@@ -212,7 +212,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @filter_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call1 = tail call i32 @OSSL_PROVIDER_get_params(ptr noundef %0, ptr noundef %params) #6
   ret i32 %call1
 }
@@ -220,10 +220,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @filter_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr noundef %no_cache) #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2024), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2024), align 8
   %inc = add i64 %0, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2024), align 8
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2016), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2024), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8
   %cmp11 = icmp sgt i32 %1, 0
   br i1 %cmp11, label %for.body.preheader, label %for.end
 
@@ -238,19 +238,19 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds nuw [10 x %struct.anon], ptr getelementptr inbounds (i8, ptr @ourglobals, i64 16), i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [10 x %struct.anon], ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 16), i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 8
   %cmp1 = icmp eq i32 %2, %operation_id
   br i1 %cmp1, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2020), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2020), align 4
   store i32 %3, ptr %no_cache, align 4
   %alg = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   br label %return
 
 for.end:                                          ; preds = %for.cond, %entry
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call7 = tail call ptr @OSSL_PROVIDER_query_operation(ptr noundef %4, i32 noundef %operation_id, ptr noundef %no_cache) #6
   br label %return
 
@@ -262,23 +262,23 @@ return:                                           ; preds = %for.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal void @filter_unquery(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr noundef %algs) #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2024), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2024), align 8
   %call1 = tail call i32 @test_ulong_gt(ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef 0) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store i32 1, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2032), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2032), align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2024), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2024), align 8
   %dec = add i64 %1, -1
-  store i64 %dec, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2024), align 8
+  store i64 %dec, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2024), align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 2016), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8
   %cmp9 = icmp sgt i32 %2, 0
   br i1 %cmp9, label %for.body.preheader, label %for.end
 
@@ -294,12 +294,12 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %alg.idx = mul nuw nsw i64 %indvars.iv, 200
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 24), i64 %alg.idx
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 24), i64 %alg.idx
   %cmp3 = icmp eq ptr %gep, %algs
   br i1 %cmp3, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.end
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   tail call void @OSSL_PROVIDER_unquery_operation(ptr noundef %3, i32 noundef %operation_id, ptr noundef %algs) #6
   br label %return
 
@@ -310,7 +310,7 @@ return:                                           ; preds = %for.body, %for.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @filter_get_capabilities(ptr nocapture readnone %provctx, ptr noundef %capability, ptr noundef %cb, ptr noundef %arg) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call1 = tail call i32 @OSSL_PROVIDER_get_capabilities(ptr noundef %0, ptr noundef %capability, ptr noundef %cb, ptr noundef %arg) #6
   ret i32 %call1
 }
@@ -318,7 +318,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @filter_teardown(ptr nocapture readnone %provctx) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ourglobals, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8
   %call1 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %0) #6
   %1 = load ptr, ptr @ourglobals, align 8
   tail call void @OSSL_LIB_CTX_free(ptr noundef %1) #6

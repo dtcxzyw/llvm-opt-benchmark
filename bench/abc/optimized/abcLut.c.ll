@@ -144,18 +144,18 @@ define range(i32 0, 2) i32 @Abc_NtkSuperChoiceLut(ptr noundef %0, i32 noundef %1
   br i1 %exitcond37.not.i, label %Abc_ManSclStart.exit, label %.preheader.i, !llvm.loop !7
 
 Abc_ManSclStart.exit:                             ; preds = %63
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 8), i8 0, i64 68, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 8), i8 0, i64 68, i1 false)
   store i32 %1, ptr @Abc_NtkStartCutManForScl.Params, align 4
-  store i32 500, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 4), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 24), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 76), align 4
+  store i32 500, ptr getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 24), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 76), align 4
   %64 = getelementptr i8, ptr %0, i64 32
   %.val13.i = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %.val13.i, i64 4
   %.val13.val.i = load i32, ptr %65, align 4
-  store i32 %.val13.val.i, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 8), align 4
+  store i32 %.val13.val.i, ptr getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 8), align 4
   %66 = tail call ptr @Cut_ManStart(ptr noundef nonnull @Abc_NtkStartCutManForScl.Params) #16
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 32), align 4
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Abc_NtkStartCutManForScl.Params, i64 32), align 4
   %.not.i131 = icmp eq i32 %67, 0
   br i1 %.not.i131, label %70, label %68
 

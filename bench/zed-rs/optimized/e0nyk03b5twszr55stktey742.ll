@@ -2413,7 +2413,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h4d354d453f0
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %34
-  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8) acquire, align 8
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -2441,7 +2441,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h4d354d453f0
   unreachable
 
 12:                                               ; preds = %.backedge
-  %13 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8), i32 0, i32 2 acquire acquire, align 4
+  %13 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %13, 1
   br i1 %.sroa.18.0.in.i, label %19, label %.backedge.backedge
 
@@ -2469,7 +2469,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h4d354d453f0
 
 19:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8), ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %20, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
@@ -2513,12 +2513,12 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h4d354d453f0
   resume { ptr, i32 } %28
 
 32:                                               ; preds = %.backedge
-  %33 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8), i32 2, i32 3 monotonic acquire, align 4
+  %33 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %33, 1
   br i1 %.sroa.18.0.in.i12, label %34, label %.backedge.backedge
 
 34:                                               ; preds = %32, %.backedge
-  %35 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %35 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -18232,7 +18232,7 @@ define hidden noundef ptr @_ZN8language11with_parser17h887bec996450ab2bE(ptr noa
   br label %20
 
 20:                                               ; preds = %18, %2
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 24), align 8, !noundef !9
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 24), align 8, !noundef !9
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %52
 
@@ -18244,7 +18244,7 @@ define hidden noundef ptr @_ZN8language11with_parser17h887bec996450ab2bE(ptr noa
 .noexc18:                                         ; preds = %23
   store ptr %24, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %25 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8) acquire, align 8
+  %25 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language11WASM_ENGINE17hd0a76469dacdff2dE, i64 8) acquire, align 8
   %26 = icmp eq i32 %25, 4
   br i1 %26, label %_ZN3std4sync4once4Once9call_once17h65e09c5168455915E.exit.i, label %27
 
@@ -18343,11 +18343,11 @@ _ZN3std4sync4once4Once9call_once17h65e09c5168455915E.exit.i: ; preds = %.noexc1.
 
 52:                                               ; preds = %20
   %53 = add i64 %21, -1
-  store i64 %53, ptr getelementptr inbounds (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 24), align 8
-  %54 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 8), align 8, !noundef !9
+  store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 24), align 8
+  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 8), align 8, !noundef !9
   %55 = icmp ult i64 %53, %54
   tail call void @llvm.assume(i1 %55)
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 16), align 8, !nonnull !9, !noundef !9
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 16), align 8, !nonnull !9, !noundef !9
   %57 = getelementptr inbounds ptr, ptr %56, i64 %53
   %58 = load ptr, ptr %57, align 8, !nonnull !9, !noundef !9
   br label %63
@@ -18495,13 +18495,13 @@ _ZN3std4sync4once4Once9call_once17h65e09c5168455915E.exit.i: ; preds = %.noexc1.
   %97 = load ptr, ptr %16, align 8, !nonnull !9, !noundef !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %97, ptr %3, align 8
-  %98 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 24), align 8, !noundef !9
-  %99 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 8), align 8, !noundef !9
+  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 24), align 8, !noundef !9
+  %99 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 8), align 8, !noundef !9
   %100 = icmp eq i64 %98, %99
   br i1 %100, label %101, label %108
 
 101:                                              ; preds = %96
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h862aeabc06a7963cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 8))
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h862aeabc06a7963cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 8))
           to label %108 unwind label %102
 
 102:                                              ; preds = %101
@@ -18526,11 +18526,11 @@ _ZN3std4sync4once4Once9call_once17h65e09c5168455915E.exit.i: ; preds = %.noexc1.
           to label %"_ZN4core3ptr133drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$tree_sitter..Parser$GT$$GT$$GT$17h8328f2d98360a3d4E.exit35" unwind label %66
 
 108:                                              ; preds = %101, %96
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 16), align 8, !nonnull !9, !noundef !9
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 16), align 8, !nonnull !9, !noundef !9
   %110 = getelementptr inbounds ptr, ptr %109, i64 %98
   store ptr %97, ptr %110, align 8
   %111 = add i64 %98, 1
-  store i64 %111, ptr getelementptr inbounds (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 24), align 8
+  store i64 %111, ptr getelementptr inbounds nuw (i8, ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i64 24), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %112 = cmpxchg ptr @_ZN8language7PARSERS17h9a50e8020e92574dE, i8 1, i8 0 release monotonic, align 1
   %.sroa.18.0.in.i.i.i.i36 = extractvalue { i8, i1 } %112, 1

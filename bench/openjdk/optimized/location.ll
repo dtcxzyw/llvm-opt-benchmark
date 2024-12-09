@@ -58,12 +58,12 @@ define hidden void @_ZNK8Location8print_onEP12outputStream(ptr nocapture noundef
 14:                                               ; preds = %10
   %15 = lshr i32 %3, 5
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %16
+  %17 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %16
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
-  %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %21 = icmp ne i32 %20, -1
-  %.not.i.i = icmp ult ptr %17, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i = icmp ult ptr %17, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %22 = select i1 %21, i1 %.not.i.i, i1 false
   br i1 %22, label %23, label %27
 

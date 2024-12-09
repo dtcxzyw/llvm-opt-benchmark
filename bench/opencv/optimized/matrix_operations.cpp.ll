@@ -3769,7 +3769,7 @@ define internal void @_ZN2cvL8reduceR_IhiNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3832,7 +3832,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit, label %42
@@ -3867,7 +3867,7 @@ define internal void @_ZN2cvL8reduceR_IhfNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.3", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3930,7 +3930,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit, label %42
@@ -3965,7 +3965,7 @@ define internal void @_ZN2cvL8reduceR_IhdNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.4", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4028,7 +4028,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev.exit, label %42
@@ -4063,7 +4063,7 @@ define internal void @_ZN2cvL8reduceR_ItfNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.7", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4126,7 +4126,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit, label %42
@@ -4161,7 +4161,7 @@ define internal void @_ZN2cvL8reduceR_ItdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.11", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4224,7 +4224,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit, label %42
@@ -4259,7 +4259,7 @@ define internal void @_ZN2cvL8reduceR_IsfNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.13", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4322,7 +4322,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit, label %42
@@ -4357,7 +4357,7 @@ define internal void @_ZN2cvL8reduceR_IsdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.14", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4420,7 +4420,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit, label %42
@@ -4455,7 +4455,7 @@ define internal void @_ZN2cvL8reduceR_IffNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.15", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4518,7 +4518,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev.exit, label %42
@@ -4553,7 +4553,7 @@ define internal void @_ZN2cvL8reduceR_IfdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.16", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4616,7 +4616,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit, label %42
@@ -4651,7 +4651,7 @@ define internal void @_ZN2cvL8reduceR_IddNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.17", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4714,7 +4714,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev.exit, label %42
@@ -4749,7 +4749,7 @@ define internal void @_ZN2cvL8reduceR_IhhNS_5OpMaxIhEENS_5OpNopIhhhEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.18", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.19", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4809,7 +4809,7 @@ common.resume:                                    ; preds = %43, %26
           to label %37 unwind label %43
 
 37:                                               ; preds = %28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
   %38 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %38, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED2Ev.exit, label %39
@@ -4844,7 +4844,7 @@ define internal void @_ZN2cvL8reduceR_IttNS_5OpMaxItEENS_5OpNopItttEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.22", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.23", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4907,7 +4907,7 @@ common.resume:                                    ; preds = %45, %28
           to label %39 unwind label %45
 
 39:                                               ; preds = %30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
   %40 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %40, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED2Ev.exit, label %41
@@ -4942,7 +4942,7 @@ define internal void @_ZN2cvL8reduceR_IssNS_5OpMaxIsEENS_5OpNopIsssEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.26", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.27", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5005,7 +5005,7 @@ common.resume:                                    ; preds = %45, %28
           to label %39 unwind label %45
 
 39:                                               ; preds = %30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
   %40 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %40, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED2Ev.exit, label %41
@@ -5040,7 +5040,7 @@ define internal void @_ZN2cvL8reduceR_IffNS_5OpMaxIfEENS_5OpNopIfffEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.30", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5103,7 +5103,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED2Ev.exit, label %42
@@ -5138,7 +5138,7 @@ define internal void @_ZN2cvL8reduceR_IddNS_5OpMaxIdEENS_5OpNopIdddEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.32", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5201,7 +5201,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED2Ev.exit, label %42
@@ -5236,7 +5236,7 @@ define internal void @_ZN2cvL8reduceR_IhhNS_5OpMinIhEENS_5OpNopIhhhEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.18", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.33", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5296,7 +5296,7 @@ common.resume:                                    ; preds = %43, %26
           to label %37 unwind label %43
 
 37:                                               ; preds = %28
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
   %38 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %38, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED2Ev.exit, label %39
@@ -5331,7 +5331,7 @@ define internal void @_ZN2cvL8reduceR_IttNS_5OpMinItEENS_5OpNopItttEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.22", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.35", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5394,7 +5394,7 @@ common.resume:                                    ; preds = %45, %28
           to label %39 unwind label %45
 
 39:                                               ; preds = %30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
   %40 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %40, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED2Ev.exit, label %41
@@ -5429,7 +5429,7 @@ define internal void @_ZN2cvL8reduceR_IssNS_5OpMinIsEENS_5OpNopIsssEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.26", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.37", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5492,7 +5492,7 @@ common.resume:                                    ; preds = %45, %28
           to label %39 unwind label %45
 
 39:                                               ; preds = %30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
   %40 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %40, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED2Ev.exit, label %41
@@ -5527,7 +5527,7 @@ define internal void @_ZN2cvL8reduceR_IffNS_5OpMinIfEENS_5OpNopIfffEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.39", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5590,7 +5590,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED2Ev.exit, label %42
@@ -5625,7 +5625,7 @@ define internal void @_ZN2cvL8reduceR_IddNS_5OpMinIdEENS_5OpNopIdddEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.41", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5688,7 +5688,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED2Ev.exit, label %42
@@ -5723,7 +5723,7 @@ define internal void @_ZN2cvL8reduceR_IhiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.42", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5786,7 +5786,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit, label %42
@@ -5821,7 +5821,7 @@ define internal void @_ZN2cvL8reduceR_IhfNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.43", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5884,7 +5884,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit, label %42
@@ -5919,7 +5919,7 @@ define internal void @_ZN2cvL8reduceR_IhdNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.44", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -5982,7 +5982,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev.exit, label %42
@@ -6017,7 +6017,7 @@ define internal void @_ZN2cvL8reduceR_ItfNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.46", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.47", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6080,7 +6080,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit, label %42
@@ -6115,7 +6115,7 @@ define internal void @_ZN2cvL8reduceR_ItdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.49", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.50", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6178,7 +6178,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit, label %42
@@ -6213,7 +6213,7 @@ define internal void @_ZN2cvL8reduceR_IsfNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.46", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.51", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6276,7 +6276,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit, label %42
@@ -6311,7 +6311,7 @@ define internal void @_ZN2cvL8reduceR_IsdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.49", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.52", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6374,7 +6374,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit, label %42
@@ -6409,7 +6409,7 @@ define internal void @_ZN2cvL8reduceR_IffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.46", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.53", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6472,7 +6472,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev.exit, label %42
@@ -6507,7 +6507,7 @@ define internal void @_ZN2cvL8reduceR_IfdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.49", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.54", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6570,7 +6570,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit, label %42
@@ -6605,7 +6605,7 @@ define internal void @_ZN2cvL8reduceR_IddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.49", align 1
   %5 = alloca %"class.cv::ReduceR_Invoker.55", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6668,7 +6668,7 @@ common.resume:                                    ; preds = %46, %29
           to label %40 unwind label %46
 
 40:                                               ; preds = %31
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %41 = load ptr, ptr %15, align 8
   %.not.i.i.i14 = icmp eq ptr %41, %22
   br i1 %.not.i.i.i14, label %_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev.exit, label %42
@@ -6703,7 +6703,7 @@ define internal void @_ZN2cvL8reduceC_IhiNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6738,7 +6738,7 @@ define internal void @_ZN2cvL8reduceC_IhfNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.56", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6773,7 +6773,7 @@ define internal void @_ZN2cvL8reduceC_IhdNS_5OpAddIiiiEENS_5OpNopIiiiEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.57", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6808,7 +6808,7 @@ define internal void @_ZN2cvL8reduceC_ItfNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.58", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6843,7 +6843,7 @@ define internal void @_ZN2cvL8reduceC_ItdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.59", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6878,7 +6878,7 @@ define internal void @_ZN2cvL8reduceC_IsfNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.60", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6913,7 +6913,7 @@ define internal void @_ZN2cvL8reduceC_IsdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.61", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6948,7 +6948,7 @@ define internal void @_ZN2cvL8reduceC_IffNS_5OpAddIfffEENS_5OpNopIfffEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.62", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6983,7 +6983,7 @@ define internal void @_ZN2cvL8reduceC_IfdNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.63", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7018,7 +7018,7 @@ define internal void @_ZN2cvL8reduceC_IddNS_5OpAddIdddEENS_5OpNopIdddEEEEvRKNS_3
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.64", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7053,7 +7053,7 @@ define internal void @_ZN2cvL8reduceC_IhhNS_5OpMaxIhEENS_5OpNopIhhhEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.18", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.65", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7088,7 +7088,7 @@ define internal void @_ZN2cvL8reduceC_IttNS_5OpMaxItEENS_5OpNopItttEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.22", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.66", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7123,7 +7123,7 @@ define internal void @_ZN2cvL8reduceC_IssNS_5OpMaxIsEENS_5OpNopIsssEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.26", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.67", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7158,7 +7158,7 @@ define internal void @_ZN2cvL8reduceC_IffNS_5OpMaxIfEENS_5OpNopIfffEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.68", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7193,7 +7193,7 @@ define internal void @_ZN2cvL8reduceC_IddNS_5OpMaxIdEENS_5OpNopIdddEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.69", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7228,7 +7228,7 @@ define internal void @_ZN2cvL8reduceC_IhhNS_5OpMinIhEENS_5OpNopIhhhEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.18", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.70", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7263,7 +7263,7 @@ define internal void @_ZN2cvL8reduceC_IttNS_5OpMinItEENS_5OpNopItttEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.22", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.71", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7298,7 +7298,7 @@ define internal void @_ZN2cvL8reduceC_IssNS_5OpMinIsEENS_5OpNopIsssEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.26", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.72", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7333,7 +7333,7 @@ define internal void @_ZN2cvL8reduceC_IffNS_5OpMinIfEENS_5OpNopIfffEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.6", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.73", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7368,7 +7368,7 @@ define internal void @_ZN2cvL8reduceC_IddNS_5OpMinIdEENS_5OpNopIdddEEEEvRKNS_3Ma
   %4 = alloca %"struct.cv::OpNop.10", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.74", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7403,7 +7403,7 @@ define internal void @_ZN2cvL8reduceC_IhiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.75", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7438,7 +7438,7 @@ define internal void @_ZN2cvL8reduceC_IhfNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.76", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7473,7 +7473,7 @@ define internal void @_ZN2cvL8reduceC_IhdNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.77", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7508,7 +7508,7 @@ define internal void @_ZN2cvL8reduceC_ItfNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.46", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.78", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7543,7 +7543,7 @@ define internal void @_ZN2cvL8reduceC_ItdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.49", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.79", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7578,7 +7578,7 @@ define internal void @_ZN2cvL8reduceC_IsfNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.46", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.80", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7613,7 +7613,7 @@ define internal void @_ZN2cvL8reduceC_IsdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.49", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.81", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7648,7 +7648,7 @@ define internal void @_ZN2cvL8reduceC_IffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.46", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.82", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7683,7 +7683,7 @@ define internal void @_ZN2cvL8reduceC_IfdNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.49", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.83", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7718,7 +7718,7 @@ define internal void @_ZN2cvL8reduceC_IddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEEvRKN
   %4 = alloca %"struct.cv::OpSqr.49", align 1
   %5 = alloca %"class.cv::ReduceC_Invoker.84", align 8
   %6 = alloca %"class.cv::Range", align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceC_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -12847,7 +12847,7 @@ declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -12878,7 +12878,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13032,7 +13032,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13060,7 +13060,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13209,7 +13209,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIhfiNS_5OpAddIiiiEENS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13237,7 +13237,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5OpNopIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13386,7 +13386,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIhdiNS_5OpAddIiiiEENS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13414,7 +13414,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13563,7 +13563,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerItffNS_5OpAddIfffEENS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13591,7 +13591,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13740,7 +13740,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerItddNS_5OpAddIdddEENS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13768,7 +13768,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13917,7 +13917,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIsffNS_5OpAddIfffEENS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13945,7 +13945,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14094,7 +14094,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIsddNS_5OpAddIdddEENS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14122,7 +14122,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14269,7 +14269,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIfffNS_5OpAddIfffEENS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14297,7 +14297,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14446,7 +14446,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIfddNS_5OpAddIdddEENS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14474,7 +14474,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14621,7 +14621,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIdddNS_5OpAddIdddEENS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14649,7 +14649,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1088) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5OpNopIhhhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14801,7 +14801,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIhhhNS_5OpMaxIhEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14829,7 +14829,7 @@ _ZN2cv10AutoBufferItLm520EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5OpNopItttEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -14976,7 +14976,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerItttNS_5OpMaxItEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15004,7 +15004,7 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5OpNopIsssEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15151,7 +15151,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIsssNS_5OpMaxIsEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15179,7 +15179,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15327,7 +15327,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIfffNS_5OpMaxIfEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15355,7 +15355,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15503,7 +15503,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIdddNS_5OpMaxIdEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15531,7 +15531,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1088) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5OpNopIhhhEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15683,7 +15683,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIhhhNS_5OpMinIhEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15711,7 +15711,7 @@ _ZN2cv10AutoBufferItLm520EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5OpNopItttEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15858,7 +15858,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerItttNS_5OpMinItEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -15886,7 +15886,7 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5OpNopIsssEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16033,7 +16033,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIsssNS_5OpMinIsEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16061,7 +16061,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5OpNopIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16209,7 +16209,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIfffNS_5OpMinIfEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16237,7 +16237,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5OpNopIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16385,7 +16385,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIdddNS_5OpMinIdEENS_5Op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16413,7 +16413,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16563,7 +16563,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIhiiNS_8OpAddSqrIiiiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16591,7 +16591,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16742,7 +16742,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIhfiNS_8OpAddSqrIiiiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16770,7 +16770,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEENS_5OpSqrIiiiEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16921,7 +16921,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIhdiNS_8OpAddSqrIiiiEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16949,7 +16949,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17099,7 +17099,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17127,7 +17127,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17277,7 +17277,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17305,7 +17305,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17455,7 +17455,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17483,7 +17483,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17633,7 +17633,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17661,7 +17661,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEENS_5OpSqrIfffEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17809,7 +17809,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIfffNS_8OpAddSqrIfffEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17837,7 +17837,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -17987,7 +17987,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIfddNS_8OpAddSqrIdddEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -18015,7 +18015,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEED0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15ReduceR_InvokerIdddNS_8OpAddSqrIdddEENS_5OpSqrIdddEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56

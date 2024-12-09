@@ -41,9 +41,9 @@ $_ZTI19WiresharkFileDialog = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19WiresharkFileDialogC2EP7QWidgetRK7QStringS4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 align 2 {
   tail call void @_ZN11QFileDialogC2EP7QWidgetRK7QStringS4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19WiresharkFileDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19WiresharkFileDialog, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19WiresharkFileDialog, i64 488), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19WiresharkFileDialog, i64 488), ptr %6, align 8
   ret void
 }
 

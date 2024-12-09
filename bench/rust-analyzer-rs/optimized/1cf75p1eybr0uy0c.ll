@@ -68816,7 +68816,7 @@ define hidden noundef zeroext i1 @"_ZN7hir_def7nameres15attr_resolution42_$LT$im
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr @anon.17a269f1fe17e49777498bab26e06c97.188, ptr %5, align 8, !alias.scope !20561
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.17a269f1fe17e49777498bab26e06c97.188, i64 32), ptr %22, align 8, !alias.scope !20561
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.17a269f1fe17e49777498bab26e06c97.188, i64 32), ptr %22, align 8, !alias.scope !20561
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %23, align 8, !alias.scope !20561
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24

@@ -173,7 +173,7 @@ entry:
   %rebateTimes = alloca %"class.std::vector", align 8
   %modelCashFlow = alloca %"struct.QuantLib::MarketModelPathwiseMultiProduct::CashFlow", align 8
   %ref.tmp290 = alloca %"class.std::vector.48", align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib33CallSpecifiedPathwiseMultiProductE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib33CallSpecifiedPathwiseMultiProductE, i64 16), ptr %this, align 8, !tbaa !3
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %underlying, align 8, !tbaa !6
   %cmp.i.not.i.i = icmp eq ptr %0, null
@@ -2676,7 +2676,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !97
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2822,7 +2822,7 @@ declare void @_ZN8QuantLib29MarketModelPathwiseCashRebateC1ENS_20EvolutionDescri
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib29MarketModelPathwiseCashRebateD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib29MarketModelPathwiseCashRebateE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib29MarketModelPathwiseCashRebateE, i64 16), ptr %this, align 8, !tbaa !3
   %amounts_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %amounts_, align 8, !tbaa !6
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3757,7 +3757,7 @@ entry:
   %ref.tmp.i25 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i18 = alloca %"class.std::unique_ptr.3", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib33CallSpecifiedPathwiseMultiProductE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib33CallSpecifiedPathwiseMultiProductE, i64 16), ptr %this, align 8, !tbaa !3
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %underlying_2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %underlying_2, align 8, !tbaa !6
@@ -4573,7 +4573,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProductD2Ev(ptr noundef nonnull align 8 dereferenceable(281) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib33CallSpecifiedPathwiseMultiProductE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib33CallSpecifiedPathwiseMultiProductE, i64 16), ptr %this, align 8, !tbaa !3
   %dummyCashFlowsGenerated_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %dummyCashFlowsGenerated_, align 8, !tbaa !86
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 256

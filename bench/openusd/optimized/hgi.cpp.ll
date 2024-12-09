@@ -132,7 +132,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__3HgiC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__3HgiE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__3HgiE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %2, align 8
   ret void
@@ -283,13 +283,13 @@ define internal fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__L26_Mak
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %9 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEEEbT_.exit
 
 11:                                               ; preds = %0
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
-  %12 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
+  %12 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEEEbT_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEEEbT_.exit: ; preds = %0, %11
@@ -335,13 +335,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TfGetEnvSettingIiEERKT_RNS_12TfEnvSetting
   br label %28
 
 28:                                               ; preds = %23, %_ZN32pxrInternal_v0_24__pxrReserved__15TfGetEnvSettingIiEERKT_RNS_12TfEnvSettingIS1_EE.exit
-  %29 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %29 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEEEbT_.exit22
 
 31:                                               ; preds = %28
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
-  %32 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
+  %32 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEEEbT_.exit22
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEEEbT_.exit22: ; preds = %28, %31
@@ -363,7 +363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CA
           to label %.noexc23 unwind label %55
 
 .noexc23:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.13, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %37
 
 37:                                               ; preds = %.noexc23
@@ -515,16 +515,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfType10GetFactoryINS_14HgiFactoryBaseEEE
           to label %101 unwind label %59
 
 93:                                               ; preds = %83
-  %94 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %94 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %93
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
           to label %.noexc30 unwind label %59
 
 .noexc30:                                         ; preds = %96
-  %97 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %97 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %98
 
 98:                                               ; preds = %.noexc30, %93
@@ -588,13 +588,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__3Hgi14CreateNamedHgiERKNS_7TfT
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
-  %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %11 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEEEbT_.exit.i
 
 13:                                               ; preds = %2
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
-  %14 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
+  %14 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEEEbT_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEEEbT_.exit.i: ; preds = %13, %2
@@ -947,16 +947,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfType10GetFactoryINS_14HgiFactoryBaseEEE
           to label %177 unwind label %134
 
 168:                                              ; preds = %158
-  %169 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %169 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %168
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.21)
           to label %.noexc39.i unwind label %134
 
 .noexc39.i:                                       ; preds = %171
-  %172 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %172 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_41HGI_DEBUG_DEVICE_CAPABILITIES__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %173
 
 173:                                              ; preds = %.noexc39.i, %168

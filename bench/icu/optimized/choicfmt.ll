@@ -47,7 +47,7 @@ entry:
 define void @_ZN6icu_7512ChoiceFormatC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef nonnull align 8 dereferenceable(64) %newPattern, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
   %constructorErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 356
   %0 = load i32, ptr %status, align 4
   store i32 %0, ptr %constructorErrorCode, align 4
@@ -98,7 +98,7 @@ declare void @_ZN6icu_7512NumberFormatD2Ev(ptr noundef nonnull align 8 dereferen
 define void @_ZN6icu_7512ChoiceFormatC2EPKdPKNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef %limits, ptr noundef %formats, i32 noundef %cnt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
   %constructorErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 356
   store i32 0, ptr %constructorErrorCode, align 4
   %msgPattern = getelementptr inbounds nuw i8, ptr %this, i64 360
@@ -136,7 +136,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 define void @_ZN6icu_7512ChoiceFormatC2EPKdPKaPKNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef %limits, ptr noundef %closures, ptr noundef %formats, i32 noundef %cnt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
   %constructorErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 356
   store i32 0, ptr %constructorErrorCode, align 4
   %msgPattern = getelementptr inbounds nuw i8, ptr %this, i64 360
@@ -174,7 +174,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 define void @_ZN6icu_7512ChoiceFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef nonnull align 8 dereferenceable(488) %that) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7512NumberFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(356) %that)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
   %constructorErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 356
   %constructorErrorCode2 = getelementptr inbounds nuw i8, ptr %that, i64 356
   %0 = load i32, ptr %constructorErrorCode2, align 4
@@ -202,7 +202,7 @@ declare void @_ZN6icu_7514MessagePatternC1ERKS0_(ptr noundef nonnull align 8 der
 define void @_ZN6icu_7512ChoiceFormatC2ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef nonnull align 8 dereferenceable(64) %newPattern, ptr noundef nonnull align 4 dereferenceable(72) %parseError, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
   %constructorErrorCode = getelementptr inbounds nuw i8, ptr %this, i64 356
   %0 = load i32, ptr %status, align 4
   store i32 %0, ptr %constructorErrorCode, align 4
@@ -290,7 +290,7 @@ declare noundef nonnull align 8 dereferenceable(127) ptr @_ZN6icu_7514MessagePat
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512ChoiceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(488) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
   %msgPattern = getelementptr inbounds nuw i8, ptr %this, i64 360
   tail call void @_ZN6icu_7514MessagePatternD1Ev(ptr noundef nonnull align 8 dereferenceable(127) %msgPattern) #9
   tail call void @_ZN6icu_7512NumberFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this) #9
@@ -515,7 +515,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp589 = icmp sgt i32 %count, 0
@@ -554,7 +554,7 @@ lpad.loopexit.split-lp80:                         ; preds = %for.end94
   br label %ehcleanup
 
 invoke.cont10:                                    ; preds = %for.body, %_ZN6icu_7513UnicodeStringpLEDs.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buf, align 8
   store i16 2, ptr %fUnion2.i33, align 8
   %arrayidx = getelementptr inbounds nuw double, ptr %limits, i64 %indvars.iv92
   %1 = load double, ptr %arrayidx, align 8

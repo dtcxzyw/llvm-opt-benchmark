@@ -1058,7 +1058,7 @@ define dso_local i32 @inet6_recvmsg(ptr nocapture noundef readonly %0, ptr nound
   %25 = load i32, ptr @rps_cpu_mask, align 4
   %26 = xor i32 %25, -1
   %27 = and i32 %17, %26
-  %28 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !22
+  %28 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !22
   %29 = or i32 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %31 = zext i32 %24 to i64
@@ -1556,12 +1556,12 @@ define internal i32 @inet6_init() #8 section ".init.text" align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store volatile ptr %2, ptr %3, align 8
   %4 = getelementptr i8, ptr %2, i64 16
-  %5 = icmp ult ptr %4, getelementptr inbounds (i8, ptr @inetsw6, i64 176)
+  %5 = icmp ult ptr %4, getelementptr inbounds nuw (i8, ptr @inetsw6, i64 176)
   br i1 %5, label %1, label %6, !llvm.loop !28
 
 6:                                                ; preds = %1
   store i32 0, ptr @raw_v6_hashinfo, align 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(2048) getelementptr inbounds (i8, ptr @raw_v6_hashinfo, i64 64), i8 0, i64 2048, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(2048) getelementptr inbounds nuw (i8, ptr @raw_v6_hashinfo, i64 64), i8 0, i64 2048, i1 false)
   %7 = load i32, ptr @disable_ipv6_mod, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %9
@@ -2568,7 +2568,7 @@ define internal i32 @inet6_net_init(ptr noundef initializes((1741, 1742), (1744,
   br i1 %51, label %59, label %52
 
 52:                                               ; preds = %.thread
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %54 = tail call noalias noundef align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %53, i32 noundef 3520, i64 noundef 4096) #18
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %54, ptr %55, align 8

@@ -43,7 +43,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o10RobotLaserC2Ev(ptr noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3g2o8RawLaserC2Ev(ptr noundef nonnull align 16 dereferenceable(256) %0)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o10RobotLaserE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3g2o10RobotLaserE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store double 0.000000e+00, ptr %2, align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272

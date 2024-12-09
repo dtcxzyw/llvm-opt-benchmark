@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN10BufferNode15AllocatorConfigC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 10, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN10BufferNode15AllocatorConfigE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN10BufferNode15AllocatorConfigE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
   ret void
@@ -43,7 +43,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 define hidden void @_ZN10BufferNode9AllocatorC2EPKcm(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 10, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN10BufferNode15AllocatorConfigE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN10BufferNode15AllocatorConfigE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24

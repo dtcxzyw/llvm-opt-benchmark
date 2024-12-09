@@ -749,16 +749,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27Sdf_ParseVariableExpressionE
           to label %_ZN21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA1_KcEERKSA_OT_.exit unwind label %591
 
 _ZN21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA1_KcEERKSA_OT_.exit: ; preds = %2
-  %27 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_21SDF_ASSET__DebugCodesEE5nodesE, i64 16) seq_cst, align 16
+  %27 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_21SDF_ASSET__DebugCodesEE5nodesE, i64 16) seq_cst, align 16
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA1_KcEERKSA_OT_.exit
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_21SDF_ASSET__DebugCodesEE5nodesE, i64 16), ptr noundef nonnull @.str.42)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_21SDF_ASSET__DebugCodesEE5nodesE, i64 16), ptr noundef nonnull @.str.42)
           to label %.noexc unwind label %593
 
 .noexc:                                           ; preds = %29
-  %30 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_21SDF_ASSET__DebugCodesEE5nodesE, i64 16) seq_cst, align 16
+  %30 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_21SDF_ASSET__DebugCodesEE5nodesE, i64 16) seq_cst, align 16
   br label %31
 
 31:                                               ; preds = %.noexc, %_ZN21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRA1_KcEERKSA_OT_.exit
@@ -802,7 +802,7 @@ _ZN21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_
           to label %.noexc6.i unwind label %522
 
 .noexc6.i:                                        ; preds = %.noexc5.i
-  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.47, i64 56), i64 noundef 67)
+  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 56), i64 noundef 67)
           to label %.noexc7.i unwind label %522
 
 .noexc7.i:                                        ; preds = %.noexc6.i
@@ -922,7 +922,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc13.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc13.i.i.i.i.i.i.i.i:                         ; preds = %.noexc12.i.i.i.i.i.i.i.i
-  %98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 56), i64 noundef 72)
+  %98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 56), i64 noundef 72)
           to label %.noexc14.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc14.i.i.i.i.i.i.i.i:                         ; preds = %.noexc13.i.i.i.i.i.i.i.i
@@ -1074,7 +1074,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc27.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc27.i.i.i.i.i.i.i.i:                         ; preds = %.noexc26.i.i.i.i.i.i.i.i
-  %159 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 56), i64 noundef 72)
+  %159 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 56), i64 noundef 72)
           to label %.noexc28.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc28.i.i.i.i.i.i.i.i:                         ; preds = %.noexc27.i.i.i.i.i.i.i.i
@@ -1170,7 +1170,7 @@ common.resume.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %205, %170
           to label %.noexc40.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc40.i.i.i.i.i.i.i.i:                         ; preds = %.noexc39.i.i.i.i.i.i.i.i
-  %192 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %191, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 56), i64 noundef 72)
+  %192 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %191, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 56), i64 noundef 72)
           to label %.noexc41.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc41.i.i.i.i.i.i.i.i:                         ; preds = %.noexc40.i.i.i.i.i.i.i.i
@@ -1249,7 +1249,7 @@ common.resume.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %205, %170
           to label %.noexc60.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc60.i.i.i.i.i.i.i.i:                         ; preds = %.noexc59.i.i.i.i.i.i.i.i
-  %223 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 56), i64 noundef 71)
+  %223 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 56), i64 noundef 71)
           to label %.noexc61.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc61.i.i.i.i.i.i.i.i:                         ; preds = %.noexc60.i.i.i.i.i.i.i.i
@@ -1535,7 +1535,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc76.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc76.i.i.i.i.i.i.i.i:                         ; preds = %.noexc75.i.i.i.i.i.i.i.i
-  %312 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %311, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 56), i64 noundef 71)
+  %312 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %311, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 56), i64 noundef 71)
           to label %.noexc77.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc77.i.i.i.i.i.i.i.i:                         ; preds = %.noexc76.i.i.i.i.i.i.i.i
@@ -1629,7 +1629,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc89.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc89.i.i.i.i.i.i.i.i:                         ; preds = %.noexc88.i.i.i.i.i.i.i.i
-  %345 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %344, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 56), i64 noundef 71)
+  %345 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %344, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 56), i64 noundef 71)
           to label %.noexc90.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc90.i.i.i.i.i.i.i.i:                         ; preds = %.noexc89.i.i.i.i.i.i.i.i
@@ -1705,7 +1705,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc112.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc112.i.i.i.i.i.i.i.i:                        ; preds = %.noexc111.i.i.i.i.i.i.i.i
-  %372 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %371, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.130, i64 56), i64 noundef 70)
+  %372 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %371, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.130, i64 56), i64 noundef 70)
           to label %.noexc113.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc113.i.i.i.i.i.i.i.i:                        ; preds = %.noexc112.i.i.i.i.i.i.i.i
@@ -1861,7 +1861,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc126.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc126.i.i.i.i.i.i.i.i:                        ; preds = %.noexc125.i.i.i.i.i.i.i.i
-  %430 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %429, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.130, i64 56), i64 noundef 70)
+  %430 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %429, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.130, i64 56), i64 noundef 70)
           to label %.noexc127.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc127.i.i.i.i.i.i.i.i:                        ; preds = %.noexc126.i.i.i.i.i.i.i.i
@@ -1955,7 +1955,7 @@ common.resume.i.i.i.i.i.i.i99.i.i.i.i.i.i.i.i:    ; preds = %470, %439
           to label %.noexc141.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc141.i.i.i.i.i.i.i.i:                        ; preds = %.noexc140.i.i.i.i.i.i.i.i
-  %461 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %460, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.130, i64 56), i64 noundef 70)
+  %461 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %460, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.130, i64 56), i64 noundef 70)
           to label %.noexc142.i.i.i.i.i.i.i.i unwind label %473
 
 .noexc142.i.i.i.i.i.i.i.i:                        ; preds = %.noexc141.i.i.i.i.i.i.i.i
@@ -2072,7 +2072,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
           to label %.noexc20.i unwind label %522
 
 .noexc20.i:                                       ; preds = %.noexc19.i
-  %497 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %496, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.47, i64 56), i64 noundef 67)
+  %497 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %496, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 56), i64 noundef 67)
           to label %.noexc21.i unwind label %522
 
 .noexc21.i:                                       ; preds = %.noexc20.i
@@ -2982,7 +2982,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN21PXR_INTERNAL_NS_pegtl11parse_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN21PXR_INTERNAL_NS_pegtl11parse_errorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -3069,7 +3069,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorC2EPKcNS_8positionE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN21PXR_INTERNAL_NS_pegtl11parse_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN21PXR_INTERNAL_NS_pegtl11parse_errorE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   store ptr null, ptr %4, align 8, !alias.scope !63
@@ -3081,7 +3081,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorC2EPKcNS_8posit
   store i32 1, ptr %6, align 8, !noalias !63
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !63
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !63
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN21PXR_INTERNAL_NS_pegtl8internal11parse_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %1)
           to label %10 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !63
@@ -3291,7 +3291,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN21PXR_INTERNAL_NS_pegtl11parse_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN21PXR_INTERNAL_NS_pegtl11parse_errorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -5632,7 +5632,7 @@ _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13track
 
 .noexc.i:                                         ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %20, i8 0, i64 40, i1 false), !noalias !112
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreatorE, i64 16), ptr %20, align 8, !noalias !112
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreatorE, i64 16), ptr %20, align 8, !noalias !112
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #25, !noalias !112
   %22 = load ptr, ptr %12, align 8
@@ -5783,7 +5783,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   ret void
@@ -5791,7 +5791,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Varia
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreatorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119VariableNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #27
@@ -5845,7 +5845,7 @@ define internal fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
 
 9:                                                ; preds = %1, %4, %7
   %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26, !noalias !124
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorE, i64 16), ptr %10, align 8, !noalias !124
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorE, i64 16), ptr %10, align 8, !noalias !124
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !noalias !124
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5948,7 +5948,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext22GetExistingN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5987,7 +5987,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10St
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6631,7 +6631,7 @@ _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13track
 42:                                               ; preds = %40, %37, %34
   %43 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !162
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %43, i8 0, i64 16, i1 false), !noalias !162
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIlEE, i64 16), ptr %43, align 8, !noalias !162
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIlEE, i64 16), ptr %43, align 8, !noalias !162
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %45 = load ptr, ptr %44, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val4.i.i, %45
@@ -6860,7 +6860,7 @@ define internal fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
 9:                                                ; preds = %1, %4, %7
   %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26, !noalias !180
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false), !noalias !180
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIbEE, i64 16), ptr %10, align 8, !noalias !180
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119ConstantNodeCreatorIbEE, i64 16), ptr %10, align 8, !noalias !180
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %.val4, %12
@@ -7013,7 +7013,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0
 
 9:                                                ; preds = %7, %4, %1
   %10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26, !noalias !191
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115NoneNodeCreatorE, i64 16), ptr %10, align 8, !noalias !191
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115NoneNodeCreatorE, i64 16), ptr %10, align 8, !noalias !191
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val4.i.i, %12
@@ -7169,7 +7169,7 @@ _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13track
           to label %.noexc.i unwind label %53
 
 .noexc.i:                                         ; preds = %_ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6stringEv.exit.i
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorE, i64 16), ptr %12, align 8, !noalias !208
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorE, i64 16), ptr %12, align 8, !noalias !208
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZSt11make_uniqueIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i unwind label %14, !noalias !208
@@ -7293,7 +7293,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionINS0_12FunctionNameEE5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7346,7 +7346,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8517,7 +8517,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal7if_mustILb0EN32pxrInternal_v0_24__pxrReserve
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19ListStartEE5applyITtTpTyENS2_6ActionENS_8internal8iteratorENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextEEEEDTclsrT_IJS3_EE5applyclsr3stdE7declvalIRKNT1_8action_tEEEspfp1_EERKT0_RKSP_DpOT2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26, !noalias !417
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %2, align 8, !noalias !417
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %2, align 8, !noalias !417
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !417
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8618,7 +8618,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionINS0_9ListStartEE5appl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8669,7 +8669,7 @@ _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10045,7 +10045,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.47, i64 56), i64 noundef 67)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 56), i64 noundef 67)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -10185,7 +10185,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 56), i64 noundef 72)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 56), i64 noundef 72)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -10269,7 +10269,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 56), i64 noundef 71)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 56), i64 noundef 71)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -10352,7 +10352,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   store i64 %21, ptr %19, align 8
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %21)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 56), i64 noundef 73)
+  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.59, i64 56), i64 noundef 73)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.45, i64 noundef 3)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 10)
   %27 = load ptr, ptr %9, align 8
@@ -10521,7 +10521,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %89, i64 noundef %74)
   %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %90, i8 noundef signext 32)
   %92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 56), i64 noundef 73)
+  %93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.59, i64 56), i64 noundef 73)
   %94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %95
 
@@ -10584,7 +10584,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %128 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %127, i64 noundef %112)
   %129 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %128, i8 noundef signext 32)
   %130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %131 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 56), i64 noundef 73)
+  %131 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.59, i64 56), i64 noundef 73)
   %132 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %133
 
@@ -10693,7 +10693,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.59, i64 56), i64 noundef 73)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.59, i64 56), i64 noundef 73)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -10781,7 +10781,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   store i64 %25, ptr %23, align 8
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %25)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 56), i64 noundef 65)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 56), i64 noundef 65)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef signext 10)
   %31 = load ptr, ptr %13, align 8
@@ -10933,7 +10933,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
           to label %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc22.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 56), i64 noundef 136)
+  %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.62, i64 56), i64 noundef 136)
           to label %.noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -11172,7 +11172,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 56), i64 noundef 136)
+  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.62, i64 56), i64 noundef 136)
           to label %.noexc45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -11262,7 +11262,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc58.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc58.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc57.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %221 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %220, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 56), i64 noundef 136)
+  %221 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %220, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.62, i64 56), i64 noundef 136)
           to label %.noexc59.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc59.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc58.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -11373,7 +11373,7 @@ common.resume.i:                                  ; preds = %310, %272, %.body.i
   %259 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %258, i64 noundef %243)
   %260 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %259, i8 noundef signext 32)
   %261 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %260, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %262 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 56), i64 noundef 65)
+  %262 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 56), i64 noundef 65)
   %263 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %264
 
@@ -11435,7 +11435,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %293 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %292, i64 noundef %277)
   %294 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %293, i8 noundef signext 32)
   %295 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %294, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %296 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %295, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 56), i64 noundef 65)
+  %296 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %295, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 56), i64 noundef 65)
   %297 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %296, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %298
 
@@ -11520,7 +11520,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   store i64 %39, ptr %37, align 8
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %39)
   %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 56), i64 noundef 74)
+  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 56), i64 noundef 74)
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.45, i64 noundef 3)
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 noundef signext 10)
   %45 = load ptr, ptr %27, align 8
@@ -11625,7 +11625,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc23.i.i.i.i.i.i unwind label %146
 
 .noexc23.i.i.i.i.i.i:                             ; preds = %.noexc22.i.i.i.i.i.i
-  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.67, i64 56), i64 noundef 79)
+  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.67, i64 56), i64 noundef 79)
           to label %.noexc24.i.i.i.i.i.i unwind label %146
 
 .noexc24.i.i.i.i.i.i:                             ; preds = %.noexc23.i.i.i.i.i.i
@@ -11834,7 +11834,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc44.i.i.i.i.i.i unwind label %146
 
 .noexc44.i.i.i.i.i.i:                             ; preds = %.noexc43.i.i.i.i.i.i
-  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.67, i64 56), i64 noundef 79)
+  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.67, i64 56), i64 noundef 79)
           to label %.noexc45.i.i.i.i.i.i unwind label %146
 
 .noexc45.i.i.i.i.i.i:                             ; preds = %.noexc44.i.i.i.i.i.i
@@ -11924,7 +11924,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc58.i.i.i.i.i.i unwind label %146
 
 .noexc58.i.i.i.i.i.i:                             ; preds = %.noexc57.i.i.i.i.i.i
-  %201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.67, i64 56), i64 noundef 79)
+  %201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.67, i64 56), i64 noundef 79)
           to label %.noexc59.i.i.i.i.i.i unwind label %146
 
 .noexc59.i.i.i.i.i.i:                             ; preds = %.noexc58.i.i.i.i.i.i
@@ -11997,7 +11997,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc10.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc9.i.i.i.i.i.i.i.i.i
-  %231 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.68, i64 56), i64 noundef 78)
+  %231 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.68, i64 56), i64 noundef 78)
           to label %.noexc11.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc11.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc10.i.i.i.i.i.i.i.i.i
@@ -12139,7 +12139,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %294 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %293, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.69, i64 56), i64 noundef 186)
+  %294 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %293, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.69, i64 56), i64 noundef 186)
           to label %.noexc11.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc11.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -12262,7 +12262,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc22.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %340 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %339, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 56), i64 noundef 79)
+  %340 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %339, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 56), i64 noundef 79)
           to label %.noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -12564,7 +12564,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal4plusINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EE
           to label %.noexc19.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc19.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc18.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %413 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %412, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 56), i64 noundef 395)
+  %413 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %412, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 56), i64 noundef 395)
           to label %.noexc20.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc20.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc19.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -12725,7 +12725,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %456 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 56), i64 noundef 79)
+  %456 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 56), i64 noundef 79)
           to label %.noexc45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -12812,7 +12812,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc60.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc60.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc59.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %484, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 56), i64 noundef 79)
+  %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %484, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 56), i64 noundef 79)
           to label %.noexc61.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc61.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc60.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -12921,7 +12921,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3sorIJN32pxrInterna
           to label %.noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %519 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %518, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.69, i64 56), i64 noundef 186)
+  %519 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %518, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.69, i64 56), i64 noundef 186)
           to label %.noexc25.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc25.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13044,7 +13044,7 @@ _ZN21PXR_INTERNAL_NS_pegtlneERKNS_8positionES2_.exit.thread.i.i.i.i.i.i.i.i.i.i.
           to label %.noexc37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %562 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %561, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.69, i64 56), i64 noundef 186)
+  %562 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %561, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.69, i64 56), i64 noundef 186)
           to label %.noexc38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13159,7 +13159,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
           to label %.noexc24.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc24.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc23.i.i.i.i.i.i.i.i.i
-  %594 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %593, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.68, i64 56), i64 noundef 78)
+  %594 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %593, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.68, i64 56), i64 noundef 78)
           to label %.noexc25.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc25.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc24.i.i.i.i.i.i.i.i.i
@@ -13225,7 +13225,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
           to label %.noexc43.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc43.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc42.i.i.i.i.i.i.i.i.i
-  %620 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %619, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.82, i64 56), i64 noundef 77)
+  %620 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %619, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.82, i64 56), i64 noundef 77)
           to label %.noexc44.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc44.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc43.i.i.i.i.i.i.i.i.i
@@ -13379,7 +13379,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc57.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc57.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc56.i.i.i.i.i.i.i.i.i
-  %681 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %680, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.82, i64 56), i64 noundef 77)
+  %681 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %680, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.82, i64 56), i64 noundef 77)
           to label %.noexc58.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc58.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc57.i.i.i.i.i.i.i.i.i
@@ -13472,7 +13472,7 @@ common.resume.i.i.i.i.i.i.i31.i.i.i.i.i.i.i.i.i:  ; preds = %721, %690
           to label %.noexc72.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc72.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc71.i.i.i.i.i.i.i.i.i
-  %712 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %711, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.82, i64 56), i64 noundef 77)
+  %712 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %711, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.82, i64 56), i64 noundef 77)
           to label %.noexc73.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc73.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc72.i.i.i.i.i.i.i.i.i
@@ -13557,7 +13557,7 @@ common.resume.i.i.i.i.i.i.i31.i.i.i.i.i.i.i.i.i:  ; preds = %721, %690
   %746 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %745, i64 noundef %730)
   %747 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %746, i8 noundef signext 32)
   %748 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %747, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %749 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %748, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 56), i64 noundef 74)
+  %749 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %748, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 56), i64 noundef 74)
   %750 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %749, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %751
 
@@ -13623,7 +13623,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %780 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %779, i64 noundef %764)
   %781 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %780, i8 noundef signext 32)
   %782 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %781, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %783 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %782, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 56), i64 noundef 74)
+  %783 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %782, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 56), i64 noundef 74)
   %784 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %783, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %785
 
@@ -13704,7 +13704,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   store i64 %39, ptr %37, align 8
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %39)
   %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.83, i64 56), i64 noundef 75)
+  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.83, i64 56), i64 noundef 75)
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.45, i64 noundef 3)
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 noundef signext 10)
   %45 = load ptr, ptr %27, align 8
@@ -13809,7 +13809,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc23.i.i.i.i.i.i unwind label %146
 
 .noexc23.i.i.i.i.i.i:                             ; preds = %.noexc22.i.i.i.i.i.i
-  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.84, i64 56), i64 noundef 80)
+  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.84, i64 56), i64 noundef 80)
           to label %.noexc24.i.i.i.i.i.i unwind label %146
 
 .noexc24.i.i.i.i.i.i:                             ; preds = %.noexc23.i.i.i.i.i.i
@@ -14018,7 +14018,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc44.i.i.i.i.i.i unwind label %146
 
 .noexc44.i.i.i.i.i.i:                             ; preds = %.noexc43.i.i.i.i.i.i
-  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.84, i64 56), i64 noundef 80)
+  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %168, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.84, i64 56), i64 noundef 80)
           to label %.noexc45.i.i.i.i.i.i unwind label %146
 
 .noexc45.i.i.i.i.i.i:                             ; preds = %.noexc44.i.i.i.i.i.i
@@ -14108,7 +14108,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc58.i.i.i.i.i.i unwind label %146
 
 .noexc58.i.i.i.i.i.i:                             ; preds = %.noexc57.i.i.i.i.i.i
-  %201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.84, i64 56), i64 noundef 80)
+  %201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.84, i64 56), i64 noundef 80)
           to label %.noexc59.i.i.i.i.i.i unwind label %146
 
 .noexc59.i.i.i.i.i.i:                             ; preds = %.noexc58.i.i.i.i.i.i
@@ -14181,7 +14181,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc10.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc9.i.i.i.i.i.i.i.i.i
-  %231 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.85, i64 56), i64 noundef 79)
+  %231 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.85, i64 56), i64 noundef 79)
           to label %.noexc11.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc11.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc10.i.i.i.i.i.i.i.i.i
@@ -14323,7 +14323,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %294 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %293, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.86, i64 56), i64 noundef 187)
+  %294 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %293, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.86, i64 56), i64 noundef 187)
           to label %.noexc11.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc11.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -14446,7 +14446,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc22.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %340 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %339, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.87, i64 56), i64 noundef 80)
+  %340 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %339, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.87, i64 56), i64 noundef 80)
           to label %.noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -14748,7 +14748,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal4plusINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EE
           to label %.noexc19.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc19.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc18.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %413 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %412, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.88, i64 56), i64 noundef 397)
+  %413 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %412, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.88, i64 56), i64 noundef 397)
           to label %.noexc20.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc20.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc19.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -14909,7 +14909,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %456 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.87, i64 56), i64 noundef 80)
+  %456 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.87, i64 56), i64 noundef 80)
           to label %.noexc45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -14996,7 +14996,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc60.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc60.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc59.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %484, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.87, i64 56), i64 noundef 80)
+  %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %484, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.87, i64 56), i64 noundef 80)
           to label %.noexc61.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc61.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc60.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -15105,7 +15105,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3sorIJN32pxrInterna
           to label %.noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %519 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %518, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.86, i64 56), i64 noundef 187)
+  %519 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %518, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.86, i64 56), i64 noundef 187)
           to label %.noexc25.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc25.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -15228,7 +15228,7 @@ _ZN21PXR_INTERNAL_NS_pegtlneERKNS_8positionES2_.exit.thread.i.i.i.i.i.i.i.i.i.i.
           to label %.noexc37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %562 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %561, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.86, i64 56), i64 noundef 187)
+  %562 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %561, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.86, i64 56), i64 noundef 187)
           to label %.noexc38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .noexc38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.noexc37.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -15343,7 +15343,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
           to label %.noexc24.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc24.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc23.i.i.i.i.i.i.i.i.i
-  %594 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %593, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.85, i64 56), i64 noundef 79)
+  %594 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %593, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.85, i64 56), i64 noundef 79)
           to label %.noexc25.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc25.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc24.i.i.i.i.i.i.i.i.i
@@ -15409,7 +15409,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
           to label %.noexc43.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc43.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc42.i.i.i.i.i.i.i.i.i
-  %620 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %619, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.95, i64 56), i64 noundef 78)
+  %620 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %619, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.95, i64 56), i64 noundef 78)
           to label %.noexc44.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc44.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc43.i.i.i.i.i.i.i.i.i
@@ -15563,7 +15563,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc57.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc57.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc56.i.i.i.i.i.i.i.i.i
-  %681 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %680, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.95, i64 56), i64 noundef 78)
+  %681 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %680, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.95, i64 56), i64 noundef 78)
           to label %.noexc58.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc58.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc57.i.i.i.i.i.i.i.i.i
@@ -15656,7 +15656,7 @@ common.resume.i.i.i.i.i.i.i31.i.i.i.i.i.i.i.i.i:  ; preds = %721, %690
           to label %.noexc72.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc72.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc71.i.i.i.i.i.i.i.i.i
-  %712 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %711, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.95, i64 56), i64 noundef 78)
+  %712 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %711, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.95, i64 56), i64 noundef 78)
           to label %.noexc73.i.i.i.i.i.i.i.i.i unwind label %724
 
 .noexc73.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc72.i.i.i.i.i.i.i.i.i
@@ -15741,7 +15741,7 @@ common.resume.i.i.i.i.i.i.i31.i.i.i.i.i.i.i.i.i:  ; preds = %721, %690
   %746 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %745, i64 noundef %730)
   %747 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %746, i8 noundef signext 32)
   %748 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %747, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %749 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %748, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.83, i64 56), i64 noundef 75)
+  %749 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %748, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.83, i64 56), i64 noundef 75)
   %750 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %749, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %751
 
@@ -15807,7 +15807,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %780 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %779, i64 noundef %764)
   %781 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %780, i8 noundef signext 32)
   %782 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %781, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %783 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %782, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.83, i64 56), i64 noundef 75)
+  %783 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %782, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.83, i64 56), i64 noundef 75)
   %784 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %783, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %785
 
@@ -15893,7 +15893,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
           to label %.noexc23.i unwind label %460
 
 .noexc23.i:                                       ; preds = %.noexc22.i
-  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.96, i64 56), i64 noundef 64)
+  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.96, i64 56), i64 noundef 64)
           to label %.noexc24.i unwind label %460
 
 .noexc24.i:                                       ; preds = %.noexc23.i
@@ -16010,7 +16010,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i unwind label %445
 
 .noexc10.i.i:                                     ; preds = %.noexc9.i.i
-  %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.97, i64 56), i64 noundef 59)
+  %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.97, i64 56), i64 noundef 59)
           to label %.noexc11.i.i unwind label %445
 
 .noexc11.i.i:                                     ; preds = %.noexc10.i.i
@@ -16119,7 +16119,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i.i.i.i.i.i unwind label %239
 
 .noexc10.i.i.i.i.i.i.i:                           ; preds = %.noexc9.i.i.i.i.i.i.i
-  %125 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.98, i64 56), i64 noundef 31)
+  %125 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.98, i64 56), i64 noundef 31)
           to label %.noexc11.i.i.i.i.i.i.i unwind label %239
 
 .noexc11.i.i.i.i.i.i.i:                           ; preds = %.noexc10.i.i.i.i.i.i.i
@@ -16276,7 +16276,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
           to label %.noexc24.i.i.i.i.i.i.i unwind label %239
 
 .noexc24.i.i.i.i.i.i.i:                           ; preds = %.noexc23.i.i.i.i.i.i.i
-  %191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %190, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.98, i64 56), i64 noundef 31)
+  %191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %190, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.98, i64 56), i64 noundef 31)
           to label %.noexc25.i.i.i.i.i.i.i unwind label %239
 
 .noexc25.i.i.i.i.i.i.i:                           ; preds = %.noexc24.i.i.i.i.i.i.i
@@ -16376,7 +16376,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc37.i.i.i.i.i.i.i unwind label %239
 
 .noexc37.i.i.i.i.i.i.i:                           ; preds = %.noexc36.i.i.i.i.i.i.i
-  %224 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %223, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.98, i64 56), i64 noundef 31)
+  %224 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %223, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.98, i64 56), i64 noundef 31)
           to label %.noexc38.i.i.i.i.i.i.i unwind label %239
 
 .noexc38.i.i.i.i.i.i.i:                           ; preds = %.noexc37.i.i.i.i.i.i.i
@@ -16487,7 +16487,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3optIJNS_5ascii3one
           to label %.noexc24.i.i unwind label %445
 
 .noexc24.i.i:                                     ; preds = %.noexc23.i.i
-  %262 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.97, i64 56), i64 noundef 59)
+  %262 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.97, i64 56), i64 noundef 59)
           to label %.noexc25.i.i unwind label %445
 
 .noexc25.i.i:                                     ; preds = %.noexc24.i.i
@@ -16557,7 +16557,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_3optIJNS_5ascii3oneIJLc45EEEEEEEE5matchILNS
           to label %.noexc32.i.i unwind label %445
 
 .noexc32.i.i:                                     ; preds = %.noexc31.i.i
-  %291 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %290, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.99, i64 56), i64 noundef 57)
+  %291 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %290, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.99, i64 56), i64 noundef 57)
           to label %.noexc33.i.i unwind label %445
 
 .noexc33.i.i:                                     ; preds = %.noexc32.i.i
@@ -16767,7 +16767,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal4plusINS_5ascii5digitEJEE5matchILNS_10apply_m
           to label %.noexc20.i.i.i24.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i
 
 .noexc20.i.i.i24.i.i.i.i:                         ; preds = %.noexc19.i.i.i23.i.i.i.i
-  %368 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %367, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.100, i64 56), i64 noundef 28)
+  %368 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %367, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.100, i64 56), i64 noundef 28)
           to label %.noexc21.i.i.i25.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i.i.i
 
 .noexc21.i.i.i25.i.i.i.i:                         ; preds = %.noexc20.i.i.i24.i.i.i.i
@@ -16880,7 +16880,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_4plusINS_5ascii5dig
           to label %.noexc46.i.i unwind label %445
 
 .noexc46.i.i:                                     ; preds = %.noexc45.i.i
-  %401 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %400, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.99, i64 56), i64 noundef 57)
+  %401 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %400, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.99, i64 56), i64 noundef 57)
           to label %.noexc47.i.i unwind label %445
 
 .noexc47.i.i:                                     ; preds = %.noexc46.i.i
@@ -16970,7 +16970,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_4plusINS_5ascii5dig
           to label %.noexc59.i.i unwind label %445
 
 .noexc59.i.i:                                     ; preds = %.noexc58.i.i
-  %434 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %433, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.99, i64 56), i64 noundef 57)
+  %434 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %433, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.99, i64 56), i64 noundef 57)
           to label %.noexc60.i.i unwind label %445
 
 .noexc60.i.i:                                     ; preds = %.noexc59.i.i
@@ -17129,7 +17129,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc44.i unwind label %460
 
 .noexc44.i:                                       ; preds = %.noexc43.i
-  %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %484, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.96, i64 56), i64 noundef 64)
+  %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %484, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.96, i64 56), i64 noundef 64)
           to label %.noexc45.i unwind label %460
 
 .noexc45.i:                                       ; preds = %.noexc44.i
@@ -17224,7 +17224,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc60.i unwind label %460
 
 .noexc60.i:                                       ; preds = %.noexc59.i
-  %517 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %516, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.96, i64 56), i64 noundef 64)
+  %517 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %516, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.96, i64 56), i64 noundef 64)
           to label %.noexc61.i unwind label %460
 
 .noexc61.i:                                       ; preds = %.noexc60.i
@@ -17322,7 +17322,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
           to label %.noexc23.i unwind label %353
 
 .noexc23.i:                                       ; preds = %.noexc22.i
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 56), i64 noundef 61)
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.108, i64 56), i64 noundef 61)
           to label %.noexc24.i unwind label %353
 
 .noexc24.i:                                       ; preds = %.noexc23.i
@@ -17439,7 +17439,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i unwind label %338
 
 .noexc10.i.i:                                     ; preds = %.noexc9.i.i
-  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.109, i64 56), i64 noundef 50)
+  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.109, i64 56), i64 noundef 50)
           to label %.noexc11.i.i unwind label %338
 
 .noexc11.i.i:                                     ; preds = %.noexc10.i.i
@@ -17625,7 +17625,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
           to label %.noexc24.i.i unwind label %338
 
 .noexc24.i.i:                                     ; preds = %.noexc23.i.i
-  %155 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.109, i64 56), i64 noundef 50)
+  %155 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.109, i64 56), i64 noundef 50)
           to label %.noexc25.i.i unwind label %338
 
 .noexc25.i.i:                                     ; preds = %.noexc24.i.i
@@ -17729,7 +17729,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii7keywordIJLc78ELc111ELc110ELc101EEEEE
           to label %.noexc37.i.i unwind label %338
 
 .noexc37.i.i:                                     ; preds = %.noexc36.i.i
-  %190 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.109, i64 56), i64 noundef 50)
+  %190 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.109, i64 56), i64 noundef 50)
           to label %.noexc38.i.i unwind label %338
 
 .noexc38.i.i:                                     ; preds = %.noexc37.i.i
@@ -17798,7 +17798,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii7keywordIJLc78ELc111ELc110ELc101EEEEE
           to label %.noexc45.i.i unwind label %338
 
 .noexc45.i.i:                                     ; preds = %.noexc44.i.i
-  %220 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %219, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.110, i64 56), i64 noundef 50)
+  %220 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %219, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.110, i64 56), i64 noundef 50)
           to label %.noexc46.i.i unwind label %338
 
 .noexc46.i.i:                                     ; preds = %.noexc45.i.i
@@ -17985,7 +17985,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
           to label %.noexc59.i.i unwind label %338
 
 .noexc59.i.i:                                     ; preds = %.noexc58.i.i
-  %295 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %294, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.110, i64 56), i64 noundef 50)
+  %295 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %294, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.110, i64 56), i64 noundef 50)
           to label %.noexc60.i.i unwind label %338
 
 .noexc60.i.i:                                     ; preds = %.noexc59.i.i
@@ -18079,7 +18079,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS
           to label %.noexc72.i.i unwind label %338
 
 .noexc72.i.i:                                     ; preds = %.noexc71.i.i
-  %327 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %326, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.110, i64 56), i64 noundef 50)
+  %327 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %326, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.110, i64 56), i64 noundef 50)
           to label %.noexc73.i.i unwind label %338
 
 .noexc73.i.i:                                     ; preds = %.noexc72.i.i
@@ -18227,7 +18227,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc44.i unwind label %353
 
 .noexc44.i:                                       ; preds = %.noexc43.i
-  %376 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %375, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 56), i64 noundef 61)
+  %376 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %375, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.108, i64 56), i64 noundef 61)
           to label %.noexc45.i unwind label %353
 
 .noexc45.i:                                       ; preds = %.noexc44.i
@@ -18326,7 +18326,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc60.i unwind label %353
 
 .noexc60.i:                                       ; preds = %.noexc59.i
-  %412 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %411, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 56), i64 noundef 61)
+  %412 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %411, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.108, i64 56), i64 noundef 61)
           to label %.noexc61.i unwind label %353
 
 .noexc61.i:                                       ; preds = %.noexc60.i
@@ -18552,7 +18552,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.60, i64 56), i64 noundef 65)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.60, i64 56), i64 noundef 65)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -18632,7 +18632,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 56), i64 noundef 70)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.61, i64 56), i64 noundef 70)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -18734,7 +18734,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 56), i64 noundef 70)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.61, i64 56), i64 noundef 70)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -18803,7 +18803,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 56), i64 noundef 70)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.61, i64 56), i64 noundef 70)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -18862,7 +18862,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4must
   store i64 %19, ptr %17, align 8
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %19)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.65, i64 56), i64 noundef 68)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.65, i64 56), i64 noundef 68)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
@@ -18979,7 +18979,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %85, i64 noundef %70)
   %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %86, i8 noundef signext 32)
   %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.65, i64 56), i64 noundef 68)
+  %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.65, i64 56), i64 noundef 68)
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %91
 
@@ -19038,7 +19038,7 @@ common.resume.i.i.i.i.i.i:                        ; preds = %137, %101
   %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %119, i64 noundef %104)
   %121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %120, i8 noundef signext 32)
   %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %121, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.65, i64 56), i64 noundef 68)
+  %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.65, i64 56), i64 noundef 68)
   %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %125
 
@@ -19118,7 +19118,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.62, i64 56), i64 noundef 136)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.62, i64 56), i64 noundef 136)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -19162,7 +19162,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.65, i64 56), i64 noundef 68)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.65, i64 56), i64 noundef 68)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -19236,7 +19236,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.66, i64 56), i64 noundef 74)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.66, i64 56), i64 noundef 74)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -19364,7 +19364,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.68, i64 56), i64 noundef 78)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.68, i64 56), i64 noundef 78)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -19492,7 +19492,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.69, i64 56), i64 noundef 186)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.69, i64 56), i64 noundef 186)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -19580,7 +19580,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   store i64 %25, ptr %23, align 8
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %25)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 56), i64 noundef 77)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 56), i64 noundef 77)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef signext 10)
   %31 = load ptr, ptr %13, align 8
@@ -19732,7 +19732,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
           to label %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc22.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 56), i64 noundef 148)
+  %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 56), i64 noundef 148)
           to label %.noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc24.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -19971,7 +19971,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 56), i64 noundef 148)
+  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 56), i64 noundef 148)
           to label %.noexc45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc45.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -20061,7 +20061,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc58.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc58.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc57.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %221 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %220, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 56), i64 noundef 148)
+  %221 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %220, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 56), i64 noundef 148)
           to label %.noexc59.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %166
 
 .noexc59.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.noexc58.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -20172,7 +20172,7 @@ common.resume.i:                                  ; preds = %310, %272, %.body.i
   %259 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %258, i64 noundef %243)
   %260 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %259, i8 noundef signext 32)
   %261 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %260, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %262 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 56), i64 noundef 77)
+  %262 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 56), i64 noundef 77)
   %263 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %264
 
@@ -20234,7 +20234,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %293 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %292, i64 noundef %277)
   %294 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %293, i8 noundef signext 32)
   %295 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %294, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %296 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %295, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 56), i64 noundef 77)
+  %296 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %295, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 56), i64 noundef 77)
   %297 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %296, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %298
 
@@ -20343,7 +20343,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.70, i64 56), i64 noundef 77)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.70, i64 56), i64 noundef 77)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -20441,7 +20441,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.71, i64 56), i64 noundef 148)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.71, i64 56), i64 noundef 148)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -20515,7 +20515,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.72, i64 56), i64 noundef 79)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.72, i64 56), i64 noundef 79)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -20595,7 +20595,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 56), i64 noundef 395)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 56), i64 noundef 395)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -20697,7 +20697,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 56), i64 noundef 395)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 56), i64 noundef 395)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -20785,7 +20785,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   store i64 %23, ptr %21, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %23)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.74, i64 56), i64 noundef 147)
+  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.74, i64 56), i64 noundef 147)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
@@ -20897,7 +20897,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i.i.i unwind label %189
 
 .noexc10.i.i.i.i:                                 ; preds = %.noexc9.i.i.i.i
-  %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 56), i64 noundef 85)
+  %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.76, i64 56), i64 noundef 85)
           to label %.noexc11.i.i.i.i unwind label %189
 
 .noexc11.i.i.i.i:                                 ; preds = %.noexc10.i.i.i.i
@@ -21058,7 +21058,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
           to label %.noexc24.i.i.i.i unwind label %189
 
 .noexc24.i.i.i.i:                                 ; preds = %.noexc23.i.i.i.i
-  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 56), i64 noundef 85)
+  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.76, i64 56), i64 noundef 85)
           to label %.noexc25.i.i.i.i unwind label %189
 
 .noexc25.i.i.i.i:                                 ; preds = %.noexc24.i.i.i.i
@@ -21153,7 +21153,7 @@ common.resume.i.i.i.i.i.i:                        ; preds = %187, %152
           to label %.noexc37.i.i.i.i unwind label %189
 
 .noexc37.i.i.i.i:                                 ; preds = %.noexc36.i.i.i.i
-  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.76, i64 56), i64 noundef 85)
+  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.76, i64 56), i64 noundef 85)
           to label %.noexc38.i.i.i.i unwind label %189
 
 .noexc38.i.i.i.i:                                 ; preds = %.noexc37.i.i.i.i
@@ -21245,7 +21245,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %209, i64 noundef %194)
   %211 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %210, i8 noundef signext 32)
   %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %213 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.74, i64 56), i64 noundef 147)
+  %213 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.74, i64 56), i64 noundef 147)
   %214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %215
 
@@ -21309,7 +21309,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %244 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %243, i64 noundef %228)
   %245 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %244, i8 noundef signext 32)
   %246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %245, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.74, i64 56), i64 noundef 147)
+  %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.74, i64 56), i64 noundef 147)
   %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %247, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %249
 
@@ -21418,7 +21418,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.74, i64 56), i64 noundef 147)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.74, i64 56), i64 noundef 147)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -21500,7 +21500,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   store i64 %19, ptr %17, align 8
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %19)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.75, i64 56), i64 noundef 32)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.75, i64 56), i64 noundef 32)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
@@ -21617,7 +21617,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %86, i64 noundef %71)
   %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %87, i8 noundef signext 32)
   %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.75, i64 56), i64 noundef 32)
+  %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.75, i64 56), i64 noundef 32)
   %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %92
 
@@ -21681,7 +21681,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %120, i64 noundef %105)
   %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %121, i8 noundef signext 32)
   %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.75, i64 56), i64 noundef 32)
+  %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.75, i64 56), i64 noundef 32)
   %125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %126
 
@@ -21741,7 +21741,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.77, i64 56), i64 noundef 218)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.77, i64 56), i64 noundef 218)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -21843,7 +21843,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.77, i64 56), i64 noundef 218)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.77, i64 56), i64 noundef 218)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -21912,7 +21912,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.77, i64 56), i64 noundef 218)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.77, i64 56), i64 noundef 218)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -22004,7 +22004,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   store i64 %27, ptr %25, align 8
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %27)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 56), i64 noundef 162)
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.78, i64 56), i64 noundef 162)
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.45, i64 noundef 3)
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %31, i8 noundef signext 10)
   %33 = load ptr, ptr %15, align 8
@@ -22109,7 +22109,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc7.i.i.i.i unwind label %325
 
 .noexc7.i.i.i.i:                                  ; preds = %.noexc6.i.i.i.i
-  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.79, i64 56), i64 noundef 131)
+  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.79, i64 56), i64 noundef 131)
           to label %.noexc8.i.i.i.i unwind label %325
 
 .noexc8.i.i.i.i:                                  ; preds = %.noexc7.i.i.i.i
@@ -22268,7 +22268,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
           to label %.noexc13.i.i.i.i.i.i.i unwind label %253
 
 .noexc13.i.i.i.i.i.i.i:                           ; preds = %.noexc12.i.i.i.i.i.i.i
-  %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.80, i64 56), i64 noundef 31)
+  %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.80, i64 56), i64 noundef 31)
           to label %.noexc14.i.i.i.i.i.i.i unwind label %253
 
 .noexc14.i.i.i.i.i.i.i:                           ; preds = %.noexc13.i.i.i.i.i.i.i
@@ -22424,7 +22424,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
           to label %.noexc27.i.i.i.i.i.i.i unwind label %253
 
 .noexc27.i.i.i.i.i.i.i:                           ; preds = %.noexc26.i.i.i.i.i.i.i
-  %205 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %204, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.80, i64 56), i64 noundef 31)
+  %205 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %204, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.80, i64 56), i64 noundef 31)
           to label %.noexc28.i.i.i.i.i.i.i unwind label %253
 
 .noexc28.i.i.i.i.i.i.i:                           ; preds = %.noexc27.i.i.i.i.i.i.i
@@ -22524,7 +22524,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc40.i.i.i.i.i.i.i unwind label %253
 
 .noexc40.i.i.i.i.i.i.i:                           ; preds = %.noexc39.i.i.i.i.i.i.i
-  %238 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %237, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.80, i64 56), i64 noundef 31)
+  %238 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %237, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.80, i64 56), i64 noundef 31)
           to label %.noexc41.i.i.i.i.i.i.i unwind label %253
 
 .noexc41.i.i.i.i.i.i.i:                           ; preds = %.noexc40.i.i.i.i.i.i.i
@@ -22630,7 +22630,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc21.i.i.i.i unwind label %325
 
 .noexc21.i.i.i.i:                                 ; preds = %.noexc20.i.i.i.i
-  %277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %276, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.79, i64 56), i64 noundef 131)
+  %277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %276, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.79, i64 56), i64 noundef 131)
           to label %.noexc22.i.i.i.i unwind label %325
 
 .noexc22.i.i.i.i:                                 ; preds = %.noexc21.i.i.i.i
@@ -22734,7 +22734,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc34.i.i.i.i unwind label %325
 
 .noexc34.i.i.i.i:                                 ; preds = %.noexc33.i.i.i.i
-  %314 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %313, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.79, i64 56), i64 noundef 131)
+  %314 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %313, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.79, i64 56), i64 noundef 131)
           to label %.noexc35.i.i.i.i unwind label %325
 
 .noexc35.i.i.i.i:                                 ; preds = %.noexc34.i.i.i.i
@@ -22826,7 +22826,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_6not_atIJNS_3sorIJN
   %347 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %346, i64 noundef %331)
   %348 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %347, i8 noundef signext 32)
   %349 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %348, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %350 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %349, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 56), i64 noundef 162)
+  %350 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %349, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.78, i64 56), i64 noundef 162)
   %351 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %350, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %352
 
@@ -22889,7 +22889,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %385 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %384, i64 noundef %369)
   %386 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %385, i8 noundef signext 32)
   %387 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %386, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %388 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %387, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 56), i64 noundef 162)
+  %388 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %387, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.78, i64 56), i64 noundef 162)
   %389 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %388, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %390
 
@@ -22951,7 +22951,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   store i64 %19, ptr %17, align 8
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %19)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.81, i64 56), i64 noundef 26)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.81, i64 56), i64 noundef 26)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
@@ -23079,7 +23079,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %90, i64 noundef %75)
   %92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %91, i8 noundef signext 32)
   %93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.81, i64 56), i64 noundef 26)
+  %94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.81, i64 56), i64 noundef 26)
   %95 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %96
 
@@ -23143,7 +23143,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_5ascii3anyELNS_10ap
   %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %123, i64 noundef %108)
   %125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %124, i8 noundef signext 32)
   %126 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %127 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.81, i64 56), i64 noundef 26)
+  %127 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.81, i64 56), i64 noundef 26)
   %128 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %129
 
@@ -23250,7 +23250,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.78, i64 56), i64 noundef 162)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.78, i64 56), i64 noundef 162)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -23378,7 +23378,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.79, i64 56), i64 noundef 131)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.79, i64 56), i64 noundef 131)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -23470,7 +23470,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.77, i64 56), i64 noundef 218)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.77, i64 56), i64 noundef 218)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -23539,7 +23539,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 56), i64 noundef 395)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 56), i64 noundef 395)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -23664,7 +23664,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.82, i64 56), i64 noundef 77)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.82, i64 56), i64 noundef 77)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -23738,7 +23738,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.83, i64 56), i64 noundef 75)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.83, i64 56), i64 noundef 75)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -23866,7 +23866,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.85, i64 56), i64 noundef 79)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.85, i64 56), i64 noundef 79)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -23994,7 +23994,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.86, i64 56), i64 noundef 187)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.86, i64 56), i64 noundef 187)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -24122,7 +24122,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.87, i64 56), i64 noundef 80)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.87, i64 56), i64 noundef 80)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -24202,7 +24202,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.88, i64 56), i64 noundef 397)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.88, i64 56), i64 noundef 397)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -24304,7 +24304,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.88, i64 56), i64 noundef 397)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.88, i64 56), i64 noundef 397)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -24392,7 +24392,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   store i64 %23, ptr %21, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %23)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.89, i64 56), i64 noundef 148)
+  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.89, i64 56), i64 noundef 148)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
@@ -24504,7 +24504,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i.i.i unwind label %189
 
 .noexc10.i.i.i.i:                                 ; preds = %.noexc9.i.i.i.i
-  %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.90, i64 56), i64 noundef 86)
+  %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.90, i64 56), i64 noundef 86)
           to label %.noexc11.i.i.i.i unwind label %189
 
 .noexc11.i.i.i.i:                                 ; preds = %.noexc10.i.i.i.i
@@ -24665,7 +24665,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
           to label %.noexc24.i.i.i.i unwind label %189
 
 .noexc24.i.i.i.i:                                 ; preds = %.noexc23.i.i.i.i
-  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.90, i64 56), i64 noundef 86)
+  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.90, i64 56), i64 noundef 86)
           to label %.noexc25.i.i.i.i unwind label %189
 
 .noexc25.i.i.i.i:                                 ; preds = %.noexc24.i.i.i.i
@@ -24760,7 +24760,7 @@ common.resume.i.i.i.i.i.i:                        ; preds = %187, %152
           to label %.noexc37.i.i.i.i unwind label %189
 
 .noexc37.i.i.i.i:                                 ; preds = %.noexc36.i.i.i.i
-  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.90, i64 56), i64 noundef 86)
+  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.90, i64 56), i64 noundef 86)
           to label %.noexc38.i.i.i.i unwind label %189
 
 .noexc38.i.i.i.i:                                 ; preds = %.noexc37.i.i.i.i
@@ -24852,7 +24852,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %209, i64 noundef %194)
   %211 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %210, i8 noundef signext 32)
   %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %213 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.89, i64 56), i64 noundef 148)
+  %213 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.89, i64 56), i64 noundef 148)
   %214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %215
 
@@ -24916,7 +24916,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %244 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %243, i64 noundef %228)
   %245 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %244, i8 noundef signext 32)
   %246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %245, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.89, i64 56), i64 noundef 148)
+  %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.89, i64 56), i64 noundef 148)
   %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %247, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %249
 
@@ -25025,7 +25025,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.89, i64 56), i64 noundef 148)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.89, i64 56), i64 noundef 148)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -25105,7 +25105,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.91, i64 56), i64 noundef 219)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.91, i64 56), i64 noundef 219)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -25207,7 +25207,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.91, i64 56), i64 noundef 219)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.91, i64 56), i64 noundef 219)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -25276,7 +25276,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.91, i64 56), i64 noundef 219)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.91, i64 56), i64 noundef 219)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -25368,7 +25368,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   store i64 %27, ptr %25, align 8
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %27)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 56), i64 noundef 163)
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 56), i64 noundef 163)
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.45, i64 noundef 3)
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %31, i8 noundef signext 10)
   %33 = load ptr, ptr %15, align 8
@@ -25473,7 +25473,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc7.i.i.i.i unwind label %325
 
 .noexc7.i.i.i.i:                                  ; preds = %.noexc6.i.i.i.i
-  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.93, i64 56), i64 noundef 132)
+  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.93, i64 56), i64 noundef 132)
           to label %.noexc8.i.i.i.i unwind label %325
 
 .noexc8.i.i.i.i:                                  ; preds = %.noexc7.i.i.i.i
@@ -25632,7 +25632,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
           to label %.noexc13.i.i.i.i.i.i.i unwind label %253
 
 .noexc13.i.i.i.i.i.i.i:                           ; preds = %.noexc12.i.i.i.i.i.i.i
-  %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.94, i64 56), i64 noundef 32)
+  %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.94, i64 56), i64 noundef 32)
           to label %.noexc14.i.i.i.i.i.i.i unwind label %253
 
 .noexc14.i.i.i.i.i.i.i:                           ; preds = %.noexc13.i.i.i.i.i.i.i
@@ -25788,7 +25788,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
           to label %.noexc27.i.i.i.i.i.i.i unwind label %253
 
 .noexc27.i.i.i.i.i.i.i:                           ; preds = %.noexc26.i.i.i.i.i.i.i
-  %205 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %204, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.94, i64 56), i64 noundef 32)
+  %205 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %204, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.94, i64 56), i64 noundef 32)
           to label %.noexc28.i.i.i.i.i.i.i unwind label %253
 
 .noexc28.i.i.i.i.i.i.i:                           ; preds = %.noexc27.i.i.i.i.i.i.i
@@ -25888,7 +25888,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc40.i.i.i.i.i.i.i unwind label %253
 
 .noexc40.i.i.i.i.i.i.i:                           ; preds = %.noexc39.i.i.i.i.i.i.i
-  %238 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %237, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.94, i64 56), i64 noundef 32)
+  %238 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %237, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.94, i64 56), i64 noundef 32)
           to label %.noexc41.i.i.i.i.i.i.i unwind label %253
 
 .noexc41.i.i.i.i.i.i.i:                           ; preds = %.noexc40.i.i.i.i.i.i.i
@@ -25994,7 +25994,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc21.i.i.i.i unwind label %325
 
 .noexc21.i.i.i.i:                                 ; preds = %.noexc20.i.i.i.i
-  %277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %276, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.93, i64 56), i64 noundef 132)
+  %277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %276, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.93, i64 56), i64 noundef 132)
           to label %.noexc22.i.i.i.i unwind label %325
 
 .noexc22.i.i.i.i:                                 ; preds = %.noexc21.i.i.i.i
@@ -26098,7 +26098,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc34.i.i.i.i unwind label %325
 
 .noexc34.i.i.i.i:                                 ; preds = %.noexc33.i.i.i.i
-  %314 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %313, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.93, i64 56), i64 noundef 132)
+  %314 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %313, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.93, i64 56), i64 noundef 132)
           to label %.noexc35.i.i.i.i unwind label %325
 
 .noexc35.i.i.i.i:                                 ; preds = %.noexc34.i.i.i.i
@@ -26190,7 +26190,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_6not_atIJNS_3sorIJN
   %347 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %346, i64 noundef %331)
   %348 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %347, i8 noundef signext 32)
   %349 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %348, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %350 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %349, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 56), i64 noundef 163)
+  %350 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %349, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 56), i64 noundef 163)
   %351 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %350, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %352
 
@@ -26253,7 +26253,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %385 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %384, i64 noundef %369)
   %386 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %385, i8 noundef signext 32)
   %387 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %386, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %388 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %387, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 56), i64 noundef 163)
+  %388 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %387, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 56), i64 noundef 163)
   %389 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %388, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %390
 
@@ -26361,7 +26361,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.92, i64 56), i64 noundef 163)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.92, i64 56), i64 noundef 163)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -26489,7 +26489,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.93, i64 56), i64 noundef 132)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.93, i64 56), i64 noundef 132)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -26581,7 +26581,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.91, i64 56), i64 noundef 219)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.91, i64 56), i64 noundef 219)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -26650,7 +26650,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.88, i64 56), i64 noundef 397)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.88, i64 56), i64 noundef 397)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -26775,7 +26775,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.95, i64 56), i64 noundef 78)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.95, i64 56), i64 noundef 78)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -26849,7 +26849,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.96, i64 56), i64 noundef 64)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.96, i64 56), i64 noundef 64)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -26977,7 +26977,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.97, i64 56), i64 noundef 59)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.97, i64 56), i64 noundef 59)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -27105,7 +27105,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.99, i64 56), i64 noundef 57)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.99, i64 56), i64 noundef 57)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -27185,7 +27185,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.100, i64 56), i64 noundef 28)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.100, i64 56), i64 noundef 28)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -27287,7 +27287,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.100, i64 56), i64 noundef 28)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.100, i64 56), i64 noundef 28)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -27369,7 +27369,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32p
   store i64 %39, ptr %37, align 8
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %39)
   %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 56), i64 noundef 64)
+  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.101, i64 56), i64 noundef 64)
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.45, i64 noundef 3)
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 noundef signext 10)
   %45 = load ptr, ptr %27, align 8
@@ -27474,7 +27474,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc23.i.i.i.i.i.i unwind label %411
 
 .noexc23.i.i.i.i.i.i:                             ; preds = %.noexc22.i.i.i.i.i.i
-  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.102, i64 56), i64 noundef 68)
+  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.102, i64 56), i64 noundef 68)
           to label %.noexc24.i.i.i.i.i.i unwind label %411
 
 .noexc24.i.i.i.i.i.i:                             ; preds = %.noexc23.i.i.i.i.i.i
@@ -27590,7 +27590,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i.i.i.i.i.i unwind label %395
 
 .noexc10.i.i.i.i.i.i.i:                           ; preds = %.noexc9.i.i.i.i.i.i.i
-  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.103, i64 56), i64 noundef 50)
+  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.103, i64 56), i64 noundef 50)
           to label %.noexc11.i.i.i.i.i.i.i unwind label %395
 
 .noexc11.i.i.i.i.i.i.i:                           ; preds = %.noexc10.i.i.i.i.i.i.i
@@ -27776,7 +27776,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
           to label %.noexc24.i.i.i.i.i.i.i unwind label %395
 
 .noexc24.i.i.i.i.i.i.i:                           ; preds = %.noexc23.i.i.i.i.i.i.i
-  %212 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.103, i64 56), i64 noundef 50)
+  %212 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.103, i64 56), i64 noundef 50)
           to label %.noexc25.i.i.i.i.i.i.i unwind label %395
 
 .noexc25.i.i.i.i.i.i.i:                           ; preds = %.noexc24.i.i.i.i.i.i.i
@@ -27880,7 +27880,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii7keywordIJLc84ELc114ELc117ELc101EEEEE
           to label %.noexc37.i.i.i.i.i.i.i unwind label %395
 
 .noexc37.i.i.i.i.i.i.i:                           ; preds = %.noexc36.i.i.i.i.i.i.i
-  %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.103, i64 56), i64 noundef 50)
+  %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.103, i64 56), i64 noundef 50)
           to label %.noexc38.i.i.i.i.i.i.i unwind label %395
 
 .noexc38.i.i.i.i.i.i.i:                           ; preds = %.noexc37.i.i.i.i.i.i.i
@@ -27949,7 +27949,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii7keywordIJLc84ELc114ELc117ELc101EEEEE
           to label %.noexc45.i.i.i.i.i.i.i unwind label %395
 
 .noexc45.i.i.i.i.i.i.i:                           ; preds = %.noexc44.i.i.i.i.i.i.i
-  %277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %276, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.104, i64 56), i64 noundef 50)
+  %277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %276, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.104, i64 56), i64 noundef 50)
           to label %.noexc46.i.i.i.i.i.i.i unwind label %395
 
 .noexc46.i.i.i.i.i.i.i:                           ; preds = %.noexc45.i.i.i.i.i.i.i
@@ -28136,7 +28136,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
           to label %.noexc59.i.i.i.i.i.i.i unwind label %395
 
 .noexc59.i.i.i.i.i.i.i:                           ; preds = %.noexc58.i.i.i.i.i.i.i
-  %352 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %351, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.104, i64 56), i64 noundef 50)
+  %352 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %351, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.104, i64 56), i64 noundef 50)
           to label %.noexc60.i.i.i.i.i.i.i unwind label %395
 
 .noexc60.i.i.i.i.i.i.i:                           ; preds = %.noexc59.i.i.i.i.i.i.i
@@ -28230,7 +28230,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS
           to label %.noexc72.i.i.i.i.i.i.i unwind label %395
 
 .noexc72.i.i.i.i.i.i.i:                           ; preds = %.noexc71.i.i.i.i.i.i.i
-  %384 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %383, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.104, i64 56), i64 noundef 50)
+  %384 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %383, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.104, i64 56), i64 noundef 50)
           to label %.noexc73.i.i.i.i.i.i.i unwind label %395
 
 .noexc73.i.i.i.i.i.i.i:                           ; preds = %.noexc72.i.i.i.i.i.i.i
@@ -28386,7 +28386,7 @@ common.resume.i.i.i.i:                            ; preds = %879, %847, %813, %.
           to label %.noexc44.i.i.i.i.i.i unwind label %411
 
 .noexc44.i.i.i.i.i.i:                             ; preds = %.noexc43.i.i.i.i.i.i
-  %436 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %435, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.102, i64 56), i64 noundef 68)
+  %436 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %435, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.102, i64 56), i64 noundef 68)
           to label %.noexc45.i.i.i.i.i.i unwind label %411
 
 .noexc45.i.i.i.i.i.i:                             ; preds = %.noexc44.i.i.i.i.i.i
@@ -28485,7 +28485,7 @@ common.resume.i.i.i.i:                            ; preds = %879, %847, %813, %.
           to label %.noexc60.i.i.i.i.i.i unwind label %411
 
 .noexc60.i.i.i.i.i.i:                             ; preds = %.noexc59.i.i.i.i.i.i
-  %472 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %471, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.102, i64 56), i64 noundef 68)
+  %472 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %471, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.102, i64 56), i64 noundef 68)
           to label %.noexc61.i.i.i.i.i.i unwind label %411
 
 .noexc61.i.i.i.i.i.i:                             ; preds = %.noexc60.i.i.i.i.i.i
@@ -28561,7 +28561,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
           to label %.noexc23.i.i13.i.i.i.i unwind label %813
 
 .noexc23.i.i13.i.i.i.i:                           ; preds = %.noexc22.i.i12.i.i.i.i
-  %498 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %497, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.105, i64 56), i64 noundef 69)
+  %498 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %497, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.105, i64 56), i64 noundef 69)
           to label %.noexc24.i.i14.i.i.i.i unwind label %813
 
 .noexc24.i.i14.i.i.i.i:                           ; preds = %.noexc23.i.i13.i.i.i.i
@@ -28677,7 +28677,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10.i.i.i25.i.i.i.i unwind label %797
 
 .noexc10.i.i.i25.i.i.i.i:                         ; preds = %.noexc9.i.i.i24.i.i.i.i
-  %543 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %542, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.106, i64 56), i64 noundef 55)
+  %543 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %542, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.106, i64 56), i64 noundef 55)
           to label %.noexc11.i.i.i26.i.i.i.i unwind label %797
 
 .noexc11.i.i.i26.i.i.i.i:                         ; preds = %.noexc10.i.i.i25.i.i.i.i
@@ -28862,7 +28862,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
           to label %.noexc24.i.i.i150.i.i.i.i unwind label %797
 
 .noexc24.i.i.i150.i.i.i.i:                        ; preds = %.noexc23.i.i.i149.i.i.i.i
-  %619 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %618, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.106, i64 56), i64 noundef 55)
+  %619 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %618, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.106, i64 56), i64 noundef 55)
           to label %.noexc25.i.i.i151.i.i.i.i unwind label %797
 
 .noexc25.i.i.i151.i.i.i.i:                        ; preds = %.noexc24.i.i.i150.i.i.i.i
@@ -28964,7 +28964,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii7keywordIJLc70ELc97ELc108ELc115ELc101
           to label %.noexc37.i.i.i40.i.i.i.i unwind label %797
 
 .noexc37.i.i.i40.i.i.i.i:                         ; preds = %.noexc36.i.i.i39.i.i.i.i
-  %652 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %651, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.106, i64 56), i64 noundef 55)
+  %652 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %651, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.106, i64 56), i64 noundef 55)
           to label %.noexc38.i.i.i41.i.i.i.i unwind label %797
 
 .noexc38.i.i.i41.i.i.i.i:                         ; preds = %.noexc37.i.i.i40.i.i.i.i
@@ -29029,7 +29029,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii7keywordIJLc70ELc97ELc108ELc115ELc101
           to label %.noexc45.i.i.i51.i.i.i.i unwind label %797
 
 .noexc45.i.i.i51.i.i.i.i:                         ; preds = %.noexc44.i.i.i50.i.i.i.i
-  %678 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %677, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.107, i64 56), i64 noundef 55)
+  %678 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %677, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.107, i64 56), i64 noundef 55)
           to label %.noexc46.i.i.i52.i.i.i.i unwind label %797
 
 .noexc46.i.i.i52.i.i.i.i:                         ; preds = %.noexc45.i.i.i51.i.i.i.i
@@ -29218,7 +29218,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
           to label %.noexc59.i.i.i99.i.i.i.i unwind label %797
 
 .noexc59.i.i.i99.i.i.i.i:                         ; preds = %.noexc58.i.i.i98.i.i.i.i
-  %754 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %753, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.107, i64 56), i64 noundef 55)
+  %754 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %753, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.107, i64 56), i64 noundef 55)
           to label %.noexc60.i.i.i100.i.i.i.i unwind label %797
 
 .noexc60.i.i.i100.i.i.i.i:                        ; preds = %.noexc59.i.i.i99.i.i.i.i
@@ -29312,7 +29312,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS
           to label %.noexc72.i.i.i65.i.i.i.i unwind label %797
 
 .noexc72.i.i.i65.i.i.i.i:                         ; preds = %.noexc71.i.i.i64.i.i.i.i
-  %786 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %785, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.107, i64 56), i64 noundef 55)
+  %786 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %785, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.107, i64 56), i64 noundef 55)
           to label %.noexc73.i.i.i66.i.i.i.i unwind label %797
 
 .noexc73.i.i.i66.i.i.i.i:                         ; preds = %.noexc72.i.i.i65.i.i.i.i
@@ -29457,7 +29457,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS
           to label %.noexc44.i.i121.i.i.i.i unwind label %813
 
 .noexc44.i.i121.i.i.i.i:                          ; preds = %.noexc43.i.i120.i.i.i.i
-  %838 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %837, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.105, i64 56), i64 noundef 69)
+  %838 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %837, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.105, i64 56), i64 noundef 69)
           to label %.noexc45.i.i122.i.i.i.i unwind label %813
 
 .noexc45.i.i122.i.i.i.i:                          ; preds = %.noexc44.i.i121.i.i.i.i
@@ -29552,7 +29552,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZNS0_20match_control_unwindINS
           to label %.noexc60.i.i80.i.i.i.i unwind label %813
 
 .noexc60.i.i80.i.i.i.i:                           ; preds = %.noexc59.i.i79.i.i.i.i
-  %870 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %869, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.105, i64 56), i64 noundef 69)
+  %870 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %869, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.105, i64 56), i64 noundef 69)
           to label %.noexc61.i.i81.i.i.i.i unwind label %813
 
 .noexc61.i.i81.i.i.i.i:                           ; preds = %.noexc60.i.i80.i.i.i.i
@@ -29660,7 +29660,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   %918 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %917, i64 noundef %902)
   %919 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %918, i8 noundef signext 32)
   %920 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %919, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %921 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %920, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 56), i64 noundef 64)
+  %921 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %920, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.101, i64 56), i64 noundef 64)
   %922 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %921, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %923
 
@@ -29701,7 +29701,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %939 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %938, i64 noundef %885)
   %940 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %939, i8 noundef signext 32)
   %941 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %940, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %942 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %941, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 56), i64 noundef 64)
+  %942 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %941, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.101, i64 56), i64 noundef 64)
   %943 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %942, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %944
 
@@ -29806,7 +29806,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.101, i64 56), i64 noundef 64)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.101, i64 56), i64 noundef 64)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -29934,7 +29934,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.102, i64 56), i64 noundef 68)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.102, i64 56), i64 noundef 68)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -30062,7 +30062,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.105, i64 56), i64 noundef 69)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.105, i64 56), i64 noundef 69)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -30190,7 +30190,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 56), i64 noundef 61)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.108, i64 56), i64 noundef 61)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -30270,7 +30270,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.111, i64 56), i64 noundef 65)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.111, i64 56), i64 noundef 65)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -30372,7 +30372,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.111, i64 56), i64 noundef 65)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.111, i64 56), i64 noundef 65)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -30441,7 +30441,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.111, i64 56), i64 noundef 65)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.111, i64 56), i64 noundef 65)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -30523,7 +30523,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.112, i64 56), i64 noundef 177)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.112, i64 56), i64 noundef 177)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -30625,7 +30625,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.112, i64 56), i64 noundef 177)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.112, i64 56), i64 noundef 177)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -30694,7 +30694,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.112, i64 56), i64 noundef 177)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.112, i64 56), i64 noundef 177)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -30796,7 +30796,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
           to label %.noexc23.i unwind label %102
 
 .noexc23.i:                                       ; preds = %.noexc22.i
-  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.113, i64 56), i64 noundef 69)
+  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.113, i64 56), i64 noundef 69)
           to label %.noexc24.i unwind label %102
 
 .noexc24.i:                                       ; preds = %.noexc23.i
@@ -31039,7 +31039,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc44.i unwind label %102
 
 .noexc44.i:                                       ; preds = %.noexc43.i
-  %125 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.113, i64 56), i64 noundef 69)
+  %125 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.113, i64 56), i64 noundef 69)
           to label %.noexc45.i unwind label %102
 
 .noexc45.i:                                       ; preds = %.noexc44.i
@@ -31129,7 +31129,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc58.i unwind label %102
 
 .noexc58.i:                                       ; preds = %.noexc57.i
-  %157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.113, i64 56), i64 noundef 69)
+  %157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.113, i64 56), i64 noundef 69)
           to label %.noexc59.i unwind label %102
 
 .noexc59.i:                                       ; preds = %.noexc58.i
@@ -31211,7 +31211,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   store i64 %23, ptr %21, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %23)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.114, i64 56), i64 noundef 78)
+  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.114, i64 56), i64 noundef 78)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
@@ -31323,7 +31323,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc32EEEEJEEEE
           to label %.noexc11.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc11.i.i:                                     ; preds = %.noexc10.i.i
-  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 56), i64 noundef 31)
+  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.116, i64 56), i64 noundef 31)
           to label %.noexc12.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc12.i.i:                                     ; preds = %.noexc11.i.i
@@ -31481,7 +31481,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
           to label %.noexc25.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc25.i.i:                                     ; preds = %.noexc24.i.i
-  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 56), i64 noundef 31)
+  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.116, i64 56), i64 noundef 31)
           to label %.noexc26.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc26.i.i:                                     ; preds = %.noexc25.i.i
@@ -31576,7 +31576,7 @@ common.resume.i.i.i.i.i.i:                        ; preds = %187, %152
           to label %.noexc38.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc38.i.i:                                     ; preds = %.noexc37.i.i
-  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 56), i64 noundef 31)
+  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.116, i64 56), i64 noundef 31)
           to label %.noexc39.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc39.i.i:                                     ; preds = %.noexc38.i.i
@@ -31681,7 +31681,7 @@ common.resume.i:                                  ; preds = %258, %224, %.body.i
   %211 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %210, i64 noundef %195)
   %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %211, i8 noundef signext 32)
   %213 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.114, i64 56), i64 noundef 78)
+  %214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.114, i64 56), i64 noundef 78)
   %215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %214, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %216
 
@@ -31745,7 +31745,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %245 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %244, i64 noundef %229)
   %246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %245, i8 noundef signext 32)
   %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %247, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.114, i64 56), i64 noundef 78)
+  %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %247, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.114, i64 56), i64 noundef 78)
   %249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %248, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %250
 
@@ -31850,7 +31850,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.114, i64 56), i64 noundef 78)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.114, i64 56), i64 noundef 78)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -31932,7 +31932,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   store i64 %19, ptr %17, align 8
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %19)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.115, i64 56), i64 noundef 31)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.115, i64 56), i64 noundef 31)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
@@ -32049,7 +32049,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %86, i64 noundef %71)
   %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %87, i8 noundef signext 32)
   %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.115, i64 56), i64 noundef 31)
+  %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.115, i64 56), i64 noundef 31)
   %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %92
 
@@ -32113,7 +32113,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %120, i64 noundef %105)
   %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %121, i8 noundef signext 32)
   %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.115, i64 56), i64 noundef 31)
+  %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.115, i64 56), i64 noundef 31)
   %125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %126
 
@@ -32185,7 +32185,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.112, i64 56), i64 noundef 177)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.112, i64 56), i64 noundef 177)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -32247,7 +32247,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4must
   store i64 %23, ptr %21, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %23)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.128, i64 56), i64 noundef 76)
+  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.128, i64 56), i64 noundef 76)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
@@ -32359,7 +32359,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc32EEEEJEEEE
           to label %.noexc11.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i
 
 .noexc11.i.i.i.i.i.i.i:                           ; preds = %.noexc10.i.i.i.i.i.i.i
-  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.129, i64 56), i64 noundef 31)
+  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.129, i64 56), i64 noundef 31)
           to label %.noexc12.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i
 
 .noexc12.i.i.i.i.i.i.i:                           ; preds = %.noexc11.i.i.i.i.i.i.i
@@ -32517,7 +32517,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
           to label %.noexc25.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i
 
 .noexc25.i.i.i.i.i.i.i:                           ; preds = %.noexc24.i.i.i.i.i.i.i
-  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.129, i64 56), i64 noundef 31)
+  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.129, i64 56), i64 noundef 31)
           to label %.noexc26.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i
 
 .noexc26.i.i.i.i.i.i.i:                           ; preds = %.noexc25.i.i.i.i.i.i.i
@@ -32612,7 +32612,7 @@ common.resume.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %187, %152
           to label %.noexc38.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i
 
 .noexc38.i.i.i.i.i.i.i:                           ; preds = %.noexc37.i.i.i.i.i.i.i
-  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.129, i64 56), i64 noundef 31)
+  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.129, i64 56), i64 noundef 31)
           to label %.noexc39.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i
 
 .noexc39.i.i.i.i.i.i.i:                           ; preds = %.noexc38.i.i.i.i.i.i.i
@@ -32717,7 +32717,7 @@ common.resume.i.i.i.i.i.i:                        ; preds = %258, %224, %.body.i
   %211 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %210, i64 noundef %195)
   %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %211, i8 noundef signext 32)
   %213 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %212, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.128, i64 56), i64 noundef 76)
+  %214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.128, i64 56), i64 noundef 76)
   %215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %214, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %216
 
@@ -32776,7 +32776,7 @@ common.resume.i.i.i.i.i.i:                        ; preds = %258, %224, %.body.i
   %245 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %244, i64 noundef %229)
   %246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %245, i8 noundef signext 32)
   %247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %247, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.128, i64 56), i64 noundef 76)
+  %248 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %247, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.128, i64 56), i64 noundef 76)
   %249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %248, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %250
 
@@ -32842,7 +32842,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_
   store i64 %23, ptr %21, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %23)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.117, i64 56), i64 noundef 74)
+  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.117, i64 56), i64 noundef 74)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
@@ -32944,7 +32944,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc19 unwind label %186
 
 .noexc19:                                         ; preds = %.noexc18
-  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.118, i64 56), i64 noundef 248)
+  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.118, i64 56), i64 noundef 248)
           to label %.noexc20 unwind label %186
 
 .noexc20:                                         ; preds = %.noexc19
@@ -33139,7 +33139,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__12_G
           to label %.noexc33 unwind label %186
 
 .noexc33:                                         ; preds = %.noexc32
-  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.118, i64 56), i64 noundef 248)
+  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.118, i64 56), i64 noundef 248)
           to label %.noexc34 unwind label %186
 
 .noexc34:                                         ; preds = %.noexc33
@@ -33243,7 +33243,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__12_G
           to label %.noexc46 unwind label %186
 
 .noexc46:                                         ; preds = %.noexc45
-  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.118, i64 56), i64 noundef 248)
+  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.118, i64 56), i64 noundef 248)
           to label %.noexc47 unwind label %186
 
 .noexc47:                                         ; preds = %.noexc46
@@ -33333,7 +33333,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   %206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %205, i64 noundef %190)
   %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %206, i8 noundef signext 32)
   %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %207, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.117, i64 56), i64 noundef 74)
+  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.117, i64 56), i64 noundef 74)
   %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %211
 
@@ -33438,7 +33438,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.117, i64 56), i64 noundef 74)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.117, i64 56), i64 noundef 74)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -33520,7 +33520,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starINS_5asci
   store i64 %20, ptr %18, align 8
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %20)
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.127, i64 56), i64 noundef 60)
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.127, i64 56), i64 noundef 60)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.45, i64 noundef 3)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %24, i8 noundef signext 10)
   %26 = load ptr, ptr %8, align 8
@@ -33644,7 +33644,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_4starINS_5ascii3one
   %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %76, i64 noundef %61)
   %78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %77, i8 noundef signext 32)
   %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.127, i64 56), i64 noundef 60)
+  %80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.127, i64 56), i64 noundef 60)
   %81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %82
 
@@ -33749,7 +33749,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.118, i64 56), i64 noundef 248)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.118, i64 56), i64 noundef 248)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -33852,7 +33852,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
           to label %.noexc45 unwind label %111
 
 .noexc45:                                         ; preds = %.noexc44
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.119, i64 56), i64 noundef 153)
+  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.119, i64 56), i64 noundef 153)
           to label %.noexc46 unwind label %111
 
 .noexc46:                                         ; preds = %.noexc45
@@ -34192,7 +34192,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc24 unwind label %111
 
 .noexc24:                                         ; preds = %.noexc23
-  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.119, i64 56), i64 noundef 153)
+  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.119, i64 56), i64 noundef 153)
           to label %.noexc25 unwind label %111
 
 .noexc25:                                         ; preds = %.noexc24
@@ -34289,7 +34289,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10 unwind label %111
 
 .noexc10:                                         ; preds = %.noexc9
-  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.119, i64 56), i64 noundef 153)
+  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.119, i64 56), i64 noundef 153)
           to label %.noexc11 unwind label %111
 
 .noexc11:                                         ; preds = %.noexc10
@@ -34414,7 +34414,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.119, i64 56), i64 noundef 153)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.119, i64 56), i64 noundef 153)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -34494,7 +34494,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.120, i64 56), i64 noundef 71)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.120, i64 56), i64 noundef 71)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -34596,7 +34596,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.120, i64 56), i64 noundef 71)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.120, i64 56), i64 noundef 71)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -34665,7 +34665,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.120, i64 56), i64 noundef 71)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.120, i64 56), i64 noundef 71)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -34747,7 +34747,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   store i64 %16, ptr %14, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.121, i64 56), i64 noundef 66)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.121, i64 56), i64 noundef 66)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
@@ -34849,7 +34849,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.121, i64 56), i64 noundef 66)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.121, i64 56), i64 noundef 66)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -34918,7 +34918,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.121, i64 56), i64 noundef 66)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.121, i64 56), i64 noundef 66)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -34982,7 +34982,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_
   store i64 %23, ptr %21, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %23)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.122, i64 56), i64 noundef 69)
+  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.122, i64 56), i64 noundef 69)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
@@ -35084,7 +35084,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc19 unwind label %186
 
 .noexc19:                                         ; preds = %.noexc18
-  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.123, i64 56), i64 noundef 163)
+  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.123, i64 56), i64 noundef 163)
           to label %.noexc20 unwind label %186
 
 .noexc20:                                         ; preds = %.noexc19
@@ -35279,7 +35279,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__12_G
           to label %.noexc33 unwind label %186
 
 .noexc33:                                         ; preds = %.noexc32
-  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.123, i64 56), i64 noundef 163)
+  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.123, i64 56), i64 noundef 163)
           to label %.noexc34 unwind label %186
 
 .noexc34:                                         ; preds = %.noexc33
@@ -35383,7 +35383,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__12_G
           to label %.noexc46 unwind label %186
 
 .noexc46:                                         ; preds = %.noexc45
-  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.123, i64 56), i64 noundef 163)
+  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.123, i64 56), i64 noundef 163)
           to label %.noexc47 unwind label %186
 
 .noexc47:                                         ; preds = %.noexc46
@@ -35473,7 +35473,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   %206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %205, i64 noundef %190)
   %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %206, i8 noundef signext 32)
   %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %207, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.122, i64 56), i64 noundef 69)
+  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.122, i64 56), i64 noundef 69)
   %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %211
 
@@ -35578,7 +35578,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.122, i64 56), i64 noundef 69)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.122, i64 56), i64 noundef 69)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -35706,7 +35706,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.123, i64 56), i64 noundef 163)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.123, i64 56), i64 noundef 163)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -35807,7 +35807,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
           to label %.noexc45 unwind label %88
 
 .noexc45:                                         ; preds = %.noexc44
-  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.124, i64 56), i64 noundef 68)
+  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.124, i64 56), i64 noundef 68)
           to label %.noexc46 unwind label %88
 
 .noexc46:                                         ; preds = %.noexc45
@@ -36060,7 +36060,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc24 unwind label %88
 
 .noexc24:                                         ; preds = %.noexc23
-  %111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.124, i64 56), i64 noundef 68)
+  %111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.124, i64 56), i64 noundef 68)
           to label %.noexc25 unwind label %88
 
 .noexc25:                                         ; preds = %.noexc24
@@ -36154,7 +36154,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
           to label %.noexc10 unwind label %88
 
 .noexc10:                                         ; preds = %.noexc9
-  %147 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %146, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.124, i64 56), i64 noundef 68)
+  %147 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %146, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.124, i64 56), i64 noundef 68)
           to label %.noexc11 unwind label %88
 
 .noexc11:                                         ; preds = %.noexc10
@@ -36279,7 +36279,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.124, i64 56), i64 noundef 68)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.124, i64 56), i64 noundef 68)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -36511,7 +36511,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.111, i64 56), i64 noundef 65)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.111, i64 56), i64 noundef 65)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -36577,7 +36577,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc32EEEEJEEEE
   store i64 %21, ptr %19, align 8
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %21)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.125, i64 56), i64 noundef 31)
+  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.125, i64 56), i64 noundef 31)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.45, i64 noundef 3)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 10)
   %27 = load ptr, ptr %9, align 8
@@ -36694,7 +36694,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %88, i64 noundef %73)
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %89, i8 noundef signext 32)
   %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.125, i64 56), i64 noundef 31)
+  %92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.125, i64 56), i64 noundef 31)
   %93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %94
 
@@ -36753,7 +36753,7 @@ common.resume.i.i.i.i.i.i:                        ; preds = %140, %104
   %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %122, i64 noundef %107)
   %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %123, i8 noundef signext 32)
   %125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %126 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.125, i64 56), i64 noundef 31)
+  %126 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.125, i64 56), i64 noundef 31)
   %127 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %128
 
@@ -36824,7 +36824,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   store i64 %19, ptr %17, align 8
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %19)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.126, i64 56), i64 noundef 64)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.126, i64 56), i64 noundef 64)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
@@ -36941,7 +36941,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %86, i64 noundef %71)
   %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %87, i8 noundef signext 32)
   %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.126, i64 56), i64 noundef 64)
+  %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.126, i64 56), i64 noundef 64)
   %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %92
 
@@ -37005,7 +37005,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %120, i64 noundef %105)
   %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %121, i8 noundef signext 32)
   %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.126, i64 56), i64 noundef 64)
+  %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.126, i64 56), i64 noundef 64)
   %125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %126
 
@@ -37083,7 +37083,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.126, i64 56), i64 noundef 64)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.126, i64 56), i64 noundef 64)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -37121,7 +37121,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %8)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 32)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52, i64 noundef 5)
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.120, i64 56), i64 noundef 71)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.120, i64 56), i64 noundef 71)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   br label %30
 
@@ -37226,7 +37226,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.127, i64 56), i64 noundef 60)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.127, i64 56), i64 noundef 60)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -37364,7 +37364,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
           to label %.noexc8 unwind label %49
 
 .noexc8:                                          ; preds = %.noexc7
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.128, i64 56), i64 noundef 76)
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.128, i64 56), i64 noundef 76)
           to label %.noexc9 unwind label %49
 
 .noexc9:                                          ; preds = %.noexc8
@@ -37452,7 +37452,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.128, i64 56), i64 noundef 76)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.128, i64 56), i64 noundef 76)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -37511,7 +37511,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.58, i64 56), i64 noundef 71)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.58, i64 56), i64 noundef 71)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -37555,7 +37555,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_trait
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.45, i64 noundef 3)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 32)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.46, i64 noundef 5)
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.130, i64 56), i64 noundef 70)
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.130, i64 56), i64 noundef 70)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.45, i64 noundef 3)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef signext 10)
   ret void
@@ -37793,7 +37793,7 @@ __cxx_global_var_init.2.exit:                     ; preds = %37
           to label %.noexc1.i8 unwind label %45
 
 .noexc1.i8:                                       ; preds = %.noexc.i7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_7ListEndEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_7ListEndEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 18))
           to label %__cxx_global_var_init.3.exit unwind label %43
 
 43:                                               ; preds = %.noexc1.i8
@@ -37821,7 +37821,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %.noexc1.i8
           to label %.noexc1.i12 unwind label %51
 
 .noexc1.i12:                                      ; preds = %.noexc.i11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_19FunctionArgumentEndEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_19FunctionArgumentEndEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 18))
           to label %__cxx_global_var_init.5.exit unwind label %49
 
 49:                                               ; preds = %.noexc1.i12
@@ -37849,7 +37849,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %.noexc1.i12
           to label %.noexc1.i16 unwind label %57
 
 .noexc1.i16:                                      ; preds = %.noexc.i15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_15ExpressionStartEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 31))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_15ExpressionStartEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 31))
           to label %__cxx_global_var_init.7.exit unwind label %55
 
 55:                                               ; preds = %.noexc1.i16
@@ -37877,7 +37877,7 @@ __cxx_global_var_init.7.exit:                     ; preds = %.noexc1.i16
           to label %.noexc1.i20 unwind label %63
 
 .noexc1.i20:                                      ; preds = %.noexc.i19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_14ExpressionBodyEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.10, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_14ExpressionBodyEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 21))
           to label %__cxx_global_var_init.9.exit unwind label %61
 
 61:                                               ; preds = %.noexc1.i20
@@ -37905,7 +37905,7 @@ __cxx_global_var_init.9.exit:                     ; preds = %.noexc1.i20
           to label %.noexc1.i24 unwind label %69
 
 .noexc1.i24:                                      ; preds = %.noexc.i23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_13ExpressionEndEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.12, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_13ExpressionEndEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.12, i64 18))
           to label %__cxx_global_var_init.11.exit unwind label %67
 
 67:                                               ; preds = %.noexc1.i24
@@ -37933,7 +37933,7 @@ __cxx_global_var_init.11.exit:                    ; preds = %.noexc1.i24
           to label %.noexc1.i28 unwind label %75
 
 .noexc1.i28:                                      ; preds = %.noexc.i27
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_12VariableNameINS0_8VariableEEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 32))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_12VariableNameINS0_8VariableEEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.14, i64 32))
           to label %__cxx_global_var_init.13.exit unwind label %73
 
 73:                                               ; preds = %.noexc1.i28
@@ -37961,7 +37961,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %.noexc1.i28
           to label %.noexc1.i32 unwind label %81
 
 .noexc1.i32:                                      ; preds = %.noexc.i31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_12VariableNameINS0_20QuotedStringVariableEEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 32))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_12VariableNameINS0_20QuotedStringVariableEEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.14, i64 32))
           to label %__cxx_global_var_init.15.exit unwind label %79
 
 79:                                               ; preds = %.noexc1.i32
@@ -37989,7 +37989,7 @@ __cxx_global_var_init.15.exit:                    ; preds = %.noexc1.i32
           to label %.noexc1.i36 unwind label %87
 
 .noexc1.i36:                                      ; preds = %.noexc.i35
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_11VariableEndEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_11VariableEndEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.17, i64 18))
           to label %__cxx_global_var_init.16.exit unwind label %85
 
 85:                                               ; preds = %.noexc1.i36
@@ -38017,7 +38017,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %.noexc1.i36
           to label %.noexc1.i40 unwind label %93
 
 .noexc1.i40:                                      ; preds = %.noexc.i39
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_16QuotedStringBodyILc34EEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_16QuotedStringBodyILc34EEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.19, i64 23))
           to label %__cxx_global_var_init.18.exit unwind label %91
 
 91:                                               ; preds = %.noexc1.i40
@@ -38045,7 +38045,7 @@ __cxx_global_var_init.18.exit:                    ; preds = %.noexc1.i40
           to label %.noexc1.i44 unwind label %99
 
 .noexc1.i44:                                      ; preds = %.noexc.i43
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_15QuotedStringEndILc34EEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_15QuotedStringEndILc34EEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 18))
           to label %__cxx_global_var_init.20.exit unwind label %97
 
 97:                                               ; preds = %.noexc1.i44
@@ -38073,7 +38073,7 @@ __cxx_global_var_init.20.exit:                    ; preds = %.noexc1.i44
           to label %.noexc1.i48 unwind label %105
 
 .noexc1.i48:                                      ; preds = %.noexc.i47
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_16QuotedStringBodyILc39EEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.19, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_16QuotedStringBodyILc39EEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.19, i64 23))
           to label %__cxx_global_var_init.22.exit unwind label %103
 
 103:                                              ; preds = %.noexc1.i48
@@ -38101,7 +38101,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %.noexc1.i48
           to label %.noexc1.i52 unwind label %111
 
 .noexc1.i52:                                      ; preds = %.noexc.i51
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_15QuotedStringEndILc39EEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.24, i64 18))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsINS0_15QuotedStringEndILc39EEEE8errorMsgB5cxx11E, ptr noundef nonnull @.str.24, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.24, i64 18))
           to label %__cxx_global_var_init.23.exit unwind label %109
 
 109:                                              ; preds = %.noexc1.i52

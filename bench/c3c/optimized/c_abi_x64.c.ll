@@ -89,7 +89,7 @@ define dso_local ptr @x64_indirect_return_result(ptr noundef %0) local_unnamed_a
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 255
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %21 = icmp ult i32 %19, %20
   br i1 %21, label %22, label %.critedge
 
@@ -263,14 +263,14 @@ define dso_local ptr @x64_indirect_result(ptr nocapture noundef readonly %0, i32
   %8 = tail call i32 @type_size(ptr noundef nonnull %3) #7
   %9 = icmp ult i32 %8, 9
   %10 = zext i32 %8 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 268), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %12 = sext i32 %11 to i64
   %13 = icmp ugt i64 %10, %12
   %or.cond.i = select i1 %9, i1 true, i1 %13
   br i1 %or.cond.i, label %x64_type_is_illegal_vector.exit.thread24, label %14
 
 14:                                               ; preds = %7
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
   %16 = and i32 %15, 524288
   %.not8.i = icmp eq i32 %16, 0
   br i1 %.not8.i, label %x64_type_is_illegal_vector.exit.threadthread-pre-split, label %x64_type_is_illegal_vector.exit
@@ -309,7 +309,7 @@ x64_type_is_illegal_vector.exit.thread:           ; preds = %x64_type_is_illegal
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 255
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %34 = icmp ult i32 %32, %33
   br i1 %34, label %35, label %.critedge
 
@@ -420,7 +420,7 @@ define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, pt
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 255
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %36 = icmp ult i32 %34, %35
   br i1 %36, label %37, label %.critedge.i
 
@@ -512,7 +512,7 @@ x64_type_is_structure.exit:                       ; preds = %48
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 255
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %81 = icmp ult i32 %79, %80
   br i1 %81, label %82, label %.critedge.i32
 
@@ -603,7 +603,7 @@ define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 nound
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 255
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %32 = icmp ult i32 %30, %31
   br i1 %32, label %33, label %.critedgethread-pre-split
 
@@ -853,14 +853,14 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @type_size(ptr noundef %39) #7
   %.not48 = icmp ne i32 %9, %40
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 268), align 4
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %42 = sext i32 %41 to i64
   %43 = icmp ugt i64 %10, %42
   %or.cond = select i1 %.not48, i1 true, i1 %43
   br i1 %or.cond, label %45, label %46
 
 44:                                               ; preds = %36
-  %.old = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 268), align 4
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %.old50 = sext i32 %.old to i64
   %.old51 = icmp ugt i64 %10, %.old50
   br i1 %.old51, label %45, label %46
@@ -1135,13 +1135,13 @@ define internal fastcc void @x64_classify(ptr nocapture noundef readonly %0, i64
 
 36:                                               ; preds = %19
   %37 = icmp ne i32 %4, 1
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 268), align 4
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %.not.i = icmp ugt i32 %20, %38
   %or.cond.i = select i1 %37, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %x64_classify_vector.exit, label %39
 
 39:                                               ; preds = %36, %19
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
   %41 = and i32 %40, 524288
   %.not29.i = icmp eq i32 %41, 0
   br i1 %.not29.i, label %42, label %x64_classify_vector.exit
@@ -1199,7 +1199,7 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
 26:                                               ; preds = %24
   %27 = tail call i32 @type_size(ptr noundef %12) #7
   %.not35 = icmp ne i32 %9, %27
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 268), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %29 = sext i32 %28 to i64
   %30 = icmp ugt i64 %10, %29
   %or.cond = select i1 %.not35, i1 true, i1 %30
@@ -1379,13 +1379,13 @@ define dso_local void @x64_classify_vector(ptr noundef %0, i64 noundef %1, ptr n
 
 23:                                               ; preds = %6
   %24 = icmp ne i32 %5, 1
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 268), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %.not = icmp ugt i32 %7, %25
   %or.cond = select i1 %24, i1 true, i1 %.not
   br i1 %or.cond, label %30, label %26
 
 26:                                               ; preds = %23, %6
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
   %28 = and i32 %27, 524288
   %.not29 = icmp eq i32 %28, 0
   br i1 %.not29, label %29, label %30
@@ -1850,7 +1850,7 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 255
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %31 = icmp ult i32 %29, %30
   br i1 %31, label %32, label %.critedge.i
 
@@ -1889,7 +1889,7 @@ define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 255
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %54 = icmp ult i32 %52, %53
   br i1 %54, label %55, label %.thread
 
@@ -2562,7 +2562,7 @@ define internal fastcc ptr @x64_get_byte_vector_type(ptr noundef %0) unnamed_add
   ]
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
   %7 = and i32 %6, 524288
   %.not14 = icmp eq i32 %7, 0
   br i1 %.not14, label %22, label %8

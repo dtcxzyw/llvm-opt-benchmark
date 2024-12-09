@@ -32,7 +32,7 @@ define dso_local void @_ZN4llvm14RISCVMCAsmInfo6anchorEv(ptr nocapture nonnull r
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm14RISCVMCAsmInfoC2ERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(484) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm12MCAsmInfoELFC2Ev(ptr noundef nonnull align 8 dereferenceable(484) %0) #5
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm14RISCVMCAsmInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm14RISCVMCAsmInfoE, i64 16), ptr %0, align 8
   %3 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #5
   %4 = select i1 %3, i32 8, i32 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12

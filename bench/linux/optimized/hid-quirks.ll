@@ -246,13 +246,13 @@ define dso_local noundef i32 @hid_quirks_init(ptr nocapture noundef readonly %0,
 19:                                               ; preds = %12
   %20 = load i32, ptr %6, align 4
   %21 = zext i32 %20 to i64
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 104), align 8
   %23 = call noalias noundef align 8 dereferenceable_or_null(7632) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 7632) #8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %27 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 40) #8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.critedge6, label %28
@@ -305,8 +305,8 @@ define dso_local noundef i32 @hid_quirks_init(ptr nocapture noundef readonly %0,
 
 51:                                               ; preds = %37
   %52 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @dquirks_list, i64 8), align 8
-  store ptr %52, ptr getelementptr inbounds (i8, ptr @dquirks_list, i64 8), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dquirks_list, i64 8), align 8
+  store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @dquirks_list, i64 8), align 8
   store ptr @dquirks_list, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %53, ptr %54, align 8

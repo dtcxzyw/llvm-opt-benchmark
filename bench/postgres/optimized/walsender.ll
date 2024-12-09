@@ -5442,17 +5442,17 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %.042 = phi i64 [ %102, %99 ], [ %139, %174 ]
   %.040 = phi i64 [ %.pre, %99 ], [ %138, %174 ]
   %127 = load ptr, ptr @output_message, align 8
-  %128 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8
   %129 = sext i32 %128 to i64
   %130 = getelementptr i8, ptr %127, i64 %129
   %131 = load ptr, ptr @xlogreader, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 1224
   %133 = load i32, ptr %132, align 8
   %134 = call i64 @WALReadFromBuffers(ptr noundef %130, i64 noundef %.040, i64 noundef %.042, i32 noundef %133) #16
-  %135 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
+  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8
   %136 = trunc i64 %134 to i32
   %137 = add i32 %135, %136
-  store i32 %137, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
+  store i32 %137, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8
   %138 = add i64 %134, %.040
   %139 = sub i64 %.042, %134
   %.not52 = icmp eq i64 %139, 0
@@ -5517,10 +5517,10 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   br label %126
 
 175:                                              ; preds = %165, %169, %149
-  %176 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
+  %176 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8
   %177 = trunc i64 %139 to i32
   %178 = add i32 %176, %177
-  store i32 %178, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
+  store i32 %178, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8
   %179 = load ptr, ptr @output_message, align 8
   %180 = sext i32 %178 to i64
   %181 = getelementptr i8, ptr %179, i64 %180
@@ -5546,7 +5546,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %195 = load ptr, ptr %194, align 8
   %196 = load ptr, ptr @output_message, align 8
-  %197 = load i32, ptr getelementptr inbounds (i8, ptr @output_message, i64 8), align 8
+  %197 = load i32, ptr getelementptr inbounds nuw (i8, ptr @output_message, i64 8), align 8
   %198 = sext i32 %197 to i64
   call void %195(i8 noundef signext 100, ptr noundef %196, i64 noundef %198) #16
   store i64 %.041, ptr @sentPtr, align 8

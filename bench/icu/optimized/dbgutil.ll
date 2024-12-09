@@ -536,7 +536,7 @@ new.ctorloop.i:                                   ; preds = %new.notnull.i
 invoke.cont.i:                                    ; preds = %invoke.cont.i, %new.ctorloop.i
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.ctorloop.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 %arrayctor.cur.idx.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr.i, align 8
   %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
@@ -599,7 +599,7 @@ for.end21.i:                                      ; preds = %for.inc19.i
 new.notnull24.i:                                  ; preds = %for.end21.i
   store i64 1, ptr %call22.i, align 8
   %arrayctor.cur29.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %call22.i, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur29.ptr.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur29.ptr.ptr.i, align 8
   %fUnion2.i15.i = getelementptr inbounds nuw i8, ptr %call22.i, i64 16
   store i16 2, ptr %fUnion2.i15.i, align 8
   br label %_ZL10udbg_setupv.exit

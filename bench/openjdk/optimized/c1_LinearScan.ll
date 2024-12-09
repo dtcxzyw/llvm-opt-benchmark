@@ -1377,7 +1377,7 @@ _ZNK7LIR_Opr4typeEv.exit.i:                       ; preds = %184, %192, %191, %1
   store i32 0, ptr %200, align 4
   %201 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store ptr null, ptr %201, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i.i, align 8
   %202 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i64 %.sroa.0.0.i, ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
@@ -1751,7 +1751,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %28
   store i32 0, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store ptr null, ptr %51, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 %2, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -7391,13 +7391,13 @@ _ZN16LinearScanWalker17finish_allocationEv.exit19: ; preds = %83, %86
   store ptr null, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 1016
   store i32 -1, ptr %88, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16LinearScanWalker, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16LinearScanWalker, i64 16), ptr %3, align 8
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 1000
   call void @_ZN12MoveResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(380) %89) #22
   br label %90
 
 90:                                               ; preds = %_ZN16LinearScanWalker17finish_allocationEv.exit19, %_ZN16LinearScanWalker17finish_allocationEv.exit
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16LinearScanWalker, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16LinearScanWalker, i64 16), ptr %2, align 8
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 1000
   call void @_ZN12MoveResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(380) %91) #22
   br label %92
@@ -10878,7 +10878,7 @@ define hidden noundef ptr @_ZN10LinearScan19vm_reg_for_intervalEP8Interval(ptr n
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = trunc i64 %5 to i32
-  %7 = sub i32 %6, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %7 = sub i32 %6, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not = icmp eq i32 %7, -1
   br i1 %.not, label %8, label %17
 
@@ -11430,7 +11430,7 @@ _ZN22CompilationResourceObjnwEm.exit5:            ; preds = %114, %116
   br i1 %118, label %_ZN14IntervalWalkerC2EP10LinearScanP8IntervalS3_.exit, label %119
 
 119:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit5
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14IntervalWalker, i64 16), ptr %.0.i.i.i4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14IntervalWalker, i64 16), ptr %.0.i.i.i4, align 8
   %120 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 8
   %121 = load ptr, ptr %0, align 8
   store ptr %121, ptr %120, align 8
@@ -11539,7 +11539,7 @@ define hidden noundef ptr @_ZN10LinearScan15compute_oop_mapEP14IntervalWalkerP6L
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i32
-  %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %.not.i = icmp eq i32 %34, -1
   br i1 %.not.i, label %35, label %_ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit
 
@@ -11562,7 +11562,7 @@ _ZN10LinearScan20operand_for_intervalEP8Interval.exit.i: ; preds = %39, %35
   store ptr %42, ptr %30, align 8
   %.pre = ptrtoint ptr %42 to i64
   %.pre41 = trunc i64 %.pre to i32
-  %.pre43 = sub i32 %.pre41, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %.pre43 = sub i32 %.pre41, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   br label %_ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit
 
 _ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit: ; preds = %29, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i
@@ -11610,7 +11610,7 @@ _ZN10LinearScan7set_oopEP6OopMapP9VMRegImpl.exit: ; preds = %44, %45
   %65 = tail call noundef ptr @_ZNK8FrameMap15sp_offset2vmregE8ByteSize(ptr noundef nonnull align 8 dereferenceable(40) %62, i32 noundef %64) #22
   %66 = ptrtoint ptr %65 to i64
   %67 = trunc i64 %66 to i32
-  %68 = sub i32 %67, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %68 = sub i32 %67, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %69 = icmp ult i32 %68, 16384
   br i1 %69, label %70, label %71
 
@@ -11644,7 +11644,7 @@ _ZN10LinearScan7set_oopEP6OopMapP9VMRegImpl.exit30: ; preds = %71, %70, %22, %57
   %81 = tail call noundef ptr @_ZNK8FrameMap15sp_offset2vmregE8ByteSize(ptr noundef nonnull align 8 dereferenceable(40) %79, i32 noundef %80) #22
   %82 = ptrtoint ptr %81 to i64
   %83 = trunc i64 %82 to i32
-  %84 = sub i32 %83, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %84 = sub i32 %83, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %85 = icmp ult i32 %84, 16384
   br i1 %85, label %86, label %87
 
@@ -11810,7 +11810,7 @@ define hidden noundef ptr @_ZN10LinearScan26location_for_monitor_indexEi(ptr noc
 10:                                               ; preds = %8, %2
   %11 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %.sroa.01.0.copyload = load i32, ptr %3, align 4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %.sroa.01.0.copyload, ptr %12, align 8
   %13 = load ptr, ptr %4, align 8
@@ -11849,7 +11849,7 @@ define hidden noundef ptr @_ZN10LinearScan17location_for_nameEiN8Location4TypeE(
 10:                                               ; preds = %8, %3
   %11 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %.sroa.0.0.copyload = load i32, ptr %4, align 4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %.sroa.0.0.copyload, ptr %12, align 8
   ret ptr %11
@@ -11914,7 +11914,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
 33:                                               ; preds = %12
   %34 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %35 = load ptr, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV21ConstantOopWriteValue, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV21ConstantOopWriteValue, i64 16), ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %35, ptr %36, align 8
   %37 = load i32, ptr %2, align 8
@@ -12073,7 +12073,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
 123:                                              ; preds = %52
   %124 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %125 = load i32, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %124, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i32 %125, ptr %126, align 8
   %127 = load i32, ptr %2, align 8
@@ -12141,7 +12141,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
   %166 = tail call noundef zeroext i8 %165(ptr noundef nonnull align 8 dereferenceable(24) %7) #22
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %168 = load i64, ptr %167, align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV17ConstantLongValue, i64 16), ptr %162, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV17ConstantLongValue, i64 16), ptr %162, align 8
   %169 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i64 %168, ptr %169, align 8
   %170 = load i32, ptr %2, align 8
@@ -12174,7 +12174,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
   %185 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %186 = load i32, ptr %185, align 8
   %187 = sext i32 %186 to i64
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV17ConstantLongValue, i64 16), ptr %184, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV17ConstantLongValue, i64 16), ptr %184, align 8
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i64 %187, ptr %188, align 8
   %189 = load i32, ptr %2, align 8
@@ -12268,7 +12268,7 @@ define hidden noundef range(i32 1, 3) i32 @_ZN10LinearScan30append_scope_value_f
 _ZN10LinearScan17location_for_nameEiN8Location4TypeE.exit: ; preds = %23, %28
   %30 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %.sroa.0.0.copyload.i = load i32, ptr %4, align 4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %.sroa.0.0.copyload.i, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -12328,11 +12328,11 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
   %67 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %68 = ptrtoint ptr %66 to i64
   %69 = trunc i64 %68 to i32
-  %70 = sub i32 %69, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %70 = sub i32 %69, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %71 = shl i32 %70, 5
   %72 = or disjoint i32 %71, %63
   %73 = or disjoint i32 %72, 16
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %67, align 8
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 %73, ptr %74, align 8
   %75 = load ptr, ptr %57, align 8
@@ -12377,21 +12377,21 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
 96:                                               ; preds = %93
   %97 = call i32 @_ZNK7LIR_Opr16as_xmm_float_regEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %98
+  %99 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %98
   %100 = ptrtoint ptr %99 to i64
   %101 = trunc i64 %100 to i32
-  %102 = sub i32 %101, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %102 = sub i32 %101, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %103 = shl i32 %102, 4
   %104 = sext i32 %103 to i64
-  %105 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %104
+  %105 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %104
   %106 = getelementptr i8, ptr %105, i64 80
   %107 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %108 = ptrtoint ptr %106 to i64
   %109 = trunc i64 %108 to i32
-  %110 = sub i32 %109, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %110 = sub i32 %109, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %111 = shl i32 %110, 5
   %112 = or disjoint i32 %111, 17
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %107, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %107, align 8
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i32 %112, ptr %113, align 8
   %114 = load i32, ptr %2, align 8
@@ -12435,10 +12435,10 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE6appendERKS1_.
   %134 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %135 = ptrtoint ptr %133 to i64
   %136 = trunc i64 %135 to i32
-  %137 = sub i32 %136, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %137 = sub i32 %136, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %138 = shl i32 %137, 5
   %139 = or disjoint i32 %138, 21
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %134, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %134, align 8
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i32 %139, ptr %140, align 8
   %141 = load i32, ptr %2, align 8
@@ -12529,17 +12529,17 @@ _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %_ZNK7LIR_Opr4typeEv
 186:                                              ; preds = %129
   %187 = call i32 @_ZNK7LIR_Opr14as_register_loEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %188
+  %189 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %188
   %190 = ptrtoint ptr %189 to i64
   %191 = trunc i64 %190 to i32
-  %192 = sub i32 %191, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %192 = sub i32 %191, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %193 = shl i32 %192, 1
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %194
+  %195 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %194
   %196 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %197 = ptrtoint ptr %195 to i64
   %198 = trunc i64 %197 to i32
-  %199 = sub i32 %198, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %199 = sub i32 %198, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %200 = shl i32 %199, 5
   %201 = or disjoint i32 %200, 20
   br label %236
@@ -12551,18 +12551,18 @@ _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %_ZNK7LIR_Opr4typeEv
 204:                                              ; preds = %202
   %205 = call i32 @_ZNK7LIR_Opr17as_xmm_double_regEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
   %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %206
+  %207 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %206
   %208 = ptrtoint ptr %207 to i64
   %209 = trunc i64 %208 to i32
-  %210 = sub i32 %209, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %210 = sub i32 %209, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %211 = shl i32 %210, 4
   %212 = sext i32 %211 to i64
-  %213 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %212
+  %213 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %212
   %214 = getelementptr i8, ptr %213, i64 80
   %215 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %216 = ptrtoint ptr %214 to i64
   %217 = trunc i64 %216 to i32
-  %218 = sub i32 %217, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %218 = sub i32 %217, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %219 = shl i32 %218, 5
   %220 = or disjoint i32 %219, 22
   br label %236
@@ -12579,7 +12579,7 @@ _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %_ZNK7LIR_Opr4typeEv
   %228 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #22
   %229 = ptrtoint ptr %227 to i64
   %230 = trunc i64 %229 to i32
-  %231 = sub i32 %230, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %231 = sub i32 %230, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %232 = shl i32 %231, 5
   %233 = or disjoint i32 %232, 22
   br label %236
@@ -12593,7 +12593,7 @@ _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %_ZNK7LIR_Opr4typeEv
 236:                                              ; preds = %186, %223, %204, %184
   %.sink75 = phi ptr [ %196, %186 ], [ %228, %223 ], [ %215, %204 ], [ %185, %184 ]
   %.sink = phi i32 [ %201, %186 ], [ %233, %223 ], [ %220, %204 ], [ %.sroa.05.0.copyload, %184 ]
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %.sink75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %.sink75, align 8
   %237 = getelementptr inbounds nuw i8, ptr %.sink75, i64 8
   store i32 %.sink, ptr %237, align 8
   %.068 = load ptr, ptr @_ZN10LinearScan18_int_0_scope_valueE, align 8
@@ -14881,7 +14881,7 @@ _ZNK7LIR_Opr4typeEv.exit.i:                       ; preds = %133, %141, %140, %1
   store i32 0, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i76, i64 40
   store ptr null, ptr %150, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i.i76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i.i76, align 8
   %151 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i76, i64 48
   store i64 %spec.select.i, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i76, i64 56
@@ -15049,7 +15049,7 @@ _ZNK7LIR_Opr4typeEv.exit.i81:                     ; preds = %208, %216, %215, %2
   store i32 0, ptr %224, align 4
   %225 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80, i64 40
   store ptr null, ptr %225, align 8
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i.i80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV7LIR_Op1, i64 16), ptr %.0.i.i.i.i80, align 8
   %226 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80, i64 48
   store i64 %.sroa.0.0.copyload, ptr %226, align 8
   %227 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i80, i64 56
@@ -16343,7 +16343,7 @@ _ZNK8Interval10intersectsEPS_.exit.thread:        ; preds = %41, %24, %49, %33, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN14IntervalWalkerC2EP10LinearScanP8IntervalS3_(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 84)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14IntervalWalker, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14IntervalWalker, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %5, align 8
@@ -17210,7 +17210,7 @@ _ZN14IntervalWalker7walk_toE13IntervalStatei.exit38: ; preds = %._crit_edge58.i3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16LinearScanWalkerC2EP10LinearScanP8IntervalS3_(ptr nocapture noundef nonnull align 8 dereferenceable(1384) initializes((0, 84)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14IntervalWalker, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14IntervalWalker, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %5, align 8
@@ -17275,7 +17275,7 @@ define hidden void @_ZN16LinearScanWalkerC2EP10LinearScanP8IntervalS3_(ptr nocap
   br label %_ZN14IntervalWalkerC2EP10LinearScanP8IntervalS3_.exit
 
 _ZN14IntervalWalkerC2EP10LinearScanP8IntervalS3_.exit: ; preds = %27, %28
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16LinearScanWalker, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16LinearScanWalker, i64 16), ptr %0, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   store ptr %1, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1008
@@ -25919,7 +25919,7 @@ define internal void @_GLOBAL__sub_I_c1_LinearScan.cpp() #18 section ".text.star
   br i1 %2, label %__cxx_global_var_init.10.exit, label %3
 
 3:                                                ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV21ConstantOopWriteValue, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV21ConstantOopWriteValue, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %4, align 8
   br label %__cxx_global_var_init.10.exit
@@ -25931,7 +25931,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %0, %3
   br i1 %6, label %__cxx_global_var_init.11.exit, label %7
 
 7:                                                ; preds = %__cxx_global_var_init.10.exit
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 -1, ptr %8, align 8
   br label %__cxx_global_var_init.11.exit
@@ -25943,7 +25943,7 @@ __cxx_global_var_init.11.exit:                    ; preds = %__cxx_global_var_in
   br i1 %10, label %__cxx_global_var_init.12.exit, label %11
 
 11:                                               ; preds = %__cxx_global_var_init.11.exit
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %12, align 8
   br label %__cxx_global_var_init.12.exit
@@ -25955,7 +25955,7 @@ __cxx_global_var_init.12.exit:                    ; preds = %__cxx_global_var_in
   br i1 %14, label %__cxx_global_var_init.13.exit, label %15
 
 15:                                               ; preds = %__cxx_global_var_init.12.exit
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 1, ptr %16, align 8
   br label %__cxx_global_var_init.13.exit
@@ -25967,7 +25967,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %__cxx_global_var_in
   br i1 %18, label %__cxx_global_var_init.14.exit, label %19
 
 19:                                               ; preds = %__cxx_global_var_init.13.exit
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %17, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 2, ptr %20, align 8
   br label %__cxx_global_var_init.14.exit
@@ -25979,7 +25979,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %__cxx_global_var_in
   br i1 %22, label %__cxx_global_var_init.15.exit, label %23
 
 23:                                               ; preds = %__cxx_global_var_init.14.exit
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %21, align 8
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 0, ptr %24, align 8
   br label %__cxx_global_var_init.15.exit

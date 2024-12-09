@@ -469,9 +469,9 @@ define void @_ZN15RtpStreamDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull 
   %44 = alloca %"class.QMetaObject::Connection", align 8
   %45 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15RtpStreamDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15RtpStreamDialog, i64 16), ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15RtpStreamDialog, i64 528), ptr %46, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15RtpStreamDialog, i64 528), ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %48 = invoke noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #21
           to label %49 unwind label %343
@@ -2444,7 +2444,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i224:   ; preds = %279
   %287 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store i32 0, ptr %288, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %287, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %287, align 8
   %289 = getelementptr inbounds nuw i8, ptr %287, i64 12
   store i32 40, ptr %289, align 4
   %290 = getelementptr inbounds nuw i8, ptr %287, i64 16
@@ -5841,9 +5841,9 @@ declare void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WiresharkDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 528), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WiresharkDialog, i64 528), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -5882,9 +5882,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15RtpStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15RtpStreamDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15RtpStreamDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15RtpStreamDialog, i64 528), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15RtpStreamDialog, i64 528), ptr %2, align 8
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpStreamDialog6mutex_E) #19
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
@@ -5940,8 +5940,8 @@ _ZN17QArrayDataPointerI13_rtpstream_idE5derefEv.exit.i.i: ; preds = %13
 _ZN5QListI13_rtpstream_idED2Ev.exit:              ; preds = %13, %_ZN17QArrayDataPointerI13_rtpstream_idE5derefEv.exit.i.i, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15WiresharkDialog, i64 528), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WiresharkDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15WiresharkDialog, i64 528), ptr %2, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
@@ -7099,7 +7099,7 @@ define void @_ZN15RtpStreamDialog13updateStreamsEv(ptr noundef nonnull align 8 d
           to label %.noexc unwind label %51
 
 .noexc:                                           ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23RtpStreamTreeWidgetItem, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23RtpStreamTreeWidgetItem, i64 16), ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store ptr %17, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 104
@@ -8039,7 +8039,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i158:   ; preds = %.body150
 _ZN7QStringD2Ev.exit156:                          ; preds = %273, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i154, %270, %_ZN7QStringD2Ev.exit108
   %281 = getelementptr inbounds nuw i8, ptr %32, i64 152
   %282 = load double, ptr %281, align 8
-  %283 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 524), align 4
+  %283 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 524), align 4
   call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %45, double noundef %282, i8 noundef signext 102, i32 noundef %283)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -8273,7 +8273,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i207:   ; preds = %_ZN7QStringD2Ev.exi
 _ZN7QStringD2Ev.exit209:                          ; preds = %_ZN7QStringD2Ev.exit205, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i207, %353
   %355 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %356 = load double, ptr %355, align 8
-  %357 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 532), align 4
+  %357 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 532), align 4
   call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %52, double noundef %356, i8 noundef signext 102, i32 noundef %357)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -8312,7 +8312,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i215:   ; preds = %363
 _ZN7QStringD2Ev.exit217:                          ; preds = %363, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i215, %366
   %368 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %369 = load double, ptr %368, align 8
-  %370 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 532), align 4
+  %370 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 532), align 4
   call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %53, double noundef %369, i8 noundef signext 102, i32 noundef %370)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(24) %53)
@@ -8351,7 +8351,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i223:   ; preds = %376
 _ZN7QStringD2Ev.exit225:                          ; preds = %376, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i223, %379
   %381 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %382 = load double, ptr %381, align 8
-  %383 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 532), align 4
+  %383 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 532), align 4
   call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %54, double noundef %382, i8 noundef signext 102, i32 noundef %383)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(24) %54)
@@ -8390,7 +8390,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i231:   ; preds = %389
 _ZN7QStringD2Ev.exit233:                          ; preds = %389, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i231, %392
   %394 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %395 = load double, ptr %394, align 8
-  %396 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 532), align 4
+  %396 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 532), align 4
   call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %55, double noundef %395, i8 noundef signext 102, i32 noundef %396)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(24) %55)
@@ -8429,7 +8429,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i239:   ; preds = %402
 _ZN7QStringD2Ev.exit241:                          ; preds = %402, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i239, %405
   %407 = getelementptr inbounds nuw i8, ptr %32, i64 112
   %408 = load double, ptr %407, align 8
-  %409 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 532), align 4
+  %409 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 532), align 4
   call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %56, double noundef %408, i8 noundef signext 102, i32 noundef %409)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %56)
@@ -8468,7 +8468,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i247:   ; preds = %415
 _ZN7QStringD2Ev.exit249:                          ; preds = %415, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i247, %418
   %420 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %421 = load double, ptr %420, align 8
-  %422 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 532), align 4
+  %422 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 532), align 4
   call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %57, double noundef %421, i8 noundef signext 102, i32 noundef %422)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %57)
@@ -10809,7 +10809,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i75:    ; preds = %_ZN7QStringD2Ev.exi
 228:                                              ; preds = %79
   %229 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %230 = load double, ptr %229, align 8
-  %231 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 524), align 4
+  %231 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 524), align 4
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %73, double noundef %230, i8 noundef signext 102, i32 noundef %231)
           to label %232 unwind label %80
 

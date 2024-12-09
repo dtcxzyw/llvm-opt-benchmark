@@ -1659,7 +1659,7 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052117simplifySubgraphsERN11opencv_onn
   store i32 1, ptr %65, align 8, !noalias !4
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 1, ptr %66, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %64, align 8, !noalias !4
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %67)
           to label %69 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !4
@@ -1777,7 +1777,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052120BiasedMatmulSubgraphEED2Ev.exit: ; preds = %
   store i32 1, ptr %106, align 8, !noalias !16
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 12
   store i32 1, ptr %107, align 4, !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %105, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %105, align 8, !noalias !16
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphC2Em(ptr noundef nonnull align 8 dereferenceable(128) %108, i64 noundef 3)
           to label %110 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !16
@@ -1893,7 +1893,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphEED2Ev.e
   store i32 1, ptr %145, align 8, !noalias !26
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 12
   store i32 1, ptr %146, align 4, !noalias !26
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %144, align 8, !noalias !26
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %144, align 8, !noalias !26
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphC2Em(ptr noundef nonnull align 8 dereferenceable(128) %147, i64 noundef 4)
           to label %149 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i31, !noalias !26
@@ -2009,7 +2009,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphEED2Ev.e
   store i32 1, ptr %184, align 8, !noalias !36
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 1, ptr %185, align 4, !noalias !36
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052112GeluSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %183, align 8, !noalias !36
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052112GeluSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %183, align 8, !noalias !36
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052112GeluSubGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(124) %186)
           to label %188 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052112GeluSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !36
@@ -2125,7 +2125,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112GeluSubGraphEED2Ev.exit: ; preds = %.noexc57
   store i32 1, ptr %223, align 8, !noalias !46
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 12
   store i32 1, ptr %224, align 4, !noalias !46
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052125GeluApproximationSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %222, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052125GeluApproximationSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %222, align 8, !noalias !46
   %225 = getelementptr inbounds nuw i8, ptr %222, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052125GeluApproximationSubGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %225)
           to label %227 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052125GeluApproximationSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !46
@@ -2241,7 +2241,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052125GeluApproximationSubGraphEED2Ev.exit: ; pred
   store i32 1, ptr %262, align 8, !noalias !56
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 12
   store i32 1, ptr %263, align 4, !noalias !56
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052117LayerNormSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %261, align 8, !noalias !56
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052117LayerNormSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %261, align 8, !noalias !56
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052117LayerNormSubGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %264)
           to label %266 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052117LayerNormSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !56
@@ -2357,7 +2357,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052117LayerNormSubGraphEED2Ev.exit: ; preds = %.no
   store i32 1, ptr %301, align 8, !noalias !66
   %302 = getelementptr inbounds nuw i8, ptr %300, i64 12
   store i32 1, ptr %302, align 4, !noalias !66
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118GatherCastSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %300, align 8, !noalias !66
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118GatherCastSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %300, align 8, !noalias !66
   %303 = getelementptr inbounds nuw i8, ptr %300, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052118GatherCastSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %303)
           to label %305 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118GatherCastSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !66
@@ -2473,7 +2473,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052118GatherCastSubgraphEED2Ev.exit: ; preds = %.n
   store i32 1, ptr %340, align 8, !noalias !76
   %341 = getelementptr inbounds nuw i8, ptr %339, i64 12
   store i32 1, ptr %341, align 4, !noalias !76
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115MulCastSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %339, align 8, !noalias !76
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115MulCastSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %339, align 8, !noalias !76
   %342 = getelementptr inbounds nuw i8, ptr %339, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052115MulCastSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %342)
           to label %344 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115MulCastSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !76
@@ -2589,7 +2589,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052115MulCastSubgraphEED2Ev.exit: ; preds = %.noex
   store i32 1, ptr %379, align 8, !noalias !86
   %380 = getelementptr inbounds nuw i8, ptr %378, i64 12
   store i32 1, ptr %380, align 4, !noalias !86
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052116UpsampleSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %378, align 8, !noalias !86
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052116UpsampleSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %378, align 8, !noalias !86
   %381 = getelementptr inbounds nuw i8, ptr %378, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052116UpsampleSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %381)
           to label %383 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052116UpsampleSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !86
@@ -2705,7 +2705,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116UpsampleSubgraphEED2Ev.exit: ; preds = %.noe
   store i32 1, ptr %418, align 8, !noalias !96
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 12
   store i32 1, ptr %419, align 4, !noalias !96
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ResizeSubgraph1ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %417, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ResizeSubgraph1ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %417, align 8, !noalias !96
   %420 = getelementptr inbounds nuw i8, ptr %417, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph1C2Ev(ptr noundef nonnull align 8 dereferenceable(128) %420)
           to label %422 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ResizeSubgraph1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !96
@@ -2821,7 +2821,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052115ResizeSubgraph1EED2Ev.exit: ; preds = %.noex
   store i32 1, ptr %457, align 8, !noalias !106
   %458 = getelementptr inbounds nuw i8, ptr %456, i64 12
   store i32 1, ptr %458, align 4, !noalias !106
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ResizeSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %456, align 8, !noalias !106
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ResizeSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %456, align 8, !noalias !106
   %459 = getelementptr inbounds nuw i8, ptr %456, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph2C2Ev(ptr noundef nonnull align 8 dereferenceable(128) %459)
           to label %461 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ResizeSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !106
@@ -2937,7 +2937,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052115ResizeSubgraph2EED2Ev.exit: ; preds = %.noex
   store i32 1, ptr %496, align 8, !noalias !116
   %497 = getelementptr inbounds nuw i8, ptr %495, i64 12
   store i32 1, ptr %497, align 4, !noalias !116
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ResizeSubgraph3ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %495, align 8, !noalias !116
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ResizeSubgraph3ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %495, align 8, !noalias !116
   %498 = getelementptr inbounds nuw i8, ptr %495, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph3C2Ev(ptr noundef nonnull align 8 dereferenceable(112) %498)
           to label %500 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ResizeSubgraph3ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !116
@@ -3053,7 +3053,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052115ResizeSubgraph3EED2Ev.exit: ; preds = %.noex
   store i32 1, ptr %535, align 8, !noalias !126
   %536 = getelementptr inbounds nuw i8, ptr %534, i64 12
   store i32 1, ptr %536, align 4, !noalias !126
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %534, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %534, align 8, !noalias !126
   %537 = getelementptr inbounds nuw i8, ptr %534, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %537)
           to label %539 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !126
@@ -3169,7 +3169,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052115SoftMaxSubgraphEED2Ev.exit: ; preds = %.noex
   store i32 1, ptr %574, align 8, !noalias !136
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 12
   store i32 1, ptr %575, align 4, !noalias !136
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %573, align 8, !noalias !136
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %573, align 8, !noalias !136
   %576 = getelementptr inbounds nuw i8, ptr %573, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2C2Ev(ptr noundef nonnull align 8 dereferenceable(120) %576)
           to label %578 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !136
@@ -3285,7 +3285,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116SoftMaxSubgraph2EED2Ev.exit: ; preds = %.noe
   store i32 1, ptr %613, align 8, !noalias !146
   %614 = getelementptr inbounds nuw i8, ptr %612, i64 12
   store i32 1, ptr %614, align 4, !noalias !146
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %612, align 8, !noalias !146
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %612, align 8, !noalias !146
   %615 = getelementptr inbounds nuw i8, ptr %612, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %615)
           to label %617 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !146
@@ -3401,7 +3401,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052118LogSoftMaxSubgraphEED2Ev.exit: ; preds = %.n
   store i32 1, ptr %652, align 8, !noalias !156
   %653 = getelementptr inbounds nuw i8, ptr %651, i64 12
   store i32 1, ptr %653, align 4, !noalias !156
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052117HardSwishSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %651, align 8, !noalias !156
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052117HardSwishSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %651, align 8, !noalias !156
   %654 = getelementptr inbounds nuw i8, ptr %651, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052117HardSwishSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %654)
           to label %656 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052117HardSwishSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !156
@@ -3517,7 +3517,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052117HardSwishSubgraphEED2Ev.exit: ; preds = %.no
   store i32 1, ptr %691, align 8, !noalias !166
   %692 = getelementptr inbounds nuw i8, ptr %690, i64 12
   store i32 1, ptr %692, align 4, !noalias !166
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052112CeluSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %690, align 8, !noalias !166
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052112CeluSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %690, align 8, !noalias !166
   %693 = getelementptr inbounds nuw i8, ptr %690, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052112CeluSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %693)
           to label %695 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052112CeluSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !166
@@ -3633,7 +3633,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112CeluSubgraphEED2Ev.exit: ; preds = %.noexc30
   store i32 1, ptr %730, align 8, !noalias !176
   %731 = getelementptr inbounds nuw i8, ptr %729, i64 12
   store i32 1, ptr %731, align 4, !noalias !176
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %729, align 8, !noalias !176
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %729, align 8, !noalias !176
   %732 = getelementptr inbounds nuw i8, ptr %729, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1C2Ev(ptr noundef nonnull align 8 dereferenceable(120) %732)
           to label %734 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !176
@@ -3749,7 +3749,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052118NormalizeSubgraph1EED2Ev.exit: ; preds = %.n
   store i32 1, ptr %769, align 8, !noalias !186
   %770 = getelementptr inbounds nuw i8, ptr %768, i64 12
   store i32 1, ptr %770, align 4, !noalias !186
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %768, align 8, !noalias !186
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %768, align 8, !noalias !186
   %771 = getelementptr inbounds nuw i8, ptr %768, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2C2Ev(ptr noundef nonnull align 8 dereferenceable(120) %771)
           to label %773 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !186
@@ -3865,7 +3865,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052118NormalizeSubgraph2EED2Ev.exit: ; preds = %.n
   store i32 1, ptr %808, align 8, !noalias !196
   %809 = getelementptr inbounds nuw i8, ptr %807, i64 12
   store i32 1, ptr %809, align 4, !noalias !196
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %807, align 8, !noalias !196
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %807, align 8, !noalias !196
   %810 = getelementptr inbounds nuw i8, ptr %807, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_2C2Ev(ptr noundef nonnull align 8 dereferenceable(120) %810)
           to label %812 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_2ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !196
@@ -3981,7 +3981,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052120NormalizeSubgraph2_2EED2Ev.exit: ; preds = %
   store i32 1, ptr %847, align 8, !noalias !206
   %848 = getelementptr inbounds nuw i8, ptr %846, i64 12
   store i32 1, ptr %848, align 4, !noalias !206
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %846, align 8, !noalias !206
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %846, align 8, !noalias !206
   %849 = getelementptr inbounds nuw i8, ptr %846, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3C2Ev(ptr noundef nonnull align 8 dereferenceable(120) %849)
           to label %851 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !206
@@ -4097,7 +4097,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052118NormalizeSubgraph3EED2Ev.exit: ; preds = %.n
   store i32 1, ptr %886, align 8, !noalias !216
   %887 = getelementptr inbounds nuw i8, ptr %885, i64 12
   store i32 1, ptr %887, align 4, !noalias !216
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph1ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %885, align 8, !noalias !216
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph1ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %885, align 8, !noalias !216
   %888 = getelementptr inbounds nuw i8, ptr %885, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph1C2Ev(ptr noundef nonnull align 8 dereferenceable(144) %888)
           to label %890 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !216
@@ -4213,7 +4213,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052127BatchNormalizationSubgraph1EED2Ev.exit: ; pr
   store i32 1, ptr %925, align 8, !noalias !226
   %926 = getelementptr inbounds nuw i8, ptr %924, i64 12
   store i32 1, ptr %926, align 4, !noalias !226
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %924, align 8, !noalias !226
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %924, align 8, !noalias !226
   %927 = getelementptr inbounds nuw i8, ptr %924, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph2C2Ev(ptr noundef nonnull align 8 dereferenceable(144) %927)
           to label %929 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph2ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !226
@@ -4329,7 +4329,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052127BatchNormalizationSubgraph2EED2Ev.exit: ; pr
   store i32 1, ptr %964, align 8, !noalias !236
   %965 = getelementptr inbounds nuw i8, ptr %963, i64 12
   store i32 1, ptr %965, align 4, !noalias !236
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052114ExpandSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %963, align 8, !noalias !236
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052114ExpandSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %963, align 8, !noalias !236
   %966 = getelementptr inbounds nuw i8, ptr %963, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052114ExpandSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %966)
           to label %968 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052114ExpandSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !236
@@ -4445,7 +4445,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114ExpandSubgraphEED2Ev.exit: ; preds = %.noexc
   store i32 1, ptr %1003, align 8, !noalias !246
   %1004 = getelementptr inbounds nuw i8, ptr %1002, i64 12
   store i32 1, ptr %1004, align 4, !noalias !246
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052116SoftplusSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1002, align 8, !noalias !246
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052116SoftplusSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1002, align 8, !noalias !246
   %1005 = getelementptr inbounds nuw i8, ptr %1002, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052116SoftplusSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %1005)
           to label %1007 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052116SoftplusSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !246
@@ -4561,7 +4561,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116SoftplusSubgraphEED2Ev.exit: ; preds = %.noe
   store i32 1, ptr %1042, align 8, !noalias !256
   %1043 = getelementptr inbounds nuw i8, ptr %1041, i64 12
   store i32 1, ptr %1043, align 4, !noalias !256
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052112MishSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1041, align 8, !noalias !256
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052112MishSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1041, align 8, !noalias !256
   %1044 = getelementptr inbounds nuw i8, ptr %1041, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052112MishSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %1044)
           to label %1046 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052112MishSubgraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !256
@@ -4677,7 +4677,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112MishSubgraphEED2Ev.exit: ; preds = %.noexc47
   store i32 1, ptr %1081, align 8, !noalias !266
   %1082 = getelementptr inbounds nuw i8, ptr %1080, i64 12
   store i32 1, ptr %1082, align 4, !noalias !266
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1080, align 8, !noalias !266
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1080, align 8, !noalias !266
   %1083 = getelementptr inbounds nuw i8, ptr %1080, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4C2Ev(ptr noundef nonnull align 8 dereferenceable(120) %1083)
           to label %1085 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !266
@@ -4793,7 +4793,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052118NormalizeSubgraph4EED2Ev.exit: ; preds = %.n
   store i32 1, ptr %1120, align 8, !noalias !276
   %1121 = getelementptr inbounds nuw i8, ptr %1119, i64 12
   store i32 1, ptr %1121, align 4, !noalias !276
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1119, align 8, !noalias !276
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1119, align 8, !noalias !276
   %1122 = getelementptr inbounds nuw i8, ptr %1119, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5C2Ev(ptr noundef nonnull align 8 dereferenceable(120) %1122)
           to label %1124 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !276
@@ -4917,7 +4917,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052118NormalizeSubgraph5EED2Ev.exit: ; preds = %.n
   store i32 1, ptr %1163, align 8, !noalias !286
   %1164 = getelementptr inbounds nuw i8, ptr %1162, i64 12
   store i32 1, ptr %1164, align 4, !noalias !286
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052117AttentionSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1162, align 8, !noalias !286
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052117AttentionSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1162, align 8, !noalias !286
   %1165 = getelementptr inbounds nuw i8, ptr %1162, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052117AttentionSubGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %1165)
           to label %1167 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052117AttentionSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !286
@@ -5033,7 +5033,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052117AttentionSubGraphEED2Ev.exit: ; preds = %.no
   store i32 1, ptr %1202, align 8, !noalias !296
   %1203 = getelementptr inbounds nuw i8, ptr %1201, i64 12
   store i32 1, ptr %1203, align 4, !noalias !296
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1201, align 8, !noalias !296
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1201, align 8, !noalias !296
   %1204 = getelementptr inbounds nuw i8, ptr %1201, i64 16
   invoke void @_ZN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %1204)
           to label %1206 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !296
@@ -5360,7 +5360,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphEED2Ev.exit: ; pr
           to label %1303 unwind label %1240
 
 1303:                                             ; preds = %_ZN2cv3PtrINS_3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphEED2Ev.exit
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052116ONNXGraphWrapperE, i64 16), ptr %1302, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052116ONNXGraphWrapperE, i64 16), ptr %1302, align 8
   %1304 = getelementptr inbounds nuw i8, ptr %1302, i64 16
   store ptr %0, ptr %1304, align 8
   %1305 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5443,7 +5443,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphEED2Ev.exit: ; pr
   store i32 1, ptr %1342, align 8
   %1343 = getelementptr inbounds nuw i8, ptr %1327, i64 12
   store i32 1, ptr %1343, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14dnn4_v2024052116ONNXGraphWrapperELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1327, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14dnn4_v2024052116ONNXGraphWrapperELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1327, align 8
   %1344 = getelementptr inbounds nuw i8, ptr %1327, i64 16
   store ptr %1302, ptr %1344, align 8
   store ptr %1327, ptr %1326, align 8
@@ -9385,9 +9385,9 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052115ONNXNodeWrapperEED2Ev.exit: ; preds = %3, %9
   store i32 1, ptr %20, align 8, !noalias !311
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 1, ptr %21, align 4, !noalias !311
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ONNXNodeWrapperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19, align 8, !noalias !311
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv3dnn14dnn4_v2024052115ONNXNodeWrapperESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19, align 8, !noalias !311
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115ONNXNodeWrapperE, i64 16), ptr %22, align 8, !noalias !311
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115ONNXNodeWrapperE, i64 16), ptr %22, align 8, !noalias !311
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %.0, ptr %23, align 8, !noalias !311
   store ptr %22, ptr %0, align 8
@@ -10080,14 +10080,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgrap
   %11 = alloca %"class.std::allocator.127", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -10253,7 +10253,7 @@ declare void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -10264,7 +10264,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgrap
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -11676,14 +11676,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptio
   %13 = alloca %"class.std::allocator.127", align 1
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %1, ptr %19, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
@@ -12198,14 +12198,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052112GeluSubGraphC2Ev(pt
   %19 = alloca %"class.std::allocator.127", align 1
   %20 = alloca %"class.std::__cxx11::basic_string", align 8
   %21 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112GeluSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112GeluSubGraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %25 unwind label %59
@@ -13078,14 +13078,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052125GeluApproximationSu
   %29 = alloca %"class.std::allocator.127", align 1
   %30 = alloca %"class.std::__cxx11::basic_string", align 8
   %31 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052125GeluApproximationSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052125GeluApproximationSubGraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %35 unwind label %86
@@ -13622,14 +13622,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117LayerNormSubGraphC2
   %29 = alloca %"class.std::allocator.127", align 1
   %30 = alloca %"class.std::__cxx11::basic_string", align 8
   %31 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117LayerNormSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117LayerNormSubGraphE, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 -1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -13999,7 +13999,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117LayerNormSubGraphC2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117LayerNormSubGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117LayerNormSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117LayerNormSubGraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -14010,7 +14010,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117LayerNormSubGraphD2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117LayerNormSubGraphD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117LayerNormSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117LayerNormSubGraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -15652,14 +15652,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118GatherCastSubgraphC
   %9 = alloca %"class.std::allocator.127", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118GatherCastSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118GatherCastSubgraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %15 unwind label %32
@@ -16451,14 +16451,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115MulCastSubgraphC2Ev
   %9 = alloca %"class.std::allocator.127", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115MulCastSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115MulCastSubgraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %15 unwind label %29
@@ -16671,7 +16671,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116UpsampleSubgraphC2E
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::allocator.127", align 1
   tail call void @_ZN2cv3dnn14dnn4_v2024052121ExtractScalesSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052116UpsampleSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052116UpsampleSubgraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %20 unwind label %56
@@ -16924,14 +16924,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052121ExtractScalesSubgra
   %31 = alloca %"class.std::allocator.127", align 1
   %32 = alloca %"class.std::__cxx11::basic_string", align 8
   %33 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052121ExtractScalesSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052121ExtractScalesSubgraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %37 unwind label %93
@@ -18094,7 +18094,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph1C2Ev
   %23 = alloca %"class.std::__cxx11::basic_string", align 8
   %24 = alloca %"class.std::allocator.127", align 1
   tail call void @_ZN2cv3dnn14dnn4_v2024052121ExtractScalesSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115ResizeSubgraph1E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115ResizeSubgraph1E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %25 unwind label %76
@@ -18519,7 +18519,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph2C2Ev
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.127", align 1
   tail call void @_ZN2cv3dnn14dnn4_v2024052121ExtractScalesSubgraphC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115ResizeSubgraph2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115ResizeSubgraph2E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %14 unwind label %40
@@ -18793,14 +18793,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph3C2Ev
   %48 = alloca %"class.std::allocator.127", align 1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %49, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #24
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115ResizeSubgraph3E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115ResizeSubgraph3E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %53 unwind label %130
@@ -19488,7 +19488,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphC2Ev
   %9 = alloca %"class.std::allocator.127", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
@@ -19499,7 +19499,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphC2Ev
   store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 -1, ptr %16, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %17 unwind label %31
@@ -20279,7 +20279,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2C2E
   %15 = alloca %"class.std::allocator.127", align 1
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 48, i1 false)
@@ -20290,7 +20290,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2C2E
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 -1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %23 unwind label %46
@@ -20569,7 +20569,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphC
   %17 = alloca %"class.std::allocator.127", align 1
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
@@ -20580,7 +20580,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphC
   store i32 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 -1, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %25 unwind label %51
@@ -20871,14 +20871,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117HardSwishSubgraphC2
   %7 = alloca %"class.std::allocator.127", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117HardSwishSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117HardSwishSubgraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %13 unwind label %26
@@ -21334,14 +21334,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052112CeluSubgraphC2Ev(pt
   %13 = alloca %"class.std::allocator.127", align 1
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112CeluSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112CeluSubgraphE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store float 1.000000e+00, ptr %19, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
@@ -22377,7 +22377,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1C
   %7 = alloca %"class.std::allocator.127", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
@@ -22388,7 +22388,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1C
   store i32 1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 1, ptr %14, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %15 unwind label %26
@@ -23176,7 +23176,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2C
   %13 = alloca %"class.std::allocator.127", align 1
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
@@ -23187,7 +23187,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2C
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %21 unwind label %41
@@ -23443,7 +23443,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_
   %17 = alloca %"class.std::allocator.127", align 1
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
@@ -23454,7 +23454,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_
   store i32 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 1, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_2E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %25 unwind label %51
@@ -23754,7 +23754,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3C
   %17 = alloca %"class.std::allocator.127", align 1
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
@@ -23765,7 +23765,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3C
   store i32 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 3, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %25 unwind label %51
@@ -24076,7 +24076,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationS
   %28 = alloca %"class.std::__cxx11::basic_string", align 8
   %29 = alloca %"class.std::allocator.127", align 1
   tail call void @_ZN2cv3dnn14dnn4_v2024052130BatchNormalizationSubgraphBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph1E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph1E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.71, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %30 unwind label %92
@@ -24434,14 +24434,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052130BatchNormalizationS
   %15 = alloca %"class.std::allocator.127", align 1
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052130BatchNormalizationSubgraphBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052130BatchNormalizationSubgraphBaseE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %21 unwind label %53
@@ -24751,7 +24751,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationS
   %20 = alloca %"class.std::__cxx11::basic_string", align 8
   %21 = alloca %"class.std::allocator.127", align 1
   tail call void @_ZN2cv3dnn14dnn4_v2024052130BatchNormalizationSubgraphBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph2E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.32, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %22 unwind label %72
@@ -25098,14 +25098,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052114ExpandSubgraphC2Ev(
   %21 = alloca %"class.std::allocator.127", align 1
   %22 = alloca %"class.std::__cxx11::basic_string", align 8
   %23 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052114ExpandSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052114ExpandSubgraphE, i64 16), ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
@@ -25384,7 +25384,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %112, %114
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052114ExpandSubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052114ExpandSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052114ExpandSubgraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -25401,7 +25401,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052114ExpandSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052114ExpandSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052114ExpandSubgraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -26942,14 +26942,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116SoftplusSubgraphC2E
   %11 = alloca %"class.std::allocator.127", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052116SoftplusSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052116SoftplusSubgraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %17 unwind label %34
@@ -27175,14 +27175,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052112MishSubgraphC2Ev(pt
   %9 = alloca %"class.std::allocator.127", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112MishSubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052112MishSubgraphE, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %15 unwind label %29
@@ -27394,7 +27394,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4C
   %17 = alloca %"class.std::allocator.127", align 1
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
@@ -27405,7 +27405,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4C
   store i32 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 2, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %25 unwind label %51
@@ -27705,7 +27705,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5C
   %17 = alloca %"class.std::allocator.127", align 1
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
@@ -27716,7 +27716,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5C
   store i32 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 2, ptr %24, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5E, i64 16), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %25 unwind label %51
@@ -28077,14 +28077,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117AttentionSubGraphC2
   %78 = alloca %"class.std::allocator.127", align 1
   %79 = alloca %"class.std::__cxx11::basic_string", align 8
   %80 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %81, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #24
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117AttentionSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117AttentionSubGraphE, i64 16), ptr %0, align 8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -29209,7 +29209,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %417, %419
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117AttentionSubGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117AttentionSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117AttentionSubGraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -29230,7 +29230,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117AttentionSubGraphD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117AttentionSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052117AttentionSubGraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -30203,14 +30203,14 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127AttentionSingleHead
   %66 = alloca %"class.std::allocator.127", align 1
   %67 = alloca %"class.std::__cxx11::basic_string", align 8
   %68 = alloca %"class.std::allocator.127", align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn8SubgraphE, i64 16), ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %69, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #24
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphE, i64 16), ptr %0, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, i8 0, i64 24, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -31200,7 +31200,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %364, %366
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -31221,7 +31221,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184

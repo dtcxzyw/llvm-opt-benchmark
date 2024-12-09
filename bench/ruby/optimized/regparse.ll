@@ -7325,7 +7325,7 @@ node_new_str_raw.exit.thread.i324:                ; preds = %692, %680
 700:                                              ; preds = %693
   %701 = getelementptr inbounds nuw i8, ptr %696, i64 80
   %702 = load ptr, ptr %701, align 8
-  %703 = call i32 %702(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 29)) #24
+  %703 = call i32 %702(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 29)) #24
   %704 = icmp slt i32 %703, 0
   br i1 %704, label %propname2ctype.exit.thread.i, label %propname2ctype.exit.i
 
@@ -7333,7 +7333,7 @@ propname2ctype.exit.thread.i:                     ; preds = %700
   %705 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr @.str.8, ptr %705, align 8
   %706 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr getelementptr inbounds (i8, ptr @.str.8, i64 29), ptr %706, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @.str.8, i64 29), ptr %706, align 8
   br label %quantify_node.exit.i
 
 propname2ctype.exit.i:                            ; preds = %700
@@ -7353,7 +7353,7 @@ node_new_cclass.exit.thread.i:                    ; preds = %propname2ctype.exit
   %711 = load ptr, ptr %666, align 8
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 80
   %713 = load ptr, ptr %712, align 8
-  %714 = call i32 %713(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 30)) #24
+  %714 = call i32 %713(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 30)) #24
   %715 = icmp slt i32 %714, 0
   br i1 %715, label %add_property_to_cc.exit.thread.i, label %add_property_to_cc.exit.i
 
@@ -7361,7 +7361,7 @@ add_property_to_cc.exit.thread.i:                 ; preds = %709
   %716 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr @.str.9, ptr %716, align 8
   %717 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr getelementptr inbounds (i8, ptr @.str.9, i64 30), ptr %717, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @.str.9, i64 30), ptr %717, align 8
   br label %quantify_node.exit.i
 
 add_property_to_cc.exit.i:                        ; preds = %709
@@ -10431,7 +10431,7 @@ parse_posix_bracket.exit.thread421.thread498:     ; preds = %249, %253
 
 259:                                              ; preds = %219
   %260 = getelementptr i8, ptr %.0129171.i, i64 12
-  %261 = icmp ult ptr %260, getelementptr inbounds (i8, ptr @parse_posix_bracket.PBS, i64 168)
+  %261 = icmp ult ptr %260, getelementptr inbounds nuw (i8, ptr @parse_posix_bracket.PBS, i64 168)
   br i1 %261, label %219, label %.loopexit.i, !llvm.loop !40
 
 .loopexit.i:                                      ; preds = %259, %.critedge157.i

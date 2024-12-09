@@ -2354,7 +2354,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 21))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.15, i64 21))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2375,7 +2375,7 @@ call.i.noexc7:                                    ; preds = %invoke.cont
           to label %.noexc9 unwind label %lpad3
 
 .noexc9:                                          ; preds = %call.i.noexc7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 4))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 4))
           to label %invoke.cont4 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %.noexc9
@@ -2581,7 +2581,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %m_num_deleted.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 0, ptr %m_num_deleted.i.i17, align 8
   %m_instruction_observer = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog8compiler20instruction_observerE, i64 16), ptr %m_instruction_observer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog8compiler20instruction_observerE, i64 16), ptr %m_instruction_observer, align 8
   %m_parent.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %this, ptr %m_parent.i, align 8
   %m_current.i = getelementptr inbounds nuw i8, ptr %this, i64 144

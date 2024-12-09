@@ -389,7 +389,7 @@ declare dso_local void @intel_memory_region_set_name(ptr noundef, ptr noundef, .
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @i915_gem_stolen_smem_setup(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = load i64, ptr @intel_graphics_stolen_res, align 8
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @intel_graphics_stolen_res, i64 8), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @intel_graphics_stolen_res, i64 8), align 8
   %reass.sub = sub i64 %5, %4
   %6 = add i64 %reass.sub, 1
   %7 = tail call ptr @intel_memory_region_create(ptr noundef %0, i64 noundef %4, i64 noundef %6, i64 noundef 4096, i64 noundef 0, i64 noundef 0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef nonnull @i915_region_stolen_smem_ops) #11
@@ -634,7 +634,7 @@ define internal i32 @_i915_gem_object_stolen_init(ptr noundef %0, ptr noundef %1
   br i1 %26, label %107, label %27
 
 27:                                               ; preds = %20, %16
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %29 = tail call noalias noundef align 8 dereferenceable_or_null(168) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3520, i64 noundef 168) #13
   %30 = icmp eq ptr %29, null
   br i1 %30, label %107, label %31
@@ -1850,7 +1850,7 @@ define internal noundef i32 @i915_gem_object_get_pages_stolen(ptr noundef %0) #0
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %11 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3264, i64 noundef 16) #13
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13

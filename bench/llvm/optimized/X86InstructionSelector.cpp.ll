@@ -189,7 +189,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm28createX86InstructionSelectorERKN
   tail call void @_ZN4llvm20GIMatchTableExecutorC2Ev(ptr noundef nonnull align 8 dereferenceable(1400) %4) #19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_122X86InstructionSelectorE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_122X86InstructionSelectorE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -1389,7 +1389,7 @@ declare void @_ZN4llvm20GIMatchTableExecutor12MatcherStateC1Ej(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122X86InstructionSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(1400) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_122X86InstructionSelectorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_122X86InstructionSelectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -1415,7 +1415,7 @@ _ZN4llvm20GIMatchTableExecutor10ExecInfoTyINS_6BitsetILj145EEEMN12_GLOBAL__N_122
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_122X86InstructionSelectorD0Ev(ptr noundef nonnull align 8 dereferenceable(1400) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_122X86InstructionSelectorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_122X86InstructionSelectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -2033,7 +2033,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i:
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %150 = load ptr, ptr %149, align 8
   %151 = call fastcc noundef zeroext i1 @_ZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_122X86InstructionSelectorENS_6BitsetILj145EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageE(ptr noundef nonnull align 8 dereferenceable(1400) %0, ptr noundef nonnull align 8 dereferenceable(1400) %0, ptr noundef nonnull align 8 dereferenceable(168) %121, ptr noundef nonnull align 8 dereferenceable(1064) %136, ptr noundef nonnull align 8 dereferenceable(88) %58, ptr noundef %140, ptr noundef nonnull align 8 dereferenceable(80) %142, ptr noundef nonnull align 8 dereferenceable(512) %146, ptr noundef nonnull align 8 dereferenceable(308) %148, ptr noundef nonnull align 8 dereferenceable(160) %150, ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(72) %112)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %58, align 8
   %152 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %153 = load ptr, ptr %152, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %153, null
@@ -7102,7 +7102,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_122X86InstructionSel
 
 36:                                               ; preds = %3, %35, %34
   %.not = phi i1 [ true, %3 ], [ false, %35 ], [ false, %34 ]
-  %.066 = phi ptr [ null, %3 ], [ getelementptr inbounds (i8, ptr @_ZZNK12_GLOBAL__N_122X86InstructionSelector10selectFCmpERN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionEE12SETFOpcTable, i64 6), %35 ], [ @_ZZNK12_GLOBAL__N_122X86InstructionSelector10selectFCmpERN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionEE12SETFOpcTable, %34 ]
+  %.066 = phi ptr [ null, %3 ], [ getelementptr inbounds nuw (i8, ptr @_ZZNK12_GLOBAL__N_122X86InstructionSelector10selectFCmpERN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionEE12SETFOpcTable, i64 6), %35 ], [ @_ZZNK12_GLOBAL__N_122X86InstructionSelector10selectFCmpERN4llvm12MachineInstrERNS1_19MachineRegisterInfoERNS1_15MachineFunctionEE12SETFOpcTable, %34 ]
   %37 = icmp slt i32 %29, 0
   br i1 %37, label %38, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -11160,7 +11160,7 @@ declare void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef, p
 define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32

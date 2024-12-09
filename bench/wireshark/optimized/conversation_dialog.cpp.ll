@@ -97,9 +97,9 @@ define void @_ZN18ConversationDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnu
   %21 = alloca %"class.QMetaObject::Connection", align 8
   %22 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18TrafficTableDialogC2ER7QWidgetR11CaptureFileRK7QString(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(24) @_ZL11table_name_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18ConversationDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18ConversationDialog, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18ConversationDialog, i64 544), ptr %23, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18ConversationDialog, i64 544), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 0, ptr %24, align 8
   %25 = invoke noundef ptr @_ZNK18TrafficTableDialog11trafficListEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
@@ -122,7 +122,7 @@ define void @_ZN18ConversationDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnu
   br label %_ZN7QStringC2ERKS_.exit
 
 _ZN7QStringC2ERKS_.exit:                          ; preds = %26, %32
-  invoke void @_ZN16TrafficTypesList15setProtocolInfoE7QStringPP6_GList(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull %10, ptr noundef nonnull getelementptr inbounds (i8, ptr @recent, i64 184))
+  invoke void @_ZN16TrafficTypesList15setProtocolInfoE7QStringPP6_GList(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull %10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @recent, i64 184))
           to label %34 unwind label %136
 
 34:                                               ; preds = %_ZN7QStringC2ERKS_.exit
@@ -165,7 +165,7 @@ _ZN7QStringC2ERKS_.exit23:                        ; preds = %40, %46
           to label %49 unwind label %142
 
 49:                                               ; preds = %_ZN7QStringC2ERKS_.exit23
-  invoke void @_ZN10TrafficTab15setProtocolInfoE7QStringP16TrafficTypesListPP6_GListPFP13ATapDataModeliS0_E(ptr noundef nonnull align 8 dereferenceable(122) %39, ptr noundef nonnull %11, ptr noundef %48, ptr noundef nonnull getelementptr inbounds (i8, ptr @recent, i64 192), ptr noundef nonnull @_ZL11createModeli7QString)
+  invoke void @_ZN10TrafficTab15setProtocolInfoE7QStringP16TrafficTypesListPP6_GListPFP13ATapDataModeliS0_E(ptr noundef nonnull align 8 dereferenceable(122) %39, ptr noundef nonnull %11, ptr noundef %48, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @recent, i64 192), ptr noundef nonnull @_ZL11createModeli7QString)
           to label %50 unwind label %142
 
 50:                                               ; preds = %49

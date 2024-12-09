@@ -24174,7 +24174,7 @@ term_write_direct.exit.i.i:                       ; preds = %26
   br label %term_esc_query_raw.exit.i
 
 30:                                               ; preds = %29
-  tail call void (ptr, ...) @debug_msg(ptr noundef nonnull @.str.280, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.279, i64 1))
+  tail call void (ptr, ...) @debug_msg(ptr noundef nonnull @.str.280, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.279, i64 1))
   %31 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %5, align 16

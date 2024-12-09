@@ -66,7 +66,7 @@ define hidden void @_ZN9metaspace28PrintCLDMetaspaceInfoClosureC2EP12outputStrea
   %7 = zext i1 %3 to i8
   %8 = zext i1 %4 to i8
   %9 = zext i1 %5 to i8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN9metaspace28PrintCLDMetaspaceInfoClosureE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN9metaspace28PrintCLDMetaspaceInfoClosureE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -245,7 +245,7 @@ _ZN9metaspace9ClmsStatsC2Ev.exit:                 ; preds = %25
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, 1
   store i64 %45, ptr %43, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN9metaspace17CountKlassClosureE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN9metaspace17CountKlassClosureE, i64 16), ptr %4, align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   call void @_ZN15ClassLoaderData10classes_doEP12KlassClosure(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull %4) #6

@@ -14421,7 +14421,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %_ZNK5clan
   store ptr null, ptr %64, align 8
   store ptr %6, ptr %63, align 8
   store i8 0, ptr %65, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
   %69 = trunc i64 %.01123 to i32
   %70 = call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE18visitArrayElemInitEjPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(728) %0, i32 noundef %69, ptr noundef %18)
   %.pre27 = load i8, ptr %65, align 4
@@ -14461,7 +14461,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %_ZNK5clan
   %85 = phi i8 [ %.pre27, %67 ], [ %.ph, %.sink.split ]
   %switch = phi i1 [ false, %67 ], [ %switch.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
   %86 = trunc i8 %85 to i1
   br i1 %86, label %87, label %_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
@@ -14475,7 +14475,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %_ZNK5clan
 
 _ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %83, %84, %87
   %switch34 = phi i1 [ %switch, %84 ], [ %switch, %87 ], [ %77, %83 ]
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
   %91 = load ptr, ptr %62, align 8
   %92 = load ptr, ptr %61, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 552
@@ -14532,7 +14532,7 @@ _ZNSt8optionalIjEaSESt9nullopt_t.exit:            ; preds = %21, %7, %2
 define linkonce_odr hidden void @_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.clang::interp::SourceInfo", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -14549,7 +14549,7 @@ define linkonce_odr hidden void @_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmit
   br label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
 _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %1, %6
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14868,7 +14868,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %24, align 8
   store ptr %9, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i8 0, ptr %25, align 4
   %26 = call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef %.0.i17)
@@ -14901,7 +14901,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   br i1 %34, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit.thread38, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit.thread
 
 _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit.thread38: ; preds = %40
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
   %41 = load ptr, ptr %21, align 8
   %42 = load ptr, ptr %20, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 552
@@ -14927,7 +14927,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit.thread: ; preds = 
   %48 = phi i8 [ %.pre, %19 ], [ %.ph, %.sink.split ]
   %switch = phi i1 [ false, %19 ], [ %switch.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
@@ -14938,7 +14938,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit.thread: ; preds = 
   store i64 0, ptr %5, align 8
   %54 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitDestroyEjRKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %52, i32 noundef %53, ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   call void @_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE24removeStoredOpaqueValuesEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
   %55 = load ptr, ptr %21, align 8
   %56 = load ptr, ptr %20, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 552
@@ -14947,7 +14947,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit.thread: ; preds = 
   br i1 %switch, label %61, label %108
 
 _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %47
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
   %58 = load ptr, ptr %21, align 8
   %59 = load ptr, ptr %20, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 552
@@ -14970,7 +14970,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %47
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr null, ptr %68, align 8
   store ptr %10, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 36
   store i8 0, ptr %69, align 4
   %70 = call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef %.0.i21)
@@ -15003,7 +15003,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %47
   br i1 %78, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit25.thread42, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit25.thread
 
 _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit25.thread42: ; preds = %84
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
   %85 = load ptr, ptr %66, align 8
   %86 = load ptr, ptr %65, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 552
@@ -15029,7 +15029,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit25.thread: ; preds 
   %92 = phi i8 [ %.pre28, %63 ], [ %.ph46, %.sink.split45 ]
   %switch12 = phi i1 [ false, %63 ], [ %switch12.ph, %.sink.split45 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
   %93 = trunc i8 %92 to i1
   br i1 %93, label %94, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit25
 
@@ -15040,7 +15040,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit25.thread: ; preds 
   store i64 0, ptr %3, align 8
   %98 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitDestroyEjRKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %96, i32 noundef %97, ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   call void @_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE24removeStoredOpaqueValuesEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
   %99 = load ptr, ptr %66, align 8
   %100 = load ptr, ptr %65, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 552
@@ -15049,7 +15049,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit25.thread: ; preds 
   br i1 %switch12, label %105, label %108
 
 _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit25: ; preds = %91
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %10, align 8
   %102 = load ptr, ptr %66, align 8
   %103 = load ptr, ptr %65, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 552
@@ -15071,7 +15071,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit25: ; preds = %91
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.clang::interp::SourceInfo", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -15088,7 +15088,7 @@ define linkonce_odr hidden void @_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmit
   br label %12
 
 12:                                               ; preds = %1, %6
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16097,7 +16097,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %10, align 8
   store ptr %5, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -16141,7 +16141,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
   %33 = phi i8 [ %.pre, %2 ], [ %31, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit ]
   %34 = phi i1 [ false, %2 ], [ %.0.i, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
   %35 = trunc i8 %33 to i1
   br i1 %35, label %36, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
@@ -20195,7 +20195,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   store ptr %5, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 0, ptr %12, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 585
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
@@ -20313,7 +20313,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
   %.0 = phi i1 [ %41, %40 ], [ %45, %42 ], [ %.0.i, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit ], [ false, %35 ]
   store i8 %15, ptr %13, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
   %59 = load i8, ptr %12, align 4
   %60 = trunc i8 %59 to i1
   %.pre34 = load ptr, ptr %7, align 8
@@ -20979,7 +20979,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %8 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp15ByteCodeEmitterE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp15ByteCodeEmitterE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -21001,7 +21001,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %17, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_15ByteCodeEmitterEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_15ByteCodeEmitterEEE, i64 16), ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store ptr %6, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 496
@@ -21054,7 +21054,7 @@ declare noundef ptr @_ZN5clang6interp15ByteCodeEmitter16compileObjCBlockEPKNS_9B
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev(ptr noundef nonnull align 8 dereferenceable(728) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -21110,7 +21110,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   store ptr %5, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 0, ptr %11, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
@@ -21177,7 +21177,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
   %34 = phi i8 [ %33, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit ], [ %.pre14, %.loopexit.loopexit ]
   %.0 = phi i1 [ %.0.i, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit ], [ false, %.loopexit.loopexit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %.pre16 = load ptr, ptr %6, align 8
   br i1 %35, label %36, label %_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit
@@ -21437,7 +21437,7 @@ _ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread: 
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 324
   store i32 -1, ptr %93, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %12, align 8
   %94 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %95 = load i8, ptr %94, align 4
   %96 = trunc i8 %95 to i1
@@ -21524,7 +21524,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %120, %122
   %136 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr null, ptr %136, align 8
   store ptr %15, ptr %134, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %137 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store i8 0, ptr %137, align 4
   %138 = call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE5visitEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull %25)
@@ -21544,7 +21544,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %120, %122
 145:                                              ; preds = %139, %142, %131
   %.sroa.025.2 = phi i16 [ 0, %131 ], [ 0, %139 ], [ %144, %142 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %146 = load i8, ptr %137, align 4
   %147 = trunc i8 %146 to i1
   br i1 %147, label %148, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
@@ -21559,7 +21559,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %120, %122
   br label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
 _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %145, %148
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %153 = load ptr, ptr %133, align 8
   %154 = load ptr, ptr %132, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 552
@@ -21663,7 +21663,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %27, align 8
   store ptr %6, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i8 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 668
@@ -21822,7 +21822,7 @@ _ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE16visitInitializerEPKNS_4ExprE.
   %.1 = phi i1 [ %43, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE11emitCleanupEv.exit ], [ %102, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE11emitCleanupEv.exit24 ], [ false, %33 ], [ false, %59 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ false, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE16visitInitializerEPKNS_4ExprE.exit ], [ false, %93 ], [ false, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE16checkLiteralTypeEPKNS_4ExprE.exit ]
   %switch = phi i1 [ false, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE11emitCleanupEv.exit ], [ false, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE11emitCleanupEv.exit24 ], [ false, %33 ], [ %60, %59 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ false, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE16visitInitializerEPKNS_4ExprE.exit ], [ false, %93 ], [ false, %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE16checkLiteralTypeEPKNS_4ExprE.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
   %103 = load i8, ptr %28, align 4
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
@@ -21837,7 +21837,7 @@ _ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE16visitInitializerEPKNS_4ExprE.
   br label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
 _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE16visitInitializerEPKNS_4ExprE.exit.thread, %105
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %6, align 8
   %110 = load ptr, ptr %24, align 8
   %111 = load ptr, ptr %23, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 552
@@ -23109,7 +23109,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %18, align 8
   store ptr %7, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i8 0, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23303,7 +23303,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
 115:                                              ; preds = %96, %98, %94, %92, %89, %65, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit16, %63, %36, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit, %34, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit18
   %.0 = phi i1 [ false, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit18 ], [ false, %34 ], [ false, %36 ], [ %.0.i, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit ], [ false, %63 ], [ false, %65 ], [ %.0.i15, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit16 ], [ false, %89 ], [ false, %92 ], [ false, %94 ], [ false, %96 ], [ %99, %98 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %7, align 8
   %116 = load i8, ptr %19, align 4
   %117 = trunc i8 %116 to i1
   br i1 %117, label %118, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
@@ -23658,7 +23658,7 @@ _ZN5clang6interp13InitLinkScopeINS0_15ByteCodeEmitterEEC2EPNS0_8CompilerIS2_EEON
   store ptr null, ptr %114, align 8
   store ptr %15, ptr %113, align 8
   store i8 0, ptr %115, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %123 = load ptr, ptr %122, align 8
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %120, align 8
@@ -23819,7 +23819,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
   store i8 0, ptr %115, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %213 = load ptr, ptr %112, align 8
   %214 = load ptr, ptr %111, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 552
@@ -23832,7 +23832,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
   %.0.i85 = phi i1 [ true, %200 ], [ %207, %203 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %217 = trunc i8 %216 to i1
   br i1 %217, label %218, label %_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
@@ -23842,7 +23842,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
   store i64 0, ptr %5, align 8
   %221 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitDestroyEjRKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %219, i32 noundef %220, ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   call void @_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE24removeStoredOpaqueValuesEv(ptr noundef nonnull align 8 dereferenceable(40) %15)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %222 = load ptr, ptr %112, align 8
   %223 = load ptr, ptr %111, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 552
@@ -23851,7 +23851,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
   br i1 %.0.i85, label %117, label %.loopexit
 
 _ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %225 = load ptr, ptr %112, align 8
   %226 = load ptr, ptr %111, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 552
@@ -23877,7 +23877,7 @@ _ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %_ZN5cl
 
 .critedge:                                        ; preds = %198, %195, %191, %._crit_edge, %153, %151, %144, %140, %127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %233 = load i8, ptr %115, align 4
   %234 = trunc i8 %233 to i1
   br i1 %234, label %235, label %_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit86
@@ -23891,7 +23891,7 @@ _ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %_ZN5cl
   br label %_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit86
 
 _ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit86: ; preds = %.critedge, %235
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %15, align 8
   %239 = load ptr, ptr %112, align 8
   %240 = load ptr, ptr %111, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 552
@@ -24402,7 +24402,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 324
   store i32 -1, ptr %57, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %9, align 8
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %59 = load i8, ptr %58, align 4
   %60 = trunc i8 %59 to i1
@@ -24436,7 +24436,7 @@ _ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %46, %61
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %1, ptr %75, align 8
   store ptr %11, ptr %73, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %11, align 8
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i8 0, ptr %76, align 4
   %77 = call i16 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE12visitVarDeclEPKNS_7VarDeclEb(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull %1, i1 noundef zeroext true)
@@ -24643,7 +24643,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.
 _ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit29.thread50: ; preds = %145, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit29, %_ZN5clang6interp5Block10invokeDtorEv.exit, %141, %139, %105, %103, %70, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit32
   %.2 = phi i1 [ %.0.i31, %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE13destroyLocalsEPKNS_4ExprE.exit32 ], [ false, %70 ], [ false, %103 ], [ false, %105 ], [ false, %139 ], [ false, %141 ], [ false, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ false, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit29 ], [ false, %145 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %11, align 8
   %194 = load i8, ptr %76, align 4
   %195 = trunc i8 %194 to i1
   br i1 %195, label %196, label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
@@ -24672,7 +24672,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %_ZN5cl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitterEEC2EPNS0_8CompilerIS2_EEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24684,7 +24684,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitte
   store ptr %0, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp9DeclScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp9DeclScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %12 = load ptr, ptr %11, align 8
@@ -24744,7 +24744,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitte
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 324
   store i32 -1, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
@@ -24760,7 +24760,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitte
   br label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
 _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %1, %18
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %5, align 8
@@ -40396,7 +40396,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %_ZNK5clan
   store ptr null, ptr %64, align 8
   store ptr %6, ptr %63, align 8
   store i8 0, ptr %65, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
   %69 = trunc i64 %.01123 to i32
   %70 = call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE18visitArrayElemInitEjPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef %69, ptr noundef %18)
   %.pre27 = load i8, ptr %65, align 4
@@ -40436,7 +40436,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %_ZNK5clan
   %85 = phi i8 [ %.pre27, %67 ], [ %.ph, %.sink.split ]
   %switch = phi i1 [ false, %67 ], [ %switch.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
   %86 = trunc i8 %85 to i1
   br i1 %86, label %87, label %_ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit
 
@@ -40450,7 +40450,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %_ZNK5clan
 
 _ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %83, %84, %87
   %switch34 = phi i1 [ %switch, %84 ], [ %switch, %87 ], [ %77, %83 ]
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
   %91 = load ptr, ptr %62, align 8
   %92 = load ptr, ptr %61, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 896
@@ -40507,7 +40507,7 @@ _ZNSt8optionalIjEaSESt9nullopt_t.exit:            ; preds = %21, %7, %2
 define linkonce_odr hidden void @_ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.clang::interp::SourceInfo", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -40524,7 +40524,7 @@ define linkonce_odr hidden void @_ZN5clang6interp10BlockScopeINS0_11EvalEmitterE
   br label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit
 
 _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %1, %6
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40840,7 +40840,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %22, align 8
   store ptr %9, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i8 0, ptr %23, align 4
   %24 = call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef %.0.i17)
@@ -40873,7 +40873,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   br i1 %32, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit.thread38, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit.thread
 
 _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit.thread38: ; preds = %38
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
   %39 = load ptr, ptr %19, align 8
   %40 = load ptr, ptr %18, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 896
@@ -40899,7 +40899,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit.thread: ; preds = %38
   %46 = phi i8 [ %.pre, %17 ], [ %.ph, %.sink.split ]
   %switch = phi i1 [ false, %17 ], [ %switch.ph, %.sink.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit
 
@@ -40910,7 +40910,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit.thread: ; preds = %38
   store i64 0, ptr %5, align 8
   %52 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter11emitDestroyEjRKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(828) %50, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   call void @_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE24removeStoredOpaqueValuesEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
   %53 = load ptr, ptr %19, align 8
   %54 = load ptr, ptr %18, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 896
@@ -40919,7 +40919,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit.thread: ; preds = %38
   br i1 %switch, label %59, label %106
 
 _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %45
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
   %56 = load ptr, ptr %19, align 8
   %57 = load ptr, ptr %18, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 896
@@ -40942,7 +40942,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %45
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr null, ptr %66, align 8
   store ptr %10, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 36
   store i8 0, ptr %67, align 4
   %68 = call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef %.0.i21)
@@ -40975,7 +40975,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %45
   br i1 %76, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit25.thread42, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit25.thread
 
 _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit25.thread42: ; preds = %82
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
   %83 = load ptr, ptr %64, align 8
   %84 = load ptr, ptr %63, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 896
@@ -41001,7 +41001,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit25.thread: ; preds = %8
   %90 = phi i8 [ %.pre28, %61 ], [ %.ph46, %.sink.split45 ]
   %switch12 = phi i1 [ false, %61 ], [ %switch12.ph, %.sink.split45 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
   %91 = trunc i8 %90 to i1
   br i1 %91, label %92, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit25
 
@@ -41012,7 +41012,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit25.thread: ; preds = %8
   store i64 0, ptr %3, align 8
   %96 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter11emitDestroyEjRKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(828) %94, i32 noundef %95, ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   call void @_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE24removeStoredOpaqueValuesEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
   %97 = load ptr, ptr %64, align 8
   %98 = load ptr, ptr %63, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 896
@@ -41021,7 +41021,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit25.thread: ; preds = %8
   br i1 %switch12, label %103, label %106
 
 _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit25: ; preds = %89
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %10, align 8
   %100 = load ptr, ptr %64, align 8
   %101 = load ptr, ptr %63, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 896
@@ -41043,7 +41043,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit25: ; preds = %89
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.clang::interp::SourceInfo", align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -41060,7 +41060,7 @@ define linkonce_odr hidden void @_ZN5clang6interp10LocalScopeINS0_11EvalEmitterE
   br label %12
 
 12:                                               ; preds = %1, %6
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -42050,7 +42050,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %10, align 8
   store ptr %5, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -42094,7 +42094,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
   %33 = phi i8 [ %.pre, %2 ], [ %31, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit ]
   %34 = phi i1 [ false, %2 ], [ %.0.i, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
   %35 = trunc i8 %33 to i1
   br i1 %35, label %36, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit
 
@@ -45975,7 +45975,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   store ptr %5, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 0, ptr %12, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 929
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
@@ -46093,7 +46093,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
   %.0 = phi i1 [ %41, %40 ], [ %45, %42 ], [ %.0.i, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit ], [ false, %35 ]
   store i8 %15, ptr %13, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
   %59 = load i8, ptr %12, align 4
   %60 = trunc i8 %59 to i1
   %.pre34 = load ptr, ptr %7, align 8
@@ -46757,7 +46757,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %8 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp15ByteCodeEmitterE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp15ByteCodeEmitterE, i64 16), ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -46779,7 +46779,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %17, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_15ByteCodeEmitterEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_15ByteCodeEmitterEEE, i64 16), ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store ptr %6, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 496
@@ -46846,7 +46846,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   store ptr %5, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 0, ptr %11, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
@@ -46913,7 +46913,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
   %34 = phi i8 [ %33, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit ], [ %.pre14, %.loopexit.loopexit ]
   %.0 = phi i1 [ %.0.i, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit ], [ false, %.loopexit.loopexit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %.pre16 = load ptr, ptr %6, align 8
   br i1 %35, label %36, label %_ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit
@@ -47180,7 +47180,7 @@ _ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread: 
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 324
   store i32 -1, ptr %98, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %11, align 8
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %100 = load i8, ptr %99, align 4
   %101 = trunc i8 %100 to i1
@@ -47267,7 +47267,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %125, %127
   %141 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr null, ptr %141, align 8
   store ptr %14, ptr %139, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %14, align 8
   %142 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i8 0, ptr %142, align 4
   %143 = call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE5visitEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull %30)
@@ -47386,7 +47386,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %27, align 8
   store ptr %6, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i8 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1012
@@ -47545,7 +47545,7 @@ _ZN5clang6interp8CompilerINS0_11EvalEmitterEE16visitInitializerEPKNS_4ExprE.exit
   %.1 = phi i1 [ %43, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE11emitCleanupEv.exit ], [ %102, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE11emitCleanupEv.exit24 ], [ false, %33 ], [ false, %59 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ false, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE16visitInitializerEPKNS_4ExprE.exit ], [ false, %93 ], [ false, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE16checkLiteralTypeEPKNS_4ExprE.exit ]
   %switch = phi i1 [ false, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE11emitCleanupEv.exit ], [ false, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE11emitCleanupEv.exit24 ], [ false, %33 ], [ %60, %59 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ false, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE16visitInitializerEPKNS_4ExprE.exit ], [ false, %93 ], [ false, %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE16checkLiteralTypeEPKNS_4ExprE.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
   %103 = load i8, ptr %28, align 4
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit
@@ -47560,7 +47560,7 @@ _ZN5clang6interp8CompilerINS0_11EvalEmitterEE16visitInitializerEPKNS_4ExprE.exit
   br label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit
 
 _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %_ZN5clang6interp8CompilerINS0_11EvalEmitterEE16visitInitializerEPKNS_4ExprE.exit.thread, %105
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %6, align 8
   %110 = load ptr, ptr %24, align 8
   %111 = load ptr, ptr %23, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 896
@@ -48801,7 +48801,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %18, align 8
   store ptr %7, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i8 0, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -48995,7 +48995,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
 115:                                              ; preds = %96, %98, %94, %92, %89, %65, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit16, %63, %36, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit, %34, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit18
   %.0 = phi i1 [ false, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit18 ], [ false, %34 ], [ false, %36 ], [ %.0.i, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit ], [ false, %63 ], [ false, %65 ], [ %.0.i15, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit16 ], [ false, %89 ], [ false, %92 ], [ false, %94 ], [ false, %96 ], [ %99, %98 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %7, align 8
   %116 = load i8, ptr %19, align 4
   %117 = trunc i8 %116 to i1
   br i1 %117, label %118, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit
@@ -49350,7 +49350,7 @@ _ZN5clang6interp13InitLinkScopeINS0_11EvalEmitterEEC2EPNS0_8CompilerIS2_EEONS0_8
   store ptr null, ptr %114, align 8
   store ptr %15, ptr %113, align 8
   store i8 0, ptr %115, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10BlockScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %123 = load ptr, ptr %122, align 8
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %120, align 8
@@ -49511,7 +49511,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
   store i8 0, ptr %115, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
   %213 = load ptr, ptr %112, align 8
   %214 = load ptr, ptr %111, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 896
@@ -49524,7 +49524,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
   %.0.i85 = phi i1 [ true, %200 ], [ %207, %203 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
   %217 = trunc i8 %216 to i1
   br i1 %217, label %218, label %_ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit
 
@@ -49534,7 +49534,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
   store i64 0, ptr %5, align 8
   %221 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter11emitDestroyEjRKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(828) %219, i32 noundef %220, ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   call void @_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE24removeStoredOpaqueValuesEv(ptr noundef nonnull align 8 dereferenceable(40) %15)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
   %222 = load ptr, ptr %112, align 8
   %223 = load ptr, ptr %111, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 896
@@ -49543,7 +49543,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
   br i1 %.0.i85, label %117, label %.loopexit
 
 _ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
   %225 = load ptr, ptr %112, align 8
   %226 = load ptr, ptr %111, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 896
@@ -49569,7 +49569,7 @@ _ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %_ZN5clang6
 
 .critedge:                                        ; preds = %198, %195, %191, %._crit_edge, %153, %151, %144, %140, %127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
   %233 = load i8, ptr %115, align 4
   %234 = trunc i8 %233 to i1
   br i1 %234, label %235, label %_ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit86
@@ -49583,7 +49583,7 @@ _ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %_ZN5clang6
   br label %_ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit86
 
 _ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit86: ; preds = %.critedge, %235
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %15, align 8
   %239 = load ptr, ptr %112, align 8
   %240 = load ptr, ptr %111, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 896
@@ -50092,7 +50092,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 324
   store i32 -1, ptr %57, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %9, align 8
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %59 = load i8, ptr %58, align 4
   %60 = trunc i8 %59 to i1
@@ -50126,7 +50126,7 @@ _ZN5clang6interp9DeclScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %46, %61
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %1, ptr %75, align 8
   store ptr %11, ptr %73, align 8
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %11, align 8
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i8 0, ptr %76, align 4
   %77 = call i16 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE12visitVarDeclEPKNS_7VarDeclEb(ptr noundef nonnull align 8 dereferenceable(1072) %0, ptr noundef nonnull %1, i1 noundef zeroext true)
@@ -50333,7 +50333,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit
 _ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit29.thread50: ; preds = %145, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit29, %_ZN5clang6interp5Block10invokeDtorEv.exit, %141, %139, %105, %103, %70, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit32
   %.2 = phi i1 [ %.0.i31, %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE13destroyLocalsEPKNS_4ExprE.exit32 ], [ false, %70 ], [ false, %103 ], [ false, %105 ], [ false, %139 ], [ false, %141 ], [ false, %_ZN5clang6interp5Block10invokeDtorEv.exit ], [ false, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit29 ], [ false, %145 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %11, align 8
   %194 = load i8, ptr %76, align 4
   %195 = trunc i8 %194 to i1
   br i1 %195, label %196, label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit
@@ -50362,7 +50362,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %_ZN5clang6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_11EvalEmitterEEC2EPNS0_8CompilerIS2_EEPKNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -50374,7 +50374,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_11EvalEmitterEEC
   store ptr %0, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp9DeclScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp9DeclScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 840
   %12 = load ptr, ptr %11, align 8
@@ -50434,7 +50434,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_11EvalEmitterEED
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 324
   store i32 -1, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
@@ -50450,7 +50450,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_11EvalEmitterEED
   br label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit
 
 _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %1, %18
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %5, align 8
@@ -52866,7 +52866,7 @@ define linkonce_odr hidden void @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitter
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp8CompilerINS0_11EvalEmitterEED2Ev(ptr noundef nonnull align 8 dereferenceable(1072) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang6interp8CompilerINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1040
@@ -53398,7 +53398,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE25removeIfStoredOpaqueValueE
 define linkonce_odr hidden void @_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.clang::interp::SourceInfo", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -53415,7 +53415,7 @@ define linkonce_odr hidden void @_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmit
   br label %_ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
 _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %1, %6
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -53675,7 +53675,7 @@ _ZN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEE25removeIfStoredOpaqueValueE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -53687,7 +53687,7 @@ define linkonce_odr hidden void @_ZN5clang6interp13VariableScopeINS0_15ByteCodeE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54278,7 +54278,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp15ByteCodeEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp15ByteCodeEmitterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang6interp15ByteCodeEmitterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -54746,7 +54746,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE25removeIfStoredOpaqueValueERKNS
 define linkonce_odr hidden void @_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.clang::interp::SourceInfo", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -54763,7 +54763,7 @@ define linkonce_odr hidden void @_ZN5clang6interp10LocalScopeINS0_11EvalEmitterE
   br label %_ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit
 
 _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %1, %6
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55023,7 +55023,7 @@ _ZN5clang6interp10LocalScopeINS0_11EvalEmitterEE25removeIfStoredOpaqueValueERKNS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp13VariableScopeINS0_11EvalEmitterEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55035,7 +55035,7 @@ define linkonce_odr hidden void @_ZN5clang6interp13VariableScopeINS0_11EvalEmitt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6interp13VariableScopeINS0_11EvalEmitterEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55351,7 +55351,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCode
 define linkonce_odr hidden void @_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.clang::interp::SourceInfo", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -55368,7 +55368,7 @@ define linkonce_odr hidden void @_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmit
   br label %_ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
 _ZN5clang6interp10BlockScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %1, %6
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -56140,7 +56140,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitte
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 324
   store i32 -1, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
@@ -56156,7 +56156,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitte
   br label %_ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitterEED2Ev.exit
 
 _ZN5clang6interp9DeclScopeINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %1, %18
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_15ByteCodeEmitterEEE, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %5, align 8
@@ -57016,7 +57016,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmit
 define linkonce_odr hidden void @_ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.clang::interp::SourceInfo", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -57033,7 +57033,7 @@ define linkonce_odr hidden void @_ZN5clang6interp10BlockScopeINS0_11EvalEmitterE
   br label %_ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit
 
 _ZN5clang6interp10BlockScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %1, %6
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -57213,7 +57213,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_11EvalEmitterEED
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 324
   store i32 -1, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp10LocalScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
@@ -57229,7 +57229,7 @@ define linkonce_odr hidden void @_ZN5clang6interp9DeclScopeINS0_11EvalEmitterEED
   br label %_ZN5clang6interp9DeclScopeINS0_11EvalEmitterEED2Ev.exit
 
 _ZN5clang6interp9DeclScopeINS0_11EvalEmitterEED2Ev.exit: ; preds = %1, %18
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5clang6interp13VariableScopeINS0_11EvalEmitterEEE, i64 16), ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %5, align 8

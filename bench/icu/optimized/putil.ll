@@ -1168,7 +1168,7 @@ if.end58:                                         ; preds = %_ZL16skipZoneIDPref
   %. = zext i1 %cmp65 to i32
   %daylightType.0 = select i1 %cmp61, i32 2, i32 %.
   %7 = load ptr, ptr @tzname, align 16
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @tzname, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tzname, i64 8), align 8
   %9 = load i64, ptr @__timezone, align 8
   %conv.i = trunc i64 %9 to i32
   br label %for.body.i

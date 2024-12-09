@@ -201,7 +201,7 @@ define hidden void @_ZN2cv5utils7logging13LogTagManagerC2ENS1_8LogLevelE(ptr nou
   store i32 1, ptr %37, align 8, !noalias !4
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 1, ptr %38, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5utils7logging18LogTagConfigParserESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %36, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv5utils7logging18LogTagConfigParserESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %36, align 8, !noalias !4
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   invoke void @_ZN2cv5utils7logging18LogTagConfigParserC1ENS1_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(168) %39, i32 noundef %1)
           to label %41 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv5utils7logging18LogTagConfigParserESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !4

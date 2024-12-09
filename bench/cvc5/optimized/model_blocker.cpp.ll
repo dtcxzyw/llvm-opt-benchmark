@@ -229,7 +229,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal12ModelBlockerC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %e) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %e)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal12ModelBlockerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal12ModelBlockerE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -5885,7 +5885,7 @@ if.end761:                                        ; preds = %_ZNSt3mapIN4cvc58in
   br i1 %cmp, label %if.then765, label %if.end931
 
 if.then765:                                       ; preds = %if.end761
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %s766, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %s766, align 8
   %d_vars.i = getelementptr inbounds nuw i8, ptr %s766, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %d_vars.i, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %possible, i8 0, i64 24, i1 false)
@@ -8230,7 +8230,7 @@ declare void @_ZN4cvc58internal4Subs3addERKNS0_12NodeTemplateILb1EEES5_(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal4SubsD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc58internal4SubsE, i64 16), ptr %this, align 8
   %d_subs = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_subs, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40

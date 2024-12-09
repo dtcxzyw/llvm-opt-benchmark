@@ -646,7 +646,7 @@ define internal ptr @asymmetric_lookup_restriction(ptr noundef %0) #0 align 16 {
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 24) #19
   %9 = icmp eq ptr %8, null
   br i1 %9, label %65, label %10
@@ -665,7 +665,7 @@ define internal ptr @asymmetric_lookup_restriction(ptr noundef %0) #0 align 16 {
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 24) #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %65, label %20
@@ -725,7 +725,7 @@ define internal ptr @asymmetric_lookup_restriction(ptr noundef %0) #0 align 16 {
 
 51:                                               ; preds = %48, %44
   %52 = phi ptr [ %49, %48 ], [ null, %44 ]
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %54 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %53, i32 noundef 3520, i64 noundef 24) #19
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread, label %56
@@ -821,8 +821,8 @@ define dso_local noundef range(i32 -17, 1) i32 @register_asymmetric_key_parser(p
   br label %20
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @asymmetric_key_parsers, i64 8), align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @asymmetric_key_parsers, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @asymmetric_key_parsers, i64 8), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @asymmetric_key_parsers, i64 8), align 8
   store ptr @asymmetric_key_parsers, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %17, align 8

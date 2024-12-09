@@ -210,7 +210,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta9gen_types8generate17h27da
 ._crit_edge11.i:                                  ; preds = %.noexc15, %.noexc10
   store ptr @anon.3c061c8455c5c731a73b3ba087a74295.5, ptr %15, align 8
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.3c061c8455c5c731a73b3ba087a74295.5, i64 48), ptr %34, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.3c061c8455c5c731a73b3ba087a74295.5, i64 48), ptr %34, align 8
   %35 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f3aa8415cfe15f9E"(ptr nonnull align 8 %15)
           to label %.noexc13 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -2247,7 +2247,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %_ZN8pybind117module
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2328,7 +2328,7 @@ _ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -3599,7 +3599,7 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind116detail25make_static_propert
   %2 = alloca %"class.pybind11::str", align 8
   %3 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.40)
   store ptr %3, ptr %1, align 8, !alias.scope !69
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 304), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 304), align 8
   %5 = invoke noundef ptr %4(ptr noundef nonnull @PyType_Type, i64 noundef 0)
           to label %6 unwind label %7
 
@@ -3763,7 +3763,7 @@ define linkonce_odr hidden noundef ptr @_ZN8pybind116detail22make_default_metacl
   %2 = alloca %"class.pybind11::str", align 8
   %3 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.45)
   store ptr %3, ptr %1, align 8, !alias.scope !72
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 304), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 304), align 8
   %5 = invoke noundef ptr %4(ptr noundef nonnull @PyType_Type, i64 noundef 0)
           to label %6 unwind label %7
 
@@ -4228,7 +4228,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1117error_already_setE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29
           to label %4 unwind label %24
@@ -4277,7 +4277,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @_ZN8pybind1117error_already_set23m_fetched_error_deleterEPNS_6detail25error_fetch_and_normalizeE, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -5795,7 +5795,7 @@ _ZNO8pybind116object4castINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
           to label %17 unwind label %24
 
 17:                                               ; preds = %16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #28
           to label %31 unwind label %24
 
@@ -6189,7 +6189,7 @@ define linkonce_odr hidden void @_ZN8pybind114moveINSt7__cxx1112basic_stringIcSt
           to label %21 unwind label %28
 
 21:                                               ; preds = %20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %12, align 8
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #28
           to label %37 unwind label %28
 
@@ -6834,7 +6834,7 @@ _ZNKR8pybind116handle7inc_refEv.exit5:            ; preds = %_ZNKR8pybind116hand
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @pybind11_static_get(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 272), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyProperty_Type, i64 272), align 8
   %5 = tail call noundef ptr %4(ptr noundef %0, ptr noundef %2, ptr noundef %2)
   ret ptr %5
 }
@@ -6848,7 +6848,7 @@ define linkonce_odr hidden i32 @pybind11_static_set(ptr noundef %0, ptr noundef 
   %6 = and i64 %.val.val, 2147483648
   %.not6 = icmp eq i64 %6, 0
   %spec.select = select i1 %.not6, ptr %.val, ptr %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 280), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyProperty_Type, i64 280), align 8
   %8 = tail call noundef i32 %7(ptr noundef %0, ptr noundef nonnull %spec.select, ptr noundef %2)
   ret i32 %8
 }
@@ -6860,7 +6860,7 @@ declare i32 @PyObject_SetAttrString(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @pybind11_meta_call(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 128), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 128), align 8
   %6 = tail call noundef ptr %5(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZL10_Py_DECREFP7_object.exit, label %8
@@ -7033,7 +7033,7 @@ define linkonce_odr hidden i32 @pybind11_meta_setattro(ptr noundef %0, ptr nound
   br label %23
 
 .critedge:                                        ; preds = %10, %3, %12
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 152), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 152), align 8
   %22 = tail call noundef i32 %21(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %23
 
@@ -7061,7 +7061,7 @@ define linkonce_odr hidden ptr @pybind11_meta_getattro(ptr noundef %0, ptr nound
   br label %12
 
 9:                                                ; preds = %4, %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 144), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 144), align 8
   %11 = tail call noundef ptr %10(ptr noundef %0, ptr noundef %1)
   br label %12
 
@@ -7341,7 +7341,7 @@ _ZN8pybind116detail9type_infoD2Ev.exit:           ; preds = %_ZNSt6vectorISt4pai
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i, %30, %9, %14, %_ZNSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %_ZN8pybind116detail9type_infoD2Ev.exit, %43
-  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @PyType_Type, i64 48), align 8
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyType_Type, i64 48), align 8
   call void %127(ptr noundef %0)
   ret void
 }
@@ -11475,7 +11475,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail13clean_type_idERNSt7__cxx11
           to label %22 unwind label %.body15
 
 22:                                               ; preds = %20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %21, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.75, i64 10)) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %21, ptr noundef nonnull @.str.75, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.75, i64 10)) #25
   store ptr null, ptr %2, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 10)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body15
@@ -14893,7 +14893,7 @@ _ZN8pybind115tupleD2Ev.exit588:                   ; preds = %_ZN8pybind119set_er
           to label %.noexc590 unwind label %1183
 
 .noexc590:                                        ; preds = %.noexc589
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.91, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.91, i64 77))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.91, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.91, i64 77))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit593 unwind label %1169
 
 1169:                                             ; preds = %.noexc590
@@ -15260,7 +15260,7 @@ define linkonce_odr hidden void @_ZN8pybind116detail15local_internalsC2Ev(ptr no
           to label %.noexc11 unwind label %28
 
 .noexc11:                                         ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.73, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.73, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.73, i64 13))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %13
 
 13:                                               ; preds = %.noexc11
@@ -18498,7 +18498,7 @@ define linkonce_odr hidden void @_ZN8pybind1137cast_error_unable_to_convert_call
           to label %7 unwind label %10
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   ret void
@@ -19680,7 +19680,7 @@ select.unfold:                                    ; preds = %19, %_ZN8pybind116d
 
 46:                                               ; preds = %._crit_edge
   %47 = tail call ptr @__cxa_allocate_exception(i64 8) #25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
   unreachable
 
@@ -20728,7 +20728,7 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %35, %31
 
 .invoke:                                          ; preds = %70, %60, %52
   %.sink = phi ptr [ %53, %52 ], [ %61, %60 ], [ %71, %70 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %.sink, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #28
           to label %.cont unwind label %38
 
@@ -21047,7 +21047,7 @@ _ZNKR8pybind116handle7inc_refEv.exit:             ; preds = %.lr.ph.i.i.i.i.i, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -24893,7 +24893,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind114moveIbEENSt9enable_i
           to label %20 unwind label %27
 
 20:                                               ; preds = %19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %11, align 8
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #28
           to label %37 unwind label %27
 
@@ -25030,7 +25030,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
           to label %33 unwind label %40
 
 33:                                               ; preds = %32
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8pybind1110cast_errorE, i64 16), ptr %24, align 8
   invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #28
           to label %46 unwind label %40
 

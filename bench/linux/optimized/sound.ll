@@ -163,7 +163,7 @@ define dso_local i32 @snd_register_device(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %7, label %50, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 48) #6
   %11 = icmp eq ptr %10, null
   br i1 %11, label %50, label %12

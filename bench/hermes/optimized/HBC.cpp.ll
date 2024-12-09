@@ -549,7 +549,7 @@ if.end.i:                                         ; preds = %entry
   store ptr @.str.4, ptr %name2.i.i.i.i.i.i, align 8, !noalias !4
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
   store i64 23, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i.i, align 8, !noalias !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc23LowerLoadStoreFrameInstE, i64 16), ptr %call.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc23LowerLoadStoreFrameInstE, i64 16), ptr %call.i.i.i, align 8, !noalias !4
   store ptr %call.i.i.i, ptr %agg.tmp.i.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i.i) #18
   %2 = load ptr, ptr %agg.tmp.i.i, align 8
@@ -579,7 +579,7 @@ if.then3.i:                                       ; preds = %_ZN6hermes11PassMan
   store ptr @.str.5, ptr %name2.i.i.i.i.i11.i, align 8, !noalias !7
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %call.i.i9.i, i64 24
   store i64 18, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i12.i, align 8, !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc18OptEnvironmentInitE, i64 16), ptr %call.i.i9.i, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc18OptEnvironmentInitE, i64 16), ptr %call.i.i9.i, align 8, !noalias !7
   store ptr %call.i.i9.i, ptr %agg.tmp.i8.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i8.i) #18
   %5 = load ptr, ptr %agg.tmp.i8.i, align 8
@@ -606,7 +606,7 @@ if.end4.i:                                        ; preds = %_ZN6hermes11PassMan
   store ptr @.str.6, ptr %name2.i.i.i.i.i20.i, align 8, !noalias !10
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i21.i = getelementptr inbounds nuw i8, ptr %call.i.i18.i, i64 24
   store i64 27, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i21.i, align 8, !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes27LowerExponentiationOperatorE, i64 16), ptr %call.i.i18.i, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes27LowerExponentiationOperatorE, i64 16), ptr %call.i.i18.i, align 8, !noalias !10
   store ptr %call.i.i18.i, ptr %agg.tmp.i17.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i17.i) #18
   %7 = load ptr, ptr %agg.tmp.i17.i, align 8
@@ -630,7 +630,7 @@ _ZN6hermes11PassManager7addPassINS_27LowerExponentiationOperatorEJEEEvDpOT0_.exi
   store ptr @.str.7, ptr %name2.i.i.i.i.i29.i, align 8, !noalias !13
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i30.i = getelementptr inbounds nuw i8, ptr %call.i.i27.i, i64 24
   store i64 17, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i30.i, align 8, !noalias !13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc17LowerBuiltinCallsE, i64 16), ptr %call.i.i27.i, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc17LowerBuiltinCallsE, i64 16), ptr %call.i.i27.i, align 8, !noalias !13
   store ptr %call.i.i27.i, ptr %agg.tmp.i26.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i26.i) #18
   %9 = load ptr, ptr %agg.tmp.i26.i, align 8
@@ -654,7 +654,7 @@ _ZN6hermes11PassManager7addPassINS_3hbc17LowerBuiltinCallsEJEEEvDpOT0_.exit.i: ;
   store ptr @.str.8, ptr %name2.i.i.i.i.i38.i, align 8, !noalias !16
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i39.i = getelementptr inbounds nuw i8, ptr %call.i.i36.i, i64 24
   store i64 22, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i39.i, align 8, !noalias !16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes22LowerNumericPropertiesE, i64 16), ptr %call.i.i36.i, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes22LowerNumericPropertiesE, i64 16), ptr %call.i.i36.i, align 8, !noalias !16
   store ptr %call.i.i36.i, ptr %agg.tmp.i35.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i35.i) #18
   %11 = load ptr, ptr %agg.tmp.i35.i, align 8
@@ -678,7 +678,7 @@ _ZN6hermes11PassManager7addPassINS_22LowerNumericPropertiesEJEEEvDpOT0_.exit.i: 
   store ptr @.str.9, ptr %name2.i.i.i.i.i47.i, align 8, !noalias !19
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i48.i = getelementptr inbounds nuw i8, ptr %call.i.i45.i, i64 24
   store i64 17, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i48.i, align 8, !noalias !19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc17LowerConstructionE, i64 16), ptr %call.i.i45.i, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc17LowerConstructionE, i64 16), ptr %call.i.i45.i, align 8, !noalias !19
   store ptr %call.i.i45.i, ptr %agg.tmp.i44.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i44.i) #18
   %13 = load ptr, ptr %agg.tmp.i44.i, align 8
@@ -702,7 +702,7 @@ _ZN6hermes11PassManager7addPassINS_3hbc17LowerConstructionEJEEEvDpOT0_.exit.i: ;
   store ptr @.str.10, ptr %name2.i.i.i.i.i56.i, align 8, !noalias !22
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i57.i = getelementptr inbounds nuw i8, ptr %call.i.i54.i, i64 24
   store i64 19, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i57.i, align 8, !noalias !22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc19LowerArgumentsArrayE, i64 16), ptr %call.i.i54.i, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc19LowerArgumentsArrayE, i64 16), ptr %call.i.i54.i, align 8, !noalias !22
   store ptr %call.i.i54.i, ptr %agg.tmp.i53.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i53.i) #18
   %15 = load ptr, ptr %agg.tmp.i53.i, align 8
@@ -726,7 +726,7 @@ _ZN6hermes11PassManager7addPassINS_3hbc19LowerArgumentsArrayEJEEEvDpOT0_.exit.i:
   store ptr @.str.11, ptr %name2.i.i.i.i.i65.i, align 8, !noalias !25
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i66.i = getelementptr inbounds nuw i8, ptr %call.i.i63.i, i64 24
   store i64 15, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i66.i, align 8, !noalias !25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes15LimitAllocArrayE, i64 16), ptr %call.i.i63.i, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes15LimitAllocArrayE, i64 16), ptr %call.i.i63.i, align 8, !noalias !25
   %maxSize_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i63.i, i64 32
   store i32 65535, ptr %maxSize_.i.i.i.i, align 8, !noalias !25
   store ptr %call.i.i63.i, ptr %agg.tmp.i62.i, align 8
@@ -752,7 +752,7 @@ _ZN6hermes11PassManager7addPassINS_15LimitAllocArrayEJiEEEvDpOT0_.exit.i: ; pred
   store ptr @.str.12, ptr %name2.i.i.i.i.i74.i, align 8, !noalias !28
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i75.i = getelementptr inbounds nuw i8, ptr %call.i.i72.i, i64 24
   store i64 19, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i75.i, align 8, !noalias !28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc19DedupReifyArgumentsE, i64 16), ptr %call.i.i72.i, align 8, !noalias !28
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc19DedupReifyArgumentsE, i64 16), ptr %call.i.i72.i, align 8, !noalias !28
   store ptr %call.i.i72.i, ptr %agg.tmp.i71.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i71.i) #18
   %19 = load ptr, ptr %agg.tmp.i71.i, align 8
@@ -776,7 +776,7 @@ _ZN6hermes11PassManager7addPassINS_3hbc19DedupReifyArgumentsEJEEEvDpOT0_.exit.i:
   store ptr @.str.13, ptr %name2.i.i.i.i.i83.i, align 8, !noalias !31
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i84.i = getelementptr inbounds nuw i8, ptr %call.i.i81.i, i64 24
   store i64 25, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i84.i, align 8, !noalias !31
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc25LowerSwitchIntoJumpTablesE, i64 16), ptr %call.i.i81.i, align 8, !noalias !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc25LowerSwitchIntoJumpTablesE, i64 16), ptr %call.i.i81.i, align 8, !noalias !31
   store ptr %call.i.i81.i, ptr %agg.tmp.i80.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i80.i) #18
   %21 = load ptr, ptr %agg.tmp.i80.i, align 8
@@ -800,7 +800,7 @@ _ZN6hermes11PassManager7addPassINS_3hbc25LowerSwitchIntoJumpTablesEJEEEvDpOT0_.e
   store ptr @.str.14, ptr %name2.i.i.i.i.i92.i, align 8, !noalias !34
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i93.i = getelementptr inbounds nuw i8, ptr %call.i.i90.i, i64 24
   store i64 14, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i93.i, align 8, !noalias !34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes14SwitchLoweringE, i64 16), ptr %call.i.i90.i, align 8, !noalias !34
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes14SwitchLoweringE, i64 16), ptr %call.i.i90.i, align 8, !noalias !34
   store ptr %call.i.i90.i, ptr %agg.tmp.i89.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i89.i) #18
   %23 = load ptr, ptr %agg.tmp.i89.i, align 8
@@ -824,7 +824,7 @@ _ZN6hermes11PassManager7addPassINS_14SwitchLoweringEJEEEvDpOT0_.exit.i: ; preds 
   store ptr @.str.15, ptr %name2.i.i.i.i.i101.i, align 8, !noalias !37
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i102.i = getelementptr inbounds nuw i8, ptr %call.i.i99.i, i64 24
   store i64 13, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i102.i, align 8, !noalias !37
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc13LoadConstantsE, i64 16), ptr %call.i.i99.i, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc13LoadConstantsE, i64 16), ptr %call.i.i99.i, align 8, !noalias !37
   store ptr %call.i.i99.i, ptr %agg.tmp.i98.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i98.i) #18
   %25 = load ptr, ptr %agg.tmp.i98.i, align 8
@@ -848,7 +848,7 @@ _ZN6hermes11PassManager7addPassINS_3hbc13LoadConstantsEJEEEvDpOT0_.exit.i: ; pre
   store ptr @.str.16, ptr %name2.i.i.i.i.i110.i, align 8, !noalias !40
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i111.i = getelementptr inbounds nuw i8, ptr %call.i.i108.i, i64 24
   store i64 14, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i111.i, align 8, !noalias !40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc14LoadParametersE, i64 16), ptr %call.i.i108.i, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc14LoadParametersE, i64 16), ptr %call.i.i108.i, align 8, !noalias !40
   store ptr %call.i.i108.i, ptr %agg.tmp.i107.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i107.i) #18
   %27 = load ptr, ptr %agg.tmp.i107.i, align 8
@@ -877,7 +877,7 @@ if.then7.i:                                       ; preds = %_ZN6hermes11PassMan
   store ptr @.str.17, ptr %name2.i.i.i.i.i119.i, align 8, !noalias !43
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i120.i = getelementptr inbounds nuw i8, ptr %call.i.i117.i, i64 24
   store i64 16, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i120.i, align 8, !noalias !43
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes16LowerAllocObjectE, i64 16), ptr %call.i.i117.i, align 8, !noalias !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes16LowerAllocObjectE, i64 16), ptr %call.i.i117.i, align 8, !noalias !43
   store ptr %call.i.i117.i, ptr %agg.tmp.i116.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i116.i) #18
   %30 = load ptr, ptr %agg.tmp.i116.i, align 8
@@ -901,7 +901,7 @@ _ZN6hermes11PassManager7addPassINS_16LowerAllocObjectEJEEEvDpOT0_.exit.i: ; pred
   store ptr @.str.18, ptr %name2.i.i.i.i.i128.i, align 8, !noalias !46
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i129.i = getelementptr inbounds nuw i8, ptr %call.i.i126.i, i64 24
   store i64 15, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i129.i, align 8, !noalias !46
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes15LowerCondBranchE, i64 16), ptr %call.i.i126.i, align 8, !noalias !46
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes15LowerCondBranchE, i64 16), ptr %call.i.i126.i, align 8, !noalias !46
   store ptr %call.i.i126.i, ptr %agg.tmp.i125.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i125.i) #18
   %32 = load ptr, ptr %agg.tmp.i125.i, align 8
@@ -925,7 +925,7 @@ _ZN6hermes11PassManager7addPassINS_15LowerCondBranchEJEEEvDpOT0_.exit.i: ; preds
   store ptr @.str.19, ptr %name2.i.i.i.i.i137.i, align 8, !noalias !49
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i138.i = getelementptr inbounds nuw i8, ptr %call.i.i135.i, i64 24
   store i64 13, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i138.i, align 8, !noalias !49
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes13FuncCallNOptsE, i64 16), ptr %call.i.i135.i, align 8, !noalias !49
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes13FuncCallNOptsE, i64 16), ptr %call.i.i135.i, align 8, !noalias !49
   store ptr %call.i.i135.i, ptr %agg.tmp.i134.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM.i, ptr noundef nonnull %agg.tmp.i134.i) #18
   %34 = load ptr, ptr %agg.tmp.i134.i, align 8
@@ -5064,7 +5064,7 @@ if.else105:                                       ; preds = %if.end100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %file.i.i, i8 0, i64 28, i1 false)
   store i64 -1, ptr %memoryLimit.i.i, align 8
   store ptr %__begin187.sroa.0.0540, ptr %F.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc20HVMRegisterAllocatorE, i64 16), ptr %RA, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc20HVMRegisterAllocatorE, i64 16), ptr %RA, align 8
   store i32 0, ptr %max_parameter_count_.i, align 8
   store i32 0, ptr %spill_count_.i, align 4
   call void @_ZN6hermes21ScopeRegisterAnalysisC1EPNS_8FunctionERNS_17RegisterAllocatorE(ptr noundef nonnull align 8 dereferenceable(32) %SRA, ptr noundef nonnull %__begin187.sroa.0.0540, ptr noundef nonnull align 8 dereferenceable(1952) %RA) #18
@@ -5153,7 +5153,7 @@ if.end116:                                        ; preds = %if.then115, %_ZN4ll
   store ptr @.str.31, ptr %name2.i.i.i.i.i, align 8, !noalias !185
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i298, i64 24
   store i64 16, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i, align 8, !noalias !185
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes16LowerStoreInstrsE, i64 16), ptr %call.i.i298, align 8, !noalias !185
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes16LowerStoreInstrsE, i64 16), ptr %call.i.i298, align 8, !noalias !185
   %RA_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i298, i64 32
   store ptr %RA, ptr %RA_.i.i.i, align 8, !noalias !185
   store ptr %call.i.i298, ptr %agg.tmp.i297, align 8
@@ -5179,7 +5179,7 @@ _ZN6hermes11PassManager7addPassINS_16LowerStoreInstrsEJRNS_3hbc20HVMRegisterAllo
   store ptr @.str.32, ptr %name2.i.i.i.i.i303, align 8, !noalias !188
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i304 = getelementptr inbounds nuw i8, ptr %call.i.i301, i64 24
   store i64 10, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i304, align 8, !noalias !188
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc10LowerCallsE, i64 16), ptr %call.i.i301, align 8, !noalias !188
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc10LowerCallsE, i64 16), ptr %call.i.i301, align 8, !noalias !188
   %RA_.i.i.i305 = getelementptr inbounds nuw i8, ptr %call.i.i301, i64 32
   store ptr %RA, ptr %RA_.i.i.i305, align 8, !noalias !188
   store ptr %call.i.i301, ptr %agg.tmp.i300, align 8
@@ -5210,7 +5210,7 @@ if.then121:                                       ; preds = %_ZN6hermes11PassMan
   store ptr @.str.33, ptr %name2.i.i.i.i.i313, align 8, !noalias !191
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i314 = getelementptr inbounds nuw i8, ptr %call.i.i311, i64 24
   store i64 14, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i314, align 8, !noalias !191
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes14MovEliminationE, i64 16), ptr %call.i.i311, align 8, !noalias !191
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes14MovEliminationE, i64 16), ptr %call.i.i311, align 8, !noalias !191
   %RA_.i.i.i315 = getelementptr inbounds nuw i8, ptr %call.i.i311, i64 32
   store ptr %RA, ptr %RA_.i.i.i315, align 8, !noalias !191
   store ptr %call.i.i311, ptr %agg.tmp.i310, align 8
@@ -5236,7 +5236,7 @@ _ZN6hermes11PassManager7addPassINS_14MovEliminationEJRNS_3hbc20HVMRegisterAlloca
   store ptr @.str.34, ptr %name2.i.i.i.i.i323, align 8, !noalias !194
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i324 = getelementptr inbounds nuw i8, ptr %call.i.i321, i64 24
   store i64 19, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i324, align 8, !noalias !194
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc19RecreateCheapValuesE, i64 16), ptr %call.i.i321, align 8, !noalias !194
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc19RecreateCheapValuesE, i64 16), ptr %call.i.i321, align 8, !noalias !194
   %RA_.i.i.i325 = getelementptr inbounds nuw i8, ptr %call.i.i321, i64 32
   store ptr %RA, ptr %RA_.i.i.i325, align 8, !noalias !194
   store ptr %call.i.i321, ptr %agg.tmp.i320, align 8
@@ -5262,7 +5262,7 @@ _ZN6hermes11PassManager7addPassINS_3hbc19RecreateCheapValuesEJRNS2_20HVMRegister
   store ptr @.str.35, ptr %name2.i.i.i.i.i333, align 8, !noalias !197
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i334 = getelementptr inbounds nuw i8, ptr %call.i.i331, i64 24
   store i64 26, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i334, align 8, !noalias !197
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc26LoadConstantValueNumberingE, i64 16), ptr %call.i.i331, align 8, !noalias !197
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc26LoadConstantValueNumberingE, i64 16), ptr %call.i.i331, align 8, !noalias !197
   %RA_.i.i.i335 = getelementptr inbounds nuw i8, ptr %call.i.i331, i64 32
   store ptr %RA, ptr %RA_.i.i.i335, align 8, !noalias !197
   store ptr %call.i.i331, ptr %agg.tmp.i330, align 8
@@ -5291,7 +5291,7 @@ if.end122:                                        ; preds = %_ZN6hermes11PassMan
   store ptr @.str.36, ptr %name2.i.i.i.i.i343, align 8, !noalias !200
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i344 = getelementptr inbounds nuw i8, ptr %call.i.i341, i64 24
   store i64 14, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i344, align 8, !noalias !200
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc14SpillRegistersE, i64 16), ptr %call.i.i341, align 8, !noalias !200
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc14SpillRegistersE, i64 16), ptr %call.i.i341, align 8, !noalias !200
   %RA_.i.i.i345 = getelementptr inbounds nuw i8, ptr %call.i.i341, i64 32
   store ptr %RA, ptr %RA_.i.i.i345, align 8, !noalias !200
   store ptr %call.i.i341, ptr %agg.tmp.i340, align 8
@@ -5322,7 +5322,7 @@ if.then124:                                       ; preds = %_ZN6hermes11PassMan
   store ptr @.str.37, ptr %name2.i.i.i.i.i353, align 8, !noalias !203
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i354 = getelementptr inbounds nuw i8, ptr %call.i.i351, i64 24
   store i64 18, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i354, align 8, !noalias !203
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc18InsertProfilePointE, i64 16), ptr %call.i.i351, align 8, !noalias !203
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc18InsertProfilePointE, i64 16), ptr %call.i.i351, align 8, !noalias !203
   store ptr %call.i.i351, ptr %agg.tmp.i350, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM, ptr noundef nonnull %agg.tmp.i350) #18
   %471 = load ptr, ptr %agg.tmp.i350, align 8
@@ -8023,7 +8023,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes17RegisterAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(1952) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes17RegisterAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes17RegisterAllocatorE, i64 16), ptr %this, align 8
   %file = getelementptr inbounds nuw i8, ptr %this, i64 1904
   %0 = load ptr, ptr %file, align 8
   tail call void @free(ptr noundef %0) #18

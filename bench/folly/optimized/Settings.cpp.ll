@@ -246,21 +246,21 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11) #27
   br label %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
 
 _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %init.i, %init.check.i, %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !26, !alias.scope !23
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !26, !alias.scope !23
   %token_.i3.i.i = getelementptr inbounds nuw i8, ptr %mapPtr, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !31, !alias.scope !23
   %slot_.i.i4.i.i = getelementptr inbounds nuw i8, ptr %mapPtr, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !32, !alias.scope !23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #27, !noalias !23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #27, !noalias !23
-  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !23
+  %2 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !23
   store i32 %2, ptr %state.i.i.i.i.i.i, align 4, !tbaa !33, !noalias !23
   %and.i.i.i.i.i.i = and i32 %2, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -268,7 +268,7 @@ _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %i
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
   %add.i.i.i.i.i.i = or disjoint i32 %2, 2048
-  %3 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %2, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !23
+  %3 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %2, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !23
   %4 = extractvalue { i32, i1 } %3, 1
   br i1 %4, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -282,7 +282,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
-  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -523,21 +523,21 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11) #27
   br label %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
 
 _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %init.i, %init.check.i, %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !26, !alias.scope !57
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !26, !alias.scope !57
   %token_.i3.i.i = getelementptr inbounds nuw i8, ptr %mapPtr, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !31, !alias.scope !57
   %slot_.i.i4.i.i = getelementptr inbounds nuw i8, ptr %mapPtr, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !32, !alias.scope !57
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #27, !noalias !57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #27, !noalias !57
-  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !57
+  %2 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !57
   store i32 %2, ptr %state.i.i.i.i.i.i, align 4, !tbaa !33, !noalias !57
   %and.i.i.i.i.i.i = and i32 %2, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -545,7 +545,7 @@ _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %i
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
   %add.i.i.i.i.i.i = or disjoint i32 %2, 2048
-  %3 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %2, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !57
+  %3 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %2, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !57
   %4 = extractvalue { i32, i1 } %3, 1
   br i1 %4, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -559,7 +559,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
-  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -873,21 +873,21 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11) #27
   br label %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
 
 _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %init.i, %init.check.i, %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !26, !alias.scope !73
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !26, !alias.scope !73
   %token_.i3.i.i = getelementptr inbounds nuw i8, ptr %mapPtr, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !31, !alias.scope !73
   %slot_.i.i4.i.i = getelementptr inbounds nuw i8, ptr %mapPtr, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !32, !alias.scope !73
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #27, !noalias !73
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #27, !noalias !73
-  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !73
+  %2 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !73
   store i32 %2, ptr %state.i.i.i.i.i.i, align 4, !tbaa !33, !noalias !73
   %and.i.i.i.i.i.i = and i32 %2, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -895,7 +895,7 @@ _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %i
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
   %add.i.i.i.i.i.i = or disjoint i32 %2, 2048
-  %3 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %2, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !73
+  %3 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %2, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !73
   %4 = extractvalue { i32, i1 } %3, 1
   br i1 %4, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -909,7 +909,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
-  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -1160,21 +1160,21 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11) #27
   br label %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
 
 _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %init.i, %init.check.i, %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %ref.tmp, align 8, !tbaa !26, !alias.scope !86
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %ref.tmp, align 8, !tbaa !26, !alias.scope !86
   %token_.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !31, !alias.scope !86
   %slot_.i.i4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !32, !alias.scope !86
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #27, !noalias !86
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #27, !noalias !86
-  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !86
+  %3 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !86
   store i32 %3, ptr %state.i.i.i.i.i.i, align 4, !tbaa !33, !noalias !86
   %and.i.i.i.i.i.i = and i32 %3, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -1182,7 +1182,7 @@ _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %i
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
   %add.i.i.i.i.i.i = or disjoint i32 %3, 2048
-  %4 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %3, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !86
+  %4 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %3, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !86
   %5 = extractvalue { i32, i1 } %4, 1
   br i1 %5, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -1196,7 +1196,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
-  %call8.i.i.i.i.i.i41 = invoke noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i41 = invoke noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -1400,7 +1400,7 @@ entry:
   %state.i.i.i41 = alloca i32, align 4
   %state.i.i.i = alloca i32, align 4
   %ctx.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly8settings6detail12SnapshotBaseE, i64 16), ptr %this, align 8, !tbaa !55
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly8settings6detail12SnapshotBaseE, i64 16), ptr %this, align 8, !tbaa !55
   %0 = load atomic i8, ptr @_ZGVZN5folly8settings6detail19getSavedValuesMutexEvE17gSavedValuesMutex acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5folly8settings6detail19getSavedValuesMutexEv.exit, !prof !16
@@ -1452,24 +1452,24 @@ init.check.i16:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i17, label %_ZN5folly8settings6detail14getSavedValuesEv.exit, label %init.i18
 
 init.i18:                                         ; preds = %init.check.i16
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
   %9 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapImSt4pairImS_IlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS4_EEEES5_ImES7_ImESaIS0_IKmSD_EEED2Ev, ptr nonnull @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail14getSavedValuesEvE12gSavedValues) #27
   br label %_ZN5folly8settings6detail14getSavedValuesEv.exit
 
 _ZN5folly8settings6detail14getSavedValuesEv.exit: ; preds = %init.i18, %init.check.i16, %invoke.cont
   %at_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 24), align 8, !tbaa !99
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 24), align 8, !tbaa !99
   %cmp.not.not.i.i = icmp eq i64 %10, 0
   %11 = load i64, ptr %at_, align 8
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %_ZN5folly8settings6detail14getSavedValuesEv.exit, %for.cond.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.cond.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), %_ZN5folly8settings6detail14getSavedValuesEv.exit ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.cond.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), %_ZN5folly8settings6detail14getSavedValuesEv.exit ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !7, !nonnull !100, !noundef !100
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %12 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !44
@@ -1477,7 +1477,7 @@ for.cond.i.i:                                     ; preds = %_ZN5folly8settings6
   br i1 %cmp.i.i.i.i, label %invoke.cont3, label %for.cond.i.i, !llvm.loop !101
 
 if.end15.i.i:                                     ; preds = %_ZN5folly8settings6detail14getSavedValuesEv.exit
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %11, %13
   %14 = load ptr, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %14, i64 %rem.i.i.i.i.i
@@ -1519,22 +1519,22 @@ init.check.i21:                                   ; preds = %if.then
   br i1 %tobool.not.i22, label %_ZN5folly8settings6detail14getSavedValuesEv.exit24, label %init.i23
 
 init.i23:                                         ; preds = %init.check.i21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
   %23 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapImSt4pairImS_IlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS4_EEEES5_ImES7_ImESaIS0_IKmSD_EEED2Ev, ptr nonnull @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail14getSavedValuesEvE12gSavedValues) #27
   br label %_ZN5folly8settings6detail14getSavedValuesEv.exit24
 
 _ZN5folly8settings6detail14getSavedValuesEv.exit24: ; preds = %init.i23, %init.check.i21, %if.then
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 24), align 8, !tbaa !99
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 24), align 8, !tbaa !99
   %cmp.not.not.i.i.i = icmp eq i64 %24, 0
   br i1 %cmp.not.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i25
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly8settings6detail14getSavedValuesEv.exit24
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), align 8, !tbaa !7
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), align 8, !tbaa !7
   %tobool.not.i.i.i.i38 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i.i38, label %if.then.i.i42, label %for.cond.preheader.i.i.i.i
 
@@ -1559,14 +1559,14 @@ if.end4.i.i.i.i:                                  ; preds = %for.cond.preheader.
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i, %for.cond.preheader.i.i.i.i
   %30 = phi ptr [ %25, %for.cond.preheader.i.i.i.i ], [ %29, %for.body.i.i.i.i ]
-  %__prev_p.012.i.lcssa.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), %for.cond.preheader.i.i.i.i ], [ %__p.013.i47.i.i.i, %for.body.i.i.i.i ]
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
+  %__prev_p.012.i.lcssa.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), %for.cond.preheader.i.i.i.i ], [ %__p.013.i47.i.i.i, %for.body.i.i.i.i ]
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
   %rem.i.i.i.i.i.i = urem i64 %26, %31
   br label %if.end13.i.i.i
 
 if.else.i.i.i25:                                  ; preds = %_ZN5folly8settings6detail14getSavedValuesEv.exit24
   %32 = load i64, ptr %at_, align 8, !tbaa !44
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8
   %rem.i.i.i29.i.i.i = urem i64 %32, %33
   %34 = load ptr, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
   %arrayidx.i.i.i.i26 = getelementptr inbounds ptr, ptr %34, i64 %rem.i.i.i29.i.i.i
@@ -2194,19 +2194,19 @@ init.check.i:                                     ; preds = %_ZNSt7__cxx1112basi
 
 init.i:                                           ; preds = %init.check.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11) #27
   br label %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
 
 _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %init.i, %init.check.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !141, !alias.scope !138
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !141, !alias.scope !138
   %_M_owns.i3.i.i = getelementptr inbounds nuw i8, ptr %mapPtr, i64 8
   store i8 0, ptr %_M_owns.i3.i.i, align 8, !tbaa !143, !alias.scope !138
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #27, !noalias !138
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #27, !noalias !138
-  %71 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) acquire, align 8, !noalias !138
+  %71 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) acquire, align 8, !noalias !138
   store i32 %71, ptr %state.i.i.i.i.i.i, align 4, !tbaa !33, !noalias !138
   %and.i.i.i.i.i.i = and i32 %71, -1312
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -2214,7 +2214,7 @@ _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %i
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
   %and5.i.i.i.i.i.i = or disjoint i32 %71, 128
-  %72 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %71, i32 %and5.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !138
+  %72 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %71, i32 %and5.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !138
   %73 = extractvalue { i32, i1 } %72, 1
   br i1 %73, label %invoke.cont48, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, !prof !92
 
@@ -2224,7 +2224,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   br label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
-  %call7.i.i.i.i.i.i171 = invoke noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, i32 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call7.i.i.i.i.i.i171 = invoke noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE17lockExclusiveImplINS3_11WaitForeverEEEbRjjRT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, i32 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
           to label %invoke.cont48 unwind label %lpad43
 
 invoke.cont48:                                    ; preds = %if.else.i.i.i.i.i.i, %seqcst_fail50.i.i.i.i.i.i.i
@@ -3850,21 +3850,21 @@ init.check.i:                                     ; preds = %entry
 
 init.i:                                           ; preds = %init.check.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 24), align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 32), align 8, !tbaa !22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11) #27
   br label %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
 
 _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %init.i, %init.check.i, %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !26, !alias.scope !162
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr %mapPtr, align 8, !tbaa !26, !alias.scope !162
   %token_.i3.i.i = getelementptr inbounds nuw i8, ptr %mapPtr, i64 8
   store i16 0, ptr %token_.i3.i.i, align 8, !tbaa !31, !alias.scope !162
   %slot_.i.i4.i.i = getelementptr inbounds nuw i8, ptr %mapPtr, i64 10
   store i16 0, ptr %slot_.i.i4.i.i, align 2, !tbaa !32, !alias.scope !162
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #27, !noalias !162
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #27, !noalias !162
-  %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !162
+  %2 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48) monotonic, align 8, !noalias !162
   store i32 %2, ptr %state.i.i.i.i.i.i, align 4, !tbaa !33, !noalias !162
   %and.i.i.i.i.i.i = and i32 %2, -1408
   %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
@@ -3872,7 +3872,7 @@ _ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit: ; preds = %i
 
 seqcst_fail50.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
   %add.i.i.i.i.i.i = or disjoint i32 %2, 2048
-  %3 = cmpxchg ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %2, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !162
+  %3 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), i32 %2, i32 %add.i.i.i.i.i.i seq_cst seq_cst, align 4, !noalias !162
   %4 = extractvalue { i32, i1 } %3, 1
   br i1 %4, label %if.then.i.i.i.i.i.i, label %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i
 
@@ -3886,7 +3886,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %seqcst_fail50.i.i.i
   br label %invoke.cont
 
 if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %_ZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11Ev.exit
-  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
+  %call8.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE14lockSharedImplINS3_11WaitForeverEEEbRjPNS_16SharedMutexTokenERT_(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail12_GLOBAL__N_111settingsMapB5cxx11EvE3mapB5cxx11, i64 48), ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i.i.i, ptr noundef nonnull %token_.i3.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ctx.i.i.i.i.i)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -4215,7 +4215,7 @@ if.then16:                                        ; preds = %if.end
   br i1 %cmp19.not, label %if.end44, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
-  %13 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) acquire, align 8
+  %13 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) acquire, align 8
   %tobool.not.i149 = icmp eq i64 %13, 0
   br i1 %tobool.not.i149, label %if.then.i, label %_ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit, !prof !152
 
@@ -4225,7 +4225,7 @@ if.then.i:                                        ; preds = %if.then20
 
 _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.then20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cpu.i) #27
-  %14 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) monotonic, align 8
+  %14 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65792) monotonic, align 8
   %atomic-temp.0.i.i.i = inttoptr i64 %14 to ptr
   %call1.i = call noundef i32 %atomic-temp.0.i.i.i(ptr noundef nonnull %cpu.i, ptr noundef null, ptr noundef null)
   %15 = load i32, ptr %cpu.i, align 4, !tbaa !33
@@ -4999,11 +4999,11 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapImSt4pairImS_IlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS4_EEEES5_ImES7_ImESaIS0_IKmSD_EEED2Ev, ptr nonnull @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, ptr nonnull @__dso_handle) #27
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail14getSavedValuesEvE12gSavedValues) #27
   br label %init.end
@@ -5311,17 +5311,17 @@ init.check.i18:                                   ; preds = %_ZN5folly15SharedMu
   br i1 %tobool.not.i19, label %_ZN5folly8settings6detail14getSavedValuesEv.exit, label %init.i20
 
 init.i20:                                         ; preds = %init.check.i18
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
   %9 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapImSt4pairImS_IlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS4_EEEES5_ImES7_ImESaIS0_IKmSD_EEED2Ev, ptr nonnull @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail14getSavedValuesEvE12gSavedValues) #27
   br label %_ZN5folly8settings6detail14getSavedValuesEv.exit
 
 _ZN5folly8settings6detail14getSavedValuesEv.exit: ; preds = %init.i20, %init.check.i18, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11WriteHolderC2ERS3_.exit
-  %__begin2.sroa.0.027 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), align 8, !tbaa !7
+  %__begin2.sroa.0.027 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), align 8, !tbaa !7
   %cmp.i.not28 = icmp eq ptr %__begin2.sroa.0.027, null
   br i1 %cmp.i.not28, label %for.cond.cleanup, label %for.body.lr.ph
 
@@ -5973,22 +5973,22 @@ init.check.i36:                                   ; preds = %_ZN5folly15SharedMu
   br i1 %tobool.not.i37, label %_ZN5folly8settings6detail14getSavedValuesEv.exit, label %init.i38
 
 init.i38:                                         ; preds = %init.check.i36
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
   %9 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapImSt4pairImS_IlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS4_EEEES5_ImES7_ImESaIS0_IKmSD_EEED2Ev, ptr nonnull @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail14getSavedValuesEvE12gSavedValues) #27
   br label %_ZN5folly8settings6detail14getSavedValuesEv.exit
 
 _ZN5folly8settings6detail14getSavedValuesEv.exit: ; preds = %init.i38, %init.check.i36, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2ERKS3_.exit
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 24), align 8, !tbaa !99
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 24), align 8, !tbaa !99
   %cmp.not.not.i.i = icmp eq i64 %10, 0
   br i1 %cmp.not.not.i.i, label %for.cond.i.i, label %if.end15.i.i
 
 for.cond.i.i:                                     ; preds = %_ZN5folly8settings6detail14getSavedValuesEv.exit, %for.body.i.i
-  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), %_ZN5folly8settings6detail14getSavedValuesEv.exit ]
+  %retval.sroa.0.0.in.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), %_ZN5folly8settings6detail14getSavedValuesEv.exit ]
   %retval.sroa.0.0.i.i = load ptr, ptr %retval.sroa.0.0.in.i.i, align 8, !tbaa !7
   %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.i.i, null
   br i1 %cmp.i.not.i.i, label %invoke.cont, label %for.body.i.i
@@ -6000,7 +6000,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i, label %invoke.cont, label %for.cond.i.i, !llvm.loop !223
 
 if.end15.i.i:                                     ; preds = %_ZN5folly8settings6detail14getSavedValuesEv.exit
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8
   %rem.i.i.i.i.i = urem i64 %at, %12
   %13 = load ptr, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %rem.i.i.i.i.i
@@ -6044,11 +6044,11 @@ init.check.i40:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i41, label %_ZN5folly8settings6detail14getSavedValuesEv.exit43, label %init.i42
 
 init.i42:                                         ; preds = %init.check.i40
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
   %21 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapImSt4pairImS_IlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS4_EEEES5_ImES7_ImESaIS0_IKmSD_EEED2Ev, ptr nonnull @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail14getSavedValuesEvE12gSavedValues) #27
   br label %_ZN5folly8settings6detail14getSavedValuesEv.exit43
@@ -6150,7 +6150,7 @@ entry:
   %lg = alloca %"class.folly::SharedMutexImpl<false>::WriteHolder", align 8
   %ref.tmp = alloca %"class.std::tuple.76", align 8
   %ref.tmp5 = alloca %"class.std::tuple.67", align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly8settings6detail12SnapshotBaseE, i64 16), ptr %this, align 8, !tbaa !55
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly8settings6detail12SnapshotBaseE, i64 16), ptr %this, align 8, !tbaa !55
   %snapshotValues_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %_M_single_bucket.i.i, ptr %snapshotValues_, align 8, !tbaa !113
@@ -6218,11 +6218,11 @@ init.check.i16:                                   ; preds = %invoke.cont
   br i1 %tobool.not.i17, label %_ZN5folly8settings6detail14getSavedValuesEv.exit, label %init.i18
 
 init.i18:                                         ; preds = %init.check.i16
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
-  store i64 1, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 48), ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, align 8, !tbaa !93
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 8), align 8, !tbaa !97
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 16), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 32), align 8, !tbaa !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, i64 40), i8 0, i64 16, i1 false)
   %10 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapImSt4pairImS_IlN5folly8settings6detail10BoxedValueESt4hashIlESt8equal_toIlESaIS0_IKlS4_EEEES5_ImES7_ImESaIS0_IKmSD_EEED2Ev, ptr nonnull @_ZZN5folly8settings6detail14getSavedValuesEvE12gSavedValues, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly8settings6detail14getSavedValuesEvE12gSavedValues) #27
   br label %_ZN5folly8settings6detail14getSavedValuesEv.exit

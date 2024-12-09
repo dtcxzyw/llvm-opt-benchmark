@@ -6113,7 +6113,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread43:  ; preds = %27, %_ZNK4llvm9Stri
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 190, ptr %.sroa.28.0..sroa_idx.i, align 8
   call void @_ZN4llvm15MCSubtargetInfoC2ERKNS_6TripleENS_9StringRefES4_S4_NS_8ArrayRefINS_18SubtargetFeatureKVEEENS5_INS_18SubtargetSubTypeKVEEEPKNS_19MCWriteProcResEntryEPKNS_19MCWriteLatencyEntryEPKNS_18MCReadAdvanceEntryEPKNS_10InstrStageEPKjSN_(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %spec.select, i64 %spec.select44, ptr %spec.select, i64 %spec.select44, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1") align 8 %6, ptr noundef nonnull @_ZN4llvm20X86WriteProcResTableE, ptr noundef nonnull @_ZN4llvm20X86WriteLatencyTableE, ptr noundef nonnull @_ZN4llvm19X86ReadAdvanceTableE, ptr noundef null, ptr noundef null, ptr noundef null) #20
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN4llvm21X86GenMCSubtargetInfoE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN4llvm21X86GenMCSubtargetInfoE, i64 16), ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -8562,7 +8562,7 @@ define internal noalias noundef nonnull ptr @_ZL20createX86MCInstrInfov() #3 {
   %1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4llvm8X86DescsE, i64 712704), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8X86DescsE, i64 712704), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_ZN4llvm19X86InstrNameIndicesE, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8672,7 +8672,7 @@ define internal noalias noundef nonnull ptr @_ZL24createX86MCInstrAnalysisPKN4ll
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm6X86_MC18X86MCInstrAnalysisE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4llvm6X86_MC18X86MCInstrAnalysisE, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -8686,7 +8686,7 @@ declare noundef ptr @_ZN4llvm26createX86AsmTargetStreamerERNS_10MCStreamerERNS_2
 define linkonce_odr hidden noundef ptr @_ZN4llvm27createX86NullTargetStreamerERNS_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(288) %0) #3 comdat {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   tail call void @_ZN4llvm16MCTargetStreamerC2ERNS_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(288) %0) #20
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN4llvm17X86TargetStreamerE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN4llvm17X86TargetStreamerE, i64 16), ptr %2, align 8
   ret ptr %2
 }
 
@@ -8721,7 +8721,7 @@ define internal noalias noundef ptr @_ZL22createX86MCInstPrinterRKN4llvm6TripleE
   store i8 1, ptr %15, align 2
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %16, i8 0, i64 7, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm17X86ATTInstPrinterE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm17X86ATTInstPrinterE, i64 16), ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 58
   store i8 0, ptr %17, align 2
   br label %29
@@ -8746,7 +8746,7 @@ define internal noalias noundef ptr @_ZL22createX86MCInstPrinterRKN4llvm6TripleE
   store i8 1, ptr %27, align 2
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %28, i8 0, i64 7, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm19X86IntelInstPrinterE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4llvm19X86IntelInstPrinterE, i64 16), ptr %19, align 8
   br label %29
 
 29:                                               ; preds = %5, %18, %6
@@ -10224,7 +10224,7 @@ declare void @_ZN4llvm15MCSubtargetInfoC2ERKNS_6TripleENS_9StringRefES4_S4_NS_8A
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm21X86GenMCSubtargetInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -10238,7 +10238,7 @@ define linkonce_odr hidden void @_ZN4llvm21X86GenMCSubtargetInfoD2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm21X86GenMCSubtargetInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN4llvm15MCSubtargetInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96

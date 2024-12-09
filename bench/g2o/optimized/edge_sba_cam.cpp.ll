@@ -206,8 +206,8 @@ define void @_ZN3g2o10EdgeSBACamC2Ev(ptr noundef nonnull align 16 dereferenceabl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 6, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_9VertexCamES2_EEE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_9VertexCamES2_EEE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_9VertexCamES2_EEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_9VertexCamES2_EEE, i64 264), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i8 0, ptr %8, align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -260,8 +260,8 @@ define void @_ZN3g2o10EdgeSBACamC2Ev(ptr noundef nonnull align 16 dereferenceabl
   store ptr %12, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %11, ptr %32, align 16
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o10EdgeSBACamE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10EdgeSBACamE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o10EdgeSBACamE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10EdgeSBACamE, i64 264), ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 696

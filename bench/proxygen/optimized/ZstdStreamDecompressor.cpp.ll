@@ -71,7 +71,7 @@ declare i64 @ZSTD_freeDCtx(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen22ZstdStreamDecompressorC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 12), (16, 33)) %this, i1 noundef zeroext %reuseOutBuf) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %status_, align 8
   %call = tail call ptr @ZSTD_createDCtx()
@@ -465,7 +465,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen22ZstdStreamDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
   %cachedIOBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %cachedIOBuf_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -502,7 +502,7 @@ _ZNSt10unique_ptrI11ZSTD_DCtx_sN5folly23static_function_deleterIS0_XadL_ZN8proxy
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen22ZstdStreamDecompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
   %cachedIOBuf_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %cachedIOBuf_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -611,7 +611,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %this, align 8
   ret void
 }
 

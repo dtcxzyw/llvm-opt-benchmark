@@ -760,7 +760,7 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   br label %156
 
 150:                                              ; preds = %122
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 40), align 8
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 40), align 8
   %.not161 = icmp eq ptr %151, null
   br i1 %.not161, label %154, label %152
 

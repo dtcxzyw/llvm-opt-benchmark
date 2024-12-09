@@ -667,7 +667,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
 
 .preheader:                                       ; preds = %6, %38
   %9 = phi ptr [ %41, %38 ], [ @.str.18, %6 ]
-  %.046 = phi ptr [ %39, %38 ], [ getelementptr inbounds (i8, ptr @adjustMode, i64 32), %6 ]
+  %.046 = phi ptr [ %39, %38 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 32), %6 ]
   %10 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
@@ -687,7 +687,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
 
 20:                                               ; preds = %18, %14
   %21 = phi ptr [ @.str.19, %18 ], [ %16, %14 ]
-  %.2 = phi ptr [ getelementptr inbounds (i8, ptr @adjustMode, i64 32), %18 ], [ %.046, %14 ]
+  %.2 = phi ptr [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 32), %18 ], [ %.046, %14 ]
   %22 = load i32, ptr %.2, align 8
   store i32 %22, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1113,10 +1113,10 @@ chkBoundBox.exit:                                 ; preds = %._crit_edge.i, %153
   store double %162, ptr @nw, align 8
   store double %164, ptr @se, align 8
   store double %164, ptr @ne, align 8
-  store double %165, ptr getelementptr inbounds (i8, ptr @ne, i64 8), align 8
-  store double %165, ptr getelementptr inbounds (i8, ptr @nw, i64 8), align 8
-  store double %163, ptr getelementptr inbounds (i8, ptr @se, i64 8), align 8
-  store double %163, ptr getelementptr inbounds (i8, ptr @sw, i64 8), align 8
+  store double %165, ptr getelementptr inbounds nuw (i8, ptr @ne, i64 8), align 8
+  store double %165, ptr getelementptr inbounds nuw (i8, ptr @nw, i64 8), align 8
+  store double %163, ptr getelementptr inbounds nuw (i8, ptr @se, i64 8), align 8
+  store double %163, ptr getelementptr inbounds nuw (i8, ptr @sw, i64 8), align 8
   %166 = load i32, ptr %1, align 8
   %167 = icmp eq i32 %166, 2
   %168 = call fastcc i32 @countOverlap(i32 noundef 0)
@@ -1278,19 +1278,19 @@ addCorners.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %211
   %.041.lcssa.i.i.i = phi ptr [ %217, %211 ], [ %.142.i.i.i, %.lr.ph.i.i.i ]
   %239 = getelementptr inbounds nuw i8, ptr %.047.lcssa.i.i.i, i64 8
   %240 = load double, ptr @sw, align 8
-  %241 = load double, ptr getelementptr inbounds (i8, ptr @sw, i64 8), align 8
+  %241 = load double, ptr getelementptr inbounds nuw (i8, ptr @sw, i64 8), align 8
   call void @addVertex(ptr noundef nonnull %239, double noundef %240, double noundef %241) #19
   %242 = getelementptr inbounds nuw i8, ptr %.043.lcssa.i.i.i, i64 8
   %243 = load double, ptr @se, align 8
-  %244 = load double, ptr getelementptr inbounds (i8, ptr @se, i64 8), align 8
+  %244 = load double, ptr getelementptr inbounds nuw (i8, ptr @se, i64 8), align 8
   call void @addVertex(ptr noundef nonnull %242, double noundef %243, double noundef %244) #19
   %245 = getelementptr inbounds nuw i8, ptr %.045.lcssa.i.i.i, i64 8
   %246 = load double, ptr @nw, align 8
-  %247 = load double, ptr getelementptr inbounds (i8, ptr @nw, i64 8), align 8
+  %247 = load double, ptr getelementptr inbounds nuw (i8, ptr @nw, i64 8), align 8
   call void @addVertex(ptr noundef nonnull %245, double noundef %246, double noundef %247) #19
   %248 = getelementptr inbounds nuw i8, ptr %.041.lcssa.i.i.i, i64 8
   %249 = load double, ptr @ne, align 8
-  %250 = load double, ptr getelementptr inbounds (i8, ptr @ne, i64 8), align 8
+  %250 = load double, ptr getelementptr inbounds nuw (i8, ptr @ne, i64 8), align 8
   call void @addVertex(ptr noundef nonnull %248, double noundef %249, double noundef %250) #19
   %251 = load i64, ptr @nsites, align 8
   %.not9.i.i = icmp eq i64 %251, 0
@@ -1421,10 +1421,10 @@ newPos.exit.i:                                    ; preds = %295, %addCorners.ex
   store double %317, ptr @nw, align 8
   store double %315, ptr @se, align 8
   store double %315, ptr @ne, align 8
-  store double %316, ptr getelementptr inbounds (i8, ptr @ne, i64 8), align 8
-  store double %316, ptr getelementptr inbounds (i8, ptr @nw, i64 8), align 8
-  store double %318, ptr getelementptr inbounds (i8, ptr @se, i64 8), align 8
-  store double %318, ptr getelementptr inbounds (i8, ptr @sw, i64 8), align 8
+  store double %316, ptr getelementptr inbounds nuw (i8, ptr @ne, i64 8), align 8
+  store double %316, ptr getelementptr inbounds nuw (i8, ptr @nw, i64 8), align 8
+  store double %318, ptr getelementptr inbounds nuw (i8, ptr @se, i64 8), align 8
+  store double %318, ptr getelementptr inbounds nuw (i8, ptr @sw, i64 8), align 8
   br label %319
 
 319:                                              ; preds = %305, %303

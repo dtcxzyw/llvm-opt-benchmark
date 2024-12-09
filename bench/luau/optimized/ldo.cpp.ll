@@ -151,7 +151,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 ; Function Attrs: cold mustprogress noreturn uwtable
 define hidden void @_Z10luaD_throwP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 24) #14
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13lua_exception, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13lua_exception, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16

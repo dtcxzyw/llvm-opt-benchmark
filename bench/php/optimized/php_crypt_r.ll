@@ -127,7 +127,7 @@ sub_2:                                            ; preds = %sub_1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) @php_md5_crypt_r.passwd, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   %28 = add nuw nsw i64 %.055.idx, 1
   %29 = and i64 %28, 4294967295
-  %30 = call i64 @php_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @php_md5_crypt_r.passwd, i64 3), ptr noundef nonnull %spec.select, i64 noundef %29) #7
+  %30 = call i64 @php_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @php_md5_crypt_r.passwd, i64 3), ptr noundef nonnull %spec.select, i64 noundef %29) #7
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) @php_md5_crypt_r.passwd)
   %endptr = getelementptr inbounds i8, ptr @php_md5_crypt_r.passwd, i64 %strlen
   store i16 36, ptr %endptr, align 1

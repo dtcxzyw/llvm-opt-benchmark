@@ -441,7 +441,7 @@ _ZSt10_ConstructIN2cv3PtrINS0_12ppf_match_3d6Pose3DEEEJRS4_EEvPT_DpOT0_.exit.i.i
 171:                                              ; preds = %_ZSt10_ConstructIN2cv3PtrINS0_12ppf_match_3d6Pose3DEEEJRS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %172 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %168, ptr %172, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv12ppf_match_3d3ICPE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv12ppf_match_3d3ICPE, i64 16), ptr %14, align 8
   %173 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store float 0x3F747AE140000000, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %14, i64 20

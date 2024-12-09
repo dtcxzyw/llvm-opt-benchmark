@@ -5274,7 +5274,7 @@ _ZNK7Compile21is_method_compilationEv.exit.thread: ; preds = %_ZNK10Node_Arrayix
 
 195:                                              ; preds = %.loopexit
   call void @_ZN12PhaseChaitin8mark_ssaEv(ptr noundef nonnull align 8 dereferenceable(364) %5) #14
-  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %9, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
+  call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %9, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 744)) #14
   %196 = load ptr, ptr %184, align 8
   %.not.i.i.i43 = icmp eq ptr %196, null
   br i1 %.not.i.i.i43, label %198, label %197
@@ -5483,7 +5483,7 @@ _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %_ZN13GrowableArrayI
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %263, %265
   call void @_ZN5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #14
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV12PhaseChaitin, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12PhaseChaitin, i64 16), ptr %5, align 8
   %266 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %267 = load i64, ptr %266, align 8
   %268 = and i64 %267, 1
@@ -6476,7 +6476,7 @@ define hidden noundef ptr @_ZN8PhaseCFG16create_loop_treeEv(ptr nocapture nounde
   %3 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 104, i32 noundef 0) #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 0.000000e+00, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7CFGLoop, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7CFGLoop, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -6608,7 +6608,7 @@ _ZNK5Block4headEv.exit:                           ; preds = %_ZNK5Block4headEv.e
   %73 = add nsw i32 %.04994, 1
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store double 0.000000e+00, ptr %74, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7CFGLoop, i64 16), ptr %72, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV7CFGLoop, i64 16), ptr %72, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i32 %.04994, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 20

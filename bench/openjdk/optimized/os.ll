@@ -609,8 +609,8 @@ define hidden noundef i32 @_ZN2os12get_priorityEPK6ThreadR14ThreadPriority(ptr n
   br i1 %.not, label %5, label %24
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 40), align 8
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN2os19java_to_os_priorityE, i64 4), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 40), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2os19java_to_os_priorityE, i64 4), align 4
   %8 = icmp sgt i32 %6, %7
   %9 = load i32, ptr %3, align 4
   br i1 %8, label %.preheader, label %.preheader15
@@ -1125,7 +1125,7 @@ define internal void @_ZL19signal_thread_entryP10JavaThreadS0_(ptr noundef %0, p
   %64 = load i8, ptr @PrintConcurrentLocks, align 1
   %65 = and i8 %64, 1
   store ptr null, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintThreads, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintThreads, i64 16), ptr %3, align 8
   store ptr %63, ptr %26, align 8
   store i8 %65, ptr %27, align 8
   store i8 0, ptr %28, align 1
@@ -1133,7 +1133,7 @@ define internal void @_ZL19signal_thread_entryP10JavaThreadS0_(ptr noundef %0, p
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #28
   %66 = load ptr, ptr @tty, align 8
   store ptr null, ptr %30, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV16VM_FindDeadlocks, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV16VM_FindDeadlocks, i64 16), ptr %4, align 8
   store i8 1, ptr %31, align 8
   store ptr null, ptr %32, align 8
   store ptr %66, ptr %33, align 8
@@ -1158,7 +1158,7 @@ define internal void @_ZL19signal_thread_entryP10JavaThreadS0_(ptr noundef %0, p
   store i32 6, ptr %44, align 4
   store i8 0, ptr %45, align 8
   store i32 0, ptr %46, align 4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20VM_GC_HeapInspection, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20VM_GC_HeapInspection, i64 16), ptr %5, align 8
   store ptr %71, ptr %47, align 8
   store i8 1, ptr %48, align 8
   store i32 1, ptr %49, align 4
@@ -1181,7 +1181,7 @@ define internal void @_ZL19signal_thread_entryP10JavaThreadS0_(ptr noundef %0, p
 
 77:                                               ; preds = %50
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %1) #28
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 632), align 8
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 632), align 8
   %79 = call noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %78, ptr null, ptr null, ptr noundef %1) #28
   %.not = icmp eq ptr %79, null
   br i1 %.not, label %83, label %80
@@ -1196,8 +1196,8 @@ define internal void @_ZL19signal_thread_entryP10JavaThreadS0_(ptr noundef %0, p
   store i8 0, ptr %19, align 1
   store i32 1, ptr %22, align 8
   store i32 %51, ptr %17, align 8
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3504), align 8
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3504), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %7, ptr noundef nonnull %79, ptr noundef %81, ptr noundef %82, ptr noundef nonnull %8, ptr noundef %1) #28
   br label %83
 

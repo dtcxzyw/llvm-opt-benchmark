@@ -1916,23 +1916,23 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
   br label %110, !llvm.loop !5
 
 112:                                              ; preds = %110
-  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 53), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 53), align 1
   br label %.backedge
 
 113:                                              ; preds = %110
-  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 152), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 152), align 8
   br label %.backedge
 
 114:                                              ; preds = %110
-  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 153), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 153), align 1
   br label %.backedge
 
 115:                                              ; preds = %110
-  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 144), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 144), align 8
   br label %.backedge
 
 116:                                              ; preds = %110
-  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 148), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 148), align 4
   br label %.backedge
 
 117:                                              ; preds = %110
@@ -1944,7 +1944,7 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
 120:                                              ; preds = %110
   %121 = load ptr, ptr @optarg, align 8
   call void @simple_string_list_append(ptr noundef nonnull @extension_include_patterns, ptr noundef %121) #14
-  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 140), align 4
   br label %.backedge
 
 122:                                              ; preds = %110
@@ -1965,7 +1965,7 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
 131:                                              ; preds = %110
   %132 = load ptr, ptr @optarg, align 8
   %133 = call ptr @pg_strdup(ptr noundef %132) #14
-  store ptr %133, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 16), align 8
+  store ptr %133, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 16), align 8
   br label %.backedge
 
 134:                                              ; preds = %110
@@ -1980,7 +1980,7 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
 138:                                              ; preds = %110
   %139 = load ptr, ptr @optarg, align 8
   call void @simple_string_list_append(ptr noundef nonnull @schema_include_patterns, ptr noundef %139) #14
-  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 140), align 4
   br label %.backedge
 
 140:                                              ; preds = %110
@@ -1989,29 +1989,29 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
   br label %.backedge
 
 142:                                              ; preds = %110
-  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 156), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 156), align 4
   br label %.backedge
 
 143:                                              ; preds = %110
   %144 = load ptr, ptr @optarg, align 8
   %145 = call ptr @pg_strdup(ptr noundef %144) #14
-  store ptr %145, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 8), align 8
+  store ptr %145, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 8), align 8
   br label %.backedge
 
 146:                                              ; preds = %110
-  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 52), align 4
   br label %.backedge
 
 147:                                              ; preds = %110
   %148 = load ptr, ptr @optarg, align 8
   %149 = call ptr @pg_strdup(ptr noundef %148) #14
-  store ptr %149, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 160), align 8
+  store ptr %149, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 160), align 8
   br label %.backedge
 
 150:                                              ; preds = %110
   %151 = load ptr, ptr @optarg, align 8
   call void @simple_string_list_append(ptr noundef nonnull @table_include_patterns, ptr noundef %151) #14
-  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 140), align 4
   br label %.backedge
 
 152:                                              ; preds = %110
@@ -2022,7 +2022,7 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
 154:                                              ; preds = %110
   %155 = load ptr, ptr @optarg, align 8
   %156 = call ptr @pg_strdup(ptr noundef %155) #14
-  store ptr %156, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 24), align 8
+  store ptr %156, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 24), align 8
   br label %.backedge
 
 157:                                              ; preds = %110
@@ -2030,15 +2030,15 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
   br label %.backedge
 
 158:                                              ; preds = %110
-  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 32), align 8
   br label %.backedge
 
 159:                                              ; preds = %110
-  store i32 2, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 32), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 32), align 8
   br label %.backedge
 
 160:                                              ; preds = %110
-  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 60), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 60), align 4
   br label %.backedge
 
 161:                                              ; preds = %110
@@ -2049,7 +2049,7 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
 163:                                              ; preds = %110
   %164 = load ptr, ptr @optarg, align 8
   %165 = call ptr @pg_strdup(ptr noundef %164) #14
-  store ptr %165, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 64), align 8
+  store ptr %165, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 64), align 8
   br label %.backedge
 
 166:                                              ; preds = %110
@@ -2064,7 +2064,7 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
 
 171:                                              ; preds = %110
   %172 = load ptr, ptr @optarg, align 8
-  call void @set_dump_section(ptr noundef %172, ptr noundef nonnull getelementptr inbounds (i8, ptr @main.dopt, i64 56)) #14
+  call void @set_dump_section(ptr noundef %172, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @main.dopt, i64 56)) #14
   br label %.backedge
 
 173:                                              ; preds = %110
@@ -2087,17 +2087,17 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
   unreachable
 
 181:                                              ; preds = %110
-  %182 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
+  %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 72), align 8
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %.backedge
 
 184:                                              ; preds = %181
-  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 72), align 8
   br label %.backedge
 
 185:                                              ; preds = %110
   %186 = load ptr, ptr @optarg, align 8
-  %187 = call zeroext i1 @option_parse_int(ptr noundef %186, ptr noundef nonnull @.str.79, i32 noundef 1, i32 noundef 2147483647, ptr noundef nonnull getelementptr inbounds (i8, ptr @main.dopt, i64 72)) #14
+  %187 = call zeroext i1 @option_parse_int(ptr noundef %186, ptr noundef nonnull @.str.79, i32 noundef 1, i32 noundef 2147483647, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @main.dopt, i64 72)) #14
   br i1 %187, label %.backedge, label %188
 
 188:                                              ; preds = %185
@@ -2112,7 +2112,7 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
 191:                                              ; preds = %110
   %192 = load ptr, ptr @optarg, align 8
   call void @simple_string_list_append(ptr noundef nonnull @table_include_patterns_and_children, ptr noundef %192) #14
-  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 140), align 4
   br label %.backedge
 
 193:                                              ; preds = %110
@@ -2186,19 +2186,19 @@ sub_1394:                                         ; preds = %.tail.thread, %.thr
 213:                                              ; preds = %205
   %214 = load ptr, ptr %67, align 8
   call void @simple_string_list_append(ptr noundef nonnull @schema_include_patterns, ptr noundef %214) #14
-  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 140), align 4
   br label %233
 
 215:                                              ; preds = %205
   %216 = load ptr, ptr %67, align 8
   call void @simple_string_list_append(ptr noundef nonnull @table_include_patterns, ptr noundef %216) #14
-  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 140), align 4
   br label %233
 
 217:                                              ; preds = %205
   %218 = load ptr, ptr %67, align 8
   call void @simple_string_list_append(ptr noundef nonnull @table_include_patterns_and_children, ptr noundef %218) #14
-  store i8 0, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 140), align 4
   br label %233
 
 219:                                              ; preds = %.lr.ph.i
@@ -2308,31 +2308,31 @@ read_dump_filters.exit:                           ; preds = %236, %201
   unreachable
 
 258:                                              ; preds = %250
-  %259 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 80), align 8
+  %259 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 80), align 8
   %260 = icmp ne i32 %259, 0
-  %261 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
+  %261 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 72), align 8
   %262 = icmp eq i32 %261, 0
   %or.cond4 = select i1 %260, i1 %262, i1 false
   br i1 %or.cond4, label %263, label %264
 
 263:                                              ; preds = %258
-  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 72), align 8
   br label %264
 
 264:                                              ; preds = %263, %258
   %265 = phi i32 [ 1, %263 ], [ %261, %258 ]
-  %266 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 48), align 8
+  %266 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 48), align 8
   %.not167 = icmp eq i32 %266, 0
   br i1 %.not167, label %268, label %267
 
 267:                                              ; preds = %264
-  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 168), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 168), align 8
   br label %268
 
 268:                                              ; preds = %267, %264
-  %269 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 53), align 1
+  %269 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 53), align 1
   %270 = trunc i8 %269 to i1
-  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
+  %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 52), align 4
   %271 = trunc i8 %.pre to i1
   br i1 %270, label %272, label %276
 
@@ -2373,7 +2373,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   unreachable
 
 285:                                              ; preds = %280
-  %286 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 144), align 8
+  %286 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 144), align 8
   %287 = icmp ne i32 %286, 0
   %or.cond11 = select i1 %270, i1 %287, i1 false
   br i1 %or.cond11, label %288, label %289
@@ -2384,7 +2384,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   unreachable
 
 289:                                              ; preds = %285
-  %290 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 84), align 4
+  %290 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 84), align 4
   %291 = icmp eq i32 %290, 0
   %or.cond14 = select i1 %291, i1 true, i1 %287
   br i1 %or.cond14, label %293, label %292
@@ -2395,7 +2395,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   unreachable
 
 293:                                              ; preds = %289
-  %294 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 172), align 4
+  %294 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 172), align 4
   %295 = icmp ne i32 %294, 0
   %296 = icmp eq i32 %265, 0
   %or.cond17 = select i1 %295, i1 %296, i1 false
@@ -2471,7 +2471,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   br i1 %.not172, label %322, label %321
 
 321:                                              ; preds = %320
-  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 148), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 148), align 4
   br label %322
 
 322:                                              ; preds = %321, %320
@@ -2512,7 +2512,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   br i1 %339, label %340, label %341
 
 340:                                              ; preds = %327
-  store i32 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 108), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 108), align 4
   br label %341
 
 341:                                              ; preds = %340, %327
@@ -2582,28 +2582,28 @@ read_dump_filters.exit:                           ; preds = %236, %201
   unreachable
 
 369:                                              ; preds = %363, %361
-  %370 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
+  %370 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 140), align 4
   %371 = trunc i8 %370 to i1
   br i1 %371, label %372, label %379
 
 372:                                              ; preds = %369
-  %373 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
+  %373 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 52), align 4
   %374 = trunc i8 %373 to i1
   br i1 %374, label %379, label %375
 
 375:                                              ; preds = %372
-  %376 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 153), align 1
+  %376 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 153), align 1
   %377 = trunc i8 %376 to i1
   br i1 %377, label %379, label %378
 
 378:                                              ; preds = %375
-  store i8 1, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 152), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 152), align 8
   br label %379
 
 379:                                              ; preds = %378, %375, %372, %369
   call fastcc void @collectRoleNames(ptr noundef nonnull %330)
   %380 = call ptr @getSchemaData(ptr noundef nonnull %330, ptr noundef nonnull %70) #14
-  %381 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
+  %381 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 52), align 4
   %382 = trunc i8 %381 to i1
   br i1 %382, label %388, label %383
 
@@ -2611,7 +2611,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   %384 = load i32, ptr %70, align 4
   call fastcc void @getTableData(ptr noundef %380, i32 noundef %384, i8 noundef signext 0)
   call fastcc void @buildMatViewRefreshDependencies(ptr noundef nonnull %330)
-  %385 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 53), align 1
+  %385 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 53), align 1
   %386 = trunc i8 %385 to i1
   br i1 %386, label %387, label %388
 
@@ -2620,9 +2620,9 @@ read_dump_filters.exit:                           ; preds = %236, %201
   br label %388
 
 388:                                              ; preds = %383, %387, %379
-  %389 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
+  %389 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 52), align 4
   %390 = trunc i8 %389 to i1
-  %391 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 168), align 8
+  %391 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 168), align 8
   %392 = icmp ne i32 %391, 0
   %or.cond28 = select i1 %390, i1 %392, i1 false
   br i1 %or.cond28, label %393, label %395
@@ -2633,9 +2633,9 @@ read_dump_filters.exit:                           ; preds = %236, %201
   br label %395
 
 395:                                              ; preds = %393, %388
-  %396 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 152), align 8
+  %396 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 152), align 8
   %397 = trunc i8 %396 to i1
-  %398 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 48), align 8
+  %398 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 48), align 8
   %399 = icmp ne i32 %398, 0
   %or.cond31 = select i1 %397, i1 true, i1 %399
   br i1 %or.cond31, label %400, label %401
@@ -2646,7 +2646,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
 
 401:                                              ; preds = %395, %400
   call fastcc void @getDependencies(ptr noundef nonnull %330)
-  %402 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 60), align 4
+  %402 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 60), align 4
   %403 = trunc i8 %402 to i1
   br i1 %403, label %405, label %404
 
@@ -2655,7 +2655,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   br label %405
 
 405:                                              ; preds = %404, %401
-  %406 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 88), align 8
+  %406 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 88), align 8
   %.not175 = icmp eq i32 %406, 0
   br i1 %.not175, label %407, label %408
 
@@ -2664,7 +2664,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   br label %408
 
 408:                                              ; preds = %407, %405
-  %409 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 92), align 4
+  %409 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 92), align 4
   %.not176 = icmp eq i32 %409, 0
   br i1 %.not176, label %410, label %411
 
@@ -2691,7 +2691,7 @@ read_dump_filters.exit:                           ; preds = %236, %201
   call fastcc void @dumpEncoding(ptr noundef nonnull %330)
   call fastcc void @dumpStdStrings(ptr noundef nonnull %330)
   call fastcc void @dumpSearchPath(ptr noundef nonnull %330)
-  %423 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 148), align 4
+  %423 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 148), align 4
   %.not177 = icmp eq i32 %423, 0
   br i1 %.not177, label %425, label %424
 
@@ -10848,7 +10848,7 @@ dumpDumpableObject.exit:                          ; preds = %788, %798, %dumpNam
   %4648 = phi ptr [ %4646, %4645 ], [ null, %._crit_edge ]
   %4649 = getelementptr inbounds nuw i8, ptr %4642, i64 280
   store ptr %4648, ptr %4649, align 8
-  %4650 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 8), align 8
+  %4650 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 8), align 8
   %.not179 = icmp eq ptr %4650, null
   br i1 %.not179, label %4653, label %4651
 
@@ -10860,7 +10860,7 @@ dumpDumpableObject.exit:                          ; preds = %788, %798, %dumpNam
   %4654 = phi ptr [ %4652, %4651 ], [ null, %4647 ]
   %4655 = getelementptr inbounds nuw i8, ptr %4642, i64 288
   store ptr %4654, ptr %4655, align 8
-  %4656 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 16), align 8
+  %4656 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 16), align 8
   %.not180 = icmp eq ptr %4656, null
   br i1 %.not180, label %4659, label %4657
 
@@ -10872,7 +10872,7 @@ dumpDumpableObject.exit:                          ; preds = %788, %798, %dumpNam
   %4660 = phi ptr [ %4658, %4657 ], [ null, %4653 ]
   %4661 = getelementptr inbounds nuw i8, ptr %4642, i64 296
   store ptr %4660, ptr %4661, align 8
-  %4662 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 24), align 8
+  %4662 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 24), align 8
   %.not181 = icmp eq ptr %4662, null
   br i1 %.not181, label %4665, label %4663
 
@@ -10884,89 +10884,89 @@ dumpDumpableObject.exit:                          ; preds = %788, %798, %dumpNam
   %4666 = phi ptr [ %4664, %4663 ], [ null, %4659 ]
   %4667 = getelementptr inbounds nuw i8, ptr %4642, i64 304
   store ptr %4666, ptr %4667, align 8
-  %4668 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 32), align 8
+  %4668 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 32), align 8
   %4669 = getelementptr inbounds nuw i8, ptr %4642, i64 312
   store i32 %4668, ptr %4669, align 8
-  %4670 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 144), align 8
+  %4670 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 144), align 8
   %4671 = getelementptr inbounds nuw i8, ptr %4642, i64 40
   store i32 %4670, ptr %4671, align 8
-  %4672 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 53), align 1
+  %4672 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 53), align 1
   %4673 = and i8 %4672, 1
   %4674 = zext nneg i8 %4673 to i32
   %4675 = getelementptr inbounds nuw i8, ptr %4642, i64 88
   store i32 %4674, ptr %4675, align 8
-  %4676 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 52), align 4
+  %4676 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 52), align 4
   %4677 = and i8 %4676, 1
   %4678 = zext nneg i8 %4677 to i32
   %4679 = getelementptr inbounds nuw i8, ptr %4642, i64 92
   store i32 %4678, ptr %4679, align 4
-  %4680 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 84), align 4
+  %4680 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 84), align 4
   %4681 = getelementptr inbounds nuw i8, ptr %4642, i64 56
   store i32 %4680, ptr %4681, align 8
-  %4682 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 80), align 8
+  %4682 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 80), align 8
   %4683 = getelementptr inbounds nuw i8, ptr %4642, i64 52
   store i32 %4682, ptr %4683, align 4
-  %4684 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 56), align 8
+  %4684 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 56), align 8
   %4685 = getelementptr inbounds nuw i8, ptr %4642, i64 96
   store i32 %4684, ptr %4685, align 8
-  %4686 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 60), align 4
+  %4686 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 60), align 4
   %4687 = and i8 %4686, 1
   %4688 = zext nneg i8 %4687 to i32
   %4689 = getelementptr inbounds nuw i8, ptr %4642, i64 104
   store i32 %4688, ptr %4689, align 8
-  %4690 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 160), align 8
+  %4690 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 160), align 8
   %4691 = getelementptr inbounds nuw i8, ptr %4642, i64 24
   store ptr %4690, ptr %4691, align 8
-  %4692 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 148), align 4
+  %4692 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 148), align 4
   store i32 %4692, ptr %4642, align 8
-  %4693 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 156), align 4
+  %4693 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 156), align 4
   %4694 = getelementptr inbounds nuw i8, ptr %4642, i64 4
   store i32 %4693, ptr %4694, align 4
-  %4695 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 120), align 8
+  %4695 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 120), align 8
   %4696 = getelementptr inbounds nuw i8, ptr %4642, i64 8
   store i32 %4695, ptr %4696, align 8
-  %4697 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 124), align 4
+  %4697 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 124), align 4
   %4698 = getelementptr inbounds nuw i8, ptr %4642, i64 12
   store i32 %4697, ptr %4698, align 4
-  %4699 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 116), align 4
+  %4699 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 116), align 4
   %4700 = getelementptr inbounds nuw i8, ptr %4642, i64 16
   store i32 %4699, ptr %4700, align 8
-  %4701 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 128), align 8
+  %4701 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 128), align 8
   %4702 = getelementptr inbounds nuw i8, ptr %4642, i64 20
   store i32 %4701, ptr %4702, align 4
-  %4703 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 76), align 4
+  %4703 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 76), align 4
   %4704 = getelementptr inbounds nuw i8, ptr %4642, i64 44
   store i32 %4703, ptr %4704, align 4
-  %4705 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 72), align 8
+  %4705 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 72), align 8
   %4706 = getelementptr inbounds nuw i8, ptr %4642, i64 48
   store i32 %4705, ptr %4706, align 8
-  %4707 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 88), align 8
+  %4707 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 88), align 8
   %4708 = getelementptr inbounds nuw i8, ptr %4642, i64 60
   store i32 %4707, ptr %4708, align 4
-  %4709 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 96), align 8
+  %4709 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 96), align 8
   %4710 = getelementptr inbounds nuw i8, ptr %4642, i64 64
   store i32 %4709, ptr %4710, align 8
-  %4711 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 92), align 4
+  %4711 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 92), align 4
   %4712 = getelementptr inbounds nuw i8, ptr %4642, i64 68
   store i32 %4711, ptr %4712, align 4
-  %4713 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 100), align 4
+  %4713 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 100), align 4
   %4714 = getelementptr inbounds nuw i8, ptr %4642, i64 72
   store i32 %4713, ptr %4714, align 8
-  %4715 = load ptr, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 64), align 8
+  %4715 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 64), align 8
   %4716 = getelementptr inbounds nuw i8, ptr %4642, i64 112
   store ptr %4715, ptr %4716, align 8
-  %4717 = load i8, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 140), align 4
+  %4717 = load i8, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 140), align 4
   %4718 = and i8 %4717, 1
   %4719 = zext nneg i8 %4718 to i32
   %4720 = getelementptr inbounds nuw i8, ptr %4642, i64 120
   store i32 %4719, ptr %4720, align 8
-  %4721 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 132), align 4
+  %4721 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 132), align 4
   %4722 = getelementptr inbounds nuw i8, ptr %4642, i64 384
   store i32 %4721, ptr %4722, align 8
-  %4723 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 168), align 8
+  %4723 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 168), align 8
   %4724 = getelementptr inbounds nuw i8, ptr %4642, i64 388
   store i32 %4723, ptr %4724, align 4
-  %4725 = load i32, ptr getelementptr inbounds (i8, ptr @main.dopt, i64 48), align 8
+  %4725 = load i32, ptr getelementptr inbounds nuw (i8, ptr @main.dopt, i64 48), align 8
   %4726 = getelementptr inbounds nuw i8, ptr %4642, i64 392
   store i32 %4725, ptr %4726, align 8
   %4727 = getelementptr inbounds nuw i8, ptr %4642, i64 336

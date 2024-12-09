@@ -3505,7 +3505,7 @@ define hidden void @_ZN5State12_sub_Op_AddIEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not368, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %526
 
 526:                                              ; preds = %522
-  %527 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %527 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %527, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
     i32 1752462657, label %528
@@ -3754,7 +3754,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit.thread: ; preds = %_ZN10VM_Version
   br i1 %.not376, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit834.thread, label %664
 
 664:                                              ; preds = %660
-  %665 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %665 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %665, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit834.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i829
     i32 1752462657, label %666
@@ -4001,7 +4001,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit834.thread: ; preds = %653, %657, %
   br i1 %.not384, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %800
 
 800:                                              ; preds = %796
-  %801 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %801 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %801, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
     i32 1752462657, label %802
@@ -4199,7 +4199,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %800, %888, %896
   br i1 %.not388, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit835.thread, label %907
 
 907:                                              ; preds = %903
-  %908 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %908 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %908, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit835.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit835
     i32 1752462657, label %909
@@ -4397,7 +4397,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit835.thread: ; preds = %907, %995, %
   br i1 %.not392, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit842.thread, label %1014
 
 1014:                                             ; preds = %1010
-  %1015 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1015 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1015, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit842.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i837
     i32 1752462657, label %1016
@@ -4644,7 +4644,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit842.thread: ; preds = %_ZN10VM_Vers
   br i1 %.not400, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit843.thread, label %1150
 
 1150:                                             ; preds = %1146
-  %1151 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %1151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1151, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit843.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit843
     i32 1752462657, label %1152
@@ -6123,7 +6123,7 @@ define hidden void @_ZN5State12_sub_Op_AddLEPK4Node(ptr noundef nonnull align 8 
   br i1 %.not244, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %36, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
     i32 1752462657, label %37
@@ -6356,7 +6356,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit.thread: ; preds = %_ZN10VM_Version
   br i1 %.not252, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit561.thread, label %164
 
 164:                                              ; preds = %160
-  %165 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %165 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %165, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit561.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i556
     i32 1752462657, label %166
@@ -6587,7 +6587,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit561.thread: ; preds = %_ZN10VM_Vers
   br i1 %.not260, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread, label %291
 
 291:                                              ; preds = %287
-  %292 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %292 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %292, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
     i32 1752462657, label %293
@@ -6769,7 +6769,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %291, %293, %370
   br i1 %.not264, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit562.thread, label %389
 
 389:                                              ; preds = %385
-  %390 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %390 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %390, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit562.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit562
     i32 1752462657, label %391
@@ -6951,7 +6951,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit562.thread: ; preds = %389, %391, %
   br i1 %.not268, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit569.thread, label %487
 
 487:                                              ; preds = %483
-  %488 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %488 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %488, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit569.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i564
     i32 1752462657, label %489
@@ -7182,7 +7182,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit569.thread: ; preds = %_ZN10VM_Vers
   br i1 %.not276, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit570.thread, label %614
 
 614:                                              ; preds = %610
-  %615 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %615 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %615, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit570.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit570
     i32 1752462657, label %616
@@ -9011,7 +9011,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
   %327 = load i16, ptr %326, align 4
   %328 = and i16 %327, 1
   %.not619 = icmp ne i16 %328, 0
-  %329 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %329 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %330 = icmp eq i32 %329, 0
   %or.cond960 = select i1 %.not619, i1 %330, i1 false
   br i1 %or.cond960, label %331, label %516
@@ -9427,7 +9427,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
   %544 = load i16, ptr %543, align 4
   %545 = and i16 %544, 1
   %.not627 = icmp ne i16 %545, 0
-  %546 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %546 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %547 = icmp eq i32 %546, 0
   %or.cond962 = select i1 %.not627, i1 %547, i1 false
   br i1 %or.cond962, label %548, label %729
@@ -9838,7 +9838,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
   %756 = load i16, ptr %755, align 4
   %757 = and i16 %756, 1
   %.not635 = icmp ne i16 %757, 0
-  %758 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %758 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %759 = icmp eq i32 %758, 0
   %or.cond964 = select i1 %.not635, i1 %759, i1 false
   br i1 %or.cond964, label %760, label %927
@@ -10229,7 +10229,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
   %950 = load i16, ptr %949, align 2
   %951 = and i16 %950, 1
   %.not643 = icmp ne i16 %951, 0
-  %952 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %952 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %953 = icmp eq i32 %952, 0
   %or.cond966 = select i1 %.not643, i1 %953, i1 false
   br i1 %or.cond966, label %954, label %.thread1626
@@ -10598,7 +10598,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
   %1130 = load i16, ptr %1129, align 4
   %1131 = and i16 %1130, 1
   %.not647 = icmp ne i16 %1131, 0
-  %1132 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %1132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %1133 = icmp eq i32 %1132, 0
   %or.cond968 = select i1 %.not647, i1 %1133, i1 false
   br i1 %or.cond968, label %1134, label %1151
@@ -10647,7 +10647,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
   %1160 = load i16, ptr %1159, align 4
   %1161 = and i16 %1160, 1
   %.not651 = icmp ne i16 %1161, 0
-  %1162 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %1162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %1163 = icmp eq i32 %1162, 0
   %or.cond970 = select i1 %.not651, i1 %1163, i1 false
   br i1 %or.cond970, label %1164, label %1331
@@ -11038,7 +11038,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
   %1354 = load i16, ptr %1353, align 4
   %1355 = and i16 %1354, 1
   %.not659 = icmp ne i16 %1355, 0
-  %1356 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %1356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %1357 = icmp eq i32 %1356, 0
   %or.cond972 = select i1 %.not659, i1 %1357, i1 false
   br i1 %or.cond972, label %1358, label %.thread1631
@@ -11400,7 +11400,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
   %1531 = load i16, ptr %1530, align 4
   %1532 = and i16 %1531, 1
   %.not663 = icmp ne i16 %1532, 0
-  %1533 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %1533 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %1534 = icmp eq i32 %1533, 0
   %or.cond974 = select i1 %.not663, i1 %1534, i1 false
   br i1 %or.cond974, label %1535, label %1701
@@ -11767,7 +11767,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
 1711:                                             ; preds = %1707
   %1712 = load i8, ptr @UseCompressedOops, align 1
   %1713 = trunc i8 %1712 to i1
-  %1714 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %1714 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %1715 = icmp eq i32 %1714, 3
   %or.cond976 = select i1 %1713, i1 %1715, i1 false
   br i1 %or.cond976, label %1716, label %1883
@@ -47950,7 +47950,7 @@ define hidden void @_ZN5State15_sub_Op_ConvL2IEPK4Node(ptr noundef nonnull align
   %34 = load i16, ptr %33, align 4
   %35 = and i16 %34, 1
   %.not49 = icmp ne i16 %35, 0
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %37 = icmp eq i32 %36, 0
   %or.cond102 = select i1 %.not49, i1 %37, i1 false
   br i1 %or.cond102, label %38, label %125
@@ -51268,7 +51268,7 @@ define hidden void @_ZN5State15_sub_Op_DecodeNEPK4Node(ptr noundef nonnull align
   %200 = load i16, ptr %199, align 2
   %201 = and i16 %200, 1
   %.not56 = icmp ne i16 %201, 0
-  %202 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %202 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %203 = icmp eq i32 %202, 0
   %or.cond109 = select i1 %.not56, i1 %203, i1 false
   br i1 %or.cond109, label %204, label %217

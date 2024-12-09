@@ -196,7 +196,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %invoke.cont45 unwind label %lpad37
 
 invoke.cont45:                                    ; preds = %invoke.cont29
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3620)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4222)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4423)
@@ -243,7 +243,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -442,7 +442,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3423)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3725)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3926)
@@ -586,7 +586,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %invoke.cont27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox17VeloxRuntimeErrorE, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3421)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3823)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4024)
@@ -660,7 +660,7 @@ entry:
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp113)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp415)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp516)
@@ -678,7 +678,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox14VeloxUserErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -804,7 +804,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp115)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp317)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp418)
@@ -868,7 +868,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxUserErrorE, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp113)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp415)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp516)
@@ -891,7 +891,7 @@ declare void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox17VeloxRuntimeErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -992,7 +992,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox14VeloxExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -1074,7 +1074,7 @@ _ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev.exit: ; preds = 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox14VeloxExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -1157,7 +1157,7 @@ _ZN8facebook5velox14VeloxExceptionD2Ev.exit:      ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox14VeloxUserErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null

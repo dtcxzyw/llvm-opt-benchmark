@@ -991,7 +991,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %len.i25, align 8
   %1 = load ptr, ptr %entryNameBuilder, align 8
   store i8 0, ptr %1, align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759ErrorCodeE, i64 16), ptr %status, align 8
   %errorCode.i = getelementptr inbounds nuw i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i, align 8
   %cmp.not = icmp eq ptr %destdir, null
@@ -1664,9 +1664,9 @@ if.end57:                                         ; preds = %for.end
   br i1 %bits.057, label %if.then60, label %if.else71
 
 if.then60:                                        ; preds = %if.end57
-  store i8 %conv62, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE8header32, i64 5), align 1
-  store i16 %cpu.055, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE8header32, i64 18), align 2
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders32, i64 176), align 16
+  store i8 %conv62, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE8header32, i64 5), align 1
+  store i16 %cpu.055, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE8header32, i64 18), align 2
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders32, i64 176), align 16
   %and = and i32 %19, 15
   %cmp63.not = icmp eq i32 %and, 0
   br i1 %cmp63.not, label %if.end67, label %if.then64
@@ -1674,22 +1674,22 @@ if.then60:                                        ; preds = %if.end57
 if.then64:                                        ; preds = %if.then60
   %sub65 = sub nuw nsw i32 16, %and
   %add66 = add i32 %sub65, %19
-  store i32 %add66, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders32, i64 176), align 16
+  store i32 %add66, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders32, i64 176), align 16
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then64, %if.then60
   %paddingSize.0 = phi i32 [ %sub65, %if.then64 ], [ 0, %if.then60 ]
-  store i32 %call12, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders32, i64 180), align 4
-  store i32 %call12, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE9symbols32, i64 24), align 8
+  store i32 %call12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders32, i64 180), align 4
+  store i32 %call12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE9symbols32, i64 24), align 8
   %call68 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull @_ZZ15writeObjectCodeE8header32, i32 noundef 52)
   %call69 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull @_ZZ15writeObjectCodeE16sectionHeaders32, i32 noundef 200)
   %call70 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull @_ZZ15writeObjectCodeE9symbols32, i32 noundef 32)
   br label %if.end88
 
 if.else71:                                        ; preds = %if.end57
-  store i8 %conv62, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE8header64, i64 5), align 1
-  store i16 %cpu.055, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE8header64, i64 18), align 2
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 280), align 8
+  store i8 %conv62, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE8header64, i64 5), align 1
+  store i16 %cpu.055, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE8header64, i64 18), align 2
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 280), align 8
   %21 = trunc i64 %20 to i32
   %conv76 = and i32 %21, 15
   %cmp77.not = icmp eq i32 %conv76, 0
@@ -1699,14 +1699,14 @@ if.then78:                                        ; preds = %if.else71
   %sub79 = sub nuw nsw i32 16, %conv76
   %conv80 = zext nneg i32 %sub79 to i64
   %add81 = add i64 %20, %conv80
-  store i64 %add81, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 280), align 8
+  store i64 %add81, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 280), align 8
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then78, %if.else71
   %paddingSize.2 = phi i32 [ %sub79, %if.then78 ], [ 0, %if.else71 ]
   %conv83 = sext i32 %call12 to i64
-  store i64 %conv83, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 288), align 16
-  store i64 %conv83, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE9symbols64, i64 40), align 8
+  store i64 %conv83, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 288), align 16
+  store i64 %conv83, ptr getelementptr inbounds nuw (i8, ptr @_ZZ15writeObjectCodeE9symbols64, i64 40), align 8
   %call85 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull @_ZZ15writeObjectCodeE8header64, i32 noundef 64)
   %call86 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull @_ZZ15writeObjectCodeE16sectionHeaders64, i32 noundef 320)
   %call87 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull @_ZZ15writeObjectCodeE9symbols64, i32 noundef 48)

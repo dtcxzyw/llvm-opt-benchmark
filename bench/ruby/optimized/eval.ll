@@ -699,7 +699,7 @@ rb_class_of.exit:                                 ; preds = %19, %22, %23, %24, 
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) @reset, i64 3, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %35, ptr noundef nonnull readonly align 1 dereferenceable(26) getelementptr inbounds (i8, ptr @rb_error_write.traceback, i64 9), i64 26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %35, ptr noundef nonnull readonly align 1 dereferenceable(26) getelementptr inbounds nuw (i8, ptr @rb_error_write.traceback, i64 9), i64 26, i1 false)
   br label %36
 
 36:                                               ; preds = %32, %29

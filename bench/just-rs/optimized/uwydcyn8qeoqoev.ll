@@ -14028,7 +14028,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @anon.b7a90f88a9691aabfbbf63462cb82c19.219, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds (i8, ptr @anon.b7a90f88a9691aabfbbf63462cb82c19.219, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.b7a90f88a9691aabfbbf63462cb82c19.219, i64 2), ptr %21, align 8
   store ptr %5, ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17ha1d4839443a4c6a0E", ptr %22, align 8

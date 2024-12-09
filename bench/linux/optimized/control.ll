@@ -181,7 +181,7 @@ define dso_local void @snd_ctl_notify(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %52
 
 40:                                               ; preds = %27
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %42 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %41, i32 noundef 2336, i64 noundef 88) #18
   %43 = icmp eq ptr %42, null
   br i1 %43, label %50, label %44
@@ -1209,7 +1209,7 @@ define dso_local ptr @snd_ctl_find_id(ptr noundef %0, ptr noundef %1) #0 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @snd_ctl_register_ioctl(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 24) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
@@ -1218,8 +1218,8 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_ctl_register_ioctl(ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %6, align 8
   tail call void @down_write(ptr noundef nonnull @snd_ioctl_rwsem) #17
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @snd_control_ioctls, i64 8), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @snd_control_ioctls, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @snd_control_ioctls, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @snd_control_ioctls, i64 8), align 8
   store ptr @snd_control_ioctls, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
@@ -1234,7 +1234,7 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_ctl_register_ioctl(ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @snd_ctl_register_ioctl_compat(ptr noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 24) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
@@ -1243,8 +1243,8 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_ctl_register_ioctl_compat(pt
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %6, align 8
   tail call void @down_write(ptr noundef nonnull @snd_ioctl_rwsem) #17
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @snd_control_compat_ioctls, i64 8), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @snd_control_compat_ioctls, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @snd_control_compat_ioctls, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @snd_control_compat_ioctls, i64 8), align 8
   store ptr @snd_control_compat_ioctls, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
@@ -2308,7 +2308,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl(ptr nocapt
   br label %331
 
 25:                                               ; preds = %15
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %27 = tail call noalias align 8 dereferenceable_or_null(376) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3520, i64 noundef 376) #18
   %28 = icmp eq ptr %27, null
   br i1 %28, label %331, label %29
@@ -2900,7 +2900,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl_compat(ptr
   br label %196
 
 47:                                               ; preds = %18
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %49 = tail call noalias align 8 dereferenceable_or_null(272) ptr @kmalloc_trace(ptr noundef %48, i32 noundef 3520, i64 noundef 272) #18
   %50 = icmp eq ptr %49, null
   br i1 %50, label %196, label %51
@@ -3034,7 +3034,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl_compat(ptr
   store i32 0, ptr %6, align 4, !annotation !40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
   store i32 0, ptr %7, align 4, !annotation !40
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %137 = tail call noalias align 8 dereferenceable_or_null(1224) ptr @kmalloc_trace(ptr noundef %136, i32 noundef 3520, i64 noundef 1224) #18
   %138 = icmp eq ptr %137, null
   br i1 %138, label %152, label %139
@@ -3073,7 +3073,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl_compat(ptr
   store i32 0, ptr %4, align 4, !annotation !40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   store i32 0, ptr %5, align 4, !annotation !40
-  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %157 = tail call noalias align 8 dereferenceable_or_null(1224) ptr @kmalloc_trace(ptr noundef %156, i32 noundef 3520, i64 noundef 1224) #18
   %158 = icmp eq ptr %157, null
   br i1 %158, label %172, label %159
@@ -3180,7 +3180,7 @@ define internal range(i32 -2147483648, 1) i32 @snd_ctl_open(ptr noundef %0, ptr 
   br i1 %17, label %18, label %54
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %20 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 104) #18
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
@@ -5052,7 +5052,7 @@ define internal fastcc range(i32 -14, 1) i32 @read_tlv_buf(ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_compat(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(272) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 272) #18
   %6 = icmp eq ptr %5, null
   br i1 %6, label %82, label %7
@@ -5211,7 +5211,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(p
   br label %.thread
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %28 = tail call noalias align 8 dereferenceable_or_null(272) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 272) #18
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31

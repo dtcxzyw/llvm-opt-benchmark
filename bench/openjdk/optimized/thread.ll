@@ -133,7 +133,7 @@ $_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE13shrink_to_fitE
 define hidden void @_ZN6ThreadC2E8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(888) initializes((0, 28)) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV6Thread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV6Thread, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @_ZN22ThreadLocalAllocBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(116) %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -488,7 +488,7 @@ declare noundef i64 @_ZN2os17current_thread_idEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(888) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV6Thread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV6Thread, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3

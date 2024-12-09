@@ -2416,7 +2416,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i:                                       ; preds = %511
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 8
   store i32 1, ptr %513, align 4, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %512, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %512, align 8, !noalias !19
   %514 = getelementptr inbounds nuw i8, ptr %512, i64 12
   store i8 0, ptr %514, align 4, !noalias !19
   %515 = getelementptr inbounds nuw i8, ptr %512, i64 13

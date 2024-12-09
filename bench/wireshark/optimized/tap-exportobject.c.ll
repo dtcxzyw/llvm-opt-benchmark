@@ -272,7 +272,7 @@ define internal void @eo_draw(ptr nocapture noundef readonly %0) #0 {
 
 41:                                               ; preds = %35
   %42 = add nuw i32 %.1, 1
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 236), align 4
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 236), align 4
   %44 = icmp ult i32 %42, %43
   br i1 %44, label %26, label %.critedge, !llvm.loop !5
 

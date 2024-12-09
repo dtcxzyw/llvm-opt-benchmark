@@ -558,7 +558,7 @@ _ZN4NodenwEm.exit21:                              ; preds = %54, %56
 
 59:                                               ; preds = %_ZN4NodenwEm.exit21
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i20, ptr noundef %.0.i.i.i) #9
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i20, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 52
   store i32 1, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 56
@@ -682,7 +682,7 @@ _ZN4NodenwEm.exit25:                              ; preds = %124, %126
 
 129:                                              ; preds = %_ZN4NodenwEm.exit25
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i24, ptr noundef %.0.i.i.i) #9
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i24, align 8
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i24, i64 52
   store i32 2, ptr %130, align 4
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i24, i64 56
@@ -741,7 +741,7 @@ _ZN4NodenwEm.exit28:                              ; preds = %159, %161
 
 164:                                              ; preds = %_ZN4NodenwEm.exit28
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i27, ptr noundef %.0.i.i.i) #9
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i27, align 8
   %165 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27, i64 52
   store i32 5, ptr %165, align 4
   %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27, i64 56
@@ -803,7 +803,7 @@ _ZN4NodenwEm.exit31:                              ; preds = %199, %201
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %206 = load ptr, ptr %205, align 8
   call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i30, ptr noundef null, ptr noundef %174, ptr noundef %1) #9
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV13VectorBoxNode, i64 16), ptr %.0.i.i.i30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV13VectorBoxNode, i64 16), ptr %.0.i.i.i30, align 8
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i.i30, i64 56
   store ptr %2, ptr %207, align 8
   %208 = getelementptr inbounds nuw i8, ptr %.0.i.i.i30, i64 64
@@ -920,7 +920,7 @@ define linkonce_odr hidden void @_ZN21VectorBoxAllocateNodeC2EP7CompilePK11TypeI
   store i8 0, ptr %20, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %18, i8 0, i64 19, i1 false)
   store i32 31, ptr %10, align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV21VectorBoxAllocateNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV21VectorBoxAllocateNode, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8
   %23 = or i32 %22, 8
@@ -1080,7 +1080,7 @@ define linkonce_odr hidden void @_ZN15VectorUnboxNodeC2EP7CompilePK8TypeVectP4No
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
   store i32 1028, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -1157,7 +1157,7 @@ _ZN4Node8init_reqEjPS_.exit.i:                    ; preds = %24, %13, %6
   br label %_ZN10VectorNodeC2EP4NodeS1_PK8TypeVect.exit
 
 _ZN10VectorNodeC2EP4NodeS1_PK8TypeVect.exit:      ; preds = %_ZN4Node8init_reqEjPS_.exit.i, %32, %43
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15VectorUnboxNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorUnboxNode, i64 16), ptr %0, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %7, ptr %49, align 8
   store i32 5124, ptr %9, align 4
@@ -1249,7 +1249,7 @@ _ZN4NodenwEm.exit:                                ; preds = %34, %36
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef null, ptr noundef %1, ptr noundef %17) #9
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
   store i32 4096, ptr %40, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV8AndINode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV8AndINode, i64 16), ptr %.0.i.i.i, align 8
   br label %41
 
 41:                                               ; preds = %39, %_ZN4NodenwEm.exit
@@ -2151,7 +2151,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %643 = load ptr, ptr %642, align 8
   %644 = tail call noundef ptr %643(ptr noundef nonnull align 8 dereferenceable(52) %503) #9
   tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %638, ptr noundef nonnull %503, ptr noundef %637, ptr noundef nonnull %.0158, ptr noundef %644)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %638, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %638, align 8
   br label %645
 
 645:                                              ; preds = %630, %640, %626, %623
@@ -2353,7 +2353,7 @@ _ZN4NodenwEm.exit:                                ; preds = %59, %61
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(2400) %65, ptr noundef %41) #9
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i, ptr noundef %68) #9
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i32 5, ptr %69, align 4
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -2449,7 +2449,7 @@ _ZN4NodenwEm.exit:                                ; preds = %48, %50
 
 53:                                               ; preds = %_ZN4NodenwEm.exit
   tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(68) %.0.i.i.i, ptr noundef %30, ptr noundef %1, ptr noundef %22, ptr noundef %31)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV17VectorMaskCmpNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV17VectorMaskCmpNode, i64 16), ptr %.0.i.i.i, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store i32 17, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
@@ -2508,7 +2508,7 @@ _ZN4NodenwEm.exit31:                              ; preds = %85, %87
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(52) %69) #9
   tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i30, ptr noundef nonnull %69, ptr noundef %64, ptr noundef %59, ptr noundef %94)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %.0.i.i.i30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %.0.i.i.i30, align 8
   br label %95
 
 95:                                               ; preds = %90, %_ZN4NodenwEm.exit31
@@ -2925,7 +2925,7 @@ define linkonce_odr hidden void @_ZN19VectorLoadConstNodeC2EP4NodePK8TypeVect(pt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
   store i32 1028, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -2965,7 +2965,7 @@ define linkonce_odr hidden void @_ZN19VectorLoadConstNodeC2EP4NodePK8TypeVect(pt
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
 _ZN10VectorNodeC2EP4NodePK8TypeVect.exit:         ; preds = %3, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV19VectorLoadConstNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV19VectorLoadConstNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -3936,7 +3936,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %303, ptr noundef null, ptr noundef %253) #9
   %306 = getelementptr inbounds nuw i8, ptr %303, i64 44
   store i32 524288, ptr %306, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11MoveL2DNode, i64 16), ptr %303, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveL2DNode, i64 16), ptr %303, align 8
   br label %307
 
 307:                                              ; preds = %305, %301
@@ -3969,7 +3969,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %322, ptr noundef null, ptr noundef %320) #9
   %325 = getelementptr inbounds nuw i8, ptr %322, i64 44
   store i32 524288, ptr %325, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11MoveI2FNode, i64 16), ptr %322, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveI2FNode, i64 16), ptr %322, align 8
   br label %326
 
 326:                                              ; preds = %324, %317
@@ -4025,7 +4025,7 @@ define linkonce_odr hidden void @_ZN20VectorLongToMaskNodeC2EP4NodePK8TypeVect(p
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
   store i32 1028, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4065,7 +4065,7 @@ define linkonce_odr hidden void @_ZN20VectorLongToMaskNodeC2EP4NodePK8TypeVect(p
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
 _ZN10VectorNodeC2EP4NodePK8TypeVect.exit:         ; preds = %3, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV20VectorLongToMaskNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV20VectorLongToMaskNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4075,7 +4075,7 @@ define linkonce_odr hidden void @_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect(ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
   store i32 1028, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4115,7 +4115,7 @@ define linkonce_odr hidden void @_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect(ptr
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
 _ZN10VectorNodeC2EP4NodePK8TypeVect.exit:         ; preds = %3, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV18VectorLoadMaskNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV18VectorLoadMaskNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4125,7 +4125,7 @@ define linkonce_odr hidden void @_ZN11ConvL2INodeC2EP4NodePK7TypeInt(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
   store i32 8196, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4165,7 +4165,7 @@ define linkonce_odr hidden void @_ZN11ConvL2INodeC2EP4NodePK7TypeInt(ptr noundef
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
 _ZN11ConvertNodeC2EPK4TypeP4Node.exit:            ; preds = %3, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvL2INode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvL2INode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -4773,7 +4773,7 @@ define linkonce_odr hidden void @_ZN21VectorReinterpretNodeC2EP4NodePK8TypeVectS
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
   store i32 1028, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -4813,7 +4813,7 @@ define linkonce_odr hidden void @_ZN21VectorReinterpretNodeC2EP4NodePK8TypeVectS
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
 _ZN10VectorNodeC2EP4NodePK8TypeVect.exit:         ; preds = %4, %10, %21
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV21VectorReinterpretNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV21VectorReinterpretNode, i64 16), ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %2, ptr %27, align 8
   store i32 9220, ptr %6, align 4
@@ -5812,7 +5812,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %309
   %688 = load ptr, ptr %687, align 8
   %689 = call noundef ptr %688(ptr noundef nonnull align 8 dereferenceable(52) %671) #9
   call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %683, ptr noundef nonnull %671, ptr noundef %681, ptr noundef %.1, ptr noundef %689)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %683, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %683, align 8
   br label %690
 
 690:                                              ; preds = %685, %658
@@ -5891,7 +5891,7 @@ define linkonce_odr hidden void @_ZN21StoreVectorMaskedNodeC2EP4NodeS1_S1_S1_PK7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %10, align 8
   store i32 80, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15StoreVectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV15StoreVectorNode, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -5899,7 +5899,7 @@ define linkonce_odr hidden void @_ZN21StoreVectorMaskedNodeC2EP4NodeS1_S1_S1_PK7
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(52) %4) #9
   store ptr %15, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 53
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV21StoreVectorMaskedNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV21StoreVectorMaskedNode, i64 16), ptr %0, align 8
   store i32 1232, ptr %9, align 4
   store i8 1, ptr %16, align 1
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %6) #9
@@ -5918,7 +5918,7 @@ define linkonce_odr hidden void @_ZN20LoadVectorMaskedNodeC2EP4NodeS1_S1_PK7Type
   store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV20LoadVectorMaskedNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV20LoadVectorMaskedNode, i64 16), ptr %0, align 8
   store i32 624, ptr %10, align 4
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %6) #9
   ret void
@@ -6827,7 +6827,7 @@ define linkonce_odr hidden void @_ZN28StoreVectorScatterMaskedNodeC2EP4NodeS1_S1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %11, align 8
   store i32 80, ptr %10, align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15StoreVectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV15StoreVectorNode, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -6836,7 +6836,7 @@ define linkonce_odr hidden void @_ZN28StoreVectorScatterMaskedNodeC2EP4NodeS1_S1
   store ptr %16, ptr %12, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 1, ptr %17, align 1
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV28StoreVectorScatterMaskedNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV28StoreVectorScatterMaskedNode, i64 16), ptr %0, align 8
   store i32 720, ptr %10, align 4
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %6) #9
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %7) #9
@@ -6852,7 +6852,7 @@ define linkonce_odr hidden void @_ZN22StoreVectorScatterNodeC2EP4NodeS1_S1_PK7Ty
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %10, align 8
   store i32 80, ptr %9, align 4
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV15StoreVectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV15StoreVectorNode, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -6861,7 +6861,7 @@ define linkonce_odr hidden void @_ZN22StoreVectorScatterNodeC2EP4NodeS1_S1_PK7Ty
   store ptr %15, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 1, ptr %16, align 1
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV22StoreVectorScatterNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV22StoreVectorScatterNode, i64 16), ptr %0, align 8
   store i32 464, ptr %9, align 4
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %6) #9
   ret void
@@ -6881,7 +6881,7 @@ define linkonce_odr hidden void @_ZN26LoadVectorGatherMaskedNodeC2EP4NodeS1_S1_P
   store i32 0, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV26LoadVectorGatherMaskedNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV26LoadVectorGatherMaskedNode, i64 16), ptr %0, align 8
   store i32 368, ptr %11, align 4
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %6) #9
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %7) #9
@@ -6913,7 +6913,7 @@ define linkonce_odr hidden void @_ZN20LoadVectorGatherNodeC2EP4NodeS1_S1_PK7Type
   store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV20LoadVectorGatherNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV20LoadVectorGatherNode, i64 16), ptr %0, align 8
   store i32 240, ptr %10, align 4
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %6) #9
   %.not = icmp eq ptr %7, null
@@ -7462,7 +7462,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %408 = load ptr, ptr %407, align 8
   %409 = tail call noundef ptr %408(ptr noundef nonnull align 8 dereferenceable(52) %401) #9
   tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %403, ptr noundef nonnull %401, ptr noundef nonnull %338, ptr noundef nonnull %.095, ptr noundef %409)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %403, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %403, align 8
   br label %410
 
 410:                                              ; preds = %405, %393
@@ -7527,7 +7527,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %437, ptr noundef null, ptr noundef %424) #9
   %440 = getelementptr inbounds nuw i8, ptr %437, i64 44
   store i32 524288, ptr %440, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11MoveF2INode, i64 16), ptr %437, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveF2INode, i64 16), ptr %437, align 8
   br label %441
 
 441:                                              ; preds = %439, %435
@@ -7560,7 +7560,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %456, ptr noundef null, ptr noundef %424) #9
   %459 = getelementptr inbounds nuw i8, ptr %456, i64 44
   store i32 524288, ptr %459, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11MoveD2LNode, i64 16), ptr %456, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveD2LNode, i64 16), ptr %456, align 8
   br label %460
 
 460:                                              ; preds = %458, %454
@@ -7609,7 +7609,7 @@ define linkonce_odr hidden void @_ZN11ConvI2LNodeC2EP4NodePK8TypeLong(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
   store i32 8196, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -7649,7 +7649,7 @@ define linkonce_odr hidden void @_ZN11ConvI2LNodeC2EP4NodePK8TypeLong(ptr nounde
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
 _ZN11ConvertNodeC2EPK4TypeP4Node.exit:            ; preds = %3, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvI2LNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvI2LNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -8001,7 +8001,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(56) %269, ptr noundef null, ptr noundef nonnull %241, ptr noundef nonnull %.05570) #9
   %272 = getelementptr inbounds nuw i8, ptr %269, i64 44
   store i32 192, ptr %272, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV14VectorTestNode, i64 16), ptr %269, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV14VectorTestNode, i64 16), ptr %269, align 8
   %273 = getelementptr inbounds nuw i8, ptr %269, i64 52
   store i32 %205, ptr %273, align 4
   br label %274
@@ -8049,7 +8049,7 @@ _ZN7Matcher15vectortest_maskEbbi.exit:            ; preds = %274, %289, %292, %2
 
 297:                                              ; preds = %_ZN7Matcher15vectortest_maskEbbi.exit
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %295, ptr noundef null, ptr noundef %277) #9
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %295, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %295, align 8
   %298 = getelementptr inbounds nuw i8, ptr %295, i64 52
   store i32 %.0.i68, ptr %298, align 4
   %299 = getelementptr inbounds nuw i8, ptr %295, i64 44
@@ -8072,7 +8072,7 @@ _ZN7Matcher15vectortest_maskEbbi.exit:            ; preds = %274, %289, %292, %2
   %311 = tail call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %310, i32 noundef 1) #9
   %312 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
   tail call void @_ZN9CMoveNodeC2EP4NodeS1_S1_PK4Type(ptr noundef nonnull align 8 dereferenceable(64) %305, ptr noundef %303, ptr noundef %309, ptr noundef %311, ptr noundef %312)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10CMoveINode, i64 16), ptr %305, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10CMoveINode, i64 16), ptr %305, align 8
   br label %313
 
 313:                                              ; preds = %307, %300
@@ -8489,7 +8489,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit75.thread: ; preds = %178, %_ZL20is
   %292 = load ptr, ptr %291, align 8
   %293 = tail call noundef ptr %292(ptr noundef nonnull align 8 dereferenceable(52) %251) #9
   tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %287, ptr noundef nonnull %251, ptr noundef nonnull %266, ptr noundef nonnull %281, ptr noundef %293)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %287, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %287, align 8
   br label %294
 
 294:                                              ; preds = %289, %285
@@ -8979,7 +8979,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 
 366:                                              ; preds = %356
   tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(68) %364, ptr noundef nonnull %276, ptr noundef nonnull %291, ptr noundef %359, ptr noundef %363)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV17VectorMaskCmpNode, i64 16), ptr %364, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV17VectorMaskCmpNode, i64 16), ptr %364, align 8
   %367 = getelementptr inbounds nuw i8, ptr %364, i64 64
   store i32 %357, ptr %367, align 8
   %368 = getelementptr inbounds nuw i8, ptr %364, i64 44
@@ -9586,7 +9586,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit117.thread: ; preds = %190, %_ZL20i
   %401 = load ptr, ptr %400, align 8
   %402 = tail call noundef ptr %401(ptr noundef nonnull align 8 dereferenceable(52) %395) #9
   tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %396, ptr noundef nonnull %395, ptr noundef %383, ptr noundef %.092, ptr noundef %402)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %396, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %396, align 8
   br label %403
 
 403:                                              ; preds = %375, %398, %371, %369
@@ -9625,7 +9625,7 @@ define linkonce_odr hidden void @_ZN19VectorRearrangeNodeC2EP4NodeS1_(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
   store i32 1028, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -9698,7 +9698,7 @@ _ZN4Node8init_reqEjPS_.exit.i:                    ; preds = %23, %3
   br label %_ZN10VectorNodeC2EP4NodeS1_PK8TypeVect.exit
 
 _ZN10VectorNodeC2EP4NodeS1_PK8TypeVect.exit:      ; preds = %_ZN4Node8init_reqEjPS_.exit.i, %31, %42
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV19VectorRearrangeNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV19VectorRearrangeNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -10361,7 +10361,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %487 = load ptr, ptr %486, align 8
   %488 = tail call noundef ptr %487(ptr noundef nonnull align 8 dereferenceable(52) %391) #9
   tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %482, ptr noundef nonnull %391, ptr noundef %481, ptr noundef nonnull %441, ptr noundef %488)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %482, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %482, align 8
   br label %489
 
 489:                                              ; preds = %.thread, %477, %484, %473
@@ -11121,7 +11121,7 @@ define linkonce_odr hidden void @_ZN18VectorMaskCastNodeC2EP4NodePK8TypeVect(ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
   store i32 1028, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -11161,7 +11161,7 @@ define linkonce_odr hidden void @_ZN18VectorMaskCastNodeC2EP4NodePK8TypeVect(ptr
   br label %_ZN10VectorNodeC2EP4NodePK8TypeVect.exit
 
 _ZN10VectorNodeC2EP4NodePK8TypeVect.exit:         ; preds = %3, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV18VectorMaskCastNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV18VectorMaskCastNode, i64 16), ptr %0, align 8
   %26 = load ptr, ptr %1, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
@@ -11598,7 +11598,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %309, ptr noundef null, ptr noundef %307) #9
   %312 = getelementptr inbounds nuw i8, ptr %309, i64 44
   store i32 524288, ptr %312, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11MoveI2FNode, i64 16), ptr %309, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveI2FNode, i64 16), ptr %309, align 8
   br label %313
 
 313:                                              ; preds = %311, %304
@@ -11617,7 +11617,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %319, ptr noundef null, ptr noundef %249) #9
   %322 = getelementptr inbounds nuw i8, ptr %319, i64 44
   store i32 524288, ptr %322, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11MoveL2DNode, i64 16), ptr %319, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveL2DNode, i64 16), ptr %319, align 8
   br label %323
 
 323:                                              ; preds = %321, %317
@@ -11667,7 +11667,7 @@ define linkonce_odr hidden void @_ZN10CastIINodeC2EP4NodePK4TypeN18ConstraintCas
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -11714,7 +11714,7 @@ define linkonce_odr hidden void @_ZN10CastIINodeC2EP4NodePK4TypeN18ConstraintCas
 
 _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit: ; preds = %6, %15, %26
   %32 = zext i1 %4 to i8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10CastIINode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10CastIINode, i64 16), ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %32, ptr %33, align 8
   store i32 52, ptr %8, align 4
@@ -12019,7 +12019,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 
 229:                                              ; preds = %220
   call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %227, ptr noundef null, ptr noundef %225, ptr noundef %201) #9
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV13ExtractUBNode, i64 16), ptr %227, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV13ExtractUBNode, i64 16), ptr %227, align 8
   br label %230
 
 230:                                              ; preds = %229, %220
@@ -12108,7 +12108,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 
 291:                                              ; preds = %284
   call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %289, ptr noundef null, ptr noundef %287, ptr noundef %201) #9
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12URShiftLNode, i64 16), ptr %289, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12URShiftLNode, i64 16), ptr %289, align 8
   br label %292
 
 292:                                              ; preds = %291, %284
@@ -12127,7 +12127,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %297, ptr noundef null, ptr noundef %295, ptr noundef %302) #9
   %303 = getelementptr inbounds nuw i8, ptr %297, i64 44
   store i32 4096, ptr %303, align 4
-  store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV8AndLNode, i64 16), ptr %297, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV8AndLNode, i64 16), ptr %297, align 8
   br label %304
 
 304:                                              ; preds = %299, %292
@@ -12273,7 +12273,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %400, ptr noundef null, ptr noundef %387) #9
   %403 = getelementptr inbounds nuw i8, ptr %400, i64 44
   store i32 524288, ptr %403, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11MoveF2INode, i64 16), ptr %400, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveF2INode, i64 16), ptr %400, align 8
   br label %404
 
 404:                                              ; preds = %402, %398
@@ -12306,7 +12306,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %419, ptr noundef null, ptr noundef %387) #9
   %422 = getelementptr inbounds nuw i8, ptr %419, i64 44
   store i32 524288, ptr %422, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11MoveD2LNode, i64 16), ptr %419, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveD2LNode, i64 16), ptr %419, align 8
   br label %423
 
 423:                                              ; preds = %421, %417
@@ -12340,7 +12340,7 @@ define linkonce_odr hidden void @_ZN20VectorMaskToLongNodeC2EP4NodePK4Type(ptr n
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 4, ptr %5, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV16VectorMaskOpNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV16VectorMaskOpNode, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 441, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -12383,7 +12383,7 @@ define linkonce_odr hidden void @_ZN20VectorMaskToLongNodeC2EP4NodePK4Type(ptr n
   br label %_ZN16VectorMaskOpNodeC2EP4NodePK4Typei.exit
 
 _ZN16VectorMaskOpNodeC2EP4NodePK4Typei.exit:      ; preds = %3, %25
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV20VectorMaskToLongNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV20VectorMaskToLongNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -13419,7 +13419,7 @@ define linkonce_odr hidden void @_ZN11ConvI2FNodeC2EP4Node(ptr noundef nonnull a
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
   store i32 8196, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -13459,7 +13459,7 @@ define linkonce_odr hidden void @_ZN11ConvI2FNodeC2EP4Node(ptr noundef nonnull a
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
 _ZN11ConvertNodeC2EPK4TypeP4Node.exit:            ; preds = %2, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvI2FNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvI2FNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -13470,7 +13470,7 @@ define linkonce_odr hidden void @_ZN11ConvI2DNodeC2EP4Node(ptr noundef nonnull a
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
   store i32 8196, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -13510,7 +13510,7 @@ define linkonce_odr hidden void @_ZN11ConvI2DNodeC2EP4Node(ptr noundef nonnull a
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
 _ZN11ConvertNodeC2EPK4TypeP4Node.exit:            ; preds = %2, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvI2DNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvI2DNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -13843,7 +13843,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %235, ptr noundef null, ptr noundef nonnull %219, ptr noundef nonnull %215) #9
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 44
   store i32 64, ptr %238, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubLNode, i64 16), ptr %235, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubLNode, i64 16), ptr %235, align 8
   br label %239
 
 239:                                              ; preds = %237, %230
@@ -13969,7 +13969,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 
 311:                                              ; preds = %299
   tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(68) %309, ptr noundef %302, ptr noundef %289, ptr noundef %305, ptr noundef %307)
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV17VectorMaskCmpNode, i64 16), ptr %309, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV17VectorMaskCmpNode, i64 16), ptr %309, align 8
   %312 = getelementptr inbounds nuw i8, ptr %309, i64 64
   store i32 3, ptr %312, align 8
   %313 = getelementptr inbounds nuw i8, ptr %309, i64 44
@@ -14013,7 +14013,7 @@ define linkonce_odr hidden void @_ZN11ConvL2DNodeC2EP4Node(ptr noundef nonnull a
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
   store i32 8196, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -14053,7 +14053,7 @@ define linkonce_odr hidden void @_ZN11ConvL2DNodeC2EP4Node(ptr noundef nonnull a
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
 _ZN11ConvertNodeC2EPK4TypeP4Node.exit:            ; preds = %2, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvL2DNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvL2DNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -14064,7 +14064,7 @@ define linkonce_odr hidden void @_ZN11ConvL2FNodeC2EP4Node(ptr noundef nonnull a
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvertNode, i64 16), ptr %0, align 8
   store i32 8196, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -14104,7 +14104,7 @@ define linkonce_odr hidden void @_ZN11ConvL2FNodeC2EP4Node(ptr noundef nonnull a
   br label %_ZN11ConvertNodeC2EPK4TypeP4Node.exit
 
 _ZN11ConvertNodeC2EPK4TypeP4Node.exit:            ; preds = %2, %9, %20
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV11ConvL2FNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV11ConvL2FNode, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -14249,7 +14249,7 @@ define linkonce_odr hidden void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10VectorNode, i64 16), ptr %0, align 8
   store i32 1028, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -14384,7 +14384,7 @@ define linkonce_odr hidden void @_ZN9CMoveNodeC2EP4NodeS1_S1_PK4Type(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV9CMoveNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV9CMoveNode, i64 16), ptr %0, align 8
   store i32 68, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8

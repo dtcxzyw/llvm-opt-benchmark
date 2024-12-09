@@ -31155,7 +31155,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 define internal fastcc void @"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3416c0345fae4b69E"() unnamed_addr #2 personality ptr @rust_eh_personality {
   %1 = alloca [8 x i8], align 8
   %2 = alloca [8 x i8], align 8
-  %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, i64 8) acquire, align 8
+  %3 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, i64 8) acquire, align 8
   %4 = icmp eq i32 %3, 4
   br i1 %4, label %_ZN3std4sync4once4Once9call_once17h858038c94fb79705E.exit, label %5
 
@@ -31164,7 +31164,7 @@ define internal fastcc void @"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$
   store ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr %2, ptr %1, align 8
-  call void @_ZN3std3sys4sync4once5futex4Once4call17hb7e810851ff3989aE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.259.llvm.12543213376774478311)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17hb7e810851ff3989aE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.259.llvm.12543213376774478311)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %_ZN3std4sync4once4Once9call_once17h858038c94fb79705E.exit
@@ -33427,7 +33427,7 @@ define void @"_ZN77_$LT$client..ClientSettings$u20$as$u20$settings..settings_sto
   store ptr %25, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %.sroa.610.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
-  %27 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6client14ZED_SERVER_URL17h59dc018ccf2050b2E.llvm.12543213376774478311, i64 24) acquire, align 8, !noalias !7485
+  %27 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client14ZED_SERVER_URL17h59dc018ccf2050b2E.llvm.12543213376774478311, i64 24) acquire, align 8, !noalias !7485
   %28 = icmp eq i32 %27, 4
   br i1 %28, label %_ZN3std4sync4once4Once9call_once17h660d476c76fac9e3E.llvm.12543213376774478311.exit, label %29
 
@@ -33436,7 +33436,7 @@ define void @"_ZN77_$LT$client..ClientSettings$u20$as$u20$settings..settings_sto
   store ptr @_ZN6client14ZED_SERVER_URL17h59dc018ccf2050b2E.llvm.12543213376774478311, ptr %5, align 8, !noalias !7485
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !7485
   store ptr %5, ptr %4, align 8, !noalias !7485
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h40561ba23df55423E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN6client14ZED_SERVER_URL17h59dc018ccf2050b2E.llvm.12543213376774478311, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.259.llvm.12543213376774478311)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h40561ba23df55423E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN6client14ZED_SERVER_URL17h59dc018ccf2050b2E.llvm.12543213376774478311, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.259.llvm.12543213376774478311)
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %29
@@ -34062,7 +34062,7 @@ define noalias noundef nonnull ptr @_ZN6client6Client3new17h898001b185151b2eE(pt
   br label %31
 
 25:                                               ; preds = %23
-  %26 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6client20ZED_DEVELOPMENT_AUTH17h8cf44ab22995ab9dE, i64 8) acquire, align 8
+  %26 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client20ZED_DEVELOPMENT_AUTH17h8cf44ab22995ab9dE, i64 8) acquire, align 8
   %27 = icmp eq i32 %26, 4
   br i1 %27, label %_ZN3std4sync4once4Once9call_once17h0a7450510e414694E.exit, label %28
 
@@ -34071,7 +34071,7 @@ define noalias noundef nonnull ptr @_ZN6client6Client3new17h898001b185151b2eE(pt
   store ptr @_ZN6client20ZED_DEVELOPMENT_AUTH17h8cf44ab22995ab9dE, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hd3cead68cde2bb4aE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN6client20ZED_DEVELOPMENT_AUTH17h8cf44ab22995ab9dE, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.259.llvm.12543213376774478311)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hd3cead68cde2bb4aE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN6client20ZED_DEVELOPMENT_AUTH17h8cf44ab22995ab9dE, i64 8), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.259.llvm.12543213376774478311)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %28
@@ -35798,8 +35798,8 @@ default.unreachable999:                           ; preds = %3052, %3032, %3013,
 
 158:                                              ; preds = %"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h627b8cf29dbea9f3E.exit.i"
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %100), !noalias !7819
-  %.val48.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6client11ZED_RPC_URL17h38e2bbda85ca57b1E, i64 8), align 8, !noalias !7819, !nonnull !5, !noundef !5
-  %.val49.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6client11ZED_RPC_URL17h38e2bbda85ca57b1E, i64 16), align 8, !noalias !7819, !noundef !5
+  %.val48.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client11ZED_RPC_URL17h38e2bbda85ca57b1E, i64 8), align 8, !noalias !7819, !nonnull !5, !noundef !5
+  %.val49.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client11ZED_RPC_URL17h38e2bbda85ca57b1E, i64 16), align 8, !noalias !7819, !noundef !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %89), !noalias !7843
   %159 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store ptr null, ptr %159, align 8, !noalias !7843

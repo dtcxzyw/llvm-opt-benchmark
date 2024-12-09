@@ -178,7 +178,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   call void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef %pattern, i32 noundef %patternLength)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %pos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %pos, align 8
   %index.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds nuw i8, ptr %pos, i64 12
@@ -317,7 +317,7 @@ define noundef i32 @uset_toPattern_75(ptr noundef nonnull %set, ptr noundef %res
 entry:
   %pat = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pat, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pat, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %pat, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510UnicodeSet9toPatternERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(200) %set, ptr noundef nonnull align 8 dereferenceable(64) %pat, i8 noundef signext %escapeUnprintable)

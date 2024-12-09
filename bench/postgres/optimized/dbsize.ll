@@ -828,7 +828,7 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
 
 5:                                                ; preds = %1, %22
   %6 = phi ptr [ @.str.21, %1 ], [ %40, %22 ]
-  %7 = phi ptr [ getelementptr inbounds (i8, ptr @size_pretty_units, i64 16), %1 ], [ %39, %22 ]
+  %7 = phi ptr [ getelementptr inbounds nuw (i8, ptr @size_pretty_units, i64 16), %1 ], [ %39, %22 ]
   %.0162228 = phi ptr [ @size_pretty_units, %1 ], [ %7, %22 ]
   %.02327 = phi i64 [ %4, %1 ], [ %38, %22 ]
   %8 = phi ptr [ @.str.20, %1 ], [ %6, %22 ]
@@ -902,7 +902,7 @@ define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) 
 
 6:                                                ; preds = %1, %39
   %7 = phi ptr [ @.str.21, %1 ], [ %65, %39 ]
-  %8 = phi ptr [ getelementptr inbounds (i8, ptr @size_pretty_units, i64 16), %1 ], [ %64, %39 ]
+  %8 = phi ptr [ getelementptr inbounds nuw (i8, ptr @size_pretty_units, i64 16), %1 ], [ %64, %39 ]
   %9 = phi ptr [ %5, %1 ], [ %63, %39 ]
   %.0162431 = phi ptr [ @size_pretty_units, %1 ], [ %8, %39 ]
   %10 = phi ptr [ @.str.20, %1 ], [ %7, %39 ]

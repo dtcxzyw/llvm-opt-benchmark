@@ -167,7 +167,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growE
   br i1 %49, label %26, label %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9appendAllEPK17GrowableArrayViewIS1_E.exit, !llvm.loop !8
 
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9appendAllEPK17GrowableArrayViewIS1_E.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i, %1
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20GcThreadCountClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20GcThreadCountClosure, i64 16), ptr %3, align 8
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %50, align 8
   %51 = load ptr, ptr %0, align 8
@@ -857,7 +857,7 @@ define hidden ptr @_ZN13MemoryService22create_MemoryUsage_objE11MemoryUsageP10Ja
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %.0.i.i6, ptr %43, align 8
   store i32 8, ptr %16, align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8808), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8808), align 8
   %45 = call ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6SymbolP17JavaCallArgumentsP10JavaThread(ptr noundef %4, ptr noundef %44, ptr noundef nonnull %3, ptr noundef nonnull %1) #8
   br label %46
 

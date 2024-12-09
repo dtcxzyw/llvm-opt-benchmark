@@ -120,7 +120,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %27 = shl nuw nsw i64 %26, 2
   %28 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %27, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.58, i32 noundef 272, ptr noundef nonnull @__func__._sort_rpc) #6
   store ptr %28, ptr @rpc_user_ave_time, align 8
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 4), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 4), align 4
   %30 = load ptr, ptr @buf, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 220
   %32 = load i32, ptr %31, align 4
@@ -1119,7 +1119,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %329, %176, %663, %.preheader265.i, %.preheader268.i, %.preheader274.i, %.preheader272.i, %.preheader.i
   %669 = phi ptr [ %33, %.preheader265.i ], [ %182, %.preheader268.i ], [ %359, %.preheader274.i ], [ %443, %.preheader272.i ], [ %516, %.preheader.i ], [ %664, %663 ], [ %177, %176 ], [ %330, %329 ], [ %449, %.loopexit271.i ]
-  %670 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
+  %670 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
   %.not = icmp eq ptr %670, null
   br i1 %.not, label %693, label %671
 
@@ -1132,7 +1132,7 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %675 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %676 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %673, align 4
-  %677 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  %677 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   store ptr %677, ptr %676, align 8
   %678 = tail call ptr @data_parser_cli_meta(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %670, ptr noundef %677) #6
   store ptr %678, ptr %4, align 8
@@ -1144,8 +1144,8 @@ _sort_rpc.exit:                                   ; preds = %.loopexit271.i, %32
   %682 = tail call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #6
   store ptr %682, ptr %681, align 8
   store ptr %682, ptr %675, align 8
-  %683 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 24), align 8
-  %684 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 32), align 8
+  %683 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
+  %684 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
   %685 = call i32 @data_parser_dump_cli_stdout(i32 noundef 245, ptr noundef nonnull %4, i32 noundef 32, ptr noundef null, ptr noundef %683, ptr noundef %684, ptr noundef nonnull %5, ptr noundef %678) #6
   %686 = load ptr, ptr %681, align 8
   %.not26 = icmp eq ptr %686, null

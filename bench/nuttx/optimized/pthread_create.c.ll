@@ -186,7 +186,7 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br i1 %.not105, label %83, label %84
 
 83:                                               ; preds = %78
-  store ptr %81, ptr getelementptr inbounds (i8, ptr @g_inactivetasks, i64 8), align 8
+  store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @g_inactivetasks, i64 8), align 8
   br label %86
 
 84:                                               ; preds = %78

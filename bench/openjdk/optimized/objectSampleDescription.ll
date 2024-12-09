@@ -463,7 +463,7 @@ define hidden void @_ZN23ObjectSampleDescription20write_object_detailsEv(ptr noc
 
 _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %19, %9
   %.0.i.i = phi ptr [ %18, %9 ], [ %20, %19 ]
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
@@ -492,7 +492,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
 _ZNK7oopDesc4is_aEP5Klass.exit.thread26:          ; preds = %_ZNK7oopDesc4is_aEP5Klass.exit._ZNK7oopDesc4is_aEP5Klass.exit.thread26_crit_edge, %28
   %30 = phi i8 [ %.pre36, %_ZNK7oopDesc4is_aEP5Klass.exit._ZNK7oopDesc4is_aEP5Klass.exit.thread26_crit_edge ], [ %6, %28 ]
   %31 = phi ptr [ %.pre, %_ZNK7oopDesc4is_aEP5Klass.exit._ZNK7oopDesc4is_aEP5Klass.exit.thread26_crit_edge ], [ %5, %28 ]
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 264), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 264), align 8
   %33 = trunc i8 %30 to i1
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   br i1 %33, label %35, label %45
@@ -543,7 +543,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit6.thread:           ; preds = %_ZNK7oopDesc5klassE
 _ZNK7oopDesc4is_aEP5Klass.exit6.thread29:         ; preds = %_ZNK7oopDesc4is_aEP5Klass.exit6._ZNK7oopDesc4is_aEP5Klass.exit6.thread29_crit_edge, %53
   %55 = phi i8 [ %.pre38, %_ZNK7oopDesc4is_aEP5Klass.exit6._ZNK7oopDesc4is_aEP5Klass.exit6.thread29_crit_edge ], [ %30, %53 ]
   %56 = phi ptr [ %.pre37, %_ZNK7oopDesc4is_aEP5Klass.exit6._ZNK7oopDesc4is_aEP5Klass.exit6.thread29_crit_edge ], [ %31, %53 ]
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 288), align 8
   %58 = trunc i8 %55 to i1
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   br i1 %58, label %60, label %70
@@ -720,7 +720,7 @@ _ZNK7oopDesc5klassEv.exit.i12:                    ; preds = %134, %124
 
 139:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i12
   %140 = load ptr, ptr @_ZL11symbol_size, align 8
-  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
   %142 = call noundef ptr @_ZNK13InstanceKlass10find_fieldEP6SymbolS1_bP15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %.0.i.i13, ptr noundef %140, ptr noundef %141, i1 noundef zeroext false, ptr noundef nonnull %3) #10
   %.not.i15 = icmp eq ptr %142, null
   br i1 %.not.i15, label %_ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread, label %143
@@ -1280,7 +1280,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %11, %21
 
 26:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   %27 = load ptr, ptr @_ZL11symbol_size, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6992), align 8
   %29 = call noundef ptr @_ZNK13InstanceKlass10find_fieldEP6SymbolS1_bP15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %.0.i, ptr noundef %27, ptr noundef %28, i1 noundef zeroext false, ptr noundef nonnull %3) #10
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %37, label %30

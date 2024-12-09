@@ -904,7 +904,7 @@ _Py_SetImmortal.exit:                             ; preds = %entry, %if.then.i
 define internal nonnull ptr @bool_repr(ptr noundef readnone %self) #0 {
 entry:
   %cmp = icmp eq ptr %self, @_Py_TrueStruct
-  %cond = select i1 %cmp, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 26112), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 25856)
+  %cond = select i1 %cmp, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 26112), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25856)
   ret ptr %cond
 }
 
@@ -995,7 +995,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 96), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyLong_Type, i64 96), align 8
   %nb_invert = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %nb_invert, align 8
   %call1 = tail call ptr %2(ptr noundef %v) #4
@@ -1021,7 +1021,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i6.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 96), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyLong_Type, i64 96), align 8
   %nb_and = getelementptr inbounds nuw i8, ptr %2, i64 104
   %3 = load ptr, ptr %nb_and, align 8
   %call3 = tail call ptr %3(ptr noundef nonnull %a, ptr noundef %b) #4
@@ -1054,7 +1054,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i6.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 96), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyLong_Type, i64 96), align 8
   %nb_xor = getelementptr inbounds nuw i8, ptr %2, i64 112
   %3 = load ptr, ptr %nb_xor, align 8
   %call3 = tail call ptr %3(ptr noundef nonnull %a, ptr noundef %b) #4
@@ -1087,7 +1087,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i6.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @PyLong_Type, i64 96), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyLong_Type, i64 96), align 8
   %nb_or = getelementptr inbounds nuw i8, ptr %2, i64 120
   %3 = load ptr, ptr %nb_or, align 8
   %call3 = tail call ptr %3(ptr noundef nonnull %a, ptr noundef %b) #4

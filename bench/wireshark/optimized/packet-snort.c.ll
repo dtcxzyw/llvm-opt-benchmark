@@ -381,7 +381,7 @@ get_user_comment_string.exit:                     ; preds = %29
   br i1 %.not36, label %add_alert_to_session_tree.exit, label %44
 
 44:                                               ; preds = %get_user_comment_string.exit
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = tail call ptr @wmem_tree_lookup32(ptr noundef %45, i32 noundef %47) #12
@@ -442,7 +442,7 @@ fill_alert_config.exit:                           ; preds = %55, %66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %76 = load i32, ptr %46, align 4
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   %78 = call ptr @wmem_tree_lookup32(ptr noundef %77, i32 noundef %76) #12
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %84
@@ -452,7 +452,7 @@ fill_alert_config.exit:                           ; preds = %55, %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull readonly align 8 dereferenceable(72) %15, i64 72, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 576
   store i32 1, ptr %82, align 8
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   call void @wmem_tree_insert32(ptr noundef %83, i32 noundef %76, ptr noundef %81) #12
   br label %add_alert_to_session_tree.exit
 
@@ -477,14 +477,14 @@ fill_alert_config.exit:                           ; preds = %55, %66
   %96 = load i16, ptr %95, align 2
   %97 = and i16 %96, 8
   %98 = icmp eq i16 %97, 0
-  %99 = load i32, ptr getelementptr inbounds (i8, ptr @current_session, i64 4), align 4
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 4), align 4
   %100 = icmp ne i32 %99, 0
   %or.cond = select i1 %98, i1 %100, i1 false
   br i1 %or.cond, label %101, label %add_alert_to_session_tree.exit
 
 101:                                              ; preds = %92
   store i32 0, ptr %16, align 4
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 32), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 32), align 8
   %.not = icmp eq ptr %102, null
   br i1 %.not, label %103, label %115
 
@@ -498,10 +498,10 @@ fill_alert_config.exit:                           ; preds = %55, %66
   store i32 %108, ptr %19, align 8
   %109 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 262144, ptr %109, align 4
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @current_session, i64 12), align 4
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 12), align 4
   %111 = tail call i32 @wtap_pcap_file_type_subtype() #12
   %112 = call ptr @wtap_dump_fdopen(i32 noundef %110, i32 noundef %111, i32 noundef 0, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21) #12
-  store ptr %112, ptr getelementptr inbounds (i8, ptr @current_session, i64 32), align 8
+  store ptr %112, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 32), align 8
   %.not33 = icmp eq ptr %112, null
   br i1 %.not33, label %113, label %._crit_edge
 
@@ -512,7 +512,7 @@ fill_alert_config.exit:                           ; preds = %55, %66
 113:                                              ; preds = %103
   %114 = load ptr, ptr %21, align 8
   call void @g_free(ptr noundef %114) #12
-  store i32 0, ptr getelementptr inbounds (i8, ptr @current_session, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 4), align 4
   br label %780
 
 115:                                              ; preds = %._crit_edge, %101
@@ -533,7 +533,7 @@ fill_alert_config.exit:                           ; preds = %55, %66
   %126 = call i32 @tvb_reported_length(ptr noundef %0) #12
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 68
   store i32 %126, ptr %127, align 4
-  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 32), align 8
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 32), align 8
   %129 = call i32 @tvb_reported_length(ptr noundef %0) #12
   %130 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %129) #12
   %131 = call i32 @wtap_dump(ptr noundef %128, ptr noundef nonnull %18, ptr noundef %130, ptr noundef nonnull %16, ptr noundef nonnull %17) #12
@@ -543,21 +543,21 @@ fill_alert_config.exit:                           ; preds = %55, %66
 132:                                              ; preds = %115
   %133 = load ptr, ptr %17, align 8
   call void @g_free(ptr noundef %133) #12
-  store i32 0, ptr getelementptr inbounds (i8, ptr @current_session, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 4), align 4
   br label %780
 
 134:                                              ; preds = %115
-  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 32), align 8
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 32), align 8
   %136 = call i32 @wtap_dump_flush(ptr noundef %135, ptr noundef nonnull %16) #12
   %.not35 = icmp eq i32 %136, 0
   br i1 %.not35, label %137, label %add_alert_to_session_tree.exit
 
 137:                                              ; preds = %134
-  store i32 0, ptr getelementptr inbounds (i8, ptr @current_session, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 4), align 4
   br label %780
 
 add_alert_to_session_tree.exit:                   ; preds = %53, %49, %23, %24, %88, %84, %80, %get_user_comment_string.exit.thread56, %44, %get_user_comment_string.exit, %134, %92
-  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   %.not39 = icmp eq ptr %138, null
   br i1 %.not39, label %.loopexit, label %139
 
@@ -656,7 +656,7 @@ get_reassembled_in_frame.exit.i:                  ; preds = %167
   br i1 %.not313.i, label %get_reassembled_in_frame.exit.thread.i, label %182
 
 182:                                              ; preds = %180
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   %184 = call ptr @wmem_tree_lookup32(ptr noundef %183, i32 noundef %181) #12
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 60
   %186 = load i32, ptr %185, align 4
@@ -677,7 +677,7 @@ get_reassembled_in_frame.exit.i:                  ; preds = %167
   store i32 %189, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 60
   store i32 %178, ptr %192, align 4
-  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   %194 = call ptr @wmem_tree_lookup32(ptr noundef %193, i32 noundef %178) #12
   %195 = icmp eq ptr %194, null
   br i1 %195, label %196, label %200
@@ -687,7 +687,7 @@ get_reassembled_in_frame.exit.i:                  ; preds = %167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %197, ptr noundef nonnull readonly align 8 dereferenceable(72) %190, i64 72, i1 false)
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 576
   store i32 1, ptr %198, align 8
-  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   call void @wmem_tree_insert32(ptr noundef %199, i32 noundef %178, ptr noundef %197) #12
   br label %add_alert_to_session_tree.exit.i
 
@@ -1953,7 +1953,7 @@ define internal void @snort_start() #1 {
   %36 = call ptr @wmem_epan_scope() #12
   %37 = call ptr @wmem_file_scope() #12
   %38 = call noalias ptr @wmem_tree_new_autoreset(ptr noundef %36, ptr noundef %37) #12
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   %39 = load ptr, ptr @g_snort_config, align 8
   %.not11 = icmp eq ptr %39, null
   br i1 %.not11, label %41, label %40
@@ -2009,30 +2009,30 @@ define internal void @snort_start() #1 {
   br label %75
 
 64:                                               ; preds = %58
-  %65 = call i32 @g_spawn_async_with_pipes(ptr noundef null, ptr noundef nonnull %1, ptr noundef null, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @current_session, i64 8), ptr noundef nonnull getelementptr inbounds (i8, ptr @current_session, i64 12), ptr noundef nonnull getelementptr inbounds (i8, ptr @current_session, i64 16), ptr noundef nonnull getelementptr inbounds (i8, ptr @current_session, i64 20), ptr noundef null) #12
+  %65 = call i32 @g_spawn_async_with_pipes(ptr noundef null, ptr noundef nonnull %1, ptr noundef null, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @current_session, i64 8), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @current_session, i64 12), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @current_session, i64 16), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @current_session, i64 20), ptr noundef null) #12
   %.not15 = icmp eq i32 %65, 0
   br i1 %.not15, label %66, label %67
 
 66:                                               ; preds = %64
   store i32 0, ptr @current_session, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @current_session, i64 4), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 4), align 4
   br label %75
 
 67:                                               ; preds = %64
   store i32 1, ptr @current_session, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @current_session, i64 4), align 4
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @current_session, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 4), align 4
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 8), align 8
   %69 = call i32 @g_child_watch_add(i32 noundef %68, ptr noundef nonnull @snort_reaper, ptr noundef nonnull @current_session) #12
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @current_session, i64 16), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 16), align 8
   %71 = call ptr @g_io_channel_unix_new(i32 noundef %70) #12
-  store ptr %71, ptr getelementptr inbounds (i8, ptr @current_session, i64 40), align 8
+  store ptr %71, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 40), align 8
   %72 = call i32 @g_io_channel_set_encoding(ptr noundef %71, ptr noundef null, ptr noundef null) #12
   call void @g_io_channel_set_buffered(ptr noundef %71, i32 noundef 0) #12
   %73 = call i32 @g_io_channel_set_flags(ptr noundef %71, i32 noundef 2, ptr noundef null) #12
   call void @g_io_channel_set_buffer_size(ptr noundef %71, i64 noundef 256000) #12
-  store ptr null, ptr getelementptr inbounds (i8, ptr @current_session, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 24), align 8
   %74 = call i32 @g_io_add_watch_full(ptr noundef %71, i32 noundef -100, i32 noundef 25, ptr noundef nonnull @snort_fast_output, ptr noundef nonnull @current_session, ptr noundef null) #12
-  store i32 1, ptr getelementptr inbounds (i8, ptr @current_session, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 4), align 4
   br label %75
 
 75:                                               ; preds = %41, %28, %31, %67, %66, %62, %56, %51
@@ -2049,7 +2049,7 @@ define internal void @snort_cleanup() #1 {
   %2 = alloca ptr, align 8
   %3 = load i32, ptr @current_session, align 8
   %4 = icmp ne i32 %3, 0
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 32), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 32), align 8
   %6 = icmp ne ptr %5, null
   %or.cond = select i1 %4, i1 %6, i1 false
   br i1 %or.cond, label %7, label %12
@@ -2065,7 +2065,7 @@ define internal void @snort_cleanup() #1 {
   br label %11
 
 11:                                               ; preds = %9, %7
-  store ptr null, ptr getelementptr inbounds (i8, ptr @current_session, i64 32), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 32), align 8
   br label %12
 
 12:                                               ; preds = %0, %11
@@ -2480,7 +2480,7 @@ fill_alert_config.exit:                           ; preds = %snort_parse_fast_li
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %96 = load i32, ptr %19, align 8
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   %98 = call ptr @wmem_tree_lookup32(ptr noundef %97, i32 noundef %96) #12
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %104
@@ -2490,7 +2490,7 @@ fill_alert_config.exit:                           ; preds = %snort_parse_fast_li
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %101, ptr noundef nonnull readonly align 8 dereferenceable(72) %10, i64 72, i1 false)
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 576
   store i32 1, ptr %102, align 8
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @current_session, i64 48), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_session, i64 48), align 8
   call void @wmem_tree_insert32(ptr noundef %103, i32 noundef %96, ptr noundef %101) #12
   br label %add_alert_to_session_tree.exit
 

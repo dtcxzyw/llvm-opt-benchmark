@@ -47,7 +47,7 @@ define noundef ptr @mca_sharedfp_individual_component_file_query(ptr nocapture n
   br i1 %.not20, label %15, label %10
 
 10:                                               ; preds = %9
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %11, ptr noundef nonnull @.str, i32 noundef 1, i32 noundef 0, i32 noundef 1) #4
   br label %15
 
@@ -55,7 +55,7 @@ define noundef ptr @mca_sharedfp_individual_component_file_query(ptr nocapture n
   br i1 %.not20, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %14, ptr noundef nonnull @.str.1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #4
   br label %15
 
@@ -77,7 +77,7 @@ define noundef ptr @mca_sharedfp_individual_component_file_query(ptr nocapture n
   br i1 %.not25, label %27, label %23
 
 23:                                               ; preds = %22
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 25
   call void (i32, ptr, ...) @opal_output(i32 noundef %24, ptr noundef nonnull @.str.3, ptr noundef nonnull %26) #4
@@ -137,7 +137,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %.not25, label %56, label %50
 
 50:                                               ; preds = %49
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %51, ptr noundef nonnull @.str.4) #4
   br label %56
 
@@ -147,7 +147,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %.not23, label %56, label %54
 
 54:                                               ; preds = %52
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %55, ptr noundef nonnull @.str.5) #4
   br label %56
 

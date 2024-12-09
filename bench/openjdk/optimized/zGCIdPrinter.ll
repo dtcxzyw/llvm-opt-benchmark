@@ -23,7 +23,7 @@ $_ZN12ZGCIdPrinterD0Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ZGCIdPrinter10initializeEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 5, i32 noundef 0) #4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12ZGCIdPrinter, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12ZGCIdPrinter, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -108,7 +108,7 @@ _ZN12ZGCIdPrinter21print_gc_id_uncheckedEjPcm.exit: ; preds = %8, %14, %19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN12ZGCIdPrinterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12ZGCIdPrinter, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12ZGCIdPrinter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12

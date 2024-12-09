@@ -362,7 +362,7 @@ invoke.cont69:                                    ; preds = %invoke.cont63
   br i1 %tobool72, label %if.then73, label %if.else
 
 if.then73:                                        ; preds = %invoke.cont69
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %uncompressedStream, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %uncompressedStream, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %uncompressedStream, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %uncompressedStream, i64 16
@@ -438,7 +438,7 @@ invoke.cont95:                                    ; preds = %if.end92
 
 delete.notnull102:                                ; preds = %invoke.cont95
   call void @_ZdaPv(ptr noundef nonnull %call82) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %uncompressedStream, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %uncompressedStream, align 8
   %28 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %28, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -618,7 +618,7 @@ if.then.i115:
   %t.i53 = alloca i32, align 4
   %t.i48 = alloca i32, align 4
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -874,7 +874,7 @@ for.inc70:                                        ; preds = %for.body66
   br i1 %cmp65, label %for.body66, label %for.end72, !llvm.loop !10
 
 for.end72:                                        ; preds = %for.inc70, %for.cond63.preheader
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %40 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %40, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -952,7 +952,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyExportError, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyExportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -972,7 +972,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp17AssbinChunkWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %this, align 8
   %container = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %container, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1182,7 +1182,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp17AssbinChunkWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %this, align 8
   %container.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %container.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -1328,7 +1328,7 @@ entry:
   %t.i = alloca i32, align 4
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   %ref.tmp = alloca i16, align 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -1705,7 +1705,7 @@ for.inc64:                                        ; preds = %sw.bb.invoke, %invo
   br i1 %exitcond.not, label %for.end66, label %for.body29, !llvm.loop !15
 
 for.end66:                                        ; preds = %for.inc64, %for.cond27.preheader
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %43 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %43, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -1766,7 +1766,7 @@ if.then.i407:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   %ref.tmp209 = alloca i16, align 2
   %ref.tmp221 = alloca i16, align 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -2531,7 +2531,7 @@ for.inc253:                                       ; preds = %for.body249
   br i1 %cmp248, label %for.body249, label %if.end256, !llvm.loop !27
 
 if.end256:                                        ; preds = %for.inc253, %if.end241
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %91 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %91, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -2585,7 +2585,7 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %if.end.i, %delete.n
 define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter19WriteBinaryMaterialEPNS_8IOStreamEPK10aiMaterial(ptr noundef nonnull align 1 dereferenceable(2) %this, ptr noundef %container, ptr noundef %mat) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then.i18:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -2646,7 +2646,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit
   %5 = phi ptr [ %.pre, %for.end.loopexit ], [ %container, %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
@@ -2700,7 +2700,7 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter15WriteBinaryAnimEP
 if.then.i35:
   %t.i = alloca i32, align 4
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -2832,7 +2832,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %17 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %17, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -2886,7 +2886,7 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %if.end.i, %delete.n
 define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter18WriteBinaryTextureEPNS_8IOStreamEPK9aiTexture(ptr noundef nonnull align 1 dereferenceable(2) %this, ptr noundef %container, ptr noundef %tex) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then.i79:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -2977,7 +2977,7 @@ if.end19.sink.split:                              ; preds = %if.end19.sink.split
 
 if.end19:                                         ; preds = %if.end19.sink.split, %invoke.cont4
   %8 = phi ptr [ %.sink, %if.end19.sink.split ], [ %call4.i.i88, %invoke.cont4 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %tobool.not.i = icmp eq ptr %container, null
   br i1 %tobool.not.i, label %delete.notnull.i, label %if.then.i58
 
@@ -3031,7 +3031,7 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %if.end.i, %delete.n
 define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter16WriteBinaryLightEPNS_8IOStreamEPK7aiLight(ptr noundef nonnull align 1 dereferenceable(2) %this, ptr noundef %container, ptr noundef %l) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then.i122:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -3304,7 +3304,7 @@ invoke.cont26:                                    ; preds = %if.then25
           to label %if.end30 unwind label %lpad
 
 if.end30:                                         ; preds = %invoke.cont26, %invoke.cont21
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %35 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %35, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -3358,7 +3358,7 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %if.end.i, %delete.n
 define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter17WriteBinaryCameraEPNS_8IOStreamEPK8aiCamera(ptr noundef nonnull align 1 dereferenceable(2) %this, ptr noundef %container, ptr noundef %cam) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then.i67:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -3527,7 +3527,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %21 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %21, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -3798,7 +3798,7 @@ if.then.i67:
   %minc.i = alloca %struct.aiVertexWeight, align 8
   %maxc.i = alloca %struct.aiVertexWeight, align 8
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -4120,7 +4120,7 @@ call.i5.i.i.noexc32:                              ; preds = %call.i.i.i.noexc30
   br i1 %exitcond.not.i29, label %if.end, label %for.body.i, !llvm.loop !33
 
 if.end:                                           ; preds = %call.i5.i.i.noexc32, %if.else, %_ZN6Assimp11WriteBoundsI14aiVertexWeightEEmPNS_8IOStreamEPKT_j.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %35 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %35, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -4177,7 +4177,7 @@ if.then.i49:
   %t.i19 = alloca i32, align 4
   %t.i13 = alloca i32, align 4
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -4332,7 +4332,7 @@ invoke.cont11:                                    ; preds = %_ZN6Assimp17AssbinC
   %24 = load i64, ptr %cursor.i42, align 8
   %add6.i = add i64 %24, %conv
   store i64 %add6.i, ptr %cursor.i42, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %25 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i35
@@ -4396,7 +4396,7 @@ if.then.i129:
   %t.i35 = alloca i32, align 4
   %t.i29 = alloca i32, align 4
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %buffer.i = getelementptr inbounds nuw i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
   %magic2.i = getelementptr inbounds nuw i8, ptr %chunk, i64 16
@@ -4736,7 +4736,7 @@ call.i12.i.i.i.noexc111:                          ; preds = %call.i9.i.i.i.noexc
   br i1 %exitcond.not.i102, label %if.end55, label %for.body.i87, !llvm.loop !34
 
 if.end55:                                         ; preds = %call.i12.i.i.i.noexc111, %if.else49, %if.then44, %if.end39
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 16), ptr %chunk, align 8
   %39 = load ptr, ptr %container3.i, align 8
   %tobool.not.i = icmp eq ptr %39, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i

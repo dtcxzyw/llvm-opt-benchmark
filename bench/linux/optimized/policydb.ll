@@ -1052,7 +1052,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
   br label %.critedge
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %25 = tail call noalias align 8 dereferenceable_or_null(9) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3264, i64 noundef 9) #25
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
@@ -1239,7 +1239,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
   br i1 %130, label %131, label %148
 
 131:                                              ; preds = %129
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %133 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %132, i32 noundef 3520, i64 noundef 40) #25
   %134 = icmp eq ptr %133, null
   br i1 %134, label %.thread78, label %135
@@ -1368,13 +1368,13 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
 
 203:                                              ; preds = %200, %196
   %204 = phi i32 [ 0, %196 ], [ %201, %200 ]
-  %205 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %206 = tail call noalias align 8 dereferenceable_or_null(12) ptr @kmalloc_trace(ptr noundef %205, i32 noundef 3264, i64 noundef 12) #25
   %207 = icmp eq ptr %206, null
   br i1 %207, label %.critedge, label %208
 
 208:                                              ; preds = %203
-  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %210 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %209, i32 noundef 3264, i64 noundef 4) #25
   %211 = icmp eq ptr %210, null
   br i1 %211, label %.critedge, label %212
@@ -1482,7 +1482,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
 266:                                              ; preds = %263, %260
   %267 = phi ptr [ null, %260 ], [ %270, %263 ]
   %268 = phi i32 [ 0, %260 ], [ %264, %263 ]
-  %269 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %270 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %269, i32 noundef 3520, i64 noundef 16) #25
   %271 = icmp eq ptr %270, null
   br i1 %271, label %.critedge, label %272
@@ -1932,7 +1932,7 @@ policydb_filenametr_search.exit:                  ; preds = %99
 
 policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %124, %73, %60, %policydb_filenametr_search.exit
   %128 = phi ptr [ null, %policydb_filenametr_search.exit ], [ null, %60 ], [ null, %73 ], [ %117, %124 ], [ null, %.thread.i ], [ null, %106 ]
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %130 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %129, i32 noundef 3264, i64 noundef 32) #25
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.loopexit, label %132
@@ -2080,7 +2080,7 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
 .preheader62:                                     ; preds = %197, %219
   %207 = phi i32 [ %225, %219 ], [ 0, %197 ]
   %208 = phi ptr [ %213, %219 ], [ %3, %197 ]
-  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %210 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %209, i32 noundef 3264, i64 noundef 32) #25
   %211 = icmp eq ptr %210, null
   br i1 %211, label %thread-pre-split.loopexit, label %212
@@ -2112,7 +2112,7 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
   br i1 %226, label %227, label %.preheader62, !llvm.loop !31
 
 227:                                              ; preds = %219
-  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %229 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %228, i32 noundef 3264, i64 noundef 16) #25
   %230 = icmp eq ptr %229, null
   %.0..0..0..0.1.pr.pre84 = load ptr, ptr %3, align 8
@@ -2306,7 +2306,7 @@ define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr nocapture noundef 
 25:                                               ; preds = %224, %21
   %26 = phi ptr [ null, %21 ], [ %29, %224 ]
   %27 = phi i32 [ 0, %21 ], [ %225, %224 ]
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %29 = tail call noalias align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3520, i64 noundef 200) #25
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread44, label %31
@@ -2688,7 +2688,7 @@ thread-pre-split:                                 ; preds = %.loopexit68
   store ptr %20, ptr %1, align 8
   %21 = add i64 %17, -4
   store i64 %21, ptr %3, align 8
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %23 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 24) #25
   %24 = icmp eq ptr %23, null
   br i1 %24, label %ocontext_destroy.exit, label %25
@@ -2788,7 +2788,7 @@ thread-pre-split38:                               ; preds = %.loopexit
   store ptr %77, ptr %1, align 8
   %78 = add i64 %74, -4
   store i64 %78, ptr %3, align 8
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %80 = tail call noalias align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %79, i32 noundef 3520, i64 noundef 200) #25
   %81 = icmp eq ptr %80, null
   br i1 %81, label %ocontext_destroy.exit, label %82
@@ -3029,7 +3029,7 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
 
 29:                                               ; preds = %26, %20
   %30 = phi i32 [ 0, %20 ], [ %27, %26 ]
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %32 = tail call noalias align 8 dereferenceable_or_null(12) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 3520, i64 noundef 12) #25
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.critedge, label %34
@@ -3095,7 +3095,7 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
   br i1 %.not19, label %.critedge, label %66
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %68 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %67, i32 noundef 3520, i64 noundef 48) #25
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.critedge, label %70
@@ -5469,7 +5469,7 @@ declare dso_local i32 @symtab_insert(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @common_read(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #2 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 32) #25
   %6 = icmp eq ptr %5, null
   br i1 %6, label %56, label %7
@@ -5567,7 +5567,7 @@ define internal i32 @common_read(ptr nocapture readnone %0, ptr noundef %1, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @class_read(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 72) #25
   %6 = icmp eq ptr %5, null
   br i1 %6, label %133, label %7
@@ -5794,7 +5794,7 @@ define internal i32 @role_read(ptr nocapture noundef readonly %0, ptr noundef %1
   %4 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 40) #25
   %7 = icmp eq ptr %6, null
   br i1 %7, label %63, label %8
@@ -5913,7 +5913,7 @@ define internal i32 @type_read(ptr nocapture noundef readonly %0, ptr noundef %1
   %4 = alloca [4 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(12) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 12) #25
   %7 = icmp eq ptr %6, null
   br i1 %7, label %58, label %8
@@ -6030,7 +6030,7 @@ define internal i32 @user_read(ptr nocapture noundef readonly %0, ptr noundef %1
   %4 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 96) #25
   %7 = icmp eq ptr %6, null
   br i1 %7, label %64, label %8
@@ -6150,7 +6150,7 @@ declare dso_local i32 @cond_read_bool(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @sens_read(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 16) #25
   %6 = icmp eq ptr %5, null
   br i1 %6, label %65, label %7
@@ -6202,7 +6202,7 @@ define internal i32 @sens_read(ptr nocapture readnone %0, ptr noundef %1, ptr no
   store i64 %34, ptr %8, align 8
   %35 = getelementptr i8, ptr %24, i64 %27
   store i8 0, ptr %35, align 1
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %37 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %36, i32 noundef 3264, i64 noundef 24) #25
   store ptr %37, ptr %5, align 8
   %38 = icmp eq ptr %37, null
@@ -6265,7 +6265,7 @@ define internal i32 @sens_read(ptr nocapture readnone %0, ptr noundef %1, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @cat_read(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #2 align 16 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %5 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 8) #25
   %6 = icmp eq ptr %5, null
   br i1 %6, label %42, label %7
@@ -6338,7 +6338,7 @@ define internal i32 @cat_read(ptr nocapture readnone %0, ptr noundef %1, ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @perm_read(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #2 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 4) #25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %37, label %6
@@ -6423,7 +6423,7 @@ define internal fastcc i32 @read_cons_helper(ptr nocapture noundef readonly %0, 
 14:                                               ; preds = %11, %7
   %15 = phi i32 [ 0, %7 ], [ %12, %11 ]
   %16 = phi ptr [ null, %7 ], [ %18, %11 ]
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %18 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 24) #25
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread16, label %20
@@ -6458,7 +6458,7 @@ define internal fastcc i32 @read_cons_helper(ptr nocapture noundef readonly %0, 
   %37 = phi i32 [ -1, %34 ], [ %108, %107 ]
   %38 = phi i32 [ 0, %34 ], [ %109, %107 ]
   %39 = phi ptr [ null, %34 ], [ %41, %107 ]
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %41 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3520, i64 noundef 48) #25
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread16, label %43
@@ -6543,7 +6543,7 @@ define internal fastcc i32 @read_cons_helper(ptr nocapture noundef readonly %0, 
   br i1 %85, label %86, label %107
 
 86:                                               ; preds = %83
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %88 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %87, i32 noundef 3520, i64 noundef 40) #25
   %89 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %88, ptr %89, align 8

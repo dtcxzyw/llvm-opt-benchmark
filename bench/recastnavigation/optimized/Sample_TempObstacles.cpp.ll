@@ -210,7 +210,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15LinearAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinearAllocator, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15LinearAllocator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z6dtFreePv(ptr noundef %3)
@@ -249,7 +249,7 @@ declare void @_ZN16dtTileCacheAllocD2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15LinearAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinearAllocator, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15LinearAllocator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z6dtFreePv(ptr noundef %3)
@@ -316,7 +316,7 @@ define dso_local noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiR
   br label %336
 
 24:                                               ; preds = %19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16FastLZCompressor, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16FastLZCompressor, i64 16), ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(548) %8, i8 0, i64 548, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %26 = load ptr, ptr %25, align 8
@@ -1759,7 +1759,7 @@ define dso_local void @_ZN22TempObstacleCreateToolD0Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20Sample_TempObstacles, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20Sample_TempObstacles, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -1774,7 +1774,7 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
           to label %7 unwind label %25
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15LinearAllocator, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15LinearAllocator, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %9 = invoke noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef 32000, i32 noundef 0)
@@ -1797,14 +1797,14 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
           to label %15 unwind label %25
 
 15:                                               ; preds = %11
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16FastLZCompressor, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16FastLZCompressor, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %14, ptr %16, align 8
   %17 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
           to label %18 unwind label %25
 
 18:                                               ; preds = %15
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11MeshProcess, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11MeshProcess, i64 16), ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1813,7 +1813,7 @@ define dso_local void @_ZN20Sample_TempObstaclesC2Ev(ptr noundef nonnull align 8
           to label %22 unwind label %25
 
 22:                                               ; preds = %18
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22TempObstacleCreateTool, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22TempObstacleCreateTool, i64 16), ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr null, ptr %23, align 8
   invoke void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %21)
@@ -1847,7 +1847,7 @@ declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN20Sample_TempObstaclesD2Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20Sample_TempObstacles, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20Sample_TempObstacles, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %3)
@@ -1878,7 +1878,7 @@ declare void @_Z15dtFreeTileCacheP11dtTileCache(ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN20Sample_TempObstaclesD0Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV20Sample_TempObstacles, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV20Sample_TempObstacles, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %3)
@@ -2453,7 +2453,7 @@ define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonn
 
 21:                                               ; preds = %18
   %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23TempObstacleHilightTool, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23TempObstacleHilightTool, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i32 0, ptr %24, align 8
@@ -2468,7 +2468,7 @@ define dso_local void @_ZN20Sample_TempObstacles11handleToolsEv(ptr noundef nonn
 
 28:                                               ; preds = %25
   %29 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22TempObstacleCreateTool, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22TempObstacleCreateTool, i64 16), ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr null, ptr %30, align 8
   tail call void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %29)

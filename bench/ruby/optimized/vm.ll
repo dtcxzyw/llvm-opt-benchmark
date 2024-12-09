@@ -5391,7 +5391,7 @@ define internal fastcc i64 @vm_opt_newarray_max(ptr noundef %0, i64 noundef %1, 
   %4 = alloca i64, align 8
   %5 = alloca %struct.rb_callcache, align 8
   %6 = alloca i64, align 8
-  %7 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 48), align 16
+  %7 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 48), align 16
   %8 = and i16 %7, 8
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %10, label %101
@@ -5427,7 +5427,7 @@ define internal fastcc i64 @vm_opt_newarray_max(ptr noundef %0, i64 noundef %1, 
   br i1 %.not97, label %29, label %23
 
 23:                                               ; preds = %20
-  %24 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %24 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %25 = and i16 %24, 1
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %27, label %29
@@ -5481,7 +5481,7 @@ rb_class_of.exit67:                               ; preds = %47
   br i1 %53, label %54, label %RB_FLOAT_TYPE_P.exit.thread86
 
 54:                                               ; preds = %rb_class_of.exit67
-  %55 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %55 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %56 = and i16 %55, 4
   %57 = icmp eq i16 %56, 0
   br i1 %57, label %58, label %RB_FLOAT_TYPE_P.exit.thread86
@@ -5516,7 +5516,7 @@ RB_FLOAT_TYPE_P.exit70:                           ; preds = %65
   br i1 %73, label %RB_FLOAT_TYPE_P.exit70.thread, label %RB_FLOAT_TYPE_P.exit.thread86
 
 RB_FLOAT_TYPE_P.exit70.thread:                    ; preds = %RB_FLOAT_TYPE_P.exit.thread, %RB_FLOAT_TYPE_P.exit70
-  %74 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %74 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %75 = and i16 %74, 2
   %76 = icmp eq i16 %75, 0
   br i1 %76, label %77, label %RB_FLOAT_TYPE_P.exit.thread86
@@ -5705,7 +5705,7 @@ define internal fastcc i64 @vm_opt_newarray_min(ptr noundef %0, i64 noundef %1, 
   %4 = alloca i64, align 8
   %5 = alloca %struct.rb_callcache, align 8
   %6 = alloca i64, align 8
-  %7 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 50), align 2
+  %7 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 50), align 2
   %8 = and i16 %7, 8
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %10, label %101
@@ -5741,7 +5741,7 @@ define internal fastcc i64 @vm_opt_newarray_min(ptr noundef %0, i64 noundef %1, 
   br i1 %.not97, label %29, label %23
 
 23:                                               ; preds = %20
-  %24 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %24 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %25 = and i16 %24, 1
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %27, label %29
@@ -5795,7 +5795,7 @@ rb_class_of.exit67:                               ; preds = %47
   br i1 %53, label %54, label %RB_FLOAT_TYPE_P.exit.thread86
 
 54:                                               ; preds = %rb_class_of.exit67
-  %55 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %55 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %56 = and i16 %55, 4
   %57 = icmp eq i16 %56, 0
   br i1 %57, label %58, label %RB_FLOAT_TYPE_P.exit.thread86
@@ -5830,7 +5830,7 @@ RB_FLOAT_TYPE_P.exit70:                           ; preds = %65
   br i1 %73, label %RB_FLOAT_TYPE_P.exit70.thread, label %RB_FLOAT_TYPE_P.exit.thread86
 
 RB_FLOAT_TYPE_P.exit70.thread:                    ; preds = %RB_FLOAT_TYPE_P.exit.thread, %RB_FLOAT_TYPE_P.exit70
-  %74 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %74 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %75 = and i16 %74, 2
   %76 = icmp eq i16 %75, 0
   br i1 %76, label %77, label %RB_FLOAT_TYPE_P.exit.thread86
@@ -6010,7 +6010,7 @@ rb_vm_call_with_refinements.exit:                 ; preds = %12, %._crit_edge.lo
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_vm_opt_newarray_hash(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 52), align 4
+  %4 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 52), align 4
   %5 = and i16 %4, 8
   %6 = icmp eq i16 %5, 0
   br i1 %6, label %7, label %9
@@ -6450,7 +6450,7 @@ define hidden i64 @rb_vm_opt_aref_with(i64 noundef %0, i64 noundef %1) local_unn
   br i1 %12, label %13, label %vm_opt_aref_with.exit
 
 13:                                               ; preds = %7
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
   %15 = and i16 %14, 16
   %16 = icmp eq i16 %15, 0
   br i1 %16, label %17, label %vm_opt_aref_with.exit
@@ -10088,7 +10088,7 @@ vm_objtostring.exit.thread:                       ; preds = %1806, %1804, %1795,
   %1823 = load i64, ptr @rb_vm_insns_count, align 8
   %1824 = add i64 %1823, 1
   store i64 %1824, ptr @rb_vm_insns_count, align 8
-  %1825 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 44), align 4
+  %1825 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 44), align 4
   %1826 = and i16 %1825, 4
   %1827 = icmp ne i16 %1826, 0
   %1828 = icmp eq i64 %1821, 36
@@ -10133,7 +10133,7 @@ vm_objtostring.exit.thread:                       ; preds = %1806, %1804, %1795,
   br i1 %1853, label %1854, label %1858
 
 1854:                                             ; preds = %1840
-  %1855 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 30), align 2
+  %1855 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 30), align 2
   %1856 = and i16 %1855, 512
   %1857 = icmp eq i16 %1856, 0
   br i1 %1857, label %1860, label %1858
@@ -10166,7 +10166,7 @@ vm_opt_nil_p.exit:                                ; preds = %1858
   %1867 = load i64, ptr @rb_vm_insns_count, align 8
   %1868 = add i64 %1867, 1
   store i64 %1868, ptr @rb_vm_insns_count, align 8
-  %1869 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 46), align 2
+  %1869 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 46), align 2
   %1870 = and i16 %1869, 4
   %1871 = icmp ne i16 %1870, 0
   %1872 = icmp eq i64 %1865, 36
@@ -10213,7 +10213,7 @@ vm_opt_nil_p.exit:                                ; preds = %1858
   %1894 = load ptr, ptr %1893, align 8
   %1895 = sub i64 0, %1886
   %1896 = getelementptr i64, ptr %1894, i64 %1895
-  %1897 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 52), align 4
+  %1897 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 52), align 4
   %1898 = and i16 %1897, 8
   %1899 = icmp eq i16 %1898, 0
   br i1 %1899, label %1900, label %1902
@@ -10782,7 +10782,7 @@ vm_once_dispatch.exit:                            ; preds = %2117, %rb_obj_write
   ]
 
 .thread.i2381:                                    ; preds = %2173, %2173, %2173, %2173, %2157
-  %2178 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 12), align 4
+  %2178 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 12), align 4
   %2179 = and i16 %2178, 3655
   %2180 = icmp eq i16 %2179, 0
   br i1 %2180, label %2181, label %vm_case_dispatch.exit.thread
@@ -11157,7 +11157,7 @@ vm_opt_plus.exit.thread2611:                      ; preds = %vm_opt_plus.exit.vm
   br i1 %.not.i2392, label %2399, label %2386
 
 2386:                                             ; preds = %2374
-  %2387 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2
+  %2387 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2
   %2388 = and i16 %2387, 1
   %2389 = icmp eq i16 %2388, 0
   br i1 %2389, label %2390, label %2399
@@ -11184,7 +11184,7 @@ vm_opt_plus.exit.thread2611:                      ; preds = %vm_opt_plus.exit.vm
   br i1 %.not.i.i2393, label %2404, label %2450
 
 2404:                                             ; preds = %2399
-  %2405 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2
+  %2405 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2
   %2406 = and i16 %2405, 2
   %2407 = icmp eq i16 %2406, 0
   br i1 %2407, label %2408, label %2450
@@ -11297,7 +11297,7 @@ rb_float_value_inline.exit20.i:                   ; preds = %2431, %2425, %2424
   br i1 %2470, label %2471, label %vm_opt_minus.exit.thread
 
 2471:                                             ; preds = %2466
-  %2472 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2
+  %2472 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2
   %2473 = and i16 %2472, 2
   %2474 = icmp eq i16 %2473, 0
   br i1 %2474, label %rb_float_value_inline.exit25.i, label %vm_opt_minus.exit.thread
@@ -11374,7 +11374,7 @@ vm_opt_minus.exit.thread2616:                     ; preds = %vm_opt_minus.exit.v
   br i1 %.not.i2400, label %2527, label %2510
 
 2510:                                             ; preds = %2498
-  %2511 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4
+  %2511 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4
   %2512 = and i16 %2511, 1
   %2513 = icmp eq i16 %2512, 0
   br i1 %2513, label %2514, label %2527
@@ -11410,7 +11410,7 @@ vm_opt_minus.exit.thread2616:                     ; preds = %vm_opt_minus.exit.v
   br i1 %.not.i.i2401, label %2532, label %2578
 
 2532:                                             ; preds = %2527
-  %2533 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4
+  %2533 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4
   %2534 = and i16 %2533, 2
   %2535 = icmp eq i16 %2534, 0
   br i1 %2535, label %2536, label %2578
@@ -11523,7 +11523,7 @@ rb_float_value_inline.exit19.i:                   ; preds = %2559, %2553, %2552
   br i1 %2598, label %2599, label %vm_opt_mult.exit.thread
 
 2599:                                             ; preds = %2594
-  %2600 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4
+  %2600 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4
   %2601 = and i16 %2600, 2
   %2602 = icmp eq i16 %2601, 0
   br i1 %2602, label %rb_float_value_inline.exit24.i, label %vm_opt_mult.exit.thread
@@ -11600,7 +11600,7 @@ vm_opt_mult.exit.thread2621:                      ; preds = %vm_opt_mult.exit.vm
   br i1 %.not.i2410, label %2663, label %2638
 
 2638:                                             ; preds = %2626
-  %2639 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2
+  %2639 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2
   %2640 = and i16 %2639, 1
   %2641 = icmp eq i16 %2640, 0
   br i1 %2641, label %2642, label %2663
@@ -11654,7 +11654,7 @@ vm_opt_div.exit.thread2625:                       ; preds = %2655, %2657, %2659
   br i1 %.not.i.i2411, label %2668, label %2674
 
 2668:                                             ; preds = %2663
-  %2669 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2
+  %2669 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2
   %2670 = and i16 %2669, 2
   %2671 = icmp eq i16 %2670, 0
   br i1 %2671, label %2672, label %2674
@@ -11693,7 +11693,7 @@ vm_opt_div.exit.thread2625:                       ; preds = %2655, %2657, %2659
   br i1 %2694, label %2695, label %vm_opt_div.exit.thread
 
 2695:                                             ; preds = %2690
-  %2696 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2
+  %2696 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2
   %2697 = and i16 %2696, 2
   %2698 = icmp eq i16 %2697, 0
   br i1 %2698, label %2699, label %vm_opt_div.exit.thread
@@ -11742,7 +11742,7 @@ vm_opt_div.exit.thread:                           ; preds = %2684, %2690, %2695,
   br i1 %.not.i2414, label %2741, label %2718
 
 2718:                                             ; preds = %2706
-  %2719 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8
+  %2719 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8
   %2720 = and i16 %2719, 1
   %2721 = icmp eq i16 %2720, 0
   br i1 %2721, label %2722, label %2741
@@ -11791,7 +11791,7 @@ vm_opt_div.exit.thread:                           ; preds = %2684, %2690, %2695,
   br i1 %.not.i.i2415, label %2746, label %2790
 
 2746:                                             ; preds = %2741
-  %2747 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8
+  %2747 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8
   %2748 = and i16 %2747, 2
   %2749 = icmp eq i16 %2748, 0
   br i1 %2749, label %2750, label %2790
@@ -11900,7 +11900,7 @@ rb_float_value_inline.exit20.i2420:               ; preds = %2773, %2767, %2766
   br i1 %2810, label %2811, label %vm_opt_mod.exit.thread
 
 2811:                                             ; preds = %2806
-  %2812 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8
+  %2812 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8
   %2813 = and i16 %2812, 2
   %2814 = icmp eq i16 %2813, 0
   br i1 %2814, label %rb_float_value_inline.exit25.i2417, label %vm_opt_mod.exit.thread
@@ -12069,7 +12069,7 @@ vm_opt_neq.exit.thread:                           ; preds = %2885, %2863
   br i1 %.not.i2437, label %2913, label %2907
 
 2907:                                             ; preds = %2895
-  %2908 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2
+  %2908 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2
   %2909 = and i16 %2908, 1
   %2910 = icmp eq i16 %2909, 0
   br i1 %2910, label %2911, label %2913
@@ -12087,7 +12087,7 @@ vm_opt_neq.exit.thread:                           ; preds = %2885, %2863
   br i1 %.not.i.i2438, label %2918, label %2950
 
 2918:                                             ; preds = %2913
-  %2919 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2
+  %2919 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2
   %2920 = and i16 %2919, 2
   %2921 = icmp eq i16 %2920, 0
   br i1 %2921, label %2922, label %2950
@@ -12176,7 +12176,7 @@ rb_float_value_inline.exit19.i2442:               ; preds = %2945, %2939, %2938
   br i1 %2970, label %2971, label %2980
 
 2971:                                             ; preds = %2966
-  %2972 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2
+  %2972 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2
   %2973 = and i16 %2972, 2
   %2974 = icmp eq i16 %2973, 0
   br i1 %2974, label %rb_float_value_inline.exit23.i, label %2980
@@ -12218,7 +12218,7 @@ vm_opt_lt.exit:                                   ; preds = %rb_float_value_inli
   br i1 %.not28.i, label %3000, label %2994
 
 2994:                                             ; preds = %2982
-  %2995 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16
+  %2995 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16
   %2996 = and i16 %2995, 1
   %2997 = icmp eq i16 %2996, 0
   br i1 %2997, label %2998, label %3000
@@ -12237,7 +12237,7 @@ vm_opt_lt.exit:                                   ; preds = %rb_float_value_inli
   br i1 %.not.i.i2448, label %3005, label %3038
 
 3005:                                             ; preds = %3000
-  %3006 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16
+  %3006 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16
   %3007 = and i16 %3006, 2
   %3008 = icmp eq i16 %3007, 0
   br i1 %3008, label %3009, label %3038
@@ -12327,7 +12327,7 @@ rb_float_value_inline.exit19.i2453:               ; preds = %3032, %3026, %3025
   br i1 %3058, label %3059, label %3069
 
 3059:                                             ; preds = %3054
-  %3060 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16
+  %3060 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16
   %3061 = and i16 %3060, 2
   %3062 = icmp eq i16 %3061, 0
   br i1 %3062, label %rb_float_value_inline.exit23.i2450, label %3069
@@ -12369,7 +12369,7 @@ vm_opt_le.exit:                                   ; preds = %rb_float_value_inli
   br i1 %.not.i2460, label %3088, label %3082
 
 3082:                                             ; preds = %3070
-  %3083 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2
+  %3083 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2
   %3084 = and i16 %3083, 1
   %3085 = icmp eq i16 %3084, 0
   br i1 %3085, label %3086, label %3088
@@ -12387,7 +12387,7 @@ vm_opt_le.exit:                                   ; preds = %rb_float_value_inli
   br i1 %.not.i.i2461, label %3093, label %3125
 
 3093:                                             ; preds = %3088
-  %3094 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2
+  %3094 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2
   %3095 = and i16 %3094, 2
   %3096 = icmp eq i16 %3095, 0
   br i1 %3096, label %3097, label %3125
@@ -12476,7 +12476,7 @@ rb_float_value_inline.exit19.i2466:               ; preds = %3120, %3114, %3113
   br i1 %3145, label %3146, label %3155
 
 3146:                                             ; preds = %3141
-  %3147 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2
+  %3147 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2
   %3148 = and i16 %3147, 2
   %3149 = icmp eq i16 %3148, 0
   br i1 %3149, label %rb_float_value_inline.exit23.i2463, label %3155
@@ -12518,7 +12518,7 @@ vm_opt_gt.exit:                                   ; preds = %rb_float_value_inli
   br i1 %.not28.i2472, label %3175, label %3169
 
 3169:                                             ; preds = %3157
-  %3170 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4
+  %3170 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4
   %3171 = and i16 %3170, 1
   %3172 = icmp eq i16 %3171, 0
   br i1 %3172, label %3173, label %3175
@@ -12537,7 +12537,7 @@ vm_opt_gt.exit:                                   ; preds = %rb_float_value_inli
   br i1 %.not.i.i2473, label %3180, label %3213
 
 3180:                                             ; preds = %3175
-  %3181 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4
+  %3181 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4
   %3182 = and i16 %3181, 2
   %3183 = icmp eq i16 %3182, 0
   br i1 %3183, label %3184, label %3213
@@ -12627,7 +12627,7 @@ rb_float_value_inline.exit19.i2478:               ; preds = %3207, %3201, %3200
   br i1 %3233, label %3234, label %3244
 
 3234:                                             ; preds = %3229
-  %3235 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4
+  %3235 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4
   %3236 = and i16 %3235, 2
   %3237 = icmp eq i16 %3236, 0
   br i1 %3237, label %rb_float_value_inline.exit23.i2475, label %3244
@@ -12678,7 +12678,7 @@ vm_opt_ge.exit:                                   ; preds = %rb_float_value_inli
   br i1 %3264, label %3265, label %3282
 
 3265:                                             ; preds = %3259
-  %3266 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 18), align 2
+  %3266 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 18), align 2
   %3267 = and i16 %3266, 4
   %3268 = icmp eq i16 %3267, 0
   br i1 %3268, label %3269, label %3282
@@ -12711,7 +12711,7 @@ vm_opt_ge.exit:                                   ; preds = %rb_float_value_inli
   br i1 %3284, label %3285, label %vm_opt_ltlt.exit.thread
 
 3285:                                             ; preds = %3282
-  %3286 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 18), align 2
+  %3286 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 18), align 2
   %3287 = and i16 %3286, 8
   %3288 = icmp eq i16 %3287, 0
   br i1 %3288, label %3289, label %vm_opt_ltlt.exit.thread
@@ -12755,7 +12755,7 @@ vm_opt_ltlt.exit.thread:                          ; preds = %3282, %3285, %3245,
   br i1 %.not.i2486, label %vm_opt_and.exit.thread, label %3308
 
 3308:                                             ; preds = %3296
-  %3309 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 56), align 8
+  %3309 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 56), align 8
   %3310 = and i16 %3309, 1
   %3311 = icmp ne i16 %3310, 0
   %3312 = icmp eq i64 %3306, 36
@@ -12789,7 +12789,7 @@ vm_opt_and.exit.thread:                           ; preds = %3308, %3296
   br i1 %.not.i2488, label %vm_opt_or.exit.thread, label %3326
 
 3326:                                             ; preds = %3314
-  %3327 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 58), align 2
+  %3327 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 58), align 2
   %3328 = and i16 %3327, 1
   %3329 = icmp ne i16 %3328, 0
   %3330 = or i64 %3320, %3319
@@ -12831,7 +12831,7 @@ vm_opt_or.exit.thread:                            ; preds = %3326, %3314
   br i1 %.not15.i, label %vm_opt_aref.exit.thread, label %3350
 
 3350:                                             ; preds = %3347
-  %3351 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
+  %3351 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
   %3352 = and i16 %3351, 1
   %3353 = icmp eq i16 %3352, 0
   br i1 %3353, label %3354, label %vm_opt_aref.exit.thread
@@ -12849,7 +12849,7 @@ vm_opt_or.exit.thread:                            ; preds = %3326, %3314
   br i1 %3361, label %3362, label %3393
 
 3362:                                             ; preds = %3356
-  %3363 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
+  %3363 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
   %3364 = and i16 %3363, 8
   %3365 = icmp eq i16 %3364, 0
   br i1 %3365, label %3366, label %3393
@@ -12914,7 +12914,7 @@ rb_array_const_ptr.exit.i.i:                      ; preds = %3376, %3372
   br i1 %3395, label %3396, label %vm_opt_aref.exit.thread
 
 3396:                                             ; preds = %3393
-  %3397 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
+  %3397 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
   %3398 = and i16 %3397, 16
   %3399 = icmp eq i16 %3398, 0
   br i1 %3399, label %3400, label %vm_opt_aref.exit.thread
@@ -12974,7 +12974,7 @@ vm_opt_aref.exit.thread2646:                      ; preds = %vm_opt_aref.exit.vm
   br i1 %3427, label %3428, label %3436
 
 3428:                                             ; preds = %3422
-  %3429 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 22), align 2
+  %3429 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 22), align 2
   %3430 = and i16 %3429, 8
   %3431 = icmp eq i16 %3430, 0
   %3432 = and i64 %3413, 1
@@ -12993,7 +12993,7 @@ vm_opt_aref.exit.thread2646:                      ; preds = %vm_opt_aref.exit.vm
   br i1 %3438, label %3439, label %vm_opt_aset.exit.thread
 
 3439:                                             ; preds = %3436
-  %3440 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 22), align 2
+  %3440 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 22), align 2
   %3441 = and i16 %3440, 16
   %3442 = icmp eq i16 %3441, 0
   br i1 %3442, label %3443, label %vm_opt_aset.exit.thread
@@ -13047,7 +13047,7 @@ vm_opt_aset.exit.thread:                          ; preds = %3436, %3439, %3406,
   br i1 %3471, label %3472, label %vm_opt_aset_with.exit.thread
 
 3472:                                             ; preds = %3466
-  %3473 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 22), align 2
+  %3473 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 22), align 2
   %3474 = and i16 %3473, 16
   %3475 = icmp eq i16 %3474, 0
   br i1 %3475, label %3476, label %vm_opt_aset_with.exit.thread
@@ -13110,7 +13110,7 @@ vm_opt_aset_with.exit.thread:                     ; preds = %3450, %3466, %3472,
   br i1 %3510, label %3511, label %vm_opt_aref_with.exit.thread
 
 3511:                                             ; preds = %3505
-  %3512 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
+  %3512 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
   %3513 = and i16 %3512, 16
   %3514 = icmp eq i16 %3513, 0
   br i1 %3514, label %3515, label %vm_opt_aref_with.exit.thread
@@ -13239,7 +13239,7 @@ vm_opt_aref_with.exit.thread:                     ; preds = %3491, %3505, %3511,
   br i1 %.not.i2500, label %3590, label %3581
 
 3581:                                             ; preds = %3572
-  %3582 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 32), align 16
+  %3582 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 32), align 16
   %3583 = and i16 %3582, 1
   %3584 = icmp eq i16 %3583, 0
   br i1 %3584, label %3585, label %3590
@@ -13274,7 +13274,7 @@ vm_opt_aref_with.exit.thread:                     ; preds = %3491, %3505, %3511,
   br i1 %3600, label %3601, label %vm_opt_succ.exit.thread
 
 3601:                                             ; preds = %3595
-  %3602 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 32), align 16
+  %3602 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 32), align 16
   %3603 = and i16 %3602, 4
   %3604 = icmp eq i16 %3603, 0
   br i1 %3604, label %3605, label %vm_opt_succ.exit.thread
@@ -13409,7 +13409,7 @@ rb_class_of.exit.i:                               ; preds = %3663, %3661, %3660,
   br i1 %3667, label %3668, label %3674
 
 3668:                                             ; preds = %rb_class_of.exit.i
-  %3669 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 42), align 2
+  %3669 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 42), align 2
   %3670 = and i16 %3669, 4
   %3671 = icmp eq i16 %3670, 0
   br i1 %3671, label %3672, label %3674
@@ -13424,7 +13424,7 @@ rb_class_of.exit.i:                               ; preds = %3663, %3661, %3660,
   br i1 %3676, label %3677, label %vm_opt_regexpmatch2.exit.thread
 
 3677:                                             ; preds = %3674
-  %3678 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 42), align 2
+  %3678 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 42), align 2
   %3679 = and i16 %3678, 256
   %3680 = icmp eq i16 %3679, 0
   br i1 %3680, label %3681, label %vm_opt_regexpmatch2.exit.thread
@@ -34194,27 +34194,27 @@ vm_default_params.exit:                           ; preds = %97, %100
   tail call fastcc void @add_opt_method(i64 noundef %169, i64 noundef 43, i32 noundef 0)
   %170 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %170, i64 noundef 43, i32 noundef 0)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2
   %171 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %171, i64 noundef 45, i32 noundef 1)
   %172 = load i64, ptr @rb_cFloat, align 8
   tail call fastcc void @add_opt_method(i64 noundef %172, i64 noundef 45, i32 noundef 1)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4
   %173 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %173, i64 noundef 42, i32 noundef 2)
   %174 = load i64, ptr @rb_cFloat, align 8
   tail call fastcc void @add_opt_method(i64 noundef %174, i64 noundef 42, i32 noundef 2)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2
   %175 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %175, i64 noundef 47, i32 noundef 3)
   %176 = load i64, ptr @rb_cFloat, align 8
   tail call fastcc void @add_opt_method(i64 noundef %176, i64 noundef 47, i32 noundef 3)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8
   %177 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %177, i64 noundef 37, i32 noundef 4)
   %178 = load i64, ptr @rb_cFloat, align 8
   tail call fastcc void @add_opt_method(i64 noundef %178, i64 noundef 37, i32 noundef 4)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
   %179 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %179, i64 noundef 140, i32 noundef 5)
   %180 = load i64, ptr @rb_cFloat, align 8
@@ -34223,7 +34223,7 @@ vm_default_params.exit:                           ; preds = %97, %100
   tail call fastcc void @add_opt_method(i64 noundef %181, i64 noundef 140, i32 noundef 5)
   %182 = load i64, ptr @rb_cSymbol, align 8
   tail call fastcc void @add_opt_method(i64 noundef %182, i64 noundef 140, i32 noundef 5)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 12), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 12), align 4
   %183 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %183, i64 noundef 141, i32 noundef 6)
   %184 = load i64, ptr @rb_cFloat, align 8
@@ -34238,109 +34238,109 @@ vm_default_params.exit:                           ; preds = %97, %100
   tail call fastcc void @add_opt_method(i64 noundef %188, i64 noundef 141, i32 noundef 6)
   %189 = load i64, ptr @rb_cFalseClass, align 8
   tail call fastcc void @add_opt_method(i64 noundef %189, i64 noundef 141, i32 noundef 6)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2
   %190 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %190, i64 noundef 60, i32 noundef 7)
   %191 = load i64, ptr @rb_cFloat, align 8
   tail call fastcc void @add_opt_method(i64 noundef %191, i64 noundef 60, i32 noundef 7)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16
   %192 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %192, i64 noundef 138, i32 noundef 8)
   %193 = load i64, ptr @rb_cFloat, align 8
   tail call fastcc void @add_opt_method(i64 noundef %193, i64 noundef 138, i32 noundef 8)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2
   %194 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %194, i64 noundef 62, i32 noundef 17)
   %195 = load i64, ptr @rb_cFloat, align 8
   tail call fastcc void @add_opt_method(i64 noundef %195, i64 noundef 62, i32 noundef 17)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4
   %196 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %196, i64 noundef 139, i32 noundef 18)
   %197 = load i64, ptr @rb_cFloat, align 8
   tail call fastcc void @add_opt_method(i64 noundef %197, i64 noundef 139, i32 noundef 18)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 18), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 18), align 2
   %198 = load i64, ptr @rb_cString, align 8
   tail call fastcc void @add_opt_method(i64 noundef %198, i64 noundef 136, i32 noundef 9)
   %199 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %199, i64 noundef 136, i32 noundef 9)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4
   %200 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %200, i64 noundef 145, i32 noundef 10)
   %201 = load i64, ptr @rb_cHash, align 8
   tail call fastcc void @add_opt_method(i64 noundef %201, i64 noundef 145, i32 noundef 10)
   %202 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %202, i64 noundef 145, i32 noundef 10)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 22), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 22), align 2
   %203 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %203, i64 noundef 146, i32 noundef 11)
   %204 = load i64, ptr @rb_cHash, align 8
   tail call fastcc void @add_opt_method(i64 noundef %204, i64 noundef 146, i32 noundef 11)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 24), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 24), align 8
   %205 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %205, i64 noundef 2977, i32 noundef 12)
   %206 = load i64, ptr @rb_cString, align 8
   tail call fastcc void @add_opt_method(i64 noundef %206, i64 noundef 2977, i32 noundef 12)
   %207 = load i64, ptr @rb_cHash, align 8
   tail call fastcc void @add_opt_method(i64 noundef %207, i64 noundef 2977, i32 noundef 12)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 26), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 26), align 2
   %208 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %208, i64 noundef 2993, i32 noundef 13)
   %209 = load i64, ptr @rb_cString, align 8
   tail call fastcc void @add_opt_method(i64 noundef %209, i64 noundef 2993, i32 noundef 13)
   %210 = load i64, ptr @rb_cHash, align 8
   tail call fastcc void @add_opt_method(i64 noundef %210, i64 noundef 2993, i32 noundef 13)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 28), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 28), align 4
   %211 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %211, i64 noundef 153, i32 noundef 14)
   %212 = load i64, ptr @rb_cString, align 8
   tail call fastcc void @add_opt_method(i64 noundef %212, i64 noundef 153, i32 noundef 14)
   %213 = load i64, ptr @rb_cHash, align 8
   tail call fastcc void @add_opt_method(i64 noundef %213, i64 noundef 153, i32 noundef 14)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 32), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 32), align 16
   %214 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %214, i64 noundef 3025, i32 noundef 16)
   %215 = load i64, ptr @rb_cString, align 8
   tail call fastcc void @add_opt_method(i64 noundef %215, i64 noundef 3025, i32 noundef 16)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 42), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 42), align 2
   %216 = load i64, ptr @rb_cRegexp, align 8
   tail call fastcc void @add_opt_method(i64 noundef %216, i64 noundef 143, i32 noundef 21)
   %217 = load i64, ptr @rb_cString, align 8
   tail call fastcc void @add_opt_method(i64 noundef %217, i64 noundef 143, i32 noundef 21)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 44), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 44), align 4
   %218 = load i64, ptr @rb_cString, align 8
   tail call fastcc void @add_opt_method(i64 noundef %218, i64 noundef 2769, i32 noundef 22)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 46), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 46), align 2
   %219 = load i64, ptr @rb_cString, align 8
   tail call fastcc void @add_opt_method(i64 noundef %219, i64 noundef 133, i32 noundef 23)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 48), align 16
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 48), align 16
   %220 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %220, i64 noundef 2721, i32 noundef 24)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 50), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 50), align 2
   %221 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %221, i64 noundef 2737, i32 noundef 25)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 52), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 52), align 4
   %222 = load i64, ptr @rb_cArray, align 8
   tail call fastcc void @add_opt_method(i64 noundef %222, i64 noundef 2753, i32 noundef 26)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 54), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 54), align 2
   %223 = load i64, ptr @rb_cProc, align 8
   tail call fastcc void @add_opt_method(i64 noundef %223, i64 noundef 3425, i32 noundef 27)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 56), align 8
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 56), align 8
   %224 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %224, i64 noundef 38, i32 noundef 28)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 58), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 58), align 2
   %225 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %225, i64 noundef 124, i32 noundef 29)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 30), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 30), align 2
   %226 = load i64, ptr @rb_cNilClass, align 8
   tail call fastcc void @add_opt_method(i64 noundef %226, i64 noundef 151, i32 noundef 15)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %227 = load i64, ptr @rb_cInteger, align 8
   tail call fastcc void @add_opt_method(i64 noundef %227, i64 noundef 135, i32 noundef 30)
   %228 = load i64, ptr @rb_cFloat, align 8
   tail call fastcc void @add_opt_method(i64 noundef %228, i64 noundef 135, i32 noundef 30)
   %229 = load i64, ptr @rb_cString, align 8
   tail call fastcc void @add_opt_method(i64 noundef %229, i64 noundef 135, i32 noundef 30)
-  store i16 0, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 62), align 2
+  store i16 0, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 62), align 2
   %230 = load i64, ptr @rb_cHash, align 8
   tail call fastcc void @add_opt_method(i64 noundef %230, i64 noundef 3809, i32 noundef 31)
   %231 = load i64, ptr @rb_cObject, align 8
@@ -35887,7 +35887,7 @@ define internal fastcc range(i64 0, 37) i64 @opt_equality_specialized(i64 nounde
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
   %7 = and i16 %6, 1
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %94, label %9
@@ -35901,7 +35901,7 @@ define internal fastcc range(i64 0, 37) i64 @opt_equality_specialized(i64 nounde
   br i1 %.not.i, label %14, label %18
 
 14:                                               ; preds = %9
-  %15 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
+  %15 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
   %16 = and i16 %15, 2
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %94, label %18
@@ -35915,7 +35915,7 @@ define internal fastcc range(i64 0, 37) i64 @opt_equality_specialized(i64 nounde
   br i1 %or.cond, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
+  %24 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
   %25 = and i16 %24, 64
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %94, label %27
@@ -35955,13 +35955,13 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %41
   br i1 %49, label %RB_FLOAT_TYPE_P.exit.thread.thread, label %RB_FLOAT_TYPE_P.exit.thread48
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %38
-  %50 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
+  %50 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
   %51 = and i16 %50, 2
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %56, label %RB_FLOAT_TYPE_P.exit.thread48
 
 RB_FLOAT_TYPE_P.exit.thread.thread:               ; preds = %RB_FLOAT_TYPE_P.exit
-  %53 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
+  %53 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
   %54 = and i16 %53, 2
   %55 = icmp eq i16 %54, 0
   br i1 %55, label %65, label %RB_FLOAT_TYPE_P.exit.thread48
@@ -36002,7 +36002,7 @@ RB_FLOAT_TYPE_P.exit.thread48:                    ; preds = %RB_FLOAT_TYPE_P.exi
   br i1 %75, label %76, label %.critedge
 
 76:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread48
-  %77 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
+  %77 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 10), align 2
   %78 = and i16 %77, 4
   %79 = icmp eq i16 %78, 0
   br i1 %79, label %80, label %.critedge
@@ -46738,7 +46738,7 @@ VM_CF_LEP.exit:                                   ; preds = %.lr.ph.i.i, %3
   %.val16 = load i64, ptr %10, align 8
   %11 = load ptr, ptr %2, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 54), align 2
+  %13 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 54), align 2
   %14 = and i16 %13, 4096
   %15 = icmp eq i16 %14, 0
   br i1 %15, label %16, label %50
@@ -49502,7 +49502,7 @@ define internal fastcc ptr @jit_compile(ptr noundef %0) unnamed_addr #2 {
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, 1
   store i64 %48, ptr %46, align 8
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @rb_rjit_opts, i64 8), align 4
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rb_rjit_opts, i64 8), align 4
   %50 = zext i32 %49 to i64
   %51 = icmp eq i64 %48, %50
   br i1 %51, label %52, label %rb_yjit_threshold_hit.exit

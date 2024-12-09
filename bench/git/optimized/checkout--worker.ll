@@ -159,8 +159,8 @@ if.then.i19.i:                                    ; preds = %do.end.i
 if.end.i.i:                                       ; preds = %do.end.i
   %conv.i.i = zext nneg i32 %call41.i to i64
   %sub.i.i = add nsw i64 %conv.i.i, -72
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 64), align 16
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 56), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 64), align 16
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 56), align 8
   %add.i.i = add i64 %11, %10
   %cmp3.not.i.i = icmp eq i64 %sub.i.i, %add.i.i
   br i1 %cmp3.not.i.i, label %if.end6.i.i, label %if.then5.i.i
@@ -174,23 +174,23 @@ if.end6.i.i:                                      ; preds = %if.end.i.i
   br i1 %tobool.not.i.i, label %packet_to_pc_item.exit.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.end6.i.i
-  %call.i.i = call ptr @xmemdupz(ptr noundef nonnull getelementptr inbounds (i8, ptr @packet_buffer, i64 72), i64 noundef %11) #10
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 56), align 8
-  %add.ptr11.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 72), i64 %12
+  %call.i.i = call ptr @xmemdupz(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 72), i64 noundef %11) #10
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 56), align 8
+  %add.ptr11.i.i = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 72), i64 %12
   br label %packet_to_pc_item.exit.i
 
 packet_to_pc_item.exit.i:                         ; preds = %if.then8.i.i, %if.end6.i.i
-  %variant.0.i.i = phi ptr [ %add.ptr11.i.i, %if.then8.i.i ], [ getelementptr inbounds (i8, ptr @packet_buffer, i64 72), %if.end6.i.i ]
+  %variant.0.i.i = phi ptr [ %add.ptr11.i.i, %if.then8.i.i ], [ getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 72), %if.end6.i.i ]
   %encoding.0.i.i = phi ptr [ %call.i.i, %if.then8.i.i ], [ null, %if.end6.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %arrayidx.i, i8 0, i64 208, i1 false)
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 64), align 16
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 64), align 16
   %call14.i.i = call ptr @make_empty_transient_cache_entry(i64 noundef %13, ptr noundef null) #10
   store ptr %call14.i.i, ptr %arrayidx.i, align 8
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 64), align 16
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 64), align 16
   %conv16.i.i = trunc i64 %14 to i32
   %ce_namelen.i.i = getelementptr inbounds nuw i8, ptr %call14.i.i, i64 64
   store i32 %conv16.i.i, ptr %ce_namelen.i.i, align 8
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 44), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 44), align 4
   %16 = load ptr, ptr %arrayidx.i, align 8
   %ce_mode19.i.i = getelementptr inbounds nuw i8, ptr %16, i64 52
   store i32 %15, ptr %ce_mode19.i.i, align 4
@@ -202,17 +202,17 @@ packet_to_pc_item.exit.i:                         ; preds = %if.then8.i.i, %if.e
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name.i.i, ptr nonnull align 1 %variant.0.i.i, i64 %conv23.i.i, i1 false)
   %19 = load ptr, ptr %arrayidx.i, align 8
   %oid.i.i = getelementptr inbounds nuw i8, ptr %19, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @packet_buffer, i64 8), i64 32, i1 false)
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 40), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 8), i64 32, i1 false)
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 40), align 8
   %algo3.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 104
   store i32 %20, ptr %algo3.i.i.i, align 4
   %21 = load i64, ptr @packet_buffer, align 16
   %id26.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   store i64 %21, ptr %id26.i.i, align 8
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 48), align 16
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 48), align 16
   %crlf_action27.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   store i32 %22, ptr %crlf_action27.i.i, align 4
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 52), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 52), align 4
   %ident29.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   store i32 %23, ptr %ident29.i.i, align 8
   %working_tree_encoding.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32

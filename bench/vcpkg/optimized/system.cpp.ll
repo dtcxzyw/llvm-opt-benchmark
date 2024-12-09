@@ -900,7 +900,7 @@ define internal fastcc void @_ZN5vcpkgL18get_xdg_cache_homeEv() unnamed_addr #0 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZNS_24get_platform_cache_vcpkgEvE3$_0EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS6_ELi0EEEvEEEES2_EES6_"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.vcpkg::Path", align 8
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 32), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 32), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %5
 
@@ -1664,7 +1664,7 @@ define dso_local void @_ZN5vcpkg16get_host_os_nameB5cxx11Ev(ptr dead_on_unwind n
           to label %.noexc1 unwind label %6
 
 .noexc1:                                          ; preds = %.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.21, i64 5))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 5))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %4
 
 4:                                                ; preds = %.noexc1
@@ -4994,7 +4994,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
 _ZN5vcpkg12get_home_dirEv.exit:                   ; preds = %15, %18, %21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  %26 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 32), align 8
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5vcpkg12get_home_dirEvE6s_home, i64 32), align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %29
 

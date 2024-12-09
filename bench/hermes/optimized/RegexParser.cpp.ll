@@ -5134,7 +5134,7 @@ _ZNSt10unique_ptrIN6hermes5regex15AlternationNodeESt14default_deleteIS2_EED2Ev.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex15AlternationNodeC2ESt6vectorIS2_IPNS0_4NodeESaIS4_EESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %alternatives) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex15AlternationNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex15AlternationNodeE, i64 16), ptr %this, align 8
   %alternatives_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %alternatives, align 8
   store ptr %0, ptr %alternatives_, align 8
@@ -6331,7 +6331,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
 if.end:                                           ; preds = %for.body.i, %if.end.i, %if.then, %entry
   %nodeHolder_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !81
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex8GoalNodeE, i64 16), ptr %call.i, align 8, !noalias !81
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex8GoalNodeE, i64 16), ptr %call.i, align 8, !noalias !81
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -6584,7 +6584,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !noalias !89
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args, i8 0, i64 24, i1 false), !noalias !89
   %3 = load i32, ptr %args1, align 4, !noalias !89
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex23MarkedSubexpressionNodeE, i64 16), ptr %call.i, align 8, !noalias !89
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex23MarkedSubexpressionNodeE, i64 16), ptr %call.i, align 8, !noalias !89
   %contents_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %0, ptr %contents_.i.i, align 8, !noalias !89
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -7020,7 +7020,7 @@ entry:
   %tobool9.i = trunc i8 %6 to i1
   %frombool.i.i = and i8 %5, 1
   %frombool1.i.i = and i8 %6, 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex14LookaroundNodeE, i64 16), ptr %call.i, align 8, !noalias !97
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex14LookaroundNodeE, i64 16), ptr %call.i, align 8, !noalias !97
   %exp_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %0, ptr %exp_.i.i, align 8, !noalias !97
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -7266,7 +7266,7 @@ _ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrap
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex14LookaroundNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex14LookaroundNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex14LookaroundNodeE, i64 16), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -7294,7 +7294,7 @@ _ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EED2Ev.exit: ; preds = %_ZNSt8functionIF
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex14LookaroundNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex14LookaroundNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex14LookaroundNodeE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -7786,7 +7786,7 @@ entry:
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !noalias !106
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args11, i8 0, i64 24, i1 false), !noalias !106
   %frombool.i.i = and i8 %3, 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex8LoopNodeE, i64 16), ptr %call.i, align 8, !noalias !106
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex8LoopNodeE, i64 16), ptr %call.i, align 8, !noalias !106
   %min_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 %1, ptr %min_.i.i, align 8, !noalias !106
   %max_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
@@ -9672,7 +9672,7 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexT
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !115
   %agg.tmp.sroa.0.0.copyload.i = load i8, ptr %args, align 1, !noalias !115
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex14LeftAnchorNodeE, i64 16), ptr %call.i, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex14LeftAnchorNodeE, i64 16), ptr %call.i, align 8, !noalias !115
   %multiline_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %0 = lshr i8 %agg.tmp.sroa.0.0.copyload.i, 2
   %.lobit.i.i = and i8 %0, 1
@@ -9883,7 +9883,7 @@ _ZN6hermes5regex19RegexBytecodeStream4emitINS0_14LeftAnchorInsnEEENS1_18Instruct
 define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_15RightAnchorNodeEJEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !123
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex15RightAnchorNodeE, i64 16), ptr %call.i, align 8, !noalias !123
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex15RightAnchorNodeE, i64 16), ptr %call.i, align 8, !noalias !123
   %nodeHolder_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -10082,7 +10082,7 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !131
   %0 = load i8, ptr %args, align 1, !noalias !131
   %frombool.i.i = and i8 %0, 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex16WordBoundaryNodeE, i64 16), ptr %call.i, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex16WordBoundaryNodeE, i64 16), ptr %call.i, align 8, !noalias !131
   %invert_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i8 %frombool.i.i, ptr %invert_.i.i, align 8, !noalias !131
   %nodeHolder_ = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -10913,7 +10913,7 @@ entry:
   %0 = load i8, ptr %args1, align 1, !noalias !145
   %agg.tmp.sroa.0.0.copyload.i = load i8, ptr %args3, align 1, !noalias !145
   %frombool.i.i = and i8 %0, 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEEE, i64 16), ptr %call.i, align 8, !noalias !145
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEEE, i64 16), ptr %call.i, align 8, !noalias !145
   %traits_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %args, ptr %traits_.i.i, align 8, !noalias !145
   %codePointSet_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -11080,7 +11080,7 @@ _ZNSt10unique_ptrIN6hermes5regex11BracketNodeINS1_16UTF16RegexTraitsEEESt14defau
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(91) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEEE, i64 16), ptr %this, align 8
   %classes_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %classes_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -11108,7 +11108,7 @@ _ZN6hermes12CodePointSetD2Ev.exit:                ; preds = %_ZNSt6vectorIN6herm
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEED0Ev(ptr noundef nonnull align 8 dereferenceable(91) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEEE, i64 16), ptr %this, align 8
   %classes_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %classes_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -11919,7 +11919,7 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexT
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !153
   %0 = load i32, ptr %args, align 4, !noalias !153
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex11BackRefNodeE, i64 16), ptr %call.i, align 8, !noalias !153
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex11BackRefNodeE, i64 16), ptr %call.i, align 8, !noalias !153
   %mexp_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %conv.i.i = trunc i32 %0 to i16
   store i16 %conv.i.i, ptr %mexp_.i.i, align 8, !noalias !153
@@ -12141,7 +12141,7 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexT
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !161
   %0 = load i32, ptr %args, align 4, !noalias !161
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex11BackRefNodeE, i64 16), ptr %call.i, align 8, !noalias !161
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex11BackRefNodeE, i64 16), ptr %call.i, align 8, !noalias !161
   %mexp_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %conv.i.i = trunc i32 %0 to i16
   store i16 %conv.i.i, ptr %mexp_.i.i, align 8, !noalias !161
@@ -12293,7 +12293,7 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexT
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !169
   %0 = load i32, ptr %args, align 4, !noalias !169
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex11BackRefNodeE, i64 16), ptr %call.i, align 8, !noalias !169
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex11BackRefNodeE, i64 16), ptr %call.i, align 8, !noalias !169
   %mexp_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %conv.i.i = trunc i32 %0 to i16
   store i16 %conv.i.i, ptr %mexp_.i.i, align 8, !noalias !169
@@ -12655,7 +12655,7 @@ define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexT
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !179
   %agg.tmp.sroa.0.0.copyload.i = load i8, ptr %args, align 1, !noalias !179
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex12MatchAnyNodeE, i64 16), ptr %call.i, align 8, !noalias !179
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex12MatchAnyNodeE, i64 16), ptr %call.i, align 8, !noalias !179
   %unicode_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %0 = lshr i8 %agg.tmp.sroa.0.0.copyload.i, 3
   %.lobit.i.i = and i8 %0, 1
@@ -13754,7 +13754,7 @@ entry:
 
 _ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit.thread:  ; preds = %entry
   %agg.tmp3.sroa.0.0.copyload13 = load i8, ptr %__args1, align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 16), ptr %call, align 8
   %chars_.i14 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %add.ptr.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %add.ptr.i.i.i.i.i.i15, ptr %chars_.i14, align 8
@@ -13769,7 +13769,7 @@ _ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit:         ; preds = %entry
   %.pre = load i32, ptr %Size.i.i.i.i.i, align 8
   %.pre6.pre = load ptr, ptr %agg.tmp, align 8
   %agg.tmp3.sroa.0.0.copyload = load i8, ptr %__args1, align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 16), ptr %call, align 8
   %chars_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %add.ptr.i.i.i.i.i.i, ptr %chars_.i, align 8

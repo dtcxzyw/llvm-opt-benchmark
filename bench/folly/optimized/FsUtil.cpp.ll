@@ -820,7 +820,7 @@ if.then:                                          ; preds = %invoke.cont
   %exception = call ptr @__cxa_allocate_exception(i64 48) #14
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   store i64 22, ptr %agg.tmp, align 8, !alias.scope !43
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !16, !noalias !43
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !16, !noalias !43
   %2 = and i64 %1, -2
   %switch.i.i.i = icmp eq i64 %2, -5572340897628102704
   br i1 %switch.i.i.i, label %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit.thread, label %_ZN5boost6system4errc15make_error_codeENS1_6errc_tE.exit

@@ -1464,7 +1464,7 @@ _ZN7ciField4typeEv.exit:                          ; preds = %84, %89
 235:                                              ; preds = %233
   %236 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19CheckInsertionPoint, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19CheckInsertionPoint, i64 16), ptr %3, align 8
   store ptr %236, ptr %9, align 8
   store i8 1, ptr %10, align 8
   %237 = load ptr, ptr %.05177, align 8
@@ -2033,7 +2033,7 @@ _ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10Bl
 define hidden void @_ZN20GlobalValueNumberingC2EP2IR(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 48)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.ShortLoopOptimizer, align 8
   %4 = alloca %class.SubstitutionResolver, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV20GlobalValueNumbering, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTV20GlobalValueNumbering, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %5, align 8
@@ -2074,7 +2074,7 @@ _ZN13GrowableArrayIP8ValueMapEC2EiiRKS1_.exit:    ; preds = %.lr.ph.preheader.i.
   tail call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %27, i1 noundef zeroext true) #7
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV18ShortLoopOptimizer, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTV18ShortLoopOptimizer, i64 16), ptr %3, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3020,13 +3020,13 @@ _ZN20GlobalValueNumbering10substituteEP11Instruction.exit: ; preds = %.lr.ph186,
 
 554:                                              ; preds = %._crit_edge190
   %555 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20SubstitutionResolver, i64 16), ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20SubstitutionResolver, i64 48), ptr %555, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20SubstitutionResolver, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20SubstitutionResolver, i64 48), ptr %555, align 8
   call void @_ZN2IR16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   br label %556
 
 556:                                              ; preds = %554, %._crit_edge190
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV18ShortLoopOptimizer, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTV18ShortLoopOptimizer, i64 16), ptr %3, align 8
   %557 = load i64, ptr %39, align 8
   %558 = and i64 %557, 1
   %.not.i.i.i154 = icmp eq i64 %558, 0

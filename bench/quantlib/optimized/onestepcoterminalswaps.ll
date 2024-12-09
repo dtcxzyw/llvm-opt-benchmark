@@ -164,7 +164,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib22OneStepCoterminalSwapsE, i64 16), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib22OneStepCoterminalSwapsE, i64 16), ptr %this, align 8, !tbaa !11
   %fixedAccruals_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %4 = load ptr, ptr %fixedAccruals, align 8, !tbaa !8
   store ptr %4, ptr %fixedAccruals_, align 8, !tbaa !8
@@ -335,7 +335,7 @@ declare void @_ZN8QuantLib20checkIncreasingTimesERKSt6vectorIdSaIdEE(ptr noundef
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib19MultiProductOneStepD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib19MultiProductOneStepE, i64 16), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib19MultiProductOneStepE, i64 16), ptr %this, align 8, !tbaa !11
   %firstAliveRate_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %firstAliveRate_.i, align 8, !tbaa !33
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -539,7 +539,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib22OneStepCoterminalSwapsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib19MultiProductOneStepE, i64 16), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib19MultiProductOneStepE, i64 16), ptr %this, align 8, !tbaa !11
   %rateTimes_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rateTimes_2.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -612,7 +612,7 @@ common.resume:                                    ; preds = %lpad4.i, %if.then.i
   resume { ptr, i32 } %common.resume.op
 
 _ZN8QuantLib19MultiProductOneStepC2ERKS0_.exit:   ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib22OneStepCoterminalSwapsE, i64 16), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib22OneStepCoterminalSwapsE, i64 16), ptr %this, align 8, !tbaa !11
   %fixedAccruals_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %fixedAccruals_2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -819,7 +819,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib22OneStepCoterminalSwapsD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib22OneStepCoterminalSwapsE, i64 16), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib22OneStepCoterminalSwapsE, i64 16), ptr %this, align 8, !tbaa !11
   %paymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %paymentTimes_, align 8, !tbaa !8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -872,7 +872,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIdSaIdE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib22OneStepCoterminalSwapsD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib22OneStepCoterminalSwapsE, i64 16), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib22OneStepCoterminalSwapsE, i64 16), ptr %this, align 8, !tbaa !11
   %paymentTimes_.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %paymentTimes_.i, align 8, !tbaa !8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

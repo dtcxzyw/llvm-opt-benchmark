@@ -381,7 +381,7 @@ if.then14:                                        ; preds = %if.end
 invoke.cont15:                                    ; preds = %if.then14
   %m_pathStack.i.i = getelementptr inbounds nuw i8, ptr %call16, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp16CIOSystemWrapperE, i64 16), ptr %call16, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6Assimp16CIOSystemWrapperE, i64 16), ptr %call16, align 8
   %mFileSystem.i = getelementptr inbounds nuw i8, ptr %call16, i64 32
   store ptr %pFS, ptr %mFileSystem.i, align 8
   invoke void @_ZN6Assimp8Importer12SetIOHandlerEPNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %call16)
@@ -801,7 +801,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23LogToCallbackRedirector, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23LogToCallbackRedirector, i64 16), ptr %call, align 8
   %stream.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream.i, ptr noundef nonnull align 8 dereferenceable(16) %stream, i64 16, i1 false)
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapI11aiLogStreamPN6Assimp9LogStreamENS1_5mpredESaISt4pairIKS0_S3_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN6AssimpL17gActiveLogStreamsE, ptr noundef nonnull align 8 dereferenceable(16) %stream)
@@ -11301,7 +11301,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23LogToCallbackRedirectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23LogToCallbackRedirector, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23LogToCallbackRedirector, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, align 8
   %user = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %user, align 8
@@ -11346,7 +11346,7 @@ if.end:                                           ; preds = %while.body.i.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23LogToCallbackRedirectorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23LogToCallbackRedirector, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23LogToCallbackRedirector, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, align 8
   %user.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %user.i, align 8
@@ -13765,12 +13765,12 @@ if.then428:                                       ; preds = %if.end424
   %conv431 = trunc nuw i32 %shr180 to i8
   store i8 %conv431, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, align 16
   %conv435 = trunc i32 %call.i2.i to i8
-  store i8 %conv435, ptr getelementptr inbounds (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 1), align 1
+  store i8 %conv435, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 1), align 1
   %shr437182 = lshr i32 %call1.i4.i, 8
   %conv439 = trunc nuw i32 %shr437182 to i8
-  store i8 %conv439, ptr getelementptr inbounds (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 2), align 2
+  store i8 %conv439, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 2), align 2
   %conv443 = trunc i32 %call1.i4.i to i8
-  store i8 %conv443, ptr getelementptr inbounds (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 3), align 1
+  store i8 %conv443, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 3), align 1
   %216 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, ptr %216, align 8
   br label %return

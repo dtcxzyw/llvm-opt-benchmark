@@ -175,7 +175,7 @@ define i32 @ompi_datatype_init() local_unnamed_addr #0 {
   %26 = alloca [2 x i64], align 16
   %27 = tail call i32 @opal_datatype_init() #8
   %28 = load i32, ptr @opal_class_init_epoch, align 4
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @opal_pointer_array_t_class, i64 32), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_pointer_array_t_class, i64 32), align 8
   %.not = icmp eq i32 %28, %29
   br i1 %.not, label %31, label %30
 
@@ -185,7 +185,7 @@ define i32 @ompi_datatype_init() local_unnamed_addr #0 {
 
 31:                                               ; preds = %30, %0
   store ptr @opal_pointer_array_t_class, ptr @ompi_datatype_f_to_c_table, align 8
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 8), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_f_to_c_table, i64 8), align 8
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_pointer_array_t_class, i64 40), align 8
   %33 = load ptr, ptr %32, align 8
   %.not1.i = icmp eq ptr %33, null
@@ -206,7 +206,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %31
   br i1 %.not126, label %38, label %1224
 
 38:                                               ; preds = %opal_obj_run_constructors.exit
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
   %40 = call i32 @ompi_datatype_create_contiguous(i32 noundef 2, ptr noundef %39, ptr noundef nonnull %1) #8
   %41 = load ptr, ptr %1, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -221,46 +221,46 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %31
   %49 = load i16, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 18
   %51 = load i16, ptr %50, align 2
-  store i16 %51, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 18), align 2
+  store i16 %51, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 18), align 2
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %53 = load i32, ptr %52, align 4
-  store i32 %53, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 20), align 4
+  store i32 %53, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 20), align 4
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %55 = load i64, ptr %54, align 8
-  store i64 %55, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 24), align 8
+  store i64 %55, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 24), align 8
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %57 = load i64, ptr %56, align 8
-  store i64 %57, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 32), align 8
+  store i64 %57, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 32), align 8
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %59 = load i64, ptr %58, align 8
-  store i64 %59, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 40), align 8
+  store i64 %59, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 40), align 8
   %60 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %61 = load i64, ptr %60, align 8
-  store i64 %61, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 48), align 8
+  store i64 %61, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 48), align 8
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %63 = load i64, ptr %62, align 8
-  store i64 %63, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 56), align 8
+  store i64 %63, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 56), align 8
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %65 = load i32, ptr %64, align 8
-  store i32 %65, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 72), align 8
+  store i32 %65, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 72), align 8
   %66 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %67 = load i64, ptr %66, align 8
-  store i64 %67, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 64), align 8
+  store i64 %67, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 64), align 8
   %68 = getelementptr inbounds nuw i8, ptr %47, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %47, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %47, i64 224
   %71 = load volatile i64, ptr %70, align 8
-  store volatile i64 %71, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 224), align 8
+  store volatile i64 %71, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 224), align 8
   store volatile i64 0, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %47, i64 192
   %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 192), align 8
+  store ptr %73, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 192), align 8
   store ptr null, ptr %72, align 8
   %74 = and i16 %49, -3587
   %75 = or disjoint i16 %74, 3584
-  store i16 %75, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 16), align 8
+  store i16 %75, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 16), align 8
   %76 = getelementptr inbounds nuw i8, ptr %47, i64 160
   store ptr null, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %47, i64 184
@@ -315,8 +315,8 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %98
 
 98:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 240), ptr noundef nonnull @.str, i64 noundef 64) #8
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 168), align 8
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 240), ptr noundef nonnull @.str, i64 noundef 64) #8
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 168), align 8
   %100 = call i32 @ompi_datatype_create_contiguous(i32 noundef 2, ptr noundef %99, ptr noundef nonnull %2) #8
   %101 = load ptr, ptr %2, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
@@ -331,46 +331,46 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %109 = load i16, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 18
   %111 = load i16, ptr %110, align 2
-  store i16 %111, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 18), align 2
+  store i16 %111, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 18), align 2
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %113 = load i32, ptr %112, align 4
-  store i32 %113, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 20), align 4
+  store i32 %113, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 20), align 4
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %115 = load i64, ptr %114, align 8
-  store i64 %115, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 24), align 8
+  store i64 %115, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 24), align 8
   %116 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %117 = load i64, ptr %116, align 8
-  store i64 %117, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 32), align 8
+  store i64 %117, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 32), align 8
   %118 = getelementptr inbounds nuw i8, ptr %107, i64 40
   %119 = load i64, ptr %118, align 8
-  store i64 %119, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 40), align 8
+  store i64 %119, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 40), align 8
   %120 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %121 = load i64, ptr %120, align 8
-  store i64 %121, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 48), align 8
+  store i64 %121, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 48), align 8
   %122 = getelementptr inbounds nuw i8, ptr %107, i64 56
   %123 = load i64, ptr %122, align 8
-  store i64 %123, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 56), align 8
+  store i64 %123, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 56), align 8
   %124 = getelementptr inbounds nuw i8, ptr %107, i64 72
   %125 = load i32, ptr %124, align 8
-  store i32 %125, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 72), align 8
+  store i32 %125, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 72), align 8
   %126 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %127 = load i64, ptr %126, align 8
-  store i64 %127, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 64), align 8
+  store i64 %127, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 64), align 8
   %128 = getelementptr inbounds nuw i8, ptr %107, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
   %129 = getelementptr inbounds nuw i8, ptr %107, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %129, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %129, i64 24, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %107, i64 224
   %131 = load volatile i64, ptr %130, align 8
-  store volatile i64 %131, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 224), align 8
+  store volatile i64 %131, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 224), align 8
   store volatile i64 0, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %107, i64 192
   %133 = load ptr, ptr %132, align 8
-  store ptr %133, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 192), align 8
+  store ptr %133, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 192), align 8
   store ptr null, ptr %132, align 8
   %134 = and i16 %109, -3587
   %135 = or disjoint i16 %134, 3584
-  store i16 %135, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 16), align 8
+  store i16 %135, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 16), align 8
   %136 = getelementptr inbounds nuw i8, ptr %107, i64 160
   store ptr null, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %107, i64 184
@@ -425,8 +425,8 @@ opal_obj_run_destructors.exit228:                 ; preds = %opal_obj_run_destru
   br label %158
 
 158:                                              ; preds = %opal_thread_add_fetch_32.exit223, %opal_obj_run_destructors.exit228
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 240), ptr noundef nonnull @.str.16, i64 noundef 64) #8
-  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 72), align 8
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 240), ptr noundef nonnull @.str.16, i64 noundef 64) #8
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 72), align 8
   %160 = call i32 @ompi_datatype_create_contiguous(i32 noundef 2, ptr noundef %159, ptr noundef nonnull %3) #8
   %161 = load ptr, ptr %3, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
@@ -441,46 +441,46 @@ opal_obj_run_destructors.exit228:                 ; preds = %opal_obj_run_destru
   %169 = load i16, ptr %168, align 8
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 18
   %171 = load i16, ptr %170, align 2
-  store i16 %171, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 18), align 2
+  store i16 %171, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 18), align 2
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 20
   %173 = load i32, ptr %172, align 4
-  store i32 %173, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 20), align 4
+  store i32 %173, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 20), align 4
   %174 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %175 = load i64, ptr %174, align 8
-  store i64 %175, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 24), align 8
+  store i64 %175, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 24), align 8
   %176 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %177 = load i64, ptr %176, align 8
-  store i64 %177, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 32), align 8
+  store i64 %177, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 32), align 8
   %178 = getelementptr inbounds nuw i8, ptr %167, i64 40
   %179 = load i64, ptr %178, align 8
-  store i64 %179, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 40), align 8
+  store i64 %179, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 40), align 8
   %180 = getelementptr inbounds nuw i8, ptr %167, i64 48
   %181 = load i64, ptr %180, align 8
-  store i64 %181, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 48), align 8
+  store i64 %181, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 48), align 8
   %182 = getelementptr inbounds nuw i8, ptr %167, i64 56
   %183 = load i64, ptr %182, align 8
-  store i64 %183, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 56), align 8
+  store i64 %183, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 56), align 8
   %184 = getelementptr inbounds nuw i8, ptr %167, i64 72
   %185 = load i32, ptr %184, align 8
-  store i32 %185, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 72), align 8
+  store i32 %185, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 72), align 8
   %186 = getelementptr inbounds nuw i8, ptr %167, i64 64
   %187 = load i64, ptr %186, align 8
-  store i64 %187, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 64), align 8
+  store i64 %187, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 64), align 8
   %188 = getelementptr inbounds nuw i8, ptr %167, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %188, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %188, i64 24, i1 false)
   %189 = getelementptr inbounds nuw i8, ptr %167, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %189, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %189, i64 24, i1 false)
   %190 = getelementptr inbounds nuw i8, ptr %167, i64 224
   %191 = load volatile i64, ptr %190, align 8
-  store volatile i64 %191, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 224), align 8
+  store volatile i64 %191, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 224), align 8
   store volatile i64 0, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %167, i64 192
   %193 = load ptr, ptr %192, align 8
-  store ptr %193, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 192), align 8
+  store ptr %193, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 192), align 8
   store ptr null, ptr %192, align 8
   %194 = and i16 %169, -3587
   %195 = or disjoint i16 %194, 3584
-  store i16 %195, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 16), align 8
+  store i16 %195, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 16), align 8
   %196 = getelementptr inbounds nuw i8, ptr %167, i64 160
   store ptr null, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %167, i64 184
@@ -535,8 +535,8 @@ opal_obj_run_destructors.exit235:                 ; preds = %opal_obj_run_destru
   br label %218
 
 218:                                              ; preds = %opal_thread_add_fetch_32.exit230, %opal_obj_run_destructors.exit235
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 240), ptr noundef nonnull @.str.17, i64 noundef 64) #8
-  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 80), align 16
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 240), ptr noundef nonnull @.str.17, i64 noundef 64) #8
+  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 80), align 16
   %220 = call i32 @ompi_datatype_create_contiguous(i32 noundef 2, ptr noundef %219, ptr noundef nonnull %4) #8
   %221 = load ptr, ptr %4, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
@@ -551,46 +551,46 @@ opal_obj_run_destructors.exit235:                 ; preds = %opal_obj_run_destru
   %229 = load i16, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 18
   %231 = load i16, ptr %230, align 2
-  store i16 %231, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 18), align 2
+  store i16 %231, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 18), align 2
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 20
   %233 = load i32, ptr %232, align 4
-  store i32 %233, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 20), align 4
+  store i32 %233, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 20), align 4
   %234 = getelementptr inbounds nuw i8, ptr %227, i64 24
   %235 = load i64, ptr %234, align 8
-  store i64 %235, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 24), align 8
+  store i64 %235, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 24), align 8
   %236 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %237 = load i64, ptr %236, align 8
-  store i64 %237, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 32), align 8
+  store i64 %237, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 32), align 8
   %238 = getelementptr inbounds nuw i8, ptr %227, i64 40
   %239 = load i64, ptr %238, align 8
-  store i64 %239, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 40), align 8
+  store i64 %239, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 40), align 8
   %240 = getelementptr inbounds nuw i8, ptr %227, i64 48
   %241 = load i64, ptr %240, align 8
-  store i64 %241, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 48), align 8
+  store i64 %241, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 48), align 8
   %242 = getelementptr inbounds nuw i8, ptr %227, i64 56
   %243 = load i64, ptr %242, align 8
-  store i64 %243, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 56), align 8
+  store i64 %243, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 56), align 8
   %244 = getelementptr inbounds nuw i8, ptr %227, i64 72
   %245 = load i32, ptr %244, align 8
-  store i32 %245, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 72), align 8
+  store i32 %245, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 72), align 8
   %246 = getelementptr inbounds nuw i8, ptr %227, i64 64
   %247 = load i64, ptr %246, align 8
-  store i64 %247, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 64), align 8
+  store i64 %247, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 64), align 8
   %248 = getelementptr inbounds nuw i8, ptr %227, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %248, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %248, i64 24, i1 false)
   %249 = getelementptr inbounds nuw i8, ptr %227, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %249, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %249, i64 24, i1 false)
   %250 = getelementptr inbounds nuw i8, ptr %227, i64 224
   %251 = load volatile i64, ptr %250, align 8
-  store volatile i64 %251, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 224), align 8
+  store volatile i64 %251, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 224), align 8
   store volatile i64 0, ptr %250, align 8
   %252 = getelementptr inbounds nuw i8, ptr %227, i64 192
   %253 = load ptr, ptr %252, align 8
-  store ptr %253, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 192), align 8
+  store ptr %253, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 192), align 8
   store ptr null, ptr %252, align 8
   %254 = and i16 %229, -3587
   %255 = or disjoint i16 %254, 3584
-  store i16 %255, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 16), align 8
+  store i16 %255, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 16), align 8
   %256 = getelementptr inbounds nuw i8, ptr %227, i64 160
   store ptr null, ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %227, i64 184
@@ -645,8 +645,8 @@ opal_obj_run_destructors.exit242:                 ; preds = %opal_obj_run_destru
   br label %278
 
 278:                                              ; preds = %opal_thread_add_fetch_32.exit237, %opal_obj_run_destructors.exit242
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 240), ptr noundef nonnull @.str.18, i64 noundef 64) #8
-  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 192), align 16
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 240), ptr noundef nonnull @.str.18, i64 noundef 64) #8
+  %279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 192), align 16
   %280 = call i32 @ompi_datatype_create_contiguous(i32 noundef 2, ptr noundef %279, ptr noundef nonnull %5) #8
   %281 = load ptr, ptr %5, align 8
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 16
@@ -661,46 +661,46 @@ opal_obj_run_destructors.exit242:                 ; preds = %opal_obj_run_destru
   %289 = load i16, ptr %288, align 8
   %290 = getelementptr inbounds nuw i8, ptr %287, i64 18
   %291 = load i16, ptr %290, align 2
-  store i16 %291, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 18), align 2
+  store i16 %291, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 18), align 2
   %292 = getelementptr inbounds nuw i8, ptr %287, i64 20
   %293 = load i32, ptr %292, align 4
-  store i32 %293, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 20), align 4
+  store i32 %293, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 20), align 4
   %294 = getelementptr inbounds nuw i8, ptr %287, i64 24
   %295 = load i64, ptr %294, align 8
-  store i64 %295, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 24), align 8
+  store i64 %295, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 24), align 8
   %296 = getelementptr inbounds nuw i8, ptr %287, i64 32
   %297 = load i64, ptr %296, align 8
-  store i64 %297, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 32), align 8
+  store i64 %297, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 32), align 8
   %298 = getelementptr inbounds nuw i8, ptr %287, i64 40
   %299 = load i64, ptr %298, align 8
-  store i64 %299, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 40), align 8
+  store i64 %299, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 40), align 8
   %300 = getelementptr inbounds nuw i8, ptr %287, i64 48
   %301 = load i64, ptr %300, align 8
-  store i64 %301, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 48), align 8
+  store i64 %301, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 48), align 8
   %302 = getelementptr inbounds nuw i8, ptr %287, i64 56
   %303 = load i64, ptr %302, align 8
-  store i64 %303, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 56), align 8
+  store i64 %303, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 56), align 8
   %304 = getelementptr inbounds nuw i8, ptr %287, i64 72
   %305 = load i32, ptr %304, align 8
-  store i32 %305, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 72), align 8
+  store i32 %305, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 72), align 8
   %306 = getelementptr inbounds nuw i8, ptr %287, i64 64
   %307 = load i64, ptr %306, align 8
-  store i64 %307, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 64), align 8
+  store i64 %307, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 64), align 8
   %308 = getelementptr inbounds nuw i8, ptr %287, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %308, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %308, i64 24, i1 false)
   %309 = getelementptr inbounds nuw i8, ptr %287, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %309, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %309, i64 24, i1 false)
   %310 = getelementptr inbounds nuw i8, ptr %287, i64 224
   %311 = load volatile i64, ptr %310, align 8
-  store volatile i64 %311, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 224), align 8
+  store volatile i64 %311, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 224), align 8
   store volatile i64 0, ptr %310, align 8
   %312 = getelementptr inbounds nuw i8, ptr %287, i64 192
   %313 = load ptr, ptr %312, align 8
-  store ptr %313, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 192), align 8
+  store ptr %313, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 192), align 8
   store ptr null, ptr %312, align 8
   %314 = and i16 %289, -3587
   %315 = or disjoint i16 %314, 3584
-  store i16 %315, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 16), align 8
+  store i16 %315, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 16), align 8
   %316 = getelementptr inbounds nuw i8, ptr %287, i64 160
   store ptr null, ptr %316, align 8
   %317 = getelementptr inbounds nuw i8, ptr %287, i64 184
@@ -755,8 +755,8 @@ opal_obj_run_destructors.exit249:                 ; preds = %opal_obj_run_destru
   br label %338
 
 338:                                              ; preds = %opal_thread_add_fetch_32.exit244, %opal_obj_run_destructors.exit249
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 240), ptr noundef nonnull @.str.19, i64 noundef 64) #8
-  %339 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 200), align 8
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 240), ptr noundef nonnull @.str.19, i64 noundef 64) #8
+  %339 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 200), align 8
   %340 = call i32 @ompi_datatype_create_contiguous(i32 noundef 2, ptr noundef %339, ptr noundef nonnull %6) #8
   %341 = load ptr, ptr %6, align 8
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 16
@@ -771,46 +771,46 @@ opal_obj_run_destructors.exit249:                 ; preds = %opal_obj_run_destru
   %349 = load i16, ptr %348, align 8
   %350 = getelementptr inbounds nuw i8, ptr %347, i64 18
   %351 = load i16, ptr %350, align 2
-  store i16 %351, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 18), align 2
+  store i16 %351, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 18), align 2
   %352 = getelementptr inbounds nuw i8, ptr %347, i64 20
   %353 = load i32, ptr %352, align 4
-  store i32 %353, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 20), align 4
+  store i32 %353, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 20), align 4
   %354 = getelementptr inbounds nuw i8, ptr %347, i64 24
   %355 = load i64, ptr %354, align 8
-  store i64 %355, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 24), align 8
+  store i64 %355, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 24), align 8
   %356 = getelementptr inbounds nuw i8, ptr %347, i64 32
   %357 = load i64, ptr %356, align 8
-  store i64 %357, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 32), align 8
+  store i64 %357, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 32), align 8
   %358 = getelementptr inbounds nuw i8, ptr %347, i64 40
   %359 = load i64, ptr %358, align 8
-  store i64 %359, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 40), align 8
+  store i64 %359, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 40), align 8
   %360 = getelementptr inbounds nuw i8, ptr %347, i64 48
   %361 = load i64, ptr %360, align 8
-  store i64 %361, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 48), align 8
+  store i64 %361, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 48), align 8
   %362 = getelementptr inbounds nuw i8, ptr %347, i64 56
   %363 = load i64, ptr %362, align 8
-  store i64 %363, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 56), align 8
+  store i64 %363, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 56), align 8
   %364 = getelementptr inbounds nuw i8, ptr %347, i64 72
   %365 = load i32, ptr %364, align 8
-  store i32 %365, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 72), align 8
+  store i32 %365, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 72), align 8
   %366 = getelementptr inbounds nuw i8, ptr %347, i64 64
   %367 = load i64, ptr %366, align 8
-  store i64 %367, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 64), align 8
+  store i64 %367, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 64), align 8
   %368 = getelementptr inbounds nuw i8, ptr %347, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %368, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %368, i64 24, i1 false)
   %369 = getelementptr inbounds nuw i8, ptr %347, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %369, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %369, i64 24, i1 false)
   %370 = getelementptr inbounds nuw i8, ptr %347, i64 224
   %371 = load volatile i64, ptr %370, align 8
-  store volatile i64 %371, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 224), align 8
+  store volatile i64 %371, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 224), align 8
   store volatile i64 0, ptr %370, align 8
   %372 = getelementptr inbounds nuw i8, ptr %347, i64 192
   %373 = load ptr, ptr %372, align 8
-  store ptr %373, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 192), align 8
+  store ptr %373, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 192), align 8
   store ptr null, ptr %372, align 8
   %374 = and i16 %349, -3587
   %375 = or disjoint i16 %374, 3584
-  store i16 %375, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 16), align 8
+  store i16 %375, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 16), align 8
   %376 = getelementptr inbounds nuw i8, ptr %347, i64 160
   store ptr null, ptr %376, align 8
   %377 = getelementptr inbounds nuw i8, ptr %347, i64 184
@@ -865,11 +865,11 @@ opal_obj_run_destructors.exit256:                 ; preds = %opal_obj_run_destru
   br label %398
 
 398:                                              ; preds = %opal_thread_add_fetch_32.exit251, %opal_obj_run_destructors.exit256
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 240), ptr noundef nonnull @.str.20, i64 noundef 64) #8
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 240), ptr noundef nonnull @.str.20, i64 noundef 64) #8
   store i64 4294967297, ptr %9, align 8
-  %399 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 72), align 8
+  %399 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 72), align 8
   store ptr %399, ptr %7, align 16
-  %400 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
+  %400 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
   %401 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %400, ptr %401, align 8
   store i64 0, ptr %10, align 16
@@ -900,46 +900,46 @@ opal_obj_run_destructors.exit256:                 ; preds = %opal_obj_run_destru
   %415 = load i16, ptr %414, align 8
   %416 = getelementptr inbounds nuw i8, ptr %413, i64 18
   %417 = load i16, ptr %416, align 2
-  store i16 %417, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 18), align 2
+  store i16 %417, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 18), align 2
   %418 = getelementptr inbounds nuw i8, ptr %413, i64 20
   %419 = load i32, ptr %418, align 4
-  store i32 %419, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 20), align 4
+  store i32 %419, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 20), align 4
   %420 = getelementptr inbounds nuw i8, ptr %413, i64 24
   %421 = load i64, ptr %420, align 8
-  store i64 %421, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 24), align 8
+  store i64 %421, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 24), align 8
   %422 = getelementptr inbounds nuw i8, ptr %413, i64 32
   %423 = load i64, ptr %422, align 8
-  store i64 %423, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 32), align 8
+  store i64 %423, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 32), align 8
   %424 = getelementptr inbounds nuw i8, ptr %413, i64 40
   %425 = load i64, ptr %424, align 8
-  store i64 %425, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 40), align 8
+  store i64 %425, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 40), align 8
   %426 = getelementptr inbounds nuw i8, ptr %413, i64 48
   %427 = load i64, ptr %426, align 8
-  store i64 %427, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 48), align 8
+  store i64 %427, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 48), align 8
   %428 = getelementptr inbounds nuw i8, ptr %413, i64 56
   %429 = load i64, ptr %428, align 8
-  store i64 %429, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 56), align 8
+  store i64 %429, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 56), align 8
   %430 = getelementptr inbounds nuw i8, ptr %413, i64 72
   %431 = load i32, ptr %430, align 8
-  store i32 %431, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 72), align 8
+  store i32 %431, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 72), align 8
   %432 = getelementptr inbounds nuw i8, ptr %413, i64 64
   %433 = load i64, ptr %432, align 8
-  store i64 %433, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 64), align 8
+  store i64 %433, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 64), align 8
   %434 = getelementptr inbounds nuw i8, ptr %413, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %434, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %434, i64 24, i1 false)
   %435 = getelementptr inbounds nuw i8, ptr %413, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %435, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %435, i64 24, i1 false)
   %436 = getelementptr inbounds nuw i8, ptr %413, i64 224
   %437 = load volatile i64, ptr %436, align 8
-  store volatile i64 %437, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 224), align 8
+  store volatile i64 %437, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 224), align 8
   store volatile i64 0, ptr %436, align 8
   %438 = getelementptr inbounds nuw i8, ptr %413, i64 192
   %439 = load ptr, ptr %438, align 8
-  store ptr %439, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 192), align 8
+  store ptr %439, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 192), align 8
   store ptr null, ptr %438, align 8
   %440 = and i16 %415, -3587
   %441 = or disjoint i16 %440, 3584
-  store i16 %441, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 16), align 8
+  store i16 %441, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 16), align 8
   %442 = getelementptr inbounds nuw i8, ptr %413, i64 160
   store ptr null, ptr %442, align 8
   %443 = getelementptr inbounds nuw i8, ptr %413, i64 184
@@ -994,11 +994,11 @@ opal_obj_run_destructors.exit263:                 ; preds = %opal_obj_run_destru
   br label %464
 
 464:                                              ; preds = %opal_thread_add_fetch_32.exit258, %opal_obj_run_destructors.exit263
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 240), ptr noundef nonnull @.str.21, i64 noundef 64) #8
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 240), ptr noundef nonnull @.str.21, i64 noundef 64) #8
   store i64 4294967297, ptr %13, align 8
-  %465 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 80), align 16
+  %465 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 80), align 16
   store ptr %465, ptr %11, align 16
-  %466 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
+  %466 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
   %467 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %466, ptr %467, align 8
   store i64 0, ptr %14, align 16
@@ -1029,46 +1029,46 @@ opal_obj_run_destructors.exit263:                 ; preds = %opal_obj_run_destru
   %481 = load i16, ptr %480, align 8
   %482 = getelementptr inbounds nuw i8, ptr %479, i64 18
   %483 = load i16, ptr %482, align 2
-  store i16 %483, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 18), align 2
+  store i16 %483, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 18), align 2
   %484 = getelementptr inbounds nuw i8, ptr %479, i64 20
   %485 = load i32, ptr %484, align 4
-  store i32 %485, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 20), align 4
+  store i32 %485, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 20), align 4
   %486 = getelementptr inbounds nuw i8, ptr %479, i64 24
   %487 = load i64, ptr %486, align 8
-  store i64 %487, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 24), align 8
+  store i64 %487, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 24), align 8
   %488 = getelementptr inbounds nuw i8, ptr %479, i64 32
   %489 = load i64, ptr %488, align 8
-  store i64 %489, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 32), align 8
+  store i64 %489, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 32), align 8
   %490 = getelementptr inbounds nuw i8, ptr %479, i64 40
   %491 = load i64, ptr %490, align 8
-  store i64 %491, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 40), align 8
+  store i64 %491, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 40), align 8
   %492 = getelementptr inbounds nuw i8, ptr %479, i64 48
   %493 = load i64, ptr %492, align 8
-  store i64 %493, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 48), align 8
+  store i64 %493, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 48), align 8
   %494 = getelementptr inbounds nuw i8, ptr %479, i64 56
   %495 = load i64, ptr %494, align 8
-  store i64 %495, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 56), align 8
+  store i64 %495, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 56), align 8
   %496 = getelementptr inbounds nuw i8, ptr %479, i64 72
   %497 = load i32, ptr %496, align 8
-  store i32 %497, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 72), align 8
+  store i32 %497, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 72), align 8
   %498 = getelementptr inbounds nuw i8, ptr %479, i64 64
   %499 = load i64, ptr %498, align 8
-  store i64 %499, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 64), align 8
+  store i64 %499, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 64), align 8
   %500 = getelementptr inbounds nuw i8, ptr %479, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %500, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %500, i64 24, i1 false)
   %501 = getelementptr inbounds nuw i8, ptr %479, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %501, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %501, i64 24, i1 false)
   %502 = getelementptr inbounds nuw i8, ptr %479, i64 224
   %503 = load volatile i64, ptr %502, align 8
-  store volatile i64 %503, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 224), align 8
+  store volatile i64 %503, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 224), align 8
   store volatile i64 0, ptr %502, align 8
   %504 = getelementptr inbounds nuw i8, ptr %479, i64 192
   %505 = load ptr, ptr %504, align 8
-  store ptr %505, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 192), align 8
+  store ptr %505, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 192), align 8
   store ptr null, ptr %504, align 8
   %506 = and i16 %481, -3587
   %507 = or disjoint i16 %506, 3584
-  store i16 %507, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 16), align 8
+  store i16 %507, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 16), align 8
   %508 = getelementptr inbounds nuw i8, ptr %479, i64 160
   store ptr null, ptr %508, align 8
   %509 = getelementptr inbounds nuw i8, ptr %479, i64 184
@@ -1123,11 +1123,11 @@ opal_obj_run_destructors.exit270:                 ; preds = %opal_obj_run_destru
   br label %530
 
 530:                                              ; preds = %opal_thread_add_fetch_32.exit265, %opal_obj_run_destructors.exit270
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 240), ptr noundef nonnull @.str.23, i64 noundef 64) #8
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 240), ptr noundef nonnull @.str.23, i64 noundef 64) #8
   store i64 4294967297, ptr %17, align 8
-  %531 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 400), align 16
+  %531 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 400), align 16
   store ptr %531, ptr %15, align 16
-  %532 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
+  %532 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
   %533 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %532, ptr %533, align 8
   store i64 0, ptr %18, align 16
@@ -1158,46 +1158,46 @@ opal_obj_run_destructors.exit270:                 ; preds = %opal_obj_run_destru
   %547 = load i16, ptr %546, align 8
   %548 = getelementptr inbounds nuw i8, ptr %545, i64 18
   %549 = load i16, ptr %548, align 2
-  store i16 %549, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 18), align 2
+  store i16 %549, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 18), align 2
   %550 = getelementptr inbounds nuw i8, ptr %545, i64 20
   %551 = load i32, ptr %550, align 4
-  store i32 %551, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 20), align 4
+  store i32 %551, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 20), align 4
   %552 = getelementptr inbounds nuw i8, ptr %545, i64 24
   %553 = load i64, ptr %552, align 8
-  store i64 %553, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 24), align 8
+  store i64 %553, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 24), align 8
   %554 = getelementptr inbounds nuw i8, ptr %545, i64 32
   %555 = load i64, ptr %554, align 8
-  store i64 %555, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 32), align 8
+  store i64 %555, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 32), align 8
   %556 = getelementptr inbounds nuw i8, ptr %545, i64 40
   %557 = load i64, ptr %556, align 8
-  store i64 %557, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 40), align 8
+  store i64 %557, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 40), align 8
   %558 = getelementptr inbounds nuw i8, ptr %545, i64 48
   %559 = load i64, ptr %558, align 8
-  store i64 %559, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 48), align 8
+  store i64 %559, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 48), align 8
   %560 = getelementptr inbounds nuw i8, ptr %545, i64 56
   %561 = load i64, ptr %560, align 8
-  store i64 %561, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 56), align 8
+  store i64 %561, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 56), align 8
   %562 = getelementptr inbounds nuw i8, ptr %545, i64 72
   %563 = load i32, ptr %562, align 8
-  store i32 %563, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 72), align 8
+  store i32 %563, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 72), align 8
   %564 = getelementptr inbounds nuw i8, ptr %545, i64 64
   %565 = load i64, ptr %564, align 8
-  store i64 %565, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 64), align 8
+  store i64 %565, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 64), align 8
   %566 = getelementptr inbounds nuw i8, ptr %545, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %566, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %566, i64 24, i1 false)
   %567 = getelementptr inbounds nuw i8, ptr %545, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %567, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %567, i64 24, i1 false)
   %568 = getelementptr inbounds nuw i8, ptr %545, i64 224
   %569 = load volatile i64, ptr %568, align 8
-  store volatile i64 %569, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 224), align 8
+  store volatile i64 %569, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 224), align 8
   store volatile i64 0, ptr %568, align 8
   %570 = getelementptr inbounds nuw i8, ptr %545, i64 192
   %571 = load ptr, ptr %570, align 8
-  store ptr %571, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 192), align 8
+  store ptr %571, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 192), align 8
   store ptr null, ptr %570, align 8
   %572 = and i16 %547, -3587
   %573 = or disjoint i16 %572, 3584
-  store i16 %573, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 16), align 8
+  store i16 %573, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 16), align 8
   %574 = getelementptr inbounds nuw i8, ptr %545, i64 160
   store ptr null, ptr %574, align 8
   %575 = getelementptr inbounds nuw i8, ptr %545, i64 184
@@ -1252,11 +1252,11 @@ opal_obj_run_destructors.exit277:                 ; preds = %opal_obj_run_destru
   br label %596
 
 596:                                              ; preds = %opal_thread_add_fetch_32.exit272, %opal_obj_run_destructors.exit277
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 240), ptr noundef nonnull @.str.25, i64 noundef 64) #8
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 240), ptr noundef nonnull @.str.25, i64 noundef 64) #8
   store i64 4294967297, ptr %21, align 8
-  %597 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 24), align 8
+  %597 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 24), align 8
   store ptr %597, ptr %19, align 16
-  %598 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
+  %598 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
   %599 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %598, ptr %599, align 8
   store i64 0, ptr %22, align 16
@@ -1287,46 +1287,46 @@ opal_obj_run_destructors.exit277:                 ; preds = %opal_obj_run_destru
   %613 = load i16, ptr %612, align 8
   %614 = getelementptr inbounds nuw i8, ptr %611, i64 18
   %615 = load i16, ptr %614, align 2
-  store i16 %615, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 18), align 2
+  store i16 %615, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 18), align 2
   %616 = getelementptr inbounds nuw i8, ptr %611, i64 20
   %617 = load i32, ptr %616, align 4
-  store i32 %617, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 20), align 4
+  store i32 %617, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 20), align 4
   %618 = getelementptr inbounds nuw i8, ptr %611, i64 24
   %619 = load i64, ptr %618, align 8
-  store i64 %619, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 24), align 8
+  store i64 %619, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 24), align 8
   %620 = getelementptr inbounds nuw i8, ptr %611, i64 32
   %621 = load i64, ptr %620, align 8
-  store i64 %621, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 32), align 8
+  store i64 %621, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 32), align 8
   %622 = getelementptr inbounds nuw i8, ptr %611, i64 40
   %623 = load i64, ptr %622, align 8
-  store i64 %623, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 40), align 8
+  store i64 %623, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 40), align 8
   %624 = getelementptr inbounds nuw i8, ptr %611, i64 48
   %625 = load i64, ptr %624, align 8
-  store i64 %625, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 48), align 8
+  store i64 %625, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 48), align 8
   %626 = getelementptr inbounds nuw i8, ptr %611, i64 56
   %627 = load i64, ptr %626, align 8
-  store i64 %627, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 56), align 8
+  store i64 %627, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 56), align 8
   %628 = getelementptr inbounds nuw i8, ptr %611, i64 72
   %629 = load i32, ptr %628, align 8
-  store i32 %629, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 72), align 8
+  store i32 %629, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 72), align 8
   %630 = getelementptr inbounds nuw i8, ptr %611, i64 64
   %631 = load i64, ptr %630, align 8
-  store i64 %631, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 64), align 8
+  store i64 %631, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 64), align 8
   %632 = getelementptr inbounds nuw i8, ptr %611, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %632, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %632, i64 24, i1 false)
   %633 = getelementptr inbounds nuw i8, ptr %611, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %633, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %633, i64 24, i1 false)
   %634 = getelementptr inbounds nuw i8, ptr %611, i64 224
   %635 = load volatile i64, ptr %634, align 8
-  store volatile i64 %635, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 224), align 8
+  store volatile i64 %635, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 224), align 8
   store volatile i64 0, ptr %634, align 8
   %636 = getelementptr inbounds nuw i8, ptr %611, i64 192
   %637 = load ptr, ptr %636, align 8
-  store ptr %637, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 192), align 8
+  store ptr %637, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 192), align 8
   store ptr null, ptr %636, align 8
   %638 = and i16 %613, -3587
   %639 = or disjoint i16 %638, 3584
-  store i16 %639, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 16), align 8
+  store i16 %639, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 16), align 8
   %640 = getelementptr inbounds nuw i8, ptr %611, i64 160
   store ptr null, ptr %640, align 8
   %641 = getelementptr inbounds nuw i8, ptr %611, i64 184
@@ -1381,11 +1381,11 @@ opal_obj_run_destructors.exit284:                 ; preds = %opal_obj_run_destru
   br label %662
 
 662:                                              ; preds = %opal_thread_add_fetch_32.exit279, %opal_obj_run_destructors.exit284
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 240), ptr noundef nonnull @.str.27, i64 noundef 64) #8
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 240), ptr noundef nonnull @.str.27, i64 noundef 64) #8
   store i64 4294967297, ptr %25, align 8
-  %663 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 88), align 8
+  %663 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 88), align 8
   store ptr %663, ptr %23, align 16
-  %664 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
+  %664 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_basicDatatypes, i64 40), align 8
   %665 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %664, ptr %665, align 8
   store i64 0, ptr %26, align 16
@@ -1416,46 +1416,46 @@ opal_obj_run_destructors.exit284:                 ; preds = %opal_obj_run_destru
   %679 = load i16, ptr %678, align 8
   %680 = getelementptr inbounds nuw i8, ptr %677, i64 18
   %681 = load i16, ptr %680, align 2
-  store i16 %681, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 18), align 2
+  store i16 %681, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 18), align 2
   %682 = getelementptr inbounds nuw i8, ptr %677, i64 20
   %683 = load i32, ptr %682, align 4
-  store i32 %683, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 20), align 4
+  store i32 %683, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 20), align 4
   %684 = getelementptr inbounds nuw i8, ptr %677, i64 24
   %685 = load i64, ptr %684, align 8
-  store i64 %685, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 24), align 8
+  store i64 %685, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 24), align 8
   %686 = getelementptr inbounds nuw i8, ptr %677, i64 32
   %687 = load i64, ptr %686, align 8
-  store i64 %687, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 32), align 8
+  store i64 %687, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 32), align 8
   %688 = getelementptr inbounds nuw i8, ptr %677, i64 40
   %689 = load i64, ptr %688, align 8
-  store i64 %689, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 40), align 8
+  store i64 %689, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 40), align 8
   %690 = getelementptr inbounds nuw i8, ptr %677, i64 48
   %691 = load i64, ptr %690, align 8
-  store i64 %691, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 48), align 8
+  store i64 %691, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 48), align 8
   %692 = getelementptr inbounds nuw i8, ptr %677, i64 56
   %693 = load i64, ptr %692, align 8
-  store i64 %693, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 56), align 8
+  store i64 %693, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 56), align 8
   %694 = getelementptr inbounds nuw i8, ptr %677, i64 72
   %695 = load i32, ptr %694, align 8
-  store i32 %695, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 72), align 8
+  store i32 %695, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 72), align 8
   %696 = getelementptr inbounds nuw i8, ptr %677, i64 64
   %697 = load i64, ptr %696, align 8
-  store i64 %697, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 64), align 8
+  store i64 %697, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 64), align 8
   %698 = getelementptr inbounds nuw i8, ptr %677, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %698, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 144), ptr noundef nonnull align 8 dereferenceable(24) %698, i64 24, i1 false)
   %699 = getelementptr inbounds nuw i8, ptr %677, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %699, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 168), ptr noundef nonnull align 8 dereferenceable(24) %699, i64 24, i1 false)
   %700 = getelementptr inbounds nuw i8, ptr %677, i64 224
   %701 = load volatile i64, ptr %700, align 8
-  store volatile i64 %701, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 224), align 8
+  store volatile i64 %701, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 224), align 8
   store volatile i64 0, ptr %700, align 8
   %702 = getelementptr inbounds nuw i8, ptr %677, i64 192
   %703 = load ptr, ptr %702, align 8
-  store ptr %703, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 192), align 8
+  store ptr %703, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 192), align 8
   store ptr null, ptr %702, align 8
   %704 = and i16 %679, -3587
   %705 = or disjoint i16 %704, 3584
-  store i16 %705, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 16), align 8
+  store i16 %705, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 16), align 8
   %706 = getelementptr inbounds nuw i8, ptr %677, i64 160
   store ptr null, ptr %706, align 8
   %707 = getelementptr inbounds nuw i8, ptr %677, i64 184
@@ -1510,11 +1510,11 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %728
 
 728:                                              ; preds = %opal_thread_add_fetch_32.exit286, %opal_obj_run_destructors.exit291
-  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 240), ptr noundef nonnull @.str.29, i64 noundef 64) #8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @ompi_mpi_datatype_null, i64 204), align 4
+  call void @opal_string_copy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 240), ptr noundef nonnull @.str.29, i64 noundef 64) #8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_datatype_null, i64 204), align 4
   %729 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 0, ptr noundef nonnull @ompi_mpi_datatype_null) #8
   %730 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %731 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_datatype_null, i64 204), align 4
+  %731 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_datatype_null, i64 204), align 4
   %.not132 = icmp sgt i32 %730, %731
   br i1 %.not132, label %734, label %732
 
@@ -1524,10 +1524,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %734
 
 734:                                              ; preds = %732, %728
-  store i32 1, ptr getelementptr inbounds (i8, ptr @ompi_mpi_byte, i64 204), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_byte, i64 204), align 4
   %735 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 1, ptr noundef nonnull @ompi_mpi_byte) #8
   %736 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %737 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_byte, i64 204), align 4
+  %737 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_byte, i64 204), align 4
   %.not133 = icmp sgt i32 %736, %737
   br i1 %.not133, label %740, label %738
 
@@ -1537,10 +1537,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %740
 
 740:                                              ; preds = %738, %734
-  store i32 2, ptr getelementptr inbounds (i8, ptr @ompi_mpi_packed, i64 204), align 4
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_packed, i64 204), align 4
   %741 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 2, ptr noundef nonnull @ompi_mpi_packed) #8
   %742 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %743 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_packed, i64 204), align 4
+  %743 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_packed, i64 204), align 4
   %.not134 = icmp sgt i32 %742, %743
   br i1 %.not134, label %746, label %744
 
@@ -1550,10 +1550,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %746
 
 746:                                              ; preds = %744, %740
-  store i32 3, ptr getelementptr inbounds (i8, ptr @ompi_mpi_ub, i64 204), align 4
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_ub, i64 204), align 4
   %747 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 3, ptr noundef nonnull @ompi_mpi_ub) #8
   %748 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %749 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_ub, i64 204), align 4
+  %749 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_ub, i64 204), align 4
   %.not135 = icmp sgt i32 %748, %749
   br i1 %.not135, label %752, label %750
 
@@ -1563,10 +1563,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %752
 
 752:                                              ; preds = %750, %746
-  store i32 4, ptr getelementptr inbounds (i8, ptr @ompi_mpi_lb, i64 204), align 4
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_lb, i64 204), align 4
   %753 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 4, ptr noundef nonnull @ompi_mpi_lb) #8
   %754 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %755 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_lb, i64 204), align 4
+  %755 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_lb, i64 204), align 4
   %.not136 = icmp sgt i32 %754, %755
   br i1 %.not136, label %758, label %756
 
@@ -1576,10 +1576,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %758
 
 758:                                              ; preds = %756, %752
-  store i32 5, ptr getelementptr inbounds (i8, ptr @ompi_mpi_character, i64 204), align 4
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_character, i64 204), align 4
   %759 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 5, ptr noundef nonnull @ompi_mpi_character) #8
   %760 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %761 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_character, i64 204), align 4
+  %761 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_character, i64 204), align 4
   %.not137 = icmp sgt i32 %760, %761
   br i1 %.not137, label %764, label %762
 
@@ -1589,10 +1589,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %764
 
 764:                                              ; preds = %762, %758
-  store i32 6, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical, i64 204), align 4
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical, i64 204), align 4
   %765 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 6, ptr noundef nonnull @ompi_mpi_logical) #8
   %766 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %767 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical, i64 204), align 4
+  %767 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical, i64 204), align 4
   %.not138 = icmp sgt i32 %766, %767
   br i1 %.not138, label %770, label %768
 
@@ -1602,10 +1602,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %770
 
 770:                                              ; preds = %768, %764
-  store i32 7, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer, i64 204), align 4
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer, i64 204), align 4
   %771 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 7, ptr noundef nonnull @ompi_mpi_integer) #8
   %772 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %773 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer, i64 204), align 4
+  %773 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer, i64 204), align 4
   %.not139 = icmp sgt i32 %772, %773
   br i1 %.not139, label %776, label %774
 
@@ -1615,10 +1615,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %776
 
 776:                                              ; preds = %774, %770
-  store i32 8, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer1, i64 204), align 4
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer1, i64 204), align 4
   %777 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 8, ptr noundef nonnull @ompi_mpi_integer1) #8
   %778 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %779 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer1, i64 204), align 4
+  %779 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer1, i64 204), align 4
   %.not140 = icmp sgt i32 %778, %779
   br i1 %.not140, label %782, label %780
 
@@ -1628,10 +1628,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %782
 
 782:                                              ; preds = %780, %776
-  store i32 9, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer2, i64 204), align 4
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer2, i64 204), align 4
   %783 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 9, ptr noundef nonnull @ompi_mpi_integer2) #8
   %784 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %785 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer2, i64 204), align 4
+  %785 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer2, i64 204), align 4
   %.not141 = icmp sgt i32 %784, %785
   br i1 %.not141, label %788, label %786
 
@@ -1641,10 +1641,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %788
 
 788:                                              ; preds = %786, %782
-  store i32 10, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer4, i64 204), align 4
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer4, i64 204), align 4
   %789 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 10, ptr noundef nonnull @ompi_mpi_integer4) #8
   %790 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %791 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer4, i64 204), align 4
+  %791 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer4, i64 204), align 4
   %.not142 = icmp sgt i32 %790, %791
   br i1 %.not142, label %794, label %792
 
@@ -1654,10 +1654,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %794
 
 794:                                              ; preds = %792, %788
-  store i32 11, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer8, i64 204), align 4
+  store i32 11, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer8, i64 204), align 4
   %795 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 11, ptr noundef nonnull @ompi_mpi_integer8) #8
   %796 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %797 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer8, i64 204), align 4
+  %797 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer8, i64 204), align 4
   %.not143 = icmp sgt i32 %796, %797
   br i1 %.not143, label %800, label %798
 
@@ -1667,10 +1667,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %800
 
 800:                                              ; preds = %798, %794
-  store i32 12, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer16, i64 204), align 4
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer16, i64 204), align 4
   %801 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 12, ptr noundef nonnull @ompi_mpi_integer16) #8
   %802 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %803 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_integer16, i64 204), align 4
+  %803 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_integer16, i64 204), align 4
   %.not144 = icmp sgt i32 %802, %803
   br i1 %.not144, label %806, label %804
 
@@ -1680,10 +1680,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %806
 
 806:                                              ; preds = %804, %800
-  store i32 13, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real, i64 204), align 4
+  store i32 13, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real, i64 204), align 4
   %807 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 13, ptr noundef nonnull @ompi_mpi_real) #8
   %808 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %809 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real, i64 204), align 4
+  %809 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real, i64 204), align 4
   %.not145 = icmp sgt i32 %808, %809
   br i1 %.not145, label %812, label %810
 
@@ -1693,10 +1693,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %812
 
 812:                                              ; preds = %810, %806
-  store i32 14, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real4, i64 204), align 4
+  store i32 14, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real4, i64 204), align 4
   %813 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 14, ptr noundef nonnull @ompi_mpi_real4) #8
   %814 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %815 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real4, i64 204), align 4
+  %815 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real4, i64 204), align 4
   %.not146 = icmp sgt i32 %814, %815
   br i1 %.not146, label %818, label %816
 
@@ -1706,10 +1706,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %818
 
 818:                                              ; preds = %816, %812
-  store i32 15, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real8, i64 204), align 4
+  store i32 15, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real8, i64 204), align 4
   %819 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 15, ptr noundef nonnull @ompi_mpi_real8) #8
   %820 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %821 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real8, i64 204), align 4
+  %821 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real8, i64 204), align 4
   %.not147 = icmp sgt i32 %820, %821
   br i1 %.not147, label %824, label %822
 
@@ -1719,10 +1719,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %824
 
 824:                                              ; preds = %822, %818
-  store i32 16, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real16, i64 204), align 4
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real16, i64 204), align 4
   %825 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 16, ptr noundef nonnull @ompi_mpi_real16) #8
   %826 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %827 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real16, i64 204), align 4
+  %827 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real16, i64 204), align 4
   %.not148 = icmp sgt i32 %826, %827
   br i1 %.not148, label %830, label %828
 
@@ -1732,10 +1732,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %830
 
 830:                                              ; preds = %828, %824
-  store i32 17, ptr getelementptr inbounds (i8, ptr @ompi_mpi_dblprec, i64 204), align 4
+  store i32 17, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_dblprec, i64 204), align 4
   %831 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 17, ptr noundef nonnull @ompi_mpi_dblprec) #8
   %832 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %833 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_dblprec, i64 204), align 4
+  %833 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_dblprec, i64 204), align 4
   %.not149 = icmp sgt i32 %832, %833
   br i1 %.not149, label %836, label %834
 
@@ -1745,10 +1745,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %836
 
 836:                                              ; preds = %834, %830
-  store i32 18, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cplex, i64 204), align 4
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cplex, i64 204), align 4
   %837 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 18, ptr noundef nonnull @ompi_mpi_cplex) #8
   %838 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %839 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cplex, i64 204), align 4
+  %839 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cplex, i64 204), align 4
   %.not150 = icmp sgt i32 %838, %839
   br i1 %.not150, label %842, label %840
 
@@ -1758,10 +1758,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %842
 
 842:                                              ; preds = %840, %836
-  store i32 19, ptr getelementptr inbounds (i8, ptr @ompi_mpi_complex8, i64 204), align 4
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_complex8, i64 204), align 4
   %843 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 19, ptr noundef nonnull @ompi_mpi_complex8) #8
   %844 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %845 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_complex8, i64 204), align 4
+  %845 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_complex8, i64 204), align 4
   %.not151 = icmp sgt i32 %844, %845
   br i1 %.not151, label %848, label %846
 
@@ -1771,10 +1771,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %848
 
 848:                                              ; preds = %846, %842
-  store i32 20, ptr getelementptr inbounds (i8, ptr @ompi_mpi_complex16, i64 204), align 4
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_complex16, i64 204), align 4
   %849 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 20, ptr noundef nonnull @ompi_mpi_complex16) #8
   %850 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %851 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_complex16, i64 204), align 4
+  %851 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_complex16, i64 204), align 4
   %.not152 = icmp sgt i32 %850, %851
   br i1 %.not152, label %854, label %852
 
@@ -1784,10 +1784,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %854
 
 854:                                              ; preds = %852, %848
-  store i32 21, ptr getelementptr inbounds (i8, ptr @ompi_mpi_complex32, i64 204), align 4
+  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_complex32, i64 204), align 4
   %855 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 21, ptr noundef nonnull @ompi_mpi_complex32) #8
   %856 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %857 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_complex32, i64 204), align 4
+  %857 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_complex32, i64 204), align 4
   %.not153 = icmp sgt i32 %856, %857
   br i1 %.not153, label %860, label %858
 
@@ -1797,10 +1797,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %860
 
 860:                                              ; preds = %858, %854
-  store i32 22, ptr getelementptr inbounds (i8, ptr @ompi_mpi_dblcplex, i64 204), align 4
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_dblcplex, i64 204), align 4
   %861 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 22, ptr noundef nonnull @ompi_mpi_dblcplex) #8
   %862 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %863 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_dblcplex, i64 204), align 4
+  %863 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_dblcplex, i64 204), align 4
   %.not154 = icmp sgt i32 %862, %863
   br i1 %.not154, label %866, label %864
 
@@ -1810,10 +1810,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %866
 
 866:                                              ; preds = %864, %860
-  store i32 23, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 204), align 4
+  store i32 23, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 204), align 4
   %867 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 23, ptr noundef nonnull @ompi_mpi_2real) #8
   %868 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %869 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2real, i64 204), align 4
+  %869 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2real, i64 204), align 4
   %.not155 = icmp sgt i32 %868, %869
   br i1 %.not155, label %872, label %870
 
@@ -1823,10 +1823,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %872
 
 872:                                              ; preds = %870, %866
-  store i32 24, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 204), align 4
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 204), align 4
   %873 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 24, ptr noundef nonnull @ompi_mpi_2dblprec) #8
   %874 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %875 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblprec, i64 204), align 4
+  %875 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblprec, i64 204), align 4
   %.not156 = icmp sgt i32 %874, %875
   br i1 %.not156, label %878, label %876
 
@@ -1836,10 +1836,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %878
 
 878:                                              ; preds = %876, %872
-  store i32 25, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 204), align 4
+  store i32 25, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 204), align 4
   %879 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 25, ptr noundef nonnull @ompi_mpi_2integer) #8
   %880 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %881 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2integer, i64 204), align 4
+  %881 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2integer, i64 204), align 4
   %.not157 = icmp sgt i32 %880, %881
   br i1 %.not157, label %884, label %882
 
@@ -1849,10 +1849,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %884
 
 884:                                              ; preds = %882, %878
-  store i32 26, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 204), align 4
+  store i32 26, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 204), align 4
   %885 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 26, ptr noundef nonnull @ompi_mpi_2cplex) #8
   %886 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %887 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2cplex, i64 204), align 4
+  %887 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2cplex, i64 204), align 4
   %.not158 = icmp sgt i32 %886, %887
   br i1 %.not158, label %890, label %888
 
@@ -1862,10 +1862,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %890
 
 890:                                              ; preds = %888, %884
-  store i32 27, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 204), align 4
+  store i32 27, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 204), align 4
   %891 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 27, ptr noundef nonnull @ompi_mpi_2dblcplex) #8
   %892 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %893 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2dblcplex, i64 204), align 4
+  %893 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2dblcplex, i64 204), align 4
   %.not159 = icmp sgt i32 %892, %893
   br i1 %.not159, label %896, label %894
 
@@ -1875,10 +1875,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %896
 
 896:                                              ; preds = %894, %890
-  store i32 28, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real2, i64 204), align 4
+  store i32 28, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real2, i64 204), align 4
   %897 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 28, ptr noundef nonnull @ompi_mpi_real2) #8
   %898 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %899 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_real2, i64 204), align 4
+  %899 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_real2, i64 204), align 4
   %.not160 = icmp sgt i32 %898, %899
   br i1 %.not160, label %902, label %900
 
@@ -1888,10 +1888,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %902
 
 902:                                              ; preds = %900, %896
-  store i32 29, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical1, i64 204), align 4
+  store i32 29, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical1, i64 204), align 4
   %903 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 29, ptr noundef nonnull @ompi_mpi_logical1) #8
   %904 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %905 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical1, i64 204), align 4
+  %905 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical1, i64 204), align 4
   %.not161 = icmp sgt i32 %904, %905
   br i1 %.not161, label %908, label %906
 
@@ -1901,10 +1901,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %908
 
 908:                                              ; preds = %906, %902
-  store i32 30, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical2, i64 204), align 4
+  store i32 30, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical2, i64 204), align 4
   %909 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 30, ptr noundef nonnull @ompi_mpi_logical2) #8
   %910 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %911 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical2, i64 204), align 4
+  %911 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical2, i64 204), align 4
   %.not162 = icmp sgt i32 %910, %911
   br i1 %.not162, label %914, label %912
 
@@ -1914,10 +1914,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %914
 
 914:                                              ; preds = %912, %908
-  store i32 31, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical4, i64 204), align 4
+  store i32 31, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical4, i64 204), align 4
   %915 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 31, ptr noundef nonnull @ompi_mpi_logical4) #8
   %916 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %917 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical4, i64 204), align 4
+  %917 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical4, i64 204), align 4
   %.not163 = icmp sgt i32 %916, %917
   br i1 %.not163, label %920, label %918
 
@@ -1927,10 +1927,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %920
 
 920:                                              ; preds = %918, %914
-  store i32 32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical8, i64 204), align 4
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical8, i64 204), align 4
   %921 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 32, ptr noundef nonnull @ompi_mpi_logical8) #8
   %922 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %923 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_logical8, i64 204), align 4
+  %923 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_logical8, i64 204), align 4
   %.not164 = icmp sgt i32 %922, %923
   br i1 %.not164, label %926, label %924
 
@@ -1940,10 +1940,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %926
 
 926:                                              ; preds = %924, %920
-  store i32 33, ptr getelementptr inbounds (i8, ptr @ompi_mpi_wchar, i64 204), align 4
+  store i32 33, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_wchar, i64 204), align 4
   %927 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 33, ptr noundef nonnull @ompi_mpi_wchar) #8
   %928 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %929 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_wchar, i64 204), align 4
+  %929 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_wchar, i64 204), align 4
   %.not165 = icmp sgt i32 %928, %929
   br i1 %.not165, label %932, label %930
 
@@ -1953,10 +1953,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %932
 
 932:                                              ; preds = %930, %926
-  store i32 34, ptr getelementptr inbounds (i8, ptr @ompi_mpi_char, i64 204), align 4
+  store i32 34, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_char, i64 204), align 4
   %933 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 34, ptr noundef nonnull @ompi_mpi_char) #8
   %934 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %935 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_char, i64 204), align 4
+  %935 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_char, i64 204), align 4
   %.not166 = icmp sgt i32 %934, %935
   br i1 %.not166, label %938, label %936
 
@@ -1966,10 +1966,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %938
 
 938:                                              ; preds = %936, %932
-  store i32 35, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned_char, i64 204), align 4
+  store i32 35, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned_char, i64 204), align 4
   %939 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 35, ptr noundef nonnull @ompi_mpi_unsigned_char) #8
   %940 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %941 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned_char, i64 204), align 4
+  %941 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned_char, i64 204), align 4
   %.not167 = icmp sgt i32 %940, %941
   br i1 %.not167, label %944, label %942
 
@@ -1979,10 +1979,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %944
 
 944:                                              ; preds = %942, %938
-  store i32 36, ptr getelementptr inbounds (i8, ptr @ompi_mpi_signed_char, i64 204), align 4
+  store i32 36, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_signed_char, i64 204), align 4
   %945 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 36, ptr noundef nonnull @ompi_mpi_signed_char) #8
   %946 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %947 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_signed_char, i64 204), align 4
+  %947 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_signed_char, i64 204), align 4
   %.not168 = icmp sgt i32 %946, %947
   br i1 %.not168, label %950, label %948
 
@@ -1992,10 +1992,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %950
 
 950:                                              ; preds = %948, %944
-  store i32 37, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short, i64 204), align 4
+  store i32 37, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short, i64 204), align 4
   %951 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 37, ptr noundef nonnull @ompi_mpi_short) #8
   %952 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %953 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short, i64 204), align 4
+  %953 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short, i64 204), align 4
   %.not169 = icmp sgt i32 %952, %953
   br i1 %.not169, label %956, label %954
 
@@ -2005,10 +2005,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %956
 
 956:                                              ; preds = %954, %950
-  store i32 38, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned_short, i64 204), align 4
+  store i32 38, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned_short, i64 204), align 4
   %957 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 38, ptr noundef nonnull @ompi_mpi_unsigned_short) #8
   %958 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %959 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned_short, i64 204), align 4
+  %959 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned_short, i64 204), align 4
   %.not170 = icmp sgt i32 %958, %959
   br i1 %.not170, label %962, label %960
 
@@ -2018,10 +2018,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %962
 
 962:                                              ; preds = %960, %956
-  store i32 39, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int, i64 204), align 4
+  store i32 39, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int, i64 204), align 4
   %963 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 39, ptr noundef nonnull @ompi_mpi_int) #8
   %964 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %965 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int, i64 204), align 4
+  %965 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int, i64 204), align 4
   %.not171 = icmp sgt i32 %964, %965
   br i1 %.not171, label %968, label %966
 
@@ -2031,10 +2031,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %968
 
 968:                                              ; preds = %966, %962
-  store i32 40, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned, i64 204), align 4
+  store i32 40, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned, i64 204), align 4
   %969 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 40, ptr noundef nonnull @ompi_mpi_unsigned) #8
   %970 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %971 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned, i64 204), align 4
+  %971 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned, i64 204), align 4
   %.not172 = icmp sgt i32 %970, %971
   br i1 %.not172, label %974, label %972
 
@@ -2044,10 +2044,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %974
 
 974:                                              ; preds = %972, %968
-  store i32 41, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long, i64 204), align 4
+  store i32 41, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long, i64 204), align 4
   %975 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 41, ptr noundef nonnull @ompi_mpi_long) #8
   %976 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %977 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long, i64 204), align 4
+  %977 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long, i64 204), align 4
   %.not173 = icmp sgt i32 %976, %977
   br i1 %.not173, label %980, label %978
 
@@ -2057,10 +2057,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %980
 
 980:                                              ; preds = %978, %974
-  store i32 42, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned_long, i64 204), align 4
+  store i32 42, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned_long, i64 204), align 4
   %981 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 42, ptr noundef nonnull @ompi_mpi_unsigned_long) #8
   %982 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %983 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned_long, i64 204), align 4
+  %983 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned_long, i64 204), align 4
   %.not174 = icmp sgt i32 %982, %983
   br i1 %.not174, label %986, label %984
 
@@ -2070,10 +2070,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %986
 
 986:                                              ; preds = %984, %980
-  store i32 43, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_long_int, i64 204), align 4
+  store i32 43, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_long_int, i64 204), align 4
   %987 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 43, ptr noundef nonnull @ompi_mpi_long_long_int) #8
   %988 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %989 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_long_int, i64 204), align 4
+  %989 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_long_int, i64 204), align 4
   %.not175 = icmp sgt i32 %988, %989
   br i1 %.not175, label %992, label %990
 
@@ -2083,10 +2083,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %992
 
 992:                                              ; preds = %990, %986
-  store i32 44, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned_long_long, i64 204), align 4
+  store i32 44, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned_long_long, i64 204), align 4
   %993 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 44, ptr noundef nonnull @ompi_mpi_unsigned_long_long) #8
   %994 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %995 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_unsigned_long_long, i64 204), align 4
+  %995 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_unsigned_long_long, i64 204), align 4
   %.not176 = icmp sgt i32 %994, %995
   br i1 %.not176, label %998, label %996
 
@@ -2096,10 +2096,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %998
 
 998:                                              ; preds = %996, %992
-  store i32 45, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float, i64 204), align 4
+  store i32 45, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float, i64 204), align 4
   %999 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 45, ptr noundef nonnull @ompi_mpi_float) #8
   %1000 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1001 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float, i64 204), align 4
+  %1001 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float, i64 204), align 4
   %.not177 = icmp sgt i32 %1000, %1001
   br i1 %.not177, label %1004, label %1002
 
@@ -2109,10 +2109,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1004
 
 1004:                                             ; preds = %1002, %998
-  store i32 46, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double, i64 204), align 4
+  store i32 46, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double, i64 204), align 4
   %1005 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 46, ptr noundef nonnull @ompi_mpi_double) #8
   %1006 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1007 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double, i64 204), align 4
+  %1007 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double, i64 204), align 4
   %.not178 = icmp sgt i32 %1006, %1007
   br i1 %.not178, label %1010, label %1008
 
@@ -2122,10 +2122,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1010
 
 1010:                                             ; preds = %1008, %1004
-  store i32 47, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_double, i64 204), align 4
+  store i32 47, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_double, i64 204), align 4
   %1011 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 47, ptr noundef nonnull @ompi_mpi_long_double) #8
   %1012 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1013 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_double, i64 204), align 4
+  %1013 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_double, i64 204), align 4
   %.not179 = icmp sgt i32 %1012, %1013
   br i1 %.not179, label %1016, label %1014
 
@@ -2135,10 +2135,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1016
 
 1016:                                             ; preds = %1014, %1010
-  store i32 48, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 204), align 4
+  store i32 48, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 204), align 4
   %1017 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 48, ptr noundef nonnull @ompi_mpi_float_int) #8
   %1018 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1019 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_float_int, i64 204), align 4
+  %1019 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_float_int, i64 204), align 4
   %.not180 = icmp sgt i32 %1018, %1019
   br i1 %.not180, label %1022, label %1020
 
@@ -2148,10 +2148,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1022
 
 1022:                                             ; preds = %1020, %1016
-  store i32 49, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 204), align 4
+  store i32 49, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 204), align 4
   %1023 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 49, ptr noundef nonnull @ompi_mpi_double_int) #8
   %1024 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1025 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_double_int, i64 204), align 4
+  %1025 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_double_int, i64 204), align 4
   %.not181 = icmp sgt i32 %1024, %1025
   br i1 %.not181, label %1028, label %1026
 
@@ -2161,10 +2161,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1028
 
 1028:                                             ; preds = %1026, %1022
-  store i32 50, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 204), align 4
+  store i32 50, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 204), align 4
   %1029 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 50, ptr noundef nonnull @ompi_mpi_longdbl_int) #8
   %1030 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1031 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_longdbl_int, i64 204), align 4
+  %1031 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_longdbl_int, i64 204), align 4
   %.not182 = icmp sgt i32 %1030, %1031
   br i1 %.not182, label %1034, label %1032
 
@@ -2174,10 +2174,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1034
 
 1034:                                             ; preds = %1032, %1028
-  store i32 51, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 204), align 4
+  store i32 51, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 204), align 4
   %1035 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 51, ptr noundef nonnull @ompi_mpi_long_int) #8
   %1036 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1037 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_long_int, i64 204), align 4
+  %1037 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_long_int, i64 204), align 4
   %.not183 = icmp sgt i32 %1036, %1037
   br i1 %.not183, label %1040, label %1038
 
@@ -2187,10 +2187,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1040
 
 1040:                                             ; preds = %1038, %1034
-  store i32 52, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 204), align 4
+  store i32 52, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 204), align 4
   %1041 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 52, ptr noundef nonnull @ompi_mpi_2int) #8
   %1042 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1043 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_2int, i64 204), align 4
+  %1043 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_2int, i64 204), align 4
   %.not184 = icmp sgt i32 %1042, %1043
   br i1 %.not184, label %1046, label %1044
 
@@ -2200,10 +2200,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1046
 
 1046:                                             ; preds = %1044, %1040
-  store i32 53, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 204), align 4
+  store i32 53, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 204), align 4
   %1047 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 53, ptr noundef nonnull @ompi_mpi_short_int) #8
   %1048 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1049 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_int, i64 204), align 4
+  %1049 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_int, i64 204), align 4
   %.not185 = icmp sgt i32 %1048, %1049
   br i1 %.not185, label %1052, label %1050
 
@@ -2213,10 +2213,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1052
 
 1052:                                             ; preds = %1050, %1046
-  store i32 54, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_bool, i64 204), align 4
+  store i32 54, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_bool, i64 204), align 4
   %1053 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 54, ptr noundef nonnull @ompi_mpi_cxx_bool) #8
   %1054 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1055 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_bool, i64 204), align 4
+  %1055 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_bool, i64 204), align 4
   %.not186 = icmp sgt i32 %1054, %1055
   br i1 %.not186, label %1058, label %1056
 
@@ -2226,10 +2226,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1058
 
 1058:                                             ; preds = %1056, %1052
-  store i32 55, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_cplex, i64 204), align 4
+  store i32 55, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_cplex, i64 204), align 4
   %1059 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 55, ptr noundef nonnull @ompi_mpi_cxx_cplex) #8
   %1060 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1061 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_cplex, i64 204), align 4
+  %1061 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_cplex, i64 204), align 4
   %.not187 = icmp sgt i32 %1060, %1061
   br i1 %.not187, label %1064, label %1062
 
@@ -2239,10 +2239,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1064
 
 1064:                                             ; preds = %1062, %1058
-  store i32 56, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_dblcplex, i64 204), align 4
+  store i32 56, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_dblcplex, i64 204), align 4
   %1065 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 56, ptr noundef nonnull @ompi_mpi_cxx_dblcplex) #8
   %1066 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1067 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_dblcplex, i64 204), align 4
+  %1067 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_dblcplex, i64 204), align 4
   %.not188 = icmp sgt i32 %1066, %1067
   br i1 %.not188, label %1070, label %1068
 
@@ -2252,10 +2252,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1070
 
 1070:                                             ; preds = %1068, %1064
-  store i32 57, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_ldblcplex, i64 204), align 4
+  store i32 57, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_ldblcplex, i64 204), align 4
   %1071 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 57, ptr noundef nonnull @ompi_mpi_cxx_ldblcplex) #8
   %1072 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1073 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_ldblcplex, i64 204), align 4
+  %1073 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_ldblcplex, i64 204), align 4
   %.not189 = icmp sgt i32 %1072, %1073
   br i1 %.not189, label %1076, label %1074
 
@@ -2265,10 +2265,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1076
 
 1076:                                             ; preds = %1074, %1070
-  store i32 58, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int8_t, i64 204), align 4
+  store i32 58, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int8_t, i64 204), align 4
   %1077 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 58, ptr noundef nonnull @ompi_mpi_int8_t) #8
   %1078 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1079 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int8_t, i64 204), align 4
+  %1079 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int8_t, i64 204), align 4
   %.not190 = icmp sgt i32 %1078, %1079
   br i1 %.not190, label %1082, label %1080
 
@@ -2278,10 +2278,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1082
 
 1082:                                             ; preds = %1080, %1076
-  store i32 59, ptr getelementptr inbounds (i8, ptr @ompi_mpi_uint8_t, i64 204), align 4
+  store i32 59, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_uint8_t, i64 204), align 4
   %1083 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 59, ptr noundef nonnull @ompi_mpi_uint8_t) #8
   %1084 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1085 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_uint8_t, i64 204), align 4
+  %1085 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_uint8_t, i64 204), align 4
   %.not191 = icmp sgt i32 %1084, %1085
   br i1 %.not191, label %1088, label %1086
 
@@ -2291,10 +2291,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1088
 
 1088:                                             ; preds = %1086, %1082
-  store i32 60, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int16_t, i64 204), align 4
+  store i32 60, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int16_t, i64 204), align 4
   %1089 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 60, ptr noundef nonnull @ompi_mpi_int16_t) #8
   %1090 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1091 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int16_t, i64 204), align 4
+  %1091 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int16_t, i64 204), align 4
   %.not192 = icmp sgt i32 %1090, %1091
   br i1 %.not192, label %1094, label %1092
 
@@ -2304,10 +2304,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1094
 
 1094:                                             ; preds = %1092, %1088
-  store i32 61, ptr getelementptr inbounds (i8, ptr @ompi_mpi_uint16_t, i64 204), align 4
+  store i32 61, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_uint16_t, i64 204), align 4
   %1095 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 61, ptr noundef nonnull @ompi_mpi_uint16_t) #8
   %1096 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1097 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_uint16_t, i64 204), align 4
+  %1097 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_uint16_t, i64 204), align 4
   %.not193 = icmp sgt i32 %1096, %1097
   br i1 %.not193, label %1100, label %1098
 
@@ -2317,10 +2317,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1100
 
 1100:                                             ; preds = %1098, %1094
-  store i32 62, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int32_t, i64 204), align 4
+  store i32 62, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int32_t, i64 204), align 4
   %1101 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 62, ptr noundef nonnull @ompi_mpi_int32_t) #8
   %1102 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1103 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int32_t, i64 204), align 4
+  %1103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int32_t, i64 204), align 4
   %.not194 = icmp sgt i32 %1102, %1103
   br i1 %.not194, label %1106, label %1104
 
@@ -2330,10 +2330,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1106
 
 1106:                                             ; preds = %1104, %1100
-  store i32 63, ptr getelementptr inbounds (i8, ptr @ompi_mpi_uint32_t, i64 204), align 4
+  store i32 63, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_uint32_t, i64 204), align 4
   %1107 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 63, ptr noundef nonnull @ompi_mpi_uint32_t) #8
   %1108 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1109 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_uint32_t, i64 204), align 4
+  %1109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_uint32_t, i64 204), align 4
   %.not195 = icmp sgt i32 %1108, %1109
   br i1 %.not195, label %1112, label %1110
 
@@ -2343,10 +2343,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1112
 
 1112:                                             ; preds = %1110, %1106
-  store i32 64, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int64_t, i64 204), align 4
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int64_t, i64 204), align 4
   %1113 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 64, ptr noundef nonnull @ompi_mpi_int64_t) #8
   %1114 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1115 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int64_t, i64 204), align 4
+  %1115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int64_t, i64 204), align 4
   %.not196 = icmp sgt i32 %1114, %1115
   br i1 %.not196, label %1118, label %1116
 
@@ -2356,10 +2356,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1118
 
 1118:                                             ; preds = %1116, %1112
-  store i32 65, ptr getelementptr inbounds (i8, ptr @ompi_mpi_uint64_t, i64 204), align 4
+  store i32 65, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_uint64_t, i64 204), align 4
   %1119 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 65, ptr noundef nonnull @ompi_mpi_uint64_t) #8
   %1120 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1121 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_uint64_t, i64 204), align 4
+  %1121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_uint64_t, i64 204), align 4
   %.not197 = icmp sgt i32 %1120, %1121
   br i1 %.not197, label %1124, label %1122
 
@@ -2369,10 +2369,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1124
 
 1124:                                             ; preds = %1122, %1118
-  store i32 66, ptr getelementptr inbounds (i8, ptr @ompi_mpi_aint, i64 204), align 4
+  store i32 66, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_aint, i64 204), align 4
   %1125 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 66, ptr noundef nonnull @ompi_mpi_aint) #8
   %1126 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1127 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_aint, i64 204), align 4
+  %1127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_aint, i64 204), align 4
   %.not198 = icmp sgt i32 %1126, %1127
   br i1 %.not198, label %1130, label %1128
 
@@ -2382,10 +2382,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1130
 
 1130:                                             ; preds = %1128, %1124
-  store i32 67, ptr getelementptr inbounds (i8, ptr @ompi_mpi_offset, i64 204), align 4
+  store i32 67, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_offset, i64 204), align 4
   %1131 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 67, ptr noundef nonnull @ompi_mpi_offset) #8
   %1132 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1133 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_offset, i64 204), align 4
+  %1133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_offset, i64 204), align 4
   %.not199 = icmp sgt i32 %1132, %1133
   br i1 %.not199, label %1136, label %1134
 
@@ -2395,10 +2395,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1136
 
 1136:                                             ; preds = %1134, %1130
-  store i32 68, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_bool, i64 204), align 4
+  store i32 68, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_bool, i64 204), align 4
   %1137 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 68, ptr noundef nonnull @ompi_mpi_c_bool) #8
   %1138 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1139 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_bool, i64 204), align 4
+  %1139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_bool, i64 204), align 4
   %.not200 = icmp sgt i32 %1138, %1139
   br i1 %.not200, label %1142, label %1140
 
@@ -2408,10 +2408,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1142
 
 1142:                                             ; preds = %1140, %1136
-  store i32 69, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_float_complex, i64 204), align 4
+  store i32 69, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_float_complex, i64 204), align 4
   %1143 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 69, ptr noundef nonnull @ompi_mpi_c_float_complex) #8
   %1144 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1145 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_float_complex, i64 204), align 4
+  %1145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_float_complex, i64 204), align 4
   %.not201 = icmp sgt i32 %1144, %1145
   br i1 %.not201, label %1148, label %1146
 
@@ -2421,10 +2421,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1148
 
 1148:                                             ; preds = %1146, %1142
-  store i32 70, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_double_complex, i64 204), align 4
+  store i32 70, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_double_complex, i64 204), align 4
   %1149 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 70, ptr noundef nonnull @ompi_mpi_c_double_complex) #8
   %1150 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1151 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_double_complex, i64 204), align 4
+  %1151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_double_complex, i64 204), align 4
   %.not202 = icmp sgt i32 %1150, %1151
   br i1 %.not202, label %1154, label %1152
 
@@ -2434,10 +2434,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1154
 
 1154:                                             ; preds = %1152, %1148
-  store i32 71, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_long_double_complex, i64 204), align 4
+  store i32 71, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_long_double_complex, i64 204), align 4
   %1155 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 71, ptr noundef nonnull @ompi_mpi_c_long_double_complex) #8
   %1156 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1157 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_long_double_complex, i64 204), align 4
+  %1157 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_long_double_complex, i64 204), align 4
   %.not203 = icmp sgt i32 %1156, %1157
   br i1 %.not203, label %1160, label %1158
 
@@ -2447,10 +2447,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1160
 
 1160:                                             ; preds = %1158, %1154
-  store i32 72, ptr getelementptr inbounds (i8, ptr @ompi_mpi_count, i64 204), align 4
+  store i32 72, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_count, i64 204), align 4
   %1161 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 72, ptr noundef nonnull @ompi_mpi_count) #8
   %1162 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1163 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_count, i64 204), align 4
+  %1163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_count, i64 204), align 4
   %.not204 = icmp sgt i32 %1162, %1163
   br i1 %.not204, label %1166, label %1164
 
@@ -2460,10 +2460,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1166
 
 1166:                                             ; preds = %1164, %1160
-  store i32 73, ptr getelementptr inbounds (i8, ptr @ompi_mpi_complex4, i64 204), align 4
+  store i32 73, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_complex4, i64 204), align 4
   %1167 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 73, ptr noundef nonnull @ompi_mpi_complex4) #8
   %1168 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1169 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_complex4, i64 204), align 4
+  %1169 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_complex4, i64 204), align 4
   %.not205 = icmp sgt i32 %1168, %1169
   br i1 %.not205, label %1172, label %1170
 
@@ -2473,10 +2473,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1172
 
 1172:                                             ; preds = %1170, %1166
-  store i32 74, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_float, i64 204), align 4
+  store i32 74, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_float, i64 204), align 4
   %1173 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 74, ptr noundef nonnull @ompi_mpi_short_float) #8
   %1174 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1175 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_short_float, i64 204), align 4
+  %1175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_short_float, i64 204), align 4
   %.not206 = icmp sgt i32 %1174, %1175
   br i1 %.not206, label %1178, label %1176
 
@@ -2486,10 +2486,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1178
 
 1178:                                             ; preds = %1176, %1172
-  store i32 75, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_short_float_complex, i64 204), align 4
+  store i32 75, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_short_float_complex, i64 204), align 4
   %1179 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 75, ptr noundef nonnull @ompi_mpi_c_short_float_complex) #8
   %1180 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1181 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_c_short_float_complex, i64 204), align 4
+  %1181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_c_short_float_complex, i64 204), align 4
   %.not207 = icmp sgt i32 %1180, %1181
   br i1 %.not207, label %1184, label %1182
 
@@ -2499,10 +2499,10 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br label %1184
 
 1184:                                             ; preds = %1182, %1178
-  store i32 76, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_sfltcplex, i64 204), align 4
+  store i32 76, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_sfltcplex, i64 204), align 4
   %1185 = call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_datatype_f_to_c_table, i32 noundef 76, ptr noundef nonnull @ompi_mpi_cxx_sfltcplex) #8
   %1186 = load i32, ptr @ompi_datatype_number_of_predefined_data, align 4
-  %1187 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_cxx_sfltcplex, i64 204), align 4
+  %1187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_cxx_sfltcplex, i64 204), align 4
   %.not208 = icmp sgt i32 %1186, %1187
   br i1 %.not208, label %1190, label %1188
 
@@ -2518,7 +2518,7 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
 
 .lr.ph:                                           ; preds = %1190, %opal_pointer_array_get_item.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %opal_pointer_array_get_item.exit ], [ 0, %1190 ]
-  %1193 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 88), align 8
+  %1193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_f_to_c_table, i64 88), align 8
   %1194 = sext i32 %1193 to i64
   %.not293 = icmp slt i64 %indvars.iv, %1194
   call void @llvm.assume(i1 %.not293)
@@ -2527,20 +2527,20 @@ opal_obj_run_destructors.exit291:                 ; preds = %opal_obj_run_destru
   br i1 %1196, label %1197, label %1199
 
 1197:                                             ; preds = %.lr.ph
-  %1198 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #8
+  %1198 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #8
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %1199
 
 1199:                                             ; preds = %1197, %.lr.ph
   %1200 = phi i8 [ %1195, %.lr.ph ], [ %.pre.i, %1197 ]
-  %1201 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 112), align 8
+  %1201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_datatype_f_to_c_table, i64 112), align 8
   %1202 = getelementptr inbounds nuw ptr, ptr %1201, i64 %indvars.iv
   %1203 = load ptr, ptr %1202, align 8
   %1204 = trunc i8 %1200 to i1
   br i1 %1204, label %1205, label %opal_pointer_array_get_item.exit
 
 1205:                                             ; preds = %1199
-  %1206 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #8
+  %1206 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_datatype_f_to_c_table, i64 32)) #8
   br label %opal_pointer_array_get_item.exit
 
 opal_pointer_array_get_item.exit:                 ; preds = %1199, %1205

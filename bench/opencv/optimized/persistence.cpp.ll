@@ -1574,7 +1574,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv11FileStorage4ImplC2EPS0_(ptr noundef nonnull align 8 dereferenceable(700) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN2cv11FileStorage4ImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN2cv11FileStorage4ImplE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2270,7 +2270,7 @@ define hidden void @_ZN2cv15FileStorage_APID2Ev(ptr nocapture nonnull readnone a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv11FileStorage4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(700) initializes((0, 8)) %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN2cv11FileStorage4ImplE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN2cv11FileStorage4ImplE, i64 16), ptr %0, align 8
   invoke void @_ZN2cv11FileStorage4Impl7releaseEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(700) %0, ptr noundef null)
           to label %2 unwind label %165
 
@@ -6959,7 +6959,7 @@ _ZNSt6vectorIhSaIhEE2atEm.exit:                   ; preds = %80
   store i32 1, ptr %99, align 8, !noalias !63
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store i32 1, ptr %100, align 4, !noalias !63
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %98, align 8, !noalias !63
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %98, align 8, !noalias !63
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %102 = icmp slt i64 %97, 0
   br i1 %102, label %.noexc.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i.i
@@ -13943,7 +13943,7 @@ define noundef ptr @_ZN2cv11FileStorage4Impl5getFSEv(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv11FileStorageC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12)) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13958,7 +13958,7 @@ define void @_ZN2cv11FileStorageC2Ev(ptr noundef nonnull align 8 dereferenceable
   store i32 1, ptr %6, align 8, !noalias !98
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !98
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11FileStorage4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !98
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11FileStorage4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !98
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN2cv11FileStorage4ImplC1EPS0_(ptr noundef nonnull align 8 dereferenceable(700) %8, ptr noundef nonnull %0)
           to label %_ZN2cvL7makePtrINS_11FileStorage4ImplEJPS1_EEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11FileStorage4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !98
@@ -14230,7 +14230,7 @@ _ZNSt10shared_ptrIN2cv11FileStorage4ImplEED2Ev.exit: ; preds = %1, %20, %33, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv11FileStorageC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14245,7 +14245,7 @@ define void @_ZN2cv11FileStorageC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i32 1, ptr %9, align 8, !noalias !103
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4, !noalias !103
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11FileStorage4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !103
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11FileStorage4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !103
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   invoke void @_ZN2cv11FileStorage4ImplC1EPS0_(ptr noundef nonnull align 8 dereferenceable(700) %11, ptr noundef nonnull %0)
           to label %_ZN2cvL7makePtrINS_11FileStorage4ImplEJPS1_EEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11FileStorage4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !103
@@ -14538,7 +14538,7 @@ _ZNSt5dequeIN2cv11FStructDataESaIS1_EE4backEv.exit: ; preds = %11, %15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv11FileStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN2cv11FileStorageE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

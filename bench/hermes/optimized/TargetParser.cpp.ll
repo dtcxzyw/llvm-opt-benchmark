@@ -1019,7 +1019,7 @@ if.end.i3299:                                     ; preds = %land.lhs.true.i1649
   br i1 %5, label %_ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603, label %land.lhs.true.i1377
 
 _ZN4llvh12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1603: ; preds = %if.end.i3308, %if.end.i3326, %if.end.i3317, %if.end.i3299
-  %ref.tmp.sroa.168.3.in.in = phi ptr [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 308), %if.end.i3299 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 244), %if.end.i3308 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 180), %if.end.i3317 ], [ getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 116), %if.end.i3326 ]
+  %ref.tmp.sroa.168.3.in.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 308), %if.end.i3299 ], [ getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 244), %if.end.i3308 ], [ getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 180), %if.end.i3317 ], [ getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 116), %if.end.i3326 ]
   %ref.tmp.sroa.168.3.in = load i32, ptr %ref.tmp.sroa.168.3.in.in, align 4
   %ref.tmp.sroa.168.3 = or i32 %ref.tmp.sroa.168.3.in, 1
   br label %return
@@ -8788,7 +8788,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
-  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1280)
+  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1280)
   %tobool.not4 = icmp eq ptr %__first.addr.1.i.i.i, null
   %tobool.not = or i1 %cmp.i, %tobool.not4
   br i1 %tobool.not, label %return, label %if.then
@@ -8830,7 +8830,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
-  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
+  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
   %tobool.not4 = icmp eq ptr %__first.addr.1.i.i.i, null
   %tobool.not = or i1 %cmp.i, %tobool.not4
   br i1 %tobool.not, label %return, label %if.then
@@ -8948,7 +8948,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
-  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1280)
+  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1280)
   %tobool.not2 = icmp eq ptr %__first.addr.1.i.i.i, null
   %tobool.not = or i1 %cmp.i, %tobool.not2
   br i1 %tobool.not, label %return, label %if.then
@@ -8985,7 +8985,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
-  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
+  %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
   %tobool.not2 = icmp eq ptr %__first.addr.1.i.i.i, null
   %tobool.not = or i1 %cmp.i, %tobool.not2
   br i1 %tobool.not, label %return, label %if.then
@@ -9097,7 +9097,7 @@ for.body.i.preheader:                             ; preds = %entry, %if.end.i
 
 for.body.i.us:                                    ; preds = %entry, %for.inc.i.us
   %__begin1.0.idx14.i.us = phi i64 [ %__begin1.0.add.i.us, %for.inc.i.us ], [ %GPU.coerce1.fr, %entry ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %__begin1.0.idx14.i.us
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %__begin1.0.idx14.i.us
   %C.sroa.2.0.copyload.i.us = load i64, ptr %gep, align 8
   %cmp.i.i.us = icmp eq i64 %C.sroa.2.0.copyload.i.us, 0
   br i1 %cmp.i.i.us, label %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, label %for.inc.i.us

@@ -73130,7 +73130,7 @@ _ZN5taffy7compute4grid13explicit_grid22create_implicit_tracks17hd1021fb9a1fa4f68
   %36 = getelementptr inbounds { { i32, [1 x i32] }, { i32, [2 x i32] }, float, float, float, float, float, float, float, i8, i8, i8, [1 x i8] }, ptr %35, i64 %30
   store i32 4, ptr %36, align 4, !noalias !21702
   %.sroa.5.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %36, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx10.i, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (i8, ptr @anon.9eff4893dfdb3671829115bacf814928.470, i64 8), i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx10.i, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @anon.9eff4893dfdb3671829115bacf814928.470, i64 8), i64 12, i1 false)
   %.sroa.611.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 20
   %37 = add i64 %30, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) %.sroa.611.0..sroa_idx.i, i8 0, i64 31, i1 false), !noalias !21702
@@ -73674,7 +73674,7 @@ _ZN5taffy7compute4grid13explicit_grid22create_implicit_tracks17hd1021fb9a1fa4f68
   %206 = getelementptr inbounds { { i32, [1 x i32] }, { i32, [2 x i32] }, float, float, float, float, float, float, float, i8, i8, i8, [1 x i8] }, ptr %205, i64 %200
   store i32 4, ptr %206, align 4, !noalias !21842
   %.sroa.5.0..sroa_idx10.i34 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx10.i34, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (i8, ptr @anon.9eff4893dfdb3671829115bacf814928.470, i64 8), i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx10.i34, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @anon.9eff4893dfdb3671829115bacf814928.470, i64 8), i64 12, i1 false)
   %.sroa.611.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %206, i64 20
   %207 = add i64 %200, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) %.sroa.611.0..sroa_idx.i35, i8 0, i64 31, i1 false), !noalias !21842
@@ -73844,7 +73844,7 @@ _ZN5taffy7compute4grid13explicit_grid22create_implicit_tracks17hd1021fb9a1fa4f68
   %36 = getelementptr inbounds { { i32, [1 x i32] }, { i32, [2 x i32] }, float, float, float, float, float, float, float, i8, i8, i8, [1 x i8] }, ptr %35, i64 %30
   store i32 4, ptr %36, align 4, !noalias !21864
   %.sroa.5.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %36, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx10.i, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (i8, ptr @anon.9eff4893dfdb3671829115bacf814928.470, i64 8), i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx10.i, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @anon.9eff4893dfdb3671829115bacf814928.470, i64 8), i64 12, i1 false)
   %.sroa.611.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 20
   %37 = add i64 %30, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) %.sroa.611.0..sroa_idx.i, i8 0, i64 31, i1 false), !noalias !21864
@@ -74388,7 +74388,7 @@ _ZN5taffy7compute4grid13explicit_grid22create_implicit_tracks17hd1021fb9a1fa4f68
   %206 = getelementptr inbounds { { i32, [1 x i32] }, { i32, [2 x i32] }, float, float, float, float, float, float, float, i8, i8, i8, [1 x i8] }, ptr %205, i64 %200
   store i32 4, ptr %206, align 4, !noalias !22004
   %.sroa.5.0..sroa_idx10.i34 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx10.i34, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds (i8, ptr @anon.9eff4893dfdb3671829115bacf814928.470, i64 8), i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx10.i34, ptr noundef nonnull align 4 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @anon.9eff4893dfdb3671829115bacf814928.470, i64 8), i64 12, i1 false)
   %.sroa.611.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %206, i64 20
   %207 = add i64 %200, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) %.sroa.611.0..sroa_idx.i35, i8 0, i64 31, i1 false), !noalias !22004

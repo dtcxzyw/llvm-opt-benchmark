@@ -262,7 +262,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_LayerStackRegistryC2ERKN
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22Pcp_LayerStackRegistryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22Pcp_LayerStackRegistryE, i64 16), ptr %0, align 8
   %7 = invoke noalias noundef nonnull dereferenceable(488) ptr @_Znwm(i64 noundef 488) #19
           to label %8 unwind label %11
 
@@ -452,7 +452,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__22Pcp_LayerStackRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22Pcp_LayerStackRegistryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22Pcp_LayerStackRegistryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1707,7 +1707,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i102:                                      ; preds = %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   store i32 1, ptr %254, align 4, !noalias !23
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %253, align 8, !noalias !23
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %253, align 8, !noalias !23
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 12
   store i8 0, ptr %255, align 4, !noalias !23
   %256 = getelementptr inbounds nuw i8, ptr %253, i64 13
@@ -1783,7 +1783,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i:                                       ; preds = %284
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 1, ptr %286, align 4, !noalias !33
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %285, align 8, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %285, align 8, !noalias !33
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 12
   store i8 0, ptr %287, align 4, !noalias !33
   %288 = getelementptr inbounds nuw i8, ptr %285, i64 13
@@ -2444,7 +2444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i:                                       ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 1, ptr %13, align 4, !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %12, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %12, align 8, !noalias !54
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i8 0, ptr %14, align 4, !noalias !54
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 13
@@ -2702,7 +2702,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 1, ptr %124, align 4, !noalias !65
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %123, align 8, !noalias !65
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %123, align 8, !noalias !65
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 12
   store i8 0, ptr %125, align 4, !noalias !65
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 13
@@ -8516,7 +8516,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
   %52 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 1, ptr %53, align 4, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %52, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %52, align 8, !noalias !120
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i8 0, ptr %54, align 4, !noalias !120
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 13
@@ -8639,7 +8639,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
   %100 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i32 1, ptr %101, align 4, !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %100, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %100, align 8, !noalias !131
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 12
   store i8 0, ptr %102, align 4, !noalias !131
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 13
@@ -8812,7 +8812,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i.i:                                       ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %11, align 4, !noalias !141
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %10, align 8, !noalias !141
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %10, align 8, !noalias !141
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i8 0, ptr %12, align 4, !noalias !141
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 13

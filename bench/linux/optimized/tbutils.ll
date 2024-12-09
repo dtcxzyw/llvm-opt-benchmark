@@ -41,9 +41,9 @@ define dso_local noundef i32 @acpi_tb_initialize_facs() local_unnamed_addr #0 al
 
 4:                                                ; preds = %0
   store ptr null, ptr %1, align 8, !annotation !5
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 132), align 1
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 132), align 1
   %6 = icmp eq i64 %5, 0
-  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 36), align 1
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 36), align 1
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4
@@ -88,7 +88,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_tb_check_dsdt_header() local_unnamed_addr #0 align 16 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_original_dsdt_header, i64 4), align 1
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_original_dsdt_header, i64 4), align 1
   %2 = load ptr, ptr @acpi_gbl_DSDT, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 1
@@ -96,7 +96,7 @@ define dso_local void @acpi_tb_check_dsdt_header() local_unnamed_addr #0 align 1
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %0
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_original_dsdt_header, i64 9), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_original_dsdt_header, i64 9), align 1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %7, %9
@@ -111,10 +111,10 @@ define dso_local void @acpi_tb_check_dsdt_header() local_unnamed_addr #0 align 1
   %13 = load ptr, ptr @acpi_gbl_DSDT, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 1
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @acpi_gbl_original_dsdt_header, i64 4), align 1
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_original_dsdt_header, i64 4), align 1
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 9
   %17 = load i8, ptr %16, align 1
-  store i8 %17, ptr getelementptr inbounds (i8, ptr @acpi_gbl_original_dsdt_header, i64 9), align 1
+  store i8 %17, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_original_dsdt_header, i64 9), align 1
   br label %18
 
 18:                                               ; preds = %11, %6

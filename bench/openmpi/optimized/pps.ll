@@ -128,7 +128,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 34:                                               ; preds = %29
   %35 = load i32, ptr @pmix_class_init_epoch, align 4
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not41 = icmp eq i32 %35, %36
   br i1 %.not41, label %38, label %37
 
@@ -194,7 +194,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
 62:                                               ; preds = %55
   call void @PMIx_Info_free(ptr noundef %56, i64 noundef 1) #6
   %63 = load i32, ptr @pmix_class_init_epoch, align 4
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not44 = icmp eq i32 %63, %64
   br i1 %.not44, label %66, label %65
 
@@ -266,7 +266,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i54, %._crit
   %96 = call ptr @PMIx_Query_create(i64 noundef 1) #6
   %97 = call i32 @PMIx_Argv_append_nosize(ptr noundef %96, ptr noundef nonnull @.str.11) #6
   %98 = load i32, ptr @pmix_class_init_epoch, align 4
-  %99 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not45 = icmp eq i32 %98, %99
   br i1 %.not45, label %101, label %100
 
@@ -438,7 +438,7 @@ define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr n
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @myproc, i64 256), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @myproc, i64 256), align 4
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.28, ptr noundef nonnull @myproc, i32 noundef %6, i32 noundef %0, i64 noundef %1) #7
   br label %8
 

@@ -135,7 +135,7 @@ declare void @llvm.trap() #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabaseC2EPNS1_10SourceTreeE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 33)) %this, ptr noundef %source_tree) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i64 16), ptr %this, align 8
   %source_tree_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %source_tree, ptr %source_tree_, align 8
   %fallback_database_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -182,7 +182,7 @@ declare void @_ZN6google8protobuf18DescriptorDatabaseD2Ev(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabaseC2EPNS1_10SourceTreeEPNS0_18DescriptorDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 33)) %this, ptr noundef %source_tree, ptr noundef %fallback_database) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i64 16), ptr %this, align 8
   %source_tree_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %source_tree, ptr %source_tree_, align 8
   %fallback_database_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -223,7 +223,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabaseE, i64 16), ptr %this, align 8
   %validation_error_collector_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %validation_error_collector_) #27
   %source_locations_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -316,7 +316,7 @@ lpad22:                                           ; preds = %if.then10
 if.end25:                                         ; preds = %entry
   %error_collector_26 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %16 = load ptr, ptr %error_collector_26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %file_error_collector, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %file_error_collector, align 8
   %filename_.i = getelementptr inbounds nuw i8, ptr %file_error_collector, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i, ptr noundef nonnull align 8 dereferenceable(32) %filename)
           to label %invoke.cont27 unwind label %lpad.i
@@ -414,7 +414,7 @@ invoke.cont43:                                    ; preds = %invoke.cont42
   %30 = select i1 %call44, i1 %lnot, i1 false
   call void @_ZN6google8protobuf8compiler6ParserD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %parser) #27
   call void @_ZN6google8protobuf2io9TokenizerD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %tokenizer) #27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %file_error_collector, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %file_error_collector, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i) #27
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %file_error_collector) #27
   %vtable.i.i = load ptr, ptr %call2, align 8
@@ -430,7 +430,7 @@ ehcleanup:                                        ; preds = %lpad36, %lpad31
 
 ehcleanup47:                                      ; preds = %ehcleanup, %lpad29
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %19, %lpad29 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %file_error_collector, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %file_error_collector, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i) #27
   br label %_ZNKSt14default_deleteIN6google8protobuf2io19ZeroCopyInputStreamEEclEPS3_.exit.i16
 
@@ -473,7 +473,7 @@ declare void @_ZN6google8protobuf2io9TokenizerD1Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %this, align 8
   %filename_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_) #27
   tail call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #27
@@ -495,7 +495,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorC2EPS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %owner) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24ValidationErrorCollectorE, i64 16), ptr %this, align 8
   %owner_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %owner, ptr %owner_, align 8
   ret void
@@ -709,7 +709,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 15))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -742,7 +742,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8compiler14DiskSourceTreeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %this) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler14DiskSourceTreeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler14DiskSourceTreeE, i64 16), ptr %this, align 8
   %mappings_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mappings_, i8 0, i64 24, i1 false)
   %last_error_message_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -756,7 +756,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8compiler14DiskSourceTreeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler14DiskSourceTreeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler14DiskSourceTreeE, i64 16), ptr %this, align 8
   %last_error_message_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %last_error_message_) #27
   %mappings_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2176,7 +2176,7 @@ declare void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler28SourceTreeDescriptorDatabase24SingleFileErrorCollectorE, i64 16), ptr %this, align 8
   %filename_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i) #27
   tail call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) #27

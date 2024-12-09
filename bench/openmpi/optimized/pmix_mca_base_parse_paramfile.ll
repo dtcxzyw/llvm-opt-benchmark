@@ -55,10 +55,10 @@ define internal void @save_value(ptr nocapture readnone %0, i32 %1, ptr nocaptur
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !4
 
 .critedge:                                        ; preds = %16, %4
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 56), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 56), align 8
   %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #10
   %20 = load i32, ptr @pmix_class_init_epoch, align 4
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 32), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %20, %21
   br i1 %.not.i, label %23, label %22
 

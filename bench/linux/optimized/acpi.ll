@@ -77,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @pci_acpi_crs_quirks() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call i32 @dmi_get_bios_year() #8
   %2 = icmp ult i32 %1, 2008
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @iomem_resource, i64 8), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @iomem_resource, i64 8), align 8
   %4 = icmp ult i64 %3, 4294967296
   %5 = select i1 %2, i1 %4, i1 false
   br i1 %5, label %.thread, label %6
@@ -195,7 +195,7 @@ define dso_local ptr @pci_acpi_scan_root(ptr noundef %0) local_unnamed_addr #3 a
 .thread:                                          ; preds = %1, %17, %19
   %21 = phi i32 [ 0, %19 ], [ %11, %1 ], [ %14, %17 ]
   %22 = sext i32 %21 to i64
-  %23 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %22) #8, !srcloc !6
+  %23 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %22) #8, !srcloc !6
   %24 = icmp ult i8 %23, 2
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i8 %23, 0
@@ -242,7 +242,7 @@ define dso_local ptr @pci_acpi_scan_root(ptr noundef %0) local_unnamed_addr #3 a
   br label %60
 
 47:                                               ; preds = %37
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %49 = tail call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %48, i32 noundef 3520, i64 noundef 96) #10
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread8, label %53
@@ -334,7 +334,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_init() local_unnamed_ad
   %5 = tail call i32 @acpi_irq_penalty_init() #8
   store ptr @acpi_pci_irq_enable, ptr @pcibios_enable_irq, align 8
   store ptr @acpi_pci_irq_disable, ptr @pcibios_disable_irq, align 8
-  store ptr @x86_init_noop, ptr getelementptr inbounds (i8, ptr @x86_init, i64 160), align 8
+  store ptr @x86_init_noop, ptr getelementptr inbounds nuw (i8, ptr @x86_init, i64 160), align 8
   %6 = load i32, ptr @pci_routeirq, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8

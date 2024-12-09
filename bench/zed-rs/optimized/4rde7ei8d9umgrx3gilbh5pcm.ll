@@ -6469,7 +6469,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha6e35eb3bcf3269dE.exit"
 
 "_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha6e35eb3bcf3269dE.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 
@@ -11386,7 +11386,7 @@ _ZN4core3ops8function6FnOnce9call_once17h36a1b503ac1f1ef6E.llvm.1509766887320672
   br label %12
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h85a67ccb73b600cbE.llvm.15097668873206721518.exit": ; preds = %1, %_ZN4core3ops8function6FnOnce9call_once17h36a1b503ac1f1ef6E.llvm.15097668873206721518.exit
-  %.sroa.0.0.i.i.i4 = phi ptr [ %6, %_ZN4core3ops8function6FnOnce9call_once17h36a1b503ac1f1ef6E.llvm.15097668873206721518.exit ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
+  %.sroa.0.0.i.i.i4 = phi ptr [ %6, %_ZN4core3ops8function6FnOnce9call_once17h36a1b503ac1f1ef6E.llvm.15097668873206721518.exit ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
   %8 = tail call { ptr, ptr } @"_ZN3std6thread5local44LocalKey$LT$core..cell..RefCell$LT$T$GT$$GT$15with_borrow_mut28_$u7b$$u7b$closure$u7d$$u7d$17h21e5d63a74e751abE.llvm.15097668873206721518"(ptr noundef nonnull align 8 %.sroa.0.0.i.i.i4), !noalias !2430
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1

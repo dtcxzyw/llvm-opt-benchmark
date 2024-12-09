@@ -1068,14 +1068,14 @@ define internal fastcc void @_ZL18trace_type_profileP7CompileP8ciMethodiiS2_P7ci
 
 31:                                               ; preds = %29
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %9, i1 noundef zeroext false) #11
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %32) #11
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store i32 2, ptr %33, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE65ELS1_60ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %9, align 8
   call void @_ZN11CompileTask19print_inline_indentEiP12outputStream(i32 noundef %2, ptr noundef nonnull %9) #11
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.16, i32 noundef %7, i32 noundef range(i32 1, -2147483648) %6) #11
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -2457,7 +2457,7 @@ define linkonce_odr hidden void @_ZN15CheckCastPPNodeC2EP4NodeS1_PK4TypeN18Const
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV18ConstraintCastNode, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %4, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2537,7 +2537,7 @@ _ZN4Node8init_reqEjPS_.exit.i:                    ; preds = %24, %13, %6
   br label %_ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit
 
 _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit: ; preds = %_ZN4Node8init_reqEjPS_.exit.i, %32, %43
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV15CheckCastPPNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15CheckCastPPNode, i64 16), ptr %0, align 8
   store i32 84, ptr %8, align 4
   ret void
 }
@@ -3190,7 +3190,7 @@ _ZN4NodenwEm.exit52:                              ; preds = %254, %256
 259:                                              ; preds = %_ZN4NodenwEm.exit52
   %260 = add nuw nsw i64 %indvars.iv, 1
   call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i51, ptr noundef %225) #11
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i51, align 8
   %261 = getelementptr inbounds nuw i8, ptr %.0.i.i.i51, i64 52
   %262 = trunc nuw nsw i64 %260 to i32
   store i32 %262, ptr %261, align 4
@@ -3215,7 +3215,7 @@ _ZN4NodenwEm.exit52:                              ; preds = %254, %256
   br label %_ZN13CatchProjNodeC2EP4Nodeji.exit
 
 _ZN13CatchProjNodeC2EP4Nodeji.exit:               ; preds = %265, %269
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV13CatchProjNode, i64 16), ptr %.0.i.i.i51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV13CatchProjNode, i64 16), ptr %.0.i.i.i51, align 8
   %273 = getelementptr inbounds nuw i8, ptr %.0.i.i.i51, i64 60
   store i32 %238, ptr %273, align 4
   store i32 24, ptr %264, align 4
@@ -3345,7 +3345,7 @@ _ZN4NodenwEm.exit58:                              ; preds = %338, %340
   store ptr %344, ptr %345, align 8
   %346 = getelementptr inbounds nuw i8, ptr %.0.i.i.i57, i64 44
   store i32 4, ptr %346, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV12CreateExNode, i64 16), ptr %.0.i.i.i57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12CreateExNode, i64 16), ptr %.0.i.i.i57, align 8
   %347 = getelementptr inbounds nuw i8, ptr %.0.i.i.i57, i64 8
   %348 = load ptr, ptr %347, align 8
   store ptr %277, ptr %348, align 8
@@ -3513,7 +3513,7 @@ _ZN4NodenwEm.exit68:                              ; preds = %420, %422
   %430 = load i32, ptr %429, align 8
   %431 = or i32 %430, 64
   store i32 %431, ptr %429, align 8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV13CatchProjNode, i64 16), ptr %.0.i.i.i67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV13CatchProjNode, i64 16), ptr %.0.i.i.i67, align 8
   %432 = getelementptr inbounds nuw i8, ptr %.0.i.i.i67, i64 60
   store i32 -1, ptr %432, align 4
   store i32 24, ptr %428, align 4
@@ -3711,7 +3711,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %33, %_ZNK10ciMetada
 define linkonce_odr hidden void @_ZN9CatchNodeC2EP4NodeS1_j(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 comdat align 2 {
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef 2) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV11PCTableNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV11PCTableNode, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %3, ptr %6, align 4
   store i32 13, ptr %5, align 4
@@ -3789,7 +3789,7 @@ _ZN4Node8init_reqEjPS_.exit.i:                    ; preds = %20, %9, %4
   br label %_ZN11PCTableNodeC2EP4NodeS1_j.exit
 
 _ZN11PCTableNodeC2EP4NodeS1_j.exit:               ; preds = %_ZN4Node8init_reqEjPS_.exit.i, %28, %39
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV9CatchNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV9CatchNode, i64 16), ptr %0, align 8
   store i32 29, ptr %5, align 4
   ret void
 }
@@ -4080,7 +4080,7 @@ _ZN4NodenwEm.exit:                                ; preds = %105, %107
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %114, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7PhiNode, i64 16), ptr %.0.i.i.i, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store ptr null, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
@@ -4736,7 +4736,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
   ret void

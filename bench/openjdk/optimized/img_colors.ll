@@ -45,10 +45,10 @@ define void @img_makePalette(i32 noundef %0, i32 noundef %1, i32 noundef %2, flo
   %19 = getelementptr inbounds nuw [256 x float], ptr @Rmat, i64 0, i64 %indvars.iv.i
   store float %18, ptr %19, align 4
   %20 = fmul float %17, 0x3FCA88CE80000000
-  %21 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 1024), i64 0, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 1024), i64 0, i64 %indvars.iv.i
   store float %20, ptr %21, align 4
   %22 = fmul float %17, 0x3F95CFAAC0000000
-  %23 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 2048), i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 2048), i64 0, i64 %indvars.iv.i
   store float %22, ptr %23, align 4
   %24 = tail call double @pow(double noundef %15, double noundef 0x4004CCCCC0000000) #11
   %25 = fptrunc double %24 to float
@@ -56,10 +56,10 @@ define void @img_makePalette(i32 noundef %0, i32 noundef %1, i32 noundef %2, flo
   %27 = getelementptr inbounds nuw [256 x float], ptr @Gmat, i64 0, i64 %indvars.iv.i
   store float %26, ptr %27, align 4
   %28 = fmul float %25, 0x3FE5C6A7E0000000
-  %29 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 1024), i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 1024), i64 0, i64 %indvars.iv.i
   store float %28, ptr %29, align 4
   %30 = fmul float %25, 0x3FC24DD300000000
-  %31 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 2048), i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 2048), i64 0, i64 %indvars.iv.i
   store float %30, ptr %31, align 4
   %32 = tail call double @pow(double noundef %15, double noundef 0x4003333340000000) #11
   %33 = fptrunc double %32 to float
@@ -67,10 +67,10 @@ define void @img_makePalette(i32 noundef %0, i32 noundef %1, i32 noundef %2, flo
   %35 = getelementptr inbounds nuw [256 x float], ptr @Bmat, i64 0, i64 %indvars.iv.i
   store float %34, ptr %35, align 4
   %36 = fmul float %33, 0x3FBCB923A0000000
-  %37 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 1024), i64 0, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 1024), i64 0, i64 %indvars.iv.i
   store float %36, ptr %37, align 4
   %38 = fmul float %33, 0x3FF3DE00E0000000
-  %39 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 2048), i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 2048), i64 0, i64 %indvars.iv.i
   store float %38, ptr %39, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -172,8 +172,8 @@ init_grays.exit:                                  ; preds = %51
   %63 = trunc nuw i32 %.01723.i to i8
   %64 = zext nneg i32 %.01723.i to i64
   %65 = getelementptr inbounds nuw [256 x float], ptr @Rmat, i64 0, i64 %64
-  %66 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 1024), i64 0, i64 %64
-  %67 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 2048), i64 0, i64 %64
+  %66 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 1024), i64 0, i64 %64
+  %67 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 2048), i64 0, i64 %64
   br label %.preheader.i119
 
 .preheader.i119:                                  ; preds = %167, %.preheader20.i
@@ -182,8 +182,8 @@ init_grays.exit:                                  ; preds = %51
   %69 = trunc nuw i32 %.01622.i to i8
   %70 = zext nneg i32 %.01622.i to i64
   %71 = getelementptr inbounds nuw [256 x float], ptr @Gmat, i64 0, i64 %70
-  %72 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 1024), i64 0, i64 %70
-  %73 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 2048), i64 0, i64 %70
+  %72 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 1024), i64 0, i64 %70
+  %73 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 2048), i64 0, i64 %70
   br label %74
 
 74:                                               ; preds = %add_color.exit.i, %.preheader.i119
@@ -220,13 +220,13 @@ init_grays.exit:                                  ; preds = %51
   %95 = load float, ptr %66, align 4
   %96 = load float, ptr %72, align 4
   %97 = fadd float %95, %96
-  %98 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 1024), i64 0, i64 %91
+  %98 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 1024), i64 0, i64 %91
   %99 = load float, ptr %98, align 4
   %100 = fadd float %97, %99
   %101 = load float, ptr %67, align 4
   %102 = load float, ptr %73, align 4
   %103 = fadd float %101, %102
-  %104 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 2048), i64 0, i64 %91
+  %104 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 2048), i64 0, i64 %91
   %105 = load float, ptr %104, align 4
   %106 = fadd float %103, %105
   %107 = fadd float %94, %100
@@ -488,8 +488,8 @@ init_primaries.exit:                              ; preds = %171
   %233 = trunc i32 %232 to i8
   %234 = sext i32 %232 to i64
   %235 = getelementptr inbounds [256 x float], ptr @Rmat, i64 0, i64 %234
-  %236 = getelementptr inbounds [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 1024), i64 0, i64 %234
-  %237 = getelementptr inbounds [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 2048), i64 0, i64 %234
+  %236 = getelementptr inbounds [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 1024), i64 0, i64 %234
+  %237 = getelementptr inbounds [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 2048), i64 0, i64 %234
   %238 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %indvars.iv186.i
   br label %.lr.ph155.us.us.i
 
@@ -507,8 +507,8 @@ init_primaries.exit:                              ; preds = %171
   %245 = trunc i32 %244 to i8
   %246 = sext i32 %244 to i64
   %247 = getelementptr inbounds [256 x float], ptr @Gmat, i64 0, i64 %246
-  %248 = getelementptr inbounds [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 1024), i64 0, i64 %246
-  %249 = getelementptr inbounds [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 2048), i64 0, i64 %246
+  %248 = getelementptr inbounds [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 1024), i64 0, i64 %246
+  %249 = getelementptr inbounds [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 2048), i64 0, i64 %246
   %.not130.us.us.i = icmp eq i32 %232, %244
   %250 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %indvars.iv181.i
   br label %251
@@ -551,13 +551,13 @@ init_primaries.exit:                              ; preds = %171
   %276 = load float, ptr %236, align 4
   %277 = load float, ptr %248, align 4
   %278 = fadd float %276, %277
-  %279 = getelementptr inbounds [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 1024), i64 0, i64 %272
+  %279 = getelementptr inbounds [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 1024), i64 0, i64 %272
   %280 = load float, ptr %279, align 4
   %281 = fadd float %278, %280
   %282 = load float, ptr %237, align 4
   %283 = load float, ptr %249, align 4
   %284 = fadd float %282, %283
-  %285 = getelementptr inbounds [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 2048), i64 0, i64 %272
+  %285 = getelementptr inbounds [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 2048), i64 0, i64 %272
   %286 = load float, ptr %285, align 4
   %287 = fadd float %284, %286
   %288 = fadd float %275, %281
@@ -770,7 +770,7 @@ handle_biggest_offenders.exit.us:                 ; preds = %handle_biggest_offe
 386:                                              ; preds = %384
   %387 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 24
   %388 = load float, ptr %387, align 4
-  %389 = load ptr, ptr getelementptr inbounds (i8, ptr @offenders, i64 248), align 8
+  %389 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @offenders, i64 248), align 8
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 24
   %391 = load float, ptr %390, align 4
   %392 = fcmp olt float %388, %391
@@ -1155,20 +1155,20 @@ insert_in_list.exit.i:                            ; preds = %563, %._crit_edge.i
   %605 = getelementptr inbounds nuw [256 x float], ptr @Bmat, i64 0, i64 %604
   %606 = load float, ptr %605, align 4
   %607 = fadd float %603, %606
-  %608 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 1024), i64 0, i64 %597
+  %608 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 1024), i64 0, i64 %597
   %609 = load float, ptr %608, align 4
-  %610 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 1024), i64 0, i64 %600
+  %610 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 1024), i64 0, i64 %600
   %611 = load float, ptr %610, align 4
   %612 = fadd float %609, %611
-  %613 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 1024), i64 0, i64 %604
+  %613 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 1024), i64 0, i64 %604
   %614 = load float, ptr %613, align 4
   %615 = fadd float %612, %614
-  %616 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 2048), i64 0, i64 %597
+  %616 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 2048), i64 0, i64 %597
   %617 = load float, ptr %616, align 4
-  %618 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 2048), i64 0, i64 %600
+  %618 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 2048), i64 0, i64 %600
   %619 = load float, ptr %618, align 4
   %620 = fadd float %617, %619
-  %621 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 2048), i64 0, i64 %604
+  %621 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 2048), i64 0, i64 %604
   %622 = load float, ptr %621, align 4
   %623 = fadd float %620, %622
   %624 = fadd float %607, %615
@@ -1687,20 +1687,20 @@ define internal fastcc void @add_color(i32 noundef range(i32 -2147483648, 256) %
   %29 = getelementptr inbounds nuw [256 x float], ptr @Bmat, i64 0, i64 %28
   %30 = load float, ptr %29, align 4
   %31 = fadd float %27, %30
-  %32 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 1024), i64 0, i64 %21
+  %32 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 1024), i64 0, i64 %21
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 1024), i64 0, i64 %24
+  %34 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 1024), i64 0, i64 %24
   %35 = load float, ptr %34, align 4
   %36 = fadd float %33, %35
-  %37 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 1024), i64 0, i64 %28
+  %37 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 1024), i64 0, i64 %28
   %38 = load float, ptr %37, align 4
   %39 = fadd float %36, %38
-  %40 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Rmat, i64 2048), i64 0, i64 %21
+  %40 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Rmat, i64 2048), i64 0, i64 %21
   %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Gmat, i64 2048), i64 0, i64 %24
+  %42 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Gmat, i64 2048), i64 0, i64 %24
   %43 = load float, ptr %42, align 4
   %44 = fadd float %41, %43
-  %45 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds (i8, ptr @Bmat, i64 2048), i64 0, i64 %28
+  %45 = getelementptr inbounds nuw [256 x float], ptr getelementptr inbounds nuw (i8, ptr @Bmat, i64 2048), i64 0, i64 %28
   %46 = load float, ptr %45, align 4
   %47 = fadd float %44, %46
   %48 = fadd float %31, %39

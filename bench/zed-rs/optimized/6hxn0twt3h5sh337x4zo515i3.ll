@@ -856,7 +856,7 @@ _ZN4core3ops8function6FnOnce9call_once17h83de175e453a05fbE.exit.i.i: ; preds = %
   br i1 %142, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4c1d0600582dcdbbE.exit.i", label %_ZN4core3ops8function6FnOnce9call_once17h83de175e453a05fbE.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h83de175e453a05fbE.exit.thread2.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h83de175e453a05fbE.exit.i.i, %139
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %141, %_ZN4core3ops8function6FnOnce9call_once17h83de175e453a05fbE.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %139 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %141, %_ZN4core3ops8function6FnOnce9call_once17h83de175e453a05fbE.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %139 ]
   %143 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !22, !noundef !7
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !22
   %144 = icmp eq ptr %143, null
@@ -1991,7 +1991,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8edefb68a81ea3d3E.exit.i.i: ; preds = %
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h24d8f7399e107b6fE.exit.i": ; preds = %.noexc, %40
-  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %42, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb096bde4fb57311bE", i64 1), %40 ]
+  %.sroa.0.0.i.i.i2.i.i = phi ptr [ %42, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb096bde4fb57311bE", i64 1), %40 ]
   %45 = ptrtoint ptr %.sroa.0.0.i.i.i2.i.i to i64
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !alias.scope !204, !noalias !207, !nonnull !7, !noundef !7

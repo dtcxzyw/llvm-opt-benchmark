@@ -555,7 +555,7 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   br label %364
 
 95:                                               ; preds = %82
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not422 = icmp eq ptr %96, null
   br i1 %.not422, label %.thread483, label %.preheader500
 
@@ -625,7 +625,7 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not423, label %.loopexit501, label %.preheader500
 
 .loopexit501:                                     ; preds = %123, %82, %109, %105, %101
-  %126 = icmp eq ptr %16, getelementptr inbounds (i8, ptr @executor_globals, i64 304)
+  %126 = icmp eq ptr %16, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304)
   %127 = icmp eq i64 %48, 7
   %or.cond = and i1 %126, %127
   br i1 %or.cond, label %128, label %.thread483
@@ -667,7 +667,7 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not419.not520, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.thread483
-  %141 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 528), align 8
+  %141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 528), align 8
   %142 = icmp slt i64 %141, 1
   br i1 %142, label %._crit_edge, label %.lr.ph532
 
@@ -733,12 +733,12 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   br label %172
 
 172:                                              ; preds = %170, %165, %162
-  %173 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 10), align 2
+  %173 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 10), align 2
   %.not457 = icmp eq i8 %173, 0
   br i1 %.not457, label %174, label %176
 
 174:                                              ; preds = %172
-  %175 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 528), align 8
+  %175 = load i64, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 528), align 8
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5, i64 noundef %175) #17
   br label %176
 
@@ -1008,7 +1008,7 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
 291:                                              ; preds = %286
   store i8 0, ptr %288, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %292 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 528), align 8
+  %292 = load i64, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 528), align 8
   %.not559 = icmp sgt i64 %292, %indvars.iv
   br i1 %.not559, label %178, label %._crit_edge
 
@@ -1050,9 +1050,9 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   %.2499 = phi ptr [ %.1531, %.thread492 ], [ %.2, %.loopexit ]
   %.1384498 = phi i64 [ %198, %.thread492 ], [ %.1384, %.loopexit ]
   %.1387497 = phi ptr [ %.0386529, %.thread492 ], [ %.1387, %.loopexit ]
-  %306 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 384), align 8
+  %306 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 384), align 8
   %.not448 = icmp ne i8 %306, 0
-  %307 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
+  %307 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), align 8
   %308 = icmp eq ptr %.2499, %307
   %or.cond474 = select i1 %.not448, i1 %308, i1 false
   %.pre558 = load i8, ptr %.1387497, align 1
@@ -1254,7 +1254,7 @@ declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local
 define void @php_std_post_handler(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.post_var_data, align 8
   %4 = alloca [8192 x i8], align 16
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 56), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %57, label %6
 
@@ -1388,10 +1388,10 @@ define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr n
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 584), align 8
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 584), align 8
   %8 = trunc i8 %7 to i1
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 592), align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 536), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 592), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 536), align 8
   %11 = select i1 %8, i64 %9, i64 %10
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -1463,7 +1463,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr n
 
 51:                                               ; preds = %49, %45
   %.1.i = phi i64 [ %50, %49 ], [ 0, %45 ]
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
   %53 = load ptr, ptr %14, align 8
   %54 = call i32 %52(i32 noundef 0, ptr noundef %53, ptr noundef nonnull %5, i64 noundef %.1.i, ptr noundef nonnull %6) #17
   %.not50.i = icmp eq i32 %54, 0
@@ -1610,12 +1610,12 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
   ]
 
 12:                                               ; preds = %10
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 353), align 1
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 353), align 1
   %.not102 = icmp eq i8 %13, 0
   br i1 %.not102, label %.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 344), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), align 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp ne i32 %16, 0
   tail call void @llvm.assume(i1 %17)
@@ -1625,25 +1625,25 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %.not103, label %19, label %.thread
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 344), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), align 8
   tail call void @rc_dtor_func(ptr noundef %20) #17
   br label %.thread
 
 .thread:                                          ; preds = %19, %14, %12
   %21 = load ptr, ptr %6, align 8
   %22 = load i32, ptr %9, align 8
-  store ptr %21, ptr getelementptr inbounds (i8, ptr @core_globals, i64 344), align 8
-  store i32 %22, ptr getelementptr inbounds (i8, ptr @core_globals, i64 352), align 8
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), align 8
+  store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 352), align 8
   call void @sapi_handle_post(ptr noundef nonnull %6) #17
   br label %.thread118
 
 23:                                               ; preds = %10
-  %24 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 369), align 1
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 369), align 1
   %.not100 = icmp eq i8 %24, 0
   br i1 %.not100, label %.thread116, label %25
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 360), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), align 8
   %27 = load i32, ptr %26, align 4
   %28 = icmp ne i32 %27, 0
   tail call void @llvm.assume(i1 %28)
@@ -1653,26 +1653,26 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %.not101, label %30, label %.thread116
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 360), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), align 8
   tail call void @rc_dtor_func(ptr noundef %31) #17
   br label %.thread116
 
 .thread116:                                       ; preds = %30, %25, %23
   %32 = load ptr, ptr %6, align 8
   %33 = load i32, ptr %9, align 8
-  store ptr %32, ptr getelementptr inbounds (i8, ptr @core_globals, i64 360), align 8
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @core_globals, i64 368), align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 16), align 8
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), align 8
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 368), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 16), align 8
   %.not106 = icmp eq ptr %34, null
   br i1 %.not106, label %.thread118, label %51
 
 35:                                               ; preds = %10
-  %36 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 385), align 1
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 385), align 1
   %.not = icmp eq i8 %36, 0
   br i1 %.not, label %.thread117, label %37
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), align 8
   %39 = load i32, ptr %38, align 4
   %40 = icmp ne i32 %39, 0
   tail call void @llvm.assume(i1 %40)
@@ -1682,16 +1682,16 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %.not99, label %42, label %.thread117
 
 42:                                               ; preds = %37
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), align 8
   tail call void @rc_dtor_func(ptr noundef %43) #17
   br label %.thread117
 
 .thread117:                                       ; preds = %42, %37, %35
   %44 = load ptr, ptr %6, align 8
   %45 = load i32, ptr %9, align 8
-  store ptr %44, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
-  store i32 %45, ptr getelementptr inbounds (i8, ptr @core_globals, i64 384), align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 24), align 8
+  store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), align 8
+  store i32 %45, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 384), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 24), align 8
   %.not104 = icmp eq ptr %46, null
   br i1 %.not104, label %.thread118, label %53
 
@@ -1726,7 +1726,7 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
 
 57:                                               ; preds = %56
   %switch129 = icmp eq i32 %0, 2
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 208), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 208), align 8
   %.089 = select i1 %switch129, ptr @.str.6, ptr %58
   %59 = call ptr @strtok_r(ptr noundef nonnull %.0, ptr noundef %.089, ptr noundef nonnull %7) #17
   %.not109131 = icmp eq ptr %59, null
@@ -1767,10 +1767,10 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
 
 75:                                               ; preds = %72, %61
   %.1 = phi ptr [ %.088133, %61 ], [ %.2, %72 ]
-  %76 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 584), align 8
+  %76 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 584), align 8
   %77 = trunc i8 %76 to i1
-  %78 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 592), align 8
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 536), align 8
+  %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 592), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 536), align 8
   %80 = select i1 %77, i64 %78, i64 %79
   %81 = add nsw i64 %.091132, 1
   %.not111 = icmp slt i64 %.091132, %80
@@ -1820,7 +1820,7 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
 
 99:                                               ; preds = %.thread122, %96, %94
   %.087124 = phi i64 [ %88, %.thread122 ], [ %.087127, %96 ], [ 0, %94 ]
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
   %101 = call i32 %100(i32 noundef %0, ptr noundef nonnull %.1, ptr noundef nonnull %5, i64 noundef %.087124, ptr noundef nonnull %8) #17
   %.not114 = icmp eq i32 %101, 0
   br i1 %.not114, label %128, label %102
@@ -1924,7 +1924,7 @@ define void @php_build_argv(ptr noundef %0, ptr noundef readonly %1) local_unnam
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 140), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 140), align 4
   %7 = icmp ne i32 %6, 0
   %8 = icmp ne ptr %1, null
   %or.cond = or i1 %8, %7
@@ -1935,7 +1935,7 @@ define void @php_build_argv(ptr noundef %0, ptr noundef readonly %1) local_unnam
   store ptr %10, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 775, ptr %11, align 8
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 140), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 140), align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %37, label %.preheader185
 
@@ -1949,7 +1949,7 @@ define void @php_build_argv(ptr noundef %0, ptr noundef readonly %1) local_unnam
 
 15:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 144), align 8
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #15
@@ -1981,7 +1981,7 @@ define void @php_build_argv(ptr noundef %0, ptr noundef readonly %1) local_unnam
 
 33:                                               ; preds = %15, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 140), align 4
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 140), align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
   br i1 %36, label %15, label %.loopexit
@@ -2050,7 +2050,7 @@ define void @php_build_argv(ptr noundef %0, ptr noundef readonly %1) local_unnam
   br i1 %.not170, label %thread-pre-split.loopexit, label %41
 
 thread-pre-split.loopexit:                        ; preds = %65
-  %.pr.pre = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 140), align 4
+  %.pr.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 140), align 4
   %67 = zext nneg i32 %59 to i64
   br label %.loopexit
 
@@ -2090,11 +2090,11 @@ thread-pre-split.loopexit:                        ; preds = %65
   %81 = load ptr, ptr @zend_known_strings, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 360
   %83 = load ptr, ptr %82, align 8
-  %84 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %83, ptr noundef nonnull %3) #17
+  %84 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %83, ptr noundef nonnull %3) #17
   %85 = load ptr, ptr @zend_known_strings, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 368
   %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %87, ptr noundef nonnull %4) #17
+  %88 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %87, ptr noundef nonnull %4) #17
   br label %89
 
 89:                                               ; preds = %70, %.thread182, %.loopexit.thread194
@@ -2156,15 +2156,15 @@ declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @php_hash_environment() local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) getelementptr inbounds (i8, ptr @core_globals, i64 344), i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), i8 0, i64 96, i1 false)
   tail call void @zend_activate_auto_globals() #17
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 441), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 441), align 1
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 16), align 8
-  tail call void @php_build_argv(ptr noundef %4, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 392))
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 16), align 8
+  tail call void @php_build_argv(ptr noundef %4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 392))
   br label %5
 
 5:                                                ; preds = %3, %0
@@ -2187,19 +2187,19 @@ define hidden void @php_startup_auto_globals() local_unnamed_addr #0 {
   %10 = load ptr, ptr @zend_known_strings, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 528
   %12 = load ptr, ptr %11, align 8
-  %13 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 442), align 2
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 442), align 2
   %14 = trunc i8 %13 to i1
   %15 = tail call i32 @zend_register_auto_global(ptr noundef %12, i1 noundef zeroext %14, ptr noundef nonnull @php_auto_globals_create_server) #17
   %16 = load ptr, ptr @zend_known_strings, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 536
   %18 = load ptr, ptr %17, align 8
-  %19 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 442), align 2
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 442), align 2
   %20 = trunc i8 %19 to i1
   %21 = tail call i32 @zend_register_auto_global(ptr noundef %18, i1 noundef zeroext %20, ptr noundef nonnull @php_auto_globals_create_env) #17
   %22 = load ptr, ptr @zend_known_strings, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 544
   %24 = load ptr, ptr %23, align 8
-  %25 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 442), align 2
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 442), align 2
   %26 = trunc i8 %25 to i1
   %27 = tail call i32 @zend_register_auto_global(ptr noundef %24, i1 noundef zeroext %26, ptr noundef nonnull @php_auto_globals_create_request) #17
   %28 = load ptr, ptr @zend_string_init_interned, align 8
@@ -2212,7 +2212,7 @@ declare i32 @zend_register_auto_global(ptr noundef, i1 noundef zeroext, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @php_auto_globals_create_get(ptr noundef %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 216), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 216), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
 
@@ -2227,17 +2227,17 @@ define internal noundef zeroext i1 @php_auto_globals_create_get(ptr noundef %0) 
   br i1 %.not15, label %9, label %7
 
 7:                                                ; preds = %5, %3
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 176), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 176), align 8
   tail call void %8(i32 noundef 1, ptr noundef null, ptr noundef null) #17
   br label %20
 
 9:                                                ; preds = %5, %1
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 369), align 1
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 369), align 1
   %.not16 = icmp eq i8 %10, 0
   br i1 %.not16, label %18, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 360), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), align 8
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, 0
   tail call void @llvm.assume(i1 %14)
@@ -2247,22 +2247,22 @@ define internal noundef zeroext i1 @php_auto_globals_create_get(ptr noundef %0) 
   br i1 %.not17, label %16, label %18
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 360), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), align 8
   tail call void @rc_dtor_func(ptr noundef %17) #17
   br label %18
 
 18:                                               ; preds = %9, %11, %16
   %19 = tail call ptr @_zend_new_array_0() #17
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @core_globals, i64 360), align 8
-  store i32 775, ptr getelementptr inbounds (i8, ptr @core_globals, i64 368), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), align 8
+  store i32 775, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 368), align 8
   br label %20
 
 20:                                               ; preds = %18, %7
-  %21 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 360)) #17
-  %22 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 369), align 1
+  %21 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 360)) #17
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 369), align 1
   %23 = icmp ne i8 %22, 0
   tail call void @llvm.assume(i1 %23)
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 360), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), align 8
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -2271,7 +2271,7 @@ define internal noundef zeroext i1 @php_auto_globals_create_get(ptr noundef %0) 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @php_auto_globals_create_post(ptr noundef %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 216), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 216), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %3
 
@@ -2283,18 +2283,18 @@ define internal noundef zeroext i1 @php_auto_globals_create_post(ptr noundef %0)
 5:                                                ; preds = %3
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 112) #15
   %.not16 = icmp ne ptr %6, null
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 249), align 1
   %.not17 = icmp eq i8 %7, 0
   %or.cond = select i1 %.not16, i1 %.not17, i1 false
   br i1 %or.cond, label %9, label %15
 
 8:                                                ; preds = %3
-  %.old = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
+  %.old = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 249), align 1
   %.not17.old = icmp eq i8 %.old, 0
   br i1 %.not17.old, label %9, label %15
 
 9:                                                ; preds = %5, %8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 8), align 8
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %15, label %11
 
@@ -2304,17 +2304,17 @@ define internal noundef zeroext i1 @php_auto_globals_create_post(ptr noundef %0)
   br i1 %.not19, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 176), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 176), align 8
   tail call void %14(i32 noundef 0, ptr noundef null, ptr noundef null) #17
   br label %26
 
 15:                                               ; preds = %11, %9, %8, %5, %1
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 353), align 1
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 353), align 1
   %.not20 = icmp eq i8 %16, 0
   br i1 %.not20, label %24, label %17
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 344), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), align 8
   %19 = load i32, ptr %18, align 4
   %20 = icmp ne i32 %19, 0
   tail call void @llvm.assume(i1 %20)
@@ -2324,22 +2324,22 @@ define internal noundef zeroext i1 @php_auto_globals_create_post(ptr noundef %0)
   br i1 %.not21, label %22, label %24
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 344), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), align 8
   tail call void @rc_dtor_func(ptr noundef %23) #17
   br label %24
 
 24:                                               ; preds = %15, %17, %22
   %25 = tail call ptr @_zend_new_array_0() #17
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @core_globals, i64 344), align 8
-  store i32 775, ptr getelementptr inbounds (i8, ptr @core_globals, i64 352), align 8
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), align 8
+  store i32 775, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 352), align 8
   br label %26
 
 26:                                               ; preds = %24, %13
-  %27 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 344)) #17
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 353), align 1
+  %27 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 344)) #17
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 353), align 1
   %29 = icmp ne i8 %28, 0
   tail call void @llvm.assume(i1 %29)
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 344), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), align 8
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 4
@@ -2348,7 +2348,7 @@ define internal noundef zeroext i1 @php_auto_globals_create_post(ptr noundef %0)
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @php_auto_globals_create_cookie(ptr noundef %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 216), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 216), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
 
@@ -2363,17 +2363,17 @@ define internal noundef zeroext i1 @php_auto_globals_create_cookie(ptr noundef %
   br i1 %.not15, label %9, label %7
 
 7:                                                ; preds = %5, %3
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 176), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 176), align 8
   tail call void %8(i32 noundef 2, ptr noundef null, ptr noundef null) #17
   br label %20
 
 9:                                                ; preds = %5, %1
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 385), align 1
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 385), align 1
   %.not16 = icmp eq i8 %10, 0
   br i1 %.not16, label %18, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), align 8
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, 0
   tail call void @llvm.assume(i1 %14)
@@ -2383,22 +2383,22 @@ define internal noundef zeroext i1 @php_auto_globals_create_cookie(ptr noundef %
   br i1 %.not17, label %16, label %18
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), align 8
   tail call void @rc_dtor_func(ptr noundef %17) #17
   br label %18
 
 18:                                               ; preds = %9, %11, %16
   %19 = tail call ptr @_zend_new_array_0() #17
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
-  store i32 775, ptr getelementptr inbounds (i8, ptr @core_globals, i64 384), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), align 8
+  store i32 775, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 384), align 8
   br label %20
 
 20:                                               ; preds = %18, %7
-  %21 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 376)) #17
-  %22 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 385), align 1
+  %21 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 376)) #17
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 385), align 1
   %23 = icmp ne i8 %22, 0
   tail call void @llvm.assume(i1 %23)
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 376), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), align 8
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -2408,7 +2408,7 @@ define internal noundef zeroext i1 @php_auto_globals_create_cookie(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @php_auto_globals_create_server(ptr noundef %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 216), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 216), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %187, label %4
 
@@ -2424,12 +2424,12 @@ define internal noundef zeroext i1 @php_auto_globals_create_server(ptr noundef %
 
 8:                                                ; preds = %6, %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 401), align 1
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 401), align 1
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %17, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp ne i32 %12, 0
   tail call void @llvm.assume(i1 %13)
@@ -2439,26 +2439,26 @@ define internal noundef zeroext i1 @php_auto_globals_create_server(ptr noundef %
   br i1 %.not285.i, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
   tail call void @rc_dtor_func(ptr noundef %16) #17
   br label %17
 
 17:                                               ; preds = %15, %10, %8
   %18 = tail call ptr @_zend_new_array_0() #17
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
-  store i32 775, ptr getelementptr inbounds (i8, ptr @core_globals, i64 400), align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 128), align 8
+  store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
+  store i32 775, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 400), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 128), align 8
   %.not286.i = icmp eq ptr %19, null
   br i1 %.not286.i, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void %19(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 392)) #17
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
+  tail call void %19(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 392)) #17
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
   br label %21
 
 21:                                               ; preds = %20, %17
   %22 = phi ptr [ %.pre.i, %20 ], [ %18, %17 ]
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 96), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 96), align 8
   %.not287.i = icmp eq ptr %23, null
   br i1 %.not287.i, label %47, label %24
 
@@ -2504,7 +2504,7 @@ define internal noundef zeroext i1 @php_auto_globals_create_server(ptr noundef %
   br label %47
 
 47:                                               ; preds = %46, %41, %24, %21
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 104), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 104), align 8
   %.not289.i = icmp eq ptr %48, null
   br i1 %.not289.i, label %72, label %49
 
@@ -2550,7 +2550,7 @@ define internal noundef zeroext i1 @php_auto_globals_create_server(ptr noundef %
   br label %72
 
 72:                                               ; preds = %71, %66, %49, %47
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 112), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 112), align 8
   %.not291.i = icmp eq ptr %73, null
   br i1 %.not291.i, label %97, label %74
 
@@ -2670,12 +2670,12 @@ define internal noundef zeroext i1 @php_auto_globals_create_server(ptr noundef %
 
 php_register_server_variables.exit:               ; preds = %123, %130, %135
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %136 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 441), align 1
+  %136 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 441), align 1
   %137 = trunc i8 %136 to i1
   br i1 %137, label %138, label %.thread
 
 138:                                              ; preds = %php_register_server_variables.exit
-  %139 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 140), align 4
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 140), align 4
   %.not59 = icmp eq i32 %139, 0
   br i1 %.not59, label %185, label %140
 
@@ -2683,7 +2683,7 @@ php_register_server_variables.exit:               ; preds = %123, %130, %135
   %141 = load ptr, ptr @zend_known_strings, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 368
   %143 = load ptr, ptr %142, align 8
-  %144 = call ptr @zend_hash_find_known_hash(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %143) #17
+  %144 = call ptr @zend_hash_find_known_hash(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %143) #17
   %.not60 = icmp eq ptr %144, null
   br i1 %.not60, label %.thread, label %145
 
@@ -2705,7 +2705,7 @@ php_register_server_variables.exit:               ; preds = %123, %130, %135
   %155 = load ptr, ptr @zend_known_strings, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 360
   %157 = load ptr, ptr %156, align 8
-  %158 = call ptr @zend_hash_find_known_hash(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %157) #17
+  %158 = call ptr @zend_hash_find_known_hash(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %157) #17
   %.not63 = icmp eq ptr %158, null
   br i1 %.not63, label %.thread, label %159
 
@@ -2732,12 +2732,12 @@ php_register_server_variables.exit:               ; preds = %123, %130, %135
   %173 = load i32, ptr %172, align 4
   %174 = add i32 %173, 1
   store i32 %174, ptr %172, align 4
-  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
   %176 = load ptr, ptr @zend_known_strings, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 360
   %178 = load ptr, ptr %177, align 8
   %179 = call ptr @zend_hash_update(ptr noundef %175, ptr noundef %178, ptr noundef nonnull %168) #17
-  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
+  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
   %181 = load ptr, ptr @zend_known_strings, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 368
   %183 = load ptr, ptr %182, align 8
@@ -2745,17 +2745,17 @@ php_register_server_variables.exit:               ; preds = %123, %130, %135
   br label %.thread
 
 185:                                              ; preds = %138
-  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 16), align 8
-  call void @php_build_argv(ptr noundef %186, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 392))
+  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 16), align 8
+  call void @php_build_argv(ptr noundef %186, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 392))
   br label %.thread
 
 187:                                              ; preds = %6, %1
-  %188 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 401), align 1
+  %188 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 401), align 1
   %.not57 = icmp eq i8 %188, 0
   br i1 %.not57, label %196, label %189
 
 189:                                              ; preds = %187
-  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
+  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
   %191 = load i32, ptr %190, align 4
   %192 = icmp ne i32 %191, 0
   tail call void @llvm.assume(i1 %192)
@@ -2765,24 +2765,24 @@ php_register_server_variables.exit:               ; preds = %123, %130, %135
   br i1 %.not58, label %194, label %196
 
 194:                                              ; preds = %189
-  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
+  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
   tail call void @rc_dtor_func(ptr noundef %195) #17
   br label %196
 
 196:                                              ; preds = %187, %189, %194
   %197 = tail call ptr @_zend_new_array_0() #17
-  store ptr %197, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
-  store i32 775, ptr getelementptr inbounds (i8, ptr @core_globals, i64 400), align 8
+  store ptr %197, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
+  store i32 775, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 400), align 8
   br label %.thread
 
 .thread:                                          ; preds = %163, %153, %149, %140, %php_register_server_variables.exit, %167, %185, %196
-  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
+  %198 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
   call fastcc void @check_http_proxy(ptr noundef %198)
-  %199 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 392)) #17
-  %200 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 401), align 1
+  %199 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 392)) #17
+  %200 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 401), align 1
   %201 = icmp ne i8 %200, 0
   call void @llvm.assume(i1 %201)
-  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 392), align 8
+  %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 392), align 8
   %203 = load i32, ptr %202, align 4
   %204 = add i32 %203, 1
   store i32 %204, ptr %202, align 4
@@ -2791,12 +2791,12 @@ php_register_server_variables.exit:               ; preds = %123, %130, %135
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @php_auto_globals_create_env(ptr noundef %0) #0 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 417), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 417), align 1
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 408), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 408), align 8
   %5 = load i32, ptr %4, align 4
   %6 = icmp ne i32 %5, 0
   tail call void @llvm.assume(i1 %6)
@@ -2806,15 +2806,15 @@ define internal noundef zeroext i1 @php_auto_globals_create_env(ptr noundef %0) 
   br i1 %.not14, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 408), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 408), align 8
   tail call void @rc_dtor_func(ptr noundef %9) #17
   br label %10
 
 10:                                               ; preds = %1, %3, %8
   %11 = tail call ptr @_zend_new_array_0() #17
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @core_globals, i64 408), align 8
-  store i32 775, ptr getelementptr inbounds (i8, ptr @core_globals, i64 416), align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 216), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 408), align 8
+  store i32 775, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 416), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 216), align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %19, label %13
 
@@ -2830,18 +2830,18 @@ define internal noundef zeroext i1 @php_auto_globals_create_env(ptr noundef %0) 
 
 17:                                               ; preds = %15, %13
   %18 = load ptr, ptr @php_import_environment_variables, align 8
-  tail call void %18(ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 408)) #17
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 408), align 8
+  tail call void %18(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 408)) #17
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 408), align 8
   br label %19
 
 19:                                               ; preds = %17, %15, %10
   %20 = phi ptr [ %.pre, %17 ], [ %11, %15 ], [ %11, %10 ]
   tail call fastcc void @check_http_proxy(ptr noundef %20)
-  %21 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 408)) #17
-  %22 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 417), align 1
+  %21 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 408)) #17
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 417), align 1
   %23 = icmp ne i8 %22, 0
   tail call void @llvm.assume(i1 %23)
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 408), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 408), align 8
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -2855,9 +2855,9 @@ define internal noundef zeroext i1 @php_auto_globals_create_request(ptr noundef 
   store ptr %3, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 775, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 560), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 560), align 8
   %.not = icmp eq ptr %5, null
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 216), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 216), align 8
   %.0 = select i1 %.not, ptr %6, ptr %5
   %.not1015 = icmp eq ptr %.0, null
   br i1 %.not1015, label %.critedge, label %.lr.ph
@@ -2891,7 +2891,7 @@ define internal noundef zeroext i1 @php_auto_globals_create_request(ptr noundef 
   br i1 %.not12, label %.sink.split, label %11
 
 .sink.split:                                      ; preds = %10, %9, %8
-  %.sink.in = phi ptr [ getelementptr inbounds (i8, ptr @core_globals, i64 360), %8 ], [ getelementptr inbounds (i8, ptr @core_globals, i64 344), %9 ], [ getelementptr inbounds (i8, ptr @core_globals, i64 376), %10 ]
+  %.sink.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @core_globals, i64 360), %8 ], [ getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), %9 ], [ getelementptr inbounds nuw (i8, ptr @core_globals, i64 376), %10 ]
   %.sroa.5.1.ph = phi i8 [ %.sroa.5.016, %8 ], [ %.sroa.5.016, %9 ], [ 1, %10 ]
   %.sroa.3.1.ph = phi i8 [ %.sroa.3.018, %8 ], [ 1, %9 ], [ %.sroa.3.018, %10 ]
   %.sroa.0.1.ph = phi i8 [ 1, %8 ], [ %.sroa.0.019, %9 ], [ %.sroa.0.019, %10 ]
@@ -2907,28 +2907,28 @@ define internal noundef zeroext i1 @php_auto_globals_create_request(ptr noundef 
   br label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %1
-  %13 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull %2) #17
+  %13 = call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull %2) #17
   ret i1 false
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @php_auto_globals_create_files(ptr noundef %0) #0 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 432), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 432), align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = tail call ptr @_zend_new_array_0() #17
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @core_globals, i64 424), align 8
-  store i32 775, ptr getelementptr inbounds (i8, ptr @core_globals, i64 432), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 424), align 8
+  store i32 775, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 432), align 8
   br label %6
 
 6:                                                ; preds = %4, %1
-  %7 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #17
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 433), align 1
+  %7 = tail call ptr @zend_hash_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @core_globals, i64 424)) #17
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 433), align 1
   %9 = icmp ne i8 %8, 0
   tail call void @llvm.assume(i1 %9)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 424), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 424), align 8
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -3019,7 +3019,7 @@ declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_autoglobal_merge(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = icmp eq ptr %0, getelementptr inbounds (i8, ptr @executor_globals, i64 304)
+  %3 = icmp eq ptr %0, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8

@@ -114,7 +114,7 @@ define i32 @mca_common_ompio_file_read(ptr noundef %0, ptr noundef %1, i32 nound
   %53 = call i32 %52(ptr noundef nonnull @.str, i32 noundef 21) #7
   %54 = sext i32 %53 to i64
   %55 = load i32, ptr @opal_class_init_epoch, align 4
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %55, %56
   br i1 %.not.i, label %58, label %57
 
@@ -298,7 +298,7 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %89, %opal_obj_run_c
   br i1 %.not103.i, label %151, label %145
 
 145:                                              ; preds = %144
-  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %147 = call i32 %146(ptr noundef nonnull %18, ptr noundef nonnull %20) #7
   %.not104.i = icmp eq i32 %147, 0
   br i1 %.not104.i, label %148, label %.split.loop.exit.i
@@ -747,7 +747,7 @@ ompi_request_complete.exit:                       ; preds = %33, %.critedge.i
   %56 = call i32 %55(ptr noundef nonnull @.str, i32 noundef 21) #7
   %57 = sext i32 %56 to i64
   %58 = load i32, ptr @opal_class_init_epoch, align 4
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not62 = icmp eq i32 %58, %59
   br i1 %.not62, label %61, label %60
 
@@ -1210,7 +1210,7 @@ define i32 @mca_common_ompio_file_read_all(ptr noundef %0, ptr noundef %1, i32 n
   store i64 0, ptr %6, align 8
   store i32 0, ptr %9, align 4
   %17 = load i32, ptr @opal_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8
   %.not = icmp eq i32 %17, %18
   br i1 %.not, label %20, label %19
 

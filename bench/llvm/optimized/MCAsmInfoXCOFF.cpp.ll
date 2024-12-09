@@ -62,7 +62,7 @@ define dso_local void @_ZN4llvm14MCAsmInfoXCOFF6anchorEv(ptr nocapture nonnull r
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm14MCAsmInfoXCOFFC2Ev(ptr noundef nonnull align 8 dereferenceable(484) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm9MCAsmInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(484) %0) #6
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm14MCAsmInfoXCOFFE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm14MCAsmInfoXCOFFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 21
@@ -89,7 +89,7 @@ define dso_local void @_ZN4llvm14MCAsmInfoXCOFFC2Ev(ptr noundef nonnull align 8 
   store i8 0, ptr %11, align 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 428
   store i8 0, ptr %12, align 4
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4llvm19UseLEB128DirectivesE, i64 128), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19UseLEB128DirectivesE, i64 128), align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %17
 

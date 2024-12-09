@@ -165,7 +165,7 @@ define hidden void @_ZN12ZMinorTracerC2Ev(ptr nocapture noundef nonnull writeonl
   store i32 34, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV12ZMinorTracer, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12ZMinorTracer, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -177,7 +177,7 @@ define hidden void @_ZN12ZMajorTracerC2Ev(ptr nocapture noundef nonnull writeonl
   store i32 34, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV12ZMajorTracer, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12ZMajorTracer, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -452,13 +452,13 @@ _ZN8JfrEventI26EventZOldGarbageCollectionE11write_eventEv.exit: ; preds = %_ZN8J
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ZTracer10initializeEv() local_unnamed_addr #3 align 2 {
   %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17ZPageTypeConstant, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17ZPageTypeConstant, i64 16), ptr %1, align 8
   %2 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 175, i1 noundef zeroext true, ptr noundef nonnull %1) #11
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV30ZStatisticsCounterTypeConstant, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV30ZStatisticsCounterTypeConstant, i64 16), ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 176, i1 noundef zeroext true, ptr noundef nonnull %3) #11
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV30ZStatisticsSamplerTypeConstant, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV30ZStatisticsSamplerTypeConstant, i64 16), ptr %5, align 8
   %6 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 177, i1 noundef zeroext true, ptr noundef nonnull %5) #11
   ret void
 }

@@ -1213,7 +1213,7 @@ define dso_local void @_Z8func_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr no
   %67 = trunc nuw i8 %66 to i1
   %68 = select i1 %67, i32 23, i32 0
   call void @_ZN10axi4_slaveILj32ELj32ELj4EEC2Ei(ptr noundef nonnull align 8 dereferenceable(685) %6, i32 noundef %68) #28
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %6, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %6, align 8, !tbaa !68
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 696
   store i32 0, ptr %69, align 8, !tbaa !70
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 704
@@ -1567,12 +1567,12 @@ define dso_local void @_Z8func_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr no
           to label %268 unwind label %171
 
 268:                                              ; preds = %267
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %8, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %8, align 8, !tbaa !68
   %269 = getelementptr inbounds nuw i8, ptr %8, i64 616
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %269) #27
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %83) #27
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %8) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %7, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %7, align 8, !tbaa !68
   %270 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %271 = load ptr, ptr %270, align 8, !tbaa !173
   %272 = icmp eq ptr %271, null
@@ -1584,7 +1584,7 @@ define dso_local void @_Z8func_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr no
 
 274:                                              ; preds = %273, %268
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %6, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %6, align 8, !tbaa !68
   %275 = getelementptr inbounds nuw i8, ptr %6, i64 688
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_P8mmio_devESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %275) #27
   call void @_ZN10axi4_slaveILj32ELj32ELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(685) %6) #27
@@ -1595,7 +1595,7 @@ define dso_local void @_Z8func_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr no
 
 276:                                              ; preds = %171, %169, %167, %141, %129, %126, %120
   %277 = phi { ptr, i32 } [ %142, %141 ], [ %121, %120 ], [ %123, %126 ], [ %123, %129 ], [ %172, %171 ], [ %168, %167 ], [ %170, %169 ]
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %8, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %8, align 8, !tbaa !68
   %278 = getelementptr inbounds nuw i8, ptr %8, i64 616
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %278) #27
   %279 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1605,7 +1605,7 @@ define dso_local void @_Z8func_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr no
 280:                                              ; preds = %276, %118
   %281 = phi { ptr, i32 } [ %277, %276 ], [ %119, %118 ]
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %8) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %7, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %7, align 8, !tbaa !68
   %282 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %283 = load ptr, ptr %282, align 8, !tbaa !173
   %284 = icmp eq ptr %283, null
@@ -1618,7 +1618,7 @@ define dso_local void @_Z8func_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr no
 286:                                              ; preds = %285, %280, %116
   %287 = phi { ptr, i32 } [ %117, %116 ], [ %281, %280 ], [ %281, %285 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %6, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %6, align 8, !tbaa !68
   %288 = getelementptr inbounds nuw i8, ptr %6, i64 688
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_P8mmio_devESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %288) #27
   call void @_ZN10axi4_slaveILj32ELj32ELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(685) %6) #27
@@ -1631,7 +1631,7 @@ define dso_local void @_Z8func_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr no
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr dso_local void @_ZN8mmio_memC2EmPKc(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::basic_ifstream", align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %0, align 8, !tbaa !68
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %5, align 8, !tbaa !174
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1715,7 +1715,7 @@ define linkonce_odr dso_local void @_ZN8mmio_memC2EmPKc(ptr noundef nonnull alig
 44:                                               ; preds = %42, %31
   %45 = phi { ptr, i32 } [ %43, %42 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %4) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %0, align 8, !tbaa !68
   %46 = load ptr, ptr %9, align 8, !tbaa !173
   %47 = icmp eq ptr %46, null
   br i1 %47, label %49, label %48
@@ -1732,7 +1732,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr dso_local void @_ZN14nscscc_confregC2Eb(ptr noundef nonnull align 8 dereferenceable(712) %0, i1 noundef zeroext %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %0, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8, !tbaa !177
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2015,7 +2015,7 @@ declare void @_ZN10Vmycpu_top5finalEv(ptr noundef nonnull align 64 dereferenceab
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN14nscscc_confregD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   tail call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2025,7 +2025,7 @@ define linkonce_odr dso_local void @_ZN14nscscc_confregD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN8mmio_memD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !173
   %4 = icmp eq ptr %3, null
@@ -2052,7 +2052,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
   %13 = alloca %class.mips_core, align 8
   %14 = alloca [2 x i32], align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %5, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %5, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %15, align 8, !tbaa !70
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2159,7 +2159,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
           to label %79 unwind label %103
 
 79:                                               ; preds = %4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %8, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %8, align 8, !tbaa !68
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 696
   store i32 0, ptr %80, align 8, !tbaa !70
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 704
@@ -2982,19 +2982,19 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
   %574 = getelementptr inbounds nuw i8, ptr %13, i64 48
   call void @_ZNSt11_Deque_baseIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %574) #27
   call void @llvm.lifetime.end.p0(i64 840, ptr nonnull %13) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %12, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %12, align 8, !tbaa !68
   %575 = getelementptr inbounds nuw i8, ptr %12, i64 616
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %575) #27
   %576 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %576) #27
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %12) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %11, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %11, align 8, !tbaa !68
   %577 = getelementptr inbounds nuw i8, ptr %11, i64 616
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %577) #27
   %578 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %578) #27
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %11) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
   %579 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %580 = load ptr, ptr %579, align 8, !tbaa !173
   %581 = icmp eq ptr %580, null
@@ -3006,7 +3006,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
 
 583:                                              ; preds = %582, %571
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %9, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %9, align 8, !tbaa !68
   %584 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %585 = load ptr, ptr %584, align 8, !tbaa !173
   %586 = icmp eq ptr %585, null
@@ -3018,14 +3018,14 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
 
 588:                                              ; preds = %587, %583
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %8, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %8, align 8, !tbaa !68
   %589 = getelementptr inbounds nuw i8, ptr %8, i64 688
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_P8mmio_devESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %589) #27
   call void @_ZN10axi4_slaveILj32ELj32ELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(685) %8) #27
   call void @llvm.lifetime.end.p0(i64 736, ptr nonnull %8) #26
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7) #26
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %6) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %5, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %5, align 8, !tbaa !68
   %590 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_S0_IP8mmio_devbEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %590) #27
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
@@ -3047,7 +3047,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
 597:                                              ; preds = %593, %191
   %598 = phi { ptr, i32 } [ %594, %593 ], [ %192, %191 ]
   call void @llvm.lifetime.end.p0(i64 840, ptr nonnull %13) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %12, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %12, align 8, !tbaa !68
   %599 = getelementptr inbounds nuw i8, ptr %12, i64 616
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %599) #27
   %600 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -3057,7 +3057,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
 601:                                              ; preds = %597, %111
   %602 = phi { ptr, i32 } [ %598, %597 ], [ %112, %111 ]
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %12) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %11, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %11, align 8, !tbaa !68
   %603 = getelementptr inbounds nuw i8, ptr %11, i64 616
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %603) #27
   %604 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -3067,7 +3067,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
 605:                                              ; preds = %601, %109
   %606 = phi { ptr, i32 } [ %602, %601 ], [ %110, %109 ]
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %11) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
   %607 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %608 = load ptr, ptr %607, align 8, !tbaa !173
   %609 = icmp eq ptr %608, null
@@ -3080,7 +3080,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
 611:                                              ; preds = %610, %605, %107
   %612 = phi { ptr, i32 } [ %108, %107 ], [ %606, %605 ], [ %606, %610 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %9, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %9, align 8, !tbaa !68
   %613 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %614 = load ptr, ptr %613, align 8, !tbaa !173
   %615 = icmp eq ptr %614, null
@@ -3093,7 +3093,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
 617:                                              ; preds = %616, %611, %105
   %618 = phi { ptr, i32 } [ %106, %105 ], [ %612, %611 ], [ %612, %616 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %8, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9axi4_xbarILj32ELj32ELj4EE, i64 16), ptr %8, align 8, !tbaa !68
   %619 = getelementptr inbounds nuw i8, ptr %8, i64 688
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_P8mmio_devESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %619) #27
   call void @_ZN10axi4_slaveILj32ELj32ELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(685) %8) #27
@@ -3104,7 +3104,7 @@ define dso_local void @_Z8perf_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EEii(ptr 
   call void @llvm.lifetime.end.p0(i64 736, ptr nonnull %8) #26
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7) #26
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %6) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %5, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %5, align 8, !tbaa !68
   %622 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_S0_IP8mmio_devbEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %622) #27
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #26
@@ -3315,7 +3315,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN10memory_busD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_S0_IP8mmio_devbEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #27
   ret void
@@ -3404,7 +3404,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
   %18 = alloca %"class.std::reference_wrapper", align 8
   %19 = alloca %class.mips_core, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %4, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %4, align 8, !tbaa !68
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %20, align 8, !tbaa !70
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3486,7 +3486,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
           to label %70 unwind label %98
 
 70:                                               ; preds = %69
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9axi4_ctrl, i64 16), ptr %7, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9axi4_ctrl, i64 16), ptr %7, align 8, !tbaa !68
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 688
   store i32 0, ptr %71, align 8, !tbaa !70
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 696
@@ -3509,7 +3509,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 0, ptr %79, align 8, !tbaa !174
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -3525,7 +3525,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 134217728, ptr %85, align 8, !tbaa !176
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %11, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %11, align 8, !tbaa !68
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 0, ptr %86, align 8, !tbaa !174
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -3675,7 +3675,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
           to label %138 unwind label %150
 
 138:                                              ; preds = %136
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %137, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %137, align 8, !tbaa !68
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i8 0, ptr %139, align 8, !tbaa !174
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 40
@@ -3728,7 +3728,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
           to label %158 unwind label %170
 
 158:                                              ; preds = %156
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %157, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %157, align 8, !tbaa !68
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i8 0, ptr %159, align 8, !tbaa !174
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 40
@@ -4247,19 +4247,19 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
   %459 = getelementptr inbounds nuw i8, ptr %19, i64 48
   call void @_ZNSt11_Deque_baseIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %459) #27
   call void @llvm.lifetime.end.p0(i64 840, ptr nonnull %19) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %13, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %13, align 8, !tbaa !68
   %460 = getelementptr inbounds nuw i8, ptr %13, i64 88
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %460) #27
   %461 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %461) #27
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %12, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %12, align 8, !tbaa !68
   %462 = getelementptr inbounds nuw i8, ptr %12, i64 88
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %462) #27
   %463 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %463) #27
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %11, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %11, align 8, !tbaa !68
   %464 = load ptr, ptr %91, align 8, !tbaa !173
   %465 = icmp eq ptr %464, null
   br i1 %465, label %467, label %466
@@ -4270,7 +4270,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
 
 467:                                              ; preds = %466, %.loopexit
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
   %468 = load ptr, ptr %84, align 8, !tbaa !173
   %469 = icmp eq ptr %468, null
   br i1 %469, label %471, label %470
@@ -4296,13 +4296,13 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
 
 480:                                              ; preds = %474, %471
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #26
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV18simple_delay_model, i64 16), ptr %8, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV18simple_delay_model, i64 16), ptr %8, align 8, !tbaa !68
   %481 = getelementptr inbounds nuw i8, ptr %8, i64 104
   call void @_ZNSt11_Deque_baseIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %481) #27
   %482 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @_ZNSt11_Deque_baseISt4pairImlESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %482) #27
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %8) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9axi4_ctrl, i64 16), ptr %7, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9axi4_ctrl, i64 16), ptr %7, align 8, !tbaa !68
   %483 = getelementptr inbounds nuw i8, ptr %7, i64 680
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_P8mmio_devESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %483) #27
   call void @_ZN8axi4_slvD2Ev(ptr noundef nonnull align 8 dereferenceable(676) %7) #27
@@ -4311,7 +4311,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6) #26
   call void @_ZN10axi4_ptr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %5) #27
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %4, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %4, align 8, !tbaa !68
   %484 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_S0_IP8mmio_devbEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %484) #27
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
@@ -4350,7 +4350,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
 
 501:                                              ; preds = %499, %207, %190, %188, %174, %154, %134, %132, %130, %122, %120, %118
   %502 = phi { ptr, i32 } [ %175, %174 ], [ %155, %154 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %208, %207 ], [ %500, %499 ], [ %191, %190 ], [ %189, %188 ]
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %13, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %13, align 8, !tbaa !68
   %503 = getelementptr inbounds nuw i8, ptr %13, i64 88
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %503) #27
   %504 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -4360,7 +4360,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
 505:                                              ; preds = %501, %110
   %506 = phi { ptr, i32 } [ %502, %501 ], [ %111, %110 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %12, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %12, align 8, !tbaa !68
   %507 = getelementptr inbounds nuw i8, ptr %12, i64 88
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %507) #27
   %508 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -4370,7 +4370,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
 509:                                              ; preds = %505, %108
   %510 = phi { ptr, i32 } [ %506, %505 ], [ %109, %108 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %11, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %11, align 8, !tbaa !68
   %511 = load ptr, ptr %91, align 8, !tbaa !173
   %512 = icmp eq ptr %511, null
   br i1 %512, label %514, label %513
@@ -4382,7 +4382,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
 514:                                              ; preds = %513, %509, %106
   %515 = phi { ptr, i32 } [ %107, %106 ], [ %510, %509 ], [ %510, %513 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %10, align 8, !tbaa !68
   %516 = load ptr, ptr %84, align 8, !tbaa !173
   %517 = icmp eq ptr %516, null
   br i1 %517, label %519, label %518
@@ -4413,7 +4413,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
 
 530:                                              ; preds = %529, %102
   %531 = phi { ptr, i32 } [ %520, %529 ], [ %103, %102 ]
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV18simple_delay_model, i64 16), ptr %8, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV18simple_delay_model, i64 16), ptr %8, align 8, !tbaa !68
   %532 = getelementptr inbounds nuw i8, ptr %8, i64 104
   call void @_ZNSt11_Deque_baseIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %532) #27
   %533 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4423,7 +4423,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
 534:                                              ; preds = %530, %100
   %535 = phi { ptr, i32 } [ %531, %530 ], [ %101, %100 ]
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %8) #26
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9axi4_ctrl, i64 16), ptr %7, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9axi4_ctrl, i64 16), ptr %7, align 8, !tbaa !68
   %536 = getelementptr inbounds nuw i8, ptr %7, i64 680
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_P8mmio_devESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %536) #27
   call void @_ZN8axi4_slvD2Ev(ptr noundef nonnull align 8 dereferenceable(676) %7) #27
@@ -4440,7 +4440,7 @@ define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj3
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6) #26
   call void @_ZN10axi4_ptr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %5) #27
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #26
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %4, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %4, align 8, !tbaa !68
   %541 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_S0_IP8mmio_devbEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %541) #27
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
@@ -4582,7 +4582,7 @@ define linkonce_odr dso_local void @_ZN10axi4_ptr_tC2Ehthb(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr dso_local void @_ZN18simple_delay_modelC2Ej(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV18simple_delay_model, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV18simple_delay_model, i64 16), ptr %0, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8, !tbaa !430
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4703,7 +4703,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8axi4_slv26insert_memory_ti
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr dso_local void @_ZN8uart8250C2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIcSaIcEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %2, i64 noundef 0) #28
@@ -4823,7 +4823,7 @@ define linkonce_odr dso_local void @_ZNSt6threadC2IRFvR8uart8250EJSt17reference_
   %4 = alloca %"class.std::unique_ptr.210", align 8
   store i64 0, ptr %0, align 8, !tbaa !436
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvR8uart8250ESt17reference_wrapperIS3_EEEEEEE, i64 16), ptr %5, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvR8uart8250ESt17reference_wrapperIS3_EEEEEEE, i64 16), ptr %5, align 8, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %2, align 8, !tbaa !18
   store i64 %7, ptr %6, align 8, !tbaa !18
@@ -5462,7 +5462,7 @@ define linkonce_odr dso_local void @_ZN8mmio_mem11save_binaryEPKc(ptr noundef no
 9:                                                ; preds = %2
   %10 = load ptr, ptr @_ZTTSt14basic_ofstreamIcSt11char_traitsIcEE, align 8
   store ptr %10, ptr %3, align 8, !tbaa !68
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTSt14basic_ofstreamIcSt11char_traitsIcEE, i64 24), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSt14basic_ofstreamIcSt11char_traitsIcEE, i64 24), align 8
   %12 = getelementptr i8, ptr %10, i64 -24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 %13
@@ -5487,7 +5487,7 @@ declare i32 @pthread_kill(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN8uart8250D2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6619,7 +6619,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8mmio_mem8do_writeEmmPKc(pt
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN8mmio_memD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8mmio_mem, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !173
   %4 = icmp eq ptr %3, null
@@ -6933,7 +6933,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN14nscscc_confreg8do_writeEm
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN14nscscc_confregD0Ev(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   tail call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7298,7 +7298,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIjEERS
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN10axi4_slaveILj32ELj32ELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(685) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10axi4_slaveILj32ELj32ELj4EE, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV10axi4_slaveILj32ELj32ELj4EE, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   invoke void @_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #28
           to label %6 unwind label %3
@@ -8396,7 +8396,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10memory_bus8do_writeEmmPKc
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN10memory_busD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV10memory_bus, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_S0_IP8mmio_devbEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #29
@@ -8554,7 +8554,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_S0_IP8mmio
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr dso_local void @_ZN8axi4_slvC2Ev(ptr noundef nonnull align 8 dereferenceable(676) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8axi4_slv, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV8axi4_slv, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8, !tbaa !70
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11279,7 +11279,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8uart82508do_writeEmmPKc(pt
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN8uart8250D0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8uart8250, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17483,7 +17483,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN8axi4_slvD2Ev(ptr noundef nonnull align 8 dereferenceable(676) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8axi4_slv, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV8axi4_slv, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   invoke void @_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #28
           to label %6 unwind label %3
@@ -17595,7 +17595,7 @@ define linkonce_odr dso_local void @_ZN10axi4_slaveILj32ELj32ELj4EEC2Ei(ptr noun
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr dso_local void @_ZN10axi4_slaveILj32ELj32ELj4EEC2Ev(ptr noundef nonnull align 8 dereferenceable(685) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10axi4_slaveILj32ELj32ELj4EE, i64 16), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV10axi4_slaveILj32ELj32ELj4EE, i64 16), ptr %0, align 8, !tbaa !68
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8, !tbaa !223
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24

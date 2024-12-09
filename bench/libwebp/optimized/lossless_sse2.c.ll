@@ -16,29 +16,29 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @VP8LDspInitSSE2() local_unnamed_addr #0 {
-  store ptr @Predictor5_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictors, i64 40), align 8
-  store ptr @Predictor6_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictors, i64 48), align 16
-  store ptr @Predictor7_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictors, i64 56), align 8
-  store ptr @Predictor8_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictors, i64 64), align 16
-  store ptr @Predictor9_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictors, i64 72), align 8
-  store ptr @Predictor10_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictors, i64 80), align 16
-  store ptr @Predictor11_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictors, i64 88), align 8
-  store ptr @Predictor12_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictors, i64 96), align 16
-  store ptr @Predictor13_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictors, i64 104), align 8
+  store ptr @Predictor5_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 40), align 8
+  store ptr @Predictor6_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 48), align 16
+  store ptr @Predictor7_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 56), align 8
+  store ptr @Predictor8_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 64), align 16
+  store ptr @Predictor9_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 72), align 8
+  store ptr @Predictor10_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 80), align 16
+  store ptr @Predictor11_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 88), align 8
+  store ptr @Predictor12_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 96), align 16
+  store ptr @Predictor13_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictors, i64 104), align 8
   store ptr @PredictorAdd0_SSE2, ptr @VP8LPredictorsAdd, align 16
-  store ptr @PredictorAdd1_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 8), align 8
-  store ptr @PredictorAdd2_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 16), align 16
-  store ptr @PredictorAdd3_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 24), align 8
-  store ptr @PredictorAdd4_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 32), align 16
-  store ptr @PredictorAdd5_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 40), align 8
-  store ptr @PredictorAdd6_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 48), align 16
-  store ptr @PredictorAdd7_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 56), align 8
-  store ptr @PredictorAdd8_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 64), align 16
-  store ptr @PredictorAdd9_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 72), align 8
-  store ptr @PredictorAdd10_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 80), align 16
-  store ptr @PredictorAdd11_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 88), align 8
-  store ptr @PredictorAdd12_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 96), align 16
-  store ptr @PredictorAdd13_SSE2, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd, i64 104), align 8
+  store ptr @PredictorAdd1_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 8), align 8
+  store ptr @PredictorAdd2_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 16), align 16
+  store ptr @PredictorAdd3_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 24), align 8
+  store ptr @PredictorAdd4_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 32), align 16
+  store ptr @PredictorAdd5_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 40), align 8
+  store ptr @PredictorAdd6_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 48), align 16
+  store ptr @PredictorAdd7_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 56), align 8
+  store ptr @PredictorAdd8_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 64), align 16
+  store ptr @PredictorAdd9_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 72), align 8
+  store ptr @PredictorAdd10_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 80), align 16
+  store ptr @PredictorAdd11_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 88), align 8
+  store ptr @PredictorAdd12_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 96), align 16
+  store ptr @PredictorAdd13_SSE2, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd, i64 104), align 8
   store ptr @AddGreenToBlueAndRed_SSE2, ptr @VP8LAddGreenToBlueAndRed, align 8
   store ptr @TransformColorInverse_SSE2, ptr @VP8LTransformColorInverse, align 8
   store ptr @ConvertBGRAToRGB_SSE2, ptr @VP8LConvertBGRAToRGB, align 8
@@ -373,7 +373,7 @@ define internal void @PredictorAdd1_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not48, label %29, label %22
 
 22:                                               ; preds = %._crit_edge
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 8), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 8), align 8
   %24 = zext nneg i32 %.0.lcssa to i64
   %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i32, ptr %1, i64 %24
@@ -420,7 +420,7 @@ define internal void @PredictorAdd2_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not29, label %20, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 16), align 16
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 16), align 16
   %15 = zext nneg i32 %.0.lcssa to i64
   %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
   %17 = getelementptr inbounds nuw i32, ptr %1, i64 %15
@@ -468,7 +468,7 @@ define internal void @PredictorAdd3_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not29, label %21, label %14
 
 14:                                               ; preds = %._crit_edge
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 24), align 8
   %16 = zext nneg i32 %.0.lcssa to i64
   %17 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %16
@@ -516,7 +516,7 @@ define internal void @PredictorAdd4_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not29, label %19, label %12
 
 12:                                               ; preds = %._crit_edge
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 32), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 32), align 16
   %14 = zext nneg i32 %.0.lcssa to i64
   %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
   %16 = getelementptr inbounds nuw i32, ptr %1, i64 %14
@@ -727,7 +727,7 @@ define internal void @PredictorAdd8_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not31, label %29, label %22
 
 22:                                               ; preds = %._crit_edge
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 64), align 16
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 64), align 16
   %24 = zext nneg i32 %.0.lcssa to i64
   %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i32, ptr %1, i64 %24
@@ -784,7 +784,7 @@ define internal void @PredictorAdd9_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not31, label %30, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 72), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 72), align 8
   %25 = zext nneg i32 %.0.lcssa to i64
   %26 = getelementptr inbounds nuw i32, ptr %0, i64 %25
   %27 = getelementptr inbounds nuw i32, ptr %1, i64 %25
@@ -912,7 +912,7 @@ define internal void @PredictorAdd10_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not60, label %97, label %90
 
 90:                                               ; preds = %._crit_edge
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 80), align 16
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 80), align 16
   %92 = zext nneg i32 %.0.lcssa to i64
   %93 = getelementptr inbounds nuw i32, ptr %0, i64 %92
   %94 = getelementptr inbounds nuw i32, ptr %1, i64 %92
@@ -1062,7 +1062,7 @@ define internal void @PredictorAdd11_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not215, label %119, label %112
 
 112:                                              ; preds = %._crit_edge
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 88), align 8
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 88), align 8
   %114 = zext nneg i32 %.0.lcssa to i64
   %115 = getelementptr inbounds nuw i32, ptr %0, i64 %114
   %116 = getelementptr inbounds nuw i32, ptr %1, i64 %114
@@ -1168,7 +1168,7 @@ define internal void @PredictorAdd12_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not145, label %75, label %68
 
 68:                                               ; preds = %._crit_edge
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsAdd_C, i64 96), align 16
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 96), align 16
   %70 = zext nneg i32 %.0.lcssa to i64
   %71 = getelementptr inbounds nuw i32, ptr %0, i64 %70
   %72 = getelementptr inbounds nuw i32, ptr %1, i64 %70

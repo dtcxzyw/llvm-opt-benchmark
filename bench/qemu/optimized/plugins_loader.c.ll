@@ -92,7 +92,7 @@ entry:
   %mul49.i.i = mul i32 %xor48.i.i, -1028477379
   %shr50.i.i = lshr i32 %mul49.i.i, 16
   %xor51.i.i = xor i32 %shr50.i.i, %mul49.i.i
-  %call1 = tail call zeroext i1 @qht_insert(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 160), ptr noundef %arr, i32 noundef %xor51.i.i, ptr noundef null) #11
+  %call1 = tail call zeroext i1 @qht_insert(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plugin, i64 160), ptr noundef %arr, i32 noundef %xor51.i.i, ptr noundef null) #11
   br i1 %call1, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -365,7 +365,7 @@ if.then31.i:                                      ; preds = %if.else28.i
 while.end.i:                                      ; preds = %if.else28.i
   %14 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
-  call void %15(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 225) #11
+  call void %15(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 225) #11
   %16 = ptrtoint ptr %call.i to i64
   %id.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %16, ptr %id.i, align 8
@@ -381,13 +381,13 @@ for.cond.i:                                       ; preds = %for.cond.i, %while.
   %xor3.i.i = xor i64 %shr2.i.i, %xor1.i.i
   %mul.i.i = mul i64 %xor3.i.i, 2685821657736338717
   store i64 %mul.i.i, ptr %id.i, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 88), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 88), align 8
   %call40.i = call ptr @g_hash_table_lookup(ptr noundef %18, ptr noundef nonnull %id.i) #11
   %cmp41.i = icmp eq ptr %call40.i, null
   br i1 %cmp41.i, label %if.then46.i, label %for.cond.i
 
 if.then46.i:                                      ; preds = %for.cond.i
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 88), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 88), align 8
   %call49.i = call i32 @g_hash_table_insert(ptr noundef %19, ptr noundef nonnull %id.i, ptr noundef nonnull %id.i) #11
   %tobool50.not.i = icmp eq i32 %call49.i, 0
   br i1 %tobool50.not.i, label %if.else54.i, label %do.body58.i
@@ -399,11 +399,11 @@ if.else54.i:                                      ; preds = %if.then46.i
 do.body58.i:                                      ; preds = %if.then46.i
   %entry59.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store ptr null, ptr %entry59.i, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 8), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 8), align 8
   %tql_prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr %20, ptr %tql_prev.i, align 8
   store ptr %call.i, ptr %20, align 8
-  store ptr %entry59.i, ptr getelementptr inbounds (i8, ptr @plugin, i64 8), align 8
+  store ptr %entry59.i, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 8), align 8
   %installing.i = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store i8 1, ptr %installing.i, align 8
   %21 = load i64, ptr %id.i, align 8
@@ -439,11 +439,11 @@ plugin_load.exit.thread:                          ; preds = %if.then.i, %err_sym
   br label %cleanup.sink.split
 
 plugin_load.exit.thread16:                        ; preds = %if.then67.i, %if.then70.i
-  call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 258) #11
+  call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 258) #11
   br label %cleanup.sink.split
 
 do.body:                                          ; preds = %do.body58.i
-  call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 258) #11
+  call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 258) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sym.i)
   %28 = load ptr, ptr %entry2, align 8
   %cmp.not = icmp eq ptr %28, null
@@ -487,7 +487,7 @@ entry:
   %frombool = zext i1 %reset to i8
   %0 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 137) #11
+  tail call void %1(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 137) #11
   %lnot = xor i1 %reset, true
   %frombool10 = zext i1 %lnot to i8
   %call1.us.us = tail call ptr @plugin_id_to_ctx_locked(i64 noundef %id) #11
@@ -518,12 +518,12 @@ lor.lhs.false.us35:                               ; preds = %for.body.us30
   br label %for.end
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us30, %lor.lhs.false.us.us, %for.body.us.us
-  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 147) #11
+  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 147) #11
   br label %if.end20
 
 for.end:                                          ; preds = %qemu_lockable_auto_unlock.exit.us.us, %lor.lhs.false.us35
   store i8 %frombool10, ptr %uninstalling.us.us, align 1
-  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 147) #11
+  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.24, i32 noundef 147) #11
   %call11 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #15
   store ptr %call1.us.us, ptr %call11, align 8
   %cb13 = getelementptr inbounds nuw i8, ptr %call11, i64 8
@@ -582,7 +582,7 @@ define internal fastcc void @plugin_reset_destroy(ptr noundef %data) unnamed_add
 entry:
   %0 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 375) #11
+  tail call void %1(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 375) #11
   %2 = load ptr, ptr %data, align 8
   br label %for.body.i
 
@@ -647,7 +647,7 @@ if.then17.i:                                      ; preds = %do.end15.i
   unreachable
 
 if.end18.i:                                       ; preds = %do.end15.i
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 88), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 88), align 8
   %id19.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i = tail call i32 @g_hash_table_remove(ptr noundef %9, ptr noundef nonnull %id19.i) #11
   %tobool20.not.i = icmp eq i32 %call.i, 0
@@ -672,7 +672,7 @@ if.then30.i:                                      ; preds = %do.body27.i
   br label %if.end38.i
 
 if.else35.i:                                      ; preds = %do.body27.i
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @plugin, i64 8), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @plugin, i64 8), align 8
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.else35.i, %if.then30.i
@@ -738,7 +738,7 @@ plugin_reset_destroy__locked.exit:                ; preds = %if.end7.i, %plugin_
   tail call void @g_free(ptr noundef nonnull %data) #11
   %24 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %25 = inttoptr i64 %24 to ptr
-  tail call void %25(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 377) #11
+  tail call void %25(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 377) #11
   ret void
 }
 

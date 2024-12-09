@@ -144,7 +144,7 @@ entry:
   %srcChar.addr.i17 = alloca i16, align 2
   %srcChar.addr.i14 = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %input, i64 8

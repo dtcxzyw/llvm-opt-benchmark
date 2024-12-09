@@ -668,7 +668,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4node6worker7MessageC2EONS_14MallocedBufferIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 120), (128, 129)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %buffer) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %this, align 8
   %main_message_buf_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer, align 8
   store ptr %0, ptr %main_message_buf_, align 8
@@ -1134,7 +1134,7 @@ _ZNSt6vectorIN2v85LocalINS0_17SharedArrayBufferEEESaIS3_EE9push_backERKS3_.exit:
 for.end126:                                       ; preds = %_ZNSt6vectorIN2v85LocalINS0_17SharedArrayBufferEEESaIS3_EE9push_backERKS3_.exit, %_ZNSt6vectorISt10unique_ptrIN4node6worker12TransferDataESt14default_deleteIS3_EESaIS6_EE5clearEv.exit
   %wasm_modules_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %shared_value_conveyor_ = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_120DeserializerDelegateE, i64 16), ptr %delegate, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_120DeserializerDelegateE, i64 16), ptr %delegate, align 8
   %deserializer.i = getelementptr inbounds nuw i8, ptr %delegate, i64 8
   store ptr null, ptr %deserializer.i, align 8
   %env_.i = getelementptr inbounds nuw i8, ptr %delegate, i64 16
@@ -1756,7 +1756,7 @@ do.body16:                                        ; preds = %entry
   unreachable
 
 do.end18:                                         ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_118SerializerDelegateE, i64 16), ptr %delegate, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_118SerializerDelegateE, i64 16), ptr %delegate, align 8
   %serializer.i = getelementptr inbounds nuw i8, ptr %delegate, i64 8
   store ptr null, ptr %serializer.i, align 8
   %env_.i = getelementptr inbounds nuw i8, ptr %delegate, i64 16
@@ -3202,7 +3202,7 @@ if.then.i.i.i292:                                 ; preds = %cleanup375
 
 _ZNSt6vectorIN2v85LocalINS0_11ArrayBufferEEESaIS3_EED2Ev.exit: ; preds = %cleanup375, %if.then.i.i.i292
   call void @_ZN2v815ValueSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %serializer) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_118SerializerDelegateE, i64 16), ptr %delegate, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_118SerializerDelegateE, i64 16), ptr %delegate, align 8
   %host_objects_.i293 = getelementptr inbounds nuw i8, ptr %delegate, i64 64
   %158 = load ptr, ptr %host_objects_.i293, align 8
   %_M_finish.i.i294 = getelementptr inbounds nuw i8, ptr %delegate, i64 72
@@ -3497,7 +3497,7 @@ declare void @_ZN2v815ValueSerializerD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node6worker12_GLOBAL__N_118SerializerDelegateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_118SerializerDelegateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_118SerializerDelegateE, i64 16), ptr %this, align 8
   %host_objects_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %host_objects_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -3929,7 +3929,7 @@ return:                                           ; preds = %entry, %_ZN4node13M
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6worker15MessagePortDataC2EPNS0_11MessagePortE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this, ptr noundef %owner) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker15MessagePortDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker15MessagePortDataE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #26
   %cmp.not.i = icmp eq i32 %call.i.i, 0
@@ -3978,7 +3978,7 @@ define dso_local void @_ZN4node6worker15MessagePortDataD2Ev(ptr noundef nonnull 
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator.368", align 8
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator.368", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker15MessagePortDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker15MessagePortDataE, i64 16), ptr %this, align 8
   %owner_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %owner_, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -4950,9 +4950,9 @@ _ZNSt12__shared_ptrIN4node6worker12SiblingGroupELN9__gnu_cxx12_Lock_policyE2EE5r
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i5, align 8, !noalias !98
   %_M_weak_count.i.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i6, align 4, !noalias !98
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker7MessageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !98
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker7MessageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !98
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !98
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !98
   %main_message_buf_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 144
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !98
@@ -5055,9 +5055,9 @@ if.then:                                          ; preds = %land.lhs.true
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i39, align 8, !noalias !104
   %_M_weak_count.i.i.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i38, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i40, align 4, !noalias !104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker7MessageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i38, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker7MessageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i38, align 8, !noalias !104
   %_M_impl.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i38, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %_M_impl.i.i.i.i.i.i41, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %_M_impl.i.i.i.i.i.i41, align 8, !noalias !104
   %main_message_buf_.i.i.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i38, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i38, i64 144
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i43, align 8, !noalias !104
@@ -5212,7 +5212,7 @@ _ZNSt10shared_ptrIN4node6worker12SiblingGroupEED2Ev.exit: ; preds = %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6worker11MessagePortD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker11MessagePortE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker11MessagePortE, i64 16), ptr %this, align 8
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %data_, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -5263,7 +5263,7 @@ _ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i3: ; preds 
 
 _ZNSt10unique_ptrIN4node6worker15MessagePortDataESt14default_deleteIS2_EED2Ev.exit7: ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit, %_ZNKSt14default_deleteIN4node6worker15MessagePortDataEEclEPS2_.exit.i3
   store ptr null, ptr %data_, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %8 = load ptr, ptr %next_.i.i.i, align 8
@@ -5315,12 +5315,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6worker11MessagePortC2EPNS_11EnvironmentEN2v85LocalINS4_7ContextEEENS5_INS4_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this, ptr noundef %env, ptr %context.coerce, ptr %wrap.coerce) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker11MessagePortE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker11MessagePortE, i64 16), ptr %this, align 8
   %async_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %env, ptr %wrap.coerce, ptr noundef nonnull %async_, i32 noundef 21) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker11MessagePortE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker11MessagePortE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker15MessagePortDataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker15MessagePortDataE, i64 16), ptr %call, align 8
   %mutex_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #26
   %cmp.not.i.i = icmp eq i32 %call.i.i.i, 0
@@ -6660,9 +6660,9 @@ _ZNK4node10BaseObject6objectEPN2v87IsolateE.exit: ; preds = %entry, %if.end.i.i.
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !132
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !132
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker7MessageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !132
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker7MessageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !132
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !132
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !132
   %main_message_buf_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 144
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !132
@@ -7738,7 +7738,7 @@ lor.lhs.false:                                    ; preds = %_ZN4node6UnwrapINS_
   br i1 %spec.select.i, label %if.then44, label %lor.lhs.false.i
 
 if.then44:                                        ; preds = %lor.lhs.false, %_ZN4node6UnwrapINS_6worker11MessagePortEEEPT_N2v85LocalINS5_5ValueEEE.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %msg, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %msg, align 8
   %main_message_buf_.i = getelementptr inbounds nuw i8, ptr %msg, i64 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 128
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
@@ -7822,7 +7822,7 @@ cleanup.cont:                                     ; preds = %if.then.i28, %clean
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6worker7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %this, align 8
   %_M_engaged.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
@@ -9245,7 +9245,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit:
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %0, ptr %obj.coerce) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker14JSTransferableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker14JSTransferableE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %target_, align 8
   %cmp.i.i = icmp eq ptr %target.coerce, null
@@ -9267,7 +9267,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.ex
 define dso_local void @_ZN4node6worker14JSTransferableD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker14JSTransferableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker14JSTransferableE, i64 16), ptr %this, align 8
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %realm_.i, align 8
   %env_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -10201,7 +10201,7 @@ cleanup:                                          ; preds = %_ZNK4node6worker14J
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6worker14JSTransferable4DataC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEON2v86GlobalINSA_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %deserialize_info, ptr noundef nonnull align 8 dereferenceable(8) %data) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker14JSTransferable4DataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker14JSTransferable4DataE, i64 16), ptr %this, align 8
   %deserialize_info_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %deserialize_info_, ptr noundef nonnull align 8 dereferenceable(32) %deserialize_info) #26
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -11799,7 +11799,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6worker14JSTransferable4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker14JSTransferable4DataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker14JSTransferable4DataE, i64 16), ptr %this, align 8
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %data_, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -11819,7 +11819,7 @@ _ZN2v86GlobalINS_5ValueEED2Ev.exit:               ; preds = %entry, %if.end.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node6worker14JSTransferable4DataD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker14JSTransferable4DataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker14JSTransferable4DataE, i64 16), ptr %this, align 8
   %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %data_.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, null
@@ -12101,7 +12101,7 @@ declare void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node6worker12_GLOBAL__N_118SerializerDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_118SerializerDelegateE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker12_GLOBAL__N_118SerializerDelegateE, i64 16), ptr %this, align 8
   %host_objects_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %host_objects_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -15506,9 +15506,9 @@ if.end78:                                         ; preds = %if.end5.i, %if.end5
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !194
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !194
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker7MessageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !194
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker7MessageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !194
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !194
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker7MessageE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !194
   %main_message_buf_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 144
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !194
@@ -16259,7 +16259,7 @@ entry:
   %n = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %is_root_node_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %size_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -16655,7 +16655,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
@@ -17137,7 +17137,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.14", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %this, align 8
   %retainer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -18295,7 +18295,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker12SiblingGroupESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker12SiblingGroupESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i, align 8
   %_M_impl.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 16
   %name_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %_M_impl.i.i.i, i8 0, i64 152, i1 false)
@@ -18996,7 +18996,7 @@ entry:
   %principal_realm_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %1 = load ptr, ptr %principal_realm_.i.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef %1, ptr %agg.tmp.sroa.0.0.copyload) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker14JSTransferableE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker14JSTransferableE, i64 16), ptr %call, align 8
   %target_.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %target_.i, align 8
   %cmp.i.i.i = icmp eq ptr %agg.tmp5.sroa.0.0.copyload, null
@@ -19047,7 +19047,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %call.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %0, ptr noundef nonnull %add.ptr.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker14JSTransferable4DataE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6worker14JSTransferable4DataE, i64 16), ptr %call, align 8
   %deserialize_info_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %deserialize_info_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   %data_.i = getelementptr inbounds nuw i8, ptr %call, i64 40
@@ -19589,7 +19589,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker12SiblingGroupESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node6worker12SiblingGroupESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i, align 8
   %_M_impl.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %_M_impl.i.i.i, i8 0, i64 16, i1 false)
   %name_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 32

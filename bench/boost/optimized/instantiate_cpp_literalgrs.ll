@@ -1228,7 +1228,7 @@ _ZN5boost4wave13cpp_exceptionC2EmmPKc.exit.i:     ; preds = %67, %65
   %.lcssa.i.i = phi i64 [ 511, %67 ], [ %indvars.iv.i.i, %65 ]
   %70 = getelementptr inbounds nuw [512 x i8], ptr %64, i64 0, i64 %.lcssa.i.i
   store i8 0, ptr %70, align 1, !tbaa !15
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %6, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %6, align 8, !tbaa !40
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 1048
   store i32 %0, ptr %71, align 8, !tbaa !60
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 536
@@ -1304,7 +1304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %98, ptr %7, align 8, !tbaa !40
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %99, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %99, align 8, !tbaa !40
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %101 = load ptr, ptr %100, align 8, !tbaa !13
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -1325,7 +1325,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %99, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %99, align 8, !tbaa !40
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %109) #27
   %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
@@ -2709,7 +2709,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEC2
   store i32 1, ptr %15, align 8, !tbaa !150
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %16, align 4, !tbaa !152
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_6spirit7classic4impl26object_with_id_base_supplyImEEEE, i64 16), ptr %5, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_6spirit7classic4impl26object_with_id_base_supplyImEEEE, i64 16), ptr %5, align 8, !tbaa !40
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %17, align 8, !tbaa !153
   %18 = load ptr, ptr %0, align 8, !tbaa !17
@@ -2967,7 +2967,7 @@ _ZN5boost16thread_exceptionC2EiPKc.exit:          ; preds = %7, %9
   store ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, ptr %16, align 8, !tbaa !15
   call void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost21thread_resource_errorE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost21thread_resource_errorE, i64 16), ptr %0, align 8, !tbaa !40
   ret void
 }
 
@@ -2978,10 +2978,10 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_errorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !164
@@ -2992,9 +2992,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_erro
   store i32 -1, ptr %8, align 8, !tbaa !165
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1, ptr %9, align 4, !tbaa !168
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 16), ptr %0, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 104), ptr %6, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 104), ptr %6, align 8, !tbaa !40
   ret void
 }
 
@@ -3003,7 +3003,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i = icmp eq ptr %4, null
@@ -3042,16 +3042,16 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_21thread_resource_errorEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #31
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #27
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !164
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost21thread_resource_errorE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost21thread_resource_errorE, i64 16), ptr %3, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !169
@@ -3077,9 +3077,9 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_21thread_resou
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 16), ptr %2, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 104), ptr %7, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 104), ptr %7, align 8, !tbaa !40
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %7, ptr noundef nonnull %19)
           to label %_ZN5boost10wrapexceptINS_21thread_resource_errorEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_21thread_resource_errorEE7deleterD2Ev.exit7
@@ -3121,7 +3121,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_21thread_resource_err
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -3158,7 +3158,7 @@ _ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit: ; preds = %1, %.noe
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_21thread_resource_errorEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -3193,7 +3193,7 @@ _ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit: ; preds = %1, %.noe
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_21thread_resource_errorEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -3232,7 +3232,7 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_21thread_resource_errorEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !169
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -3267,7 +3267,7 @@ _ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit: ; preds = %1, %.noe
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_21thread_resource_errorEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !169
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -3338,17 +3338,17 @@ define linkonce_odr hidden void @_ZN5boost6system12system_errorD0Ev(ptr noundef 
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_errorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !164
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost21thread_resource_errorE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost21thread_resource_errorE, i64 16), ptr %3, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !169
@@ -3367,9 +3367,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_erro
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 16), ptr %0, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 104), ptr %7, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 104), ptr %7, align 8, !tbaa !40
   ret void
 
 18:                                               ; preds = %11
@@ -3866,7 +3866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8, !tbaa !40
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !164
   ret void
@@ -4888,7 +4888,7 @@ _ZN5boost16thread_exceptionC2EiPKc.exit:          ; preds = %7, %9
   store ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, ptr %16, align 8, !tbaa !15
   call void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10lock_errorE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10lock_errorE, i64 16), ptr %0, align 8, !tbaa !40
   ret void
 }
 
@@ -4897,10 +4897,10 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !164
@@ -4911,16 +4911,16 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEEC2ERKS1_
   store i32 -1, ptr %8, align 8, !tbaa !165
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1, ptr %9, align 4, !tbaa !168
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 16), ptr %0, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 104), ptr %6, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 104), ptr %6, align 8, !tbaa !40
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i = icmp eq ptr %4, null
@@ -4956,16 +4956,16 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_10lock_errorEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #31
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #27
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !164
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10lock_errorE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10lock_errorE, i64 16), ptr %3, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !169
@@ -4991,9 +4991,9 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_10lock_errorEE
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 16), ptr %2, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 104), ptr %7, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 104), ptr %7, align 8, !tbaa !40
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %7, ptr noundef nonnull %19)
           to label %_ZN5boost10wrapexceptINS_10lock_errorEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_10lock_errorEE7deleterD2Ev.exit7
@@ -5035,7 +5035,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_10lock_errorEE7rethro
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -5072,7 +5072,7 @@ _ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_10lock_errorEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -5107,7 +5107,7 @@ _ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_10lock_errorEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -5143,7 +5143,7 @@ _ZN5boost10wrapexceptINS_10lock_errorEED0Ev.exit: ; preds = %1, %.noexc.i.i.i.i,
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_10lock_errorEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !169
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -5178,7 +5178,7 @@ _ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_10lock_errorEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !169
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -5222,17 +5222,17 @@ define linkonce_odr hidden void @_ZN5boost10lock_errorD0Ev(ptr noundef nonnull a
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #27
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !164
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10lock_errorE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10lock_errorE, i64 16), ptr %3, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !169
@@ -5251,9 +5251,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEEC2ERKS2_
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 16), ptr %0, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 104), ptr %7, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 64), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 104), ptr %7, align 8, !tbaa !40
   ret void
 
 18:                                               ; preds = %11
@@ -6048,7 +6048,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4w
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEC2ERNS_8weak_ptrISM_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -6097,7 +6097,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperIN
   store i32 1, ptr %22, align 8, !tbaa !150
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %23, align 4, !tbaa !152
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_6spirit7classic4impl14grammar_helperINS3_7grammarINS_4wave8grammars14intlit_grammarENS3_15closure_contextINS8_8closures14intlit_closureEEEEES9_NS3_7scannerIPKcNS3_16scanner_policiesINS3_16iteration_policyENS3_12match_policyENS3_13action_policyEEEEEEEEE, i64 16), ptr %6, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_6spirit7classic4impl14grammar_helperINS3_7grammarINS_4wave8grammars14intlit_grammarENS3_15closure_contextINS8_8closures14intlit_closureEEEEES9_NS3_7scannerIPKcNS3_16scanner_policiesINS3_16iteration_policyENS3_12match_policyENS3_13action_policyEEEEEEEEE, i64 16), ptr %6, align 8, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %0, ptr %24, align 8, !tbaa !222
   store ptr %6, ptr %5, align 8, !tbaa !87
@@ -6559,7 +6559,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4w
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !87
   %.not.i.i = icmp eq ptr %3, null
@@ -6619,7 +6619,7 @@ _ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7clas
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !87
   %.not.i.i.i = icmp eq ptr %3, null
@@ -6753,7 +6753,7 @@ define linkonce_odr hidden void @_ZN5boost4wave8grammars14intlit_grammar10defini
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS6_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSB_9compositeINSB_9assign_opENSC_INSB_14closure_memberILi0ENSB_7closureImNSB_5nil_tESH_SH_SH_SH_EEEEEENSC_INSB_5valueIiEEEESH_SH_SH_SH_SH_EEEEEENS7_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENSR_ILi1ESU_EEEEEENSR_ILi3ESU_EEEENS1_8optionalINS1_12inhibit_caseINS7_INS1_13sequential_orINS8_ISA_NSC_INSD_ISE_NSC_INSB_8variableIbEEEENSC_INSL_IbEEEESH_SH_SH_SH_SH_EEEEEESA_EENS13_ISA_S1B_EEEEEEEEEESU_EENS4_INS5_ILi3ENS8_INS1_11uint_parserImLi10ELj1ELin1EEENSC_INSD_ISE_SK_NSC_INSB_8argumentILi0EEEEESH_SH_SH_SH_SH_EEEEEESU_EENS4_INS5_ILi1ENS11_INS8_INS1J_ImLi8ELj1ELin1EEENSC_INSB_20sequential_compositeIS1P_S1A_EEEEEEEESU_EENS4_INS5_ILi2ENS6_INS7_ISA_SA_EENS8_INS1J_ImLi16ELj1ELin1EEES1V_EEEESU_EEST_EEEEEEEENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEST_EE, i64 16), ptr %7, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS6_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSB_9compositeINSB_9assign_opENSC_INSB_14closure_memberILi0ENSB_7closureImNSB_5nil_tESH_SH_SH_SH_EEEEEENSC_INSB_5valueIiEEEESH_SH_SH_SH_SH_EEEEEENS7_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENSR_ILi1ESU_EEEEEENSR_ILi3ESU_EEEENS1_8optionalINS1_12inhibit_caseINS7_INS1_13sequential_orINS8_ISA_NSC_INSD_ISE_NSC_INSB_8variableIbEEEENSC_INSL_IbEEEESH_SH_SH_SH_SH_EEEEEESA_EENS13_ISA_S1B_EEEEEEEEEESU_EENS4_INS5_ILi3ENS8_INS1_11uint_parserImLi10ELj1ELin1EEENSC_INSD_ISE_SK_NSC_INSB_8argumentILi0EEEEESH_SH_SH_SH_SH_EEEEEESU_EENS4_INS5_ILi1ENS11_INS8_INS1J_ImLi8ELj1ELin1EEENSC_INSB_20sequential_compositeIS1P_S1A_EEEEEEEESU_EENS4_INS5_ILi2ENS6_INS7_ISA_SA_EENS8_INS1J_ImLi16ELj1ELin1EEES1V_EEEESU_EEST_EEEEEEEENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEST_EE, i64 16), ptr %7, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 48, ptr %13, align 8
   %.sroa.5297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 9
@@ -7075,7 +7075,7 @@ _ZNK5boost6spirit7classic12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceIN
 define linkonce_odr hidden noundef ptr @_ZNK5boost6spirit7classic4impl15concrete_parserINS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS6_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSB_9compositeINSB_9assign_opENSC_INSB_14closure_memberILi0ENSB_7closureImNSB_5nil_tESH_SH_SH_SH_EEEEEENSC_INSB_5valueIiEEEESH_SH_SH_SH_SH_EEEEEENS7_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENSR_ILi1ESU_EEEEEENSR_ILi3ESU_EEEENS1_8optionalINS1_12inhibit_caseINS7_INS1_13sequential_orINS8_ISA_NSC_INSD_ISE_NSC_INSB_8variableIbEEEENSC_INSL_IbEEEESH_SH_SH_SH_SH_EEEEEESA_EENS13_ISA_S1B_EEEEEEEEEESU_EENS4_INS5_ILi3ENS8_INS1_11uint_parserImLi10ELj1ELin1EEENSC_INSD_ISE_SK_NSC_INSB_8argumentILi0EEEEESH_SH_SH_SH_SH_EEEEEESU_EENS4_INS5_ILi1ENS11_INS8_INS1J_ImLi8ELj1ELin1EEENSC_INSB_20sequential_compositeIS1P_S1A_EEEEEEEESU_EENS4_INS5_ILi2ENS6_INS7_ISA_SA_EENS8_INS1J_ImLi16ELj1ELin1EEES1V_EEEESU_EEST_EEEEEEEENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEST_E5cloneEv(ptr noundef nonnull align 8 dereferenceable(336) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #31
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS6_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSB_9compositeINSB_9assign_opENSC_INSB_14closure_memberILi0ENSB_7closureImNSB_5nil_tESH_SH_SH_SH_EEEEEENSC_INSB_5valueIiEEEESH_SH_SH_SH_SH_EEEEEENS7_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENSR_ILi1ESU_EEEEEENSR_ILi3ESU_EEEENS1_8optionalINS1_12inhibit_caseINS7_INS1_13sequential_orINS8_ISA_NSC_INSD_ISE_NSC_INSB_8variableIbEEEENSC_INSL_IbEEEESH_SH_SH_SH_SH_EEEEEESA_EENS13_ISA_S1B_EEEEEEEEEESU_EENS4_INS5_ILi3ENS8_INS1_11uint_parserImLi10ELj1ELin1EEENSC_INSD_ISE_SK_NSC_INSB_8argumentILi0EEEEESH_SH_SH_SH_SH_EEEEEESU_EENS4_INS5_ILi1ENS11_INS8_INS1J_ImLi8ELj1ELin1EEENSC_INSB_20sequential_compositeIS1P_S1A_EEEEEEEESU_EENS4_INS5_ILi2ENS6_INS7_ISA_SA_EENS8_INS1J_ImLi16ELj1ELin1EEES1V_EEEESU_EEST_EEEEEEEENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEST_EE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS6_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSB_9compositeINSB_9assign_opENSC_INSB_14closure_memberILi0ENSB_7closureImNSB_5nil_tESH_SH_SH_SH_EEEEEENSC_INSB_5valueIiEEEESH_SH_SH_SH_SH_EEEEEENS7_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENSR_ILi1ESU_EEEEEENSR_ILi3ESU_EEEENS1_8optionalINS1_12inhibit_caseINS7_INS1_13sequential_orINS8_ISA_NSC_INSD_ISE_NSC_INSB_8variableIbEEEENSC_INSL_IbEEEESH_SH_SH_SH_SH_EEEEEESA_EENS13_ISA_S1B_EEEEEEEEEESU_EENS4_INS5_ILi3ENS8_INS1_11uint_parserImLi10ELj1ELin1EEENSC_INSD_ISE_SK_NSC_INSB_8argumentILi0EEEEESH_SH_SH_SH_SH_EEEEEESU_EENS4_INS5_ILi1ENS11_INS8_INS1J_ImLi8ELj1ELin1EEENSC_INSB_20sequential_compositeIS1P_S1A_EEEEEEEESU_EENS4_INS5_ILi2ENS6_INS7_ISA_SA_EENS8_INS1J_ImLi16ELj1ELin1EEES1V_EEEESU_EEST_EEEEEEEENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEST_EE, i64 16), ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %4, ptr noundef nonnull align 8 dereferenceable(328) %3, i64 328, i1 false)
   ret ptr %2
@@ -7679,13 +7679,13 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(1104) %0, ptr noundef nonnull align 8 dereferenceable(1052) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave13cpp_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave13cpp_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull align 8 dereferenceable(528) %5, i64 528, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 536
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %6, ptr noundef nonnull align 8 dereferenceable(516) %7, i64 516, i1 false)
@@ -7696,16 +7696,16 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exce
   store i32 -1, ptr %10, align 8, !tbaa !165
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1100
   store i32 -1, ptr %11, align 4, !tbaa !168
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 16), ptr %0, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 144), ptr %8, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 144), ptr %8, align 8, !tbaa !40
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i = icmp eq ptr %4, null
@@ -7741,17 +7741,17 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_4wave20preprocess_exceptionEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1104) ptr @_Znwm(i64 noundef 1104) #31
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull align 8 dereferenceable(528) %5, i64 528, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 544
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %6, ptr noundef nonnull align 8 dereferenceable(516) %7, i64 516, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1064
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1072
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %11 = load ptr, ptr %10, align 8, !tbaa !169
@@ -7777,9 +7777,9 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_4wave20preproc
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1080
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 16), ptr %2, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 144), ptr %8, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 144), ptr %8, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %8, ptr noundef nonnull %20)
           to label %_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEE7deleterD2Ev.exit7
@@ -7821,7 +7821,7 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_4wave20preprocess_exc
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -7858,7 +7858,7 @@ _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit: ; preds = %1, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_4wave20preprocess_exceptionEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -7893,7 +7893,7 @@ _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit: ; preds = %1, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = load ptr, ptr %3, align 8, !tbaa !169
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -7976,7 +7976,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost4wave20preprocess_excep
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn1064_N5boost10wrapexceptINS_4wave20preprocess_exceptionEED1Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !169
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -8011,7 +8011,7 @@ _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit: ; preds = %1, %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn1064_N5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev(ptr noundef %0) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !169
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -8061,18 +8061,18 @@ define linkonce_odr hidden void @_ZN5boost4wave13cpp_exceptionD0Ev(ptr noundef n
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(1104) %0, ptr noundef nonnull align 8 dereferenceable(1104) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave13cpp_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave13cpp_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull align 8 dereferenceable(528) %5, i64 528, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %3, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %6, ptr noundef nonnull align 8 dereferenceable(516) %7, i64 516, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1072
   %11 = load ptr, ptr %10, align 8, !tbaa !169
@@ -8091,9 +8091,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exce
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 16), ptr %0, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !40
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 144), ptr %8, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 144), ptr %8, align 8, !tbaa !40
   ret void
 
 19:                                               ; preds = %12
@@ -8345,7 +8345,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4w
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEC2ERNS_8weak_ptrISM_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -8394,7 +8394,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperIN
   store i32 1, ptr %22, align 8, !tbaa !150
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %23, align 4, !tbaa !152
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_6spirit7classic4impl14grammar_helperINS3_7grammarINS_4wave8grammars13chlit_grammarENS3_15closure_contextINS8_8closures13chlit_closureEEEEES9_NS3_7scannerIPKcNS3_16scanner_policiesINS3_16iteration_policyENS3_12match_policyENS3_13action_policyEEEEEEEEE, i64 16), ptr %6, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_6spirit7classic4impl14grammar_helperINS3_7grammarINS_4wave8grammars13chlit_grammarENS3_15closure_contextINS8_8closures13chlit_closureEEEEES9_NS3_7scannerIPKcNS3_16scanner_policiesINS3_16iteration_policyENS3_12match_policyENS3_13action_policyEEEEEEEEE, i64 16), ptr %6, align 8, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %0, ptr %24, align 8, !tbaa !324
   store ptr %6, ptr %5, align 8, !tbaa !87
@@ -8868,7 +8868,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4w
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !87
   %.not.i.i = icmp eq ptr %3, null
@@ -8928,7 +8928,7 @@ _ZNSt6vectorIPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7class
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEES7_NS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEE, i64 16), ptr %0, align 8, !tbaa !40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !87
   %.not.i.i.i = icmp eq ptr %3, null
@@ -9125,7 +9125,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures13chlit_closureEjbN7p
 .noexc:                                           ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %21 = ptrtoint ptr %20 to i64
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS4_INS4_INS4_INS1_6actionINS1_14epsilon_parserEN7phoenix5actorINS7_20sequential_compositeINS8_INS7_9compositeINS7_9assign_opENS8_INS7_14closure_memberILi0ENS7_7closureIjbNS7_5nil_tESE_SE_SE_EEEEEENS8_INS7_5valueIiEEEESE_SE_SE_SE_SE_EEEENS8_INSA_ISB_NS8_INSC_ILi1ESF_EEEENS8_INSI_IbEEEESE_SE_SE_SE_SE_EEEEEEEEEENS1_8optionalINS5_INS1_5chlitIcEESS_EEEEEESY_EENS1_8positiveINS1_11alternativeINS4_ISY_NS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS5_ISY_NS8_INSA_INS_4wave8grammars4impl25compose_character_literalESH_SO_NS8_INS7_8variableIbEEEESK_SE_SE_SE_EEEEEES1E_EES1E_EES1E_EES1E_EENS5_INS14_ISY_SY_EES1D_EEEES1E_EES1E_EENS5_ISY_NS8_INSA_IS18_SH_SO_S1B_NS8_INSI_IcEEEESE_SE_SE_EEEEEEEES1S_EES1S_EES1S_EENS4_ISY_NS2_14if_else_parserINS5_INS1_11uint_parserIjLi16ELj1ELi8EEENS8_INSA_IS18_SH_SO_S1B_NS8_INS7_8argumentILi0EEEEESE_SE_SE_EEEEEENS5_INS1Y_IjLi16ELj1ELi2EEES24_EESO_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj4ELi4EEES24_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj8ELi8EEES24_EEEEEENS5_INS1Y_IjLi8ELj1ELi3EEES24_EEEEEENS4_INS1_26negated_empty_match_parserISY_EENS5_INS1_14anychar_parserES24_EEEEEEEEEESY_EENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEE, i64 16), ptr %19, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS4_INS4_INS4_INS1_6actionINS1_14epsilon_parserEN7phoenix5actorINS7_20sequential_compositeINS8_INS7_9compositeINS7_9assign_opENS8_INS7_14closure_memberILi0ENS7_7closureIjbNS7_5nil_tESE_SE_SE_EEEEEENS8_INS7_5valueIiEEEESE_SE_SE_SE_SE_EEEENS8_INSA_ISB_NS8_INSC_ILi1ESF_EEEENS8_INSI_IbEEEESE_SE_SE_SE_SE_EEEEEEEEEENS1_8optionalINS5_INS1_5chlitIcEESS_EEEEEESY_EENS1_8positiveINS1_11alternativeINS4_ISY_NS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS5_ISY_NS8_INSA_INS_4wave8grammars4impl25compose_character_literalESH_SO_NS8_INS7_8variableIbEEEESK_SE_SE_SE_EEEEEES1E_EES1E_EES1E_EES1E_EENS5_INS14_ISY_SY_EES1D_EEEES1E_EES1E_EENS5_ISY_NS8_INSA_IS18_SH_SO_S1B_NS8_INSI_IcEEEESE_SE_SE_EEEEEEEES1S_EES1S_EES1S_EENS4_ISY_NS2_14if_else_parserINS5_INS1_11uint_parserIjLi16ELj1ELi8EEENS8_INSA_IS18_SH_SO_S1B_NS8_INS7_8argumentILi0EEEEESE_SE_SE_EEEEEENS5_INS1Y_IjLi16ELj1ELi2EEES24_EESO_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj4ELi4EEES24_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj8ELi8EEES24_EEEEEENS5_INS1Y_IjLi8ELj1ELi3EEES24_EEEEEENS4_INS1_26negated_empty_match_parserISY_EENS5_INS1_14anychar_parserES24_EEEEEEEEEESY_EENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEE, i64 16), ptr %19, align 8, !tbaa !40
   %.sroa.02167.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %16, ptr %.sroa.02167.sroa.6.0..sroa_idx, align 8
   %.sroa.02167.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -9525,7 +9525,7 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS1_6actionINS1_14epsilon_pars
 define linkonce_odr hidden noundef ptr @_ZNK5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS4_INS4_INS4_INS1_6actionINS1_14epsilon_parserEN7phoenix5actorINS7_20sequential_compositeINS8_INS7_9compositeINS7_9assign_opENS8_INS7_14closure_memberILi0ENS7_7closureIjbNS7_5nil_tESE_SE_SE_EEEEEENS8_INS7_5valueIiEEEESE_SE_SE_SE_SE_EEEENS8_INSA_ISB_NS8_INSC_ILi1ESF_EEEENS8_INSI_IbEEEESE_SE_SE_SE_SE_EEEEEEEEEENS1_8optionalINS5_INS1_5chlitIcEESS_EEEEEESY_EENS1_8positiveINS1_11alternativeINS4_ISY_NS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS5_ISY_NS8_INSA_INS_4wave8grammars4impl25compose_character_literalESH_SO_NS8_INS7_8variableIbEEEESK_SE_SE_SE_EEEEEES1E_EES1E_EES1E_EES1E_EENS5_INS14_ISY_SY_EES1D_EEEES1E_EES1E_EENS5_ISY_NS8_INSA_IS18_SH_SO_S1B_NS8_INSI_IcEEEESE_SE_SE_EEEEEEEES1S_EES1S_EES1S_EENS4_ISY_NS2_14if_else_parserINS5_INS1_11uint_parserIjLi16ELj1ELi8EEENS8_INSA_IS18_SH_SO_S1B_NS8_INS7_8argumentILi0EEEEESE_SE_SE_EEEEEENS5_INS1Y_IjLi16ELj1ELi2EEES24_EESO_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj4ELi4EEES24_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj8ELi8EEES24_EEEEEENS5_INS1Y_IjLi8ELj1ELi3EEES24_EEEEEENS4_INS1_26negated_empty_match_parserISY_EENS5_INS1_14anychar_parserES24_EEEEEEEEEESY_EENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjE5cloneEv(ptr noundef nonnull align 8 dereferenceable(1024) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #31
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS4_INS4_INS4_INS1_6actionINS1_14epsilon_parserEN7phoenix5actorINS7_20sequential_compositeINS8_INS7_9compositeINS7_9assign_opENS8_INS7_14closure_memberILi0ENS7_7closureIjbNS7_5nil_tESE_SE_SE_EEEEEENS8_INS7_5valueIiEEEESE_SE_SE_SE_SE_EEEENS8_INSA_ISB_NS8_INSC_ILi1ESF_EEEENS8_INSI_IbEEEESE_SE_SE_SE_SE_EEEEEEEEEENS1_8optionalINS5_INS1_5chlitIcEESS_EEEEEESY_EENS1_8positiveINS1_11alternativeINS4_ISY_NS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS5_ISY_NS8_INSA_INS_4wave8grammars4impl25compose_character_literalESH_SO_NS8_INS7_8variableIbEEEESK_SE_SE_SE_EEEEEES1E_EES1E_EES1E_EES1E_EENS5_INS14_ISY_SY_EES1D_EEEES1E_EES1E_EENS5_ISY_NS8_INSA_IS18_SH_SO_S1B_NS8_INSI_IcEEEESE_SE_SE_EEEEEEEES1S_EES1S_EES1S_EENS4_ISY_NS2_14if_else_parserINS5_INS1_11uint_parserIjLi16ELj1ELi8EEENS8_INSA_IS18_SH_SO_S1B_NS8_INS7_8argumentILi0EEEEESE_SE_SE_EEEEEENS5_INS1Y_IjLi16ELj1ELi2EEES24_EESO_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj4ELi4EEES24_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj8ELi8EEES24_EEEEEENS5_INS1Y_IjLi8ELj1ELi3EEES24_EEEEEENS4_INS1_26negated_empty_match_parserISY_EENS5_INS1_14anychar_parserES24_EEEEEEEEEESY_EENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEE, i64 16), ptr %2, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS4_INS4_INS4_INS1_6actionINS1_14epsilon_parserEN7phoenix5actorINS7_20sequential_compositeINS8_INS7_9compositeINS7_9assign_opENS8_INS7_14closure_memberILi0ENS7_7closureIjbNS7_5nil_tESE_SE_SE_EEEEEENS8_INS7_5valueIiEEEESE_SE_SE_SE_SE_EEEENS8_INSA_ISB_NS8_INSC_ILi1ESF_EEEENS8_INSI_IbEEEESE_SE_SE_SE_SE_EEEEEEEEEENS1_8optionalINS5_INS1_5chlitIcEESS_EEEEEESY_EENS1_8positiveINS1_11alternativeINS4_ISY_NS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS14_INS5_ISY_NS8_INSA_INS_4wave8grammars4impl25compose_character_literalESH_SO_NS8_INS7_8variableIbEEEESK_SE_SE_SE_EEEEEES1E_EES1E_EES1E_EES1E_EENS5_INS14_ISY_SY_EES1D_EEEES1E_EES1E_EENS5_ISY_NS8_INSA_IS18_SH_SO_S1B_NS8_INSI_IcEEEESE_SE_SE_EEEEEEEES1S_EES1S_EES1S_EENS4_ISY_NS2_14if_else_parserINS5_INS1_11uint_parserIjLi16ELj1ELi8EEENS8_INSA_IS18_SH_SO_S1B_NS8_INS7_8argumentILi0EEEEESE_SE_SE_EEEEEENS5_INS1Y_IjLi16ELj1ELi2EEES24_EESO_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj4ELi4EEES24_EEEEEENS4_ISY_NS5_INS1Y_IjLi16ELj8ELi8EEES24_EEEEEENS5_INS1Y_IjLi8ELj1ELi3EEES24_EEEEEENS4_INS1_26negated_empty_match_parserISY_EENS5_INS1_14anychar_parserES24_EEEEEEEEEESY_EENS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEE, i64 16), ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %4, ptr noundef nonnull align 8 dereferenceable(1016) %3, i64 1016, i1 false)
   ret ptr %2

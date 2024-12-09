@@ -163,8 +163,8 @@ define internal void @json_end_graph(ptr noundef %0) #0 {
 9:                                                ; preds = %1
   %10 = load ptr, ptr @AgIoDisc, align 8
   store ptr %10, ptr @json_end_graph.io, align 8
-  store ptr @gvputs, ptr getelementptr inbounds (i8, ptr @json_end_graph.io, i64 8), align 8
-  store ptr @gvflush, ptr getelementptr inbounds (i8, ptr @json_end_graph.io, i64 16), align 8
+  store ptr @gvputs, ptr getelementptr inbounds nuw (i8, ptr @json_end_graph.io, i64 8), align 8
+  store ptr @gvflush, ptr getelementptr inbounds nuw (i8, ptr @json_end_graph.io, i64 16), align 8
   br label %11
 
 11:                                               ; preds = %9, %1

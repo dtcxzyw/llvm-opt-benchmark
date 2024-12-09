@@ -21,9 +21,9 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
-  %5 = sub i32 %4, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %5 = sub i32 %4, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %6 = icmp ne i32 %5, -1
-  %.not.i = icmp ult ptr %0, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i = icmp ult ptr %0, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %7 = select i1 %6, i1 %.not.i, i1 false
   br i1 %7, label %8, label %12
 
@@ -38,7 +38,7 @@ define hidden void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull 
   br i1 %.not.i, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = sub i32 %4, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %14 = sub i32 %4, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %15 = shl nsw i32 %14, 2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i32 noundef %15) #2
   br label %17
@@ -58,9 +58,9 @@ define hidden void @_ZNK9VMRegImpl5printEv(ptr noundef nonnull align 1 dereferen
   %2 = load ptr, ptr @tty, align 8
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
-  %5 = sub i32 %4, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %5 = sub i32 %4, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %6 = icmp ne i32 %5, -1
-  %.not.i.i = icmp ult ptr %0, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i = icmp ult ptr %0, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %7 = select i1 %6, i1 %.not.i.i, i1 false
   br i1 %7, label %8, label %12
 
@@ -75,7 +75,7 @@ define hidden void @_ZNK9VMRegImpl5printEv(ptr noundef nonnull align 1 dereferen
   br i1 %.not.i.i, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = sub i32 %4, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %14 = sub i32 %4, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %15 = shl nsw i32 %14, 2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.4, i32 noundef %15) #2
   br label %_ZNK9VMRegImpl8print_onEP12outputStream.exit

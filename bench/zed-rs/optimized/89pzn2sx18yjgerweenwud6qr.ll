@@ -195,7 +195,7 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$L
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN4util5paths8home_dir17h606e9a7e4ed8284aE() unnamed_addr #1 personality ptr @rust_eh_personality {
-  %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN4util5paths8home_dir8HOME_DIR17hd5a554ef2c63303aE, i64 24) acquire, align 8
+  %1 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4util5paths8home_dir8HOME_DIR17hd5a554ef2c63303aE, i64 24) acquire, align 8
   %.not.i = icmp eq i32 %1, 4
   br i1 %.not.i, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h727f482b25891bb4E.exit", label %2
 
@@ -350,7 +350,7 @@ default.unreachable:                              ; preds = %31
   br label %266
 
 54:                                               ; preds = %45
-  %55 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN4util5paths16PathWithPosition9parse_str9SUFFIX_RE17hdd58f0fe84fb3242E, i64 32) acquire, align 8
+  %55 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4util5paths16PathWithPosition9parse_str9SUFFIX_RE17hdd58f0fe84fb3242E, i64 32) acquire, align 8
   %56 = icmp eq i32 %55, 4
   br i1 %56, label %_ZN3std4sync4once4Once9call_once17hdc9d6efd4abe1df7E.exit, label %57
 
@@ -359,7 +359,7 @@ default.unreachable:                              ; preds = %31
   store ptr @_ZN4util5paths16PathWithPosition9parse_str9SUFFIX_RE17hdd58f0fe84fb3242E, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store ptr %15, ptr %14, align 8
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h57e391c14c374311E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN4util5paths16PathWithPosition9parse_str9SUFFIX_RE17hdd58f0fe84fb3242E, i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbebbb17acd3bc265a0bc9f5eefc6579.46)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h57e391c14c374311E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN4util5paths16PathWithPosition9parse_str9SUFFIX_RE17hdd58f0fe84fb3242E, i64 32), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbebbb17acd3bc265a0bc9f5eefc6579.46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   br label %_ZN3std4sync4once4Once9call_once17hdc9d6efd4abe1df7E.exit
@@ -431,7 +431,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit
   %85 = getelementptr inbounds nuw i8, ptr %63, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !67
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !67
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4util5paths16PathWithPosition9parse_str9SUFFIX_RE17hdd58f0fe84fb3242E, i64 8), align 8, !noalias !67, !nonnull !13, !noundef !13
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4util5paths16PathWithPosition9parse_str9SUFFIX_RE17hdd58f0fe84fb3242E, i64 8), align 8, !noalias !67, !nonnull !13, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %87 = load i64, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", align 8, !range !60, !noalias !80, !noundef !13
   %trunc.i.i.i.i.i.i.i = trunc nuw i64 %87 to i1
@@ -454,7 +454,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4c9f40a581bfa077E.exit.i.i.i.i: ; preds
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h16be1ad5cecc3032E.exit.i.i.i": ; preds = %.noexc.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i.i
-  %.sroa.0.0.i.i.i2.i.i.i.i = phi ptr [ %88, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i.i ]
+  %.sroa.0.0.i.i.i2.i.i.i.i = phi ptr [ %88, %.noexc.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i.i ]
   %.val.i.i.i.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i.i, align 8, !noalias !88, !noundef !13
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %92 = load atomic i64, ptr %91 acquire, align 8, !noalias !88
@@ -558,7 +558,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4c9f40a581bfa077E.exit.i.i10.i.i: ; pre
   unreachable
 
 135:                                              ; preds = %.noexc.i.i.i, %129
-  %.sroa.0.0.i.i.i2.i.i11.i.i = phi ptr [ %132, %.noexc.i.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %129 ]
+  %.sroa.0.0.i.i.i2.i.i11.i.i = phi ptr [ %132, %.noexc.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %129 ]
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.57.0.copyload.i.i, i64 16
   %137 = load i64, ptr %136, align 8, !noalias !104, !noundef !13
   %138 = icmp eq i64 %137, 0

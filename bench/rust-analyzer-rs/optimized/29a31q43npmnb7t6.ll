@@ -84223,19 +84223,19 @@ define hidden void @_ZN13rust_analyzer10line_index11LineEndings9normalize17h1400
   br i1 %.not5.i.i.i.i, label %_ZN6memchr4arch3all9rabinkarp6Finder3new17h3cfc7bfaf88debcdE.exit.i.i, label %16
 
 14:                                               ; preds = %12
-  %gepdiff.i.i.i = sub nsw i64 2, %.sroa.0.0.idx.i.i.i
-  %.not.i.i.i.i.i.i = icmp ult i64 %.sroa.10.03.i.i.i, %gepdiff.i.i.i
+  %gepdiff.i.i.i = sub nuw nsw i64 2, %.sroa.0.0.idx.i.i.i
+  %.not.i.i.i.i.i.i = icmp samesign ult i64 %.sroa.10.03.i.i.i, %gepdiff.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %15, label %_ZN6memchr4arch3all9rabinkarp6Finder3new17h3cfc7bfaf88debcdE.exit.i.i
 
 15:                                               ; preds = %14
-  %.sroa.0.0.add.i.i.i = add nsw i64 %.sroa.0.0.idx.i.i.i, %.sroa.10.03.i.i.i
+  %.sroa.0.0.add.i.i.i = add nuw nsw i64 %.sroa.0.0.idx.i.i.i, %.sroa.10.03.i.i.i
   br label %16
 
 16:                                               ; preds = %15, %13
   %.sroa.0.1.idx.in.i.i.i = phi i64 [ %.sroa.0.0.add.i.i.i, %15 ], [ %.sroa.0.0.idx.i.i.i, %13 ]
-  %.sroa.3.0.i2.pn.i.in.i.i.i = getelementptr inbounds i8, ptr @anon.c26fc425856cff208af7eaece38df3b9.575, i64 %.sroa.0.1.idx.in.i.i.i
+  %.sroa.3.0.i2.pn.i.in.i.i.i = getelementptr inbounds nuw i8, ptr @anon.c26fc425856cff208af7eaece38df3b9.575, i64 %.sroa.0.1.idx.in.i.i.i
   %.sroa.3.0.i2.pn.i.i.i.i = load i8, ptr %.sroa.3.0.i2.pn.i.in.i.i.i, align 1, !noalias !29880, !noundef !11
-  %.sroa.0.1.idx.i.i.i = add nsw i64 %.sroa.0.1.idx.in.i.i.i, 1
+  %.sroa.0.1.idx.i.i.i = add nuw nsw i64 %.sroa.0.1.idx.in.i.i.i, 1
   %17 = shl i32 %.sroa.01.0.i.i.i, 1
   %18 = zext i8 %.sroa.3.0.i2.pn.i.i.i.i to i32
   %19 = add i32 %17, %18

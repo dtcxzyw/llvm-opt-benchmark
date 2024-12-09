@@ -843,7 +843,7 @@ define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLoc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -894,7 +894,7 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
   store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -953,7 +953,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -5821,8 +5821,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %977 unwind label %.thread813
 
 977:                                              ; preds = %976
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %28, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %30, align 8
   %978 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %978, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -6492,8 +6492,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %397 unwind label %.thread530
 
 397:                                              ; preds = %396
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %398 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %398, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -7385,8 +7385,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %599 unwind label %.thread687
 
 599:                                              ; preds = %598
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
   %600 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %600, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -7951,8 +7951,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %337 unwind label %.thread448
 
 337:                                              ; preds = %336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %338 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %338, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -14930,8 +14930,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %921 unwind label %.thread838
 
 921:                                              ; preds = %920
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
   %922 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %922, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -15552,8 +15552,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %369 unwind label %.thread544
 
 369:                                              ; preds = %368
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %370 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %370, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -16345,8 +16345,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %529 unwind label %.thread696
 
 529:                                              ; preds = %528
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %28, align 8
   %530 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %530, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -16856,8 +16856,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %303 unwind label %.thread458
 
 303:                                              ; preds = %302
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %304 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %304, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -18079,8 +18079,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %873 unwind label %.thread733
 
 873:                                              ; preds = %872
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
   %874 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %874, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -18672,8 +18672,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %340 unwind label %.thread485
 
 340:                                              ; preds = %339
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %341 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %341, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -19435,8 +19435,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %499 unwind label %.thread621
 
 499:                                              ; preds = %498
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %28, align 8
   %500 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %500, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -19927,8 +19927,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %284 unwind label %.thread412
 
 284:                                              ; preds = %283
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %285 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %285, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -24545,8 +24545,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %977 unwind label %.thread813
 
 977:                                              ; preds = %976
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %28, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %30, align 8
   %978 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %978, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -25216,8 +25216,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %397 unwind label %.thread530
 
 397:                                              ; preds = %396
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %398 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %398, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -26109,8 +26109,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %599 unwind label %.thread687
 
 599:                                              ; preds = %598
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
   %600 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %600, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -26675,8 +26675,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %337 unwind label %.thread448
 
 337:                                              ; preds = %336
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %338 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %338, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -33654,8 +33654,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %921 unwind label %.thread838
 
 921:                                              ; preds = %920
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
   %922 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %922, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -34276,8 +34276,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %369 unwind label %.thread544
 
 369:                                              ; preds = %368
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %370 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %370, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -35069,8 +35069,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %529 unwind label %.thread696
 
 529:                                              ; preds = %528
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %28, align 8
   %530 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %530, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -35580,8 +35580,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %303 unwind label %.thread458
 
 303:                                              ; preds = %302
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %304 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %304, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -36803,8 +36803,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %873 unwind label %.thread733
 
 873:                                              ; preds = %872
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %29, align 8
   %874 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %874, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -37396,8 +37396,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %340 unwind label %.thread485
 
 340:                                              ; preds = %339
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %341 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %341, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -38159,8 +38159,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %499 unwind label %.thread621
 
 499:                                              ; preds = %498
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %26, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %28, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %28, align 8
   %500 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %500, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -38651,8 +38651,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %284 unwind label %.thread412
 
 284:                                              ; preds = %283
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %285 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType2ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %285, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -44426,8 +44426,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1149 unwind label %.thread913
 
 1149:                                             ; preds = %1148
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %31, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %33, align 8
   %1150 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1150, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -45291,8 +45291,8 @@ cdce.end:                                         ; preds = %285, %cdce.call
           to label %496 unwind label %.thread596
 
 496:                                              ; preds = %495
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %497 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %497, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -46437,8 +46437,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %767 unwind label %.thread786
 
 767:                                              ; preds = %766
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %768 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %768, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -47188,8 +47188,8 @@ cdce.end:                                         ; preds = %282, %cdce.call
           to label %431 unwind label %.thread514
 
 431:                                              ; preds = %430
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %432 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %432, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -56481,8 +56481,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1147 unwind label %.thread939
 
 1147:                                             ; preds = %1146
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %1148 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1148, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -57281,8 +57281,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %468 unwind label %.thread609
 
 468:                                              ; preds = %467
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %469 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %469, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -58380,8 +58380,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %752 unwind label %.thread796
 
 752:                                              ; preds = %751
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
   %753 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %753, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -59062,8 +59062,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %397 unwind label %.thread523
 
 397:                                              ; preds = %396
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %398 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %398, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -60603,8 +60603,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1099 unwind label %.thread834
 
 1099:                                             ; preds = %1098
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %1100 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1100, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -61374,8 +61374,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %439 unwind label %.thread551
 
 439:                                              ; preds = %438
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %440 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %440, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -62443,8 +62443,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %722 unwind label %.thread721
 
 722:                                              ; preds = %721
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
   %723 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %723, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -63106,8 +63106,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %378 unwind label %.thread478
 
 378:                                              ; preds = %377
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %379 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %379, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -68761,8 +68761,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1134 unwind label %.thread902
 
 1134:                                             ; preds = %1133
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %31, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %33, align 8
   %1135 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1135, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -69600,8 +69600,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %484 unwind label %.thread589
 
 484:                                              ; preds = %483
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %485 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %485, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -70724,8 +70724,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %752 unwind label %.thread774
 
 752:                                              ; preds = %751
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %753 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %753, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -71450,8 +71450,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %419 unwind label %.thread507
 
 419:                                              ; preds = %418
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %420 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %420, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -80292,8 +80292,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1080 unwind label %.thread928
 
 1080:                                             ; preds = %1079
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %1081 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1081, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -81073,8 +81073,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %456 unwind label %.thread603
 
 456:                                              ; preds = %455
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %457 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %457, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -82098,8 +82098,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %685 unwind label %.thread784
 
 685:                                              ; preds = %684
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
   %686 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %686, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -82761,8 +82761,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %385 unwind label %.thread517
 
 385:                                              ; preds = %384
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %386 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %386, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -84223,8 +84223,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %1032 unwind label %.thread823
 
 1032:                                             ; preds = %1031
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %1033 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1033, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -84975,8 +84975,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %427 unwind label %.thread544
 
 427:                                              ; preds = %426
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %428 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %428, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -85970,8 +85970,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %655 unwind label %.thread709
 
 655:                                              ; preds = %654
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
   %656 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %656, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -86614,8 +86614,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
           to label %366 unwind label %.thread471
 
 366:                                              ; preds = %365
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %367 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType0ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %367, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -92794,8 +92794,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1293 unwind label %.thread890
 
 1293:                                             ; preds = %1292
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %31, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %33, align 8
   %1294 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1294, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -93673,8 +93673,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %542 unwind label %.thread595
 
 542:                                              ; preds = %541
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %543 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %543, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -94945,8 +94945,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %904 unwind label %.thread764
 
 904:                                              ; preds = %903
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %905 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %905, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -95710,8 +95710,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %475 unwind label %.thread513
 
 475:                                              ; preds = %474
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %476 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %476, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -105449,8 +105449,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1245 unwind label %.thread915
 
 1245:                                             ; preds = %1244
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %1246 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1246, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -106277,8 +106277,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %519 unwind label %.thread609
 
 519:                                              ; preds = %518
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %520 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %520, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -107459,8 +107459,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %842 unwind label %.thread773
 
 842:                                              ; preds = %841
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
   %843 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %843, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -108167,8 +108167,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %444 unwind label %.thread521
 
 444:                                              ; preds = %443
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %445 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %445, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -109792,8 +109792,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1197 unwind label %.thread810
 
 1197:                                             ; preds = %1196
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %1198 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1198, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -110587,8 +110587,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %488 unwind label %.thread550
 
 488:                                              ; preds = %487
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %489 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %489, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -111739,8 +111739,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %812 unwind label %.thread698
 
 812:                                              ; preds = %811
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
   %813 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %813, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -112424,8 +112424,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %424 unwind label %.thread475
 
 424:                                              ; preds = %423
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %425 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb1ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %425, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -118601,8 +118601,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1293 unwind label %.thread890
 
 1293:                                             ; preds = %1292
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %31, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %33, align 8
   %1294 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1294, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -119480,8 +119480,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %542 unwind label %.thread595
 
 542:                                              ; preds = %541
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %543 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %543, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -120752,8 +120752,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %904 unwind label %.thread764
 
 904:                                              ; preds = %903
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %905 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %905, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -121517,8 +121517,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %475 unwind label %.thread513
 
 475:                                              ; preds = %474
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %476 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb1ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %476, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -131256,8 +131256,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1245 unwind label %.thread915
 
 1245:                                             ; preds = %1244
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %1246 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1246, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -132084,8 +132084,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %519 unwind label %.thread609
 
 519:                                              ; preds = %518
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %520 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb1ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %520, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -133266,8 +133266,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %842 unwind label %.thread773
 
 842:                                              ; preds = %841
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
   %843 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %843, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -133974,8 +133974,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
           to label %444 unwind label %.thread521
 
 444:                                              ; preds = %443
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %445 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb1ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %445, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -135599,8 +135599,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %1197 unwind label %.thread810
 
 1197:                                             ; preds = %1196
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %32, align 8
   %1198 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %1198, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -136394,8 +136394,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %488 unwind label %.thread550
 
 488:                                              ; preds = %487
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %489 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb0ELb1EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %489, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -137546,8 +137546,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EN3gmx9SimdFloatENS0_9SimdFBoolEEvT0_S3_S
           to label %812 unwind label %.thread698
 
 812:                                              ; preds = %811
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %31, align 8
   %813 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI13SimdDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %813, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -138231,8 +138231,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
           to label %424 unwind label %.thread475
 
 424:                                              ; preds = %423
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %20, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %22, align 8
   %425 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL21nb_free_energy_kernelI15ScalarDataTypesL18KernelSoftcoreType1ELb0ELb0ELb0ELb0ELb0EEvRK8t_nblistRKN3gmx19ArrayRefWithPaddingIKNS5_11BasicVectorIfEEEEiRK19interaction_const_tNS5_8ArrayRefIS9_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_iSJ_P6t_nrnbNS6_IS8_EEPA3_fNSG_IfEESR_SR_, ptr %425, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16

@@ -174,7 +174,7 @@ define void @_ZN2cv4face4MACE6createEi(ptr dead_on_unwind noalias nocapture writ
   store i32 1, ptr %4, align 8, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4face8MACEImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4face8MACEImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %6)
           to label %_ZN2cv3PtrINS_4face8MACEImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face8MACEImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !4
@@ -186,7 +186,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face8MACEImplESaIvELN
   resume { ptr, i32 } %7
 
 _ZN2cv3PtrINS_4face8MACEImplEED2Ev.exit:          ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv4face8MACEImplE, i64 16), ptr %6, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv4face8MACEImplE, i64 16), ptr %6, align 8, !noalias !4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #21, !noalias !4
   %9 = load i32, ptr %8, align 8, !noalias !4
@@ -303,7 +303,7 @@ define linkonce_odr hidden void @_ZN2cv9Algorithm4loadINS_4face4MACEEEENS_3PtrIT
   store i32 1, ptr %35, align 8, !noalias !12
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !noalias !12
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4face8MACEImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4face8MACEImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %34, align 8, !noalias !12
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %37)
           to label %39 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face8MACEImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i.i, !noalias !12
@@ -315,7 +315,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4face8MACEImplESaIvELN
   br label %.body
 
 39:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv4face8MACEImplE, i64 16), ptr %37, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN2cv4face8MACEImplE, i64 16), ptr %37, align 8, !noalias !12
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
   call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #21, !noalias !12
   %41 = load i32, ptr %40, align 8, !noalias !12

@@ -2000,7 +2000,7 @@ _ZN2cv4Mat_IhEC2Eii.exit._crit_edge:              ; preds = %_ZN2cv4Mat_IhEaSEOS
   store i32 0, ptr %20, align 4
   %453 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %.pre-phi359, ptr %453, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8tracking4impl3tld24CalcScSrParallelLoopBodyE, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8tracking4impl3tld24CalcScSrParallelLoopBodyE, i64 16), ptr %21, align 8
   %454 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %0, ptr %454, align 8
   %455 = getelementptr inbounds nuw i8, ptr %21, i64 16

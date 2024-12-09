@@ -566,19 +566,19 @@ invoke.cont5:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %bmg, i8 -1, i64 28, i1 false)
   %cf = getelementptr inbounds nuw i8, ptr %this, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numericValue, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %cf, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %cf, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   store i16 2, ptr %fUnion2.i, align 8
   %lc = getelementptr inbounds nuw i8, ptr %this, i64 304
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %lc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %lc, align 8
   %fUnion2.i4 = getelementptr inbounds nuw i8, ptr %this, i64 312
   store i16 2, ptr %fUnion2.i4, align 8
   %tc = getelementptr inbounds nuw i8, ptr %this, i64 368
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tc, align 8
   %fUnion2.i5 = getelementptr inbounds nuw i8, ptr %this, i64 376
   store i16 2, ptr %fUnion2.i5, align 8
   %uc = getelementptr inbounds nuw i8, ptr %this, i64 432
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uc, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uc, align 8
   %fUnion2.i6 = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i16 2, ptr %fUnion2.i6, align 8
   %scx = getelementptr inbounds nuw i8, ptr %this, i64 496

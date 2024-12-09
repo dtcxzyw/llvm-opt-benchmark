@@ -84,7 +84,7 @@ define range(i32 0, 2051) i32 @job_submit(ptr nocapture noundef readonly %0, i32
   br i1 %.not, label %5, label %_get_config.exit
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1072), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1072), align 8
   %7 = tail call ptr @slurm_xstrcasestr(ptr noundef %6, ptr noundef nonnull @.str.4) #8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %11, label %8

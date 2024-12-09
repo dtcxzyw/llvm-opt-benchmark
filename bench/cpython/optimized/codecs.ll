@@ -2268,7 +2268,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i14.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 36496), ptr noundef nonnull %attr) #9
+  %call3 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %call, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36496), ptr noundef nonnull %attr) #9
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.end6
 

@@ -763,7 +763,7 @@ declare void @llvm.trap() #12
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7522LocaleDisplayNamesImplC2ERKNS_6LocaleE16UDialectHandling(ptr noundef nonnull align 8 dereferenceable(1206) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %dialectHandling) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImplE, i64 16), ptr %this, align 8
   %locale2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale2)
           to label %invoke.cont unwind label %lpad
@@ -804,19 +804,19 @@ invoke.cont21:                                    ; preds = %invoke.cont11
   %capitalizationBrkIter = getelementptr inbounds nuw i8, ptr %this, i64 928
   store ptr null, ptr %capitalizationBrkIter, align 8
   %formatOpenParen = getelementptr inbounds nuw i8, ptr %this, i64 936
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatOpenParen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatOpenParen, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 944
   store i16 2, ptr %fUnion2.i, align 8
   %formatReplaceOpenParen = getelementptr inbounds nuw i8, ptr %this, i64 1000
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatReplaceOpenParen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatReplaceOpenParen, align 8
   %fUnion2.i16 = getelementptr inbounds nuw i8, ptr %this, i64 1008
   store i16 2, ptr %fUnion2.i16, align 8
   %formatCloseParen = getelementptr inbounds nuw i8, ptr %this, i64 1064
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatCloseParen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatCloseParen, align 8
   %fUnion2.i17 = getelementptr inbounds nuw i8, ptr %this, i64 1072
   store i16 2, ptr %fUnion2.i17, align 8
   %formatReplaceCloseParen = getelementptr inbounds nuw i8, ptr %this, i64 1128
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatReplaceCloseParen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatReplaceCloseParen, align 8
   %fUnion2.i18 = getelementptr inbounds nuw i8, ptr %this, i64 1136
   store i16 2, ptr %fUnion2.i18, align 8
   %nameLength = getelementptr inbounds nuw i8, ptr %this, i64 1192
@@ -934,7 +934,7 @@ entry:
   %cond-lvalue = select i1 %call3, ptr %locale.i8, ptr %locale.i
   %locale = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %cond-lvalue)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %sep, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %sep, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %sep, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i.i)
@@ -1001,7 +1001,7 @@ if.end:                                           ; preds = %invoke.cont12, %inv
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %pattern, align 8
   %fUnion2.i13 = getelementptr inbounds nuw i8, ptr %pattern, i64 8
   store i16 2, ptr %fUnion2.i13, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i.i14)
@@ -1246,7 +1246,7 @@ _ZN6icu_7513UnicodeString5setToEDs.exit106:       ; preds = %.noexc104
   br label %invoke.cont55
 
 invoke.cont55:                                    ; preds = %_ZN6icu_7513UnicodeString5setToEDs.exit70, %_ZN6icu_7513UnicodeString5setToEDs.exit106
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ktPattern, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ktPattern, align 8
   %fUnion2.i107 = getelementptr inbounds nuw i8, ptr %ktPattern, i64 8
   store i16 2, ptr %fUnion2.i107, align 8
   %call.i108 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512ICUDataTable3getEPKcS2_S2_RNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(232) %langData, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(64) %ktPattern)
@@ -1299,7 +1299,7 @@ invoke.cont79:                                    ; preds = %if.then73
   br i1 %cmp.i, label %invoke.cont86, label %cleanup100
 
 invoke.cont86:                                    ; preds = %invoke.cont79
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImpl25CapitalizationContextSinkE, i64 16), ptr %sink, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImpl25CapitalizationContextSinkE, i64 16), ptr %sink, align 8
   %hasCapitalizationUsage.i = getelementptr inbounds nuw i8, ptr %sink, i64 8
   store i8 0, ptr %hasCapitalizationUsage.i, align 8
   %parent.i = getelementptr inbounds nuw i8, ptr %sink, i64 16
@@ -1424,7 +1424,7 @@ declare void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7522LocaleDisplayNamesImplC2ERKNS_6LocaleEP15UDisplayContexti(ptr noundef nonnull align 8 dereferenceable(1206) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr nocapture noundef readonly %contexts, i32 noundef %length) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImplE, i64 16), ptr %this, align 8
   %locale2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale2)
           to label %invoke.cont unwind label %lpad
@@ -1465,19 +1465,19 @@ invoke.cont20:                                    ; preds = %invoke.cont10
   %capitalizationBrkIter = getelementptr inbounds nuw i8, ptr %this, i64 928
   store ptr null, ptr %capitalizationBrkIter, align 8
   %formatOpenParen = getelementptr inbounds nuw i8, ptr %this, i64 936
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatOpenParen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatOpenParen, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 944
   store i16 2, ptr %fUnion2.i, align 8
   %formatReplaceOpenParen = getelementptr inbounds nuw i8, ptr %this, i64 1000
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatReplaceOpenParen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatReplaceOpenParen, align 8
   %fUnion2.i20 = getelementptr inbounds nuw i8, ptr %this, i64 1008
   store i16 2, ptr %fUnion2.i20, align 8
   %formatCloseParen = getelementptr inbounds nuw i8, ptr %this, i64 1064
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatCloseParen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatCloseParen, align 8
   %fUnion2.i21 = getelementptr inbounds nuw i8, ptr %this, i64 1072
   store i16 2, ptr %fUnion2.i21, align 8
   %formatReplaceCloseParen = getelementptr inbounds nuw i8, ptr %this, i64 1128
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatReplaceCloseParen, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %formatReplaceCloseParen, align 8
   %fUnion2.i22 = getelementptr inbounds nuw i8, ptr %this, i64 1136
   store i16 2, ptr %fUnion2.i22, align 8
   %nameLength = getelementptr inbounds nuw i8, ptr %this, i64 1192
@@ -1661,7 +1661,7 @@ declare noundef ptr @_ZN6icu_7513BreakIterator22createSentenceInstanceERKNS_6Loc
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522LocaleDisplayNamesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1206) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImplE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImplE, i64 16), ptr %this, align 8
   %capitalizationBrkIter = getelementptr inbounds nuw i8, ptr %this, i64 928
   %0 = load ptr, ptr %capitalizationBrkIter, align 8
   %isnull = icmp eq ptr %0, null
@@ -1876,7 +1876,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultName, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultName, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %resultName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %language.i = getelementptr inbounds nuw i8, ptr %loc, i64 8
@@ -1984,10 +1984,10 @@ if.then78:                                        ; preds = %invoke.cont73
 invoke.cont84:                                    ; preds = %if.end64, %invoke.cont73
   %hasCountry.0.shrunk296 = phi i1 [ %hasCountry.0.shrunk, %if.end64 ], [ %hasCountry.0.shrunk295, %invoke.cont73 ]
   %hasScript.0.shrunk294 = phi i1 [ %hasScript.0.shrunk, %if.end64 ], [ %hasScript.0.shrunk293, %invoke.cont73 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultRemainder, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %resultRemainder, align 8
   %fUnion2.i66 = getelementptr inbounds nuw i8, ptr %resultRemainder, i64 8
   store i16 2, ptr %fUnion2.i66, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp, align 8
   %fUnion2.i67 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   store i16 2, ptr %fUnion2.i67, align 8
   store i32 0, ptr %status, align 4
@@ -2208,7 +2208,7 @@ invoke.cont143:                                   ; preds = %invoke.cont139
   br i1 %or.cond286, label %if.end223, label %if.then152
 
 if.then152:                                       ; preds = %invoke.cont143
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp2, align 8
   %fUnion2.i103 = getelementptr inbounds nuw i8, ptr %temp2, i64 8
   store i16 2, ptr %fUnion2.i103, align 8
   %fLength.i.i109 = getelementptr inbounds nuw i8, ptr %temp, i64 12
@@ -2475,7 +2475,7 @@ invoke.cont202:                                   ; preds = %land.rhs.i.i213
   br i1 %tobool9.i.i214.not, label %invoke.cont205, label %if.else211
 
 invoke.cont205:                                   ; preds = %if.then.i.i193, %invoke.cont202, %invoke.cont202.thread
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %temp3, align 8
   store i16 2, ptr %fUnion2.i218, align 8
   %call208 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515SimpleFormatter6formatERKNS_13UnicodeStringES3_RS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %keyTypeFormat, ptr noundef nonnull align 8 dereferenceable(64) %temp, ptr noundef nonnull align 8 dereferenceable(64) %temp2, ptr noundef nonnull align 8 dereferenceable(64) %temp3, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont207 unwind label %lpad206

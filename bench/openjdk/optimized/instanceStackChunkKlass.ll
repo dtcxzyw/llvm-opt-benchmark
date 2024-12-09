@@ -228,7 +228,7 @@ define hidden void @_ZN23InstanceStackChunkKlass17serialize_offsetsEP16Serialize
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23InstanceStackChunkKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN13InstanceKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) #10
-  store ptr getelementptr inbounds inrange(-16, 328) (i8, ptr @_ZTV23InstanceStackChunkKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTV23InstanceStackChunkKlass, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -237,7 +237,7 @@ declare void @_ZN13InstanceKlassC2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23InstanceStackChunkKlassC2ERK15ClassFileParser(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   tail call void @_ZN13InstanceKlassC2ERK15ClassFileParserN5Klass9KlassKindE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 1 %1, i32 noundef 4, i32 noundef 0) #10
-  store ptr getelementptr inbounds inrange(-16, 328) (i8, ptr @_ZTV23InstanceStackChunkKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTV23InstanceStackChunkKlass, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -8
@@ -514,7 +514,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define hidden void @_ZN23InstanceStackChunkKlass20init_offset_of_stackEv() local_unnamed_addr #3 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -8
@@ -787,7 +787,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -806,7 +806,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -825,7 +825,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -844,7 +844,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -863,7 +863,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -891,7 +891,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -3435,7 +3435,7 @@ _ZN32OopIterateStackChunkFrameClosure8do_frameIL11ChunkFrames0E11RegisterMapEEbR
   %.sroa.0.0.copyload.i = load ptr, ptr %76, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV33StackChunkOopIterateFilterClosureI17OopIterateClosureE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV33StackChunkOopIterateFilterClosureI17OopIterateClosureE, i64 16), ptr %4, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %75, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3564,7 +3564,7 @@ _ZN32OopIterateStackChunkFrameClosure8do_frameIL11ChunkFrames0E16SmallRegisterMa
   %128 = phi ptr [ %.pre.i23, %124 ], [ %.pre5.i16, %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE11is_compiledEv.exit.i.i22 ], [ %.pre5.i16, %119 ], [ %.pre5.i16, %116 ]
   %.sroa.0.0.copyload.i17 = load ptr, ptr %113, align 8
   %.sroa.2.0.copyload.i19 = load i64, ptr %.sroa.2.0..sroa_idx.i18, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV33StackChunkOopIterateFilterClosureI17OopIterateClosureE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV33StackChunkOopIterateFilterClosureI17OopIterateClosureE, i64 16), ptr %3, align 8
   store ptr %128, ptr %114, align 8
   store ptr %.sroa.0.0.copyload.i17, ptr %115, align 8
   store i64 %.sroa.2.0.copyload.i19, ptr %.sroa.2.0..sroa_idx.i.i20, align 8
@@ -3726,7 +3726,7 @@ _ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E11RegisterMapEEbRK
   %.sroa.0.0.copyload = load ptr, ptr %41, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV33StackChunkOopIterateFilterClosureI17OopIterateClosureE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV33StackChunkOopIterateFilterClosureI17OopIterateClosureE, i64 16), ptr %5, align 8
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %40, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3813,7 +3813,7 @@ _ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames1E16SmallRegisterMap
   %.sroa.0.0.copyload = load ptr, ptr %41, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV33StackChunkOopIterateFilterClosureI17OopIterateClosureE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV33StackChunkOopIterateFilterClosureI17OopIterateClosureE, i64 16), ptr %5, align 8
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %40, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3969,12 +3969,12 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %76, %_ZN12OopMapStr
   %81 = lshr i32 %.sroa.0.0.copyload.i, 2
   %82 = and i32 %81, 16383
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %83
+  %84 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %83
   %85 = ptrtoint ptr %84 to i64
   %86 = trunc i64 %85 to i32
-  %87 = sub i32 %86, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %87 = sub i32 %86, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %88 = icmp ne i32 %87, -1
-  %.not.i.i9 = icmp ult ptr %84, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i9 = icmp ult ptr %84, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %89 = select i1 %88, i1 %.not.i.i9, i1 false
   br i1 %89, label %90, label %105
 
@@ -4002,7 +4002,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %76, %_ZN12OopMapStr
 
 105:                                              ; preds = %80
   %106 = load ptr, ptr %70, align 8
-  %107 = sub i32 %86, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %107 = sub i32 %86, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %108 = mul nsw i32 %71, %107
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i8, ptr %106, i64 %109
@@ -4249,12 +4249,12 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %75, %_ZN12OopMapStr
   %80 = lshr i32 %.sroa.0.0.copyload.i, 2
   %81 = and i32 %80, 16383
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %82
+  %83 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %82
   %84 = ptrtoint ptr %83 to i64
   %85 = trunc i64 %84 to i32
-  %86 = sub i32 %85, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %86 = sub i32 %85, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %87 = icmp ne i32 %86, -1
-  %.not.i.i9 = icmp ult ptr %83, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i9 = icmp ult ptr %83, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %88 = select i1 %87, i1 %.not.i.i9, i1 false
   br i1 %88, label %89, label %92
 
@@ -4265,7 +4265,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %75, %_ZN12OopMapStr
 
 92:                                               ; preds = %79
   %93 = load ptr, ptr %70, align 8
-  %94 = sub i32 %85, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %94 = sub i32 %85, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %95 = mul nsw i32 %71, %94
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds i8, ptr %93, i64 %96
@@ -4399,12 +4399,12 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %45, %_ZN12OopMapStr
   %50 = lshr i32 %.sroa.0.0.copyload.i, 2
   %51 = and i32 %50, 16383
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %52
+  %53 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %52
   %54 = ptrtoint ptr %53 to i64
   %55 = trunc i64 %54 to i32
-  %56 = sub i32 %55, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %56 = sub i32 %55, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %57 = icmp ne i32 %56, -1
-  %.not.i.i = icmp ult ptr %53, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i = icmp ult ptr %53, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %58 = select i1 %57, i1 %.not.i.i, i1 false
   br i1 %58, label %59, label %74
 
@@ -4432,7 +4432,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %45, %_ZN12OopMapStr
 
 74:                                               ; preds = %49
   %75 = load ptr, ptr %39, align 8
-  %76 = sub i32 %55, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %76 = sub i32 %55, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %77 = mul nsw i32 %40, %76
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %75, i64 %78
@@ -4565,15 +4565,15 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %44, %_ZN12OopMapStr
   %49 = lshr i32 %.sroa.0.0.copyload.i, 2
   %50 = and i32 %49, 16383
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %51
+  %52 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %51
   %53 = ptrtoint ptr %52 to i64
   %54 = trunc i64 %53 to i32
-  %55 = sub i32 %54, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
+  %55 = sub i32 %54, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %56 = icmp ne i32 %55, -1
-  %.not.i.i = icmp ult ptr %52, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
+  %.not.i.i = icmp ult ptr %52, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
   %57 = select i1 %56, i1 %.not.i.i, i1 false
   %58 = load ptr, ptr %39, align 8
-  %59 = sub i32 %54, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
+  %59 = sub i32 %54, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %60 = mul nsw i32 %40, %59
   %61 = sext i32 %60 to i64
   %.sink.i = select i1 %57, i64 -16, i64 %61

@@ -285,7 +285,7 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
 
 109:                                              ; preds = %105, %98
   %110 = call i64 @time(ptr noundef null) #10
-  %111 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 400), align 8
+  %111 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 400), align 8
   %112 = zext i16 %111 to i64
   %113 = add nsw i64 %110, %112
   %114 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32

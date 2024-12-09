@@ -5164,7 +5164,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Na
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41NarInfoDiskCacheImpl_create_and_read_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix41NarInfoDiskCacheImpl_create_and_read_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -6565,7 +6565,7 @@ define internal void @_GLOBAL__sub_I_nar_info_disk_cache.cc() #12 section ".text
           to label %15 unwind label %34
 
 15:                                               ; preds = %13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41NarInfoDiskCacheImpl_create_and_read_TestEEE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41NarInfoDiskCacheImpl_create_and_read_TestEEE, i64 16), ptr %14, align 8
   %16 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %14)
           to label %17 unwind label %34
 

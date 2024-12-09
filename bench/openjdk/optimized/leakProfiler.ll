@@ -98,7 +98,7 @@ define hidden noundef zeroext i1 @_ZN12LeakProfiler5startEi(i32 noundef %0) loca
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV14StartOperation, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV14StartOperation, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %0, ptr %8, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %2) #4
@@ -137,7 +137,7 @@ define hidden noundef zeroext i1 @_ZN12LeakProfiler4stopEv() local_unnamed_addr 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV13StopOperation, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV13StopOperation, i64 16), ptr %1, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %1) #4
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %5, null

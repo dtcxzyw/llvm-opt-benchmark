@@ -117,17 +117,17 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %8 = alloca ptr, align 8
   %9 = tail call i32 @getpid() #13
   %10 = tail call i32 @cl_initialize_crypto() #13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds (i8, ptr @descr, i64 8), i8 0, i64 120, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) getelementptr inbounds nuw (i8, ptr @descr, i64 8), i8 0, i64 120, i1 false)
   store ptr @.str, ptr @descr, align 8
-  store i32 16777217, ptr getelementptr inbounds (i8, ptr @descr, i64 8), align 8
-  store i64 32, ptr getelementptr inbounds (i8, ptr @descr, i64 16), align 8
-  store ptr @clamfi_connect, ptr getelementptr inbounds (i8, ptr @descr, i64 24), align 8
-  store ptr @clamfi_envfrom, ptr getelementptr inbounds (i8, ptr @descr, i64 40), align 8
-  store ptr @clamfi_envrcpt, ptr getelementptr inbounds (i8, ptr @descr, i64 48), align 8
-  store ptr @clamfi_header, ptr getelementptr inbounds (i8, ptr @descr, i64 56), align 8
-  store ptr @clamfi_body, ptr getelementptr inbounds (i8, ptr @descr, i64 72), align 8
-  store ptr @clamfi_eom, ptr getelementptr inbounds (i8, ptr @descr, i64 80), align 8
-  store ptr @clamfi_abort, ptr getelementptr inbounds (i8, ptr @descr, i64 88), align 8
+  store i32 16777217, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 8), align 8
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 16), align 8
+  store ptr @clamfi_connect, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 24), align 8
+  store ptr @clamfi_envfrom, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 40), align 8
+  store ptr @clamfi_envrcpt, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 48), align 8
+  store ptr @clamfi_header, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 56), align 8
+  store ptr @clamfi_body, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 72), align 8
+  store ptr @clamfi_eom, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 80), align 8
+  store ptr @clamfi_abort, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 88), align 8
   %11 = tail call ptr @optparse(ptr noundef null, i32 noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 4, i32 noundef 0, ptr noundef null) #13
   store ptr %11, ptr @opts, align 8
   %.not = icmp eq ptr %11, null
@@ -314,17 +314,17 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %105
 
 105:                                              ; preds = %102, %98
-  store i8 0, ptr getelementptr inbounds (i8, ptr @xvirushdr, i64 299), align 1
-  %106 = load i64, ptr getelementptr inbounds (i8, ptr @descr, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @xvirushdr, i64 299), align 1
+  %106 = load i64, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 16), align 8
   %107 = or i64 %106, 1
-  store i64 %107, ptr getelementptr inbounds (i8, ptr @descr, i64 16), align 8
+  store i64 %107, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 16), align 8
   %108 = call i32 @strcasecmp(ptr noundef %85, ptr noundef nonnull @.str.27) #14
   %.not106 = icmp eq i32 %108, 0
   br i1 %.not106, label %.sink.split, label %109
 
 109:                                              ; preds = %105
   %110 = or i64 %106, 17
-  store i64 %110, ptr getelementptr inbounds (i8, ptr @descr, i64 16), align 8
+  store i64 %110, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 16), align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %105, %109

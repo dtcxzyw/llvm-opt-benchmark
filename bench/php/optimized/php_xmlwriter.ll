@@ -236,9 +236,9 @@ define internal noundef i32 @zm_startup_xmlwriter(i32 %0, i32 %1) #0 {
   %3 = alloca %struct._zend_class_entry, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @xmlwriter_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 16, ptr @xmlwriter_object_handlers, align 8
-  store ptr @xmlwriter_object_dtor, ptr getelementptr inbounds (i8, ptr @xmlwriter_object_handlers, i64 16), align 8
-  store ptr @xmlwriter_object_free_storage, ptr getelementptr inbounds (i8, ptr @xmlwriter_object_handlers, i64 8), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @xmlwriter_object_handlers, i64 24), align 8
+  store ptr @xmlwriter_object_dtor, ptr getelementptr inbounds nuw (i8, ptr @xmlwriter_object_handlers, i64 16), align 8
+  store ptr @xmlwriter_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @xmlwriter_object_handlers, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @xmlwriter_object_handlers, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %4 = load ptr, ptr @zend_string_init_interned, align 8
@@ -289,7 +289,7 @@ define hidden void @zif_xmlwriter_set_indent(ptr noundef %0, ptr nocapture nound
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   br label %34
@@ -304,7 +304,7 @@ define hidden void @zif_xmlwriter_set_indent(ptr noundef %0, ptr nocapture nound
 
 23:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
   br label %34
@@ -354,7 +354,7 @@ define hidden void @zif_xmlwriter_set_indent_string(ptr noundef %0, ptr nocaptur
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -369,7 +369,7 @@ define hidden void @zif_xmlwriter_set_indent_string(ptr noundef %0, ptr nocaptur
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -413,7 +413,7 @@ define hidden void @zif_xmlwriter_start_attribute(ptr noundef %0, ptr nocapture 
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -428,7 +428,7 @@ define hidden void @zif_xmlwriter_start_attribute(ptr noundef %0, ptr nocapture 
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -442,7 +442,7 @@ define hidden void @zif_xmlwriter_start_attribute(ptr noundef %0, ptr nocapture 
 
 31:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %30) #11
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %php_xmlwriter_string_arg.exit
@@ -481,7 +481,7 @@ define hidden void @zif_xmlwriter_end_attribute(ptr noundef %0, ptr nocapture no
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -496,7 +496,7 @@ define hidden void @zif_xmlwriter_end_attribute(ptr noundef %0, ptr nocapture no
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -538,7 +538,7 @@ define hidden void @zif_xmlwriter_start_attribute_ns(ptr noundef %0, ptr nocaptu
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %45
@@ -553,7 +553,7 @@ define hidden void @zif_xmlwriter_start_attribute_ns(ptr noundef %0, ptr nocaptu
 
 28:                                               ; preds = %23
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %45
@@ -567,7 +567,7 @@ define hidden void @zif_xmlwriter_start_attribute_ns(ptr noundef %0, ptr nocaptu
 34:                                               ; preds = %31
   %35 = load ptr, ptr %3, align 8
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %35) #11
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
   br label %45
@@ -613,7 +613,7 @@ define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr nocapture 
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %41
@@ -628,7 +628,7 @@ define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr nocapture 
 
 26:                                               ; preds = %21
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %41
@@ -642,7 +642,7 @@ define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr nocapture 
 
 33:                                               ; preds = %29
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %32) #11
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %41
@@ -686,7 +686,7 @@ define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr nocaptu
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %48
@@ -701,7 +701,7 @@ define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr nocaptu
 
 30:                                               ; preds = %25
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %48
@@ -715,7 +715,7 @@ define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr nocaptu
 36:                                               ; preds = %33
   %37 = load ptr, ptr %3, align 8
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %37) #11
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %48
@@ -759,7 +759,7 @@ define hidden void @zif_xmlwriter_start_element(ptr noundef %0, ptr nocapture no
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -774,7 +774,7 @@ define hidden void @zif_xmlwriter_start_element(ptr noundef %0, ptr nocapture no
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -788,7 +788,7 @@ define hidden void @zif_xmlwriter_start_element(ptr noundef %0, ptr nocapture no
 
 31:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %30) #11
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %php_xmlwriter_string_arg.exit
@@ -832,7 +832,7 @@ define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr nocapture
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %45
@@ -847,7 +847,7 @@ define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr nocapture
 
 28:                                               ; preds = %23
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %45
@@ -861,7 +861,7 @@ define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr nocapture
 34:                                               ; preds = %31
   %35 = load ptr, ptr %3, align 8
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %35) #11
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %37 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %37)
   br label %45
@@ -900,7 +900,7 @@ define hidden void @zif_xmlwriter_end_element(ptr noundef %0, ptr nocapture noun
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -915,7 +915,7 @@ define hidden void @zif_xmlwriter_end_element(ptr noundef %0, ptr nocapture noun
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -952,7 +952,7 @@ define hidden void @zif_xmlwriter_full_end_element(ptr noundef %0, ptr nocapture
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -967,7 +967,7 @@ define hidden void @zif_xmlwriter_full_end_element(ptr noundef %0, ptr nocapture
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -1008,7 +1008,7 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr nocapture no
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %51
@@ -1023,7 +1023,7 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr nocapture no
 
 26:                                               ; preds = %21
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %51
@@ -1037,7 +1037,7 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr nocapture no
 32:                                               ; preds = %29
   %33 = load ptr, ptr %3, align 8
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %33) #11
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %51
@@ -1105,7 +1105,7 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr nocapture
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %57
@@ -1120,7 +1120,7 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr nocapture
 
 30:                                               ; preds = %25
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %57
@@ -1134,7 +1134,7 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr nocapture
 36:                                               ; preds = %33
   %37 = load ptr, ptr %3, align 8
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %37) #11
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %39 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %39)
   br label %57
@@ -1200,7 +1200,7 @@ define hidden void @zif_xmlwriter_start_pi(ptr noundef %0, ptr nocapture noundef
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -1215,7 +1215,7 @@ define hidden void @zif_xmlwriter_start_pi(ptr noundef %0, ptr nocapture noundef
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -1229,7 +1229,7 @@ define hidden void @zif_xmlwriter_start_pi(ptr noundef %0, ptr nocapture noundef
 
 31:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13, ptr noundef %30) #11
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %php_xmlwriter_string_arg.exit
@@ -1268,7 +1268,7 @@ define hidden void @zif_xmlwriter_end_pi(ptr noundef %0, ptr nocapture noundef w
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -1283,7 +1283,7 @@ define hidden void @zif_xmlwriter_end_pi(ptr noundef %0, ptr nocapture noundef w
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -1323,7 +1323,7 @@ define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr nocapture noundef
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %41
@@ -1338,7 +1338,7 @@ define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr nocapture noundef
 
 26:                                               ; preds = %21
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %41
@@ -1352,7 +1352,7 @@ define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr nocapture noundef
 
 33:                                               ; preds = %29
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13, ptr noundef %32) #11
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %41
@@ -1388,7 +1388,7 @@ define hidden void @zif_xmlwriter_start_cdata(ptr noundef %0, ptr nocapture noun
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %29
@@ -1403,7 +1403,7 @@ define hidden void @zif_xmlwriter_start_cdata(ptr noundef %0, ptr nocapture noun
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %29
@@ -1439,7 +1439,7 @@ define hidden void @zif_xmlwriter_end_cdata(ptr noundef %0, ptr nocapture nounde
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -1454,7 +1454,7 @@ define hidden void @zif_xmlwriter_end_cdata(ptr noundef %0, ptr nocapture nounde
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -1495,7 +1495,7 @@ define hidden void @zif_xmlwriter_write_cdata(ptr noundef %0, ptr nocapture noun
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -1510,7 +1510,7 @@ define hidden void @zif_xmlwriter_write_cdata(ptr noundef %0, ptr nocapture noun
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -1554,7 +1554,7 @@ define hidden void @zif_xmlwriter_write_raw(ptr noundef %0, ptr nocapture nounde
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -1569,7 +1569,7 @@ define hidden void @zif_xmlwriter_write_raw(ptr noundef %0, ptr nocapture nounde
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -1613,7 +1613,7 @@ define hidden void @zif_xmlwriter_text(ptr noundef %0, ptr nocapture noundef wri
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -1628,7 +1628,7 @@ define hidden void @zif_xmlwriter_text(ptr noundef %0, ptr nocapture noundef wri
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -1667,7 +1667,7 @@ define hidden void @zif_xmlwriter_start_comment(ptr noundef %0, ptr nocapture no
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %29
@@ -1682,7 +1682,7 @@ define hidden void @zif_xmlwriter_start_comment(ptr noundef %0, ptr nocapture no
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %29
@@ -1718,7 +1718,7 @@ define hidden void @zif_xmlwriter_end_comment(ptr noundef %0, ptr nocapture noun
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -1733,7 +1733,7 @@ define hidden void @zif_xmlwriter_end_comment(ptr noundef %0, ptr nocapture noun
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -1774,7 +1774,7 @@ define hidden void @zif_xmlwriter_write_comment(ptr noundef %0, ptr nocapture no
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -1789,7 +1789,7 @@ define hidden void @zif_xmlwriter_write_comment(ptr noundef %0, ptr nocapture no
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -1837,7 +1837,7 @@ define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr nocapture n
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %38
@@ -1852,7 +1852,7 @@ define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr nocapture n
 
 28:                                               ; preds = %23
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %38
@@ -1891,7 +1891,7 @@ define hidden void @zif_xmlwriter_end_document(ptr noundef %0, ptr nocapture nou
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -1906,7 +1906,7 @@ define hidden void @zif_xmlwriter_end_document(ptr noundef %0, ptr nocapture nou
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -1950,7 +1950,7 @@ define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr nocapture nounde
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %22 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %22)
   br label %38
@@ -1965,7 +1965,7 @@ define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr nocapture nounde
 
 28:                                               ; preds = %23
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %30 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %30)
   br label %38
@@ -2004,7 +2004,7 @@ define hidden void @zif_xmlwriter_end_dtd(ptr noundef %0, ptr nocapture noundef 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -2019,7 +2019,7 @@ define hidden void @zif_xmlwriter_end_dtd(ptr noundef %0, ptr nocapture noundef 
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -2066,7 +2066,7 @@ define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr nocapture nounde
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %41
@@ -2081,7 +2081,7 @@ define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr nocapture nounde
 
 30:                                               ; preds = %25
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
   call void @llvm.assume(i1 %32)
   br label %41
@@ -2125,7 +2125,7 @@ define hidden void @zif_xmlwriter_start_dtd_element(ptr noundef %0, ptr nocaptur
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -2140,7 +2140,7 @@ define hidden void @zif_xmlwriter_start_dtd_element(ptr noundef %0, ptr nocaptur
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -2154,7 +2154,7 @@ define hidden void @zif_xmlwriter_start_dtd_element(ptr noundef %0, ptr nocaptur
 
 31:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %30) #11
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %php_xmlwriter_string_arg.exit
@@ -2193,7 +2193,7 @@ define hidden void @zif_xmlwriter_end_dtd_element(ptr noundef %0, ptr nocapture 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -2208,7 +2208,7 @@ define hidden void @zif_xmlwriter_end_dtd_element(ptr noundef %0, ptr nocapture 
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -2248,7 +2248,7 @@ define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr nocaptur
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %41
@@ -2263,7 +2263,7 @@ define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr nocaptur
 
 26:                                               ; preds = %21
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %41
@@ -2277,7 +2277,7 @@ define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr nocaptur
 
 33:                                               ; preds = %29
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %32) #11
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %41
@@ -2318,7 +2318,7 @@ define hidden void @zif_xmlwriter_start_dtd_attlist(ptr noundef %0, ptr nocaptur
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %php_xmlwriter_string_arg.exit
@@ -2333,7 +2333,7 @@ define hidden void @zif_xmlwriter_start_dtd_attlist(ptr noundef %0, ptr nocaptur
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
@@ -2347,7 +2347,7 @@ define hidden void @zif_xmlwriter_start_dtd_attlist(ptr noundef %0, ptr nocaptur
 
 31:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %30) #11
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
   br label %php_xmlwriter_string_arg.exit
@@ -2386,7 +2386,7 @@ define hidden void @zif_xmlwriter_end_dtd_attlist(ptr noundef %0, ptr nocapture 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -2401,7 +2401,7 @@ define hidden void @zif_xmlwriter_end_dtd_attlist(ptr noundef %0, ptr nocapture 
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -2441,7 +2441,7 @@ define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr nocaptur
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
   br label %41
@@ -2456,7 +2456,7 @@ define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr nocaptur
 
 26:                                               ; preds = %21
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %41
@@ -2470,7 +2470,7 @@ define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr nocaptur
 
 33:                                               ; preds = %29
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %32) #11
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %41
@@ -2509,7 +2509,7 @@ define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr nocapture
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %43
@@ -2524,7 +2524,7 @@ define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr nocapture
 
 25:                                               ; preds = %20
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %43
@@ -2538,7 +2538,7 @@ define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr nocapture
 31:                                               ; preds = %28
   %32 = load ptr, ptr %3, align 8
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %32) #11
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
   call void @llvm.assume(i1 %34)
   br label %43
@@ -2578,7 +2578,7 @@ define hidden void @zif_xmlwriter_end_dtd_entity(ptr noundef %0, ptr nocapture n
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %16)
   br label %php_xmlwriter_end.exit
@@ -2593,7 +2593,7 @@ define hidden void @zif_xmlwriter_end_dtd_entity(ptr noundef %0, ptr nocapture n
 
 22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
   call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
@@ -2644,7 +2644,7 @@ define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr nocapture
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
   call void @llvm.assume(i1 %27)
   br label %55
@@ -2659,7 +2659,7 @@ define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr nocapture
 
 33:                                               ; preds = %28
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
   br label %55
@@ -2673,7 +2673,7 @@ define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr nocapture
 39:                                               ; preds = %36
   %40 = load ptr, ptr %3, align 8
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %40) #11
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
   br label %55
@@ -2718,7 +2718,7 @@ define hidden void @zif_xmlwriter_open_uri(ptr nocapture noundef readonly %0, pt
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %96
@@ -2739,7 +2739,7 @@ define hidden void @zif_xmlwriter_open_uri(ptr nocapture noundef readonly %0, pt
 
 26:                                               ; preds = %23
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.21) #11
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
   br label %96
@@ -2957,7 +2957,7 @@ define hidden void @zif_xmlwriter_open_memory(ptr nocapture noundef readonly %0,
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #11
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   br label %50
@@ -3082,7 +3082,7 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %55
@@ -3097,7 +3097,7 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
 
 24:                                               ; preds = %19
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
   call void @llvm.assume(i1 %26)
   br label %55

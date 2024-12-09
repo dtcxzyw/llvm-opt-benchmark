@@ -94,7 +94,7 @@ entry:
   %ref.tmp38 = alloca ptr, align 8
   %refs_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerE, i64 16), ptr %this, align 8
   %lock_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %lock_, align 8
   %tls_session_key_log_file_path_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -348,7 +348,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerE, i64 16), ptr %this, align 8
   %lock_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %lock_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -696,7 +696,7 @@ define void @_ZN3tsi24TlsSessionKeyLoggerCacheC2Ev(ptr noundef nonnull align 8 d
 entry:
   %refs_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCacheE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCacheE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -714,7 +714,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3tsi24TlsSessionKeyLoggerCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCacheE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tsi24TlsSessionKeyLoggerCacheE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZN3tsi12_GLOBAL__N_130g_tls_session_key_log_cache_muE, align 8
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %invoke.cont unwind label %terminate.lpad

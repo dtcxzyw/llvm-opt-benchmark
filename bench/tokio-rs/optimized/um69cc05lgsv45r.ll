@@ -5834,7 +5834,7 @@ define noundef range(i8 0, 3) i8 @_ZN5tokio7runtime7context10runtime_mt21current
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h30c534874151313bE.exit": ; preds = %3, %0
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !1022, !noundef !55
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !1022, !noundef !55
   ret i8 %.08.val.i
 }
 

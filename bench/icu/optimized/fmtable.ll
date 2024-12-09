@@ -546,9 +546,9 @@ declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -580,9 +580,9 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2EdNS0_6ISDATEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, double noundef %date, i32 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -610,9 +610,9 @@ lpad2:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2Ed(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, double noundef %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -640,9 +640,9 @@ lpad2:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2Ei(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, i32 noundef %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -670,9 +670,9 @@ lpad2:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2El(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, i64 noundef %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -700,9 +700,9 @@ lpad2:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2ENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr %number.coerce0, i32 %number.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -803,9 +803,9 @@ lpad:                                             ; preds = %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr noundef nonnull align 8 dereferenceable(64) %stringToCopy) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -860,9 +860,9 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2EPNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr noundef %stringToAdopt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -890,9 +890,9 @@ lpad2:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2EPNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr noundef %objectToAdopt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -920,10 +920,10 @@ lpad2:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2EPKS0_i(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr noundef %arrayToCopy, i32 noundef %count) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 40
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1036,9 +1036,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7511FormattableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr noundef nonnull align 8 dereferenceable(112) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fValue.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1565,7 +1565,7 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7511FormattableD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   tail call void @_ZN6icu_7511Formattable7disposeEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBogus) #17

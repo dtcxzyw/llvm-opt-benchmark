@@ -190,7 +190,7 @@ define range(i32 -1, 1) i32 @gres_select_filter_remove_unusable(ptr noundef %0, 
 76:                                               ; preds = %.thread, %70
   %77 = zext i16 %2 to i32
   %78 = zext i16 %.0153213 to i32
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %80 = and i64 %79, 1
   %.not199 = icmp eq i64 %80, 0
   br i1 %.not199, label %.loopexit223, label %81
@@ -234,7 +234,7 @@ define range(i32 -1, 1) i32 @gres_select_filter_remove_unusable(ptr noundef %0, 
   br label %104
 
 97:                                               ; preds = %93
-  %98 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %99 = and i64 %98, 1
   %.not191 = icmp eq i64 %99, 0
   br i1 %.not191, label %.loopexit223, label %100
@@ -434,7 +434,7 @@ _set_max_node_gres.exit210:                       ; preds = %169, %165, %162, %_
   br i1 %180, label %181, label %188
 
 181:                                              ; preds = %175
-  %182 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %182 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %183 = and i64 %182, 1
   %.not198 = icmp eq i64 %183, 0
   br i1 %.not198, label %.loopexit223, label %184
@@ -490,7 +490,7 @@ _set_max_node_gres.exit210:                       ; preds = %169, %165, %162, %_
   br i1 %or.cond204, label %206, label %216
 
 206:                                              ; preds = %202, %198
-  %207 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %207 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %208 = and i64 %207, 1
   %.not197 = icmp eq i64 %208, 0
   br i1 %.not197, label %.loopexit223, label %209
@@ -1596,7 +1596,7 @@ _init_gres_per_bit_select.exit:                   ; preds = %441, %445
   call fastcc void @_pick_shared_gres(ptr noundef %25, ptr noundef %490, ptr noundef nonnull readonly %73, i32 noundef %460, i1 noundef zeroext %462, i1 noundef zeroext true, i1 noundef zeroext false)
   %514 = load i64, ptr %25, align 8
   %.not49.i = icmp eq i64 %514, 0
-  %515 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %515 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %.not50.i = icmp sgt i16 %515, -1
   %or.cond.i = select i1 %.not49.i, i1 true, i1 %.not50.i
   br i1 %or.cond.i, label %517, label %516
@@ -1657,7 +1657,7 @@ _set_shared_node_bits.exit:                       ; preds = %469, %474, %521
   %537 = load ptr, ptr %86, align 8
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 8
   %539 = load ptr, ptr %538, align 8
-  %540 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %540 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %.not33.i = icmp sgt i16 %540, -1
   br i1 %.not33.i, label %.preheader.i.i, label %557
 
@@ -4780,7 +4780,7 @@ declare zeroext i1 @gres_use_busy_dev(ptr noundef, i1 noundef zeroext) local_unn
 define internal fastcc void @_pick_shared_gres(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %10 = and i16 %9, 1024
   %.not = icmp eq i16 %10, 0
   br i1 %.not, label %59, label %11

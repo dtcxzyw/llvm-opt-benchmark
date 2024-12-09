@@ -57,9 +57,9 @@ declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @zend_objects_store_call_destructors(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 993), align 1
   %3 = or i8 %2, 2
-  store i8 %3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
+  store i8 %3, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 993), align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ugt i32 %5, 1
@@ -276,47 +276,47 @@ declare void @zend_object_std_dtor(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @zend_objects_store_put(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 993), align 1
   %5 = and i8 %4, 2
   %.not7 = icmp eq i8 %5, 0
   br i1 %.not7, label %6, label %14
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = lshr i64 %11, 1
   %13 = trunc i64 %12 to i32
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8
   br label %32
 
 14:                                               ; preds = %3, %1
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 848), align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 852), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 848), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 852), align 4
   %17 = icmp eq i32 %15, %16
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %14
   %19 = shl i32 %15, 1
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8
   %21 = zext i32 %19 to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = tail call ptr @_erealloc(ptr noundef %20, i64 noundef %22) #8
-  store ptr %23, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
-  store i32 %19, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 852), align 4
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 848), align 8
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8
+  store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 852), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 848), align 8
   %25 = add i32 %24, 1
-  store i32 %25, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 848), align 8
+  store i32 %25, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 848), align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %24, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8
   %28 = sext i32 %24 to i64
   %29 = getelementptr inbounds ptr, ptr %27, i64 %28
   store ptr %0, ptr %29, align 8
@@ -324,7 +324,7 @@ define void @zend_objects_store_put(ptr noundef initializes((8, 12)) %0) local_u
 
 30:                                               ; preds = %14
   %31 = add i32 %15, 1
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 848), align 8
+  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 848), align 8
   %.pre = sext i32 %15 to i64
   br label %32
 
@@ -333,7 +333,7 @@ define void @zend_objects_store_put(ptr noundef initializes((8, 12)) %0) local_u
   %.0 = phi i32 [ %15, %30 ], [ %2, %6 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %.pre-phi
   store ptr %0, ptr %35, align 8
   br label %36
@@ -396,7 +396,7 @@ define void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr #0 {
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8, !nonnull !4, !noundef !4
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !nonnull !4, !noundef !4
   %33 = zext i32 %31 to i64
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
@@ -442,15 +442,15 @@ define void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr #0 {
 
 58:                                               ; preds = %49, %57
   tail call void @_efree(ptr noundef nonnull %56) #7
-  %59 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 1
   %62 = or disjoint i64 %61, 1
   %63 = inttoptr i64 %62 to ptr
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8
   %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %33
   store ptr %63, ptr %65, align 8
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
+  store i32 %31, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 856), align 8
   br label %66
 
 66:                                               ; preds = %1, %58, %26

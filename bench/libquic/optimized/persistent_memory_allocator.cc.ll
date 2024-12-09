@@ -569,7 +569,7 @@ entry:
   %ref.tmp36 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp53 = alloca %"class.logging::LogMessage", align 8
   %frombool = zext i1 %readonly to i8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base25PersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base25PersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %mem_base_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %base, ptr %mem_base_, align 8
   %mem_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2344,7 +2344,7 @@ entry:
   %name.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 %name.coerce1, ptr %name.sroa.2.0.agg.tmp.sroa_idx, align 8
   tail call void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %call.i, i64 noundef %size, i64 noundef 0, i64 noundef %id, ptr noundef nonnull byval(%"class.base::BasicStringPiece") align 8 %agg.tmp, i1 noundef zeroext false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -2358,7 +2358,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base30LocalPersistentMemoryAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %mem_base_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mem_base_, align 8
   %mem_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2390,7 +2390,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base30LocalPersistentMemoryAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %mem_base_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mem_base_.i, align 8
   %mem_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2420,7 +2420,7 @@ entry:
   %name.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 %name.coerce1, ptr %name.sroa.2.0.agg.tmp.sroa_idx, align 8
   tail call void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %1, i64 noundef %2, i64 noundef 0, i64 noundef %id, ptr noundef nonnull byval(%"class.base::BasicStringPiece") align 8 %agg.tmp, i1 noundef zeroext %read_only)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %shared_memory_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load i64, ptr %memory, align 8
   store i64 %3, ptr %shared_memory_, align 8
@@ -2431,7 +2431,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base31SharedPersistentMemoryAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %shared_memory_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %shared_memory_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2450,7 +2450,7 @@ _ZNSt10unique_ptrIN4base12SharedMemoryESt14default_deleteIS1_EED2Ev.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base31SharedPersistentMemoryAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %shared_memory_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %shared_memory_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2514,7 +2514,7 @@ cond.end:                                         ; preds = %entry, %cond.false
   %name.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 %name.coerce1, ptr %name.sroa.2.0.agg.tmp.sroa_idx, align 8
   tail call void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %1, i64 noundef %cond, i64 noundef 0, i64 noundef %id, ptr noundef nonnull byval(%"class.base::BasicStringPiece") align 8 %agg.tmp, i1 noundef zeroext %read_only)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %mapped_file_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load i64, ptr %file, align 8
   store i64 %3, ptr %mapped_file_, align 8
@@ -2525,7 +2525,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base29FilePersistentMemoryAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %mapped_file_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %mapped_file_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2544,7 +2544,7 @@ _ZNSt10unique_ptrIN4base16MemoryMappedFileESt14default_deleteIS1_EED2Ev.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base29FilePersistentMemoryAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %mapped_file_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %mapped_file_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

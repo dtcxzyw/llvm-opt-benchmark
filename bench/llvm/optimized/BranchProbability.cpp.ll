@@ -67,7 +67,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm17Bra
   %26 = fdiv double %25, 1.000000e+02
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.1, ptr %27, align 8, !alias.scope !4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjdEEE, i64 16), ptr %3, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjdEEE, i64 16), ptr %3, align 8, !alias.scope !4
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %26, ptr %28, align 8, !alias.scope !4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 24

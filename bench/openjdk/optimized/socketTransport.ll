@@ -100,21 +100,21 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   store i1 true, ptr @initialized, align 1
   store ptr %0, ptr @jvm, align 8
   store ptr %1, ptr @callback, align 8
-  store ptr @socketTransport_getCapabilities, ptr getelementptr inbounds (i8, ptr @interface, i64 8), align 8
-  store ptr @socketTransport_attach, ptr getelementptr inbounds (i8, ptr @interface, i64 16), align 8
-  store ptr @socketTransport_startListening, ptr getelementptr inbounds (i8, ptr @interface, i64 24), align 8
-  store ptr @socketTransport_stopListening, ptr getelementptr inbounds (i8, ptr @interface, i64 32), align 8
-  store ptr @socketTransport_accept, ptr getelementptr inbounds (i8, ptr @interface, i64 40), align 8
-  store ptr @socketTransport_isOpen, ptr getelementptr inbounds (i8, ptr @interface, i64 48), align 8
-  store ptr @socketTransport_close, ptr getelementptr inbounds (i8, ptr @interface, i64 56), align 8
-  store ptr @socketTransport_readPacket, ptr getelementptr inbounds (i8, ptr @interface, i64 64), align 8
-  store ptr @socketTransport_writePacket, ptr getelementptr inbounds (i8, ptr @interface, i64 72), align 8
-  store ptr @socketTransport_getLastError, ptr getelementptr inbounds (i8, ptr @interface, i64 80), align 8
+  store ptr @socketTransport_getCapabilities, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 8), align 8
+  store ptr @socketTransport_attach, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 16), align 8
+  store ptr @socketTransport_startListening, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 24), align 8
+  store ptr @socketTransport_stopListening, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 32), align 8
+  store ptr @socketTransport_accept, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 40), align 8
+  store ptr @socketTransport_isOpen, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 48), align 8
+  store ptr @socketTransport_close, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 56), align 8
+  store ptr @socketTransport_readPacket, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 64), align 8
+  store ptr @socketTransport_writePacket, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 72), align 8
+  store ptr @socketTransport_getLastError, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 80), align 8
   %9 = icmp samesign ugt i32 %2, 65536
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  store ptr @socketTransport_setConfiguration, ptr getelementptr inbounds (i8, ptr @interface, i64 88), align 8
+  store ptr @socketTransport_setConfiguration, ptr getelementptr inbounds nuw (i8, ptr @interface, i64 88), align 8
   br label %11
 
 11:                                               ; preds = %10, %8
@@ -654,7 +654,7 @@ isEqualIPv6Addr.exit:                             ; preds = %30
 
 .lr.ph57:                                         ; preds = %.preheader
   %40 = load i64, ptr @in6addr_any, align 4
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @in6addr_any, i64 8), align 4
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @in6addr_any, i64 8), align 4
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %44

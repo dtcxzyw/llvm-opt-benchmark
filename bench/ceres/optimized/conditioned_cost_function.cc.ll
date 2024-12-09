@@ -51,7 +51,7 @@ define hidden void @_ZN5ceres23ConditionedCostFunctionC2EPNS_12CostFunctionERKSt
   %15 = alloca %"struct.google::CheckOpString", align 8
   %16 = alloca %"class.google::LogMessageFatal", align 8
   tail call void @_ZN5ceres12CostFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres23ConditionedCostFunctionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5ceres23ConditionedCostFunctionE, i64 16), ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48

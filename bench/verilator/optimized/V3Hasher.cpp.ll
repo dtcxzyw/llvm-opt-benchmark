@@ -1188,7 +1188,7 @@ define dso_local i32 @_ZNK8V3HasherclEP7AstNode(ptr nocapture noundef nonnull re
   br i1 %.not, label %11, label %17
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -1225,7 +1225,7 @@ define dso_local i32 @_ZNK8V3Hasher6rehashEP7AstNode(ptr nocapture noundef nonnu
   %5 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 %5, ptr %6, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -1246,7 +1246,7 @@ define dso_local i32 @_ZNK8V3Hasher6rehashEP7AstNode(ptr nocapture noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZN8V3Hasher12uncachedHashEPK7AstNode(ptr noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.HasherVisitor, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1265,7 +1265,7 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local noundef range(i64 0, 4294967296) i64 @_Z20V3HasherUncachedHashRK7AstNode(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.HasherVisitor, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13HasherVisitor, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12

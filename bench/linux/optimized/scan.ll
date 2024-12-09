@@ -264,8 +264,8 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_scan_add_handler(ptr nounde
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
   store ptr @acpi_scan_handlers_list, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8
@@ -284,8 +284,8 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_scan_add_handler_with_hotpl
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
   store ptr @acpi_scan_handlers_list, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8
@@ -857,8 +857,8 @@ define internal void @acpi_scan_drop_device(ptr nocapture readnone %0, ptr nound
 
 7:                                                ; preds = %5, %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_device_del_list, i64 8), align 8
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @acpi_device_del_list, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_device_del_list, i64 8), align 8
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @acpi_device_del_list, i64 8), align 8
   store ptr @acpi_device_del_list, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %9, ptr %10, align 8
@@ -947,7 +947,7 @@ define dso_local i32 @acpi_device_add(ptr noundef %0) local_unnamed_addr #0 alig
   br label %68
 
 .thread:                                          ; preds = %18, %27
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %39 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 40) #21
   %40 = icmp eq ptr %39, null
   br i1 %40, label %103, label %41
@@ -997,8 +997,8 @@ define dso_local i32 @acpi_device_add(ptr noundef %0) local_unnamed_addr #0 alig
   %63 = load ptr, ptr %39, align 8
   %64 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %62, ptr noundef nonnull @.str.37, ptr noundef %63, i32 noundef %56) #19
   %65 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_bus_id_list, i64 8), align 8
-  store ptr %65, ptr getelementptr inbounds (i8, ptr @acpi_bus_id_list, i64 8), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_bus_id_list, i64 8), align 8
+  store ptr %65, ptr getelementptr inbounds nuw (i8, ptr @acpi_bus_id_list, i64 8), align 8
   store ptr @acpi_bus_id_list, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %66, ptr %67, align 8
@@ -1013,8 +1013,8 @@ define dso_local i32 @acpi_device_add(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %72, label %75, label %73
 
 73:                                               ; preds = %68
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_wakeup_device_list, i64 8), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @acpi_wakeup_device_list, i64 8), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_wakeup_device_list, i64 8), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @acpi_wakeup_device_list, i64 8), align 8
   store ptr @acpi_wakeup_device_list, ptr %3, align 8
   store ptr %74, ptr %4, align 8
   store volatile ptr %3, ptr %74, align 8
@@ -1778,7 +1778,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br i1 %72, label %73, label %88
 
 73:                                               ; preds = %71
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %75 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %74, i32 noundef 3264, i64 noundef 24) #21
   %76 = icmp eq ptr %75, null
   br i1 %76, label %327, label %77
@@ -1827,7 +1827,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
 99:                                               ; preds = %94
   %100 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %103 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %102, i32 noundef 3264, i64 noundef 24) #21
   %104 = icmp eq ptr %103, null
   br i1 %104, label %116, label %105
@@ -1890,7 +1890,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   %.idx = shl nsw i64 %134, 4
   %135 = getelementptr i8, ptr %131, i64 %.idx
   %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %138 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %137, i32 noundef 3264, i64 noundef 24) #21
   %139 = icmp eq ptr %138, null
   br i1 %139, label %150, label %140
@@ -1977,7 +1977,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
 180:                                              ; preds = %175
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 80
   %182 = load ptr, ptr %181, align 8
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %184 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %183, i32 noundef 3264, i64 noundef 24) #21
   %185 = icmp eq ptr %184, null
   br i1 %185, label %197, label %186
@@ -2014,7 +2014,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br i1 %200, label %220, label %201
 
 201:                                              ; preds = %197
-  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %203 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %202, i32 noundef 3264, i64 noundef 24) #21
   %204 = icmp eq ptr %203, null
   br i1 %204, label %216, label %205
@@ -2092,7 +2092,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br label %327
 
 237:                                              ; preds = %70
-  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %239 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %238, i32 noundef 3264, i64 noundef 24) #21
   %240 = icmp eq ptr %239, null
   br i1 %240, label %327, label %241
@@ -2122,7 +2122,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br label %327
 
 252:                                              ; preds = %70
-  %253 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %253 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %254 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %253, i32 noundef 3264, i64 noundef 24) #21
   %255 = icmp eq ptr %254, null
   br i1 %255, label %327, label %256
@@ -2152,7 +2152,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br label %327
 
 267:                                              ; preds = %70
-  %268 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %268 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %269 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %268, i32 noundef 3264, i64 noundef 24) #21
   %270 = icmp eq ptr %269, null
   br i1 %270, label %327, label %271
@@ -2182,7 +2182,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br label %327
 
 282:                                              ; preds = %.thread18, %70
-  %283 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %283 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %284 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %283, i32 noundef 3264, i64 noundef 24) #21
   %285 = icmp eq ptr %284, null
   br i1 %285, label %327, label %286
@@ -2212,7 +2212,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br label %327
 
 297:                                              ; preds = %.thread19, %70
-  %298 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %298 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %299 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %298, i32 noundef 3264, i64 noundef 24) #21
   %300 = icmp eq ptr %299, null
   br i1 %300, label %327, label %301
@@ -2242,7 +2242,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
   br label %327
 
 312:                                              ; preds = %.thread20, %70
-  %313 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %313 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %314 = call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %313, i32 noundef 3264, i64 noundef 24) #21
   %315 = icmp eq ptr %314, null
   br i1 %315, label %327, label %316
@@ -2527,7 +2527,7 @@ define dso_local void @acpi_dev_clear_dependencies(ptr nocapture noundef readonl
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %27 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 40) #21
   %28 = icmp eq ptr %27, null
   br i1 %28, label %36, label %29
@@ -3412,7 +3412,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr nocapture noundef writeon
   %7 = alloca [5 x i8], align 1
   %8 = alloca %struct.acpi_buffer, align 8
   %9 = alloca i64, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %11 = tail call noalias align 8 dereferenceable_or_null(1408) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 1408) #21
   %12 = icmp eq ptr %11, null
   br i1 %12, label %309, label %13
@@ -3979,11 +3979,11 @@ define dso_local void @acpi_scan_init() local_unnamed_addr #11 section ".init.te
   tail call void @acpi_pnp_init() #19
   tail call void @acpi_int340x_thermal_init() #19
   tail call void @acpi_init_lpit() #19
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @generic_device_handler, i64 8), ptr getelementptr inbounds (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
-  store ptr @acpi_scan_handlers_list, ptr getelementptr inbounds (i8, ptr @generic_device_handler, i64 8), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @generic_device_handler, i64 16), align 8
-  store volatile ptr getelementptr inbounds (i8, ptr @generic_device_handler, i64 8), ptr %5, align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @generic_device_handler, i64 8), ptr getelementptr inbounds nuw (i8, ptr @acpi_scan_handlers_list, i64 8), align 8
+  store ptr @acpi_scan_handlers_list, ptr getelementptr inbounds nuw (i8, ptr @generic_device_handler, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @generic_device_handler, i64 16), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @generic_device_handler, i64 8), ptr %5, align 8
   %6 = call i32 @acpi_get_table(ptr noundef nonnull @.str.24, i32 noundef 0, ptr noundef nonnull %4) #19
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %23
@@ -4043,7 +4043,7 @@ define dso_local void @acpi_scan_init() local_unnamed_addr #11 section ".init.te
   br i1 %35, label %36, label %69
 
 36:                                               ; preds = %33
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %38 = and i32 %37, 16
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %54
@@ -4073,7 +4073,7 @@ define dso_local void @acpi_scan_init() local_unnamed_addr #11 section ".init.te
 
 53:                                               ; preds = %51, %44, %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
-  %.pre3 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 112), align 1
+  %.pre3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   br label %54
 
 54:                                               ; preds = %53, %36
@@ -4294,7 +4294,7 @@ define dso_local void @acpi_scan_table_notify() local_unnamed_addr #0 align 16 {
   br i1 %1, label %2, label %12
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 32) #21
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6
@@ -4863,7 +4863,7 @@ declare dso_local i32 @acpi_get_name(ptr noundef, i32 noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @acpi_add_id(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 24) #21
   %5 = icmp eq ptr %4, null
   br i1 %5, label %19, label %6
@@ -5178,7 +5178,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   br i1 %54, label %101, label %87
 
 87:                                               ; preds = %.loopexit
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %89 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %88, i32 noundef 3520, i64 noundef 40) #21
   %90 = icmp eq ptr %89, null
   br i1 %90, label %101, label %91
@@ -5195,8 +5195,8 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store i8 %85, ptr %98, align 8
   call void @mutex_lock(ptr noundef nonnull @acpi_dep_list_lock) #19
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @acpi_dep_list, i64 8), align 8
-  store ptr %89, ptr getelementptr inbounds (i8, ptr @acpi_dep_list, i64 8), align 8
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @acpi_dep_list, i64 8), align 8
+  store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @acpi_dep_list, i64 8), align 8
   store ptr @acpi_dep_list, ptr %89, align 8
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %99, ptr %100, align 8

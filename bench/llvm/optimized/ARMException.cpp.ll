@@ -33,7 +33,7 @@ $_ZN4llvm17AsmPrinterHandler10endFuncletEv = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvm12ARMExceptionC2EPNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(26) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm10EHStreamerC2EPNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #5
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm12ARMExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm12ARMExceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 25

@@ -36,7 +36,7 @@ define hidden range(i32 -1, 1) i32 @perfInit() local_unnamed_addr #0 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %6 = zext nneg i32 %spec.store.select to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 24) #10
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @counters, i64 56), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 56), align 8
   store i32 %spec.store.select, ptr @counters, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %10
@@ -48,12 +48,12 @@ define hidden range(i32 -1, 1) i32 @perfInit() local_unnamed_addr #0 {
   br label %26
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @counters, i64 32))
+  %11 = tail call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @counters, i64 32))
   br label %12
 
 12:                                               ; preds = %10, %12
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %12 ]
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @counters, i64 56), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 56), align 8
   %14 = getelementptr inbounds nuw %struct.ticks, ptr %13, i64 %indvars.iv
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = tail call fastcc i32 @get_totalticks(i32 noundef %15, ptr noundef %14)
@@ -69,15 +69,15 @@ define hidden range(i32 -1, 1) i32 @perfInit() local_unnamed_addr #0 {
   br i1 %19, label %get_jvmticks.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @counters, i64 8))
+  %21 = call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @counters, i64 8))
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %get_jvmticks.exit, label %23
 
 23:                                               ; preds = %20
   %24 = load i64, ptr %1, align 8
-  store i64 %24, ptr getelementptr inbounds (i8, ptr @counters, i64 8), align 8
+  store i64 %24, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 8), align 8
   %25 = load i64, ptr %2, align 8
-  store i64 %25, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 8
+  store i64 %25, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 16), align 8
   br label %get_jvmticks.exit
 
 get_jvmticks.exit:                                ; preds = %17, %20, %23
@@ -234,10 +234,10 @@ define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocaptur
 
 11:                                               ; preds = %9
   %12 = icmp eq i32 %0, -1
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @counters, i64 56), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 56), align 8
   %14 = sext i32 %0 to i64
   %15 = getelementptr inbounds %struct.ticks, ptr %13, i64 %14
-  %.036.ph = select i1 %12, ptr getelementptr inbounds (i8, ptr @counters, i64 32), ptr %15
+  %.036.ph = select i1 %12, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 32), ptr %15
   %.sroa.0.0.copyload46 = load i64, ptr %.036.ph, align 8
   %.sroa.2.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %.036.ph, i64 8
   %.sroa.2.0.copyload48 = load i64, ptr %.sroa.2.0..sroa_idx47, align 8
@@ -248,9 +248,9 @@ define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocaptur
   br i1 %17, label %26, label %49
 
 18:                                               ; preds = %9
-  %.sroa.0.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 8), align 8
-  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 8
-  %.sroa.3.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 24), align 8
+  %.sroa.0.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 8), align 8
+  %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 16), align 8
+  %.sroa.3.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %19 = call i32 (ptr, ptr, ...) @read_statdata(ptr nonnull poison, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -258,7 +258,7 @@ define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocaptur
   br i1 %20, label %get_jvmticks.exit.thread, label %21
 
 21:                                               ; preds = %18
-  %22 = call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @counters, i64 8))
+  %22 = call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @counters, i64 8))
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %get_jvmticks.exit.thread, label %get_jvmticks.exit
 
@@ -269,19 +269,19 @@ get_jvmticks.exit.thread:                         ; preds = %18, %21
 
 get_jvmticks.exit:                                ; preds = %21
   %24 = load i64, ptr %4, align 8
-  store i64 %24, ptr getelementptr inbounds (i8, ptr @counters, i64 8), align 8
+  store i64 %24, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 8), align 8
   %25 = load i64, ptr %5, align 8
-  store i64 %25, ptr getelementptr inbounds (i8, ptr @counters, i64 16), align 8
+  store i64 %25, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %26
 
 26:                                               ; preds = %get_jvmticks.exit, %11
-  %.0365268 = phi ptr [ getelementptr inbounds (i8, ptr @counters, i64 8), %get_jvmticks.exit ], [ %.036.ph, %11 ]
+  %.0365268 = phi ptr [ getelementptr inbounds nuw (i8, ptr @counters, i64 8), %get_jvmticks.exit ], [ %.036.ph, %11 ]
   %.sroa.0.0.copyload5367 = phi i64 [ %.sroa.0.0.copyload, %get_jvmticks.exit ], [ %.sroa.0.0.copyload46, %11 ]
-  %.sroa.2.0..sroa_idx5566 = phi ptr [ getelementptr inbounds (i8, ptr @counters, i64 16), %get_jvmticks.exit ], [ %.sroa.2.0..sroa_idx47, %11 ]
+  %.sroa.2.0..sroa_idx5566 = phi ptr [ getelementptr inbounds nuw (i8, ptr @counters, i64 16), %get_jvmticks.exit ], [ %.sroa.2.0..sroa_idx47, %11 ]
   %.sroa.2.0.copyload5765 = phi i64 [ %.sroa.2.0.copyload, %get_jvmticks.exit ], [ %.sroa.2.0.copyload48, %11 ]
-  %.sroa.3.0..sroa_idx5964 = phi ptr [ getelementptr inbounds (i8, ptr @counters, i64 24), %get_jvmticks.exit ], [ %.sroa.3.0..sroa_idx49, %11 ]
+  %.sroa.3.0..sroa_idx5964 = phi ptr [ getelementptr inbounds nuw (i8, ptr @counters, i64 24), %get_jvmticks.exit ], [ %.sroa.3.0..sroa_idx49, %11 ]
   %.sroa.3.0.copyload6163 = phi i64 [ %.sroa.3.0.copyload, %get_jvmticks.exit ], [ %.sroa.3.0.copyload50, %11 ]
   %27 = load i64, ptr %.sroa.3.0..sroa_idx5964, align 8
   %28 = icmp eq i64 %27, %.sroa.3.0.copyload6163
@@ -453,13 +453,13 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getHostTotalCpu
   br i1 %4, label %5, label %18
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds (i8, ptr @counters, i64 32))
+  %6 = tail call fastcc i32 @get_totalticks(i32 noundef -1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @counters, i64 32))
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i64 @sysconf(i32 noundef 2) #9
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @counters, i64 48), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 48), align 8
   %11 = icmp slt i64 %9, 1000000001
   br i1 %11, label %12, label %15
 

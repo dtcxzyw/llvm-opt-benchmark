@@ -1385,7 +1385,7 @@ define hidden noundef double @_ZN6statrs8function3erf8erf_impl17hedb461e5d82f92c
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %15
   %.sroa.0.113.i = phi double [ %20, %.lr.ph.i ], [ 0x3F648C7D3C5204C4, %15 ]
-  %.sroa.4.012.i = phi ptr [ %17, %.lr.ph.i ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.36, i64 40), %15 ]
+  %.sroa.4.012.i = phi ptr [ %17, %.lr.ph.i ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.36, i64 40), %15 ]
   %17 = getelementptr inbounds i8, ptr %.sroa.4.012.i, i64 -8
   %18 = load double, ptr %17, align 8, !alias.scope !340, !noundef !4
   %19 = fmul double %16, %.sroa.0.113.i
@@ -1395,7 +1395,7 @@ define hidden noundef double @_ZN6statrs8function3erf8erf_impl17hedb461e5d82f92c
 
 .lr.ph.i6:                                        ; preds = %.lr.ph.i, %.lr.ph.i6
   %.sroa.0.113.i7 = phi double [ %25, %.lr.ph.i6 ], [ 0x3F874A6C0F3992A8, %.lr.ph.i ]
-  %.sroa.4.012.i8 = phi ptr [ %22, %.lr.ph.i6 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.37, i64 40), %.lr.ph.i ]
+  %.sroa.4.012.i8 = phi ptr [ %22, %.lr.ph.i6 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.37, i64 40), %.lr.ph.i ]
   %22 = getelementptr inbounds i8, ptr %.sroa.4.012.i8, i64 -8
   %23 = load double, ptr %22, align 8, !alias.scope !343, !noundef !4
   %24 = fmul double %16, %.sroa.0.113.i7
@@ -1417,7 +1417,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9: ; preds = %.
 
 .lr.ph.i10:                                       ; preds = %.lr.ph.i10, %30
   %.sroa.0.113.i11 = phi double [ %35, %.lr.ph.i10 ], [ 0x3F3428CD8744A911, %30 ]
-  %.sroa.4.012.i12 = phi ptr [ %32, %.lr.ph.i10 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.34, i64 48), %30 ]
+  %.sroa.4.012.i12 = phi ptr [ %32, %.lr.ph.i10 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.34, i64 48), %30 ]
   %32 = getelementptr inbounds i8, ptr %.sroa.4.012.i12, i64 -8
   %33 = load double, ptr %32, align 8, !alias.scope !346, !noundef !4
   %34 = fmul double %31, %.sroa.0.113.i11
@@ -1427,7 +1427,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9: ; preds = %.
 
 .lr.ph.i14:                                       ; preds = %.lr.ph.i10, %.lr.ph.i14
   %.sroa.0.113.i15 = phi double [ %40, %.lr.ph.i14 ], [ 0x3F617A8CBF6E1101, %.lr.ph.i10 ]
-  %.sroa.4.012.i16 = phi ptr [ %37, %.lr.ph.i14 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.35, i64 48), %.lr.ph.i10 ]
+  %.sroa.4.012.i16 = phi ptr [ %37, %.lr.ph.i14 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.35, i64 48), %.lr.ph.i10 ]
   %37 = getelementptr inbounds i8, ptr %.sroa.4.012.i16, i64 -8
   %38 = load double, ptr %37, align 8, !alias.scope !349, !noundef !4
   %39 = fmul double %31, %.sroa.0.113.i15
@@ -1449,7 +1449,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17: ; preds = %
 
 .lr.ph.i18:                                       ; preds = %.lr.ph.i18, %45
   %.sroa.0.113.i19 = phi double [ %50, %.lr.ph.i18 ], [ 0x3F1465A8515B0D60, %45 ]
-  %.sroa.4.012.i20 = phi ptr [ %47, %.lr.ph.i18 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.32, i64 48), %45 ]
+  %.sroa.4.012.i20 = phi ptr [ %47, %.lr.ph.i18 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.32, i64 48), %45 ]
   %47 = getelementptr inbounds i8, ptr %.sroa.4.012.i20, i64 -8
   %48 = load double, ptr %47, align 8, !alias.scope !352, !noundef !4
   %49 = fmul double %46, %.sroa.0.113.i19
@@ -1459,7 +1459,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17: ; preds = %
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i18, %.lr.ph.i22
   %.sroa.0.113.i23 = phi double [ %55, %.lr.ph.i22 ], [ 0xBE46E69DF31023D9, %.lr.ph.i18 ]
-  %.sroa.4.012.i24 = phi ptr [ %52, %.lr.ph.i22 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.33, i64 56), %.lr.ph.i18 ]
+  %.sroa.4.012.i24 = phi ptr [ %52, %.lr.ph.i22 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.33, i64 56), %.lr.ph.i18 ]
   %52 = getelementptr inbounds i8, ptr %.sroa.4.012.i24, i64 -8
   %53 = load double, ptr %52, align 8, !alias.scope !355, !noundef !4
   %54 = fmul double %46, %.sroa.0.113.i23
@@ -1481,7 +1481,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25: ; preds = %
 
 .lr.ph.i26:                                       ; preds = %.lr.ph.i26, %60
   %.sroa.0.113.i27 = phi double [ %65, %.lr.ph.i26 ], [ 0x3EE9472B381F745E, %60 ]
-  %.sroa.4.012.i28 = phi ptr [ %62, %.lr.ph.i26 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.30, i64 48), %60 ]
+  %.sroa.4.012.i28 = phi ptr [ %62, %.lr.ph.i26 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.30, i64 48), %60 ]
   %62 = getelementptr inbounds i8, ptr %.sroa.4.012.i28, i64 -8
   %63 = load double, ptr %62, align 8, !alias.scope !358, !noundef !4
   %64 = fmul double %61, %.sroa.0.113.i27
@@ -1491,7 +1491,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25: ; preds = %
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i26, %.lr.ph.i30
   %.sroa.0.113.i31 = phi double [ %70, %.lr.ph.i30 ], [ 0x3F3857697BEF4DCE, %.lr.ph.i26 ]
-  %.sroa.4.012.i32 = phi ptr [ %67, %.lr.ph.i30 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.31, i64 48), %.lr.ph.i26 ]
+  %.sroa.4.012.i32 = phi ptr [ %67, %.lr.ph.i30 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.31, i64 48), %.lr.ph.i26 ]
   %67 = getelementptr inbounds i8, ptr %.sroa.4.012.i32, i64 -8
   %68 = load double, ptr %67, align 8, !alias.scope !361, !noundef !4
   %69 = fmul double %61, %.sroa.0.113.i31
@@ -1513,7 +1513,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33: ; preds = %
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34, %75
   %.sroa.0.113.i35 = phi double [ %80, %.lr.ph.i34 ], [ 0x3EB6BB1331561EA9, %75 ]
-  %.sroa.4.012.i36 = phi ptr [ %77, %.lr.ph.i34 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.28, i64 48), %75 ]
+  %.sroa.4.012.i36 = phi ptr [ %77, %.lr.ph.i34 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.28, i64 48), %75 ]
   %77 = getelementptr inbounds i8, ptr %.sroa.4.012.i36, i64 -8
   %78 = load double, ptr %77, align 8, !alias.scope !364, !noundef !4
   %79 = fmul double %76, %.sroa.0.113.i35
@@ -1523,7 +1523,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33: ; preds = %
 
 .lr.ph.i38:                                       ; preds = %.lr.ph.i34, %.lr.ph.i38
   %.sroa.0.113.i39 = phi double [ %85, %.lr.ph.i38 ], [ 0xBD9479638412F551, %.lr.ph.i34 ]
-  %.sroa.4.012.i40 = phi ptr [ %82, %.lr.ph.i38 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.29, i64 56), %.lr.ph.i34 ]
+  %.sroa.4.012.i40 = phi ptr [ %82, %.lr.ph.i38 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.29, i64 56), %.lr.ph.i34 ]
   %82 = getelementptr inbounds i8, ptr %.sroa.4.012.i40, i64 -8
   %83 = load double, ptr %82, align 8, !alias.scope !367, !noundef !4
   %84 = fmul double %76, %.sroa.0.113.i39
@@ -1545,7 +1545,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41: ; preds = %
 
 .lr.ph.i42:                                       ; preds = %.lr.ph.i42, %90
   %.sroa.0.113.i43 = phi double [ %95, %.lr.ph.i42 ], [ 0x3EAEF8E28055E8B2, %90 ]
-  %.sroa.4.012.i44 = phi ptr [ %92, %.lr.ph.i42 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.26, i64 40), %90 ]
+  %.sroa.4.012.i44 = phi ptr [ %92, %.lr.ph.i42 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.26, i64 40), %90 ]
   %92 = getelementptr inbounds i8, ptr %.sroa.4.012.i44, i64 -8
   %93 = load double, ptr %92, align 8, !alias.scope !370, !noundef !4
   %94 = fmul double %91, %.sroa.0.113.i43
@@ -1555,7 +1555,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41: ; preds = %
 
 .lr.ph.i46:                                       ; preds = %.lr.ph.i42, %.lr.ph.i46
   %.sroa.0.113.i47 = phi double [ %100, %.lr.ph.i46 ], [ 0x3D91CDD0D57B5890, %.lr.ph.i42 ]
-  %.sroa.4.012.i48 = phi ptr [ %97, %.lr.ph.i46 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.27, i64 48), %.lr.ph.i42 ]
+  %.sroa.4.012.i48 = phi ptr [ %97, %.lr.ph.i46 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.27, i64 48), %.lr.ph.i42 ]
   %97 = getelementptr inbounds i8, ptr %.sroa.4.012.i48, i64 -8
   %98 = load double, ptr %97, align 8, !alias.scope !373, !noundef !4
   %99 = fmul double %91, %.sroa.0.113.i47
@@ -1577,7 +1577,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49: ; preds = %
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50, %105
   %.sroa.0.113.i51 = phi double [ %110, %.lr.ph.i50 ], [ 0x3E74E4573E216C45, %105 ]
-  %.sroa.4.012.i52 = phi ptr [ %107, %.lr.ph.i50 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.24, i64 40), %105 ]
+  %.sroa.4.012.i52 = phi ptr [ %107, %.lr.ph.i50 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.24, i64 40), %105 ]
   %107 = getelementptr inbounds i8, ptr %.sroa.4.012.i52, i64 -8
   %108 = load double, ptr %107, align 8, !alias.scope !376, !noundef !4
   %109 = fmul double %106, %.sroa.0.113.i51
@@ -1587,7 +1587,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49: ; preds = %
 
 .lr.ph.i54:                                       ; preds = %.lr.ph.i50, %.lr.ph.i54
   %.sroa.0.113.i55 = phi double [ %115, %.lr.ph.i54 ], [ 0x3EF96EDBBE2826F3, %.lr.ph.i50 ]
-  %.sroa.4.012.i56 = phi ptr [ %112, %.lr.ph.i54 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.25, i64 40), %.lr.ph.i50 ]
+  %.sroa.4.012.i56 = phi ptr [ %112, %.lr.ph.i54 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.25, i64 40), %.lr.ph.i50 ]
   %112 = getelementptr inbounds i8, ptr %.sroa.4.012.i56, i64 -8
   %113 = load double, ptr %112, align 8, !alias.scope !379, !noundef !4
   %114 = fmul double %106, %.sroa.0.113.i55
@@ -1609,7 +1609,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57: ; preds = %
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58, %120
   %.sroa.0.113.i59 = phi double [ %125, %.lr.ph.i58 ], [ 0x3E762549A2B5E6F0, %120 ]
-  %.sroa.4.012.i60 = phi ptr [ %122, %.lr.ph.i58 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.22, i64 32), %120 ]
+  %.sroa.4.012.i60 = phi ptr [ %122, %.lr.ph.i58 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.22, i64 32), %120 ]
   %122 = getelementptr inbounds i8, ptr %.sroa.4.012.i60, i64 -8
   %123 = load double, ptr %122, align 8, !alias.scope !382, !noundef !4
   %124 = fmul double %121, %.sroa.0.113.i59
@@ -1619,7 +1619,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57: ; preds = %
 
 .lr.ph.i62:                                       ; preds = %.lr.ph.i58, %.lr.ph.i62
   %.sroa.0.113.i63 = phi double [ %130, %.lr.ph.i62 ], [ 0xBD40890EB0F35562, %.lr.ph.i58 ]
-  %.sroa.4.012.i64 = phi ptr [ %127, %.lr.ph.i62 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.23, i64 40), %.lr.ph.i58 ]
+  %.sroa.4.012.i64 = phi ptr [ %127, %.lr.ph.i62 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.23, i64 40), %.lr.ph.i58 ]
   %127 = getelementptr inbounds i8, ptr %.sroa.4.012.i64, i64 -8
   %128 = load double, ptr %127, align 8, !alias.scope !385, !noundef !4
   %129 = fmul double %121, %.sroa.0.113.i63
@@ -1641,7 +1641,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit65: ; preds = %
 
 .lr.ph.i66:                                       ; preds = %.lr.ph.i66, %135
   %.sroa.0.113.i67 = phi double [ %140, %.lr.ph.i66 ], [ 0x3E4256C21E2E7745, %135 ]
-  %.sroa.4.012.i68 = phi ptr [ %137, %.lr.ph.i66 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.20, i64 32), %135 ]
+  %.sroa.4.012.i68 = phi ptr [ %137, %.lr.ph.i66 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.20, i64 32), %135 ]
   %137 = getelementptr inbounds i8, ptr %.sroa.4.012.i68, i64 -8
   %138 = load double, ptr %137, align 8, !alias.scope !388, !noundef !4
   %139 = fmul double %136, %.sroa.0.113.i67
@@ -1651,7 +1651,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit65: ; preds = %
 
 .lr.ph.i70:                                       ; preds = %.lr.ph.i66, %.lr.ph.i70
   %.sroa.0.113.i71 = phi double [ %145, %.lr.ph.i70 ], [ 0x3EE88A6CC2C8FD80, %.lr.ph.i66 ]
-  %.sroa.4.012.i72 = phi ptr [ %142, %.lr.ph.i70 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.21, i64 32), %.lr.ph.i66 ]
+  %.sroa.4.012.i72 = phi ptr [ %142, %.lr.ph.i70 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.21, i64 32), %.lr.ph.i66 ]
   %142 = getelementptr inbounds i8, ptr %.sroa.4.012.i72, i64 -8
   %143 = load double, ptr %142, align 8, !alias.scope !391, !noundef !4
   %144 = fmul double %136, %.sroa.0.113.i71
@@ -1673,7 +1673,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit73: ; preds = %
 
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74, %150
   %.sroa.0.113.i75 = phi double [ %155, %.lr.ph.i74 ], [ 0x3E1185C5A48198A9, %150 ]
-  %.sroa.4.012.i76 = phi ptr [ %152, %.lr.ph.i74 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.18, i64 32), %150 ]
+  %.sroa.4.012.i76 = phi ptr [ %152, %.lr.ph.i74 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.18, i64 32), %150 ]
   %152 = getelementptr inbounds i8, ptr %.sroa.4.012.i76, i64 -8
   %153 = load double, ptr %152, align 8, !alias.scope !394, !noundef !4
   %154 = fmul double %151, %.sroa.0.113.i75
@@ -1683,7 +1683,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit73: ; preds = %
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i74, %.lr.ph.i78
   %.sroa.0.113.i79 = phi double [ %160, %.lr.ph.i78 ], [ 0x3EC9081FFC03AAFF, %.lr.ph.i74 ]
-  %.sroa.4.012.i80 = phi ptr [ %157, %.lr.ph.i78 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.19, i64 32), %.lr.ph.i74 ]
+  %.sroa.4.012.i80 = phi ptr [ %157, %.lr.ph.i78 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.19, i64 32), %.lr.ph.i74 ]
   %157 = getelementptr inbounds i8, ptr %.sroa.4.012.i80, i64 -8
   %158 = load double, ptr %157, align 8, !alias.scope !397, !noundef !4
   %159 = fmul double %151, %.sroa.0.113.i79
@@ -1705,7 +1705,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit81: ; preds = %
 
 .lr.ph.i82:                                       ; preds = %.lr.ph.i82, %165
   %.sroa.0.113.i83 = phi double [ %170, %.lr.ph.i82 ], [ 0x3DD1F675D5233006, %165 ]
-  %.sroa.4.012.i84 = phi ptr [ %167, %.lr.ph.i82 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.16, i64 32), %165 ]
+  %.sroa.4.012.i84 = phi ptr [ %167, %.lr.ph.i82 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.16, i64 32), %165 ]
   %167 = getelementptr inbounds i8, ptr %.sroa.4.012.i84, i64 -8
   %168 = load double, ptr %167, align 8, !alias.scope !400, !noundef !4
   %169 = fmul double %166, %.sroa.0.113.i83
@@ -1715,7 +1715,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit81: ; preds = %
 
 .lr.ph.i86:                                       ; preds = %.lr.ph.i82, %.lr.ph.i86
   %.sroa.0.113.i87 = phi double [ %175, %.lr.ph.i86 ], [ 0x3EA0086DEE051D20, %.lr.ph.i82 ]
-  %.sroa.4.012.i88 = phi ptr [ %172, %.lr.ph.i86 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.17, i64 32), %.lr.ph.i82 ]
+  %.sroa.4.012.i88 = phi ptr [ %172, %.lr.ph.i86 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.17, i64 32), %.lr.ph.i82 ]
   %172 = getelementptr inbounds i8, ptr %.sroa.4.012.i88, i64 -8
   %173 = load double, ptr %172, align 8, !alias.scope !403, !noundef !4
   %174 = fmul double %166, %.sroa.0.113.i87
@@ -1733,7 +1733,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit89: ; preds = %
 
 .lr.ph.i90:                                       ; preds = %.lr.ph.i90, %178
   %.sroa.0.113.i91 = phi double [ %183, %.lr.ph.i90 ], [ 0x3DD098452B9A172F, %178 ]
-  %.sroa.4.012.i92 = phi ptr [ %180, %.lr.ph.i90 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.12, i64 24), %178 ]
+  %.sroa.4.012.i92 = phi ptr [ %180, %.lr.ph.i90 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.12, i64 24), %178 ]
   %180 = getelementptr inbounds i8, ptr %.sroa.4.012.i92, i64 -8
   %181 = load double, ptr %180, align 8, !alias.scope !406, !noundef !4
   %182 = fmul double %179, %.sroa.0.113.i91
@@ -1743,7 +1743,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit89: ; preds = %
 
 .lr.ph.i94:                                       ; preds = %.lr.ph.i90, %.lr.ph.i94
   %.sroa.0.113.i95 = phi double [ %188, %.lr.ph.i94 ], [ 0x3EC042D55E53F73E, %.lr.ph.i90 ]
-  %.sroa.4.012.i96 = phi ptr [ %185, %.lr.ph.i94 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.13, i64 24), %.lr.ph.i90 ]
+  %.sroa.4.012.i96 = phi ptr [ %185, %.lr.ph.i94 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.13, i64 24), %.lr.ph.i90 ]
   %185 = getelementptr inbounds i8, ptr %.sroa.4.012.i96, i64 -8
   %186 = load double, ptr %185, align 8, !alias.scope !409, !noundef !4
   %187 = fmul double %179, %.sroa.0.113.i95
@@ -1761,7 +1761,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit97: ; preds = %
 
 .lr.ph.i98:                                       ; preds = %.lr.ph.i98, %191
   %.sroa.0.113.i99 = phi double [ %196, %.lr.ph.i98 ], [ 0x3DF5D108FF92D02C, %191 ]
-  %.sroa.4.012.i100 = phi ptr [ %193, %.lr.ph.i98 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.14, i64 24), %191 ]
+  %.sroa.4.012.i100 = phi ptr [ %193, %.lr.ph.i98 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.14, i64 24), %191 ]
   %193 = getelementptr inbounds i8, ptr %.sroa.4.012.i100, i64 -8
   %194 = load double, ptr %193, align 8, !alias.scope !412, !noundef !4
   %195 = fmul double %192, %.sroa.0.113.i99
@@ -1771,7 +1771,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit97: ; preds = %
 
 .lr.ph.i102:                                      ; preds = %.lr.ph.i98, %.lr.ph.i102
   %.sroa.0.113.i103 = phi double [ %201, %.lr.ph.i102 ], [ 0x3CC3475E9F0DF0D7, %.lr.ph.i98 ]
-  %.sroa.4.012.i104 = phi ptr [ %198, %.lr.ph.i102 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.15, i64 32), %.lr.ph.i98 ]
+  %.sroa.4.012.i104 = phi ptr [ %198, %.lr.ph.i102 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.15, i64 32), %.lr.ph.i98 ]
   %198 = getelementptr inbounds i8, ptr %.sroa.4.012.i104, i64 -8
   %199 = load double, ptr %198, align 8, !alias.scope !415, !noundef !4
   %200 = fmul double %192, %.sroa.0.113.i103
@@ -1802,7 +1802,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit105: ; preds = 
 
 .lr.ph.i106:                                      ; preds = %9, %.lr.ph.i106
   %.sroa.0.113.i107 = phi double [ %217, %.lr.ph.i106 ], [ 0x3F4C8FE6D17A0F95, %9 ]
-  %.sroa.4.012.i108 = phi ptr [ %214, %.lr.ph.i106 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.38, i64 56), %9 ]
+  %.sroa.4.012.i108 = phi ptr [ %214, %.lr.ph.i106 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.38, i64 56), %9 ]
   %214 = getelementptr inbounds i8, ptr %.sroa.4.012.i108, i64 -8
   %215 = load double, ptr %214, align 8, !alias.scope !418, !noundef !4
   %216 = fmul double %0, %.sroa.0.113.i107
@@ -1816,7 +1816,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit109: ; preds = 
 
 .lr.ph.i110:                                      ; preds = %.lr.ph.i110, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit109
   %.sroa.0.113.i111 = phi double [ %223, %.lr.ph.i110 ], [ 0xBF442E8CBA744654, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit109 ]
-  %.sroa.4.012.i112 = phi ptr [ %220, %.lr.ph.i110 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.39, i64 56), %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit109 ]
+  %.sroa.4.012.i112 = phi ptr [ %220, %.lr.ph.i110 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.39, i64 56), %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit109 ]
   %220 = getelementptr inbounds i8, ptr %.sroa.4.012.i112, i64 -8
   %221 = load double, ptr %220, align 8, !alias.scope !421, !noundef !4
   %222 = fmul double %0, %.sroa.0.113.i111
@@ -1888,7 +1888,7 @@ define hidden noundef double @_ZN6statrs8function3erf12erf_inv_impl17h61c441acf9
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %8
   %.sroa.0.113.i = phi double [ %13, %.lr.ph.i ], [ 0xBF761171AA645978, %8 ]
-  %.sroa.4.012.i = phi ptr [ %10, %.lr.ph.i ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.52, i64 56), %8 ]
+  %.sroa.4.012.i = phi ptr [ %10, %.lr.ph.i ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.52, i64 56), %8 ]
   %10 = getelementptr inbounds i8, ptr %.sroa.4.012.i, i64 -8
   %11 = load double, ptr %10, align 8, !alias.scope !424, !noundef !4
   %12 = fmul double %0, %.sroa.0.113.i
@@ -1898,7 +1898,7 @@ define hidden noundef double @_ZN6statrs8function3erf12erf_inv_impl17h61c441acf9
 
 .lr.ph.i6:                                        ; preds = %.lr.ph.i, %.lr.ph.i6
   %.sroa.0.113.i7 = phi double [ %18, %.lr.ph.i6 ], [ 0x3F4D0A1F35042971, %.lr.ph.i ]
-  %.sroa.4.012.i8 = phi ptr [ %15, %.lr.ph.i6 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.53, i64 72), %.lr.ph.i ]
+  %.sroa.4.012.i8 = phi ptr [ %15, %.lr.ph.i6 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.53, i64 72), %.lr.ph.i ]
   %15 = getelementptr inbounds i8, ptr %.sroa.4.012.i8, i64 -8
   %16 = load double, ptr %15, align 8, !alias.scope !427, !noundef !4
   %17 = fmul double %0, %.sroa.0.113.i7
@@ -1927,7 +1927,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9: ; preds = %.
 
 .lr.ph.i10:                                       ; preds = %.lr.ph.i10, %29
   %.sroa.0.113.i11 = phi double [ %35, %.lr.ph.i10 ], [ 0xC00D6018EDA922CF, %29 ]
-  %.sroa.4.012.i12 = phi ptr [ %32, %.lr.ph.i10 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.50, i64 64), %29 ]
+  %.sroa.4.012.i12 = phi ptr [ %32, %.lr.ph.i10 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.50, i64 64), %29 ]
   %32 = getelementptr inbounds i8, ptr %.sroa.4.012.i12, i64 -8
   %33 = load double, ptr %32, align 8, !alias.scope !430, !noundef !4
   %34 = fmul double %31, %.sroa.0.113.i11
@@ -1937,7 +1937,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9: ; preds = %.
 
 .lr.ph.i14:                                       ; preds = %.lr.ph.i10, %.lr.ph.i14
   %.sroa.0.113.i15 = phi double [ %40, %.lr.ph.i14 ], [ 0x3FFB89D220507D2A, %.lr.ph.i10 ]
-  %.sroa.4.012.i16 = phi ptr [ %37, %.lr.ph.i14 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.51, i64 64), %.lr.ph.i10 ]
+  %.sroa.4.012.i16 = phi ptr [ %37, %.lr.ph.i14 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.51, i64 64), %.lr.ph.i10 ]
   %37 = getelementptr inbounds i8, ptr %.sroa.4.012.i16, i64 -8
   %38 = load double, ptr %37, align 8, !alias.scope !433, !noundef !4
   %39 = fmul double %31, %.sroa.0.113.i15
@@ -1962,7 +1962,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17: ; preds = %
 
 .lr.ph.i18:                                       ; preds = %.lr.ph.i18, %48
   %.sroa.0.113.i19 = phi double [ %53, %.lr.ph.i18 ], [ 0xBE076775588F330D, %48 ]
-  %.sroa.4.012.i20 = phi ptr [ %50, %.lr.ph.i18 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.48, i64 80), %48 ]
+  %.sroa.4.012.i20 = phi ptr [ %50, %.lr.ph.i18 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.48, i64 80), %48 ]
   %50 = getelementptr inbounds i8, ptr %.sroa.4.012.i20, i64 -8
   %51 = load double, ptr %50, align 8, !alias.scope !436, !noundef !4
   %52 = fmul double %49, %.sroa.0.113.i19
@@ -1972,7 +1972,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17: ; preds = %
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i18, %.lr.ph.i22
   %.sroa.0.113.i23 = phi double [ %58, %.lr.ph.i22 ], [ 0x3F86A63A5FC07442, %.lr.ph.i18 ]
-  %.sroa.4.012.i24 = phi ptr [ %55, %.lr.ph.i22 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.49, i64 56), %.lr.ph.i18 ]
+  %.sroa.4.012.i24 = phi ptr [ %55, %.lr.ph.i22 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.49, i64 56), %.lr.ph.i18 ]
   %55 = getelementptr inbounds i8, ptr %.sroa.4.012.i24, i64 -8
   %56 = load double, ptr %55, align 8, !alias.scope !439, !noundef !4
   %57 = fmul double %49, %.sroa.0.113.i23
@@ -1997,7 +1997,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25: ; preds = %
 
 .lr.ph.i26:                                       ; preds = %.lr.ph.i26, %66
   %.sroa.0.113.i27 = phi double [ %71, %.lr.ph.i26 ], [ 0x3D876D6D1D358341, %66 ]
-  %.sroa.4.012.i28 = phi ptr [ %68, %.lr.ph.i26 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.46, i64 64), %66 ]
+  %.sroa.4.012.i28 = phi ptr [ %68, %.lr.ph.i26 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.46, i64 64), %66 ]
   %68 = getelementptr inbounds i8, ptr %.sroa.4.012.i28, i64 -8
   %69 = load double, ptr %68, align 8, !alias.scope !442, !noundef !4
   %70 = fmul double %67, %.sroa.0.113.i27
@@ -2007,7 +2007,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25: ; preds = %
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i26, %.lr.ph.i30
   %.sroa.0.113.i31 = phi double [ %76, %.lr.ph.i30 ], [ 0x3F140BA62624DB75, %.lr.ph.i26 ]
-  %.sroa.4.012.i32 = phi ptr [ %73, %.lr.ph.i30 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.47, i64 48), %.lr.ph.i26 ]
+  %.sroa.4.012.i32 = phi ptr [ %73, %.lr.ph.i30 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.47, i64 48), %.lr.ph.i26 ]
   %73 = getelementptr inbounds i8, ptr %.sroa.4.012.i32, i64 -8
   %74 = load double, ptr %73, align 8, !alias.scope !445, !noundef !4
   %75 = fmul double %67, %.sroa.0.113.i31
@@ -2032,7 +2032,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33: ; preds = %
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34, %84
   %.sroa.0.113.i35 = phi double [ %89, %.lr.ph.i34 ], [ 0x3C9C8D057577CD10, %84 ]
-  %.sroa.4.012.i36 = phi ptr [ %86, %.lr.ph.i34 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.44, i64 64), %84 ]
+  %.sroa.4.012.i36 = phi ptr [ %86, %.lr.ph.i34 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.44, i64 64), %84 ]
   %86 = getelementptr inbounds i8, ptr %.sroa.4.012.i36, i64 -8
   %87 = load double, ptr %86, align 8, !alias.scope !448, !noundef !4
   %88 = fmul double %85, %.sroa.0.113.i35
@@ -2042,7 +2042,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33: ; preds = %
 
 .lr.ph.i38:                                       ; preds = %.lr.ph.i34, %.lr.ph.i38
   %.sroa.0.113.i39 = phi double [ %94, %.lr.ph.i38 ], [ 0x3E92F0E699147481, %.lr.ph.i34 ]
-  %.sroa.4.012.i40 = phi ptr [ %91, %.lr.ph.i38 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.45, i64 48), %.lr.ph.i34 ]
+  %.sroa.4.012.i40 = phi ptr [ %91, %.lr.ph.i38 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.45, i64 48), %.lr.ph.i34 ]
   %91 = getelementptr inbounds i8, ptr %.sroa.4.012.i40, i64 -8
   %92 = load double, ptr %91, align 8, !alias.scope !451, !noundef !4
   %93 = fmul double %85, %.sroa.0.113.i39
@@ -2063,7 +2063,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41: ; preds = %
 
 .lr.ph.i42:                                       ; preds = %.lr.ph.i42, %100
   %.sroa.0.113.i43 = phi double [ %105, %.lr.ph.i42 ], [ 0xBB7A5C858C9B788E, %100 ]
-  %.sroa.4.012.i44 = phi ptr [ %102, %.lr.ph.i42 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.40, i64 56), %100 ]
+  %.sroa.4.012.i44 = phi ptr [ %102, %.lr.ph.i42 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.40, i64 56), %100 ]
   %102 = getelementptr inbounds i8, ptr %.sroa.4.012.i44, i64 -8
   %103 = load double, ptr %102, align 8, !alias.scope !454, !noundef !4
   %104 = fmul double %101, %.sroa.0.113.i43
@@ -2073,7 +2073,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41: ; preds = %
 
 .lr.ph.i46:                                       ; preds = %.lr.ph.i42, %.lr.ph.i46
   %.sroa.0.113.i47 = phi double [ %110, %.lr.ph.i46 ], [ 0x3D845E3C7ED85847, %.lr.ph.i42 ]
-  %.sroa.4.012.i48 = phi ptr [ %107, %.lr.ph.i46 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.41, i64 48), %.lr.ph.i42 ]
+  %.sroa.4.012.i48 = phi ptr [ %107, %.lr.ph.i46 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.41, i64 48), %.lr.ph.i42 ]
   %107 = getelementptr inbounds i8, ptr %.sroa.4.012.i48, i64 -8
   %108 = load double, ptr %107, align 8, !alias.scope !457, !noundef !4
   %109 = fmul double %101, %.sroa.0.113.i47
@@ -2094,7 +2094,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49: ; preds = %
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50, %116
   %.sroa.0.113.i51 = phi double [ %121, %.lr.ph.i50 ], [ 0xBC358A126215D791, %116 ]
-  %.sroa.4.012.i52 = phi ptr [ %118, %.lr.ph.i50 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.42, i64 56), %116 ]
+  %.sroa.4.012.i52 = phi ptr [ %118, %.lr.ph.i50 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.42, i64 56), %116 ]
   %118 = getelementptr inbounds i8, ptr %.sroa.4.012.i52, i64 -8
   %119 = load double, ptr %118, align 8, !alias.scope !460, !noundef !4
   %120 = fmul double %117, %.sroa.0.113.i51
@@ -2104,7 +2104,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49: ; preds = %
 
 .lr.ph.i54:                                       ; preds = %.lr.ph.i50, %.lr.ph.i54
   %.sroa.0.113.i55 = phi double [ %126, %.lr.ph.i54 ], [ 0x3E0183E85900FD17, %.lr.ph.i50 ]
-  %.sroa.4.012.i56 = phi ptr [ %123, %.lr.ph.i54 ], [ getelementptr inbounds (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.43, i64 48), %.lr.ph.i50 ]
+  %.sroa.4.012.i56 = phi ptr [ %123, %.lr.ph.i54 ], [ getelementptr inbounds nuw (i8, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.43, i64 48), %.lr.ph.i50 ]
   %123 = getelementptr inbounds i8, ptr %.sroa.4.012.i56, i64 -8
   %124 = load double, ptr %123, align 8, !alias.scope !463, !noundef !4
   %125 = fmul double %117, %.sroa.0.113.i55

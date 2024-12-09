@@ -1448,7 +1448,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit44:                ; preds = %30, %33, %34
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 18848
   %.sroa.0.0.copyload.i = load i64, ptr %46, align 8
   call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(100) %10, i32 noundef 42, ptr noundef nonnull align 8 dereferenceable(23096) %44, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.copyload.i, ptr noundef null, i32 noundef 0) #17
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %10, align 8
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 98
   %48 = load i8, ptr %47, align 2
   %49 = and i8 %48, -29
@@ -1460,7 +1460,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit44:                ; preds = %30, %33, %34
   store i32 %53, ptr %51, align 4
   %.sroa.0.0.copyload.i45 = load i64, ptr %46, align 8
   call void @_ZN5clang7VarDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassE(ptr noundef nonnull align 8 dereferenceable(100) %11, i32 noundef 42, ptr noundef nonnull align 8 dereferenceable(23096) %44, ptr noundef null, i32 0, i32 0, ptr noundef null, i64 %.sroa.0.0.copyload.i45, ptr noundef null, i32 noundef 0) #17
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang17ImplicitParamDeclE, i64 16), ptr %11, align 8
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 98
   %55 = load i8, ptr %54, align 2
   %56 = and i8 %55, -29
@@ -2670,7 +2670,7 @@ _ZN12_GLOBAL__N_122GetReturnObjectManager13EmitGroAllocaEv.exit: ; preds = %_ZN5
   %443 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %444 = load ptr, ptr %443, align 8
   %445 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %442, i32 noundef 3, i64 noundef 16) #17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114CallCoroDeleteE, i64 16), ptr %445, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114CallCoroDeleteE, i64 16), ptr %445, align 8
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
   store ptr %444, ptr %446, align 8
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -3163,7 +3163,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i:      ; preds = %688, %_ZN4llvm16dyn
 
 _ZN12_GLOBAL__N_122GetReturnObjectManager11EmitGroInitEv.exit: ; preds = %672, %_ZNK5clang8QualType13getQualifiersEv.exit.i, %698, %702
   %714 = call noundef ptr @_ZN5clang7CodeGen12EHScopeStack11pushCleanupENS0_11CleanupKindEm(ptr noundef nonnull align 8 dereferenceable(320) %442, i32 noundef 1, i64 noundef 8) #17
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_111CallCoroEndE, i64 16), ptr %714, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_111CallCoroEndE, i64 16), ptr %714, align 8
   %715 = load ptr, ptr %100, align 8
   store i32 0, ptr %715, align 8
   %716 = getelementptr inbounds nuw i8, ptr %1, i64 48

@@ -4346,7 +4346,7 @@ pmix_tma_free.exit.i.i:                           ; preds = %.lr.ph.split.i.preh
   br i1 %.not96, label %pmix_tma_free.exit, label %108
 
 108:                                              ; preds = %105
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg, i64 64), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg, i64 64), align 8
   %110 = tail call i32 %109(ptr noundef nonnull %107) #13
   br label %pmix_tma_free.exit
 
@@ -6375,7 +6375,7 @@ pmix_bfrops_base_tma_coord_destruct.exit.i:       ; preds = %pmix_tma_free.exit.
   br i1 %.not, label %292, label %289
 
 289:                                              ; preds = %.lr.ph268
-  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg, i64 64), align 8
+  %290 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg, i64 64), align 8
   %291 = tail call i32 %290(ptr noundef nonnull %288) #13
   %.pre327 = load i64, ptr %284, align 8
   br label %292
@@ -8099,7 +8099,7 @@ pmix_tma_malloc.exit1025:                         ; preds = %415, %418
 426:                                              ; preds = %.lr.ph1288, %pmix_bfrops_base_tma_copy_payload.exit
   %.08271286 = phi i64 [ 0, %.lr.ph1288 ], [ %534, %pmix_bfrops_base_tma_copy_payload.exit ]
   %427 = load i32, ptr @pmix_class_init_epoch, align 4
-  %428 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 32), align 8
+  %428 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_buffer_t_class, i64 32), align 8
   %.not948 = icmp eq i32 %427, %428
   br i1 %.not948, label %430, label %429
 
@@ -8199,7 +8199,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %pmix_obj
 
 479:                                              ; preds = %467
   %480 = add i64 %474, %470
-  %481 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 288), align 8
+  %481 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 288), align 8
   %.not54.i.i = icmp ult i64 %480, %481
   br i1 %.not54.i.i, label %487, label %482
 
@@ -8213,7 +8213,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %pmix_obj
 
 487:                                              ; preds = %479
   %488 = icmp eq i64 %472, 0
-  %489 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 280), align 8
+  %489 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 280), align 8
   %spec.select.i.i = select i1 %488, i64 %489, i64 %472
   br label %490
 

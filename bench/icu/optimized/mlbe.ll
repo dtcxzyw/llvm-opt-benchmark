@@ -551,7 +551,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 define void @_ZN6icu_7513MlBreakEngineC2ERKNS_10UnicodeSetES3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1556) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(200) %digitOrOpenPunctuationOrAlphabetSet, ptr noundef nonnull align 8 dereferenceable(200) %closePunctuationSet, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status.i = alloca i32, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513MlBreakEngineE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513MlBreakEngineE, i64 16), ptr %this, align 8
   %fDigitOrOpenPunctuationOrAlphabetSet = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7510UnicodeSetC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %fDigitOrOpenPunctuationOrAlphabetSet, ptr noundef nonnull align 8 dereferenceable(200) %digitOrOpenPunctuationOrAlphabetSet)
   %fClosePunctuationSet = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -677,14 +677,14 @@ entry:
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %key, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %key, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7520StackUResourceBundleC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %stackTempBundle)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 16), ptr %modelKey, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 16), ptr %modelKey, align 8
   %pResData.i = getelementptr inbounds nuw i8, ptr %modelKey, i64 8
   %res.i = getelementptr inbounds nuw i8, ptr %modelKey, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pResData.i, i8 0, i64 16, i1 false)
@@ -828,7 +828,7 @@ declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513MlBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1556) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513MlBreakEngineE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513MlBreakEngineE, i64 16), ptr %this, align 8
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %_ZN6icu_759HashtableD2Ev.exit, %entry
@@ -1607,14 +1607,14 @@ entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store i32 0, ptr %valueSize, align 4
   store i32 0, ptr %stringLength, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %key, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %key, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7520StackUResourceBundleC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %stackTempBundle)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 16), ptr %modelKey, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 16), ptr %modelKey, align 8
   %pResData.i = getelementptr inbounds nuw i8, ptr %modelKey, i64 8
   %res.i = getelementptr inbounds nuw i8, ptr %modelKey, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pResData.i, i8 0, i64 16, i1 false)

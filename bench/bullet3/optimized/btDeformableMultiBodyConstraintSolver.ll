@@ -4150,7 +4150,7 @@ declare float @llvm.fabs.f32(float) #10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN27btMultiBodyConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(788) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btMultiBodyConstraintSolver, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btMultiBodyConstraintSolver, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds nuw i8, ptr %this, i64 568
   tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %m_data) #14
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 552

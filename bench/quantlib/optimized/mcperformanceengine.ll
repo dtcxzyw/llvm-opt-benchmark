@@ -139,7 +139,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -194,7 +194,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8QuantLib27PerformanceOptionPathPricerC2ENS_6Option4TypeEdSt6vectorIdSaIdEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %this, i32 noundef %type, double noundef %strike, ptr nocapture noundef %discounts) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib27PerformanceOptionPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib27PerformanceOptionPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %strike_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %strike, ptr %strike_, align 8, !tbaa !18
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -409,7 +409,7 @@ do.end:                                           ; preds = %entry
   store i32 %25, ptr %type_.i.i.i, align 8, !tbaa !31
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %payoff, i64 16
   store double %26, ptr %strike_.i.i, align 8, !tbaa !34
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff, align 8, !tbaa !14
   %cmp2750 = icmp ugt i64 %sub.ptr.div.i.i.i, 2
   br i1 %cmp2750, label %invoke.cont34.lr.ph, label %for.cond.cleanup
 
@@ -453,7 +453,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib27PerformanceOptionPathPricerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib27PerformanceOptionPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib27PerformanceOptionPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %discounts_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %discounts_, align 8, !tbaa !28
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -475,7 +475,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib27PerformanceOptionPathPricerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib27PerformanceOptionPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib27PerformanceOptionPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %discounts_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %discounts_.i, align 8, !tbaa !28
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

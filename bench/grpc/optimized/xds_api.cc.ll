@@ -3882,7 +3882,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.9, ptr %_M_reason.i.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #24
@@ -3984,7 +3984,7 @@ google_protobuf_Value_mutable_struct_value.exit:  ; preds = %google_protobuf_Val
 if.then.i.i.i39:                                  ; preds = %google_protobuf_Value_mutable_struct_value.exit
   %cmp.i.not.i.i.i.i40 = icmp eq i8 %10, -1
   %exception.i.i.i.i.i41 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i41, align 8
   %_M_reason.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i41, i64 8
   br i1 %cmp.i.not.i.i.i.i40, label %if.then.i.i.i.i44, label %if.else.i.i.i.i43
 
@@ -4063,7 +4063,7 @@ google_protobuf_Value_mutable_list_value.exit:    ; preds = %google_protobuf_Val
 if.then.i.i.i71:                                  ; preds = %google_protobuf_Value_mutable_list_value.exit
   %cmp.i.not.i.i.i.i72 = icmp eq i8 %19, -1
   %exception.i.i.i.i.i73 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i73, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i73, align 8
   %_M_reason.i.i.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i73, i64 8
   br i1 %cmp.i.not.i.i.i.i72, label %if.then.i.i.i.i76, label %if.else.i.i.i.i75
 

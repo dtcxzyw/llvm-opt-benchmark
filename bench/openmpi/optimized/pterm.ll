@@ -118,7 +118,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %14 = alloca ptr, align 8
   %15 = alloca [2 x i32], align 8
   %16 = load i32, ptr @pmix_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %16, %17
   br i1 %.not, label %19, label %18
 
@@ -127,8 +127,8 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %19
 
 19:                                               ; preds = %18, %2
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @job_info, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @job_info, i64 48), align 8
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 48), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @job_info, i64 56), i8 0, i64 64, i1 false)
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
@@ -151,7 +151,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %19
   store ptr @.str, ptr @prte_tool_actual, align 8
   %27 = call i32 @gethostname(ptr noundef nonnull %11, i64 noundef 4097) #15
   %28 = load i32, ptr @pmix_class_init_epoch, align 4
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not106 = icmp eq i32 %28, %29
   br i1 %.not106, label %31, label %30
 
@@ -564,7 +564,7 @@ pmix_cmd_line_get_param.exit172.thread:           ; preds = %198, %pmix_cmd_line
   br i1 %.not123, label %218, label %221
 
 218:                                              ; preds = %211
-  %219 = load i32, ptr getelementptr inbounds (i8, ptr @term_pipe, i64 4), align 4
+  %219 = load i32, ptr getelementptr inbounds nuw (i8, ptr @term_pipe, i64 4), align 4
   %220 = call i32 @pmix_fd_set_cloexec(i32 noundef %219) #15
   %.not124 = icmp eq i32 %220, 0
   br i1 %.not124, label %225, label %221
@@ -594,7 +594,7 @@ pmix_cmd_line_get_param.exit172.thread:           ; preds = %198, %pmix_cmd_line
 234:                                              ; preds = %225
   call void @PMIx_Info_free(ptr noundef %206, i64 noundef %208) #15
   %235 = load i32, ptr @pmix_class_init_epoch, align 4
-  %236 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %236 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not126 = icmp eq i32 %235, %236
   br i1 %.not126, label %238, label %237
 
@@ -635,7 +635,7 @@ pmix_obj_run_constructors.exit177:                ; preds = %.lr.ph.i174, %238
   fence release
   store i64 -257698037785, ptr %15, align 8
   %252 = load i32, ptr @pmix_class_init_epoch, align 4
-  %253 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %253 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not127 = icmp eq i32 %252, %253
   br i1 %.not127, label %255, label %254
 
@@ -724,7 +724,7 @@ pmix_obj_run_destructors.exit187:                 ; preds = %.lr.ph.i184, %._cri
   %291 = load ptr, ptr @stderr, align 8
   %292 = call i64 @fwrite(ptr nonnull @.str.41, i64 18, i64 1, ptr %291) #19
   %293 = load i32, ptr @pmix_class_init_epoch, align 4
-  %294 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %294 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not129 = icmp eq i32 %293, %294
   br i1 %.not129, label %296, label %295
 
@@ -1014,7 +1014,7 @@ declare i32 @prte_event_assign(ptr noundef, ptr noundef, i32 noundef, i16 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @clean_abort(i32 %0, i16 signext %1, ptr nocapture readnone %2) #0 {
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prun_abort_inprogress_lock, i64 120)) #15
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prun_abort_inprogress_lock, i64 120)) #15
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %12, label %5
 
@@ -1083,7 +1083,7 @@ define internal void @abort_signal_callback(i32 %0) #10 {
 16:                                               ; preds = %12, %3
   %17 = load i64, ptr @current, align 8
   store i64 %17, ptr @last.0, align 8
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @term_pipe, i64 4), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @term_pipe, i64 4), align 4
   %19 = call i64 @write(i32 noundef %18, ptr noundef nonnull %2, i64 noundef 1) #15
   %20 = icmp eq i64 %19, -1
   br i1 %20, label %21, label %22

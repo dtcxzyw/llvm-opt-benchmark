@@ -2812,7 +2812,7 @@ gtk2_get_arrow.exit:                              ; preds = %11, %14
   %45 = zext i16 %44 to i32
   %46 = shl nuw nsw i32 %45, 1
   %47 = sub nsw i32 %41, %46
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @gtk2_paint_arrow.size, i64 4), align 4
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gtk2_paint_arrow.size, i64 4), align 4
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 106
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
@@ -2943,128 +2943,128 @@ define internal fastcc ptr @gtk2_get_widget(i32 noundef %0) unnamed_addr #0 {
   ]
 
 2:                                                ; preds = %1, %1
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 8), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.thread
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @fp_gtk_button_new, align 8
   %7 = tail call ptr (...) %6() #18
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 8), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 8), align 8
   br label %256
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 16), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 16), align 16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @fp_gtk_check_button_new, align 8
   %13 = tail call ptr (...) %12() #18
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 16), align 16
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 16), align 16
   br label %256
 
 14:                                               ; preds = %1
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 24), align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr @fp_gtk_check_menu_item_new, align 8
   %19 = tail call ptr (...) %18() #18
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 24), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 24), align 8
   br label %256
 
 20:                                               ; preds = %1
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 40), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 40), align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr @fp_gtk_combo_box_new, align 8
   %25 = tail call ptr (...) %24() #18
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 40), align 8
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 40), align 8
   br label %256
 
 26:                                               ; preds = %1
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 48), align 16
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 48), align 16
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @fp_gtk_toggle_button_new, align 8
   %31 = tail call ptr (...) %30() #18
-  store ptr %31, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 48), align 16
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 48), align 16
   br label %256
 
 32:                                               ; preds = %1
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 56), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 56), align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr @fp_gtk_entry_new, align 8
   %37 = tail call ptr (...) %36() #18
-  store ptr %37, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 56), align 8
+  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 56), align 8
   br label %256
 
 38:                                               ; preds = %1, %1, %1
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 176), align 16
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 176), align 16
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @fp_gtk_label_new, align 8
   %43 = tail call ptr %42(ptr noundef null) #18
-  store ptr %43, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 176), align 16
+  store ptr %43, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 176), align 16
   br label %256
 
 44:                                               ; preds = %1, %1, %1
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 64), align 16
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 64), align 16
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %.thread
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr @fp_gtk_fixed_new, align 8
   %49 = tail call ptr (...) %48() #18
-  store ptr %49, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 64), align 16
+  store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 64), align 16
   br label %256
 
 50:                                               ; preds = %1, %1, %1
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 232), align 8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 232), align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr @fp_gtk_text_view_new, align 8
   %55 = tail call ptr (...) %54() #18
-  store ptr %55, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 232), align 8
+  store ptr %55, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 232), align 8
   br label %256
 
 56:                                               ; preds = %1, %1, %1
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 72), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 72), align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %.thread
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr @fp_gtk_entry_new, align 8
   %61 = tail call ptr (...) %60() #18
-  store ptr %61, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 72), align 8
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 72), align 8
   br label %256
 
 62:                                               ; preds = %1
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 88), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 88), align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %.thread
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr @fp_gtk_handle_box_new, align 8
   %67 = tail call ptr (...) %66() #18
-  store ptr %67, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 88), align 8
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 88), align 8
   br label %256
 
 68:                                               ; preds = %1, %1, %1, %1, %1
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 120), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 120), align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %.thread
 
@@ -3073,66 +3073,66 @@ define internal fastcc ptr @gtk2_get_widget(i32 noundef %0) unnamed_addr #0 {
   %73 = load ptr, ptr @fp_gtk_adjustment_new, align 8
   %74 = tail call ptr %73(double noundef 5.000000e+01, double noundef 0.000000e+00, double noundef 1.000000e+02, double noundef 1.000000e+01, double noundef 2.000000e+01, double noundef 2.000000e+01) #18
   %75 = tail call ptr %72(ptr noundef %74) #18
-  store ptr %75, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 120), align 8
+  store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 120), align 8
   br label %256
 
 76:                                               ; preds = %1
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 128), align 16
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 128), align 16
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr @fp_gtk_hseparator_new, align 8
   %81 = tail call ptr (...) %80() #18
-  store ptr %81, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 128), align 16
+  store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 128), align 16
   br label %256
 
 82:                                               ; preds = %1, %1, %1
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 112), align 16
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 112), align 16
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %82
   %86 = load ptr, ptr @fp_gtk_hscale_new, align 8
   %87 = tail call ptr %86(ptr noundef null) #18
-  store ptr %87, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 112), align 16
+  store ptr %87, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 112), align 16
   br label %256
 
 88:                                               ; preds = %1, %1
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 96), align 16
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 96), align 16
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %.thread
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr @fp_gtk_hpaned_new, align 8
   %93 = tail call ptr (...) %92() #18
-  store ptr %93, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 96), align 16
+  store ptr %93, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 96), align 16
   br label %256
 
 94:                                               ; preds = %1
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 136), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 136), align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %.thread
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr @fp_gtk_image_new, align 8
   %99 = tail call ptr (...) %98() #18
-  store ptr %99, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 136), align 8
+  store ptr %99, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 136), align 8
   br label %256
 
 100:                                              ; preds = %1
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 320), align 16
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 320), align 16
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %.thread
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr @fp_gtk_window_new, align 8
   %105 = tail call ptr %104(i32 noundef 0) #18
-  store ptr %105, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 320), align 16
+  store ptr %105, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 320), align 16
   br label %256
 
 106:                                              ; preds = %1
-  %107 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 256), align 16
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 256), align 16
   %108 = icmp eq ptr %107, null
   br i1 %108, label %109, label %.thread
 
@@ -3141,201 +3141,201 @@ define internal fastcc ptr @gtk2_get_widget(i32 noundef %0) unnamed_addr #0 {
   %111 = tail call ptr %110(i32 noundef 0) #18
   %112 = load ptr, ptr @fp_gtk_widget_set_name, align 8
   tail call void %112(ptr noundef %111, ptr noundef nonnull @.str.162) #18
-  store ptr %111, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 256), align 16
+  store ptr %111, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 256), align 16
   br label %256
 
 113:                                              ; preds = %1, %1, %1, %1
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 264), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 264), align 8
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %.thread
 
 116:                                              ; preds = %113
   %117 = load ptr, ptr @fp_gtk_tree_view_new, align 8
   %118 = tail call ptr (...) %117() #18
-  store ptr %118, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 264), align 8
+  store ptr %118, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 264), align 8
   br label %256
 
 119:                                              ; preds = %1
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 80), align 16
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 80), align 16
   %121 = icmp eq ptr %120, null
   br i1 %121, label %122, label %.thread
 
 122:                                              ; preds = %119
   %123 = load ptr, ptr @fp_gtk_frame_new, align 8
   %124 = tail call ptr %123(ptr noundef null) #18
-  store ptr %124, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 80), align 16
+  store ptr %124, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 80), align 16
   br label %256
 
 125:                                              ; preds = %1
-  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 144), align 16
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 144), align 16
   %127 = icmp eq ptr %126, null
   br i1 %127, label %128, label %.thread
 
 128:                                              ; preds = %125
   %129 = load ptr, ptr @fp_gtk_menu_new, align 8
   %130 = tail call ptr (...) %129() #18
-  store ptr %130, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 144), align 16
+  store ptr %130, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 144), align 16
   br label %256
 
 131:                                              ; preds = %1, %1, %1
-  %132 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 160), align 16
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 160), align 16
   %133 = icmp eq ptr %132, null
   br i1 %133, label %134, label %.thread
 
 134:                                              ; preds = %131
   %135 = load ptr, ptr @fp_gtk_menu_item_new, align 8
   %136 = tail call ptr (...) %135() #18
-  store ptr %136, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 160), align 16
+  store ptr %136, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 160), align 16
   br label %256
 
 137:                                              ; preds = %1
-  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 152), align 8
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 152), align 8
   %139 = icmp eq ptr %138, null
   br i1 %139, label %140, label %.thread
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr @fp_gtk_menu_bar_new, align 8
   %142 = tail call ptr (...) %141() #18
-  store ptr %142, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 152), align 8
+  store ptr %142, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 152), align 8
   br label %256
 
 143:                                              ; preds = %1, %1
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 328), align 8
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 328), align 8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %146, label %.thread
 
 146:                                              ; preds = %143
   %147 = load ptr, ptr @fp_gtk_dialog_new, align 8
   %148 = tail call ptr (...) %147() #18
-  store ptr %148, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 328), align 8
+  store ptr %148, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 328), align 8
   br label %256
 
 149:                                              ; preds = %1
-  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 208), align 16
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 208), align 16
   %151 = icmp eq ptr %150, null
   br i1 %151, label %152, label %.thread
 
 152:                                              ; preds = %149
   %153 = load ptr, ptr @fp_gtk_separator_menu_item_new, align 8
   %154 = tail call ptr (...) %153() #18
-  store ptr %154, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 208), align 16
+  store ptr %154, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 208), align 16
   br label %256
 
 155:                                              ; preds = %1
-  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 104), align 8
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 104), align 8
   %157 = icmp eq ptr %156, null
   br i1 %157, label %158, label %.thread
 
 158:                                              ; preds = %155
   %159 = load ptr, ptr @fp_gtk_progress_bar_new, align 8
   %160 = tail call ptr (...) %159() #18
-  store ptr %160, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 104), align 8
+  store ptr %160, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 104), align 8
   br label %256
 
 161:                                              ; preds = %1
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 288), align 16
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 288), align 16
   %163 = icmp eq ptr %162, null
   br i1 %163, label %164, label %.thread
 
 164:                                              ; preds = %161
   %165 = load ptr, ptr @fp_gtk_progress_bar_new, align 8
   %166 = tail call ptr (...) %165() #18
-  store ptr %166, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 288), align 16
+  store ptr %166, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 288), align 16
   %167 = load ptr, ptr @fp_gtk_progress_bar_set_orientation, align 8
   %168 = tail call ptr %167(ptr noundef %166, i32 noundef 2) #18
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 288), align 16
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 288), align 16
   br label %256
 
 169:                                              ; preds = %1
-  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 184), align 8
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 184), align 8
   %171 = icmp eq ptr %170, null
   br i1 %171, label %172, label %.thread
 
 172:                                              ; preds = %169
   %173 = load ptr, ptr @fp_gtk_radio_button_new, align 8
   %174 = tail call ptr %173(ptr noundef null) #18
-  store ptr %174, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 184), align 8
+  store ptr %174, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 184), align 8
   br label %256
 
 175:                                              ; preds = %1
-  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 192), align 16
+  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 192), align 16
   %177 = icmp eq ptr %176, null
   br i1 %177, label %178, label %.thread
 
 178:                                              ; preds = %175
   %179 = load ptr, ptr @fp_gtk_radio_menu_item_new, align 8
   %180 = tail call ptr %179(ptr noundef null) #18
-  store ptr %180, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 192), align 16
+  store ptr %180, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 192), align 16
   br label %256
 
 181:                                              ; preds = %1
-  %182 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 200), align 8
+  %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 200), align 8
   %183 = icmp eq ptr %182, null
   br i1 %183, label %184, label %.thread
 
 184:                                              ; preds = %181
   %185 = load ptr, ptr @fp_gtk_scrolled_window_new, align 8
   %186 = tail call ptr %185(ptr noundef null, ptr noundef null) #18
-  store ptr %186, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 200), align 8
+  store ptr %186, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 200), align 8
   br label %256
 
 187:                                              ; preds = %1, %1, %1
-  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 224), align 16
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 224), align 16
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %.thread
 
 190:                                              ; preds = %187
   %191 = load ptr, ptr @fp_gtk_spin_button_new, align 8
   %192 = tail call ptr %191(ptr noundef null, double noundef 0.000000e+00, i32 noundef 0) #18
-  store ptr %192, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 224), align 16
+  store ptr %192, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 224), align 16
   br label %256
 
 193:                                              ; preds = %1, %1, %1, %1
-  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 168), align 8
+  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 168), align 8
   %195 = icmp eq ptr %194, null
   br i1 %195, label %196, label %.thread
 
 196:                                              ; preds = %193
   %197 = load ptr, ptr @fp_gtk_notebook_new, align 8
   %198 = tail call ptr (...) %197() #18
-  store ptr %198, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 168), align 8
+  store ptr %198, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 168), align 8
   br label %256
 
 199:                                              ; preds = %1
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 240), align 16
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 240), align 16
   %201 = icmp eq ptr %200, null
   br i1 %201, label %202, label %.thread
 
 202:                                              ; preds = %199
   %203 = load ptr, ptr @fp_gtk_toggle_button_new, align 8
   %204 = tail call ptr (...) %203() #18
-  store ptr %204, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 240), align 16
+  store ptr %204, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 240), align 16
   br label %256
 
 205:                                              ; preds = %1, %1
-  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 248), align 8
+  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 248), align 8
   %207 = icmp eq ptr %206, null
   br i1 %207, label %208, label %.thread
 
 208:                                              ; preds = %205
   %209 = load ptr, ptr @fp_gtk_toolbar_new, align 8
   %210 = tail call ptr (...) %209() #18
-  store ptr %210, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 248), align 8
+  store ptr %210, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 248), align 8
   br label %256
 
 211:                                              ; preds = %1
-  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 216), align 8
+  %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 216), align 8
   %213 = icmp eq ptr %212, null
   br i1 %213, label %214, label %.thread
 
 214:                                              ; preds = %211
   %215 = load ptr, ptr @fp_gtk_separator_tool_item_new, align 8
   %216 = tail call ptr (...) %215() #18
-  store ptr %216, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 216), align 8
+  store ptr %216, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 216), align 8
   br label %256
 
 217:                                              ; preds = %1
-  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 272), align 16
+  %218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 272), align 16
   %219 = icmp eq ptr %218, null
   br i1 %219, label %220, label %.thread
 
@@ -3344,11 +3344,11 @@ define internal fastcc ptr @gtk2_get_widget(i32 noundef %0) unnamed_addr #0 {
   %222 = tail call ptr %221(double noundef 5.000000e+01, double noundef 0.000000e+00, double noundef 1.000000e+02, double noundef 1.000000e+01, double noundef 2.000000e+01, double noundef 2.000000e+01) #18
   %223 = load ptr, ptr @fp_gtk_viewport_new, align 8
   %224 = tail call ptr %223(ptr noundef %222, ptr noundef %222) #18
-  store ptr %224, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 272), align 16
+  store ptr %224, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 272), align 16
   br label %256
 
 225:                                              ; preds = %1, %1, %1, %1, %1
-  %226 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 304), align 16
+  %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 304), align 16
   %227 = icmp eq ptr %226, null
   br i1 %227, label %228, label %.thread
 
@@ -3357,29 +3357,29 @@ define internal fastcc ptr @gtk2_get_widget(i32 noundef %0) unnamed_addr #0 {
   %230 = load ptr, ptr @fp_gtk_adjustment_new, align 8
   %231 = tail call ptr %230(double noundef 5.000000e+01, double noundef 0.000000e+00, double noundef 1.000000e+02, double noundef 1.000000e+01, double noundef 2.000000e+01, double noundef 2.000000e+01) #18
   %232 = tail call ptr %229(ptr noundef %231) #18
-  store ptr %232, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 304), align 16
+  store ptr %232, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 304), align 16
   br label %256
 
 233:                                              ; preds = %1
-  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 312), align 8
+  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 312), align 8
   %235 = icmp eq ptr %234, null
   br i1 %235, label %236, label %.thread
 
 236:                                              ; preds = %233
   %237 = load ptr, ptr @fp_gtk_vseparator_new, align 8
   %238 = tail call ptr (...) %237() #18
-  store ptr %238, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 312), align 8
+  store ptr %238, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 312), align 8
   br label %256
 
 239:                                              ; preds = %1, %1, %1
-  %240 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 296), align 8
+  %240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 296), align 8
   %241 = icmp eq ptr %240, null
   br i1 %241, label %242, label %245
 
 242:                                              ; preds = %239
   %243 = load ptr, ptr @fp_gtk_vscale_new, align 8
   %244 = tail call ptr %243(ptr noundef null) #18
-  store ptr %244, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 296), align 8
+  store ptr %244, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 296), align 8
   br label %245
 
 245:                                              ; preds = %242, %239
@@ -3391,14 +3391,14 @@ define internal fastcc ptr @gtk2_get_widget(i32 noundef %0) unnamed_addr #0 {
   br label %256
 
 250:                                              ; preds = %1
-  %251 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 280), align 8
+  %251 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 280), align 8
   %252 = icmp eq ptr %251, null
   br i1 %252, label %253, label %.thread
 
 253:                                              ; preds = %250
   %254 = load ptr, ptr @fp_gtk_vpaned_new, align 8
   %255 = tail call ptr (...) %254() #18
-  store ptr %255, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 280), align 8
+  store ptr %255, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 280), align 8
   br label %256
 
 256:                                              ; preds = %253, %236, %228, %220, %214, %208, %202, %196, %190, %184, %178, %172, %164, %158, %152, %146, %140, %134, %128, %122, %116, %109, %103, %97, %91, %85, %79, %71, %65, %59, %53, %47, %41, %35, %29, %23, %17, %11, %5, %245
@@ -3425,14 +3425,14 @@ define internal fastcc ptr @gtk2_get_widget(i32 noundef %0) unnamed_addr #0 {
   br label %295
 
 262:                                              ; preds = %258
-  %263 = load ptr, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 152), align 8
+  %263 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 152), align 8
   %264 = icmp eq ptr %263, null
   br i1 %264, label %265, label %gtk2_get_widget.exit
 
 265:                                              ; preds = %262
   %266 = load ptr, ptr @fp_gtk_menu_bar_new, align 8
   %267 = tail call ptr (...) %266() #18
-  store ptr %267, ptr getelementptr inbounds (i8, ptr @gtk2_widgets, i64 152), align 8
+  store ptr %267, ptr getelementptr inbounds nuw (i8, ptr @gtk2_widgets, i64 152), align 8
   %.not = icmp eq ptr %267, null
   br i1 %.not, label %gtk2_get_widget.exit, label %268
 

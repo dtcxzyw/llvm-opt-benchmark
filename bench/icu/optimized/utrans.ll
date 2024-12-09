@@ -41,7 +41,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7515ReplaceableGlueC2EPPvPK21UReplaceableCallbacks(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %replaceable, ptr noundef %funcCallback) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515ReplaceableGlueE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515ReplaceableGlueE, i64 16), ptr %this, align 8
   %rep = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %replaceable, ptr %rep, align 8
   %func = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1032,7 +1032,7 @@ if.then4:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.end5:                                          ; preds = %cond.false, %cond.true
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef %result, i32 noundef 0, i32 noundef %resultLength)

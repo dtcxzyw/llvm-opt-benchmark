@@ -174,7 +174,7 @@ define hidden noundef zeroext i8 @_ZN17SignatureIterator11return_typeEv(ptr noca
   store i32 1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %15, align 4
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -195,7 +195,7 @@ _ZN15SignatureStream19skip_to_return_typeEv.exit: ; preds = %.lr.ph.i, %6
   %24 = load i8, ptr %23, align 8
   store i8 %24, ptr %3, align 8
   %25 = load ptr, ptr %17, align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %27 = icmp eq ptr %25, %26
   br i1 %27, label %_ZN15SignatureStreamD2Ev.exit, label %28
 
@@ -302,7 +302,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI20Argu
   store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %16, align 4
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -338,7 +338,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI20Argu
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %34, ptr %35, align 8
   %36 = load ptr, ptr %18, align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %_ZN15SignatureStreamD2Ev.exit, label %39
 
@@ -442,7 +442,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI13Argu
   store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %16, align 4
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -472,7 +472,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI13Argu
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %29, ptr %30, align 8
   %31 = load ptr, ptr %18, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %33 = icmp eq ptr %31, %32
   br i1 %33, label %_ZN15SignatureStreamD2Ev.exit, label %34
 
@@ -569,7 +569,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI22Refe
   store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %16, align 4
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -608,7 +608,7 @@ _ZN22ReferenceArgumentCount7do_typeE9BasicType.exit: ; preds = %24, %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %33, ptr %34, align 8
   %35 = load ptr, ptr %18, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %_ZN15SignatureStreamD2Ev.exit, label %38
 
@@ -863,7 +863,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI13Fing
   store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %16, align 4
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -910,7 +910,7 @@ define linkonce_odr hidden void @_ZN17SignatureIterator16do_parameters_onI13Fing
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %44, ptr %45, align 8
   %46 = load ptr, ptr %18, align 8
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %48 = icmp eq ptr %46, %47
   br i1 %48, label %_ZN15SignatureStreamD2Ev.exit, label %49
 
@@ -1109,7 +1109,7 @@ define hidden void @_ZN15SignatureStreamC2EPK6Symbolb(ptr nocapture noundef nonn
   store i32 %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %12, align 4
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1297,7 +1297,7 @@ _ZN15SignatureStream9scan_typeE9BasicType.exit:   ; preds = %56, %39, %47, %65, 
 define hidden void @_ZN15SignatureStreamD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %.loopexit, label %6
 
@@ -1492,7 +1492,7 @@ define hidden noundef ptr @_ZN15SignatureStream11find_symbolEv(ptr nocapture nou
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 48), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 48), align 8
   br label %76
 
 26:                                               ; preds = %21
@@ -1501,7 +1501,7 @@ define hidden noundef ptr @_ZN15SignatureStream11find_symbolEv(ptr nocapture nou
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   br label %76
 
 30:                                               ; preds = %26, %19, %1
@@ -1723,7 +1723,7 @@ define hidden void @_ZN24ResolvingSignatureStreamC2EP6Symbol6HandleS2_b(ptr noca
   store i32 %10, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %14, align 4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1757,7 +1757,7 @@ define hidden void @_ZN24ResolvingSignatureStreamC2EP6SymbolP5Klassb(ptr nocaptu
   store i32 %9, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %13, align 4
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1800,7 +1800,7 @@ define hidden void @_ZN24ResolvingSignatureStreamC2EPK6Method(ptr nocapture noun
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %20, align 4
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40

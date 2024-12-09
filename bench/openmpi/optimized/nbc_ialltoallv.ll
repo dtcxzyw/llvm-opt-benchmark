@@ -198,10 +198,10 @@ ompi_coll_base_nbc_reserve_tags.exit:             ; preds = %52, %.split14.i
   %.0125 = phi ptr [ %2, %71 ], [ %6, %68 ]
   %.0124 = phi ptr [ %1, %71 ], [ %5, %68 ]
   %.0121 = phi ptr [ null, %71 ], [ %69, %68 ]
-  %77 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %77 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %78 = tail call noalias ptr @malloc(i64 noundef %77) #6
   %79 = load i32, ptr @opal_class_init_epoch, align 4
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i = icmp eq i32 %79, %80
   br i1 %.not.i, label %82, label %81
 
@@ -790,10 +790,10 @@ define internal fastcc i32 @nbc_alltoallv_inter_init(ptr noundef %0, ptr nocaptu
 
 ompi_comm_remote_size.exit:                       ; preds = %12, %24
   %29 = phi i32 [ %28, %24 ], [ 0, %12 ]
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #6
   %32 = load i32, ptr @opal_class_init_epoch, align 4
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i93 = icmp eq i32 %32, %33
   br i1 %.not.i93, label %35, label %34
 

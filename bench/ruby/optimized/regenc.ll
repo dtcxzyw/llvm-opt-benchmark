@@ -1511,7 +1511,7 @@ onigenc_with_ascii_strnicmp.exit.thread:          ; preds = %35, %onigenc_with_a
 
 .critedge:                                        ; preds = %50, %31, %onigenc_with_ascii_strnicmp.exit
   %83 = getelementptr i8, ptr %.01325, i64 12
-  %84 = icmp ult ptr %83, getelementptr inbounds (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 168)
+  %84 = icmp ult ptr %83, getelementptr inbounds nuw (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 168)
   %scevgep = getelementptr i8, ptr %indvars.iv, i64 12
   br i1 %84, label %31, label %.loopexit, !llvm.loop !19
 

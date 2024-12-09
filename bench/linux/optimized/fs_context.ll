@@ -632,7 +632,7 @@ define dso_local ptr @fs_context_for_mount(ptr noundef %0, i32 noundef %1) #0 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @alloc_fs_context(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %7 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 4197824, i64 noundef 152) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %71, label %9
@@ -1246,7 +1246,7 @@ define internal noundef range(i32 -22, 1) i32 @legacy_parse_param(ptr nocapture 
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %70
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %75 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %74, i32 noundef 3264, i64 noundef 4096) #13
   store ptr %75, ptr %4, align 8
   %76 = icmp eq ptr %75, null
@@ -1503,7 +1503,7 @@ define dso_local i32 @finish_clean_context(ptr noundef %0) local_unnamed_addr #0
   br label %20
 
 14:                                               ; preds = %6
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 4197824, i64 noundef 24) #13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %16, ptr %17, align 8
@@ -1532,7 +1532,7 @@ define dso_local i32 @finish_clean_context(ptr noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @legacy_init_fs_context(ptr nocapture noundef writeonly initializes((48, 56)) %0) unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 4197824, i64 noundef 24) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %4, align 8

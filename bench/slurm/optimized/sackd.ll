@@ -321,7 +321,7 @@ _establish_config_source.exit:                    ; preds = %59, %62, %65, %81
   %82 = load ptr, ptr @conf_file, align 8
   %83 = call i32 @slurm_conf_init(ptr noundef %82) #14
   %84 = call i32 @getuid() #14
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %.not8 = icmp eq i32 %84, %85
   br i1 %.not8, label %90, label %86
 
@@ -329,7 +329,7 @@ _establish_config_source.exit:                    ; preds = %59, %62, %65, %81
   %87 = call i32 @getuid() #14
   %88 = call ptr @uid_to_string(i32 noundef %87) #14
   store ptr %88, ptr %12, align 8
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1160), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1160), align 8
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.5, ptr noundef %88, ptr noundef %89) #14
   call void @slurm_xfree(ptr noundef nonnull %12) #14
   br label %90
@@ -367,7 +367,7 @@ _establish_config_source.exit:                    ; preds = %59, %62, %65, %81
   br label %108
 
 101:                                              ; preds = %97
-  %102 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
+  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
   %103 = trunc i32 %102 to i16
   %104 = call i32 @slurm_init_msg_engine_port(i16 noundef zeroext %103) #14
   store i32 %104, ptr @listen_fd, align 4
@@ -971,7 +971,7 @@ define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %15 = load i32, ptr %14, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %.not = icmp eq i32 %15, %16
   br i1 %.not, label %25, label %17
 
@@ -981,7 +981,7 @@ define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, 
   %20 = load i16, ptr %19, align 4
   %21 = tail call ptr @rpc_num2string(i16 noundef zeroext %20) #14
   %22 = load i32, ptr %14, align 4
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._on_msg, ptr noundef %18, ptr noundef %21, i32 noundef %22, i32 noundef %23) #14
   br label %45
 

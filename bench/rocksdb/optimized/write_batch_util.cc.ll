@@ -91,7 +91,7 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIjSaIjEE5clearEv.exit
 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %entry, %invoke.cont.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %handler, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %handler, align 8
   %column_family_ids_.i = getelementptr inbounds nuw i8, ptr %handler, i64 8
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %handler, i64 56
   store ptr %_M_single_bucket.i.i.i, ptr %column_family_ids_.i, align 8
@@ -117,7 +117,7 @@ if.then:                                          ; preds = %invoke.cont2
   br i1 %cmp.i6.not11, label %nrvo.skipdtor.thread, label %for.body.lr.ph
 
 nrvo.skipdtor.thread:                             ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %handler, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %handler, align 8
   br label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i
 
 for.body.lr.ph:                                   ; preds = %if.then
@@ -238,7 +238,7 @@ nrvo.skipdtor.loopexit:                           ; preds = %for.inc
 
 nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.loopexit, %invoke.cont2
   %14 = phi ptr [ %.pre13, %nrvo.skipdtor.loopexit ], [ %.pre14, %invoke.cont2 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %handler, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %handler, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
 
@@ -280,7 +280,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21ColumnFamilyCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %this, align 8
   %column_family_ids_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -318,7 +318,7 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit: ; preds = %_ZNSt1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21ColumnFamilyCollectorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21ColumnFamilyCollectorE, i64 16), ptr %this, align 8
   %column_family_ids_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8

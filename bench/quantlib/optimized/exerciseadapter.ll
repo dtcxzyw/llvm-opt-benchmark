@@ -142,7 +142,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %6 = load ptr, ptr %exercise, align 8, !tbaa !3
   %cmp.i.not.i.i = icmp eq ptr %6, null
@@ -234,7 +234,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !7
   %firstAliveRate_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %firstAliveRate_.i, align 8, !tbaa !39
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -430,7 +430,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 define linkonce_odr void @_ZN8QuantLib15ExerciseAdapterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib21MultiProductMultiStepE, i64 16), ptr %this, align 8, !tbaa !7
   %rateTimes_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %rateTimes_2.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -503,7 +503,7 @@ common.resume:                                    ; preds = %lpad4.i, %if.then.i
   resume { ptr, i32 } %common.resume.op
 
 _ZN8QuantLib21MultiProductMultiStepC2ERKS0_.exit: ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %exercise_2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %exercise_2, align 8, !tbaa !3
@@ -592,7 +592,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib15ExerciseAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
   %_M_data.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %_M_data.i, align 8, !tbaa !45
   tail call void @_ZdlPv(ptr noundef %0) #13
@@ -617,7 +617,7 @@ _ZN8QuantLib5CloneINS_24MarketModelExerciseValueEED2Ev.exit: ; preds = %entry, %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib15ExerciseAdapterD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib15ExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !7
   %_M_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %_M_data.i.i, align 8, !tbaa !45
   tail call void @_ZdlPv(ptr noundef %0) #13

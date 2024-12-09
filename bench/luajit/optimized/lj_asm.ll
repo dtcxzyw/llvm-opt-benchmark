@@ -6828,8 +6828,8 @@ if.end.i2368:                                     ; preds = %sw.bb48.i
   %conv2.i2369 = zext i16 %914 to i32
   store i32 %conv2.i2369, ptr %arrayidx3.i, align 4
   store i32 32765, ptr %arrayidx4.i2370, align 4
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 560))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 560), ptr noundef %args.i2365)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 560))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 560), ptr noundef %args.i2365)
   %915 = load ptr, ptr %ir37, align 8
   %r2.i.i2372 = getelementptr inbounds nuw i8, ptr %915, i64 262126
   %916 = load i8, ptr %r2.i.i2372, align 2
@@ -10747,8 +10747,8 @@ sw.bb62.i:                                        ; preds = %checkmclim.exit188,
   %1502 = load i32, ptr %gcsteps, align 8
   %inc.i.i = add nsw i32 %1502, 1
   store i32 %inc.i.i, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 32))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 32), ptr noundef %args.i.i261)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 32))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 32), ptr noundef %args.i.i261)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %args.i.i261)
   br label %for.inc
 
@@ -10760,8 +10760,8 @@ sw.bb63.i:                                        ; preds = %checkmclim.exit188
   %1503 = load i32, ptr %gcsteps, align 8
   %inc.i1307 = add nsw i32 %1503, 1
   store i32 %inc.i1307, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 512))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 512), ptr noundef %args.i1304)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 512))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 512), ptr noundef %args.i1304)
   %1504 = load ptr, ptr %ir37, align 8
   %r2.i.i1309 = getelementptr inbounds nuw i8, ptr %1504, i64 262126
   %1505 = load i8, ptr %r2.i.i1309, align 2
@@ -10857,8 +10857,8 @@ sw.bb64.i:                                        ; preds = %checkmclim.exit188
   %1518 = load i32, ptr %gcsteps, align 8
   %inc.i1303 = add nsw i32 %1518, 1
   store i32 %inc.i1303, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 528))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 528), ptr noundef %args.i1299)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 528))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 528), ptr noundef %args.i1299)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %args.i1299)
   br label %for.inc
 
@@ -10878,7 +10878,7 @@ sw.bb65.i:                                        ; preds = %checkmclim.exit188,
   %1525 = load i32, ptr %gcsteps, align 8
   %inc.i311.i = add nsw i32 %1525, 1
   store i32 %inc.i311.i, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 672))
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 672))
   %1526 = load i8, ptr %o.i263, align 1
   %cmp.i313.i = icmp eq i8 %1526, 84
   br i1 %cmp.i313.i, label %if.then.i323.i, label %if.else47.i.i285
@@ -11146,7 +11146,7 @@ if.then52.i.i:                                    ; preds = %if.else47.i.i285
   %conv58.i.i = zext i16 %1559 to i32
   store i32 %conv58.i.i, ptr %arrayidx59.i.i, align 8
   store i32 32765, ptr %arrayidx60.i.i, align 4
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 1616), ptr noundef %args.i305.i)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 1616), ptr noundef %args.i305.i)
   %1561 = load ptr, ptr %ir37, align 8
   %r2.i.i.i = getelementptr inbounds nuw i8, ptr %1561, i64 262126
   %1562 = load i8, ptr %r2.i.i.i, align 2
@@ -11249,7 +11249,7 @@ if.end63.i.i:                                     ; preds = %ra_alloc1.exit.i332
   call fastcc void @emit_rma(ptr noundef nonnull %as_, i32 noundef -1240530691, i32 noundef 1, ptr noundef nonnull %currentwhite.i.i)
   store i32 32767, ptr %args.i305.i, align 16
   store i32 32765, ptr %arrayidx56.i.i, align 4
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 672), ptr noundef %args.i305.i)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 672), ptr noundef %args.i305.i)
   %1574 = load ptr, ptr %ir37, align 8
   %r2.i138.i.i = getelementptr inbounds nuw i8, ptr %1574, i64 262126
   %1575 = load i8, ptr %r2.i138.i.i, align 2
@@ -12047,7 +12047,7 @@ if.else32.i:                                      ; preds = %if.then25.i1093
   %conv34.i = zext i16 %1636 to i32
   store i32 %conv34.i, ptr %arrayidx2.i, align 4
   %cmp38.i = icmp eq i16 %1635, 0
-  %..i1094 = select i1 %cmp38.i, ptr getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 112), ptr getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 288)
+  %..i1094 = select i1 %cmp38.i, ptr getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 112), ptr getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 288)
   br label %if.end59.i
 
 if.then49.i:                                      ; preds = %if.then20.i
@@ -12063,7 +12063,7 @@ if.then49.i:                                      ; preds = %if.then20.i
 if.end59.i:                                       ; preds = %if.then49.i, %if.else32.i, %if.then30.i, %if.then20.i, %land.lhs.true.i1090, %if.else.i1046, %if.then11.i1096, %if.then.i1095
   %1639 = phi i32 [ %conv34.i, %if.else32.i ], [ 32765, %if.then30.i ], [ 32765, %if.then11.i1096 ], [ %conv1.i1040, %if.then20.i ], [ %conv1.i1040, %if.else.i1046 ], [ %conv1.i1040, %land.lhs.true.i1090 ], [ %conv51.i, %if.then49.i ], [ %conv1.i1040, %if.then.i1095 ]
   %kchar.0.i = phi i32 [ -129, %if.else32.i ], [ -129, %if.then30.i ], [ %conv13.i1098, %if.then11.i1096 ], [ -129, %if.then20.i ], [ -129, %if.else.i1046 ], [ -129, %land.lhs.true.i1090 ], [ -129, %if.then49.i ], [ -129, %if.then.i1095 ]
-  %ci.0.i1048 = phi ptr [ %..i1094, %if.else32.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 128), %if.then30.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 288), %if.then11.i1096 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %if.then20.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %if.else.i1046 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %land.lhs.true.i1090 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 256), %if.then49.i ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 272), %if.then.i1095 ]
+  %ci.0.i1048 = phi ptr [ %..i1094, %if.else32.i ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 128), %if.then30.i ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 288), %if.then11.i1096 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %if.then20.i ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %if.else.i1046 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %land.lhs.true.i1090 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 256), %if.then49.i ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 272), %if.then.i1095 ]
   call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.0.i1048)
   call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %ci.0.i1048, ptr noundef %args.i1037)
   %cmp61.i = icmp eq i32 %1639, 32765
@@ -12174,8 +12174,8 @@ sw.bb68.i:                                        ; preds = %checkmclim.exit188
   %1653 = load i32, ptr %gcsteps, align 8
   %inc.i1036 = add nsw i32 %1653, 1
   store i32 %inc.i1036, ptr %gcsteps, align 8
-  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 480))
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 480), ptr noundef %args.i1033)
+  call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 480))
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 480), ptr noundef %args.i1033)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %args.i1033)
   br label %for.inc
 
@@ -12429,7 +12429,7 @@ sw.bb70.i:                                        ; preds = %checkmclim.exit188
   %1674 = load i16, ptr %arrayidx63, align 8
   %conv.i913 = zext i16 %1674 to i32
   store i32 %conv.i913, ptr %arrayidx1.i, align 4
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 656), ptr noundef %args.i911)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 656), ptr noundef %args.i911)
   %1675 = load ptr, ptr %ir37, align 8
   %r2.i.i915 = getelementptr inbounds nuw i8, ptr %1675, i64 262126
   %1676 = load i8, ptr %r2.i.i915, align 2
@@ -13176,12 +13176,12 @@ if.else.i820:                                     ; preds = %sw.bb72.i
   %1784 = load i16, ptr %arrayidx63, align 8
   %conv3.i821 = zext i16 %1784 to i32
   %cmp7.i = icmp eq i16 %1783, 0
-  %..i = select i1 %cmp7.i, ptr getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 64), ptr getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 96)
+  %..i = select i1 %cmp7.i, ptr getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 64), ptr getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 96)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.else.i820, %sw.bb72.i
   %conv3.sink.i = phi i32 [ %conv3.i821, %if.else.i820 ], [ 32765, %sw.bb72.i ]
-  %ci.0.i = phi ptr [ %..i, %if.else.i820 ], [ getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 80), %sw.bb72.i ]
+  %ci.0.i = phi ptr [ %..i, %if.else.i820 ], [ getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 80), %sw.bb72.i ]
   store i32 %conv3.sink.i, ptr %29, align 4
   call fastcc void @asm_setupresult(ptr noundef nonnull %as_, ptr noundef nonnull %arrayidx63, ptr noundef nonnull %ci.0.i)
   call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull %ci.0.i, ptr noundef %args.i815)
@@ -13304,7 +13304,7 @@ asm_guardcc.exit.i:                               ; preds = %if.end35.i.i, %if.e
   %conv4.i784 = zext i16 %1803 to i32
   store i32 %conv4.i784, ptr %args.i771, align 4
   store i32 32765, ptr %arrayidx5.i, align 4
-  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 48), ptr noundef %args.i771)
+  call fastcc void @asm_gencall(ptr noundef nonnull %as_, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 48), ptr noundef %args.i771)
   %1804 = load ptr, ptr %ir37, align 8
   %r2.i.i786 = getelementptr inbounds nuw i8, ptr %1804, i64 262126
   %1805 = load i8, ptr %r2.i.i786, align 2
@@ -15751,7 +15751,7 @@ asm_guardcc.exit:                                 ; preds = %if.end.i, %if.end35
   store i32 32765, ptr %args, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %args, i64 4
   store i32 32766, ptr %arrayidx1, align 4
-  call fastcc void @asm_gencall(ptr noundef %as, ptr noundef nonnull getelementptr inbounds (i8, ptr @lj_ir_callinfo, i64 640), ptr noundef %args)
+  call fastcc void @asm_gencall(ptr noundef %as, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lj_ir_callinfo, i64 640), ptr noundef %args)
   %ir1.i = getelementptr inbounds nuw i8, ptr %as, i64 144
   %12 = load ptr, ptr %ir1.i, align 8
   %r2.i = getelementptr inbounds nuw i8, ptr %12, i64 262126

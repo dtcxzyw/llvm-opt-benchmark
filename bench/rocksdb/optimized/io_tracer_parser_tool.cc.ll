@@ -1072,10 +1072,10 @@ define internal void @_GLOBAL__sub_I_io_tracer_parser_tool.cc() #14 section ".te
 entry:
   %call.i = tail call noundef ptr @_ZN3fLS25dont_pass0toDEFINE_stringB5cxx11EPcPKc(ptr noundef nonnull @_ZN3fLSL15s_io_trace_fileE, ptr noundef nonnull @.str)
   store ptr %call.i, ptr @_ZN3fLSL21FLAGS_noio_trace_fileB5cxx11E, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3fLSL15s_io_trace_fileE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %call.i)
-  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL15o_io_trace_fileE, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL15s_io_trace_fileE, i64 32))
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN3fLSL15s_io_trace_fileE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %call.i)
+  tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL15o_io_trace_fileE, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %call.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN3fLSL15s_io_trace_fileE, i64 32))
   store ptr @_ZN3fLSL15s_io_trace_fileE, ptr @_ZN3fLSL15d_io_trace_fileE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL15s_io_trace_fileE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL15d_io_trace_fileE, i64 8), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL15s_io_trace_fileE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL15d_io_trace_fileE, i64 8), align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL15d_io_trace_fileE, ptr nonnull @__dso_handle) #15
   %1 = load ptr, ptr @_ZN3fLSL21FLAGS_noio_trace_fileB5cxx11E, align 8
   store ptr %1, ptr @_ZN3fLS19FLAGS_io_trace_fileB5cxx11E, align 8

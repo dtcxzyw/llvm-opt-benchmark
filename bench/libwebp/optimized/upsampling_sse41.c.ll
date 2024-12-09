@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @WebPInitUpsamplersSSE41() local_unnamed_addr #0 {
   store ptr @UpsampleRgbLinePair_SSE41, ptr @WebPUpsamplers, align 8
-  store ptr @UpsampleBgrLinePair_SSE41, ptr getelementptr inbounds (i8, ptr @WebPUpsamplers, i64 16), align 8
+  store ptr @UpsampleBgrLinePair_SSE41, ptr getelementptr inbounds nuw (i8, ptr @WebPUpsamplers, i64 16), align 8
   ret void
 }
 
@@ -940,7 +940,7 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @WebPInitYUV444ConvertersSSE41() local_unnamed_addr #0 {
   store ptr @Yuv444ToRgb_SSE41, ptr @WebPYUV444Converters, align 8
-  store ptr @Yuv444ToBgr_SSE41, ptr getelementptr inbounds (i8, ptr @WebPYUV444Converters, i64 16), align 8
+  store ptr @Yuv444ToBgr_SSE41, ptr getelementptr inbounds nuw (i8, ptr @WebPYUV444Converters, i64 16), align 8
   ret void
 }
 

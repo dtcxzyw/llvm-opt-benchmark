@@ -293,7 +293,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   br i1 %24, label %890, label %25
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %27 = tail call noalias align 8 dereferenceable_or_null(9) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 9) #13
   %28 = icmp eq ptr %27, null
   br i1 %28, label %890, label %29
@@ -1816,7 +1816,7 @@ define dso_local void @usb_release_bos_descriptor(ptr nocapture noundef %0) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(5) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 5) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %116, label %6
@@ -1851,7 +1851,7 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
   br i1 %23, label %116, label %24
 
 24:                                               ; preds = %16
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %26 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 48) #13
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %26, ptr %27, align 8

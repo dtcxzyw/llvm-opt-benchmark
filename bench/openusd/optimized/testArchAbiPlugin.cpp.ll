@@ -37,7 +37,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__14ArchAbiDerivedIiEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @newDerived() local_unnamed_addr #0 {
   %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__14ArchAbiDerivedIiEE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__14ArchAbiDerivedIiEE, i64 16), ptr %1, align 8
   ret ptr %1
 }
 

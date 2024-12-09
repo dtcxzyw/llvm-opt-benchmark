@@ -47,7 +47,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN13IlmThread_3_26ThreadC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13IlmThread_3_26ThreadE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13IlmThread_3_26ThreadE, i64 16), ptr %this, align 8
   %_thread = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %_thread, align 8
   ret void
@@ -56,7 +56,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13IlmThread_3_26ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN13IlmThread_3_26ThreadE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13IlmThread_3_26ThreadE, i64 16), ptr %this, align 8
   %_thread = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %_thread, align 8
   %cmp.i.i.not = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i, 0
@@ -145,7 +145,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN13IlmThread_3_26ThreadEFvvEPS4_EEEEEE, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN13IlmThread_3_26ThreadEFvvEPS4_EEEEEE, i64 16), ptr %call.i, align 8
   %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
   %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 16

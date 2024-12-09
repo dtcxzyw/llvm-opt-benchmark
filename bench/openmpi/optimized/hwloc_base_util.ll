@@ -82,12 +82,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   %26 = alloca %struct.pmix_info, align 8
   %27 = alloca i64, align 8
   store ptr null, ptr %1, align 8
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %29 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %28) #9
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %0
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %31, ptr noundef nonnull @.str) #9
   br label %32
 
@@ -100,12 +100,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   %35 = tail call ptr @opal_proc_local_get() #9
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %39 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 2, i32 noundef %38) #9
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %34
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %41, ptr noundef nonnull @.str.1) #9
   br label %42
 
@@ -237,7 +237,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   %90 = load i64, ptr %4, align 8
   %91 = call i32 @hwloc_shmem_topology_adopt(ptr noundef nonnull @opal_hwloc_topology, i32 noundef %82, i64 noundef 0, ptr noundef %89, i64 noundef %90, i64 noundef 0) #9
   %.not68 = icmp eq i32 %91, 0
-  %92 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   br i1 %.not68, label %105, label %93
 
 93:                                               ; preds = %87
@@ -280,7 +280,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %105
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %108, ptr noundef nonnull @.str.12) #9
   br label %109
 
@@ -289,12 +289,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br label %194
 
 .thread105:                                       ; preds = %.thread95, %79, %93, %._crit_edge, %96
-  %110 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %111 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %110) #9
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %.thread105
-  %113 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %113, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.7, i32 noundef 260) #9
   br label %114
 
@@ -380,12 +380,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br i1 %or.cond5, label %146, label %.thread126
 
 146:                                              ; preds = %142
-  %147 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %148 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %147) #9
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %146
-  %150 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %150, ptr noundef nonnull @.str.17) #9
   br label %151
 
@@ -447,12 +447,12 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br label %194
 
 .thread126:                                       ; preds = %.thread115, %162, %169, %173, %142
-  %178 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   %179 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %178) #9
   br i1 %179, label %180, label %182
 
 180:                                              ; preds = %.thread126
-  %181 = load i32, ptr getelementptr inbounds (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
+  %181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_hwloc_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %181, ptr noundef nonnull @.str.18) #9
   br label %182
 

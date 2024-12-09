@@ -203,7 +203,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.thread: ; pre
   store i32 1, ptr %47, align 8, !noalias !4
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 1, ptr %48, align 4, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %46, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %46, align 8, !noalias !4
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetC1EONS_16TfSafeOutputFileE(ptr noundef nonnull align 8 dereferenceable(80) %49, ptr noundef nonnull align 8 dereferenceable(72) %7)
           to label %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetEJNS0_16TfSafeOutputFileEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !4
@@ -270,7 +270,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetC2EONS_16TfSafeOutputFileE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15ArWritableAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -316,7 +316,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__15ArWritableAssetD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25ArFilesystemWritableAssetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16TfSafeOutputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #9
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15ArWritableAssetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #9

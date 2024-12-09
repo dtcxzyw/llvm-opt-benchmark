@@ -46,10 +46,10 @@ define ptr @agmemread(ptr noundef %0) local_unnamed_addr #1 {
   %3 = alloca %struct.Agdisc_s, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 8), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 8), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 16), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AgIoDisc, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @memIoDisc, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AgIoDisc, i64 16), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @memIoDisc, i64 16), align 8
   store ptr %0, ptr %2, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -72,10 +72,10 @@ define ptr @agmemconcat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %4 = alloca %struct.Agdisc_s, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 8), align 8
-  store ptr %5, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 8), align 8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @AgIoDisc, i64 16), align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AgIoDisc, i64 8), align 8
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @memIoDisc, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AgIoDisc, i64 16), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @memIoDisc, i64 16), align 8
   store ptr %1, ptr %3, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8

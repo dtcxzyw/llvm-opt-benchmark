@@ -1089,7 +1089,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52416), ptr noundef nonnull %nameobj) #10
+  %call1 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52416), ptr noundef nonnull %nameobj) #10
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -1754,7 +1754,7 @@ if.then207.i:                                     ; preds = %if.end204.i
   br label %if.end212.i
 
 if.end212.i:                                      ; preds = %if.then207.i, %if.end204.i, %if.then191.i
-  %call213.i = call i32 @PyObject_SetAttr(ptr noundef nonnull %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 52416), ptr noundef %3) #10
+  %call213.i = call i32 @PyObject_SetAttr(ptr noundef nonnull %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 52416), ptr noundef %3) #10
   %cmp214.i = icmp slt i32 %call213.i, 0
   br i1 %cmp214.i, label %error.i, label %if.end217.i
 
@@ -2528,7 +2528,7 @@ if.end:                                           ; preds = %entry
   store ptr %cls.val.val.val, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %args.i.i, i64 8
   store ptr %self, ptr %arrayinit.element.i.i, align 8
-  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #10
+  %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 40424), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
   %closefd.i = getelementptr inbounds nuw i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %closefd.i, align 4

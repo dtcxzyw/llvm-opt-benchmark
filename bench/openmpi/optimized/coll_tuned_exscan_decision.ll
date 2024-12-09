@@ -26,8 +26,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @ompi_coll_tuned_exscan_intra_check_forced_init(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @ompi_coll_tuned_forced_max_algorithms, i64 32), align 16
-  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_tuned_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_coll_tuned_forced_max_algorithms, i64 32)) #4
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_tuned_forced_max_algorithms, i64 32), align 16
+  %3 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_tuned_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_coll_tuned_forced_max_algorithms, i64 32)) #4
   store i32 0, ptr @coll_tuned_exscan_forced_algorithm, align 4
   %4 = call i32 @mca_base_var_enum_create(ptr noundef nonnull @.str.2, ptr noundef nonnull @exscan_algorithms, ptr noundef nonnull %2) #4
   %5 = load ptr, ptr %2, align 8

@@ -100435,8 +100435,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %9
 
 9:                                                ; preds = %3, %8
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14582, !noundef !4
-  %.08.val10.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14582
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14582, !noundef !4
+  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14582
   %10 = trunc nuw i8 %.08.val.i to i1
   %11 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %10, i8 %.08.val10.i), !noalias !14582
   %12 = zext i1 %11 to i8
@@ -100469,8 +100469,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit16"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit16": ; preds = %"_ZN4core3ptr252drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_core..pool..connection..Floating$LT$sqlx_sqlite..database..Sqlite$C$sqlx_core..pool..connection..Live$LT$sqlx_sqlite..database..Sqlite$GT$$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h7d3cb0eceadf7e67E.llvm.14504113750506346165.exit", %18
-  %.08.val.i13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14585, !noundef !4
-  %.08.val10.i14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14585
+  %.08.val.i13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14585, !noundef !4
+  %.08.val10.i14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14585
   %19 = trunc nuw i8 %.08.val.i13 to i1
   %20 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %19, i8 %.08.val10.i14), !noalias !14585
   %.010.not = xor i1 %.010, true
@@ -100585,8 +100585,8 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN87_$LT$tokio..time..timeout..Timeou
   br label %7
 
 7:                                                ; preds = %2, %6
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14614, !noundef !4
-  %.08.val10.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14614
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14614, !noundef !4
+  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14614
   %8 = trunc nuw i8 %.08.val.i to i1
   %9 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %8, i8 %.08.val10.i), !noalias !14614
   %10 = zext i1 %9 to i8
@@ -100614,8 +100614,8 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN87_$LT$tokio..time..timeout..Timeou
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit21"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit21": ; preds = %14, %16
-  %.08.val.i18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14617, !noundef !4
-  %.08.val10.i19 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14617
+  %.08.val.i18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14617, !noundef !4
+  %.08.val10.i19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14617
   %17 = trunc nuw i8 %.08.val.i18 to i1
   %18 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %17, i8 %.08.val10.i19), !noalias !14617
   %.015.not = xor i1 %.015, true
@@ -100725,8 +100725,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %9
 
 9:                                                ; preds = %3, %8
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14633, !noundef !4
-  %.08.val10.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14633
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14633, !noundef !4
+  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14633
   %10 = trunc nuw i8 %.08.val.i to i1
   %11 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %10, i8 %.08.val10.i), !noalias !14633
   %12 = zext i1 %11 to i8
@@ -100765,8 +100765,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17": ; preds = %"_ZN4core3ptr151drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$ockam_api..session..sessions..ReplacerOutcome$C$ockam_core..error..Error$GT$$GT$$GT$17h6f1d9eb3b7edd314E.llvm.14504113750506346165.exit", %20
-  %.08.val.i14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14636, !noundef !4
-  %.08.val10.i15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14636
+  %.08.val.i14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14636, !noundef !4
+  %.08.val10.i15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14636
   %21 = trunc nuw i8 %.08.val.i14 to i1
   %22 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %21, i8 %.08.val10.i15), !noalias !14636
   %.011.not = xor i1 %.011, true
@@ -100884,8 +100884,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %10
 
 10:                                               ; preds = %3, %9
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14665, !noundef !4
-  %.08.val10.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14665
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14665, !noundef !4
+  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14665
   %11 = trunc nuw i8 %.08.val.i to i1
   %12 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %11, i8 %.08.val10.i), !noalias !14665
   %13 = zext i1 %12 to i8
@@ -101004,8 +101004,8 @@ common.resume:                                    ; preds = %60, %21
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17": ; preds = %"_ZN4core3ptr166drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$ockam_core..message..Routed$LT$alloc..vec..Vec$LT$u8$GT$$GT$$C$ockam_core..error..Error$GT$$GT$$GT$17hbc390aeda9071f7aE.llvm.14504113750506346165.exit", %42
-  %.08.val.i14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14673, !noundef !4
-  %.08.val10.i15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14673
+  %.08.val.i14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14673, !noundef !4
+  %.08.val10.i15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14673
   %43 = trunc nuw i8 %.08.val.i14 to i1
   %44 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %43, i8 %.08.val10.i15), !noalias !14673
   %.011.not = xor i1 %.011, true
@@ -101118,8 +101118,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %9
 
 9:                                                ; preds = %3, %8
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14702, !noundef !4
-  %.08.val10.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14702
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14702, !noundef !4
+  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14702
   %10 = trunc nuw i8 %.08.val.i to i1
   %11 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %10, i8 %.08.val10.i), !noalias !14702
   %12 = zext i1 %11 to i8
@@ -101158,8 +101158,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17": ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$ockam_core..message..Routed$LT$ockam_identity..secure_channel..api..DecryptionResponse$GT$$C$ockam_core..error..Error$GT$$GT$$GT$17ha34725f86e220ef3E.llvm.14504113750506346165.exit", %20
-  %.08.val.i14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14705, !noundef !4
-  %.08.val10.i15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14705
+  %.08.val.i14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14705, !noundef !4
+  %.08.val10.i15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14705
   %21 = trunc nuw i8 %.08.val.i14 to i1
   %22 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %21, i8 %.08.val10.i15), !noalias !14705
   %.011.not = xor i1 %.011, true
@@ -101275,8 +101275,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %9
 
 9:                                                ; preds = %3, %8
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14734, !noundef !4
-  %.08.val10.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14734
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14734, !noundef !4
+  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14734
   %10 = trunc nuw i8 %.08.val.i to i1
   %11 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %10, i8 %.08.val10.i), !noalias !14734
   %12 = zext i1 %11 to i8
@@ -101315,8 +101315,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17": ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$ockam_core..message..Routed$LT$ockam_identity..secure_channel..api..EncryptionResponse$GT$$C$ockam_core..error..Error$GT$$GT$$GT$17h2e1b49f439a4b912E.llvm.14504113750506346165.exit", %20
-  %.08.val.i14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14737, !noundef !4
-  %.08.val10.i15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14737
+  %.08.val.i14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14737, !noundef !4
+  %.08.val10.i15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14737
   %21 = trunc nuw i8 %.08.val.i14 to i1
   %22 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %21, i8 %.08.val10.i15), !noalias !14737
   %.011.not = xor i1 %.011, true
@@ -101432,8 +101432,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %9
 
 9:                                                ; preds = %3, %8
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14766, !noundef !4
-  %.08.val10.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14766
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14766, !noundef !4
+  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14766
   %10 = trunc nuw i8 %.08.val.i to i1
   %11 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %10, i8 %.08.val10.i), !noalias !14766
   %12 = zext i1 %11 to i8
@@ -101472,8 +101472,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit17": ; preds = %"_ZN4core3ptr177drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$ockam_core..message..Routed$LT$ockam..remote..info..RemoteRelayInfo$GT$$C$ockam_core..error..Error$GT$$GT$$GT$17h25c459ab4d85f60eE.llvm.14504113750506346165.exit", %20
-  %.08.val.i14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14769, !noundef !4
-  %.08.val10.i15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14769
+  %.08.val.i14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14769, !noundef !4
+  %.08.val10.i15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14769
   %21 = trunc nuw i8 %.08.val.i14 to i1
   %22 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %21, i8 %.08.val10.i15), !noalias !14769
   %.011.not = xor i1 %.011, true
@@ -101589,8 +101589,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %9
 
 9:                                                ; preds = %3, %8
-  %.08.val.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14798, !noundef !4
-  %.08.val10.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14798
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14798, !noundef !4
+  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14798
   %10 = trunc nuw i8 %.08.val.i to i1
   %11 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %10, i8 %.08.val10.i), !noalias !14798
   %12 = zext i1 %11 to i8
@@ -101629,8 +101629,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit16"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit16": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h7e4de9709adc28c2E.llvm.14504113750506346165.exit", %23
-  %.08.val.i13 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14811, !noundef !4
-  %.08.val10.i14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14811
+  %.08.val.i13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !610, !noalias !14811, !noundef !4
+  %.08.val10.i14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !14811
   %24 = trunc nuw i8 %.08.val.i13 to i1
   %25 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %24, i8 %.08.val10.i14), !noalias !14811
   %.010.not = xor i1 %.010, true

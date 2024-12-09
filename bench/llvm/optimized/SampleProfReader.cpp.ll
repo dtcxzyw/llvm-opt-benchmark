@@ -543,7 +543,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -555,7 +555,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -1534,7 +1534,7 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof23SampleProfileReaderText8rea
   call void @_ZN4llvm13line_iteratorC1ERKNS_12MemoryBufferEbc(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(24) %34, i1 noundef zeroext true, i8 noundef signext 35) #24
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull %35, i64 noundef 10) #24
-  %36 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 128), align 8
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 128), align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %38 = and i8 %36, 1
   store i8 %38, ptr %37, align 8
@@ -1719,7 +1719,7 @@ _ZL9ParseHeadRKN4llvm9StringRefERS0_RmS4_.exit:   ; preds = %117
   store i32 8, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i8 0, ptr %138, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %19, align 8
   %139 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %135, ptr %139, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -2270,7 +2270,7 @@ _ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12D
   %334 = extractvalue { ptr, i64 } %332, 1
   store i32 8, ptr %85, align 8
   store i8 0, ptr %86, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
   store ptr %333, ptr %87, align 8
   store i64 %334, ptr %.sroa.2.0..sroa_idx.i.i94, align 8
   store i32 %326, ptr %88, align 8
@@ -2310,7 +2310,7 @@ _ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12D
   %346 = extractvalue { ptr, i64 } %344, 1
   store i32 8, ptr %59, align 8
   store i8 0, ptr %60, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %2, align 8
   store ptr %345, ptr %61, align 8
   store i64 %346, ptr %.sroa.2.0..sroa_idx.i.i101, align 8
   store i32 %338, ptr %62, align 8
@@ -2622,7 +2622,7 @@ _ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_
   store i8 3, ptr %70, align 8
   store i32 8, ptr %72, align 8
   store i8 1, ptr %73, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %31, align 8
   store ptr %462, ptr %74, align 8
   store i64 %463, ptr %.sroa.2.0..sroa_idx.i127, align 8
   store i32 %464, ptr %75, align 8
@@ -3671,7 +3671,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %8
   store i32 8, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 0, ptr %34, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %31, ptr %35, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3938,7 +3938,7 @@ define linkonce_odr void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readN
   store i32 8, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 0, ptr %52, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %49, ptr %53, align 8
   %.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4677,7 +4677,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit:        ; preds = %22
   store i32 8, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 0, ptr %48, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %4, align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %45, ptr %49, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -4736,7 +4736,7 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.thread: ; preds = %20, %13, %_ZN4llvm1
   store i32 8, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 0, ptr %78, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %75, ptr %79, align 8
   %.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5014,7 +5014,7 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary8readImplEv(ptr noundef nonnull align 8 dereferenceable(296) initializes((176, 177)) %0) unnamed_addr #0 align 2 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 128), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 128), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = and i8 %2, 1
   store i8 %4, ptr %3, align 8
@@ -9148,7 +9148,7 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit.thread:      ; preds = %2
   store i32 8, ptr %37, align 8, !noalias !167
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i8 0, ptr %38, align 4, !noalias !167
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %12, align 8, !noalias !167
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %12, align 8, !noalias !167
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %35, ptr %39, align 8, !noalias !167
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -9203,7 +9203,7 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit12.thread:    ; preds = %42
   store i32 8, ptr %62, align 8, !noalias !173
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i8 0, ptr %63, align 4, !noalias !173
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %9, align 8, !noalias !173
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %9, align 8, !noalias !173
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %60, ptr %64, align 8, !noalias !173
   %.sroa.2.0..sroa_idx.i.i.i2 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -9257,7 +9257,7 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit24.thread:    ; preds = %67
   store i32 8, ptr %86, align 8, !noalias !179
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %87, align 4, !noalias !179
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %6, align 8, !noalias !179
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %6, align 8, !noalias !179
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %84, ptr %88, align 8, !noalias !179
   %.sroa.2.0..sroa_idx.i.i.i14 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -9311,7 +9311,7 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit36.thread:    ; preds = %91
   store i32 8, ptr %110, align 8, !noalias !185
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 0, ptr %111, align 4, !noalias !185
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8, !noalias !185
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8, !noalias !185
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %108, ptr %112, align 8, !noalias !185
   %.sroa.2.0..sroa_idx.i.i.i26 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -9465,7 +9465,7 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit.thread:      ; preds = %1
   store i32 8, ptr %27, align 8, !noalias !191
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 0, ptr %28, align 4, !noalias !191
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %2, align 8, !noalias !191
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %2, align 8, !noalias !191
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %25, ptr %29, align 8, !noalias !191
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -9772,7 +9772,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof32SampleProfileReaderEx
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %27, ptr noundef nonnull align 1 dereferenceable(1) %10) #24
   %28 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
   %29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 14)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.45, i64 14)) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 14) #24
   br label %_ZN4llvm10sampleprofL10getSecNameB5cxx11ENS0_7SecTypeE.exit
 
@@ -9787,7 +9787,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof32SampleProfileReaderEx
   %33 = load i64, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %33) #24
   %34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %34, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.46, i64 21)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %34, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.46, i64 21)) #24
   %35 = load i64, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %35) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -9804,7 +9804,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof32SampleProfileReaderEx
   %39 = load i64, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %39) #24
   %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %40, ptr noundef nonnull @.str.47, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.47, i64 16)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %40, ptr noundef nonnull @.str.47, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.47, i64 16)) #24
   %41 = load i64, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %41) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -9821,7 +9821,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof32SampleProfileReaderEx
   %45 = load i64, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %45) #24
   %46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %46, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 24)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %46, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.48, i64 24)) #24
   %47 = load i64, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %47) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -9838,7 +9838,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof32SampleProfileReaderEx
   %51 = load i64, ptr %6, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %51) #24
   %52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %52, ptr noundef nonnull @.str.49, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.49, i64 22)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %52, ptr noundef nonnull @.str.49, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.49, i64 22)) #24
   %53 = load i64, ptr %6, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %53) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -9855,7 +9855,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof32SampleProfileReaderEx
   %57 = load i64, ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %57) #24
   %58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %58, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.50, i64 16)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %58, ptr noundef nonnull @.str.50, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.50, i64 16)) #24
   %59 = load i64, ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %59) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -9872,7 +9872,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof32SampleProfileReaderEx
   %63 = load i64, ptr %8, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %63) #24
   %64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %64, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.51, i64 18)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %64, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.51, i64 18)) #24
   %65 = load i64, ptr %8, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %65) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -9889,7 +9889,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof32SampleProfileReaderEx
   %69 = load i64, ptr %9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %69) #24
   %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %70, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.52, i64 17)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %70, ptr noundef nonnull @.str.52, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.52, i64 17)) #24
   %71 = load i64, ptr %9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %71) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -9901,7 +9901,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sampleprof32SampleProfileReaderEx
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %73, ptr noundef nonnull align 1 dereferenceable(1) %18) #24
   %74 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
   %75 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %75, ptr noundef nonnull @.str.53, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.53, i64 14)) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %75, ptr noundef nonnull @.str.53, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.53, i64 14)) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 14) #24
   br label %_ZN4llvm10sampleprofL10getSecNameB5cxx11ENS0_7SecTypeE.exit
 
@@ -12053,7 +12053,7 @@ define dso_local void @_ZN4llvm10sampleprof34SampleProfileReaderItaniumRemapper1
   store i32 8, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 1, ptr %23, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %18, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -12764,7 +12764,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
   store i8 0, ptr %53, align 1
   %54 = getelementptr inbounds nuw i8, ptr %33, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %54, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4llvm10sampleprof28SampleProfileReaderRawBinaryE, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4llvm10sampleprof28SampleProfileReaderRawBinaryE, i64 16), ptr %33, align 8
   br label %161
 
 _ZN4llvm10sampleprof28SampleProfileReaderRawBinary9hasFormatERKNS_12MemoryBufferE.exit.thread: ; preds = %_ZN4llvm10sampleprof28SampleProfileReaderRawBinary9hasFormatERKNS_12MemoryBufferE.exit.thread.preheader, %63
@@ -12845,7 +12845,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit37: ; pr
   store i8 0, ptr %91, align 1
   %92 = getelementptr inbounds nuw i8, ptr %71, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %92, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm10sampleprof32SampleProfileReaderExtBinaryBaseE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm10sampleprof32SampleProfileReaderExtBinaryBaseE, i64 16), ptr %71, align 8
   %93 = getelementptr inbounds nuw i8, ptr %71, i64 296
   %94 = getelementptr inbounds nuw i8, ptr %71, i64 312
   %95 = getelementptr inbounds nuw i8, ptr %71, i64 328
@@ -12861,7 +12861,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit37: ; pr
   %100 = getelementptr inbounds nuw i8, ptr %71, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %99, i8 0, i64 52, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %100, i8 0, i64 44, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm10sampleprof28SampleProfileReaderExtBinaryE, i64 16), ptr %71, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm10sampleprof28SampleProfileReaderExtBinaryE, i64 16), ptr %71, align 8
   br label %161
 
 _ZN4llvm10sampleprof28SampleProfileReaderExtBinary9hasFormatERKNS_12MemoryBufferE.exit.thread: ; preds = %61, %_ZN4llvm10sampleprof28SampleProfileReaderRawBinary9hasFormatERKNS_12MemoryBufferE.exit.thread, %_ZN4llvm10sampleprof28SampleProfileReaderExtBinary9hasFormatERKNS_12MemoryBufferE.exit
@@ -12920,7 +12920,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit45: ; pr
   store i8 0, ptr %122, align 4
   %123 = getelementptr inbounds nuw i8, ptr %103, i64 197
   store i8 0, ptr %123, align 1
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof22SampleProfileReaderGCCE, i64 16), ptr %103, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof22SampleProfileReaderGCCE, i64 16), ptr %103, align 8
   %124 = getelementptr inbounds nuw i8, ptr %103, i64 200
   %125 = getelementptr inbounds nuw i8, ptr %103, i64 224
   %126 = getelementptr inbounds nuw i8, ptr %103, i64 240
@@ -12980,7 +12980,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit51: ; pr
   store i8 0, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %130, i64 197
   store i8 0, ptr %151, align 1
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof23SampleProfileReaderTextE, i64 16), ptr %130, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof23SampleProfileReaderTextE, i64 16), ptr %130, align 8
   %152 = getelementptr inbounds nuw i8, ptr %130, i64 200
   %153 = getelementptr inbounds nuw i8, ptr %130, i64 208
   store ptr %152, ptr %153, align 8
@@ -13082,7 +13082,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_10sampleprof34SampleProfileReaderItaniumRemap
   store i32 8, ptr %191, align 8
   %192 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i8 0, ptr %192, align 4
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %10, align 8
   %193 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.07.0.copyload, ptr %193, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -13316,7 +13316,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i:
   store i64 %53, ptr %28, align 8, !noalias !254
   store i32 8, ptr %29, align 8, !noalias !254
   store i8 0, ptr %30, align 4, !noalias !254
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %7, align 8, !noalias !254
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %7, align 8, !noalias !254
   store ptr %46, ptr %31, align 8, !noalias !254
   store i64 %47, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !254
   store i32 %50, ptr %32, align 8, !noalias !254
@@ -13396,7 +13396,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i10.i.
   store i32 8, ptr %90, align 8, !noalias !260
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 0, ptr %91, align 4, !noalias !260
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %5, align 8, !noalias !260
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm27DiagnosticInfoSampleProfileE, i64 16), ptr %5, align 8, !noalias !260
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %79, ptr %92, align 8, !noalias !260
   %.sroa.2.0..sroa_idx.i.i.i.i14.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -13483,7 +13483,7 @@ declare void @_ZN4llvm27SampleProfileSummaryBuilder25computeSummaryForProfilesER
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10sampleprof23SampleProfileReaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof23SampleProfileReaderTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof23SampleProfileReaderTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i = icmp eq ptr %3, %2
@@ -13515,7 +13515,7 @@ _ZNSt7__cxx114listIN4llvm11SmallVectorINS1_10sampleprof18SampleContextFrameELj1E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10sampleprof23SampleProfileReaderTextD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof23SampleProfileReaderTextE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof23SampleProfileReaderTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i.i = icmp eq ptr %3, %2
@@ -13593,7 +13593,7 @@ define linkonce_odr hidden { i32, ptr } @_ZN4llvm10sampleprof19SampleProfileRead
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10sampleprof25SampleProfileReaderBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4llvm10sampleprof25SampleProfileReaderBinaryE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4llvm10sampleprof25SampleProfileReaderBinaryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13707,7 +13707,7 @@ define linkonce_odr hidden void @_ZN4llvm10sampleprof28SampleProfileReaderRawBin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm10sampleprof32SampleProfileReaderExtBinaryBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm10sampleprof32SampleProfileReaderExtBinaryBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -13822,7 +13822,7 @@ define linkonce_odr hidden void @_ZN4llvm10sampleprof22SampleProfileReaderGCCD2E
   %2 = alloca %"class.llvm::Error", align 8
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %class.anon.524, align 1
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof22SampleProfileReaderGCCE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof22SampleProfileReaderGCCE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -17405,7 +17405,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10sampleprof19SampleProfileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(198) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof19SampleProfileReaderE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm10sampleprof19SampleProfileReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
@@ -18082,7 +18082,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !376
   %155 = load ptr, ptr %2, align 8, !noalias !379
   store ptr null, ptr %2, align 8, !noalias !379
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
@@ -19562,7 +19562,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_cat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -21726,10 +21726,10 @@ define internal void @_GLOBAL__sub_I_SampleProfReader.cpp() #19 section ".text.s
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL23ProfileIsFSDisciminator, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL23ProfileIsFSDisciminator, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL23ProfileIsFSDisciminator, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL23ProfileIsFSDisciminator) #24
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 176), align 8

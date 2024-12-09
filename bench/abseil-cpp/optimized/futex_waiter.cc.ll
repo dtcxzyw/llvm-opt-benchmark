@@ -132,7 +132,7 @@ while.body.backedge:                              ; preds = %if.end7, %if.end7, 
   br label %while.body, !llvm.loop !7
 
 do.body:                                          ; preds = %if.end7
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 85, ptr noundef nonnull @.str.1, i32 noundef %call10)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 85, ptr noundef nonnull @.str.1, i32 noundef %call10)
   unreachable
 
 return:                                           ; preds = %if.end7, %while.body3
@@ -163,7 +163,7 @@ _ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i: ; preds
 
 do.body.i:                                        ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i
   %sub.i.i = sub nsw i32 0, %1
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 103, ptr noundef nonnull @.str.1, i32 noundef %sub.i.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 103, ptr noundef nonnull @.str.1, i32 noundef %sub.i.i)
   unreachable
 
 if.end:                                           ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i, %if.then, %entry
@@ -185,7 +185,7 @@ _ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit: ; preds =
 
 do.body:                                          ; preds = %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit
   %sub.i = sub nsw i32 0, %0
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 103, ptr noundef nonnull @.str.1, i32 noundef %sub.i)
+  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 103, ptr noundef nonnull @.str.1, i32 noundef %sub.i)
   unreachable
 
 if.end:                                           ; preds = %entry, %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit

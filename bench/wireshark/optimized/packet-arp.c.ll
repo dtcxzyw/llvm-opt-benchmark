@@ -2995,7 +2995,7 @@ define internal fastcc void @check_for_storm_count(ptr noundef %0, ptr noundef %
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @time_at_start_of_count, i64 8), align 8
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @time_at_start_of_count, i64 8), align 8
   %20 = sub i32 %18, %19
   %21 = mul i32 %16, 1000
   %22 = sdiv i32 %20, 1000000

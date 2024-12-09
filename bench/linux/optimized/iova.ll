@@ -1027,7 +1027,7 @@ define dso_local void @free_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
   br label %44
 
 30:                                               ; preds = %24
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %32 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 2080, i64 noundef 1024) #12
   %33 = icmp eq ptr %32, null
   br i1 %33, label %52, label %34
@@ -1264,7 +1264,7 @@ declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112)) %0) #1 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(720) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 720) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %3, ptr %4, align 8
@@ -1288,7 +1288,7 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112
   store ptr @iova_depot_work_func, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @init_timer_key(ptr noundef nonnull %14, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #9
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 260), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 260), align 4
   %16 = sext i32 %15 to i64
   %17 = tail call noalias dereferenceable_or_null(24) ptr @__alloc_percpu(i64 noundef 24, i64 noundef %16) #13
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1324,7 +1324,7 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112
   %38 = add i64 %37, %34
   %39 = inttoptr i64 %38 to ptr
   store i32 0, ptr %39, align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %41 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %40, i32 noundef 3264, i64 noundef 1024) #12
   %42 = icmp eq ptr %41, null
   br i1 %42, label %44, label %43
@@ -1336,7 +1336,7 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112
 44:                                               ; preds = %43, %32
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %41, ptr %45, align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %47 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3264, i64 noundef 1024) #12
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.thread6, label %50

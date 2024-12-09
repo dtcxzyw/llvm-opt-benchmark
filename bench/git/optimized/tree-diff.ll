@@ -133,7 +133,7 @@ if.end32:                                         ; preds = %if.end32.lr.ph, %if
   %p.addr.0205 = phi ptr [ %p, %if.end32.lr.ph ], [ %p.addr.2, %if.end193 ]
   %9 = load i32, ptr %max_changes, align 8
   %tobool33.not = icmp ne i32 %9, 0
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp35 = icmp sgt i32 %10, %9
   %or.cond = select i1 %tobool33.not, i1 %cmp35, i1 false
   br i1 %or.cond, label %for.end194, label %if.end38
@@ -585,7 +585,7 @@ land.lhs.true:                                    ; preds = %ll_diff_tree_oid.ex
   %follow_renames = getelementptr inbounds nuw i8, ptr %opt, i64 132
   %5 = load i32, ptr %follow_renames, align 4
   %tobool1.not = icmp ne i32 %5, 0
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp.i = icmp eq i32 %6, 1
   %or.cond = select i1 %tobool1.not, i1 %cmp.i, i1 false
   br i1 %or.cond, label %diff_might_be_rename.exit, label %if.end
@@ -614,7 +614,7 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 do.end.i:                                         ; preds = %if.then
-  store i32 0, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %repo.i = getelementptr inbounds nuw i8, ptr %opt, i64 576
   %12 = load ptr, ptr %repo.i, align 8
   call void @repo_diff_setup(ptr noundef %12, ptr noundef nonnull %diff_opts.i) #10
@@ -669,7 +669,7 @@ ll_diff_tree_oid.exit.i:                          ; preds = %for.body.i.i, %do.e
   call void @clear_pathspec(ptr noundef nonnull %pathspec9.i) #10
   %found_follow.i = getelementptr inbounds nuw i8, ptr %opt, i64 436
   store i32 0, ptr %found_follow.i, align 4
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp31.i = icmp sgt i32 %21, 0
   br i1 %cmp31.i, label %for.body.lr.ph.i, label %try_to_follow_renames.exit
 
@@ -717,7 +717,7 @@ for.end.i:                                        ; preds = %land.lhs.true.i
   call void @clear_pathspec(ptr noundef nonnull %pathspec.i) #10
   call void @parse_pathspec(ptr noundef nonnull %pathspec.i, i32 noundef 123, i32 noundef 64, ptr noundef nonnull @.str.7, ptr noundef nonnull %path25.i) #10
   store i32 1, ptr %found_follow.i, align 4
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %31 = icmp sgt i32 %.pre.i, 0
   br i1 %31, label %for.body40.preheader.i, label %try_to_follow_renames.exit
 
@@ -732,7 +732,7 @@ for.body40.i:                                     ; preds = %for.body40.i, %for.
   %33 = load ptr, ptr %arrayidx44.i, align 8
   call void @diff_free_filepair(ptr noundef %33) #10
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %35 = sext i32 %34 to i64
   %cmp38.i = icmp slt i64 %indvars.iv.next39.i, %35
   br i1 %cmp38.i, label %for.body40.i, label %try_to_follow_renames.exit, !llvm.loop !18
@@ -741,7 +741,7 @@ try_to_follow_renames.exit:                       ; preds = %for.body40.i, %ll_d
   %choice.043.i = phi ptr [ %23, %for.end.i ], [ %8, %ll_diff_tree_oid.exit.i ], [ %choice.044.i, %for.body40.i ]
   %36 = load ptr, ptr @diff_queued_diff, align 8
   store ptr %choice.043.i, ptr %36, align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %diff_opts.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %path25.i)
   br label %if.end

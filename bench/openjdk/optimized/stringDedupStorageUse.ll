@@ -39,7 +39,7 @@ define hidden noundef ptr @_ZN11StringDedup10StorageUse6obtainEPVPS0_(ptr nounde
   br i1 %7, label %8, label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 
 8:                                                ; preds = %1
-  %9 = load volatile i64, ptr getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
+  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128), align 8
   %10 = or i64 %9, 1
   br label %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit
 

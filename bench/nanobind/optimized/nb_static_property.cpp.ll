@@ -26,7 +26,7 @@ define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_
   br i1 %.not, label %6, label %26
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 240), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyProperty_Type, i64 240), align 8
   store i32 48, ptr %1, align 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @PyProperty_Type, ptr %8, align 8
@@ -91,7 +91,7 @@ define internal noundef ptr @_ZN8nanobind6detailL28nb_static_property_descr_getE
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 272), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyProperty_Type, i64 272), align 8
   %10 = tail call noundef ptr %9(ptr noundef %0, ptr noundef %2, ptr noundef %2)
   br label %14
 
@@ -134,7 +134,7 @@ define internal noundef i32 @_ZN8nanobind6detailL28nb_static_property_descr_setE
   %6 = and i64 %.val.val, 2147483648
   %.not6 = icmp eq i64 %6, 0
   %spec.select = select i1 %.not6, ptr %.val, ptr %1
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 280), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyProperty_Type, i64 280), align 8
   %8 = tail call noundef i32 %7(ptr noundef %0, ptr noundef nonnull %spec.select, ptr noundef %2)
   ret i32 %8
 }

@@ -480,7 +480,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_inotify_
   call void @_raw_spin_unlock(ptr noundef nonnull %120) #10
   %138 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @radix_tree_preloads) #13, !srcloc !34
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !35
-  %139 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !36
+  %139 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !36
   %140 = icmp ult i8 %139, 2
   call void @llvm.assume(i1 %140)
   %141 = icmp eq i8 %139, 0
@@ -717,8 +717,8 @@ define internal noundef i32 @inotify_user_setup() #3 section ".init.text" align 
   %16 = call ptr @kmem_cache_create(ptr noundef nonnull @.str.10, i32 noundef 80, i32 noundef 8, i32 noundef 262144, ptr noundef null) #10
   store ptr %16, ptr @inotify_inode_mark_cachep, align 8
   store i32 16384, ptr @inotify_max_queued_events, align 4
-  store i64 128, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 552), align 8
-  store i64 %15, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 560), align 8
+  store i64 128, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 552), align 8
+  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 560), align 8
   %17 = call ptr @register_sysctl_sz(ptr noundef nonnull @.str.11, ptr noundef nonnull @inotify_table, i64 noundef 3) #10
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %1) #10
   ret i32 0
@@ -764,7 +764,7 @@ define internal fastcc i32 @do_inotify_init(i32 noundef %0) unnamed_addr #0 alig
   br i1 %7, label %.thread6, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 4197568, i64 noundef 32) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12, !prof !12

@@ -144,7 +144,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm25createX86ExpandPseudoPas
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_115X86ExpandPseudoE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_115X86ExpandPseudoE, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   ret ptr %1
@@ -164,7 +164,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_115X86ExpandPseudoE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_115X86ExpandPseudoE, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   ret ptr %1
@@ -4044,14 +4044,14 @@ _ZN4llvm5X86II7needSIBEjjb.exit:                  ; preds = %1228
 1231:                                             ; preds = %_ZN4llvm5X86II7needSIBEjjb.exit, %_ZN4llvm5X86II7needSIBEjjb.exit.thread
   %1232 = phi i32 [ %1229, %_ZN4llvm5X86II7needSIBEjjb.exit.thread ], [ %spec.select696, %_ZN4llvm5X86II7needSIBEjjb.exit ]
   %1233 = lshr i32 %1207, 3
-  %1234 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1142), align 2
+  %1234 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1142), align 2
   %1235 = zext i16 %1234 to i32
   %.not.i554 = icmp samesign ult i32 %1233, %1235
   br i1 %.not.i554, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %1231
   %1236 = and i32 %1207, 7
-  %1237 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1128), align 8
+  %1237 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1128), align 8
   %1238 = zext nneg i32 %1233 to i64
   %1239 = getelementptr inbounds nuw i8, ptr %1237, i64 %1238
   %1240 = load i8, ptr %1239, align 1
@@ -4068,7 +4068,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %123
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit558: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
   %1245 = and i32 %1221, 7
-  %1246 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1128), align 8
+  %1246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1128), align 8
   %1247 = zext nneg i32 %1244 to i64
   %1248 = getelementptr inbounds nuw i8, ptr %1246, i64 %1247
   %1249 = load i8, ptr %1248, align 1

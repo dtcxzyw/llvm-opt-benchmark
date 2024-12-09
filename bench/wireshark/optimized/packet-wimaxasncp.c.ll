@@ -857,7 +857,7 @@ define internal void @register_wimaxasncp_fields(ptr nocapture readnone %0) #0 {
   call void @wmem_array_append(ptr noundef %22, ptr noundef nonnull @register_wimaxasncp_fields.hf_base, i32 noundef 16) #8
   %23 = call ptr @wmem_epan_scope() #8
   %24 = call noalias ptr @wmem_array_new(ptr noundef %23, i64 noundef 8) #8
-  store ptr %24, ptr getelementptr inbounds (i8, ptr @wimaxasncp_build_dict, i64 8), align 8
+  store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @wimaxasncp_build_dict, i64 8), align 8
   call void @wmem_array_append(ptr noundef %24, ptr noundef nonnull @register_wimaxasncp_fields.ett_base, i32 noundef 13) #8
   %25 = load ptr, ptr @wimaxasncp_dict, align 8
   %.not44 = icmp eq ptr %25, null
@@ -975,9 +975,9 @@ define internal void @register_wimaxasncp_fields(ptr nocapture readnone %0) #0 {
   %83 = load ptr, ptr @wimaxasncp_build_dict, align 8
   %84 = call i32 @wmem_array_get_count(ptr noundef %83) #8
   call void @proto_register_field_array(i32 noundef %80, ptr noundef %82, i32 noundef %84) #8
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @wimaxasncp_build_dict, i64 8), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wimaxasncp_build_dict, i64 8), align 8
   %86 = call ptr @wmem_array_get_raw(ptr noundef %85) #8
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @wimaxasncp_build_dict, i64 8), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wimaxasncp_build_dict, i64 8), align 8
   %88 = call i32 @wmem_array_get_count(ptr noundef %87) #8
   call void @proto_register_subtree_array(ptr noundef %86, i32 noundef %88) #8
   %89 = load i32, ptr @proto_wimaxasncp, align 4

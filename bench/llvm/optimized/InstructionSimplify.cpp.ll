@@ -32223,7 +32223,7 @@ _ZL12getCompareTyPN4llvm5ValueE.exit94:           ; preds = %161, %169
 
 select.unfold:                                    ; preds = %186, %182
   %.0 = phi ptr [ %34, %182 ], [ %35, %186 ]
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVZL18computePointerICmpN4llvm7CmpInst9PredicateEPNS_5ValueES3_RKNS_13SimplifyQueryEE20CustomCaptureTracker, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVZL18computePointerICmpN4llvm7CmpInst9PredicateEPNS_5ValueES3_RKNS_13SimplifyQueryEE20CustomCaptureTracker, i64 16), ptr %17, align 8
   %188 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 0, ptr %188, align 8
   call void @_ZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEj(ptr noundef nonnull %.0, ptr noundef nonnull %17, i32 noundef 0) #18

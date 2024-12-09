@@ -49,7 +49,7 @@ define hidden noundef zeroext i1 @_ZNK27ClosureIsUnloadingBehaviour12has_dead_oo
   %3 = alloca %class.IsCompiledMethodUnloadingOopClosure, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV35IsCompiledMethodUnloadingOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV35IsCompiledMethodUnloadingOopClosure, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16

@@ -82,8 +82,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @time(ptr noundef null) #18
-  %.021.i = load ptr, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 240), align 8
-  %.not22.i = icmp eq ptr %.021.i, getelementptr inbounds (i8, ptr @abd_tuples, i64 120)
+  %.021.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 240), align 8
+  %.not22.i = icmp eq ptr %.021.i, getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120)
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %13
@@ -104,7 +104,7 @@ define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %
 13:                                               ; preds = %8, %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.023.i, i64 120
   %.0.i = load ptr, ptr %14, align 8
-  %.not.i = icmp eq ptr %.0.i, getelementptr inbounds (i8, ptr @abd_tuples, i64 120)
+  %.not.i = icmp eq ptr %.0.i, getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120)
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %13, %2
@@ -170,7 +170,7 @@ define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %
   br i1 %.b1014.pr, label %.thread, label %42
 
 42:                                               ; preds = %41
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8
   %44 = tail call i32 @pmix_event_assign(ptr noundef nonnull @show_help_timer_event, ptr noundef %43, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @pmix_show_accumulated_duplicates, ptr noundef null) #18
   %45 = tail call i32 @event_add(ptr noundef nonnull @show_help_timer_event, ptr noundef nonnull @show_help_interval) #18
   store i1 true, ptr @show_help_timer_set, align 1
@@ -183,17 +183,17 @@ define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %
   %48 = tail call noalias ptr @strdup(ptr noundef %1) #18
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 152
   store ptr %48, ptr %49, align 8
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 248), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 248), align 8
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 128
   store ptr %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store volatile ptr %16, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  store ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 120), ptr %53, align 8
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 248), align 8
-  %54 = load volatile i64, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 264), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120), ptr %53, align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 248), align 8
+  %54 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 264), align 8
   %55 = add i64 %54, 1
-  store volatile i64 %55, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 264), align 8
+  store volatile i64 %55, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 264), align 8
   %.b12 = load i1, ptr @show_help_timer_set, align 1
   br i1 %.b12, label %.thread, label %56
 
@@ -220,8 +220,8 @@ define internal void @pmix_show_accumulated_duplicates(i32 %0, i16 signext %1, p
   %5 = alloca [50 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = tail call i64 @time(ptr noundef null) #18
-  %.017 = load ptr, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 240), align 8
-  %.not18 = icmp eq ptr %.017, getelementptr inbounds (i8, ptr @abd_tuples, i64 120)
+  %.017 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 240), align 8
+  %.not18 = icmp eq ptr %.017, getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120)
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %37
@@ -275,7 +275,7 @@ define internal void @pmix_show_accumulated_duplicates(i32 %0, i16 signext %1, p
 37:                                               ; preds = %.lr.ph, %11, %32, %15
   %38 = getelementptr inbounds nuw i8, ptr %.019, i64 120
   %.0 = load ptr, ptr %38, align 8
-  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @abd_tuples, i64 120)
+  %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %37, %3
@@ -296,7 +296,7 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 define noundef i32 @pmix_show_help_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.pmix_output_stream_t, align 8
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_stream_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -331,7 +331,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %16 = call i32 @pmix_output_open(ptr noundef nonnull %2) #18
   store i32 %16, ptr @output_stream, align 4
   %17 = load i32, ptr @pmix_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not2 = icmp eq i32 %17, %18
   br i1 %.not2, label %20, label %19
 
@@ -340,8 +340,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   br label %20
 
 20:                                               ; preds = %19, %pmix_obj_run_constructors.exit
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @abd_tuples, i64 48), align 8
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 48), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 56), i8 0, i64 64, i1 false)
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
@@ -358,7 +358,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   br i1 %.not.i7, label %pmix_obj_run_constructors.exit8, label %.lr.ph.i5, !llvm.loop !6
 
 pmix_obj_run_constructors.exit8:                  ; preds = %.lr.ph.i5, %20
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pinstall_dirs, i64 112), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_pinstall_dirs, i64 112), align 8
   %27 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull @search_dirs, ptr noundef %26) #18
   %.not3 = icmp eq ptr %0, null
   br i1 %.not3, label %30, label %28
@@ -1066,7 +1066,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %14, %1
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 520
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8
   %42 = tail call i32 @pmix_event_assign(ptr noundef nonnull %40, ptr noundef %41, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_log_local_op, ptr noundef %10) #18
   fence release
   tail call void @event_active(ptr noundef nonnull %40, i32 noundef 4, i16 noundef signext 1) #18
@@ -1206,7 +1206,7 @@ define internal void @tuple_list_item_constructor(ptr noundef initializes((144, 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 

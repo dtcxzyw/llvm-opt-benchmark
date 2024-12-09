@@ -92,9 +92,9 @@ define void @_ZN13SplashOverlayC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %12 = alloca %class.QColor, align 4
   %13 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13SplashOverlay, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13SplashOverlay, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13SplashOverlay, i64 448), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13SplashOverlay, i64 448), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #10
           to label %17 unwind label %62
@@ -455,7 +455,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24:    ; preds = %35
   %42 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 0, ptr %43, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 20, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -541,7 +541,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %71
   %77 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i32 0, ptr %78, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %77, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 12
   store i32 116, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
@@ -662,7 +662,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54:    ; preds = %114
   %126 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 0, ptr %127, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %126, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 12
   store i32 116, ptr %128, align 4
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 16
@@ -690,7 +690,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54:    ; preds = %114
   %142 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i32 0, ptr %143, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %142, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 12
   store i32 20, ptr %144, align 4
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 16
@@ -1420,9 +1420,9 @@ declare void @_ZN7QWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13SplashOverlayD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13SplashOverlay, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13SplashOverlay, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13SplashOverlay, i64 448), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13SplashOverlay, i64 448), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

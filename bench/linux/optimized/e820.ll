@@ -1346,7 +1346,7 @@ define dso_local i64 @e820__memblock_alloc_reserved(i64 noundef %0, i64 noundef 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i64 0, 1099511627777) i64 @e820__end_of_ram_pfn() local_unnamed_addr #3 section ".init.text" align 16 {
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #17
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #17
           to label %2 [label %2, label %1], !srcloc !36
 
 1:                                                ; preds = %0
@@ -1360,7 +1360,7 @@ define dso_local noundef range(i64 0, 1099511627777) i64 @e820__end_of_ram_pfn()
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i64 0, 1099511627777) i64 @e820_end_pfn(i64 noundef range(i64 1048576, 1099511627777) %0) unnamed_addr #3 section ".init.text" align 16 {
-  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #17
+  callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #17
           to label %3 [label %3, label %2], !srcloc !36
 
 2:                                                ; preds = %1
@@ -1484,7 +1484,7 @@ define internal noundef i32 @parse_memmap_opt(ptr noundef %0) #3 section ".init.
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @e820__reserve_setup_data() local_unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @boot_params, i64 592), align 1
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 592), align 1
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %58, label %.preheader
 
@@ -1896,19 +1896,19 @@ declare dso_local void @reserve_region_with_split(ptr noundef, i64 noundef, i64 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local nonnull ptr @e820__memory_setup_default() local_unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 488), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 488), align 1
   %2 = icmp ult i8 %1, 2
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %0
   %4 = zext i8 %1 to i32
-  %5 = tail call fastcc i32 @__append_e820_table(ptr noundef nonnull getelementptr inbounds (i8, ptr @boot_params, i64 720), i32 noundef %4) #15
+  %5 = tail call fastcc i32 @__append_e820_table(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @boot_params, i64 720), i32 noundef %4) #15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %31
 
 7:                                                ; preds = %3, %0
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @boot_params, i64 480), align 1
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @boot_params, i64 2), align 1
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 480), align 1
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @boot_params, i64 2), align 1
   %10 = zext i16 %9 to i32
   %11 = icmp ult i32 %8, %10
   %12 = zext i16 %9 to i64
@@ -1954,7 +1954,7 @@ __e820__range_add.exit:                           ; preds = %20, %22
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @e820__memory_setup() local_unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_init, i64 16), align 8
   %2 = tail call ptr %1() #17
   %3 = load ptr, ptr @e820_table_kexec, align 8
   %4 = load ptr, ptr @e820_table, align 8

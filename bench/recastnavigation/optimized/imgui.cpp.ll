@@ -27,28 +27,28 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @_Z15imguiBeginFrameiihi(i32 noundef %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = and i8 %2, 1
   %6 = icmp ne i8 %5, 0
-  store i32 %0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
   %7 = load i8, ptr @_ZL7g_state, align 4
   %8 = trunc i8 %7 to i1
   %not..i = xor i1 %8, true
   %9 = and i1 %6, %not..i
   %10 = zext i1 %9 to i8
-  store i8 %10, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
+  store i8 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   %11 = xor i1 %6, true
   %12 = and i1 %11, %8
   %13 = zext i1 %12 to i8
-  store i8 %13, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
+  store i8 %13, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   store i8 %5, ptr @_ZL7g_state, align 4
-  store i32 %3, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), i8 0, i64 7, i1 false)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 60), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
+  store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), i8 0, i64 7, i1 false)
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   store i32 0, ptr @_ZL17g_gfxCmdQueueSize, align 4
   store i32 0, ptr @_ZL14g_textPoolSize, align 4
   ret void
@@ -56,9 +56,9 @@ define dso_local void @_Z15imguiBeginFrameiihi(i32 noundef %0, i32 noundef %1, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_Z13imguiEndFramev() local_unnamed_addr #1 {
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
   ret void
 }
 
@@ -75,21 +75,21 @@ define dso_local noundef i32 @_Z23imguiGetRenderQueueSizev() local_unnamed_addr 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_Z20imguiBeginScrollAreaPKciiiiPi(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 60), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
   %8 = add i32 %7, 1
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 60), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %9 = shl i32 %8, 16
   store i32 %9, ptr @_ZL10g_scrollId, align 4
   %10 = add nsw i32 %1, 6
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
   %11 = add i32 %4, %2
   %12 = add i32 %11, -28
   %13 = load i32, ptr %5, align 4
   %14 = add nsw i32 %12, %13
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %15 = add nsw i32 %3, -24
-  store i32 %15, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   store i32 %12, ptr @_ZL11g_scrollTop, align 4
   %16 = add nsw i32 %2, 6
   store i32 %16, ptr @_ZL14g_scrollBottom, align 4
@@ -98,14 +98,14 @@ define dso_local noundef zeroext i1 @_Z20imguiBeginScrollAreaPKciiiiPi(ptr nocap
   store i32 %18, ptr @_ZL13g_scrollRight, align 4
   store ptr %5, ptr @_ZL11g_scrollVal, align 8
   store i32 %14, ptr @_ZL15g_scrollAreaTop, align 4
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
   %.not.i = icmp slt i32 %19, %1
   %.not10.i = icmp sgt i32 %19, %17
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not10.i
   br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %20
 
 20:                                               ; preds = %6
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
   %.not11.i = icmp sge i32 %21, %2
   %22 = icmp sle i32 %21, %11
   %spec.select = and i1 %.not11.i, %22
@@ -115,7 +115,7 @@ _Z6inRectiiiib.exit:                              ; preds = %20, %6
   %23 = phi i1 [ false, %6 ], [ %spec.select, %20 ]
   %24 = zext i1 %23 to i8
   store i8 %24, ptr @_ZL18g_insideScrollArea, align 1
-  store i8 %24, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
+  store i8 %24, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 56), align 4
   %25 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %26 = icmp ugt i32 %25, 4999
   br i1 %26, label %_ZL16addGfxCmdScissoriiii.exit, label %_ZL20addGfxCmdRoundedRectfffffj.exit
@@ -257,7 +257,7 @@ _ZL16addGfxCmdScissoriiii.exit:                   ; preds = %0, %3
   %14 = load i32, ptr @_ZL11g_scrollTop, align 4
   %15 = sub nsw i32 %14, %13
   %16 = load i32, ptr @_ZL15g_scrollAreaTop, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %18 = sub nsw i32 %16, %17
   %19 = sitofp i32 %15 to float
   %20 = sitofp i32 %18 to float
@@ -279,12 +279,12 @@ _ZL16addGfxCmdScissoriiii.exit:                   ; preds = %0, %3
   %32 = add nsw i32 %13, %31
   %33 = fmul float %21, %19
   %34 = fptosi float %33 to i32
-  %35 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 56), align 4
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %_Z6inRectiiiib.exit
 
 37:                                               ; preds = %23
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
   %.not.i = icmp slt i32 %38, %12
   %39 = add nsw i32 %11, 15
   %.not10.i = icmp sgt i32 %38, %39
@@ -292,7 +292,7 @@ _ZL16addGfxCmdScissoriiii.exit:                   ; preds = %0, %3
   br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %40
 
 40:                                               ; preds = %37
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
   %.not11.i = icmp slt i32 %41, %32
   br i1 %.not11.i, label %_Z6inRectiiiib.exit, label %42
 
@@ -303,7 +303,7 @@ _ZL16addGfxCmdScissoriiii.exit:                   ; preds = %0, %3
 
 _Z6inRectiiiib.exit:                              ; preds = %23, %37, %40, %42
   %45 = phi i1 [ false, %40 ], [ false, %37 ], [ false, %23 ], [ %44, %42 ]
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i67 = icmp eq i32 %46, 0
   br i1 %.not.i67, label %47, label %55
 
@@ -311,22 +311,22 @@ _Z6inRectiiiib.exit:                              ; preds = %23, %37, %40, %42
   br i1 %45, label %48, label %49
 
 48:                                               ; preds = %47
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %49
 
 49:                                               ; preds = %48, %47
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   %51 = icmp eq i32 %50, %29
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %49
-  %53 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   %54 = trunc i8 %53 to i1
   br i1 %54, label %.thread.i, label %55
 
 .thread.i:                                        ; preds = %52
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 30), align 2
   br label %57
 
 55:                                               ; preds = %52, %49, %_Z6inRectiiiib.exit
@@ -334,28 +334,28 @@ _Z6inRectiiiib.exit:                              ; preds = %23, %37, %40, %42
   br i1 %56, label %57, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %55
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br label %63
 
 57:                                               ; preds = %55, %.thread.i
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 29), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
   br i1 %45, label %58, label %59
 
 58:                                               ; preds = %57
-  store i32 %29, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %29, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %59
 
 59:                                               ; preds = %58, %57
-  %60 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
+  %60 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %61 = trunc i8 %60 to i1
-  %.pre10.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre10.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %59
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
   br label %63
 
 63:                                               ; preds = %62, %59, %._crit_edge.i
@@ -365,7 +365,7 @@ _Z6inRectiiiib.exit:                              ; preds = %23, %37, %40, %42
   br i1 %66, label %67, label %_ZL11buttonLogicjb.exit
 
 67:                                               ; preds = %63
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 28), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
 _ZL11buttonLogicjb.exit:                          ; preds = %63, %67
@@ -376,26 +376,26 @@ _ZL11buttonLogicjb.exit:                          ; preds = %63, %67
   %.neg71 = add i32 %15, 1
   %70 = sub i32 %.neg71, %34
   %71 = sitofp i32 %70 to float
-  %72 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
+  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 30), align 2
   %73 = trunc i8 %72 to i1
   br i1 %73, label %.thread, label %77
 
 .thread:                                          ; preds = %69
   %74 = sitofp i32 %31 to float
   %75 = fdiv float %74, %71
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
-  store i32 %76, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 36), align 4
-  store float %75, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 40), align 4
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
+  store i32 %76, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 36), align 4
+  store float %75, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 40), align 4
   br label %92
 
 77:                                               ; preds = %69
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 36), align 4
-  %.pre72 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 36), align 4
+  %.pre72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
   %.not = icmp eq i32 %.pre, %.pre72
   br i1 %.not, label %92, label %78
 
 78:                                               ; preds = %77
-  %79 = load float, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 40), align 4
+  %79 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 40), align 4
   %80 = sub nsw i32 %.pre72, %.pre
   %81 = sitofp i32 %80 to float
   %82 = fdiv float %81, %71
@@ -496,7 +496,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit68.sink.split: ; preds = %115, %117
 _ZL20addGfxCmdRoundedRectfffffj.exit68:           ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit68.sink.split, %116, %115
   %136 = load i8, ptr @_ZL18g_insideScrollArea, align 1
   %137 = trunc nuw i8 %136 to i1
-  %138 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
+  %138 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
   %139 = icmp ne i32 %138, 0
   %or.cond = select i1 %137, i1 %139, i1 false
   br i1 %or.cond, label %140, label %146
@@ -513,33 +513,33 @@ _ZL20addGfxCmdRoundedRectfffffj.exit68:           ; preds = %_ZL20addGfxCmdRound
   br label %146
 
 146:                                              ; preds = %140, %_ZL20addGfxCmdRoundedRectfffffj.exit68, %_ZL16addGfxCmdScissoriiii.exit
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 56), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_Z11imguiButtonPKcb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %4 = add i32 %3, 1
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 60), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
   %6 = shl i32 %5, 16
   %7 = or i32 %6, %4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %10 = add nsw i32 %9, -20
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   %12 = add nsw i32 %9, -24
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   br i1 %1, label %13, label %_Z6inRectiiiib.exit
 
 13:                                               ; preds = %2
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 56), align 4
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %_Z6inRectiiiib.exit
 
 16:                                               ; preds = %13
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
   %.not.i = icmp slt i32 %17, %8
   %18 = add nsw i32 %11, %8
   %.not10.i = icmp sgt i32 %17, %18
@@ -547,7 +547,7 @@ define dso_local noundef zeroext i1 @_Z11imguiButtonPKcb(ptr nocapture noundef r
   br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
   %.not11.i = icmp sge i32 %20, %10
   %21 = icmp sle i32 %20, %9
   %spec.select = and i1 %.not11.i, %21
@@ -555,7 +555,7 @@ define dso_local noundef zeroext i1 @_Z11imguiButtonPKcb(ptr nocapture noundef r
 
 _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
   %22 = phi i1 [ false, %2 ], [ false, %16 ], [ false, %13 ], [ %spec.select, %19 ]
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i20 = icmp eq i32 %23, 0
   br i1 %.not.i20, label %24, label %32
 
@@ -563,22 +563,22 @@ _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
   br i1 %22, label %25, label %26
 
 25:                                               ; preds = %24
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %26
 
 26:                                               ; preds = %25, %24
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   %28 = icmp eq i32 %27, %7
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
+  %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %.thread.i, label %32
 
 .thread.i:                                        ; preds = %29
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 30), align 2
   br label %34
 
 32:                                               ; preds = %29, %26, %_Z6inRectiiiib.exit
@@ -586,29 +586,29 @@ _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
   br i1 %33, label %34, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %32
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br label %41
 
 34:                                               ; preds = %32, %.thread.i
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 29), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
   br i1 %22, label %35, label %36
 
 35:                                               ; preds = %34
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %36
 
 36:                                               ; preds = %35, %34
-  %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %38 = trunc i8 %37 to i1
-  %.pre10.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre10.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
   %40 = icmp eq i32 %.pre10.i, %7
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
   br label %41
 
 41:                                               ; preds = %39, %36, %._crit_edge.i
@@ -619,7 +619,7 @@ _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
   br i1 %44, label %45, label %_ZL11buttonLogicjb.exit
 
 45:                                               ; preds = %41
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 28), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
 _ZL11buttonLogicjb.exit:                          ; preds = %41, %45
@@ -753,27 +753,27 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_Z9imguiItemPKcb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %4 = add i32 %3, 1
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 60), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
   %6 = shl i32 %5, 16
   %7 = or i32 %6, %4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %10 = add nsw i32 %9, -20
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   %12 = add nsw i32 %9, -24
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   br i1 %1, label %13, label %_Z6inRectiiiib.exit
 
 13:                                               ; preds = %2
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 56), align 4
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %_Z6inRectiiiib.exit
 
 16:                                               ; preds = %13
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
   %.not.i = icmp slt i32 %17, %8
   %18 = add nsw i32 %11, %8
   %.not10.i = icmp sgt i32 %17, %18
@@ -781,7 +781,7 @@ define dso_local noundef zeroext i1 @_Z9imguiItemPKcb(ptr nocapture noundef read
   br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
   %.not11.i = icmp sge i32 %20, %10
   %21 = icmp sle i32 %20, %9
   %spec.select = and i1 %.not11.i, %21
@@ -789,7 +789,7 @@ define dso_local noundef zeroext i1 @_Z9imguiItemPKcb(ptr nocapture noundef read
 
 _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
   %22 = phi i1 [ false, %2 ], [ false, %16 ], [ false, %13 ], [ %spec.select, %19 ]
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i20 = icmp eq i32 %23, 0
   br i1 %.not.i20, label %24, label %32
 
@@ -797,22 +797,22 @@ _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
   br i1 %22, label %25, label %26
 
 25:                                               ; preds = %24
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %26
 
 26:                                               ; preds = %25, %24
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   %28 = icmp eq i32 %27, %7
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
+  %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %.thread.i, label %32
 
 .thread.i:                                        ; preds = %29
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 30), align 2
   br label %34
 
 32:                                               ; preds = %29, %26, %_Z6inRectiiiib.exit
@@ -820,29 +820,29 @@ _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
   br i1 %33, label %34, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %32
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br label %41
 
 34:                                               ; preds = %32, %.thread.i
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 29), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
   br i1 %22, label %35, label %36
 
 35:                                               ; preds = %34
-  store i32 %7, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %36
 
 36:                                               ; preds = %35, %34
-  %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %38 = trunc i8 %37 to i1
-  %.pre10.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre10.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
   %40 = icmp eq i32 %.pre10.i, %7
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
   br label %41
 
 41:                                               ; preds = %39, %36, %._crit_edge.i
@@ -853,7 +853,7 @@ _Z6inRectiiiib.exit:                              ; preds = %19, %16, %13, %2
   br i1 %44, label %45, label %_ZL20addGfxCmdRoundedRectfffffj.exit
 
 45:                                               ; preds = %41
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 28), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   %46 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %47 = icmp ugt i32 %46, 4999
   br i1 %47, label %_ZL20addGfxCmdRoundedRectfffffj.exit, label %48
@@ -983,27 +983,27 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %5 = add i32 %4, 1
-  store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 60), align 4
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
   %7 = shl i32 %6, 16
   %8 = or i32 %7, %5
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   %12 = add nsw i32 %10, -24
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   br i1 %2, label %13, label %_Z6inRectiiiib.exit
 
 13:                                               ; preds = %3
   %14 = add nsw i32 %10, -20
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 56), align 4
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %_Z6inRectiiiib.exit
 
 17:                                               ; preds = %13
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
   %.not.i = icmp slt i32 %18, %9
   %19 = add nsw i32 %11, %9
   %.not10.i = icmp sgt i32 %18, %19
@@ -1011,7 +1011,7 @@ define dso_local noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr nocapture noundef r
   br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
   %.not11.i = icmp sge i32 %21, %14
   %22 = icmp sle i32 %21, %10
   %spec.select = and i1 %.not11.i, %22
@@ -1019,7 +1019,7 @@ define dso_local noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr nocapture noundef r
 
 _Z6inRectiiiib.exit:                              ; preds = %20, %17, %13, %3
   %23 = phi i1 [ false, %3 ], [ false, %17 ], [ false, %13 ], [ %spec.select, %20 ]
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i27 = icmp eq i32 %24, 0
   br i1 %.not.i27, label %25, label %33
 
@@ -1027,22 +1027,22 @@ _Z6inRectiiiib.exit:                              ; preds = %20, %17, %13, %3
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %25
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %27
 
 27:                                               ; preds = %26, %25
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   %29 = icmp eq i32 %28, %8
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %.thread.i, label %33
 
 .thread.i:                                        ; preds = %30
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 30), align 2
   br label %35
 
 33:                                               ; preds = %30, %27, %_Z6inRectiiiib.exit
@@ -1050,29 +1050,29 @@ _Z6inRectiiiib.exit:                              ; preds = %20, %17, %13, %3
   br i1 %34, label %35, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %33
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br label %42
 
 35:                                               ; preds = %33, %.thread.i
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 29), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
   br i1 %23, label %36, label %37
 
 36:                                               ; preds = %35
-  store i32 %8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %37
 
 37:                                               ; preds = %36, %35
-  %38 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
+  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %39 = trunc i8 %38 to i1
-  %.pre10.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre10.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %37
   %41 = icmp eq i32 %.pre10.i, %8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
   br label %42
 
 42:                                               ; preds = %40, %37, %._crit_edge.i
@@ -1083,7 +1083,7 @@ _Z6inRectiiiib.exit:                              ; preds = %20, %17, %13, %3
   br i1 %45, label %46, label %_ZL11buttonLogicjb.exit
 
 46:                                               ; preds = %42
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 28), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
 _ZL11buttonLogicjb.exit:                          ; preds = %42, %46
@@ -1285,28 +1285,28 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %6 = add i32 %5, 1
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 60), align 4
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
   %8 = shl i32 %7, 16
   %9 = or i32 %8, %6
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %12 = add nsw i32 %11, -20
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %14 = add nsw i32 %10, 6
   %15 = add nsw i32 %11, -14
   br i1 %3, label %16, label %_Z6inRectiiiib.exit
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 56), align 4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_Z6inRectiiiib.exit
 
 19:                                               ; preds = %16
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
   %.not.i = icmp slt i32 %20, %10
   %21 = add nsw i32 %13, %10
   %.not10.i = icmp sgt i32 %20, %21
@@ -1314,7 +1314,7 @@ define dso_local noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr nocapture nou
   br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
   %.not11.i = icmp sge i32 %23, %12
   %24 = icmp sle i32 %23, %11
   %spec.select = and i1 %.not11.i, %24
@@ -1322,7 +1322,7 @@ define dso_local noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr nocapture nou
 
 _Z6inRectiiiib.exit:                              ; preds = %22, %19, %16, %4
   %25 = phi i1 [ false, %4 ], [ false, %19 ], [ false, %16 ], [ %spec.select, %22 ]
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i29 = icmp eq i32 %26, 0
   br i1 %.not.i29, label %27, label %35
 
@@ -1330,22 +1330,22 @@ _Z6inRectiiiib.exit:                              ; preds = %22, %19, %16, %4
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %27
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %29
 
 29:                                               ; preds = %28, %27
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   %31 = icmp eq i32 %30, %9
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
-  %33 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   %34 = trunc i8 %33 to i1
   br i1 %34, label %.thread.i, label %35
 
 .thread.i:                                        ; preds = %32
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 30), align 2
   br label %37
 
 35:                                               ; preds = %32, %29, %_Z6inRectiiiib.exit
@@ -1353,29 +1353,29 @@ _Z6inRectiiiib.exit:                              ; preds = %22, %19, %16, %4
   br i1 %36, label %37, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %35
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br label %44
 
 37:                                               ; preds = %35, %.thread.i
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 29), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
   br i1 %25, label %38, label %39
 
 38:                                               ; preds = %37
-  store i32 %9, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %39
 
 39:                                               ; preds = %38, %37
-  %40 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
+  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %41 = trunc i8 %40 to i1
-  %.pre10.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre10.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
   %43 = icmp eq i32 %.pre10.i, %9
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
   br label %44
 
 44:                                               ; preds = %42, %39, %._crit_edge.i
@@ -1386,7 +1386,7 @@ _Z6inRectiiiib.exit:                              ; preds = %22, %19, %16, %4
   br i1 %47, label %48, label %_ZL11buttonLogicjb.exit
 
 48:                                               ; preds = %44
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 28), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
 _ZL11buttonLogicjb.exit:                          ; preds = %44, %48
@@ -1565,10 +1565,10 @@ _ZL13addGfxCmdTextiiiPKcj.exit36:                 ; preds = %_ZL9allocTextPKc.ex
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_Z10imguiLabelPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %4 = add nsw i32 %3, -20
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %5 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %6 = icmp ugt i32 %5, 4999
   br i1 %6, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %7
@@ -1620,11 +1620,11 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %1, %_ZL9allocTextPK
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_Z10imguiValuePKc(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %4 = add nsw i32 %3, -20
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %6 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %7 = icmp ugt i32 %6, 4999
   br i1 %7, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %8
@@ -1680,18 +1680,18 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %1, %_ZL9allocTextPK
 define dso_local noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, float noundef %2, float noundef %3, float noundef %4, i1 noundef zeroext %5) local_unnamed_addr #6 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca [128 x i8], align 16
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %10 = add i32 %9, 1
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 64), align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 60), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
   %12 = shl i32 %11, 16
   %13 = or i32 %12, %10
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %16 = add nsw i32 %15, -20
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   %18 = add nsw i32 %15, -24
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  store i32 %18, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %19 = sitofp i32 %16 to float
   %20 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %21 = icmp ugt i32 %20, 4999
@@ -1744,13 +1744,13 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %6, %22
   br i1 %5, label %52, label %_Z6inRectiiiib.exit
 
 52:                                               ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit
-  %53 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 56), align 4
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %_Z6inRectiiiib.exit
 
 55:                                               ; preds = %52
   %56 = add nsw i32 %14, %51
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
   %.not.i = icmp slt i32 %57, %56
   %58 = add nsw i32 %56, 10
   %.not10.i = icmp sgt i32 %57, %58
@@ -1758,7 +1758,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %6, %22
   br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %59
 
 59:                                               ; preds = %55
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 8), align 4
   %.not11.i = icmp sge i32 %60, %16
   %61 = icmp sle i32 %60, %15
   %spec.select = and i1 %.not11.i, %61
@@ -1766,7 +1766,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %6, %22
 
 _Z6inRectiiiib.exit:                              ; preds = %59, %55, %52, %_ZL20addGfxCmdRoundedRectfffffj.exit
   %62 = phi i1 [ false, %_ZL20addGfxCmdRoundedRectfffffj.exit ], [ false, %55 ], [ false, %52 ], [ %spec.select, %59 ]
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i69 = icmp eq i32 %63, 0
   br i1 %.not.i69, label %64, label %72
 
@@ -1774,22 +1774,22 @@ _Z6inRectiiiib.exit:                              ; preds = %59, %55, %52, %_ZL2
   br i1 %62, label %65, label %66
 
 65:                                               ; preds = %64
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %66
 
 66:                                               ; preds = %65, %64
-  %67 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   %68 = icmp eq i32 %67, %13
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %66
-  %70 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
+  %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %.thread.i, label %72
 
 .thread.i:                                        ; preds = %69
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 30), align 2
   br label %74
 
 72:                                               ; preds = %69, %66, %_Z6inRectiiiib.exit
@@ -1797,29 +1797,29 @@ _Z6inRectiiiib.exit:                              ; preds = %59, %55, %52, %_ZL2
   br i1 %73, label %74, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %72
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br label %81
 
 74:                                               ; preds = %72, %.thread.i
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 29), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 29), align 1
   br i1 %62, label %75, label %76
 
 75:                                               ; preds = %74
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 24), align 4
   br label %76
 
 76:                                               ; preds = %75, %74
-  %77 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
+  %77 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
   %78 = trunc i8 %77 to i1
-  %.pre10.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %.pre10.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %76
   %80 = icmp eq i32 %.pre10.i, %13
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 2), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 12), align 4
   br label %81
 
 81:                                               ; preds = %79, %76, %._crit_edge.i
@@ -1830,7 +1830,7 @@ _Z6inRectiiiib.exit:                              ; preds = %59, %55, %52, %_ZL2
   br i1 %84, label %85, label %_ZL11buttonLogicjb.exit
 
 85:                                               ; preds = %81
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 28), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
 _ZL11buttonLogicjb.exit:                          ; preds = %81, %85
@@ -1838,24 +1838,24 @@ _ZL11buttonLogicjb.exit:                          ; preds = %81, %85
   br i1 %86, label %87, label %111
 
 87:                                               ; preds = %_ZL11buttonLogicjb.exit
-  %88 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
+  %88 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 30), align 2
   %89 = trunc i8 %88 to i1
   br i1 %89, label %.thread, label %91
 
 .thread:                                          ; preds = %87
-  %90 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
-  store i32 %90, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 32), align 4
-  store float %.1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 40), align 4
+  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
+  store i32 %90, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 32), align 4
+  store float %.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 40), align 4
   br label %107
 
 91:                                               ; preds = %87
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 32), align 4
-  %.pre89 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 32), align 4
+  %.pre89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 4), align 4
   %.not.not = icmp eq i32 %.pre, %.pre89
   br i1 %.not.not, label %107, label %92
 
 92:                                               ; preds = %91
-  %93 = load float, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 40), align 4
+  %93 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 40), align 4
   %94 = sub nsw i32 %.pre89, %.pre
   %95 = sitofp i32 %94 to float
   %96 = fdiv float %95, %49
@@ -1939,7 +1939,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit70:           ; preds = %_ZL20addGfxCmdRound
 
 139:                                              ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit70
   %140 = add nsw i32 %15, -14
-  %141 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 20), align 4
   %142 = icmp eq i32 %141, %13
   %143 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %144 = icmp ugt i32 %143, 4999
@@ -2133,41 +2133,41 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_Z11imguiIndentv() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
   %2 = add nsw i32 %1, 16
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   %4 = add nsw i32 %3, -16
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_Z13imguiUnindentv() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
   %2 = add nsw i32 %1, -16
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   %4 = add nsw i32 %3, 16
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_Z14imguiSeparatorv() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %2 = add nsw i32 %1, -12
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_Z18imguiSeparatorLinev() local_unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 52), align 4
   %4 = add nsw i32 %2, -16
-  store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %5 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %6 = icmp ugt i32 %5, 4999
   br i1 %6, label %_ZL13addGfxCmdRectffffj.exit, label %7

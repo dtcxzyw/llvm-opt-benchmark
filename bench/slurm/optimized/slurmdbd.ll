@@ -377,18 +377,18 @@ _daemonize.exit:                                  ; preds = %103, %105
   br label %_init_pidfile.exit
 
 118:                                              ; preds = %111
-  %119 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %120 = call i32 @create_pidfile(ptr noundef nonnull %114, i32 noundef %119) #17
   br label %_init_pidfile.exit
 
 _init_pidfile.exit:                               ; preds = %116, %118
-  %121 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %122 = call i32 @gid_from_uid(i32 noundef %121) #17
   %123 = icmp eq i32 %122, -1
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %_init_pidfile.exit
-  %125 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.60, i32 noundef %125) #19
   unreachable
 
@@ -398,7 +398,7 @@ _init_pidfile.exit:                               ; preds = %116, %118
   br i1 %128, label %129, label %142
 
 129:                                              ; preds = %126
-  %130 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %135
 
@@ -408,7 +408,7 @@ _init_pidfile.exit:                               ; preds = %116, %118
   br i1 %.not.i159, label %._crit_edge.i, label %134
 
 ._crit_edge.i:                                    ; preds = %132
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   br label %135
 
 134:                                              ; preds = %132
@@ -422,7 +422,7 @@ _init_pidfile.exit:                               ; preds = %116, %118
   br i1 %.not5.i157, label %146, label %138
 
 138:                                              ; preds = %135
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1160), align 8
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1160), align 8
   %140 = call i32 @initgroups(ptr noundef %139, i32 noundef %122) #17
   %.not6.i158 = icmp eq i32 %140, 0
   br i1 %.not6.i158, label %146, label %141
@@ -455,19 +455,19 @@ _init_pidfile.exit:                               ; preds = %116, %118
   unreachable
 
 151:                                              ; preds = %148, %146
-  %152 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %152 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %153 = call i32 @getuid() #17
   %.not9.i = icmp eq i32 %152, %153
   br i1 %.not9.i, label %_become_slurm_user.exit, label %154
 
 154:                                              ; preds = %151
-  %155 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %156 = call i32 @setuid(i32 noundef %155) #17
   %.not10.i = icmp eq i32 %156, 0
   br i1 %.not10.i, label %_become_slurm_user.exit, label %157
 
 157:                                              ; preds = %154
-  %158 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.65, i32 noundef %158) #19
   unreachable
 
@@ -495,7 +495,7 @@ _become_slurm_user.exit:                          ; preds = %151, %154
   br i1 %.not99, label %168, label %166
 
 166:                                              ; preds = %164
-  %167 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
+  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 72), align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef %167) #19
   unreachable
 
@@ -744,7 +744,7 @@ _set_work_dir.exit:                               ; preds = %190, %195, %197, %2
 
 270:                                              ; preds = %269
   %271 = load ptr, ptr %11, align 8
-  %272 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %272 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %273 = load ptr, ptr @lft_rgt_list, align 8
   %274 = call i32 @acct_storage_g_reset_lft_rgt(ptr noundef %271, i32 noundef %272, ptr noundef %273) #17
   %.not111 = icmp eq i32 %274, 0
@@ -1084,7 +1084,7 @@ split:                                            ; preds = %320, %._crit_edge20
   br i1 %409, label %410, label %_send_slurmctld_register_req.exit.i
 
 410:                                              ; preds = %404
-  %411 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %411 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %412 = and i64 %411, 1024
   %.not.i.i = icmp eq i64 %412, 0
   br i1 %.not.i.i, label %_send_slurmctld_register_req.exit.thread.i, label %413
@@ -1359,7 +1359,7 @@ define internal fastcc void @_update_logging(i1 noundef zeroext %0) unnamed_addr
 8:                                                ; preds = %._crit_edge, %3
   %9 = phi i16 [ %.pre15, %._crit_edge ], [ %6, %3 ]
   %10 = zext i16 %9 to i32
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8
   %.b6 = load i1, ptr @daemonize, align 1
   %11 = getelementptr inbounds nuw i8, ptr %.pre, i64 152
   br i1 %.b6, label %12, label %.thread
@@ -1396,11 +1396,11 @@ define internal fastcc void @_update_logging(i1 noundef zeroext %0) unnamed_addr
 
 22:                                               ; preds = %18, %12, %21, %15
   %.sink = phi i32 [ 1, %21 ], [ %17, %15 ], [ 0, %12 ], [ %10, %18 ]
-  store i32 %.sink, ptr getelementptr inbounds (i8, ptr @log_opts, i64 4), align 4
+  store i32 %.sink, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 4), align 4
   %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 @log_opts, i32 noundef 24, ptr noundef %24) #17
-  %26 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 600), align 8
+  %26 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 600), align 8
   %27 = zext i16 %26 to i32
   tail call void @log_set_timefmt(i32 noundef %27) #17
   br i1 %0, label %28, label %46
@@ -1413,12 +1413,12 @@ define internal fastcc void @_update_logging(i1 noundef zeroext %0) unnamed_addr
   br i1 %.not10, label %46, label %32
 
 32:                                               ; preds = %28
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %34 = tail call i32 @gid_from_uid(i32 noundef %33) #17
   %35 = load ptr, ptr @slurmdbd_conf, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %39 = tail call i32 @chown(ptr noundef %37, i32 noundef %38, i32 noundef %34) #17
   %.not11 = icmp eq i32 %39, 0
   br i1 %.not11, label %46, label %40
@@ -1427,7 +1427,7 @@ define internal fastcc void @_update_logging(i1 noundef zeroext %0) unnamed_addr
   %41 = load ptr, ptr @slurmdbd_conf, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %43, i32 noundef %44, i32 noundef %34) #17
   br label %46
 
@@ -1473,13 +1473,13 @@ define dso_local void @init_dbd_stats() local_unnamed_addr #4 {
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.25, i32 noundef 414, ptr noundef nonnull @__func__.init_dbd_stats) #17
   store ptr %5, ptr @rpc_stats, align 8
   %6 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_rollup_stats) #17
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @rpc_stats, i64 8), align 8
   %7 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_rpc_obj) #17
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 16), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @rpc_stats, i64 16), align 8
   %8 = tail call i64 @time(ptr noundef null) #17
-  store i64 %8, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 24), align 8
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @rpc_stats, i64 24), align 8
   %9 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_rpc_obj) #17
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 32), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @rpc_stats, i64 32), align 8
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @rpc_mutex) #17
   %.not5 = icmp eq i32 %10, 0
   br i1 %.not5, label %13, label %11
@@ -1980,7 +1980,7 @@ define dso_local void @handle_rollup_stats(ptr noundef %0, i64 noundef %1, i32 n
 
 .lr.ph:                                           ; preds = %32, %.backedge
   %35 = phi ptr [ %48, %.backedge ], [ %34, %32 ]
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 8), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rpc_stats, i64 8), align 8
   %37 = tail call ptr @list_find_first(ptr noundef %36, ptr noundef nonnull @_find_rollup_stats_in_list, ptr noundef nonnull %35) #17
   %.not74 = icmp eq ptr %37, null
   br i1 %.not74, label %45, label %.preheader
@@ -1996,7 +1996,7 @@ define dso_local void @handle_rollup_stats(ptr noundef %0, i64 noundef %1, i32 n
   br label %49
 
 45:                                               ; preds = %.lr.ph
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @rpc_stats, i64 8), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rpc_stats, i64 8), align 8
   tail call void @list_append(ptr noundef %46, ptr noundef nonnull %35) #17
   %47 = tail call ptr @list_remove(ptr noundef %33) #17
   br label %.backedge

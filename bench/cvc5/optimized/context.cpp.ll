@@ -873,7 +873,7 @@ cond.end40:                                       ; preds = %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef readonly %pContext) unnamed_addr #11 align 2 {
 cond.end:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %this, align 8
   %d_pScope = getelementptr inbounds nuw i8, ptr %this, i64 8
   %d_pContextObjNext = getelementptr inbounds nuw i8, ptr %this, i64 24
   %d_scopeList.i = getelementptr inbounds nuw i8, ptr %pContext, i64 8
@@ -1046,7 +1046,7 @@ _ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE9push_backERKS3_.exit: ; preds 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4cvc57context16ContextNotifyObjC2EPNS0_7ContextEb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef %pContext, i1 noundef zeroext %preNotify) unnamed_addr #10 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i64 16), ptr %this, align 8
   br i1 %preNotify, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1100,7 +1100,7 @@ if.end:                                           ; preds = %_ZN4cvc57context7Co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4cvc57context16ContextNotifyObjD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i64 16), ptr %this, align 8
   %d_pCNOnext = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_pCNOnext, align 8
   %cmp.not = icmp eq ptr %0, null

@@ -3050,7 +3050,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26XM
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix26XMLWriter_emptyObject_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix26XMLWriter_emptyObject_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3080,7 +3080,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37XM
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37XMLWriter_objectWithEmptyElement_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix37XMLWriter_objectWithEmptyElement_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3184,7 +3184,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41XM
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41XMLWriter_objectWithElementWithAttrs_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix41XMLWriter_objectWithElementWithAttrs_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3212,7 +3212,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46XM
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix46XMLWriter_objectWithElementWithEmptyAttrs_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix46XMLWriter_objectWithElementWithEmptyAttrs_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3240,7 +3240,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49XM
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49XMLWriter_objectWithElementWithAttrsEscaping_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49XMLWriter_objectWithElementWithAttrsEscaping_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3268,7 +3268,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49XM
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49XMLWriter_objectWithElementWithAttrsIndented_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49XMLWriter_objectWithElementWithAttrsIndented_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3296,7 +3296,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32XM
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32XMLWriter_writeEmptyElement_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32XMLWriter_writeEmptyElement_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3324,7 +3324,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46XM
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix46XMLWriter_writeEmptyElementWithAttributes_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix46XMLWriter_writeEmptyElementWithAttributes_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4676,7 +4676,7 @@ define internal void @_GLOBAL__sub_I_xml_writer.cc() #14 section ".text.startup"
           to label %36 unwind label %55
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26XMLWriter_emptyObject_TestEEE, i64 16), ptr %35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26XMLWriter_emptyObject_TestEEE, i64 16), ptr %35, align 8
   %37 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef %29, ptr noundef %31, ptr noundef %33, ptr noundef nonnull %35)
           to label %38 unwind label %55
 
@@ -4779,7 +4779,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %68 unwind label %87
 
 68:                                               ; preds = %66
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37XMLWriter_objectWithEmptyElement_TestEEE, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37XMLWriter_objectWithEmptyElement_TestEEE, i64 16), ptr %67, align 8
   %69 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef %61, ptr noundef %63, ptr noundef %65, ptr noundef nonnull %67)
           to label %70 unwind label %87
 
@@ -4876,7 +4876,7 @@ __cxx_global_var_init.7.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %100 unwind label %119
 
 100:                                              ; preds = %98
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41XMLWriter_objectWithElementWithAttrs_TestEEE, i64 16), ptr %99, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41XMLWriter_objectWithElementWithAttrs_TestEEE, i64 16), ptr %99, align 8
   %101 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef %93, ptr noundef %95, ptr noundef %97, ptr noundef nonnull %99)
           to label %102 unwind label %119
 
@@ -4973,7 +4973,7 @@ __cxx_global_var_init.12.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %132 unwind label %151
 
 132:                                              ; preds = %130
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46XMLWriter_objectWithElementWithEmptyAttrs_TestEEE, i64 16), ptr %131, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46XMLWriter_objectWithElementWithEmptyAttrs_TestEEE, i64 16), ptr %131, align 8
   %133 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef %125, ptr noundef %127, ptr noundef %129, ptr noundef nonnull %131)
           to label %134 unwind label %151
 
@@ -5070,7 +5070,7 @@ __cxx_global_var_init.18.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %164 unwind label %183
 
 164:                                              ; preds = %162
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49XMLWriter_objectWithElementWithAttrsEscaping_TestEEE, i64 16), ptr %163, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49XMLWriter_objectWithElementWithAttrsEscaping_TestEEE, i64 16), ptr %163, align 8
   %165 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef %157, ptr noundef %159, ptr noundef %161, ptr noundef nonnull %163)
           to label %166 unwind label %183
 
@@ -5167,7 +5167,7 @@ __cxx_global_var_init.20.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %196 unwind label %215
 
 196:                                              ; preds = %194
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49XMLWriter_objectWithElementWithAttrsIndented_TestEEE, i64 16), ptr %195, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49XMLWriter_objectWithElementWithAttrsIndented_TestEEE, i64 16), ptr %195, align 8
   %197 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %189, ptr noundef %191, ptr noundef %193, ptr noundef nonnull %195)
           to label %198 unwind label %215
 
@@ -5264,7 +5264,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %228 unwind label %247
 
 228:                                              ; preds = %226
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32XMLWriter_writeEmptyElement_TestEEE, i64 16), ptr %227, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32XMLWriter_writeEmptyElement_TestEEE, i64 16), ptr %227, align 8
   %229 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %221, ptr noundef %223, ptr noundef %225, ptr noundef nonnull %227)
           to label %230 unwind label %247
 
@@ -5361,7 +5361,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %260 unwind label %279
 
 260:                                              ; preds = %258
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46XMLWriter_writeEmptyElementWithAttributes_TestEEE, i64 16), ptr %259, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46XMLWriter_writeEmptyElementWithAttributes_TestEEE, i64 16), ptr %259, align 8
   %261 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.35, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %253, ptr noundef %255, ptr noundef %257, ptr noundef nonnull %259)
           to label %262 unwind label %279
 

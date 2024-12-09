@@ -593,7 +593,7 @@ define dso_local ptr @intel_dpt_create(ptr noundef %0) local_unnamed_addr #0 ali
   br label %.thread17
 
 95:                                               ; preds = %83
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %97 = tail call noalias noundef align 8 dereferenceable_or_null(704) ptr @kmalloc_trace(ptr noundef %96, i32 noundef 3520, i64 noundef 704) #7
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %106

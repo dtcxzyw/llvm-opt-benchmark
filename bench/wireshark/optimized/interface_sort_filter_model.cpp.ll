@@ -75,7 +75,7 @@ $_ZN9QtPrivate15QCommonArrayOpsI20InterfaceTreeColumnsE10growAppendEPKS1_S4_ = c
 define void @_ZN24InterfaceSortFilterModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   tail call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24InterfaceSortFilterModel, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24InterfaceSortFilterModel, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -318,7 +318,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i:       ; preds = %_ZN17QArrayDataPoin
   br label %_ZN5QListIiE5clearEv.exit
 
 _ZN5QListIiE5clearEv.exit:                        ; preds = %1, %_ZN17QArrayDataPointerIiE17allocatedCapacityEv.exit.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i, %23, %24
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 272), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 272), align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %.not.i.i4 = icmp eq ptr %25, null
   br i1 %.not.i.i4, label %_ZN7QStringC2EPKc.exit, label %.split.i.i
@@ -654,7 +654,7 @@ define void @_ZN24InterfaceSortFilterModel18toggleFilterHiddenEv(ptr noundef non
 
 9:                                                ; preds = %1
   %10 = zext nneg i8 %4 to i32
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @prefs, i64 280), align 8
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 280), align 8
   tail call void @prefs_main_write()
   br label %11
 
@@ -1158,7 +1158,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %120 unwind label %130
 
 120:                                              ; preds = %_ZN7QStringC2ERKS_.exit
-  store ptr %119, ptr getelementptr inbounds (i8, ptr @prefs, i64 272), align 8
+  store ptr %119, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 272), align 8
   %121 = load ptr, ptr %12, align 8
   %.not.i.i.i30 = icmp eq ptr %121, null
   br i1 %.not.i.i.i30, label %_ZN7QStringD2Ev.exit33, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31

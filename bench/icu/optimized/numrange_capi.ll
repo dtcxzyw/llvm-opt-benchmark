@@ -543,7 +543,7 @@ entry:
   store i32 1178881536, ptr %0, align 8
   %fImpl = getelementptr inbounds nuw i8, ptr %this, i64 24
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number20FormattedNumberRangeE, i64 16), ptr %fImpl, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number20FormattedNumberRangeE, i64 16), ptr %fImpl, align 8
   %fData.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %fData, ptr %fData.i, align 8
   %fErrorCode.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -552,7 +552,7 @@ entry:
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl25UFormattedNumberRangeDataE, i64 16), ptr %fData, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl25UFormattedNumberRangeDataE, i64 16), ptr %fData, align 8
   %quantity1.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity1.i)
           to label %invoke.cont.i unwind label %lpad.i

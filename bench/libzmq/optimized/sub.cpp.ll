@@ -26,13 +26,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN3zmq5sub_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(2032) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3zmq6xsub_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(2028) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5sub_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5sub_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5sub_tE, i64 392), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5sub_tE, i64 392), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 1464
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5sub_tE, i64 424), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5sub_tE, i64 424), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1472
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5sub_tE, i64 480), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5sub_tE, i64 480), ptr %add.ptr3, align 8
   %type = getelementptr inbounds nuw i8, ptr %this, i64 332
   store i8 2, ptr %type, align 4
   %filter = getelementptr inbounds nuw i8, ptr %this, i64 392

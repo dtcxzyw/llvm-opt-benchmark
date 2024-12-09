@@ -16932,7 +16932,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h2f538571bbff0843E
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.pr.i.i, ptr %75, align 8, !noalias !1238
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr getelementptr inbounds (i8, ptr @anon.1dc0865c4bf1637fb689403db19b39df.205, i64 1), ptr %76, align 8, !noalias !1238
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.1dc0865c4bf1637fb689403db19b39df.205, i64 1), ptr %76, align 8, !noalias !1238
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %77, align 8, !noalias !1238
   %78 = icmp ugt i64 %.pr.i.i, 65
@@ -17352,7 +17352,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17heb06d0a36ebe1787E
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr @anon.1dc0865c4bf1637fb689403db19b39df.11151, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1301
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 120
-  store ptr getelementptr inbounds (i8, ptr @anon.1dc0865c4bf1637fb689403db19b39df.11151, i64 241472), ptr %.sroa.52.0..sroa_idx.i, align 8, !noalias !1301
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.1dc0865c4bf1637fb689403db19b39df.11151, i64 241472), ptr %.sroa.52.0..sroa_idx.i, align 8, !noalias !1301
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h92a1c00a16c2e764E.llvm.9303428685961774666"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %2)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2)
   ret void
@@ -25712,7 +25712,7 @@ define hidden noundef nonnull ptr @"_ZN5sqlez22thread_safe_connection29ThreadSaf
   %6 = alloca [8 x i8], align 8
   %7 = alloca [104 x i8], align 8
   %8 = alloca [8 x i8], align 8
-  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 40) acquire, align 8
+  %9 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 40) acquire, align 8
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %.noexc, label %11
 
@@ -25721,7 +25721,7 @@ define hidden noundef nonnull ptr @"_ZN5sqlez22thread_safe_connection29ThreadSaf
   store ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h39d003e981648d1cE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 40), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1dc0865c4bf1637fb689403db19b39df.173)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17h39d003e981648d1cE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 40), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1dc0865c4bf1637fb689403db19b39df.173)
           to label %.noexc13 unwind label %.thread
 
 .noexc13:                                         ; preds = %11
@@ -25759,7 +25759,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %.val = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val10 = load i64, ptr %21, align 8
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 32), align 8, !noundef !4
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 32), align 8, !noundef !4
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %select.unfold, label %24
 
@@ -25781,8 +25781,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   call void @llvm.experimental.noalias.scope.decl(metadata !3402)
   %31 = lshr i64 %30, 57
   %32 = trunc nuw nsw i64 %31 to i8
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 16), align 8, !alias.scope !3402, !noalias !3405, !noundef !4
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !alias.scope !3402, !noalias !3405, !nonnull !4, !noundef !4
+  %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 16), align 8, !alias.scope !3402, !noalias !3405, !noundef !4
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !alias.scope !3402, !noalias !3405, !nonnull !4, !noundef !4
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %32, i64 0
   %.sroa.0.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %35
@@ -49641,7 +49641,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h71d31ecca9d23fffE.exit11.i: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !7766
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !7766
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !7766
-  %299 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates28EMOJI_FUZZY_MATCH_CANDIDATES17hee9795017ce90ad4E, i64 24) acquire, align 8, !noalias !7766
+  %299 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates28EMOJI_FUZZY_MATCH_CANDIDATES17hee9795017ce90ad4E, i64 24) acquire, align 8, !noalias !7766
   %300 = icmp eq i32 %299, 4
   br i1 %300, label %_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates17hb6e8b813450ab784E.exit, label %301
 
@@ -49650,7 +49650,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h71d31ecca9d23fffE.exit11.i: ; preds = 
   store ptr @_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates28EMOJI_FUZZY_MATCH_CANDIDATES17hee9795017ce90ad4E, ptr %11, align 8, !noalias !7766
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !7766
   store ptr %11, ptr %10, align 8, !noalias !7766
-  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hb841c4b0eeb69a8bE(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates28EMOJI_FUZZY_MATCH_CANDIDATES17hee9795017ce90ad4E, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1dc0865c4bf1637fb689403db19b39df.173)
+  invoke void @_ZN3std3sys4sync4once5futex4Once4call17hb841c4b0eeb69a8bE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates28EMOJI_FUZZY_MATCH_CANDIDATES17hee9795017ce90ad4E, i64 24), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1dc0865c4bf1637fb689403db19b39df.173)
           to label %.noexc14.i18 unwind label %302, !noalias !7765
 
 .noexc14.i18:                                     ; preds = %301
@@ -49677,8 +49677,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h71d31ecca9d23fffE.exit11.i: ; preds = 
           to label %common.resume unwind label %304, !noalias !7765
 
 _ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates17hb6e8b813450ab784E.exit: ; preds = %298, %.noexc14.i18
-  %308 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates28EMOJI_FUZZY_MATCH_CANDIDATES17hee9795017ce90ad4E, i64 8), align 8, !noalias !7766, !nonnull !4, !noundef !4
-  %309 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates28EMOJI_FUZZY_MATCH_CANDIDATES17hee9795017ce90ad4E, i64 16), align 8, !noalias !7766, !noundef !4
+  %308 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates28EMOJI_FUZZY_MATCH_CANDIDATES17hee9795017ce90ad4E, i64 8), align 8, !noalias !7766, !nonnull !4, !noundef !4
+  %309 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9collab_ui10chat_panel14message_editor13MessageEditor24collect_emoji_candidates28EMOJI_FUZZY_MATCH_CANDIDATES17hee9795017ce90ad4E, i64 16), align 8, !noalias !7766, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.sroa.4.sroa.2, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %.sroa.0.i.sroa.0.0.copyload = load i64, ptr %13, align 8, !noalias !7766
   %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8

@@ -85,13 +85,13 @@ entry:
   %call = tail call i32 @RAND_bytes(ptr noundef nonnull @session_id, i32 noundef 32) #6
   %call1 = tail call i32 @RAND_bytes(ptr noundef nonnull @master_secret, i32 noundef 48) #6
   %call2 = tail call i32 @RAND_bytes(ptr noundef nonnull @cookie, i32 noundef 20) #6
-  %call3 = tail call i32 @RAND_bytes(ptr noundef nonnull getelementptr inbounds (i8, ptr @server_random, i64 4), i32 noundef 28) #6
+  %call3 = tail call i32 @RAND_bytes(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @server_random, i64 4), i32 noundef 28) #6
   %call4 = tail call i64 @time(ptr noundef null) #6
   store i64 %call4, ptr @server_random, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   store ptr @client_session.session_asn1, ptr %p.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) getelementptr inbounds (i8, ptr @client_session.session_asn1, i64 15), ptr noundef nonnull align 16 dereferenceable(32) @session_id, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) getelementptr inbounds (i8, ptr @client_session.session_asn1, i64 49), ptr noundef nonnull align 16 dereferenceable(48) @master_secret, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @client_session.session_asn1, i64 15), ptr noundef nonnull align 16 dereferenceable(32) @session_id, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @client_session.session_asn1, i64 49), ptr noundef nonnull align 16 dereferenceable(48) @master_secret, i64 48, i1 false)
   %call.i = call ptr @d2i_SSL_SESSION(ptr noundef null, ptr noundef nonnull %p.i, i64 noundef 97) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   %call6 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 484, ptr noundef nonnull @.str.2, ptr noundef %call.i) #6
@@ -221,7 +221,7 @@ lor.lhs.false89:                                  ; preds = %lor.lhs.false85
   br i1 %tobool92.not, label %end, label %lor.lhs.false93
 
 lor.lhs.false93:                                  ; preds = %lor.lhs.false89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @send_hello_verify.hello_verify, i64 28), ptr noundef nonnull align 16 dereferenceable(20) @cookie, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @send_hello_verify.hello_verify, i64 28), ptr noundef nonnull align 16 dereferenceable(20) @cookie, i64 20, i1 false)
   %call.i55 = call i32 @BIO_write(ptr noundef %call58, ptr noundef nonnull @send_hello_verify.hello_verify, i32 noundef 48) #6
   %call97 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 539, ptr noundef nonnull @.str.23, i32 noundef 1) #6
   %tobool98.not = icmp eq i32 %call97, 0
@@ -588,10 +588,10 @@ return:                                           ; preds = %lor.lhs.false75, %i
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @send_server_hello(ptr noundef %rbio) unnamed_addr #0 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) getelementptr inbounds (i8, ptr @send_server_hello.server_hello, i64 27), ptr noundef nonnull align 16 dereferenceable(32) @server_random, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) getelementptr inbounds (i8, ptr @send_server_hello.server_hello, i64 60), ptr noundef nonnull align 16 dereferenceable(32) @session_id, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @send_server_hello.server_hello, i64 27), ptr noundef nonnull align 16 dereferenceable(32) @server_random, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @send_server_hello.server_hello, i64 60), ptr noundef nonnull align 16 dereferenceable(32) @session_id, i64 32, i1 false)
   %0 = load ptr, ptr @handshake_md, align 8
-  %call = tail call i32 @EVP_DigestUpdate(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @send_server_hello.server_hello, i64 25), i64 noundef 70) #6
+  %call = tail call i32 @EVP_DigestUpdate(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @send_server_hello.server_hello, i64 25), i64 noundef 70) #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -643,7 +643,7 @@ if.end:                                           ; preds = %entry
   %call5.i7 = call i32 @EVP_PKEY_CTX_add1_tls1_prf_seed(ptr noundef %call.i2, ptr noundef nonnull @.str.35, i32 noundef 15) #6
   %call6.i8 = call i32 @EVP_PKEY_CTX_add1_tls1_prf_seed(ptr noundef %call.i2, ptr noundef nonnull %handshake_hash, i32 noundef %call4) #6
   %call7.i9 = call i32 @EVP_PKEY_CTX_add1_tls1_prf_seed(ptr noundef %call.i2, ptr noundef null, i32 noundef 0) #6
-  %call8.i10 = call i32 @EVP_PKEY_derive(ptr noundef %call.i2, ptr noundef nonnull getelementptr inbounds (i8, ptr @send_finished.finished_msg, i64 12), ptr noundef nonnull %outlen.i1) #6
+  %call8.i10 = call i32 @EVP_PKEY_derive(ptr noundef %call.i2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @send_finished.finished_msg, i64 12), ptr noundef nonnull %outlen.i1) #6
   call void @EVP_PKEY_CTX_free(ptr noundef %call.i2) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %outlen.i1)
   %call6 = call fastcc i32 @send_record(ptr noundef %rbio, i8 noundef zeroext 22, i64 noundef 0, ptr noundef nonnull @send_finished.finished_msg, i64 noundef 24)
@@ -767,18 +767,18 @@ entry:
   store i8 %conv, ptr @send_record.seq, align 1
   %shr1 = lshr i64 %seqnr, 32
   %conv3 = trunc i64 %shr1 to i8
-  store i8 %conv3, ptr getelementptr inbounds (i8, ptr @send_record.seq, i64 1), align 1
+  store i8 %conv3, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 1), align 1
   %shr4 = lshr i64 %seqnr, 24
   %conv6 = trunc i64 %shr4 to i8
-  store i8 %conv6, ptr getelementptr inbounds (i8, ptr @send_record.seq, i64 2), align 1
+  store i8 %conv6, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 2), align 1
   %shr7 = lshr i64 %seqnr, 16
   %conv9 = trunc i64 %shr7 to i8
-  store i8 %conv9, ptr getelementptr inbounds (i8, ptr @send_record.seq, i64 3), align 1
+  store i8 %conv9, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 3), align 1
   %shr10 = lshr i64 %seqnr, 8
   %conv12 = trunc i64 %shr10 to i8
-  store i8 %conv12, ptr getelementptr inbounds (i8, ptr @send_record.seq, i64 4), align 1
+  store i8 %conv12, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 4), align 1
   %conv14 = trunc i64 %seqnr to i8
-  store i8 %conv14, ptr getelementptr inbounds (i8, ptr @send_record.seq, i64 5), align 1
+  store i8 %conv14, ptr getelementptr inbounds nuw (i8, ptr @send_record.seq, i64 5), align 1
   %add = add nuw nsw i64 %len, 20
   %0 = trunc nuw nsw i64 %add to i8
   %1 = and i8 %0, 15
@@ -813,7 +813,7 @@ if.end27:                                         ; preds = %lor.lhs.false
   %conv33 = trunc nuw nsw i64 %len to i8
   %arrayidx34 = getelementptr inbounds nuw i8, ptr %lenbytes, i64 1
   store i8 %conv33, ptr %arrayidx34, align 1
-  %call35 = call i32 @EVP_MAC_init(ptr noundef %call23, ptr noundef nonnull getelementptr inbounds (i8, ptr @key_block, i64 20), i64 noundef 20, ptr noundef nonnull %params) #6
+  %call35 = call i32 @EVP_MAC_init(ptr noundef %call23, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @key_block, i64 20), i64 noundef 20, ptr noundef nonnull %params) #6
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %end, label %lor.lhs.false37
 
@@ -873,7 +873,7 @@ lor.lhs.false69:                                  ; preds = %do.body.preheader
 
 lor.lhs.false73:                                  ; preds = %lor.lhs.false69
   %call74 = call ptr @EVP_aes_128_cbc() #6
-  %call76 = call i32 @EVP_CipherInit_ex(ptr noundef %call70, ptr noundef %call74, ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @key_block, i64 56), ptr noundef nonnull %iv, i32 noundef 1) #6
+  %call76 = call i32 @EVP_CipherInit_ex(ptr noundef %call70, ptr noundef %call74, ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @key_block, i64 56), ptr noundef nonnull %iv, i32 noundef 1) #6
   %cmp77 = icmp ne i32 %call76, 0
   %conv78 = zext i1 %cmp77 to i32
   %call79 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @.str.43, i32 noundef %conv78) #6

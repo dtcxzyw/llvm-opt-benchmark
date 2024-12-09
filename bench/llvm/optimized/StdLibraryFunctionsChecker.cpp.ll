@@ -696,7 +696,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %.0.i.i.i = phi ptr [ %31, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i ], [ %14, %8 ], [ %28, %22 ]
   %34 = call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %34, i8 0, i64 240, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsCheckerE, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsCheckerE, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %35, i8 0, i64 28, i1 false)
   %36 = load ptr, ptr @_ZN5clang4ento10categories10LogicErrorE, align 8
@@ -716,15 +716,15 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsCheckerC2Ev.exit.i: ; preds = %37, %_ZN4ll
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 176
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %42, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NoErrnoConstraintE, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NoErrnoConstraintE, i64 16), ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 208
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ResetErrnoConstraintE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ResetErrnoConstraintE, i64 16), ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 216
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker28ErrnoMustBeCheckedConstraintE, i64 16), ptr %45, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker28ErrnoMustBeCheckedConstraintE, i64 16), ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 224
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker22SuccessErrnoConstraintE, i64 16), ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker22SuccessErrnoConstraintE, i64 16), ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 232
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker22FailureErrnoConstraintE, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker22FailureErrnoConstraintE, i64 16), ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
@@ -1248,7 +1248,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
   %10 = alloca %"class.std::allocator.0", align 1
   %11 = alloca %"class.std::allocator.0", align 1
   %12 = zext i1 %6 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = tail call { ptr, i64 } @_ZNK5clang4ento11CheckerBase14getCheckerNameEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   %15 = extractvalue { ptr, i64 } %14, 0
@@ -1291,9 +1291,9 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (64, 72)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsCheckerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1346,9 +1346,9 @@ _ZN4llvm8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsCh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (64, 72)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsCheckerE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1584,7 +1584,7 @@ define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker28ErrnoMustB
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   %5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %4) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 62))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 62))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   ret void
 }
@@ -1634,7 +1634,7 @@ define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker22SuccessErr
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   %5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %4) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 40))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 40))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   ret void
 }
@@ -2320,7 +2320,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit67.i: ; preds
   store i8 0, ptr %88, align 8
   store i32 1, ptr %89, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %13, align 8
   store ptr %12, ptr %91, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   %158 = load ptr, ptr %92, align 8
@@ -2643,7 +2643,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73.i: ; preds
   store i8 0, ptr %102, align 8
   store i32 1, ptr %103, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %26, align 8
   store ptr %25, ptr %105, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   %303 = load ptr, ptr %106, align 8
@@ -4630,11 +4630,11 @@ _ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4
   store i32 1, ptr %1286, align 8, !noalias !39
   %1287 = getelementptr inbounds nuw i8, ptr %1285, i64 12
   store i32 1, ptr %1287, align 4, !noalias !39
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1285, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1285, align 8, !noalias !39
   %1288 = getelementptr inbounds nuw i8, ptr %1285, i64 16
   %1289 = getelementptr inbounds nuw i8, ptr %1285, i64 24
   store i32 0, ptr %1289, align 8, !noalias !39
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1288, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1288, align 8, !noalias !39
   %1290 = getelementptr inbounds nuw i8, ptr %1285, i64 28
   store i32 1, ptr %1290, align 4, !noalias !39
   %1291 = getelementptr inbounds nuw i8, ptr %1285, i64 32
@@ -4660,11 +4660,11 @@ _ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4
   store i32 1, ptr %1300, align 8, !noalias !47
   %1301 = getelementptr inbounds nuw i8, ptr %1299, i64 12
   store i32 1, ptr %1301, align 4, !noalias !47
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1299, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1299, align 8, !noalias !47
   %1302 = getelementptr inbounds nuw i8, ptr %1299, i64 16
   %1303 = getelementptr inbounds nuw i8, ptr %1299, i64 24
   store i32 -1, ptr %1303, align 8, !noalias !47
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1302, align 8, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1302, align 8, !noalias !47
   %1304 = getelementptr inbounds nuw i8, ptr %1299, i64 28
   %1305 = getelementptr inbounds nuw i8, ptr %1299, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %1304, i8 0, i64 28, i1 false)
@@ -4740,11 +4740,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %1334, align 8, !noalias !56
   %1335 = getelementptr inbounds nuw i8, ptr %1333, i64 12
   store i32 1, ptr %1335, align 4, !noalias !56
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1333, align 8, !noalias !56
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1333, align 8, !noalias !56
   %1336 = getelementptr inbounds nuw i8, ptr %1333, i64 16
   %1337 = getelementptr inbounds nuw i8, ptr %1333, i64 24
   store i32 0, ptr %1337, align 8, !noalias !56
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1336, align 8, !noalias !56
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1336, align 8, !noalias !56
   %1338 = getelementptr inbounds nuw i8, ptr %1333, i64 28
   store i32 1, ptr %1338, align 4, !noalias !56
   %1339 = getelementptr inbounds nuw i8, ptr %1333, i64 32
@@ -4807,11 +4807,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %1357, align 8, !noalias !64
   %1358 = getelementptr inbounds nuw i8, ptr %1356, i64 12
   store i32 1, ptr %1358, align 4, !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1356, align 8, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1356, align 8, !noalias !64
   %1359 = getelementptr inbounds nuw i8, ptr %1356, i64 16
   %1360 = getelementptr inbounds nuw i8, ptr %1356, i64 24
   store i32 0, ptr %1360, align 8, !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1359, align 8, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1359, align 8, !noalias !64
   %1361 = getelementptr inbounds nuw i8, ptr %1356, i64 28
   %1362 = getelementptr inbounds nuw i8, ptr %1356, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %1361, i8 0, i64 28, i1 false)
@@ -4836,11 +4836,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %1371, align 8, !noalias !72
   %1372 = getelementptr inbounds nuw i8, ptr %1370, i64 12
   store i32 1, ptr %1372, align 4, !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1370, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1370, align 8, !noalias !72
   %1373 = getelementptr inbounds nuw i8, ptr %1370, i64 16
   %1374 = getelementptr inbounds nuw i8, ptr %1370, i64 24
   store i32 -1, ptr %1374, align 8, !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1373, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1373, align 8, !noalias !72
   %1375 = getelementptr inbounds nuw i8, ptr %1370, i64 28
   store i32 1, ptr %1375, align 4, !noalias !72
   %1376 = getelementptr inbounds nuw i8, ptr %1370, i64 32
@@ -4925,11 +4925,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %1408, align 8, !noalias !80
   %1409 = getelementptr inbounds nuw i8, ptr %1407, i64 12
   store i32 1, ptr %1409, align 4, !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1407, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1407, align 8, !noalias !80
   %1410 = getelementptr inbounds nuw i8, ptr %1407, i64 16
   %1411 = getelementptr inbounds nuw i8, ptr %1407, i64 24
   store i32 0, ptr %1411, align 8, !noalias !80
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1410, align 8, !noalias !80
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1410, align 8, !noalias !80
   %1412 = getelementptr inbounds nuw i8, ptr %1407, i64 28
   store i32 1, ptr %1412, align 4, !noalias !80
   %1413 = getelementptr inbounds nuw i8, ptr %1407, i64 32
@@ -5603,11 +5603,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit4399:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %1696, align 8, !noalias !88
   %1697 = getelementptr inbounds nuw i8, ptr %1695, i64 12
   store i32 1, ptr %1697, align 4, !noalias !88
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1695, align 8, !noalias !88
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1695, align 8, !noalias !88
   %1698 = getelementptr inbounds nuw i8, ptr %1695, i64 16
   %1699 = getelementptr inbounds nuw i8, ptr %1695, i64 24
   store i32 0, ptr %1699, align 8, !noalias !88
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1698, align 8, !noalias !88
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1698, align 8, !noalias !88
   %1700 = getelementptr inbounds nuw i8, ptr %1695, i64 28
   store i32 1, ptr %1700, align 4, !noalias !88
   %1701 = getelementptr inbounds nuw i8, ptr %1695, i64 32
@@ -5633,11 +5633,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit4399:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %1710, align 8, !noalias !96
   %1711 = getelementptr inbounds nuw i8, ptr %1709, i64 12
   store i32 1, ptr %1711, align 4, !noalias !96
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1709, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1709, align 8, !noalias !96
   %1712 = getelementptr inbounds nuw i8, ptr %1709, i64 16
   %1713 = getelementptr inbounds nuw i8, ptr %1709, i64 24
   store i32 -1, ptr %1713, align 8, !noalias !96
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1712, align 8, !noalias !96
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1712, align 8, !noalias !96
   %1714 = getelementptr inbounds nuw i8, ptr %1709, i64 28
   %1715 = getelementptr inbounds nuw i8, ptr %1709, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %1714, i8 0, i64 28, i1 false)
@@ -5712,11 +5712,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %1743, align 8, !noalias !104
   %1744 = getelementptr inbounds nuw i8, ptr %1742, i64 12
   store i32 1, ptr %1744, align 4, !noalias !104
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1742, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1742, align 8, !noalias !104
   %1745 = getelementptr inbounds nuw i8, ptr %1742, i64 16
   %1746 = getelementptr inbounds nuw i8, ptr %1742, i64 24
   store i32 0, ptr %1746, align 8, !noalias !104
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1745, align 8, !noalias !104
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1745, align 8, !noalias !104
   %1747 = getelementptr inbounds nuw i8, ptr %1742, i64 28
   store i32 1, ptr %1747, align 4, !noalias !104
   %1748 = getelementptr inbounds nuw i8, ptr %1742, i64 32
@@ -5775,11 +5775,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %1766, align 8, !noalias !112
   %1767 = getelementptr inbounds nuw i8, ptr %1765, i64 12
   store i32 1, ptr %1767, align 4, !noalias !112
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1765, align 8, !noalias !112
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1765, align 8, !noalias !112
   %1768 = getelementptr inbounds nuw i8, ptr %1765, i64 16
   %1769 = getelementptr inbounds nuw i8, ptr %1765, i64 24
   store i32 0, ptr %1769, align 8, !noalias !112
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1768, align 8, !noalias !112
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1768, align 8, !noalias !112
   %1770 = getelementptr inbounds nuw i8, ptr %1765, i64 28
   %1771 = getelementptr inbounds nuw i8, ptr %1765, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %1770, i8 0, i64 28, i1 false)
@@ -5804,11 +5804,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %1780, align 8, !noalias !120
   %1781 = getelementptr inbounds nuw i8, ptr %1779, i64 12
   store i32 1, ptr %1781, align 4, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1779, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1779, align 8, !noalias !120
   %1782 = getelementptr inbounds nuw i8, ptr %1779, i64 16
   %1783 = getelementptr inbounds nuw i8, ptr %1779, i64 24
   store i32 -1, ptr %1783, align 8, !noalias !120
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1782, align 8, !noalias !120
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %1782, align 8, !noalias !120
   %1784 = getelementptr inbounds nuw i8, ptr %1779, i64 28
   store i32 1, ptr %1784, align 4, !noalias !120
   %1785 = getelementptr inbounds nuw i8, ptr %1779, i64 32
@@ -6460,11 +6460,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit4611:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %2057, align 8, !noalias !131
   %2058 = getelementptr inbounds nuw i8, ptr %2056, i64 12
   store i32 1, ptr %2058, align 4, !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2056, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2056, align 8, !noalias !131
   %2059 = getelementptr inbounds nuw i8, ptr %2056, i64 16
   %2060 = getelementptr inbounds nuw i8, ptr %2056, i64 24
   store i32 0, ptr %2060, align 8, !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2059, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2059, align 8, !noalias !131
   %2061 = getelementptr inbounds nuw i8, ptr %2056, i64 28
   store i32 1, ptr %2061, align 4, !noalias !131
   %2062 = getelementptr inbounds nuw i8, ptr %2056, i64 32
@@ -6490,11 +6490,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit4611:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %2071, align 8, !noalias !139
   %2072 = getelementptr inbounds nuw i8, ptr %2070, i64 12
   store i32 1, ptr %2072, align 4, !noalias !139
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2070, align 8, !noalias !139
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2070, align 8, !noalias !139
   %2073 = getelementptr inbounds nuw i8, ptr %2070, i64 16
   %2074 = getelementptr inbounds nuw i8, ptr %2070, i64 24
   store i32 -1, ptr %2074, align 8, !noalias !139
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2073, align 8, !noalias !139
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2073, align 8, !noalias !139
   %2075 = getelementptr inbounds nuw i8, ptr %2070, i64 28
   %2076 = getelementptr inbounds nuw i8, ptr %2070, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2075, i8 0, i64 28, i1 false)
@@ -6569,11 +6569,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %2103, align 8, !noalias !150
   %2104 = getelementptr inbounds nuw i8, ptr %2102, i64 12
   store i32 1, ptr %2104, align 4, !noalias !150
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2102, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2102, align 8, !noalias !150
   %2105 = getelementptr inbounds nuw i8, ptr %2102, i64 16
   %2106 = getelementptr inbounds nuw i8, ptr %2102, i64 24
   store i32 0, ptr %2106, align 8, !noalias !150
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2105, align 8, !noalias !150
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2105, align 8, !noalias !150
   %2107 = getelementptr inbounds nuw i8, ptr %2102, i64 28
   %2108 = getelementptr inbounds nuw i8, ptr %2102, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2107, i8 0, i64 28, i1 false)
@@ -6598,11 +6598,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %2117, align 8, !noalias !158
   %2118 = getelementptr inbounds nuw i8, ptr %2116, i64 12
   store i32 1, ptr %2118, align 4, !noalias !158
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2116, align 8, !noalias !158
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2116, align 8, !noalias !158
   %2119 = getelementptr inbounds nuw i8, ptr %2116, i64 16
   %2120 = getelementptr inbounds nuw i8, ptr %2116, i64 24
   store i32 -1, ptr %2120, align 8, !noalias !158
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2119, align 8, !noalias !158
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2119, align 8, !noalias !158
   %2121 = getelementptr inbounds nuw i8, ptr %2116, i64 28
   store i32 1, ptr %2121, align 4, !noalias !158
   %2122 = getelementptr inbounds nuw i8, ptr %2116, i64 32
@@ -7089,11 +7089,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit4773:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %2322, align 8, !noalias !166
   %2323 = getelementptr inbounds nuw i8, ptr %2321, i64 12
   store i32 1, ptr %2323, align 4, !noalias !166
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2321, align 8, !noalias !166
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2321, align 8, !noalias !166
   %2324 = getelementptr inbounds nuw i8, ptr %2321, i64 16
   %2325 = getelementptr inbounds nuw i8, ptr %2321, i64 24
   store i32 0, ptr %2325, align 8, !noalias !166
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2324, align 8, !noalias !166
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2324, align 8, !noalias !166
   %2326 = getelementptr inbounds nuw i8, ptr %2321, i64 28
   store i32 1, ptr %2326, align 4, !noalias !166
   %2327 = getelementptr inbounds nuw i8, ptr %2321, i64 32
@@ -7119,11 +7119,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit4773:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %2336, align 8, !noalias !174
   %2337 = getelementptr inbounds nuw i8, ptr %2335, i64 12
   store i32 1, ptr %2337, align 4, !noalias !174
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2335, align 8, !noalias !174
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2335, align 8, !noalias !174
   %2338 = getelementptr inbounds nuw i8, ptr %2335, i64 16
   %2339 = getelementptr inbounds nuw i8, ptr %2335, i64 24
   store i32 -1, ptr %2339, align 8, !noalias !174
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2338, align 8, !noalias !174
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2338, align 8, !noalias !174
   %2340 = getelementptr inbounds nuw i8, ptr %2335, i64 28
   %2341 = getelementptr inbounds nuw i8, ptr %2335, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2340, i8 0, i64 28, i1 false)
@@ -7202,11 +7202,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %2368, align 8, !noalias !182
   %2369 = getelementptr inbounds nuw i8, ptr %2367, i64 12
   store i32 1, ptr %2369, align 4, !noalias !182
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2367, align 8, !noalias !182
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2367, align 8, !noalias !182
   %2370 = getelementptr inbounds nuw i8, ptr %2367, i64 16
   %2371 = getelementptr inbounds nuw i8, ptr %2367, i64 24
   store i32 0, ptr %2371, align 8, !noalias !182
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2370, align 8, !noalias !182
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2370, align 8, !noalias !182
   %2372 = getelementptr inbounds nuw i8, ptr %2367, i64 28
   %2373 = getelementptr inbounds nuw i8, ptr %2367, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2372, i8 0, i64 28, i1 false)
@@ -7231,11 +7231,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %2382, align 8, !noalias !190
   %2383 = getelementptr inbounds nuw i8, ptr %2381, i64 12
   store i32 1, ptr %2383, align 4, !noalias !190
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2381, align 8, !noalias !190
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2381, align 8, !noalias !190
   %2384 = getelementptr inbounds nuw i8, ptr %2381, i64 16
   %2385 = getelementptr inbounds nuw i8, ptr %2381, i64 24
   store i32 -1, ptr %2385, align 8, !noalias !190
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2384, align 8, !noalias !190
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2384, align 8, !noalias !190
   %2386 = getelementptr inbounds nuw i8, ptr %2381, i64 28
   store i32 1, ptr %2386, align 4, !noalias !190
   %2387 = getelementptr inbounds nuw i8, ptr %2381, i64 32
@@ -7722,11 +7722,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit4935:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %2587, align 8, !noalias !198
   %2588 = getelementptr inbounds nuw i8, ptr %2586, i64 12
   store i32 1, ptr %2588, align 4, !noalias !198
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2586, align 8, !noalias !198
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2586, align 8, !noalias !198
   %2589 = getelementptr inbounds nuw i8, ptr %2586, i64 16
   %2590 = getelementptr inbounds nuw i8, ptr %2586, i64 24
   store i32 0, ptr %2590, align 8, !noalias !198
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2589, align 8, !noalias !198
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2589, align 8, !noalias !198
   %2591 = getelementptr inbounds nuw i8, ptr %2586, i64 28
   store i32 1, ptr %2591, align 4, !noalias !198
   %2592 = getelementptr inbounds nuw i8, ptr %2586, i64 32
@@ -7752,11 +7752,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit4935:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %2601, align 8, !noalias !206
   %2602 = getelementptr inbounds nuw i8, ptr %2600, i64 12
   store i32 1, ptr %2602, align 4, !noalias !206
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2600, align 8, !noalias !206
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2600, align 8, !noalias !206
   %2603 = getelementptr inbounds nuw i8, ptr %2600, i64 16
   %2604 = getelementptr inbounds nuw i8, ptr %2600, i64 24
   store i32 -1, ptr %2604, align 8, !noalias !206
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2603, align 8, !noalias !206
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2603, align 8, !noalias !206
   %2605 = getelementptr inbounds nuw i8, ptr %2600, i64 28
   %2606 = getelementptr inbounds nuw i8, ptr %2600, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2605, i8 0, i64 28, i1 false)
@@ -7835,11 +7835,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %2633, align 8, !noalias !214
   %2634 = getelementptr inbounds nuw i8, ptr %2632, i64 12
   store i32 1, ptr %2634, align 4, !noalias !214
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2632, align 8, !noalias !214
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2632, align 8, !noalias !214
   %2635 = getelementptr inbounds nuw i8, ptr %2632, i64 16
   %2636 = getelementptr inbounds nuw i8, ptr %2632, i64 24
   store i32 0, ptr %2636, align 8, !noalias !214
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2635, align 8, !noalias !214
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2635, align 8, !noalias !214
   %2637 = getelementptr inbounds nuw i8, ptr %2632, i64 28
   %2638 = getelementptr inbounds nuw i8, ptr %2632, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2637, i8 0, i64 28, i1 false)
@@ -7864,11 +7864,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %2647, align 8, !noalias !222
   %2648 = getelementptr inbounds nuw i8, ptr %2646, i64 12
   store i32 1, ptr %2648, align 4, !noalias !222
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2646, align 8, !noalias !222
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2646, align 8, !noalias !222
   %2649 = getelementptr inbounds nuw i8, ptr %2646, i64 16
   %2650 = getelementptr inbounds nuw i8, ptr %2646, i64 24
   store i32 -1, ptr %2650, align 8, !noalias !222
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2649, align 8, !noalias !222
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2649, align 8, !noalias !222
   %2651 = getelementptr inbounds nuw i8, ptr %2646, i64 28
   store i32 1, ptr %2651, align 4, !noalias !222
   %2652 = getelementptr inbounds nuw i8, ptr %2646, i64 32
@@ -8351,11 +8351,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5097:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %2852, align 8, !noalias !233
   %2853 = getelementptr inbounds nuw i8, ptr %2851, i64 12
   store i32 1, ptr %2853, align 4, !noalias !233
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2851, align 8, !noalias !233
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2851, align 8, !noalias !233
   %2854 = getelementptr inbounds nuw i8, ptr %2851, i64 16
   %2855 = getelementptr inbounds nuw i8, ptr %2851, i64 24
   store i32 0, ptr %2855, align 8, !noalias !233
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2854, align 8, !noalias !233
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2854, align 8, !noalias !233
   %2856 = getelementptr inbounds nuw i8, ptr %2851, i64 28
   store i32 1, ptr %2856, align 4, !noalias !233
   %2857 = getelementptr inbounds nuw i8, ptr %2851, i64 32
@@ -8381,11 +8381,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5097:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %2866, align 8, !noalias !241
   %2867 = getelementptr inbounds nuw i8, ptr %2865, i64 12
   store i32 1, ptr %2867, align 4, !noalias !241
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2865, align 8, !noalias !241
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2865, align 8, !noalias !241
   %2868 = getelementptr inbounds nuw i8, ptr %2865, i64 16
   %2869 = getelementptr inbounds nuw i8, ptr %2865, i64 24
   store i32 -1, ptr %2869, align 8, !noalias !241
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2868, align 8, !noalias !241
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2868, align 8, !noalias !241
   %2870 = getelementptr inbounds nuw i8, ptr %2865, i64 28
   %2871 = getelementptr inbounds nuw i8, ptr %2865, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2870, i8 0, i64 28, i1 false)
@@ -8460,11 +8460,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %2898, align 8, !noalias !252
   %2899 = getelementptr inbounds nuw i8, ptr %2897, i64 12
   store i32 1, ptr %2899, align 4, !noalias !252
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2897, align 8, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2897, align 8, !noalias !252
   %2900 = getelementptr inbounds nuw i8, ptr %2897, i64 16
   %2901 = getelementptr inbounds nuw i8, ptr %2897, i64 24
   store i32 0, ptr %2901, align 8, !noalias !252
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2900, align 8, !noalias !252
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2900, align 8, !noalias !252
   %2902 = getelementptr inbounds nuw i8, ptr %2897, i64 28
   %2903 = getelementptr inbounds nuw i8, ptr %2897, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2902, i8 0, i64 28, i1 false)
@@ -8489,11 +8489,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %2912, align 8, !noalias !260
   %2913 = getelementptr inbounds nuw i8, ptr %2911, i64 12
   store i32 1, ptr %2913, align 4, !noalias !260
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2911, align 8, !noalias !260
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2911, align 8, !noalias !260
   %2914 = getelementptr inbounds nuw i8, ptr %2911, i64 16
   %2915 = getelementptr inbounds nuw i8, ptr %2911, i64 24
   store i32 -1, ptr %2915, align 8, !noalias !260
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2914, align 8, !noalias !260
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2914, align 8, !noalias !260
   %2916 = getelementptr inbounds nuw i8, ptr %2911, i64 28
   store i32 1, ptr %2916, align 4, !noalias !260
   %2917 = getelementptr inbounds nuw i8, ptr %2911, i64 32
@@ -8976,11 +8976,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5259:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %3117, align 8, !noalias !271
   %3118 = getelementptr inbounds nuw i8, ptr %3116, i64 12
   store i32 1, ptr %3118, align 4, !noalias !271
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3116, align 8, !noalias !271
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3116, align 8, !noalias !271
   %3119 = getelementptr inbounds nuw i8, ptr %3116, i64 16
   %3120 = getelementptr inbounds nuw i8, ptr %3116, i64 24
   store i32 0, ptr %3120, align 8, !noalias !271
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3119, align 8, !noalias !271
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3119, align 8, !noalias !271
   %3121 = getelementptr inbounds nuw i8, ptr %3116, i64 28
   store i32 1, ptr %3121, align 4, !noalias !271
   %3122 = getelementptr inbounds nuw i8, ptr %3116, i64 32
@@ -9006,11 +9006,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5259:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %3131, align 8, !noalias !279
   %3132 = getelementptr inbounds nuw i8, ptr %3130, i64 12
   store i32 1, ptr %3132, align 4, !noalias !279
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3130, align 8, !noalias !279
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3130, align 8, !noalias !279
   %3133 = getelementptr inbounds nuw i8, ptr %3130, i64 16
   %3134 = getelementptr inbounds nuw i8, ptr %3130, i64 24
   store i32 -1, ptr %3134, align 8, !noalias !279
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3133, align 8, !noalias !279
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3133, align 8, !noalias !279
   %3135 = getelementptr inbounds nuw i8, ptr %3130, i64 28
   %3136 = getelementptr inbounds nuw i8, ptr %3130, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3135, i8 0, i64 28, i1 false)
@@ -9085,11 +9085,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3163, align 8, !noalias !290
   %3164 = getelementptr inbounds nuw i8, ptr %3162, i64 12
   store i32 1, ptr %3164, align 4, !noalias !290
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3162, align 8, !noalias !290
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3162, align 8, !noalias !290
   %3165 = getelementptr inbounds nuw i8, ptr %3162, i64 16
   %3166 = getelementptr inbounds nuw i8, ptr %3162, i64 24
   store i32 0, ptr %3166, align 8, !noalias !290
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3165, align 8, !noalias !290
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3165, align 8, !noalias !290
   %3167 = getelementptr inbounds nuw i8, ptr %3162, i64 28
   %3168 = getelementptr inbounds nuw i8, ptr %3162, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3167, i8 0, i64 28, i1 false)
@@ -9114,11 +9114,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3177, align 8, !noalias !298
   %3178 = getelementptr inbounds nuw i8, ptr %3176, i64 12
   store i32 1, ptr %3178, align 4, !noalias !298
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3176, align 8, !noalias !298
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3176, align 8, !noalias !298
   %3179 = getelementptr inbounds nuw i8, ptr %3176, i64 16
   %3180 = getelementptr inbounds nuw i8, ptr %3176, i64 24
   store i32 -1, ptr %3180, align 8, !noalias !298
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3179, align 8, !noalias !298
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3179, align 8, !noalias !298
   %3181 = getelementptr inbounds nuw i8, ptr %3176, i64 28
   store i32 1, ptr %3181, align 4, !noalias !298
   %3182 = getelementptr inbounds nuw i8, ptr %3176, i64 32
@@ -9601,11 +9601,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5421:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %3382, align 8, !noalias !309
   %3383 = getelementptr inbounds nuw i8, ptr %3381, i64 12
   store i32 1, ptr %3383, align 4, !noalias !309
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3381, align 8, !noalias !309
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3381, align 8, !noalias !309
   %3384 = getelementptr inbounds nuw i8, ptr %3381, i64 16
   %3385 = getelementptr inbounds nuw i8, ptr %3381, i64 24
   store i32 0, ptr %3385, align 8, !noalias !309
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3384, align 8, !noalias !309
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3384, align 8, !noalias !309
   %3386 = getelementptr inbounds nuw i8, ptr %3381, i64 28
   store i32 1, ptr %3386, align 4, !noalias !309
   %3387 = getelementptr inbounds nuw i8, ptr %3381, i64 32
@@ -9631,11 +9631,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5421:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %3396, align 8, !noalias !317
   %3397 = getelementptr inbounds nuw i8, ptr %3395, i64 12
   store i32 1, ptr %3397, align 4, !noalias !317
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3395, align 8, !noalias !317
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3395, align 8, !noalias !317
   %3398 = getelementptr inbounds nuw i8, ptr %3395, i64 16
   %3399 = getelementptr inbounds nuw i8, ptr %3395, i64 24
   store i32 -1, ptr %3399, align 8, !noalias !317
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3398, align 8, !noalias !317
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3398, align 8, !noalias !317
   %3400 = getelementptr inbounds nuw i8, ptr %3395, i64 28
   %3401 = getelementptr inbounds nuw i8, ptr %3395, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3400, i8 0, i64 28, i1 false)
@@ -9710,11 +9710,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3428, align 8, !noalias !328
   %3429 = getelementptr inbounds nuw i8, ptr %3427, i64 12
   store i32 1, ptr %3429, align 4, !noalias !328
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3427, align 8, !noalias !328
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3427, align 8, !noalias !328
   %3430 = getelementptr inbounds nuw i8, ptr %3427, i64 16
   %3431 = getelementptr inbounds nuw i8, ptr %3427, i64 24
   store i32 0, ptr %3431, align 8, !noalias !328
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3430, align 8, !noalias !328
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3430, align 8, !noalias !328
   %3432 = getelementptr inbounds nuw i8, ptr %3427, i64 28
   store i32 1, ptr %3432, align 4, !noalias !328
   %3433 = getelementptr inbounds nuw i8, ptr %3427, i64 32
@@ -9744,11 +9744,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3443, align 8, !noalias !339
   %3444 = getelementptr inbounds nuw i8, ptr %3442, i64 12
   store i32 1, ptr %3444, align 4, !noalias !339
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3442, align 8, !noalias !339
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3442, align 8, !noalias !339
   %3445 = getelementptr inbounds nuw i8, ptr %3442, i64 16
   %3446 = getelementptr inbounds nuw i8, ptr %3442, i64 24
   store i32 0, ptr %3446, align 8, !noalias !339
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3445, align 8, !noalias !339
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3445, align 8, !noalias !339
   %3447 = getelementptr inbounds nuw i8, ptr %3442, i64 28
   %3448 = getelementptr inbounds nuw i8, ptr %3442, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3447, i8 0, i64 28, i1 false)
@@ -9773,11 +9773,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3457, align 8, !noalias !347
   %3458 = getelementptr inbounds nuw i8, ptr %3456, i64 12
   store i32 1, ptr %3458, align 4, !noalias !347
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3456, align 8, !noalias !347
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3456, align 8, !noalias !347
   %3459 = getelementptr inbounds nuw i8, ptr %3456, i64 16
   %3460 = getelementptr inbounds nuw i8, ptr %3456, i64 24
   store i32 -1, ptr %3460, align 8, !noalias !347
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3459, align 8, !noalias !347
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3459, align 8, !noalias !347
   %3461 = getelementptr inbounds nuw i8, ptr %3456, i64 28
   store i32 1, ptr %3461, align 4, !noalias !347
   %3462 = getelementptr inbounds nuw i8, ptr %3456, i64 32
@@ -9854,11 +9854,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3491, align 8, !noalias !355
   %3492 = getelementptr inbounds nuw i8, ptr %3490, i64 12
   store i32 1, ptr %3492, align 4, !noalias !355
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3490, align 8, !noalias !355
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3490, align 8, !noalias !355
   %3493 = getelementptr inbounds nuw i8, ptr %3490, i64 16
   %3494 = getelementptr inbounds nuw i8, ptr %3490, i64 24
   store i32 0, ptr %3494, align 8, !noalias !355
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3493, align 8, !noalias !355
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3493, align 8, !noalias !355
   %3495 = getelementptr inbounds nuw i8, ptr %3490, i64 28
   store i32 1, ptr %3495, align 4, !noalias !355
   %3496 = getelementptr inbounds nuw i8, ptr %3490, i64 32
@@ -9909,11 +9909,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3514, align 8, !noalias !366
   %3515 = getelementptr inbounds nuw i8, ptr %3513, i64 12
   store i32 1, ptr %3515, align 4, !noalias !366
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3513, align 8, !noalias !366
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3513, align 8, !noalias !366
   %3516 = getelementptr inbounds nuw i8, ptr %3513, i64 16
   %3517 = getelementptr inbounds nuw i8, ptr %3513, i64 24
   store i32 0, ptr %3517, align 8, !noalias !366
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3516, align 8, !noalias !366
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3516, align 8, !noalias !366
   %3518 = getelementptr inbounds nuw i8, ptr %3513, i64 28
   %3519 = getelementptr inbounds nuw i8, ptr %3513, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3518, i8 0, i64 28, i1 false)
@@ -9938,11 +9938,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3528, align 8, !noalias !374
   %3529 = getelementptr inbounds nuw i8, ptr %3527, i64 12
   store i32 1, ptr %3529, align 4, !noalias !374
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3527, align 8, !noalias !374
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3527, align 8, !noalias !374
   %3530 = getelementptr inbounds nuw i8, ptr %3527, i64 16
   %3531 = getelementptr inbounds nuw i8, ptr %3527, i64 24
   store i32 -1, ptr %3531, align 8, !noalias !374
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3530, align 8, !noalias !374
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3530, align 8, !noalias !374
   %3532 = getelementptr inbounds nuw i8, ptr %3527, i64 28
   store i32 1, ptr %3532, align 4, !noalias !374
   %3533 = getelementptr inbounds nuw i8, ptr %3527, i64 32
@@ -10782,11 +10782,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5719:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %3885, align 8, !noalias !385
   %3886 = getelementptr inbounds nuw i8, ptr %3884, i64 12
   store i32 1, ptr %3886, align 4, !noalias !385
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3884, align 8, !noalias !385
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3884, align 8, !noalias !385
   %3887 = getelementptr inbounds nuw i8, ptr %3884, i64 16
   %3888 = getelementptr inbounds nuw i8, ptr %3884, i64 24
   store i32 0, ptr %3888, align 8, !noalias !385
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3887, align 8, !noalias !385
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3887, align 8, !noalias !385
   %3889 = getelementptr inbounds nuw i8, ptr %3884, i64 28
   store i32 1, ptr %3889, align 4, !noalias !385
   %3890 = getelementptr inbounds nuw i8, ptr %3884, i64 32
@@ -10812,11 +10812,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5719:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %3899, align 8, !noalias !393
   %3900 = getelementptr inbounds nuw i8, ptr %3898, i64 12
   store i32 1, ptr %3900, align 4, !noalias !393
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3898, align 8, !noalias !393
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3898, align 8, !noalias !393
   %3901 = getelementptr inbounds nuw i8, ptr %3898, i64 16
   %3902 = getelementptr inbounds nuw i8, ptr %3898, i64 24
   store i32 -1, ptr %3902, align 8, !noalias !393
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3901, align 8, !noalias !393
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3901, align 8, !noalias !393
   %3903 = getelementptr inbounds nuw i8, ptr %3898, i64 28
   %3904 = getelementptr inbounds nuw i8, ptr %3898, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3903, i8 0, i64 28, i1 false)
@@ -10891,11 +10891,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3931, align 8, !noalias !404
   %3932 = getelementptr inbounds nuw i8, ptr %3930, i64 12
   store i32 1, ptr %3932, align 4, !noalias !404
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3930, align 8, !noalias !404
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3930, align 8, !noalias !404
   %3933 = getelementptr inbounds nuw i8, ptr %3930, i64 16
   %3934 = getelementptr inbounds nuw i8, ptr %3930, i64 24
   store i32 0, ptr %3934, align 8, !noalias !404
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3933, align 8, !noalias !404
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3933, align 8, !noalias !404
   %3935 = getelementptr inbounds nuw i8, ptr %3930, i64 28
   %3936 = getelementptr inbounds nuw i8, ptr %3930, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3935, i8 0, i64 28, i1 false)
@@ -10920,11 +10920,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %3945, align 8, !noalias !412
   %3946 = getelementptr inbounds nuw i8, ptr %3944, i64 12
   store i32 1, ptr %3946, align 4, !noalias !412
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3944, align 8, !noalias !412
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3944, align 8, !noalias !412
   %3947 = getelementptr inbounds nuw i8, ptr %3944, i64 16
   %3948 = getelementptr inbounds nuw i8, ptr %3944, i64 24
   store i32 -1, ptr %3948, align 8, !noalias !412
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3947, align 8, !noalias !412
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %3947, align 8, !noalias !412
   %3949 = getelementptr inbounds nuw i8, ptr %3944, i64 28
   store i32 1, ptr %3949, align 4, !noalias !412
   %3950 = getelementptr inbounds nuw i8, ptr %3944, i64 32
@@ -11419,11 +11419,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5881:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %4150, align 8, !noalias !420
   %4151 = getelementptr inbounds nuw i8, ptr %4149, i64 12
   store i32 1, ptr %4151, align 4, !noalias !420
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4149, align 8, !noalias !420
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4149, align 8, !noalias !420
   %4152 = getelementptr inbounds nuw i8, ptr %4149, i64 16
   %4153 = getelementptr inbounds nuw i8, ptr %4149, i64 24
   store i32 0, ptr %4153, align 8, !noalias !420
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4152, align 8, !noalias !420
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4152, align 8, !noalias !420
   %4154 = getelementptr inbounds nuw i8, ptr %4149, i64 28
   store i32 1, ptr %4154, align 4, !noalias !420
   %4155 = getelementptr inbounds nuw i8, ptr %4149, i64 32
@@ -11449,11 +11449,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit5881:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %4164, align 8, !noalias !428
   %4165 = getelementptr inbounds nuw i8, ptr %4163, i64 12
   store i32 1, ptr %4165, align 4, !noalias !428
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4163, align 8, !noalias !428
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4163, align 8, !noalias !428
   %4166 = getelementptr inbounds nuw i8, ptr %4163, i64 16
   %4167 = getelementptr inbounds nuw i8, ptr %4163, i64 24
   store i32 -1, ptr %4167, align 8, !noalias !428
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4166, align 8, !noalias !428
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4166, align 8, !noalias !428
   %4168 = getelementptr inbounds nuw i8, ptr %4163, i64 28
   %4169 = getelementptr inbounds nuw i8, ptr %4163, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4168, i8 0, i64 28, i1 false)
@@ -11540,11 +11540,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %4196, align 8, !noalias !436
   %4197 = getelementptr inbounds nuw i8, ptr %4195, i64 12
   store i32 1, ptr %4197, align 4, !noalias !436
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4195, align 8, !noalias !436
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4195, align 8, !noalias !436
   %4198 = getelementptr inbounds nuw i8, ptr %4195, i64 16
   %4199 = getelementptr inbounds nuw i8, ptr %4195, i64 24
   store i32 0, ptr %4199, align 8, !noalias !436
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4198, align 8, !noalias !436
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4198, align 8, !noalias !436
   %4200 = getelementptr inbounds nuw i8, ptr %4195, i64 28
   %4201 = getelementptr inbounds nuw i8, ptr %4195, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4200, i8 0, i64 28, i1 false)
@@ -11569,11 +11569,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %4210, align 8, !noalias !444
   %4211 = getelementptr inbounds nuw i8, ptr %4209, i64 12
   store i32 1, ptr %4211, align 4, !noalias !444
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4209, align 8, !noalias !444
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4209, align 8, !noalias !444
   %4212 = getelementptr inbounds nuw i8, ptr %4209, i64 16
   %4213 = getelementptr inbounds nuw i8, ptr %4209, i64 24
   store i32 -1, ptr %4213, align 8, !noalias !444
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4212, align 8, !noalias !444
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4212, align 8, !noalias !444
   %4214 = getelementptr inbounds nuw i8, ptr %4209, i64 28
   store i32 1, ptr %4214, align 4, !noalias !444
   %4215 = getelementptr inbounds nuw i8, ptr %4209, i64 32
@@ -12060,11 +12060,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6043:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %4415, align 8, !noalias !452
   %4416 = getelementptr inbounds nuw i8, ptr %4414, i64 12
   store i32 1, ptr %4416, align 4, !noalias !452
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4414, align 8, !noalias !452
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4414, align 8, !noalias !452
   %4417 = getelementptr inbounds nuw i8, ptr %4414, i64 16
   %4418 = getelementptr inbounds nuw i8, ptr %4414, i64 24
   store i32 0, ptr %4418, align 8, !noalias !452
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4417, align 8, !noalias !452
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4417, align 8, !noalias !452
   %4419 = getelementptr inbounds nuw i8, ptr %4414, i64 28
   store i32 1, ptr %4419, align 4, !noalias !452
   %4420 = getelementptr inbounds nuw i8, ptr %4414, i64 32
@@ -12090,11 +12090,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6043:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %4429, align 8, !noalias !460
   %4430 = getelementptr inbounds nuw i8, ptr %4428, i64 12
   store i32 1, ptr %4430, align 4, !noalias !460
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4428, align 8, !noalias !460
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4428, align 8, !noalias !460
   %4431 = getelementptr inbounds nuw i8, ptr %4428, i64 16
   %4432 = getelementptr inbounds nuw i8, ptr %4428, i64 24
   store i32 -1, ptr %4432, align 8, !noalias !460
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4431, align 8, !noalias !460
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4431, align 8, !noalias !460
   %4433 = getelementptr inbounds nuw i8, ptr %4428, i64 28
   %4434 = getelementptr inbounds nuw i8, ptr %4428, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4433, i8 0, i64 28, i1 false)
@@ -12169,11 +12169,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %4462, align 8, !noalias !468
   %4463 = getelementptr inbounds nuw i8, ptr %4461, i64 12
   store i32 1, ptr %4463, align 4, !noalias !468
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4461, align 8, !noalias !468
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4461, align 8, !noalias !468
   %4464 = getelementptr inbounds nuw i8, ptr %4461, i64 16
   %4465 = getelementptr inbounds nuw i8, ptr %4461, i64 24
   store i32 0, ptr %4465, align 8, !noalias !468
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4464, align 8, !noalias !468
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4464, align 8, !noalias !468
   %4466 = getelementptr inbounds nuw i8, ptr %4461, i64 28
   store i32 1, ptr %4466, align 4, !noalias !468
   %4467 = getelementptr inbounds nuw i8, ptr %4461, i64 32
@@ -12232,11 +12232,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %4485, align 8, !noalias !476
   %4486 = getelementptr inbounds nuw i8, ptr %4484, i64 12
   store i32 1, ptr %4486, align 4, !noalias !476
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4484, align 8, !noalias !476
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4484, align 8, !noalias !476
   %4487 = getelementptr inbounds nuw i8, ptr %4484, i64 16
   %4488 = getelementptr inbounds nuw i8, ptr %4484, i64 24
   store i32 0, ptr %4488, align 8, !noalias !476
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4487, align 8, !noalias !476
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4487, align 8, !noalias !476
   %4489 = getelementptr inbounds nuw i8, ptr %4484, i64 28
   %4490 = getelementptr inbounds nuw i8, ptr %4484, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4489, i8 0, i64 28, i1 false)
@@ -12261,11 +12261,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %4499, align 8, !noalias !484
   %4500 = getelementptr inbounds nuw i8, ptr %4498, i64 12
   store i32 1, ptr %4500, align 4, !noalias !484
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4498, align 8, !noalias !484
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4498, align 8, !noalias !484
   %4501 = getelementptr inbounds nuw i8, ptr %4498, i64 16
   %4502 = getelementptr inbounds nuw i8, ptr %4498, i64 24
   store i32 -1, ptr %4502, align 8, !noalias !484
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4501, align 8, !noalias !484
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4501, align 8, !noalias !484
   %4503 = getelementptr inbounds nuw i8, ptr %4498, i64 28
   store i32 1, ptr %4503, align 4, !noalias !484
   %4504 = getelementptr inbounds nuw i8, ptr %4498, i64 32
@@ -12917,11 +12917,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6256:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %4776, align 8, !noalias !495
   %4777 = getelementptr inbounds nuw i8, ptr %4775, i64 12
   store i32 1, ptr %4777, align 4, !noalias !495
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4775, align 8, !noalias !495
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4775, align 8, !noalias !495
   %4778 = getelementptr inbounds nuw i8, ptr %4775, i64 16
   %4779 = getelementptr inbounds nuw i8, ptr %4775, i64 24
   store i32 0, ptr %4779, align 8, !noalias !495
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4778, align 8, !noalias !495
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4778, align 8, !noalias !495
   %4780 = getelementptr inbounds nuw i8, ptr %4775, i64 28
   store i32 1, ptr %4780, align 4, !noalias !495
   %4781 = getelementptr inbounds nuw i8, ptr %4775, i64 32
@@ -12947,11 +12947,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6256:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %4790, align 8, !noalias !503
   %4791 = getelementptr inbounds nuw i8, ptr %4789, i64 12
   store i32 1, ptr %4791, align 4, !noalias !503
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4789, align 8, !noalias !503
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4789, align 8, !noalias !503
   %4792 = getelementptr inbounds nuw i8, ptr %4789, i64 16
   %4793 = getelementptr inbounds nuw i8, ptr %4789, i64 24
   store i32 -1, ptr %4793, align 8, !noalias !503
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4792, align 8, !noalias !503
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4792, align 8, !noalias !503
   %4794 = getelementptr inbounds nuw i8, ptr %4789, i64 28
   %4795 = getelementptr inbounds nuw i8, ptr %4789, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4794, i8 0, i64 28, i1 false)
@@ -13026,11 +13026,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %4823, align 8, !noalias !511
   %4824 = getelementptr inbounds nuw i8, ptr %4822, i64 12
   store i32 1, ptr %4824, align 4, !noalias !511
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4822, align 8, !noalias !511
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4822, align 8, !noalias !511
   %4825 = getelementptr inbounds nuw i8, ptr %4822, i64 16
   %4826 = getelementptr inbounds nuw i8, ptr %4822, i64 24
   store i32 0, ptr %4826, align 8, !noalias !511
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4825, align 8, !noalias !511
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4825, align 8, !noalias !511
   %4827 = getelementptr inbounds nuw i8, ptr %4822, i64 28
   store i32 1, ptr %4827, align 4, !noalias !511
   %4828 = getelementptr inbounds nuw i8, ptr %4822, i64 32
@@ -13085,11 +13085,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %4846, align 8, !noalias !519
   %4847 = getelementptr inbounds nuw i8, ptr %4845, i64 12
   store i32 1, ptr %4847, align 4, !noalias !519
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4845, align 8, !noalias !519
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4845, align 8, !noalias !519
   %4848 = getelementptr inbounds nuw i8, ptr %4845, i64 16
   %4849 = getelementptr inbounds nuw i8, ptr %4845, i64 24
   store i32 0, ptr %4849, align 8, !noalias !519
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4848, align 8, !noalias !519
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4848, align 8, !noalias !519
   %4850 = getelementptr inbounds nuw i8, ptr %4845, i64 28
   %4851 = getelementptr inbounds nuw i8, ptr %4845, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4850, i8 0, i64 28, i1 false)
@@ -13114,11 +13114,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %4860, align 8, !noalias !527
   %4861 = getelementptr inbounds nuw i8, ptr %4859, i64 12
   store i32 1, ptr %4861, align 4, !noalias !527
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4859, align 8, !noalias !527
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4859, align 8, !noalias !527
   %4862 = getelementptr inbounds nuw i8, ptr %4859, i64 16
   %4863 = getelementptr inbounds nuw i8, ptr %4859, i64 24
   store i32 -1, ptr %4863, align 8, !noalias !527
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4862, align 8, !noalias !527
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %4862, align 8, !noalias !527
   %4864 = getelementptr inbounds nuw i8, ptr %4859, i64 28
   store i32 1, ptr %4864, align 4, !noalias !527
   %4865 = getelementptr inbounds nuw i8, ptr %4859, i64 32
@@ -13778,11 +13778,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6469:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %5137, align 8, !noalias !535
   %5138 = getelementptr inbounds nuw i8, ptr %5136, i64 12
   store i32 1, ptr %5138, align 4, !noalias !535
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5136, align 8, !noalias !535
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5136, align 8, !noalias !535
   %5139 = getelementptr inbounds nuw i8, ptr %5136, i64 16
   %5140 = getelementptr inbounds nuw i8, ptr %5136, i64 24
   store i32 0, ptr %5140, align 8, !noalias !535
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5139, align 8, !noalias !535
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5139, align 8, !noalias !535
   %5141 = getelementptr inbounds nuw i8, ptr %5136, i64 28
   store i32 1, ptr %5141, align 4, !noalias !535
   %5142 = getelementptr inbounds nuw i8, ptr %5136, i64 32
@@ -13808,11 +13808,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6469:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %5151, align 8, !noalias !543
   %5152 = getelementptr inbounds nuw i8, ptr %5150, i64 12
   store i32 1, ptr %5152, align 4, !noalias !543
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5150, align 8, !noalias !543
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5150, align 8, !noalias !543
   %5153 = getelementptr inbounds nuw i8, ptr %5150, i64 16
   %5154 = getelementptr inbounds nuw i8, ptr %5150, i64 24
   store i32 -1, ptr %5154, align 8, !noalias !543
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5153, align 8, !noalias !543
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5153, align 8, !noalias !543
   %5155 = getelementptr inbounds nuw i8, ptr %5150, i64 28
   %5156 = getelementptr inbounds nuw i8, ptr %5150, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5155, i8 0, i64 28, i1 false)
@@ -13895,11 +13895,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5183, align 8, !noalias !551
   %5184 = getelementptr inbounds nuw i8, ptr %5182, i64 12
   store i32 1, ptr %5184, align 4, !noalias !551
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5182, align 8, !noalias !551
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5182, align 8, !noalias !551
   %5185 = getelementptr inbounds nuw i8, ptr %5182, i64 16
   %5186 = getelementptr inbounds nuw i8, ptr %5182, i64 24
   store i32 0, ptr %5186, align 8, !noalias !551
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5185, align 8, !noalias !551
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5185, align 8, !noalias !551
   %5187 = getelementptr inbounds nuw i8, ptr %5182, i64 28
   %5188 = getelementptr inbounds nuw i8, ptr %5182, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5187, i8 0, i64 28, i1 false)
@@ -13924,11 +13924,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5197, align 8, !noalias !559
   %5198 = getelementptr inbounds nuw i8, ptr %5196, i64 12
   store i32 1, ptr %5198, align 4, !noalias !559
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5196, align 8, !noalias !559
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5196, align 8, !noalias !559
   %5199 = getelementptr inbounds nuw i8, ptr %5196, i64 16
   %5200 = getelementptr inbounds nuw i8, ptr %5196, i64 24
   store i32 -1, ptr %5200, align 8, !noalias !559
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5199, align 8, !noalias !559
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5199, align 8, !noalias !559
   %5201 = getelementptr inbounds nuw i8, ptr %5196, i64 28
   store i32 1, ptr %5201, align 4, !noalias !559
   %5202 = getelementptr inbounds nuw i8, ptr %5196, i64 32
@@ -14415,11 +14415,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6631:    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %5403, align 8, !noalias !567
   %5404 = getelementptr inbounds nuw i8, ptr %5402, i64 12
   store i32 1, ptr %5404, align 4, !noalias !567
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5402, align 8, !noalias !567
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5402, align 8, !noalias !567
   %5405 = getelementptr inbounds nuw i8, ptr %5402, i64 16
   %5406 = getelementptr inbounds nuw i8, ptr %5402, i64 24
   store i32 0, ptr %5406, align 8, !noalias !567
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5405, align 8, !noalias !567
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5405, align 8, !noalias !567
   %5407 = getelementptr inbounds nuw i8, ptr %5402, i64 28
   store i32 1, ptr %5407, align 4, !noalias !567
   %5408 = getelementptr inbounds nuw i8, ptr %5402, i64 32
@@ -14550,11 +14550,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6681:    ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %5460, align 8, !noalias !575
   %5461 = getelementptr inbounds nuw i8, ptr %5459, i64 12
   store i32 1, ptr %5461, align 4, !noalias !575
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5459, align 8, !noalias !575
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5459, align 8, !noalias !575
   %5462 = getelementptr inbounds nuw i8, ptr %5459, i64 16
   %5463 = getelementptr inbounds nuw i8, ptr %5459, i64 24
   store i32 0, ptr %5463, align 8, !noalias !575
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5462, align 8, !noalias !575
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5462, align 8, !noalias !575
   %5464 = getelementptr inbounds nuw i8, ptr %5459, i64 28
   store i32 1, ptr %5464, align 4, !noalias !575
   %5465 = getelementptr inbounds nuw i8, ptr %5459, i64 32
@@ -14685,11 +14685,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6731:    ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %5517, align 8, !noalias !583
   %5518 = getelementptr inbounds nuw i8, ptr %5516, i64 12
   store i32 1, ptr %5518, align 4, !noalias !583
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5516, align 8, !noalias !583
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5516, align 8, !noalias !583
   %5519 = getelementptr inbounds nuw i8, ptr %5516, i64 16
   %5520 = getelementptr inbounds nuw i8, ptr %5516, i64 24
   store i32 0, ptr %5520, align 8, !noalias !583
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5519, align 8, !noalias !583
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5519, align 8, !noalias !583
   %5521 = getelementptr inbounds nuw i8, ptr %5516, i64 28
   store i32 1, ptr %5521, align 4, !noalias !583
   %5522 = getelementptr inbounds nuw i8, ptr %5516, i64 32
@@ -14812,11 +14812,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6781:    ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %5570, align 8, !noalias !591
   %5571 = getelementptr inbounds nuw i8, ptr %5569, i64 12
   store i32 1, ptr %5571, align 4, !noalias !591
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5569, align 8, !noalias !591
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5569, align 8, !noalias !591
   %5572 = getelementptr inbounds nuw i8, ptr %5569, i64 16
   %5573 = getelementptr inbounds nuw i8, ptr %5569, i64 24
   store i32 -1, ptr %5573, align 8, !noalias !591
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5572, align 8, !noalias !591
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5572, align 8, !noalias !591
   %5574 = getelementptr inbounds nuw i8, ptr %5569, i64 28
   store i32 1, ptr %5574, align 4, !noalias !591
   %5575 = getelementptr inbounds nuw i8, ptr %5569, i64 32
@@ -15057,11 +15057,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %5672, align 8, !noalias !602
   %5673 = getelementptr inbounds nuw i8, ptr %5671, i64 12
   store i32 1, ptr %5673, align 4, !noalias !602
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5671, align 8, !noalias !602
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5671, align 8, !noalias !602
   %5674 = getelementptr inbounds nuw i8, ptr %5671, i64 16
   %5675 = getelementptr inbounds nuw i8, ptr %5671, i64 24
   store i32 1, ptr %5675, align 8, !noalias !602
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5674, align 8, !noalias !602
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5674, align 8, !noalias !602
   %5676 = getelementptr inbounds nuw i8, ptr %5671, i64 28
   store i32 1, ptr %5676, align 4, !noalias !602
   %5677 = getelementptr inbounds nuw i8, ptr %5671, i64 32
@@ -15091,11 +15091,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %5687, align 8, !noalias !613
   %5688 = getelementptr inbounds nuw i8, ptr %5686, i64 12
   store i32 1, ptr %5688, align 4, !noalias !613
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5686, align 8, !noalias !613
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5686, align 8, !noalias !613
   %5689 = getelementptr inbounds nuw i8, ptr %5686, i64 16
   %5690 = getelementptr inbounds nuw i8, ptr %5686, i64 24
   store i32 2, ptr %5690, align 8, !noalias !613
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5689, align 8, !noalias !613
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5689, align 8, !noalias !613
   %5691 = getelementptr inbounds nuw i8, ptr %5686, i64 28
   store i32 1, ptr %5691, align 4, !noalias !613
   %5692 = getelementptr inbounds nuw i8, ptr %5686, i64 32
@@ -15121,11 +15121,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %5701, align 8, !noalias !621
   %5702 = getelementptr inbounds nuw i8, ptr %5700, i64 12
   store i32 1, ptr %5702, align 4, !noalias !621
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5700, align 8, !noalias !621
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5700, align 8, !noalias !621
   %5703 = getelementptr inbounds nuw i8, ptr %5700, i64 16
   %5704 = getelementptr inbounds nuw i8, ptr %5700, i64 24
   store i32 -1, ptr %5704, align 8, !noalias !621
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %5703, align 8, !noalias !621
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %5703, align 8, !noalias !621
   %5705 = getelementptr inbounds nuw i8, ptr %5700, i64 28
   store i32 10, ptr %5705, align 4, !noalias !621
   %5706 = getelementptr inbounds nuw i8, ptr %5700, i64 32
@@ -15143,11 +15143,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %5711, align 8, !noalias !632
   %5712 = getelementptr inbounds nuw i8, ptr %5710, i64 12
   store i32 1, ptr %5712, align 4, !noalias !632
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5710, align 8, !noalias !632
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5710, align 8, !noalias !632
   %5713 = getelementptr inbounds nuw i8, ptr %5710, i64 16
   %5714 = getelementptr inbounds nuw i8, ptr %5710, i64 24
   store i32 -1, ptr %5714, align 8, !noalias !632
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5713, align 8, !noalias !632
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5713, align 8, !noalias !632
   %5715 = getelementptr inbounds nuw i8, ptr %5710, i64 28
   store i32 1, ptr %5715, align 4, !noalias !632
   %5716 = getelementptr inbounds nuw i8, ptr %5710, i64 32
@@ -15224,11 +15224,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5744, align 8, !noalias !643
   %5745 = getelementptr inbounds nuw i8, ptr %5743, i64 12
   store i32 1, ptr %5745, align 4, !noalias !643
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5743, align 8, !noalias !643
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5743, align 8, !noalias !643
   %5746 = getelementptr inbounds nuw i8, ptr %5743, i64 16
   %5747 = getelementptr inbounds nuw i8, ptr %5743, i64 24
   store i32 1, ptr %5747, align 8, !noalias !643
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5746, align 8, !noalias !643
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5746, align 8, !noalias !643
   %5748 = getelementptr inbounds nuw i8, ptr %5743, i64 28
   store i32 1, ptr %5748, align 4, !noalias !643
   %5749 = getelementptr inbounds nuw i8, ptr %5743, i64 32
@@ -15254,11 +15254,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5758, align 8, !noalias !651
   %5759 = getelementptr inbounds nuw i8, ptr %5757, i64 12
   store i32 1, ptr %5759, align 4, !noalias !651
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5757, align 8, !noalias !651
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5757, align 8, !noalias !651
   %5760 = getelementptr inbounds nuw i8, ptr %5757, i64 16
   %5761 = getelementptr inbounds nuw i8, ptr %5757, i64 24
   store i32 -1, ptr %5761, align 8, !noalias !651
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %5760, align 8, !noalias !651
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %5760, align 8, !noalias !651
   %5762 = getelementptr inbounds nuw i8, ptr %5757, i64 28
   store i32 14, ptr %5762, align 4, !noalias !651
   %5763 = getelementptr inbounds nuw i8, ptr %5757, i64 32
@@ -15276,11 +15276,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5768, align 8, !noalias !662
   %5769 = getelementptr inbounds nuw i8, ptr %5767, i64 12
   store i32 1, ptr %5769, align 4, !noalias !662
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5767, align 8, !noalias !662
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5767, align 8, !noalias !662
   %5770 = getelementptr inbounds nuw i8, ptr %5767, i64 16
   %5771 = getelementptr inbounds nuw i8, ptr %5767, i64 24
   store i32 -1, ptr %5771, align 8, !noalias !662
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5770, align 8, !noalias !662
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5770, align 8, !noalias !662
   %5772 = getelementptr inbounds nuw i8, ptr %5767, i64 28
   store i32 1, ptr %5772, align 4, !noalias !662
   %5773 = getelementptr inbounds nuw i8, ptr %5767, i64 32
@@ -15353,11 +15353,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5800, align 8, !noalias !670
   %5801 = getelementptr inbounds nuw i8, ptr %5799, i64 12
   store i32 1, ptr %5801, align 4, !noalias !670
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5799, align 8, !noalias !670
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5799, align 8, !noalias !670
   %5802 = getelementptr inbounds nuw i8, ptr %5799, i64 16
   %5803 = getelementptr inbounds nuw i8, ptr %5799, i64 24
   store i32 1, ptr %5803, align 8, !noalias !670
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5802, align 8, !noalias !670
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5802, align 8, !noalias !670
   %5804 = getelementptr inbounds nuw i8, ptr %5799, i64 28
   store i32 1, ptr %5804, align 4, !noalias !670
   %5805 = getelementptr inbounds nuw i8, ptr %5799, i64 32
@@ -15383,11 +15383,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5814, align 8, !noalias !678
   %5815 = getelementptr inbounds nuw i8, ptr %5813, i64 12
   store i32 1, ptr %5815, align 4, !noalias !678
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5813, align 8, !noalias !678
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5813, align 8, !noalias !678
   %5816 = getelementptr inbounds nuw i8, ptr %5813, i64 16
   %5817 = getelementptr inbounds nuw i8, ptr %5813, i64 24
   store i32 -1, ptr %5817, align 8, !noalias !678
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5816, align 8, !noalias !678
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %5816, align 8, !noalias !678
   %5818 = getelementptr inbounds nuw i8, ptr %5813, i64 28
   store i32 1, ptr %5818, align 4, !noalias !678
   %5819 = getelementptr inbounds nuw i8, ptr %5813, i64 32
@@ -15462,11 +15462,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5849, align 8, !noalias !686
   %5850 = getelementptr inbounds nuw i8, ptr %5848, i64 12
   store i32 1, ptr %5850, align 4, !noalias !686
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5848, align 8, !noalias !686
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5848, align 8, !noalias !686
   %5851 = getelementptr inbounds nuw i8, ptr %5848, i64 16
   %5852 = getelementptr inbounds nuw i8, ptr %5848, i64 24
   store i32 0, ptr %5852, align 8, !noalias !686
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintE, i64 16), ptr %5851, align 8, !noalias !686
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintE, i64 16), ptr %5851, align 8, !noalias !686
   %5853 = getelementptr inbounds nuw i8, ptr %5848, i64 28
   store i32 1, ptr %5853, align 4, !noalias !686
   %5854 = getelementptr inbounds nuw i8, ptr %5848, i64 32
@@ -15482,11 +15482,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5859, align 8, !noalias !694
   %5860 = getelementptr inbounds nuw i8, ptr %5858, i64 12
   store i32 1, ptr %5860, align 4, !noalias !694
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5858, align 8, !noalias !694
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5858, align 8, !noalias !694
   %5861 = getelementptr inbounds nuw i8, ptr %5858, i64 16
   %5862 = getelementptr inbounds nuw i8, ptr %5858, i64 24
   store i32 3, ptr %5862, align 8, !noalias !694
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %5861, align 8, !noalias !694
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %5861, align 8, !noalias !694
   %5863 = getelementptr inbounds nuw i8, ptr %5858, i64 28
   store i8 1, ptr %5863, align 4, !noalias !694
   store ptr %5861, ptr %129, align 8
@@ -15498,11 +15498,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %5867, align 8, !noalias !702
   %5868 = getelementptr inbounds nuw i8, ptr %5866, i64 12
   store i32 1, ptr %5868, align 4, !noalias !702
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5866, align 8, !noalias !702
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5866, align 8, !noalias !702
   %5869 = getelementptr inbounds nuw i8, ptr %5866, i64 16
   %5870 = getelementptr inbounds nuw i8, ptr %5866, i64 24
   store i32 0, ptr %5870, align 8, !noalias !702
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %5869, align 8, !noalias !702
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %5869, align 8, !noalias !702
   %5871 = getelementptr inbounds nuw i8, ptr %5866, i64 48
   store i8 0, ptr %5871, align 8, !noalias !702
   %5872 = getelementptr inbounds nuw i8, ptr %5866, i64 56
@@ -16600,11 +16600,11 @@ _ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4
   store i32 1, ptr %6325, align 8, !noalias !721
   %6326 = getelementptr inbounds nuw i8, ptr %6324, i64 12
   store i32 1, ptr %6326, align 4, !noalias !721
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6324, align 8, !noalias !721
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6324, align 8, !noalias !721
   %6327 = getelementptr inbounds nuw i8, ptr %6324, i64 16
   %6328 = getelementptr inbounds nuw i8, ptr %6324, i64 24
   store i32 -1, ptr %6328, align 8, !noalias !721
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %6327, align 8, !noalias !721
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %6327, align 8, !noalias !721
   %6329 = getelementptr inbounds nuw i8, ptr %6324, i64 28
   store i32 12, ptr %6329, align 4, !noalias !721
   %6330 = getelementptr inbounds nuw i8, ptr %6324, i64 32
@@ -16631,11 +16631,11 @@ _ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4
   store i32 1, ptr %6337, align 8, !noalias !732
   %6338 = getelementptr inbounds nuw i8, ptr %6336, i64 12
   store i32 1, ptr %6338, align 4, !noalias !732
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6336, align 8, !noalias !732
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6336, align 8, !noalias !732
   %6339 = getelementptr inbounds nuw i8, ptr %6336, i64 16
   %6340 = getelementptr inbounds nuw i8, ptr %6336, i64 24
   store i32 -1, ptr %6340, align 8, !noalias !732
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %6339, align 8, !noalias !732
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %6339, align 8, !noalias !732
   %6341 = getelementptr inbounds nuw i8, ptr %6336, i64 28
   store i32 1, ptr %6341, align 4, !noalias !732
   %6342 = getelementptr inbounds nuw i8, ptr %6336, i64 32
@@ -17226,11 +17226,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureD2Ev.exit7296: ; preds = 
   store i32 1, ptr %6562, align 8, !noalias !753
   %6563 = getelementptr inbounds nuw i8, ptr %6561, i64 12
   store i32 1, ptr %6563, align 4, !noalias !753
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6561, align 8, !noalias !753
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6561, align 8, !noalias !753
   %6564 = getelementptr inbounds nuw i8, ptr %6561, i64 16
   %6565 = getelementptr inbounds nuw i8, ptr %6561, i64 24
   store i32 -1, ptr %6565, align 8, !noalias !753
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %6564, align 8, !noalias !753
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %6564, align 8, !noalias !753
   %6566 = getelementptr inbounds nuw i8, ptr %6561, i64 28
   store i32 1, ptr %6566, align 4, !noalias !753
   %6567 = getelementptr inbounds nuw i8, ptr %6561, i64 32
@@ -17748,11 +17748,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %6762, align 8, !noalias !771
   %6763 = getelementptr inbounds nuw i8, ptr %6761, i64 12
   store i32 1, ptr %6763, align 4, !noalias !771
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6761, align 8, !noalias !771
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6761, align 8, !noalias !771
   %6764 = getelementptr inbounds nuw i8, ptr %6761, i64 16
   %6765 = getelementptr inbounds nuw i8, ptr %6761, i64 24
   store i32 0, ptr %6765, align 8, !noalias !771
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %6764, align 8, !noalias !771
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %6764, align 8, !noalias !771
   %6766 = getelementptr inbounds nuw i8, ptr %6761, i64 28
   store i8 1, ptr %6766, align 4, !noalias !771
   store ptr %6764, ptr %158, align 8
@@ -17764,11 +17764,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %6770, align 8, !noalias !779
   %6771 = getelementptr inbounds nuw i8, ptr %6769, i64 12
   store i32 1, ptr %6771, align 4, !noalias !779
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6769, align 8, !noalias !779
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6769, align 8, !noalias !779
   %6772 = getelementptr inbounds nuw i8, ptr %6769, i64 16
   %6773 = getelementptr inbounds nuw i8, ptr %6769, i64 24
   store i32 -1, ptr %6773, align 8, !noalias !779
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %6772, align 8, !noalias !779
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %6772, align 8, !noalias !779
   %6774 = getelementptr inbounds nuw i8, ptr %6769, i64 28
   store i8 1, ptr %6774, align 4, !noalias !779
   %6775 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -18050,11 +18050,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %6896, align 8, !noalias !787
   %6897 = getelementptr inbounds nuw i8, ptr %6895, i64 12
   store i32 1, ptr %6897, align 4, !noalias !787
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6895, align 8, !noalias !787
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6895, align 8, !noalias !787
   %6898 = getelementptr inbounds nuw i8, ptr %6895, i64 16
   %6899 = getelementptr inbounds nuw i8, ptr %6895, i64 24
   store i32 -1, ptr %6899, align 8, !noalias !787
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %6898, align 8, !noalias !787
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %6898, align 8, !noalias !787
   %6900 = getelementptr inbounds nuw i8, ptr %6895, i64 28
   store i8 1, ptr %6900, align 4, !noalias !787
   %6901 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18, !noalias !788
@@ -18062,11 +18062,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %6902, align 8, !noalias !795
   %6903 = getelementptr inbounds nuw i8, ptr %6901, i64 12
   store i32 1, ptr %6903, align 4, !noalias !795
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6901, align 8, !noalias !795
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6901, align 8, !noalias !795
   %6904 = getelementptr inbounds nuw i8, ptr %6901, i64 16
   %6905 = getelementptr inbounds nuw i8, ptr %6901, i64 24
   store i32 -1, ptr %6905, align 8, !noalias !795
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %6904, align 8, !noalias !795
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %6904, align 8, !noalias !795
   %6906 = getelementptr inbounds nuw i8, ptr %6901, i64 28
   store i8 0, ptr %6906, align 4, !noalias !795
   %6907 = getelementptr inbounds nuw i8, ptr %160, i64 8
@@ -18420,11 +18420,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i7532: ; preds = %.l
   store i32 1, ptr %7062, align 8, !noalias !803
   %7063 = getelementptr inbounds nuw i8, ptr %7061, i64 12
   store i32 1, ptr %7063, align 4, !noalias !803
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7061, align 8, !noalias !803
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7061, align 8, !noalias !803
   %7064 = getelementptr inbounds nuw i8, ptr %7061, i64 16
   %7065 = getelementptr inbounds nuw i8, ptr %7061, i64 24
   store i32 -1, ptr %7065, align 8, !noalias !803
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7064, align 8, !noalias !803
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7064, align 8, !noalias !803
   %7066 = getelementptr inbounds nuw i8, ptr %7061, i64 28
   store i32 1, ptr %7066, align 4, !noalias !803
   %7067 = getelementptr inbounds nuw i8, ptr %7061, i64 32
@@ -18471,11 +18471,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %7084, align 8, !noalias !811
   %7085 = getelementptr inbounds nuw i8, ptr %7083, i64 12
   store i32 1, ptr %7085, align 4, !noalias !811
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7083, align 8, !noalias !811
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7083, align 8, !noalias !811
   %7086 = getelementptr inbounds nuw i8, ptr %7083, i64 16
   %7087 = getelementptr inbounds nuw i8, ptr %7083, i64 24
   store i32 0, ptr %7087, align 8, !noalias !811
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7086, align 8, !noalias !811
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7086, align 8, !noalias !811
   %7088 = getelementptr inbounds nuw i8, ptr %7083, i64 28
   store i8 1, ptr %7088, align 4, !noalias !811
   store ptr %7086, ptr %168, align 8
@@ -18742,11 +18742,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %7200, align 8, !noalias !822
   %7201 = getelementptr inbounds nuw i8, ptr %7199, i64 12
   store i32 1, ptr %7201, align 4, !noalias !822
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7199, align 8, !noalias !822
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7199, align 8, !noalias !822
   %7202 = getelementptr inbounds nuw i8, ptr %7199, i64 16
   %7203 = getelementptr inbounds nuw i8, ptr %7199, i64 24
   store i32 -1, ptr %7203, align 8, !noalias !822
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7202, align 8, !noalias !822
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7202, align 8, !noalias !822
   %7204 = getelementptr inbounds nuw i8, ptr %7199, i64 28
   store i32 1, ptr %7204, align 4, !noalias !822
   %7205 = getelementptr inbounds nuw i8, ptr %7199, i64 32
@@ -18851,11 +18851,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %7249, align 8, !noalias !830
   %7250 = getelementptr inbounds nuw i8, ptr %7248, i64 12
   store i32 1, ptr %7250, align 4, !noalias !830
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7248, align 8, !noalias !830
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7248, align 8, !noalias !830
   %7251 = getelementptr inbounds nuw i8, ptr %7248, i64 16
   %7252 = getelementptr inbounds nuw i8, ptr %7248, i64 24
   store i32 -1, ptr %7252, align 8, !noalias !830
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7251, align 8, !noalias !830
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7251, align 8, !noalias !830
   %7253 = getelementptr inbounds nuw i8, ptr %7248, i64 28
   store i32 1, ptr %7253, align 4, !noalias !830
   %7254 = getelementptr inbounds nuw i8, ptr %7248, i64 32
@@ -18960,11 +18960,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %7299, align 8, !noalias !838
   %7300 = getelementptr inbounds nuw i8, ptr %7298, i64 12
   store i32 1, ptr %7300, align 4, !noalias !838
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7298, align 8, !noalias !838
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7298, align 8, !noalias !838
   %7301 = getelementptr inbounds nuw i8, ptr %7298, i64 16
   %7302 = getelementptr inbounds nuw i8, ptr %7298, i64 24
   store i32 -1, ptr %7302, align 8, !noalias !838
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7301, align 8, !noalias !838
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7301, align 8, !noalias !838
   %7303 = getelementptr inbounds nuw i8, ptr %7298, i64 28
   store i32 1, ptr %7303, align 4, !noalias !838
   %7304 = getelementptr inbounds nuw i8, ptr %7298, i64 32
@@ -19073,11 +19073,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %7350, align 8, !noalias !849
   %7351 = getelementptr inbounds nuw i8, ptr %7349, i64 12
   store i32 1, ptr %7351, align 4, !noalias !849
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7349, align 8, !noalias !849
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7349, align 8, !noalias !849
   %7352 = getelementptr inbounds nuw i8, ptr %7349, i64 16
   %7353 = getelementptr inbounds nuw i8, ptr %7349, i64 24
   store i32 -1, ptr %7353, align 8, !noalias !849
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7352, align 8, !noalias !849
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7352, align 8, !noalias !849
   %7354 = getelementptr inbounds nuw i8, ptr %7349, i64 28
   store i32 1, ptr %7354, align 4, !noalias !849
   %7355 = getelementptr inbounds nuw i8, ptr %7349, i64 32
@@ -19187,11 +19187,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %7401, align 8, !noalias !860
   %7402 = getelementptr inbounds nuw i8, ptr %7400, i64 12
   store i32 1, ptr %7402, align 4, !noalias !860
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7400, align 8, !noalias !860
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7400, align 8, !noalias !860
   %7403 = getelementptr inbounds nuw i8, ptr %7400, i64 16
   %7404 = getelementptr inbounds nuw i8, ptr %7400, i64 24
   store i32 -1, ptr %7404, align 8, !noalias !860
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7403, align 8, !noalias !860
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7403, align 8, !noalias !860
   %7405 = getelementptr inbounds nuw i8, ptr %7400, i64 28
   store i32 1, ptr %7405, align 4, !noalias !860
   %7406 = getelementptr inbounds nuw i8, ptr %7400, i64 32
@@ -19297,11 +19297,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %7451, align 8, !noalias !868
   %7452 = getelementptr inbounds nuw i8, ptr %7450, i64 12
   store i32 1, ptr %7452, align 4, !noalias !868
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7450, align 8, !noalias !868
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7450, align 8, !noalias !868
   %7453 = getelementptr inbounds nuw i8, ptr %7450, i64 16
   %7454 = getelementptr inbounds nuw i8, ptr %7450, i64 24
   store i32 -1, ptr %7454, align 8, !noalias !868
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7453, align 8, !noalias !868
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7453, align 8, !noalias !868
   %7455 = getelementptr inbounds nuw i8, ptr %7450, i64 28
   %7456 = getelementptr inbounds nuw i8, ptr %7450, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7455, i8 0, i64 28, i1 false)
@@ -19409,11 +19409,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 1, ptr %7502, align 8, !noalias !879
   %7503 = getelementptr inbounds nuw i8, ptr %7501, i64 12
   store i32 1, ptr %7503, align 4, !noalias !879
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7501, align 8, !noalias !879
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7501, align 8, !noalias !879
   %7504 = getelementptr inbounds nuw i8, ptr %7501, i64 16
   %7505 = getelementptr inbounds nuw i8, ptr %7501, i64 24
   store i32 -1, ptr %7505, align 8, !noalias !879
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7504, align 8, !noalias !879
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7504, align 8, !noalias !879
   %7506 = getelementptr inbounds nuw i8, ptr %7501, i64 28
   store i32 1, ptr %7506, align 4, !noalias !879
   %7507 = getelementptr inbounds nuw i8, ptr %7501, i64 32
@@ -19636,11 +19636,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i7847: ; preds = %_Z
   store i32 1, ptr %7592, align 8, !noalias !892
   %7593 = getelementptr inbounds nuw i8, ptr %7591, i64 12
   store i32 1, ptr %7593, align 4, !noalias !892
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7591, align 8, !noalias !892
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7591, align 8, !noalias !892
   %7594 = getelementptr inbounds nuw i8, ptr %7591, i64 16
   %7595 = getelementptr inbounds nuw i8, ptr %7591, i64 24
   store i32 -1, ptr %7595, align 8, !noalias !892
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7594, align 8, !noalias !892
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7594, align 8, !noalias !892
   %7596 = getelementptr inbounds nuw i8, ptr %7591, i64 28
   store i8 1, ptr %7596, align 4, !noalias !892
   %7597 = getelementptr inbounds nuw i8, ptr %173, i64 8
@@ -19673,11 +19673,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i7847: ; preds = %_Z
   store i32 1, ptr %7609, align 8, !noalias !900
   %7610 = getelementptr inbounds nuw i8, ptr %7608, i64 12
   store i32 1, ptr %7610, align 4, !noalias !900
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7608, align 8, !noalias !900
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7608, align 8, !noalias !900
   %7611 = getelementptr inbounds nuw i8, ptr %7608, i64 16
   %7612 = getelementptr inbounds nuw i8, ptr %7608, i64 24
   store i32 -1, ptr %7612, align 8, !noalias !900
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7611, align 8, !noalias !900
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7611, align 8, !noalias !900
   %7613 = getelementptr inbounds nuw i8, ptr %7608, i64 28
   store i8 0, ptr %7613, align 4, !noalias !900
   %7614 = getelementptr inbounds nuw i8, ptr %174, i64 8
@@ -19710,11 +19710,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %7625, align 8, !noalias !908
   %7626 = getelementptr inbounds nuw i8, ptr %7624, i64 12
   store i32 1, ptr %7626, align 4, !noalias !908
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7624, align 8, !noalias !908
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7624, align 8, !noalias !908
   %7627 = getelementptr inbounds nuw i8, ptr %7624, i64 16
   %7628 = getelementptr inbounds nuw i8, ptr %7624, i64 24
   store i32 0, ptr %7628, align 8, !noalias !908
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7627, align 8, !noalias !908
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7627, align 8, !noalias !908
   %7629 = getelementptr inbounds nuw i8, ptr %7624, i64 28
   store i8 1, ptr %7629, align 4, !noalias !908
   store ptr %7627, ptr %175, align 8
@@ -19726,11 +19726,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %7633, align 8, !noalias !916
   %7634 = getelementptr inbounds nuw i8, ptr %7632, i64 12
   store i32 1, ptr %7634, align 4, !noalias !916
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7632, align 8, !noalias !916
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7632, align 8, !noalias !916
   %7635 = getelementptr inbounds nuw i8, ptr %7632, i64 16
   %7636 = getelementptr inbounds nuw i8, ptr %7632, i64 24
   store i32 1, ptr %7636, align 8, !noalias !916
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7635, align 8, !noalias !916
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7635, align 8, !noalias !916
   %7637 = getelementptr inbounds nuw i8, ptr %7632, i64 28
   store i8 1, ptr %7637, align 4, !noalias !916
   store ptr %7635, ptr %176, align 8
@@ -20351,11 +20351,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i7983: ; preds = %_Z
   store i32 1, ptr %7896, align 8, !noalias !929
   %7897 = getelementptr inbounds nuw i8, ptr %7895, i64 12
   store i32 1, ptr %7897, align 4, !noalias !929
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7895, align 8, !noalias !929
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7895, align 8, !noalias !929
   %7898 = getelementptr inbounds nuw i8, ptr %7895, i64 16
   %7899 = getelementptr inbounds nuw i8, ptr %7895, i64 24
   store i32 -1, ptr %7899, align 8, !noalias !929
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7898, align 8, !noalias !929
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7898, align 8, !noalias !929
   %7900 = getelementptr inbounds nuw i8, ptr %7895, i64 28
   store i8 1, ptr %7900, align 4, !noalias !929
   %7901 = getelementptr inbounds nuw i8, ptr %181, i64 8
@@ -20388,11 +20388,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i7983: ; preds = %_Z
   store i32 1, ptr %7913, align 8, !noalias !937
   %7914 = getelementptr inbounds nuw i8, ptr %7912, i64 12
   store i32 1, ptr %7914, align 4, !noalias !937
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7912, align 8, !noalias !937
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7912, align 8, !noalias !937
   %7915 = getelementptr inbounds nuw i8, ptr %7912, i64 16
   %7916 = getelementptr inbounds nuw i8, ptr %7912, i64 24
   store i32 -1, ptr %7916, align 8, !noalias !937
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7915, align 8, !noalias !937
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7915, align 8, !noalias !937
   %7917 = getelementptr inbounds nuw i8, ptr %7912, i64 28
   store i8 0, ptr %7917, align 4, !noalias !937
   %7918 = getelementptr inbounds nuw i8, ptr %182, i64 8
@@ -20429,11 +20429,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %7930, align 8, !noalias !948
   %7931 = getelementptr inbounds nuw i8, ptr %7929, i64 12
   store i32 1, ptr %7931, align 4, !noalias !948
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7929, align 8, !noalias !948
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7929, align 8, !noalias !948
   %7932 = getelementptr inbounds nuw i8, ptr %7929, i64 16
   %7933 = getelementptr inbounds nuw i8, ptr %7929, i64 24
   store i32 0, ptr %7933, align 8, !noalias !948
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7932, align 8, !noalias !948
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7932, align 8, !noalias !948
   %7934 = getelementptr inbounds nuw i8, ptr %7929, i64 28
   store i32 1, ptr %7934, align 4, !noalias !948
   %7935 = getelementptr inbounds nuw i8, ptr %7929, i64 32
@@ -20459,11 +20459,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %7944, align 8, !noalias !956
   %7945 = getelementptr inbounds nuw i8, ptr %7943, i64 12
   store i32 1, ptr %7945, align 4, !noalias !956
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7943, align 8, !noalias !956
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7943, align 8, !noalias !956
   %7946 = getelementptr inbounds nuw i8, ptr %7943, i64 16
   %7947 = getelementptr inbounds nuw i8, ptr %7943, i64 24
   store i32 1, ptr %7947, align 8, !noalias !956
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7946, align 8, !noalias !956
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %7946, align 8, !noalias !956
   %7948 = getelementptr inbounds nuw i8, ptr %7943, i64 28
   store i8 1, ptr %7948, align 4, !noalias !956
   store ptr %7946, ptr %184, align 8
@@ -20984,11 +20984,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %8171, align 8, !noalias !964
   %8172 = getelementptr inbounds nuw i8, ptr %8170, i64 12
   store i32 1, ptr %8172, align 4, !noalias !964
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8170, align 8, !noalias !964
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8170, align 8, !noalias !964
   %8173 = getelementptr inbounds nuw i8, ptr %8170, i64 16
   %8174 = getelementptr inbounds nuw i8, ptr %8170, i64 24
   store i32 -1, ptr %8174, align 8, !noalias !964
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8173, align 8, !noalias !964
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8173, align 8, !noalias !964
   %8175 = getelementptr inbounds nuw i8, ptr %8170, i64 28
   store i8 1, ptr %8175, align 4, !noalias !964
   %8176 = getelementptr inbounds nuw i8, ptr %188, i64 8
@@ -21021,11 +21021,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %8188, align 8, !noalias !972
   %8189 = getelementptr inbounds nuw i8, ptr %8187, i64 12
   store i32 1, ptr %8189, align 4, !noalias !972
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8187, align 8, !noalias !972
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8187, align 8, !noalias !972
   %8190 = getelementptr inbounds nuw i8, ptr %8187, i64 16
   %8191 = getelementptr inbounds nuw i8, ptr %8187, i64 24
   store i32 -1, ptr %8191, align 8, !noalias !972
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8190, align 8, !noalias !972
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8190, align 8, !noalias !972
   %8192 = getelementptr inbounds nuw i8, ptr %8187, i64 28
   store i8 0, ptr %8192, align 4, !noalias !972
   %8193 = getelementptr inbounds nuw i8, ptr %189, i64 8
@@ -21536,11 +21536,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8236: ; preds = %_Z
   store i32 1, ptr %8397, align 8, !noalias !985
   %8398 = getelementptr inbounds nuw i8, ptr %8396, i64 12
   store i32 1, ptr %8398, align 4, !noalias !985
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8396, align 8, !noalias !985
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8396, align 8, !noalias !985
   %8399 = getelementptr inbounds nuw i8, ptr %8396, i64 16
   %8400 = getelementptr inbounds nuw i8, ptr %8396, i64 24
   store i32 -1, ptr %8400, align 8, !noalias !985
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %8399, align 8, !noalias !985
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %8399, align 8, !noalias !985
   %8401 = getelementptr inbounds nuw i8, ptr %8396, i64 28
   store i32 14, ptr %8401, align 4, !noalias !985
   %8402 = getelementptr inbounds nuw i8, ptr %8396, i64 32
@@ -21575,11 +21575,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8236: ; preds = %_Z
   store i32 1, ptr %8415, align 8, !noalias !993
   %8416 = getelementptr inbounds nuw i8, ptr %8414, i64 12
   store i32 1, ptr %8416, align 4, !noalias !993
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8414, align 8, !noalias !993
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8414, align 8, !noalias !993
   %8417 = getelementptr inbounds nuw i8, ptr %8414, i64 16
   %8418 = getelementptr inbounds nuw i8, ptr %8414, i64 24
   store i32 -1, ptr %8418, align 8, !noalias !993
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8417, align 8, !noalias !993
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8417, align 8, !noalias !993
   %8419 = getelementptr inbounds nuw i8, ptr %8414, i64 28
   store i8 0, ptr %8419, align 4, !noalias !993
   %8420 = getelementptr inbounds nuw i8, ptr %195, i64 8
@@ -21612,11 +21612,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %8431, align 8, !noalias !1001
   %8432 = getelementptr inbounds nuw i8, ptr %8430, i64 12
   store i32 1, ptr %8432, align 4, !noalias !1001
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8430, align 8, !noalias !1001
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8430, align 8, !noalias !1001
   %8433 = getelementptr inbounds nuw i8, ptr %8430, i64 16
   %8434 = getelementptr inbounds nuw i8, ptr %8430, i64 24
   store i32 1, ptr %8434, align 8, !noalias !1001
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8433, align 8, !noalias !1001
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8433, align 8, !noalias !1001
   %8435 = getelementptr inbounds nuw i8, ptr %8430, i64 28
   store i8 1, ptr %8435, align 4, !noalias !1001
   store ptr %8433, ptr %196, align 8
@@ -21628,11 +21628,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %8439, align 8, !noalias !1009
   %8440 = getelementptr inbounds nuw i8, ptr %8438, i64 12
   store i32 1, ptr %8440, align 4, !noalias !1009
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8438, align 8, !noalias !1009
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8438, align 8, !noalias !1009
   %8441 = getelementptr inbounds nuw i8, ptr %8438, i64 16
   %8442 = getelementptr inbounds nuw i8, ptr %8438, i64 24
   store i32 2, ptr %8442, align 8, !noalias !1009
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8441, align 8, !noalias !1009
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8441, align 8, !noalias !1009
   %8443 = getelementptr inbounds nuw i8, ptr %8438, i64 28
   store i8 1, ptr %8443, align 4, !noalias !1009
   store ptr %8441, ptr %197, align 8
@@ -22253,11 +22253,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8372: ; preds = %_Z
   store i32 1, ptr %8702, align 8, !noalias !1022
   %8703 = getelementptr inbounds nuw i8, ptr %8701, i64 12
   store i32 1, ptr %8703, align 4, !noalias !1022
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8701, align 8, !noalias !1022
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8701, align 8, !noalias !1022
   %8704 = getelementptr inbounds nuw i8, ptr %8701, i64 16
   %8705 = getelementptr inbounds nuw i8, ptr %8701, i64 24
   store i32 -1, ptr %8705, align 8, !noalias !1022
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8704, align 8, !noalias !1022
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8704, align 8, !noalias !1022
   %8706 = getelementptr inbounds nuw i8, ptr %8701, i64 28
   store i8 1, ptr %8706, align 4, !noalias !1022
   %8707 = getelementptr inbounds nuw i8, ptr %202, i64 8
@@ -22290,11 +22290,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8372: ; preds = %_Z
   store i32 1, ptr %8719, align 8, !noalias !1030
   %8720 = getelementptr inbounds nuw i8, ptr %8718, i64 12
   store i32 1, ptr %8720, align 4, !noalias !1030
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8718, align 8, !noalias !1030
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8718, align 8, !noalias !1030
   %8721 = getelementptr inbounds nuw i8, ptr %8718, i64 16
   %8722 = getelementptr inbounds nuw i8, ptr %8718, i64 24
   store i32 -1, ptr %8722, align 8, !noalias !1030
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8721, align 8, !noalias !1030
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8721, align 8, !noalias !1030
   %8723 = getelementptr inbounds nuw i8, ptr %8718, i64 28
   store i8 0, ptr %8723, align 4, !noalias !1030
   %8724 = getelementptr inbounds nuw i8, ptr %203, i64 8
@@ -22327,11 +22327,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %8735, align 8, !noalias !1038
   %8736 = getelementptr inbounds nuw i8, ptr %8734, i64 12
   store i32 1, ptr %8736, align 4, !noalias !1038
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8734, align 8, !noalias !1038
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8734, align 8, !noalias !1038
   %8737 = getelementptr inbounds nuw i8, ptr %8734, i64 16
   %8738 = getelementptr inbounds nuw i8, ptr %8734, i64 24
   store i32 0, ptr %8738, align 8, !noalias !1038
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8737, align 8, !noalias !1038
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8737, align 8, !noalias !1038
   %8739 = getelementptr inbounds nuw i8, ptr %8734, i64 28
   store i8 1, ptr %8739, align 4, !noalias !1038
   store ptr %8737, ptr %204, align 8
@@ -22343,11 +22343,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %8743, align 8, !noalias !1046
   %8744 = getelementptr inbounds nuw i8, ptr %8742, i64 12
   store i32 1, ptr %8744, align 4, !noalias !1046
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8742, align 8, !noalias !1046
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8742, align 8, !noalias !1046
   %8745 = getelementptr inbounds nuw i8, ptr %8742, i64 16
   %8746 = getelementptr inbounds nuw i8, ptr %8742, i64 24
   store i32 1, ptr %8746, align 8, !noalias !1046
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8745, align 8, !noalias !1046
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8745, align 8, !noalias !1046
   %8747 = getelementptr inbounds nuw i8, ptr %8742, i64 28
   store i8 1, ptr %8747, align 4, !noalias !1046
   store ptr %8745, ptr %205, align 8
@@ -22878,11 +22878,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8508: ; preds = %.l
   store i32 1, ptr %8976, align 8, !noalias !1054
   %8977 = getelementptr inbounds nuw i8, ptr %8975, i64 12
   store i32 1, ptr %8977, align 4, !noalias !1054
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8975, align 8, !noalias !1054
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8975, align 8, !noalias !1054
   %8978 = getelementptr inbounds nuw i8, ptr %8975, i64 16
   %8979 = getelementptr inbounds nuw i8, ptr %8975, i64 24
   store i32 0, ptr %8979, align 8, !noalias !1054
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8978, align 8, !noalias !1054
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %8978, align 8, !noalias !1054
   %8980 = getelementptr inbounds nuw i8, ptr %8975, i64 28
   store i8 1, ptr %8980, align 4, !noalias !1054
   store ptr %8978, ptr %209, align 8
@@ -23005,11 +23005,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8548: ; preds = %.l
   store i32 1, ptr %9029, align 8, !noalias !1062
   %9030 = getelementptr inbounds nuw i8, ptr %9028, i64 12
   store i32 1, ptr %9030, align 4, !noalias !1062
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9028, align 8, !noalias !1062
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9028, align 8, !noalias !1062
   %9031 = getelementptr inbounds nuw i8, ptr %9028, i64 16
   %9032 = getelementptr inbounds nuw i8, ptr %9028, i64 24
   store i32 -1, ptr %9032, align 8, !noalias !1062
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9031, align 8, !noalias !1062
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9031, align 8, !noalias !1062
   %9033 = getelementptr inbounds nuw i8, ptr %9028, i64 28
   store i32 1, ptr %9033, align 4, !noalias !1062
   %9034 = getelementptr inbounds nuw i8, ptr %9028, i64 32
@@ -23057,11 +23057,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9052, align 8, !noalias !1070
   %9053 = getelementptr inbounds nuw i8, ptr %9051, i64 12
   store i32 1, ptr %9053, align 4, !noalias !1070
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9051, align 8, !noalias !1070
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9051, align 8, !noalias !1070
   %9054 = getelementptr inbounds nuw i8, ptr %9051, i64 16
   %9055 = getelementptr inbounds nuw i8, ptr %9051, i64 24
   store i32 0, ptr %9055, align 8, !noalias !1070
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9054, align 8, !noalias !1070
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9054, align 8, !noalias !1070
   %9056 = getelementptr inbounds nuw i8, ptr %9051, i64 28
   store i8 1, ptr %9056, align 4, !noalias !1070
   store ptr %9054, ptr %214, align 8
@@ -23383,11 +23383,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8650: ; preds = %.l
   store i32 1, ptr %9191, align 8, !noalias !1078
   %9192 = getelementptr inbounds nuw i8, ptr %9190, i64 12
   store i32 1, ptr %9192, align 4, !noalias !1078
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9190, align 8, !noalias !1078
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9190, align 8, !noalias !1078
   %9193 = getelementptr inbounds nuw i8, ptr %9190, i64 16
   %9194 = getelementptr inbounds nuw i8, ptr %9190, i64 24
   store i32 -1, ptr %9194, align 8, !noalias !1078
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9193, align 8, !noalias !1078
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9193, align 8, !noalias !1078
   %9195 = getelementptr inbounds nuw i8, ptr %9190, i64 28
   store i32 1, ptr %9195, align 4, !noalias !1078
   %9196 = getelementptr inbounds nuw i8, ptr %9190, i64 32
@@ -23438,11 +23438,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8650: ; preds = %.l
   store i32 1, ptr %9215, align 8, !noalias !1089
   %9216 = getelementptr inbounds nuw i8, ptr %9214, i64 12
   store i32 1, ptr %9216, align 4, !noalias !1089
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9214, align 8, !noalias !1089
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9214, align 8, !noalias !1089
   %9217 = getelementptr inbounds nuw i8, ptr %9214, i64 16
   %9218 = getelementptr inbounds nuw i8, ptr %9214, i64 24
   store i32 -1, ptr %9218, align 8, !noalias !1089
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9217, align 8, !noalias !1089
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9217, align 8, !noalias !1089
   %9219 = getelementptr inbounds nuw i8, ptr %9214, i64 28
   store i32 1, ptr %9219, align 4, !noalias !1089
   %9220 = getelementptr inbounds nuw i8, ptr %9214, i64 32
@@ -23489,11 +23489,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9237, align 8, !noalias !1097
   %9238 = getelementptr inbounds nuw i8, ptr %9236, i64 12
   store i32 1, ptr %9238, align 4, !noalias !1097
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9236, align 8, !noalias !1097
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9236, align 8, !noalias !1097
   %9239 = getelementptr inbounds nuw i8, ptr %9236, i64 16
   %9240 = getelementptr inbounds nuw i8, ptr %9236, i64 24
   store i32 0, ptr %9240, align 8, !noalias !1097
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9239, align 8, !noalias !1097
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9239, align 8, !noalias !1097
   %9241 = getelementptr inbounds nuw i8, ptr %9236, i64 28
   store i8 1, ptr %9241, align 4, !noalias !1097
   store ptr %9239, ptr %221, align 8
@@ -24043,11 +24043,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8793: ; preds = %_Z
   store i32 1, ptr %9462, align 8, !noalias !1113
   %9463 = getelementptr inbounds nuw i8, ptr %9461, i64 12
   store i32 1, ptr %9463, align 4, !noalias !1113
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9461, align 8, !noalias !1113
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9461, align 8, !noalias !1113
   %9464 = getelementptr inbounds nuw i8, ptr %9461, i64 16
   %9465 = getelementptr inbounds nuw i8, ptr %9461, i64 24
   store i32 0, ptr %9465, align 8, !noalias !1113
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9464, align 8, !noalias !1113
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9464, align 8, !noalias !1113
   %9466 = getelementptr inbounds nuw i8, ptr %9461, i64 28
   store i32 1, ptr %9466, align 4, !noalias !1113
   %9467 = getelementptr inbounds nuw i8, ptr %9461, i64 32
@@ -24073,11 +24073,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i8793: ; preds = %_Z
   store i32 1, ptr %9476, align 8, !noalias !1121
   %9477 = getelementptr inbounds nuw i8, ptr %9475, i64 12
   store i32 1, ptr %9477, align 4, !noalias !1121
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9475, align 8, !noalias !1121
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9475, align 8, !noalias !1121
   %9478 = getelementptr inbounds nuw i8, ptr %9475, i64 16
   %9479 = getelementptr inbounds nuw i8, ptr %9475, i64 24
   store i32 -1, ptr %9479, align 8, !noalias !1121
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %9478, align 8, !noalias !1121
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %9478, align 8, !noalias !1121
   %9480 = getelementptr inbounds nuw i8, ptr %9475, i64 28
   store i32 14, ptr %9480, align 4, !noalias !1121
   %9481 = getelementptr inbounds nuw i8, ptr %9475, i64 32
@@ -24141,11 +24141,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9503, align 8, !noalias !1132
   %9504 = getelementptr inbounds nuw i8, ptr %9502, i64 12
   store i32 1, ptr %9504, align 4, !noalias !1132
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9502, align 8, !noalias !1132
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9502, align 8, !noalias !1132
   %9505 = getelementptr inbounds nuw i8, ptr %9502, i64 16
   %9506 = getelementptr inbounds nuw i8, ptr %9502, i64 24
   store i32 0, ptr %9506, align 8, !noalias !1132
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9505, align 8, !noalias !1132
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9505, align 8, !noalias !1132
   %9507 = getelementptr inbounds nuw i8, ptr %9502, i64 28
   %9508 = getelementptr inbounds nuw i8, ptr %9502, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9507, i8 0, i64 28, i1 false)
@@ -24174,11 +24174,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9518, align 8, !noalias !1143
   %9519 = getelementptr inbounds nuw i8, ptr %9517, i64 12
   store i32 1, ptr %9519, align 4, !noalias !1143
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9517, align 8, !noalias !1143
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9517, align 8, !noalias !1143
   %9520 = getelementptr inbounds nuw i8, ptr %9517, i64 16
   %9521 = getelementptr inbounds nuw i8, ptr %9517, i64 24
   store i32 -1, ptr %9521, align 8, !noalias !1143
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9520, align 8, !noalias !1143
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9520, align 8, !noalias !1143
   %9522 = getelementptr inbounds nuw i8, ptr %9517, i64 28
   store i32 1, ptr %9522, align 4, !noalias !1143
   %9523 = getelementptr inbounds nuw i8, ptr %9517, i64 32
@@ -24255,11 +24255,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9552, align 8, !noalias !1154
   %9553 = getelementptr inbounds nuw i8, ptr %9551, i64 12
   store i32 1, ptr %9553, align 4, !noalias !1154
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9551, align 8, !noalias !1154
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9551, align 8, !noalias !1154
   %9554 = getelementptr inbounds nuw i8, ptr %9551, i64 16
   %9555 = getelementptr inbounds nuw i8, ptr %9551, i64 24
   store i32 -1, ptr %9555, align 8, !noalias !1154
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9554, align 8, !noalias !1154
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9554, align 8, !noalias !1154
   %9556 = getelementptr inbounds nuw i8, ptr %9551, i64 28
   store i32 1, ptr %9556, align 4, !noalias !1154
   %9557 = getelementptr inbounds nuw i8, ptr %9551, i64 32
@@ -24307,11 +24307,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9575, align 8, !noalias !1162
   %9576 = getelementptr inbounds nuw i8, ptr %9574, i64 12
   store i32 1, ptr %9576, align 4, !noalias !1162
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9574, align 8, !noalias !1162
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9574, align 8, !noalias !1162
   %9577 = getelementptr inbounds nuw i8, ptr %9574, i64 16
   %9578 = getelementptr inbounds nuw i8, ptr %9574, i64 24
   store i32 1, ptr %9578, align 8, !noalias !1162
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9577, align 8, !noalias !1162
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9577, align 8, !noalias !1162
   %9579 = getelementptr inbounds nuw i8, ptr %9574, i64 28
   store i8 1, ptr %9579, align 4, !noalias !1162
   store ptr %9577, ptr %232, align 8
@@ -25066,11 +25066,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9010: ; preds = %_Z
   store i32 1, ptr %9890, align 8, !noalias !1175
   %9891 = getelementptr inbounds nuw i8, ptr %9889, i64 12
   store i32 1, ptr %9891, align 4, !noalias !1175
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9889, align 8, !noalias !1175
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9889, align 8, !noalias !1175
   %9892 = getelementptr inbounds nuw i8, ptr %9889, i64 16
   %9893 = getelementptr inbounds nuw i8, ptr %9889, i64 24
   store i32 -1, ptr %9893, align 8, !noalias !1175
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %9892, align 8, !noalias !1175
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %9892, align 8, !noalias !1175
   %9894 = getelementptr inbounds nuw i8, ptr %9889, i64 28
   store i32 14, ptr %9894, align 4, !noalias !1175
   %9895 = getelementptr inbounds nuw i8, ptr %9889, i64 32
@@ -25105,11 +25105,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9010: ; preds = %_Z
   store i32 1, ptr %9908, align 8, !noalias !1183
   %9909 = getelementptr inbounds nuw i8, ptr %9907, i64 12
   store i32 1, ptr %9909, align 4, !noalias !1183
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9907, align 8, !noalias !1183
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9907, align 8, !noalias !1183
   %9910 = getelementptr inbounds nuw i8, ptr %9907, i64 16
   %9911 = getelementptr inbounds nuw i8, ptr %9907, i64 24
   store i32 -1, ptr %9911, align 8, !noalias !1183
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9910, align 8, !noalias !1183
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9910, align 8, !noalias !1183
   %9912 = getelementptr inbounds nuw i8, ptr %9907, i64 28
   store i8 0, ptr %9912, align 4, !noalias !1183
   %9913 = getelementptr inbounds nuw i8, ptr %238, i64 8
@@ -25142,11 +25142,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9924, align 8, !noalias !1191
   %9925 = getelementptr inbounds nuw i8, ptr %9923, i64 12
   store i32 1, ptr %9925, align 4, !noalias !1191
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9923, align 8, !noalias !1191
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9923, align 8, !noalias !1191
   %9926 = getelementptr inbounds nuw i8, ptr %9923, i64 16
   %9927 = getelementptr inbounds nuw i8, ptr %9923, i64 24
   store i32 0, ptr %9927, align 8, !noalias !1191
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9926, align 8, !noalias !1191
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9926, align 8, !noalias !1191
   %9928 = getelementptr inbounds nuw i8, ptr %9923, i64 28
   store i8 1, ptr %9928, align 4, !noalias !1191
   store ptr %9926, ptr %239, align 8
@@ -25162,11 +25162,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9933, align 8, !noalias !1202
   %9934 = getelementptr inbounds nuw i8, ptr %9932, i64 12
   store i32 1, ptr %9934, align 4, !noalias !1202
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9932, align 8, !noalias !1202
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9932, align 8, !noalias !1202
   %9935 = getelementptr inbounds nuw i8, ptr %9932, i64 16
   %9936 = getelementptr inbounds nuw i8, ptr %9932, i64 24
   store i32 1, ptr %9936, align 8, !noalias !1202
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9935, align 8, !noalias !1202
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %9935, align 8, !noalias !1202
   %9937 = getelementptr inbounds nuw i8, ptr %9932, i64 28
   store i32 1, ptr %9937, align 4, !noalias !1202
   %9938 = getelementptr inbounds nuw i8, ptr %9932, i64 32
@@ -25192,11 +25192,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9947, align 8, !noalias !1210
   %9948 = getelementptr inbounds nuw i8, ptr %9946, i64 12
   store i32 1, ptr %9948, align 4, !noalias !1210
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9946, align 8, !noalias !1210
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9946, align 8, !noalias !1210
   %9949 = getelementptr inbounds nuw i8, ptr %9946, i64 16
   %9950 = getelementptr inbounds nuw i8, ptr %9946, i64 24
   store i32 0, ptr %9950, align 8, !noalias !1210
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %9949, align 8, !noalias !1210
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %9949, align 8, !noalias !1210
   %9951 = getelementptr inbounds nuw i8, ptr %9946, i64 48
   store i8 0, ptr %9951, align 8, !noalias !1210
   %9952 = getelementptr inbounds nuw i8, ptr %9946, i64 56
@@ -25216,11 +25216,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %9959, align 8, !noalias !1218
   %9960 = getelementptr inbounds nuw i8, ptr %9958, i64 12
   store i32 1, ptr %9960, align 4, !noalias !1218
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9958, align 8, !noalias !1218
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9958, align 8, !noalias !1218
   %9961 = getelementptr inbounds nuw i8, ptr %9958, i64 16
   %9962 = getelementptr inbounds nuw i8, ptr %9958, i64 24
   store i32 2, ptr %9962, align 8, !noalias !1218
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9961, align 8, !noalias !1218
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %9961, align 8, !noalias !1218
   %9963 = getelementptr inbounds nuw i8, ptr %9958, i64 28
   store i8 1, ptr %9963, align 4, !noalias !1218
   store ptr %9961, ptr %242, align 8
@@ -25988,11 +25988,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9184: ; preds = %_Z
   store i32 1, ptr %10289, align 8, !noalias !1234
   %10290 = getelementptr inbounds nuw i8, ptr %10288, i64 12
   store i32 1, ptr %10290, align 4, !noalias !1234
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10288, align 8, !noalias !1234
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10288, align 8, !noalias !1234
   %10291 = getelementptr inbounds nuw i8, ptr %10288, i64 16
   %10292 = getelementptr inbounds nuw i8, ptr %10288, i64 24
   store i32 -1, ptr %10292, align 8, !noalias !1234
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10291, align 8, !noalias !1234
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10291, align 8, !noalias !1234
   %10293 = getelementptr inbounds nuw i8, ptr %10288, i64 28
   store i32 1, ptr %10293, align 4, !noalias !1234
   %10294 = getelementptr inbounds nuw i8, ptr %10288, i64 32
@@ -26039,11 +26039,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %10311, align 8, !noalias !1242
   %10312 = getelementptr inbounds nuw i8, ptr %10310, i64 12
   store i32 1, ptr %10312, align 4, !noalias !1242
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10310, align 8, !noalias !1242
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10310, align 8, !noalias !1242
   %10313 = getelementptr inbounds nuw i8, ptr %10310, i64 16
   %10314 = getelementptr inbounds nuw i8, ptr %10310, i64 24
   store i32 0, ptr %10314, align 8, !noalias !1242
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %10313, align 8, !noalias !1242
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %10313, align 8, !noalias !1242
   %10315 = getelementptr inbounds nuw i8, ptr %10310, i64 28
   store i8 1, ptr %10315, align 4, !noalias !1242
   store ptr %10313, ptr %248, align 8
@@ -26055,11 +26055,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %10319, align 8, !noalias !1250
   %10320 = getelementptr inbounds nuw i8, ptr %10318, i64 12
   store i32 1, ptr %10320, align 4, !noalias !1250
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10318, align 8, !noalias !1250
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10318, align 8, !noalias !1250
   %10321 = getelementptr inbounds nuw i8, ptr %10318, i64 16
   %10322 = getelementptr inbounds nuw i8, ptr %10318, i64 24
   store i32 1, ptr %10322, align 8, !noalias !1250
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %10321, align 8, !noalias !1250
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %10321, align 8, !noalias !1250
   %10323 = getelementptr inbounds nuw i8, ptr %10318, i64 28
   store i8 1, ptr %10323, align 4, !noalias !1250
   store ptr %10321, ptr %249, align 8
@@ -26508,11 +26508,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9289: ; preds = %_Z
   store i32 1, ptr %10506, align 8, !noalias !1263
   %10507 = getelementptr inbounds nuw i8, ptr %10505, i64 12
   store i32 1, ptr %10507, align 4, !noalias !1263
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10505, align 8, !noalias !1263
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10505, align 8, !noalias !1263
   %10508 = getelementptr inbounds nuw i8, ptr %10505, i64 16
   %10509 = getelementptr inbounds nuw i8, ptr %10505, i64 24
   store i32 -1, ptr %10509, align 8, !noalias !1263
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %10508, align 8, !noalias !1263
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %10508, align 8, !noalias !1263
   %10510 = getelementptr inbounds nuw i8, ptr %10505, i64 28
   store i32 14, ptr %10510, align 4, !noalias !1263
   %10511 = getelementptr inbounds nuw i8, ptr %10505, i64 32
@@ -26529,11 +26529,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9289: ; preds = %_Z
   store i32 1, ptr %10515, align 8, !noalias !1271
   %10516 = getelementptr inbounds nuw i8, ptr %10514, i64 12
   store i32 1, ptr %10516, align 4, !noalias !1271
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10514, align 8, !noalias !1271
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10514, align 8, !noalias !1271
   %10517 = getelementptr inbounds nuw i8, ptr %10514, i64 16
   %10518 = getelementptr inbounds nuw i8, ptr %10514, i64 24
   store i32 0, ptr %10518, align 8, !noalias !1271
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10517, align 8, !noalias !1271
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10517, align 8, !noalias !1271
   %10519 = getelementptr inbounds nuw i8, ptr %10514, i64 28
   store i32 1, ptr %10519, align 4, !noalias !1271
   %10520 = getelementptr inbounds nuw i8, ptr %10514, i64 32
@@ -26610,11 +26610,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %10548, align 8, !noalias !1282
   %10549 = getelementptr inbounds nuw i8, ptr %10547, i64 12
   store i32 1, ptr %10549, align 4, !noalias !1282
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10547, align 8, !noalias !1282
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10547, align 8, !noalias !1282
   %10550 = getelementptr inbounds nuw i8, ptr %10547, i64 16
   %10551 = getelementptr inbounds nuw i8, ptr %10547, i64 24
   store i32 -1, ptr %10551, align 8, !noalias !1282
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10550, align 8, !noalias !1282
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10550, align 8, !noalias !1282
   %10552 = getelementptr inbounds nuw i8, ptr %10547, i64 28
   store i32 1, ptr %10552, align 4, !noalias !1282
   %10553 = getelementptr inbounds nuw i8, ptr %10547, i64 32
@@ -26644,11 +26644,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %10563, align 8, !noalias !1293
   %10564 = getelementptr inbounds nuw i8, ptr %10562, i64 12
   store i32 1, ptr %10564, align 4, !noalias !1293
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10562, align 8, !noalias !1293
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10562, align 8, !noalias !1293
   %10565 = getelementptr inbounds nuw i8, ptr %10562, i64 16
   %10566 = getelementptr inbounds nuw i8, ptr %10562, i64 24
   store i32 0, ptr %10566, align 8, !noalias !1293
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10565, align 8, !noalias !1293
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10565, align 8, !noalias !1293
   %10567 = getelementptr inbounds nuw i8, ptr %10562, i64 28
   store i32 1, ptr %10567, align 4, !noalias !1293
   %10568 = getelementptr inbounds nuw i8, ptr %10562, i64 32
@@ -26724,11 +26724,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %10595, align 8, !noalias !1304
   %10596 = getelementptr inbounds nuw i8, ptr %10594, i64 12
   store i32 1, ptr %10596, align 4, !noalias !1304
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10594, align 8, !noalias !1304
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10594, align 8, !noalias !1304
   %10597 = getelementptr inbounds nuw i8, ptr %10594, i64 16
   %10598 = getelementptr inbounds nuw i8, ptr %10594, i64 24
   store i32 -1, ptr %10598, align 8, !noalias !1304
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10597, align 8, !noalias !1304
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10597, align 8, !noalias !1304
   %10599 = getelementptr inbounds nuw i8, ptr %10594, i64 28
   store i32 1, ptr %10599, align 4, !noalias !1304
   %10600 = getelementptr inbounds nuw i8, ptr %10594, i64 32
@@ -26757,11 +26757,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %10609, align 8, !noalias !1312
   %10610 = getelementptr inbounds nuw i8, ptr %10608, i64 12
   store i32 1, ptr %10610, align 4, !noalias !1312
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10608, align 8, !noalias !1312
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10608, align 8, !noalias !1312
   %10611 = getelementptr inbounds nuw i8, ptr %10608, i64 16
   %10612 = getelementptr inbounds nuw i8, ptr %10608, i64 24
   store i32 0, ptr %10612, align 8, !noalias !1312
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10611, align 8, !noalias !1312
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10611, align 8, !noalias !1312
   %10613 = getelementptr inbounds nuw i8, ptr %10608, i64 28
   store i32 1, ptr %10613, align 4, !noalias !1312
   %10614 = getelementptr inbounds nuw i8, ptr %10608, i64 32
@@ -26845,11 +26845,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %10646, align 8, !noalias !1320
   %10647 = getelementptr inbounds nuw i8, ptr %10645, i64 12
   store i32 1, ptr %10647, align 4, !noalias !1320
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10645, align 8, !noalias !1320
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10645, align 8, !noalias !1320
   %10648 = getelementptr inbounds nuw i8, ptr %10645, i64 16
   %10649 = getelementptr inbounds nuw i8, ptr %10645, i64 24
   store i32 0, ptr %10649, align 8, !noalias !1320
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10648, align 8, !noalias !1320
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %10648, align 8, !noalias !1320
   %10650 = getelementptr inbounds nuw i8, ptr %10645, i64 28
   store i32 1, ptr %10650, align 4, !noalias !1320
   %10651 = getelementptr inbounds nuw i8, ptr %10645, i64 32
@@ -26875,11 +26875,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %10660, align 8, !noalias !1328
   %10661 = getelementptr inbounds nuw i8, ptr %10659, i64 12
   store i32 1, ptr %10661, align 4, !noalias !1328
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10659, align 8, !noalias !1328
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10659, align 8, !noalias !1328
   %10662 = getelementptr inbounds nuw i8, ptr %10659, i64 16
   %10663 = getelementptr inbounds nuw i8, ptr %10659, i64 24
   store i32 1, ptr %10663, align 8, !noalias !1328
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %10662, align 8, !noalias !1328
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %10662, align 8, !noalias !1328
   %10664 = getelementptr inbounds nuw i8, ptr %10659, i64 28
   store i8 1, ptr %10664, align 4, !noalias !1328
   store ptr %10662, ptr %261, align 8
@@ -27729,11 +27729,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9547: ; preds = %_Z
   store i32 1, ptr %11020, align 8, !noalias !1341
   %11021 = getelementptr inbounds nuw i8, ptr %11019, i64 12
   store i32 1, ptr %11021, align 4, !noalias !1341
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11019, align 8, !noalias !1341
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11019, align 8, !noalias !1341
   %11022 = getelementptr inbounds nuw i8, ptr %11019, i64 16
   %11023 = getelementptr inbounds nuw i8, ptr %11019, i64 24
   store i32 0, ptr %11023, align 8, !noalias !1341
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11022, align 8, !noalias !1341
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11022, align 8, !noalias !1341
   %11024 = getelementptr inbounds nuw i8, ptr %11019, i64 28
   store i8 1, ptr %11024, align 4, !noalias !1341
   store ptr %11022, ptr %266, align 8
@@ -27749,11 +27749,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9547: ; preds = %_Z
   store i32 1, ptr %11029, align 8, !noalias !1349
   %11030 = getelementptr inbounds nuw i8, ptr %11028, i64 12
   store i32 1, ptr %11030, align 4, !noalias !1349
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11028, align 8, !noalias !1349
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11028, align 8, !noalias !1349
   %11031 = getelementptr inbounds nuw i8, ptr %11028, i64 16
   %11032 = getelementptr inbounds nuw i8, ptr %11028, i64 24
   store i32 2, ptr %11032, align 8, !noalias !1349
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %11031, align 8, !noalias !1349
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %11031, align 8, !noalias !1349
   %11033 = getelementptr inbounds nuw i8, ptr %11028, i64 28
   store i32 1, ptr %11033, align 4, !noalias !1349
   %11034 = getelementptr inbounds nuw i8, ptr %11028, i64 32
@@ -28056,11 +28056,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9611: ; preds = %_Z
   store i32 1, ptr %11154, align 8, !noalias !1362
   %11155 = getelementptr inbounds nuw i8, ptr %11153, i64 12
   store i32 1, ptr %11155, align 4, !noalias !1362
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11153, align 8, !noalias !1362
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11153, align 8, !noalias !1362
   %11156 = getelementptr inbounds nuw i8, ptr %11153, i64 16
   %11157 = getelementptr inbounds nuw i8, ptr %11153, i64 24
   store i32 0, ptr %11157, align 8, !noalias !1362
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11156, align 8, !noalias !1362
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11156, align 8, !noalias !1362
   %11158 = getelementptr inbounds nuw i8, ptr %11153, i64 28
   store i8 1, ptr %11158, align 4, !noalias !1362
   store ptr %11156, ptr %272, align 8
@@ -28076,11 +28076,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9611: ; preds = %_Z
   store i32 1, ptr %11163, align 8, !noalias !1370
   %11164 = getelementptr inbounds nuw i8, ptr %11162, i64 12
   store i32 1, ptr %11164, align 4, !noalias !1370
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11162, align 8, !noalias !1370
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11162, align 8, !noalias !1370
   %11165 = getelementptr inbounds nuw i8, ptr %11162, i64 16
   %11166 = getelementptr inbounds nuw i8, ptr %11162, i64 24
   store i32 2, ptr %11166, align 8, !noalias !1370
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %11165, align 8, !noalias !1370
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %11165, align 8, !noalias !1370
   %11167 = getelementptr inbounds nuw i8, ptr %11162, i64 28
   store i32 1, ptr %11167, align 4, !noalias !1370
   %11168 = getelementptr inbounds nuw i8, ptr %11162, i64 32
@@ -28378,11 +28378,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9675: ; preds = %_Z
   store i32 1, ptr %11287, align 8, !noalias !1383
   %11288 = getelementptr inbounds nuw i8, ptr %11286, i64 12
   store i32 1, ptr %11288, align 4, !noalias !1383
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11286, align 8, !noalias !1383
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11286, align 8, !noalias !1383
   %11289 = getelementptr inbounds nuw i8, ptr %11286, i64 16
   %11290 = getelementptr inbounds nuw i8, ptr %11286, i64 24
   store i32 0, ptr %11290, align 8, !noalias !1383
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11289, align 8, !noalias !1383
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11289, align 8, !noalias !1383
   %11291 = getelementptr inbounds nuw i8, ptr %11286, i64 28
   store i8 1, ptr %11291, align 4, !noalias !1383
   store ptr %11289, ptr %278, align 8
@@ -28394,11 +28394,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9675: ; preds = %_Z
   store i32 1, ptr %11295, align 8, !noalias !1391
   %11296 = getelementptr inbounds nuw i8, ptr %11294, i64 12
   store i32 1, ptr %11296, align 4, !noalias !1391
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11294, align 8, !noalias !1391
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11294, align 8, !noalias !1391
   %11297 = getelementptr inbounds nuw i8, ptr %11294, i64 16
   %11298 = getelementptr inbounds nuw i8, ptr %11294, i64 24
   store i32 1, ptr %11298, align 8, !noalias !1391
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11297, align 8, !noalias !1391
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11297, align 8, !noalias !1391
   %11299 = getelementptr inbounds nuw i8, ptr %11294, i64 28
   store i8 1, ptr %11299, align 4, !noalias !1391
   store ptr %11297, ptr %279, align 8
@@ -28680,11 +28680,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9729: ; preds = %_Z
   store i32 1, ptr %11412, align 8, !noalias !1404
   %11413 = getelementptr inbounds nuw i8, ptr %11411, i64 12
   store i32 1, ptr %11413, align 4, !noalias !1404
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11411, align 8, !noalias !1404
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11411, align 8, !noalias !1404
   %11414 = getelementptr inbounds nuw i8, ptr %11411, i64 16
   %11415 = getelementptr inbounds nuw i8, ptr %11411, i64 24
   store i32 0, ptr %11415, align 8, !noalias !1404
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11414, align 8, !noalias !1404
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11414, align 8, !noalias !1404
   %11416 = getelementptr inbounds nuw i8, ptr %11411, i64 28
   store i8 1, ptr %11416, align 4, !noalias !1404
   store ptr %11414, ptr %284, align 8
@@ -28696,11 +28696,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9729: ; preds = %_Z
   store i32 1, ptr %11420, align 8, !noalias !1412
   %11421 = getelementptr inbounds nuw i8, ptr %11419, i64 12
   store i32 1, ptr %11421, align 4, !noalias !1412
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11419, align 8, !noalias !1412
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11419, align 8, !noalias !1412
   %11422 = getelementptr inbounds nuw i8, ptr %11419, i64 16
   %11423 = getelementptr inbounds nuw i8, ptr %11419, i64 24
   store i32 1, ptr %11423, align 8, !noalias !1412
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11422, align 8, !noalias !1412
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11422, align 8, !noalias !1412
   %11424 = getelementptr inbounds nuw i8, ptr %11419, i64 28
   store i8 1, ptr %11424, align 4, !noalias !1412
   store ptr %11422, ptr %285, align 8
@@ -28940,11 +28940,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9809: ; preds = %.l
   store i32 1, ptr %11522, align 8, !noalias !1423
   %11523 = getelementptr inbounds nuw i8, ptr %11521, i64 12
   store i32 1, ptr %11523, align 4, !noalias !1423
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11521, align 8, !noalias !1423
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11521, align 8, !noalias !1423
   %11524 = getelementptr inbounds nuw i8, ptr %11521, i64 16
   %11525 = getelementptr inbounds nuw i8, ptr %11521, i64 24
   store i32 -1, ptr %11525, align 8, !noalias !1423
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %11524, align 8, !noalias !1423
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %11524, align 8, !noalias !1423
   %11526 = getelementptr inbounds nuw i8, ptr %11521, i64 28
   store i32 1, ptr %11526, align 4, !noalias !1423
   %11527 = getelementptr inbounds nuw i8, ptr %11521, i64 32
@@ -28992,11 +28992,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %11545, align 8, !noalias !1431
   %11546 = getelementptr inbounds nuw i8, ptr %11544, i64 12
   store i32 1, ptr %11546, align 4, !noalias !1431
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11544, align 8, !noalias !1431
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11544, align 8, !noalias !1431
   %11547 = getelementptr inbounds nuw i8, ptr %11544, i64 16
   %11548 = getelementptr inbounds nuw i8, ptr %11544, i64 24
   store i32 0, ptr %11548, align 8, !noalias !1431
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11547, align 8, !noalias !1431
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11547, align 8, !noalias !1431
   %11549 = getelementptr inbounds nuw i8, ptr %11544, i64 28
   store i8 1, ptr %11549, align 4, !noalias !1431
   store ptr %11547, ptr %293, align 8
@@ -29306,11 +29306,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %11671, align 8, !noalias !1442
   %11672 = getelementptr inbounds nuw i8, ptr %11670, i64 12
   store i32 1, ptr %11672, align 4, !noalias !1442
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11670, align 8, !noalias !1442
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11670, align 8, !noalias !1442
   %11673 = getelementptr inbounds nuw i8, ptr %11670, i64 16
   %11674 = getelementptr inbounds nuw i8, ptr %11670, i64 24
   store i32 -1, ptr %11674, align 8, !noalias !1442
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %11673, align 8, !noalias !1442
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %11673, align 8, !noalias !1442
   %11675 = getelementptr inbounds nuw i8, ptr %11670, i64 28
   store i32 1, ptr %11675, align 4, !noalias !1442
   %11676 = getelementptr inbounds nuw i8, ptr %11670, i64 32
@@ -29385,11 +29385,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %11704, align 8, !noalias !1450
   %11705 = getelementptr inbounds nuw i8, ptr %11703, i64 12
   store i32 1, ptr %11705, align 4, !noalias !1450
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11703, align 8, !noalias !1450
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11703, align 8, !noalias !1450
   %11706 = getelementptr inbounds nuw i8, ptr %11703, i64 16
   %11707 = getelementptr inbounds nuw i8, ptr %11703, i64 24
   store i32 0, ptr %11707, align 8, !noalias !1450
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11706, align 8, !noalias !1450
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11706, align 8, !noalias !1450
   %11708 = getelementptr inbounds nuw i8, ptr %11703, i64 28
   store i8 1, ptr %11708, align 4, !noalias !1450
   store ptr %11706, ptr %298, align 8
@@ -29685,11 +29685,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i9992: ; preds = %.l
   store i32 1, ptr %11830, align 8, !noalias !1458
   %11831 = getelementptr inbounds nuw i8, ptr %11829, i64 12
   store i32 1, ptr %11831, align 4, !noalias !1458
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11829, align 8, !noalias !1458
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11829, align 8, !noalias !1458
   %11832 = getelementptr inbounds nuw i8, ptr %11829, i64 16
   %11833 = getelementptr inbounds nuw i8, ptr %11829, i64 24
   store i32 0, ptr %11833, align 8, !noalias !1458
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11832, align 8, !noalias !1458
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11832, align 8, !noalias !1458
   %11834 = getelementptr inbounds nuw i8, ptr %11829, i64 28
   store i8 1, ptr %11834, align 4, !noalias !1458
   store ptr %11832, ptr %302, align 8
@@ -29811,11 +29811,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10032: ; preds = %.
   store i32 1, ptr %11884, align 8, !noalias !1466
   %11885 = getelementptr inbounds nuw i8, ptr %11883, i64 12
   store i32 1, ptr %11885, align 4, !noalias !1466
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11883, align 8, !noalias !1466
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11883, align 8, !noalias !1466
   %11886 = getelementptr inbounds nuw i8, ptr %11883, i64 16
   %11887 = getelementptr inbounds nuw i8, ptr %11883, i64 24
   store i32 0, ptr %11887, align 8, !noalias !1466
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11886, align 8, !noalias !1466
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11886, align 8, !noalias !1466
   %11888 = getelementptr inbounds nuw i8, ptr %11883, i64 28
   store i8 1, ptr %11888, align 4, !noalias !1466
   store ptr %11886, ptr %307, align 8
@@ -30039,11 +30039,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10091: ; preds = %.
   store i32 1, ptr %11980, align 8, !noalias !1474
   %11981 = getelementptr inbounds nuw i8, ptr %11979, i64 12
   store i32 1, ptr %11981, align 4, !noalias !1474
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11979, align 8, !noalias !1474
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11979, align 8, !noalias !1474
   %11982 = getelementptr inbounds nuw i8, ptr %11979, i64 16
   %11983 = getelementptr inbounds nuw i8, ptr %11979, i64 24
   store i32 0, ptr %11983, align 8, !noalias !1474
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11982, align 8, !noalias !1474
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11982, align 8, !noalias !1474
   %11984 = getelementptr inbounds nuw i8, ptr %11979, i64 28
   store i8 1, ptr %11984, align 4, !noalias !1474
   store ptr %11982, ptr %311, align 8
@@ -30162,11 +30162,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10131: ; preds = %.
   store i32 1, ptr %12032, align 8, !noalias !1482
   %12033 = getelementptr inbounds nuw i8, ptr %12031, i64 12
   store i32 1, ptr %12033, align 4, !noalias !1482
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12031, align 8, !noalias !1482
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12031, align 8, !noalias !1482
   %12034 = getelementptr inbounds nuw i8, ptr %12031, i64 16
   %12035 = getelementptr inbounds nuw i8, ptr %12031, i64 24
   store i32 0, ptr %12035, align 8, !noalias !1482
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12034, align 8, !noalias !1482
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12034, align 8, !noalias !1482
   %12036 = getelementptr inbounds nuw i8, ptr %12031, i64 28
   store i8 1, ptr %12036, align 4, !noalias !1482
   store ptr %12034, ptr %315, align 8
@@ -30285,11 +30285,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10171: ; preds = %.
   store i32 1, ptr %12084, align 8, !noalias !1490
   %12085 = getelementptr inbounds nuw i8, ptr %12083, i64 12
   store i32 1, ptr %12085, align 4, !noalias !1490
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12083, align 8, !noalias !1490
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12083, align 8, !noalias !1490
   %12086 = getelementptr inbounds nuw i8, ptr %12083, i64 16
   %12087 = getelementptr inbounds nuw i8, ptr %12083, i64 24
   store i32 0, ptr %12087, align 8, !noalias !1490
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12086, align 8, !noalias !1490
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12086, align 8, !noalias !1490
   %12088 = getelementptr inbounds nuw i8, ptr %12083, i64 28
   store i8 1, ptr %12088, align 4, !noalias !1490
   store ptr %12086, ptr %319, align 8
@@ -30397,11 +30397,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %12134, align 8, !noalias !1498
   %12135 = getelementptr inbounds nuw i8, ptr %12133, i64 12
   store i32 1, ptr %12135, align 4, !noalias !1498
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12133, align 8, !noalias !1498
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12133, align 8, !noalias !1498
   %12136 = getelementptr inbounds nuw i8, ptr %12133, i64 16
   %12137 = getelementptr inbounds nuw i8, ptr %12133, i64 24
   store i32 0, ptr %12137, align 8, !noalias !1498
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12136, align 8, !noalias !1498
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12136, align 8, !noalias !1498
   %12138 = getelementptr inbounds nuw i8, ptr %12133, i64 28
   store i8 1, ptr %12138, align 4, !noalias !1498
   store ptr %12136, ptr %323, align 8
@@ -30513,11 +30513,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %12185, align 8, !noalias !1509
   %12186 = getelementptr inbounds nuw i8, ptr %12184, i64 12
   store i32 1, ptr %12186, align 4, !noalias !1509
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12184, align 8, !noalias !1509
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12184, align 8, !noalias !1509
   %12187 = getelementptr inbounds nuw i8, ptr %12184, i64 16
   %12188 = getelementptr inbounds nuw i8, ptr %12184, i64 24
   store i32 0, ptr %12188, align 8, !noalias !1509
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12187, align 8, !noalias !1509
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12187, align 8, !noalias !1509
   %12189 = getelementptr inbounds nuw i8, ptr %12184, i64 28
   store i32 1, ptr %12189, align 4, !noalias !1509
   %12190 = getelementptr inbounds nuw i8, ptr %12184, i64 32
@@ -30739,11 +30739,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10301: ; preds = %_
   store i32 1, ptr %12276, align 8, !noalias !1522
   %12277 = getelementptr inbounds nuw i8, ptr %12275, i64 12
   store i32 1, ptr %12277, align 4, !noalias !1522
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12275, align 8, !noalias !1522
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12275, align 8, !noalias !1522
   %12278 = getelementptr inbounds nuw i8, ptr %12275, i64 16
   %12279 = getelementptr inbounds nuw i8, ptr %12275, i64 24
   store i32 0, ptr %12279, align 8, !noalias !1522
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12278, align 8, !noalias !1522
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12278, align 8, !noalias !1522
   %12280 = getelementptr inbounds nuw i8, ptr %12275, i64 28
   store i8 1, ptr %12280, align 4, !noalias !1522
   store ptr %12278, ptr %332, align 8
@@ -30965,11 +30965,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10341: ; preds = %_
   store i32 1, ptr %12366, align 8, !noalias !1538
   %12367 = getelementptr inbounds nuw i8, ptr %12365, i64 12
   store i32 1, ptr %12367, align 4, !noalias !1538
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12365, align 8, !noalias !1538
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12365, align 8, !noalias !1538
   %12368 = getelementptr inbounds nuw i8, ptr %12365, i64 16
   %12369 = getelementptr inbounds nuw i8, ptr %12365, i64 24
   store i32 0, ptr %12369, align 8, !noalias !1538
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12368, align 8, !noalias !1538
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12368, align 8, !noalias !1538
   %12370 = getelementptr inbounds nuw i8, ptr %12365, i64 28
   store i32 1, ptr %12370, align 4, !noalias !1538
   %12371 = getelementptr inbounds nuw i8, ptr %12365, i64 32
@@ -30995,11 +30995,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10341: ; preds = %_
   store i32 1, ptr %12380, align 8, !noalias !1547
   %12381 = getelementptr inbounds nuw i8, ptr %12379, i64 12
   store i32 1, ptr %12381, align 4, !noalias !1547
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12379, align 8, !noalias !1547
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12379, align 8, !noalias !1547
   %12382 = getelementptr inbounds nuw i8, ptr %12379, i64 16
   %12383 = getelementptr inbounds nuw i8, ptr %12379, i64 24
   store i32 1, ptr %12383, align 8, !noalias !1547
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12382, align 8, !noalias !1547
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12382, align 8, !noalias !1547
   %12384 = getelementptr inbounds nuw i8, ptr %12379, i64 28
   store i8 1, ptr %12384, align 4, !noalias !1547
   store ptr %12382, ptr %338, align 8
@@ -31279,11 +31279,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10396: ; preds = %_
   store i32 1, ptr %12499, align 8, !noalias !1560
   %12500 = getelementptr inbounds nuw i8, ptr %12498, i64 12
   store i32 1, ptr %12500, align 4, !noalias !1560
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12498, align 8, !noalias !1560
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12498, align 8, !noalias !1560
   %12501 = getelementptr inbounds nuw i8, ptr %12498, i64 16
   %12502 = getelementptr inbounds nuw i8, ptr %12498, i64 24
   store i32 0, ptr %12502, align 8, !noalias !1560
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12501, align 8, !noalias !1560
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12501, align 8, !noalias !1560
   %12503 = getelementptr inbounds nuw i8, ptr %12498, i64 28
   store i8 1, ptr %12503, align 4, !noalias !1560
   store ptr %12501, ptr %343, align 8
@@ -31506,11 +31506,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10436: ; preds = %_
   store i32 1, ptr %12589, align 8, !noalias !1576
   %12590 = getelementptr inbounds nuw i8, ptr %12588, i64 12
   store i32 1, ptr %12590, align 4, !noalias !1576
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12588, align 8, !noalias !1576
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12588, align 8, !noalias !1576
   %12591 = getelementptr inbounds nuw i8, ptr %12588, i64 16
   %12592 = getelementptr inbounds nuw i8, ptr %12588, i64 24
   store i32 0, ptr %12592, align 8, !noalias !1576
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12591, align 8, !noalias !1576
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12591, align 8, !noalias !1576
   %12593 = getelementptr inbounds nuw i8, ptr %12588, i64 28
   store i32 1, ptr %12593, align 4, !noalias !1576
   %12594 = getelementptr inbounds nuw i8, ptr %12588, i64 32
@@ -31536,11 +31536,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10436: ; preds = %_
   store i32 1, ptr %12603, align 8, !noalias !1585
   %12604 = getelementptr inbounds nuw i8, ptr %12602, i64 12
   store i32 1, ptr %12604, align 4, !noalias !1585
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12602, align 8, !noalias !1585
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12602, align 8, !noalias !1585
   %12605 = getelementptr inbounds nuw i8, ptr %12602, i64 16
   %12606 = getelementptr inbounds nuw i8, ptr %12602, i64 24
   store i32 1, ptr %12606, align 8, !noalias !1585
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12605, align 8, !noalias !1585
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12605, align 8, !noalias !1585
   %12607 = getelementptr inbounds nuw i8, ptr %12602, i64 28
   store i8 1, ptr %12607, align 4, !noalias !1585
   store ptr %12605, ptr %349, align 8
@@ -31727,11 +31727,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintEE
   store i32 1, ptr %12690, align 8, !noalias !1596
   %12691 = getelementptr inbounds nuw i8, ptr %12689, i64 12
   store i32 1, ptr %12691, align 4, !noalias !1596
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12689, align 8, !noalias !1596
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12689, align 8, !noalias !1596
   %12692 = getelementptr inbounds nuw i8, ptr %12689, i64 16
   %12693 = getelementptr inbounds nuw i8, ptr %12689, i64 24
   store i32 0, ptr %12693, align 8, !noalias !1596
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12692, align 8, !noalias !1596
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12692, align 8, !noalias !1596
   %12694 = getelementptr inbounds nuw i8, ptr %12689, i64 28
   store i32 1, ptr %12694, align 4, !noalias !1596
   %12695 = getelementptr inbounds nuw i8, ptr %12689, i64 32
@@ -31957,11 +31957,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10544: ; preds = %_
   store i32 1, ptr %12782, align 8, !noalias !1612
   %12783 = getelementptr inbounds nuw i8, ptr %12781, i64 12
   store i32 1, ptr %12783, align 4, !noalias !1612
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12781, align 8, !noalias !1612
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12781, align 8, !noalias !1612
   %12784 = getelementptr inbounds nuw i8, ptr %12781, i64 16
   %12785 = getelementptr inbounds nuw i8, ptr %12781, i64 24
   store i32 0, ptr %12785, align 8, !noalias !1612
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12784, align 8, !noalias !1612
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12784, align 8, !noalias !1612
   %12786 = getelementptr inbounds nuw i8, ptr %12781, i64 28
   store i32 1, ptr %12786, align 4, !noalias !1612
   %12787 = getelementptr inbounds nuw i8, ptr %12781, i64 32
@@ -31991,11 +31991,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10544: ; preds = %_
   store i32 1, ptr %12797, align 8, !noalias !1623
   %12798 = getelementptr inbounds nuw i8, ptr %12796, i64 12
   store i32 1, ptr %12798, align 4, !noalias !1623
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12796, align 8, !noalias !1623
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12796, align 8, !noalias !1623
   %12799 = getelementptr inbounds nuw i8, ptr %12796, i64 16
   %12800 = getelementptr inbounds nuw i8, ptr %12796, i64 24
   store i32 1, ptr %12800, align 8, !noalias !1623
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12799, align 8, !noalias !1623
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12799, align 8, !noalias !1623
   %12801 = getelementptr inbounds nuw i8, ptr %12796, i64 28
   store i32 1, ptr %12801, align 4, !noalias !1623
   %12802 = getelementptr inbounds nuw i8, ptr %12796, i64 32
@@ -32198,11 +32198,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit10607:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %12890, align 8, !noalias !1634
   %12891 = getelementptr inbounds nuw i8, ptr %12889, i64 12
   store i32 1, ptr %12891, align 4, !noalias !1634
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12889, align 8, !noalias !1634
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12889, align 8, !noalias !1634
   %12892 = getelementptr inbounds nuw i8, ptr %12889, i64 16
   %12893 = getelementptr inbounds nuw i8, ptr %12889, i64 24
   store i32 0, ptr %12893, align 8, !noalias !1634
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12892, align 8, !noalias !1634
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %12892, align 8, !noalias !1634
   %12894 = getelementptr inbounds nuw i8, ptr %12889, i64 28
   store i32 1, ptr %12894, align 4, !noalias !1634
   %12895 = getelementptr inbounds nuw i8, ptr %12889, i64 32
@@ -32426,11 +32426,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10668: ; preds = %_
   store i32 1, ptr %12981, align 8, !noalias !1647
   %12982 = getelementptr inbounds nuw i8, ptr %12980, i64 12
   store i32 1, ptr %12982, align 4, !noalias !1647
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12980, align 8, !noalias !1647
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12980, align 8, !noalias !1647
   %12983 = getelementptr inbounds nuw i8, ptr %12980, i64 16
   %12984 = getelementptr inbounds nuw i8, ptr %12980, i64 24
   store i32 0, ptr %12984, align 8, !noalias !1647
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12983, align 8, !noalias !1647
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12983, align 8, !noalias !1647
   %12985 = getelementptr inbounds nuw i8, ptr %12980, i64 28
   store i8 1, ptr %12985, align 4, !noalias !1647
   store ptr %12983, ptr %368, align 8
@@ -32442,11 +32442,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10668: ; preds = %_
   store i32 1, ptr %12989, align 8, !noalias !1655
   %12990 = getelementptr inbounds nuw i8, ptr %12988, i64 12
   store i32 1, ptr %12990, align 4, !noalias !1655
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12988, align 8, !noalias !1655
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %12988, align 8, !noalias !1655
   %12991 = getelementptr inbounds nuw i8, ptr %12988, i64 16
   %12992 = getelementptr inbounds nuw i8, ptr %12988, i64 24
   store i32 1, ptr %12992, align 8, !noalias !1655
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12991, align 8, !noalias !1655
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %12991, align 8, !noalias !1655
   %12993 = getelementptr inbounds nuw i8, ptr %12988, i64 28
   store i8 1, ptr %12993, align 4, !noalias !1655
   store ptr %12991, ptr %369, align 8
@@ -32633,11 +32633,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %13076, align 8, !noalias !1666
   %13077 = getelementptr inbounds nuw i8, ptr %13075, i64 12
   store i32 1, ptr %13077, align 4, !noalias !1666
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13075, align 8, !noalias !1666
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13075, align 8, !noalias !1666
   %13078 = getelementptr inbounds nuw i8, ptr %13075, i64 16
   %13079 = getelementptr inbounds nuw i8, ptr %13075, i64 24
   store i32 0, ptr %13079, align 8, !noalias !1666
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13078, align 8, !noalias !1666
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13078, align 8, !noalias !1666
   %13080 = getelementptr inbounds nuw i8, ptr %13075, i64 28
   store i32 1, ptr %13080, align 4, !noalias !1666
   %13081 = getelementptr inbounds nuw i8, ptr %13075, i64 32
@@ -32861,11 +32861,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10772: ; preds = %_
   store i32 1, ptr %13166, align 8, !noalias !1679
   %13167 = getelementptr inbounds nuw i8, ptr %13165, i64 12
   store i32 1, ptr %13167, align 4, !noalias !1679
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13165, align 8, !noalias !1679
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13165, align 8, !noalias !1679
   %13168 = getelementptr inbounds nuw i8, ptr %13165, i64 16
   %13169 = getelementptr inbounds nuw i8, ptr %13165, i64 24
   store i32 0, ptr %13169, align 8, !noalias !1679
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13168, align 8, !noalias !1679
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13168, align 8, !noalias !1679
   %13170 = getelementptr inbounds nuw i8, ptr %13165, i64 28
   store i8 1, ptr %13170, align 4, !noalias !1679
   store ptr %13168, ptr %378, align 8
@@ -33072,11 +33072,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10812: ; preds = %_
   store i32 1, ptr %13251, align 8, !noalias !1692
   %13252 = getelementptr inbounds nuw i8, ptr %13250, i64 12
   store i32 1, ptr %13252, align 4, !noalias !1692
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13250, align 8, !noalias !1692
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13250, align 8, !noalias !1692
   %13253 = getelementptr inbounds nuw i8, ptr %13250, i64 16
   %13254 = getelementptr inbounds nuw i8, ptr %13250, i64 24
   store i32 0, ptr %13254, align 8, !noalias !1692
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13253, align 8, !noalias !1692
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13253, align 8, !noalias !1692
   %13255 = getelementptr inbounds nuw i8, ptr %13250, i64 28
   store i8 1, ptr %13255, align 4, !noalias !1692
   store ptr %13253, ptr %383, align 8
@@ -33088,11 +33088,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10812: ; preds = %_
   store i32 1, ptr %13259, align 8, !noalias !1700
   %13260 = getelementptr inbounds nuw i8, ptr %13258, i64 12
   store i32 1, ptr %13260, align 4, !noalias !1700
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13258, align 8, !noalias !1700
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13258, align 8, !noalias !1700
   %13261 = getelementptr inbounds nuw i8, ptr %13258, i64 16
   %13262 = getelementptr inbounds nuw i8, ptr %13258, i64 24
   store i32 1, ptr %13262, align 8, !noalias !1700
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13261, align 8, !noalias !1700
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13261, align 8, !noalias !1700
   %13263 = getelementptr inbounds nuw i8, ptr %13258, i64 28
   store i8 1, ptr %13263, align 4, !noalias !1700
   store ptr %13261, ptr %384, align 8
@@ -33376,11 +33376,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10866: ; preds = %_
   store i32 1, ptr %13380, align 8, !noalias !1713
   %13381 = getelementptr inbounds nuw i8, ptr %13379, i64 12
   store i32 1, ptr %13381, align 4, !noalias !1713
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13379, align 8, !noalias !1713
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13379, align 8, !noalias !1713
   %13382 = getelementptr inbounds nuw i8, ptr %13379, i64 16
   %13383 = getelementptr inbounds nuw i8, ptr %13379, i64 24
   store i32 0, ptr %13383, align 8, !noalias !1713
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13382, align 8, !noalias !1713
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13382, align 8, !noalias !1713
   %13384 = getelementptr inbounds nuw i8, ptr %13379, i64 28
   store i8 1, ptr %13384, align 4, !noalias !1713
   store ptr %13382, ptr %389, align 8
@@ -33400,11 +33400,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10866: ; preds = %_
   store i32 1, ptr %13389, align 8, !noalias !1724
   %13390 = getelementptr inbounds nuw i8, ptr %13388, i64 12
   store i32 1, ptr %13390, align 4, !noalias !1724
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13388, align 8, !noalias !1724
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13388, align 8, !noalias !1724
   %13391 = getelementptr inbounds nuw i8, ptr %13388, i64 16
   %13392 = getelementptr inbounds nuw i8, ptr %13388, i64 24
   store i32 1, ptr %13392, align 8, !noalias !1724
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13391, align 8, !noalias !1724
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13391, align 8, !noalias !1724
   %13393 = getelementptr inbounds nuw i8, ptr %13388, i64 28
   store i32 1, ptr %13393, align 4, !noalias !1724
   %13394 = getelementptr inbounds nuw i8, ptr %13388, i64 32
@@ -33430,11 +33430,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10866: ; preds = %_
   store i32 1, ptr %13403, align 8, !noalias !1733
   %13404 = getelementptr inbounds nuw i8, ptr %13402, i64 12
   store i32 1, ptr %13404, align 4, !noalias !1733
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13402, align 8, !noalias !1733
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13402, align 8, !noalias !1733
   %13405 = getelementptr inbounds nuw i8, ptr %13402, i64 16
   %13406 = getelementptr inbounds nuw i8, ptr %13402, i64 24
   store i32 2, ptr %13406, align 8, !noalias !1733
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13405, align 8, !noalias !1733
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13405, align 8, !noalias !1733
   %13407 = getelementptr inbounds nuw i8, ptr %13402, i64 28
   store i8 1, ptr %13407, align 4, !noalias !1733
   store ptr %13405, ptr %391, align 8
@@ -33797,11 +33797,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10938: ; preds = %_
   store i32 1, ptr %13558, align 8, !noalias !1749
   %13559 = getelementptr inbounds nuw i8, ptr %13557, i64 12
   store i32 1, ptr %13559, align 4, !noalias !1749
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13557, align 8, !noalias !1749
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13557, align 8, !noalias !1749
   %13560 = getelementptr inbounds nuw i8, ptr %13557, i64 16
   %13561 = getelementptr inbounds nuw i8, ptr %13557, i64 24
   store i32 0, ptr %13561, align 8, !noalias !1749
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13560, align 8, !noalias !1749
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13560, align 8, !noalias !1749
   %13562 = getelementptr inbounds nuw i8, ptr %13557, i64 28
   store i32 1, ptr %13562, align 4, !noalias !1749
   %13563 = getelementptr inbounds nuw i8, ptr %13557, i64 32
@@ -34028,11 +34028,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i10988: ; preds = %_
   store i32 1, ptr %13651, align 8, !noalias !1762
   %13652 = getelementptr inbounds nuw i8, ptr %13650, i64 12
   store i32 1, ptr %13652, align 4, !noalias !1762
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13650, align 8, !noalias !1762
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13650, align 8, !noalias !1762
   %13653 = getelementptr inbounds nuw i8, ptr %13650, i64 16
   %13654 = getelementptr inbounds nuw i8, ptr %13650, i64 24
   store i32 0, ptr %13654, align 8, !noalias !1762
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13653, align 8, !noalias !1762
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13653, align 8, !noalias !1762
   %13655 = getelementptr inbounds nuw i8, ptr %13650, i64 28
   store i8 1, ptr %13655, align 4, !noalias !1762
   store ptr %13653, ptr %401, align 8
@@ -34144,11 +34144,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %13702, align 8, !noalias !1773
   %13703 = getelementptr inbounds nuw i8, ptr %13701, i64 12
   store i32 1, ptr %13703, align 4, !noalias !1773
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13701, align 8, !noalias !1773
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13701, align 8, !noalias !1773
   %13704 = getelementptr inbounds nuw i8, ptr %13701, i64 16
   %13705 = getelementptr inbounds nuw i8, ptr %13701, i64 24
   store i32 0, ptr %13705, align 8, !noalias !1773
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13704, align 8, !noalias !1773
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13704, align 8, !noalias !1773
   %13706 = getelementptr inbounds nuw i8, ptr %13701, i64 28
   store i32 1, ptr %13706, align 4, !noalias !1773
   %13707 = getelementptr inbounds nuw i8, ptr %13701, i64 32
@@ -34294,11 +34294,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11083: ; preds = %_
   store i32 1, ptr %13769, align 8, !noalias !1781
   %13770 = getelementptr inbounds nuw i8, ptr %13768, i64 12
   store i32 1, ptr %13770, align 4, !noalias !1781
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13768, align 8, !noalias !1781
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13768, align 8, !noalias !1781
   %13771 = getelementptr inbounds nuw i8, ptr %13768, i64 16
   %13772 = getelementptr inbounds nuw i8, ptr %13768, i64 24
   store i32 0, ptr %13772, align 8, !noalias !1781
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13771, align 8, !noalias !1781
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13771, align 8, !noalias !1781
   %13773 = getelementptr inbounds nuw i8, ptr %13768, i64 28
   store i8 1, ptr %13773, align 4, !noalias !1781
   store ptr %13771, ptr %409, align 8
@@ -34410,11 +34410,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %13820, align 8, !noalias !1792
   %13821 = getelementptr inbounds nuw i8, ptr %13819, i64 12
   store i32 1, ptr %13821, align 4, !noalias !1792
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13819, align 8, !noalias !1792
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13819, align 8, !noalias !1792
   %13822 = getelementptr inbounds nuw i8, ptr %13819, i64 16
   %13823 = getelementptr inbounds nuw i8, ptr %13819, i64 24
   store i32 0, ptr %13823, align 8, !noalias !1792
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13822, align 8, !noalias !1792
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %13822, align 8, !noalias !1792
   %13824 = getelementptr inbounds nuw i8, ptr %13819, i64 28
   store i32 1, ptr %13824, align 4, !noalias !1792
   %13825 = getelementptr inbounds nuw i8, ptr %13819, i64 32
@@ -34550,11 +34550,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11173: ; preds = %.
   store i32 1, ptr %13880, align 8, !noalias !1800
   %13881 = getelementptr inbounds nuw i8, ptr %13879, i64 12
   store i32 1, ptr %13881, align 4, !noalias !1800
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13879, align 8, !noalias !1800
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13879, align 8, !noalias !1800
   %13882 = getelementptr inbounds nuw i8, ptr %13879, i64 16
   %13883 = getelementptr inbounds nuw i8, ptr %13879, i64 24
   store i32 0, ptr %13883, align 8, !noalias !1800
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13882, align 8, !noalias !1800
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13882, align 8, !noalias !1800
   %13884 = getelementptr inbounds nuw i8, ptr %13879, i64 28
   store i8 1, ptr %13884, align 4, !noalias !1800
   store ptr %13882, ptr %417, align 8
@@ -34662,11 +34662,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %13930, align 8, !noalias !1808
   %13931 = getelementptr inbounds nuw i8, ptr %13929, i64 12
   store i32 1, ptr %13931, align 4, !noalias !1808
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13929, align 8, !noalias !1808
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13929, align 8, !noalias !1808
   %13932 = getelementptr inbounds nuw i8, ptr %13929, i64 16
   %13933 = getelementptr inbounds nuw i8, ptr %13929, i64 24
   store i32 0, ptr %13933, align 8, !noalias !1808
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13932, align 8, !noalias !1808
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %13932, align 8, !noalias !1808
   %13934 = getelementptr inbounds nuw i8, ptr %13929, i64 28
   store i8 1, ptr %13934, align 4, !noalias !1808
   store ptr %13932, ptr %421, align 8
@@ -34871,11 +34871,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11253: ; preds = %_
   store i32 1, ptr %14013, align 8, !noalias !1821
   %14014 = getelementptr inbounds nuw i8, ptr %14012, i64 12
   store i32 1, ptr %14014, align 4, !noalias !1821
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14012, align 8, !noalias !1821
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14012, align 8, !noalias !1821
   %14015 = getelementptr inbounds nuw i8, ptr %14012, i64 16
   %14016 = getelementptr inbounds nuw i8, ptr %14012, i64 24
   store i32 0, ptr %14016, align 8, !noalias !1821
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14015, align 8, !noalias !1821
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14015, align 8, !noalias !1821
   %14017 = getelementptr inbounds nuw i8, ptr %14012, i64 28
   store i8 1, ptr %14017, align 4, !noalias !1821
   store ptr %14015, ptr %426, align 8
@@ -34891,11 +34891,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11253: ; preds = %_
   store i32 1, ptr %14022, align 8, !noalias !1832
   %14023 = getelementptr inbounds nuw i8, ptr %14021, i64 12
   store i32 1, ptr %14023, align 4, !noalias !1832
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14021, align 8, !noalias !1832
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14021, align 8, !noalias !1832
   %14024 = getelementptr inbounds nuw i8, ptr %14021, i64 16
   %14025 = getelementptr inbounds nuw i8, ptr %14021, i64 24
   store i32 1, ptr %14025, align 8, !noalias !1832
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14024, align 8, !noalias !1832
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14024, align 8, !noalias !1832
   %14026 = getelementptr inbounds nuw i8, ptr %14021, i64 28
   store i32 1, ptr %14026, align 4, !noalias !1832
   %14027 = getelementptr inbounds nuw i8, ptr %14021, i64 32
@@ -35091,11 +35091,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %14112, align 8, !noalias !1840
   %14113 = getelementptr inbounds nuw i8, ptr %14111, i64 12
   store i32 1, ptr %14113, align 4, !noalias !1840
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14111, align 8, !noalias !1840
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14111, align 8, !noalias !1840
   %14114 = getelementptr inbounds nuw i8, ptr %14111, i64 16
   %14115 = getelementptr inbounds nuw i8, ptr %14111, i64 24
   store i32 0, ptr %14115, align 8, !noalias !1840
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14114, align 8, !noalias !1840
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14114, align 8, !noalias !1840
   %14116 = getelementptr inbounds nuw i8, ptr %14111, i64 28
   store i8 1, ptr %14116, align 4, !noalias !1840
   store ptr %14114, ptr %431, align 8
@@ -35205,11 +35205,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %14164, align 8, !noalias !1848
   %14165 = getelementptr inbounds nuw i8, ptr %14163, i64 12
   store i32 1, ptr %14165, align 4, !noalias !1848
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14163, align 8, !noalias !1848
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14163, align 8, !noalias !1848
   %14166 = getelementptr inbounds nuw i8, ptr %14163, i64 16
   %14167 = getelementptr inbounds nuw i8, ptr %14163, i64 24
   store i32 0, ptr %14167, align 8, !noalias !1848
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14166, align 8, !noalias !1848
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14166, align 8, !noalias !1848
   %14168 = getelementptr inbounds nuw i8, ptr %14163, i64 28
   store i8 1, ptr %14168, align 4, !noalias !1848
   store ptr %14166, ptr %435, align 8
@@ -35317,11 +35317,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %14214, align 8, !noalias !1856
   %14215 = getelementptr inbounds nuw i8, ptr %14213, i64 12
   store i32 1, ptr %14215, align 4, !noalias !1856
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14213, align 8, !noalias !1856
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14213, align 8, !noalias !1856
   %14216 = getelementptr inbounds nuw i8, ptr %14213, i64 16
   %14217 = getelementptr inbounds nuw i8, ptr %14213, i64 24
   store i32 -1, ptr %14217, align 8, !noalias !1856
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %14216, align 8, !noalias !1856
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %14216, align 8, !noalias !1856
   %14218 = getelementptr inbounds nuw i8, ptr %14213, i64 28
   store i32 14, ptr %14218, align 4, !noalias !1856
   %14219 = getelementptr inbounds nuw i8, ptr %14213, i64 32
@@ -35356,11 +35356,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %14232, align 8, !noalias !1864
   %14233 = getelementptr inbounds nuw i8, ptr %14231, i64 12
   store i32 1, ptr %14233, align 4, !noalias !1864
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14231, align 8, !noalias !1864
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14231, align 8, !noalias !1864
   %14234 = getelementptr inbounds nuw i8, ptr %14231, i64 16
   %14235 = getelementptr inbounds nuw i8, ptr %14231, i64 24
   store i32 -1, ptr %14235, align 8, !noalias !1864
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14234, align 8, !noalias !1864
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14234, align 8, !noalias !1864
   %14236 = getelementptr inbounds nuw i8, ptr %14231, i64 28
   store i8 0, ptr %14236, align 4, !noalias !1864
   %14237 = getelementptr inbounds nuw i8, ptr %440, i64 8
@@ -35393,11 +35393,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %14248, align 8, !noalias !1872
   %14249 = getelementptr inbounds nuw i8, ptr %14247, i64 12
   store i32 1, ptr %14249, align 4, !noalias !1872
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14247, align 8, !noalias !1872
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14247, align 8, !noalias !1872
   %14250 = getelementptr inbounds nuw i8, ptr %14247, i64 16
   %14251 = getelementptr inbounds nuw i8, ptr %14247, i64 24
   store i32 0, ptr %14251, align 8, !noalias !1872
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14250, align 8, !noalias !1872
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14250, align 8, !noalias !1872
   %14252 = getelementptr inbounds nuw i8, ptr %14247, i64 28
   store i8 1, ptr %14252, align 4, !noalias !1872
   store ptr %14250, ptr %441, align 8
@@ -35942,11 +35942,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11519: ; preds = %_
   store i32 1, ptr %14475, align 8, !noalias !1888
   %14476 = getelementptr inbounds nuw i8, ptr %14474, i64 12
   store i32 1, ptr %14476, align 4, !noalias !1888
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14474, align 8, !noalias !1888
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14474, align 8, !noalias !1888
   %14477 = getelementptr inbounds nuw i8, ptr %14474, i64 16
   %14478 = getelementptr inbounds nuw i8, ptr %14474, i64 24
   store i32 1, ptr %14478, align 8, !noalias !1888
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14477, align 8, !noalias !1888
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14477, align 8, !noalias !1888
   %14479 = getelementptr inbounds nuw i8, ptr %14474, i64 28
   store i32 1, ptr %14479, align 4, !noalias !1888
   %14480 = getelementptr inbounds nuw i8, ptr %14474, i64 32
@@ -35972,11 +35972,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11519: ; preds = %_
   store i32 1, ptr %14489, align 8, !noalias !1896
   %14490 = getelementptr inbounds nuw i8, ptr %14488, i64 12
   store i32 1, ptr %14490, align 4, !noalias !1896
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14488, align 8, !noalias !1896
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14488, align 8, !noalias !1896
   %14491 = getelementptr inbounds nuw i8, ptr %14488, i64 16
   %14492 = getelementptr inbounds nuw i8, ptr %14488, i64 24
   store i32 -1, ptr %14492, align 8, !noalias !1896
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %14491, align 8, !noalias !1896
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %14491, align 8, !noalias !1896
   %14493 = getelementptr inbounds nuw i8, ptr %14488, i64 28
   store i32 14, ptr %14493, align 4, !noalias !1896
   %14494 = getelementptr inbounds nuw i8, ptr %14488, i64 32
@@ -36036,11 +36036,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %14515, align 8, !noalias !1904
   %14516 = getelementptr inbounds nuw i8, ptr %14514, i64 12
   store i32 1, ptr %14516, align 4, !noalias !1904
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14514, align 8, !noalias !1904
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14514, align 8, !noalias !1904
   %14517 = getelementptr inbounds nuw i8, ptr %14514, i64 16
   %14518 = getelementptr inbounds nuw i8, ptr %14514, i64 24
   store i32 1, ptr %14518, align 8, !noalias !1904
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14517, align 8, !noalias !1904
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14517, align 8, !noalias !1904
   %14519 = getelementptr inbounds nuw i8, ptr %14514, i64 28
   store i32 1, ptr %14519, align 4, !noalias !1904
   %14520 = getelementptr inbounds nuw i8, ptr %14514, i64 32
@@ -36066,11 +36066,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %14529, align 8, !noalias !1912
   %14530 = getelementptr inbounds nuw i8, ptr %14528, i64 12
   store i32 1, ptr %14530, align 4, !noalias !1912
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14528, align 8, !noalias !1912
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14528, align 8, !noalias !1912
   %14531 = getelementptr inbounds nuw i8, ptr %14528, i64 16
   %14532 = getelementptr inbounds nuw i8, ptr %14528, i64 24
   store i32 -1, ptr %14532, align 8, !noalias !1912
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14531, align 8, !noalias !1912
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14531, align 8, !noalias !1912
   %14533 = getelementptr inbounds nuw i8, ptr %14528, i64 28
   store i8 0, ptr %14533, align 4, !noalias !1912
   store ptr %14531, ptr %14527, align 8
@@ -36132,11 +36132,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %14555, align 8, !noalias !1923
   %14556 = getelementptr inbounds nuw i8, ptr %14554, i64 12
   store i32 1, ptr %14556, align 4, !noalias !1923
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14554, align 8, !noalias !1923
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14554, align 8, !noalias !1923
   %14557 = getelementptr inbounds nuw i8, ptr %14554, i64 16
   %14558 = getelementptr inbounds nuw i8, ptr %14554, i64 24
   store i32 1, ptr %14558, align 8, !noalias !1923
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14557, align 8, !noalias !1923
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14557, align 8, !noalias !1923
   %14559 = getelementptr inbounds nuw i8, ptr %14554, i64 28
   store i32 1, ptr %14559, align 4, !noalias !1923
   %14560 = getelementptr inbounds nuw i8, ptr %14554, i64 32
@@ -36162,11 +36162,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %14569, align 8, !noalias !1931
   %14570 = getelementptr inbounds nuw i8, ptr %14568, i64 12
   store i32 1, ptr %14570, align 4, !noalias !1931
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14568, align 8, !noalias !1931
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14568, align 8, !noalias !1931
   %14571 = getelementptr inbounds nuw i8, ptr %14568, i64 16
   %14572 = getelementptr inbounds nuw i8, ptr %14568, i64 24
   store i32 -1, ptr %14572, align 8, !noalias !1931
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14571, align 8, !noalias !1931
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14571, align 8, !noalias !1931
   %14573 = getelementptr inbounds nuw i8, ptr %14568, i64 28
   store i8 0, ptr %14573, align 4, !noalias !1931
   store ptr %14571, ptr %14567, align 8
@@ -36227,11 +36227,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %14598, align 8, !noalias !1939
   %14599 = getelementptr inbounds nuw i8, ptr %14597, i64 12
   store i32 1, ptr %14599, align 4, !noalias !1939
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14597, align 8, !noalias !1939
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14597, align 8, !noalias !1939
   %14600 = getelementptr inbounds nuw i8, ptr %14597, i64 16
   %14601 = getelementptr inbounds nuw i8, ptr %14597, i64 24
   store i32 0, ptr %14601, align 8, !noalias !1939
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14600, align 8, !noalias !1939
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %14600, align 8, !noalias !1939
   %14602 = getelementptr inbounds nuw i8, ptr %14597, i64 28
   store i8 1, ptr %14602, align 4, !noalias !1939
   store ptr %14600, ptr %452, align 8
@@ -36243,11 +36243,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %14606, align 8, !noalias !1947
   %14607 = getelementptr inbounds nuw i8, ptr %14605, i64 12
   store i32 1, ptr %14607, align 4, !noalias !1947
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14605, align 8, !noalias !1947
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14605, align 8, !noalias !1947
   %14608 = getelementptr inbounds nuw i8, ptr %14605, i64 16
   %14609 = getelementptr inbounds nuw i8, ptr %14605, i64 24
   store i32 0, ptr %14609, align 8, !noalias !1947
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %14608, align 8, !noalias !1947
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %14608, align 8, !noalias !1947
   %14610 = getelementptr inbounds nuw i8, ptr %14605, i64 48
   store i8 0, ptr %14610, align 8, !noalias !1947
   %14611 = getelementptr inbounds nuw i8, ptr %14605, i64 56
@@ -36271,11 +36271,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %14619, align 8, !noalias !1958
   %14620 = getelementptr inbounds nuw i8, ptr %14618, i64 12
   store i32 1, ptr %14620, align 4, !noalias !1958
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14618, align 8, !noalias !1958
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14618, align 8, !noalias !1958
   %14621 = getelementptr inbounds nuw i8, ptr %14618, i64 16
   %14622 = getelementptr inbounds nuw i8, ptr %14618, i64 24
   store i32 1, ptr %14622, align 8, !noalias !1958
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14621, align 8, !noalias !1958
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %14621, align 8, !noalias !1958
   %14623 = getelementptr inbounds nuw i8, ptr %14618, i64 28
   store i32 1, ptr %14623, align 4, !noalias !1958
   %14624 = getelementptr inbounds nuw i8, ptr %14618, i64 32
@@ -37205,11 +37205,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11771: ; preds = %_
   store i32 1, ptr %15017, align 8, !noalias !1971
   %15018 = getelementptr inbounds nuw i8, ptr %15016, i64 12
   store i32 1, ptr %15018, align 4, !noalias !1971
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15016, align 8, !noalias !1971
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15016, align 8, !noalias !1971
   %15019 = getelementptr inbounds nuw i8, ptr %15016, i64 16
   %15020 = getelementptr inbounds nuw i8, ptr %15016, i64 24
   store i32 0, ptr %15020, align 8, !noalias !1971
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15019, align 8, !noalias !1971
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15019, align 8, !noalias !1971
   %15021 = getelementptr inbounds nuw i8, ptr %15016, i64 28
   store i8 1, ptr %15021, align 4, !noalias !1971
   store ptr %15019, ptr %459, align 8
@@ -37430,11 +37430,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11811: ; preds = %_
   store i32 1, ptr %15104, align 8, !noalias !1987
   %15105 = getelementptr inbounds nuw i8, ptr %15103, i64 12
   store i32 1, ptr %15105, align 4, !noalias !1987
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15103, align 8, !noalias !1987
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15103, align 8, !noalias !1987
   %15106 = getelementptr inbounds nuw i8, ptr %15103, i64 16
   %15107 = getelementptr inbounds nuw i8, ptr %15103, i64 24
   store i32 0, ptr %15107, align 8, !noalias !1987
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15106, align 8, !noalias !1987
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15106, align 8, !noalias !1987
   %15108 = getelementptr inbounds nuw i8, ptr %15103, i64 28
   store i32 1, ptr %15108, align 4, !noalias !1987
   %15109 = getelementptr inbounds nuw i8, ptr %15103, i64 32
@@ -37460,11 +37460,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11811: ; preds = %_
   store i32 1, ptr %15118, align 8, !noalias !1996
   %15119 = getelementptr inbounds nuw i8, ptr %15117, i64 12
   store i32 1, ptr %15119, align 4, !noalias !1996
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15117, align 8, !noalias !1996
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15117, align 8, !noalias !1996
   %15120 = getelementptr inbounds nuw i8, ptr %15117, i64 16
   %15121 = getelementptr inbounds nuw i8, ptr %15117, i64 24
   store i32 1, ptr %15121, align 8, !noalias !1996
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15120, align 8, !noalias !1996
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15120, align 8, !noalias !1996
   %15122 = getelementptr inbounds nuw i8, ptr %15117, i64 28
   store i8 1, ptr %15122, align 4, !noalias !1996
   store ptr %15120, ptr %465, align 8
@@ -37755,11 +37755,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11869: ; preds = %_
   store i32 1, ptr %15240, align 8, !noalias !2009
   %15241 = getelementptr inbounds nuw i8, ptr %15239, i64 12
   store i32 1, ptr %15241, align 4, !noalias !2009
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15239, align 8, !noalias !2009
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15239, align 8, !noalias !2009
   %15242 = getelementptr inbounds nuw i8, ptr %15239, i64 16
   %15243 = getelementptr inbounds nuw i8, ptr %15239, i64 24
   store i32 0, ptr %15243, align 8, !noalias !2009
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15242, align 8, !noalias !2009
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15242, align 8, !noalias !2009
   %15244 = getelementptr inbounds nuw i8, ptr %15239, i64 28
   store i8 1, ptr %15244, align 4, !noalias !2009
   store ptr %15242, ptr %470, align 8
@@ -37986,11 +37986,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11909: ; preds = %_
   store i32 1, ptr %15328, align 8, !noalias !2025
   %15329 = getelementptr inbounds nuw i8, ptr %15327, i64 12
   store i32 1, ptr %15329, align 4, !noalias !2025
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15327, align 8, !noalias !2025
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15327, align 8, !noalias !2025
   %15330 = getelementptr inbounds nuw i8, ptr %15327, i64 16
   %15331 = getelementptr inbounds nuw i8, ptr %15327, i64 24
   store i32 0, ptr %15331, align 8, !noalias !2025
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15330, align 8, !noalias !2025
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15330, align 8, !noalias !2025
   %15332 = getelementptr inbounds nuw i8, ptr %15327, i64 28
   store i32 1, ptr %15332, align 4, !noalias !2025
   %15333 = getelementptr inbounds nuw i8, ptr %15327, i64 32
@@ -38016,11 +38016,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11909: ; preds = %_
   store i32 1, ptr %15342, align 8, !noalias !2034
   %15343 = getelementptr inbounds nuw i8, ptr %15341, i64 12
   store i32 1, ptr %15343, align 4, !noalias !2034
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15341, align 8, !noalias !2034
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15341, align 8, !noalias !2034
   %15344 = getelementptr inbounds nuw i8, ptr %15341, i64 16
   %15345 = getelementptr inbounds nuw i8, ptr %15341, i64 24
   store i32 1, ptr %15345, align 8, !noalias !2034
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15344, align 8, !noalias !2034
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15344, align 8, !noalias !2034
   %15346 = getelementptr inbounds nuw i8, ptr %15341, i64 28
   store i8 1, ptr %15346, align 4, !noalias !2034
   store ptr %15344, ptr %476, align 8
@@ -38302,11 +38302,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i11967: ; preds = %_
   store i32 1, ptr %15460, align 8, !noalias !2047
   %15461 = getelementptr inbounds nuw i8, ptr %15459, i64 12
   store i32 1, ptr %15461, align 4, !noalias !2047
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15459, align 8, !noalias !2047
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15459, align 8, !noalias !2047
   %15462 = getelementptr inbounds nuw i8, ptr %15459, i64 16
   %15463 = getelementptr inbounds nuw i8, ptr %15459, i64 24
   store i32 0, ptr %15463, align 8, !noalias !2047
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15462, align 8, !noalias !2047
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15462, align 8, !noalias !2047
   %15464 = getelementptr inbounds nuw i8, ptr %15459, i64 28
   store i8 1, ptr %15464, align 4, !noalias !2047
   store ptr %15462, ptr %481, align 8
@@ -38531,11 +38531,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12007: ; preds = %_
   store i32 1, ptr %15549, align 8, !noalias !2063
   %15550 = getelementptr inbounds nuw i8, ptr %15548, i64 12
   store i32 1, ptr %15550, align 4, !noalias !2063
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15548, align 8, !noalias !2063
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15548, align 8, !noalias !2063
   %15551 = getelementptr inbounds nuw i8, ptr %15548, i64 16
   %15552 = getelementptr inbounds nuw i8, ptr %15548, i64 24
   store i32 0, ptr %15552, align 8, !noalias !2063
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15551, align 8, !noalias !2063
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15551, align 8, !noalias !2063
   %15553 = getelementptr inbounds nuw i8, ptr %15548, i64 28
   store i32 1, ptr %15553, align 4, !noalias !2063
   %15554 = getelementptr inbounds nuw i8, ptr %15548, i64 32
@@ -38561,11 +38561,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12007: ; preds = %_
   store i32 1, ptr %15563, align 8, !noalias !2072
   %15564 = getelementptr inbounds nuw i8, ptr %15562, i64 12
   store i32 1, ptr %15564, align 4, !noalias !2072
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15562, align 8, !noalias !2072
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15562, align 8, !noalias !2072
   %15565 = getelementptr inbounds nuw i8, ptr %15562, i64 16
   %15566 = getelementptr inbounds nuw i8, ptr %15562, i64 24
   store i32 1, ptr %15566, align 8, !noalias !2072
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15565, align 8, !noalias !2072
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15565, align 8, !noalias !2072
   %15567 = getelementptr inbounds nuw i8, ptr %15562, i64 28
   store i8 1, ptr %15567, align 4, !noalias !2072
   store ptr %15565, ptr %487, align 8
@@ -38851,11 +38851,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12065: ; preds = %_
   store i32 1, ptr %15682, align 8, !noalias !2088
   %15683 = getelementptr inbounds nuw i8, ptr %15681, i64 12
   store i32 1, ptr %15683, align 4, !noalias !2088
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15681, align 8, !noalias !2088
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15681, align 8, !noalias !2088
   %15684 = getelementptr inbounds nuw i8, ptr %15681, i64 16
   %15685 = getelementptr inbounds nuw i8, ptr %15681, i64 24
   store i32 0, ptr %15685, align 8, !noalias !2088
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15684, align 8, !noalias !2088
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15684, align 8, !noalias !2088
   %15686 = getelementptr inbounds nuw i8, ptr %15681, i64 28
   store i32 1, ptr %15686, align 4, !noalias !2088
   %15687 = getelementptr inbounds nuw i8, ptr %15681, i64 32
@@ -39107,11 +39107,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12115: ; preds = %_
   store i32 1, ptr %15784, align 8, !noalias !2104
   %15785 = getelementptr inbounds nuw i8, ptr %15783, i64 12
   store i32 1, ptr %15785, align 4, !noalias !2104
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15783, align 8, !noalias !2104
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15783, align 8, !noalias !2104
   %15786 = getelementptr inbounds nuw i8, ptr %15783, i64 16
   %15787 = getelementptr inbounds nuw i8, ptr %15783, i64 24
   store i32 0, ptr %15787, align 8, !noalias !2104
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15786, align 8, !noalias !2104
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %15786, align 8, !noalias !2104
   %15788 = getelementptr inbounds nuw i8, ptr %15783, i64 28
   store i32 1, ptr %15788, align 4, !noalias !2104
   %15789 = getelementptr inbounds nuw i8, ptr %15783, i64 32
@@ -39137,11 +39137,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12115: ; preds = %_
   store i32 1, ptr %15798, align 8, !noalias !2113
   %15799 = getelementptr inbounds nuw i8, ptr %15797, i64 12
   store i32 1, ptr %15799, align 4, !noalias !2113
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15797, align 8, !noalias !2113
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15797, align 8, !noalias !2113
   %15800 = getelementptr inbounds nuw i8, ptr %15797, i64 16
   %15801 = getelementptr inbounds nuw i8, ptr %15797, i64 24
   store i32 1, ptr %15801, align 8, !noalias !2113
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15800, align 8, !noalias !2113
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15800, align 8, !noalias !2113
   %15802 = getelementptr inbounds nuw i8, ptr %15797, i64 28
   store i8 1, ptr %15802, align 4, !noalias !2113
   store ptr %15800, ptr %498, align 8
@@ -39429,11 +39429,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12173: ; preds = %_
   store i32 1, ptr %15917, align 8, !noalias !2126
   %15918 = getelementptr inbounds nuw i8, ptr %15916, i64 12
   store i32 1, ptr %15918, align 4, !noalias !2126
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15916, align 8, !noalias !2126
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15916, align 8, !noalias !2126
   %15919 = getelementptr inbounds nuw i8, ptr %15916, i64 16
   %15920 = getelementptr inbounds nuw i8, ptr %15916, i64 24
   store i32 0, ptr %15920, align 8, !noalias !2126
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15919, align 8, !noalias !2126
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %15919, align 8, !noalias !2126
   %15921 = getelementptr inbounds nuw i8, ptr %15916, i64 28
   store i8 1, ptr %15921, align 4, !noalias !2126
   store ptr %15919, ptr %503, align 8
@@ -39648,11 +39648,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12213: ; preds = %_
   store i32 1, ptr %16002, align 8, !noalias !2139
   %16003 = getelementptr inbounds nuw i8, ptr %16001, i64 12
   store i32 1, ptr %16003, align 4, !noalias !2139
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16001, align 8, !noalias !2139
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16001, align 8, !noalias !2139
   %16004 = getelementptr inbounds nuw i8, ptr %16001, i64 16
   %16005 = getelementptr inbounds nuw i8, ptr %16001, i64 24
   store i32 0, ptr %16005, align 8, !noalias !2139
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16004, align 8, !noalias !2139
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16004, align 8, !noalias !2139
   %16006 = getelementptr inbounds nuw i8, ptr %16001, i64 28
   store i8 1, ptr %16006, align 4, !noalias !2139
   store ptr %16004, ptr %508, align 8
@@ -39871,11 +39871,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12253: ; preds = %_
   store i32 1, ptr %16088, align 8, !noalias !2155
   %16089 = getelementptr inbounds nuw i8, ptr %16087, i64 12
   store i32 1, ptr %16089, align 4, !noalias !2155
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16087, align 8, !noalias !2155
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16087, align 8, !noalias !2155
   %16090 = getelementptr inbounds nuw i8, ptr %16087, i64 16
   %16091 = getelementptr inbounds nuw i8, ptr %16087, i64 24
   store i32 0, ptr %16091, align 8, !noalias !2155
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16090, align 8, !noalias !2155
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16090, align 8, !noalias !2155
   %16092 = getelementptr inbounds nuw i8, ptr %16087, i64 28
   store i32 1, ptr %16092, align 4, !noalias !2155
   %16093 = getelementptr inbounds nuw i8, ptr %16087, i64 32
@@ -40000,11 +40000,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit12292:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %16146, align 8, !noalias !2163
   %16147 = getelementptr inbounds nuw i8, ptr %16145, i64 12
   store i32 1, ptr %16147, align 4, !noalias !2163
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16145, align 8, !noalias !2163
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16145, align 8, !noalias !2163
   %16148 = getelementptr inbounds nuw i8, ptr %16145, i64 16
   %16149 = getelementptr inbounds nuw i8, ptr %16145, i64 24
   store i32 0, ptr %16149, align 8, !noalias !2163
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16148, align 8, !noalias !2163
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16148, align 8, !noalias !2163
   %16150 = getelementptr inbounds nuw i8, ptr %16145, i64 28
   store i8 1, ptr %16150, align 4, !noalias !2163
   store ptr %16148, ptr %517, align 8
@@ -40114,11 +40114,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %16198, align 8, !noalias !2171
   %16199 = getelementptr inbounds nuw i8, ptr %16197, i64 12
   store i32 1, ptr %16199, align 4, !noalias !2171
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16197, align 8, !noalias !2171
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16197, align 8, !noalias !2171
   %16200 = getelementptr inbounds nuw i8, ptr %16197, i64 16
   %16201 = getelementptr inbounds nuw i8, ptr %16197, i64 24
   store i32 0, ptr %16201, align 8, !noalias !2171
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16200, align 8, !noalias !2171
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16200, align 8, !noalias !2171
   %16202 = getelementptr inbounds nuw i8, ptr %16197, i64 28
   store i8 1, ptr %16202, align 4, !noalias !2171
   store ptr %16200, ptr %521, align 8
@@ -40325,11 +40325,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12383: ; preds = %_
   store i32 1, ptr %16283, align 8, !noalias !2184
   %16284 = getelementptr inbounds nuw i8, ptr %16282, i64 12
   store i32 1, ptr %16284, align 4, !noalias !2184
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16282, align 8, !noalias !2184
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16282, align 8, !noalias !2184
   %16285 = getelementptr inbounds nuw i8, ptr %16282, i64 16
   %16286 = getelementptr inbounds nuw i8, ptr %16282, i64 24
   store i32 0, ptr %16286, align 8, !noalias !2184
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16285, align 8, !noalias !2184
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16285, align 8, !noalias !2184
   %16287 = getelementptr inbounds nuw i8, ptr %16282, i64 28
   store i8 1, ptr %16287, align 4, !noalias !2184
   store ptr %16285, ptr %526, align 8
@@ -40341,11 +40341,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12383: ; preds = %_
   store i32 1, ptr %16291, align 8, !noalias !2192
   %16292 = getelementptr inbounds nuw i8, ptr %16290, i64 12
   store i32 1, ptr %16292, align 4, !noalias !2192
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16290, align 8, !noalias !2192
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16290, align 8, !noalias !2192
   %16293 = getelementptr inbounds nuw i8, ptr %16290, i64 16
   %16294 = getelementptr inbounds nuw i8, ptr %16290, i64 24
   store i32 1, ptr %16294, align 8, !noalias !2192
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16293, align 8, !noalias !2192
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16293, align 8, !noalias !2192
   %16295 = getelementptr inbounds nuw i8, ptr %16290, i64 28
   store i8 1, ptr %16295, align 4, !noalias !2192
   store ptr %16293, ptr %527, align 8
@@ -40645,11 +40645,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12437: ; preds = %_
   store i32 1, ptr %16417, align 8, !noalias !2208
   %16418 = getelementptr inbounds nuw i8, ptr %16416, i64 12
   store i32 1, ptr %16418, align 4, !noalias !2208
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16416, align 8, !noalias !2208
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16416, align 8, !noalias !2208
   %16419 = getelementptr inbounds nuw i8, ptr %16416, i64 16
   %16420 = getelementptr inbounds nuw i8, ptr %16416, i64 24
   store i32 0, ptr %16420, align 8, !noalias !2208
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16419, align 8, !noalias !2208
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16419, align 8, !noalias !2208
   %16421 = getelementptr inbounds nuw i8, ptr %16416, i64 28
   store i32 1, ptr %16421, align 4, !noalias !2208
   %16422 = getelementptr inbounds nuw i8, ptr %16416, i64 32
@@ -40675,11 +40675,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12437: ; preds = %_
   store i32 1, ptr %16431, align 8, !noalias !2217
   %16432 = getelementptr inbounds nuw i8, ptr %16430, i64 12
   store i32 1, ptr %16432, align 4, !noalias !2217
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16430, align 8, !noalias !2217
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16430, align 8, !noalias !2217
   %16433 = getelementptr inbounds nuw i8, ptr %16430, i64 16
   %16434 = getelementptr inbounds nuw i8, ptr %16430, i64 24
   store i32 1, ptr %16434, align 8, !noalias !2217
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16433, align 8, !noalias !2217
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16433, align 8, !noalias !2217
   %16435 = getelementptr inbounds nuw i8, ptr %16430, i64 28
   store i8 1, ptr %16435, align 4, !noalias !2217
   store ptr %16433, ptr %533, align 8
@@ -40699,11 +40699,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12437: ; preds = %_
   store i32 1, ptr %16440, align 8, !noalias !2228
   %16441 = getelementptr inbounds nuw i8, ptr %16439, i64 12
   store i32 1, ptr %16441, align 4, !noalias !2228
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16439, align 8, !noalias !2228
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16439, align 8, !noalias !2228
   %16442 = getelementptr inbounds nuw i8, ptr %16439, i64 16
   %16443 = getelementptr inbounds nuw i8, ptr %16439, i64 24
   store i32 2, ptr %16443, align 8, !noalias !2228
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16442, align 8, !noalias !2228
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16442, align 8, !noalias !2228
   %16444 = getelementptr inbounds nuw i8, ptr %16439, i64 28
   store i32 1, ptr %16444, align 4, !noalias !2228
   %16445 = getelementptr inbounds nuw i8, ptr %16439, i64 32
@@ -40729,11 +40729,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12437: ; preds = %_
   store i32 1, ptr %16454, align 8, !noalias !2237
   %16455 = getelementptr inbounds nuw i8, ptr %16453, i64 12
   store i32 1, ptr %16455, align 4, !noalias !2237
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16453, align 8, !noalias !2237
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16453, align 8, !noalias !2237
   %16456 = getelementptr inbounds nuw i8, ptr %16453, i64 16
   %16457 = getelementptr inbounds nuw i8, ptr %16453, i64 24
   store i32 3, ptr %16457, align 8, !noalias !2237
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16456, align 8, !noalias !2237
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16456, align 8, !noalias !2237
   %16458 = getelementptr inbounds nuw i8, ptr %16453, i64 28
   store i8 1, ptr %16458, align 4, !noalias !2237
   store ptr %16456, ptr %535, align 8
@@ -41062,11 +41062,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintEE
   store i32 1, ptr %16608, align 8, !noalias !2245
   %16609 = getelementptr inbounds nuw i8, ptr %16607, i64 12
   store i32 1, ptr %16609, align 4, !noalias !2245
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16607, align 8, !noalias !2245
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16607, align 8, !noalias !2245
   %16610 = getelementptr inbounds nuw i8, ptr %16607, i64 16
   %16611 = getelementptr inbounds nuw i8, ptr %16607, i64 24
   store i32 0, ptr %16611, align 8, !noalias !2245
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16610, align 8, !noalias !2245
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16610, align 8, !noalias !2245
   %16612 = getelementptr inbounds nuw i8, ptr %16607, i64 28
   store i8 1, ptr %16612, align 4, !noalias !2245
   store ptr %16610, ptr %539, align 8
@@ -41285,11 +41285,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12567: ; preds = %_
   store i32 1, ptr %16696, align 8, !noalias !2261
   %16697 = getelementptr inbounds nuw i8, ptr %16695, i64 12
   store i32 1, ptr %16697, align 4, !noalias !2261
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16695, align 8, !noalias !2261
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16695, align 8, !noalias !2261
   %16698 = getelementptr inbounds nuw i8, ptr %16695, i64 16
   %16699 = getelementptr inbounds nuw i8, ptr %16695, i64 24
   store i32 0, ptr %16699, align 8, !noalias !2261
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16698, align 8, !noalias !2261
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16698, align 8, !noalias !2261
   %16700 = getelementptr inbounds nuw i8, ptr %16695, i64 28
   store i32 1, ptr %16700, align 4, !noalias !2261
   %16701 = getelementptr inbounds nuw i8, ptr %16695, i64 32
@@ -41315,11 +41315,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12567: ; preds = %_
   store i32 1, ptr %16710, align 8, !noalias !2270
   %16711 = getelementptr inbounds nuw i8, ptr %16709, i64 12
   store i32 1, ptr %16711, align 4, !noalias !2270
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16709, align 8, !noalias !2270
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16709, align 8, !noalias !2270
   %16712 = getelementptr inbounds nuw i8, ptr %16709, i64 16
   %16713 = getelementptr inbounds nuw i8, ptr %16709, i64 24
   store i32 1, ptr %16713, align 8, !noalias !2270
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16712, align 8, !noalias !2270
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16712, align 8, !noalias !2270
   %16714 = getelementptr inbounds nuw i8, ptr %16709, i64 28
   store i8 1, ptr %16714, align 4, !noalias !2270
   store ptr %16712, ptr %545, align 8
@@ -41622,11 +41622,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12638: ; preds = %_
   store i32 1, ptr %16837, align 8, !noalias !2286
   %16838 = getelementptr inbounds nuw i8, ptr %16836, i64 12
   store i32 1, ptr %16838, align 4, !noalias !2286
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16836, align 8, !noalias !2286
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16836, align 8, !noalias !2286
   %16839 = getelementptr inbounds nuw i8, ptr %16836, i64 16
   %16840 = getelementptr inbounds nuw i8, ptr %16836, i64 24
   store i32 0, ptr %16840, align 8, !noalias !2286
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16839, align 8, !noalias !2286
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %16839, align 8, !noalias !2286
   %16841 = getelementptr inbounds nuw i8, ptr %16836, i64 28
   store i32 1, ptr %16841, align 4, !noalias !2286
   %16842 = getelementptr inbounds nuw i8, ptr %16836, i64 32
@@ -41652,11 +41652,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12638: ; preds = %_
   store i32 1, ptr %16851, align 8, !noalias !2294
   %16852 = getelementptr inbounds nuw i8, ptr %16850, i64 12
   store i32 1, ptr %16852, align 4, !noalias !2294
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16850, align 8, !noalias !2294
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16850, align 8, !noalias !2294
   %16853 = getelementptr inbounds nuw i8, ptr %16850, i64 16
   %16854 = getelementptr inbounds nuw i8, ptr %16850, i64 24
   store i32 1, ptr %16854, align 8, !noalias !2294
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16853, align 8, !noalias !2294
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16853, align 8, !noalias !2294
   %16855 = getelementptr inbounds nuw i8, ptr %16850, i64 28
   store i8 1, ptr %16855, align 4, !noalias !2294
   store ptr %16853, ptr %551, align 8
@@ -41939,11 +41939,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12702: ; preds = %_
   store i32 1, ptr %16969, align 8, !noalias !2307
   %16970 = getelementptr inbounds nuw i8, ptr %16968, i64 12
   store i32 1, ptr %16970, align 4, !noalias !2307
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16968, align 8, !noalias !2307
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16968, align 8, !noalias !2307
   %16971 = getelementptr inbounds nuw i8, ptr %16968, i64 16
   %16972 = getelementptr inbounds nuw i8, ptr %16968, i64 24
   store i32 0, ptr %16972, align 8, !noalias !2307
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16971, align 8, !noalias !2307
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16971, align 8, !noalias !2307
   %16973 = getelementptr inbounds nuw i8, ptr %16968, i64 28
   store i8 1, ptr %16973, align 4, !noalias !2307
   store ptr %16971, ptr %556, align 8
@@ -41955,11 +41955,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12702: ; preds = %_
   store i32 1, ptr %16977, align 8, !noalias !2315
   %16978 = getelementptr inbounds nuw i8, ptr %16976, i64 12
   store i32 1, ptr %16978, align 4, !noalias !2315
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16976, align 8, !noalias !2315
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %16976, align 8, !noalias !2315
   %16979 = getelementptr inbounds nuw i8, ptr %16976, i64 16
   %16980 = getelementptr inbounds nuw i8, ptr %16976, i64 24
   store i32 1, ptr %16980, align 8, !noalias !2315
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16979, align 8, !noalias !2315
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %16979, align 8, !noalias !2315
   %16981 = getelementptr inbounds nuw i8, ptr %16976, i64 28
   store i8 1, ptr %16981, align 4, !noalias !2315
   store ptr %16979, ptr %557, align 8
@@ -42241,11 +42241,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12756: ; preds = %_
   store i32 1, ptr %17095, align 8, !noalias !2328
   %17096 = getelementptr inbounds nuw i8, ptr %17094, i64 12
   store i32 1, ptr %17096, align 4, !noalias !2328
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17094, align 8, !noalias !2328
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17094, align 8, !noalias !2328
   %17097 = getelementptr inbounds nuw i8, ptr %17094, i64 16
   %17098 = getelementptr inbounds nuw i8, ptr %17094, i64 24
   store i32 0, ptr %17098, align 8, !noalias !2328
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17097, align 8, !noalias !2328
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17097, align 8, !noalias !2328
   %17099 = getelementptr inbounds nuw i8, ptr %17094, i64 28
   store i8 1, ptr %17099, align 4, !noalias !2328
   store ptr %17097, ptr %562, align 8
@@ -42257,11 +42257,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12756: ; preds = %_
   store i32 1, ptr %17103, align 8, !noalias !2336
   %17104 = getelementptr inbounds nuw i8, ptr %17102, i64 12
   store i32 1, ptr %17104, align 4, !noalias !2336
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17102, align 8, !noalias !2336
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17102, align 8, !noalias !2336
   %17105 = getelementptr inbounds nuw i8, ptr %17102, i64 16
   %17106 = getelementptr inbounds nuw i8, ptr %17102, i64 24
   store i32 1, ptr %17106, align 8, !noalias !2336
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17105, align 8, !noalias !2336
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17105, align 8, !noalias !2336
   %17107 = getelementptr inbounds nuw i8, ptr %17102, i64 28
   store i8 1, ptr %17107, align 4, !noalias !2336
   store ptr %17105, ptr %563, align 8
@@ -42559,11 +42559,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12810: ; preds = %_
   store i32 1, ptr %17226, align 8, !noalias !2352
   %17227 = getelementptr inbounds nuw i8, ptr %17225, i64 12
   store i32 1, ptr %17227, align 4, !noalias !2352
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17225, align 8, !noalias !2352
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17225, align 8, !noalias !2352
   %17228 = getelementptr inbounds nuw i8, ptr %17225, i64 16
   %17229 = getelementptr inbounds nuw i8, ptr %17225, i64 24
   store i32 0, ptr %17229, align 8, !noalias !2352
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17228, align 8, !noalias !2352
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17228, align 8, !noalias !2352
   %17230 = getelementptr inbounds nuw i8, ptr %17225, i64 28
   store i32 1, ptr %17230, align 4, !noalias !2352
   %17231 = getelementptr inbounds nuw i8, ptr %17225, i64 32
@@ -42589,11 +42589,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12810: ; preds = %_
   store i32 1, ptr %17240, align 8, !noalias !2361
   %17241 = getelementptr inbounds nuw i8, ptr %17239, i64 12
   store i32 1, ptr %17241, align 4, !noalias !2361
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17239, align 8, !noalias !2361
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17239, align 8, !noalias !2361
   %17242 = getelementptr inbounds nuw i8, ptr %17239, i64 16
   %17243 = getelementptr inbounds nuw i8, ptr %17239, i64 24
   store i32 1, ptr %17243, align 8, !noalias !2361
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17242, align 8, !noalias !2361
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17242, align 8, !noalias !2361
   %17244 = getelementptr inbounds nuw i8, ptr %17239, i64 28
   store i8 1, ptr %17244, align 4, !noalias !2361
   store ptr %17242, ptr %569, align 8
@@ -42605,11 +42605,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12810: ; preds = %_
   store i32 1, ptr %17248, align 8, !noalias !2369
   %17249 = getelementptr inbounds nuw i8, ptr %17247, i64 12
   store i32 1, ptr %17249, align 4, !noalias !2369
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17247, align 8, !noalias !2369
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17247, align 8, !noalias !2369
   %17250 = getelementptr inbounds nuw i8, ptr %17247, i64 16
   %17251 = getelementptr inbounds nuw i8, ptr %17247, i64 24
   store i32 2, ptr %17251, align 8, !noalias !2369
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17250, align 8, !noalias !2369
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17250, align 8, !noalias !2369
   %17252 = getelementptr inbounds nuw i8, ptr %17247, i64 28
   store i8 1, ptr %17252, align 4, !noalias !2369
   store ptr %17250, ptr %570, align 8
@@ -42874,11 +42874,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12882: ; preds = %1
   store i32 1, ptr %17369, align 8, !noalias !2377
   %17370 = getelementptr inbounds nuw i8, ptr %17368, i64 12
   store i32 1, ptr %17370, align 4, !noalias !2377
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17368, align 8, !noalias !2377
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17368, align 8, !noalias !2377
   %17371 = getelementptr inbounds nuw i8, ptr %17368, i64 16
   %17372 = getelementptr inbounds nuw i8, ptr %17368, i64 24
   store i32 -1, ptr %17372, align 8, !noalias !2377
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17371, align 8, !noalias !2377
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17371, align 8, !noalias !2377
   %17373 = getelementptr inbounds nuw i8, ptr %17368, i64 28
   store i8 1, ptr %17373, align 4, !noalias !2377
   %17374 = getelementptr inbounds nuw i8, ptr %574, i64 8
@@ -42911,11 +42911,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i12882: ; preds = %1
   store i32 1, ptr %17386, align 8, !noalias !2385
   %17387 = getelementptr inbounds nuw i8, ptr %17385, i64 12
   store i32 1, ptr %17387, align 4, !noalias !2385
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17385, align 8, !noalias !2385
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17385, align 8, !noalias !2385
   %17388 = getelementptr inbounds nuw i8, ptr %17385, i64 16
   %17389 = getelementptr inbounds nuw i8, ptr %17385, i64 24
   store i32 -1, ptr %17389, align 8, !noalias !2385
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17388, align 8, !noalias !2385
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17388, align 8, !noalias !2385
   %17390 = getelementptr inbounds nuw i8, ptr %17385, i64 28
   store i8 0, ptr %17390, align 4, !noalias !2385
   %17391 = getelementptr inbounds nuw i8, ptr %575, i64 8
@@ -42948,11 +42948,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %17402, align 8, !noalias !2393
   %17403 = getelementptr inbounds nuw i8, ptr %17401, i64 12
   store i32 1, ptr %17403, align 4, !noalias !2393
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17401, align 8, !noalias !2393
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17401, align 8, !noalias !2393
   %17404 = getelementptr inbounds nuw i8, ptr %17401, i64 16
   %17405 = getelementptr inbounds nuw i8, ptr %17401, i64 24
   store i32 0, ptr %17405, align 8, !noalias !2393
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17404, align 8, !noalias !2393
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17404, align 8, !noalias !2393
   %17406 = getelementptr inbounds nuw i8, ptr %17401, i64 28
   store i8 1, ptr %17406, align 4, !noalias !2393
   store ptr %17404, ptr %576, align 8
@@ -43407,11 +43407,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13004: ; preds = %1
   store i32 1, ptr %17599, align 8, !noalias !2401
   %17600 = getelementptr inbounds nuw i8, ptr %17598, i64 12
   store i32 1, ptr %17600, align 4, !noalias !2401
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17598, align 8, !noalias !2401
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17598, align 8, !noalias !2401
   %17601 = getelementptr inbounds nuw i8, ptr %17598, i64 16
   %17602 = getelementptr inbounds nuw i8, ptr %17598, i64 24
   store i32 -1, ptr %17602, align 8, !noalias !2401
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17601, align 8, !noalias !2401
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17601, align 8, !noalias !2401
   %17603 = getelementptr inbounds nuw i8, ptr %17598, i64 28
   store i8 1, ptr %17603, align 4, !noalias !2401
   %17604 = getelementptr inbounds nuw i8, ptr %580, i64 8
@@ -43444,11 +43444,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13004: ; preds = %1
   store i32 1, ptr %17616, align 8, !noalias !2409
   %17617 = getelementptr inbounds nuw i8, ptr %17615, i64 12
   store i32 1, ptr %17617, align 4, !noalias !2409
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17615, align 8, !noalias !2409
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17615, align 8, !noalias !2409
   %17618 = getelementptr inbounds nuw i8, ptr %17615, i64 16
   %17619 = getelementptr inbounds nuw i8, ptr %17615, i64 24
   store i32 -1, ptr %17619, align 8, !noalias !2409
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17618, align 8, !noalias !2409
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %17618, align 8, !noalias !2409
   %17620 = getelementptr inbounds nuw i8, ptr %17615, i64 28
   store i8 0, ptr %17620, align 4, !noalias !2409
   %17621 = getelementptr inbounds nuw i8, ptr %581, i64 8
@@ -43485,11 +43485,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %17633, align 8, !noalias !2420
   %17634 = getelementptr inbounds nuw i8, ptr %17632, i64 12
   store i32 1, ptr %17634, align 4, !noalias !2420
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17632, align 8, !noalias !2420
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17632, align 8, !noalias !2420
   %17635 = getelementptr inbounds nuw i8, ptr %17632, i64 16
   %17636 = getelementptr inbounds nuw i8, ptr %17632, i64 24
   store i32 0, ptr %17636, align 8, !noalias !2420
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17635, align 8, !noalias !2420
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17635, align 8, !noalias !2420
   %17637 = getelementptr inbounds nuw i8, ptr %17632, i64 28
   store i32 1, ptr %17637, align 4, !noalias !2420
   %17638 = getelementptr inbounds nuw i8, ptr %17632, i64 32
@@ -43952,11 +43952,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %17834, align 8, !noalias !2431
   %17835 = getelementptr inbounds nuw i8, ptr %17833, i64 12
   store i32 1, ptr %17835, align 4, !noalias !2431
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17833, align 8, !noalias !2431
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17833, align 8, !noalias !2431
   %17836 = getelementptr inbounds nuw i8, ptr %17833, i64 16
   %17837 = getelementptr inbounds nuw i8, ptr %17833, i64 24
   store i32 -1, ptr %17837, align 8, !noalias !2431
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17836, align 8, !noalias !2431
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17836, align 8, !noalias !2431
   %17838 = getelementptr inbounds nuw i8, ptr %17833, i64 28
   store i32 1, ptr %17838, align 4, !noalias !2431
   %17839 = getelementptr inbounds nuw i8, ptr %17833, i64 32
@@ -44007,11 +44007,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %17857, align 8, !noalias !2442
   %17858 = getelementptr inbounds nuw i8, ptr %17856, i64 12
   store i32 1, ptr %17858, align 4, !noalias !2442
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17856, align 8, !noalias !2442
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17856, align 8, !noalias !2442
   %17859 = getelementptr inbounds nuw i8, ptr %17856, i64 16
   %17860 = getelementptr inbounds nuw i8, ptr %17856, i64 24
   store i32 0, ptr %17860, align 8, !noalias !2442
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17859, align 8, !noalias !2442
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17859, align 8, !noalias !2442
   %17861 = getelementptr inbounds nuw i8, ptr %17856, i64 28
   store i32 1, ptr %17861, align 4, !noalias !2442
   %17862 = getelementptr inbounds nuw i8, ptr %17856, i64 32
@@ -44309,11 +44309,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %17988, align 8, !noalias !2453
   %17989 = getelementptr inbounds nuw i8, ptr %17987, i64 12
   store i32 1, ptr %17989, align 4, !noalias !2453
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17987, align 8, !noalias !2453
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17987, align 8, !noalias !2453
   %17990 = getelementptr inbounds nuw i8, ptr %17987, i64 16
   %17991 = getelementptr inbounds nuw i8, ptr %17987, i64 24
   store i32 0, ptr %17991, align 8, !noalias !2453
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17990, align 8, !noalias !2453
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %17990, align 8, !noalias !2453
   %17992 = getelementptr inbounds nuw i8, ptr %17987, i64 28
   store i32 1, ptr %17992, align 4, !noalias !2453
   %17993 = getelementptr inbounds nuw i8, ptr %17987, i64 32
@@ -44537,11 +44537,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13287: ; preds = %_
   store i32 1, ptr %18078, align 8, !noalias !2469
   %18079 = getelementptr inbounds nuw i8, ptr %18077, i64 12
   store i32 1, ptr %18079, align 4, !noalias !2469
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18077, align 8, !noalias !2469
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18077, align 8, !noalias !2469
   %18080 = getelementptr inbounds nuw i8, ptr %18077, i64 16
   %18081 = getelementptr inbounds nuw i8, ptr %18077, i64 24
   store i32 0, ptr %18081, align 8, !noalias !2469
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18080, align 8, !noalias !2469
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18080, align 8, !noalias !2469
   %18082 = getelementptr inbounds nuw i8, ptr %18077, i64 28
   store i32 1, ptr %18082, align 4, !noalias !2469
   %18083 = getelementptr inbounds nuw i8, ptr %18077, i64 32
@@ -44761,11 +44761,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13337: ; preds = %_
   store i32 1, ptr %18167, align 8, !noalias !2482
   %18168 = getelementptr inbounds nuw i8, ptr %18166, i64 12
   store i32 1, ptr %18168, align 4, !noalias !2482
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18166, align 8, !noalias !2482
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18166, align 8, !noalias !2482
   %18169 = getelementptr inbounds nuw i8, ptr %18166, i64 16
   %18170 = getelementptr inbounds nuw i8, ptr %18166, i64 24
   store i32 0, ptr %18170, align 8, !noalias !2482
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18169, align 8, !noalias !2482
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18169, align 8, !noalias !2482
   %18171 = getelementptr inbounds nuw i8, ptr %18166, i64 28
   store i8 1, ptr %18171, align 4, !noalias !2482
   store ptr %18169, ptr %601, align 8
@@ -44884,11 +44884,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13377: ; preds = %.
   store i32 1, ptr %18219, align 8, !noalias !2490
   %18220 = getelementptr inbounds nuw i8, ptr %18218, i64 12
   store i32 1, ptr %18220, align 4, !noalias !2490
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18218, align 8, !noalias !2490
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18218, align 8, !noalias !2490
   %18221 = getelementptr inbounds nuw i8, ptr %18218, i64 16
   %18222 = getelementptr inbounds nuw i8, ptr %18218, i64 24
   store i32 0, ptr %18222, align 8, !noalias !2490
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18221, align 8, !noalias !2490
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18221, align 8, !noalias !2490
   %18223 = getelementptr inbounds nuw i8, ptr %18218, i64 28
   store i8 1, ptr %18223, align 4, !noalias !2490
   store ptr %18221, ptr %605, align 8
@@ -45093,11 +45093,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13417: ; preds = %_
   store i32 1, ptr %18301, align 8, !noalias !2503
   %18302 = getelementptr inbounds nuw i8, ptr %18300, i64 12
   store i32 1, ptr %18302, align 4, !noalias !2503
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18300, align 8, !noalias !2503
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18300, align 8, !noalias !2503
   %18303 = getelementptr inbounds nuw i8, ptr %18300, i64 16
   %18304 = getelementptr inbounds nuw i8, ptr %18300, i64 24
   store i32 0, ptr %18304, align 8, !noalias !2503
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18303, align 8, !noalias !2503
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18303, align 8, !noalias !2503
   %18305 = getelementptr inbounds nuw i8, ptr %18300, i64 28
   store i8 1, ptr %18305, align 4, !noalias !2503
   store ptr %18303, ptr %610, align 8
@@ -45205,11 +45205,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %18351, align 8, !noalias !2511
   %18352 = getelementptr inbounds nuw i8, ptr %18350, i64 12
   store i32 1, ptr %18352, align 4, !noalias !2511
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18350, align 8, !noalias !2511
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18350, align 8, !noalias !2511
   %18353 = getelementptr inbounds nuw i8, ptr %18350, i64 16
   %18354 = getelementptr inbounds nuw i8, ptr %18350, i64 24
   store i32 0, ptr %18354, align 8, !noalias !2511
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18353, align 8, !noalias !2511
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18353, align 8, !noalias !2511
   %18355 = getelementptr inbounds nuw i8, ptr %18350, i64 28
   store i8 1, ptr %18355, align 4, !noalias !2511
   store ptr %18353, ptr %614, align 8
@@ -45437,11 +45437,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13497: ; preds = %_
   store i32 1, ptr %18443, align 8, !noalias !2527
   %18444 = getelementptr inbounds nuw i8, ptr %18442, i64 12
   store i32 1, ptr %18444, align 4, !noalias !2527
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18442, align 8, !noalias !2527
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18442, align 8, !noalias !2527
   %18445 = getelementptr inbounds nuw i8, ptr %18442, i64 16
   %18446 = getelementptr inbounds nuw i8, ptr %18442, i64 24
   store i32 1, ptr %18446, align 8, !noalias !2527
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18445, align 8, !noalias !2527
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18445, align 8, !noalias !2527
   %18447 = getelementptr inbounds nuw i8, ptr %18442, i64 28
   store i32 1, ptr %18447, align 4, !noalias !2527
   %18448 = getelementptr inbounds nuw i8, ptr %18442, i64 32
@@ -45471,11 +45471,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13497: ; preds = %_
   store i32 1, ptr %18458, align 8, !noalias !2538
   %18459 = getelementptr inbounds nuw i8, ptr %18457, i64 12
   store i32 1, ptr %18459, align 4, !noalias !2538
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18457, align 8, !noalias !2538
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18457, align 8, !noalias !2538
   %18460 = getelementptr inbounds nuw i8, ptr %18457, i64 16
   %18461 = getelementptr inbounds nuw i8, ptr %18457, i64 24
   store i32 4, ptr %18461, align 8, !noalias !2538
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18460, align 8, !noalias !2538
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18460, align 8, !noalias !2538
   %18462 = getelementptr inbounds nuw i8, ptr %18457, i64 28
   store i32 1, ptr %18462, align 4, !noalias !2538
   %18463 = getelementptr inbounds nuw i8, ptr %18457, i64 32
@@ -45793,11 +45793,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13571: ; preds = %_
   store i32 1, ptr %18593, align 8, !noalias !2554
   %18594 = getelementptr inbounds nuw i8, ptr %18592, i64 12
   store i32 1, ptr %18594, align 4, !noalias !2554
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18592, align 8, !noalias !2554
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18592, align 8, !noalias !2554
   %18595 = getelementptr inbounds nuw i8, ptr %18592, i64 16
   %18596 = getelementptr inbounds nuw i8, ptr %18592, i64 24
   store i32 1, ptr %18596, align 8, !noalias !2554
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18595, align 8, !noalias !2554
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18595, align 8, !noalias !2554
   %18597 = getelementptr inbounds nuw i8, ptr %18592, i64 28
   store i32 1, ptr %18597, align 4, !noalias !2554
   %18598 = getelementptr inbounds nuw i8, ptr %18592, i64 32
@@ -45827,11 +45827,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13571: ; preds = %_
   store i32 1, ptr %18608, align 8, !noalias !2565
   %18609 = getelementptr inbounds nuw i8, ptr %18607, i64 12
   store i32 1, ptr %18609, align 4, !noalias !2565
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18607, align 8, !noalias !2565
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18607, align 8, !noalias !2565
   %18610 = getelementptr inbounds nuw i8, ptr %18607, i64 16
   %18611 = getelementptr inbounds nuw i8, ptr %18607, i64 24
   store i32 4, ptr %18611, align 8, !noalias !2565
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18610, align 8, !noalias !2565
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18610, align 8, !noalias !2565
   %18612 = getelementptr inbounds nuw i8, ptr %18607, i64 28
   store i32 1, ptr %18612, align 4, !noalias !2565
   %18613 = getelementptr inbounds nuw i8, ptr %18607, i64 32
@@ -46030,11 +46030,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit13634:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %18700, align 8, !noalias !2573
   %18701 = getelementptr inbounds nuw i8, ptr %18699, i64 12
   store i32 1, ptr %18701, align 4, !noalias !2573
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18699, align 8, !noalias !2573
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18699, align 8, !noalias !2573
   %18702 = getelementptr inbounds nuw i8, ptr %18699, i64 16
   %18703 = getelementptr inbounds nuw i8, ptr %18699, i64 24
   store i32 0, ptr %18703, align 8, !noalias !2573
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18702, align 8, !noalias !2573
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18702, align 8, !noalias !2573
   %18704 = getelementptr inbounds nuw i8, ptr %18699, i64 28
   store i8 1, ptr %18704, align 4, !noalias !2573
   store ptr %18702, ptr %630, align 8
@@ -46258,11 +46258,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13685: ; preds = %_
   store i32 1, ptr %18789, align 8, !noalias !2589
   %18790 = getelementptr inbounds nuw i8, ptr %18788, i64 12
   store i32 1, ptr %18790, align 4, !noalias !2589
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18788, align 8, !noalias !2589
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18788, align 8, !noalias !2589
   %18791 = getelementptr inbounds nuw i8, ptr %18788, i64 16
   %18792 = getelementptr inbounds nuw i8, ptr %18788, i64 24
   store i32 0, ptr %18792, align 8, !noalias !2589
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18791, align 8, !noalias !2589
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18791, align 8, !noalias !2589
   %18793 = getelementptr inbounds nuw i8, ptr %18788, i64 28
   store i32 1, ptr %18793, align 4, !noalias !2589
   %18794 = getelementptr inbounds nuw i8, ptr %18788, i64 32
@@ -46497,11 +46497,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13735: ; preds = %_
   store i32 1, ptr %18882, align 8, !noalias !2605
   %18883 = getelementptr inbounds nuw i8, ptr %18881, i64 12
   store i32 1, ptr %18883, align 4, !noalias !2605
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18881, align 8, !noalias !2605
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18881, align 8, !noalias !2605
   %18884 = getelementptr inbounds nuw i8, ptr %18881, i64 16
   %18885 = getelementptr inbounds nuw i8, ptr %18881, i64 24
   store i32 2, ptr %18885, align 8, !noalias !2605
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18884, align 8, !noalias !2605
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18884, align 8, !noalias !2605
   %18886 = getelementptr inbounds nuw i8, ptr %18881, i64 28
   store i32 1, ptr %18886, align 4, !noalias !2605
   %18887 = getelementptr inbounds nuw i8, ptr %18881, i64 32
@@ -46527,11 +46527,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13735: ; preds = %_
   store i32 1, ptr %18896, align 8, !noalias !2613
   %18897 = getelementptr inbounds nuw i8, ptr %18895, i64 12
   store i32 1, ptr %18897, align 4, !noalias !2613
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18895, align 8, !noalias !2613
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18895, align 8, !noalias !2613
   %18898 = getelementptr inbounds nuw i8, ptr %18895, i64 16
   %18899 = getelementptr inbounds nuw i8, ptr %18895, i64 24
   store i32 -1, ptr %18899, align 8, !noalias !2613
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %18898, align 8, !noalias !2613
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %18898, align 8, !noalias !2613
   %18900 = getelementptr inbounds nuw i8, ptr %18895, i64 28
   store i32 12, ptr %18900, align 4, !noalias !2613
   %18901 = getelementptr inbounds nuw i8, ptr %18895, i64 32
@@ -46558,11 +46558,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13735: ; preds = %_
   store i32 1, ptr %18908, align 8, !noalias !2624
   %18909 = getelementptr inbounds nuw i8, ptr %18907, i64 12
   store i32 1, ptr %18909, align 4, !noalias !2624
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18907, align 8, !noalias !2624
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18907, align 8, !noalias !2624
   %18910 = getelementptr inbounds nuw i8, ptr %18907, i64 16
   %18911 = getelementptr inbounds nuw i8, ptr %18907, i64 24
   store i32 -1, ptr %18911, align 8, !noalias !2624
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18910, align 8, !noalias !2624
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18910, align 8, !noalias !2624
   %18912 = getelementptr inbounds nuw i8, ptr %18907, i64 28
   store i32 1, ptr %18912, align 4, !noalias !2624
   %18913 = getelementptr inbounds nuw i8, ptr %18907, i64 32
@@ -46661,11 +46661,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %18948, align 8, !noalias !2632
   %18949 = getelementptr inbounds nuw i8, ptr %18947, i64 12
   store i32 1, ptr %18949, align 4, !noalias !2632
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18947, align 8, !noalias !2632
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18947, align 8, !noalias !2632
   %18950 = getelementptr inbounds nuw i8, ptr %18947, i64 16
   %18951 = getelementptr inbounds nuw i8, ptr %18947, i64 24
   store i32 2, ptr %18951, align 8, !noalias !2632
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18950, align 8, !noalias !2632
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18950, align 8, !noalias !2632
   %18952 = getelementptr inbounds nuw i8, ptr %18947, i64 28
   store i32 1, ptr %18952, align 4, !noalias !2632
   %18953 = getelementptr inbounds nuw i8, ptr %18947, i64 32
@@ -46691,11 +46691,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %18962, align 8, !noalias !2640
   %18963 = getelementptr inbounds nuw i8, ptr %18961, i64 12
   store i32 1, ptr %18963, align 4, !noalias !2640
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18961, align 8, !noalias !2640
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18961, align 8, !noalias !2640
   %18964 = getelementptr inbounds nuw i8, ptr %18961, i64 16
   %18965 = getelementptr inbounds nuw i8, ptr %18961, i64 24
   store i32 -1, ptr %18965, align 8, !noalias !2640
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18964, align 8, !noalias !2640
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %18964, align 8, !noalias !2640
   %18966 = getelementptr inbounds nuw i8, ptr %18961, i64 28
   store i32 1, ptr %18966, align 4, !noalias !2640
   %18967 = getelementptr inbounds nuw i8, ptr %18961, i64 32
@@ -46770,11 +46770,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %18997, align 8, !noalias !2648
   %18998 = getelementptr inbounds nuw i8, ptr %18996, i64 12
   store i32 1, ptr %18998, align 4, !noalias !2648
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18996, align 8, !noalias !2648
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18996, align 8, !noalias !2648
   %18999 = getelementptr inbounds nuw i8, ptr %18996, i64 16
   %19000 = getelementptr inbounds nuw i8, ptr %18996, i64 24
   store i32 0, ptr %19000, align 8, !noalias !2648
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18999, align 8, !noalias !2648
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %18999, align 8, !noalias !2648
   %19001 = getelementptr inbounds nuw i8, ptr %18996, i64 28
   store i8 1, ptr %19001, align 4, !noalias !2648
   store ptr %18999, ptr %644, align 8
@@ -46786,11 +46786,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19005, align 8, !noalias !2656
   %19006 = getelementptr inbounds nuw i8, ptr %19004, i64 12
   store i32 1, ptr %19006, align 4, !noalias !2656
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19004, align 8, !noalias !2656
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19004, align 8, !noalias !2656
   %19007 = getelementptr inbounds nuw i8, ptr %19004, i64 16
   %19008 = getelementptr inbounds nuw i8, ptr %19004, i64 24
   store i32 1, ptr %19008, align 8, !noalias !2656
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19007, align 8, !noalias !2656
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19007, align 8, !noalias !2656
   %19009 = getelementptr inbounds nuw i8, ptr %19004, i64 28
   store i8 1, ptr %19009, align 4, !noalias !2656
   store ptr %19007, ptr %645, align 8
@@ -46802,11 +46802,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19013, align 8, !noalias !2664
   %19014 = getelementptr inbounds nuw i8, ptr %19012, i64 12
   store i32 1, ptr %19014, align 4, !noalias !2664
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19012, align 8, !noalias !2664
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19012, align 8, !noalias !2664
   %19015 = getelementptr inbounds nuw i8, ptr %19012, i64 16
   %19016 = getelementptr inbounds nuw i8, ptr %19012, i64 24
   store i32 1, ptr %19016, align 8, !noalias !2664
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %19015, align 8, !noalias !2664
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %19015, align 8, !noalias !2664
   %19017 = getelementptr inbounds nuw i8, ptr %19012, i64 48
   store i8 0, ptr %19017, align 8, !noalias !2664
   %19018 = getelementptr inbounds nuw i8, ptr %19012, i64 56
@@ -46830,11 +46830,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19026, align 8, !noalias !2675
   %19027 = getelementptr inbounds nuw i8, ptr %19025, i64 12
   store i32 1, ptr %19027, align 4, !noalias !2675
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19025, align 8, !noalias !2675
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19025, align 8, !noalias !2675
   %19028 = getelementptr inbounds nuw i8, ptr %19025, i64 16
   %19029 = getelementptr inbounds nuw i8, ptr %19025, i64 24
   store i32 2, ptr %19029, align 8, !noalias !2675
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19028, align 8, !noalias !2675
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19028, align 8, !noalias !2675
   %19030 = getelementptr inbounds nuw i8, ptr %19025, i64 28
   store i32 1, ptr %19030, align 4, !noalias !2675
   %19031 = getelementptr inbounds nuw i8, ptr %19025, i64 32
@@ -47673,11 +47673,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13971: ; preds = %_
   store i32 1, ptr %19384, align 8, !noalias !2691
   %19385 = getelementptr inbounds nuw i8, ptr %19383, i64 12
   store i32 1, ptr %19385, align 4, !noalias !2691
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19383, align 8, !noalias !2691
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19383, align 8, !noalias !2691
   %19386 = getelementptr inbounds nuw i8, ptr %19383, i64 16
   %19387 = getelementptr inbounds nuw i8, ptr %19383, i64 24
   store i32 3, ptr %19387, align 8, !noalias !2691
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19386, align 8, !noalias !2691
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19386, align 8, !noalias !2691
   %19388 = getelementptr inbounds nuw i8, ptr %19383, i64 28
   store i32 1, ptr %19388, align 4, !noalias !2691
   %19389 = getelementptr inbounds nuw i8, ptr %19383, i64 32
@@ -47703,11 +47703,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13971: ; preds = %_
   store i32 1, ptr %19398, align 8, !noalias !2699
   %19399 = getelementptr inbounds nuw i8, ptr %19397, i64 12
   store i32 1, ptr %19399, align 4, !noalias !2699
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19397, align 8, !noalias !2699
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19397, align 8, !noalias !2699
   %19400 = getelementptr inbounds nuw i8, ptr %19397, i64 16
   %19401 = getelementptr inbounds nuw i8, ptr %19397, i64 24
   store i32 -1, ptr %19401, align 8, !noalias !2699
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %19400, align 8, !noalias !2699
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %19400, align 8, !noalias !2699
   %19402 = getelementptr inbounds nuw i8, ptr %19397, i64 28
   store i32 12, ptr %19402, align 4, !noalias !2699
   %19403 = getelementptr inbounds nuw i8, ptr %19397, i64 32
@@ -47734,11 +47734,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i13971: ; preds = %_
   store i32 1, ptr %19410, align 8, !noalias !2710
   %19411 = getelementptr inbounds nuw i8, ptr %19409, i64 12
   store i32 1, ptr %19411, align 4, !noalias !2710
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19409, align 8, !noalias !2710
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19409, align 8, !noalias !2710
   %19412 = getelementptr inbounds nuw i8, ptr %19409, i64 16
   %19413 = getelementptr inbounds nuw i8, ptr %19409, i64 24
   store i32 -1, ptr %19413, align 8, !noalias !2710
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19412, align 8, !noalias !2710
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19412, align 8, !noalias !2710
   %19414 = getelementptr inbounds nuw i8, ptr %19409, i64 28
   store i32 1, ptr %19414, align 4, !noalias !2710
   %19415 = getelementptr inbounds nuw i8, ptr %19409, i64 32
@@ -47837,11 +47837,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19450, align 8, !noalias !2718
   %19451 = getelementptr inbounds nuw i8, ptr %19449, i64 12
   store i32 1, ptr %19451, align 4, !noalias !2718
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19449, align 8, !noalias !2718
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19449, align 8, !noalias !2718
   %19452 = getelementptr inbounds nuw i8, ptr %19449, i64 16
   %19453 = getelementptr inbounds nuw i8, ptr %19449, i64 24
   store i32 3, ptr %19453, align 8, !noalias !2718
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19452, align 8, !noalias !2718
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19452, align 8, !noalias !2718
   %19454 = getelementptr inbounds nuw i8, ptr %19449, i64 28
   store i32 1, ptr %19454, align 4, !noalias !2718
   %19455 = getelementptr inbounds nuw i8, ptr %19449, i64 32
@@ -47867,11 +47867,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19464, align 8, !noalias !2726
   %19465 = getelementptr inbounds nuw i8, ptr %19463, i64 12
   store i32 1, ptr %19465, align 4, !noalias !2726
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19463, align 8, !noalias !2726
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19463, align 8, !noalias !2726
   %19466 = getelementptr inbounds nuw i8, ptr %19463, i64 16
   %19467 = getelementptr inbounds nuw i8, ptr %19463, i64 24
   store i32 -1, ptr %19467, align 8, !noalias !2726
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19466, align 8, !noalias !2726
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19466, align 8, !noalias !2726
   %19468 = getelementptr inbounds nuw i8, ptr %19463, i64 28
   store i32 1, ptr %19468, align 4, !noalias !2726
   %19469 = getelementptr inbounds nuw i8, ptr %19463, i64 32
@@ -47954,11 +47954,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19500, align 8, !noalias !2737
   %19501 = getelementptr inbounds nuw i8, ptr %19499, i64 12
   store i32 1, ptr %19501, align 4, !noalias !2737
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19499, align 8, !noalias !2737
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19499, align 8, !noalias !2737
   %19502 = getelementptr inbounds nuw i8, ptr %19499, i64 16
   %19503 = getelementptr inbounds nuw i8, ptr %19499, i64 24
   store i32 0, ptr %19503, align 8, !noalias !2737
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19502, align 8, !noalias !2737
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19502, align 8, !noalias !2737
   %19504 = getelementptr inbounds nuw i8, ptr %19499, i64 28
   store i32 1, ptr %19504, align 4, !noalias !2737
   %19505 = getelementptr inbounds nuw i8, ptr %19499, i64 32
@@ -47984,11 +47984,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19514, align 8, !noalias !2746
   %19515 = getelementptr inbounds nuw i8, ptr %19513, i64 12
   store i32 1, ptr %19515, align 4, !noalias !2746
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19513, align 8, !noalias !2746
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19513, align 8, !noalias !2746
   %19516 = getelementptr inbounds nuw i8, ptr %19513, i64 16
   %19517 = getelementptr inbounds nuw i8, ptr %19513, i64 24
   store i32 1, ptr %19517, align 8, !noalias !2746
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19516, align 8, !noalias !2746
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19516, align 8, !noalias !2746
   %19518 = getelementptr inbounds nuw i8, ptr %19513, i64 28
   store i8 1, ptr %19518, align 4, !noalias !2746
   store ptr %19516, ptr %657, align 8
@@ -48000,11 +48000,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19522, align 8, !noalias !2754
   %19523 = getelementptr inbounds nuw i8, ptr %19521, i64 12
   store i32 1, ptr %19523, align 4, !noalias !2754
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19521, align 8, !noalias !2754
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19521, align 8, !noalias !2754
   %19524 = getelementptr inbounds nuw i8, ptr %19521, i64 16
   %19525 = getelementptr inbounds nuw i8, ptr %19521, i64 24
   store i32 2, ptr %19525, align 8, !noalias !2754
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19524, align 8, !noalias !2754
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19524, align 8, !noalias !2754
   %19526 = getelementptr inbounds nuw i8, ptr %19521, i64 28
   store i8 1, ptr %19526, align 4, !noalias !2754
   store ptr %19524, ptr %658, align 8
@@ -48016,11 +48016,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19530, align 8, !noalias !2762
   %19531 = getelementptr inbounds nuw i8, ptr %19529, i64 12
   store i32 1, ptr %19531, align 4, !noalias !2762
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19529, align 8, !noalias !2762
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19529, align 8, !noalias !2762
   %19532 = getelementptr inbounds nuw i8, ptr %19529, i64 16
   %19533 = getelementptr inbounds nuw i8, ptr %19529, i64 24
   store i32 2, ptr %19533, align 8, !noalias !2762
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %19532, align 8, !noalias !2762
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %19532, align 8, !noalias !2762
   %19534 = getelementptr inbounds nuw i8, ptr %19529, i64 48
   store i8 0, ptr %19534, align 8, !noalias !2762
   %19535 = getelementptr inbounds nuw i8, ptr %19529, i64 56
@@ -48044,11 +48044,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %19543, align 8, !noalias !2773
   %19544 = getelementptr inbounds nuw i8, ptr %19542, i64 12
   store i32 1, ptr %19544, align 4, !noalias !2773
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19542, align 8, !noalias !2773
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19542, align 8, !noalias !2773
   %19545 = getelementptr inbounds nuw i8, ptr %19542, i64 16
   %19546 = getelementptr inbounds nuw i8, ptr %19542, i64 24
   store i32 3, ptr %19546, align 8, !noalias !2773
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19545, align 8, !noalias !2773
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19545, align 8, !noalias !2773
   %19547 = getelementptr inbounds nuw i8, ptr %19542, i64 28
   store i32 1, ptr %19547, align 4, !noalias !2773
   %19548 = getelementptr inbounds nuw i8, ptr %19542, i64 32
@@ -48959,11 +48959,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14225: ; preds = %_
   store i32 1, ptr %19936, align 8, !noalias !2789
   %19937 = getelementptr inbounds nuw i8, ptr %19935, i64 12
   store i32 1, ptr %19937, align 4, !noalias !2789
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19935, align 8, !noalias !2789
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19935, align 8, !noalias !2789
   %19938 = getelementptr inbounds nuw i8, ptr %19935, i64 16
   %19939 = getelementptr inbounds nuw i8, ptr %19935, i64 24
   store i32 0, ptr %19939, align 8, !noalias !2789
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19938, align 8, !noalias !2789
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19938, align 8, !noalias !2789
   %19940 = getelementptr inbounds nuw i8, ptr %19935, i64 28
   store i32 1, ptr %19940, align 4, !noalias !2789
   %19941 = getelementptr inbounds nuw i8, ptr %19935, i64 32
@@ -48989,11 +48989,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14225: ; preds = %_
   store i32 1, ptr %19950, align 8, !noalias !2798
   %19951 = getelementptr inbounds nuw i8, ptr %19949, i64 12
   store i32 1, ptr %19951, align 4, !noalias !2798
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19949, align 8, !noalias !2798
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19949, align 8, !noalias !2798
   %19952 = getelementptr inbounds nuw i8, ptr %19949, i64 16
   %19953 = getelementptr inbounds nuw i8, ptr %19949, i64 24
   store i32 1, ptr %19953, align 8, !noalias !2798
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19952, align 8, !noalias !2798
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19952, align 8, !noalias !2798
   %19954 = getelementptr inbounds nuw i8, ptr %19949, i64 28
   store i8 1, ptr %19954, align 4, !noalias !2798
   store ptr %19952, ptr %666, align 8
@@ -49013,11 +49013,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14225: ; preds = %_
   store i32 1, ptr %19959, align 8, !noalias !2809
   %19960 = getelementptr inbounds nuw i8, ptr %19958, i64 12
   store i32 1, ptr %19960, align 4, !noalias !2809
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19958, align 8, !noalias !2809
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19958, align 8, !noalias !2809
   %19961 = getelementptr inbounds nuw i8, ptr %19958, i64 16
   %19962 = getelementptr inbounds nuw i8, ptr %19958, i64 24
   store i32 2, ptr %19962, align 8, !noalias !2809
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19961, align 8, !noalias !2809
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %19961, align 8, !noalias !2809
   %19963 = getelementptr inbounds nuw i8, ptr %19958, i64 28
   store i32 1, ptr %19963, align 4, !noalias !2809
   %19964 = getelementptr inbounds nuw i8, ptr %19958, i64 32
@@ -49043,11 +49043,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14225: ; preds = %_
   store i32 1, ptr %19973, align 8, !noalias !2818
   %19974 = getelementptr inbounds nuw i8, ptr %19972, i64 12
   store i32 1, ptr %19974, align 4, !noalias !2818
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19972, align 8, !noalias !2818
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %19972, align 8, !noalias !2818
   %19975 = getelementptr inbounds nuw i8, ptr %19972, i64 16
   %19976 = getelementptr inbounds nuw i8, ptr %19972, i64 24
   store i32 3, ptr %19976, align 8, !noalias !2818
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19975, align 8, !noalias !2818
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %19975, align 8, !noalias !2818
   %19977 = getelementptr inbounds nuw i8, ptr %19972, i64 28
   store i8 1, ptr %19977, align 4, !noalias !2818
   store ptr %19975, ptr %668, align 8
@@ -49471,11 +49471,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14315: ; preds = %_
   store i32 1, ptr %20158, align 8, !noalias !2831
   %20159 = getelementptr inbounds nuw i8, ptr %20157, i64 12
   store i32 1, ptr %20159, align 4, !noalias !2831
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20157, align 8, !noalias !2831
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20157, align 8, !noalias !2831
   %20160 = getelementptr inbounds nuw i8, ptr %20157, i64 16
   %20161 = getelementptr inbounds nuw i8, ptr %20157, i64 24
   store i32 -1, ptr %20161, align 8, !noalias !2831
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20160, align 8, !noalias !2831
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20160, align 8, !noalias !2831
   %20162 = getelementptr inbounds nuw i8, ptr %20157, i64 28
   store i8 1, ptr %20162, align 4, !noalias !2831
   %20163 = getelementptr inbounds nuw i8, ptr %673, i64 8
@@ -49508,11 +49508,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14315: ; preds = %_
   store i32 1, ptr %20175, align 8, !noalias !2839
   %20176 = getelementptr inbounds nuw i8, ptr %20174, i64 12
   store i32 1, ptr %20176, align 4, !noalias !2839
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20174, align 8, !noalias !2839
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20174, align 8, !noalias !2839
   %20177 = getelementptr inbounds nuw i8, ptr %20174, i64 16
   %20178 = getelementptr inbounds nuw i8, ptr %20174, i64 24
   store i32 -1, ptr %20178, align 8, !noalias !2839
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20177, align 8, !noalias !2839
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20177, align 8, !noalias !2839
   %20179 = getelementptr inbounds nuw i8, ptr %20174, i64 28
   store i8 0, ptr %20179, align 4, !noalias !2839
   %20180 = getelementptr inbounds nuw i8, ptr %674, i64 8
@@ -49545,11 +49545,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %20191, align 8, !noalias !2847
   %20192 = getelementptr inbounds nuw i8, ptr %20190, i64 12
   store i32 1, ptr %20192, align 4, !noalias !2847
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20190, align 8, !noalias !2847
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20190, align 8, !noalias !2847
   %20193 = getelementptr inbounds nuw i8, ptr %20190, i64 16
   %20194 = getelementptr inbounds nuw i8, ptr %20190, i64 24
   store i32 0, ptr %20194, align 8, !noalias !2847
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20193, align 8, !noalias !2847
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20193, align 8, !noalias !2847
   %20195 = getelementptr inbounds nuw i8, ptr %20190, i64 28
   store i8 1, ptr %20195, align 4, !noalias !2847
   store ptr %20193, ptr %675, align 8
@@ -50093,11 +50093,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14437: ; preds = %_
   store i32 1, ptr %20421, align 8, !noalias !2860
   %20422 = getelementptr inbounds nuw i8, ptr %20420, i64 12
   store i32 1, ptr %20422, align 4, !noalias !2860
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20420, align 8, !noalias !2860
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20420, align 8, !noalias !2860
   %20423 = getelementptr inbounds nuw i8, ptr %20420, i64 16
   %20424 = getelementptr inbounds nuw i8, ptr %20420, i64 24
   store i32 0, ptr %20424, align 8, !noalias !2860
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20423, align 8, !noalias !2860
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20423, align 8, !noalias !2860
   %20425 = getelementptr inbounds nuw i8, ptr %20420, i64 28
   store i8 1, ptr %20425, align 4, !noalias !2860
   store ptr %20423, ptr %680, align 8
@@ -50303,11 +50303,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14477: ; preds = %_
   store i32 1, ptr %20505, align 8, !noalias !2873
   %20506 = getelementptr inbounds nuw i8, ptr %20504, i64 12
   store i32 1, ptr %20506, align 4, !noalias !2873
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20504, align 8, !noalias !2873
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20504, align 8, !noalias !2873
   %20507 = getelementptr inbounds nuw i8, ptr %20504, i64 16
   %20508 = getelementptr inbounds nuw i8, ptr %20504, i64 24
   store i32 0, ptr %20508, align 8, !noalias !2873
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20507, align 8, !noalias !2873
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20507, align 8, !noalias !2873
   %20509 = getelementptr inbounds nuw i8, ptr %20504, i64 28
   store i8 1, ptr %20509, align 4, !noalias !2873
   store ptr %20507, ptr %685, align 8
@@ -50520,11 +50520,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14517: ; preds = %_
   store i32 1, ptr %20591, align 8, !noalias !2889
   %20592 = getelementptr inbounds nuw i8, ptr %20590, i64 12
   store i32 1, ptr %20592, align 4, !noalias !2889
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20590, align 8, !noalias !2889
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20590, align 8, !noalias !2889
   %20593 = getelementptr inbounds nuw i8, ptr %20590, i64 16
   %20594 = getelementptr inbounds nuw i8, ptr %20590, i64 24
   store i32 -1, ptr %20594, align 8, !noalias !2889
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %20593, align 8, !noalias !2889
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %20593, align 8, !noalias !2889
   %20595 = getelementptr inbounds nuw i8, ptr %20590, i64 28
   store i32 1, ptr %20595, align 4, !noalias !2889
   %20596 = getelementptr inbounds nuw i8, ptr %20590, i64 32
@@ -50574,11 +50574,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %20614, align 8, !noalias !2900
   %20615 = getelementptr inbounds nuw i8, ptr %20613, i64 12
   store i32 1, ptr %20615, align 4, !noalias !2900
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20613, align 8, !noalias !2900
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20613, align 8, !noalias !2900
   %20616 = getelementptr inbounds nuw i8, ptr %20613, i64 16
   %20617 = getelementptr inbounds nuw i8, ptr %20613, i64 24
   store i32 0, ptr %20617, align 8, !noalias !2900
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %20616, align 8, !noalias !2900
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %20616, align 8, !noalias !2900
   %20618 = getelementptr inbounds nuw i8, ptr %20613, i64 28
   store i32 1, ptr %20618, align 4, !noalias !2900
   %20619 = getelementptr inbounds nuw i8, ptr %20613, i64 32
@@ -50603,11 +50603,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %20628, align 8, !noalias !2908
   %20629 = getelementptr inbounds nuw i8, ptr %20627, i64 12
   store i32 1, ptr %20629, align 4, !noalias !2908
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20627, align 8, !noalias !2908
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20627, align 8, !noalias !2908
   %20630 = getelementptr inbounds nuw i8, ptr %20627, i64 16
   %20631 = getelementptr inbounds nuw i8, ptr %20627, i64 24
   store i32 1, ptr %20631, align 8, !noalias !2908
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20630, align 8, !noalias !2908
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20630, align 8, !noalias !2908
   %20632 = getelementptr inbounds nuw i8, ptr %20627, i64 28
   store i8 1, ptr %20632, align 4, !noalias !2908
   store ptr %20630, ptr %692, align 8
@@ -50619,11 +50619,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %20636, align 8, !noalias !2916
   %20637 = getelementptr inbounds nuw i8, ptr %20635, i64 12
   store i32 1, ptr %20637, align 4, !noalias !2916
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20635, align 8, !noalias !2916
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20635, align 8, !noalias !2916
   %20638 = getelementptr inbounds nuw i8, ptr %20635, i64 16
   %20639 = getelementptr inbounds nuw i8, ptr %20635, i64 24
   store i32 2, ptr %20639, align 8, !noalias !2916
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20638, align 8, !noalias !2916
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %20638, align 8, !noalias !2916
   %20640 = getelementptr inbounds nuw i8, ptr %20635, i64 28
   store i8 1, ptr %20640, align 4, !noalias !2916
   store ptr %20638, ptr %693, align 8
@@ -51236,11 +51236,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %20899, align 8, !noalias !2932
   %20900 = getelementptr inbounds nuw i8, ptr %20898, i64 12
   store i32 1, ptr %20900, align 4, !noalias !2932
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20898, align 8, !noalias !2932
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20898, align 8, !noalias !2932
   %20901 = getelementptr inbounds nuw i8, ptr %20898, i64 16
   %20902 = getelementptr inbounds nuw i8, ptr %20898, i64 24
   store i32 0, ptr %20902, align 8, !noalias !2932
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %20901, align 8, !noalias !2932
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %20901, align 8, !noalias !2932
   %20903 = getelementptr inbounds nuw i8, ptr %20898, i64 28
   store i32 1, ptr %20903, align 4, !noalias !2932
   %20904 = getelementptr inbounds nuw i8, ptr %20898, i64 32
@@ -51725,11 +51725,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14801: ; preds = %_
   store i32 1, ptr %21074, align 8, !noalias !2958
   %21075 = getelementptr inbounds nuw i8, ptr %21073, i64 12
   store i32 1, ptr %21075, align 4, !noalias !2958
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21073, align 8, !noalias !2958
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21073, align 8, !noalias !2958
   %21076 = getelementptr inbounds nuw i8, ptr %21073, i64 16
   %21077 = getelementptr inbounds nuw i8, ptr %21073, i64 24
   store i32 0, ptr %21077, align 8, !noalias !2958
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21076, align 8, !noalias !2958
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21076, align 8, !noalias !2958
   %21078 = getelementptr inbounds nuw i8, ptr %21073, i64 28
   store i32 1, ptr %21078, align 4, !noalias !2958
   %21079 = getelementptr inbounds nuw i8, ptr %21073, i64 32
@@ -51754,11 +51754,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14801: ; preds = %_
   store i32 1, ptr %21088, align 8, !noalias !2966
   %21089 = getelementptr inbounds nuw i8, ptr %21087, i64 12
   store i32 1, ptr %21089, align 4, !noalias !2966
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21087, align 8, !noalias !2966
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21087, align 8, !noalias !2966
   %21090 = getelementptr inbounds nuw i8, ptr %21087, i64 16
   %21091 = getelementptr inbounds nuw i8, ptr %21087, i64 24
   store i32 1, ptr %21091, align 8, !noalias !2966
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21090, align 8, !noalias !2966
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21090, align 8, !noalias !2966
   %21092 = getelementptr inbounds nuw i8, ptr %21087, i64 28
   store i8 1, ptr %21092, align 4, !noalias !2966
   store ptr %21090, ptr %712, align 8
@@ -51770,11 +51770,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14801: ; preds = %_
   store i32 1, ptr %21096, align 8, !noalias !2974
   %21097 = getelementptr inbounds nuw i8, ptr %21095, i64 12
   store i32 1, ptr %21097, align 4, !noalias !2974
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21095, align 8, !noalias !2974
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21095, align 8, !noalias !2974
   %21098 = getelementptr inbounds nuw i8, ptr %21095, i64 16
   %21099 = getelementptr inbounds nuw i8, ptr %21095, i64 24
   store i32 1, ptr %21099, align 8, !noalias !2974
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %21098, align 8, !noalias !2974
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %21098, align 8, !noalias !2974
   %21100 = getelementptr inbounds nuw i8, ptr %21095, i64 48
   store i8 0, ptr %21100, align 8, !noalias !2974
   %21101 = getelementptr inbounds nuw i8, ptr %21095, i64 56
@@ -51808,11 +51808,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14801: ; preds = %_
   store i32 1, ptr %21112, align 8, !noalias !2985
   %21113 = getelementptr inbounds nuw i8, ptr %21111, i64 12
   store i32 1, ptr %21113, align 4, !noalias !2985
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21111, align 8, !noalias !2985
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21111, align 8, !noalias !2985
   %21114 = getelementptr inbounds nuw i8, ptr %21111, i64 16
   %21115 = getelementptr inbounds nuw i8, ptr %21111, i64 24
   store i32 2, ptr %21115, align 8, !noalias !2985
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21114, align 8, !noalias !2985
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21114, align 8, !noalias !2985
   %21116 = getelementptr inbounds nuw i8, ptr %21111, i64 28
   store i32 1, ptr %21116, align 4, !noalias !2985
   %21117 = getelementptr inbounds nuw i8, ptr %21111, i64 32
@@ -52303,11 +52303,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14904: ; preds = %_
   store i32 1, ptr %21319, align 8, !noalias !3001
   %21320 = getelementptr inbounds nuw i8, ptr %21318, i64 12
   store i32 1, ptr %21320, align 4, !noalias !3001
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21318, align 8, !noalias !3001
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21318, align 8, !noalias !3001
   %21321 = getelementptr inbounds nuw i8, ptr %21318, i64 16
   %21322 = getelementptr inbounds nuw i8, ptr %21318, i64 24
   store i32 0, ptr %21322, align 8, !noalias !3001
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21321, align 8, !noalias !3001
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21321, align 8, !noalias !3001
   %21323 = getelementptr inbounds nuw i8, ptr %21318, i64 28
   store i32 1, ptr %21323, align 4, !noalias !3001
   %21324 = getelementptr inbounds nuw i8, ptr %21318, i64 32
@@ -52345,11 +52345,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14904: ; preds = %_
   store i32 1, ptr %21336, align 8, !noalias !3012
   %21337 = getelementptr inbounds nuw i8, ptr %21335, i64 12
   store i32 1, ptr %21337, align 4, !noalias !3012
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21335, align 8, !noalias !3012
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21335, align 8, !noalias !3012
   %21338 = getelementptr inbounds nuw i8, ptr %21335, i64 16
   %21339 = getelementptr inbounds nuw i8, ptr %21335, i64 24
   store i32 2, ptr %21339, align 8, !noalias !3012
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21338, align 8, !noalias !3012
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21338, align 8, !noalias !3012
   %21340 = getelementptr inbounds nuw i8, ptr %21335, i64 28
   store i32 1, ptr %21340, align 4, !noalias !3012
   %21341 = getelementptr inbounds nuw i8, ptr %21335, i64 32
@@ -52691,11 +52691,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14979: ; preds = %_
   store i32 1, ptr %21472, align 8, !noalias !3028
   %21473 = getelementptr inbounds nuw i8, ptr %21471, i64 12
   store i32 1, ptr %21473, align 4, !noalias !3028
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21471, align 8, !noalias !3028
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21471, align 8, !noalias !3028
   %21474 = getelementptr inbounds nuw i8, ptr %21471, i64 16
   %21475 = getelementptr inbounds nuw i8, ptr %21471, i64 24
   store i32 0, ptr %21475, align 8, !noalias !3028
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21474, align 8, !noalias !3028
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21474, align 8, !noalias !3028
   %21476 = getelementptr inbounds nuw i8, ptr %21471, i64 28
   store i32 1, ptr %21476, align 4, !noalias !3028
   %21477 = getelementptr inbounds nuw i8, ptr %21471, i64 32
@@ -52720,11 +52720,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14979: ; preds = %_
   store i32 1, ptr %21486, align 8, !noalias !3036
   %21487 = getelementptr inbounds nuw i8, ptr %21485, i64 12
   store i32 1, ptr %21487, align 4, !noalias !3036
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21485, align 8, !noalias !3036
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21485, align 8, !noalias !3036
   %21488 = getelementptr inbounds nuw i8, ptr %21485, i64 16
   %21489 = getelementptr inbounds nuw i8, ptr %21485, i64 24
   store i32 1, ptr %21489, align 8, !noalias !3036
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21488, align 8, !noalias !3036
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21488, align 8, !noalias !3036
   %21490 = getelementptr inbounds nuw i8, ptr %21485, i64 28
   store i8 1, ptr %21490, align 4, !noalias !3036
   store ptr %21488, ptr %726, align 8
@@ -52736,11 +52736,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i14979: ; preds = %_
   store i32 1, ptr %21494, align 8, !noalias !3044
   %21495 = getelementptr inbounds nuw i8, ptr %21493, i64 12
   store i32 1, ptr %21495, align 4, !noalias !3044
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21493, align 8, !noalias !3044
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21493, align 8, !noalias !3044
   %21496 = getelementptr inbounds nuw i8, ptr %21493, i64 16
   %21497 = getelementptr inbounds nuw i8, ptr %21493, i64 24
   store i32 2, ptr %21497, align 8, !noalias !3044
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21496, align 8, !noalias !3044
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21496, align 8, !noalias !3044
   %21498 = getelementptr inbounds nuw i8, ptr %21493, i64 28
   store i8 1, ptr %21498, align 4, !noalias !3044
   store ptr %21496, ptr %727, align 8
@@ -53109,11 +53109,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i15057: ; preds = %_
   store i32 1, ptr %21650, align 8, !noalias !3060
   %21651 = getelementptr inbounds nuw i8, ptr %21649, i64 12
   store i32 1, ptr %21651, align 4, !noalias !3060
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21649, align 8, !noalias !3060
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21649, align 8, !noalias !3060
   %21652 = getelementptr inbounds nuw i8, ptr %21649, i64 16
   %21653 = getelementptr inbounds nuw i8, ptr %21649, i64 24
   store i32 0, ptr %21653, align 8, !noalias !3060
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21652, align 8, !noalias !3060
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21652, align 8, !noalias !3060
   %21654 = getelementptr inbounds nuw i8, ptr %21649, i64 28
   store i32 1, ptr %21654, align 4, !noalias !3060
   %21655 = getelementptr inbounds nuw i8, ptr %21649, i64 32
@@ -53346,11 +53346,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i15107: ; preds = %_
   store i32 1, ptr %21742, align 8, !noalias !3076
   %21743 = getelementptr inbounds nuw i8, ptr %21741, i64 12
   store i32 1, ptr %21743, align 4, !noalias !3076
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21741, align 8, !noalias !3076
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21741, align 8, !noalias !3076
   %21744 = getelementptr inbounds nuw i8, ptr %21741, i64 16
   %21745 = getelementptr inbounds nuw i8, ptr %21741, i64 24
   store i32 0, ptr %21745, align 8, !noalias !3076
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21744, align 8, !noalias !3076
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21744, align 8, !noalias !3076
   %21746 = getelementptr inbounds nuw i8, ptr %21741, i64 28
   store i32 1, ptr %21746, align 4, !noalias !3076
   %21747 = getelementptr inbounds nuw i8, ptr %21741, i64 32
@@ -53375,11 +53375,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i15107: ; preds = %_
   store i32 1, ptr %21756, align 8, !noalias !3084
   %21757 = getelementptr inbounds nuw i8, ptr %21755, i64 12
   store i32 1, ptr %21757, align 4, !noalias !3084
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21755, align 8, !noalias !3084
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21755, align 8, !noalias !3084
   %21758 = getelementptr inbounds nuw i8, ptr %21755, i64 16
   %21759 = getelementptr inbounds nuw i8, ptr %21755, i64 24
   store i32 1, ptr %21759, align 8, !noalias !3084
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21758, align 8, !noalias !3084
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21758, align 8, !noalias !3084
   %21760 = getelementptr inbounds nuw i8, ptr %21755, i64 28
   store i8 1, ptr %21760, align 4, !noalias !3084
   store ptr %21758, ptr %738, align 8
@@ -53391,11 +53391,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i15107: ; preds = %_
   store i32 1, ptr %21764, align 8, !noalias !3092
   %21765 = getelementptr inbounds nuw i8, ptr %21763, i64 12
   store i32 1, ptr %21765, align 4, !noalias !3092
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21763, align 8, !noalias !3092
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21763, align 8, !noalias !3092
   %21766 = getelementptr inbounds nuw i8, ptr %21763, i64 16
   %21767 = getelementptr inbounds nuw i8, ptr %21763, i64 24
   store i32 2, ptr %21767, align 8, !noalias !3092
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21766, align 8, !noalias !3092
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %21766, align 8, !noalias !3092
   %21768 = getelementptr inbounds nuw i8, ptr %21763, i64 28
   store i8 1, ptr %21768, align 4, !noalias !3092
   store ptr %21766, ptr %739, align 8
@@ -53764,11 +53764,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i15185: ; preds = %_
   store i32 1, ptr %21920, align 8, !noalias !3108
   %21921 = getelementptr inbounds nuw i8, ptr %21919, i64 12
   store i32 1, ptr %21921, align 4, !noalias !3108
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21919, align 8, !noalias !3108
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21919, align 8, !noalias !3108
   %21922 = getelementptr inbounds nuw i8, ptr %21919, i64 16
   %21923 = getelementptr inbounds nuw i8, ptr %21919, i64 24
   store i32 0, ptr %21923, align 8, !noalias !3108
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21922, align 8, !noalias !3108
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %21922, align 8, !noalias !3108
   %21924 = getelementptr inbounds nuw i8, ptr %21919, i64 28
   store i32 1, ptr %21924, align 4, !noalias !3108
   %21925 = getelementptr inbounds nuw i8, ptr %21919, i64 32
@@ -54001,11 +54001,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i15235: ; preds = %_
   store i32 1, ptr %22012, align 8, !noalias !3124
   %22013 = getelementptr inbounds nuw i8, ptr %22011, i64 12
   store i32 1, ptr %22013, align 4, !noalias !3124
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22011, align 8, !noalias !3124
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22011, align 8, !noalias !3124
   %22014 = getelementptr inbounds nuw i8, ptr %22011, i64 16
   %22015 = getelementptr inbounds nuw i8, ptr %22011, i64 24
   store i32 0, ptr %22015, align 8, !noalias !3124
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22014, align 8, !noalias !3124
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22014, align 8, !noalias !3124
   %22016 = getelementptr inbounds nuw i8, ptr %22011, i64 28
   store i32 1, ptr %22016, align 4, !noalias !3124
   %22017 = getelementptr inbounds nuw i8, ptr %22011, i64 32
@@ -54030,11 +54030,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i15235: ; preds = %_
   store i32 1, ptr %22026, align 8, !noalias !3132
   %22027 = getelementptr inbounds nuw i8, ptr %22025, i64 12
   store i32 1, ptr %22027, align 4, !noalias !3132
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22025, align 8, !noalias !3132
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22025, align 8, !noalias !3132
   %22028 = getelementptr inbounds nuw i8, ptr %22025, i64 16
   %22029 = getelementptr inbounds nuw i8, ptr %22025, i64 24
   store i32 1, ptr %22029, align 8, !noalias !3132
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %22028, align 8, !noalias !3132
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %22028, align 8, !noalias !3132
   %22030 = getelementptr inbounds nuw i8, ptr %22025, i64 28
   store i8 1, ptr %22030, align 4, !noalias !3132
   store ptr %22028, ptr %750, align 8
@@ -54330,11 +54330,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i15299: ; preds = %_
   store i32 1, ptr %22148, align 8, !noalias !3148
   %22149 = getelementptr inbounds nuw i8, ptr %22147, i64 12
   store i32 1, ptr %22149, align 4, !noalias !3148
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22147, align 8, !noalias !3148
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22147, align 8, !noalias !3148
   %22150 = getelementptr inbounds nuw i8, ptr %22147, i64 16
   %22151 = getelementptr inbounds nuw i8, ptr %22147, i64 24
   store i32 0, ptr %22151, align 8, !noalias !3148
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22150, align 8, !noalias !3148
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22150, align 8, !noalias !3148
   %22152 = getelementptr inbounds nuw i8, ptr %22147, i64 28
   store i32 1, ptr %22152, align 4, !noalias !3148
   %22153 = getelementptr inbounds nuw i8, ptr %22147, i64 32
@@ -54445,11 +54445,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureD2Ev.exit15340: ; preds =
   store i32 1, ptr %22198, align 8, !noalias !3156
   %22199 = getelementptr inbounds nuw i8, ptr %22197, i64 12
   store i32 1, ptr %22199, align 4, !noalias !3156
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22197, align 8, !noalias !3156
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22197, align 8, !noalias !3156
   %22200 = getelementptr inbounds nuw i8, ptr %22197, i64 16
   %22201 = getelementptr inbounds nuw i8, ptr %22197, i64 24
   store i32 -1, ptr %22201, align 8, !noalias !3156
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %22200, align 8, !noalias !3156
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %22200, align 8, !noalias !3156
   %22202 = getelementptr inbounds nuw i8, ptr %22197, i64 28
   store i32 12, ptr %22202, align 4, !noalias !3156
   %22203 = getelementptr inbounds nuw i8, ptr %22197, i64 32
@@ -54476,11 +54476,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureD2Ev.exit15340: ; preds =
   store i32 1, ptr %22210, align 8, !noalias !3167
   %22211 = getelementptr inbounds nuw i8, ptr %22209, i64 12
   store i32 1, ptr %22211, align 4, !noalias !3167
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22209, align 8, !noalias !3167
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22209, align 8, !noalias !3167
   %22212 = getelementptr inbounds nuw i8, ptr %22209, i64 16
   %22213 = getelementptr inbounds nuw i8, ptr %22209, i64 24
   store i32 -1, ptr %22213, align 8, !noalias !3167
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22212, align 8, !noalias !3167
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22212, align 8, !noalias !3167
   %22214 = getelementptr inbounds nuw i8, ptr %22209, i64 28
   store i32 1, ptr %22214, align 4, !noalias !3167
   %22215 = getelementptr inbounds nuw i8, ptr %22209, i64 32
@@ -54579,11 +54579,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %22250, align 8, !noalias !3175
   %22251 = getelementptr inbounds nuw i8, ptr %22249, i64 12
   store i32 1, ptr %22251, align 4, !noalias !3175
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22249, align 8, !noalias !3175
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22249, align 8, !noalias !3175
   %22252 = getelementptr inbounds nuw i8, ptr %22249, i64 16
   %22253 = getelementptr inbounds nuw i8, ptr %22249, i64 24
   store i32 -1, ptr %22253, align 8, !noalias !3175
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22252, align 8, !noalias !3175
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22252, align 8, !noalias !3175
   %22254 = getelementptr inbounds nuw i8, ptr %22249, i64 28
   store i32 1, ptr %22254, align 4, !noalias !3175
   %22255 = getelementptr inbounds nuw i8, ptr %22249, i64 32
@@ -54608,11 +54608,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %22264, align 8, !noalias !3183
   %22265 = getelementptr inbounds nuw i8, ptr %22263, i64 12
   store i32 1, ptr %22265, align 4, !noalias !3183
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22263, align 8, !noalias !3183
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22263, align 8, !noalias !3183
   %22266 = getelementptr inbounds nuw i8, ptr %22263, i64 16
   %22267 = getelementptr inbounds nuw i8, ptr %22263, i64 24
   store i32 2, ptr %22267, align 8, !noalias !3183
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22266, align 8, !noalias !3183
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22266, align 8, !noalias !3183
   %22268 = getelementptr inbounds nuw i8, ptr %22263, i64 28
   store i32 1, ptr %22268, align 4, !noalias !3183
   %22269 = getelementptr inbounds nuw i8, ptr %22263, i64 32
@@ -54690,11 +54690,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %22300, align 8, !noalias !3194
   %22301 = getelementptr inbounds nuw i8, ptr %22299, i64 12
   store i32 1, ptr %22301, align 4, !noalias !3194
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22299, align 8, !noalias !3194
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22299, align 8, !noalias !3194
   %22302 = getelementptr inbounds nuw i8, ptr %22299, i64 16
   %22303 = getelementptr inbounds nuw i8, ptr %22299, i64 24
   store i32 0, ptr %22303, align 8, !noalias !3194
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22302, align 8, !noalias !3194
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22302, align 8, !noalias !3194
   %22304 = getelementptr inbounds nuw i8, ptr %22299, i64 28
   store i32 1, ptr %22304, align 4, !noalias !3194
   %22305 = getelementptr inbounds nuw i8, ptr %22299, i64 32
@@ -54719,11 +54719,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %22314, align 8, !noalias !3202
   %22315 = getelementptr inbounds nuw i8, ptr %22313, i64 12
   store i32 1, ptr %22315, align 4, !noalias !3202
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22313, align 8, !noalias !3202
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22313, align 8, !noalias !3202
   %22316 = getelementptr inbounds nuw i8, ptr %22313, i64 16
   %22317 = getelementptr inbounds nuw i8, ptr %22313, i64 24
   store i32 1, ptr %22317, align 8, !noalias !3202
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %22316, align 8, !noalias !3202
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %22316, align 8, !noalias !3202
   %22318 = getelementptr inbounds nuw i8, ptr %22313, i64 48
   store i8 0, ptr %22318, align 8, !noalias !3202
   %22319 = getelementptr inbounds nuw i8, ptr %22313, i64 56
@@ -55572,11 +55572,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureD2Ev.exit15557: ; preds =
   store i32 1, ptr %22657, align 8, !noalias !3220
   %22658 = getelementptr inbounds nuw i8, ptr %22656, i64 12
   store i32 1, ptr %22658, align 4, !noalias !3220
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22656, align 8, !noalias !3220
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22656, align 8, !noalias !3220
   %22659 = getelementptr inbounds nuw i8, ptr %22656, i64 16
   %22660 = getelementptr inbounds nuw i8, ptr %22656, i64 24
   store i32 -1, ptr %22660, align 8, !noalias !3220
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %22659, align 8, !noalias !3220
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %22659, align 8, !noalias !3220
   %22661 = getelementptr inbounds nuw i8, ptr %22656, i64 28
   store i32 12, ptr %22661, align 4, !noalias !3220
   %22662 = getelementptr inbounds nuw i8, ptr %22656, i64 32
@@ -55603,11 +55603,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureD2Ev.exit15557: ; preds =
   store i32 1, ptr %22669, align 8, !noalias !3231
   %22670 = getelementptr inbounds nuw i8, ptr %22668, i64 12
   store i32 1, ptr %22670, align 4, !noalias !3231
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22668, align 8, !noalias !3231
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22668, align 8, !noalias !3231
   %22671 = getelementptr inbounds nuw i8, ptr %22668, i64 16
   %22672 = getelementptr inbounds nuw i8, ptr %22668, i64 24
   store i32 -1, ptr %22672, align 8, !noalias !3231
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22671, align 8, !noalias !3231
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22671, align 8, !noalias !3231
   %22673 = getelementptr inbounds nuw i8, ptr %22668, i64 28
   store i32 1, ptr %22673, align 4, !noalias !3231
   %22674 = getelementptr inbounds nuw i8, ptr %22668, i64 32
@@ -55706,11 +55706,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %22709, align 8, !noalias !3239
   %22710 = getelementptr inbounds nuw i8, ptr %22708, i64 12
   store i32 1, ptr %22710, align 4, !noalias !3239
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22708, align 8, !noalias !3239
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22708, align 8, !noalias !3239
   %22711 = getelementptr inbounds nuw i8, ptr %22708, i64 16
   %22712 = getelementptr inbounds nuw i8, ptr %22708, i64 24
   store i32 -1, ptr %22712, align 8, !noalias !3239
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22711, align 8, !noalias !3239
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22711, align 8, !noalias !3239
   %22713 = getelementptr inbounds nuw i8, ptr %22708, i64 28
   store i32 1, ptr %22713, align 4, !noalias !3239
   %22714 = getelementptr inbounds nuw i8, ptr %22708, i64 32
@@ -55735,11 +55735,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %22723, align 8, !noalias !3247
   %22724 = getelementptr inbounds nuw i8, ptr %22722, i64 12
   store i32 1, ptr %22724, align 4, !noalias !3247
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22722, align 8, !noalias !3247
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22722, align 8, !noalias !3247
   %22725 = getelementptr inbounds nuw i8, ptr %22722, i64 16
   %22726 = getelementptr inbounds nuw i8, ptr %22722, i64 24
   store i32 2, ptr %22726, align 8, !noalias !3247
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22725, align 8, !noalias !3247
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22725, align 8, !noalias !3247
   %22727 = getelementptr inbounds nuw i8, ptr %22722, i64 28
   store i32 1, ptr %22727, align 4, !noalias !3247
   %22728 = getelementptr inbounds nuw i8, ptr %22722, i64 32
@@ -55817,11 +55817,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %22759, align 8, !noalias !3258
   %22760 = getelementptr inbounds nuw i8, ptr %22758, i64 12
   store i32 1, ptr %22760, align 4, !noalias !3258
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22758, align 8, !noalias !3258
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22758, align 8, !noalias !3258
   %22761 = getelementptr inbounds nuw i8, ptr %22758, i64 16
   %22762 = getelementptr inbounds nuw i8, ptr %22758, i64 24
   store i32 0, ptr %22762, align 8, !noalias !3258
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22761, align 8, !noalias !3258
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %22761, align 8, !noalias !3258
   %22763 = getelementptr inbounds nuw i8, ptr %22758, i64 28
   store i32 1, ptr %22763, align 4, !noalias !3258
   %22764 = getelementptr inbounds nuw i8, ptr %22758, i64 32
@@ -55846,11 +55846,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %22773, align 8, !noalias !3266
   %22774 = getelementptr inbounds nuw i8, ptr %22772, i64 12
   store i32 1, ptr %22774, align 4, !noalias !3266
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22772, align 8, !noalias !3266
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22772, align 8, !noalias !3266
   %22775 = getelementptr inbounds nuw i8, ptr %22772, i64 16
   %22776 = getelementptr inbounds nuw i8, ptr %22772, i64 24
   store i32 1, ptr %22776, align 8, !noalias !3266
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %22775, align 8, !noalias !3266
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %22775, align 8, !noalias !3266
   %22777 = getelementptr inbounds nuw i8, ptr %22772, i64 48
   store i8 0, ptr %22777, align 8, !noalias !3266
   %22778 = getelementptr inbounds nuw i8, ptr %22772, i64 56
@@ -56813,11 +56813,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i15783: ; preds = %_
   store i32 1, ptr %23158, align 8, !noalias !3292
   %23159 = getelementptr inbounds nuw i8, ptr %23157, i64 12
   store i32 1, ptr %23159, align 4, !noalias !3292
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23157, align 8, !noalias !3292
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23157, align 8, !noalias !3292
   %23160 = getelementptr inbounds nuw i8, ptr %23157, i64 16
   %23161 = getelementptr inbounds nuw i8, ptr %23157, i64 24
   store i32 0, ptr %23161, align 8, !noalias !3292
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23160, align 8, !noalias !3292
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23160, align 8, !noalias !3292
   %23162 = getelementptr inbounds nuw i8, ptr %23157, i64 28
   store i32 1, ptr %23162, align 4, !noalias !3292
   %23163 = getelementptr inbounds nuw i8, ptr %23157, i64 32
@@ -57052,11 +57052,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %23253, align 8, !noalias !3305
   %23254 = getelementptr inbounds nuw i8, ptr %23252, i64 12
   store i32 1, ptr %23254, align 4, !noalias !3305
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23252, align 8, !noalias !3305
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23252, align 8, !noalias !3305
   %23255 = getelementptr inbounds nuw i8, ptr %23252, i64 16
   %23256 = getelementptr inbounds nuw i8, ptr %23252, i64 24
   store i32 -1, ptr %23256, align 8, !noalias !3305
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %23255, align 8, !noalias !3305
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %23255, align 8, !noalias !3305
   %23257 = getelementptr inbounds nuw i8, ptr %23252, i64 28
   store i32 12, ptr %23257, align 4, !noalias !3305
   %23258 = getelementptr inbounds nuw i8, ptr %23252, i64 32
@@ -57083,11 +57083,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %23265, align 8, !noalias !3316
   %23266 = getelementptr inbounds nuw i8, ptr %23264, i64 12
   store i32 1, ptr %23266, align 4, !noalias !3316
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23264, align 8, !noalias !3316
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23264, align 8, !noalias !3316
   %23267 = getelementptr inbounds nuw i8, ptr %23264, i64 16
   %23268 = getelementptr inbounds nuw i8, ptr %23264, i64 24
   store i32 -1, ptr %23268, align 8, !noalias !3316
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23267, align 8, !noalias !3316
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23267, align 8, !noalias !3316
   %23269 = getelementptr inbounds nuw i8, ptr %23264, i64 28
   store i32 1, ptr %23269, align 4, !noalias !3316
   %23270 = getelementptr inbounds nuw i8, ptr %23264, i64 32
@@ -57186,11 +57186,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %23305, align 8, !noalias !3324
   %23306 = getelementptr inbounds nuw i8, ptr %23304, i64 12
   store i32 1, ptr %23306, align 4, !noalias !3324
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23304, align 8, !noalias !3324
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23304, align 8, !noalias !3324
   %23307 = getelementptr inbounds nuw i8, ptr %23304, i64 16
   %23308 = getelementptr inbounds nuw i8, ptr %23304, i64 24
   store i32 -1, ptr %23308, align 8, !noalias !3324
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23307, align 8, !noalias !3324
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23307, align 8, !noalias !3324
   %23309 = getelementptr inbounds nuw i8, ptr %23304, i64 28
   store i32 1, ptr %23309, align 4, !noalias !3324
   %23310 = getelementptr inbounds nuw i8, ptr %23304, i64 32
@@ -57215,11 +57215,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %23319, align 8, !noalias !3332
   %23320 = getelementptr inbounds nuw i8, ptr %23318, i64 12
   store i32 1, ptr %23320, align 4, !noalias !3332
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23318, align 8, !noalias !3332
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23318, align 8, !noalias !3332
   %23321 = getelementptr inbounds nuw i8, ptr %23318, i64 16
   %23322 = getelementptr inbounds nuw i8, ptr %23318, i64 24
   store i32 2, ptr %23322, align 8, !noalias !3332
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23321, align 8, !noalias !3332
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23321, align 8, !noalias !3332
   %23323 = getelementptr inbounds nuw i8, ptr %23318, i64 28
   store i32 1, ptr %23323, align 4, !noalias !3332
   %23324 = getelementptr inbounds nuw i8, ptr %23318, i64 32
@@ -57297,11 +57297,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %23355, align 8, !noalias !3343
   %23356 = getelementptr inbounds nuw i8, ptr %23354, i64 12
   store i32 1, ptr %23356, align 4, !noalias !3343
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23354, align 8, !noalias !3343
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23354, align 8, !noalias !3343
   %23357 = getelementptr inbounds nuw i8, ptr %23354, i64 16
   %23358 = getelementptr inbounds nuw i8, ptr %23354, i64 24
   store i32 0, ptr %23358, align 8, !noalias !3343
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23357, align 8, !noalias !3343
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23357, align 8, !noalias !3343
   %23359 = getelementptr inbounds nuw i8, ptr %23354, i64 28
   store i32 1, ptr %23359, align 4, !noalias !3343
   %23360 = getelementptr inbounds nuw i8, ptr %23354, i64 32
@@ -57326,11 +57326,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %23369, align 8, !noalias !3351
   %23370 = getelementptr inbounds nuw i8, ptr %23368, i64 12
   store i32 1, ptr %23370, align 4, !noalias !3351
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23368, align 8, !noalias !3351
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23368, align 8, !noalias !3351
   %23371 = getelementptr inbounds nuw i8, ptr %23368, i64 16
   %23372 = getelementptr inbounds nuw i8, ptr %23368, i64 24
   store i32 1, ptr %23372, align 8, !noalias !3351
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %23371, align 8, !noalias !3351
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %23371, align 8, !noalias !3351
   %23373 = getelementptr inbounds nuw i8, ptr %23368, i64 48
   store i8 0, ptr %23373, align 8, !noalias !3351
   %23374 = getelementptr inbounds nuw i8, ptr %23368, i64 56
@@ -58039,11 +58039,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %23662, align 8, !noalias !3367
   %23663 = getelementptr inbounds nuw i8, ptr %23661, i64 12
   store i32 1, ptr %23663, align 4, !noalias !3367
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23661, align 8, !noalias !3367
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23661, align 8, !noalias !3367
   %23664 = getelementptr inbounds nuw i8, ptr %23661, i64 16
   %23665 = getelementptr inbounds nuw i8, ptr %23661, i64 24
   store i32 -1, ptr %23665, align 8, !noalias !3367
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23664, align 8, !noalias !3367
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23664, align 8, !noalias !3367
   %23666 = getelementptr inbounds nuw i8, ptr %23661, i64 28
   store i32 1, ptr %23666, align 4, !noalias !3367
   %23667 = getelementptr inbounds nuw i8, ptr %23661, i64 32
@@ -58122,11 +58122,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %23696, align 8, !noalias !3378
   %23697 = getelementptr inbounds nuw i8, ptr %23695, i64 12
   store i32 1, ptr %23697, align 4, !noalias !3378
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23695, align 8, !noalias !3378
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23695, align 8, !noalias !3378
   %23698 = getelementptr inbounds nuw i8, ptr %23695, i64 16
   %23699 = getelementptr inbounds nuw i8, ptr %23695, i64 24
   store i32 0, ptr %23699, align 8, !noalias !3378
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23698, align 8, !noalias !3378
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23698, align 8, !noalias !3378
   %23700 = getelementptr inbounds nuw i8, ptr %23695, i64 28
   store i32 1, ptr %23700, align 4, !noalias !3378
   %23701 = getelementptr inbounds nuw i8, ptr %23695, i64 32
@@ -58547,11 +58547,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %23861, align 8, !noalias !3394
   %23862 = getelementptr inbounds nuw i8, ptr %23860, i64 12
   store i32 1, ptr %23862, align 4, !noalias !3394
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23860, align 8, !noalias !3394
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23860, align 8, !noalias !3394
   %23863 = getelementptr inbounds nuw i8, ptr %23860, i64 16
   %23864 = getelementptr inbounds nuw i8, ptr %23860, i64 24
   store i32 -1, ptr %23864, align 8, !noalias !3394
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23863, align 8, !noalias !3394
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23863, align 8, !noalias !3394
   %23865 = getelementptr inbounds nuw i8, ptr %23860, i64 28
   store i32 1, ptr %23865, align 4, !noalias !3394
   %23866 = getelementptr inbounds nuw i8, ptr %23860, i64 32
@@ -58630,11 +58630,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %23895, align 8, !noalias !3405
   %23896 = getelementptr inbounds nuw i8, ptr %23894, i64 12
   store i32 1, ptr %23896, align 4, !noalias !3405
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23894, align 8, !noalias !3405
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23894, align 8, !noalias !3405
   %23897 = getelementptr inbounds nuw i8, ptr %23894, i64 16
   %23898 = getelementptr inbounds nuw i8, ptr %23894, i64 24
   store i32 0, ptr %23898, align 8, !noalias !3405
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23897, align 8, !noalias !3405
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23897, align 8, !noalias !3405
   %23899 = getelementptr inbounds nuw i8, ptr %23894, i64 28
   store i32 1, ptr %23899, align 4, !noalias !3405
   %23900 = getelementptr inbounds nuw i8, ptr %23894, i64 32
@@ -59045,11 +59045,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %24063, align 8, !noalias !3418
   %24064 = getelementptr inbounds nuw i8, ptr %24062, i64 12
   store i32 1, ptr %24064, align 4, !noalias !3418
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24062, align 8, !noalias !3418
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24062, align 8, !noalias !3418
   %24065 = getelementptr inbounds nuw i8, ptr %24062, i64 16
   %24066 = getelementptr inbounds nuw i8, ptr %24062, i64 24
   store i32 3, ptr %24066, align 8, !noalias !3418
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %24065, align 8, !noalias !3418
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %24065, align 8, !noalias !3418
   %24067 = getelementptr inbounds nuw i8, ptr %24062, i64 28
   store i8 1, ptr %24067, align 4, !noalias !3418
   store ptr %24065, ptr %815, align 8
@@ -59061,11 +59061,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %24071, align 8, !noalias !3426
   %24072 = getelementptr inbounds nuw i8, ptr %24070, i64 12
   store i32 1, ptr %24072, align 4, !noalias !3426
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24070, align 8, !noalias !3426
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24070, align 8, !noalias !3426
   %24073 = getelementptr inbounds nuw i8, ptr %24070, i64 16
   %24074 = getelementptr inbounds nuw i8, ptr %24070, i64 24
   store i32 3, ptr %24074, align 8, !noalias !3426
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %24073, align 8, !noalias !3426
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %24073, align 8, !noalias !3426
   %24075 = getelementptr inbounds nuw i8, ptr %24070, i64 48
   store i8 0, ptr %24075, align 8, !noalias !3426
   %24076 = getelementptr inbounds nuw i8, ptr %24070, i64 56
@@ -59098,11 +59098,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %24086, align 8, !noalias !3437
   %24087 = getelementptr inbounds nuw i8, ptr %24085, i64 12
   store i32 1, ptr %24087, align 4, !noalias !3437
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24085, align 8, !noalias !3437
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24085, align 8, !noalias !3437
   %24088 = getelementptr inbounds nuw i8, ptr %24085, i64 16
   %24089 = getelementptr inbounds nuw i8, ptr %24085, i64 24
   store i32 4, ptr %24089, align 8, !noalias !3437
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24088, align 8, !noalias !3437
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24088, align 8, !noalias !3437
   %24090 = getelementptr inbounds nuw i8, ptr %24085, i64 28
   store i32 1, ptr %24090, align 4, !noalias !3437
   %24091 = getelementptr inbounds nuw i8, ptr %24085, i64 32
@@ -59518,11 +59518,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i16321: ; preds = %_
   store i32 1, ptr %24261, align 8, !noalias !3450
   %24262 = getelementptr inbounds nuw i8, ptr %24260, i64 12
   store i32 1, ptr %24262, align 4, !noalias !3450
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24260, align 8, !noalias !3450
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24260, align 8, !noalias !3450
   %24263 = getelementptr inbounds nuw i8, ptr %24260, i64 16
   %24264 = getelementptr inbounds nuw i8, ptr %24260, i64 24
   store i32 3, ptr %24264, align 8, !noalias !3450
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %24263, align 8, !noalias !3450
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %24263, align 8, !noalias !3450
   %24265 = getelementptr inbounds nuw i8, ptr %24260, i64 28
   store i8 1, ptr %24265, align 4, !noalias !3450
   store ptr %24263, ptr %822, align 8
@@ -59534,11 +59534,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i16321: ; preds = %_
   store i32 1, ptr %24269, align 8, !noalias !3458
   %24270 = getelementptr inbounds nuw i8, ptr %24268, i64 12
   store i32 1, ptr %24270, align 4, !noalias !3458
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24268, align 8, !noalias !3458
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24268, align 8, !noalias !3458
   %24271 = getelementptr inbounds nuw i8, ptr %24268, i64 16
   %24272 = getelementptr inbounds nuw i8, ptr %24268, i64 24
   store i32 4, ptr %24272, align 8, !noalias !3458
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %24271, align 8, !noalias !3458
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %24271, align 8, !noalias !3458
   %24273 = getelementptr inbounds nuw i8, ptr %24268, i64 28
   store i8 1, ptr %24273, align 4, !noalias !3458
   store ptr %24271, ptr %823, align 8
@@ -59831,11 +59831,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %24391, align 8, !noalias !3471
   %24392 = getelementptr inbounds nuw i8, ptr %24390, i64 12
   store i32 1, ptr %24392, align 4, !noalias !3471
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24390, align 8, !noalias !3471
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24390, align 8, !noalias !3471
   %24393 = getelementptr inbounds nuw i8, ptr %24390, i64 16
   %24394 = getelementptr inbounds nuw i8, ptr %24390, i64 24
   store i32 -1, ptr %24394, align 8, !noalias !3471
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %24393, align 8, !noalias !3471
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraintE, i64 16), ptr %24393, align 8, !noalias !3471
   %24395 = getelementptr inbounds nuw i8, ptr %24390, i64 28
   store i32 12, ptr %24395, align 4, !noalias !3471
   %24396 = getelementptr inbounds nuw i8, ptr %24390, i64 32
@@ -59862,11 +59862,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %24403, align 8, !noalias !3482
   %24404 = getelementptr inbounds nuw i8, ptr %24402, i64 12
   store i32 1, ptr %24404, align 4, !noalias !3482
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24402, align 8, !noalias !3482
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24402, align 8, !noalias !3482
   %24405 = getelementptr inbounds nuw i8, ptr %24402, i64 16
   %24406 = getelementptr inbounds nuw i8, ptr %24402, i64 24
   store i32 -1, ptr %24406, align 8, !noalias !3482
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24405, align 8, !noalias !3482
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24405, align 8, !noalias !3482
   %24407 = getelementptr inbounds nuw i8, ptr %24402, i64 28
   store i32 1, ptr %24407, align 4, !noalias !3482
   %24408 = getelementptr inbounds nuw i8, ptr %24402, i64 32
@@ -59965,11 +59965,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %24443, align 8, !noalias !3490
   %24444 = getelementptr inbounds nuw i8, ptr %24442, i64 12
   store i32 1, ptr %24444, align 4, !noalias !3490
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24442, align 8, !noalias !3490
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24442, align 8, !noalias !3490
   %24445 = getelementptr inbounds nuw i8, ptr %24442, i64 16
   %24446 = getelementptr inbounds nuw i8, ptr %24442, i64 24
   store i32 -1, ptr %24446, align 8, !noalias !3490
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24445, align 8, !noalias !3490
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24445, align 8, !noalias !3490
   %24447 = getelementptr inbounds nuw i8, ptr %24442, i64 28
   store i32 1, ptr %24447, align 4, !noalias !3490
   %24448 = getelementptr inbounds nuw i8, ptr %24442, i64 32
@@ -59994,11 +59994,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %24457, align 8, !noalias !3498
   %24458 = getelementptr inbounds nuw i8, ptr %24456, i64 12
   store i32 1, ptr %24458, align 4, !noalias !3498
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24456, align 8, !noalias !3498
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24456, align 8, !noalias !3498
   %24459 = getelementptr inbounds nuw i8, ptr %24456, i64 16
   %24460 = getelementptr inbounds nuw i8, ptr %24456, i64 24
   store i32 2, ptr %24460, align 8, !noalias !3498
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24459, align 8, !noalias !3498
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24459, align 8, !noalias !3498
   %24461 = getelementptr inbounds nuw i8, ptr %24456, i64 28
   store i32 1, ptr %24461, align 4, !noalias !3498
   %24462 = getelementptr inbounds nuw i8, ptr %24456, i64 32
@@ -60076,11 +60076,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %24493, align 8, !noalias !3509
   %24494 = getelementptr inbounds nuw i8, ptr %24492, i64 12
   store i32 1, ptr %24494, align 4, !noalias !3509
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24492, align 8, !noalias !3509
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24492, align 8, !noalias !3509
   %24495 = getelementptr inbounds nuw i8, ptr %24492, i64 16
   %24496 = getelementptr inbounds nuw i8, ptr %24492, i64 24
   store i32 0, ptr %24496, align 8, !noalias !3509
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24495, align 8, !noalias !3509
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24495, align 8, !noalias !3509
   %24497 = getelementptr inbounds nuw i8, ptr %24492, i64 28
   store i32 1, ptr %24497, align 4, !noalias !3509
   %24498 = getelementptr inbounds nuw i8, ptr %24492, i64 32
@@ -60105,11 +60105,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %24507, align 8, !noalias !3517
   %24508 = getelementptr inbounds nuw i8, ptr %24506, i64 12
   store i32 1, ptr %24508, align 4, !noalias !3517
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24506, align 8, !noalias !3517
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24506, align 8, !noalias !3517
   %24509 = getelementptr inbounds nuw i8, ptr %24506, i64 16
   %24510 = getelementptr inbounds nuw i8, ptr %24506, i64 24
   store i32 1, ptr %24510, align 8, !noalias !3517
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %24509, align 8, !noalias !3517
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %24509, align 8, !noalias !3517
   %24511 = getelementptr inbounds nuw i8, ptr %24506, i64 48
   store i8 0, ptr %24511, align 8, !noalias !3517
   %24512 = getelementptr inbounds nuw i8, ptr %24506, i64 56
@@ -60786,11 +60786,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i16566: ; preds = %_
   store i32 1, ptr %24795, align 8, !noalias !3530
   %24796 = getelementptr inbounds nuw i8, ptr %24794, i64 12
   store i32 1, ptr %24796, align 4, !noalias !3530
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24794, align 8, !noalias !3530
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24794, align 8, !noalias !3530
   %24797 = getelementptr inbounds nuw i8, ptr %24794, i64 16
   %24798 = getelementptr inbounds nuw i8, ptr %24794, i64 24
   store i32 3, ptr %24798, align 8, !noalias !3530
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %24797, align 8, !noalias !3530
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %24797, align 8, !noalias !3530
   %24799 = getelementptr inbounds nuw i8, ptr %24794, i64 28
   store i8 1, ptr %24799, align 4, !noalias !3530
   store ptr %24797, ptr %838, align 8
@@ -61001,11 +61001,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i16606: ; preds = %_
   store i32 1, ptr %24881, align 8, !noalias !3546
   %24882 = getelementptr inbounds nuw i8, ptr %24880, i64 12
   store i32 1, ptr %24882, align 4, !noalias !3546
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24880, align 8, !noalias !3546
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24880, align 8, !noalias !3546
   %24883 = getelementptr inbounds nuw i8, ptr %24880, i64 16
   %24884 = getelementptr inbounds nuw i8, ptr %24880, i64 24
   store i32 0, ptr %24884, align 8, !noalias !3546
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24883, align 8, !noalias !3546
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24883, align 8, !noalias !3546
   %24885 = getelementptr inbounds nuw i8, ptr %24880, i64 28
   store i32 1, ptr %24885, align 4, !noalias !3546
   %24886 = getelementptr inbounds nuw i8, ptr %24880, i64 32
@@ -61250,11 +61250,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %24975, align 8, !noalias !3559
   %24976 = getelementptr inbounds nuw i8, ptr %24974, i64 12
   store i32 1, ptr %24976, align 4, !noalias !3559
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24974, align 8, !noalias !3559
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24974, align 8, !noalias !3559
   %24977 = getelementptr inbounds nuw i8, ptr %24974, i64 16
   %24978 = getelementptr inbounds nuw i8, ptr %24974, i64 24
   store i32 0, ptr %24978, align 8, !noalias !3559
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %24977, align 8, !noalias !3559
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %24977, align 8, !noalias !3559
   %24979 = getelementptr inbounds nuw i8, ptr %24974, i64 48
   store i8 0, ptr %24979, align 8, !noalias !3559
   %24980 = getelementptr inbounds nuw i8, ptr %24974, i64 56
@@ -61287,11 +61287,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %24990, align 8, !noalias !3570
   %24991 = getelementptr inbounds nuw i8, ptr %24989, i64 12
   store i32 1, ptr %24991, align 4, !noalias !3570
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24989, align 8, !noalias !3570
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24989, align 8, !noalias !3570
   %24992 = getelementptr inbounds nuw i8, ptr %24989, i64 16
   %24993 = getelementptr inbounds nuw i8, ptr %24989, i64 24
   store i32 1, ptr %24993, align 8, !noalias !3570
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24992, align 8, !noalias !3570
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %24992, align 8, !noalias !3570
   %24994 = getelementptr inbounds nuw i8, ptr %24989, i64 28
   store i32 1, ptr %24994, align 4, !noalias !3570
   %24995 = getelementptr inbounds nuw i8, ptr %24989, i64 32
@@ -61344,11 +61344,11 @@ _ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i.i16675: 
   store i32 1, ptr %25013, align 8, !noalias !3578
   %25014 = getelementptr inbounds nuw i8, ptr %25012, i64 12
   store i32 1, ptr %25014, align 4, !noalias !3578
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25012, align 8, !noalias !3578
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25012, align 8, !noalias !3578
   %25015 = getelementptr inbounds nuw i8, ptr %25012, i64 16
   %25016 = getelementptr inbounds nuw i8, ptr %25012, i64 24
   store i32 2, ptr %25016, align 8, !noalias !3578
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %25015, align 8, !noalias !3578
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %25015, align 8, !noalias !3578
   %25017 = getelementptr inbounds nuw i8, ptr %25012, i64 48
   store i8 0, ptr %25017, align 8, !noalias !3578
   %25018 = getelementptr inbounds nuw i8, ptr %25012, i64 56
@@ -61381,11 +61381,11 @@ _ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i.i16675: 
   store i32 1, ptr %25028, align 8, !noalias !3589
   %25029 = getelementptr inbounds nuw i8, ptr %25027, i64 12
   store i32 1, ptr %25029, align 4, !noalias !3589
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25027, align 8, !noalias !3589
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25027, align 8, !noalias !3589
   %25030 = getelementptr inbounds nuw i8, ptr %25027, i64 16
   %25031 = getelementptr inbounds nuw i8, ptr %25027, i64 24
   store i32 3, ptr %25031, align 8, !noalias !3589
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %25030, align 8, !noalias !3589
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %25030, align 8, !noalias !3589
   %25032 = getelementptr inbounds nuw i8, ptr %25027, i64 28
   store i32 1, ptr %25032, align 4, !noalias !3589
   %25033 = getelementptr inbounds nuw i8, ptr %25027, i64 32
@@ -61438,11 +61438,11 @@ _ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i.i16684: 
   store i32 1, ptr %25051, align 8, !noalias !3597
   %25052 = getelementptr inbounds nuw i8, ptr %25050, i64 12
   store i32 1, ptr %25052, align 4, !noalias !3597
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25050, align 8, !noalias !3597
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25050, align 8, !noalias !3597
   %25053 = getelementptr inbounds nuw i8, ptr %25050, i64 16
   %25054 = getelementptr inbounds nuw i8, ptr %25050, i64 24
   store i32 4, ptr %25054, align 8, !noalias !3597
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %25053, align 8, !noalias !3597
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %25053, align 8, !noalias !3597
   %25055 = getelementptr inbounds nuw i8, ptr %25050, i64 48
   store i8 0, ptr %25055, align 8, !noalias !3597
   %25056 = getelementptr inbounds nuw i8, ptr %25050, i64 56
@@ -61475,11 +61475,11 @@ _ZNSt12_Vector_baseISt4pairImmESaIS1_EEC2EmRKS2_.exit.i.i.i.i.i.i.i.i.i.i16684: 
   store i32 1, ptr %25066, align 8, !noalias !3608
   %25067 = getelementptr inbounds nuw i8, ptr %25065, i64 12
   store i32 1, ptr %25067, align 4, !noalias !3608
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25065, align 8, !noalias !3608
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25065, align 8, !noalias !3608
   %25068 = getelementptr inbounds nuw i8, ptr %25065, i64 16
   %25069 = getelementptr inbounds nuw i8, ptr %25065, i64 24
   store i32 5, ptr %25069, align 8, !noalias !3608
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %25068, align 8, !noalias !3608
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %25068, align 8, !noalias !3608
   %25070 = getelementptr inbounds nuw i8, ptr %25065, i64 28
   store i32 1, ptr %25070, align 4, !noalias !3608
   %25071 = getelementptr inbounds nuw i8, ptr %25065, i64 32
@@ -62129,11 +62129,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %25344, align 8, !noalias !3621
   %25345 = getelementptr inbounds nuw i8, ptr %25343, i64 12
   store i32 1, ptr %25345, align 4, !noalias !3621
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25343, align 8, !noalias !3621
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25343, align 8, !noalias !3621
   %25346 = getelementptr inbounds nuw i8, ptr %25343, i64 16
   %25347 = getelementptr inbounds nuw i8, ptr %25343, i64 24
   store i32 0, ptr %25347, align 8, !noalias !3621
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25346, align 8, !noalias !3621
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25346, align 8, !noalias !3621
   %25348 = getelementptr inbounds nuw i8, ptr %25343, i64 28
   store i8 1, ptr %25348, align 4, !noalias !3621
   store ptr %25346, ptr %858, align 8
@@ -62362,11 +62362,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i16858: ; preds = %_
   store i32 1, ptr %25436, align 8, !noalias !3637
   %25437 = getelementptr inbounds nuw i8, ptr %25435, i64 12
   store i32 1, ptr %25437, align 4, !noalias !3637
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25435, align 8, !noalias !3637
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25435, align 8, !noalias !3637
   %25438 = getelementptr inbounds nuw i8, ptr %25435, i64 16
   %25439 = getelementptr inbounds nuw i8, ptr %25435, i64 24
   store i32 0, ptr %25439, align 8, !noalias !3637
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %25438, align 8, !noalias !3637
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %25438, align 8, !noalias !3637
   %25440 = getelementptr inbounds nuw i8, ptr %25435, i64 28
   store i32 1, ptr %25440, align 4, !noalias !3637
   %25441 = getelementptr inbounds nuw i8, ptr %25435, i64 32
@@ -62597,11 +62597,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %25529, align 8, !noalias !3650
   %25530 = getelementptr inbounds nuw i8, ptr %25528, i64 12
   store i32 1, ptr %25530, align 4, !noalias !3650
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25528, align 8, !noalias !3650
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25528, align 8, !noalias !3650
   %25531 = getelementptr inbounds nuw i8, ptr %25528, i64 16
   %25532 = getelementptr inbounds nuw i8, ptr %25528, i64 24
   store i32 1, ptr %25532, align 8, !noalias !3650
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25531, align 8, !noalias !3650
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25531, align 8, !noalias !3650
   %25533 = getelementptr inbounds nuw i8, ptr %25528, i64 28
   store i8 1, ptr %25533, align 4, !noalias !3650
   store ptr %25531, ptr %868, align 8
@@ -62822,11 +62822,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %25619, align 8, !noalias !3663
   %25620 = getelementptr inbounds nuw i8, ptr %25618, i64 12
   store i32 1, ptr %25620, align 4, !noalias !3663
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25618, align 8, !noalias !3663
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25618, align 8, !noalias !3663
   %25621 = getelementptr inbounds nuw i8, ptr %25618, i64 16
   %25622 = getelementptr inbounds nuw i8, ptr %25618, i64 24
   store i32 0, ptr %25622, align 8, !noalias !3663
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25621, align 8, !noalias !3663
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25621, align 8, !noalias !3663
   %25623 = getelementptr inbounds nuw i8, ptr %25618, i64 28
   store i8 1, ptr %25623, align 4, !noalias !3663
   store ptr %25621, ptr %873, align 8
@@ -63037,11 +63037,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %25701, align 8, !noalias !3676
   %25702 = getelementptr inbounds nuw i8, ptr %25700, i64 12
   store i32 1, ptr %25702, align 4, !noalias !3676
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25700, align 8, !noalias !3676
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25700, align 8, !noalias !3676
   %25703 = getelementptr inbounds nuw i8, ptr %25700, i64 16
   %25704 = getelementptr inbounds nuw i8, ptr %25700, i64 24
   store i32 0, ptr %25704, align 8, !noalias !3676
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25703, align 8, !noalias !3676
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25703, align 8, !noalias !3676
   %25705 = getelementptr inbounds nuw i8, ptr %25700, i64 28
   store i8 1, ptr %25705, align 4, !noalias !3676
   store ptr %25703, ptr %878, align 8
@@ -63215,11 +63215,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %25776, align 8, !noalias !3684
   %25777 = getelementptr inbounds nuw i8, ptr %25775, i64 12
   store i32 1, ptr %25777, align 4, !noalias !3684
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25775, align 8, !noalias !3684
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25775, align 8, !noalias !3684
   %25778 = getelementptr inbounds nuw i8, ptr %25775, i64 16
   %25779 = getelementptr inbounds nuw i8, ptr %25775, i64 24
   store i32 0, ptr %25779, align 8, !noalias !3684
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25778, align 8, !noalias !3684
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25778, align 8, !noalias !3684
   %25780 = getelementptr inbounds nuw i8, ptr %25775, i64 28
   store i8 1, ptr %25780, align 4, !noalias !3684
   store ptr %25778, ptr %882, align 8
@@ -63435,11 +63435,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %25858, align 8, !noalias !3697
   %25859 = getelementptr inbounds nuw i8, ptr %25857, i64 12
   store i32 1, ptr %25859, align 4, !noalias !3697
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25857, align 8, !noalias !3697
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25857, align 8, !noalias !3697
   %25860 = getelementptr inbounds nuw i8, ptr %25857, i64 16
   %25861 = getelementptr inbounds nuw i8, ptr %25857, i64 24
   store i32 0, ptr %25861, align 8, !noalias !3697
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25860, align 8, !noalias !3697
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25860, align 8, !noalias !3697
   %25862 = getelementptr inbounds nuw i8, ptr %25857, i64 28
   store i8 1, ptr %25862, align 4, !noalias !3697
   store ptr %25860, ptr %887, align 8
@@ -63451,11 +63451,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %25866, align 8, !noalias !3705
   %25867 = getelementptr inbounds nuw i8, ptr %25865, i64 12
   store i32 1, ptr %25867, align 4, !noalias !3705
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25865, align 8, !noalias !3705
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25865, align 8, !noalias !3705
   %25868 = getelementptr inbounds nuw i8, ptr %25865, i64 16
   %25869 = getelementptr inbounds nuw i8, ptr %25865, i64 24
   store i32 1, ptr %25869, align 8, !noalias !3705
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25868, align 8, !noalias !3705
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25868, align 8, !noalias !3705
   %25870 = getelementptr inbounds nuw i8, ptr %25865, i64 28
   store i8 1, ptr %25870, align 4, !noalias !3705
   store ptr %25868, ptr %888, align 8
@@ -63733,11 +63733,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %25981, align 8, !noalias !3718
   %25982 = getelementptr inbounds nuw i8, ptr %25980, i64 12
   store i32 1, ptr %25982, align 4, !noalias !3718
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25980, align 8, !noalias !3718
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25980, align 8, !noalias !3718
   %25983 = getelementptr inbounds nuw i8, ptr %25980, i64 16
   %25984 = getelementptr inbounds nuw i8, ptr %25980, i64 24
   store i32 0, ptr %25984, align 8, !noalias !3718
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25983, align 8, !noalias !3718
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25983, align 8, !noalias !3718
   %25985 = getelementptr inbounds nuw i8, ptr %25980, i64 28
   store i8 1, ptr %25985, align 4, !noalias !3718
   store ptr %25983, ptr %893, align 8
@@ -63749,11 +63749,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %25989, align 8, !noalias !3726
   %25990 = getelementptr inbounds nuw i8, ptr %25988, i64 12
   store i32 1, ptr %25990, align 4, !noalias !3726
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25988, align 8, !noalias !3726
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25988, align 8, !noalias !3726
   %25991 = getelementptr inbounds nuw i8, ptr %25988, i64 16
   %25992 = getelementptr inbounds nuw i8, ptr %25988, i64 24
   store i32 1, ptr %25992, align 8, !noalias !3726
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25991, align 8, !noalias !3726
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %25991, align 8, !noalias !3726
   %25993 = getelementptr inbounds nuw i8, ptr %25988, i64 28
   store i8 1, ptr %25993, align 4, !noalias !3726
   store ptr %25991, ptr %894, align 8
@@ -64231,11 +64231,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26199, align 8, !noalias !3739
   %26200 = getelementptr inbounds nuw i8, ptr %26198, i64 12
   store i32 1, ptr %26200, align 4, !noalias !3739
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26198, align 8, !noalias !3739
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26198, align 8, !noalias !3739
   %26201 = getelementptr inbounds nuw i8, ptr %26198, i64 16
   %26202 = getelementptr inbounds nuw i8, ptr %26198, i64 24
   store i32 0, ptr %26202, align 8, !noalias !3739
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26201, align 8, !noalias !3739
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26201, align 8, !noalias !3739
   %26203 = getelementptr inbounds nuw i8, ptr %26198, i64 28
   store i8 1, ptr %26203, align 4, !noalias !3739
   store ptr %26201, ptr %902, align 8
@@ -64247,11 +64247,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26207, align 8, !noalias !3747
   %26208 = getelementptr inbounds nuw i8, ptr %26206, i64 12
   store i32 1, ptr %26208, align 4, !noalias !3747
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26206, align 8, !noalias !3747
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26206, align 8, !noalias !3747
   %26209 = getelementptr inbounds nuw i8, ptr %26206, i64 16
   %26210 = getelementptr inbounds nuw i8, ptr %26206, i64 24
   store i32 1, ptr %26210, align 8, !noalias !3747
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26209, align 8, !noalias !3747
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26209, align 8, !noalias !3747
   %26211 = getelementptr inbounds nuw i8, ptr %26206, i64 28
   store i8 1, ptr %26211, align 4, !noalias !3747
   store ptr %26209, ptr %903, align 8
@@ -64740,11 +64740,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26418, align 8, !noalias !3760
   %26419 = getelementptr inbounds nuw i8, ptr %26417, i64 12
   store i32 1, ptr %26419, align 4, !noalias !3760
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26417, align 8, !noalias !3760
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26417, align 8, !noalias !3760
   %26420 = getelementptr inbounds nuw i8, ptr %26417, i64 16
   %26421 = getelementptr inbounds nuw i8, ptr %26417, i64 24
   store i32 0, ptr %26421, align 8, !noalias !3760
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26420, align 8, !noalias !3760
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26420, align 8, !noalias !3760
   %26422 = getelementptr inbounds nuw i8, ptr %26417, i64 28
   store i8 1, ptr %26422, align 4, !noalias !3760
   store ptr %26420, ptr %911, align 8
@@ -64756,11 +64756,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26426, align 8, !noalias !3768
   %26427 = getelementptr inbounds nuw i8, ptr %26425, i64 12
   store i32 1, ptr %26427, align 4, !noalias !3768
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26425, align 8, !noalias !3768
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26425, align 8, !noalias !3768
   %26428 = getelementptr inbounds nuw i8, ptr %26425, i64 16
   %26429 = getelementptr inbounds nuw i8, ptr %26425, i64 24
   store i32 1, ptr %26429, align 8, !noalias !3768
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26428, align 8, !noalias !3768
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26428, align 8, !noalias !3768
   %26430 = getelementptr inbounds nuw i8, ptr %26425, i64 28
   store i8 1, ptr %26430, align 4, !noalias !3768
   store ptr %26428, ptr %912, align 8
@@ -64959,11 +64959,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26513, align 8, !noalias !3776
   %26514 = getelementptr inbounds nuw i8, ptr %26512, i64 12
   store i32 1, ptr %26514, align 4, !noalias !3776
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26512, align 8, !noalias !3776
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26512, align 8, !noalias !3776
   %26515 = getelementptr inbounds nuw i8, ptr %26512, i64 16
   %26516 = getelementptr inbounds nuw i8, ptr %26512, i64 24
   store i32 0, ptr %26516, align 8, !noalias !3776
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26515, align 8, !noalias !3776
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26515, align 8, !noalias !3776
   %26517 = getelementptr inbounds nuw i8, ptr %26512, i64 28
   store i8 1, ptr %26517, align 4, !noalias !3776
   store ptr %26515, ptr %916, align 8
@@ -65175,11 +65175,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26598, align 8, !noalias !3789
   %26599 = getelementptr inbounds nuw i8, ptr %26597, i64 12
   store i32 1, ptr %26599, align 4, !noalias !3789
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26597, align 8, !noalias !3789
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26597, align 8, !noalias !3789
   %26600 = getelementptr inbounds nuw i8, ptr %26597, i64 16
   %26601 = getelementptr inbounds nuw i8, ptr %26597, i64 24
   store i32 1, ptr %26601, align 8, !noalias !3789
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26600, align 8, !noalias !3789
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26600, align 8, !noalias !3789
   %26602 = getelementptr inbounds nuw i8, ptr %26597, i64 28
   store i8 1, ptr %26602, align 4, !noalias !3789
   store ptr %26600, ptr %921, align 8
@@ -65399,11 +65399,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26687, align 8, !noalias !3802
   %26688 = getelementptr inbounds nuw i8, ptr %26686, i64 12
   store i32 1, ptr %26688, align 4, !noalias !3802
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26686, align 8, !noalias !3802
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26686, align 8, !noalias !3802
   %26689 = getelementptr inbounds nuw i8, ptr %26686, i64 16
   %26690 = getelementptr inbounds nuw i8, ptr %26686, i64 24
   store i32 1, ptr %26690, align 8, !noalias !3802
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26689, align 8, !noalias !3802
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26689, align 8, !noalias !3802
   %26691 = getelementptr inbounds nuw i8, ptr %26686, i64 28
   store i8 1, ptr %26691, align 4, !noalias !3802
   store ptr %26689, ptr %926, align 8
@@ -65630,11 +65630,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26789, align 8, !noalias !3810
   %26790 = getelementptr inbounds nuw i8, ptr %26788, i64 12
   store i32 1, ptr %26790, align 4, !noalias !3810
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26788, align 8, !noalias !3810
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26788, align 8, !noalias !3810
   %26791 = getelementptr inbounds nuw i8, ptr %26788, i64 16
   %26792 = getelementptr inbounds nuw i8, ptr %26788, i64 24
   store i32 0, ptr %26792, align 8, !noalias !3810
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26791, align 8, !noalias !3810
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26791, align 8, !noalias !3810
   %26793 = getelementptr inbounds nuw i8, ptr %26788, i64 28
   store i8 1, ptr %26793, align 4, !noalias !3810
   store ptr %26791, ptr %932, align 8
@@ -65849,11 +65849,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26872, align 8, !noalias !3823
   %26873 = getelementptr inbounds nuw i8, ptr %26871, i64 12
   store i32 1, ptr %26873, align 4, !noalias !3823
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26871, align 8, !noalias !3823
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26871, align 8, !noalias !3823
   %26874 = getelementptr inbounds nuw i8, ptr %26871, i64 16
   %26875 = getelementptr inbounds nuw i8, ptr %26871, i64 24
   store i32 0, ptr %26875, align 8, !noalias !3823
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26874, align 8, !noalias !3823
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26874, align 8, !noalias !3823
   %26876 = getelementptr inbounds nuw i8, ptr %26871, i64 28
   store i8 1, ptr %26876, align 4, !noalias !3823
   store ptr %26874, ptr %937, align 8
@@ -65865,11 +65865,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26880, align 8, !noalias !3831
   %26881 = getelementptr inbounds nuw i8, ptr %26879, i64 12
   store i32 1, ptr %26881, align 4, !noalias !3831
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26879, align 8, !noalias !3831
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26879, align 8, !noalias !3831
   %26882 = getelementptr inbounds nuw i8, ptr %26879, i64 16
   %26883 = getelementptr inbounds nuw i8, ptr %26879, i64 24
   store i32 2, ptr %26883, align 8, !noalias !3831
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26882, align 8, !noalias !3831
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26882, align 8, !noalias !3831
   %26884 = getelementptr inbounds nuw i8, ptr %26879, i64 28
   store i8 1, ptr %26884, align 4, !noalias !3831
   store ptr %26882, ptr %938, align 8
@@ -66063,11 +66063,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %26966, align 8, !noalias !3839
   %26967 = getelementptr inbounds nuw i8, ptr %26965, i64 12
   store i32 1, ptr %26967, align 4, !noalias !3839
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26965, align 8, !noalias !3839
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26965, align 8, !noalias !3839
   %26968 = getelementptr inbounds nuw i8, ptr %26965, i64 16
   %26969 = getelementptr inbounds nuw i8, ptr %26965, i64 24
   store i32 0, ptr %26969, align 8, !noalias !3839
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26968, align 8, !noalias !3839
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %26968, align 8, !noalias !3839
   %26970 = getelementptr inbounds nuw i8, ptr %26965, i64 28
   store i8 1, ptr %26970, align 4, !noalias !3839
   store ptr %26968, ptr %943, align 8
@@ -66275,11 +66275,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %27046, align 8, !noalias !3852
   %27047 = getelementptr inbounds nuw i8, ptr %27045, i64 12
   store i32 1, ptr %27047, align 4, !noalias !3852
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27045, align 8, !noalias !3852
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27045, align 8, !noalias !3852
   %27048 = getelementptr inbounds nuw i8, ptr %27045, i64 16
   %27049 = getelementptr inbounds nuw i8, ptr %27045, i64 24
   store i32 0, ptr %27049, align 8, !noalias !3852
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27048, align 8, !noalias !3852
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27048, align 8, !noalias !3852
   %27050 = getelementptr inbounds nuw i8, ptr %27045, i64 28
   store i8 1, ptr %27050, align 4, !noalias !3852
   store ptr %27048, ptr %949, align 8
@@ -66291,11 +66291,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %27054, align 8, !noalias !3860
   %27055 = getelementptr inbounds nuw i8, ptr %27053, i64 12
   store i32 1, ptr %27055, align 4, !noalias !3860
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27053, align 8, !noalias !3860
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27053, align 8, !noalias !3860
   %27056 = getelementptr inbounds nuw i8, ptr %27053, i64 16
   %27057 = getelementptr inbounds nuw i8, ptr %27053, i64 24
   store i32 1, ptr %27057, align 8, !noalias !3860
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27056, align 8, !noalias !3860
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27056, align 8, !noalias !3860
   %27058 = getelementptr inbounds nuw i8, ptr %27053, i64 28
   store i8 1, ptr %27058, align 4, !noalias !3860
   store ptr %27056, ptr %950, align 8
@@ -66574,11 +66574,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i17757: ; preds = %_
   store i32 1, ptr %27168, align 8, !noalias !3873
   %27169 = getelementptr inbounds nuw i8, ptr %27167, i64 12
   store i32 1, ptr %27169, align 4, !noalias !3873
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27167, align 8, !noalias !3873
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27167, align 8, !noalias !3873
   %27170 = getelementptr inbounds nuw i8, ptr %27167, i64 16
   %27171 = getelementptr inbounds nuw i8, ptr %27167, i64 24
   store i32 0, ptr %27171, align 8, !noalias !3873
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27170, align 8, !noalias !3873
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27170, align 8, !noalias !3873
   %27172 = getelementptr inbounds nuw i8, ptr %27167, i64 28
   store i8 1, ptr %27172, align 4, !noalias !3873
   store ptr %27170, ptr %956, align 8
@@ -66594,11 +66594,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i17757: ; preds = %_
   store i32 1, ptr %27177, align 8, !noalias !3884
   %27178 = getelementptr inbounds nuw i8, ptr %27176, i64 12
   store i32 1, ptr %27178, align 4, !noalias !3884
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27176, align 8, !noalias !3884
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27176, align 8, !noalias !3884
   %27179 = getelementptr inbounds nuw i8, ptr %27176, i64 16
   %27180 = getelementptr inbounds nuw i8, ptr %27176, i64 24
   store i32 1, ptr %27180, align 8, !noalias !3884
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27179, align 8, !noalias !3884
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27179, align 8, !noalias !3884
   %27181 = getelementptr inbounds nuw i8, ptr %27176, i64 28
   store i32 1, ptr %27181, align 4, !noalias !3884
   %27182 = getelementptr inbounds nuw i8, ptr %27176, i64 32
@@ -66890,11 +66890,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %27296, align 8, !noalias !3897
   %27297 = getelementptr inbounds nuw i8, ptr %27295, i64 12
   store i32 1, ptr %27297, align 4, !noalias !3897
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27295, align 8, !noalias !3897
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27295, align 8, !noalias !3897
   %27298 = getelementptr inbounds nuw i8, ptr %27295, i64 16
   %27299 = getelementptr inbounds nuw i8, ptr %27295, i64 24
   store i32 0, ptr %27299, align 8, !noalias !3897
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27298, align 8, !noalias !3897
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27298, align 8, !noalias !3897
   %27300 = getelementptr inbounds nuw i8, ptr %27295, i64 28
   store i8 1, ptr %27300, align 4, !noalias !3897
   store ptr %27298, ptr %962, align 8
@@ -67015,11 +67015,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %27348, align 8, !noalias !3905
   %27349 = getelementptr inbounds nuw i8, ptr %27347, i64 12
   store i32 1, ptr %27349, align 4, !noalias !3905
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27347, align 8, !noalias !3905
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27347, align 8, !noalias !3905
   %27350 = getelementptr inbounds nuw i8, ptr %27347, i64 16
   %27351 = getelementptr inbounds nuw i8, ptr %27347, i64 24
   store i32 0, ptr %27351, align 8, !noalias !3905
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27350, align 8, !noalias !3905
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27350, align 8, !noalias !3905
   %27352 = getelementptr inbounds nuw i8, ptr %27347, i64 28
   store i8 1, ptr %27352, align 4, !noalias !3905
   store ptr %27350, ptr %967, align 8
@@ -67680,11 +67680,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %27649, align 8, !noalias !3913
   %27650 = getelementptr inbounds nuw i8, ptr %27648, i64 12
   store i32 1, ptr %27650, align 4, !noalias !3913
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27648, align 8, !noalias !3913
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27648, align 8, !noalias !3913
   %27651 = getelementptr inbounds nuw i8, ptr %27648, i64 16
   %27652 = getelementptr inbounds nuw i8, ptr %27648, i64 24
   store i32 0, ptr %27652, align 8, !noalias !3913
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27651, align 8, !noalias !3913
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %27651, align 8, !noalias !3913
   %27653 = getelementptr inbounds nuw i8, ptr %27648, i64 28
   store i8 1, ptr %27653, align 4, !noalias !3913
   store ptr %27651, ptr %971, align 8
@@ -67894,11 +67894,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %27734, align 8, !noalias !3926
   %27735 = getelementptr inbounds nuw i8, ptr %27733, i64 12
   store i32 1, ptr %27735, align 4, !noalias !3926
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27733, align 8, !noalias !3926
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27733, align 8, !noalias !3926
   %27736 = getelementptr inbounds nuw i8, ptr %27733, i64 16
   %27737 = getelementptr inbounds nuw i8, ptr %27733, i64 24
   store i32 0, ptr %27737, align 8, !noalias !3926
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintE, i64 16), ptr %27736, align 8, !noalias !3926
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintE, i64 16), ptr %27736, align 8, !noalias !3926
   %27738 = getelementptr inbounds nuw i8, ptr %27733, i64 28
   store i32 1, ptr %27738, align 4, !noalias !3926
   %27739 = getelementptr inbounds nuw i8, ptr %27733, i64 32
@@ -68011,11 +68011,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferCons
   store i32 1, ptr %27786, align 8, !noalias !3934
   %27787 = getelementptr inbounds nuw i8, ptr %27785, i64 12
   store i32 1, ptr %27787, align 4, !noalias !3934
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27785, align 8, !noalias !3934
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27785, align 8, !noalias !3934
   %27788 = getelementptr inbounds nuw i8, ptr %27785, i64 16
   %27789 = getelementptr inbounds nuw i8, ptr %27785, i64 24
   store i32 0, ptr %27789, align 8, !noalias !3934
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27788, align 8, !noalias !3934
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27788, align 8, !noalias !3934
   %27790 = getelementptr inbounds nuw i8, ptr %27785, i64 28
   store i32 1, ptr %27790, align 4, !noalias !3934
   %27791 = getelementptr inbounds nuw i8, ptr %27785, i64 32
@@ -68141,11 +68141,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18161:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %27843, align 8, !noalias !3945
   %27844 = getelementptr inbounds nuw i8, ptr %27842, i64 12
   store i32 1, ptr %27844, align 4, !noalias !3945
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27842, align 8, !noalias !3945
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27842, align 8, !noalias !3945
   %27845 = getelementptr inbounds nuw i8, ptr %27842, i64 16
   %27846 = getelementptr inbounds nuw i8, ptr %27842, i64 24
   store i32 0, ptr %27846, align 8, !noalias !3945
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27845, align 8, !noalias !3945
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27845, align 8, !noalias !3945
   %27847 = getelementptr inbounds nuw i8, ptr %27842, i64 28
   store i32 1, ptr %27847, align 4, !noalias !3945
   %27848 = getelementptr inbounds nuw i8, ptr %27842, i64 32
@@ -68272,11 +68272,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18211:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %27900, align 8, !noalias !3956
   %27901 = getelementptr inbounds nuw i8, ptr %27899, i64 12
   store i32 1, ptr %27901, align 4, !noalias !3956
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27899, align 8, !noalias !3956
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27899, align 8, !noalias !3956
   %27902 = getelementptr inbounds nuw i8, ptr %27899, i64 16
   %27903 = getelementptr inbounds nuw i8, ptr %27899, i64 24
   store i32 0, ptr %27903, align 8, !noalias !3956
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27902, align 8, !noalias !3956
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27902, align 8, !noalias !3956
   %27904 = getelementptr inbounds nuw i8, ptr %27899, i64 28
   store i32 1, ptr %27904, align 4, !noalias !3956
   %27905 = getelementptr inbounds nuw i8, ptr %27899, i64 32
@@ -68403,11 +68403,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18261:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %27957, align 8, !noalias !3967
   %27958 = getelementptr inbounds nuw i8, ptr %27956, i64 12
   store i32 1, ptr %27958, align 4, !noalias !3967
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27956, align 8, !noalias !3967
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27956, align 8, !noalias !3967
   %27959 = getelementptr inbounds nuw i8, ptr %27956, i64 16
   %27960 = getelementptr inbounds nuw i8, ptr %27956, i64 24
   store i32 0, ptr %27960, align 8, !noalias !3967
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27959, align 8, !noalias !3967
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %27959, align 8, !noalias !3967
   %27961 = getelementptr inbounds nuw i8, ptr %27956, i64 28
   store i32 1, ptr %27961, align 4, !noalias !3967
   %27962 = getelementptr inbounds nuw i8, ptr %27956, i64 32
@@ -68534,11 +68534,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18311:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28014, align 8, !noalias !3978
   %28015 = getelementptr inbounds nuw i8, ptr %28013, i64 12
   store i32 1, ptr %28015, align 4, !noalias !3978
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28013, align 8, !noalias !3978
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28013, align 8, !noalias !3978
   %28016 = getelementptr inbounds nuw i8, ptr %28013, i64 16
   %28017 = getelementptr inbounds nuw i8, ptr %28013, i64 24
   store i32 0, ptr %28017, align 8, !noalias !3978
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28016, align 8, !noalias !3978
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28016, align 8, !noalias !3978
   %28018 = getelementptr inbounds nuw i8, ptr %28013, i64 28
   store i32 1, ptr %28018, align 4, !noalias !3978
   %28019 = getelementptr inbounds nuw i8, ptr %28013, i64 32
@@ -68665,11 +68665,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18361:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28071, align 8, !noalias !3989
   %28072 = getelementptr inbounds nuw i8, ptr %28070, i64 12
   store i32 1, ptr %28072, align 4, !noalias !3989
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28070, align 8, !noalias !3989
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28070, align 8, !noalias !3989
   %28073 = getelementptr inbounds nuw i8, ptr %28070, i64 16
   %28074 = getelementptr inbounds nuw i8, ptr %28070, i64 24
   store i32 0, ptr %28074, align 8, !noalias !3989
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28073, align 8, !noalias !3989
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28073, align 8, !noalias !3989
   %28075 = getelementptr inbounds nuw i8, ptr %28070, i64 28
   store i32 1, ptr %28075, align 4, !noalias !3989
   %28076 = getelementptr inbounds nuw i8, ptr %28070, i64 32
@@ -68796,11 +68796,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18411:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28128, align 8, !noalias !4000
   %28129 = getelementptr inbounds nuw i8, ptr %28127, i64 12
   store i32 1, ptr %28129, align 4, !noalias !4000
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28127, align 8, !noalias !4000
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28127, align 8, !noalias !4000
   %28130 = getelementptr inbounds nuw i8, ptr %28127, i64 16
   %28131 = getelementptr inbounds nuw i8, ptr %28127, i64 24
   store i32 0, ptr %28131, align 8, !noalias !4000
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28130, align 8, !noalias !4000
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28130, align 8, !noalias !4000
   %28132 = getelementptr inbounds nuw i8, ptr %28127, i64 28
   store i32 1, ptr %28132, align 4, !noalias !4000
   %28133 = getelementptr inbounds nuw i8, ptr %28127, i64 32
@@ -68927,11 +68927,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18461:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28185, align 8, !noalias !4011
   %28186 = getelementptr inbounds nuw i8, ptr %28184, i64 12
   store i32 1, ptr %28186, align 4, !noalias !4011
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28184, align 8, !noalias !4011
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28184, align 8, !noalias !4011
   %28187 = getelementptr inbounds nuw i8, ptr %28184, i64 16
   %28188 = getelementptr inbounds nuw i8, ptr %28184, i64 24
   store i32 0, ptr %28188, align 8, !noalias !4011
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28187, align 8, !noalias !4011
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28187, align 8, !noalias !4011
   %28189 = getelementptr inbounds nuw i8, ptr %28184, i64 28
   store i32 1, ptr %28189, align 4, !noalias !4011
   %28190 = getelementptr inbounds nuw i8, ptr %28184, i64 32
@@ -69058,11 +69058,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18511:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28242, align 8, !noalias !4022
   %28243 = getelementptr inbounds nuw i8, ptr %28241, i64 12
   store i32 1, ptr %28243, align 4, !noalias !4022
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28241, align 8, !noalias !4022
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28241, align 8, !noalias !4022
   %28244 = getelementptr inbounds nuw i8, ptr %28241, i64 16
   %28245 = getelementptr inbounds nuw i8, ptr %28241, i64 24
   store i32 0, ptr %28245, align 8, !noalias !4022
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28244, align 8, !noalias !4022
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28244, align 8, !noalias !4022
   %28246 = getelementptr inbounds nuw i8, ptr %28241, i64 28
   store i32 1, ptr %28246, align 4, !noalias !4022
   %28247 = getelementptr inbounds nuw i8, ptr %28241, i64 32
@@ -69189,11 +69189,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18561:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28299, align 8, !noalias !4033
   %28300 = getelementptr inbounds nuw i8, ptr %28298, i64 12
   store i32 1, ptr %28300, align 4, !noalias !4033
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28298, align 8, !noalias !4033
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28298, align 8, !noalias !4033
   %28301 = getelementptr inbounds nuw i8, ptr %28298, i64 16
   %28302 = getelementptr inbounds nuw i8, ptr %28298, i64 24
   store i32 0, ptr %28302, align 8, !noalias !4033
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28301, align 8, !noalias !4033
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28301, align 8, !noalias !4033
   %28303 = getelementptr inbounds nuw i8, ptr %28298, i64 28
   store i32 1, ptr %28303, align 4, !noalias !4033
   %28304 = getelementptr inbounds nuw i8, ptr %28298, i64 32
@@ -69320,11 +69320,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18611:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28356, align 8, !noalias !4044
   %28357 = getelementptr inbounds nuw i8, ptr %28355, i64 12
   store i32 1, ptr %28357, align 4, !noalias !4044
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28355, align 8, !noalias !4044
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28355, align 8, !noalias !4044
   %28358 = getelementptr inbounds nuw i8, ptr %28355, i64 16
   %28359 = getelementptr inbounds nuw i8, ptr %28355, i64 24
   store i32 0, ptr %28359, align 8, !noalias !4044
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28358, align 8, !noalias !4044
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28358, align 8, !noalias !4044
   %28360 = getelementptr inbounds nuw i8, ptr %28355, i64 28
   store i32 1, ptr %28360, align 4, !noalias !4044
   %28361 = getelementptr inbounds nuw i8, ptr %28355, i64 32
@@ -69451,11 +69451,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18661:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28413, align 8, !noalias !4055
   %28414 = getelementptr inbounds nuw i8, ptr %28412, i64 12
   store i32 1, ptr %28414, align 4, !noalias !4055
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28412, align 8, !noalias !4055
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28412, align 8, !noalias !4055
   %28415 = getelementptr inbounds nuw i8, ptr %28412, i64 16
   %28416 = getelementptr inbounds nuw i8, ptr %28412, i64 24
   store i32 0, ptr %28416, align 8, !noalias !4055
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28415, align 8, !noalias !4055
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28415, align 8, !noalias !4055
   %28417 = getelementptr inbounds nuw i8, ptr %28412, i64 28
   store i32 1, ptr %28417, align 4, !noalias !4055
   %28418 = getelementptr inbounds nuw i8, ptr %28412, i64 32
@@ -69586,11 +69586,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18711:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28470, align 8, !noalias !4066
   %28471 = getelementptr inbounds nuw i8, ptr %28469, i64 12
   store i32 1, ptr %28471, align 4, !noalias !4066
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28469, align 8, !noalias !4066
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28469, align 8, !noalias !4066
   %28472 = getelementptr inbounds nuw i8, ptr %28469, i64 16
   %28473 = getelementptr inbounds nuw i8, ptr %28469, i64 24
   store i32 0, ptr %28473, align 8, !noalias !4066
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28472, align 8, !noalias !4066
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28472, align 8, !noalias !4066
   %28474 = getelementptr inbounds nuw i8, ptr %28469, i64 28
   store i32 1, ptr %28474, align 4, !noalias !4066
   %28475 = getelementptr inbounds nuw i8, ptr %28469, i64 32
@@ -69721,11 +69721,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18767:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28527, align 8, !noalias !4077
   %28528 = getelementptr inbounds nuw i8, ptr %28526, i64 12
   store i32 1, ptr %28528, align 4, !noalias !4077
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28526, align 8, !noalias !4077
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28526, align 8, !noalias !4077
   %28529 = getelementptr inbounds nuw i8, ptr %28526, i64 16
   %28530 = getelementptr inbounds nuw i8, ptr %28526, i64 24
   store i32 0, ptr %28530, align 8, !noalias !4077
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28529, align 8, !noalias !4077
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28529, align 8, !noalias !4077
   %28531 = getelementptr inbounds nuw i8, ptr %28526, i64 28
   store i32 1, ptr %28531, align 4, !noalias !4077
   %28532 = getelementptr inbounds nuw i8, ptr %28526, i64 32
@@ -69848,11 +69848,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18823:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28583, align 8, !noalias !4085
   %28584 = getelementptr inbounds nuw i8, ptr %28582, i64 12
   store i32 1, ptr %28584, align 4, !noalias !4085
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28582, align 8, !noalias !4085
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28582, align 8, !noalias !4085
   %28585 = getelementptr inbounds nuw i8, ptr %28582, i64 16
   %28586 = getelementptr inbounds nuw i8, ptr %28582, i64 24
   store i32 0, ptr %28586, align 8, !noalias !4085
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28585, align 8, !noalias !4085
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28585, align 8, !noalias !4085
   %28587 = getelementptr inbounds nuw i8, ptr %28582, i64 28
   %28588 = getelementptr inbounds nuw i8, ptr %28582, i64 32
   store i32 0, ptr %28587, align 4
@@ -69978,11 +69978,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18873:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28640, align 8, !noalias !4096
   %28641 = getelementptr inbounds nuw i8, ptr %28639, i64 12
   store i32 1, ptr %28641, align 4, !noalias !4096
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28639, align 8, !noalias !4096
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28639, align 8, !noalias !4096
   %28642 = getelementptr inbounds nuw i8, ptr %28639, i64 16
   %28643 = getelementptr inbounds nuw i8, ptr %28639, i64 24
   store i32 0, ptr %28643, align 8, !noalias !4096
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28642, align 8, !noalias !4096
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28642, align 8, !noalias !4096
   %28644 = getelementptr inbounds nuw i8, ptr %28639, i64 28
   %28645 = getelementptr inbounds nuw i8, ptr %28639, i64 32
   store i32 0, ptr %28644, align 4
@@ -70109,11 +70109,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18923:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28697, align 8, !noalias !4107
   %28698 = getelementptr inbounds nuw i8, ptr %28696, i64 12
   store i32 1, ptr %28698, align 4, !noalias !4107
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28696, align 8, !noalias !4107
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28696, align 8, !noalias !4107
   %28699 = getelementptr inbounds nuw i8, ptr %28696, i64 16
   %28700 = getelementptr inbounds nuw i8, ptr %28696, i64 24
   store i32 0, ptr %28700, align 8, !noalias !4107
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28699, align 8, !noalias !4107
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28699, align 8, !noalias !4107
   %28701 = getelementptr inbounds nuw i8, ptr %28696, i64 28
   %28702 = getelementptr inbounds nuw i8, ptr %28696, i64 32
   store i32 0, ptr %28701, align 4
@@ -70240,11 +70240,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit18973:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28754, align 8, !noalias !4118
   %28755 = getelementptr inbounds nuw i8, ptr %28753, i64 12
   store i32 1, ptr %28755, align 4, !noalias !4118
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28753, align 8, !noalias !4118
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28753, align 8, !noalias !4118
   %28756 = getelementptr inbounds nuw i8, ptr %28753, i64 16
   %28757 = getelementptr inbounds nuw i8, ptr %28753, i64 24
   store i32 0, ptr %28757, align 8, !noalias !4118
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28756, align 8, !noalias !4118
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28756, align 8, !noalias !4118
   %28758 = getelementptr inbounds nuw i8, ptr %28753, i64 28
   %28759 = getelementptr inbounds nuw i8, ptr %28753, i64 32
   store i32 0, ptr %28758, align 4
@@ -70371,11 +70371,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19023:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28811, align 8, !noalias !4129
   %28812 = getelementptr inbounds nuw i8, ptr %28810, i64 12
   store i32 1, ptr %28812, align 4, !noalias !4129
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28810, align 8, !noalias !4129
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28810, align 8, !noalias !4129
   %28813 = getelementptr inbounds nuw i8, ptr %28810, i64 16
   %28814 = getelementptr inbounds nuw i8, ptr %28810, i64 24
   store i32 0, ptr %28814, align 8, !noalias !4129
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28813, align 8, !noalias !4129
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28813, align 8, !noalias !4129
   %28815 = getelementptr inbounds nuw i8, ptr %28810, i64 28
   %28816 = getelementptr inbounds nuw i8, ptr %28810, i64 32
   store i32 0, ptr %28815, align 4
@@ -70502,11 +70502,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19073:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28868, align 8, !noalias !4140
   %28869 = getelementptr inbounds nuw i8, ptr %28867, i64 12
   store i32 1, ptr %28869, align 4, !noalias !4140
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28867, align 8, !noalias !4140
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28867, align 8, !noalias !4140
   %28870 = getelementptr inbounds nuw i8, ptr %28867, i64 16
   %28871 = getelementptr inbounds nuw i8, ptr %28867, i64 24
   store i32 0, ptr %28871, align 8, !noalias !4140
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28870, align 8, !noalias !4140
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28870, align 8, !noalias !4140
   %28872 = getelementptr inbounds nuw i8, ptr %28867, i64 28
   %28873 = getelementptr inbounds nuw i8, ptr %28867, i64 32
   store i32 0, ptr %28872, align 4
@@ -70633,11 +70633,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19123:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28925, align 8, !noalias !4151
   %28926 = getelementptr inbounds nuw i8, ptr %28924, i64 12
   store i32 1, ptr %28926, align 4, !noalias !4151
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28924, align 8, !noalias !4151
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28924, align 8, !noalias !4151
   %28927 = getelementptr inbounds nuw i8, ptr %28924, i64 16
   %28928 = getelementptr inbounds nuw i8, ptr %28924, i64 24
   store i32 0, ptr %28928, align 8, !noalias !4151
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28927, align 8, !noalias !4151
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28927, align 8, !noalias !4151
   %28929 = getelementptr inbounds nuw i8, ptr %28924, i64 28
   %28930 = getelementptr inbounds nuw i8, ptr %28924, i64 32
   store i32 0, ptr %28929, align 4
@@ -70764,11 +70764,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19173:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %28982, align 8, !noalias !4162
   %28983 = getelementptr inbounds nuw i8, ptr %28981, i64 12
   store i32 1, ptr %28983, align 4, !noalias !4162
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28981, align 8, !noalias !4162
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28981, align 8, !noalias !4162
   %28984 = getelementptr inbounds nuw i8, ptr %28981, i64 16
   %28985 = getelementptr inbounds nuw i8, ptr %28981, i64 24
   store i32 0, ptr %28985, align 8, !noalias !4162
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28984, align 8, !noalias !4162
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %28984, align 8, !noalias !4162
   %28986 = getelementptr inbounds nuw i8, ptr %28981, i64 28
   %28987 = getelementptr inbounds nuw i8, ptr %28981, i64 32
   store i32 0, ptr %28986, align 4
@@ -70895,11 +70895,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19223:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29039, align 8, !noalias !4173
   %29040 = getelementptr inbounds nuw i8, ptr %29038, i64 12
   store i32 1, ptr %29040, align 4, !noalias !4173
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29038, align 8, !noalias !4173
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29038, align 8, !noalias !4173
   %29041 = getelementptr inbounds nuw i8, ptr %29038, i64 16
   %29042 = getelementptr inbounds nuw i8, ptr %29038, i64 24
   store i32 0, ptr %29042, align 8, !noalias !4173
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29041, align 8, !noalias !4173
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29041, align 8, !noalias !4173
   %29043 = getelementptr inbounds nuw i8, ptr %29038, i64 28
   %29044 = getelementptr inbounds nuw i8, ptr %29038, i64 32
   store i32 0, ptr %29043, align 4
@@ -71026,11 +71026,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19273:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29096, align 8, !noalias !4184
   %29097 = getelementptr inbounds nuw i8, ptr %29095, i64 12
   store i32 1, ptr %29097, align 4, !noalias !4184
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29095, align 8, !noalias !4184
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29095, align 8, !noalias !4184
   %29098 = getelementptr inbounds nuw i8, ptr %29095, i64 16
   %29099 = getelementptr inbounds nuw i8, ptr %29095, i64 24
   store i32 0, ptr %29099, align 8, !noalias !4184
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29098, align 8, !noalias !4184
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29098, align 8, !noalias !4184
   %29100 = getelementptr inbounds nuw i8, ptr %29095, i64 28
   %29101 = getelementptr inbounds nuw i8, ptr %29095, i64 32
   store i32 0, ptr %29100, align 4
@@ -71157,11 +71157,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19323:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29153, align 8, !noalias !4195
   %29154 = getelementptr inbounds nuw i8, ptr %29152, i64 12
   store i32 1, ptr %29154, align 4, !noalias !4195
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29152, align 8, !noalias !4195
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29152, align 8, !noalias !4195
   %29155 = getelementptr inbounds nuw i8, ptr %29152, i64 16
   %29156 = getelementptr inbounds nuw i8, ptr %29152, i64 24
   store i32 0, ptr %29156, align 8, !noalias !4195
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29155, align 8, !noalias !4195
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29155, align 8, !noalias !4195
   %29157 = getelementptr inbounds nuw i8, ptr %29152, i64 28
   %29158 = getelementptr inbounds nuw i8, ptr %29152, i64 32
   store i32 0, ptr %29157, align 4
@@ -71288,11 +71288,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19373:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29210, align 8, !noalias !4206
   %29211 = getelementptr inbounds nuw i8, ptr %29209, i64 12
   store i32 1, ptr %29211, align 4, !noalias !4206
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29209, align 8, !noalias !4206
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29209, align 8, !noalias !4206
   %29212 = getelementptr inbounds nuw i8, ptr %29209, i64 16
   %29213 = getelementptr inbounds nuw i8, ptr %29209, i64 24
   store i32 0, ptr %29213, align 8, !noalias !4206
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29212, align 8, !noalias !4206
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29212, align 8, !noalias !4206
   %29214 = getelementptr inbounds nuw i8, ptr %29209, i64 28
   %29215 = getelementptr inbounds nuw i8, ptr %29209, i64 32
   store i32 0, ptr %29214, align 4
@@ -71423,11 +71423,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19423:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29267, align 8, !noalias !4217
   %29268 = getelementptr inbounds nuw i8, ptr %29266, i64 12
   store i32 1, ptr %29268, align 4, !noalias !4217
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29266, align 8, !noalias !4217
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29266, align 8, !noalias !4217
   %29269 = getelementptr inbounds nuw i8, ptr %29266, i64 16
   %29270 = getelementptr inbounds nuw i8, ptr %29266, i64 24
   store i32 0, ptr %29270, align 8, !noalias !4217
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29269, align 8, !noalias !4217
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29269, align 8, !noalias !4217
   %29271 = getelementptr inbounds nuw i8, ptr %29266, i64 28
   %29272 = getelementptr inbounds nuw i8, ptr %29266, i64 32
   store i32 0, ptr %29271, align 4
@@ -71558,11 +71558,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19479:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29324, align 8, !noalias !4228
   %29325 = getelementptr inbounds nuw i8, ptr %29323, i64 12
   store i32 1, ptr %29325, align 4, !noalias !4228
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29323, align 8, !noalias !4228
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29323, align 8, !noalias !4228
   %29326 = getelementptr inbounds nuw i8, ptr %29323, i64 16
   %29327 = getelementptr inbounds nuw i8, ptr %29323, i64 24
   store i32 0, ptr %29327, align 8, !noalias !4228
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29326, align 8, !noalias !4228
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29326, align 8, !noalias !4228
   %29328 = getelementptr inbounds nuw i8, ptr %29323, i64 28
   %29329 = getelementptr inbounds nuw i8, ptr %29323, i64 32
   store i32 0, ptr %29328, align 4
@@ -71689,11 +71689,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19535:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29381, align 8, !noalias !4239
   %29382 = getelementptr inbounds nuw i8, ptr %29380, i64 12
   store i32 1, ptr %29382, align 4, !noalias !4239
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29380, align 8, !noalias !4239
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29380, align 8, !noalias !4239
   %29383 = getelementptr inbounds nuw i8, ptr %29380, i64 16
   %29384 = getelementptr inbounds nuw i8, ptr %29380, i64 24
   store i32 0, ptr %29384, align 8, !noalias !4239
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29383, align 8, !noalias !4239
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29383, align 8, !noalias !4239
   %29385 = getelementptr inbounds nuw i8, ptr %29380, i64 28
   store i32 1, ptr %29385, align 4, !noalias !4239
   %29386 = getelementptr inbounds nuw i8, ptr %29380, i64 32
@@ -71820,11 +71820,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19585:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29438, align 8, !noalias !4250
   %29439 = getelementptr inbounds nuw i8, ptr %29437, i64 12
   store i32 1, ptr %29439, align 4, !noalias !4250
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29437, align 8, !noalias !4250
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29437, align 8, !noalias !4250
   %29440 = getelementptr inbounds nuw i8, ptr %29437, i64 16
   %29441 = getelementptr inbounds nuw i8, ptr %29437, i64 24
   store i32 0, ptr %29441, align 8, !noalias !4250
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29440, align 8, !noalias !4250
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29440, align 8, !noalias !4250
   %29442 = getelementptr inbounds nuw i8, ptr %29437, i64 28
   %29443 = getelementptr inbounds nuw i8, ptr %29437, i64 32
   store i32 0, ptr %29442, align 4
@@ -72047,11 +72047,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i19646: ; preds = %_
   store i32 1, ptr %29527, align 8, !noalias !4266
   %29528 = getelementptr inbounds nuw i8, ptr %29526, i64 12
   store i32 1, ptr %29528, align 4, !noalias !4266
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29526, align 8, !noalias !4266
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29526, align 8, !noalias !4266
   %29529 = getelementptr inbounds nuw i8, ptr %29526, i64 16
   %29530 = getelementptr inbounds nuw i8, ptr %29526, i64 24
   store i32 0, ptr %29530, align 8, !noalias !4266
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29529, align 8, !noalias !4266
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29529, align 8, !noalias !4266
   %29531 = getelementptr inbounds nuw i8, ptr %29526, i64 28
   store i32 1, ptr %29531, align 4, !noalias !4266
   %29532 = getelementptr inbounds nuw i8, ptr %29526, i64 32
@@ -72080,11 +72080,11 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE9push_backERKS1_.exit.i19646: ; preds = %_
   store i32 1, ptr %29542, align 8, !noalias !4277
   %29543 = getelementptr inbounds nuw i8, ptr %29541, i64 12
   store i32 1, ptr %29543, align 4, !noalias !4277
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29541, align 8, !noalias !4277
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29541, align 8, !noalias !4277
   %29544 = getelementptr inbounds nuw i8, ptr %29541, i64 16
   %29545 = getelementptr inbounds nuw i8, ptr %29541, i64 24
   store i32 1, ptr %29545, align 8, !noalias !4277
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29544, align 8, !noalias !4277
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29544, align 8, !noalias !4277
   %29546 = getelementptr inbounds nuw i8, ptr %29541, i64 28
   store i32 1, ptr %29546, align 4, !noalias !4277
   %29547 = getelementptr inbounds nuw i8, ptr %29541, i64 32
@@ -72285,11 +72285,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19709:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29633, align 8, !noalias !4288
   %29634 = getelementptr inbounds nuw i8, ptr %29632, i64 12
   store i32 1, ptr %29634, align 4, !noalias !4288
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29632, align 8, !noalias !4288
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29632, align 8, !noalias !4288
   %29635 = getelementptr inbounds nuw i8, ptr %29632, i64 16
   %29636 = getelementptr inbounds nuw i8, ptr %29632, i64 24
   store i32 0, ptr %29636, align 8, !noalias !4288
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29635, align 8, !noalias !4288
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29635, align 8, !noalias !4288
   %29637 = getelementptr inbounds nuw i8, ptr %29632, i64 28
   %29638 = getelementptr inbounds nuw i8, ptr %29632, i64 32
   store i32 0, ptr %29637, align 4
@@ -72318,11 +72318,11 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19709:   ; preds = %_ZNSt16_Sp_counted_
   store i32 1, ptr %29648, align 8, !noalias !4299
   %29649 = getelementptr inbounds nuw i8, ptr %29647, i64 12
   store i32 1, ptr %29649, align 4, !noalias !4299
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29647, align 8, !noalias !4299
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29647, align 8, !noalias !4299
   %29650 = getelementptr inbounds nuw i8, ptr %29647, i64 16
   %29651 = getelementptr inbounds nuw i8, ptr %29647, i64 24
   store i32 0, ptr %29651, align 8, !noalias !4299
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29650, align 8, !noalias !4299
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %29650, align 8, !noalias !4299
   %29652 = getelementptr inbounds nuw i8, ptr %29647, i64 28
   %29653 = getelementptr inbounds nuw i8, ptr %29647, i64 32
   store i32 0, ptr %29652, align 4
@@ -72617,11 +72617,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %29772, align 8, !noalias !4312
   %29773 = getelementptr inbounds nuw i8, ptr %29771, i64 12
   store i32 1, ptr %29773, align 4, !noalias !4312
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29771, align 8, !noalias !4312
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29771, align 8, !noalias !4312
   %29774 = getelementptr inbounds nuw i8, ptr %29771, i64 16
   %29775 = getelementptr inbounds nuw i8, ptr %29771, i64 24
   store i32 0, ptr %29775, align 8, !noalias !4312
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %29774, align 8, !noalias !4312
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %29774, align 8, !noalias !4312
   %29776 = getelementptr inbounds nuw i8, ptr %29771, i64 28
   store i8 1, ptr %29776, align 4, !noalias !4312
   store ptr %29774, ptr %1112, align 8
@@ -72827,11 +72827,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %29855, align 8, !noalias !4325
   %29856 = getelementptr inbounds nuw i8, ptr %29854, i64 12
   store i32 1, ptr %29856, align 4, !noalias !4325
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29854, align 8, !noalias !4325
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29854, align 8, !noalias !4325
   %29857 = getelementptr inbounds nuw i8, ptr %29854, i64 16
   %29858 = getelementptr inbounds nuw i8, ptr %29854, i64 24
   store i32 0, ptr %29858, align 8, !noalias !4325
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %29857, align 8, !noalias !4325
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %29857, align 8, !noalias !4325
   %29859 = getelementptr inbounds nuw i8, ptr %29854, i64 28
   store i8 1, ptr %29859, align 4, !noalias !4325
   store ptr %29857, ptr %1117, align 8
@@ -72843,11 +72843,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %29863, align 8, !noalias !4333
   %29864 = getelementptr inbounds nuw i8, ptr %29862, i64 12
   store i32 1, ptr %29864, align 4, !noalias !4333
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29862, align 8, !noalias !4333
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29862, align 8, !noalias !4333
   %29865 = getelementptr inbounds nuw i8, ptr %29862, i64 16
   %29866 = getelementptr inbounds nuw i8, ptr %29862, i64 24
   store i32 1, ptr %29866, align 8, !noalias !4333
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %29865, align 8, !noalias !4333
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %29865, align 8, !noalias !4333
   %29867 = getelementptr inbounds nuw i8, ptr %29862, i64 28
   store i8 1, ptr %29867, align 4, !noalias !4333
   store ptr %29865, ptr %1118, align 8
@@ -73125,11 +73125,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %29979, align 8, !noalias !4346
   %29980 = getelementptr inbounds nuw i8, ptr %29978, i64 12
   store i32 1, ptr %29980, align 4, !noalias !4346
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29978, align 8, !noalias !4346
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29978, align 8, !noalias !4346
   %29981 = getelementptr inbounds nuw i8, ptr %29978, i64 16
   %29982 = getelementptr inbounds nuw i8, ptr %29978, i64 24
   store i32 0, ptr %29982, align 8, !noalias !4346
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %29981, align 8, !noalias !4346
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %29981, align 8, !noalias !4346
   %29983 = getelementptr inbounds nuw i8, ptr %29978, i64 48
   store i8 0, ptr %29983, align 8, !noalias !4346
   %29984 = getelementptr inbounds nuw i8, ptr %29978, i64 56
@@ -73346,11 +73346,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker9SignatureC2EN4llvm8ArrayRefISt8opt
   store i32 1, ptr %30067, align 8, !noalias !4359
   %30068 = getelementptr inbounds nuw i8, ptr %30066, i64 12
   store i32 1, ptr %30068, align 4, !noalias !4359
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30066, align 8, !noalias !4359
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30066, align 8, !noalias !4359
   %30069 = getelementptr inbounds nuw i8, ptr %30066, i64 16
   %30070 = getelementptr inbounds nuw i8, ptr %30066, i64 24
   store i32 0, ptr %30070, align 8, !noalias !4359
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %30069, align 8, !noalias !4359
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %30069, align 8, !noalias !4359
   %30071 = getelementptr inbounds nuw i8, ptr %30066, i64 48
   store i8 0, ptr %30071, align 8, !noalias !4359
   %30072 = getelementptr inbounds nuw i8, ptr %30066, i64 56
@@ -73703,11 +73703,11 @@ _ZN4llvm6APSIntD2Ev.exit19999:                    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %30228, align 8, !noalias !4367
   %30229 = getelementptr inbounds nuw i8, ptr %30227, i64 12
   store i32 1, ptr %30229, align 4, !noalias !4367
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30227, align 8, !noalias !4367
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30227, align 8, !noalias !4367
   %30230 = getelementptr inbounds nuw i8, ptr %30227, i64 16
   %30231 = getelementptr inbounds nuw i8, ptr %30227, i64 24
   store i32 -1, ptr %30231, align 8, !noalias !4367
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30230, align 8, !noalias !4367
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30230, align 8, !noalias !4367
   %30232 = getelementptr inbounds nuw i8, ptr %30227, i64 28
   store i32 1, ptr %30232, align 4, !noalias !4367
   %30233 = getelementptr inbounds nuw i8, ptr %30227, i64 32
@@ -73757,11 +73757,11 @@ _ZN4llvm6APSIntD2Ev.exit19999:                    ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %30252, align 8, !noalias !4378
   %30253 = getelementptr inbounds nuw i8, ptr %30251, i64 12
   store i32 1, ptr %30253, align 4, !noalias !4378
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30251, align 8, !noalias !4378
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30251, align 8, !noalias !4378
   %30254 = getelementptr inbounds nuw i8, ptr %30251, i64 16
   %30255 = getelementptr inbounds nuw i8, ptr %30251, i64 24
   store i32 -1, ptr %30255, align 8, !noalias !4378
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30254, align 8, !noalias !4378
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30254, align 8, !noalias !4378
   %30256 = getelementptr inbounds nuw i8, ptr %30251, i64 28
   store i32 1, ptr %30256, align 4, !noalias !4378
   %30257 = getelementptr inbounds nuw i8, ptr %30251, i64 32
@@ -74185,11 +74185,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %30432, align 8, !noalias !4386
   %30433 = getelementptr inbounds nuw i8, ptr %30431, i64 12
   store i32 1, ptr %30433, align 4, !noalias !4386
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30431, align 8, !noalias !4386
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30431, align 8, !noalias !4386
   %30434 = getelementptr inbounds nuw i8, ptr %30431, i64 16
   %30435 = getelementptr inbounds nuw i8, ptr %30431, i64 24
   store i32 0, ptr %30435, align 8, !noalias !4386
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30434, align 8, !noalias !4386
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30434, align 8, !noalias !4386
   %30436 = getelementptr inbounds nuw i8, ptr %30431, i64 28
   store i32 1, ptr %30436, align 4, !noalias !4386
   %30437 = getelementptr inbounds nuw i8, ptr %30431, i64 32
@@ -74218,11 +74218,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEE
   store i32 1, ptr %30447, align 8, !noalias !4397
   %30448 = getelementptr inbounds nuw i8, ptr %30446, i64 12
   store i32 1, ptr %30448, align 4, !noalias !4397
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30446, align 8, !noalias !4397
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30446, align 8, !noalias !4397
   %30449 = getelementptr inbounds nuw i8, ptr %30446, i64 16
   %30450 = getelementptr inbounds nuw i8, ptr %30446, i64 24
   store i32 -1, ptr %30450, align 8, !noalias !4397
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30449, align 8, !noalias !4397
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30449, align 8, !noalias !4397
   %30451 = getelementptr inbounds nuw i8, ptr %30446, i64 28
   store i32 1, ptr %30451, align 4, !noalias !4397
   %30452 = getelementptr inbounds nuw i8, ptr %30446, i64 32
@@ -74301,11 +74301,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %30479, align 8, !noalias !4405
   %30480 = getelementptr inbounds nuw i8, ptr %30478, i64 12
   store i32 1, ptr %30480, align 4, !noalias !4405
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30478, align 8, !noalias !4405
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30478, align 8, !noalias !4405
   %30481 = getelementptr inbounds nuw i8, ptr %30478, i64 16
   %30482 = getelementptr inbounds nuw i8, ptr %30478, i64 24
   store i32 0, ptr %30482, align 8, !noalias !4405
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30481, align 8, !noalias !4405
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30481, align 8, !noalias !4405
   %30483 = getelementptr inbounds nuw i8, ptr %30478, i64 28
   store i32 1, ptr %30483, align 4, !noalias !4405
   %30484 = getelementptr inbounds nuw i8, ptr %30478, i64 32
@@ -74334,11 +74334,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %30494, align 8, !noalias !4416
   %30495 = getelementptr inbounds nuw i8, ptr %30493, i64 12
   store i32 1, ptr %30495, align 4, !noalias !4416
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30493, align 8, !noalias !4416
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30493, align 8, !noalias !4416
   %30496 = getelementptr inbounds nuw i8, ptr %30493, i64 16
   %30497 = getelementptr inbounds nuw i8, ptr %30493, i64 24
   store i32 -1, ptr %30497, align 8, !noalias !4416
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30496, align 8, !noalias !4416
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30496, align 8, !noalias !4416
   %30498 = getelementptr inbounds nuw i8, ptr %30493, i64 28
   store i32 1, ptr %30498, align 4, !noalias !4416
   %30499 = getelementptr inbounds nuw i8, ptr %30493, i64 32
@@ -74417,11 +74417,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %30526, align 8, !noalias !4424
   %30527 = getelementptr inbounds nuw i8, ptr %30525, i64 12
   store i32 1, ptr %30527, align 4, !noalias !4424
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30525, align 8, !noalias !4424
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30525, align 8, !noalias !4424
   %30528 = getelementptr inbounds nuw i8, ptr %30525, i64 16
   %30529 = getelementptr inbounds nuw i8, ptr %30525, i64 24
   store i32 0, ptr %30529, align 8, !noalias !4424
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30528, align 8, !noalias !4424
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30528, align 8, !noalias !4424
   %30530 = getelementptr inbounds nuw i8, ptr %30525, i64 28
   store i32 1, ptr %30530, align 4, !noalias !4424
   %30531 = getelementptr inbounds nuw i8, ptr %30525, i64 32
@@ -74450,11 +74450,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %30541, align 8, !noalias !4435
   %30542 = getelementptr inbounds nuw i8, ptr %30540, i64 12
   store i32 1, ptr %30542, align 4, !noalias !4435
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30540, align 8, !noalias !4435
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30540, align 8, !noalias !4435
   %30543 = getelementptr inbounds nuw i8, ptr %30540, i64 16
   %30544 = getelementptr inbounds nuw i8, ptr %30540, i64 24
   store i32 -1, ptr %30544, align 8, !noalias !4435
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30543, align 8, !noalias !4435
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30543, align 8, !noalias !4435
   %30545 = getelementptr inbounds nuw i8, ptr %30540, i64 28
   store i32 1, ptr %30545, align 4, !noalias !4435
   %30546 = getelementptr inbounds nuw i8, ptr %30540, i64 32
@@ -74538,11 +74538,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %30574, align 8, !noalias !4443
   %30575 = getelementptr inbounds nuw i8, ptr %30573, i64 12
   store i32 1, ptr %30575, align 4, !noalias !4443
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30573, align 8, !noalias !4443
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30573, align 8, !noalias !4443
   %30576 = getelementptr inbounds nuw i8, ptr %30573, i64 16
   %30577 = getelementptr inbounds nuw i8, ptr %30573, i64 24
   store i32 0, ptr %30577, align 8, !noalias !4443
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30576, align 8, !noalias !4443
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30576, align 8, !noalias !4443
   %30578 = getelementptr inbounds nuw i8, ptr %30573, i64 28
   store i32 1, ptr %30578, align 4, !noalias !4443
   %30579 = getelementptr inbounds nuw i8, ptr %30573, i64 32
@@ -74571,11 +74571,11 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   store i32 1, ptr %30589, align 8, !noalias !4454
   %30590 = getelementptr inbounds nuw i8, ptr %30588, i64 12
   store i32 1, ptr %30590, align 4, !noalias !4454
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30588, align 8, !noalias !4454
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %30588, align 8, !noalias !4454
   %30591 = getelementptr inbounds nuw i8, ptr %30588, i64 16
   %30592 = getelementptr inbounds nuw i8, ptr %30588, i64 24
   store i32 -1, ptr %30592, align 8, !noalias !4454
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30591, align 8, !noalias !4454
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %30591, align 8, !noalias !4454
   %30593 = getelementptr inbounds nuw i8, ptr %30588, i64 28
   store i32 1, ptr %30593, align 4, !noalias !4454
   %30594 = getelementptr inbounds nuw i8, ptr %30588, i64 32
@@ -76869,7 +76869,7 @@ define internal fastcc void @"_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21i
   store i32 1, ptr %6, align 8, !noalias !4480
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !4480
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !4480
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !4480
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4480
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -76898,7 +76898,7 @@ _ZN4llvm6APSIntC2ERKS0_.exit.i.i.i.i.i.i.i:       ; preds = %15, %13
   store i8 %20, ptr %17, align 4, !noalias !4480
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %1, ptr %21, align 8, !noalias !4480
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %8, align 8, !noalias !4480
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %8, align 8, !noalias !4480
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %16, ptr %23, align 8, !noalias !4480
@@ -78034,7 +78034,7 @@ define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126Std
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -78055,7 +78055,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit:        ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -79167,7 +79167,7 @@ _ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit: ; pre
   store i32 1, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %11, align 8
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %10, ptr %84, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
@@ -79326,11 +79326,11 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintC2ERKS1_.exit: ; p
   store i32 1, ptr %23, align 8, !noalias !4531
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 1, ptr %24, align 4, !noalias !4531
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22, align 8, !noalias !4531
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %22, align 8, !noalias !4531
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 %4, ptr %26, align 8, !noalias !4531
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %25, align 8, !noalias !4531
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %25, align 8, !noalias !4531
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 28
   store i32 %..i, ptr %27, align 4, !noalias !4531
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -81301,11 +81301,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferCons
   store i32 1, ptr %10, align 8, !noalias !4560
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %11, align 4, !noalias !4560
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !4560
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !4560
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %3, ptr %13, align 8, !noalias !4560
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintE, i64 16), ptr %12, align 8, !noalias !4560
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintE, i64 16), ptr %12, align 8, !noalias !4560
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %.sroa.6.12..sroa_idx2 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -81659,11 +81659,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint
   store i32 1, ptr %9, align 8, !noalias !4572
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4, !noalias !4572
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !4572
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !4572
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %3, ptr %12, align 8, !noalias !4572
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11, align 8, !noalias !4572
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintE, i64 16), ptr %11, align 8, !noalias !4572
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i8 %7, ptr %13, align 4, !noalias !4572
   store ptr %11, ptr %0, align 8
@@ -81775,7 +81775,7 @@ define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126Std
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
@@ -81804,7 +81804,7 @@ _ZNSt8optionalIN4llvm6APSIntEED2Ev.exit:          ; preds = %1, %6, %10, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
@@ -82437,7 +82437,7 @@ define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSize
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -82492,12 +82492,12 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintC2ERKS1_.exit
   store i32 1, ptr %34, align 8, !noalias !4581
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 1, ptr %35, align 4, !noalias !4581
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %33, align 8, !noalias !4581
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %33, align 8, !noalias !4581
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %38 = load i32, ptr %4, align 8, !noalias !4581
   store i32 %38, ptr %37, align 8, !noalias !4581
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %36, align 8, !noalias !4581
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %36, align 8, !noalias !4581
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store i8 0, ptr %40, align 8, !noalias !4581
@@ -82540,7 +82540,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstra
   store ptr %36, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %33, ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %3, align 8
   %56 = trunc i8 %53 to i1
   br i1 %56, label %57, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit
 
@@ -83099,7 +83099,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento7DataTag7Factory4makeINS0_
   %5 = load i8, ptr %2, align 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN5clang4ento7NoteTag4KindE, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7NoteTagE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7NoteTagE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -83205,7 +83205,7 @@ _ZNSt6vectorISt10unique_ptrIN5clang4ento7DataTagESt14default_deleteIS3_EESaIS6_E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento7NoteTagD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7NoteTagE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7NoteTagE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -83223,7 +83223,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ent
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento7NoteTagD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7NoteTagE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7NoteTagE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -83417,7 +83417,7 @@ define linkonce_odr hidden void @_ZZN5clang4ento14CheckerContext10getNoteTagEOSt
   store i32 1, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %13, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
@@ -84073,9 +84073,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73.i: ; preds
   store ptr %99, ptr %100, align 8, !alias.scope !4621
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !4621
   store i8 1, ptr %101, align 8, !alias.scope !4621
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %102, align 8, !alias.scope !4621
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %102, align 8, !alias.scope !4621
   store ptr %23, ptr %103, align 8, !alias.scope !4621
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRN5clang15DeclarationNameEEE, i64 16), ptr %104, align 8, !alias.scope !4621
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRN5clang15DeclarationNameEEE, i64 16), ptr %104, align 8, !alias.scope !4621
   store ptr %22, ptr %105, align 8, !alias.scope !4621
   store ptr %104, ptr %99, align 8, !alias.scope !4621
   store ptr %102, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4621
@@ -84085,7 +84085,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73.i: ; preds
   store i8 0, ptr %107, align 8, !noalias !4629
   store i32 1, ptr %108, align 4, !noalias !4629
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false), !noalias !4629
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %16, align 8, !noalias !4629
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %16, align 8, !noalias !4629
   store ptr %25, ptr %110, align 8, !noalias !4629
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   %167 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(33) %26) #19
@@ -84137,7 +84137,7 @@ _ZN4llvm7formatvIJRN5clang15DeclarationNameEEEENS_14formatv_objectIDTclsr3stdE10
   store ptr %88, ptr %89, align 8, !alias.scope !4635
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i.i78.i, align 8, !alias.scope !4635
   store i8 0, ptr %90, align 8, !alias.scope !4635
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRN5clang15DeclarationNameEEE, i64 16), ptr %91, align 8, !alias.scope !4635
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRN5clang15DeclarationNameEEE, i64 16), ptr %91, align 8, !alias.scope !4635
   store ptr %22, ptr %92, align 8, !alias.scope !4635
   store ptr %91, ptr %88, align 8, !alias.scope !4635
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14), !noalias !4638
@@ -84146,7 +84146,7 @@ _ZN4llvm7formatvIJRN5clang15DeclarationNameEEEENS_14formatv_objectIDTclsr3stdE10
   store i8 0, ptr %94, align 8, !noalias !4641
   store i32 1, ptr %95, align 4, !noalias !4641
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, i8 0, i64 24, i1 false), !noalias !4641
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %14, align 8, !noalias !4641
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %14, align 8, !noalias !4641
   store ptr %27, ptr %97, align 8, !noalias !4641
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   %179 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(33) %28) #19
@@ -84767,11 +84767,11 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i: ; pre
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 1, ptr %32, align 8, !alias.scope !4660, !noalias !4657
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %33, align 8, !alias.scope !4660, !noalias !4657
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %33, align 8, !alias.scope !4660, !noalias !4657
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %16, ptr %34, align 8, !alias.scope !4660, !noalias !4657
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %35, align 8, !alias.scope !4660, !noalias !4657
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %35, align 8, !alias.scope !4660, !noalias !4657
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %.val, ptr %36, align 8, !alias.scope !4660, !noalias !4657
   store ptr %35, ptr %30, align 8, !alias.scope !4660, !noalias !4657
@@ -84787,7 +84787,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i: ; pre
   store i32 1, ptr %39, align 4, !noalias !4668
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false), !noalias !4668
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !4668
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8, !noalias !4668
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %0, ptr %41, align 8, !noalias !4668
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #19

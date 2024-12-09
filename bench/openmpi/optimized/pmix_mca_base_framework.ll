@@ -45,7 +45,7 @@ define i32 @pmix_mca_base_framework_register(ptr noundef %0, i32 noundef %1) loc
 
 10:                                               ; preds = %2
   %11 = load i32, ptr @pmix_class_init_epoch, align 4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %11, %12
   br i1 %.not, label %14, label %13
 
@@ -77,7 +77,7 @@ define i32 @pmix_mca_base_framework_register(ptr noundef %0, i32 noundef %1) loc
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %14
   %24 = load i32, ptr @pmix_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not50 = icmp eq i32 %24, %25
   br i1 %.not50, label %27, label %26
 

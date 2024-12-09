@@ -198,34 +198,34 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef ptr @GetJavaProperties(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.utsname, align 1
   %3 = alloca [4096 x i8], align 16
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 32), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 32), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %61
 
 5:                                                ; preds = %1
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 24), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 208), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 184), align 8
-  store ptr @.str.2, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 192), align 8
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 208), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 184), align 8
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 192), align 8
   %6 = call i32 @uname(ptr noundef nonnull %2) #12
   %7 = call noalias ptr @strdup(ptr noundef nonnull %2) #12
   store ptr %7, ptr @GetJavaProperties.sprops, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 130
   %9 = call noalias ptr @strdup(ptr noundef nonnull %8) #12
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 8), align 8
-  store ptr @.str.3, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 16), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 8), align 8
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 16), align 8
   %10 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.4) #12
-  %11 = tail call fastcc i32 @ParseLocale(ptr noundef %0, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 80), ptr noundef nonnull getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 96), ptr noundef nonnull getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 112), ptr noundef nonnull getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 128), ptr noundef nonnull getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 144))
+  %11 = tail call fastcc i32 @ParseLocale(ptr noundef %0, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 80), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 96), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 112), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 128), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 144))
   %.not16 = icmp eq i32 %11, 0
   br i1 %.not16, label %14, label %12
 
 12:                                               ; preds = %5
-  %13 = tail call fastcc i32 @ParseLocale(ptr noundef %0, i32 noundef 5, ptr noundef nonnull getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 88), ptr noundef nonnull getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 104), ptr noundef nonnull getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 120), ptr noundef nonnull getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 136), ptr noundef null)
+  %13 = tail call fastcc i32 @ParseLocale(ptr noundef %0, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 88), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 104), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 120), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 136), ptr noundef null)
   br label %15
 
 14:                                               ; preds = %5
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 88), align 8
-  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 144), align 8
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 88), align 8
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 144), align 8
   br label %15
 
 15:                                               ; preds = %12, %14
@@ -237,15 +237,15 @@ define hidden noundef ptr @GetJavaProperties(ptr noundef %0) local_unnamed_addr 
   br i1 %.not17, label %20, label %61
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 144), align 8
-  store ptr %21, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 152), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 144), align 8
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 152), align 8
   %22 = tail call i32 @isatty(i32 noundef 1) #12
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 144), align 8
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 160), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 144), align 8
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 160), align 8
   br label %26
 
 26:                                               ; preds = %24, %20
@@ -254,30 +254,30 @@ define hidden noundef ptr @GetJavaProperties(ptr noundef %0) local_unnamed_addr 
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 144), align 8
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 168), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 144), align 8
+  store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 168), align 8
   br label %31
 
 31:                                               ; preds = %29, %26
-  store ptr @.str.7, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 176), align 8
+  store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 176), align 8
   %32 = tail call i32 @getuid() #12
   %33 = tail call ptr @getpwuid(i32 noundef %32) #12
   %.not18 = icmp eq ptr %33, null
   br i1 %.not18, label %.thread, label %34
 
 .thread:                                          ; preds = %31
-  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 64), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 72), align 8
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 64), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 72), align 8
   br label %48
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %33, align 8
   %36 = tail call noalias ptr @strdup(ptr noundef %35) #12
-  store ptr %36, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 64), align 8
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 64), align 8
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noalias ptr @strdup(ptr noundef %38) #12
-  store ptr %39, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 72), align 8
+  store ptr %39, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 72), align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %48, label %41
 
@@ -307,7 +307,7 @@ define hidden noundef ptr @GetJavaProperties(ptr noundef %0) local_unnamed_addr 
 
 .sink.split:                                      ; preds = %50, %52
   %.sink = phi ptr [ @.str.8, %52 ], [ %49, %50 ]
-  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 72), align 8
+  store ptr %.sink, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 72), align 8
   br label %53
 
 53:                                               ; preds = %.sink.split, %44
@@ -324,13 +324,13 @@ define hidden noundef ptr @GetJavaProperties(ptr noundef %0) local_unnamed_addr 
 
 58:                                               ; preds = %53
   %59 = call noalias ptr @strdup(ptr noundef nonnull %3) #12
-  store ptr %59, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 32), align 8
+  store ptr %59, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 32), align 8
   br label %60
 
 60:                                               ; preds = %58, %57
-  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 40), align 8
-  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 48), align 8
-  store ptr @.str.14, ptr getelementptr inbounds (i8, ptr @GetJavaProperties.sprops, i64 56), align 8
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 40), align 8
+  store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 48), align 8
+  store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @GetJavaProperties.sprops, i64 56), align 8
   br label %61
 
 61:                                               ; preds = %15, %1, %60

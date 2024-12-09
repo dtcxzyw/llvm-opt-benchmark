@@ -509,9 +509,9 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512RegexPatternC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 28), (32, 50), (104, 156), (160, 172), (176, 185), (192, 200)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexPatternE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512RegexPatternE, i64 16), ptr %this, align 8
   %fLiteralText = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fLiteralText, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fLiteralText, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7512RegexPattern4initEv(ptr noundef nonnull align 8 dereferenceable(200) %this)
@@ -676,9 +676,9 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512RegexPatternC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 28), (32, 50), (104, 156), (160, 172), (176, 185), (192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(200) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexPatternE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512RegexPatternE, i64 16), ptr %this, align 8
   %fLiteralText = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fLiteralText, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fLiteralText, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7512RegexPattern4initEv(ptr noundef nonnull align 8 dereferenceable(200) %this)
@@ -1904,7 +1904,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else5
 
 if.then4:                                         ; preds = %if.else
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br label %return
@@ -1914,7 +1914,7 @@ if.else5:                                         ; preds = %if.else
   %call = tail call i64 @utext_nativeLength_75(ptr noundef nonnull %1)
   %2 = load ptr, ptr %fPattern, align 8
   %call8 = call i32 @utext_extract_75(ptr noundef %2, i64 noundef 0, i64 noundef %call, ptr noundef null, i32 noundef 0, ptr noundef nonnull %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i4, align 8
   store i32 0, ptr %status, align 4

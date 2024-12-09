@@ -78,20 +78,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pmix_bfrop_register(i32 %0) #0 {
-  store i64 128, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 280), align 8
-  %2 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 280)) #10
-  store i64 1024, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 288), align 8
-  %3 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 288)) #10
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 296), align 8
-  %4 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 296)) #10
+  store i64 128, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 280), align 8
+  %2 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 280)) #10
+  store i64 1024, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 288), align 8
+  %3 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 288)) #10
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 296), align 8
+  %4 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 296)) #10
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_bfrop_open(i32 noundef %0) #0 {
-  store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 272), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 272), align 8
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -100,9 +100,9 @@ define internal i32 @pmix_bfrop_open(i32 noundef %0) #0 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  store ptr @pmix_list_t_class, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 40), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 48), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 56), i8 0, i64 64, i1 false)
+  store ptr @pmix_list_t_class, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 40), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 48), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 56), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not1.i = icmp eq ptr %7, null
@@ -119,29 +119,29 @@ define internal i32 @pmix_bfrop_open(i32 noundef %0) #0 {
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %11 = tail call i32 @pmix_mca_base_framework_components_open(ptr noundef nonnull @pmix_bfrops_base_framework, i32 noundef %0) #10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   store i32 %12, ptr @pmix_bfrops_base_output, align 4
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_bfrop_close() #0 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 272), align 8
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 272), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %50
 
 3:                                                ; preds = %0
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 272), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 273), align 1
-  %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 264), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 272), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 273), align 1
+  %4 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 264), align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %39
-  %6 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 264), align 8
+  %6 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 264), align 8
   %7 = add i64 %6, -1
-  store volatile i64 %7, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 264), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 240), align 8
+  store volatile i64 %7, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 264), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 240), align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load volatile ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 120
@@ -149,7 +149,7 @@ define internal i32 @pmix_bfrop_close() #0 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store volatile ptr %10, ptr %13, align 8
   %14 = load volatile ptr, ptr %11, align 8
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 240), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 240), align 8
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #10
   %16 = icmp eq i32 %15, 35
   br i1 %16, label %17, label %19
@@ -204,7 +204,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
   br label %39
 
 39:                                               ; preds = %36, %38, %19
-  %40 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 264), align 8
+  %40 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 264), align 8
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -698,7 +698,7 @@ pmix_tma_free.exit.i.i:                           ; preds = %.lr.ph.split.i.preh
   br i1 %.not96, label %pmix_tma_free.exit, label %108
 
 108:                                              ; preds = %105
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg, i64 64), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg, i64 64), align 8
   %110 = tail call i32 %109(ptr noundef nonnull %107) #10
   br label %pmix_tma_free.exit
 
@@ -2851,7 +2851,7 @@ pmix_bfrops_base_tma_coord_destruct.exit.i:       ; preds = %pmix_tma_free.exit.
   br i1 %.not, label %349, label %346
 
 346:                                              ; preds = %.lr.ph286
-  %347 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg, i64 64), align 8
+  %347 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg, i64 64), align 8
   %348 = tail call i32 %347(ptr noundef nonnull %345) #10
   %.pre351 = load i64, ptr %341, align 8
   br label %349

@@ -150,9 +150,9 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr @FmHook, align 8
-  tail call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @FmHook, i64 8)) #4
-  tail call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @FmHook, i64 48)) #4
-  tail call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @FmHook, i64 88)) #4
+  tail call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @FmHook, i64 8)) #4
+  tail call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @FmHook, i64 48)) #4
+  tail call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @FmHook, i64 88)) #4
   br label %fm_remove_hooks.exit
 
 fm_remove_hooks.exit:                             ; preds = %entry, %if.then.i
@@ -163,9 +163,9 @@ fm_remove_hooks.exit:                             ; preds = %entry, %if.then.i
 define internal noundef ptr @set_nomemory(ptr nocapture readnone %self, ptr noundef %args) #0 {
 entry:
   %alloc.i = alloca %struct.PyMemAllocatorEx, align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @FmData, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @FmData, i64 4), align 4
-  %call = tail call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.17, ptr noundef nonnull @FmData, ptr noundef nonnull getelementptr inbounds (i8, ptr @FmData, i64 4)) #4
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 4), align 4
+  %call = tail call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.17, ptr noundef nonnull @FmData, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @FmData, i64 4)) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -185,14 +185,14 @@ if.end.i:                                         ; preds = %if.end
   store ptr @hook_frealloc, ptr %realloc.i, align 8
   %free.i = getelementptr inbounds nuw i8, ptr %alloc.i, i64 32
   store ptr @hook_ffree, ptr %free.i, align 8
-  tail call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @FmHook, i64 8)) #4
-  tail call void @PyMem_GetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @FmHook, i64 48)) #4
-  tail call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @FmHook, i64 88)) #4
-  store ptr getelementptr inbounds (i8, ptr @FmHook, i64 8), ptr %alloc.i, align 8
+  tail call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @FmHook, i64 8)) #4
+  tail call void @PyMem_GetAllocator(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @FmHook, i64 48)) #4
+  tail call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @FmHook, i64 88)) #4
+  store ptr getelementptr inbounds nuw (i8, ptr @FmHook, i64 8), ptr %alloc.i, align 8
   call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %alloc.i) #4
-  store ptr getelementptr inbounds (i8, ptr @FmHook, i64 48), ptr %alloc.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @FmHook, i64 48), ptr %alloc.i, align 8
   call void @PyMem_SetAllocator(i32 noundef 1, ptr noundef nonnull %alloc.i) #4
-  store ptr getelementptr inbounds (i8, ptr @FmHook, i64 88), ptr %alloc.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @FmHook, i64 88), ptr %alloc.i, align 8
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %alloc.i) #4
   br label %fm_setup_hooks.exit
 
@@ -508,16 +508,16 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @hook_fmalloc(ptr nocapture noundef readonly %ctx, i64 noundef %size) #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @FmData, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
   %inc.i = add i64 %0, 1
-  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @FmData, i64 8), align 8
+  store i64 %inc.i, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
   %1 = load i32, ptr @FmData, align 8
   %conv.i = sext i32 %1 to i64
   %cmp.i = icmp sgt i64 %inc.i, %conv.i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @FmData, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 4), align 4
   %cmp2.i = icmp sgt i32 %2, 0
   %conv4.i = zext nneg i32 %2 to i64
   %cmp5.not.i = icmp sgt i64 %inc.i, %conv4.i
@@ -539,16 +539,16 @@ return:                                           ; preds = %land.lhs.true.i, %i
 ; Function Attrs: nounwind uwtable
 define internal ptr @hook_fcalloc(ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @FmData, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
   %inc.i = add i64 %0, 1
-  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @FmData, i64 8), align 8
+  store i64 %inc.i, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
   %1 = load i32, ptr @FmData, align 8
   %conv.i = sext i32 %1 to i64
   %cmp.i = icmp sgt i64 %inc.i, %conv.i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @FmData, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 4), align 4
   %cmp2.i = icmp sgt i32 %2, 0
   %conv4.i = zext nneg i32 %2 to i64
   %cmp5.not.i = icmp sgt i64 %inc.i, %conv4.i
@@ -570,16 +570,16 @@ return:                                           ; preds = %land.lhs.true.i, %i
 ; Function Attrs: nounwind uwtable
 define internal ptr @hook_frealloc(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
 entry:
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @FmData, i64 8), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
   %inc.i = add i64 %0, 1
-  store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @FmData, i64 8), align 8
+  store i64 %inc.i, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 8), align 8
   %1 = load i32, ptr @FmData, align 8
   %conv.i = sext i32 %1 to i64
   %cmp.i = icmp sgt i64 %inc.i, %conv.i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @FmData, i64 4), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @FmData, i64 4), align 4
   %cmp2.i = icmp sgt i32 %2, 0
   %conv4.i = zext nneg i32 %2 to i64
   %cmp5.not.i = icmp sgt i64 %inc.i, %conv4.i

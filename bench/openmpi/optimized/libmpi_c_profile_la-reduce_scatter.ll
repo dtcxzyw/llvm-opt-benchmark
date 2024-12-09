@@ -355,7 +355,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i123, %137
 .lr.ph.i129:                                      ; preds = %150, %.lr.ph.preheader.i127
   %154 = phi i8 [ %.pre15.i128, %.lr.ph.preheader.i127 ], [ %168, %150 ]
   %indvars.iv.i130 = phi i64 [ 0, %.lr.ph.preheader.i127 ], [ %indvars.iv.next.i133, %150 ]
-  %155 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
+  %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %156 = sext i32 %155 to i64
   %.not.i131 = icmp slt i64 %indvars.iv.i130, %156
   tail call void @llvm.assume(i1 %.not.i131)
@@ -363,20 +363,20 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i123, %137
   br i1 %157, label %158, label %160
 
 158:                                              ; preds = %.lr.ph.i129
-  %159 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #5
+  %159 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 32)) #5
   %.pre.i.i135 = load i8, ptr @opal_uses_threads, align 1
   br label %160
 
 160:                                              ; preds = %158, %.lr.ph.i129
   %161 = phi i8 [ %154, %.lr.ph.i129 ], [ %.pre.i.i135, %158 ]
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 112), align 8
   %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv.i130
   %164 = load ptr, ptr %163, align 8
   %165 = trunc i8 %161 to i1
   br i1 %165, label %166, label %opal_pointer_array_get_item.exit.i132
 
 166:                                              ; preds = %160
-  %167 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #5
+  %167 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_errcodes_intern, i64 32)) #5
   %.pre.i134 = load i8, ptr @opal_uses_threads, align 1
   br label %opal_pointer_array_get_item.exit.i132
 

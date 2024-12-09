@@ -135,7 +135,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost6locale10impl_posix26posix_localization_backendC2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost6locale10impl_posix26posix_localization_backendE, i64 16), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost6locale10impl_posix26posix_localization_backendE, i64 16), ptr %0, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -272,7 +272,7 @@ declare void @_ZN5boost6locale20localization_backendD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6locale10impl_posix26posix_localization_backendD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost6locale10impl_posix26posix_localization_backendE, i64 16), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost6locale10impl_posix26posix_localization_backendE, i64 16), ptr %0, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8, !tbaa !37
   %.not.i.i = icmp eq ptr %3, null
@@ -1398,7 +1398,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost6locale10impl_posix26posix_localization_backendC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost6locale10impl_posix26posix_localization_backendE, i64 16), ptr %0, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost6locale10impl_posix26posix_localization_backendE, i64 16), ptr %0, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2280,7 +2280,7 @@ _ZNSt10shared_ptrIP15__locale_structEC2IS1_PFvPS1_EvEEPT_T0_.exit: ; preds = %11
   store i32 1, ptr %122, align 8, !tbaa !38
   %123 = getelementptr inbounds nuw i8, ptr %111, i64 12
   store i32 1, ptr %123, align 4, !tbaa !41
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPP15__locale_structPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %111, align 8, !tbaa !11
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPP15__locale_structPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %111, align 8, !tbaa !11
   %124 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr @_ZN5boost6locale10impl_posix26posix_localization_backend18free_locale_by_ptrEPP15__locale_struct, ptr %124, align 8, !tbaa !63
   %125 = getelementptr inbounds nuw i8, ptr %111, i64 24

@@ -101,7 +101,7 @@ define i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %8
   call void @slurm_xfree(ptr noundef nonnull %2) #9
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %15 = and i64 %14, 70368744177664
   %.not10 = icmp eq i64 %15, 0
   br i1 %.not10, label %23, label %16
@@ -349,7 +349,7 @@ _index_job.exit.thread:                           ; preds = %42
   br i1 %.not49.i, label %93, label %84
 
 84:                                               ; preds = %82
-  %85 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %86 = and i64 %85, 70368744177664
   %.not55.i = icmp eq i64 %86, 0
   br i1 %.not55.i, label %137, label %87
@@ -399,7 +399,7 @@ _index_job.exit.thread:                           ; preds = %42
   br i1 %.not51.i, label %127, label %111
 
 111:                                              ; preds = %109
-  %112 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %112 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %113 = and i64 %112, 70368744177664
   %.not53.i = icmp eq i64 %113, 0
   br i1 %.not53.i, label %119, label %114
@@ -415,7 +415,7 @@ _index_job.exit.thread:                           ; preds = %42
   br label %119
 
 119:                                              ; preds = %117, %114, %111
-  %120 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %120 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %121 = and i64 %120, 70368744177664
   %.not54.i = icmp eq i64 %121, 0
   br i1 %.not54.i, label %137, label %122
@@ -434,7 +434,7 @@ _index_job.exit.thread:                           ; preds = %42
   %128 = call ptr @strtok(ptr noundef %35, ptr noundef nonnull @.str.33) #9
   %129 = call ptr @strtok(ptr noundef %128, ptr noundef nonnull @.str.34) #9
   %130 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.34) #9
-  %131 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %132 = and i64 %131, 70368744177664
   %.not52.i = icmp eq i64 %132, 0
   br i1 %.not52.i, label %137, label %133
@@ -511,7 +511,7 @@ _index_job.exit:                                  ; preds = %140
   br i1 %or.cond3, label %156, label %163
 
 156:                                              ; preds = %._crit_edge
-  %157 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %157 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %158 = and i64 %157, 70368744177664
   %.not41 = icmp eq i64 %158, 0
   br i1 %.not41, label %163, label %159
@@ -722,7 +722,7 @@ define i32 @init() local_unnamed_addr #0 {
   br i1 %63, label %.sink.split.i, label %64
 
 64:                                               ; preds = %._crit_edge.i
-  %65 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %66 = and i64 %65, 70368744177664
   %.not28.i = icmp eq i64 %66, 0
   br i1 %.not28.i, label %.sink.split.i, label %67
@@ -898,7 +898,7 @@ declare void @slurm_list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @jobcomp_p_set_location() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 488), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 488), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %5
 

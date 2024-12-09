@@ -82,7 +82,7 @@ $_ZTIN6icu_7517StringTrieBuilder10BranchNodeE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7517StringTrieBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517StringTrieBuilderE, i64 16), ptr %this, align 8
   %nodes = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %nodes, align 8
   ret void
@@ -91,7 +91,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7517StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilderE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517StringTrieBuilderE, i64 16), ptr %this, align 8
   %nodes.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %nodes.i, align 8
   invoke void @uhash_close_75(ptr noundef %0)
@@ -564,7 +564,7 @@ _ZN6icu_7517StringTrieBuilder14BranchHeadNodeC2EiPNS0_4NodeE.exit: ; preds = %ne
   store i8 0, ptr %hasValue.i.i, align 8
   %value.i.i = getelementptr inbounds nuw i8, ptr %call45, i64 20
   store i32 0, ptr %value.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilder14BranchHeadNodeE, i64 16), ptr %call45, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517StringTrieBuilder14BranchHeadNodeE, i64 16), ptr %call45, align 8
   %length.i = getelementptr inbounds nuw i8, ptr %call45, i64 24
   store i32 %call43, ptr %length.i, align 8
   %next.i = getelementptr inbounds nuw i8, ptr %call45, i64 32
@@ -667,7 +667,7 @@ _ZN6icu_7517StringTrieBuilder21IntermediateValueNodeC2EiPNS0_4NodeE.exit: ; pred
   store i32 0, ptr %offset.i.i.i78, align 4
   %hasValue.i.i79 = getelementptr inbounds nuw i8, ptr %call56, i64 16
   %value.i.i80 = getelementptr inbounds nuw i8, ptr %call56, i64 20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilder21IntermediateValueNodeE, i64 16), ptr %call56, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517StringTrieBuilder21IntermediateValueNodeE, i64 16), ptr %call56, align 8
   %next.i81 = getelementptr inbounds nuw i8, ptr %call56, i64 24
   store ptr %retval.0.i54111, ptr %next.i81, align 8
   store i8 1, ptr %hasValue.i.i79, align 8
@@ -969,7 +969,7 @@ if.end:                                           ; preds = %entry
   store i32 %add.i, ptr %hash.i.i, align 8
   %offset.i.i = getelementptr inbounds nuw i8, ptr %key, i64 12
   store i32 0, ptr %offset.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilder14FinalValueNodeE, i64 16), ptr %key, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517StringTrieBuilder14FinalValueNodeE, i64 16), ptr %key, align 8
   %value.i = getelementptr inbounds nuw i8, ptr %key, i64 16
   store i32 %value, ptr %value.i, align 8
   %nodes = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1006,7 +1006,7 @@ if.end11:                                         ; preds = %if.end5
   store i32 %add.i, ptr %hash.i.i10, align 8
   %offset.i.i11 = getelementptr inbounds nuw i8, ptr %call6, i64 12
   store i32 0, ptr %offset.i.i11, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilder14FinalValueNodeE, i64 16), ptr %call6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517StringTrieBuilder14FinalValueNodeE, i64 16), ptr %call6, align 8
   %value.i12 = getelementptr inbounds nuw i8, ptr %call6, i64 16
   store i32 %value, ptr %value.i12, align 8
   %4 = load ptr, ptr %nodes, align 8
@@ -1161,7 +1161,7 @@ new.cont:                                         ; preds = %if.end17
   store i32 4473924, ptr %hash.i.i.i, align 8
   %offset.i.i.i = getelementptr inbounds nuw i8, ptr %call18, i64 12
   store i32 0, ptr %offset.i.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilder14ListBranchNodeE, i64 16), ptr %call18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517StringTrieBuilder14ListBranchNodeE, i64 16), ptr %call18, align 8
   %length.i = getelementptr inbounds nuw i8, ptr %call18, i64 64
   store i32 0, ptr %length.i, align 8
   %add = add nsw i32 %unitIndex, 1
@@ -1452,7 +1452,7 @@ new.cont87.thread:                                ; preds = %cond.false.i5.i, %_
   store i32 %add5.i, ptr %hash.i.i9.i, align 8
   %offset.i.i.i125 = getelementptr inbounds nuw i8, ptr %call73, i64 12
   store i32 0, ptr %offset.i.i.i125, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilder15SplitBranchNodeE, i64 16), ptr %call73, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517StringTrieBuilder15SplitBranchNodeE, i64 16), ptr %call73, align 8
   %unit.i = getelementptr inbounds nuw i8, ptr %call73, i64 20
   store i16 %45, ptr %unit.i, align 4
   %lessThan.i = getelementptr inbounds nuw i8, ptr %call73, i64 24

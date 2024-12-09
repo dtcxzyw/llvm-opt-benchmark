@@ -235,7 +235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %6, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %6, align 8, !tbaa !43
   %filter_mask2.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 64, ptr %filter_mask2.i.i.i.i, align 4, !tbaa !10
   %compare_mask3.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -271,7 +271,7 @@ invoke.cont12:                                    ; preds = %if.else.i.invoke.co
   br i1 %cmp.not.i197, label %if.else.i204, label %if.then.i198
 
 if.then.i198:                                     ; preds = %invoke.cont12
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %9, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %9, align 8, !tbaa !43
   %filter_mask2.i.i.i.i199 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 132, ptr %filter_mask2.i.i.i.i199, align 4, !tbaa !10
   %compare_mask3.i.i.i.i200 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -307,7 +307,7 @@ invoke.cont23:                                    ; preds = %if.else.i204.invoke
   br i1 %cmp.not.i209, label %if.else.i216, label %if.then.i210
 
 if.then.i210:                                     ; preds = %invoke.cont23
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %11, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %11, align 8, !tbaa !43
   %filter_mask2.i.i.i.i211 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 24, ptr %filter_mask2.i.i.i.i211, align 4, !tbaa !10
   %compare_mask3.i.i.i.i212 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -343,7 +343,7 @@ invoke.cont34:                                    ; preds = %if.else.i216.invoke
   br i1 %cmp.not.i222, label %if.else.i229, label %if.then.i223
 
 if.then.i223:                                     ; preds = %invoke.cont34
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %13, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %13, align 8, !tbaa !43
   %filter_mask2.i.i.i.i224 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 40, ptr %filter_mask2.i.i.i.i224, align 4, !tbaa !10
   %compare_mask3.i.i.i.i225 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -379,7 +379,7 @@ invoke.cont45:                                    ; preds = %if.else.i229.invoke
   br i1 %cmp.not.i235, label %if.else.i242, label %if.then.i236
 
 if.then.i236:                                     ; preds = %invoke.cont45
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %15, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %15, align 8, !tbaa !43
   %filter_mask2.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 137, ptr %filter_mask2.i.i.i.i237, align 4, !tbaa !10
   %compare_mask3.i.i.i.i238 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -415,7 +415,7 @@ invoke.cont56:                                    ; preds = %if.else.i242.invoke
   br i1 %cmp.not.i248, label %if.else.i255, label %if.then.i249
 
 if.then.i249:                                     ; preds = %invoke.cont56
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %17, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %17, align 8, !tbaa !43
   %filter_mask2.i.i.i.i250 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 138, ptr %filter_mask2.i.i.i.i250, align 4, !tbaa !10
   %compare_mask3.i.i.i.i251 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -451,7 +451,7 @@ invoke.cont67:                                    ; preds = %if.else.i255.invoke
   br i1 %cmp.not.i261, label %if.else.i268, label %if.then.i262
 
 if.then.i262:                                     ; preds = %invoke.cont67
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %19, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %19, align 8, !tbaa !43
   %filter_mask2.i.i.i.i263 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 138, ptr %filter_mask2.i.i.i.i263, align 4, !tbaa !10
   %compare_mask3.i.i.i.i264 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -487,7 +487,7 @@ invoke.cont79:                                    ; preds = %if.else.i268.invoke
   br i1 %cmp.not.i273, label %if.else.i280, label %if.then.i274
 
 if.then.i274:                                     ; preds = %invoke.cont79
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %21, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %21, align 8, !tbaa !43
   %filter_mask2.i.i.i.i275 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 152, ptr %filter_mask2.i.i.i.i275, align 4, !tbaa !10
   %compare_mask3.i.i.i.i276 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -523,7 +523,7 @@ invoke.cont91:                                    ; preds = %if.else.i280.invoke
   br i1 %cmp.not.i286, label %if.else.i293, label %if.then.i287
 
 if.then.i287:                                     ; preds = %invoke.cont91
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %23, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %23, align 8, !tbaa !43
   %filter_mask2.i.i.i.i288 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 168, ptr %filter_mask2.i.i.i.i288, align 4, !tbaa !10
   %compare_mask3.i.i.i.i289 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -558,7 +558,7 @@ invoke.cont103:                                   ; preds = %if.else.i293, %if.t
 
 if.then.i300:                                     ; preds = %invoke.cont103
   %26 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %24, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %24, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i, align 4, !tbaa !15
   %direction3.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -597,7 +597,7 @@ invoke.cont113:                                   ; preds = %if.else.i303.invoke
 
 if.then.i309:                                     ; preds = %invoke.cont113
   %29 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %28, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %28, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i311 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i311, align 4, !tbaa !15
   %direction3.i.i.i.i312 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -636,7 +636,7 @@ invoke.cont124:                                   ; preds = %if.else.i317.invoke
 
 if.then.i324:                                     ; preds = %invoke.cont124
   %32 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %31, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %31, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i326 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i326, align 4, !tbaa !15
   %direction3.i.i.i.i327 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -675,7 +675,7 @@ invoke.cont135:                                   ; preds = %if.else.i332.invoke
 
 if.then.i339:                                     ; preds = %invoke.cont135
   %35 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %34, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %34, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i341 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i341, align 4, !tbaa !15
   %direction3.i.i.i.i342 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -714,7 +714,7 @@ invoke.cont146:                                   ; preds = %if.else.i347.invoke
 
 if.then.i354:                                     ; preds = %invoke.cont146
   %38 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %37, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %37, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i356 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i16 2, ptr %axis_to_compare2.i.i.i.i356, align 4, !tbaa !15
   %direction3.i.i.i.i357 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -753,7 +753,7 @@ invoke.cont157:                                   ; preds = %if.else.i362.invoke
 
 if.then.i369:                                     ; preds = %invoke.cont157
   %41 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %40, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %40, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i371 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i16 5, ptr %axis_to_compare2.i.i.i.i371, align 4, !tbaa !15
   %direction3.i.i.i.i372 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -1098,7 +1098,7 @@ invoke.cont:                                      ; preds = %if.else.i
   br i1 %cmp.not.i146, label %if.else.i153, label %if.then.i147
 
 if.then.i147:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %.pre, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %.pre, align 8, !tbaa !43
   %filter_mask2.i.i.i.i148 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   store i32 512, ptr %filter_mask2.i.i.i.i148, align 4, !tbaa !10
   %compare_mask3.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -1134,7 +1134,7 @@ invoke.cont10:                                    ; preds = %if.else.i153.invoke
   br i1 %cmp.not.i159, label %if.else.i166, label %if.then.i160
 
 if.then.i160:                                     ; preds = %invoke.cont10
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %1, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %1, align 8, !tbaa !43
   %filter_mask2.i.i.i.i161 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1, ptr %filter_mask2.i.i.i.i161, align 4, !tbaa !10
   %compare_mask3.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1170,7 +1170,7 @@ invoke.cont17:                                    ; preds = %if.else.i166.invoke
   br i1 %cmp.not.i172, label %if.else.i179, label %if.then.i173
 
 if.then.i173:                                     ; preds = %invoke.cont17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %3, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %3, align 8, !tbaa !43
   %filter_mask2.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 2, ptr %filter_mask2.i.i.i.i174, align 4, !tbaa !10
   %compare_mask3.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1206,7 +1206,7 @@ invoke.cont24:                                    ; preds = %if.else.i179.invoke
   br i1 %cmp.not.i185, label %if.else.i192, label %if.then.i186
 
 if.then.i186:                                     ; preds = %invoke.cont24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %5, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %5, align 8, !tbaa !43
   %filter_mask2.i.i.i.i187 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 4, ptr %filter_mask2.i.i.i.i187, align 4, !tbaa !10
   %compare_mask3.i.i.i.i188 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1242,7 +1242,7 @@ invoke.cont31:                                    ; preds = %if.else.i192.invoke
   br i1 %cmp.not.i198, label %if.else.i205, label %if.then.i199
 
 if.then.i199:                                     ; preds = %invoke.cont31
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %7, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %7, align 8, !tbaa !43
   %filter_mask2.i.i.i.i200 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 8, ptr %filter_mask2.i.i.i.i200, align 4, !tbaa !10
   %compare_mask3.i.i.i.i201 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1278,7 +1278,7 @@ invoke.cont38:                                    ; preds = %if.else.i205.invoke
   br i1 %cmp.not.i211, label %if.else.i218, label %if.then.i212
 
 if.then.i212:                                     ; preds = %invoke.cont38
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %9, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %9, align 8, !tbaa !43
   %filter_mask2.i.i.i.i213 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 2048, ptr %filter_mask2.i.i.i.i213, align 4, !tbaa !10
   %compare_mask3.i.i.i.i214 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1314,7 +1314,7 @@ invoke.cont45:                                    ; preds = %if.else.i218.invoke
   br i1 %cmp.not.i224, label %if.else.i231, label %if.then.i225
 
 if.then.i225:                                     ; preds = %invoke.cont45
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %11, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %11, align 8, !tbaa !43
   %filter_mask2.i.i.i.i226 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 4096, ptr %filter_mask2.i.i.i.i226, align 4, !tbaa !10
   %compare_mask3.i.i.i.i227 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1350,7 +1350,7 @@ invoke.cont52:                                    ; preds = %if.else.i231.invoke
   br i1 %cmp.not.i237, label %if.else.i244, label %if.then.i238
 
 if.then.i238:                                     ; preds = %invoke.cont52
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %13, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %13, align 8, !tbaa !43
   %filter_mask2.i.i.i.i239 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 64, ptr %filter_mask2.i.i.i.i239, align 4, !tbaa !10
   %compare_mask3.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1386,7 +1386,7 @@ invoke.cont59:                                    ; preds = %if.else.i244.invoke
   br i1 %cmp.not.i250, label %if.else.i257, label %if.then.i251
 
 if.then.i251:                                     ; preds = %invoke.cont59
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %15, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %15, align 8, !tbaa !43
   %filter_mask2.i.i.i.i252 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 128, ptr %filter_mask2.i.i.i.i252, align 4, !tbaa !10
   %compare_mask3.i.i.i.i253 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1422,7 +1422,7 @@ invoke.cont66:                                    ; preds = %if.else.i257.invoke
   br i1 %cmp.not.i263, label %if.else.i270, label %if.then.i264
 
 if.then.i264:                                     ; preds = %invoke.cont66
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %17, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %17, align 8, !tbaa !43
   %filter_mask2.i.i.i.i265 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 16, ptr %filter_mask2.i.i.i.i265, align 4, !tbaa !10
   %compare_mask3.i.i.i.i266 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1458,7 +1458,7 @@ invoke.cont73:                                    ; preds = %if.else.i270.invoke
   br i1 %cmp.not.i276, label %if.else.i283, label %if.then.i277
 
 if.then.i277:                                     ; preds = %invoke.cont73
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %19, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %19, align 8, !tbaa !43
   %filter_mask2.i.i.i.i278 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 32, ptr %filter_mask2.i.i.i.i278, align 4, !tbaa !10
   %compare_mask3.i.i.i.i279 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -1494,7 +1494,7 @@ invoke.cont80:                                    ; preds = %if.else.i283.invoke
   br i1 %cmp.not.i289, label %if.else.i296, label %if.then.i290
 
 if.then.i290:                                     ; preds = %invoke.cont80
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %21, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %21, align 8, !tbaa !43
   %filter_mask2.i.i.i.i291 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 32768, ptr %filter_mask2.i.i.i.i291, align 4, !tbaa !10
   %compare_mask3.i.i.i.i292 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -1530,7 +1530,7 @@ invoke.cont87:                                    ; preds = %if.else.i296.invoke
   br i1 %cmp.not.i302, label %if.else.i309, label %if.then.i303
 
 if.then.i303:                                     ; preds = %invoke.cont87
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %23, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %23, align 8, !tbaa !43
   %filter_mask2.i.i.i.i304 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 8192, ptr %filter_mask2.i.i.i.i304, align 4, !tbaa !10
   %compare_mask3.i.i.i.i305 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -1566,7 +1566,7 @@ invoke.cont94:                                    ; preds = %if.else.i309.invoke
   br i1 %cmp.not.i315, label %if.else.i322, label %if.then.i316
 
 if.then.i316:                                     ; preds = %invoke.cont94
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %25, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %25, align 8, !tbaa !43
   %filter_mask2.i.i.i.i317 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 16384, ptr %filter_mask2.i.i.i.i317, align 4, !tbaa !10
   %compare_mask3.i.i.i.i318 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -1602,7 +1602,7 @@ invoke.cont101:                                   ; preds = %if.else.i322.invoke
   br i1 %cmp.not.i328, label %if.else.i335, label %if.then.i329
 
 if.then.i329:                                     ; preds = %invoke.cont101
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %27, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %27, align 8, !tbaa !43
   %filter_mask2.i.i.i.i330 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 65536, ptr %filter_mask2.i.i.i.i330, align 4, !tbaa !10
   %compare_mask3.i.i.i.i331 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -1637,7 +1637,7 @@ invoke.cont108:                                   ; preds = %if.else.i335, %if.t
 
 if.then.i342:                                     ; preds = %invoke.cont108
   %30 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %28, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %28, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i, align 4, !tbaa !15
   %direction3.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -1676,7 +1676,7 @@ invoke.cont115:                                   ; preds = %if.else.i345.invoke
 
 if.then.i351:                                     ; preds = %invoke.cont115
   %33 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %32, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %32, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i353 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i353, align 4, !tbaa !15
   %direction3.i.i.i.i354 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -1715,7 +1715,7 @@ invoke.cont123:                                   ; preds = %if.else.i359.invoke
 
 if.then.i366:                                     ; preds = %invoke.cont123
   %36 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %35, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %35, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i368 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i368, align 4, !tbaa !15
   %direction3.i.i.i.i369 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -1754,7 +1754,7 @@ invoke.cont131:                                   ; preds = %if.else.i374.invoke
 
 if.then.i381:                                     ; preds = %invoke.cont131
   %39 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %38, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %38, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i383 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i383, align 4, !tbaa !15
   %direction3.i.i.i.i384 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -2020,7 +2020,7 @@ invoke.cont:                                      ; preds = %if.else.i
   br i1 %cmp.not.i106, label %if.else.i113, label %if.then.i107
 
 if.then.i107:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %.pre, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %.pre, align 8, !tbaa !43
   %filter_mask2.i.i.i.i108 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   store i32 4, ptr %filter_mask2.i.i.i.i108, align 4, !tbaa !10
   %compare_mask3.i.i.i.i109 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -2056,7 +2056,7 @@ invoke.cont10:                                    ; preds = %if.else.i113.invoke
   br i1 %cmp.not.i119, label %if.else.i126, label %if.then.i120
 
 if.then.i120:                                     ; preds = %invoke.cont10
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %1, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %1, align 8, !tbaa !43
   %filter_mask2.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 8, ptr %filter_mask2.i.i.i.i121, align 4, !tbaa !10
   %compare_mask3.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2092,7 +2092,7 @@ invoke.cont17:                                    ; preds = %if.else.i126.invoke
   br i1 %cmp.not.i132, label %if.else.i139, label %if.then.i133
 
 if.then.i133:                                     ; preds = %invoke.cont17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %3, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %3, align 8, !tbaa !43
   %filter_mask2.i.i.i.i134 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %filter_mask2.i.i.i.i134, align 4, !tbaa !10
   %compare_mask3.i.i.i.i135 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2128,7 +2128,7 @@ invoke.cont24:                                    ; preds = %if.else.i139.invoke
   br i1 %cmp.not.i145, label %if.else.i152, label %if.then.i146
 
 if.then.i146:                                     ; preds = %invoke.cont24
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %5, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %5, align 8, !tbaa !43
   %filter_mask2.i.i.i.i147 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 2, ptr %filter_mask2.i.i.i.i147, align 4, !tbaa !10
   %compare_mask3.i.i.i.i148 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2164,7 +2164,7 @@ invoke.cont31:                                    ; preds = %if.else.i152.invoke
   br i1 %cmp.not.i158, label %if.else.i165, label %if.then.i159
 
 if.then.i159:                                     ; preds = %invoke.cont31
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %7, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %7, align 8, !tbaa !43
   %filter_mask2.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 16, ptr %filter_mask2.i.i.i.i160, align 4, !tbaa !10
   %compare_mask3.i.i.i.i161 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2200,7 +2200,7 @@ invoke.cont38:                                    ; preds = %if.else.i165.invoke
   br i1 %cmp.not.i171, label %if.else.i178, label %if.then.i172
 
 if.then.i172:                                     ; preds = %invoke.cont38
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %9, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %9, align 8, !tbaa !43
   %filter_mask2.i.i.i.i173 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 32, ptr %filter_mask2.i.i.i.i173, align 4, !tbaa !10
   %compare_mask3.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -2236,7 +2236,7 @@ invoke.cont45:                                    ; preds = %if.else.i178.invoke
   br i1 %cmp.not.i184, label %if.else.i191, label %if.then.i185
 
 if.then.i185:                                     ; preds = %invoke.cont45
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %11, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %11, align 8, !tbaa !43
   %filter_mask2.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 64, ptr %filter_mask2.i.i.i.i186, align 4, !tbaa !10
   %compare_mask3.i.i.i.i187 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -2271,7 +2271,7 @@ invoke.cont52:                                    ; preds = %if.else.i191, %if.t
 
 if.then.i198:                                     ; preds = %invoke.cont52
   %14 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %12, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %12, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i16 5, ptr %axis_to_compare2.i.i.i.i, align 4, !tbaa !15
   %direction3.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -2310,7 +2310,7 @@ invoke.cont59:                                    ; preds = %if.else.i201.invoke
 
 if.then.i207:                                     ; preds = %invoke.cont59
   %17 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %16, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %16, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i209 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i16 5, ptr %axis_to_compare2.i.i.i.i209, align 4, !tbaa !15
   %direction3.i.i.i.i210 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -2349,7 +2349,7 @@ invoke.cont67:                                    ; preds = %if.else.i215.invoke
 
 if.then.i222:                                     ; preds = %invoke.cont67
   %20 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %19, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %19, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i224 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i224, align 4, !tbaa !15
   %direction3.i.i.i.i225 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -2388,7 +2388,7 @@ invoke.cont75:                                    ; preds = %if.else.i230.invoke
 
 if.then.i237:                                     ; preds = %invoke.cont75
   %23 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %22, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %22, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i239 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i239, align 4, !tbaa !15
   %direction3.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -2427,7 +2427,7 @@ invoke.cont83:                                    ; preds = %if.else.i245.invoke
 
 if.then.i252:                                     ; preds = %invoke.cont83
   %26 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %25, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %25, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i254 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i254, align 4, !tbaa !15
   %direction3.i.i.i.i255 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -2466,7 +2466,7 @@ invoke.cont91:                                    ; preds = %if.else.i260.invoke
 
 if.then.i267:                                     ; preds = %invoke.cont91
   %29 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %28, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %28, align 8, !tbaa !43
   %axis_to_compare2.i.i.i.i269 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i269, align 4, !tbaa !15
   %direction3.i.i.i.i270 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -4104,7 +4104,7 @@ _ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %en
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
   %filter_mask2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i32 %4, ptr %filter_mask2.i.i.i, align 4, !tbaa !10
   %compare_mask3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
@@ -4123,7 +4123,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorI17Joy
   %key2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %6 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !84, !noalias !81
   store i32 %6, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !81, !noalias !84
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !81, !noalias !84
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !81, !noalias !84
   %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 12
   %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 12
   %7 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !84, !noalias !81
@@ -4152,7 +4152,7 @@ for.body.i.i.i53:                                 ; preds = %_ZNSt6vectorI17Joys
   %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 8
   %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !91, !noalias !88
   store i32 %9, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !88, !noalias !91
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !88, !noalias !91
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !88, !noalias !91
   %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 12
   %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 12
   %10 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !91, !noalias !88
@@ -4223,7 +4223,7 @@ _ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %en
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
   %filter_mask2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i32 %4, ptr %filter_mask2.i.i.i, align 4, !tbaa !10
   %compare_mask3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
@@ -4242,7 +4242,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorI17Joy
   %key2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %6 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !97, !noalias !94
   store i32 %6, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !94, !noalias !97
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !94, !noalias !97
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !94, !noalias !97
   %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 12
   %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 12
   %7 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !97, !noalias !94
@@ -4271,7 +4271,7 @@ for.body.i.i.i53:                                 ; preds = %_ZNSt6vectorI17Joys
   %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 8
   %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !103, !noalias !100
   store i32 %9, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !100, !noalias !103
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !100, !noalias !103
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !100, !noalias !103
   %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 12
   %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 12
   %10 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !103, !noalias !100
@@ -4336,7 +4336,7 @@ _ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %en
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
   %filter_mask2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i32 %4, ptr %filter_mask2.i.i.i, align 4, !tbaa !10
   %compare_mask3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
@@ -4355,7 +4355,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorI17Joy
   %key2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %6 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !109, !noalias !106
   store i32 %6, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !106, !noalias !109
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !106, !noalias !109
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !106, !noalias !109
   %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 12
   %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 12
   %7 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !109, !noalias !106
@@ -4384,7 +4384,7 @@ for.body.i.i.i53:                                 ; preds = %_ZNSt6vectorI17Joys
   %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 8
   %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !115, !noalias !112
   store i32 %9, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !112, !noalias !115
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !112, !noalias !115
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !112, !noalias !115
   %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 12
   %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 12
   %10 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !115, !noalias !112
@@ -4451,7 +4451,7 @@ _ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entr
   %conv.i.i = trunc i32 %4 to i16
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
   %6 = load i16, ptr %__args5, align 2, !tbaa !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
   %axis_to_compare2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i16 %conv.i.i, ptr %axis_to_compare2.i.i.i, align 4, !tbaa !15
   %direction3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
@@ -4472,7 +4472,7 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorI15Joy
   %key2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %7 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !121, !noalias !118
   store i32 %7, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !118, !noalias !121
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !118, !noalias !121
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !118, !noalias !121
   %axis_to_compare.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 12
   %axis_to_compare2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare2.i.i.i.i.i.i.i, i64 10, i1 false), !alias.scope !123
@@ -4500,7 +4500,7 @@ for.body.i.i.i55:                                 ; preds = %_ZNSt6vectorI15Joys
   %key2.i.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i57, i64 8
   %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i59, align 8, !tbaa !45, !alias.scope !128, !noalias !125
   store i32 %9, ptr %key.i.i.i.i.i.i.i.i58, align 8, !tbaa !45, !alias.scope !125, !noalias !128
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %__cur.08.i.i.i56, align 8, !tbaa !43, !alias.scope !125, !noalias !128
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %__cur.08.i.i.i56, align 8, !tbaa !43, !alias.scope !125, !noalias !128
   %axis_to_compare.i.i.i.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i56, i64 12
   %axis_to_compare2.i.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i57, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare.i.i.i.i.i.i.i60, ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare2.i.i.i.i.i.i.i61, i64 10, i1 false), !alias.scope !130

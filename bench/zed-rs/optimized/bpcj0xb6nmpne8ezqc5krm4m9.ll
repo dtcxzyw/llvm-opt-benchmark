@@ -5281,7 +5281,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !630
   store ptr %.val.i, ptr %8, align 8, !noalias !630
   store i64 %.val7.i, ptr %19, align 8, !noalias !630
-  store ptr getelementptr inbounds (i8, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.408, i64 1), ptr %20, align 8, !noalias !630
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.408, i64 1), ptr %20, align 8, !noalias !630
   store i64 5, ptr %21, align 8, !noalias !630
   %42 = icmp ugt i64 %.val7.i, 69
   br i1 %42, label %.lr.ph.i.i.i.i.preheader, label %._crit_edge.i.i.i.i
@@ -5371,7 +5371,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br i1 %69, label %.lr.ph.i.i, label %_ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader21.split.i, %70
-  %.sroa.07.021.i.i = phi ptr [ %72, %70 ], [ getelementptr inbounds (i8, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.408, i64 1), %.preheader21.split.i ]
+  %.sroa.07.021.i.i = phi ptr [ %72, %70 ], [ getelementptr inbounds nuw (i8, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.408, i64 1), %.preheader21.split.i ]
   %.sroa.03.020.i.i = phi ptr [ %71, %70 ], [ %gep.i, %.preheader21.split.i ]
   %.sroa.03.0.val.i.i = load i32, ptr %.sroa.03.020.i.i, align 1, !alias.scope !635, !noalias !640
   %.sroa.07.0.val.i.i = load i32, ptr %.sroa.07.021.i.i, align 1, !alias.scope !638, !noalias !643

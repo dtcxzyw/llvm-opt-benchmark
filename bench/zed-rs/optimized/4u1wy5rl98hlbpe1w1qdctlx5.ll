@@ -812,11 +812,11 @@ define hidden { i64, ptr } @_ZN12futures_util2io11read_to_end20read_to_end_inter
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_internal17hd8e38e6c71486cd7E.llvm.8537221261273048587"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   %4 = alloca [12 x i8], align 4
-  call void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.8537221261273048587(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 48))
+  call void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.8537221261273048587(ptr noalias nocapture noundef nonnull sret([12 x i8]) align 4 dereferenceable(12) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 48))
   %5 = load ptr, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", align 8, !nonnull !12, !align !134, !noundef !12
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 8), align 8, !noundef !12
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !nonnull !12, !align !133, !noundef !12
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noundef !12
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 8), align 8, !noundef !12
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !nonnull !12, !align !133, !noundef !12
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noundef !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %9 = trunc i64 %6 to i32
@@ -941,12 +941,12 @@ define hidden noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20e
 
 21:                                               ; preds = %6
   %22 = lshr i64 %4, 32
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !146, !noundef !12
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !146, !noundef !12
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !146, !nonnull !12, !align !133, !noundef !12
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !146, !nonnull !12, !align !133, !noundef !12
   %27 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %26, i64 0, i64 %22
   %28 = load ptr, ptr %27, align 8, !noalias !146, !nonnull !12, !align !141, !noundef !12
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -994,12 +994,12 @@ define hidden noundef zeroext i1 @"_ZN12string_cache4atom18Atom$LT$Static$GT$20e
 
 46:                                               ; preds = %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd5f0a227095ac94eE.llvm.8537221261273048587.exit"
   %47 = lshr i64 %3, 32
-  %48 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !152, !noundef !12
+  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !152, !noundef !12
   %49 = icmp ult i64 %47, %48
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !152, !nonnull !12, !align !133, !noundef !12
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !152, !nonnull !12, !align !133, !noundef !12
   %52 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %51, i64 0, i64 %47
   %53 = load ptr, ptr %52, align 8, !noalias !152, !nonnull !12, !align !141, !noundef !12
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -1309,12 +1309,12 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 
 19:                                               ; preds = %2
   %20 = lshr i64 %4, 32
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$markup5ever..PrefixStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h71b43f782ff847e9E", i64 24), align 8, !noalias !249, !noundef !12
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$markup5ever..PrefixStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h71b43f782ff847e9E", i64 24), align 8, !noalias !249, !noundef !12
   %22 = icmp ult i64 %20, %21
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$markup5ever..PrefixStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h71b43f782ff847e9E", i64 16), align 8, !noalias !249, !nonnull !12, !align !133, !noundef !12
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$markup5ever..PrefixStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h71b43f782ff847e9E", i64 16), align 8, !noalias !249, !nonnull !12, !align !133, !noundef !12
   %25 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %24, i64 0, i64 %20
   %26 = load ptr, ptr %25, align 8, !noalias !249, !nonnull !12, !align !141, !noundef !12
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1372,12 +1372,12 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 
 19:                                               ; preds = %2
   %20 = lshr i64 %4, 32
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..NamespaceStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h3cd47c1be8f2b1d9E", i64 24), align 8, !noalias !262, !noundef !12
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..NamespaceStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h3cd47c1be8f2b1d9E", i64 24), align 8, !noalias !262, !noundef !12
   %22 = icmp ult i64 %20, %21
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..NamespaceStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h3cd47c1be8f2b1d9E", i64 16), align 8, !noalias !262, !nonnull !12, !align !133, !noundef !12
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..NamespaceStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h3cd47c1be8f2b1d9E", i64 16), align 8, !noalias !262, !nonnull !12, !align !133, !noundef !12
   %25 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %24, i64 0, i64 %20
   %26 = load ptr, ptr %25, align 8, !noalias !262, !nonnull !12, !align !141, !noundef !12
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1435,12 +1435,12 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 
 19:                                               ; preds = %2
   %20 = lshr i64 %4, 32
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !275, !noundef !12
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noalias !275, !noundef !12
   %22 = icmp ult i64 %20, %21
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !275, !nonnull !12, !align !133, !noundef !12
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !275, !nonnull !12, !align !133, !noundef !12
   %25 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %24, i64 0, i64 %20
   %26 = load ptr, ptr %25, align 8, !noalias !275, !nonnull !12, !align !141, !noundef !12
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -3786,7 +3786,7 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17ha0d940390f0256cd
 
 428:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17hbe44f327653bc00bE.exit.i.i82.i"
   %429 = load ptr, ptr @_ZN7tendril5OFLOW17h6b31ac0d1a233c58E, align 8, !noalias !971, !nonnull !12, !align !141, !noundef !12
-  %430 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7tendril5OFLOW17h6b31ac0d1a233c58E, i64 8), align 8, !noalias !971, !noundef !12
+  %430 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN7tendril5OFLOW17h6b31ac0d1a233c58E, i64 8), align 8, !noalias !971, !noundef !12
   invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 %429, i64 noundef %430, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff4a5c0f7fc7a688326c75c62e29375f.66) #45
           to label %.noexc90.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp
 
@@ -4388,7 +4388,7 @@ define hidden { ptr, i64 } @"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
 
 17:                                               ; preds = %1
   %18 = lshr i64 %2, 32
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noundef !12
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 24), align 8, !noundef !12
   %20 = icmp ult i64 %18, %19
   br i1 %20, label %22, label %28
 
@@ -4400,7 +4400,7 @@ define hidden { ptr, i64 } @"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u2
   ret { ptr, i64 } %.merged
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !nonnull !12, !align !133, !noundef !12
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !nonnull !12, !align !133, !noundef !12
   %24 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %23, i64 0, i64 %18
   %25 = load ptr, ptr %24, align 8, !nonnull !12, !align !141, !noundef !12
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8

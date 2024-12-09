@@ -110,7 +110,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   store ptr @.str, ptr @pmix_tool_basename, align 8
   %14 = call i32 @gethostname(ptr noundef nonnull %10, i64 noundef 4097) #16
   %15 = load i32, ptr @pmix_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not = icmp eq i32 %15, %16
   br i1 %.not, label %18, label %17
 
@@ -413,7 +413,7 @@ pmix_cmd_line_get_param.exit258:                  ; preds = %.lr.ph.i253
   %166 = call i32 @pmix_register_server_attrs() #16
   %167 = call i32 @pmix_register_tool_attrs() #16
   %168 = load i32, ptr @pmix_class_init_epoch, align 4
-  %169 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %169 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not219 = icmp eq i32 %168, %169
   br i1 %.not219, label %171, label %170
 
@@ -513,7 +513,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i265, %195
 pmix_obj_run_destructors.exit272:                 ; preds = %.lr.ph.i269, %207
   %215 = call i32 @pthread_cond_destroy(ptr noundef nonnull %181) #16
   %216 = load i32, ptr @pmix_class_init_epoch, align 4
-  %217 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %217 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not221 = icmp eq i32 %216, %217
   br i1 %.not221, label %219, label %218
 
@@ -604,7 +604,7 @@ pmix_obj_run_constructors.exit277:                ; preds = %.lr.ph.i274, %219
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %246, %247
   %258 = load i32, ptr @pmix_class_init_epoch, align 4
-  %259 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %259 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not230 = icmp eq i32 %258, %259
   br i1 %.not230, label %261, label %260
 
@@ -1048,7 +1048,7 @@ pmix_obj_run_destructors.exit308:                 ; preds = %.lr.ph.i305, %448
 
 pmix_obj_run_destructors.exit313:                 ; preds = %.lr.ph.i310, %._crit_edge379
   %472 = load i32, ptr @pmix_class_init_epoch, align 4
-  %473 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %473 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not225 = icmp eq i32 %472, %473
   br i1 %.not225, label %475, label %474
 
@@ -1368,7 +1368,7 @@ define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr n
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @myproc, i64 256), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @myproc, i64 256), align 4
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.49, ptr noundef nonnull @myproc, i32 noundef %6, i32 noundef %0, i64 noundef %1) #17
   br label %8
 

@@ -19,7 +19,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @bunzip2(ptr noundef %0, 
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %12 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %11, i32 noundef 3264, i64 noundef 4096) #10
   br label %13
 
@@ -37,7 +37,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @bunzip2(ptr noundef %0, 
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %21 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3264, i64 noundef 4096) #10
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %.thread

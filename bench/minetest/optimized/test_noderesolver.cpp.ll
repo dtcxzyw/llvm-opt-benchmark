@@ -192,7 +192,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
   %m_test_dir = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1592,7 +1592,7 @@ entry:
   %agg.tmp561 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %foobar) #23
   call void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %foobar)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6Foobar, i64 16), ptr %foobar, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Foobar, i64 16), ptr %foobar, align 8, !tbaa !4
   %test_nr_list.i = getelementptr inbounds nuw i8, ptr %foobar, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %test_nr_list.i, i8 0, i64 96, i1 false)
   %m_nodenames = getelementptr inbounds nuw i8, ptr %foobar, i64 8
@@ -2876,9 +2876,9 @@ init:                                             ; preds = %init.check
   %133 = load i16, ptr @t_CONTENT_GRASS, align 2, !tbaa !72
   store i16 %133, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE21expected_test_nr_list, align 2, !tbaa !72
   %134 = load i16, ptr @t_CONTENT_WATER, align 2, !tbaa !72
-  store i16 %134, ptr getelementptr inbounds (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE21expected_test_nr_list, i64 2), align 2, !tbaa !72
+  store i16 %134, ptr getelementptr inbounds nuw (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE21expected_test_nr_list, i64 2), align 2, !tbaa !72
   %135 = load i16, ptr @t_CONTENT_STONE, align 2, !tbaa !72
-  store i16 %135, ptr getelementptr inbounds (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE21expected_test_nr_list, i64 4), align 2, !tbaa !72
+  store i16 %135, ptr getelementptr inbounds nuw (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE21expected_test_nr_list, i64 4), align 2, !tbaa !72
   %136 = call ptr @llvm.invariant.start.p0(i64 6, ptr nonnull @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE21expected_test_nr_list)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE21expected_test_nr_list) #23
   br label %init.end
@@ -3116,7 +3116,7 @@ init352:                                          ; preds = %init.check350
   %157 = load i16, ptr @t_CONTENT_WATER, align 2, !tbaa !72
   store i16 %157, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE27expected_test_nr_list_group, align 2, !tbaa !72
   %158 = load i16, ptr @t_CONTENT_LAVA, align 2, !tbaa !72
-  store i16 %158, ptr getelementptr inbounds (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE27expected_test_nr_list_group, i64 2), align 2, !tbaa !72
+  store i16 %158, ptr getelementptr inbounds nuw (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE27expected_test_nr_list_group, i64 2), align 2, !tbaa !72
   %159 = call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE27expected_test_nr_list_group)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE27expected_test_nr_list_group) #23
   br label %init.end353
@@ -3317,8 +3317,8 @@ init.check441:                                    ; preds = %for.end439
 init443:                                          ; preds = %init.check441
   store i16 126, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE30expected_test_nr_list_required, align 2, !tbaa !72
   %178 = load i16, ptr @t_CONTENT_STONE, align 2, !tbaa !72
-  store i16 %178, ptr getelementptr inbounds (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE30expected_test_nr_list_required, i64 2), align 2, !tbaa !72
-  store i16 126, ptr getelementptr inbounds (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE30expected_test_nr_list_required, i64 4), align 2, !tbaa !72
+  store i16 %178, ptr getelementptr inbounds nuw (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE30expected_test_nr_list_required, i64 2), align 2, !tbaa !72
+  store i16 126, ptr getelementptr inbounds nuw (i8, ptr @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE30expected_test_nr_list_required, i64 4), align 2, !tbaa !72
   %179 = call ptr @llvm.invariant.start.p0(i64 6, ptr nonnull @_ZZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE30expected_test_nr_list_required)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN16TestNodeResolver17testNodeResolvingEP14NodeDefManagerE30expected_test_nr_list_required) #23
   br label %init.end444
@@ -3652,7 +3652,7 @@ ehcleanup573:                                     ; preds = %ehcleanup572, %lpad
   br label %ehcleanup577
 
 if.end574:                                        ; preds = %for.end536
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6Foobar, i64 16), ptr %foobar, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Foobar, i64 16), ptr %foobar, align 8, !tbaa !4
   %tobool.not.i.i.i.i1363 = icmp eq ptr %198, null
   br i1 %tobool.not.i.i.i.i1363, label %if.then.i.i.i3.i, label %_ZNSt6vectorItSaItEED2Ev.exit.i
 
@@ -3728,7 +3728,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6FoobarD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6Foobar, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Foobar, i64 16), ptr %this, align 8, !tbaa !4
   %test_nr_list_empty = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %test_nr_list_empty, align 8, !tbaa !79
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3792,7 +3792,7 @@ entry:
   %ref.tmp76 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %foobaz1) #23
   call void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %foobaz1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6Foobaz, i64 16), ptr %foobaz1, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Foobaz, i64 16), ptr %foobaz1, align 8, !tbaa !4
   %test_content1 = getelementptr inbounds nuw i8, ptr %foobaz1, i64 74
   store i16 1234, ptr %test_content1, align 2, !tbaa !84
   %test_content2 = getelementptr inbounds nuw i8, ptr %foobaz1, i64 76
@@ -3881,7 +3881,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6Foobaz, i64 16), ptr %foobaz2, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Foobaz, i64 16), ptr %foobaz2, align 8, !tbaa !4
   %test_content18 = getelementptr inbounds nuw i8, ptr %foobaz2, i64 74
   store i16 1234, ptr %test_content18, align 2, !tbaa !84
   %test_content29 = getelementptr inbounds nuw i8, ptr %foobaz2, i64 76
@@ -4239,7 +4239,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6FoobarD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6Foobar, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Foobar, i64 16), ptr %this, align 8, !tbaa !4
   %test_nr_list_empty.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %test_nr_list_empty.i, align 8, !tbaa !79
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -4312,16 +4312,16 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN11TestManager14getTestModulesEv.exit
 
 _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check.i, %entry
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !87
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !14
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !87
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
   store ptr %module, ptr %3, align 8, !tbaa !14
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !89
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !89
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !89
+  store ptr %incdec.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !89
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
@@ -4367,9 +4367,9 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !90
-  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !89
+  store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !89
   %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
-  store ptr %add.ptr19.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !87
+  store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !87
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
@@ -6044,23 +6044,23 @@ define internal void @_GLOBAL__sub_I_test_noderesolver.cpp() #18 section ".text.
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
-  store ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !19
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16TestNodeResolver, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !19
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32), align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16TestNodeResolver, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %__cxx_global_var_init.1.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
-  %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 32)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestBase, i64 16), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 16), align 8, !tbaa !7
+  %cmp.i.i.i.i.i.i = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 32)
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %lpad.i.i
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL15g_test_instance, i64 24), align 8, !tbaa !13
   %cmp3.i.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZN8TestBaseD2Ev.exit.i.i

@@ -300,7 +300,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit42:            ; preds = %_ZN6HandleC2EP6Thre
   br i1 %3, label %68, label %70
 
 68:                                               ; preds = %67
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %.not = icmp eq ptr %2, %69
   br i1 %.not, label %77, label %70
 
@@ -308,12 +308,12 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit42:            ; preds = %_ZN6HandleC2EP6Thre
   br i1 %4, label %71, label %134
 
 71:                                               ; preds = %70
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 24), align 8
   %73 = icmp eq ptr %.036, %72
   br i1 %73, label %134, label %74
 
 74:                                               ; preds = %71
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 40), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 40), align 8
   %76 = icmp eq ptr %.036, %75
   br label %134
 
@@ -485,7 +485,7 @@ _ZNK16VerificationType9is_objectEv.exit:          ; preds = %21
   br i1 %.not, label %.thread, label %26
 
 26:                                               ; preds = %_ZNK16VerificationType9is_objectEv.exit
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %28 = icmp eq ptr %27, %16
   br i1 %28, label %_ZNK16VerificationType8is_arrayEv.exit32.thread, label %29
 

@@ -407,7 +407,7 @@ define hidden range(i32 -1, 1) i32 @zend_optimizer_eval_special_func_call(ptr no
 
 10:                                               ; preds = %8, %6
   %11 = tail call ptr @zend_string_tolower_ex(ptr noundef %2, i1 noundef zeroext false) #18
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %13 = tail call ptr @zend_hash_find(ptr noundef %12, ptr noundef %11) #18
   %.not222 = icmp eq ptr %13, null
   br i1 %.not222, label %16, label %14
@@ -501,7 +501,7 @@ define hidden range(i32 -1, 1) i32 @zend_optimizer_eval_special_func_call(ptr no
   br i1 %.not221, label %56, label %61
 
 56:                                               ; preds = %55
-  %57 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 9), align 1
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 9), align 1
   %58 = trunc i8 %57 to i1
   br i1 %58, label %.critedge10, label %59
 
@@ -604,13 +604,13 @@ define hidden range(i32 -1, 1) i32 @zend_optimizer_eval_special_func_call(ptr no
   br i1 %.not211, label %108, label %.critedge10
 
 108:                                              ; preds = %107
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 816), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 816), align 8
   %110 = tail call ptr @zend_hash_find(ptr noundef %109, ptr noundef %2) #18
   %.not212 = icmp eq ptr %110, null
   br i1 %.not212, label %111, label %116
 
 111:                                              ; preds = %108
-  %112 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 9), align 1
+  %112 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 9), align 1
   %113 = trunc i8 %112 to i1
   br i1 %113, label %.critedge10, label %114
 
@@ -2851,7 +2851,7 @@ define hidden ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef re
   br label %40
 
 9:                                                ; preds = %3, %4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %11 = tail call ptr @zend_hash_find(ptr noundef %10, ptr noundef %2) #18
   %.not46 = icmp eq ptr %11, null
   br i1 %.not46, label %23, label %12
@@ -2968,7 +2968,7 @@ define hidden ptr @zend_optimizer_get_class_entry_from_op1(ptr noundef %0, ptr n
   br label %zend_optimizer_get_class_entry.exit
 
 35:                                               ; preds = %30, %27
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8
   %37 = tail call ptr @zend_hash_find(ptr noundef %36, ptr noundef %29) #18
   %.not46.i = icmp eq ptr %37, null
   br i1 %.not46.i, label %.thread56.i, label %38
@@ -3103,7 +3103,7 @@ define hidden ptr @zend_optimizer_get_called_func(ptr noundef %0, ptr nocapture 
   br label %232
 
 .thread:                                          ; preds = %26, %23
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %32 = tail call ptr @zend_hash_find(ptr noundef %31, ptr noundef %25) #18
   %.not185 = icmp eq ptr %32, null
   br i1 %.not185, label %.thread190, label %33
@@ -3184,7 +3184,7 @@ define hidden ptr @zend_optimizer_get_called_func(ptr noundef %0, ptr nocapture 
   br label %232
 
 .thread195:                                       ; preds = %71, %.thread194
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 432), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %78 = load ptr, ptr %70, align 8
   %79 = tail call ptr @zend_hash_find(ptr noundef %77, ptr noundef %78) #18
   %.not178 = icmp eq ptr %79, null
@@ -4773,7 +4773,7 @@ zend_redo_pass_two_ex.exit:                       ; preds = %.thread208.i, %349
   br i1 %.not214, label %._crit_edge294, label %.lr.ph293
 
 ._crit_edge294:                                   ; preds = %.loopexit, %.loopexit245
-  %617 = load i32, ptr getelementptr inbounds (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
+  %617 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
   %618 = icmp sgt i32 %617, 0
   br i1 %618, label %.lr.ph.i242, label %zend_optimizer_call_registered_passes.exit
 
@@ -4787,7 +4787,7 @@ zend_redo_pass_two_ex.exit:                       ; preds = %.thread208.i, %349
 
 622:                                              ; preds = %.lr.ph.i242
   call void %621(ptr noundef %0, ptr noundef nonnull %4) #18
-  %.pre.i244 = load i32, ptr getelementptr inbounds (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
+  %.pre.i244 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
   br label %623
 
 623:                                              ; preds = %622, %.lr.ph.i242
@@ -5515,17 +5515,17 @@ define i32 @zend_optimizer_register_pass(ptr noundef %0) local_unnamed_addr #11 
   br i1 %.not, label %10, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
   %4 = icmp eq i32 %3, 32
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = add nsw i32 %3, 1
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds [32 x ptr], ptr @zend_optimizer_registered_passes, i64 0, i64 %7
   store ptr %0, ptr %8, align 8
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @zend_optimizer_registered_passes, i64 256), align 8
   br label %10
 
 10:                                               ; preds = %2, %1, %5

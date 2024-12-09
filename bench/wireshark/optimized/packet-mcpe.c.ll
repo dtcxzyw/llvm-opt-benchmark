@@ -139,8 +139,8 @@ define hidden void @proto_register_mcpe() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %mcpe_init_message_names.exit, label %1, !llvm.loop !4
 
 mcpe_init_message_names.exit:                     ; preds = %1
-  store i32 0, ptr getelementptr inbounds (i8, ptr @mcpe_packet_names, i64 48), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @mcpe_packet_names, i64 56), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @mcpe_packet_names, i64 48), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @mcpe_packet_names, i64 56), align 8
   %8 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44) #3
   store i32 %8, ptr @proto_mcpe, align 4
   %9 = tail call ptr @expert_register_protocol(i32 noundef %8) #3

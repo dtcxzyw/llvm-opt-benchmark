@@ -126,7 +126,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -202,7 +202,7 @@ entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator.3", align 1
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib31ForwardEuropeanHestonPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib31ForwardEuropeanHestonPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %type, ptr %type_, align 8, !tbaa !18
   %moneyness_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -567,7 +567,7 @@ invoke.cont29:                                    ; preds = %entry
   store i32 %28, ptr %type_.i.i.i, align 8, !tbaa !33
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %payoff, i64 16
   store double %mul, ptr %strike_.i.i, align 8, !tbaa !36
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff, align 8, !tbaa !14
   %n_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load i64, ptr %n_.i.i, align 8, !tbaa !38
   %30 = getelementptr double, ptr %25, i64 %29

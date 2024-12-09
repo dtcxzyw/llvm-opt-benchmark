@@ -131,7 +131,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store ptr %func, ptr getelementptr inbounds (i8, ptr @_ZL23gCommonCleanupFunctions, i64 224), align 16
+  store ptr %func, ptr getelementptr inbounds nuw (i8, ptr @_ZL23gCommonCleanupFunctions, i64 224), align 16
   br label %if.end6
 
 if.else:                                          ; preds = %entry

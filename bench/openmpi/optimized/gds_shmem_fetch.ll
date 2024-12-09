@@ -107,7 +107,7 @@ define i32 @pmix_gds_shmem_fetch(ptr noundef %0, i8 noundef zeroext %1, i1 nound
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.pmix_list_t, align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 76), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %or.cond322 = icmp ult i32 %11, 64
   br i1 %or.cond322, label %12, label %22
 
@@ -119,7 +119,7 @@ define i32 @pmix_gds_shmem_fetch(ptr noundef %0, i8 noundef zeroext %1, i1 nound
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
-  %18 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4)) #13
+  %18 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4)) #13
   %.not = icmp eq ptr %3, null
   %19 = select i1 %.not, ptr @.str.1, ptr %3
   %20 = tail call ptr @pmix_util_print_name_args(ptr noundef %0) #13
@@ -187,10 +187,10 @@ define i32 @pmix_gds_shmem_fetch(ptr noundef %0, i8 noundef zeroext %1, i1 nound
 
 57:                                               ; preds = %.lr.ph450, %113
   %.0269448 = phi ptr [ %.0269446, %.lr.ph450 ], [ %.0269, %113 ]
-  %58 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %59 = call noalias noundef ptr @malloc(i64 noundef %58) #14
   %60 = load i32, ptr @pmix_class_init_epoch, align 4
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %60, %61
   br i1 %.not.i, label %63, label %62
 
@@ -385,7 +385,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %99
 
 157:                                              ; preds = %.lr.ph463, %pmix_obj_run_destructors.exit347
   %158 = load i32, ptr @pmix_class_init_epoch, align 4
-  %159 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %159 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not314 = icmp eq i32 %158, %159
   br i1 %.not314, label %161, label %160
 
@@ -948,10 +948,10 @@ pmix_check_app_info.exit:                         ; preds = %.preheader407
   br i1 %420, label %421, label %484
 
 421:                                              ; preds = %417, %.lr.ph444
-  %422 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %422 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %423 = call noalias noundef ptr @malloc(i64 noundef %422) #14
   %424 = load i32, ptr @pmix_class_init_epoch, align 4
-  %425 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %425 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i367 = icmp eq i32 %424, %425
   br i1 %.not.i367, label %427, label %426
 
@@ -1167,7 +1167,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @fetch_sessioninfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 76), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %7, 64
   br i1 %or.cond, label %8, label %14
 
@@ -1359,10 +1359,10 @@ define internal fastcc i32 @fetch_sessioninfo(ptr noundef %0, ptr noundef %1, pt
 
 104:                                              ; preds = %159, %.lr.ph24.i
   %.010922.i = phi ptr [ %.010920.i, %.lr.ph24.i ], [ %.0109.i, %159 ]
-  %105 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %106 = tail call noalias noundef ptr @malloc(i64 noundef %105) #14
   %107 = load i32, ptr @pmix_class_init_epoch, align 4
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %107, %108
   br i1 %.not.i.i, label %110, label %109
 
@@ -1626,10 +1626,10 @@ pmix_obj_run_destructors.exit134.i:               ; preds = %.lr.ph.i131.i, %203
 
 235:                                              ; preds = %.lr.ph.i
   %236 = getelementptr inbounds nuw i8, ptr %.014.i, i64 144
-  %237 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %237 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %238 = tail call noalias noundef ptr @malloc(i64 noundef %237) #14
   %239 = load i32, ptr @pmix_class_init_epoch, align 4
-  %240 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %240 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i136.i = icmp eq i32 %239, %240
   br i1 %.not.i136.i, label %242, label %241
 
@@ -1779,7 +1779,7 @@ xfer_sessioninfo.exit:                            ; preds = %301, %159, %98, %13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @fetch_nodeinfo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 76), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %7, 64
   br i1 %or.cond, label %8, label %17
 
@@ -1791,7 +1791,7 @@ define internal fastcc noundef i32 @fetch_nodeinfo(ptr noundef %0, ptr nocapture
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4)) #13
+  %14 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4)) #13
   %15 = icmp eq ptr %0, null
   %16 = select i1 %15, ptr @.str.1, ptr %0
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %7, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.fetch_nodeinfo, ptr noundef %14, ptr noundef nonnull %16) #13
@@ -2017,7 +2017,7 @@ define internal fastcc noundef i32 @fetch_nodeinfo(ptr noundef %0, ptr nocapture
 
 .thread194:                                       ; preds = %._crit_edge, %.thread199
   %119 = phi i1 [ true, %.thread199 ], [ false, %._crit_edge ]
-  %.1198.in = phi ptr [ %84, %.thread199 ], [ getelementptr inbounds (i8, ptr @pmix_globals, i64 344), %._crit_edge ]
+  %.1198.in = phi ptr [ %84, %.thread199 ], [ getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 344), %._crit_edge ]
   %.1198 = load ptr, ptr %.1198.in, align 8
   %.not167 = icmp eq ptr %.1198, null
   br i1 %.not167, label %.thread208, label %120
@@ -2122,7 +2122,7 @@ get_nodeinfo_by_nodename.exit:                    ; preds = %.lr.ph235, %.lr.ph.
   %160 = getelementptr inbounds nuw i8, ptr %.0153, i64 152
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %161, null
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 344), align 8
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 344), align 8
   %spec.select = select i1 %162, ptr %163, ptr %161
   br label %164
 
@@ -2155,7 +2155,7 @@ get_nodeinfo_by_nodename.exit:                    ; preds = %.lr.ph235, %.lr.ph.
 
 176:                                              ; preds = %.lr.ph240
   %177 = getelementptr inbounds nuw i8, ptr %.0238, i64 144
-  %178 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 76), align 4
+  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %or.cond176 = icmp ult i32 %178, 64
   br i1 %or.cond176, label %179, label %187
 
@@ -2167,16 +2167,16 @@ get_nodeinfo_by_nodename.exit:                    ; preds = %.lr.ph235, %.lr.ph.
   br i1 %183, label %184, label %187
 
 184:                                              ; preds = %179
-  %185 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4)) #13
+  %185 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4)) #13
   %186 = load ptr, ptr %177, align 8
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %178, ptr noundef nonnull @.str.17, ptr noundef %185, ptr noundef nonnull @__func__.fetch_nodeinfo, ptr noundef %186) #13
   br label %187
 
 187:                                              ; preds = %176, %179, %184
-  %188 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %188 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %189 = tail call noalias noundef ptr @malloc(i64 noundef %188) #14
   %190 = load i32, ptr @pmix_class_init_epoch, align 4
-  %191 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %191 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i180 = icmp eq i32 %190, %191
   br i1 %.not.i180, label %193, label %192
 
@@ -2325,7 +2325,7 @@ fetch_all_node_info_from_list.exit:               ; preds = %251, %109, %.thread
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @fetch_appinfo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_gds_base_framework, i64 76), align 4
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4
   %or.cond159 = icmp ult i32 %7, 64
   br i1 %or.cond159, label %8, label %17
 
@@ -2337,7 +2337,7 @@ define internal fastcc i32 @fetch_appinfo(ptr noundef %0, ptr nocapture noundef 
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4)) #13
+  %14 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4)) #13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %16 = load volatile i64, ptr %15, align 8
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %7, ptr noundef nonnull @.str.18, ptr noundef %14, i64 noundef %16) #13
@@ -2488,10 +2488,10 @@ define internal fastcc i32 @fetch_appinfo(ptr noundef %0, ptr nocapture noundef 
 
 89:                                               ; preds = %._crit_edge.i, %.lr.ph126.i
   %.082124.i = phi ptr [ %.082122.i, %.lr.ph126.i ], [ %.082.i, %._crit_edge.i ]
-  %90 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %91 = tail call noalias noundef ptr @malloc(i64 noundef %90) #14
   %92 = load i32, ptr @pmix_class_init_epoch, align 4
-  %93 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %92, %93
   br i1 %.not.i.i, label %95, label %94
 
@@ -2781,7 +2781,7 @@ fetch_all_app_info.exit.thread:                   ; preds = %95, %149, %165, %16
   br label %fetch_all_app_info.exit.thread177
 
 221:                                              ; preds = %._crit_edge
-  %222 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 352), align 8
+  %222 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 352), align 8
   br label %.thread172
 
 .thread172:                                       ; preds = %25, %29, %32, %36, %40, %43, %47, %50, %54, %58, %61, %65, %69, %73, %76, %79, %221
@@ -2840,10 +2840,10 @@ fetch_all_app_info.exit.thread:                   ; preds = %95, %149, %165, %16
   br i1 %247, label %248, label %309
 
 248:                                              ; preds = %244, %243
-  %249 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %249 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %250 = tail call noalias noundef ptr @malloc(i64 noundef %249) #14
   %251 = load i32, ptr @pmix_class_init_epoch, align 4
-  %252 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i160 = icmp eq i32 %251, %252
   br i1 %.not.i160, label %254, label %253
 
@@ -2993,10 +2993,10 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @pmix_bfrop_tma_kval_new(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %3 = tail call noalias noundef ptr @malloc(i64 noundef %2) #14
   %4 = load i32, ptr @pmix_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %4, %5
   br i1 %.not.i, label %7, label %6
 
@@ -3134,10 +3134,10 @@ declare ptr @pmix_gds_shmem_get_session_tracker(ptr noundef, i32 noundef, i1 nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @fetch_all_node_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 56), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 56), align 8
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #14
   %6 = load i32, ptr @pmix_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_kval_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_kval_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %6, %7
   br i1 %.not.i, label %9, label %8
 

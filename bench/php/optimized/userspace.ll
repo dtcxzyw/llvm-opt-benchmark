@@ -203,7 +203,7 @@ define hidden void @zif_stream_wrapper_register(ptr nocapture noundef readonly %
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %12)
   br label %53
@@ -305,7 +305,7 @@ define hidden void @zif_stream_wrapper_unregister(ptr nocapture noundef readonly
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %35
@@ -370,7 +370,7 @@ define hidden void @zif_stream_wrapper_restore(ptr nocapture noundef readonly %0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
   br label %44
@@ -486,7 +486,7 @@ define internal i64 @php_userstreamop_write(ptr nocapture noundef readonly %0, p
   %26 = call i32 @zend_call_method_if_exists(ptr noundef %.val, ptr noundef nonnull %9, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %28, label %52
 
@@ -571,7 +571,7 @@ define internal i64 @php_userstreamop_read(ptr nocapture noundef %0, ptr nocaptu
   %18 = call i32 @zend_call_method_if_exists(ptr noundef %.val, ptr noundef nonnull %9, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %81
 
@@ -656,7 +656,7 @@ define internal i64 @php_userstreamop_read(ptr nocapture noundef %0, ptr nocaptu
   %.val157 = load ptr, ptr %17, align 8
   %58 = call i32 @zend_call_method_if_exists(ptr noundef %.val157, ptr noundef nonnull %52, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not153 = icmp eq ptr %59, null
   br i1 %.not153, label %64, label %60
 
@@ -1565,7 +1565,7 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   %10 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %18, label %14
 
@@ -1579,8 +1579,8 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   br label %132
 
 18:                                               ; preds = %14, %6
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
-  %19 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 580), align 4
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 580), align 4
   %20 = and i8 %19, 1
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %22 = load i32, ptr %21, align 8
@@ -1591,12 +1591,12 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond262, label %29, label %25
 
 25:                                               ; preds = %18
-  %26 = load i8, ptr getelementptr inbounds (i8, ptr @core_globals, i64 579), align 1
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 579), align 1
   %27 = trunc i8 %26 to i1
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %25
-  store i8 1, ptr getelementptr inbounds (i8, ptr @core_globals, i64 580), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 580), align 4
   br label %29
 
 29:                                               ; preds = %28, %25, %18
@@ -1615,8 +1615,8 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %29
-  store ptr null, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
-  store i8 %20, ptr getelementptr inbounds (i8, ptr @core_globals, i64 580), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8
+  store i8 %20, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 580), align 4
   call void @_efree(ptr noundef nonnull %30) #11
   br label %132
 
@@ -1669,7 +1669,7 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 26, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = load ptr, ptr @executor_globals, align 8
-  %69 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 8), align 8
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 8), align 8
   store ptr %68, ptr %67, align 8
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i32 %69, ptr %70, align 8
@@ -1694,8 +1694,8 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %74, ptr %8, align 8
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 262, ptr %80, align 8
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %82 = call i32 @__sigsetjmp(ptr noundef nonnull %10, i32 noundef 0) #15
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %89
@@ -1703,7 +1703,7 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
 84:                                               ; preds = %40
   %.val = load ptr, ptr %35, align 8
   %85 = call i32 @zend_call_method_if_exists(ptr noundef %.val, ptr noundef nonnull %74, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull %9) #11
-  store ptr %81, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %86 = icmp ne i32 %85, 0
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %88 = load i8, ptr %87, align 8
@@ -1712,8 +1712,8 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond264, label %121, label %90
 
 89:                                               ; preds = %40
-  store ptr %81, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
+  store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8
   call void @_zend_bailout(ptr noundef nonnull @.str.36, i32 noundef 347) #16
   unreachable
 
@@ -1798,8 +1798,8 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   call void @zval_ptr_dtor(ptr noundef nonnull %62) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %51) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
-  store i8 %20, ptr getelementptr inbounds (i8, ptr @core_globals, i64 580), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8
+  store i8 %20, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 580), align 4
   br label %132
 
 132:                                              ; preds = %.thread, %39, %17
@@ -1917,7 +1917,7 @@ define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr no
   %9 = alloca [2 x %struct._zval_struct], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
 
@@ -1931,7 +1931,7 @@ define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr no
   br label %76
 
 17:                                               ; preds = %13, %6
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8
   %18 = tail call noalias ptr @_emalloc_24() #11
   store ptr %11, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -1947,7 +1947,7 @@ define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %17
-  store ptr null, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8
   tail call void @_efree(ptr noundef nonnull %18) #11
   br label %76
 
@@ -2045,7 +2045,7 @@ define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr no
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %39) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #11
-  store ptr null, ptr getelementptr inbounds (i8, ptr @file_globals, i64 48), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8
   br label %76
 
 76:                                               ; preds = %.thread, %27, %16
@@ -2656,7 +2656,7 @@ define internal fastcc void @user_stream_create_object(ptr nocapture noundef rea
   br label %24
 
 24:                                               ; preds = %23, %17
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not33 = icmp eq ptr %25, null
   br i1 %.not33, label %28, label %26
 

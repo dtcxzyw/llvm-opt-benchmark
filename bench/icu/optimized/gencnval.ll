@@ -92,8 +92,8 @@ entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
   %call = tail call ptr @u_getDataDirectory_75() #16
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @options, i64 208), align 16
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @options, i64 168), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @options, i64 208), align 16
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @options, i64 168), align 8
   %call1 = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef %argv, i32 noundef 7, ptr noundef nonnull @options) #16
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.end.thread, label %if.end
@@ -108,9 +108,9 @@ if.end.thread:                                    ; preds = %entry
   br label %if.then7
 
 if.end:                                           ; preds = %entry
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 34), align 2
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 34), align 2
   %tobool = icmp ne i8 %2, 0
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 74), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 74), align 2
   %tobool6 = icmp ne i8 %3, 0
   %or.cond3 = select i1 %tobool, i1 true, i1 %tobool6
   br i1 %or.cond3, label %if.then7, label %if.end12
@@ -123,7 +123,7 @@ if.then7:                                         ; preds = %if.end.thread, %if.
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 114), align 2
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 114), align 2
   %tobool13.not = icmp eq i8 %6, 0
   br i1 %tobool13.not, label %if.end15, label %if.then14
 
@@ -132,7 +132,7 @@ if.then14:                                        ; preds = %if.end12
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end12
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 274), align 2
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 274), align 2
   %tobool16.not = icmp eq i8 %7, 0
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
@@ -152,7 +152,7 @@ if.then21:                                        ; preds = %if.end18
 if.end23:                                         ; preds = %if.end18, %if.then21
   %storemerge = phi ptr [ %8, %if.then21 ], [ @.str.2, %if.end18 ]
   store ptr %storemerge, ptr @path, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 208), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 208), align 16
   %cmp24.not = icmp eq ptr %9, null
   br i1 %cmp24.not, label %if.end40, label %land.lhs.true
 
@@ -566,7 +566,7 @@ addConverter.exit.i.i:                            ; preds = %for.cond.i.i.i, %fo
   br i1 %cmp24.not100112.i.i, label %if.end63.i, label %land.rhs26.lr.ph.lr.ph.i.i
 
 land.rhs26.lr.ph.lr.ph.i.i:                       ; preds = %addConverter.exit.i.i
-  %arrayidx207.i.i = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr getelementptr inbounds (i8, ptr @tags, i64 8), i64 0, i64 %idxprom14.i.i.i
+  %arrayidx207.i.i = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr getelementptr inbounds nuw (i8, ptr @tags, i64 8), i64 0, i64 %idxprom14.i.i.i
   br label %land.rhs26.lr.ph.i.i
 
 land.rhs26.lr.ph.i.i:                             ; preds = %if.end213.i.i, %land.rhs26.lr.ph.lr.ph.i.i
@@ -831,8 +831,8 @@ parseFile.exit:                                   ; preds = %if.end72.i, %if.end
   call void @llvm.lifetime.end.p0(i64 32767, ptr nonnull %line.i)
   call void @llvm.lifetime.end.p0(i64 32767, ptr nonnull %lastLine.i)
   call void @T_FileStream_close(ptr noundef nonnull %call41) #16
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 168), align 8
-  %113 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 154), align 2
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 168), align 8
+  %113 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 154), align 2
   %tobool48.not = icmp eq i8 %113, 0
   %cond49 = select i1 %tobool48.not, ptr null, ptr @.str.7
   %call50 = call ptr @udata_create(ptr noundef %112, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @dataInfo, ptr noundef %cond49, ptr noundef nonnull %errorCode) #16
@@ -849,7 +849,7 @@ if.then53:                                        ; preds = %parseFile.exit
   unreachable
 
 if.end56:                                         ; preds = %parseFile.exit
-  %117 = load i32, ptr getelementptr inbounds (i8, ptr @tagBlock, i64 8), align 8
+  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8
   %118 = lshr i32 %117, 1
   %conv1.i = trunc i32 %118 to i16
   %119 = load i16, ptr @tagCount, align 2
@@ -944,7 +944,7 @@ if.then.i.i.i56:                                  ; preds = %for.body16.us.i.i.i
 
 for.cond40.preheader.i.i.i:                       ; preds = %for.inc70.i.i.i, %for.cond40.preheader.preheader.i.i.i
   %indvars.iv62.i.i.i = phi i64 [ 0, %for.cond40.preheader.preheader.i.i.i ], [ %indvars.iv.next63.i.i.i, %for.inc70.i.i.i ]
-  %arrayidx46.i.i.i = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr getelementptr inbounds (i8, ptr @tags, i64 8), i64 0, i64 %indvars.iv62.i.i.i
+  %arrayidx46.i.i.i = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr getelementptr inbounds nuw (i8, ptr @tags, i64 8), i64 0, i64 %indvars.iv62.i.i.i
   %132 = load i16, ptr %arrayidx46.i.i.i, align 8
   %cmp4938.not.i.i.i = icmp eq i16 %132, 0
   br i1 %cmp4938.not.i.i.i, label %for.inc70.i.i.i, label %for.body51.lr.ph.i.i.i
@@ -1080,7 +1080,7 @@ if.then.i91.i.i:                                  ; preds = %for.body16.us.i78.i
 
 for.cond40.preheader.i41.i.i:                     ; preds = %for.inc70.i55.i.i, %for.cond40.preheader.preheader.i39.i.i
   %indvars.iv62.i42.i.i = phi i64 [ 0, %for.cond40.preheader.preheader.i39.i.i ], [ %indvars.iv.next63.i56.i.i, %for.inc70.i55.i.i ]
-  %arrayidx46.i43.i.i = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr getelementptr inbounds (i8, ptr @tags, i64 8), i64 0, i64 %indvars.iv62.i42.i.i
+  %arrayidx46.i43.i.i = getelementptr inbounds nuw [4095 x %struct.AliasList], ptr getelementptr inbounds nuw (i8, ptr @tags, i64 8), i64 0, i64 %indvars.iv62.i42.i.i
   %147 = load i16, ptr %arrayidx46.i43.i.i, align 8
   %cmp4938.not.i44.i.i = icmp eq i16 %147, 0
   br i1 %cmp4938.not.i44.i.i, label %for.inc70.i55.i.i, label %for.body51.lr.ph.i45.i.i
@@ -1496,8 +1496,8 @@ for.end23.i:                                      ; preds = %for.inc21.i, %resol
   %add.i39 = add nuw nsw i32 %conv32.i, 1
   call void @udata_write32(ptr noundef %call50, i32 noundef %add.i39) #16
   call void @udata_write32(ptr noundef %call50, i32 noundef 2) #16
-  %215 = load i32, ptr getelementptr inbounds (i8, ptr @tagBlock, i64 8), align 8
-  %216 = load i32, ptr getelementptr inbounds (i8, ptr @stringBlock, i64 8), align 8
+  %215 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8
+  %216 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stringBlock, i64 8), align 8
   %add33.i = add i32 %216, %215
   %217 = lshr i32 %add33.i, 1
   call void @udata_write32(ptr noundef %call50, i32 noundef %217) #16
@@ -1506,8 +1506,8 @@ for.end23.i:                                      ; preds = %for.inc21.i, %resol
   br i1 %cmp38.not.i, label %if.end45.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %for.end23.i
-  %219 = load i32, ptr getelementptr inbounds (i8, ptr @tagBlock, i64 8), align 8
-  %220 = load i32, ptr getelementptr inbounds (i8, ptr @stringBlock, i64 8), align 8
+  %219 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8
+  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stringBlock, i64 8), align 8
   %add41.i = add i32 %220, %219
   %221 = lshr i32 %add41.i, 1
   call void @udata_write32(ptr noundef %call50, i32 noundef %221) #16
@@ -1549,7 +1549,7 @@ for.body62.i:                                     ; preds = %for.cond58.preheade
 for.end67.i:                                      ; preds = %for.body62.i, %for.cond58.preheader.i
   %230 = load i16, ptr @tags, align 16
   call void @udata_write16(ptr noundef %call50, i16 noundef zeroext %230) #16
-  %231 = load i16, ptr getelementptr inbounds (i8, ptr @tags, i64 65528), align 8
+  %231 = load i16, ptr getelementptr inbounds nuw (i8, ptr @tags, i64 65528), align 8
   call void @udata_write16(ptr noundef %call50, i16 noundef zeroext %231) #16
   %mul69.i = shl i32 %uniqueAliasIdx.0.i.i, 1
   call void @udata_writeBlock(ptr noundef %call50, ptr noundef %call8.i, i32 noundef %mul69.i) #16
@@ -1575,23 +1575,23 @@ for.end67.i:                                      ; preds = %for.body62.i, %for.
   call void @udata_writeBlock(ptr noundef %call50, ptr noundef nonnull @aliasLists, i32 noundef %mul88.i) #16
   call void @udata_writeBlock(ptr noundef %call50, ptr noundef nonnull @tableOptions, i32 noundef 4) #16
   %236 = load ptr, ptr @tagBlock, align 8
-  %237 = load i32, ptr getelementptr inbounds (i8, ptr @tagBlock, i64 8), align 8
+  %237 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8
   call void @udata_writeString(ptr noundef %call50, ptr noundef %236, i32 noundef %237) #16
   %238 = load ptr, ptr @stringBlock, align 8
-  %239 = load i32, ptr getelementptr inbounds (i8, ptr @stringBlock, i64 8), align 8
+  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stringBlock, i64 8), align 8
   call void @udata_writeString(ptr noundef %call50, ptr noundef %238, i32 noundef %239) #16
   %240 = load i16, ptr @tableOptions, align 2
   %cmp91.not.i = icmp eq i16 %240, 0
   br i1 %cmp91.not.i, label %writeAliasTable.exit, label %if.then93.i
 
 if.then93.i:                                      ; preds = %for.end67.i
-  %241 = load i32, ptr getelementptr inbounds (i8, ptr @tagBlock, i64 8), align 8
-  %242 = load i32, ptr getelementptr inbounds (i8, ptr @stringBlock, i64 8), align 8
+  %241 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8
+  %242 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stringBlock, i64 8), align 8
   %add94.i = add i32 %242, %241
   %conv95.i = zext i32 %add94.i to i64
   %call96.i = call noalias ptr @uprv_malloc_75(i64 noundef %conv95.i) #22
   %243 = load ptr, ptr @tagBlock, align 8
-  %244 = load i32, ptr getelementptr inbounds (i8, ptr @tagBlock, i64 8), align 8
+  %244 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8
   %conv.i.i44 = sext i32 %244 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call96.i, ptr align 1 %243, i64 %conv.i.i44, i1 false)
   %call16.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %243) #20
@@ -1634,7 +1634,7 @@ if.end12.i.i:                                     ; preds = %if.then10.i.i, %if.
   br i1 %cmp.i65.i, label %while.body.i.i45, label %createNormalizedAliasStrings.exit.loopexit.i, !llvm.loop !28
 
 createNormalizedAliasStrings.exit.loopexit.i:     ; preds = %if.end12.i.i
-  %.pre158.i = load i32, ptr getelementptr inbounds (i8, ptr @tagBlock, i64 8), align 8
+  %.pre158.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8
   br label %createNormalizedAliasStrings.exit.i
 
 createNormalizedAliasStrings.exit.i:              ; preds = %createNormalizedAliasStrings.exit.loopexit.i, %if.then93.i
@@ -1642,7 +1642,7 @@ createNormalizedAliasStrings.exit.i:              ; preds = %createNormalizedAli
   %idx.ext97.i = zext i32 %245 to i64
   %add.ptr98.i = getelementptr inbounds nuw i8, ptr %call96.i, i64 %idx.ext97.i
   %246 = load ptr, ptr @stringBlock, align 8
-  %247 = load i32, ptr getelementptr inbounds (i8, ptr @stringBlock, i64 8), align 8
+  %247 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stringBlock, i64 8), align 8
   %conv.i71.i = sext i32 %247 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr98.i, ptr align 1 %246, i64 %conv.i71.i, i1 false)
   %call16.i72.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %246) #20
@@ -1685,8 +1685,8 @@ if.end12.i82.i:                                   ; preds = %if.then10.i95.i, %i
   br i1 %cmp.i89.i, label %while.body.i75.i, label %createNormalizedAliasStrings.exit100.loopexit.i, !llvm.loop !28
 
 createNormalizedAliasStrings.exit100.loopexit.i:  ; preds = %if.end12.i82.i
-  %.pre159.i = load i32, ptr getelementptr inbounds (i8, ptr @tagBlock, i64 8), align 8
-  %.pre160.i = load i32, ptr getelementptr inbounds (i8, ptr @stringBlock, i64 8), align 8
+  %.pre159.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8
+  %.pre160.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @stringBlock, i64 8), align 8
   br label %createNormalizedAliasStrings.exit100.i
 
 createNormalizedAliasStrings.exit100.i:           ; preds = %createNormalizedAliasStrings.exit100.loopexit.i, %createNormalizedAliasStrings.exit.i

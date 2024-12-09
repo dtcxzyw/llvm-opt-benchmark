@@ -554,7 +554,7 @@ define i32 @prte_pmix_register_cleanup(ptr noundef %0, i1 noundef zeroext %1, i1
   %5 = alloca %struct.prte_pmix_lock_t, align 8
   %6 = alloca [3 x %struct.pmix_info], align 16
   %7 = load i32, ptr @pmix_class_init_epoch, align 4
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %7, %8
   br i1 %.not, label %10, label %9
 
@@ -783,7 +783,7 @@ define internal void @infoitdecon(ptr noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal void @arritmcon(ptr noundef initializes((184, 196), (200, 264)) %0) #1 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 

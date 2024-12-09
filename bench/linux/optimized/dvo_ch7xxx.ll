@@ -34,7 +34,7 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
   %6 = alloca [2 x i8], align 2
   %7 = alloca [2 x i8], align 2
   %8 = alloca [2 x %struct.i2c_msg], align 16
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(1) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 1) #6
   %11 = icmp eq ptr %10, null
   br i1 %11, label %87, label %12

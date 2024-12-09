@@ -226,7 +226,7 @@ $_ZTVN4llvm13FormatAdapterINS_5ErrorEEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5clang6driver10toolchains21AMDGPUOpenMPToolChainC2ERKNS0_6DriverERKN4llvm6TripleERKNS0_9ToolChainERKNS6_3opt7ArgListE(ptr noundef nonnull align 8 dereferenceable(4544) %0, ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(2168) %3, ptr noundef nonnull align 8 dereferenceable(176) %4) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang6driver10toolchains13ROCMToolChainC2ERKNS0_6DriverERKN4llvm6TripleERKNS6_3opt7ArgListE(ptr noundef nonnull align 8 dereferenceable(4536) %0, ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(176) %4) #15
-  store ptr getelementptr inbounds inrange(-16, 784) (i8, ptr @_ZTVN5clang6driver10toolchains21AMDGPUOpenMPToolChainE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 784) (i8, ptr @_ZTVN5clang6driver10toolchains21AMDGPUOpenMPToolChainE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4536
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -776,7 +776,7 @@ _ZN4llvm7support6detail12ErrorAdapterD2Ev.exit.i.i: ; preds = %80, %_ZNSt10uniqu
   %87 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %88 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %76, ptr %88, align 8, !alias.scope !36
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12ErrorAdapterE, i64 16), ptr %87, align 8, !alias.scope !36
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12ErrorAdapterE, i64 16), ptr %87, align 8, !alias.scope !36
   store ptr %87, ptr %84, align 8, !alias.scope !36
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16), !noalias !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !36
@@ -811,7 +811,7 @@ _ZN4llvm7formatvIJNS_7support6detail12ErrorAdapterEEEEDaPKcDpOT_.exit: ; preds =
   store i32 1, ptr %98, align 4, !noalias !40
   %99 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false), !noalias !40
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %13, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %13, align 8, !noalias !40
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %22, ptr %100, align 8, !noalias !40
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
@@ -829,7 +829,7 @@ _ZN4llvm7formatvIJNS_7support6detail12ErrorAdapterEEEEDaPKcDpOT_.exit: ; preds =
 _ZNK4llvm19formatv_object_basecvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %_ZN4llvm7formatvIJNS_7support6detail12ErrorAdapterEEEEDaPKcDpOT_.exit, %105
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13), !noalias !37
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12ErrorAdapterE, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12ErrorAdapterE, i64 16), ptr %87, align 8
   %106 = load ptr, ptr %88, align 8
   store ptr null, ptr %88, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
@@ -855,7 +855,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i.i.i.i:                ; preds = %110, %_ZNK4llvm19fo
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FormatAdapterINS_5ErrorEEE, i64 16), ptr %87, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FormatAdapterINS_5ErrorEEE, i64 16), ptr %87, align 8
   %114 = load ptr, ptr %88, align 8
   %115 = icmp eq ptr %114, null
   br i1 %115, label %_ZN4llvm14formatv_objectISt5tupleIJNS_7support6detail12ErrorAdapterEEEED2Ev.exit, label %116
@@ -1365,7 +1365,7 @@ define linkonce_odr hidden void @_ZN4llvm7support6detail12ErrorAdapterD2Ev(ptr n
   %2 = alloca %"class.llvm::Error", align 8
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %class.anon, align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12ErrorAdapterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12ErrorAdapterE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
@@ -1392,7 +1392,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %10, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FormatAdapterINS_5ErrorEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FormatAdapterINS_5ErrorEEE, i64 16), ptr %0, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZN4llvm13FormatAdapterINS_5ErrorEED2Ev.exit, label %16
@@ -1557,7 +1557,7 @@ declare void @_ZNK5clang6driver9ToolChain23buildCompilerRTBasenameB5cxx11ERKN4ll
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver10toolchains21AMDGPUOpenMPToolChainD2Ev(ptr noundef nonnull align 8 dereferenceable(4544) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 784) (i8, ptr @_ZTVN5clang6driver10toolchains15AMDGPUToolChainE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 784) (i8, ptr @_ZTVN5clang6driver10toolchains15AMDGPUToolChainE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4488
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4504
   %4 = load ptr, ptr %3, align 8
@@ -1568,7 +1568,7 @@ define linkonce_odr hidden void @_ZN5clang6driver10toolchains21AMDGPUOpenMPToolC
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang6driver10toolchains21AMDGPUOpenMPToolChainD0Ev(ptr noundef nonnull align 8 dereferenceable(4544) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 784) (i8, ptr @_ZTVN5clang6driver10toolchains15AMDGPUToolChainE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 784) (i8, ptr @_ZTVN5clang6driver10toolchains15AMDGPUToolChainE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4488
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4504
   %4 = load ptr, ptr %3, align 8
@@ -1792,7 +1792,7 @@ define linkonce_odr hidden void @_ZNK5clang6driver9ToolChain14getThreadModelB5cx
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.9, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 5))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   ret void
 }
@@ -1963,7 +1963,7 @@ define linkonce_odr hidden void @_ZN4llvm7support6detail12ErrorAdapterD0Ev(ptr n
   %2 = alloca %"class.llvm::Error", align 8
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %class.anon, align 1
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12ErrorAdapterE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail12ErrorAdapterE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
@@ -1990,7 +1990,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %10, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FormatAdapterINS_5ErrorEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FormatAdapterINS_5ErrorEEE, i64 16), ptr %0, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZN4llvm7support6detail12ErrorAdapterD2Ev.exit, label %16
@@ -2049,7 +2049,7 @@ _ZN4llvmlsERNS_11raw_ostreamERKNS_5ErrorE.exit:   ; preds = %7, %20, %22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm13FormatAdapterINS_5ErrorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FormatAdapterINS_5ErrorEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FormatAdapterINS_5ErrorEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2584,7 +2584,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !142
   %155 = load ptr, ptr %2, align 8, !noalias !145
   store ptr null, ptr %2, align 8, !noalias !145
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16

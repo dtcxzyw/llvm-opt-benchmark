@@ -2284,7 +2284,7 @@ define dso_local void @intel_overlay_setup(ptr noundef %0) local_unnamed_addr #2
   br i1 %17, label %100, label %18
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %20 = tail call noalias noundef align 8 dereferenceable_or_null(272) ptr @kmalloc_trace(ptr noundef %19, i32 noundef 3520, i64 noundef 272) #13
   %21 = icmp eq ptr %20, null
   br i1 %21, label %100, label %22
@@ -2561,7 +2561,7 @@ define dso_local noundef ptr @intel_overlay_capture_error_state(ptr noundef %0) 
   br i1 %8, label %28, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %11 = tail call noalias align 8 dereferenceable_or_null(1808) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 2080, i64 noundef 1808) #13
   %12 = icmp eq ptr %11, null
   br i1 %12, label %28, label %13

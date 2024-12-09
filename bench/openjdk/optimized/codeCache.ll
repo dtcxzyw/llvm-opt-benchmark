@@ -3089,7 +3089,7 @@ define hidden void @_ZN9CodeCache25increment_unloading_cycleEv() local_unnamed_a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9CodeCache14UnlinkingScopeC2EP17BoolObjectClosure(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27ClosureIsUnloadingBehaviour, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27ClosureIsUnloadingBehaviour, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = load ptr, ptr @_ZN20IsUnloadingBehaviour8_currentE, align 8
@@ -3134,7 +3134,7 @@ define hidden void @_ZN9CodeCache11verify_oopsEv() local_unnamed_addr #1 align 2
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV16VerifyOopClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV16VerifyOopClosure, i64 16), ptr %1, align 8
   %5 = load ptr, ptr @_ZN9CodeCache14_nmethod_heapsE, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE4nextEv.exit, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit
@@ -4995,11 +4995,11 @@ define hidden void @_ZN9CodeCache18mark_dependents_onEP19DeoptimizationScopeP13I
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14KlassDepChange, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14KlassDepChange, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %13, align 8
   call void @_ZN14KlassDepChange10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV18KlassInitDepChange, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18KlassInitDepChange, i64 16), ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %14 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i.i = icmp eq ptr %14, null
@@ -5037,11 +5037,11 @@ _ZN9CodeCache23mark_for_deoptimizationEP19DeoptimizationScopeR14KlassDepChange.e
   br label %.sink.split
 
 22:                                               ; preds = %8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14KlassDepChange, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14KlassDepChange, i64 16), ptr %6, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %23, align 8
   call void @_ZN14KlassDepChange10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17NewKlassDepChange, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17NewKlassDepChange, i64 16), ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   %24 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i.i5 = icmp eq ptr %24, null

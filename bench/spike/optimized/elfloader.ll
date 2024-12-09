@@ -258,7 +258,7 @@ define void @_Z8load_elfB5cxx11PKcP7memif_tPmj(ptr dead_on_unwind noalias writab
 
 81:                                               ; preds = %79
   %82 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13incompat_xlen, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13incompat_xlen, i64 16), ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i32 %4, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 12

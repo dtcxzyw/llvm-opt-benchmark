@@ -954,7 +954,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_init(ptr noundef %0, ptr noundef readonly
   br i1 %.b, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 864), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 864), align 8
   %9 = tail call i32 @xstrcmp(ptr noundef %8, ptr noundef nonnull @.str.4) #20
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
@@ -978,7 +978,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_init(ptr noundef %0, ptr noundef readonly
   br label %14
 
 14:                                               ; preds = %13, %12
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 8), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 8), align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_running_cache.exit, label %16
 
@@ -1012,7 +1012,7 @@ _running_cache.exit:                              ; preds = %16, %14
   br i1 %.not20, label %32, label %27
 
 27:                                               ; preds = %24
-  %28 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
+  %28 = load i16, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 2), align 2
   %29 = zext i16 %28 to i32
   %30 = tail call fastcc i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32 noundef %29)
   %31 = icmp eq i32 %30, -1
@@ -1030,7 +1030,7 @@ _running_cache.exit:                              ; preds = %16, %14
   br i1 %.not22, label %_get_assoc_mgr_qos_list.exit.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
+  %38 = load i16, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 2), align 2
   %39 = tail call i32 @getuid() #20
   %40 = tail call ptr @acct_storage_g_get_qos(ptr noundef %0, i32 noundef %39, ptr noundef null) #20
   %.not.i32 = icmp eq ptr %40, null
@@ -1073,7 +1073,7 @@ _get_assoc_mgr_qos_list.exit.thread:              ; preds = %41, %46, %34, %32
   br i1 %.not24, label %57, label %52
 
 52:                                               ; preds = %49
-  %53 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
+  %53 = load i16, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 2), align 2
   %54 = zext i16 %53 to i32
   %55 = tail call fastcc i32 @_get_assoc_mgr_user_list(ptr noundef %0, i32 noundef %54)
   %56 = icmp eq i32 %55, -1
@@ -1091,7 +1091,7 @@ _get_assoc_mgr_qos_list.exit.thread:              ; preds = %41, %46, %34, %32
   br i1 %.not26, label %.thread, label %62
 
 62:                                               ; preds = %59
-  %63 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
+  %63 = load i16, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 2), align 2
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 112, i1 false)
   %64 = tail call i32 @getuid() #20
@@ -1114,7 +1114,7 @@ _get_assoc_mgr_qos_list.exit.thread:              ; preds = %41, %46, %34, %32
   %70 = tail call ptr @list_create(ptr noundef null) #20
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %70, ptr %71, align 8
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   tail call void @list_append(ptr noundef %70, ptr noundef %72) #20
   br label %73
 
@@ -1206,7 +1206,7 @@ _get_assoc_mgr_assoc_list.exit:                   ; preds = %80
   br i1 %.not29, label %127, label %102
 
 102:                                              ; preds = %99
-  %103 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
+  %103 = load i16, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 2), align 2
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   %104 = call i32 @getuid() #20
@@ -1228,7 +1228,7 @@ _get_assoc_mgr_assoc_list.exit:                   ; preds = %80
 109:                                              ; preds = %107
   %110 = call ptr @list_create(ptr noundef null) #20
   store ptr %110, ptr %5, align 8
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   call void @list_append(ptr noundef %110, ptr noundef %111) #20
   br label %112
 
@@ -1293,7 +1293,7 @@ _get_assoc_mgr_wckey_list.exit:                   ; preds = %118
   br i1 %.not31, label %155, label %132
 
 132:                                              ; preds = %129
-  %133 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
+  %133 = load i16, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 2), align 2
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
   %134 = call i32 @getuid() #20
   call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
@@ -1318,7 +1318,7 @@ _get_assoc_mgr_wckey_list.exit:                   ; preds = %118
   %141 = call ptr @list_create(ptr noundef null) #20
   %142 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %141, ptr %142, align 8
-  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   call void @list_append(ptr noundef %141, ptr noundef %143) #20
   br label %144
 
@@ -1378,7 +1378,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_assoc_mgr_tres_list(ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   %4 = tail call i32 @getuid() #20
   tail call void @assoc_mgr_lock(ptr noundef nonnull @__const._get_assoc_mgr_tres_list.locks)
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 8), align 8
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %11, label %6
 
@@ -1386,7 +1386,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_assoc_mgr_tres_list(ptr nounde
   %7 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #20
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %7, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 8), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 8), align 8
   %10 = tail call i32 @slurm_addto_char_list(ptr noundef %7, ptr noundef %9) #20
   br label %11
 
@@ -1423,7 +1423,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_assoc_mgr_tres_list(ptr nounde
   br i1 %.not15, label %_running_cache.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 8), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 8), align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_running_cache.exit, label %25
 
@@ -1433,7 +1433,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_assoc_mgr_tres_list(ptr nounde
   br i1 %.not2.i, label %_running_cache.exit, label %_running_cache.exit.thread
 
 _running_cache.exit:                              ; preds = %23, %25
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 80), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 80), align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_running_cache.exit.thread, label %29
 
@@ -1614,7 +1614,7 @@ define noundef i32 @assoc_mgr_fini(i1 noundef zeroext %0) local_unnamed_addr #0 
   store ptr null, ptr @assoc_mgr_user_list, align 8
   store ptr null, ptr @assoc_mgr_wckey_list, align 8
   store ptr null, ptr @assoc_mgr_root_assoc, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 8), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 8), align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %_running_cache.exit, label %35
 
@@ -1676,7 +1676,7 @@ define i32 @dump_assoc_mgr_state() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %22, %0
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 56), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 56), align 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.70, ptr noundef %26) #20
   store ptr %27, ptr %5, align 8
@@ -1871,7 +1871,7 @@ define i32 @dump_assoc_mgr_state() local_unnamed_addr #0 {
   br label %117
 
 117:                                              ; preds = %115, %113
-  %118 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 56), align 8
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 56), align 8
   %119 = load ptr, ptr %118, align 8
   %120 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.76, ptr noundef %119) #20
   store ptr %120, ptr %5, align 8
@@ -2117,7 +2117,7 @@ _make_usage_tres_raw_str.exit:                    ; preds = %221
   br label %236
 
 236:                                              ; preds = %._crit_edge, %187
-  %237 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 56), align 8
+  %237 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 56), align 8
   %238 = load ptr, ptr %237, align 8
   %239 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.77, ptr noundef %238) #20
   store ptr %239, ptr %5, align 8
@@ -2355,7 +2355,7 @@ _make_usage_tres_raw_str.exit199:                 ; preds = %338
   br label %353
 
 353:                                              ; preds = %._crit_edge226, %306
-  %354 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 56), align 8
+  %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 56), align 8
   %355 = load ptr, ptr %354, align 8
   %356 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.78, ptr noundef %355) #20
   store ptr %356, ptr %5, align 8
@@ -2573,7 +2573,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   ]
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 56)) #20
+  %30 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 56)) #20
   %.not80 = icmp eq i32 %30, 0
   br i1 %.not80, label %37, label %31
 
@@ -2584,7 +2584,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   unreachable
 
 33:                                               ; preds = %26
-  %34 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 56)) #20
+  %34 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 56)) #20
   %.not79 = icmp eq i32 %34, 0
   br i1 %.not79, label %37, label %35
 
@@ -2603,7 +2603,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   ]
 
 40:                                               ; preds = %37
-  %41 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 112)) #20
+  %41 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 112)) #20
   %.not82 = icmp eq i32 %41, 0
   br i1 %.not82, label %48, label %42
 
@@ -2614,7 +2614,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   unreachable
 
 44:                                               ; preds = %37
-  %45 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 112)) #20
+  %45 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 112)) #20
   %.not81 = icmp eq i32 %45, 0
   br i1 %.not81, label %48, label %46
 
@@ -2633,7 +2633,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   ]
 
 51:                                               ; preds = %48
-  %52 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 168)) #20
+  %52 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 168)) #20
   %.not84 = icmp eq i32 %52, 0
   br i1 %.not84, label %59, label %53
 
@@ -2644,7 +2644,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   unreachable
 
 55:                                               ; preds = %48
-  %56 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 168)) #20
+  %56 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 168)) #20
   %.not83 = icmp eq i32 %56, 0
   br i1 %.not83, label %59, label %57
 
@@ -2663,7 +2663,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   ]
 
 62:                                               ; preds = %59
-  %63 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 224)) #20
+  %63 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 224)) #20
   %.not86 = icmp eq i32 %63, 0
   br i1 %.not86, label %70, label %64
 
@@ -2674,7 +2674,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   unreachable
 
 66:                                               ; preds = %59
-  %67 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 224)) #20
+  %67 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 224)) #20
   %.not85 = icmp eq i32 %67, 0
   br i1 %.not85, label %70, label %68
 
@@ -2693,7 +2693,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   ]
 
 73:                                               ; preds = %70
-  %74 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 280)) #20
+  %74 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 280)) #20
   %.not88 = icmp eq i32 %74, 0
   br i1 %.not88, label %81, label %75
 
@@ -2704,7 +2704,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   unreachable
 
 77:                                               ; preds = %70
-  %78 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 280)) #20
+  %78 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 280)) #20
   %.not87 = icmp eq i32 %78, 0
   br i1 %.not87, label %81, label %79
 
@@ -2723,7 +2723,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   ]
 
 84:                                               ; preds = %81
-  %85 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 336)) #20
+  %85 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 336)) #20
   %.not90 = icmp eq i32 %85, 0
   br i1 %.not90, label %92, label %86
 
@@ -2734,7 +2734,7 @@ define void @assoc_mgr_lock(ptr nocapture noundef readonly %0) local_unnamed_add
   unreachable
 
 88:                                               ; preds = %81
-  %89 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 336)) #20
+  %89 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 336)) #20
   %.not89 = icmp eq i32 %89, 0
   br i1 %.not89, label %92, label %90
 
@@ -2756,7 +2756,7 @@ define void @assoc_mgr_unlock(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 336)) #20
+  %5 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 336)) #20
   %.not26 = icmp eq i32 %5, 0
   br i1 %.not26, label %8, label %6
 
@@ -2773,7 +2773,7 @@ define void @assoc_mgr_unlock(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not27, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 280)) #20
+  %12 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 280)) #20
   %.not28 = icmp eq i32 %12, 0
   br i1 %.not28, label %15, label %13
 
@@ -2790,7 +2790,7 @@ define void @assoc_mgr_unlock(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not29, label %22, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 224)) #20
+  %19 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 224)) #20
   %.not30 = icmp eq i32 %19, 0
   br i1 %.not30, label %22, label %20
 
@@ -2807,7 +2807,7 @@ define void @assoc_mgr_unlock(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not31, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 168)) #20
+  %26 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 168)) #20
   %.not32 = icmp eq i32 %26, 0
   br i1 %.not32, label %29, label %27
 
@@ -2824,7 +2824,7 @@ define void @assoc_mgr_unlock(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not33, label %36, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 112)) #20
+  %33 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 112)) #20
   %.not34 = icmp eq i32 %33, 0
   br i1 %.not34, label %36, label %34
 
@@ -2841,7 +2841,7 @@ define void @assoc_mgr_unlock(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not35, label %43, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @assoc_mgr_locks, i64 56)) #20
+  %40 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @assoc_mgr_locks, i64 56)) #20
   %.not36 = icmp eq i32 %40, 0
   br i1 %.not36, label %43, label %41
 
@@ -3392,7 +3392,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_fill_in_assoc(ptr noundef %0, ptr noundef
   br i1 %.not153, label %64, label %66
 
 64:                                               ; preds = %61
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   store ptr %65, ptr %62, align 8
   br label %66
 
@@ -4822,7 +4822,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_fill_in_wckey(ptr noundef %0, ptr nocaptu
   br i1 %.not101, label %79, label %81
 
 79:                                               ; preds = %76
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   store ptr %80, ptr %77, align 8
   br label %81
 
@@ -5424,13 +5424,13 @@ define void @assoc_mgr_get_shares(ptr noundef %0, i32 noundef %1, ptr noundef re
 27:                                               ; preds = %20, %22, %24, %11
   %.099 = phi ptr [ %.1, %24 ], [ %.1, %22 ], [ %.1, %20 ], [ null, %11 ]
   %.098 = phi ptr [ %26, %24 ], [ null, %22 ], [ null, %20 ], [ null, %11 ]
-  %28 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 904), align 8
+  %28 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 904), align 8
   %29 = and i16 %28, 8
   %.not120 = icmp eq i16 %29, 0
   br i1 %.not120, label %53, label %30
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %32 = icmp eq i32 %1, %31
   %33 = icmp eq i32 %1, 0
   %or.cond = or i1 %33, %32
@@ -5573,7 +5573,7 @@ assoc_mgr_get_admin_level.exit:                   ; preds = %41
   br label %83, !llvm.loop !37
 
 83:                                               ; preds = %82, %75
-  %84 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 904), align 8
+  %84 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 904), align 8
   %85 = and i16 %84, 8
   %86 = icmp eq i16 %85, 0
   %or.cond3 = or i1 %54, %86
@@ -5925,13 +5925,13 @@ define noundef ptr @assoc_mgr_info_get_pack_msg(ptr noundef readonly %0, i32 nou
   %.0111 = phi ptr [ %.1112, %31 ], [ null, %4 ]
   %.0110 = phi ptr [ %.1, %31 ], [ null, %4 ]
   %.0107 = phi i32 [ %33, %31 ], [ 0, %4 ]
-  %35 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 904), align 8
+  %35 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 904), align 8
   %36 = and i16 %35, 24
   %.not141 = icmp eq i16 %36, 0
   br i1 %.not141, label %60, label %37
 
 37:                                               ; preds = %34
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   %39 = icmp eq i32 %1, %38
   %40 = icmp eq i32 %1, 0
   %or.cond = or i1 %40, %39
@@ -6077,7 +6077,7 @@ assoc_mgr_get_admin_level.exit:                   ; preds = %48
   br label %91, !llvm.loop !41
 
 91:                                               ; preds = %90, %83
-  %92 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 904), align 8
+  %92 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 904), align 8
   %93 = and i16 %92, 8
   %94 = icmp eq i16 %93, 0
   %or.cond5 = or i1 %61, %94
@@ -6276,7 +6276,7 @@ assoc_mgr_get_admin_level.exit:                   ; preds = %48
   br i1 %.not157, label %164, label %172
 
 164:                                              ; preds = %162
-  %165 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 904), align 8
+  %165 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 904), align 8
   %166 = and i16 %165, 16
   %.not158 = icmp eq i16 %166, 0
   br i1 %.not158, label %172, label %167
@@ -7191,7 +7191,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_update_assocs(ptr nocapture noundef reado
   br i1 %or.cond, label %22, label %16
 
 16:                                               ; preds = %9
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %18 = tail call i32 @xstrcasecmp(ptr noundef nonnull %12, ptr noundef %17) #20
   %.not388 = icmp eq i32 %18, 0
   br i1 %.not388, label %.loopexit528, label %19
@@ -8074,7 +8074,7 @@ _local_update_assoc_qos_list.exit:                ; preds = %_grab_parents_qos.e
   br label %_clear_user_default_acct.exit
 
 _clear_user_default_acct.exit:                    ; preds = %411, %393, %390, %387, %385, %.thread513.thread
-  %413 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 72), align 8
+  %413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 72), align 8
   %414 = icmp ne ptr %413, null
   %or.cond6 = select i1 %.4, i1 %414, i1 false
   br i1 %or.cond6, label %415, label %419
@@ -8389,7 +8389,7 @@ _delete_assoc_hash.exit:                          ; preds = %_delete_assoc_hash.
   store ptr %544, ptr %.246.i.lcssa, align 8
   %545 = load ptr, ptr @assoc_mgr_assoc_list, align 8
   %546 = tail call ptr @list_remove_first(ptr noundef %545, ptr noundef nonnull @slurm_find_ptr_in_list, ptr noundef nonnull %33) #20
-  %547 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 32), align 8
+  %547 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 32), align 8
   %.not397 = icmp eq ptr %547, null
   br i1 %.not397, label %552, label %548
 
@@ -9015,7 +9015,7 @@ _addto_used_info.exit:                            ; preds = %.lr.ph621, %._crit_
 
 .lr.ph631:                                        ; preds = %806, %.lr.ph631
   %809 = phi ptr [ %811, %.lr.ph631 ], [ %808, %806 ]
-  %810 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 32), align 8
+  %810 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 32), align 8
   tail call void %810(ptr noundef nonnull %809) #20
   %811 = tail call ptr @list_next(ptr noundef %807) #20
   %.not377 = icmp eq ptr %811, null
@@ -9038,7 +9038,7 @@ _addto_used_info.exit:                            ; preds = %.lr.ph621, %._crit_
 
 .lr.ph635:                                        ; preds = %813, %.lr.ph635
   %816 = phi ptr [ %818, %.lr.ph635 ], [ %815, %813 ]
-  %817 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 72), align 8
+  %817 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 72), align 8
   tail call void %817(ptr noundef nonnull %816) #20
   %818 = tail call ptr @list_next(ptr noundef %814) #20
   %.not379 = icmp eq ptr %818, null
@@ -9051,7 +9051,7 @@ _addto_used_info.exit:                            ; preds = %.lr.ph621, %._crit_
 
 819:                                              ; preds = %._crit_edge636, %812
   %820 = icmp ne i32 %.0311.ph.lcssa569725742, 0
-  %821 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 104), align 8
+  %821 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 104), align 8
   %822 = icmp ne ptr %821, null
   %or.cond11 = select i1 %820, i1 %822, i1 false
   br i1 %or.cond11, label %823, label %824
@@ -9890,7 +9890,7 @@ _set_qos_norm_priority.exit413:                   ; preds = %364, %357, %354, %3
   br label %392
 
 392:                                              ; preds = %385, %390
-  %393 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 96), align 8
+  %393 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 96), align 8
   %394 = icmp ne ptr %393, null
   %or.cond = select i1 %.6, i1 %394, i1 false
   br i1 %or.cond, label %395, label %_set_qos_norm_priority.exit
@@ -9917,7 +9917,7 @@ _set_qos_norm_priority.exit413:                   ; preds = %364, %357, %354, %3
   %403 = load i32, ptr @g_qos_max_priority, align 4
   %404 = icmp eq i32 %402, %403
   %spec.select408 = select i1 %404, i32 2, i32 %.0290427
-  %405 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 48), align 8
+  %405 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 48), align 8
   %.not353 = icmp eq ptr %405, null
   br i1 %.not353, label %411, label %406
 
@@ -10165,7 +10165,7 @@ _set_qos_norm_priority.exit417:                   ; preds = %.lr.ph447, %485
 
 .lr.ph450:                                        ; preds = %499, %.lr.ph450
   %502 = phi ptr [ %504, %.lr.ph450 ], [ %501, %499 ]
-  %503 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 48), align 8
+  %503 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 48), align 8
   tail call void %503(ptr noundef nonnull %502) #20
   %504 = tail call ptr @list_next(ptr noundef %500) #20
   %.not346 = icmp eq ptr %504, null
@@ -10188,7 +10188,7 @@ _set_qos_norm_priority.exit417:                   ; preds = %.lr.ph447, %485
 
 .lr.ph454:                                        ; preds = %506, %.lr.ph454
   %509 = phi ptr [ %511, %.lr.ph454 ], [ %508, %506 ]
-  %510 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 96), align 8
+  %510 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 96), align 8
   tail call void %510(ptr noundef nonnull %509) #20
   %511 = tail call ptr @list_next(ptr noundef %507) #20
   %.not348 = icmp eq ptr %511, null
@@ -10200,7 +10200,7 @@ _set_qos_norm_priority.exit417:                   ; preds = %.lr.ph447, %485
   br label %512
 
 512:                                              ; preds = %._crit_edge455, %505
-  %513 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 24), align 8
+  %513 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 24), align 8
   %514 = icmp ne ptr %513, null
   %or.cond5 = select i1 %.0296.lcssa466478, i1 %514, i1 false
   br i1 %or.cond5, label %515, label %516
@@ -10262,7 +10262,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_update_wckeys(ptr nocapture noundef reado
   br i1 %or.cond, label %27, label %21
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %23 = call i32 @xstrcasecmp(ptr noundef nonnull %17, ptr noundef %22) #20
   %.not55 = icmp eq i32 %23, 0
   br i1 %.not55, label %30, label %24
@@ -10539,7 +10539,7 @@ define noundef i32 @assoc_mgr_update_res(ptr nocapture noundef readonly %0, i1 n
   br i1 %.not79, label %._crit_edge, label %12, !llvm.loop !85
 
 24:                                               ; preds = %18
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %26 = tail call i32 @xstrcmp(ptr noundef nonnull %19, ptr noundef %25) #20
   %.not83 = icmp eq i32 %26, 0
   br i1 %.not83, label %33, label %27
@@ -10613,7 +10613,7 @@ define noundef i32 @assoc_mgr_update_res(ptr nocapture noundef readonly %0, i1 n
   br i1 %cond2, label %58, label %61
 
 58:                                               ; preds = %54
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 16), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 16), align 8
   %.not97 = icmp eq ptr %59, null
   br i1 %.not97, label %.backedge, label %60
 
@@ -10734,7 +10734,7 @@ define noundef i32 @assoc_mgr_update_res(ptr nocapture noundef readonly %0, i1 n
   br i1 %cond1, label %118, label %121
 
 118:                                              ; preds = %112
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 88), align 8
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 88), align 8
   %.not95 = icmp eq ptr %119, null
   br i1 %.not95, label %.backedge, label %120
 
@@ -10756,7 +10756,7 @@ define noundef i32 @assoc_mgr_update_res(ptr nocapture noundef readonly %0, i1 n
   br i1 %cond, label %127, label %130
 
 127:                                              ; preds = %124
-  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 40), align 8
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 40), align 8
   %.not86 = icmp eq ptr %128, null
   br i1 %.not86, label %132, label %129
 
@@ -11818,7 +11818,7 @@ define internal fastcc i32 @_get_children_level_shares(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define void @assoc_mgr_normalize_assoc_shares(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 842), align 2
+  %2 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 842), align 2
   %3 = and i16 %2, 32
   %.not = icmp eq i16 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 300
@@ -12483,7 +12483,7 @@ define range(i32 -1, 1) i32 @assoc_mgr_refresh_lists(ptr noundef %0, i16 noundef
   br i1 %.not17, label %14, label %10
 
 10:                                               ; preds = %2
-  %11 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
+  %11 = load i16, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 2), align 2
   %12 = zext i16 %11 to i32
   %13 = tail call fastcc i32 @_get_assoc_mgr_tres_list(ptr noundef %0, i32 noundef range(i32 0, 65536) %12)
   br label %14
@@ -12608,7 +12608,7 @@ _refresh_assoc_mgr_user_list.exit:                ; preds = %44, %46
   %53 = call ptr @list_create(ptr noundef null) #20
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %53, ptr %54, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   call void @list_append(ptr noundef %53, ptr noundef %55) #20
   br label %56
 
@@ -12872,7 +12872,7 @@ _refresh_assoc_mgr_assoc_list.exit:               ; preds = %62
 183:                                              ; preds = %180
   %184 = call ptr @list_create(ptr noundef null) #20
   store ptr %184, ptr %4, align 8
-  %185 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   call void @list_append(ptr noundef %184, ptr noundef %185) #20
   br label %186
 
@@ -12932,7 +12932,7 @@ _refresh_assoc_wckey_list.exit:                   ; preds = %192, %194
   %202 = call ptr @list_create(ptr noundef null) #20
   %203 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %202, ptr %203, align 8
-  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   call void @list_append(ptr noundef %202, ptr noundef %204) #20
   br label %205
 
@@ -12978,7 +12978,7 @@ _refresh_assoc_mgr_res_list.exit:                 ; preds = %212, %214
   br i1 %.not.not.not, label %216, label %_running_cache.exit
 
 216:                                              ; preds = %_refresh_assoc_mgr_res_list.exit, %215
-  %217 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 8), align 8
+  %217 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 8), align 8
   %.not.i37 = icmp eq ptr %217, null
   br i1 %.not.i37, label %_running_cache.exit, label %218
 
@@ -13399,7 +13399,7 @@ define range(i32 -1, 15) i32 @load_assoc_usage() local_unnamed_addr #0 {
   br i1 %.not, label %139, label %10
 
 10:                                               ; preds = %0
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 56), align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #20
   store ptr %13, ptr %2, align 8
@@ -13826,7 +13826,7 @@ define range(i32 -1, 15) i32 @load_qos_usage() local_unnamed_addr #0 {
   br i1 %.not, label %88, label %10
 
 10:                                               ; preds = %0
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 56), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 56), align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #20
   store ptr %13, ptr %2, align 8
@@ -14015,7 +14015,7 @@ define range(i32 -1, 15) i32 @load_assoc_mgr_last_tres() local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store i16 0, ptr %1, align 2
   store ptr null, ptr %4, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 56), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 56), align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.70, ptr noundef %6) #20
   store ptr %7, ptr %2, align 8
@@ -14173,7 +14173,7 @@ define range(i32 -1, 15) i32 @load_assoc_mgr_state(i1 noundef zeroext %0) local_
   store i16 0, ptr %2, align 2
   store i16 0, ptr %3, align 2
   store ptr null, ptr %6, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 56), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 56), align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @xstrdup(ptr noundef %8) #20
   store ptr %9, ptr %4, align 8
@@ -14542,7 +14542,7 @@ define range(i32 -1, 15) i32 @load_assoc_mgr_state(i1 noundef zeroext %0) local_
   br i1 %0, label %.thread, label %44, !llvm.loop !114
 
 171:                                              ; preds = %44
-  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 8), align 8
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 8), align 8
   %173 = icmp eq ptr %172, null
   %or.cond5.not = select i1 %0, i1 true, i1 %173
   br i1 %or.cond5.not, label %.thread, label %174
@@ -14855,7 +14855,7 @@ define internal fastcc void @_post_res_list(ptr noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %20
   %16 = phi ptr [ %23, %20 ], [ %14, %.preheader ]
   %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %19 = tail call i32 @xstrcasecmp(ptr noundef %17, ptr noundef %18) #20
   %.not27 = icmp eq i32 %19, 0
   br i1 %.not27, label %._crit_edge, label %20
@@ -14907,7 +14907,7 @@ define internal fastcc void @_post_res_list(ptr noundef %0) unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %._crit_edge36, %1
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 64), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 64), align 8
   %.not30 = icmp eq ptr %40, null
   br i1 %.not30, label %42, label %41
 
@@ -15889,7 +15889,7 @@ define void @assoc_mgr_set_unset_qos_tres_relative_cnt(i1 noundef zeroext %0) lo
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %3
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 2), align 2
   %7 = and i16 %6, 8
   %.not3 = icmp eq i16 %7, 0
   br i1 %.not3, label %8, label %9
@@ -15971,7 +15971,7 @@ define void @assoc_mgr_clear_qos_tres_relative_cnt(i1 noundef zeroext %0) local_
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %3
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @init_setup, i64 2), align 2
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @init_setup, i64 2), align 2
   %7 = and i16 %6, 8
   %.not3 = icmp eq i16 %7, 0
   br i1 %.not3, label %8, label %9

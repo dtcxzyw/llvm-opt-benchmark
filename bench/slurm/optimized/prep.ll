@@ -63,7 +63,7 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %8
   store i32 0, ptr @g_context_cnt, align 4
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 824), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 824), align 8
   %.not25 = icmp eq ptr %12, null
   br i1 %.not25, label %.loopexit, label %13
 

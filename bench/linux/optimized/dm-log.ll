@@ -160,7 +160,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_dirty_log_type_unregister(ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @dm_dirty_log_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 24) #17
   %8 = icmp eq ptr %7, null
   br i1 %8, label %81, label %9
@@ -1216,7 +1216,7 @@ define internal fastcc i32 @create_log_context(ptr nocapture noundef writeonly %
   %43 = add nsw i64 %34, -1
   %44 = add i64 %43, %36
   %45 = udiv i64 %44, %34
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %47 = call noalias align 8 dereferenceable_or_null(192) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3264, i64 noundef 192) #17
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %51

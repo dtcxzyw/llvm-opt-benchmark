@@ -47,9 +47,9 @@ define void @_ZN17PathSelectionEditC2E7QStringS0_bP7QWidget(ptr noundef nonnull 
   %12 = alloca %"class.QMetaObject::Connection", align 8
   %13 = zext i1 %3 to i8
   tail call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %4, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17PathSelectionEdit, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17PathSelectionEdit, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17PathSelectionEdit, i64 448), ptr %14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17PathSelectionEdit, i64 448), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 48, i1 false)
@@ -418,7 +418,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %1, %17
   br i1 %20, label %21, label %_ZN7QStringD2Ev.exit
 
 21:                                               ; preds = %_ZN7QStringC2ERKS_.exit
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 164), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 164), align 4
   switch i32 %22, label %_ZN7QStringD2Ev.exit [
     i32 0, label %23
     i32 1, label %37
@@ -467,7 +467,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %27
   br label %_ZN7QStringD2Ev.exit45
 
 37:                                               ; preds = %21
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @prefs, i64 168), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 168), align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %.not.i.i9 = icmp eq ptr %38, null
   br i1 %.not.i.i9, label %_ZN7QStringD2Ev.exit.i11, label %.split.i.i10

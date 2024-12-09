@@ -1735,7 +1735,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha8c09a0b1796ad62E.exit.i: ; preds = %23
   unreachable
 
 43:                                               ; preds = %.noexc, %23
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %25, %.noexc ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %23 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %25, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %23 ]
   %44 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !306, !noundef !8
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %46 = load i64, ptr %45, align 8, !noalias !306, !noundef !8
@@ -2412,7 +2412,7 @@ define noundef zeroext i1 @_ZN4util23word_consists_of_emojis17hbedc3a7dbef1d6c9E
   %20 = alloca [32 x i8], align 8
   %.sroa.11 = alloca [7 x i8], align 1
   %21 = alloca [120 x i8], align 8
-  %22 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN4util11emoji_regex11EMOJI_REGEX17h09a030530b374bb7E, i64 32) acquire, align 8
+  %22 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4util11emoji_regex11EMOJI_REGEX17h09a030530b374bb7E, i64 32) acquire, align 8
   %.not.i.i = icmp eq i32 %22, 4
   br i1 %.not.i.i, label %_ZN4util11emoji_regex17h6f7ac3f58e1f0c8fE.exit, label %23
 
@@ -2441,7 +2441,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4c9f40a581bfa077E.exit.i.i.i: ; preds =
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h16be1ad5cecc3032E.exit.i.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h4c9f40a581bfa077E.exit.i.i.i, %_ZN4util11emoji_regex17h6f7ac3f58e1f0c8fE.exit
-  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %26, %_ZN4core3ops8function6FnOnce9call_once17h4c9f40a581bfa077E.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN4util11emoji_regex17h6f7ac3f58e1f0c8fE.exit ]
+  %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %26, %_ZN4core3ops8function6FnOnce9call_once17h4c9f40a581bfa077E.exit.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN14regex_automata4util4pool5inner9THREAD_ID29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hcd1c3f61768bba0eE", i64 8), %_ZN4util11emoji_regex17h6f7ac3f58e1f0c8fE.exit ]
   %.val.i.i.i = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !452, !noundef !8
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %30 = load atomic i64, ptr %29 acquire, align 8, !noalias !452

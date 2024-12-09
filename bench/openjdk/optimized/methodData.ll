@@ -457,70 +457,70 @@ define hidden noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8
   %6 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %6, align 8
   br label %82
 
 8:                                                ; preds = %1
   %9 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %10, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV11CounterData, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV11CounterData, i64 16), ptr %9, align 8
   br label %82
 
 11:                                               ; preds = %1
   %12 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %0, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV8JumpData, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV8JumpData, i64 16), ptr %12, align 8
   br label %82
 
 14:                                               ; preds = %1
   %15 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV16ReceiverTypeData, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV16ReceiverTypeData, i64 16), ptr %15, align 8
   br label %82
 
 17:                                               ; preds = %1
   %18 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %0, ptr %19, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV15VirtualCallData, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV15VirtualCallData, i64 16), ptr %18, align 8
   br label %82
 
 20:                                               ; preds = %1
   %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %0, ptr %22, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV7RetData, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7RetData, i64 16), ptr %21, align 8
   br label %82
 
 23:                                               ; preds = %1
   %24 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %0, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV10BranchData, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV10BranchData, i64 16), ptr %24, align 8
   br label %82
 
 26:                                               ; preds = %1
   %27 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %0, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV15MultiBranchData, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV15MultiBranchData, i64 16), ptr %27, align 8
   br label %82
 
 29:                                               ; preds = %1
   %30 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %0, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), ptr %30, align 8
   br label %82
 
 32:                                               ; preds = %1
   %33 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %0, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV12CallTypeData, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV12CallTypeData, i64 16), ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i64, ptr %36, align 8
@@ -545,7 +545,7 @@ define hidden noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8
   %48 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %0, ptr %49, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19VirtualCallTypeData, i64 16), ptr %48, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19VirtualCallTypeData, i64 16), ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = load i64, ptr @TypeProfileWidth, align 8
   %52 = trunc i64 %51 to i32
@@ -577,7 +577,7 @@ define hidden noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8
   %70 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #20
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %0, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV18ParametersTypeData, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV18ParametersTypeData, i64 16), ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = load i64, ptr %73, align 8
@@ -594,7 +594,7 @@ define hidden noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8
   %80 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %0, ptr %81, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %80, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %80, align 8
   br label %82
 
 82:                                               ; preds = %79, %69, %47, %32, %29, %26, %23, %20, %17, %14, %11, %8, %5
@@ -604,7 +604,7 @@ define hidden noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN11ProfileDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV11ProfileData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV11ProfileData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
@@ -659,7 +659,7 @@ define hidden noundef ptr @_ZNK11ProfileData20print_data_on_helperEPK10MethodDat
   %27 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.0, ptr %28, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %30 = load i32, ptr %29, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str) #20
@@ -3263,7 +3263,7 @@ define hidden noundef ptr @_ZN10MethodData8allocateEP15ClassLoaderDataRK12method
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %3
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV10MethodData, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV10MethodData, i64 16), ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %1, align 8
   store ptr %12, ptr %11, align 8
@@ -4631,7 +4631,7 @@ define hidden noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull ali
   %19 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %0, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV15MultiBranchData, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV15MultiBranchData, i64 16), ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
@@ -4642,7 +4642,7 @@ define hidden noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull ali
   %26 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %0, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
@@ -4653,7 +4653,7 @@ define hidden noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull ali
   %33 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %0, ptr %34, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV12CallTypeData, i64 16), ptr %33, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV12CallTypeData, i64 16), ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i64, ptr %36, align 8
@@ -4681,7 +4681,7 @@ define hidden noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull ali
   %51 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %0, ptr %52, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19VirtualCallTypeData, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19VirtualCallTypeData, i64 16), ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %54 = load i64, ptr @TypeProfileWidth, align 8
   %55 = trunc i64 %54 to i32
@@ -4716,7 +4716,7 @@ define hidden noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull ali
   %76 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #20
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %0, ptr %77, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV18ParametersTypeData, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV18ParametersTypeData, i64 16), ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load i64, ptr %79, align 8
@@ -4919,7 +4919,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %71, %73
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10MethodDataC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV10MethodData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV10MethodData, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -5498,7 +5498,7 @@ _ZN10MethodData22bci_to_extra_data_findEiP6MethodRP10DataLayout.exit: ; preds = 
   %54 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %.022, ptr %55, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %54, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %54, align 8
   br label %_ZN10MethodData17bci_to_extra_dataEiP6Methodb.exit
 
 _ZN10MethodData17bci_to_extra_dataEiP6Methodb.exit: ; preds = %.split.us.i, %.split.us.i, %_ZN10MethodData22bci_to_extra_data_findEiP6MethodRP10DataLayout.exit, %22
@@ -5581,7 +5581,7 @@ _ZN10DataLayout10initializeEhti.exit:             ; preds = %_ZN10MethodData10ne
   %36 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %23, ptr %37, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %36, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %36, align 8
   %38 = ptrtoint ptr %2 to i64
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %38, ptr %39, align 8
@@ -5595,7 +5595,7 @@ _ZN10DataLayout10initializeEhti.exit:             ; preds = %_ZN10MethodData10ne
   %42 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %23, ptr %43, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %42, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %42, align 8
   br label %44
 
 44:                                               ; preds = %21, %_ZN10MethodData10next_extraEP10DataLayout.exit, %10, %6, %_ZN10DataLayout10initializeEhti.exit, %.critedge
@@ -5693,7 +5693,7 @@ _ZN10MethodData36exception_handler_bci_to_data_helperEi.exit: ; preds = %.lr.ph.
   %25 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %gep.i, ptr %26, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %25, align 8
   br label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread
 
 _ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread: ; preds = %18, %2, %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, %24
@@ -5743,7 +5743,7 @@ _ZN10MethodData36exception_handler_bci_to_data_helperEi.exit: ; preds = %19, %.l
   %.0.i = phi ptr [ null, %3 ], [ %gep.i, %.lr.ph.i ], [ null, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -5804,7 +5804,7 @@ _ZN10MethodData10next_extraEP10DataLayout.exit.us.us: ; preds = %13, %.split.us
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %22, ptr %23, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %21, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %21, align 8
   br label %.loopexit
 
 24:                                               ; preds = %.split.split
@@ -5812,7 +5812,7 @@ _ZN10MethodData10next_extraEP10DataLayout.exit.us.us: ; preds = %13, %.split.us
   %26 = load ptr, ptr %3, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %26, ptr %27, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %25, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %25, align 8
   %28 = load ptr, ptr %3, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i16, ptr %29, align 2
@@ -5902,7 +5902,7 @@ define hidden noundef ptr @_ZN10MethodData8arg_infoEv(ptr noundef nonnull align 
   %15 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.0710, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), ptr %15, align 8
   br label %.loopexit
 
 17:                                               ; preds = %.lr.ph
@@ -6073,7 +6073,7 @@ _ZNK10MethodData9next_dataEP11ProfileData.exit:   ; preds = %36
   unreachable
 
 79:                                               ; preds = %70, %74, %73
-  %.sink = phi ptr [ getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), %74 ], [ getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), %73 ], [ getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), %70 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV11ArgInfoData, i64 16), %74 ], [ getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), %73 ], [ getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), %70 ]
   %.2 = phi ptr [ %68, %74 ], [ %71, %73 ], [ %71, %70 ]
   %80 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -6260,17 +6260,17 @@ _ZNK15Bytecode_invoke16is_invokevirtualEv.exit:   ; preds = %_ZN15Bytecode_invok
 
 20:                                               ; preds = %_ZNK15Bytecode_invoke16is_invokevirtualEv.exit
   %21 = call noundef ptr @_ZNK19Bytecode_member_ref5klassEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1712), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1712), align 8
   %23 = icmp eq ptr %21, %22
   br i1 %23, label %30, label %24
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1720), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1720), align 8
   %26 = icmp eq ptr %21, %25
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1728), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1728), align 8
   %29 = icmp eq ptr %21, %28
   br i1 %29, label %30, label %_ZNK15Bytecode_invoke16is_invokevirtualEv.exit.thread
 
@@ -6398,7 +6398,7 @@ define hidden void @_ZN10MethodData21metaspace_pointers_doEP16MetaspaceClosure(p
   store i32 2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6MethodEE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6MethodEE, i64 16), ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %6, ptr %10, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7) #20
@@ -6518,7 +6518,7 @@ define hidden void @_ZN10MethodData16clean_extra_dataEP21CleanExtraDataClosure(p
   %16 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.040, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %.040, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
@@ -6757,7 +6757,7 @@ _ZNK10MethodData20parameters_type_dataEv.exit:    ; preds = %43
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge, %43, %_ZNK10MethodData20parameters_type_dataEv.exit
   %55 = zext i1 %1 to i8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV26CleanExtraDataKlassClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26CleanExtraDataKlassClosure, i64 16), ptr %3, align 8
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %55, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6804,7 +6804,7 @@ _ZN11MutexLockerD2Ev.exit:
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27CleanExtraDataMethodClosure, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27CleanExtraDataMethodClosure, i64 16), ptr %1, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %14) #20
   call void @_ZN10MethodData16clean_extra_dataEP21CleanExtraDataClosure(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull %1)

@@ -1265,7 +1265,7 @@ declare void @guint32_to_str_buf(i32 noundef, ptr noundef, i64 noundef) local_un
 define void @col_append_ports(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %.not.i = icmp eq i32 %8, 0
   %.pre.i = zext i16 %3 to i32
   br i1 %.not.i, label %._crit_edge.i, label %9
@@ -1284,7 +1284,7 @@ define void @col_append_ports(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1
   br label %col_snprint_port.exit
 
 col_snprint_port.exit:                            ; preds = %11, %._crit_edge.i
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %.not.i5 = icmp eq i32 %14, 0
   %.pre.i6 = zext i16 %4 to i32
   br i1 %.not.i5, label %._crit_edge.i8, label %15

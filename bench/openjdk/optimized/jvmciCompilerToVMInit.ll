@@ -389,7 +389,7 @@ define hidden void @_ZN12CompilerToVM4Data10initializeEP8JVMCIEnv(ptr nocapture 
   %72 = load i8, ptr @UseCompressedOops, align 1
   %73 = trunc i8 %72 to i1
   %74 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %.sink = select i1 %73, ptr %74, ptr null
   %storemerge = select i1 %73, i32 %75, i32 0
   store ptr %.sink, ptr @_ZN12CompilerToVM4Data24Universe_narrow_oop_baseE, align 8
@@ -412,9 +412,9 @@ define hidden void @_ZN12CompilerToVM4Data10initializeEP8JVMCIEnv(ptr nocapture 
   %81 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %82 = mul nsw i32 %81, 15767
   store i32 %82, ptr @_ZN12CompilerToVM4Data25_max_oop_map_stack_offsetE, align 4
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   store ptr %83, ptr @_ZN12CompilerToVM4Data11symbol_initE, align 8
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
   store ptr %84, ptr @_ZN12CompilerToVM4Data13symbol_clinitE, align 8
   store i32 8, ptr @_ZN12CompilerToVM4Data31_fields_annotations_base_offsetE, align 4
   store i32 1, ptr @_ZN12CompilerToVM4Data27data_section_item_alignmentE, align 4
@@ -939,7 +939,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not, label %426, label %10795
 
 426:                                              ; preds = %1
-  %427 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %427 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %428 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %427) #7
   %429 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %428, ptr noundef nonnull %0) #7
   %430 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
@@ -953,7 +953,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16800, label %434, label %10795
 
 434:                                              ; preds = %426
-  %435 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4200), align 8
+  %435 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4200), align 8
   %436 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %435) #7
   %437 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %436, ptr noundef nonnull %0) #7
   %438 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
@@ -967,7 +967,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16801, label %442, label %10795
 
 442:                                              ; preds = %434
-  %443 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6792), align 8
+  %443 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6792), align 8
   %444 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %443) #7
   %445 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEPKcPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %444, ptr noundef nonnull %0) #7
   %446 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
@@ -999,7 +999,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %460 = extractvalue { ptr, i8 } %457, 1
   %461 = extractvalue { ptr, i8 } %457, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 0, ptr %461, i8 %460) #7
-  %462 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4208), align 8
+  %462 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4208), align 8
   %463 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %462, ptr noundef nonnull %0)
   %464 = extractvalue { ptr, i8 } %463, 0
   %465 = extractvalue { ptr, i8 } %463, 1
@@ -1008,7 +1008,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16804, label %467, label %10795
 
 467:                                              ; preds = %459
-  %468 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7344), align 8
+  %468 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7344), align 8
   %469 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %468, ptr noundef nonnull %0)
   %470 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16805 = icmp eq i8 %470, 0
@@ -1035,7 +1035,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %483 = extractvalue { ptr, i8 } %480, 1
   %484 = extractvalue { ptr, i8 } %480, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 1, ptr %484, i8 %483) #7
-  %485 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4216), align 8
+  %485 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4216), align 8
   %486 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %485, ptr noundef nonnull %0)
   %487 = extractvalue { ptr, i8 } %486, 0
   %488 = extractvalue { ptr, i8 } %486, 1
@@ -1044,7 +1044,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16807, label %490, label %10795
 
 490:                                              ; preds = %482
-  %491 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7336), align 8
+  %491 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7336), align 8
   %492 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %491, ptr noundef nonnull %0)
   %493 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16808 = icmp eq i8 %493, 0
@@ -1071,7 +1071,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %506 = extractvalue { ptr, i8 } %503, 1
   %507 = extractvalue { ptr, i8 } %503, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 2, ptr %507, i8 %506) #7
-  %508 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4224), align 8
+  %508 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4224), align 8
   %509 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %508, ptr noundef nonnull %0)
   %510 = extractvalue { ptr, i8 } %509, 0
   %511 = extractvalue { ptr, i8 } %509, 1
@@ -1080,7 +1080,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16810, label %513, label %10795
 
 513:                                              ; preds = %505
-  %514 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %514 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %515 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %514, ptr noundef nonnull %0)
   %516 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16811 = icmp eq i8 %516, 0
@@ -1107,7 +1107,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %529 = extractvalue { ptr, i8 } %526, 1
   %530 = extractvalue { ptr, i8 } %526, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 3, ptr %530, i8 %529) #7
-  %531 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4232), align 8
+  %531 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4232), align 8
   %532 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %531, ptr noundef nonnull %0)
   %533 = extractvalue { ptr, i8 } %532, 0
   %534 = extractvalue { ptr, i8 } %532, 1
@@ -1116,7 +1116,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16813, label %536, label %10795
 
 536:                                              ; preds = %528
-  %537 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %537 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %538 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %537, ptr noundef nonnull %0)
   %539 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16814 = icmp eq i8 %539, 0
@@ -1143,7 +1143,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %552 = extractvalue { ptr, i8 } %549, 1
   %553 = extractvalue { ptr, i8 } %549, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 4, ptr %553, i8 %552) #7
-  %554 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1480), align 8
+  %554 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1480), align 8
   %555 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %554, ptr noundef nonnull %0)
   %556 = extractvalue { ptr, i8 } %555, 0
   %557 = extractvalue { ptr, i8 } %555, 1
@@ -1152,7 +1152,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16816, label %559, label %10795
 
 559:                                              ; preds = %551
-  %560 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4240), align 8
+  %560 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4240), align 8
   %561 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %560, ptr noundef nonnull %0)
   %562 = extractvalue { ptr, i8 } %561, 0
   %563 = extractvalue { ptr, i8 } %561, 1
@@ -1161,7 +1161,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16817, label %565, label %10795
 
 565:                                              ; preds = %559
-  %566 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %566 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %567 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %566, ptr noundef nonnull %0)
   %568 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16818 = icmp eq i8 %568, 0
@@ -1188,7 +1188,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %581 = extractvalue { ptr, i8 } %578, 1
   %582 = extractvalue { ptr, i8 } %578, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 5, ptr %582, i8 %581) #7
-  %583 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4240), align 8
+  %583 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4240), align 8
   %584 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %583, ptr noundef nonnull %0)
   %585 = extractvalue { ptr, i8 } %584, 0
   %586 = extractvalue { ptr, i8 } %584, 1
@@ -1197,7 +1197,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16820, label %588, label %10795
 
 588:                                              ; preds = %580
-  %589 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6912), align 8
+  %589 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6912), align 8
   %590 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %589, ptr noundef nonnull %0)
   %591 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16821 = icmp eq i8 %591, 0
@@ -1224,7 +1224,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %604 = extractvalue { ptr, i8 } %601, 1
   %605 = extractvalue { ptr, i8 } %601, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 6, ptr %605, i8 %604) #7
-  %606 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4240), align 8
+  %606 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4240), align 8
   %607 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %606, ptr noundef nonnull %0)
   %608 = extractvalue { ptr, i8 } %607, 0
   %609 = extractvalue { ptr, i8 } %607, 1
@@ -1233,7 +1233,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16823, label %611, label %10795
 
 611:                                              ; preds = %603
-  %612 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
+  %612 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
   %613 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %612, ptr noundef nonnull %0)
   %614 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16824 = icmp eq i8 %614, 0
@@ -1260,7 +1260,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %627 = extractvalue { ptr, i8 } %624, 1
   %628 = extractvalue { ptr, i8 } %624, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 7, ptr %628, i8 %627) #7
-  %629 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4240), align 8
+  %629 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4240), align 8
   %630 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %629, ptr noundef nonnull %0)
   %631 = extractvalue { ptr, i8 } %630, 0
   %632 = extractvalue { ptr, i8 } %630, 1
@@ -1269,7 +1269,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16826, label %634, label %10795
 
 634:                                              ; preds = %626
-  %635 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
+  %635 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
   %636 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %635, ptr noundef nonnull %0)
   %637 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16827 = icmp eq i8 %637, 0
@@ -1296,7 +1296,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %650 = extractvalue { ptr, i8 } %647, 1
   %651 = extractvalue { ptr, i8 } %647, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 8, ptr %651, i8 %650) #7
-  %652 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4248), align 8
+  %652 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4248), align 8
   %653 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %652, ptr noundef nonnull %0)
   %654 = extractvalue { ptr, i8 } %653, 0
   %655 = extractvalue { ptr, i8 } %653, 1
@@ -1305,7 +1305,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16829, label %657, label %10795
 
 657:                                              ; preds = %649
-  %658 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %658 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %659 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %658, ptr noundef nonnull %0)
   %660 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16830 = icmp eq i8 %660, 0
@@ -1332,7 +1332,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %673 = extractvalue { ptr, i8 } %670, 1
   %674 = extractvalue { ptr, i8 } %670, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 9, ptr %674, i8 %673) #7
-  %675 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4336), align 8
+  %675 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4336), align 8
   %676 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %675, ptr noundef nonnull %0)
   %677 = extractvalue { ptr, i8 } %676, 0
   %678 = extractvalue { ptr, i8 } %676, 1
@@ -1341,7 +1341,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16832, label %680, label %10795
 
 680:                                              ; preds = %672
-  %681 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %681 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %682 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %681, ptr noundef nonnull %0)
   %683 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16833 = icmp eq i8 %683, 0
@@ -1368,7 +1368,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %696 = extractvalue { ptr, i8 } %693, 1
   %697 = extractvalue { ptr, i8 } %693, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 10, ptr %697, i8 %696) #7
-  %698 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4344), align 8
+  %698 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4344), align 8
   %699 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %698, ptr noundef nonnull %0)
   %700 = extractvalue { ptr, i8 } %699, 0
   %701 = extractvalue { ptr, i8 } %699, 1
@@ -1377,7 +1377,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16835, label %703, label %10795
 
 703:                                              ; preds = %695
-  %704 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %704 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %705 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %704, ptr noundef nonnull %0)
   %706 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16836 = icmp eq i8 %706, 0
@@ -1404,7 +1404,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %719 = extractvalue { ptr, i8 } %716, 1
   %720 = extractvalue { ptr, i8 } %716, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 11, ptr %720, i8 %719) #7
-  %721 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4352), align 8
+  %721 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4352), align 8
   %722 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %721, ptr noundef nonnull %0)
   %723 = extractvalue { ptr, i8 } %722, 0
   %724 = extractvalue { ptr, i8 } %722, 1
@@ -1413,7 +1413,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16838, label %726, label %10795
 
 726:                                              ; preds = %718
-  %727 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %727 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %728 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %727, ptr noundef nonnull %0)
   %729 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16839 = icmp eq i8 %729, 0
@@ -1440,7 +1440,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %742 = extractvalue { ptr, i8 } %739, 1
   %743 = extractvalue { ptr, i8 } %739, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 12, ptr %743, i8 %742) #7
-  %744 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4256), align 8
+  %744 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4256), align 8
   %745 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %744, ptr noundef nonnull %0)
   %746 = extractvalue { ptr, i8 } %745, 0
   %747 = extractvalue { ptr, i8 } %745, 1
@@ -1449,7 +1449,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16841, label %749, label %10795
 
 749:                                              ; preds = %741
-  %750 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %750 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %751 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %750, ptr noundef nonnull %0)
   %752 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16842 = icmp eq i8 %752, 0
@@ -1476,7 +1476,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %765 = extractvalue { ptr, i8 } %762, 1
   %766 = extractvalue { ptr, i8 } %762, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 13, ptr %766, i8 %765) #7
-  %767 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4264), align 8
+  %767 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4264), align 8
   %768 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %767, ptr noundef nonnull %0)
   %769 = extractvalue { ptr, i8 } %768, 0
   %770 = extractvalue { ptr, i8 } %768, 1
@@ -1485,7 +1485,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16844, label %772, label %10795
 
 772:                                              ; preds = %764
-  %773 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %773 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %774 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %773, ptr noundef nonnull %0)
   %775 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16845 = icmp eq i8 %775, 0
@@ -1512,7 +1512,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %788 = extractvalue { ptr, i8 } %785, 1
   %789 = extractvalue { ptr, i8 } %785, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 14, ptr %789, i8 %788) #7
-  %790 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4272), align 8
+  %790 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4272), align 8
   %791 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %790, ptr noundef nonnull %0)
   %792 = extractvalue { ptr, i8 } %791, 0
   %793 = extractvalue { ptr, i8 } %791, 1
@@ -1521,7 +1521,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16847, label %795, label %10795
 
 795:                                              ; preds = %787
-  %796 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
+  %796 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
   %797 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %796, ptr noundef nonnull %0)
   %798 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16848 = icmp eq i8 %798, 0
@@ -1548,7 +1548,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %811 = extractvalue { ptr, i8 } %808, 1
   %812 = extractvalue { ptr, i8 } %808, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 15, ptr %812, i8 %811) #7
-  %813 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4280), align 8
+  %813 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4280), align 8
   %814 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %813, ptr noundef nonnull %0)
   %815 = extractvalue { ptr, i8 } %814, 0
   %816 = extractvalue { ptr, i8 } %814, 1
@@ -1557,7 +1557,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16850, label %818, label %10795
 
 818:                                              ; preds = %810
-  %819 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %819 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %820 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %819, ptr noundef nonnull %0)
   %821 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16851 = icmp eq i8 %821, 0
@@ -1584,7 +1584,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %834 = extractvalue { ptr, i8 } %831, 1
   %835 = extractvalue { ptr, i8 } %831, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 16, ptr %835, i8 %834) #7
-  %836 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4288), align 8
+  %836 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4288), align 8
   %837 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %836, ptr noundef nonnull %0)
   %838 = extractvalue { ptr, i8 } %837, 0
   %839 = extractvalue { ptr, i8 } %837, 1
@@ -1593,7 +1593,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16853, label %841, label %10795
 
 841:                                              ; preds = %833
-  %842 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %842 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %843 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %842, ptr noundef nonnull %0)
   %844 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16854 = icmp eq i8 %844, 0
@@ -1620,7 +1620,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %857 = extractvalue { ptr, i8 } %854, 1
   %858 = extractvalue { ptr, i8 } %854, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 17, ptr %858, i8 %857) #7
-  %859 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4296), align 8
+  %859 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4296), align 8
   %860 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %859, ptr noundef nonnull %0)
   %861 = extractvalue { ptr, i8 } %860, 0
   %862 = extractvalue { ptr, i8 } %860, 1
@@ -1629,7 +1629,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16856, label %864, label %10795
 
 864:                                              ; preds = %856
-  %865 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %865 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %866 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %865, ptr noundef nonnull %0)
   %867 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16857 = icmp eq i8 %867, 0
@@ -1656,7 +1656,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %880 = extractvalue { ptr, i8 } %877, 1
   %881 = extractvalue { ptr, i8 } %877, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 18, ptr %881, i8 %880) #7
-  %882 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4304), align 8
+  %882 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4304), align 8
   %883 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %882, ptr noundef nonnull %0)
   %884 = extractvalue { ptr, i8 } %883, 0
   %885 = extractvalue { ptr, i8 } %883, 1
@@ -1665,7 +1665,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16859, label %887, label %10795
 
 887:                                              ; preds = %879
-  %888 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
+  %888 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
   %889 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %888, ptr noundef nonnull %0)
   %890 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16860 = icmp eq i8 %890, 0
@@ -1692,7 +1692,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %903 = extractvalue { ptr, i8 } %900, 1
   %904 = extractvalue { ptr, i8 } %900, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 19, ptr %904, i8 %903) #7
-  %905 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4312), align 8
+  %905 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4312), align 8
   %906 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %905, ptr noundef nonnull %0)
   %907 = extractvalue { ptr, i8 } %906, 0
   %908 = extractvalue { ptr, i8 } %906, 1
@@ -1701,7 +1701,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16862, label %910, label %10795
 
 910:                                              ; preds = %902
-  %911 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %911 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %912 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %911, ptr noundef nonnull %0)
   %913 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16863 = icmp eq i8 %913, 0
@@ -1728,7 +1728,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %926 = extractvalue { ptr, i8 } %923, 1
   %927 = extractvalue { ptr, i8 } %923, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 20, ptr %927, i8 %926) #7
-  %928 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
+  %928 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
   %929 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %928, ptr noundef nonnull %0)
   %930 = extractvalue { ptr, i8 } %929, 0
   %931 = extractvalue { ptr, i8 } %929, 1
@@ -1737,7 +1737,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16865, label %933, label %10795
 
 933:                                              ; preds = %925
-  %934 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %934 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %935 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %934, ptr noundef nonnull %0)
   %936 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16866 = icmp eq i8 %936, 0
@@ -1764,7 +1764,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %949 = extractvalue { ptr, i8 } %946, 1
   %950 = extractvalue { ptr, i8 } %946, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 21, ptr %950, i8 %949) #7
-  %951 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
+  %951 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
   %952 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %951, ptr noundef nonnull %0)
   %953 = extractvalue { ptr, i8 } %952, 0
   %954 = extractvalue { ptr, i8 } %952, 1
@@ -1773,7 +1773,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16868, label %956, label %10795
 
 956:                                              ; preds = %948
-  %957 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %957 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %958 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %957, ptr noundef nonnull %0)
   %959 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16869 = icmp eq i8 %959, 0
@@ -1800,7 +1800,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %972 = extractvalue { ptr, i8 } %969, 1
   %973 = extractvalue { ptr, i8 } %969, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 22, ptr %973, i8 %972) #7
-  %974 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4368), align 8
+  %974 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4368), align 8
   %975 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %974, ptr noundef nonnull %0)
   %976 = extractvalue { ptr, i8 } %975, 0
   %977 = extractvalue { ptr, i8 } %975, 1
@@ -1809,7 +1809,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16871, label %979, label %10795
 
 979:                                              ; preds = %971
-  %980 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %980 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %981 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %980, ptr noundef nonnull %0)
   %982 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16872 = icmp eq i8 %982, 0
@@ -1836,7 +1836,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %995 = extractvalue { ptr, i8 } %992, 1
   %996 = extractvalue { ptr, i8 } %992, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 23, ptr %996, i8 %995) #7
-  %997 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4368), align 8
+  %997 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4368), align 8
   %998 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %997, ptr noundef nonnull %0)
   %999 = extractvalue { ptr, i8 } %998, 0
   %1000 = extractvalue { ptr, i8 } %998, 1
@@ -1845,7 +1845,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16874, label %1002, label %10795
 
 1002:                                             ; preds = %994
-  %1003 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
+  %1003 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
   %1004 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1003, ptr noundef nonnull %0)
   %1005 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16875 = icmp eq i8 %1005, 0
@@ -1872,7 +1872,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1018 = extractvalue { ptr, i8 } %1015, 1
   %1019 = extractvalue { ptr, i8 } %1015, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 24, ptr %1019, i8 %1018) #7
-  %1020 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4376), align 8
+  %1020 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4376), align 8
   %1021 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1020, ptr noundef nonnull %0)
   %1022 = extractvalue { ptr, i8 } %1021, 0
   %1023 = extractvalue { ptr, i8 } %1021, 1
@@ -1881,7 +1881,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16877, label %1025, label %10795
 
 1025:                                             ; preds = %1017
-  %1026 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
+  %1026 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
   %1027 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1026, ptr noundef nonnull %0)
   %1028 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16878 = icmp eq i8 %1028, 0
@@ -1908,7 +1908,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1041 = extractvalue { ptr, i8 } %1038, 1
   %1042 = extractvalue { ptr, i8 } %1038, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 25, ptr %1042, i8 %1041) #7
-  %1043 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4376), align 8
+  %1043 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4376), align 8
   %1044 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1043, ptr noundef nonnull %0)
   %1045 = extractvalue { ptr, i8 } %1044, 0
   %1046 = extractvalue { ptr, i8 } %1044, 1
@@ -1917,7 +1917,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16880, label %1048, label %10795
 
 1048:                                             ; preds = %1040
-  %1049 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
+  %1049 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
   %1050 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1049, ptr noundef nonnull %0)
   %1051 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16881 = icmp eq i8 %1051, 0
@@ -1944,7 +1944,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1064 = extractvalue { ptr, i8 } %1061, 1
   %1065 = extractvalue { ptr, i8 } %1061, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 26, ptr %1065, i8 %1064) #7
-  %1066 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4384), align 8
+  %1066 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4384), align 8
   %1067 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1066, ptr noundef nonnull %0)
   %1068 = extractvalue { ptr, i8 } %1067, 0
   %1069 = extractvalue { ptr, i8 } %1067, 1
@@ -1953,7 +1953,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16883, label %1071, label %10795
 
 1071:                                             ; preds = %1063
-  %1072 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
+  %1072 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
   %1073 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1072, ptr noundef nonnull %0)
   %1074 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16884 = icmp eq i8 %1074, 0
@@ -1980,7 +1980,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1087 = extractvalue { ptr, i8 } %1084, 1
   %1088 = extractvalue { ptr, i8 } %1084, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 27, ptr %1088, i8 %1087) #7
-  %1089 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4384), align 8
+  %1089 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4384), align 8
   %1090 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1089, ptr noundef nonnull %0)
   %1091 = extractvalue { ptr, i8 } %1090, 0
   %1092 = extractvalue { ptr, i8 } %1090, 1
@@ -1989,7 +1989,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16886, label %1094, label %10795
 
 1094:                                             ; preds = %1086
-  %1095 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
+  %1095 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
   %1096 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1095, ptr noundef nonnull %0)
   %1097 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16887 = icmp eq i8 %1097, 0
@@ -2016,7 +2016,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1110 = extractvalue { ptr, i8 } %1107, 1
   %1111 = extractvalue { ptr, i8 } %1107, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 28, ptr %1111, i8 %1110) #7
-  %1112 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4392), align 8
+  %1112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4392), align 8
   %1113 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1112, ptr noundef nonnull %0)
   %1114 = extractvalue { ptr, i8 } %1113, 0
   %1115 = extractvalue { ptr, i8 } %1113, 1
@@ -2025,7 +2025,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16889, label %1117, label %10795
 
 1117:                                             ; preds = %1109
-  %1118 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %1118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %1119 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1118, ptr noundef nonnull %0)
   %1120 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16890 = icmp eq i8 %1120, 0
@@ -2052,7 +2052,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1133 = extractvalue { ptr, i8 } %1130, 1
   %1134 = extractvalue { ptr, i8 } %1130, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 29, ptr %1134, i8 %1133) #7
-  %1135 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4392), align 8
+  %1135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4392), align 8
   %1136 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1135, ptr noundef nonnull %0)
   %1137 = extractvalue { ptr, i8 } %1136, 0
   %1138 = extractvalue { ptr, i8 } %1136, 1
@@ -2061,7 +2061,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16892, label %1140, label %10795
 
 1140:                                             ; preds = %1132
-  %1141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
+  %1141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
   %1142 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1141, ptr noundef nonnull %0)
   %1143 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16893 = icmp eq i8 %1143, 0
@@ -2088,7 +2088,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1156 = extractvalue { ptr, i8 } %1153, 1
   %1157 = extractvalue { ptr, i8 } %1153, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 30, ptr %1157, i8 %1156) #7
-  %1158 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4400), align 8
+  %1158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4400), align 8
   %1159 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1158, ptr noundef nonnull %0)
   %1160 = extractvalue { ptr, i8 } %1159, 0
   %1161 = extractvalue { ptr, i8 } %1159, 1
@@ -2097,7 +2097,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16895, label %1163, label %10795
 
 1163:                                             ; preds = %1155
-  %1164 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
+  %1164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
   %1165 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1164, ptr noundef nonnull %0)
   %1166 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16896 = icmp eq i8 %1166, 0
@@ -2124,7 +2124,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1179 = extractvalue { ptr, i8 } %1176, 1
   %1180 = extractvalue { ptr, i8 } %1176, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 31, ptr %1180, i8 %1179) #7
-  %1181 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4408), align 8
+  %1181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4408), align 8
   %1182 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1181, ptr noundef nonnull %0)
   %1183 = extractvalue { ptr, i8 } %1182, 0
   %1184 = extractvalue { ptr, i8 } %1182, 1
@@ -2133,7 +2133,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16898, label %1186, label %10795
 
 1186:                                             ; preds = %1178
-  %1187 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
+  %1187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
   %1188 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1187, ptr noundef nonnull %0)
   %1189 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16899 = icmp eq i8 %1189, 0
@@ -2160,7 +2160,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1202 = extractvalue { ptr, i8 } %1199, 1
   %1203 = extractvalue { ptr, i8 } %1199, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 32, ptr %1203, i8 %1202) #7
-  %1204 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4416), align 8
+  %1204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4416), align 8
   %1205 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1204, ptr noundef nonnull %0)
   %1206 = extractvalue { ptr, i8 } %1205, 0
   %1207 = extractvalue { ptr, i8 } %1205, 1
@@ -2169,7 +2169,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16901, label %1209, label %10795
 
 1209:                                             ; preds = %1201
-  %1210 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
+  %1210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
   %1211 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1210, ptr noundef nonnull %0)
   %1212 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16902 = icmp eq i8 %1212, 0
@@ -2196,7 +2196,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1225 = extractvalue { ptr, i8 } %1222, 1
   %1226 = extractvalue { ptr, i8 } %1222, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 33, ptr %1226, i8 %1225) #7
-  %1227 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4416), align 8
+  %1227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4416), align 8
   %1228 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1227, ptr noundef nonnull %0)
   %1229 = extractvalue { ptr, i8 } %1228, 0
   %1230 = extractvalue { ptr, i8 } %1228, 1
@@ -2205,7 +2205,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16904, label %1232, label %10795
 
 1232:                                             ; preds = %1224
-  %1233 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
+  %1233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
   %1234 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1233, ptr noundef nonnull %0)
   %1235 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16905 = icmp eq i8 %1235, 0
@@ -2232,7 +2232,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1248 = extractvalue { ptr, i8 } %1245, 1
   %1249 = extractvalue { ptr, i8 } %1245, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 34, ptr %1249, i8 %1248) #7
-  %1250 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4424), align 8
+  %1250 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4424), align 8
   %1251 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1250, ptr noundef nonnull %0)
   %1252 = extractvalue { ptr, i8 } %1251, 0
   %1253 = extractvalue { ptr, i8 } %1251, 1
@@ -2241,7 +2241,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16907, label %1255, label %10795
 
 1255:                                             ; preds = %1247
-  %1256 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %1256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %1257 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1256, ptr noundef nonnull %0)
   %1258 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16908 = icmp eq i8 %1258, 0
@@ -2268,7 +2268,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1271 = extractvalue { ptr, i8 } %1268, 1
   %1272 = extractvalue { ptr, i8 } %1268, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 35, ptr %1272, i8 %1271) #7
-  %1273 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4424), align 8
+  %1273 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4424), align 8
   %1274 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1273, ptr noundef nonnull %0)
   %1275 = extractvalue { ptr, i8 } %1274, 0
   %1276 = extractvalue { ptr, i8 } %1274, 1
@@ -2277,7 +2277,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16910, label %1278, label %10795
 
 1278:                                             ; preds = %1270
-  %1279 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
+  %1279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
   %1280 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1279, ptr noundef nonnull %0)
   %1281 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16911 = icmp eq i8 %1281, 0
@@ -2304,7 +2304,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1294 = extractvalue { ptr, i8 } %1291, 1
   %1295 = extractvalue { ptr, i8 } %1291, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 36, ptr %1295, i8 %1294) #7
-  %1296 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4432), align 8
+  %1296 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4432), align 8
   %1297 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1296, ptr noundef nonnull %0)
   %1298 = extractvalue { ptr, i8 } %1297, 0
   %1299 = extractvalue { ptr, i8 } %1297, 1
@@ -2313,7 +2313,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16913, label %1301, label %10795
 
 1301:                                             ; preds = %1293
-  %1302 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7632), align 8
+  %1302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7632), align 8
   %1303 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1302, ptr noundef nonnull %0)
   %1304 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16914 = icmp eq i8 %1304, 0
@@ -2340,7 +2340,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1317 = extractvalue { ptr, i8 } %1314, 1
   %1318 = extractvalue { ptr, i8 } %1314, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 37, ptr %1318, i8 %1317) #7
-  %1319 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4432), align 8
+  %1319 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4432), align 8
   %1320 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1319, ptr noundef nonnull %0)
   %1321 = extractvalue { ptr, i8 } %1320, 0
   %1322 = extractvalue { ptr, i8 } %1320, 1
@@ -2349,7 +2349,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16916, label %1324, label %10795
 
 1324:                                             ; preds = %1316
-  %1325 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7648), align 8
+  %1325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7648), align 8
   %1326 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1325, ptr noundef nonnull %0)
   %1327 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16917 = icmp eq i8 %1327, 0
@@ -2376,7 +2376,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1340 = extractvalue { ptr, i8 } %1337, 1
   %1341 = extractvalue { ptr, i8 } %1337, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 38, ptr %1341, i8 %1340) #7
-  %1342 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
+  %1342 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
   %1343 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1342, ptr noundef nonnull %0)
   %1344 = extractvalue { ptr, i8 } %1343, 0
   %1345 = extractvalue { ptr, i8 } %1343, 1
@@ -2385,7 +2385,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16919, label %1347, label %10795
 
 1347:                                             ; preds = %1339
-  %1348 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
+  %1348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
   %1349 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1348, ptr noundef nonnull %0)
   %1350 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16920 = icmp eq i8 %1350, 0
@@ -2412,7 +2412,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1363 = extractvalue { ptr, i8 } %1360, 1
   %1364 = extractvalue { ptr, i8 } %1360, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 39, ptr %1364, i8 %1363) #7
-  %1365 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
+  %1365 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
   %1366 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1365, ptr noundef nonnull %0)
   %1367 = extractvalue { ptr, i8 } %1366, 0
   %1368 = extractvalue { ptr, i8 } %1366, 1
@@ -2421,7 +2421,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16922, label %1370, label %10795
 
 1370:                                             ; preds = %1362
-  %1371 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
+  %1371 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
   %1372 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1371, ptr noundef nonnull %0)
   %1373 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16923 = icmp eq i8 %1373, 0
@@ -2448,7 +2448,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1386 = extractvalue { ptr, i8 } %1383, 1
   %1387 = extractvalue { ptr, i8 } %1383, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 40, ptr %1387, i8 %1386) #7
-  %1388 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
+  %1388 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
   %1389 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1388, ptr noundef nonnull %0)
   %1390 = extractvalue { ptr, i8 } %1389, 0
   %1391 = extractvalue { ptr, i8 } %1389, 1
@@ -2457,7 +2457,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16925, label %1393, label %10795
 
 1393:                                             ; preds = %1385
-  %1394 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
+  %1394 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
   %1395 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1394, ptr noundef nonnull %0)
   %1396 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16926 = icmp eq i8 %1396, 0
@@ -2484,7 +2484,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1409 = extractvalue { ptr, i8 } %1406, 1
   %1410 = extractvalue { ptr, i8 } %1406, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 41, ptr %1410, i8 %1409) #7
-  %1411 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
+  %1411 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
   %1412 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1411, ptr noundef nonnull %0)
   %1413 = extractvalue { ptr, i8 } %1412, 0
   %1414 = extractvalue { ptr, i8 } %1412, 1
@@ -2493,7 +2493,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16928, label %1416, label %10795
 
 1416:                                             ; preds = %1408
-  %1417 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
+  %1417 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
   %1418 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1417, ptr noundef nonnull %0)
   %1419 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16929 = icmp eq i8 %1419, 0
@@ -2520,7 +2520,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1432 = extractvalue { ptr, i8 } %1429, 1
   %1433 = extractvalue { ptr, i8 } %1429, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 42, ptr %1433, i8 %1432) #7
-  %1434 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4360), align 8
+  %1434 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4360), align 8
   %1435 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1434, ptr noundef nonnull %0)
   %1436 = extractvalue { ptr, i8 } %1435, 0
   %1437 = extractvalue { ptr, i8 } %1435, 1
@@ -2529,7 +2529,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16931, label %1439, label %10795
 
 1439:                                             ; preds = %1431
-  %1440 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6896), align 8
+  %1440 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6896), align 8
   %1441 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1440, ptr noundef nonnull %0)
   %1442 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16932 = icmp eq i8 %1442, 0
@@ -2556,7 +2556,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1455 = extractvalue { ptr, i8 } %1452, 1
   %1456 = extractvalue { ptr, i8 } %1452, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 43, ptr %1456, i8 %1455) #7
-  %1457 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4360), align 8
+  %1457 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4360), align 8
   %1458 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1457, ptr noundef nonnull %0)
   %1459 = extractvalue { ptr, i8 } %1458, 0
   %1460 = extractvalue { ptr, i8 } %1458, 1
@@ -2565,7 +2565,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16934, label %1462, label %10795
 
 1462:                                             ; preds = %1454
-  %1463 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6888), align 8
+  %1463 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6888), align 8
   %1464 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1463, ptr noundef nonnull %0)
   %1465 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16935 = icmp eq i8 %1465, 0
@@ -2592,7 +2592,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1478 = extractvalue { ptr, i8 } %1475, 1
   %1479 = extractvalue { ptr, i8 } %1475, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 44, ptr %1479, i8 %1478) #7
-  %1480 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4440), align 8
+  %1480 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4440), align 8
   %1481 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1480, ptr noundef nonnull %0)
   %1482 = extractvalue { ptr, i8 } %1481, 0
   %1483 = extractvalue { ptr, i8 } %1481, 1
@@ -2601,7 +2601,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16937, label %1485, label %10795
 
 1485:                                             ; preds = %1477
-  %1486 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
+  %1486 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
   %1487 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1486, ptr noundef nonnull %0)
   %1488 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16938 = icmp eq i8 %1488, 0
@@ -2628,7 +2628,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1501 = extractvalue { ptr, i8 } %1498, 1
   %1502 = extractvalue { ptr, i8 } %1498, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 45, ptr %1502, i8 %1501) #7
-  %1503 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4440), align 8
+  %1503 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4440), align 8
   %1504 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1503, ptr noundef nonnull %0)
   %1505 = extractvalue { ptr, i8 } %1504, 0
   %1506 = extractvalue { ptr, i8 } %1504, 1
@@ -2637,7 +2637,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16940, label %1508, label %10795
 
 1508:                                             ; preds = %1500
-  %1509 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
+  %1509 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
   %1510 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1509, ptr noundef nonnull %0)
   %1511 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16941 = icmp eq i8 %1511, 0
@@ -2664,7 +2664,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1524 = extractvalue { ptr, i8 } %1521, 1
   %1525 = extractvalue { ptr, i8 } %1521, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 46, ptr %1525, i8 %1524) #7
-  %1526 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4448), align 8
+  %1526 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4448), align 8
   %1527 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1526, ptr noundef nonnull %0)
   %1528 = extractvalue { ptr, i8 } %1527, 0
   %1529 = extractvalue { ptr, i8 } %1527, 1
@@ -2673,7 +2673,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16943, label %1531, label %10795
 
 1531:                                             ; preds = %1523
-  %1532 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %1532 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %1533 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1532, ptr noundef nonnull %0)
   %1534 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16944 = icmp eq i8 %1534, 0
@@ -2700,7 +2700,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1547 = extractvalue { ptr, i8 } %1544, 1
   %1548 = extractvalue { ptr, i8 } %1544, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 47, ptr %1548, i8 %1547) #7
-  %1549 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4448), align 8
+  %1549 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4448), align 8
   %1550 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1549, ptr noundef nonnull %0)
   %1551 = extractvalue { ptr, i8 } %1550, 0
   %1552 = extractvalue { ptr, i8 } %1550, 1
@@ -2709,7 +2709,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16946, label %1554, label %10795
 
 1554:                                             ; preds = %1546
-  %1555 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6912), align 8
+  %1555 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6912), align 8
   %1556 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1555, ptr noundef nonnull %0)
   %1557 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16947 = icmp eq i8 %1557, 0
@@ -2736,7 +2736,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1570 = extractvalue { ptr, i8 } %1567, 1
   %1571 = extractvalue { ptr, i8 } %1567, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 48, ptr %1571, i8 %1570) #7
-  %1572 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1488), align 8
+  %1572 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1488), align 8
   %1573 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1572, ptr noundef nonnull %0)
   %1574 = extractvalue { ptr, i8 } %1573, 0
   %1575 = extractvalue { ptr, i8 } %1573, 1
@@ -2745,7 +2745,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16949, label %1577, label %10795
 
 1577:                                             ; preds = %1569
-  %1578 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
+  %1578 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
   %1579 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1578, ptr noundef nonnull %0)
   %1580 = extractvalue { ptr, i8 } %1579, 0
   %1581 = extractvalue { ptr, i8 } %1579, 1
@@ -2754,7 +2754,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16950, label %1583, label %10795
 
 1583:                                             ; preds = %1577
-  %1584 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %1584 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %1585 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1584, ptr noundef nonnull %0)
   %1586 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16951 = icmp eq i8 %1586, 0
@@ -2781,7 +2781,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1599 = extractvalue { ptr, i8 } %1596, 1
   %1600 = extractvalue { ptr, i8 } %1596, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 49, ptr %1600, i8 %1599) #7
-  %1601 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
+  %1601 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
   %1602 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1601, ptr noundef nonnull %0)
   %1603 = extractvalue { ptr, i8 } %1602, 0
   %1604 = extractvalue { ptr, i8 } %1602, 1
@@ -2790,7 +2790,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16953, label %1606, label %10795
 
 1606:                                             ; preds = %1598
-  %1607 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %1607 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %1608 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1607, ptr noundef nonnull %0)
   %1609 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16954 = icmp eq i8 %1609, 0
@@ -2817,7 +2817,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1622 = extractvalue { ptr, i8 } %1619, 1
   %1623 = extractvalue { ptr, i8 } %1619, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 50, ptr %1623, i8 %1622) #7
-  %1624 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
+  %1624 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
   %1625 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1624, ptr noundef nonnull %0)
   %1626 = extractvalue { ptr, i8 } %1625, 0
   %1627 = extractvalue { ptr, i8 } %1625, 1
@@ -2826,7 +2826,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16956, label %1629, label %10795
 
 1629:                                             ; preds = %1621
-  %1630 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
+  %1630 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
   %1631 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1630, ptr noundef nonnull %0)
   %1632 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16957 = icmp eq i8 %1632, 0
@@ -2853,7 +2853,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1645 = extractvalue { ptr, i8 } %1642, 1
   %1646 = extractvalue { ptr, i8 } %1642, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 51, ptr %1646, i8 %1645) #7
-  %1647 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
+  %1647 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
   %1648 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1647, ptr noundef nonnull %0)
   %1649 = extractvalue { ptr, i8 } %1648, 0
   %1650 = extractvalue { ptr, i8 } %1648, 1
@@ -2862,7 +2862,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16959, label %1652, label %10795
 
 1652:                                             ; preds = %1644
-  %1653 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
+  %1653 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7640), align 8
   %1654 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1653, ptr noundef nonnull %0)
   %1655 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16960 = icmp eq i8 %1655, 0
@@ -2889,7 +2889,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1668 = extractvalue { ptr, i8 } %1665, 1
   %1669 = extractvalue { ptr, i8 } %1665, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 52, ptr %1669, i8 %1668) #7
-  %1670 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
+  %1670 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4320), align 8
   %1671 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1670, ptr noundef nonnull %0)
   %1672 = extractvalue { ptr, i8 } %1671, 0
   %1673 = extractvalue { ptr, i8 } %1671, 1
@@ -2898,7 +2898,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16962, label %1675, label %10795
 
 1675:                                             ; preds = %1667
-  %1676 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
+  %1676 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
   %1677 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1676, ptr noundef nonnull %0)
   %1678 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16963 = icmp eq i8 %1678, 0
@@ -2925,7 +2925,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1691 = extractvalue { ptr, i8 } %1688, 1
   %1692 = extractvalue { ptr, i8 } %1688, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 53, ptr %1692, i8 %1691) #7
-  %1693 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
+  %1693 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4328), align 8
   %1694 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1693, ptr noundef nonnull %0)
   %1695 = extractvalue { ptr, i8 } %1694, 0
   %1696 = extractvalue { ptr, i8 } %1694, 1
@@ -2934,7 +2934,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16965, label %1698, label %10795
 
 1698:                                             ; preds = %1690
-  %1699 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
+  %1699 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7624), align 8
   %1700 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1699, ptr noundef nonnull %0)
   %1701 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16966 = icmp eq i8 %1701, 0
@@ -2961,7 +2961,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1714 = extractvalue { ptr, i8 } %1711, 1
   %1715 = extractvalue { ptr, i8 } %1711, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 54, ptr %1715, i8 %1714) #7
-  %1716 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4280), align 8
+  %1716 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4280), align 8
   %1717 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1716, ptr noundef nonnull %0)
   %1718 = extractvalue { ptr, i8 } %1717, 0
   %1719 = extractvalue { ptr, i8 } %1717, 1
@@ -2970,7 +2970,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16968, label %1721, label %10795
 
 1721:                                             ; preds = %1713
-  %1722 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
+  %1722 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6904), align 8
   %1723 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1722, ptr noundef nonnull %0)
   %1724 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16969 = icmp eq i8 %1724, 0
@@ -2997,7 +2997,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1737 = extractvalue { ptr, i8 } %1734, 1
   %1738 = extractvalue { ptr, i8 } %1734, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 55, ptr %1738, i8 %1737) #7
-  %1739 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
+  %1739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
   %1740 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1739, ptr noundef nonnull %0)
   %1741 = extractvalue { ptr, i8 } %1740, 0
   %1742 = extractvalue { ptr, i8 } %1740, 1
@@ -3006,7 +3006,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16971, label %1744, label %10795
 
 1744:                                             ; preds = %1736
-  %1745 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4464), align 8
+  %1745 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4464), align 8
   %1746 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1745, ptr noundef nonnull %0)
   %1747 = extractvalue { ptr, i8 } %1746, 0
   %1748 = extractvalue { ptr, i8 } %1746, 1
@@ -3015,7 +3015,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16972, label %1750, label %10795
 
 1750:                                             ; preds = %1744
-  %1751 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6872), align 8
+  %1751 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6872), align 8
   %1752 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1751, ptr noundef nonnull %0)
   %1753 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16973 = icmp eq i8 %1753, 0
@@ -3042,7 +3042,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1766 = extractvalue { ptr, i8 } %1763, 1
   %1767 = extractvalue { ptr, i8 } %1763, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 56, ptr %1767, i8 %1766) #7
-  %1768 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4472), align 8
+  %1768 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4472), align 8
   %1769 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1768, ptr noundef nonnull %0)
   %1770 = extractvalue { ptr, i8 } %1769, 0
   %1771 = extractvalue { ptr, i8 } %1769, 1
@@ -3051,7 +3051,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16975, label %1773, label %10795
 
 1773:                                             ; preds = %1765
-  %1774 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6872), align 8
+  %1774 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6872), align 8
   %1775 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1774, ptr noundef nonnull %0)
   %1776 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16976 = icmp eq i8 %1776, 0
@@ -3078,7 +3078,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1789 = extractvalue { ptr, i8 } %1786, 1
   %1790 = extractvalue { ptr, i8 } %1786, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 57, ptr %1790, i8 %1789) #7
-  %1791 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 216), align 8
+  %1791 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 216), align 8
   %1792 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1791, ptr noundef nonnull %0)
   %1793 = extractvalue { ptr, i8 } %1792, 0
   %1794 = extractvalue { ptr, i8 } %1792, 1
@@ -3087,7 +3087,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16978, label %1796, label %10795
 
 1796:                                             ; preds = %1788
-  %1797 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4464), align 8
+  %1797 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4464), align 8
   %1798 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1797, ptr noundef nonnull %0)
   %1799 = extractvalue { ptr, i8 } %1798, 0
   %1800 = extractvalue { ptr, i8 } %1798, 1
@@ -3096,7 +3096,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16979, label %1802, label %10795
 
 1802:                                             ; preds = %1796
-  %1803 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6880), align 8
+  %1803 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6880), align 8
   %1804 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1803, ptr noundef nonnull %0)
   %1805 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16980 = icmp eq i8 %1805, 0
@@ -3123,7 +3123,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1818 = extractvalue { ptr, i8 } %1815, 1
   %1819 = extractvalue { ptr, i8 } %1815, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 58, ptr %1819, i8 %1818) #7
-  %1820 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4472), align 8
+  %1820 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4472), align 8
   %1821 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1820, ptr noundef nonnull %0)
   %1822 = extractvalue { ptr, i8 } %1821, 0
   %1823 = extractvalue { ptr, i8 } %1821, 1
@@ -3132,7 +3132,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16982, label %1825, label %10795
 
 1825:                                             ; preds = %1817
-  %1826 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6880), align 8
+  %1826 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6880), align 8
   %1827 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1826, ptr noundef nonnull %0)
   %1828 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16983 = icmp eq i8 %1828, 0
@@ -3159,7 +3159,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1841 = extractvalue { ptr, i8 } %1838, 1
   %1842 = extractvalue { ptr, i8 } %1838, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 59, ptr %1842, i8 %1841) #7
-  %1843 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
+  %1843 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
   %1844 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1843, ptr noundef nonnull %0)
   %1845 = extractvalue { ptr, i8 } %1844, 0
   %1846 = extractvalue { ptr, i8 } %1844, 1
@@ -3168,7 +3168,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16985, label %1848, label %10795
 
 1848:                                             ; preds = %1840
-  %1849 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4480), align 8
+  %1849 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4480), align 8
   %1850 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1849, ptr noundef nonnull %0)
   %1851 = extractvalue { ptr, i8 } %1850, 0
   %1852 = extractvalue { ptr, i8 } %1850, 1
@@ -3177,7 +3177,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16986, label %1854, label %10795
 
 1854:                                             ; preds = %1848
-  %1855 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6888), align 8
+  %1855 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6888), align 8
   %1856 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1855, ptr noundef nonnull %0)
   %1857 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16987 = icmp eq i8 %1857, 0
@@ -3204,7 +3204,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1870 = extractvalue { ptr, i8 } %1867, 1
   %1871 = extractvalue { ptr, i8 } %1867, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 60, ptr %1871, i8 %1870) #7
-  %1872 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4488), align 8
+  %1872 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4488), align 8
   %1873 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1872, ptr noundef nonnull %0)
   %1874 = extractvalue { ptr, i8 } %1873, 0
   %1875 = extractvalue { ptr, i8 } %1873, 1
@@ -3213,7 +3213,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16989, label %1877, label %10795
 
 1877:                                             ; preds = %1869
-  %1878 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6888), align 8
+  %1878 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6888), align 8
   %1879 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1878, ptr noundef nonnull %0)
   %1880 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16990 = icmp eq i8 %1880, 0
@@ -3240,7 +3240,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1893 = extractvalue { ptr, i8 } %1890, 1
   %1894 = extractvalue { ptr, i8 } %1890, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 61, ptr %1894, i8 %1893) #7
-  %1895 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4496), align 8
+  %1895 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4496), align 8
   %1896 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1895, ptr noundef nonnull %0)
   %1897 = extractvalue { ptr, i8 } %1896, 0
   %1898 = extractvalue { ptr, i8 } %1896, 1
@@ -3249,7 +3249,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16992, label %1900, label %10795
 
 1900:                                             ; preds = %1892
-  %1901 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6920), align 8
+  %1901 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6920), align 8
   %1902 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1901, ptr noundef nonnull %0)
   %1903 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16993 = icmp eq i8 %1903, 0
@@ -3276,7 +3276,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1916 = extractvalue { ptr, i8 } %1913, 1
   %1917 = extractvalue { ptr, i8 } %1913, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 62, ptr %1917, i8 %1916) #7
-  %1918 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 216), align 8
+  %1918 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 216), align 8
   %1919 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1918, ptr noundef nonnull %0)
   %1920 = extractvalue { ptr, i8 } %1919, 0
   %1921 = extractvalue { ptr, i8 } %1919, 1
@@ -3285,7 +3285,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16995, label %1923, label %10795
 
 1923:                                             ; preds = %1915
-  %1924 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4504), align 8
+  %1924 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4504), align 8
   %1925 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1924, ptr noundef nonnull %0)
   %1926 = extractvalue { ptr, i8 } %1925, 0
   %1927 = extractvalue { ptr, i8 } %1925, 1
@@ -3294,7 +3294,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16996, label %1929, label %10795
 
 1929:                                             ; preds = %1923
-  %1930 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6896), align 8
+  %1930 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6896), align 8
   %1931 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1930, ptr noundef nonnull %0)
   %1932 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not16997 = icmp eq i8 %1932, 0
@@ -3321,7 +3321,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1945 = extractvalue { ptr, i8 } %1942, 1
   %1946 = extractvalue { ptr, i8 } %1942, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 63, ptr %1946, i8 %1945) #7
-  %1947 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4512), align 8
+  %1947 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4512), align 8
   %1948 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1947, ptr noundef nonnull %0)
   %1949 = extractvalue { ptr, i8 } %1948, 0
   %1950 = extractvalue { ptr, i8 } %1948, 1
@@ -3330,7 +3330,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not16999, label %1952, label %10795
 
 1952:                                             ; preds = %1944
-  %1953 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6896), align 8
+  %1953 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6896), align 8
   %1954 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1953, ptr noundef nonnull %0)
   %1955 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17000 = icmp eq i8 %1955, 0
@@ -3357,7 +3357,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1968 = extractvalue { ptr, i8 } %1965, 1
   %1969 = extractvalue { ptr, i8 } %1965, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 64, ptr %1969, i8 %1968) #7
-  %1970 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4520), align 8
+  %1970 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4520), align 8
   %1971 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1970, ptr noundef nonnull %0)
   %1972 = extractvalue { ptr, i8 } %1971, 0
   %1973 = extractvalue { ptr, i8 } %1971, 1
@@ -3366,7 +3366,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17002, label %1975, label %10795
 
 1975:                                             ; preds = %1967
-  %1976 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6944), align 8
+  %1976 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6944), align 8
   %1977 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1976, ptr noundef nonnull %0)
   %1978 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17003 = icmp eq i8 %1978, 0
@@ -3393,7 +3393,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %1991 = extractvalue { ptr, i8 } %1988, 1
   %1992 = extractvalue { ptr, i8 } %1988, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 65, ptr %1992, i8 %1991) #7
-  %1993 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
+  %1993 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
   %1994 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1993, ptr noundef nonnull %0)
   %1995 = extractvalue { ptr, i8 } %1994, 0
   %1996 = extractvalue { ptr, i8 } %1994, 1
@@ -3402,7 +3402,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17005, label %1998, label %10795
 
 1998:                                             ; preds = %1990
-  %1999 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4528), align 8
+  %1999 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4528), align 8
   %2000 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1999, ptr noundef nonnull %0)
   %2001 = extractvalue { ptr, i8 } %2000, 0
   %2002 = extractvalue { ptr, i8 } %2000, 1
@@ -3411,7 +3411,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17006, label %2004, label %10795
 
 2004:                                             ; preds = %1998
-  %2005 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7680), align 8
+  %2005 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7680), align 8
   %2006 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2005, ptr noundef nonnull %0)
   %2007 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17007 = icmp eq i8 %2007, 0
@@ -3438,7 +3438,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2020 = extractvalue { ptr, i8 } %2017, 1
   %2021 = extractvalue { ptr, i8 } %2017, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 66, ptr %2021, i8 %2020) #7
-  %2022 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4536), align 8
+  %2022 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4536), align 8
   %2023 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2022, ptr noundef nonnull %0)
   %2024 = extractvalue { ptr, i8 } %2023, 0
   %2025 = extractvalue { ptr, i8 } %2023, 1
@@ -3447,7 +3447,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17009, label %2027, label %10795
 
 2027:                                             ; preds = %2019
-  %2028 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7688), align 8
+  %2028 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7688), align 8
   %2029 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2028, ptr noundef nonnull %0)
   %2030 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17010 = icmp eq i8 %2030, 0
@@ -3474,7 +3474,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2043 = extractvalue { ptr, i8 } %2040, 1
   %2044 = extractvalue { ptr, i8 } %2040, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 67, ptr %2044, i8 %2043) #7
-  %2045 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %2045 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %2046 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2045, ptr noundef nonnull %0)
   %2047 = extractvalue { ptr, i8 } %2046, 0
   %2048 = extractvalue { ptr, i8 } %2046, 1
@@ -3483,7 +3483,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17012, label %2050, label %10795
 
 2050:                                             ; preds = %2042
-  %2051 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4544), align 8
+  %2051 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4544), align 8
   %2052 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2051, ptr noundef nonnull %0)
   %2053 = extractvalue { ptr, i8 } %2052, 0
   %2054 = extractvalue { ptr, i8 } %2052, 1
@@ -3492,7 +3492,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17013, label %2056, label %10795
 
 2056:                                             ; preds = %2050
-  %2057 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %2057 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %2058 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2057, ptr noundef nonnull %0)
   %2059 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17014 = icmp eq i8 %2059, 0
@@ -3519,7 +3519,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2072 = extractvalue { ptr, i8 } %2069, 1
   %2073 = extractvalue { ptr, i8 } %2069, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 68, ptr %2073, i8 %2072) #7
-  %2074 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %2074 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %2075 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2074, ptr noundef nonnull %0)
   %2076 = extractvalue { ptr, i8 } %2075, 0
   %2077 = extractvalue { ptr, i8 } %2075, 1
@@ -3528,7 +3528,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17016, label %2079, label %10795
 
 2079:                                             ; preds = %2071
-  %2080 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4544), align 8
+  %2080 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4544), align 8
   %2081 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2080, ptr noundef nonnull %0)
   %2082 = extractvalue { ptr, i8 } %2081, 0
   %2083 = extractvalue { ptr, i8 } %2081, 1
@@ -3537,7 +3537,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17017, label %2085, label %10795
 
 2085:                                             ; preds = %2079
-  %2086 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7664), align 8
+  %2086 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7664), align 8
   %2087 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2086, ptr noundef nonnull %0)
   %2088 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17018 = icmp eq i8 %2088, 0
@@ -3564,7 +3564,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2101 = extractvalue { ptr, i8 } %2098, 1
   %2102 = extractvalue { ptr, i8 } %2098, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 69, ptr %2102, i8 %2101) #7
-  %2103 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %2103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %2104 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2103, ptr noundef nonnull %0)
   %2105 = extractvalue { ptr, i8 } %2104, 0
   %2106 = extractvalue { ptr, i8 } %2104, 1
@@ -3573,7 +3573,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17020, label %2108, label %10795
 
 2108:                                             ; preds = %2100
-  %2109 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4552), align 8
+  %2109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4552), align 8
   %2110 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2109, ptr noundef nonnull %0)
   %2111 = extractvalue { ptr, i8 } %2110, 0
   %2112 = extractvalue { ptr, i8 } %2110, 1
@@ -3582,7 +3582,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17021, label %2114, label %10795
 
 2114:                                             ; preds = %2108
-  %2115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %2115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %2116 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2115, ptr noundef nonnull %0)
   %2117 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17022 = icmp eq i8 %2117, 0
@@ -3609,7 +3609,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2130 = extractvalue { ptr, i8 } %2127, 1
   %2131 = extractvalue { ptr, i8 } %2127, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 70, ptr %2131, i8 %2130) #7
-  %2132 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4560), align 8
+  %2132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4560), align 8
   %2133 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2132, ptr noundef nonnull %0)
   %2134 = extractvalue { ptr, i8 } %2133, 0
   %2135 = extractvalue { ptr, i8 } %2133, 1
@@ -3618,7 +3618,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17024, label %2137, label %10795
 
 2137:                                             ; preds = %2129
-  %2138 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %2138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %2139 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2138, ptr noundef nonnull %0)
   %2140 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17025 = icmp eq i8 %2140, 0
@@ -3645,7 +3645,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2153 = extractvalue { ptr, i8 } %2150, 1
   %2154 = extractvalue { ptr, i8 } %2150, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 71, ptr %2154, i8 %2153) #7
-  %2155 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %2155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %2156 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2155, ptr noundef nonnull %0)
   %2157 = extractvalue { ptr, i8 } %2156, 0
   %2158 = extractvalue { ptr, i8 } %2156, 1
@@ -3654,7 +3654,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17027, label %2160, label %10795
 
 2160:                                             ; preds = %2152
-  %2161 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4552), align 8
+  %2161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4552), align 8
   %2162 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2161, ptr noundef nonnull %0)
   %2163 = extractvalue { ptr, i8 } %2162, 0
   %2164 = extractvalue { ptr, i8 } %2162, 1
@@ -3663,7 +3663,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17028, label %2166, label %10795
 
 2166:                                             ; preds = %2160
-  %2167 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
+  %2167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
   %2168 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2167, ptr noundef nonnull %0)
   %2169 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17029 = icmp eq i8 %2169, 0
@@ -3690,7 +3690,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2182 = extractvalue { ptr, i8 } %2179, 1
   %2183 = extractvalue { ptr, i8 } %2179, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 72, ptr %2183, i8 %2182) #7
-  %2184 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4560), align 8
+  %2184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4560), align 8
   %2185 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2184, ptr noundef nonnull %0)
   %2186 = extractvalue { ptr, i8 } %2185, 0
   %2187 = extractvalue { ptr, i8 } %2185, 1
@@ -3699,7 +3699,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17031, label %2189, label %10795
 
 2189:                                             ; preds = %2181
-  %2190 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
+  %2190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
   %2191 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2190, ptr noundef nonnull %0)
   %2192 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17032 = icmp eq i8 %2192, 0
@@ -3726,7 +3726,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2205 = extractvalue { ptr, i8 } %2202, 1
   %2206 = extractvalue { ptr, i8 } %2202, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 73, ptr %2206, i8 %2205) #7
-  %2207 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %2207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %2208 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2207, ptr noundef nonnull %0)
   %2209 = extractvalue { ptr, i8 } %2208, 0
   %2210 = extractvalue { ptr, i8 } %2208, 1
@@ -3735,7 +3735,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17034, label %2212, label %10795
 
 2212:                                             ; preds = %2204
-  %2213 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3672), align 8
+  %2213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3672), align 8
   %2214 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2213, ptr noundef nonnull %0)
   %2215 = extractvalue { ptr, i8 } %2214, 0
   %2216 = extractvalue { ptr, i8 } %2214, 1
@@ -3744,7 +3744,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17035, label %2218, label %10795
 
 2218:                                             ; preds = %2212
-  %2219 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
+  %2219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
   %2220 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2219, ptr noundef nonnull %0)
   %2221 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17036 = icmp eq i8 %2221, 0
@@ -3771,7 +3771,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2234 = extractvalue { ptr, i8 } %2231, 1
   %2235 = extractvalue { ptr, i8 } %2231, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 74, ptr %2235, i8 %2234) #7
-  %2236 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %2236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %2237 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2236, ptr noundef nonnull %0)
   %2238 = extractvalue { ptr, i8 } %2237, 0
   %2239 = extractvalue { ptr, i8 } %2237, 1
@@ -3780,7 +3780,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17038, label %2241, label %10795
 
 2241:                                             ; preds = %2233
-  %2242 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3672), align 8
+  %2242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3672), align 8
   %2243 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2242, ptr noundef nonnull %0)
   %2244 = extractvalue { ptr, i8 } %2243, 0
   %2245 = extractvalue { ptr, i8 } %2243, 1
@@ -3789,7 +3789,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17039, label %2247, label %10795
 
 2247:                                             ; preds = %2241
-  %2248 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6928), align 8
+  %2248 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6928), align 8
   %2249 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2248, ptr noundef nonnull %0)
   %2250 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17040 = icmp eq i8 %2250, 0
@@ -3816,7 +3816,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2263 = extractvalue { ptr, i8 } %2260, 1
   %2264 = extractvalue { ptr, i8 } %2260, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 75, ptr %2264, i8 %2263) #7
-  %2265 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %2265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %2266 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2265, ptr noundef nonnull %0)
   %2267 = extractvalue { ptr, i8 } %2266, 0
   %2268 = extractvalue { ptr, i8 } %2266, 1
@@ -3825,7 +3825,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17042, label %2270, label %10795
 
 2270:                                             ; preds = %2262
-  %2271 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3680), align 8
+  %2271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3680), align 8
   %2272 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2271, ptr noundef nonnull %0)
   %2273 = extractvalue { ptr, i8 } %2272, 0
   %2274 = extractvalue { ptr, i8 } %2272, 1
@@ -3834,7 +3834,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17043, label %2276, label %10795
 
 2276:                                             ; preds = %2270
-  %2277 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
+  %2277 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
   %2278 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2277, ptr noundef nonnull %0)
   %2279 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17044 = icmp eq i8 %2279, 0
@@ -3861,7 +3861,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2292 = extractvalue { ptr, i8 } %2289, 1
   %2293 = extractvalue { ptr, i8 } %2289, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 76, ptr %2293, i8 %2292) #7
-  %2294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %2294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %2295 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2294, ptr noundef nonnull %0)
   %2296 = extractvalue { ptr, i8 } %2295, 0
   %2297 = extractvalue { ptr, i8 } %2295, 1
@@ -3870,7 +3870,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17046, label %2299, label %10795
 
 2299:                                             ; preds = %2291
-  %2300 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3680), align 8
+  %2300 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3680), align 8
   %2301 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2300, ptr noundef nonnull %0)
   %2302 = extractvalue { ptr, i8 } %2301, 0
   %2303 = extractvalue { ptr, i8 } %2301, 1
@@ -3879,7 +3879,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17047, label %2305, label %10795
 
 2305:                                             ; preds = %2299
-  %2306 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6928), align 8
+  %2306 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6928), align 8
   %2307 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2306, ptr noundef nonnull %0)
   %2308 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17048 = icmp eq i8 %2308, 0
@@ -3906,7 +3906,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2321 = extractvalue { ptr, i8 } %2318, 1
   %2322 = extractvalue { ptr, i8 } %2318, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 77, ptr %2322, i8 %2321) #7
-  %2323 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %2323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %2324 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2323, ptr noundef nonnull %0)
   %2325 = extractvalue { ptr, i8 } %2324, 0
   %2326 = extractvalue { ptr, i8 } %2324, 1
@@ -3915,7 +3915,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17050, label %2328, label %10795
 
 2328:                                             ; preds = %2320
-  %2329 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3688), align 8
+  %2329 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3688), align 8
   %2330 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2329, ptr noundef nonnull %0)
   %2331 = extractvalue { ptr, i8 } %2330, 0
   %2332 = extractvalue { ptr, i8 } %2330, 1
@@ -3924,7 +3924,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17051, label %2334, label %10795
 
 2334:                                             ; preds = %2328
-  %2335 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
+  %2335 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
   %2336 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2335, ptr noundef nonnull %0)
   %2337 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17052 = icmp eq i8 %2337, 0
@@ -3951,7 +3951,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2350 = extractvalue { ptr, i8 } %2347, 1
   %2351 = extractvalue { ptr, i8 } %2347, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 78, ptr %2351, i8 %2350) #7
-  %2352 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %2352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %2353 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2352, ptr noundef nonnull %0)
   %2354 = extractvalue { ptr, i8 } %2353, 0
   %2355 = extractvalue { ptr, i8 } %2353, 1
@@ -3960,7 +3960,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17054, label %2357, label %10795
 
 2357:                                             ; preds = %2349
-  %2358 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3688), align 8
+  %2358 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3688), align 8
   %2359 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2358, ptr noundef nonnull %0)
   %2360 = extractvalue { ptr, i8 } %2359, 0
   %2361 = extractvalue { ptr, i8 } %2359, 1
@@ -3969,7 +3969,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17055, label %2363, label %10795
 
 2363:                                             ; preds = %2357
-  %2364 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6928), align 8
+  %2364 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6928), align 8
   %2365 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2364, ptr noundef nonnull %0)
   %2366 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17056 = icmp eq i8 %2366, 0
@@ -3996,7 +3996,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2379 = extractvalue { ptr, i8 } %2376, 1
   %2380 = extractvalue { ptr, i8 } %2376, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 79, ptr %2380, i8 %2379) #7
-  %2381 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %2381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %2382 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2381, ptr noundef nonnull %0)
   %2383 = extractvalue { ptr, i8 } %2382, 0
   %2384 = extractvalue { ptr, i8 } %2382, 1
@@ -4005,7 +4005,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17058, label %2386, label %10795
 
 2386:                                             ; preds = %2378
-  %2387 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4848), align 8
+  %2387 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4848), align 8
   %2388 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2387, ptr noundef nonnull %0)
   %2389 = extractvalue { ptr, i8 } %2388, 0
   %2390 = extractvalue { ptr, i8 } %2388, 1
@@ -4014,7 +4014,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17059, label %2392, label %10795
 
 2392:                                             ; preds = %2386
-  %2393 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %2393 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %2394 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2393, ptr noundef nonnull %0)
   %2395 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17060 = icmp eq i8 %2395, 0
@@ -4041,7 +4041,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2408 = extractvalue { ptr, i8 } %2405, 1
   %2409 = extractvalue { ptr, i8 } %2405, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 80, ptr %2409, i8 %2408) #7
-  %2410 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %2410 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %2411 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2410, ptr noundef nonnull %0)
   %2412 = extractvalue { ptr, i8 } %2411, 0
   %2413 = extractvalue { ptr, i8 } %2411, 1
@@ -4050,7 +4050,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17062, label %2415, label %10795
 
 2415:                                             ; preds = %2407
-  %2416 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4848), align 8
+  %2416 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4848), align 8
   %2417 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2416, ptr noundef nonnull %0)
   %2418 = extractvalue { ptr, i8 } %2417, 0
   %2419 = extractvalue { ptr, i8 } %2417, 1
@@ -4059,7 +4059,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17063, label %2421, label %10795
 
 2421:                                             ; preds = %2415
-  %2422 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
+  %2422 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
   %2423 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2422, ptr noundef nonnull %0)
   %2424 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17064 = icmp eq i8 %2424, 0
@@ -4086,7 +4086,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2437 = extractvalue { ptr, i8 } %2434, 1
   %2438 = extractvalue { ptr, i8 } %2434, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 81, ptr %2438, i8 %2437) #7
-  %2439 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %2439 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %2440 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2439, ptr noundef nonnull %0)
   %2441 = extractvalue { ptr, i8 } %2440, 0
   %2442 = extractvalue { ptr, i8 } %2440, 1
@@ -4095,7 +4095,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17066, label %2444, label %10795
 
 2444:                                             ; preds = %2436
-  %2445 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4456), align 8
+  %2445 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4456), align 8
   %2446 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2445, ptr noundef nonnull %0)
   %2447 = extractvalue { ptr, i8 } %2446, 0
   %2448 = extractvalue { ptr, i8 } %2446, 1
@@ -4104,7 +4104,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17067, label %2450, label %10795
 
 2450:                                             ; preds = %2444
-  %2451 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %2451 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %2452 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2451, ptr noundef nonnull %0)
   %2453 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17068 = icmp eq i8 %2453, 0
@@ -4131,7 +4131,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2466 = extractvalue { ptr, i8 } %2463, 1
   %2467 = extractvalue { ptr, i8 } %2463, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 82, ptr %2467, i8 %2466) #7
-  %2468 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %2468 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %2469 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2468, ptr noundef nonnull %0)
   %2470 = extractvalue { ptr, i8 } %2469, 0
   %2471 = extractvalue { ptr, i8 } %2469, 1
@@ -4140,7 +4140,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17070, label %2473, label %10795
 
 2473:                                             ; preds = %2465
-  %2474 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4456), align 8
+  %2474 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4456), align 8
   %2475 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2474, ptr noundef nonnull %0)
   %2476 = extractvalue { ptr, i8 } %2475, 0
   %2477 = extractvalue { ptr, i8 } %2475, 1
@@ -4149,7 +4149,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17071, label %2479, label %10795
 
 2479:                                             ; preds = %2473
-  %2480 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
+  %2480 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7672), align 8
   %2481 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2480, ptr noundef nonnull %0)
   %2482 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17072 = icmp eq i8 %2482, 0
@@ -4176,7 +4176,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2495 = extractvalue { ptr, i8 } %2492, 1
   %2496 = extractvalue { ptr, i8 } %2492, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 83, ptr %2496, i8 %2495) #7
-  %2497 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %2497 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %2498 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2497, ptr noundef nonnull %0)
   %2499 = extractvalue { ptr, i8 } %2498, 0
   %2500 = extractvalue { ptr, i8 } %2498, 1
@@ -4185,7 +4185,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17074, label %2502, label %10795
 
 2502:                                             ; preds = %2494
-  %2503 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4568), align 8
+  %2503 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4568), align 8
   %2504 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2503, ptr noundef nonnull %0)
   %2505 = extractvalue { ptr, i8 } %2504, 0
   %2506 = extractvalue { ptr, i8 } %2504, 1
@@ -4194,7 +4194,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17075, label %2508, label %10795
 
 2508:                                             ; preds = %2502
-  %2509 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
+  %2509 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
   %2510 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2509, ptr noundef nonnull %0)
   %2511 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17076 = icmp eq i8 %2511, 0
@@ -4221,7 +4221,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2524 = extractvalue { ptr, i8 } %2521, 1
   %2525 = extractvalue { ptr, i8 } %2521, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 84, ptr %2525, i8 %2524) #7
-  %2526 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %2526 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %2527 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2526, ptr noundef nonnull %0)
   %2528 = extractvalue { ptr, i8 } %2527, 0
   %2529 = extractvalue { ptr, i8 } %2527, 1
@@ -4230,7 +4230,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17078, label %2531, label %10795
 
 2531:                                             ; preds = %2523
-  %2532 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4568), align 8
+  %2532 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4568), align 8
   %2533 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2532, ptr noundef nonnull %0)
   %2534 = extractvalue { ptr, i8 } %2533, 0
   %2535 = extractvalue { ptr, i8 } %2533, 1
@@ -4239,7 +4239,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17079, label %2537, label %10795
 
 2537:                                             ; preds = %2531
-  %2538 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
+  %2538 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
   %2539 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2538, ptr noundef nonnull %0)
   %2540 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17080 = icmp eq i8 %2540, 0
@@ -4266,7 +4266,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2553 = extractvalue { ptr, i8 } %2550, 1
   %2554 = extractvalue { ptr, i8 } %2550, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 85, ptr %2554, i8 %2553) #7
-  %2555 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %2555 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %2556 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2555, ptr noundef nonnull %0)
   %2557 = extractvalue { ptr, i8 } %2556, 0
   %2558 = extractvalue { ptr, i8 } %2556, 1
@@ -4275,7 +4275,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17082, label %2560, label %10795
 
 2560:                                             ; preds = %2552
-  %2561 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4576), align 8
+  %2561 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4576), align 8
   %2562 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2561, ptr noundef nonnull %0)
   %2563 = extractvalue { ptr, i8 } %2562, 0
   %2564 = extractvalue { ptr, i8 } %2562, 1
@@ -4284,7 +4284,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17083, label %2566, label %10795
 
 2566:                                             ; preds = %2560
-  %2567 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
+  %2567 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6840), align 8
   %2568 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2567, ptr noundef nonnull %0)
   %2569 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17084 = icmp eq i8 %2569, 0
@@ -4311,7 +4311,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2582 = extractvalue { ptr, i8 } %2579, 1
   %2583 = extractvalue { ptr, i8 } %2579, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 86, ptr %2583, i8 %2582) #7
-  %2584 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %2584 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %2585 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2584, ptr noundef nonnull %0)
   %2586 = extractvalue { ptr, i8 } %2585, 0
   %2587 = extractvalue { ptr, i8 } %2585, 1
@@ -4320,7 +4320,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17086, label %2589, label %10795
 
 2589:                                             ; preds = %2581
-  %2590 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4576), align 8
+  %2590 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4576), align 8
   %2591 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2590, ptr noundef nonnull %0)
   %2592 = extractvalue { ptr, i8 } %2591, 0
   %2593 = extractvalue { ptr, i8 } %2591, 1
@@ -4329,7 +4329,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17087, label %2595, label %10795
 
 2595:                                             ; preds = %2589
-  %2596 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
+  %2596 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
   %2597 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2596, ptr noundef nonnull %0)
   %2598 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17088 = icmp eq i8 %2598, 0
@@ -4356,7 +4356,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2611 = extractvalue { ptr, i8 } %2608, 1
   %2612 = extractvalue { ptr, i8 } %2608, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 87, ptr %2612, i8 %2611) #7
-  %2613 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 184), align 8
+  %2613 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 184), align 8
   %2614 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2613, ptr noundef nonnull %0)
   %2615 = extractvalue { ptr, i8 } %2614, 0
   %2616 = extractvalue { ptr, i8 } %2614, 1
@@ -4365,7 +4365,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17090, label %2618, label %10795
 
 2618:                                             ; preds = %2610
-  %2619 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4576), align 8
+  %2619 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4576), align 8
   %2620 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2619, ptr noundef nonnull %0)
   %2621 = extractvalue { ptr, i8 } %2620, 0
   %2622 = extractvalue { ptr, i8 } %2620, 1
@@ -4374,7 +4374,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17091, label %2624, label %10795
 
 2624:                                             ; preds = %2618
-  %2625 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6848), align 8
+  %2625 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6848), align 8
   %2626 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2625, ptr noundef nonnull %0)
   %2627 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17092 = icmp eq i8 %2627, 0
@@ -4401,7 +4401,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2640 = extractvalue { ptr, i8 } %2637, 1
   %2641 = extractvalue { ptr, i8 } %2637, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 88, ptr %2641, i8 %2640) #7
-  %2642 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 240), align 8
+  %2642 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 240), align 8
   %2643 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2642, ptr noundef nonnull %0)
   %2644 = extractvalue { ptr, i8 } %2643, 0
   %2645 = extractvalue { ptr, i8 } %2643, 1
@@ -4410,7 +4410,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17094, label %2647, label %10795
 
 2647:                                             ; preds = %2639
-  %2648 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4576), align 8
+  %2648 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4576), align 8
   %2649 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2648, ptr noundef nonnull %0)
   %2650 = extractvalue { ptr, i8 } %2649, 0
   %2651 = extractvalue { ptr, i8 } %2649, 1
@@ -4419,7 +4419,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17095, label %2653, label %10795
 
 2653:                                             ; preds = %2647
-  %2654 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6856), align 8
+  %2654 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6856), align 8
   %2655 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2654, ptr noundef nonnull %0)
   %2656 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17096 = icmp eq i8 %2656, 0
@@ -4446,7 +4446,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2669 = extractvalue { ptr, i8 } %2666, 1
   %2670 = extractvalue { ptr, i8 } %2666, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 89, ptr %2670, i8 %2669) #7
-  %2671 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 16), align 8
+  %2671 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 16), align 8
   %2672 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2671, ptr noundef nonnull %0)
   %2673 = extractvalue { ptr, i8 } %2672, 0
   %2674 = extractvalue { ptr, i8 } %2672, 1
@@ -4455,7 +4455,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17098, label %2676, label %10795
 
 2676:                                             ; preds = %2668
-  %2677 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4584), align 8
+  %2677 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4584), align 8
   %2678 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2677, ptr noundef nonnull %0)
   %2679 = extractvalue { ptr, i8 } %2678, 0
   %2680 = extractvalue { ptr, i8 } %2678, 1
@@ -4464,7 +4464,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17099, label %2682, label %10795
 
 2682:                                             ; preds = %2676
-  %2683 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7104), align 8
+  %2683 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7104), align 8
   %2684 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2683, ptr noundef nonnull %0)
   %2685 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17100 = icmp eq i8 %2685, 0
@@ -4491,7 +4491,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2698 = extractvalue { ptr, i8 } %2695, 1
   %2699 = extractvalue { ptr, i8 } %2695, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 90, ptr %2699, i8 %2698) #7
-  %2700 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4592), align 8
+  %2700 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4592), align 8
   %2701 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2700, ptr noundef nonnull %0)
   %2702 = extractvalue { ptr, i8 } %2701, 0
   %2703 = extractvalue { ptr, i8 } %2701, 1
@@ -4500,7 +4500,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17102, label %2705, label %10795
 
 2705:                                             ; preds = %2697
-  %2706 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6800), align 8
+  %2706 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6800), align 8
   %2707 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2706, ptr noundef nonnull %0)
   %2708 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17103 = icmp eq i8 %2708, 0
@@ -4527,7 +4527,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2721 = extractvalue { ptr, i8 } %2718, 1
   %2722 = extractvalue { ptr, i8 } %2718, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 91, ptr %2722, i8 %2721) #7
-  %2723 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4600), align 8
+  %2723 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4600), align 8
   %2724 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2723, ptr noundef nonnull %0)
   %2725 = extractvalue { ptr, i8 } %2724, 0
   %2726 = extractvalue { ptr, i8 } %2724, 1
@@ -4536,7 +4536,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17105, label %2728, label %10795
 
 2728:                                             ; preds = %2720
-  %2729 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6800), align 8
+  %2729 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6800), align 8
   %2730 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2729, ptr noundef nonnull %0)
   %2731 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17106 = icmp eq i8 %2731, 0
@@ -4563,7 +4563,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2744 = extractvalue { ptr, i8 } %2741, 1
   %2745 = extractvalue { ptr, i8 } %2741, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 92, ptr %2745, i8 %2744) #7
-  %2746 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9160), align 8
+  %2746 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9160), align 8
   %2747 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2746, ptr noundef nonnull %0)
   %2748 = extractvalue { ptr, i8 } %2747, 0
   %2749 = extractvalue { ptr, i8 } %2747, 1
@@ -4572,7 +4572,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17108, label %2751, label %10795
 
 2751:                                             ; preds = %2743
-  %2752 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4608), align 8
+  %2752 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4608), align 8
   %2753 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2752, ptr noundef nonnull %0)
   %2754 = extractvalue { ptr, i8 } %2753, 0
   %2755 = extractvalue { ptr, i8 } %2753, 1
@@ -4581,7 +4581,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17109, label %2757, label %10795
 
 2757:                                             ; preds = %2751
-  %2758 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6800), align 8
+  %2758 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6800), align 8
   %2759 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2758, ptr noundef nonnull %0)
   %2760 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17110 = icmp eq i8 %2760, 0
@@ -4608,7 +4608,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2773 = extractvalue { ptr, i8 } %2770, 1
   %2774 = extractvalue { ptr, i8 } %2770, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 93, ptr %2774, i8 %2773) #7
-  %2775 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4616), align 8
+  %2775 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4616), align 8
   %2776 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2775, ptr noundef nonnull %0)
   %2777 = extractvalue { ptr, i8 } %2776, 0
   %2778 = extractvalue { ptr, i8 } %2776, 1
@@ -4617,7 +4617,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17112, label %2780, label %10795
 
 2780:                                             ; preds = %2772
-  %2781 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7192), align 8
+  %2781 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7192), align 8
   %2782 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2781, ptr noundef nonnull %0)
   %2783 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17113 = icmp eq i8 %2783, 0
@@ -4644,7 +4644,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2796 = extractvalue { ptr, i8 } %2793, 1
   %2797 = extractvalue { ptr, i8 } %2793, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 94, ptr %2797, i8 %2796) #7
-  %2798 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
+  %2798 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4624), align 8
   %2799 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2798, ptr noundef nonnull %0)
   %2800 = extractvalue { ptr, i8 } %2799, 0
   %2801 = extractvalue { ptr, i8 } %2799, 1
@@ -4653,7 +4653,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17115, label %2803, label %10795
 
 2803:                                             ; preds = %2795
-  %2804 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9184), align 8
+  %2804 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9184), align 8
   %2805 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2804, ptr noundef nonnull %0)
   %2806 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17116 = icmp eq i8 %2806, 0
@@ -4680,7 +4680,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2819 = extractvalue { ptr, i8 } %2816, 1
   %2820 = extractvalue { ptr, i8 } %2816, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 95, ptr %2820, i8 %2819) #7
-  %2821 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9200), align 8
+  %2821 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9200), align 8
   %2822 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2821, ptr noundef nonnull %0)
   %2823 = extractvalue { ptr, i8 } %2822, 0
   %2824 = extractvalue { ptr, i8 } %2822, 1
@@ -4689,7 +4689,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17118, label %2826, label %10795
 
 2826:                                             ; preds = %2818
-  %2827 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
+  %2827 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6936), align 8
   %2828 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2827, ptr noundef nonnull %0)
   %2829 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17119 = icmp eq i8 %2829, 0
@@ -4716,7 +4716,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2842 = extractvalue { ptr, i8 } %2839, 1
   %2843 = extractvalue { ptr, i8 } %2839, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 96, ptr %2843, i8 %2842) #7
-  %2844 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 16), align 8
+  %2844 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 16), align 8
   %2845 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2844, ptr noundef nonnull %0)
   %2846 = extractvalue { ptr, i8 } %2845, 0
   %2847 = extractvalue { ptr, i8 } %2845, 1
@@ -4725,7 +4725,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17121, label %2849, label %10795
 
 2849:                                             ; preds = %2841
-  %2850 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4632), align 8
+  %2850 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4632), align 8
   %2851 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2850, ptr noundef nonnull %0)
   %2852 = extractvalue { ptr, i8 } %2851, 0
   %2853 = extractvalue { ptr, i8 } %2851, 1
@@ -4734,7 +4734,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17122, label %2855, label %10795
 
 2855:                                             ; preds = %2849
-  %2856 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7696), align 8
+  %2856 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7696), align 8
   %2857 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2856, ptr noundef nonnull %0)
   %2858 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17123 = icmp eq i8 %2858, 0
@@ -4761,7 +4761,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2871 = extractvalue { ptr, i8 } %2868, 1
   %2872 = extractvalue { ptr, i8 } %2868, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 97, ptr %2872, i8 %2871) #7
-  %2873 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 72), align 8
+  %2873 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 72), align 8
   %2874 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2873, ptr noundef nonnull %0)
   %2875 = extractvalue { ptr, i8 } %2874, 0
   %2876 = extractvalue { ptr, i8 } %2874, 1
@@ -4770,7 +4770,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17125, label %2878, label %10795
 
 2878:                                             ; preds = %2870
-  %2879 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4640), align 8
+  %2879 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4640), align 8
   %2880 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2879, ptr noundef nonnull %0)
   %2881 = extractvalue { ptr, i8 } %2880, 0
   %2882 = extractvalue { ptr, i8 } %2880, 1
@@ -4779,7 +4779,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17126, label %2884, label %10795
 
 2884:                                             ; preds = %2878
-  %2885 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7704), align 8
+  %2885 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7704), align 8
   %2886 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2885, ptr noundef nonnull %0)
   %2887 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17127 = icmp eq i8 %2887, 0
@@ -4806,7 +4806,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2900 = extractvalue { ptr, i8 } %2897, 1
   %2901 = extractvalue { ptr, i8 } %2897, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 98, ptr %2901, i8 %2900) #7
-  %2902 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4648), align 8
+  %2902 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4648), align 8
   %2903 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2902, ptr noundef nonnull %0)
   %2904 = extractvalue { ptr, i8 } %2903, 0
   %2905 = extractvalue { ptr, i8 } %2903, 1
@@ -4815,7 +4815,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17129, label %2907, label %10795
 
 2907:                                             ; preds = %2899
-  %2908 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7704), align 8
+  %2908 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7704), align 8
   %2909 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2908, ptr noundef nonnull %0)
   %2910 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17130 = icmp eq i8 %2910, 0
@@ -4842,7 +4842,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2923 = extractvalue { ptr, i8 } %2920, 1
   %2924 = extractvalue { ptr, i8 } %2920, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 99, ptr %2924, i8 %2923) #7
-  %2925 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4656), align 8
+  %2925 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4656), align 8
   %2926 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2925, ptr noundef nonnull %0)
   %2927 = extractvalue { ptr, i8 } %2926, 0
   %2928 = extractvalue { ptr, i8 } %2926, 1
@@ -4851,7 +4851,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17132, label %2930, label %10795
 
 2930:                                             ; preds = %2922
-  %2931 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7712), align 8
+  %2931 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7712), align 8
   %2932 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2931, ptr noundef nonnull %0)
   %2933 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17133 = icmp eq i8 %2933, 0
@@ -4878,7 +4878,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2946 = extractvalue { ptr, i8 } %2943, 1
   %2947 = extractvalue { ptr, i8 } %2943, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 100, ptr %2947, i8 %2946) #7
-  %2948 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4664), align 8
+  %2948 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4664), align 8
   %2949 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2948, ptr noundef nonnull %0)
   %2950 = extractvalue { ptr, i8 } %2949, 0
   %2951 = extractvalue { ptr, i8 } %2949, 1
@@ -4887,7 +4887,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17135, label %2953, label %10795
 
 2953:                                             ; preds = %2945
-  %2954 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7720), align 8
+  %2954 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7720), align 8
   %2955 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2954, ptr noundef nonnull %0)
   %2956 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17136 = icmp eq i8 %2956, 0
@@ -4914,7 +4914,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2969 = extractvalue { ptr, i8 } %2966, 1
   %2970 = extractvalue { ptr, i8 } %2966, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 101, ptr %2970, i8 %2969) #7
-  %2971 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4672), align 8
+  %2971 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4672), align 8
   %2972 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2971, ptr noundef nonnull %0)
   %2973 = extractvalue { ptr, i8 } %2972, 0
   %2974 = extractvalue { ptr, i8 } %2972, 1
@@ -4923,7 +4923,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17138, label %2976, label %10795
 
 2976:                                             ; preds = %2968
-  %2977 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7336), align 8
+  %2977 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7336), align 8
   %2978 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2977, ptr noundef nonnull %0)
   %2979 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17139 = icmp eq i8 %2979, 0
@@ -4950,7 +4950,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %2992 = extractvalue { ptr, i8 } %2989, 1
   %2993 = extractvalue { ptr, i8 } %2989, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 102, ptr %2993, i8 %2992) #7
-  %2994 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4680), align 8
+  %2994 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4680), align 8
   %2995 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2994, ptr noundef nonnull %0)
   %2996 = extractvalue { ptr, i8 } %2995, 0
   %2997 = extractvalue { ptr, i8 } %2995, 1
@@ -4959,7 +4959,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17141, label %2999, label %10795
 
 2999:                                             ; preds = %2991
-  %3000 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7216), align 8
+  %3000 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7216), align 8
   %3001 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3000, ptr noundef nonnull %0)
   %3002 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17142 = icmp eq i8 %3002, 0
@@ -4986,7 +4986,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3015 = extractvalue { ptr, i8 } %3012, 1
   %3016 = extractvalue { ptr, i8 } %3012, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 103, ptr %3016, i8 %3015) #7
-  %3017 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
+  %3017 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 32), align 8
   %3018 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3017, ptr noundef nonnull %0)
   %3019 = extractvalue { ptr, i8 } %3018, 0
   %3020 = extractvalue { ptr, i8 } %3018, 1
@@ -4995,7 +4995,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17144, label %3022, label %10795
 
 3022:                                             ; preds = %3014
-  %3023 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4688), align 8
+  %3023 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4688), align 8
   %3024 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3023, ptr noundef nonnull %0)
   %3025 = extractvalue { ptr, i8 } %3024, 0
   %3026 = extractvalue { ptr, i8 } %3024, 1
@@ -5004,7 +5004,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17145, label %3028, label %10795
 
 3028:                                             ; preds = %3022
-  %3029 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7200), align 8
+  %3029 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7200), align 8
   %3030 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3029, ptr noundef nonnull %0)
   %3031 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17146 = icmp eq i8 %3031, 0
@@ -5031,7 +5031,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3044 = extractvalue { ptr, i8 } %3041, 1
   %3045 = extractvalue { ptr, i8 } %3041, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 104, ptr %3045, i8 %3044) #7
-  %3046 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4696), align 8
+  %3046 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4696), align 8
   %3047 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3046, ptr noundef nonnull %0)
   %3048 = extractvalue { ptr, i8 } %3047, 0
   %3049 = extractvalue { ptr, i8 } %3047, 1
@@ -5040,7 +5040,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17148, label %3051, label %10795
 
 3051:                                             ; preds = %3043
-  %3052 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7120), align 8
+  %3052 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7120), align 8
   %3053 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3052, ptr noundef nonnull %0)
   %3054 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17149 = icmp eq i8 %3054, 0
@@ -5067,7 +5067,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3067 = extractvalue { ptr, i8 } %3064, 1
   %3068 = extractvalue { ptr, i8 } %3064, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 105, ptr %3068, i8 %3067) #7
-  %3069 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4704), align 8
+  %3069 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4704), align 8
   %3070 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3069, ptr noundef nonnull %0)
   %3071 = extractvalue { ptr, i8 } %3070, 0
   %3072 = extractvalue { ptr, i8 } %3070, 1
@@ -5076,7 +5076,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17151, label %3074, label %10795
 
 3074:                                             ; preds = %3066
-  %3075 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6792), align 8
+  %3075 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6792), align 8
   %3076 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3075, ptr noundef nonnull %0)
   %3077 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17152 = icmp eq i8 %3077, 0
@@ -5103,7 +5103,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3090 = extractvalue { ptr, i8 } %3087, 1
   %3091 = extractvalue { ptr, i8 } %3087, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 106, ptr %3091, i8 %3090) #7
-  %3092 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4712), align 8
+  %3092 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4712), align 8
   %3093 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3092, ptr noundef nonnull %0)
   %3094 = extractvalue { ptr, i8 } %3093, 0
   %3095 = extractvalue { ptr, i8 } %3093, 1
@@ -5112,7 +5112,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17154, label %3097, label %10795
 
 3097:                                             ; preds = %3089
-  %3098 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
+  %3098 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
   %3099 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3098, ptr noundef nonnull %0)
   %3100 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17155 = icmp eq i8 %3100, 0
@@ -5139,7 +5139,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3113 = extractvalue { ptr, i8 } %3110, 1
   %3114 = extractvalue { ptr, i8 } %3110, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 107, ptr %3114, i8 %3113) #7
-  %3115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4720), align 8
+  %3115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4720), align 8
   %3116 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3115, ptr noundef nonnull %0)
   %3117 = extractvalue { ptr, i8 } %3116, 0
   %3118 = extractvalue { ptr, i8 } %3116, 1
@@ -5148,7 +5148,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17157, label %3120, label %10795
 
 3120:                                             ; preds = %3112
-  %3121 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
+  %3121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
   %3122 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3121, ptr noundef nonnull %0)
   %3123 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17158 = icmp eq i8 %3123, 0
@@ -5175,7 +5175,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3136 = extractvalue { ptr, i8 } %3133, 1
   %3137 = extractvalue { ptr, i8 } %3133, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 108, ptr %3137, i8 %3136) #7
-  %3138 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4728), align 8
+  %3138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4728), align 8
   %3139 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3138, ptr noundef nonnull %0)
   %3140 = extractvalue { ptr, i8 } %3139, 0
   %3141 = extractvalue { ptr, i8 } %3139, 1
@@ -5184,7 +5184,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17160, label %3143, label %10795
 
 3143:                                             ; preds = %3135
-  %3144 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
+  %3144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
   %3145 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3144, ptr noundef nonnull %0)
   %3146 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17161 = icmp eq i8 %3146, 0
@@ -5211,7 +5211,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3159 = extractvalue { ptr, i8 } %3156, 1
   %3160 = extractvalue { ptr, i8 } %3156, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 109, ptr %3160, i8 %3159) #7
-  %3161 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4736), align 8
+  %3161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4736), align 8
   %3162 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3161, ptr noundef nonnull %0)
   %3163 = extractvalue { ptr, i8 } %3162, 0
   %3164 = extractvalue { ptr, i8 } %3162, 1
@@ -5220,7 +5220,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17163, label %3166, label %10795
 
 3166:                                             ; preds = %3158
-  %3167 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
+  %3167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
   %3168 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3167, ptr noundef nonnull %0)
   %3169 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17164 = icmp eq i8 %3169, 0
@@ -5247,7 +5247,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3182 = extractvalue { ptr, i8 } %3179, 1
   %3183 = extractvalue { ptr, i8 } %3179, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 110, ptr %3183, i8 %3182) #7
-  %3184 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4744), align 8
+  %3184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4744), align 8
   %3185 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3184, ptr noundef nonnull %0)
   %3186 = extractvalue { ptr, i8 } %3185, 0
   %3187 = extractvalue { ptr, i8 } %3185, 1
@@ -5256,7 +5256,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17166, label %3189, label %10795
 
 3189:                                             ; preds = %3181
-  %3190 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7344), align 8
+  %3190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7344), align 8
   %3191 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3190, ptr noundef nonnull %0)
   %3192 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17167 = icmp eq i8 %3192, 0
@@ -5283,7 +5283,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3205 = extractvalue { ptr, i8 } %3202, 1
   %3206 = extractvalue { ptr, i8 } %3202, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 111, ptr %3206, i8 %3205) #7
-  %3207 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4752), align 8
+  %3207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4752), align 8
   %3208 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3207, ptr noundef nonnull %0)
   %3209 = extractvalue { ptr, i8 } %3208, 0
   %3210 = extractvalue { ptr, i8 } %3208, 1
@@ -5292,7 +5292,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17169, label %3212, label %10795
 
 3212:                                             ; preds = %3204
-  %3213 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7128), align 8
+  %3213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7128), align 8
   %3214 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3213, ptr noundef nonnull %0)
   %3215 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17170 = icmp eq i8 %3215, 0
@@ -5319,7 +5319,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3228 = extractvalue { ptr, i8 } %3225, 1
   %3229 = extractvalue { ptr, i8 } %3225, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 112, ptr %3229, i8 %3228) #7
-  %3230 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1768), align 8
+  %3230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1768), align 8
   %3231 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3230, ptr noundef nonnull %0)
   %3232 = extractvalue { ptr, i8 } %3231, 0
   %3233 = extractvalue { ptr, i8 } %3231, 1
@@ -5328,7 +5328,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17172, label %3235, label %10795
 
 3235:                                             ; preds = %3227
-  %3236 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4760), align 8
+  %3236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4760), align 8
   %3237 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3236, ptr noundef nonnull %0)
   %3238 = extractvalue { ptr, i8 } %3237, 0
   %3239 = extractvalue { ptr, i8 } %3237, 1
@@ -5337,7 +5337,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17173, label %3241, label %10795
 
 3241:                                             ; preds = %3235
-  %3242 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7184), align 8
+  %3242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7184), align 8
   %3243 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3242, ptr noundef nonnull %0)
   %3244 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17174 = icmp eq i8 %3244, 0
@@ -5364,7 +5364,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3257 = extractvalue { ptr, i8 } %3254, 1
   %3258 = extractvalue { ptr, i8 } %3254, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 113, ptr %3258, i8 %3257) #7
-  %3259 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 456), align 8
+  %3259 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 456), align 8
   %3260 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3259, ptr noundef nonnull %0)
   %3261 = extractvalue { ptr, i8 } %3260, 0
   %3262 = extractvalue { ptr, i8 } %3260, 1
@@ -5373,7 +5373,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17176, label %3264, label %10795
 
 3264:                                             ; preds = %3256
-  %3265 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4768), align 8
+  %3265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4768), align 8
   %3266 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3265, ptr noundef nonnull %0)
   %3267 = extractvalue { ptr, i8 } %3266, 0
   %3268 = extractvalue { ptr, i8 } %3266, 1
@@ -5382,7 +5382,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17177, label %3270, label %10795
 
 3270:                                             ; preds = %3264
-  %3271 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7104), align 8
+  %3271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7104), align 8
   %3272 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3271, ptr noundef nonnull %0)
   %3273 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17178 = icmp eq i8 %3273, 0
@@ -5409,7 +5409,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3286 = extractvalue { ptr, i8 } %3283, 1
   %3287 = extractvalue { ptr, i8 } %3283, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 114, ptr %3287, i8 %3286) #7
-  %3288 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1768), align 8
+  %3288 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1768), align 8
   %3289 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3288, ptr noundef nonnull %0)
   %3290 = extractvalue { ptr, i8 } %3289, 0
   %3291 = extractvalue { ptr, i8 } %3289, 1
@@ -5418,7 +5418,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17180, label %3293, label %10795
 
 3293:                                             ; preds = %3285
-  %3294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4776), align 8
+  %3294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4776), align 8
   %3295 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3294, ptr noundef nonnull %0)
   %3296 = extractvalue { ptr, i8 } %3295, 0
   %3297 = extractvalue { ptr, i8 } %3295, 1
@@ -5427,7 +5427,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17181, label %3299, label %10795
 
 3299:                                             ; preds = %3293
-  %3300 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7344), align 8
+  %3300 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7344), align 8
   %3301 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3300, ptr noundef nonnull %0)
   %3302 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17182 = icmp eq i8 %3302, 0
@@ -5454,7 +5454,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3315 = extractvalue { ptr, i8 } %3312, 1
   %3316 = extractvalue { ptr, i8 } %3312, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 115, ptr %3316, i8 %3315) #7
-  %3317 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 456), align 8
+  %3317 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 456), align 8
   %3318 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3317, ptr noundef nonnull %0)
   %3319 = extractvalue { ptr, i8 } %3318, 0
   %3320 = extractvalue { ptr, i8 } %3318, 1
@@ -5463,7 +5463,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17184, label %3322, label %10795
 
 3322:                                             ; preds = %3314
-  %3323 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4784), align 8
+  %3323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4784), align 8
   %3324 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3323, ptr noundef nonnull %0)
   %3325 = extractvalue { ptr, i8 } %3324, 0
   %3326 = extractvalue { ptr, i8 } %3324, 1
@@ -5472,7 +5472,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17185, label %3328, label %10795
 
 3328:                                             ; preds = %3322
-  %3329 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7728), align 8
+  %3329 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7728), align 8
   %3330 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3329, ptr noundef nonnull %0)
   %3331 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17186 = icmp eq i8 %3331, 0
@@ -5499,7 +5499,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3344 = extractvalue { ptr, i8 } %3341, 1
   %3345 = extractvalue { ptr, i8 } %3341, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 116, ptr %3345, i8 %3344) #7
-  %3346 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 72), align 8
+  %3346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 72), align 8
   %3347 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3346, ptr noundef nonnull %0)
   %3348 = extractvalue { ptr, i8 } %3347, 0
   %3349 = extractvalue { ptr, i8 } %3347, 1
@@ -5508,7 +5508,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17188, label %3351, label %10795
 
 3351:                                             ; preds = %3343
-  %3352 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4792), align 8
+  %3352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4792), align 8
   %3353 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3352, ptr noundef nonnull %0)
   %3354 = extractvalue { ptr, i8 } %3353, 0
   %3355 = extractvalue { ptr, i8 } %3353, 1
@@ -5517,7 +5517,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17189, label %3357, label %10795
 
 3357:                                             ; preds = %3351
-  %3358 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %3358 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %3359 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3358, ptr noundef nonnull %0)
   %3360 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17190 = icmp eq i8 %3360, 0
@@ -5544,7 +5544,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3373 = extractvalue { ptr, i8 } %3370, 1
   %3374 = extractvalue { ptr, i8 } %3370, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 117, ptr %3374, i8 %3373) #7
-  %3375 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4800), align 8
+  %3375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4800), align 8
   %3376 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3375, ptr noundef nonnull %0)
   %3377 = extractvalue { ptr, i8 } %3376, 0
   %3378 = extractvalue { ptr, i8 } %3376, 1
@@ -5553,7 +5553,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17192, label %3380, label %10795
 
 3380:                                             ; preds = %3372
-  %3381 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
+  %3381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
   %3382 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3381, ptr noundef nonnull %0)
   %3383 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17193 = icmp eq i8 %3383, 0
@@ -5580,7 +5580,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3396 = extractvalue { ptr, i8 } %3393, 1
   %3397 = extractvalue { ptr, i8 } %3393, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 118, ptr %3397, i8 %3396) #7
-  %3398 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 608), align 8
+  %3398 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 608), align 8
   %3399 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3398, ptr noundef nonnull %0)
   %3400 = extractvalue { ptr, i8 } %3399, 0
   %3401 = extractvalue { ptr, i8 } %3399, 1
@@ -5589,7 +5589,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17195, label %3403, label %10795
 
 3403:                                             ; preds = %3395
-  %3404 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4808), align 8
+  %3404 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4808), align 8
   %3405 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3404, ptr noundef nonnull %0)
   %3406 = extractvalue { ptr, i8 } %3405, 0
   %3407 = extractvalue { ptr, i8 } %3405, 1
@@ -5598,7 +5598,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17196, label %3409, label %10795
 
 3409:                                             ; preds = %3403
-  %3410 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7736), align 8
+  %3410 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7736), align 8
   %3411 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3410, ptr noundef nonnull %0)
   %3412 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17197 = icmp eq i8 %3412, 0
@@ -5625,7 +5625,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3425 = extractvalue { ptr, i8 } %3422, 1
   %3426 = extractvalue { ptr, i8 } %3422, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 119, ptr %3426, i8 %3425) #7
-  %3427 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 624), align 8
+  %3427 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 624), align 8
   %3428 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3427, ptr noundef nonnull %0)
   %3429 = extractvalue { ptr, i8 } %3428, 0
   %3430 = extractvalue { ptr, i8 } %3428, 1
@@ -5634,7 +5634,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17199, label %3432, label %10795
 
 3432:                                             ; preds = %3424
-  %3433 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4816), align 8
+  %3433 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4816), align 8
   %3434 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3433, ptr noundef nonnull %0)
   %3435 = extractvalue { ptr, i8 } %3434, 0
   %3436 = extractvalue { ptr, i8 } %3434, 1
@@ -5643,7 +5643,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17200, label %3438, label %10795
 
 3438:                                             ; preds = %3432
-  %3439 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7744), align 8
+  %3439 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7744), align 8
   %3440 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3439, ptr noundef nonnull %0)
   %3441 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17201 = icmp eq i8 %3441, 0
@@ -5670,7 +5670,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3454 = extractvalue { ptr, i8 } %3451, 1
   %3455 = extractvalue { ptr, i8 } %3451, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 120, ptr %3455, i8 %3454) #7
-  %3456 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4824), align 8
+  %3456 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4824), align 8
   %3457 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3456, ptr noundef nonnull %0)
   %3458 = extractvalue { ptr, i8 } %3457, 0
   %3459 = extractvalue { ptr, i8 } %3457, 1
@@ -5679,7 +5679,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17203, label %3461, label %10795
 
 3461:                                             ; preds = %3453
-  %3462 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7752), align 8
+  %3462 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7752), align 8
   %3463 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3462, ptr noundef nonnull %0)
   %3464 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17204 = icmp eq i8 %3464, 0
@@ -5706,7 +5706,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3477 = extractvalue { ptr, i8 } %3474, 1
   %3478 = extractvalue { ptr, i8 } %3474, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 121, ptr %3478, i8 %3477) #7
-  %3479 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 608), align 8
+  %3479 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 608), align 8
   %3480 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3479, ptr noundef nonnull %0)
   %3481 = extractvalue { ptr, i8 } %3480, 0
   %3482 = extractvalue { ptr, i8 } %3480, 1
@@ -5715,7 +5715,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17206, label %3484, label %10795
 
 3484:                                             ; preds = %3476
-  %3485 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4832), align 8
+  %3485 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4832), align 8
   %3486 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3485, ptr noundef nonnull %0)
   %3487 = extractvalue { ptr, i8 } %3486, 0
   %3488 = extractvalue { ptr, i8 } %3486, 1
@@ -5724,7 +5724,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17207, label %3490, label %10795
 
 3490:                                             ; preds = %3484
-  %3491 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7760), align 8
+  %3491 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7760), align 8
   %3492 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3491, ptr noundef nonnull %0)
   %3493 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17208 = icmp eq i8 %3493, 0
@@ -5751,7 +5751,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3506 = extractvalue { ptr, i8 } %3503, 1
   %3507 = extractvalue { ptr, i8 } %3503, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 122, ptr %3507, i8 %3506) #7
-  %3508 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3704), align 8
+  %3508 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3704), align 8
   %3509 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3508, ptr noundef nonnull %0)
   %3510 = extractvalue { ptr, i8 } %3509, 0
   %3511 = extractvalue { ptr, i8 } %3509, 1
@@ -5760,7 +5760,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17210, label %3513, label %10795
 
 3513:                                             ; preds = %3505
-  %3514 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7768), align 8
+  %3514 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7768), align 8
   %3515 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3514, ptr noundef nonnull %0)
   %3516 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17211 = icmp eq i8 %3516, 0
@@ -5787,7 +5787,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3529 = extractvalue { ptr, i8 } %3526, 1
   %3530 = extractvalue { ptr, i8 } %3526, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 123, ptr %3530, i8 %3529) #7
-  %3531 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3704), align 8
+  %3531 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3704), align 8
   %3532 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3531, ptr noundef nonnull %0)
   %3533 = extractvalue { ptr, i8 } %3532, 0
   %3534 = extractvalue { ptr, i8 } %3532, 1
@@ -5796,7 +5796,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17213, label %3536, label %10795
 
 3536:                                             ; preds = %3528
-  %3537 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7776), align 8
+  %3537 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7776), align 8
   %3538 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3537, ptr noundef nonnull %0)
   %3539 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17214 = icmp eq i8 %3539, 0
@@ -5823,7 +5823,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3552 = extractvalue { ptr, i8 } %3549, 1
   %3553 = extractvalue { ptr, i8 } %3549, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 124, ptr %3553, i8 %3552) #7
-  %3554 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1520), align 8
+  %3554 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1520), align 8
   %3555 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3554, ptr noundef nonnull %0)
   %3556 = extractvalue { ptr, i8 } %3555, 0
   %3557 = extractvalue { ptr, i8 } %3555, 1
@@ -5832,7 +5832,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17216, label %3559, label %10795
 
 3559:                                             ; preds = %3551
-  %3560 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4840), align 8
+  %3560 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4840), align 8
   %3561 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3560, ptr noundef nonnull %0)
   %3562 = extractvalue { ptr, i8 } %3561, 0
   %3563 = extractvalue { ptr, i8 } %3561, 1
@@ -5841,7 +5841,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17217, label %3565, label %10795
 
 3565:                                             ; preds = %3559
-  %3566 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7784), align 8
+  %3566 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7784), align 8
   %3567 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3566, ptr noundef nonnull %0)
   %3568 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17218 = icmp eq i8 %3568, 0
@@ -5868,7 +5868,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3581 = extractvalue { ptr, i8 } %3578, 1
   %3582 = extractvalue { ptr, i8 } %3578, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 125, ptr %3582, i8 %3581) #7
-  %3583 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
+  %3583 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
   %3584 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3583, ptr noundef nonnull %0)
   %3585 = extractvalue { ptr, i8 } %3584, 0
   %3586 = extractvalue { ptr, i8 } %3584, 1
@@ -5877,7 +5877,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17220, label %3588, label %10795
 
 3588:                                             ; preds = %3580
-  %3589 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4848), align 8
+  %3589 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4848), align 8
   %3590 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3589, ptr noundef nonnull %0)
   %3591 = extractvalue { ptr, i8 } %3590, 0
   %3592 = extractvalue { ptr, i8 } %3590, 1
@@ -5886,7 +5886,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17221, label %3594, label %10795
 
 3594:                                             ; preds = %3588
-  %3595 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7888), align 8
+  %3595 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7888), align 8
   %3596 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3595, ptr noundef nonnull %0)
   %3597 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17222 = icmp eq i8 %3597, 0
@@ -5913,7 +5913,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3610 = extractvalue { ptr, i8 } %3607, 1
   %3611 = extractvalue { ptr, i8 } %3607, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 126, ptr %3611, i8 %3610) #7
-  %3612 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4848), align 8
+  %3612 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4848), align 8
   %3613 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3612, ptr noundef nonnull %0)
   %3614 = extractvalue { ptr, i8 } %3613, 0
   %3615 = extractvalue { ptr, i8 } %3613, 1
@@ -5922,7 +5922,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17224, label %3617, label %10795
 
 3617:                                             ; preds = %3609
-  %3618 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
+  %3618 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
   %3619 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3618, ptr noundef nonnull %0)
   %3620 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17225 = icmp eq i8 %3620, 0
@@ -5949,7 +5949,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3633 = extractvalue { ptr, i8 } %3630, 1
   %3634 = extractvalue { ptr, i8 } %3630, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 127, ptr %3634, i8 %3633) #7
-  %3635 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
+  %3635 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
   %3636 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3635, ptr noundef nonnull %0)
   %3637 = extractvalue { ptr, i8 } %3636, 0
   %3638 = extractvalue { ptr, i8 } %3636, 1
@@ -5958,7 +5958,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17227, label %3640, label %10795
 
 3640:                                             ; preds = %3632
-  %3641 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4856), align 8
+  %3641 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4856), align 8
   %3642 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3641, ptr noundef nonnull %0)
   %3643 = extractvalue { ptr, i8 } %3642, 0
   %3644 = extractvalue { ptr, i8 } %3642, 1
@@ -5967,7 +5967,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17228, label %3646, label %10795
 
 3646:                                             ; preds = %3640
-  %3647 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7792), align 8
+  %3647 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7792), align 8
   %3648 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3647, ptr noundef nonnull %0)
   %3649 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17229 = icmp eq i8 %3649, 0
@@ -5994,7 +5994,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3662 = extractvalue { ptr, i8 } %3659, 1
   %3663 = extractvalue { ptr, i8 } %3659, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 128, ptr %3663, i8 %3662) #7
-  %3664 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4856), align 8
+  %3664 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4856), align 8
   %3665 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3664, ptr noundef nonnull %0)
   %3666 = extractvalue { ptr, i8 } %3665, 0
   %3667 = extractvalue { ptr, i8 } %3665, 1
@@ -6003,7 +6003,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17231, label %3669, label %10795
 
 3669:                                             ; preds = %3661
-  %3670 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7800), align 8
+  %3670 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7800), align 8
   %3671 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3670, ptr noundef nonnull %0)
   %3672 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17232 = icmp eq i8 %3672, 0
@@ -6030,7 +6030,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3685 = extractvalue { ptr, i8 } %3682, 1
   %3686 = extractvalue { ptr, i8 } %3682, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 129, ptr %3686, i8 %3685) #7
-  %3687 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
+  %3687 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
   %3688 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3687, ptr noundef nonnull %0)
   %3689 = extractvalue { ptr, i8 } %3688, 0
   %3690 = extractvalue { ptr, i8 } %3688, 1
@@ -6039,7 +6039,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17234, label %3692, label %10795
 
 3692:                                             ; preds = %3684
-  %3693 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4864), align 8
+  %3693 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4864), align 8
   %3694 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3693, ptr noundef nonnull %0)
   %3695 = extractvalue { ptr, i8 } %3694, 0
   %3696 = extractvalue { ptr, i8 } %3694, 1
@@ -6048,7 +6048,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17235, label %3698, label %10795
 
 3698:                                             ; preds = %3692
-  %3699 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7808), align 8
+  %3699 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7808), align 8
   %3700 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3699, ptr noundef nonnull %0)
   %3701 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17236 = icmp eq i8 %3701, 0
@@ -6075,7 +6075,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3714 = extractvalue { ptr, i8 } %3711, 1
   %3715 = extractvalue { ptr, i8 } %3711, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 130, ptr %3715, i8 %3714) #7
-  %3716 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4872), align 8
+  %3716 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4872), align 8
   %3717 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3716, ptr noundef nonnull %0)
   %3718 = extractvalue { ptr, i8 } %3717, 0
   %3719 = extractvalue { ptr, i8 } %3717, 1
@@ -6084,7 +6084,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17238, label %3721, label %10795
 
 3721:                                             ; preds = %3713
-  %3722 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7816), align 8
+  %3722 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7816), align 8
   %3723 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3722, ptr noundef nonnull %0)
   %3724 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17239 = icmp eq i8 %3724, 0
@@ -6111,7 +6111,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3737 = extractvalue { ptr, i8 } %3734, 1
   %3738 = extractvalue { ptr, i8 } %3734, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 131, ptr %3738, i8 %3737) #7
-  %3739 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5408), align 8
+  %3739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5408), align 8
   %3740 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3739, ptr noundef nonnull %0)
   %3741 = extractvalue { ptr, i8 } %3740, 0
   %3742 = extractvalue { ptr, i8 } %3740, 1
@@ -6120,7 +6120,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17241, label %3744, label %10795
 
 3744:                                             ; preds = %3736
-  %3745 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7824), align 8
+  %3745 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7824), align 8
   %3746 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3745, ptr noundef nonnull %0)
   %3747 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17242 = icmp eq i8 %3747, 0
@@ -6147,7 +6147,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3760 = extractvalue { ptr, i8 } %3757, 1
   %3761 = extractvalue { ptr, i8 } %3757, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 132, ptr %3761, i8 %3760) #7
-  %3762 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5416), align 8
+  %3762 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5416), align 8
   %3763 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3762, ptr noundef nonnull %0)
   %3764 = extractvalue { ptr, i8 } %3763, 0
   %3765 = extractvalue { ptr, i8 } %3763, 1
@@ -6156,7 +6156,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17244, label %3767, label %10795
 
 3767:                                             ; preds = %3759
-  %3768 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7832), align 8
+  %3768 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7832), align 8
   %3769 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3768, ptr noundef nonnull %0)
   %3770 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17245 = icmp eq i8 %3770, 0
@@ -6183,7 +6183,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3783 = extractvalue { ptr, i8 } %3780, 1
   %3784 = extractvalue { ptr, i8 } %3780, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 133, ptr %3784, i8 %3783) #7
-  %3785 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
+  %3785 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
   %3786 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3785, ptr noundef nonnull %0)
   %3787 = extractvalue { ptr, i8 } %3786, 0
   %3788 = extractvalue { ptr, i8 } %3786, 1
@@ -6192,7 +6192,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17247, label %3790, label %10795
 
 3790:                                             ; preds = %3782
-  %3791 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4880), align 8
+  %3791 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4880), align 8
   %3792 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3791, ptr noundef nonnull %0)
   %3793 = extractvalue { ptr, i8 } %3792, 0
   %3794 = extractvalue { ptr, i8 } %3792, 1
@@ -6201,7 +6201,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17248, label %3796, label %10795
 
 3796:                                             ; preds = %3790
-  %3797 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
+  %3797 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
   %3798 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3797, ptr noundef nonnull %0)
   %3799 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17249 = icmp eq i8 %3799, 0
@@ -6228,7 +6228,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3812 = extractvalue { ptr, i8 } %3809, 1
   %3813 = extractvalue { ptr, i8 } %3809, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 134, ptr %3813, i8 %3812) #7
-  %3814 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
+  %3814 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
   %3815 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3814, ptr noundef nonnull %0)
   %3816 = extractvalue { ptr, i8 } %3815, 0
   %3817 = extractvalue { ptr, i8 } %3815, 1
@@ -6237,7 +6237,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17251, label %3819, label %10795
 
 3819:                                             ; preds = %3811
-  %3820 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4880), align 8
+  %3820 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4880), align 8
   %3821 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3820, ptr noundef nonnull %0)
   %3822 = extractvalue { ptr, i8 } %3821, 0
   %3823 = extractvalue { ptr, i8 } %3821, 1
@@ -6246,7 +6246,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17252, label %3825, label %10795
 
 3825:                                             ; preds = %3819
-  %3826 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
+  %3826 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
   %3827 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3826, ptr noundef nonnull %0)
   %3828 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17253 = icmp eq i8 %3828, 0
@@ -6273,7 +6273,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3841 = extractvalue { ptr, i8 } %3838, 1
   %3842 = extractvalue { ptr, i8 } %3838, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 135, ptr %3842, i8 %3841) #7
-  %3843 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
+  %3843 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
   %3844 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3843, ptr noundef nonnull %0)
   %3845 = extractvalue { ptr, i8 } %3844, 0
   %3846 = extractvalue { ptr, i8 } %3844, 1
@@ -6282,7 +6282,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17255, label %3848, label %10795
 
 3848:                                             ; preds = %3840
-  %3849 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4888), align 8
+  %3849 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4888), align 8
   %3850 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3849, ptr noundef nonnull %0)
   %3851 = extractvalue { ptr, i8 } %3850, 0
   %3852 = extractvalue { ptr, i8 } %3850, 1
@@ -6291,7 +6291,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17256, label %3854, label %10795
 
 3854:                                             ; preds = %3848
-  %3855 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
+  %3855 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
   %3856 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3855, ptr noundef nonnull %0)
   %3857 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17257 = icmp eq i8 %3857, 0
@@ -6318,7 +6318,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3870 = extractvalue { ptr, i8 } %3867, 1
   %3871 = extractvalue { ptr, i8 } %3867, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 136, ptr %3871, i8 %3870) #7
-  %3872 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
+  %3872 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
   %3873 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3872, ptr noundef nonnull %0)
   %3874 = extractvalue { ptr, i8 } %3873, 0
   %3875 = extractvalue { ptr, i8 } %3873, 1
@@ -6327,7 +6327,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17259, label %3877, label %10795
 
 3877:                                             ; preds = %3869
-  %3878 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4896), align 8
+  %3878 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4896), align 8
   %3879 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3878, ptr noundef nonnull %0)
   %3880 = extractvalue { ptr, i8 } %3879, 0
   %3881 = extractvalue { ptr, i8 } %3879, 1
@@ -6336,7 +6336,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17260, label %3883, label %10795
 
 3883:                                             ; preds = %3877
-  %3884 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
+  %3884 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
   %3885 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3884, ptr noundef nonnull %0)
   %3886 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17261 = icmp eq i8 %3886, 0
@@ -6363,7 +6363,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3899 = extractvalue { ptr, i8 } %3896, 1
   %3900 = extractvalue { ptr, i8 } %3896, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 137, ptr %3900, i8 %3899) #7
-  %3901 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
+  %3901 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
   %3902 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3901, ptr noundef nonnull %0)
   %3903 = extractvalue { ptr, i8 } %3902, 0
   %3904 = extractvalue { ptr, i8 } %3902, 1
@@ -6372,7 +6372,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17263, label %3906, label %10795
 
 3906:                                             ; preds = %3898
-  %3907 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4904), align 8
+  %3907 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4904), align 8
   %3908 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3907, ptr noundef nonnull %0)
   %3909 = extractvalue { ptr, i8 } %3908, 0
   %3910 = extractvalue { ptr, i8 } %3908, 1
@@ -6381,7 +6381,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17264, label %3912, label %10795
 
 3912:                                             ; preds = %3906
-  %3913 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
+  %3913 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
   %3914 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3913, ptr noundef nonnull %0)
   %3915 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17265 = icmp eq i8 %3915, 0
@@ -6408,7 +6408,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3928 = extractvalue { ptr, i8 } %3925, 1
   %3929 = extractvalue { ptr, i8 } %3925, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 138, ptr %3929, i8 %3928) #7
-  %3930 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
+  %3930 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
   %3931 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3930, ptr noundef nonnull %0)
   %3932 = extractvalue { ptr, i8 } %3931, 0
   %3933 = extractvalue { ptr, i8 } %3931, 1
@@ -6417,7 +6417,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17267, label %3935, label %10795
 
 3935:                                             ; preds = %3927
-  %3936 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4904), align 8
+  %3936 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4904), align 8
   %3937 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3936, ptr noundef nonnull %0)
   %3938 = extractvalue { ptr, i8 } %3937, 0
   %3939 = extractvalue { ptr, i8 } %3937, 1
@@ -6426,7 +6426,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17268, label %3941, label %10795
 
 3941:                                             ; preds = %3935
-  %3942 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
+  %3942 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
   %3943 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3942, ptr noundef nonnull %0)
   %3944 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17269 = icmp eq i8 %3944, 0
@@ -6453,7 +6453,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3957 = extractvalue { ptr, i8 } %3954, 1
   %3958 = extractvalue { ptr, i8 } %3954, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 139, ptr %3958, i8 %3957) #7
-  %3959 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4920), align 8
+  %3959 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4920), align 8
   %3960 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3959, ptr noundef nonnull %0)
   %3961 = extractvalue { ptr, i8 } %3960, 0
   %3962 = extractvalue { ptr, i8 } %3960, 1
@@ -6462,7 +6462,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17271, label %3964, label %10795
 
 3964:                                             ; preds = %3956
-  %3965 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
+  %3965 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7840), align 8
   %3966 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3965, ptr noundef nonnull %0)
   %3967 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17272 = icmp eq i8 %3967, 0
@@ -6489,7 +6489,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %3980 = extractvalue { ptr, i8 } %3977, 1
   %3981 = extractvalue { ptr, i8 } %3977, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 140, ptr %3981, i8 %3980) #7
-  %3982 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
+  %3982 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
   %3983 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3982, ptr noundef nonnull %0)
   %3984 = extractvalue { ptr, i8 } %3983, 0
   %3985 = extractvalue { ptr, i8 } %3983, 1
@@ -6498,7 +6498,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17274, label %3987, label %10795
 
 3987:                                             ; preds = %3979
-  %3988 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4904), align 8
+  %3988 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4904), align 8
   %3989 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3988, ptr noundef nonnull %0)
   %3990 = extractvalue { ptr, i8 } %3989, 0
   %3991 = extractvalue { ptr, i8 } %3989, 1
@@ -6507,7 +6507,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17275, label %3993, label %10795
 
 3993:                                             ; preds = %3987
-  %3994 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
+  %3994 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
   %3995 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3994, ptr noundef nonnull %0)
   %3996 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17276 = icmp eq i8 %3996, 0
@@ -6534,7 +6534,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4009 = extractvalue { ptr, i8 } %4006, 1
   %4010 = extractvalue { ptr, i8 } %4006, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 141, ptr %4010, i8 %4009) #7
-  %4011 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
+  %4011 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 64), align 8
   %4012 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4011, ptr noundef nonnull %0)
   %4013 = extractvalue { ptr, i8 } %4012, 0
   %4014 = extractvalue { ptr, i8 } %4012, 1
@@ -6543,7 +6543,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17278, label %4016, label %10795
 
 4016:                                             ; preds = %4008
-  %4017 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4904), align 8
+  %4017 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4904), align 8
   %4018 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4017, ptr noundef nonnull %0)
   %4019 = extractvalue { ptr, i8 } %4018, 0
   %4020 = extractvalue { ptr, i8 } %4018, 1
@@ -6552,7 +6552,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17279, label %4022, label %10795
 
 4022:                                             ; preds = %4016
-  %4023 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
+  %4023 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
   %4024 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4023, ptr noundef nonnull %0)
   %4025 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17280 = icmp eq i8 %4025, 0
@@ -6579,7 +6579,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4038 = extractvalue { ptr, i8 } %4035, 1
   %4039 = extractvalue { ptr, i8 } %4035, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 142, ptr %4039, i8 %4038) #7
-  %4040 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4920), align 8
+  %4040 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4920), align 8
   %4041 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4040, ptr noundef nonnull %0)
   %4042 = extractvalue { ptr, i8 } %4041, 0
   %4043 = extractvalue { ptr, i8 } %4041, 1
@@ -6588,7 +6588,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17282, label %4045, label %10795
 
 4045:                                             ; preds = %4037
-  %4046 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
+  %4046 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
   %4047 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4046, ptr noundef nonnull %0)
   %4048 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17283 = icmp eq i8 %4048, 0
@@ -6615,7 +6615,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4061 = extractvalue { ptr, i8 } %4058, 1
   %4062 = extractvalue { ptr, i8 } %4058, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 143, ptr %4062, i8 %4061) #7
-  %4063 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4912), align 8
+  %4063 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4912), align 8
   %4064 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4063, ptr noundef nonnull %0)
   %4065 = extractvalue { ptr, i8 } %4064, 0
   %4066 = extractvalue { ptr, i8 } %4064, 1
@@ -6624,7 +6624,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17285, label %4068, label %10795
 
 4068:                                             ; preds = %4060
-  %4069 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7856), align 8
+  %4069 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7856), align 8
   %4070 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4069, ptr noundef nonnull %0)
   %4071 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17286 = icmp eq i8 %4071, 0
@@ -6651,7 +6651,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4084 = extractvalue { ptr, i8 } %4081, 1
   %4085 = extractvalue { ptr, i8 } %4081, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 144, ptr %4085, i8 %4084) #7
-  %4086 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
+  %4086 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 56), align 8
   %4087 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4086, ptr noundef nonnull %0)
   %4088 = extractvalue { ptr, i8 } %4087, 0
   %4089 = extractvalue { ptr, i8 } %4087, 1
@@ -6660,7 +6660,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17288, label %4091, label %10795
 
 4091:                                             ; preds = %4083
-  %4092 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4912), align 8
+  %4092 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4912), align 8
   %4093 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4092, ptr noundef nonnull %0)
   %4094 = extractvalue { ptr, i8 } %4093, 0
   %4095 = extractvalue { ptr, i8 } %4093, 1
@@ -6669,7 +6669,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17289, label %4097, label %10795
 
 4097:                                             ; preds = %4091
-  %4098 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7856), align 8
+  %4098 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7856), align 8
   %4099 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4098, ptr noundef nonnull %0)
   %4100 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17290 = icmp eq i8 %4100, 0
@@ -6696,7 +6696,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4113 = extractvalue { ptr, i8 } %4110, 1
   %4114 = extractvalue { ptr, i8 } %4110, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 145, ptr %4114, i8 %4113) #7
-  %4115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3704), align 8
+  %4115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3704), align 8
   %4116 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4115, ptr noundef nonnull %0)
   %4117 = extractvalue { ptr, i8 } %4116, 0
   %4118 = extractvalue { ptr, i8 } %4116, 1
@@ -6705,7 +6705,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17292, label %4120, label %10795
 
 4120:                                             ; preds = %4112
-  %4121 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7776), align 8
+  %4121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7776), align 8
   %4122 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4121, ptr noundef nonnull %0)
   %4123 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17293 = icmp eq i8 %4123, 0
@@ -6732,7 +6732,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4136 = extractvalue { ptr, i8 } %4133, 1
   %4137 = extractvalue { ptr, i8 } %4133, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 146, ptr %4137, i8 %4136) #7
-  %4138 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 200), align 8
+  %4138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 200), align 8
   %4139 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4138, ptr noundef nonnull %0)
   %4140 = extractvalue { ptr, i8 } %4139, 0
   %4141 = extractvalue { ptr, i8 } %4139, 1
@@ -6741,7 +6741,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17295, label %4143, label %10795
 
 4143:                                             ; preds = %4135
-  %4144 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4928), align 8
+  %4144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4928), align 8
   %4145 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4144, ptr noundef nonnull %0)
   %4146 = extractvalue { ptr, i8 } %4145, 0
   %4147 = extractvalue { ptr, i8 } %4145, 1
@@ -6750,7 +6750,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17296, label %4149, label %10795
 
 4149:                                             ; preds = %4143
-  %4150 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %4150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %4151 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4150, ptr noundef nonnull %0)
   %4152 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17297 = icmp eq i8 %4152, 0
@@ -6777,7 +6777,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4165 = extractvalue { ptr, i8 } %4162, 1
   %4166 = extractvalue { ptr, i8 } %4162, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 147, ptr %4166, i8 %4165) #7
-  %4167 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4936), align 8
+  %4167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4936), align 8
   %4168 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4167, ptr noundef nonnull %0)
   %4169 = extractvalue { ptr, i8 } %4168, 0
   %4170 = extractvalue { ptr, i8 } %4168, 1
@@ -6786,7 +6786,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17299, label %4172, label %10795
 
 4172:                                             ; preds = %4164
-  %4173 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %4173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %4174 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4173, ptr noundef nonnull %0)
   %4175 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17300 = icmp eq i8 %4175, 0
@@ -6813,7 +6813,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4188 = extractvalue { ptr, i8 } %4185, 1
   %4189 = extractvalue { ptr, i8 } %4185, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 148, ptr %4189, i8 %4188) #7
-  %4190 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4944), align 8
+  %4190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4944), align 8
   %4191 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4190, ptr noundef nonnull %0)
   %4192 = extractvalue { ptr, i8 } %4191, 0
   %4193 = extractvalue { ptr, i8 } %4191, 1
@@ -6822,7 +6822,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17302, label %4195, label %10795
 
 4195:                                             ; preds = %4187
-  %4196 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %4196 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %4197 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4196, ptr noundef nonnull %0)
   %4198 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17303 = icmp eq i8 %4198, 0
@@ -6849,7 +6849,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4211 = extractvalue { ptr, i8 } %4208, 1
   %4212 = extractvalue { ptr, i8 } %4208, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 149, ptr %4212, i8 %4211) #7
-  %4213 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4952), align 8
+  %4213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4952), align 8
   %4214 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4213, ptr noundef nonnull %0)
   %4215 = extractvalue { ptr, i8 } %4214, 0
   %4216 = extractvalue { ptr, i8 } %4214, 1
@@ -6858,7 +6858,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17305, label %4218, label %10795
 
 4218:                                             ; preds = %4210
-  %4219 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
+  %4219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6864), align 8
   %4220 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4219, ptr noundef nonnull %0)
   %4221 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17306 = icmp eq i8 %4221, 0
@@ -6885,7 +6885,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4234 = extractvalue { ptr, i8 } %4231, 1
   %4235 = extractvalue { ptr, i8 } %4231, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 150, ptr %4235, i8 %4234) #7
-  %4236 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 640), align 8
+  %4236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 640), align 8
   %4237 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4236, ptr noundef nonnull %0)
   %4238 = extractvalue { ptr, i8 } %4237, 0
   %4239 = extractvalue { ptr, i8 } %4237, 1
@@ -6894,7 +6894,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17308, label %4241, label %10795
 
 4241:                                             ; preds = %4233
-  %4242 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4176), align 8
+  %4242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4176), align 8
   %4243 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4242, ptr noundef nonnull %0)
   %4244 = extractvalue { ptr, i8 } %4243, 0
   %4245 = extractvalue { ptr, i8 } %4243, 1
@@ -6903,7 +6903,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17309, label %4247, label %10795
 
 4247:                                             ; preds = %4241
-  %4248 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7864), align 8
+  %4248 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7864), align 8
   %4249 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4248, ptr noundef nonnull %0)
   %4250 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17310 = icmp eq i8 %4250, 0
@@ -6930,7 +6930,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4263 = extractvalue { ptr, i8 } %4260, 1
   %4264 = extractvalue { ptr, i8 } %4260, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 151, ptr %4264, i8 %4263) #7
-  %4265 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4176), align 8
+  %4265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4176), align 8
   %4266 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4265, ptr noundef nonnull %0)
   %4267 = extractvalue { ptr, i8 } %4266, 0
   %4268 = extractvalue { ptr, i8 } %4266, 1
@@ -6939,7 +6939,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17312, label %4270, label %10795
 
 4270:                                             ; preds = %4262
-  %4271 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7872), align 8
+  %4271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7872), align 8
   %4272 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4271, ptr noundef nonnull %0)
   %4273 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17313 = icmp eq i8 %4273, 0
@@ -6966,7 +6966,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4286 = extractvalue { ptr, i8 } %4283, 1
   %4287 = extractvalue { ptr, i8 } %4283, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 152, ptr %4287, i8 %4286) #7
-  %4288 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1496), align 8
+  %4288 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1496), align 8
   %4289 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4288, ptr noundef nonnull %0)
   %4290 = extractvalue { ptr, i8 } %4289, 0
   %4291 = extractvalue { ptr, i8 } %4289, 1
@@ -6975,7 +6975,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17315, label %4293, label %10795
 
 4293:                                             ; preds = %4285
-  %4294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4960), align 8
+  %4294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4960), align 8
   %4295 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4294, ptr noundef nonnull %0)
   %4296 = extractvalue { ptr, i8 } %4295, 0
   %4297 = extractvalue { ptr, i8 } %4295, 1
@@ -6984,7 +6984,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17316, label %4299, label %10795
 
 4299:                                             ; preds = %4293
-  %4300 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7880), align 8
+  %4300 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7880), align 8
   %4301 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4300, ptr noundef nonnull %0)
   %4302 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17317 = icmp eq i8 %4302, 0
@@ -7011,7 +7011,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4315 = extractvalue { ptr, i8 } %4312, 1
   %4316 = extractvalue { ptr, i8 } %4312, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 153, ptr %4316, i8 %4315) #7
-  %4317 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1504), align 8
+  %4317 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1504), align 8
   %4318 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4317, ptr noundef nonnull %0)
   %4319 = extractvalue { ptr, i8 } %4318, 0
   %4320 = extractvalue { ptr, i8 } %4318, 1
@@ -7020,7 +7020,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17319, label %4322, label %10795
 
 4322:                                             ; preds = %4314
-  %4323 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4968), align 8
+  %4323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4968), align 8
   %4324 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4323, ptr noundef nonnull %0)
   %4325 = extractvalue { ptr, i8 } %4324, 0
   %4326 = extractvalue { ptr, i8 } %4324, 1
@@ -7029,7 +7029,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17320, label %4328, label %10795
 
 4328:                                             ; preds = %4322
-  %4329 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7888), align 8
+  %4329 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7888), align 8
   %4330 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4329, ptr noundef nonnull %0)
   %4331 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17321 = icmp eq i8 %4331, 0
@@ -7056,7 +7056,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4344 = extractvalue { ptr, i8 } %4341, 1
   %4345 = extractvalue { ptr, i8 } %4341, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 154, ptr %4345, i8 %4344) #7
-  %4346 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1496), align 8
+  %4346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1496), align 8
   %4347 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4346, ptr noundef nonnull %0)
   %4348 = extractvalue { ptr, i8 } %4347, 0
   %4349 = extractvalue { ptr, i8 } %4347, 1
@@ -7065,7 +7065,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17323, label %4351, label %10795
 
 4351:                                             ; preds = %4343
-  %4352 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4968), align 8
+  %4352 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4968), align 8
   %4353 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4352, ptr noundef nonnull %0)
   %4354 = extractvalue { ptr, i8 } %4353, 0
   %4355 = extractvalue { ptr, i8 } %4353, 1
@@ -7074,7 +7074,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17324, label %4357, label %10795
 
 4357:                                             ; preds = %4351
-  %4358 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
+  %4358 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7848), align 8
   %4359 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4358, ptr noundef nonnull %0)
   %4360 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17325 = icmp eq i8 %4360, 0
@@ -7101,7 +7101,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4373 = extractvalue { ptr, i8 } %4370, 1
   %4374 = extractvalue { ptr, i8 } %4370, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 155, ptr %4374, i8 %4373) #7
-  %4375 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4976), align 8
+  %4375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4976), align 8
   %4376 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4375, ptr noundef nonnull %0)
   %4377 = extractvalue { ptr, i8 } %4376, 0
   %4378 = extractvalue { ptr, i8 } %4376, 1
@@ -7110,7 +7110,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17327, label %4380, label %10795
 
 4380:                                             ; preds = %4372
-  %4381 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7888), align 8
+  %4381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7888), align 8
   %4382 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4381, ptr noundef nonnull %0)
   %4383 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17328 = icmp eq i8 %4383, 0
@@ -7137,7 +7137,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4396 = extractvalue { ptr, i8 } %4393, 1
   %4397 = extractvalue { ptr, i8 } %4393, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 156, ptr %4397, i8 %4396) #7
-  %4398 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1512), align 8
+  %4398 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1512), align 8
   %4399 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4398, ptr noundef nonnull %0)
   %4400 = extractvalue { ptr, i8 } %4399, 0
   %4401 = extractvalue { ptr, i8 } %4399, 1
@@ -7146,7 +7146,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17330, label %4403, label %10795
 
 4403:                                             ; preds = %4395
-  %4404 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4984), align 8
+  %4404 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4984), align 8
   %4405 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4404, ptr noundef nonnull %0)
   %4406 = extractvalue { ptr, i8 } %4405, 0
   %4407 = extractvalue { ptr, i8 } %4405, 1
@@ -7155,7 +7155,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17331, label %4409, label %10795
 
 4409:                                             ; preds = %4403
-  %4410 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7896), align 8
+  %4410 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7896), align 8
   %4411 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4410, ptr noundef nonnull %0)
   %4412 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17332 = icmp eq i8 %4412, 0
@@ -7182,7 +7182,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4425 = extractvalue { ptr, i8 } %4422, 1
   %4426 = extractvalue { ptr, i8 } %4422, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 157, ptr %4426, i8 %4425) #7
-  %4427 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4992), align 8
+  %4427 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4992), align 8
   %4428 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4427, ptr noundef nonnull %0)
   %4429 = extractvalue { ptr, i8 } %4428, 0
   %4430 = extractvalue { ptr, i8 } %4428, 1
@@ -7191,7 +7191,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17334, label %4432, label %10795
 
 4432:                                             ; preds = %4424
-  %4433 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7904), align 8
+  %4433 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7904), align 8
   %4434 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4433, ptr noundef nonnull %0)
   %4435 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17335 = icmp eq i8 %4435, 0
@@ -7218,7 +7218,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4448 = extractvalue { ptr, i8 } %4445, 1
   %4449 = extractvalue { ptr, i8 } %4445, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 158, ptr %4449, i8 %4448) #7
-  %4450 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5000), align 8
+  %4450 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5000), align 8
   %4451 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4450, ptr noundef nonnull %0)
   %4452 = extractvalue { ptr, i8 } %4451, 0
   %4453 = extractvalue { ptr, i8 } %4451, 1
@@ -7227,7 +7227,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17337, label %4455, label %10795
 
 4455:                                             ; preds = %4447
-  %4456 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7912), align 8
+  %4456 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7912), align 8
   %4457 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4456, ptr noundef nonnull %0)
   %4458 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17338 = icmp eq i8 %4458, 0
@@ -7254,7 +7254,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4471 = extractvalue { ptr, i8 } %4468, 1
   %4472 = extractvalue { ptr, i8 } %4468, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 159, ptr %4472, i8 %4471) #7
-  %4473 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5008), align 8
+  %4473 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5008), align 8
   %4474 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4473, ptr noundef nonnull %0)
   %4475 = extractvalue { ptr, i8 } %4474, 0
   %4476 = extractvalue { ptr, i8 } %4474, 1
@@ -7263,7 +7263,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17340, label %4478, label %10795
 
 4478:                                             ; preds = %4470
-  %4479 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7920), align 8
+  %4479 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7920), align 8
   %4480 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4479, ptr noundef nonnull %0)
   %4481 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17341 = icmp eq i8 %4481, 0
@@ -7290,7 +7290,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4494 = extractvalue { ptr, i8 } %4491, 1
   %4495 = extractvalue { ptr, i8 } %4491, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 160, ptr %4495, i8 %4494) #7
-  %4496 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5016), align 8
+  %4496 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5016), align 8
   %4497 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4496, ptr noundef nonnull %0)
   %4498 = extractvalue { ptr, i8 } %4497, 0
   %4499 = extractvalue { ptr, i8 } %4497, 1
@@ -7299,7 +7299,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17343, label %4501, label %10795
 
 4501:                                             ; preds = %4493
-  %4502 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7928), align 8
+  %4502 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7928), align 8
   %4503 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4502, ptr noundef nonnull %0)
   %4504 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17344 = icmp eq i8 %4504, 0
@@ -7326,7 +7326,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4517 = extractvalue { ptr, i8 } %4514, 1
   %4518 = extractvalue { ptr, i8 } %4514, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 161, ptr %4518, i8 %4517) #7
-  %4519 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5024), align 8
+  %4519 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5024), align 8
   %4520 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4519, ptr noundef nonnull %0)
   %4521 = extractvalue { ptr, i8 } %4520, 0
   %4522 = extractvalue { ptr, i8 } %4520, 1
@@ -7335,7 +7335,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17346, label %4524, label %10795
 
 4524:                                             ; preds = %4516
-  %4525 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7600), align 8
+  %4525 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7600), align 8
   %4526 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4525, ptr noundef nonnull %0)
   %4527 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17347 = icmp eq i8 %4527, 0
@@ -7362,7 +7362,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4540 = extractvalue { ptr, i8 } %4537, 1
   %4541 = extractvalue { ptr, i8 } %4537, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 162, ptr %4541, i8 %4540) #7
-  %4542 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5032), align 8
+  %4542 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5032), align 8
   %4543 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4542, ptr noundef nonnull %0)
   %4544 = extractvalue { ptr, i8 } %4543, 0
   %4545 = extractvalue { ptr, i8 } %4543, 1
@@ -7371,7 +7371,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17349, label %4547, label %10795
 
 4547:                                             ; preds = %4539
-  %4548 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7600), align 8
+  %4548 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7600), align 8
   %4549 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4548, ptr noundef nonnull %0)
   %4550 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17350 = icmp eq i8 %4550, 0
@@ -7398,7 +7398,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4563 = extractvalue { ptr, i8 } %4560, 1
   %4564 = extractvalue { ptr, i8 } %4560, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 163, ptr %4564, i8 %4563) #7
-  %4565 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1520), align 8
+  %4565 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1520), align 8
   %4566 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4565, ptr noundef nonnull %0)
   %4567 = extractvalue { ptr, i8 } %4566, 0
   %4568 = extractvalue { ptr, i8 } %4566, 1
@@ -7407,7 +7407,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17352, label %4570, label %10795
 
 4570:                                             ; preds = %4562
-  %4571 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5040), align 8
+  %4571 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5040), align 8
   %4572 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4571, ptr noundef nonnull %0)
   %4573 = extractvalue { ptr, i8 } %4572, 0
   %4574 = extractvalue { ptr, i8 } %4572, 1
@@ -7416,7 +7416,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17353, label %4576, label %10795
 
 4576:                                             ; preds = %4570
-  %4577 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7936), align 8
+  %4577 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7936), align 8
   %4578 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4577, ptr noundef nonnull %0)
   %4579 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17354 = icmp eq i8 %4579, 0
@@ -7443,7 +7443,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4592 = extractvalue { ptr, i8 } %4589, 1
   %4593 = extractvalue { ptr, i8 } %4589, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 164, ptr %4593, i8 %4592) #7
-  %4594 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 368), align 8
+  %4594 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 368), align 8
   %4595 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4594, ptr noundef nonnull %0)
   %4596 = extractvalue { ptr, i8 } %4595, 0
   %4597 = extractvalue { ptr, i8 } %4595, 1
@@ -7452,7 +7452,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17356, label %4599, label %10795
 
 4599:                                             ; preds = %4591
-  %4600 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3456), align 8
+  %4600 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3456), align 8
   %4601 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4600, ptr noundef nonnull %0)
   %4602 = extractvalue { ptr, i8 } %4601, 0
   %4603 = extractvalue { ptr, i8 } %4601, 1
@@ -7461,7 +7461,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17357, label %4605, label %10795
 
 4605:                                             ; preds = %4599
-  %4606 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7336), align 8
+  %4606 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7336), align 8
   %4607 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4606, ptr noundef nonnull %0)
   %4608 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17358 = icmp eq i8 %4608, 0
@@ -7488,7 +7488,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4621 = extractvalue { ptr, i8 } %4618, 1
   %4622 = extractvalue { ptr, i8 } %4618, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 165, ptr %4622, i8 %4621) #7
-  %4623 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3464), align 8
+  %4623 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3464), align 8
   %4624 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4623, ptr noundef nonnull %0)
   %4625 = extractvalue { ptr, i8 } %4624, 0
   %4626 = extractvalue { ptr, i8 } %4624, 1
@@ -7497,7 +7497,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17360, label %4628, label %10795
 
 4628:                                             ; preds = %4620
-  %4629 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7120), align 8
+  %4629 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7120), align 8
   %4630 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4629, ptr noundef nonnull %0)
   %4631 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17361 = icmp eq i8 %4631, 0
@@ -7524,7 +7524,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4644 = extractvalue { ptr, i8 } %4641, 1
   %4645 = extractvalue { ptr, i8 } %4641, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 166, ptr %4645, i8 %4644) #7
-  %4646 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 400), align 8
+  %4646 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 400), align 8
   %4647 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4646, ptr noundef nonnull %0)
   %4648 = extractvalue { ptr, i8 } %4647, 0
   %4649 = extractvalue { ptr, i8 } %4647, 1
@@ -7533,7 +7533,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17363, label %4651, label %10795
 
 4651:                                             ; preds = %4643
-  %4652 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3464), align 8
+  %4652 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3464), align 8
   %4653 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4652, ptr noundef nonnull %0)
   %4654 = extractvalue { ptr, i8 } %4653, 0
   %4655 = extractvalue { ptr, i8 } %4653, 1
@@ -7542,7 +7542,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17364, label %4657, label %10795
 
 4657:                                             ; preds = %4651
-  %4658 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7120), align 8
+  %4658 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7120), align 8
   %4659 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4658, ptr noundef nonnull %0)
   %4660 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17365 = icmp eq i8 %4660, 0
@@ -7569,7 +7569,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4673 = extractvalue { ptr, i8 } %4670, 1
   %4674 = extractvalue { ptr, i8 } %4670, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 167, ptr %4674, i8 %4673) #7
-  %4675 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1528), align 8
+  %4675 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1528), align 8
   %4676 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4675, ptr noundef nonnull %0)
   %4677 = extractvalue { ptr, i8 } %4676, 0
   %4678 = extractvalue { ptr, i8 } %4676, 1
@@ -7578,7 +7578,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17367, label %4680, label %10795
 
 4680:                                             ; preds = %4672
-  %4681 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5048), align 8
+  %4681 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5048), align 8
   %4682 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4681, ptr noundef nonnull %0)
   %4683 = extractvalue { ptr, i8 } %4682, 0
   %4684 = extractvalue { ptr, i8 } %4682, 1
@@ -7587,7 +7587,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17368, label %4686, label %10795
 
 4686:                                             ; preds = %4680
-  %4687 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7944), align 8
+  %4687 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7944), align 8
   %4688 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4687, ptr noundef nonnull %0)
   %4689 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17369 = icmp eq i8 %4689, 0
@@ -7614,7 +7614,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4702 = extractvalue { ptr, i8 } %4699, 1
   %4703 = extractvalue { ptr, i8 } %4699, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 168, ptr %4703, i8 %4702) #7
-  %4704 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5056), align 8
+  %4704 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5056), align 8
   %4705 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4704, ptr noundef nonnull %0)
   %4706 = extractvalue { ptr, i8 } %4705, 0
   %4707 = extractvalue { ptr, i8 } %4705, 1
@@ -7623,7 +7623,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17371, label %4709, label %10795
 
 4709:                                             ; preds = %4701
-  %4710 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7944), align 8
+  %4710 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7944), align 8
   %4711 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4710, ptr noundef nonnull %0)
   %4712 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17372 = icmp eq i8 %4712, 0
@@ -7650,7 +7650,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4725 = extractvalue { ptr, i8 } %4722, 1
   %4726 = extractvalue { ptr, i8 } %4722, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 169, ptr %4726, i8 %4725) #7
-  %4727 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1536), align 8
+  %4727 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1536), align 8
   %4728 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4727, ptr noundef nonnull %0)
   %4729 = extractvalue { ptr, i8 } %4728, 0
   %4730 = extractvalue { ptr, i8 } %4728, 1
@@ -7659,7 +7659,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17374, label %4732, label %10795
 
 4732:                                             ; preds = %4724
-  %4733 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5064), align 8
+  %4733 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5064), align 8
   %4734 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4733, ptr noundef nonnull %0)
   %4735 = extractvalue { ptr, i8 } %4734, 0
   %4736 = extractvalue { ptr, i8 } %4734, 1
@@ -7668,7 +7668,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17375, label %4738, label %10795
 
 4738:                                             ; preds = %4732
-  %4739 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
+  %4739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
   %4740 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4739, ptr noundef nonnull %0)
   %4741 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17376 = icmp eq i8 %4741, 0
@@ -7695,7 +7695,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4754 = extractvalue { ptr, i8 } %4751, 1
   %4755 = extractvalue { ptr, i8 } %4751, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 170, ptr %4755, i8 %4754) #7
-  %4756 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5072), align 8
+  %4756 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5072), align 8
   %4757 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4756, ptr noundef nonnull %0)
   %4758 = extractvalue { ptr, i8 } %4757, 0
   %4759 = extractvalue { ptr, i8 } %4757, 1
@@ -7704,7 +7704,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17378, label %4761, label %10795
 
 4761:                                             ; preds = %4753
-  %4762 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
+  %4762 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
   %4763 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4762, ptr noundef nonnull %0)
   %4764 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17379 = icmp eq i8 %4764, 0
@@ -7731,7 +7731,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4777 = extractvalue { ptr, i8 } %4774, 1
   %4778 = extractvalue { ptr, i8 } %4774, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 171, ptr %4778, i8 %4777) #7
-  %4779 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1544), align 8
+  %4779 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1544), align 8
   %4780 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4779, ptr noundef nonnull %0)
   %4781 = extractvalue { ptr, i8 } %4780, 0
   %4782 = extractvalue { ptr, i8 } %4780, 1
@@ -7740,7 +7740,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17381, label %4784, label %10795
 
 4784:                                             ; preds = %4776
-  %4785 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5080), align 8
+  %4785 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5080), align 8
   %4786 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4785, ptr noundef nonnull %0)
   %4787 = extractvalue { ptr, i8 } %4786, 0
   %4788 = extractvalue { ptr, i8 } %4786, 1
@@ -7749,7 +7749,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17382, label %4790, label %10795
 
 4790:                                             ; preds = %4784
-  %4791 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
+  %4791 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
   %4792 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4791, ptr noundef nonnull %0)
   %4793 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17383 = icmp eq i8 %4793, 0
@@ -7776,7 +7776,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4806 = extractvalue { ptr, i8 } %4803, 1
   %4807 = extractvalue { ptr, i8 } %4803, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 172, ptr %4807, i8 %4806) #7
-  %4808 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5088), align 8
+  %4808 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5088), align 8
   %4809 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4808, ptr noundef nonnull %0)
   %4810 = extractvalue { ptr, i8 } %4809, 0
   %4811 = extractvalue { ptr, i8 } %4809, 1
@@ -7785,7 +7785,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17385, label %4813, label %10795
 
 4813:                                             ; preds = %4805
-  %4814 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
+  %4814 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
   %4815 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4814, ptr noundef nonnull %0)
   %4816 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17386 = icmp eq i8 %4816, 0
@@ -7812,7 +7812,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4829 = extractvalue { ptr, i8 } %4826, 1
   %4830 = extractvalue { ptr, i8 } %4826, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 173, ptr %4830, i8 %4829) #7
-  %4831 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1552), align 8
+  %4831 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1552), align 8
   %4832 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4831, ptr noundef nonnull %0)
   %4833 = extractvalue { ptr, i8 } %4832, 0
   %4834 = extractvalue { ptr, i8 } %4832, 1
@@ -7821,7 +7821,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17388, label %4836, label %10795
 
 4836:                                             ; preds = %4828
-  %4837 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5096), align 8
+  %4837 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5096), align 8
   %4838 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4837, ptr noundef nonnull %0)
   %4839 = extractvalue { ptr, i8 } %4838, 0
   %4840 = extractvalue { ptr, i8 } %4838, 1
@@ -7830,7 +7830,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17389, label %4842, label %10795
 
 4842:                                             ; preds = %4836
-  %4843 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
+  %4843 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7952), align 8
   %4844 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4843, ptr noundef nonnull %0)
   %4845 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17390 = icmp eq i8 %4845, 0
@@ -7857,7 +7857,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4858 = extractvalue { ptr, i8 } %4855, 1
   %4859 = extractvalue { ptr, i8 } %4855, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 174, ptr %4859, i8 %4858) #7
-  %4860 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1560), align 8
+  %4860 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1560), align 8
   %4861 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4860, ptr noundef nonnull %0)
   %4862 = extractvalue { ptr, i8 } %4861, 0
   %4863 = extractvalue { ptr, i8 } %4861, 1
@@ -7866,7 +7866,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17392, label %4865, label %10795
 
 4865:                                             ; preds = %4857
-  %4866 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5104), align 8
+  %4866 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5104), align 8
   %4867 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4866, ptr noundef nonnull %0)
   %4868 = extractvalue { ptr, i8 } %4867, 0
   %4869 = extractvalue { ptr, i8 } %4867, 1
@@ -7875,7 +7875,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17393, label %4871, label %10795
 
 4871:                                             ; preds = %4865
-  %4872 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7960), align 8
+  %4872 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7960), align 8
   %4873 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4872, ptr noundef nonnull %0)
   %4874 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17394 = icmp eq i8 %4874, 0
@@ -7902,7 +7902,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4887 = extractvalue { ptr, i8 } %4884, 1
   %4888 = extractvalue { ptr, i8 } %4884, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 175, ptr %4888, i8 %4887) #7
-  %4889 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1568), align 8
+  %4889 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1568), align 8
   %4890 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4889, ptr noundef nonnull %0)
   %4891 = extractvalue { ptr, i8 } %4890, 0
   %4892 = extractvalue { ptr, i8 } %4890, 1
@@ -7911,7 +7911,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17396, label %4894, label %10795
 
 4894:                                             ; preds = %4886
-  %4895 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
+  %4895 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
   %4896 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4895, ptr noundef nonnull %0)
   %4897 = extractvalue { ptr, i8 } %4896, 0
   %4898 = extractvalue { ptr, i8 } %4896, 1
@@ -7920,7 +7920,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17397, label %4900, label %10795
 
 4900:                                             ; preds = %4894
-  %4901 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
+  %4901 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
   %4902 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4901, ptr noundef nonnull %0)
   %4903 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17398 = icmp eq i8 %4903, 0
@@ -7947,7 +7947,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4916 = extractvalue { ptr, i8 } %4913, 1
   %4917 = extractvalue { ptr, i8 } %4913, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 176, ptr %4917, i8 %4916) #7
-  %4918 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1576), align 8
+  %4918 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1576), align 8
   %4919 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4918, ptr noundef nonnull %0)
   %4920 = extractvalue { ptr, i8 } %4919, 0
   %4921 = extractvalue { ptr, i8 } %4919, 1
@@ -7956,7 +7956,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17400, label %4923, label %10795
 
 4923:                                             ; preds = %4915
-  %4924 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
+  %4924 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
   %4925 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4924, ptr noundef nonnull %0)
   %4926 = extractvalue { ptr, i8 } %4925, 0
   %4927 = extractvalue { ptr, i8 } %4925, 1
@@ -7965,7 +7965,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17401, label %4929, label %10795
 
 4929:                                             ; preds = %4923
-  %4930 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
+  %4930 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
   %4931 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4930, ptr noundef nonnull %0)
   %4932 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17402 = icmp eq i8 %4932, 0
@@ -7992,7 +7992,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4945 = extractvalue { ptr, i8 } %4942, 1
   %4946 = extractvalue { ptr, i8 } %4942, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 177, ptr %4946, i8 %4945) #7
-  %4947 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1584), align 8
+  %4947 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1584), align 8
   %4948 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4947, ptr noundef nonnull %0)
   %4949 = extractvalue { ptr, i8 } %4948, 0
   %4950 = extractvalue { ptr, i8 } %4948, 1
@@ -8001,7 +8001,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17404, label %4952, label %10795
 
 4952:                                             ; preds = %4944
-  %4953 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
+  %4953 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
   %4954 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4953, ptr noundef nonnull %0)
   %4955 = extractvalue { ptr, i8 } %4954, 0
   %4956 = extractvalue { ptr, i8 } %4954, 1
@@ -8010,7 +8010,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17405, label %4958, label %10795
 
 4958:                                             ; preds = %4952
-  %4959 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
+  %4959 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
   %4960 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4959, ptr noundef nonnull %0)
   %4961 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17406 = icmp eq i8 %4961, 0
@@ -8037,7 +8037,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %4974 = extractvalue { ptr, i8 } %4971, 1
   %4975 = extractvalue { ptr, i8 } %4971, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 178, ptr %4975, i8 %4974) #7
-  %4976 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1592), align 8
+  %4976 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1592), align 8
   %4977 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4976, ptr noundef nonnull %0)
   %4978 = extractvalue { ptr, i8 } %4977, 0
   %4979 = extractvalue { ptr, i8 } %4977, 1
@@ -8046,7 +8046,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17408, label %4981, label %10795
 
 4981:                                             ; preds = %4973
-  %4982 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
+  %4982 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
   %4983 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4982, ptr noundef nonnull %0)
   %4984 = extractvalue { ptr, i8 } %4983, 0
   %4985 = extractvalue { ptr, i8 } %4983, 1
@@ -8055,7 +8055,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17409, label %4987, label %10795
 
 4987:                                             ; preds = %4981
-  %4988 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
+  %4988 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
   %4989 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %4988, ptr noundef nonnull %0)
   %4990 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17410 = icmp eq i8 %4990, 0
@@ -8082,7 +8082,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5003 = extractvalue { ptr, i8 } %5000, 1
   %5004 = extractvalue { ptr, i8 } %5000, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 179, ptr %5004, i8 %5003) #7
-  %5005 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1600), align 8
+  %5005 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1600), align 8
   %5006 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5005, ptr noundef nonnull %0)
   %5007 = extractvalue { ptr, i8 } %5006, 0
   %5008 = extractvalue { ptr, i8 } %5006, 1
@@ -8091,7 +8091,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17412, label %5010, label %10795
 
 5010:                                             ; preds = %5002
-  %5011 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
+  %5011 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5112), align 8
   %5012 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5011, ptr noundef nonnull %0)
   %5013 = extractvalue { ptr, i8 } %5012, 0
   %5014 = extractvalue { ptr, i8 } %5012, 1
@@ -8100,7 +8100,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17413, label %5016, label %10795
 
 5016:                                             ; preds = %5010
-  %5017 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
+  %5017 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7968), align 8
   %5018 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5017, ptr noundef nonnull %0)
   %5019 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17414 = icmp eq i8 %5019, 0
@@ -8127,7 +8127,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5032 = extractvalue { ptr, i8 } %5029, 1
   %5033 = extractvalue { ptr, i8 } %5029, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 180, ptr %5033, i8 %5032) #7
-  %5034 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1608), align 8
+  %5034 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1608), align 8
   %5035 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5034, ptr noundef nonnull %0)
   %5036 = extractvalue { ptr, i8 } %5035, 0
   %5037 = extractvalue { ptr, i8 } %5035, 1
@@ -8136,7 +8136,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17416, label %5039, label %10795
 
 5039:                                             ; preds = %5031
-  %5040 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5120), align 8
+  %5040 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5120), align 8
   %5041 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5040, ptr noundef nonnull %0)
   %5042 = extractvalue { ptr, i8 } %5041, 0
   %5043 = extractvalue { ptr, i8 } %5041, 1
@@ -8145,7 +8145,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17417, label %5045, label %10795
 
 5045:                                             ; preds = %5039
-  %5046 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7880), align 8
+  %5046 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7880), align 8
   %5047 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5046, ptr noundef nonnull %0)
   %5048 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17418 = icmp eq i8 %5048, 0
@@ -8172,7 +8172,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5061 = extractvalue { ptr, i8 } %5058, 1
   %5062 = extractvalue { ptr, i8 } %5058, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 181, ptr %5062, i8 %5061) #7
-  %5063 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1616), align 8
+  %5063 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1616), align 8
   %5064 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5063, ptr noundef nonnull %0)
   %5065 = extractvalue { ptr, i8 } %5064, 0
   %5066 = extractvalue { ptr, i8 } %5064, 1
@@ -8181,7 +8181,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17420, label %5068, label %10795
 
 5068:                                             ; preds = %5060
-  %5069 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5128), align 8
+  %5069 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5128), align 8
   %5070 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5069, ptr noundef nonnull %0)
   %5071 = extractvalue { ptr, i8 } %5070, 0
   %5072 = extractvalue { ptr, i8 } %5070, 1
@@ -8190,7 +8190,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17421, label %5074, label %10795
 
 5074:                                             ; preds = %5068
-  %5075 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7976), align 8
+  %5075 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7976), align 8
   %5076 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5075, ptr noundef nonnull %0)
   %5077 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17422 = icmp eq i8 %5077, 0
@@ -8217,7 +8217,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5090 = extractvalue { ptr, i8 } %5087, 1
   %5091 = extractvalue { ptr, i8 } %5087, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 182, ptr %5091, i8 %5090) #7
-  %5092 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1624), align 8
+  %5092 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1624), align 8
   %5093 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5092, ptr noundef nonnull %0)
   %5094 = extractvalue { ptr, i8 } %5093, 0
   %5095 = extractvalue { ptr, i8 } %5093, 1
@@ -8226,7 +8226,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17424, label %5097, label %10795
 
 5097:                                             ; preds = %5089
-  %5098 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5136), align 8
+  %5098 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5136), align 8
   %5099 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5098, ptr noundef nonnull %0)
   %5100 = extractvalue { ptr, i8 } %5099, 0
   %5101 = extractvalue { ptr, i8 } %5099, 1
@@ -8235,7 +8235,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17425, label %5103, label %10795
 
 5103:                                             ; preds = %5097
-  %5104 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7984), align 8
+  %5104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7984), align 8
   %5105 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5104, ptr noundef nonnull %0)
   %5106 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17426 = icmp eq i8 %5106, 0
@@ -8262,7 +8262,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5119 = extractvalue { ptr, i8 } %5116, 1
   %5120 = extractvalue { ptr, i8 } %5116, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 183, ptr %5120, i8 %5119) #7
-  %5121 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1632), align 8
+  %5121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1632), align 8
   %5122 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5121, ptr noundef nonnull %0)
   %5123 = extractvalue { ptr, i8 } %5122, 0
   %5124 = extractvalue { ptr, i8 } %5122, 1
@@ -8271,7 +8271,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17428, label %5126, label %10795
 
 5126:                                             ; preds = %5118
-  %5127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5144), align 8
+  %5127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5144), align 8
   %5128 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5127, ptr noundef nonnull %0)
   %5129 = extractvalue { ptr, i8 } %5128, 0
   %5130 = extractvalue { ptr, i8 } %5128, 1
@@ -8280,7 +8280,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17429, label %5132, label %10795
 
 5132:                                             ; preds = %5126
-  %5133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7992), align 8
+  %5133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7992), align 8
   %5134 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5133, ptr noundef nonnull %0)
   %5135 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17430 = icmp eq i8 %5135, 0
@@ -8307,7 +8307,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5148 = extractvalue { ptr, i8 } %5145, 1
   %5149 = extractvalue { ptr, i8 } %5145, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 184, ptr %5149, i8 %5148) #7
-  %5150 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1640), align 8
+  %5150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1640), align 8
   %5151 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5150, ptr noundef nonnull %0)
   %5152 = extractvalue { ptr, i8 } %5151, 0
   %5153 = extractvalue { ptr, i8 } %5151, 1
@@ -8316,7 +8316,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17432, label %5155, label %10795
 
 5155:                                             ; preds = %5147
-  %5156 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5152), align 8
+  %5156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5152), align 8
   %5157 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5156, ptr noundef nonnull %0)
   %5158 = extractvalue { ptr, i8 } %5157, 0
   %5159 = extractvalue { ptr, i8 } %5157, 1
@@ -8325,7 +8325,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17433, label %5161, label %10795
 
 5161:                                             ; preds = %5155
-  %5162 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8000), align 8
+  %5162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8000), align 8
   %5163 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5162, ptr noundef nonnull %0)
   %5164 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17434 = icmp eq i8 %5164, 0
@@ -8352,7 +8352,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5177 = extractvalue { ptr, i8 } %5174, 1
   %5178 = extractvalue { ptr, i8 } %5174, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 185, ptr %5178, i8 %5177) #7
-  %5179 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1648), align 8
+  %5179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1648), align 8
   %5180 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5179, ptr noundef nonnull %0)
   %5181 = extractvalue { ptr, i8 } %5180, 0
   %5182 = extractvalue { ptr, i8 } %5180, 1
@@ -8361,7 +8361,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17436, label %5184, label %10795
 
 5184:                                             ; preds = %5176
-  %5185 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5160), align 8
+  %5185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5160), align 8
   %5186 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5185, ptr noundef nonnull %0)
   %5187 = extractvalue { ptr, i8 } %5186, 0
   %5188 = extractvalue { ptr, i8 } %5186, 1
@@ -8370,7 +8370,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17437, label %5190, label %10795
 
 5190:                                             ; preds = %5184
-  %5191 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8008), align 8
+  %5191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8008), align 8
   %5192 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5191, ptr noundef nonnull %0)
   %5193 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17438 = icmp eq i8 %5193, 0
@@ -8397,7 +8397,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5206 = extractvalue { ptr, i8 } %5203, 1
   %5207 = extractvalue { ptr, i8 } %5203, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 186, ptr %5207, i8 %5206) #7
-  %5208 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1656), align 8
+  %5208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1656), align 8
   %5209 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5208, ptr noundef nonnull %0)
   %5210 = extractvalue { ptr, i8 } %5209, 0
   %5211 = extractvalue { ptr, i8 } %5209, 1
@@ -8406,7 +8406,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17440, label %5213, label %10795
 
 5213:                                             ; preds = %5205
-  %5214 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5168), align 8
+  %5214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5168), align 8
   %5215 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5214, ptr noundef nonnull %0)
   %5216 = extractvalue { ptr, i8 } %5215, 0
   %5217 = extractvalue { ptr, i8 } %5215, 1
@@ -8415,7 +8415,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17441, label %5219, label %10795
 
 5219:                                             ; preds = %5213
-  %5220 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8008), align 8
+  %5220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8008), align 8
   %5221 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5220, ptr noundef nonnull %0)
   %5222 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17442 = icmp eq i8 %5222, 0
@@ -8442,7 +8442,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5235 = extractvalue { ptr, i8 } %5232, 1
   %5236 = extractvalue { ptr, i8 } %5232, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 187, ptr %5236, i8 %5235) #7
-  %5237 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1664), align 8
+  %5237 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1664), align 8
   %5238 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5237, ptr noundef nonnull %0)
   %5239 = extractvalue { ptr, i8 } %5238, 0
   %5240 = extractvalue { ptr, i8 } %5238, 1
@@ -8451,7 +8451,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17444, label %5242, label %10795
 
 5242:                                             ; preds = %5234
-  %5243 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5176), align 8
+  %5243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5176), align 8
   %5244 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5243, ptr noundef nonnull %0)
   %5245 = extractvalue { ptr, i8 } %5244, 0
   %5246 = extractvalue { ptr, i8 } %5244, 1
@@ -8460,7 +8460,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17445, label %5248, label %10795
 
 5248:                                             ; preds = %5242
-  %5249 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8016), align 8
+  %5249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8016), align 8
   %5250 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5249, ptr noundef nonnull %0)
   %5251 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17446 = icmp eq i8 %5251, 0
@@ -8487,7 +8487,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5264 = extractvalue { ptr, i8 } %5261, 1
   %5265 = extractvalue { ptr, i8 } %5261, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 188, ptr %5265, i8 %5264) #7
-  %5266 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1672), align 8
+  %5266 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1672), align 8
   %5267 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5266, ptr noundef nonnull %0)
   %5268 = extractvalue { ptr, i8 } %5267, 0
   %5269 = extractvalue { ptr, i8 } %5267, 1
@@ -8496,7 +8496,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17448, label %5271, label %10795
 
 5271:                                             ; preds = %5263
-  %5272 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5184), align 8
+  %5272 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5184), align 8
   %5273 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5272, ptr noundef nonnull %0)
   %5274 = extractvalue { ptr, i8 } %5273, 0
   %5275 = extractvalue { ptr, i8 } %5273, 1
@@ -8505,7 +8505,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17449, label %5277, label %10795
 
 5277:                                             ; preds = %5271
-  %5278 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
+  %5278 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7656), align 8
   %5279 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5278, ptr noundef nonnull %0)
   %5280 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17450 = icmp eq i8 %5280, 0
@@ -8532,7 +8532,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5293 = extractvalue { ptr, i8 } %5290, 1
   %5294 = extractvalue { ptr, i8 } %5290, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 189, ptr %5294, i8 %5293) #7
-  %5295 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5192), align 8
+  %5295 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5192), align 8
   %5296 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5295, ptr noundef nonnull %0)
   %5297 = extractvalue { ptr, i8 } %5296, 0
   %5298 = extractvalue { ptr, i8 } %5296, 1
@@ -8541,7 +8541,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17452, label %5300, label %10795
 
 5300:                                             ; preds = %5292
-  %5301 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8024), align 8
+  %5301 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8024), align 8
   %5302 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5301, ptr noundef nonnull %0)
   %5303 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17453 = icmp eq i8 %5303, 0
@@ -8568,7 +8568,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5316 = extractvalue { ptr, i8 } %5313, 1
   %5317 = extractvalue { ptr, i8 } %5313, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 190, ptr %5317, i8 %5316) #7
-  %5318 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5200), align 8
+  %5318 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5200), align 8
   %5319 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5318, ptr noundef nonnull %0)
   %5320 = extractvalue { ptr, i8 } %5319, 0
   %5321 = extractvalue { ptr, i8 } %5319, 1
@@ -8577,7 +8577,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17455, label %5323, label %10795
 
 5323:                                             ; preds = %5315
-  %5324 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8032), align 8
+  %5324 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8032), align 8
   %5325 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5324, ptr noundef nonnull %0)
   %5326 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17456 = icmp eq i8 %5326, 0
@@ -8604,7 +8604,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5339 = extractvalue { ptr, i8 } %5336, 1
   %5340 = extractvalue { ptr, i8 } %5336, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 191, ptr %5340, i8 %5339) #7
-  %5341 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1680), align 8
+  %5341 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1680), align 8
   %5342 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5341, ptr noundef nonnull %0)
   %5343 = extractvalue { ptr, i8 } %5342, 0
   %5344 = extractvalue { ptr, i8 } %5342, 1
@@ -8613,7 +8613,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17458, label %5346, label %10795
 
 5346:                                             ; preds = %5338
-  %5347 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5208), align 8
+  %5347 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5208), align 8
   %5348 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5347, ptr noundef nonnull %0)
   %5349 = extractvalue { ptr, i8 } %5348, 0
   %5350 = extractvalue { ptr, i8 } %5348, 1
@@ -8622,7 +8622,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17459, label %5352, label %10795
 
 5352:                                             ; preds = %5346
-  %5353 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8024), align 8
+  %5353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8024), align 8
   %5354 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5353, ptr noundef nonnull %0)
   %5355 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17460 = icmp eq i8 %5355, 0
@@ -8649,7 +8649,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5368 = extractvalue { ptr, i8 } %5365, 1
   %5369 = extractvalue { ptr, i8 } %5365, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 192, ptr %5369, i8 %5368) #7
-  %5370 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5216), align 8
+  %5370 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5216), align 8
   %5371 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5370, ptr noundef nonnull %0)
   %5372 = extractvalue { ptr, i8 } %5371, 0
   %5373 = extractvalue { ptr, i8 } %5371, 1
@@ -8658,7 +8658,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17462, label %5375, label %10795
 
 5375:                                             ; preds = %5367
-  %5376 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8032), align 8
+  %5376 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8032), align 8
   %5377 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5376, ptr noundef nonnull %0)
   %5378 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17463 = icmp eq i8 %5378, 0
@@ -8685,7 +8685,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5391 = extractvalue { ptr, i8 } %5388, 1
   %5392 = extractvalue { ptr, i8 } %5388, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 193, ptr %5392, i8 %5391) #7
-  %5393 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1688), align 8
+  %5393 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1688), align 8
   %5394 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5393, ptr noundef nonnull %0)
   %5395 = extractvalue { ptr, i8 } %5394, 0
   %5396 = extractvalue { ptr, i8 } %5394, 1
@@ -8694,7 +8694,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17465, label %5398, label %10795
 
 5398:                                             ; preds = %5390
-  %5399 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5208), align 8
+  %5399 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5208), align 8
   %5400 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5399, ptr noundef nonnull %0)
   %5401 = extractvalue { ptr, i8 } %5400, 0
   %5402 = extractvalue { ptr, i8 } %5400, 1
@@ -8703,7 +8703,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17466, label %5404, label %10795
 
 5404:                                             ; preds = %5398
-  %5405 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8024), align 8
+  %5405 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8024), align 8
   %5406 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5405, ptr noundef nonnull %0)
   %5407 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17467 = icmp eq i8 %5407, 0
@@ -8730,7 +8730,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5420 = extractvalue { ptr, i8 } %5417, 1
   %5421 = extractvalue { ptr, i8 } %5417, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 194, ptr %5421, i8 %5420) #7
-  %5422 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5224), align 8
+  %5422 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5224), align 8
   %5423 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5422, ptr noundef nonnull %0)
   %5424 = extractvalue { ptr, i8 } %5423, 0
   %5425 = extractvalue { ptr, i8 } %5423, 1
@@ -8739,7 +8739,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17469, label %5427, label %10795
 
 5427:                                             ; preds = %5419
-  %5428 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8032), align 8
+  %5428 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8032), align 8
   %5429 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5428, ptr noundef nonnull %0)
   %5430 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17470 = icmp eq i8 %5430, 0
@@ -8766,7 +8766,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5443 = extractvalue { ptr, i8 } %5440, 1
   %5444 = extractvalue { ptr, i8 } %5440, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 195, ptr %5444, i8 %5443) #7
-  %5445 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1696), align 8
+  %5445 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1696), align 8
   %5446 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5445, ptr noundef nonnull %0)
   %5447 = extractvalue { ptr, i8 } %5446, 0
   %5448 = extractvalue { ptr, i8 } %5446, 1
@@ -8775,7 +8775,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17472, label %5450, label %10795
 
 5450:                                             ; preds = %5442
-  %5451 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3296), align 8
+  %5451 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3296), align 8
   %5452 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5451, ptr noundef nonnull %0)
   %5453 = extractvalue { ptr, i8 } %5452, 0
   %5454 = extractvalue { ptr, i8 } %5452, 1
@@ -8784,7 +8784,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17473, label %5456, label %10795
 
 5456:                                             ; preds = %5450
-  %5457 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8040), align 8
+  %5457 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8040), align 8
   %5458 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5457, ptr noundef nonnull %0)
   %5459 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17474 = icmp eq i8 %5459, 0
@@ -8811,7 +8811,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5472 = extractvalue { ptr, i8 } %5469, 1
   %5473 = extractvalue { ptr, i8 } %5469, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 196, ptr %5473, i8 %5472) #7
-  %5474 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3304), align 8
+  %5474 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3304), align 8
   %5475 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5474, ptr noundef nonnull %0)
   %5476 = extractvalue { ptr, i8 } %5475, 0
   %5477 = extractvalue { ptr, i8 } %5475, 1
@@ -8820,7 +8820,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17476, label %5479, label %10795
 
 5479:                                             ; preds = %5471
-  %5480 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8048), align 8
+  %5480 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8048), align 8
   %5481 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5480, ptr noundef nonnull %0)
   %5482 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17477 = icmp eq i8 %5482, 0
@@ -8847,7 +8847,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5495 = extractvalue { ptr, i8 } %5492, 1
   %5496 = extractvalue { ptr, i8 } %5492, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 197, ptr %5496, i8 %5495) #7
-  %5497 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3288), align 8
+  %5497 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3288), align 8
   %5498 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5497, ptr noundef nonnull %0)
   %5499 = extractvalue { ptr, i8 } %5498, 0
   %5500 = extractvalue { ptr, i8 } %5498, 1
@@ -8856,7 +8856,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17479, label %5502, label %10795
 
 5502:                                             ; preds = %5494
-  %5503 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6792), align 8
+  %5503 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6792), align 8
   %5504 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5503, ptr noundef nonnull %0)
   %5505 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17480 = icmp eq i8 %5505, 0
@@ -8883,7 +8883,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5518 = extractvalue { ptr, i8 } %5515, 1
   %5519 = extractvalue { ptr, i8 } %5515, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 198, ptr %5519, i8 %5518) #7
-  %5520 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 112), align 8
+  %5520 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 112), align 8
   %5521 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5520, ptr noundef nonnull %0)
   %5522 = extractvalue { ptr, i8 } %5521, 0
   %5523 = extractvalue { ptr, i8 } %5521, 1
@@ -8892,7 +8892,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17482, label %5525, label %10795
 
 5525:                                             ; preds = %5517
-  %5526 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3240), align 8
+  %5526 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3240), align 8
   %5527 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5526, ptr noundef nonnull %0)
   %5528 = extractvalue { ptr, i8 } %5527, 0
   %5529 = extractvalue { ptr, i8 } %5527, 1
@@ -8901,7 +8901,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17483, label %5531, label %10795
 
 5531:                                             ; preds = %5525
-  %5532 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %5532 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %5533 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5532, ptr noundef nonnull %0)
   %5534 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17484 = icmp eq i8 %5534, 0
@@ -8928,7 +8928,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5547 = extractvalue { ptr, i8 } %5544, 1
   %5548 = extractvalue { ptr, i8 } %5544, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 199, ptr %5548, i8 %5547) #7
-  %5549 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3248), align 8
+  %5549 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3248), align 8
   %5550 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5549, ptr noundef nonnull %0)
   %5551 = extractvalue { ptr, i8 } %5550, 0
   %5552 = extractvalue { ptr, i8 } %5550, 1
@@ -8937,7 +8937,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17486, label %5554, label %10795
 
 5554:                                             ; preds = %5546
-  %5555 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %5555 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %5556 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5555, ptr noundef nonnull %0)
   %5557 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17487 = icmp eq i8 %5557, 0
@@ -8964,7 +8964,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5570 = extractvalue { ptr, i8 } %5567, 1
   %5571 = extractvalue { ptr, i8 } %5567, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 200, ptr %5571, i8 %5570) #7
-  %5572 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3256), align 8
+  %5572 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3256), align 8
   %5573 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5572, ptr noundef nonnull %0)
   %5574 = extractvalue { ptr, i8 } %5573, 0
   %5575 = extractvalue { ptr, i8 } %5573, 1
@@ -8973,7 +8973,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17489, label %5577, label %10795
 
 5577:                                             ; preds = %5569
-  %5578 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6824), align 8
+  %5578 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6824), align 8
   %5579 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5578, ptr noundef nonnull %0)
   %5580 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17490 = icmp eq i8 %5580, 0
@@ -9000,7 +9000,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5593 = extractvalue { ptr, i8 } %5590, 1
   %5594 = extractvalue { ptr, i8 } %5590, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 201, ptr %5594, i8 %5593) #7
-  %5595 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3264), align 8
+  %5595 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3264), align 8
   %5596 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5595, ptr noundef nonnull %0)
   %5597 = extractvalue { ptr, i8 } %5596, 0
   %5598 = extractvalue { ptr, i8 } %5596, 1
@@ -9009,7 +9009,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17492, label %5600, label %10795
 
 5600:                                             ; preds = %5592
-  %5601 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6824), align 8
+  %5601 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6824), align 8
   %5602 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5601, ptr noundef nonnull %0)
   %5603 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17493 = icmp eq i8 %5603, 0
@@ -9036,7 +9036,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5616 = extractvalue { ptr, i8 } %5613, 1
   %5617 = extractvalue { ptr, i8 } %5613, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 202, ptr %5617, i8 %5616) #7
-  %5618 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3272), align 8
+  %5618 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3272), align 8
   %5619 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5618, ptr noundef nonnull %0)
   %5620 = extractvalue { ptr, i8 } %5619, 0
   %5621 = extractvalue { ptr, i8 } %5619, 1
@@ -9045,7 +9045,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17495, label %5623, label %10795
 
 5623:                                             ; preds = %5615
-  %5624 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6824), align 8
+  %5624 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6824), align 8
   %5625 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5624, ptr noundef nonnull %0)
   %5626 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17496 = icmp eq i8 %5626, 0
@@ -9072,7 +9072,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5639 = extractvalue { ptr, i8 } %5636, 1
   %5640 = extractvalue { ptr, i8 } %5636, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 203, ptr %5640, i8 %5639) #7
-  %5641 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3280), align 8
+  %5641 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3280), align 8
   %5642 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5641, ptr noundef nonnull %0)
   %5643 = extractvalue { ptr, i8 } %5642, 0
   %5644 = extractvalue { ptr, i8 } %5642, 1
@@ -9081,7 +9081,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17498, label %5646, label %10795
 
 5646:                                             ; preds = %5638
-  %5647 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6824), align 8
+  %5647 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6824), align 8
   %5648 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5647, ptr noundef nonnull %0)
   %5649 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17499 = icmp eq i8 %5649, 0
@@ -9108,7 +9108,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5662 = extractvalue { ptr, i8 } %5659, 1
   %5663 = extractvalue { ptr, i8 } %5659, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 204, ptr %5663, i8 %5662) #7
-  %5664 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1712), align 8
+  %5664 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1712), align 8
   %5665 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5664, ptr noundef nonnull %0)
   %5666 = extractvalue { ptr, i8 } %5665, 0
   %5667 = extractvalue { ptr, i8 } %5665, 1
@@ -9117,7 +9117,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17501, label %5669, label %10795
 
 5669:                                             ; preds = %5661
-  %5670 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5232), align 8
+  %5670 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5232), align 8
   %5671 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5670, ptr noundef nonnull %0)
   %5672 = extractvalue { ptr, i8 } %5671, 0
   %5673 = extractvalue { ptr, i8 } %5671, 1
@@ -9126,7 +9126,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17502, label %5675, label %10795
 
 5675:                                             ; preds = %5669
-  %5676 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6952), align 8
+  %5676 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6952), align 8
   %5677 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5676, ptr noundef nonnull %0)
   %5678 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17503 = icmp eq i8 %5678, 0
@@ -9153,7 +9153,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5691 = extractvalue { ptr, i8 } %5688, 1
   %5692 = extractvalue { ptr, i8 } %5688, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 205, ptr %5692, i8 %5691) #7
-  %5693 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5240), align 8
+  %5693 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5240), align 8
   %5694 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5693, ptr noundef nonnull %0)
   %5695 = extractvalue { ptr, i8 } %5694, 0
   %5696 = extractvalue { ptr, i8 } %5694, 1
@@ -9162,7 +9162,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17505, label %5698, label %10795
 
 5698:                                             ; preds = %5690
-  %5699 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %5699 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %5700 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5699, ptr noundef nonnull %0)
   %5701 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17506 = icmp eq i8 %5701, 0
@@ -9189,7 +9189,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5714 = extractvalue { ptr, i8 } %5711, 1
   %5715 = extractvalue { ptr, i8 } %5711, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 206, ptr %5715, i8 %5714) #7
-  %5716 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5248), align 8
+  %5716 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5248), align 8
   %5717 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5716, ptr noundef nonnull %0)
   %5718 = extractvalue { ptr, i8 } %5717, 0
   %5719 = extractvalue { ptr, i8 } %5717, 1
@@ -9198,7 +9198,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17508, label %5721, label %10795
 
 5721:                                             ; preds = %5713
-  %5722 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %5722 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %5723 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5722, ptr noundef nonnull %0)
   %5724 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17509 = icmp eq i8 %5724, 0
@@ -9225,7 +9225,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5737 = extractvalue { ptr, i8 } %5734, 1
   %5738 = extractvalue { ptr, i8 } %5734, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 207, ptr %5738, i8 %5737) #7
-  %5739 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5256), align 8
+  %5739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5256), align 8
   %5740 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5739, ptr noundef nonnull %0)
   %5741 = extractvalue { ptr, i8 } %5740, 0
   %5742 = extractvalue { ptr, i8 } %5740, 1
@@ -9234,7 +9234,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17511, label %5744, label %10795
 
 5744:                                             ; preds = %5736
-  %5745 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8064), align 8
+  %5745 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8064), align 8
   %5746 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5745, ptr noundef nonnull %0)
   %5747 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17512 = icmp eq i8 %5747, 0
@@ -9261,7 +9261,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5760 = extractvalue { ptr, i8 } %5757, 1
   %5761 = extractvalue { ptr, i8 } %5757, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 208, ptr %5761, i8 %5760) #7
-  %5762 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5264), align 8
+  %5762 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5264), align 8
   %5763 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5762, ptr noundef nonnull %0)
   %5764 = extractvalue { ptr, i8 } %5763, 0
   %5765 = extractvalue { ptr, i8 } %5763, 1
@@ -9270,7 +9270,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17514, label %5767, label %10795
 
 5767:                                             ; preds = %5759
-  %5768 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7728), align 8
+  %5768 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7728), align 8
   %5769 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5768, ptr noundef nonnull %0)
   %5770 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17515 = icmp eq i8 %5770, 0
@@ -9297,7 +9297,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5783 = extractvalue { ptr, i8 } %5780, 1
   %5784 = extractvalue { ptr, i8 } %5780, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 209, ptr %5784, i8 %5783) #7
-  %5785 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5272), align 8
+  %5785 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5272), align 8
   %5786 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5785, ptr noundef nonnull %0)
   %5787 = extractvalue { ptr, i8 } %5786, 0
   %5788 = extractvalue { ptr, i8 } %5786, 1
@@ -9306,7 +9306,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17517, label %5790, label %10795
 
 5790:                                             ; preds = %5782
-  %5791 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8072), align 8
+  %5791 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8072), align 8
   %5792 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5791, ptr noundef nonnull %0)
   %5793 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17518 = icmp eq i8 %5793, 0
@@ -9333,7 +9333,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5806 = extractvalue { ptr, i8 } %5803, 1
   %5807 = extractvalue { ptr, i8 } %5803, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 210, ptr %5807, i8 %5806) #7
-  %5808 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5280), align 8
+  %5808 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5280), align 8
   %5809 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5808, ptr noundef nonnull %0)
   %5810 = extractvalue { ptr, i8 } %5809, 0
   %5811 = extractvalue { ptr, i8 } %5809, 1
@@ -9342,7 +9342,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17520, label %5813, label %10795
 
 5813:                                             ; preds = %5805
-  %5814 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8080), align 8
+  %5814 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8080), align 8
   %5815 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5814, ptr noundef nonnull %0)
   %5816 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17521 = icmp eq i8 %5816, 0
@@ -9369,7 +9369,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5829 = extractvalue { ptr, i8 } %5826, 1
   %5830 = extractvalue { ptr, i8 } %5826, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 211, ptr %5830, i8 %5829) #7
-  %5831 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5288), align 8
+  %5831 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5288), align 8
   %5832 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5831, ptr noundef nonnull %0)
   %5833 = extractvalue { ptr, i8 } %5832, 0
   %5834 = extractvalue { ptr, i8 } %5832, 1
@@ -9378,7 +9378,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17523, label %5836, label %10795
 
 5836:                                             ; preds = %5828
-  %5837 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %5837 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %5838 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5837, ptr noundef nonnull %0)
   %5839 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17524 = icmp eq i8 %5839, 0
@@ -9405,7 +9405,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5852 = extractvalue { ptr, i8 } %5849, 1
   %5853 = extractvalue { ptr, i8 } %5849, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 212, ptr %5853, i8 %5852) #7
-  %5854 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5296), align 8
+  %5854 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5296), align 8
   %5855 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5854, ptr noundef nonnull %0)
   %5856 = extractvalue { ptr, i8 } %5855, 0
   %5857 = extractvalue { ptr, i8 } %5855, 1
@@ -9414,7 +9414,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17526, label %5859, label %10795
 
 5859:                                             ; preds = %5851
-  %5860 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %5860 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %5861 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5860, ptr noundef nonnull %0)
   %5862 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17527 = icmp eq i8 %5862, 0
@@ -9441,7 +9441,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5875 = extractvalue { ptr, i8 } %5872, 1
   %5876 = extractvalue { ptr, i8 } %5872, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 213, ptr %5876, i8 %5875) #7
-  %5877 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5304), align 8
+  %5877 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5304), align 8
   %5878 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5877, ptr noundef nonnull %0)
   %5879 = extractvalue { ptr, i8 } %5878, 0
   %5880 = extractvalue { ptr, i8 } %5878, 1
@@ -9450,7 +9450,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17529, label %5882, label %10795
 
 5882:                                             ; preds = %5874
-  %5883 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %5883 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %5884 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5883, ptr noundef nonnull %0)
   %5885 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17530 = icmp eq i8 %5885, 0
@@ -9477,7 +9477,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5898 = extractvalue { ptr, i8 } %5895, 1
   %5899 = extractvalue { ptr, i8 } %5895, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 214, ptr %5899, i8 %5898) #7
-  %5900 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5312), align 8
+  %5900 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5312), align 8
   %5901 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5900, ptr noundef nonnull %0)
   %5902 = extractvalue { ptr, i8 } %5901, 0
   %5903 = extractvalue { ptr, i8 } %5901, 1
@@ -9486,7 +9486,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17532, label %5905, label %10795
 
 5905:                                             ; preds = %5897
-  %5906 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %5906 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %5907 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5906, ptr noundef nonnull %0)
   %5908 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17533 = icmp eq i8 %5908, 0
@@ -9513,7 +9513,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5921 = extractvalue { ptr, i8 } %5918, 1
   %5922 = extractvalue { ptr, i8 } %5918, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 215, ptr %5922, i8 %5921) #7
-  %5923 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1736), align 8
+  %5923 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1736), align 8
   %5924 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5923, ptr noundef nonnull %0)
   %5925 = extractvalue { ptr, i8 } %5924, 0
   %5926 = extractvalue { ptr, i8 } %5924, 1
@@ -9522,7 +9522,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17535, label %5928, label %10795
 
 5928:                                             ; preds = %5920
-  %5929 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5320), align 8
+  %5929 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5320), align 8
   %5930 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5929, ptr noundef nonnull %0)
   %5931 = extractvalue { ptr, i8 } %5930, 0
   %5932 = extractvalue { ptr, i8 } %5930, 1
@@ -9531,7 +9531,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17536, label %5934, label %10795
 
 5934:                                             ; preds = %5928
-  %5935 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8088), align 8
+  %5935 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8088), align 8
   %5936 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5935, ptr noundef nonnull %0)
   %5937 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17537 = icmp eq i8 %5937, 0
@@ -9558,7 +9558,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5950 = extractvalue { ptr, i8 } %5947, 1
   %5951 = extractvalue { ptr, i8 } %5947, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 216, ptr %5951, i8 %5950) #7
-  %5952 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5328), align 8
+  %5952 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5328), align 8
   %5953 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5952, ptr noundef nonnull %0)
   %5954 = extractvalue { ptr, i8 } %5953, 0
   %5955 = extractvalue { ptr, i8 } %5953, 1
@@ -9567,7 +9567,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17539, label %5957, label %10795
 
 5957:                                             ; preds = %5949
-  %5958 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7120), align 8
+  %5958 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7120), align 8
   %5959 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5958, ptr noundef nonnull %0)
   %5960 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17540 = icmp eq i8 %5960, 0
@@ -9594,7 +9594,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %5973 = extractvalue { ptr, i8 } %5970, 1
   %5974 = extractvalue { ptr, i8 } %5970, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 217, ptr %5974, i8 %5973) #7
-  %5975 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 680), align 8
+  %5975 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 680), align 8
   %5976 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5975, ptr noundef nonnull %0)
   %5977 = extractvalue { ptr, i8 } %5976, 0
   %5978 = extractvalue { ptr, i8 } %5976, 1
@@ -9603,7 +9603,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17542, label %5980, label %10795
 
 5980:                                             ; preds = %5972
-  %5981 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5336), align 8
+  %5981 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5336), align 8
   %5982 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5981, ptr noundef nonnull %0)
   %5983 = extractvalue { ptr, i8 } %5982, 0
   %5984 = extractvalue { ptr, i8 } %5982, 1
@@ -9612,7 +9612,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17543, label %5986, label %10795
 
 5986:                                             ; preds = %5980
-  %5987 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7112), align 8
+  %5987 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7112), align 8
   %5988 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %5987, ptr noundef nonnull %0)
   %5989 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17544 = icmp eq i8 %5989, 0
@@ -9639,7 +9639,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6002 = extractvalue { ptr, i8 } %5999, 1
   %6003 = extractvalue { ptr, i8 } %5999, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 218, ptr %6003, i8 %6002) #7
-  %6004 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %6004 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %6005 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6004, ptr noundef nonnull %0)
   %6006 = extractvalue { ptr, i8 } %6005, 0
   %6007 = extractvalue { ptr, i8 } %6005, 1
@@ -9648,7 +9648,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17546, label %6009, label %10795
 
 6009:                                             ; preds = %6001
-  %6010 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1944), align 8
+  %6010 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1944), align 8
   %6011 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6010, ptr noundef nonnull %0)
   %6012 = extractvalue { ptr, i8 } %6011, 0
   %6013 = extractvalue { ptr, i8 } %6011, 1
@@ -9657,7 +9657,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17547, label %6015, label %10795
 
 6015:                                             ; preds = %6009
-  %6016 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
+  %6016 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
   %6017 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6016, ptr noundef nonnull %0)
   %6018 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17548 = icmp eq i8 %6018, 0
@@ -9684,7 +9684,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6031 = extractvalue { ptr, i8 } %6028, 1
   %6032 = extractvalue { ptr, i8 } %6028, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 219, ptr %6032, i8 %6031) #7
-  %6033 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1712), align 8
+  %6033 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1712), align 8
   %6034 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6033, ptr noundef nonnull %0)
   %6035 = extractvalue { ptr, i8 } %6034, 0
   %6036 = extractvalue { ptr, i8 } %6034, 1
@@ -9693,7 +9693,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17550, label %6038, label %10795
 
 6038:                                             ; preds = %6030
-  %6039 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5344), align 8
+  %6039 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5344), align 8
   %6040 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6039, ptr noundef nonnull %0)
   %6041 = extractvalue { ptr, i8 } %6040, 0
   %6042 = extractvalue { ptr, i8 } %6040, 1
@@ -9702,7 +9702,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17551, label %6044, label %10795
 
 6044:                                             ; preds = %6038
-  %6045 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8096), align 8
+  %6045 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8096), align 8
   %6046 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6045, ptr noundef nonnull %0)
   %6047 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17552 = icmp eq i8 %6047, 0
@@ -9729,7 +9729,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6060 = extractvalue { ptr, i8 } %6057, 1
   %6061 = extractvalue { ptr, i8 } %6057, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 220, ptr %6061, i8 %6060) #7
-  %6062 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5360), align 8
+  %6062 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5360), align 8
   %6063 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6062, ptr noundef nonnull %0)
   %6064 = extractvalue { ptr, i8 } %6063, 0
   %6065 = extractvalue { ptr, i8 } %6063, 1
@@ -9738,7 +9738,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17554, label %6067, label %10795
 
 6067:                                             ; preds = %6059
-  %6068 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8112), align 8
+  %6068 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8112), align 8
   %6069 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6068, ptr noundef nonnull %0)
   %6070 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17555 = icmp eq i8 %6070, 0
@@ -9765,7 +9765,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6083 = extractvalue { ptr, i8 } %6080, 1
   %6084 = extractvalue { ptr, i8 } %6080, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 221, ptr %6084, i8 %6083) #7
-  %6085 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5376), align 8
+  %6085 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5376), align 8
   %6086 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6085, ptr noundef nonnull %0)
   %6087 = extractvalue { ptr, i8 } %6086, 0
   %6088 = extractvalue { ptr, i8 } %6086, 1
@@ -9774,7 +9774,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17557, label %6090, label %10795
 
 6090:                                             ; preds = %6082
-  %6091 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8128), align 8
+  %6091 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8128), align 8
   %6092 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6091, ptr noundef nonnull %0)
   %6093 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17558 = icmp eq i8 %6093, 0
@@ -9801,7 +9801,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6106 = extractvalue { ptr, i8 } %6103, 1
   %6107 = extractvalue { ptr, i8 } %6103, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 222, ptr %6107, i8 %6106) #7
-  %6108 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5392), align 8
+  %6108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5392), align 8
   %6109 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6108, ptr noundef nonnull %0)
   %6110 = extractvalue { ptr, i8 } %6109, 0
   %6111 = extractvalue { ptr, i8 } %6109, 1
@@ -9810,7 +9810,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17560, label %6113, label %10795
 
 6113:                                             ; preds = %6105
-  %6114 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
+  %6114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
   %6115 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6114, ptr noundef nonnull %0)
   %6116 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17561 = icmp eq i8 %6116, 0
@@ -9837,7 +9837,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6129 = extractvalue { ptr, i8 } %6126, 1
   %6130 = extractvalue { ptr, i8 } %6126, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 223, ptr %6130, i8 %6129) #7
-  %6131 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5408), align 8
+  %6131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5408), align 8
   %6132 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6131, ptr noundef nonnull %0)
   %6133 = extractvalue { ptr, i8 } %6132, 0
   %6134 = extractvalue { ptr, i8 } %6132, 1
@@ -9846,7 +9846,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17563, label %6136, label %10795
 
 6136:                                             ; preds = %6128
-  %6137 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
+  %6137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
   %6138 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6137, ptr noundef nonnull %0)
   %6139 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17564 = icmp eq i8 %6139, 0
@@ -9873,7 +9873,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6152 = extractvalue { ptr, i8 } %6149, 1
   %6153 = extractvalue { ptr, i8 } %6149, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 224, ptr %6153, i8 %6152) #7
-  %6154 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5424), align 8
+  %6154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5424), align 8
   %6155 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6154, ptr noundef nonnull %0)
   %6156 = extractvalue { ptr, i8 } %6155, 0
   %6157 = extractvalue { ptr, i8 } %6155, 1
@@ -9882,7 +9882,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17566, label %6159, label %10795
 
 6159:                                             ; preds = %6151
-  %6160 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
+  %6160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
   %6161 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6160, ptr noundef nonnull %0)
   %6162 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17567 = icmp eq i8 %6162, 0
@@ -9909,7 +9909,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6175 = extractvalue { ptr, i8 } %6172, 1
   %6176 = extractvalue { ptr, i8 } %6172, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 225, ptr %6176, i8 %6175) #7
-  %6177 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5440), align 8
+  %6177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5440), align 8
   %6178 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6177, ptr noundef nonnull %0)
   %6179 = extractvalue { ptr, i8 } %6178, 0
   %6180 = extractvalue { ptr, i8 } %6178, 1
@@ -9918,7 +9918,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17569, label %6182, label %10795
 
 6182:                                             ; preds = %6174
-  %6183 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
+  %6183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
   %6184 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6183, ptr noundef nonnull %0)
   %6185 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17570 = icmp eq i8 %6185, 0
@@ -9945,7 +9945,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6198 = extractvalue { ptr, i8 } %6195, 1
   %6199 = extractvalue { ptr, i8 } %6195, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 226, ptr %6199, i8 %6198) #7
-  %6200 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5456), align 8
+  %6200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5456), align 8
   %6201 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6200, ptr noundef nonnull %0)
   %6202 = extractvalue { ptr, i8 } %6201, 0
   %6203 = extractvalue { ptr, i8 } %6201, 1
@@ -9954,7 +9954,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17572, label %6205, label %10795
 
 6205:                                             ; preds = %6197
-  %6206 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8208), align 8
+  %6206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8208), align 8
   %6207 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6206, ptr noundef nonnull %0)
   %6208 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17573 = icmp eq i8 %6208, 0
@@ -9981,7 +9981,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6221 = extractvalue { ptr, i8 } %6218, 1
   %6222 = extractvalue { ptr, i8 } %6218, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 227, ptr %6222, i8 %6221) #7
-  %6223 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5472), align 8
+  %6223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5472), align 8
   %6224 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6223, ptr noundef nonnull %0)
   %6225 = extractvalue { ptr, i8 } %6224, 0
   %6226 = extractvalue { ptr, i8 } %6224, 1
@@ -9990,7 +9990,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17575, label %6228, label %10795
 
 6228:                                             ; preds = %6220
-  %6229 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8224), align 8
+  %6229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8224), align 8
   %6230 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6229, ptr noundef nonnull %0)
   %6231 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17576 = icmp eq i8 %6231, 0
@@ -10017,7 +10017,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6244 = extractvalue { ptr, i8 } %6241, 1
   %6245 = extractvalue { ptr, i8 } %6241, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 228, ptr %6245, i8 %6244) #7
-  %6246 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5352), align 8
+  %6246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5352), align 8
   %6247 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6246, ptr noundef nonnull %0)
   %6248 = extractvalue { ptr, i8 } %6247, 0
   %6249 = extractvalue { ptr, i8 } %6247, 1
@@ -10026,7 +10026,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17578, label %6251, label %10795
 
 6251:                                             ; preds = %6243
-  %6252 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8104), align 8
+  %6252 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8104), align 8
   %6253 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6252, ptr noundef nonnull %0)
   %6254 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17579 = icmp eq i8 %6254, 0
@@ -10053,7 +10053,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6267 = extractvalue { ptr, i8 } %6264, 1
   %6268 = extractvalue { ptr, i8 } %6264, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 229, ptr %6268, i8 %6267) #7
-  %6269 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5368), align 8
+  %6269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5368), align 8
   %6270 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6269, ptr noundef nonnull %0)
   %6271 = extractvalue { ptr, i8 } %6270, 0
   %6272 = extractvalue { ptr, i8 } %6270, 1
@@ -10062,7 +10062,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17581, label %6274, label %10795
 
 6274:                                             ; preds = %6266
-  %6275 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8120), align 8
+  %6275 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8120), align 8
   %6276 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6275, ptr noundef nonnull %0)
   %6277 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17582 = icmp eq i8 %6277, 0
@@ -10089,7 +10089,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6290 = extractvalue { ptr, i8 } %6287, 1
   %6291 = extractvalue { ptr, i8 } %6287, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 230, ptr %6291, i8 %6290) #7
-  %6292 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5384), align 8
+  %6292 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5384), align 8
   %6293 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6292, ptr noundef nonnull %0)
   %6294 = extractvalue { ptr, i8 } %6293, 0
   %6295 = extractvalue { ptr, i8 } %6293, 1
@@ -10098,7 +10098,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17584, label %6297, label %10795
 
 6297:                                             ; preds = %6289
-  %6298 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8136), align 8
+  %6298 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8136), align 8
   %6299 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6298, ptr noundef nonnull %0)
   %6300 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17585 = icmp eq i8 %6300, 0
@@ -10125,7 +10125,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6313 = extractvalue { ptr, i8 } %6310, 1
   %6314 = extractvalue { ptr, i8 } %6310, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 231, ptr %6314, i8 %6313) #7
-  %6315 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5400), align 8
+  %6315 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5400), align 8
   %6316 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6315, ptr noundef nonnull %0)
   %6317 = extractvalue { ptr, i8 } %6316, 0
   %6318 = extractvalue { ptr, i8 } %6316, 1
@@ -10134,7 +10134,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17587, label %6320, label %10795
 
 6320:                                             ; preds = %6312
-  %6321 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
+  %6321 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
   %6322 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6321, ptr noundef nonnull %0)
   %6323 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17588 = icmp eq i8 %6323, 0
@@ -10161,7 +10161,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6336 = extractvalue { ptr, i8 } %6333, 1
   %6337 = extractvalue { ptr, i8 } %6333, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 232, ptr %6337, i8 %6336) #7
-  %6338 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5416), align 8
+  %6338 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5416), align 8
   %6339 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6338, ptr noundef nonnull %0)
   %6340 = extractvalue { ptr, i8 } %6339, 0
   %6341 = extractvalue { ptr, i8 } %6339, 1
@@ -10170,7 +10170,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17590, label %6343, label %10795
 
 6343:                                             ; preds = %6335
-  %6344 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
+  %6344 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
   %6345 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6344, ptr noundef nonnull %0)
   %6346 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17591 = icmp eq i8 %6346, 0
@@ -10197,7 +10197,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6359 = extractvalue { ptr, i8 } %6356, 1
   %6360 = extractvalue { ptr, i8 } %6356, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 233, ptr %6360, i8 %6359) #7
-  %6361 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5432), align 8
+  %6361 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5432), align 8
   %6362 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6361, ptr noundef nonnull %0)
   %6363 = extractvalue { ptr, i8 } %6362, 0
   %6364 = extractvalue { ptr, i8 } %6362, 1
@@ -10206,7 +10206,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17593, label %6366, label %10795
 
 6366:                                             ; preds = %6358
-  %6367 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
+  %6367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
   %6368 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6367, ptr noundef nonnull %0)
   %6369 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17594 = icmp eq i8 %6369, 0
@@ -10233,7 +10233,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6382 = extractvalue { ptr, i8 } %6379, 1
   %6383 = extractvalue { ptr, i8 } %6379, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 234, ptr %6383, i8 %6382) #7
-  %6384 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5448), align 8
+  %6384 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5448), align 8
   %6385 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6384, ptr noundef nonnull %0)
   %6386 = extractvalue { ptr, i8 } %6385, 0
   %6387 = extractvalue { ptr, i8 } %6385, 1
@@ -10242,7 +10242,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17596, label %6389, label %10795
 
 6389:                                             ; preds = %6381
-  %6390 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
+  %6390 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
   %6391 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6390, ptr noundef nonnull %0)
   %6392 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17597 = icmp eq i8 %6392, 0
@@ -10269,7 +10269,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6405 = extractvalue { ptr, i8 } %6402, 1
   %6406 = extractvalue { ptr, i8 } %6402, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 235, ptr %6406, i8 %6405) #7
-  %6407 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5464), align 8
+  %6407 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5464), align 8
   %6408 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6407, ptr noundef nonnull %0)
   %6409 = extractvalue { ptr, i8 } %6408, 0
   %6410 = extractvalue { ptr, i8 } %6408, 1
@@ -10278,7 +10278,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17599, label %6412, label %10795
 
 6412:                                             ; preds = %6404
-  %6413 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8216), align 8
+  %6413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8216), align 8
   %6414 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6413, ptr noundef nonnull %0)
   %6415 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17600 = icmp eq i8 %6415, 0
@@ -10305,7 +10305,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6428 = extractvalue { ptr, i8 } %6425, 1
   %6429 = extractvalue { ptr, i8 } %6425, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 236, ptr %6429, i8 %6428) #7
-  %6430 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5480), align 8
+  %6430 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5480), align 8
   %6431 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6430, ptr noundef nonnull %0)
   %6432 = extractvalue { ptr, i8 } %6431, 0
   %6433 = extractvalue { ptr, i8 } %6431, 1
@@ -10314,7 +10314,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17602, label %6435, label %10795
 
 6435:                                             ; preds = %6427
-  %6436 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8232), align 8
+  %6436 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8232), align 8
   %6437 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6436, ptr noundef nonnull %0)
   %6438 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17603 = icmp eq i8 %6438, 0
@@ -10341,7 +10341,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6451 = extractvalue { ptr, i8 } %6448, 1
   %6452 = extractvalue { ptr, i8 } %6448, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 237, ptr %6452, i8 %6451) #7
-  %6453 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5488), align 8
+  %6453 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5488), align 8
   %6454 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6453, ptr noundef nonnull %0)
   %6455 = extractvalue { ptr, i8 } %6454, 0
   %6456 = extractvalue { ptr, i8 } %6454, 1
@@ -10350,7 +10350,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17605, label %6458, label %10795
 
 6458:                                             ; preds = %6450
-  %6459 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8096), align 8
+  %6459 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8096), align 8
   %6460 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6459, ptr noundef nonnull %0)
   %6461 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17606 = icmp eq i8 %6461, 0
@@ -10377,7 +10377,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6474 = extractvalue { ptr, i8 } %6471, 1
   %6475 = extractvalue { ptr, i8 } %6471, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 238, ptr %6475, i8 %6474) #7
-  %6476 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5504), align 8
+  %6476 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5504), align 8
   %6477 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6476, ptr noundef nonnull %0)
   %6478 = extractvalue { ptr, i8 } %6477, 0
   %6479 = extractvalue { ptr, i8 } %6477, 1
@@ -10386,7 +10386,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17608, label %6481, label %10795
 
 6481:                                             ; preds = %6473
-  %6482 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8112), align 8
+  %6482 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8112), align 8
   %6483 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6482, ptr noundef nonnull %0)
   %6484 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17609 = icmp eq i8 %6484, 0
@@ -10413,7 +10413,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6497 = extractvalue { ptr, i8 } %6494, 1
   %6498 = extractvalue { ptr, i8 } %6494, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 239, ptr %6498, i8 %6497) #7
-  %6499 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5520), align 8
+  %6499 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5520), align 8
   %6500 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6499, ptr noundef nonnull %0)
   %6501 = extractvalue { ptr, i8 } %6500, 0
   %6502 = extractvalue { ptr, i8 } %6500, 1
@@ -10422,7 +10422,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17611, label %6504, label %10795
 
 6504:                                             ; preds = %6496
-  %6505 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8128), align 8
+  %6505 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8128), align 8
   %6506 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6505, ptr noundef nonnull %0)
   %6507 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17612 = icmp eq i8 %6507, 0
@@ -10449,7 +10449,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6520 = extractvalue { ptr, i8 } %6517, 1
   %6521 = extractvalue { ptr, i8 } %6517, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 240, ptr %6521, i8 %6520) #7
-  %6522 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5536), align 8
+  %6522 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5536), align 8
   %6523 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6522, ptr noundef nonnull %0)
   %6524 = extractvalue { ptr, i8 } %6523, 0
   %6525 = extractvalue { ptr, i8 } %6523, 1
@@ -10458,7 +10458,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17614, label %6527, label %10795
 
 6527:                                             ; preds = %6519
-  %6528 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
+  %6528 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
   %6529 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6528, ptr noundef nonnull %0)
   %6530 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17615 = icmp eq i8 %6530, 0
@@ -10485,7 +10485,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6543 = extractvalue { ptr, i8 } %6540, 1
   %6544 = extractvalue { ptr, i8 } %6540, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 241, ptr %6544, i8 %6543) #7
-  %6545 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5552), align 8
+  %6545 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5552), align 8
   %6546 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6545, ptr noundef nonnull %0)
   %6547 = extractvalue { ptr, i8 } %6546, 0
   %6548 = extractvalue { ptr, i8 } %6546, 1
@@ -10494,7 +10494,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17617, label %6550, label %10795
 
 6550:                                             ; preds = %6542
-  %6551 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
+  %6551 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
   %6552 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6551, ptr noundef nonnull %0)
   %6553 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17618 = icmp eq i8 %6553, 0
@@ -10521,7 +10521,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6566 = extractvalue { ptr, i8 } %6563, 1
   %6567 = extractvalue { ptr, i8 } %6563, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 242, ptr %6567, i8 %6566) #7
-  %6568 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5568), align 8
+  %6568 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5568), align 8
   %6569 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6568, ptr noundef nonnull %0)
   %6570 = extractvalue { ptr, i8 } %6569, 0
   %6571 = extractvalue { ptr, i8 } %6569, 1
@@ -10530,7 +10530,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17620, label %6573, label %10795
 
 6573:                                             ; preds = %6565
-  %6574 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
+  %6574 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
   %6575 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6574, ptr noundef nonnull %0)
   %6576 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17621 = icmp eq i8 %6576, 0
@@ -10557,7 +10557,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6589 = extractvalue { ptr, i8 } %6586, 1
   %6590 = extractvalue { ptr, i8 } %6586, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 243, ptr %6590, i8 %6589) #7
-  %6591 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5584), align 8
+  %6591 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5584), align 8
   %6592 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6591, ptr noundef nonnull %0)
   %6593 = extractvalue { ptr, i8 } %6592, 0
   %6594 = extractvalue { ptr, i8 } %6592, 1
@@ -10566,7 +10566,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17623, label %6596, label %10795
 
 6596:                                             ; preds = %6588
-  %6597 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
+  %6597 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
   %6598 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6597, ptr noundef nonnull %0)
   %6599 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17624 = icmp eq i8 %6599, 0
@@ -10593,7 +10593,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6612 = extractvalue { ptr, i8 } %6609, 1
   %6613 = extractvalue { ptr, i8 } %6609, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 244, ptr %6613, i8 %6612) #7
-  %6614 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5600), align 8
+  %6614 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5600), align 8
   %6615 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6614, ptr noundef nonnull %0)
   %6616 = extractvalue { ptr, i8 } %6615, 0
   %6617 = extractvalue { ptr, i8 } %6615, 1
@@ -10602,7 +10602,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17626, label %6619, label %10795
 
 6619:                                             ; preds = %6611
-  %6620 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8208), align 8
+  %6620 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8208), align 8
   %6621 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6620, ptr noundef nonnull %0)
   %6622 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17627 = icmp eq i8 %6622, 0
@@ -10629,7 +10629,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6635 = extractvalue { ptr, i8 } %6632, 1
   %6636 = extractvalue { ptr, i8 } %6632, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 245, ptr %6636, i8 %6635) #7
-  %6637 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5616), align 8
+  %6637 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5616), align 8
   %6638 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6637, ptr noundef nonnull %0)
   %6639 = extractvalue { ptr, i8 } %6638, 0
   %6640 = extractvalue { ptr, i8 } %6638, 1
@@ -10638,7 +10638,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17629, label %6642, label %10795
 
 6642:                                             ; preds = %6634
-  %6643 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8224), align 8
+  %6643 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8224), align 8
   %6644 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6643, ptr noundef nonnull %0)
   %6645 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17630 = icmp eq i8 %6645, 0
@@ -10665,7 +10665,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6658 = extractvalue { ptr, i8 } %6655, 1
   %6659 = extractvalue { ptr, i8 } %6655, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 246, ptr %6659, i8 %6658) #7
-  %6660 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5496), align 8
+  %6660 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5496), align 8
   %6661 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6660, ptr noundef nonnull %0)
   %6662 = extractvalue { ptr, i8 } %6661, 0
   %6663 = extractvalue { ptr, i8 } %6661, 1
@@ -10674,7 +10674,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17632, label %6665, label %10795
 
 6665:                                             ; preds = %6657
-  %6666 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8104), align 8
+  %6666 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8104), align 8
   %6667 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6666, ptr noundef nonnull %0)
   %6668 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17633 = icmp eq i8 %6668, 0
@@ -10701,7 +10701,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6681 = extractvalue { ptr, i8 } %6678, 1
   %6682 = extractvalue { ptr, i8 } %6678, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 247, ptr %6682, i8 %6681) #7
-  %6683 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5512), align 8
+  %6683 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5512), align 8
   %6684 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6683, ptr noundef nonnull %0)
   %6685 = extractvalue { ptr, i8 } %6684, 0
   %6686 = extractvalue { ptr, i8 } %6684, 1
@@ -10710,7 +10710,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17635, label %6688, label %10795
 
 6688:                                             ; preds = %6680
-  %6689 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8120), align 8
+  %6689 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8120), align 8
   %6690 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6689, ptr noundef nonnull %0)
   %6691 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17636 = icmp eq i8 %6691, 0
@@ -10737,7 +10737,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6704 = extractvalue { ptr, i8 } %6701, 1
   %6705 = extractvalue { ptr, i8 } %6701, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 248, ptr %6705, i8 %6704) #7
-  %6706 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5528), align 8
+  %6706 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5528), align 8
   %6707 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6706, ptr noundef nonnull %0)
   %6708 = extractvalue { ptr, i8 } %6707, 0
   %6709 = extractvalue { ptr, i8 } %6707, 1
@@ -10746,7 +10746,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17638, label %6711, label %10795
 
 6711:                                             ; preds = %6703
-  %6712 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8136), align 8
+  %6712 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8136), align 8
   %6713 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6712, ptr noundef nonnull %0)
   %6714 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17639 = icmp eq i8 %6714, 0
@@ -10773,7 +10773,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6727 = extractvalue { ptr, i8 } %6724, 1
   %6728 = extractvalue { ptr, i8 } %6724, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 249, ptr %6728, i8 %6727) #7
-  %6729 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5544), align 8
+  %6729 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5544), align 8
   %6730 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6729, ptr noundef nonnull %0)
   %6731 = extractvalue { ptr, i8 } %6730, 0
   %6732 = extractvalue { ptr, i8 } %6730, 1
@@ -10782,7 +10782,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17641, label %6734, label %10795
 
 6734:                                             ; preds = %6726
-  %6735 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
+  %6735 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
   %6736 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6735, ptr noundef nonnull %0)
   %6737 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17642 = icmp eq i8 %6737, 0
@@ -10809,7 +10809,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6750 = extractvalue { ptr, i8 } %6747, 1
   %6751 = extractvalue { ptr, i8 } %6747, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 250, ptr %6751, i8 %6750) #7
-  %6752 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5560), align 8
+  %6752 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5560), align 8
   %6753 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6752, ptr noundef nonnull %0)
   %6754 = extractvalue { ptr, i8 } %6753, 0
   %6755 = extractvalue { ptr, i8 } %6753, 1
@@ -10818,7 +10818,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17644, label %6757, label %10795
 
 6757:                                             ; preds = %6749
-  %6758 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
+  %6758 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
   %6759 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6758, ptr noundef nonnull %0)
   %6760 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17645 = icmp eq i8 %6760, 0
@@ -10845,7 +10845,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6773 = extractvalue { ptr, i8 } %6770, 1
   %6774 = extractvalue { ptr, i8 } %6770, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 251, ptr %6774, i8 %6773) #7
-  %6775 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5576), align 8
+  %6775 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5576), align 8
   %6776 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6775, ptr noundef nonnull %0)
   %6777 = extractvalue { ptr, i8 } %6776, 0
   %6778 = extractvalue { ptr, i8 } %6776, 1
@@ -10854,7 +10854,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17647, label %6780, label %10795
 
 6780:                                             ; preds = %6772
-  %6781 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
+  %6781 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
   %6782 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6781, ptr noundef nonnull %0)
   %6783 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17648 = icmp eq i8 %6783, 0
@@ -10881,7 +10881,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6796 = extractvalue { ptr, i8 } %6793, 1
   %6797 = extractvalue { ptr, i8 } %6793, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 252, ptr %6797, i8 %6796) #7
-  %6798 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5592), align 8
+  %6798 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5592), align 8
   %6799 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6798, ptr noundef nonnull %0)
   %6800 = extractvalue { ptr, i8 } %6799, 0
   %6801 = extractvalue { ptr, i8 } %6799, 1
@@ -10890,7 +10890,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17650, label %6803, label %10795
 
 6803:                                             ; preds = %6795
-  %6804 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
+  %6804 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
   %6805 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6804, ptr noundef nonnull %0)
   %6806 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17651 = icmp eq i8 %6806, 0
@@ -10917,7 +10917,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6819 = extractvalue { ptr, i8 } %6816, 1
   %6820 = extractvalue { ptr, i8 } %6816, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 253, ptr %6820, i8 %6819) #7
-  %6821 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5608), align 8
+  %6821 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5608), align 8
   %6822 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6821, ptr noundef nonnull %0)
   %6823 = extractvalue { ptr, i8 } %6822, 0
   %6824 = extractvalue { ptr, i8 } %6822, 1
@@ -10926,7 +10926,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17653, label %6826, label %10795
 
 6826:                                             ; preds = %6818
-  %6827 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8216), align 8
+  %6827 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8216), align 8
   %6828 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6827, ptr noundef nonnull %0)
   %6829 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17654 = icmp eq i8 %6829, 0
@@ -10953,7 +10953,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6842 = extractvalue { ptr, i8 } %6839, 1
   %6843 = extractvalue { ptr, i8 } %6839, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 254, ptr %6843, i8 %6842) #7
-  %6844 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5624), align 8
+  %6844 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5624), align 8
   %6845 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6844, ptr noundef nonnull %0)
   %6846 = extractvalue { ptr, i8 } %6845, 0
   %6847 = extractvalue { ptr, i8 } %6845, 1
@@ -10962,7 +10962,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17656, label %6849, label %10795
 
 6849:                                             ; preds = %6841
-  %6850 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8232), align 8
+  %6850 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8232), align 8
   %6851 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6850, ptr noundef nonnull %0)
   %6852 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17657 = icmp eq i8 %6852, 0
@@ -10989,7 +10989,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6865 = extractvalue { ptr, i8 } %6862, 1
   %6866 = extractvalue { ptr, i8 } %6862, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 255, ptr %6866, i8 %6865) #7
-  %6867 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5632), align 8
+  %6867 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5632), align 8
   %6868 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6867, ptr noundef nonnull %0)
   %6869 = extractvalue { ptr, i8 } %6868, 0
   %6870 = extractvalue { ptr, i8 } %6868, 1
@@ -10998,7 +10998,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17659, label %6872, label %10795
 
 6872:                                             ; preds = %6864
-  %6873 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8096), align 8
+  %6873 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8096), align 8
   %6874 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6873, ptr noundef nonnull %0)
   %6875 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17660 = icmp eq i8 %6875, 0
@@ -11025,7 +11025,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6888 = extractvalue { ptr, i8 } %6885, 1
   %6889 = extractvalue { ptr, i8 } %6885, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 256, ptr %6889, i8 %6888) #7
-  %6890 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5648), align 8
+  %6890 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5648), align 8
   %6891 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6890, ptr noundef nonnull %0)
   %6892 = extractvalue { ptr, i8 } %6891, 0
   %6893 = extractvalue { ptr, i8 } %6891, 1
@@ -11034,7 +11034,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17662, label %6895, label %10795
 
 6895:                                             ; preds = %6887
-  %6896 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8112), align 8
+  %6896 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8112), align 8
   %6897 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6896, ptr noundef nonnull %0)
   %6898 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17663 = icmp eq i8 %6898, 0
@@ -11061,7 +11061,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6911 = extractvalue { ptr, i8 } %6908, 1
   %6912 = extractvalue { ptr, i8 } %6908, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 257, ptr %6912, i8 %6911) #7
-  %6913 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5664), align 8
+  %6913 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5664), align 8
   %6914 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6913, ptr noundef nonnull %0)
   %6915 = extractvalue { ptr, i8 } %6914, 0
   %6916 = extractvalue { ptr, i8 } %6914, 1
@@ -11070,7 +11070,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17665, label %6918, label %10795
 
 6918:                                             ; preds = %6910
-  %6919 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8128), align 8
+  %6919 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8128), align 8
   %6920 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6919, ptr noundef nonnull %0)
   %6921 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17666 = icmp eq i8 %6921, 0
@@ -11097,7 +11097,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6934 = extractvalue { ptr, i8 } %6931, 1
   %6935 = extractvalue { ptr, i8 } %6931, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 258, ptr %6935, i8 %6934) #7
-  %6936 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5680), align 8
+  %6936 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5680), align 8
   %6937 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6936, ptr noundef nonnull %0)
   %6938 = extractvalue { ptr, i8 } %6937, 0
   %6939 = extractvalue { ptr, i8 } %6937, 1
@@ -11106,7 +11106,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17668, label %6941, label %10795
 
 6941:                                             ; preds = %6933
-  %6942 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
+  %6942 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
   %6943 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6942, ptr noundef nonnull %0)
   %6944 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17669 = icmp eq i8 %6944, 0
@@ -11133,7 +11133,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6957 = extractvalue { ptr, i8 } %6954, 1
   %6958 = extractvalue { ptr, i8 } %6954, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 259, ptr %6958, i8 %6957) #7
-  %6959 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5696), align 8
+  %6959 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5696), align 8
   %6960 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6959, ptr noundef nonnull %0)
   %6961 = extractvalue { ptr, i8 } %6960, 0
   %6962 = extractvalue { ptr, i8 } %6960, 1
@@ -11142,7 +11142,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17671, label %6964, label %10795
 
 6964:                                             ; preds = %6956
-  %6965 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
+  %6965 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
   %6966 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6965, ptr noundef nonnull %0)
   %6967 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17672 = icmp eq i8 %6967, 0
@@ -11169,7 +11169,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %6980 = extractvalue { ptr, i8 } %6977, 1
   %6981 = extractvalue { ptr, i8 } %6977, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 260, ptr %6981, i8 %6980) #7
-  %6982 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5712), align 8
+  %6982 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5712), align 8
   %6983 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6982, ptr noundef nonnull %0)
   %6984 = extractvalue { ptr, i8 } %6983, 0
   %6985 = extractvalue { ptr, i8 } %6983, 1
@@ -11178,7 +11178,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17674, label %6987, label %10795
 
 6987:                                             ; preds = %6979
-  %6988 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
+  %6988 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
   %6989 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %6988, ptr noundef nonnull %0)
   %6990 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17675 = icmp eq i8 %6990, 0
@@ -11205,7 +11205,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7003 = extractvalue { ptr, i8 } %7000, 1
   %7004 = extractvalue { ptr, i8 } %7000, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 261, ptr %7004, i8 %7003) #7
-  %7005 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5728), align 8
+  %7005 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5728), align 8
   %7006 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7005, ptr noundef nonnull %0)
   %7007 = extractvalue { ptr, i8 } %7006, 0
   %7008 = extractvalue { ptr, i8 } %7006, 1
@@ -11214,7 +11214,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17677, label %7010, label %10795
 
 7010:                                             ; preds = %7002
-  %7011 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
+  %7011 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
   %7012 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7011, ptr noundef nonnull %0)
   %7013 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17678 = icmp eq i8 %7013, 0
@@ -11241,7 +11241,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7026 = extractvalue { ptr, i8 } %7023, 1
   %7027 = extractvalue { ptr, i8 } %7023, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 262, ptr %7027, i8 %7026) #7
-  %7028 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5744), align 8
+  %7028 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5744), align 8
   %7029 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7028, ptr noundef nonnull %0)
   %7030 = extractvalue { ptr, i8 } %7029, 0
   %7031 = extractvalue { ptr, i8 } %7029, 1
@@ -11250,7 +11250,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17680, label %7033, label %10795
 
 7033:                                             ; preds = %7025
-  %7034 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8208), align 8
+  %7034 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8208), align 8
   %7035 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7034, ptr noundef nonnull %0)
   %7036 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17681 = icmp eq i8 %7036, 0
@@ -11277,7 +11277,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7049 = extractvalue { ptr, i8 } %7046, 1
   %7050 = extractvalue { ptr, i8 } %7046, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 263, ptr %7050, i8 %7049) #7
-  %7051 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5760), align 8
+  %7051 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5760), align 8
   %7052 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7051, ptr noundef nonnull %0)
   %7053 = extractvalue { ptr, i8 } %7052, 0
   %7054 = extractvalue { ptr, i8 } %7052, 1
@@ -11286,7 +11286,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17683, label %7056, label %10795
 
 7056:                                             ; preds = %7048
-  %7057 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8224), align 8
+  %7057 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8224), align 8
   %7058 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7057, ptr noundef nonnull %0)
   %7059 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17684 = icmp eq i8 %7059, 0
@@ -11313,7 +11313,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7072 = extractvalue { ptr, i8 } %7069, 1
   %7073 = extractvalue { ptr, i8 } %7069, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 264, ptr %7073, i8 %7072) #7
-  %7074 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5640), align 8
+  %7074 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5640), align 8
   %7075 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7074, ptr noundef nonnull %0)
   %7076 = extractvalue { ptr, i8 } %7075, 0
   %7077 = extractvalue { ptr, i8 } %7075, 1
@@ -11322,7 +11322,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17686, label %7079, label %10795
 
 7079:                                             ; preds = %7071
-  %7080 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8104), align 8
+  %7080 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8104), align 8
   %7081 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7080, ptr noundef nonnull %0)
   %7082 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17687 = icmp eq i8 %7082, 0
@@ -11349,7 +11349,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7095 = extractvalue { ptr, i8 } %7092, 1
   %7096 = extractvalue { ptr, i8 } %7092, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 265, ptr %7096, i8 %7095) #7
-  %7097 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5656), align 8
+  %7097 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5656), align 8
   %7098 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7097, ptr noundef nonnull %0)
   %7099 = extractvalue { ptr, i8 } %7098, 0
   %7100 = extractvalue { ptr, i8 } %7098, 1
@@ -11358,7 +11358,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17689, label %7102, label %10795
 
 7102:                                             ; preds = %7094
-  %7103 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8120), align 8
+  %7103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8120), align 8
   %7104 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7103, ptr noundef nonnull %0)
   %7105 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17690 = icmp eq i8 %7105, 0
@@ -11385,7 +11385,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7118 = extractvalue { ptr, i8 } %7115, 1
   %7119 = extractvalue { ptr, i8 } %7115, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 266, ptr %7119, i8 %7118) #7
-  %7120 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5672), align 8
+  %7120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5672), align 8
   %7121 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7120, ptr noundef nonnull %0)
   %7122 = extractvalue { ptr, i8 } %7121, 0
   %7123 = extractvalue { ptr, i8 } %7121, 1
@@ -11394,7 +11394,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17692, label %7125, label %10795
 
 7125:                                             ; preds = %7117
-  %7126 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8136), align 8
+  %7126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8136), align 8
   %7127 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7126, ptr noundef nonnull %0)
   %7128 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17693 = icmp eq i8 %7128, 0
@@ -11421,7 +11421,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7141 = extractvalue { ptr, i8 } %7138, 1
   %7142 = extractvalue { ptr, i8 } %7138, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 267, ptr %7142, i8 %7141) #7
-  %7143 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5688), align 8
+  %7143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5688), align 8
   %7144 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7143, ptr noundef nonnull %0)
   %7145 = extractvalue { ptr, i8 } %7144, 0
   %7146 = extractvalue { ptr, i8 } %7144, 1
@@ -11430,7 +11430,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17695, label %7148, label %10795
 
 7148:                                             ; preds = %7140
-  %7149 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
+  %7149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
   %7150 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7149, ptr noundef nonnull %0)
   %7151 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17696 = icmp eq i8 %7151, 0
@@ -11457,7 +11457,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7164 = extractvalue { ptr, i8 } %7161, 1
   %7165 = extractvalue { ptr, i8 } %7161, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 268, ptr %7165, i8 %7164) #7
-  %7166 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5704), align 8
+  %7166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5704), align 8
   %7167 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7166, ptr noundef nonnull %0)
   %7168 = extractvalue { ptr, i8 } %7167, 0
   %7169 = extractvalue { ptr, i8 } %7167, 1
@@ -11466,7 +11466,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17698, label %7171, label %10795
 
 7171:                                             ; preds = %7163
-  %7172 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
+  %7172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
   %7173 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7172, ptr noundef nonnull %0)
   %7174 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17699 = icmp eq i8 %7174, 0
@@ -11493,7 +11493,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7187 = extractvalue { ptr, i8 } %7184, 1
   %7188 = extractvalue { ptr, i8 } %7184, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 269, ptr %7188, i8 %7187) #7
-  %7189 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5720), align 8
+  %7189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5720), align 8
   %7190 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7189, ptr noundef nonnull %0)
   %7191 = extractvalue { ptr, i8 } %7190, 0
   %7192 = extractvalue { ptr, i8 } %7190, 1
@@ -11502,7 +11502,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17701, label %7194, label %10795
 
 7194:                                             ; preds = %7186
-  %7195 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
+  %7195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
   %7196 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7195, ptr noundef nonnull %0)
   %7197 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17702 = icmp eq i8 %7197, 0
@@ -11529,7 +11529,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7210 = extractvalue { ptr, i8 } %7207, 1
   %7211 = extractvalue { ptr, i8 } %7207, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 270, ptr %7211, i8 %7210) #7
-  %7212 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5736), align 8
+  %7212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5736), align 8
   %7213 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7212, ptr noundef nonnull %0)
   %7214 = extractvalue { ptr, i8 } %7213, 0
   %7215 = extractvalue { ptr, i8 } %7213, 1
@@ -11538,7 +11538,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17704, label %7217, label %10795
 
 7217:                                             ; preds = %7209
-  %7218 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
+  %7218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
   %7219 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7218, ptr noundef nonnull %0)
   %7220 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17705 = icmp eq i8 %7220, 0
@@ -11565,7 +11565,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7233 = extractvalue { ptr, i8 } %7230, 1
   %7234 = extractvalue { ptr, i8 } %7230, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 271, ptr %7234, i8 %7233) #7
-  %7235 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5752), align 8
+  %7235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5752), align 8
   %7236 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7235, ptr noundef nonnull %0)
   %7237 = extractvalue { ptr, i8 } %7236, 0
   %7238 = extractvalue { ptr, i8 } %7236, 1
@@ -11574,7 +11574,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17707, label %7240, label %10795
 
 7240:                                             ; preds = %7232
-  %7241 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8216), align 8
+  %7241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8216), align 8
   %7242 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7241, ptr noundef nonnull %0)
   %7243 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17708 = icmp eq i8 %7243, 0
@@ -11601,7 +11601,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7256 = extractvalue { ptr, i8 } %7253, 1
   %7257 = extractvalue { ptr, i8 } %7253, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 272, ptr %7257, i8 %7256) #7
-  %7258 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5768), align 8
+  %7258 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5768), align 8
   %7259 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7258, ptr noundef nonnull %0)
   %7260 = extractvalue { ptr, i8 } %7259, 0
   %7261 = extractvalue { ptr, i8 } %7259, 1
@@ -11610,7 +11610,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17710, label %7263, label %10795
 
 7263:                                             ; preds = %7255
-  %7264 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8232), align 8
+  %7264 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8232), align 8
   %7265 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7264, ptr noundef nonnull %0)
   %7266 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17711 = icmp eq i8 %7266, 0
@@ -11637,7 +11637,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7279 = extractvalue { ptr, i8 } %7276, 1
   %7280 = extractvalue { ptr, i8 } %7276, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 273, ptr %7280, i8 %7279) #7
-  %7281 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5776), align 8
+  %7281 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5776), align 8
   %7282 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7281, ptr noundef nonnull %0)
   %7283 = extractvalue { ptr, i8 } %7282, 0
   %7284 = extractvalue { ptr, i8 } %7282, 1
@@ -11646,7 +11646,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17713, label %7286, label %10795
 
 7286:                                             ; preds = %7278
-  %7287 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8096), align 8
+  %7287 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8096), align 8
   %7288 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7287, ptr noundef nonnull %0)
   %7289 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17714 = icmp eq i8 %7289, 0
@@ -11673,7 +11673,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7302 = extractvalue { ptr, i8 } %7299, 1
   %7303 = extractvalue { ptr, i8 } %7299, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 274, ptr %7303, i8 %7302) #7
-  %7304 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5792), align 8
+  %7304 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5792), align 8
   %7305 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7304, ptr noundef nonnull %0)
   %7306 = extractvalue { ptr, i8 } %7305, 0
   %7307 = extractvalue { ptr, i8 } %7305, 1
@@ -11682,7 +11682,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17716, label %7309, label %10795
 
 7309:                                             ; preds = %7301
-  %7310 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8112), align 8
+  %7310 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8112), align 8
   %7311 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7310, ptr noundef nonnull %0)
   %7312 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17717 = icmp eq i8 %7312, 0
@@ -11709,7 +11709,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7325 = extractvalue { ptr, i8 } %7322, 1
   %7326 = extractvalue { ptr, i8 } %7322, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 275, ptr %7326, i8 %7325) #7
-  %7327 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5808), align 8
+  %7327 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5808), align 8
   %7328 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7327, ptr noundef nonnull %0)
   %7329 = extractvalue { ptr, i8 } %7328, 0
   %7330 = extractvalue { ptr, i8 } %7328, 1
@@ -11718,7 +11718,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17719, label %7332, label %10795
 
 7332:                                             ; preds = %7324
-  %7333 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8128), align 8
+  %7333 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8128), align 8
   %7334 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7333, ptr noundef nonnull %0)
   %7335 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17720 = icmp eq i8 %7335, 0
@@ -11745,7 +11745,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7348 = extractvalue { ptr, i8 } %7345, 1
   %7349 = extractvalue { ptr, i8 } %7345, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 276, ptr %7349, i8 %7348) #7
-  %7350 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5824), align 8
+  %7350 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5824), align 8
   %7351 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7350, ptr noundef nonnull %0)
   %7352 = extractvalue { ptr, i8 } %7351, 0
   %7353 = extractvalue { ptr, i8 } %7351, 1
@@ -11754,7 +11754,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17722, label %7355, label %10795
 
 7355:                                             ; preds = %7347
-  %7356 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
+  %7356 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
   %7357 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7356, ptr noundef nonnull %0)
   %7358 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17723 = icmp eq i8 %7358, 0
@@ -11781,7 +11781,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7371 = extractvalue { ptr, i8 } %7368, 1
   %7372 = extractvalue { ptr, i8 } %7368, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 277, ptr %7372, i8 %7371) #7
-  %7373 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5840), align 8
+  %7373 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5840), align 8
   %7374 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7373, ptr noundef nonnull %0)
   %7375 = extractvalue { ptr, i8 } %7374, 0
   %7376 = extractvalue { ptr, i8 } %7374, 1
@@ -11790,7 +11790,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17725, label %7378, label %10795
 
 7378:                                             ; preds = %7370
-  %7379 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
+  %7379 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
   %7380 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7379, ptr noundef nonnull %0)
   %7381 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17726 = icmp eq i8 %7381, 0
@@ -11817,7 +11817,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7394 = extractvalue { ptr, i8 } %7391, 1
   %7395 = extractvalue { ptr, i8 } %7391, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 278, ptr %7395, i8 %7394) #7
-  %7396 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5856), align 8
+  %7396 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5856), align 8
   %7397 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7396, ptr noundef nonnull %0)
   %7398 = extractvalue { ptr, i8 } %7397, 0
   %7399 = extractvalue { ptr, i8 } %7397, 1
@@ -11826,7 +11826,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17728, label %7401, label %10795
 
 7401:                                             ; preds = %7393
-  %7402 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
+  %7402 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
   %7403 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7402, ptr noundef nonnull %0)
   %7404 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17729 = icmp eq i8 %7404, 0
@@ -11853,7 +11853,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7417 = extractvalue { ptr, i8 } %7414, 1
   %7418 = extractvalue { ptr, i8 } %7414, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 279, ptr %7418, i8 %7417) #7
-  %7419 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5872), align 8
+  %7419 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5872), align 8
   %7420 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7419, ptr noundef nonnull %0)
   %7421 = extractvalue { ptr, i8 } %7420, 0
   %7422 = extractvalue { ptr, i8 } %7420, 1
@@ -11862,7 +11862,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17731, label %7424, label %10795
 
 7424:                                             ; preds = %7416
-  %7425 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
+  %7425 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
   %7426 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7425, ptr noundef nonnull %0)
   %7427 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17732 = icmp eq i8 %7427, 0
@@ -11889,7 +11889,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7440 = extractvalue { ptr, i8 } %7437, 1
   %7441 = extractvalue { ptr, i8 } %7437, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 280, ptr %7441, i8 %7440) #7
-  %7442 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5888), align 8
+  %7442 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5888), align 8
   %7443 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7442, ptr noundef nonnull %0)
   %7444 = extractvalue { ptr, i8 } %7443, 0
   %7445 = extractvalue { ptr, i8 } %7443, 1
@@ -11898,7 +11898,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17734, label %7447, label %10795
 
 7447:                                             ; preds = %7439
-  %7448 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8208), align 8
+  %7448 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8208), align 8
   %7449 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7448, ptr noundef nonnull %0)
   %7450 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17735 = icmp eq i8 %7450, 0
@@ -11925,7 +11925,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7463 = extractvalue { ptr, i8 } %7460, 1
   %7464 = extractvalue { ptr, i8 } %7460, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 281, ptr %7464, i8 %7463) #7
-  %7465 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5904), align 8
+  %7465 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5904), align 8
   %7466 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7465, ptr noundef nonnull %0)
   %7467 = extractvalue { ptr, i8 } %7466, 0
   %7468 = extractvalue { ptr, i8 } %7466, 1
@@ -11934,7 +11934,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17737, label %7470, label %10795
 
 7470:                                             ; preds = %7462
-  %7471 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8224), align 8
+  %7471 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8224), align 8
   %7472 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7471, ptr noundef nonnull %0)
   %7473 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17738 = icmp eq i8 %7473, 0
@@ -11961,7 +11961,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7486 = extractvalue { ptr, i8 } %7483, 1
   %7487 = extractvalue { ptr, i8 } %7483, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 282, ptr %7487, i8 %7486) #7
-  %7488 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5784), align 8
+  %7488 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5784), align 8
   %7489 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7488, ptr noundef nonnull %0)
   %7490 = extractvalue { ptr, i8 } %7489, 0
   %7491 = extractvalue { ptr, i8 } %7489, 1
@@ -11970,7 +11970,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17740, label %7493, label %10795
 
 7493:                                             ; preds = %7485
-  %7494 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8104), align 8
+  %7494 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8104), align 8
   %7495 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7494, ptr noundef nonnull %0)
   %7496 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17741 = icmp eq i8 %7496, 0
@@ -11997,7 +11997,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7509 = extractvalue { ptr, i8 } %7506, 1
   %7510 = extractvalue { ptr, i8 } %7506, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 283, ptr %7510, i8 %7509) #7
-  %7511 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5800), align 8
+  %7511 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5800), align 8
   %7512 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7511, ptr noundef nonnull %0)
   %7513 = extractvalue { ptr, i8 } %7512, 0
   %7514 = extractvalue { ptr, i8 } %7512, 1
@@ -12006,7 +12006,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17743, label %7516, label %10795
 
 7516:                                             ; preds = %7508
-  %7517 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8120), align 8
+  %7517 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8120), align 8
   %7518 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7517, ptr noundef nonnull %0)
   %7519 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17744 = icmp eq i8 %7519, 0
@@ -12033,7 +12033,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7532 = extractvalue { ptr, i8 } %7529, 1
   %7533 = extractvalue { ptr, i8 } %7529, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 284, ptr %7533, i8 %7532) #7
-  %7534 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5816), align 8
+  %7534 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5816), align 8
   %7535 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7534, ptr noundef nonnull %0)
   %7536 = extractvalue { ptr, i8 } %7535, 0
   %7537 = extractvalue { ptr, i8 } %7535, 1
@@ -12042,7 +12042,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17746, label %7539, label %10795
 
 7539:                                             ; preds = %7531
-  %7540 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8136), align 8
+  %7540 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8136), align 8
   %7541 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7540, ptr noundef nonnull %0)
   %7542 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17747 = icmp eq i8 %7542, 0
@@ -12069,7 +12069,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7555 = extractvalue { ptr, i8 } %7552, 1
   %7556 = extractvalue { ptr, i8 } %7552, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 285, ptr %7556, i8 %7555) #7
-  %7557 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5832), align 8
+  %7557 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5832), align 8
   %7558 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7557, ptr noundef nonnull %0)
   %7559 = extractvalue { ptr, i8 } %7558, 0
   %7560 = extractvalue { ptr, i8 } %7558, 1
@@ -12078,7 +12078,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17749, label %7562, label %10795
 
 7562:                                             ; preds = %7554
-  %7563 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
+  %7563 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
   %7564 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7563, ptr noundef nonnull %0)
   %7565 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17750 = icmp eq i8 %7565, 0
@@ -12105,7 +12105,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7578 = extractvalue { ptr, i8 } %7575, 1
   %7579 = extractvalue { ptr, i8 } %7575, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 286, ptr %7579, i8 %7578) #7
-  %7580 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5848), align 8
+  %7580 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5848), align 8
   %7581 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7580, ptr noundef nonnull %0)
   %7582 = extractvalue { ptr, i8 } %7581, 0
   %7583 = extractvalue { ptr, i8 } %7581, 1
@@ -12114,7 +12114,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17752, label %7585, label %10795
 
 7585:                                             ; preds = %7577
-  %7586 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
+  %7586 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
   %7587 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7586, ptr noundef nonnull %0)
   %7588 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17753 = icmp eq i8 %7588, 0
@@ -12141,7 +12141,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7601 = extractvalue { ptr, i8 } %7598, 1
   %7602 = extractvalue { ptr, i8 } %7598, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 287, ptr %7602, i8 %7601) #7
-  %7603 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5864), align 8
+  %7603 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5864), align 8
   %7604 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7603, ptr noundef nonnull %0)
   %7605 = extractvalue { ptr, i8 } %7604, 0
   %7606 = extractvalue { ptr, i8 } %7604, 1
@@ -12150,7 +12150,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17755, label %7608, label %10795
 
 7608:                                             ; preds = %7600
-  %7609 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
+  %7609 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
   %7610 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7609, ptr noundef nonnull %0)
   %7611 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17756 = icmp eq i8 %7611, 0
@@ -12177,7 +12177,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7624 = extractvalue { ptr, i8 } %7621, 1
   %7625 = extractvalue { ptr, i8 } %7621, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 288, ptr %7625, i8 %7624) #7
-  %7626 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5880), align 8
+  %7626 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5880), align 8
   %7627 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7626, ptr noundef nonnull %0)
   %7628 = extractvalue { ptr, i8 } %7627, 0
   %7629 = extractvalue { ptr, i8 } %7627, 1
@@ -12186,7 +12186,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17758, label %7631, label %10795
 
 7631:                                             ; preds = %7623
-  %7632 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
+  %7632 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
   %7633 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7632, ptr noundef nonnull %0)
   %7634 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17759 = icmp eq i8 %7634, 0
@@ -12213,7 +12213,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7647 = extractvalue { ptr, i8 } %7644, 1
   %7648 = extractvalue { ptr, i8 } %7644, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 289, ptr %7648, i8 %7647) #7
-  %7649 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5896), align 8
+  %7649 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5896), align 8
   %7650 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7649, ptr noundef nonnull %0)
   %7651 = extractvalue { ptr, i8 } %7650, 0
   %7652 = extractvalue { ptr, i8 } %7650, 1
@@ -12222,7 +12222,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17761, label %7654, label %10795
 
 7654:                                             ; preds = %7646
-  %7655 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8216), align 8
+  %7655 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8216), align 8
   %7656 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7655, ptr noundef nonnull %0)
   %7657 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17762 = icmp eq i8 %7657, 0
@@ -12249,7 +12249,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7670 = extractvalue { ptr, i8 } %7667, 1
   %7671 = extractvalue { ptr, i8 } %7667, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 290, ptr %7671, i8 %7670) #7
-  %7672 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5912), align 8
+  %7672 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5912), align 8
   %7673 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7672, ptr noundef nonnull %0)
   %7674 = extractvalue { ptr, i8 } %7673, 0
   %7675 = extractvalue { ptr, i8 } %7673, 1
@@ -12258,7 +12258,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17764, label %7677, label %10795
 
 7677:                                             ; preds = %7669
-  %7678 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8232), align 8
+  %7678 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8232), align 8
   %7679 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7678, ptr noundef nonnull %0)
   %7680 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17765 = icmp eq i8 %7680, 0
@@ -12285,7 +12285,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7693 = extractvalue { ptr, i8 } %7690, 1
   %7694 = extractvalue { ptr, i8 } %7690, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 291, ptr %7694, i8 %7693) #7
-  %7695 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5920), align 8
+  %7695 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5920), align 8
   %7696 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7695, ptr noundef nonnull %0)
   %7697 = extractvalue { ptr, i8 } %7696, 0
   %7698 = extractvalue { ptr, i8 } %7696, 1
@@ -12294,7 +12294,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17767, label %7700, label %10795
 
 7700:                                             ; preds = %7692
-  %7701 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
+  %7701 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8144), align 8
   %7702 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7701, ptr noundef nonnull %0)
   %7703 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17768 = icmp eq i8 %7703, 0
@@ -12321,7 +12321,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7716 = extractvalue { ptr, i8 } %7713, 1
   %7717 = extractvalue { ptr, i8 } %7713, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 292, ptr %7717, i8 %7716) #7
-  %7718 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5936), align 8
+  %7718 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5936), align 8
   %7719 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7718, ptr noundef nonnull %0)
   %7720 = extractvalue { ptr, i8 } %7719, 0
   %7721 = extractvalue { ptr, i8 } %7719, 1
@@ -12330,7 +12330,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17770, label %7723, label %10795
 
 7723:                                             ; preds = %7715
-  %7724 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
+  %7724 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8160), align 8
   %7725 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7724, ptr noundef nonnull %0)
   %7726 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17771 = icmp eq i8 %7726, 0
@@ -12357,7 +12357,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7739 = extractvalue { ptr, i8 } %7736, 1
   %7740 = extractvalue { ptr, i8 } %7736, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 293, ptr %7740, i8 %7739) #7
-  %7741 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5952), align 8
+  %7741 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5952), align 8
   %7742 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7741, ptr noundef nonnull %0)
   %7743 = extractvalue { ptr, i8 } %7742, 0
   %7744 = extractvalue { ptr, i8 } %7742, 1
@@ -12366,7 +12366,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17773, label %7746, label %10795
 
 7746:                                             ; preds = %7738
-  %7747 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
+  %7747 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8176), align 8
   %7748 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7747, ptr noundef nonnull %0)
   %7749 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17774 = icmp eq i8 %7749, 0
@@ -12393,7 +12393,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7762 = extractvalue { ptr, i8 } %7759, 1
   %7763 = extractvalue { ptr, i8 } %7759, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 294, ptr %7763, i8 %7762) #7
-  %7764 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5968), align 8
+  %7764 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5968), align 8
   %7765 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7764, ptr noundef nonnull %0)
   %7766 = extractvalue { ptr, i8 } %7765, 0
   %7767 = extractvalue { ptr, i8 } %7765, 1
@@ -12402,7 +12402,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17776, label %7769, label %10795
 
 7769:                                             ; preds = %7761
-  %7770 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
+  %7770 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8192), align 8
   %7771 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7770, ptr noundef nonnull %0)
   %7772 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17777 = icmp eq i8 %7772, 0
@@ -12429,7 +12429,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7785 = extractvalue { ptr, i8 } %7782, 1
   %7786 = extractvalue { ptr, i8 } %7782, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 295, ptr %7786, i8 %7785) #7
-  %7787 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5928), align 8
+  %7787 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5928), align 8
   %7788 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7787, ptr noundef nonnull %0)
   %7789 = extractvalue { ptr, i8 } %7788, 0
   %7790 = extractvalue { ptr, i8 } %7788, 1
@@ -12438,7 +12438,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17779, label %7792, label %10795
 
 7792:                                             ; preds = %7784
-  %7793 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
+  %7793 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8152), align 8
   %7794 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7793, ptr noundef nonnull %0)
   %7795 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17780 = icmp eq i8 %7795, 0
@@ -12465,7 +12465,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7808 = extractvalue { ptr, i8 } %7805, 1
   %7809 = extractvalue { ptr, i8 } %7805, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 296, ptr %7809, i8 %7808) #7
-  %7810 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5944), align 8
+  %7810 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5944), align 8
   %7811 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7810, ptr noundef nonnull %0)
   %7812 = extractvalue { ptr, i8 } %7811, 0
   %7813 = extractvalue { ptr, i8 } %7811, 1
@@ -12474,7 +12474,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17782, label %7815, label %10795
 
 7815:                                             ; preds = %7807
-  %7816 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
+  %7816 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8168), align 8
   %7817 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7816, ptr noundef nonnull %0)
   %7818 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17783 = icmp eq i8 %7818, 0
@@ -12501,7 +12501,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7831 = extractvalue { ptr, i8 } %7828, 1
   %7832 = extractvalue { ptr, i8 } %7828, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 297, ptr %7832, i8 %7831) #7
-  %7833 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5960), align 8
+  %7833 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5960), align 8
   %7834 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7833, ptr noundef nonnull %0)
   %7835 = extractvalue { ptr, i8 } %7834, 0
   %7836 = extractvalue { ptr, i8 } %7834, 1
@@ -12510,7 +12510,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17785, label %7838, label %10795
 
 7838:                                             ; preds = %7830
-  %7839 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
+  %7839 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8184), align 8
   %7840 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7839, ptr noundef nonnull %0)
   %7841 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17786 = icmp eq i8 %7841, 0
@@ -12537,7 +12537,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7854 = extractvalue { ptr, i8 } %7851, 1
   %7855 = extractvalue { ptr, i8 } %7851, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 298, ptr %7855, i8 %7854) #7
-  %7856 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5976), align 8
+  %7856 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5976), align 8
   %7857 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7856, ptr noundef nonnull %0)
   %7858 = extractvalue { ptr, i8 } %7857, 0
   %7859 = extractvalue { ptr, i8 } %7857, 1
@@ -12546,7 +12546,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17788, label %7861, label %10795
 
 7861:                                             ; preds = %7853
-  %7862 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
+  %7862 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8200), align 8
   %7863 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7862, ptr noundef nonnull %0)
   %7864 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17789 = icmp eq i8 %7864, 0
@@ -12573,7 +12573,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7877 = extractvalue { ptr, i8 } %7874, 1
   %7878 = extractvalue { ptr, i8 } %7874, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 299, ptr %7878, i8 %7877) #7
-  %7879 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5984), align 8
+  %7879 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5984), align 8
   %7880 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7879, ptr noundef nonnull %0)
   %7881 = extractvalue { ptr, i8 } %7880, 0
   %7882 = extractvalue { ptr, i8 } %7880, 1
@@ -12582,7 +12582,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17791, label %7884, label %10795
 
 7884:                                             ; preds = %7876
-  %7885 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
+  %7885 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
   %7886 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7885, ptr noundef nonnull %0)
   %7887 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17792 = icmp eq i8 %7887, 0
@@ -12609,7 +12609,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7900 = extractvalue { ptr, i8 } %7897, 1
   %7901 = extractvalue { ptr, i8 } %7897, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 300, ptr %7901, i8 %7900) #7
-  %7902 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5992), align 8
+  %7902 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 5992), align 8
   %7903 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7902, ptr noundef nonnull %0)
   %7904 = extractvalue { ptr, i8 } %7903, 0
   %7905 = extractvalue { ptr, i8 } %7903, 1
@@ -12618,7 +12618,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17794, label %7907, label %10795
 
 7907:                                             ; preds = %7899
-  %7908 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8248), align 8
+  %7908 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8248), align 8
   %7909 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7908, ptr noundef nonnull %0)
   %7910 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17795 = icmp eq i8 %7910, 0
@@ -12645,7 +12645,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7923 = extractvalue { ptr, i8 } %7920, 1
   %7924 = extractvalue { ptr, i8 } %7920, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 301, ptr %7924, i8 %7923) #7
-  %7925 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6000), align 8
+  %7925 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6000), align 8
   %7926 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7925, ptr noundef nonnull %0)
   %7927 = extractvalue { ptr, i8 } %7926, 0
   %7928 = extractvalue { ptr, i8 } %7926, 1
@@ -12654,7 +12654,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17797, label %7930, label %10795
 
 7930:                                             ; preds = %7922
-  %7931 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8248), align 8
+  %7931 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8248), align 8
   %7932 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7931, ptr noundef nonnull %0)
   %7933 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17798 = icmp eq i8 %7933, 0
@@ -12681,7 +12681,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7946 = extractvalue { ptr, i8 } %7943, 1
   %7947 = extractvalue { ptr, i8 } %7943, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 302, ptr %7947, i8 %7946) #7
-  %7948 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6008), align 8
+  %7948 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6008), align 8
   %7949 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7948, ptr noundef nonnull %0)
   %7950 = extractvalue { ptr, i8 } %7949, 0
   %7951 = extractvalue { ptr, i8 } %7949, 1
@@ -12690,7 +12690,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17800, label %7953, label %10795
 
 7953:                                             ; preds = %7945
-  %7954 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8248), align 8
+  %7954 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8248), align 8
   %7955 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7954, ptr noundef nonnull %0)
   %7956 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17801 = icmp eq i8 %7956, 0
@@ -12717,7 +12717,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7969 = extractvalue { ptr, i8 } %7966, 1
   %7970 = extractvalue { ptr, i8 } %7966, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 303, ptr %7970, i8 %7969) #7
-  %7971 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6016), align 8
+  %7971 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6016), align 8
   %7972 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7971, ptr noundef nonnull %0)
   %7973 = extractvalue { ptr, i8 } %7972, 0
   %7974 = extractvalue { ptr, i8 } %7972, 1
@@ -12726,7 +12726,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17803, label %7976, label %10795
 
 7976:                                             ; preds = %7968
-  %7977 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
+  %7977 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
   %7978 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7977, ptr noundef nonnull %0)
   %7979 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17804 = icmp eq i8 %7979, 0
@@ -12753,7 +12753,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %7992 = extractvalue { ptr, i8 } %7989, 1
   %7993 = extractvalue { ptr, i8 } %7989, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 304, ptr %7993, i8 %7992) #7
-  %7994 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6024), align 8
+  %7994 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6024), align 8
   %7995 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %7994, ptr noundef nonnull %0)
   %7996 = extractvalue { ptr, i8 } %7995, 0
   %7997 = extractvalue { ptr, i8 } %7995, 1
@@ -12762,7 +12762,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17806, label %7999, label %10795
 
 7999:                                             ; preds = %7991
-  %8000 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8264), align 8
+  %8000 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8264), align 8
   %8001 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8000, ptr noundef nonnull %0)
   %8002 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17807 = icmp eq i8 %8002, 0
@@ -12789,7 +12789,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8015 = extractvalue { ptr, i8 } %8012, 1
   %8016 = extractvalue { ptr, i8 } %8012, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 305, ptr %8016, i8 %8015) #7
-  %8017 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6032), align 8
+  %8017 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6032), align 8
   %8018 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8017, ptr noundef nonnull %0)
   %8019 = extractvalue { ptr, i8 } %8018, 0
   %8020 = extractvalue { ptr, i8 } %8018, 1
@@ -12798,7 +12798,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17809, label %8022, label %10795
 
 8022:                                             ; preds = %8014
-  %8023 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8264), align 8
+  %8023 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8264), align 8
   %8024 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8023, ptr noundef nonnull %0)
   %8025 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17810 = icmp eq i8 %8025, 0
@@ -12825,7 +12825,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8038 = extractvalue { ptr, i8 } %8035, 1
   %8039 = extractvalue { ptr, i8 } %8035, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 306, ptr %8039, i8 %8038) #7
-  %8040 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6040), align 8
+  %8040 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6040), align 8
   %8041 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8040, ptr noundef nonnull %0)
   %8042 = extractvalue { ptr, i8 } %8041, 0
   %8043 = extractvalue { ptr, i8 } %8041, 1
@@ -12834,7 +12834,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17812, label %8045, label %10795
 
 8045:                                             ; preds = %8037
-  %8046 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8264), align 8
+  %8046 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8264), align 8
   %8047 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8046, ptr noundef nonnull %0)
   %8048 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17813 = icmp eq i8 %8048, 0
@@ -12861,7 +12861,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8061 = extractvalue { ptr, i8 } %8058, 1
   %8062 = extractvalue { ptr, i8 } %8058, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 307, ptr %8062, i8 %8061) #7
-  %8063 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6048), align 8
+  %8063 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6048), align 8
   %8064 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8063, ptr noundef nonnull %0)
   %8065 = extractvalue { ptr, i8 } %8064, 0
   %8066 = extractvalue { ptr, i8 } %8064, 1
@@ -12870,7 +12870,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17815, label %8068, label %10795
 
 8068:                                             ; preds = %8060
-  %8069 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
+  %8069 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
   %8070 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8069, ptr noundef nonnull %0)
   %8071 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17816 = icmp eq i8 %8071, 0
@@ -12897,7 +12897,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8084 = extractvalue { ptr, i8 } %8081, 1
   %8085 = extractvalue { ptr, i8 } %8081, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 308, ptr %8085, i8 %8084) #7
-  %8086 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6056), align 8
+  %8086 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6056), align 8
   %8087 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8086, ptr noundef nonnull %0)
   %8088 = extractvalue { ptr, i8 } %8087, 0
   %8089 = extractvalue { ptr, i8 } %8087, 1
@@ -12906,7 +12906,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17818, label %8091, label %10795
 
 8091:                                             ; preds = %8083
-  %8092 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8280), align 8
+  %8092 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8280), align 8
   %8093 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8092, ptr noundef nonnull %0)
   %8094 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17819 = icmp eq i8 %8094, 0
@@ -12933,7 +12933,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8107 = extractvalue { ptr, i8 } %8104, 1
   %8108 = extractvalue { ptr, i8 } %8104, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 309, ptr %8108, i8 %8107) #7
-  %8109 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6064), align 8
+  %8109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6064), align 8
   %8110 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8109, ptr noundef nonnull %0)
   %8111 = extractvalue { ptr, i8 } %8110, 0
   %8112 = extractvalue { ptr, i8 } %8110, 1
@@ -12942,7 +12942,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17821, label %8114, label %10795
 
 8114:                                             ; preds = %8106
-  %8115 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8280), align 8
+  %8115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8280), align 8
   %8116 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8115, ptr noundef nonnull %0)
   %8117 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17822 = icmp eq i8 %8117, 0
@@ -12969,7 +12969,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8130 = extractvalue { ptr, i8 } %8127, 1
   %8131 = extractvalue { ptr, i8 } %8127, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 310, ptr %8131, i8 %8130) #7
-  %8132 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6072), align 8
+  %8132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6072), align 8
   %8133 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8132, ptr noundef nonnull %0)
   %8134 = extractvalue { ptr, i8 } %8133, 0
   %8135 = extractvalue { ptr, i8 } %8133, 1
@@ -12978,7 +12978,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17824, label %8137, label %10795
 
 8137:                                             ; preds = %8129
-  %8138 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8280), align 8
+  %8138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8280), align 8
   %8139 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8138, ptr noundef nonnull %0)
   %8140 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17825 = icmp eq i8 %8140, 0
@@ -13005,7 +13005,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8153 = extractvalue { ptr, i8 } %8150, 1
   %8154 = extractvalue { ptr, i8 } %8150, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 311, ptr %8154, i8 %8153) #7
-  %8155 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6080), align 8
+  %8155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6080), align 8
   %8156 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8155, ptr noundef nonnull %0)
   %8157 = extractvalue { ptr, i8 } %8156, 0
   %8158 = extractvalue { ptr, i8 } %8156, 1
@@ -13014,7 +13014,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17827, label %8160, label %10795
 
 8160:                                             ; preds = %8152
-  %8161 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
+  %8161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
   %8162 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8161, ptr noundef nonnull %0)
   %8163 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17828 = icmp eq i8 %8163, 0
@@ -13041,7 +13041,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8176 = extractvalue { ptr, i8 } %8173, 1
   %8177 = extractvalue { ptr, i8 } %8173, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 312, ptr %8177, i8 %8176) #7
-  %8178 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6088), align 8
+  %8178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6088), align 8
   %8179 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8178, ptr noundef nonnull %0)
   %8180 = extractvalue { ptr, i8 } %8179, 0
   %8181 = extractvalue { ptr, i8 } %8179, 1
@@ -13050,7 +13050,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17830, label %8183, label %10795
 
 8183:                                             ; preds = %8175
-  %8184 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8296), align 8
+  %8184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8296), align 8
   %8185 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8184, ptr noundef nonnull %0)
   %8186 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17831 = icmp eq i8 %8186, 0
@@ -13077,7 +13077,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8199 = extractvalue { ptr, i8 } %8196, 1
   %8200 = extractvalue { ptr, i8 } %8196, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 313, ptr %8200, i8 %8199) #7
-  %8201 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6096), align 8
+  %8201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6096), align 8
   %8202 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8201, ptr noundef nonnull %0)
   %8203 = extractvalue { ptr, i8 } %8202, 0
   %8204 = extractvalue { ptr, i8 } %8202, 1
@@ -13086,7 +13086,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17833, label %8206, label %10795
 
 8206:                                             ; preds = %8198
-  %8207 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8296), align 8
+  %8207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8296), align 8
   %8208 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8207, ptr noundef nonnull %0)
   %8209 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17834 = icmp eq i8 %8209, 0
@@ -13113,7 +13113,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8222 = extractvalue { ptr, i8 } %8219, 1
   %8223 = extractvalue { ptr, i8 } %8219, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 314, ptr %8223, i8 %8222) #7
-  %8224 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6104), align 8
+  %8224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6104), align 8
   %8225 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8224, ptr noundef nonnull %0)
   %8226 = extractvalue { ptr, i8 } %8225, 0
   %8227 = extractvalue { ptr, i8 } %8225, 1
@@ -13122,7 +13122,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17836, label %8229, label %10795
 
 8229:                                             ; preds = %8221
-  %8230 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8296), align 8
+  %8230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8296), align 8
   %8231 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8230, ptr noundef nonnull %0)
   %8232 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17837 = icmp eq i8 %8232, 0
@@ -13149,7 +13149,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8245 = extractvalue { ptr, i8 } %8242, 1
   %8246 = extractvalue { ptr, i8 } %8242, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 315, ptr %8246, i8 %8245) #7
-  %8247 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6112), align 8
+  %8247 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6112), align 8
   %8248 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8247, ptr noundef nonnull %0)
   %8249 = extractvalue { ptr, i8 } %8248, 0
   %8250 = extractvalue { ptr, i8 } %8248, 1
@@ -13158,7 +13158,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17839, label %8252, label %10795
 
 8252:                                             ; preds = %8244
-  %8253 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
+  %8253 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
   %8254 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8253, ptr noundef nonnull %0)
   %8255 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17840 = icmp eq i8 %8255, 0
@@ -13185,7 +13185,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8268 = extractvalue { ptr, i8 } %8265, 1
   %8269 = extractvalue { ptr, i8 } %8265, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 316, ptr %8269, i8 %8268) #7
-  %8270 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6120), align 8
+  %8270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6120), align 8
   %8271 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8270, ptr noundef nonnull %0)
   %8272 = extractvalue { ptr, i8 } %8271, 0
   %8273 = extractvalue { ptr, i8 } %8271, 1
@@ -13194,7 +13194,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17842, label %8275, label %10795
 
 8275:                                             ; preds = %8267
-  %8276 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8312), align 8
+  %8276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8312), align 8
   %8277 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8276, ptr noundef nonnull %0)
   %8278 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17843 = icmp eq i8 %8278, 0
@@ -13221,7 +13221,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8291 = extractvalue { ptr, i8 } %8288, 1
   %8292 = extractvalue { ptr, i8 } %8288, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 317, ptr %8292, i8 %8291) #7
-  %8293 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6128), align 8
+  %8293 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6128), align 8
   %8294 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8293, ptr noundef nonnull %0)
   %8295 = extractvalue { ptr, i8 } %8294, 0
   %8296 = extractvalue { ptr, i8 } %8294, 1
@@ -13230,7 +13230,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17845, label %8298, label %10795
 
 8298:                                             ; preds = %8290
-  %8299 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8312), align 8
+  %8299 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8312), align 8
   %8300 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8299, ptr noundef nonnull %0)
   %8301 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17846 = icmp eq i8 %8301, 0
@@ -13257,7 +13257,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8314 = extractvalue { ptr, i8 } %8311, 1
   %8315 = extractvalue { ptr, i8 } %8311, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 318, ptr %8315, i8 %8314) #7
-  %8316 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6136), align 8
+  %8316 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6136), align 8
   %8317 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8316, ptr noundef nonnull %0)
   %8318 = extractvalue { ptr, i8 } %8317, 0
   %8319 = extractvalue { ptr, i8 } %8317, 1
@@ -13266,7 +13266,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17848, label %8321, label %10795
 
 8321:                                             ; preds = %8313
-  %8322 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8312), align 8
+  %8322 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8312), align 8
   %8323 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8322, ptr noundef nonnull %0)
   %8324 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17849 = icmp eq i8 %8324, 0
@@ -13293,7 +13293,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8337 = extractvalue { ptr, i8 } %8334, 1
   %8338 = extractvalue { ptr, i8 } %8334, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 319, ptr %8338, i8 %8337) #7
-  %8339 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6144), align 8
+  %8339 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6144), align 8
   %8340 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8339, ptr noundef nonnull %0)
   %8341 = extractvalue { ptr, i8 } %8340, 0
   %8342 = extractvalue { ptr, i8 } %8340, 1
@@ -13302,7 +13302,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17851, label %8344, label %10795
 
 8344:                                             ; preds = %8336
-  %8345 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
+  %8345 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
   %8346 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8345, ptr noundef nonnull %0)
   %8347 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17852 = icmp eq i8 %8347, 0
@@ -13329,7 +13329,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8360 = extractvalue { ptr, i8 } %8357, 1
   %8361 = extractvalue { ptr, i8 } %8357, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 320, ptr %8361, i8 %8360) #7
-  %8362 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6152), align 8
+  %8362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6152), align 8
   %8363 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8362, ptr noundef nonnull %0)
   %8364 = extractvalue { ptr, i8 } %8363, 0
   %8365 = extractvalue { ptr, i8 } %8363, 1
@@ -13338,7 +13338,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17854, label %8367, label %10795
 
 8367:                                             ; preds = %8359
-  %8368 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
+  %8368 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
   %8369 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8368, ptr noundef nonnull %0)
   %8370 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17855 = icmp eq i8 %8370, 0
@@ -13365,7 +13365,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8383 = extractvalue { ptr, i8 } %8380, 1
   %8384 = extractvalue { ptr, i8 } %8380, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 321, ptr %8384, i8 %8383) #7
-  %8385 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6160), align 8
+  %8385 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6160), align 8
   %8386 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8385, ptr noundef nonnull %0)
   %8387 = extractvalue { ptr, i8 } %8386, 0
   %8388 = extractvalue { ptr, i8 } %8386, 1
@@ -13374,7 +13374,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17857, label %8390, label %10795
 
 8390:                                             ; preds = %8382
-  %8391 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
+  %8391 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
   %8392 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8391, ptr noundef nonnull %0)
   %8393 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17858 = icmp eq i8 %8393, 0
@@ -13401,7 +13401,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8406 = extractvalue { ptr, i8 } %8403, 1
   %8407 = extractvalue { ptr, i8 } %8403, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 322, ptr %8407, i8 %8406) #7
-  %8408 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6168), align 8
+  %8408 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6168), align 8
   %8409 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8408, ptr noundef nonnull %0)
   %8410 = extractvalue { ptr, i8 } %8409, 0
   %8411 = extractvalue { ptr, i8 } %8409, 1
@@ -13410,7 +13410,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17860, label %8413, label %10795
 
 8413:                                             ; preds = %8405
-  %8414 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
+  %8414 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8240), align 8
   %8415 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8414, ptr noundef nonnull %0)
   %8416 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17861 = icmp eq i8 %8416, 0
@@ -13437,7 +13437,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8429 = extractvalue { ptr, i8 } %8426, 1
   %8430 = extractvalue { ptr, i8 } %8426, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 323, ptr %8430, i8 %8429) #7
-  %8431 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6176), align 8
+  %8431 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6176), align 8
   %8432 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8431, ptr noundef nonnull %0)
   %8433 = extractvalue { ptr, i8 } %8432, 0
   %8434 = extractvalue { ptr, i8 } %8432, 1
@@ -13446,7 +13446,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17863, label %8436, label %10795
 
 8436:                                             ; preds = %8428
-  %8437 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
+  %8437 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
   %8438 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8437, ptr noundef nonnull %0)
   %8439 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17864 = icmp eq i8 %8439, 0
@@ -13473,7 +13473,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8452 = extractvalue { ptr, i8 } %8449, 1
   %8453 = extractvalue { ptr, i8 } %8449, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 324, ptr %8453, i8 %8452) #7
-  %8454 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6184), align 8
+  %8454 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6184), align 8
   %8455 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8454, ptr noundef nonnull %0)
   %8456 = extractvalue { ptr, i8 } %8455, 0
   %8457 = extractvalue { ptr, i8 } %8455, 1
@@ -13482,7 +13482,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17866, label %8459, label %10795
 
 8459:                                             ; preds = %8451
-  %8460 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
+  %8460 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
   %8461 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8460, ptr noundef nonnull %0)
   %8462 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17867 = icmp eq i8 %8462, 0
@@ -13509,7 +13509,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8475 = extractvalue { ptr, i8 } %8472, 1
   %8476 = extractvalue { ptr, i8 } %8472, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 325, ptr %8476, i8 %8475) #7
-  %8477 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6192), align 8
+  %8477 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6192), align 8
   %8478 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8477, ptr noundef nonnull %0)
   %8479 = extractvalue { ptr, i8 } %8478, 0
   %8480 = extractvalue { ptr, i8 } %8478, 1
@@ -13518,7 +13518,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17869, label %8482, label %10795
 
 8482:                                             ; preds = %8474
-  %8483 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
+  %8483 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
   %8484 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8483, ptr noundef nonnull %0)
   %8485 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17870 = icmp eq i8 %8485, 0
@@ -13545,7 +13545,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8498 = extractvalue { ptr, i8 } %8495, 1
   %8499 = extractvalue { ptr, i8 } %8495, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 326, ptr %8499, i8 %8498) #7
-  %8500 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6200), align 8
+  %8500 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6200), align 8
   %8501 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8500, ptr noundef nonnull %0)
   %8502 = extractvalue { ptr, i8 } %8501, 0
   %8503 = extractvalue { ptr, i8 } %8501, 1
@@ -13554,7 +13554,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17872, label %8505, label %10795
 
 8505:                                             ; preds = %8497
-  %8506 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
+  %8506 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8256), align 8
   %8507 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8506, ptr noundef nonnull %0)
   %8508 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17873 = icmp eq i8 %8508, 0
@@ -13581,7 +13581,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8521 = extractvalue { ptr, i8 } %8518, 1
   %8522 = extractvalue { ptr, i8 } %8518, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 327, ptr %8522, i8 %8521) #7
-  %8523 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6208), align 8
+  %8523 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6208), align 8
   %8524 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8523, ptr noundef nonnull %0)
   %8525 = extractvalue { ptr, i8 } %8524, 0
   %8526 = extractvalue { ptr, i8 } %8524, 1
@@ -13590,7 +13590,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17875, label %8528, label %10795
 
 8528:                                             ; preds = %8520
-  %8529 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
+  %8529 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
   %8530 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8529, ptr noundef nonnull %0)
   %8531 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17876 = icmp eq i8 %8531, 0
@@ -13617,7 +13617,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8544 = extractvalue { ptr, i8 } %8541, 1
   %8545 = extractvalue { ptr, i8 } %8541, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 328, ptr %8545, i8 %8544) #7
-  %8546 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6216), align 8
+  %8546 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6216), align 8
   %8547 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8546, ptr noundef nonnull %0)
   %8548 = extractvalue { ptr, i8 } %8547, 0
   %8549 = extractvalue { ptr, i8 } %8547, 1
@@ -13626,7 +13626,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17878, label %8551, label %10795
 
 8551:                                             ; preds = %8543
-  %8552 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
+  %8552 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
   %8553 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8552, ptr noundef nonnull %0)
   %8554 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17879 = icmp eq i8 %8554, 0
@@ -13653,7 +13653,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8567 = extractvalue { ptr, i8 } %8564, 1
   %8568 = extractvalue { ptr, i8 } %8564, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 329, ptr %8568, i8 %8567) #7
-  %8569 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6224), align 8
+  %8569 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6224), align 8
   %8570 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8569, ptr noundef nonnull %0)
   %8571 = extractvalue { ptr, i8 } %8570, 0
   %8572 = extractvalue { ptr, i8 } %8570, 1
@@ -13662,7 +13662,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17881, label %8574, label %10795
 
 8574:                                             ; preds = %8566
-  %8575 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
+  %8575 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
   %8576 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8575, ptr noundef nonnull %0)
   %8577 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17882 = icmp eq i8 %8577, 0
@@ -13689,7 +13689,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8590 = extractvalue { ptr, i8 } %8587, 1
   %8591 = extractvalue { ptr, i8 } %8587, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 330, ptr %8591, i8 %8590) #7
-  %8592 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6232), align 8
+  %8592 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6232), align 8
   %8593 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8592, ptr noundef nonnull %0)
   %8594 = extractvalue { ptr, i8 } %8593, 0
   %8595 = extractvalue { ptr, i8 } %8593, 1
@@ -13698,7 +13698,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17884, label %8597, label %10795
 
 8597:                                             ; preds = %8589
-  %8598 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
+  %8598 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8272), align 8
   %8599 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8598, ptr noundef nonnull %0)
   %8600 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17885 = icmp eq i8 %8600, 0
@@ -13725,7 +13725,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8613 = extractvalue { ptr, i8 } %8610, 1
   %8614 = extractvalue { ptr, i8 } %8610, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 331, ptr %8614, i8 %8613) #7
-  %8615 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6240), align 8
+  %8615 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6240), align 8
   %8616 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8615, ptr noundef nonnull %0)
   %8617 = extractvalue { ptr, i8 } %8616, 0
   %8618 = extractvalue { ptr, i8 } %8616, 1
@@ -13734,7 +13734,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17887, label %8620, label %10795
 
 8620:                                             ; preds = %8612
-  %8621 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
+  %8621 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
   %8622 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8621, ptr noundef nonnull %0)
   %8623 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17888 = icmp eq i8 %8623, 0
@@ -13761,7 +13761,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8636 = extractvalue { ptr, i8 } %8633, 1
   %8637 = extractvalue { ptr, i8 } %8633, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 332, ptr %8637, i8 %8636) #7
-  %8638 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6248), align 8
+  %8638 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6248), align 8
   %8639 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8638, ptr noundef nonnull %0)
   %8640 = extractvalue { ptr, i8 } %8639, 0
   %8641 = extractvalue { ptr, i8 } %8639, 1
@@ -13770,7 +13770,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17890, label %8643, label %10795
 
 8643:                                             ; preds = %8635
-  %8644 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
+  %8644 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
   %8645 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8644, ptr noundef nonnull %0)
   %8646 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17891 = icmp eq i8 %8646, 0
@@ -13797,7 +13797,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8659 = extractvalue { ptr, i8 } %8656, 1
   %8660 = extractvalue { ptr, i8 } %8656, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 333, ptr %8660, i8 %8659) #7
-  %8661 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6256), align 8
+  %8661 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6256), align 8
   %8662 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8661, ptr noundef nonnull %0)
   %8663 = extractvalue { ptr, i8 } %8662, 0
   %8664 = extractvalue { ptr, i8 } %8662, 1
@@ -13806,7 +13806,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17893, label %8666, label %10795
 
 8666:                                             ; preds = %8658
-  %8667 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
+  %8667 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
   %8668 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8667, ptr noundef nonnull %0)
   %8669 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17894 = icmp eq i8 %8669, 0
@@ -13833,7 +13833,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8682 = extractvalue { ptr, i8 } %8679, 1
   %8683 = extractvalue { ptr, i8 } %8679, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 334, ptr %8683, i8 %8682) #7
-  %8684 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6264), align 8
+  %8684 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6264), align 8
   %8685 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8684, ptr noundef nonnull %0)
   %8686 = extractvalue { ptr, i8 } %8685, 0
   %8687 = extractvalue { ptr, i8 } %8685, 1
@@ -13842,7 +13842,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17896, label %8689, label %10795
 
 8689:                                             ; preds = %8681
-  %8690 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
+  %8690 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8288), align 8
   %8691 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8690, ptr noundef nonnull %0)
   %8692 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17897 = icmp eq i8 %8692, 0
@@ -13869,7 +13869,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8705 = extractvalue { ptr, i8 } %8702, 1
   %8706 = extractvalue { ptr, i8 } %8702, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 335, ptr %8706, i8 %8705) #7
-  %8707 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6272), align 8
+  %8707 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6272), align 8
   %8708 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8707, ptr noundef nonnull %0)
   %8709 = extractvalue { ptr, i8 } %8708, 0
   %8710 = extractvalue { ptr, i8 } %8708, 1
@@ -13878,7 +13878,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17899, label %8712, label %10795
 
 8712:                                             ; preds = %8704
-  %8713 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
+  %8713 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
   %8714 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8713, ptr noundef nonnull %0)
   %8715 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17900 = icmp eq i8 %8715, 0
@@ -13905,7 +13905,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8728 = extractvalue { ptr, i8 } %8725, 1
   %8729 = extractvalue { ptr, i8 } %8725, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 336, ptr %8729, i8 %8728) #7
-  %8730 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6280), align 8
+  %8730 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6280), align 8
   %8731 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8730, ptr noundef nonnull %0)
   %8732 = extractvalue { ptr, i8 } %8731, 0
   %8733 = extractvalue { ptr, i8 } %8731, 1
@@ -13914,7 +13914,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17902, label %8735, label %10795
 
 8735:                                             ; preds = %8727
-  %8736 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
+  %8736 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
   %8737 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8736, ptr noundef nonnull %0)
   %8738 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17903 = icmp eq i8 %8738, 0
@@ -13941,7 +13941,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8751 = extractvalue { ptr, i8 } %8748, 1
   %8752 = extractvalue { ptr, i8 } %8748, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 337, ptr %8752, i8 %8751) #7
-  %8753 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6288), align 8
+  %8753 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6288), align 8
   %8754 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8753, ptr noundef nonnull %0)
   %8755 = extractvalue { ptr, i8 } %8754, 0
   %8756 = extractvalue { ptr, i8 } %8754, 1
@@ -13950,7 +13950,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17905, label %8758, label %10795
 
 8758:                                             ; preds = %8750
-  %8759 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
+  %8759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
   %8760 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8759, ptr noundef nonnull %0)
   %8761 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17906 = icmp eq i8 %8761, 0
@@ -13977,7 +13977,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8774 = extractvalue { ptr, i8 } %8771, 1
   %8775 = extractvalue { ptr, i8 } %8771, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 338, ptr %8775, i8 %8774) #7
-  %8776 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6296), align 8
+  %8776 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6296), align 8
   %8777 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8776, ptr noundef nonnull %0)
   %8778 = extractvalue { ptr, i8 } %8777, 0
   %8779 = extractvalue { ptr, i8 } %8777, 1
@@ -13986,7 +13986,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17908, label %8781, label %10795
 
 8781:                                             ; preds = %8773
-  %8782 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
+  %8782 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8304), align 8
   %8783 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8782, ptr noundef nonnull %0)
   %8784 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17909 = icmp eq i8 %8784, 0
@@ -14013,7 +14013,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8797 = extractvalue { ptr, i8 } %8794, 1
   %8798 = extractvalue { ptr, i8 } %8794, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 339, ptr %8798, i8 %8797) #7
-  %8799 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6304), align 8
+  %8799 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6304), align 8
   %8800 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8799, ptr noundef nonnull %0)
   %8801 = extractvalue { ptr, i8 } %8800, 0
   %8802 = extractvalue { ptr, i8 } %8800, 1
@@ -14022,7 +14022,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17911, label %8804, label %10795
 
 8804:                                             ; preds = %8796
-  %8805 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8320), align 8
+  %8805 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8320), align 8
   %8806 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8805, ptr noundef nonnull %0)
   %8807 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17912 = icmp eq i8 %8807, 0
@@ -14049,7 +14049,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8820 = extractvalue { ptr, i8 } %8817, 1
   %8821 = extractvalue { ptr, i8 } %8817, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 340, ptr %8821, i8 %8820) #7
-  %8822 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6312), align 8
+  %8822 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6312), align 8
   %8823 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8822, ptr noundef nonnull %0)
   %8824 = extractvalue { ptr, i8 } %8823, 0
   %8825 = extractvalue { ptr, i8 } %8823, 1
@@ -14058,7 +14058,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17914, label %8827, label %10795
 
 8827:                                             ; preds = %8819
-  %8828 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8328), align 8
+  %8828 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8328), align 8
   %8829 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8828, ptr noundef nonnull %0)
   %8830 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17915 = icmp eq i8 %8830, 0
@@ -14085,7 +14085,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8843 = extractvalue { ptr, i8 } %8840, 1
   %8844 = extractvalue { ptr, i8 } %8840, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 341, ptr %8844, i8 %8843) #7
-  %8845 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6320), align 8
+  %8845 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6320), align 8
   %8846 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8845, ptr noundef nonnull %0)
   %8847 = extractvalue { ptr, i8 } %8846, 0
   %8848 = extractvalue { ptr, i8 } %8846, 1
@@ -14094,7 +14094,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17917, label %8850, label %10795
 
 8850:                                             ; preds = %8842
-  %8851 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8336), align 8
+  %8851 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8336), align 8
   %8852 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8851, ptr noundef nonnull %0)
   %8853 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17918 = icmp eq i8 %8853, 0
@@ -14121,7 +14121,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8866 = extractvalue { ptr, i8 } %8863, 1
   %8867 = extractvalue { ptr, i8 } %8863, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 342, ptr %8867, i8 %8866) #7
-  %8868 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6328), align 8
+  %8868 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6328), align 8
   %8869 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8868, ptr noundef nonnull %0)
   %8870 = extractvalue { ptr, i8 } %8869, 0
   %8871 = extractvalue { ptr, i8 } %8869, 1
@@ -14130,7 +14130,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17920, label %8873, label %10795
 
 8873:                                             ; preds = %8865
-  %8874 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8344), align 8
+  %8874 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8344), align 8
   %8875 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8874, ptr noundef nonnull %0)
   %8876 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17921 = icmp eq i8 %8876, 0
@@ -14157,7 +14157,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8889 = extractvalue { ptr, i8 } %8886, 1
   %8890 = extractvalue { ptr, i8 } %8886, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 343, ptr %8890, i8 %8889) #7
-  %8891 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6336), align 8
+  %8891 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6336), align 8
   %8892 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8891, ptr noundef nonnull %0)
   %8893 = extractvalue { ptr, i8 } %8892, 0
   %8894 = extractvalue { ptr, i8 } %8892, 1
@@ -14166,7 +14166,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17923, label %8896, label %10795
 
 8896:                                             ; preds = %8888
-  %8897 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8320), align 8
+  %8897 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8320), align 8
   %8898 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8897, ptr noundef nonnull %0)
   %8899 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17924 = icmp eq i8 %8899, 0
@@ -14193,7 +14193,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8912 = extractvalue { ptr, i8 } %8909, 1
   %8913 = extractvalue { ptr, i8 } %8909, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 344, ptr %8913, i8 %8912) #7
-  %8914 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6344), align 8
+  %8914 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6344), align 8
   %8915 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8914, ptr noundef nonnull %0)
   %8916 = extractvalue { ptr, i8 } %8915, 0
   %8917 = extractvalue { ptr, i8 } %8915, 1
@@ -14202,7 +14202,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17926, label %8919, label %10795
 
 8919:                                             ; preds = %8911
-  %8920 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8328), align 8
+  %8920 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8328), align 8
   %8921 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8920, ptr noundef nonnull %0)
   %8922 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17927 = icmp eq i8 %8922, 0
@@ -14229,7 +14229,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8935 = extractvalue { ptr, i8 } %8932, 1
   %8936 = extractvalue { ptr, i8 } %8932, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 345, ptr %8936, i8 %8935) #7
-  %8937 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6352), align 8
+  %8937 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6352), align 8
   %8938 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8937, ptr noundef nonnull %0)
   %8939 = extractvalue { ptr, i8 } %8938, 0
   %8940 = extractvalue { ptr, i8 } %8938, 1
@@ -14238,7 +14238,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17929, label %8942, label %10795
 
 8942:                                             ; preds = %8934
-  %8943 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8336), align 8
+  %8943 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8336), align 8
   %8944 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8943, ptr noundef nonnull %0)
   %8945 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17930 = icmp eq i8 %8945, 0
@@ -14265,7 +14265,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8958 = extractvalue { ptr, i8 } %8955, 1
   %8959 = extractvalue { ptr, i8 } %8955, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 346, ptr %8959, i8 %8958) #7
-  %8960 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6360), align 8
+  %8960 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6360), align 8
   %8961 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8960, ptr noundef nonnull %0)
   %8962 = extractvalue { ptr, i8 } %8961, 0
   %8963 = extractvalue { ptr, i8 } %8961, 1
@@ -14274,7 +14274,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17932, label %8965, label %10795
 
 8965:                                             ; preds = %8957
-  %8966 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8344), align 8
+  %8966 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8344), align 8
   %8967 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8966, ptr noundef nonnull %0)
   %8968 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17933 = icmp eq i8 %8968, 0
@@ -14301,7 +14301,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %8981 = extractvalue { ptr, i8 } %8978, 1
   %8982 = extractvalue { ptr, i8 } %8978, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 347, ptr %8982, i8 %8981) #7
-  %8983 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6368), align 8
+  %8983 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6368), align 8
   %8984 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8983, ptr noundef nonnull %0)
   %8985 = extractvalue { ptr, i8 } %8984, 0
   %8986 = extractvalue { ptr, i8 } %8984, 1
@@ -14310,7 +14310,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17935, label %8988, label %10795
 
 8988:                                             ; preds = %8980
-  %8989 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8352), align 8
+  %8989 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8352), align 8
   %8990 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8989, ptr noundef nonnull %0)
   %8991 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17936 = icmp eq i8 %8991, 0
@@ -14337,7 +14337,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9004 = extractvalue { ptr, i8 } %9001, 1
   %9005 = extractvalue { ptr, i8 } %9001, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 348, ptr %9005, i8 %9004) #7
-  %9006 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 288), align 8
+  %9006 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 288), align 8
   %9007 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9006, ptr noundef nonnull %0)
   %9008 = extractvalue { ptr, i8 } %9007, 0
   %9009 = extractvalue { ptr, i8 } %9007, 1
@@ -14346,7 +14346,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17938, label %9011, label %10795
 
 9011:                                             ; preds = %9003
-  %9012 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6376), align 8
+  %9012 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6376), align 8
   %9013 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9012, ptr noundef nonnull %0)
   %9014 = extractvalue { ptr, i8 } %9013, 0
   %9015 = extractvalue { ptr, i8 } %9013, 1
@@ -14355,7 +14355,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17939, label %9017, label %10795
 
 9017:                                             ; preds = %9011
-  %9018 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8360), align 8
+  %9018 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8360), align 8
   %9019 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9018, ptr noundef nonnull %0)
   %9020 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17940 = icmp eq i8 %9020, 0
@@ -14382,7 +14382,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9033 = extractvalue { ptr, i8 } %9030, 1
   %9034 = extractvalue { ptr, i8 } %9030, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 349, ptr %9034, i8 %9033) #7
-  %9035 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6384), align 8
+  %9035 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6384), align 8
   %9036 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9035, ptr noundef nonnull %0)
   %9037 = extractvalue { ptr, i8 } %9036, 0
   %9038 = extractvalue { ptr, i8 } %9036, 1
@@ -14391,7 +14391,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17942, label %9040, label %10795
 
 9040:                                             ; preds = %9032
-  %9041 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8368), align 8
+  %9041 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8368), align 8
   %9042 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9041, ptr noundef nonnull %0)
   %9043 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17943 = icmp eq i8 %9043, 0
@@ -14418,7 +14418,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9056 = extractvalue { ptr, i8 } %9053, 1
   %9057 = extractvalue { ptr, i8 } %9053, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 350, ptr %9057, i8 %9056) #7
-  %9058 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6392), align 8
+  %9058 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6392), align 8
   %9059 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9058, ptr noundef nonnull %0)
   %9060 = extractvalue { ptr, i8 } %9059, 0
   %9061 = extractvalue { ptr, i8 } %9059, 1
@@ -14427,7 +14427,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17945, label %9063, label %10795
 
 9063:                                             ; preds = %9055
-  %9064 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8376), align 8
+  %9064 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8376), align 8
   %9065 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9064, ptr noundef nonnull %0)
   %9066 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17946 = icmp eq i8 %9066, 0
@@ -14454,7 +14454,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9079 = extractvalue { ptr, i8 } %9076, 1
   %9080 = extractvalue { ptr, i8 } %9076, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 351, ptr %9080, i8 %9079) #7
-  %9081 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6400), align 8
+  %9081 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6400), align 8
   %9082 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9081, ptr noundef nonnull %0)
   %9083 = extractvalue { ptr, i8 } %9082, 0
   %9084 = extractvalue { ptr, i8 } %9082, 1
@@ -14463,7 +14463,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17948, label %9086, label %10795
 
 9086:                                             ; preds = %9078
-  %9087 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8384), align 8
+  %9087 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8384), align 8
   %9088 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9087, ptr noundef nonnull %0)
   %9089 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17949 = icmp eq i8 %9089, 0
@@ -14490,7 +14490,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9102 = extractvalue { ptr, i8 } %9099, 1
   %9103 = extractvalue { ptr, i8 } %9099, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 352, ptr %9103, i8 %9102) #7
-  %9104 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6408), align 8
+  %9104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6408), align 8
   %9105 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9104, ptr noundef nonnull %0)
   %9106 = extractvalue { ptr, i8 } %9105, 0
   %9107 = extractvalue { ptr, i8 } %9105, 1
@@ -14499,7 +14499,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17951, label %9109, label %10795
 
 9109:                                             ; preds = %9101
-  %9110 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8392), align 8
+  %9110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8392), align 8
   %9111 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9110, ptr noundef nonnull %0)
   %9112 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17952 = icmp eq i8 %9112, 0
@@ -14526,7 +14526,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9125 = extractvalue { ptr, i8 } %9122, 1
   %9126 = extractvalue { ptr, i8 } %9122, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 353, ptr %9126, i8 %9125) #7
-  %9127 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6416), align 8
+  %9127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6416), align 8
   %9128 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9127, ptr noundef nonnull %0)
   %9129 = extractvalue { ptr, i8 } %9128, 0
   %9130 = extractvalue { ptr, i8 } %9128, 1
@@ -14535,7 +14535,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17954, label %9132, label %10795
 
 9132:                                             ; preds = %9124
-  %9133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8400), align 8
+  %9133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8400), align 8
   %9134 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9133, ptr noundef nonnull %0)
   %9135 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17955 = icmp eq i8 %9135, 0
@@ -14562,7 +14562,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9148 = extractvalue { ptr, i8 } %9145, 1
   %9149 = extractvalue { ptr, i8 } %9145, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 354, ptr %9149, i8 %9148) #7
-  %9150 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6424), align 8
+  %9150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6424), align 8
   %9151 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9150, ptr noundef nonnull %0)
   %9152 = extractvalue { ptr, i8 } %9151, 0
   %9153 = extractvalue { ptr, i8 } %9151, 1
@@ -14571,7 +14571,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17957, label %9155, label %10795
 
 9155:                                             ; preds = %9147
-  %9156 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8408), align 8
+  %9156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8408), align 8
   %9157 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9156, ptr noundef nonnull %0)
   %9158 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17958 = icmp eq i8 %9158, 0
@@ -14598,7 +14598,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9171 = extractvalue { ptr, i8 } %9168, 1
   %9172 = extractvalue { ptr, i8 } %9168, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 355, ptr %9172, i8 %9171) #7
-  %9173 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6432), align 8
+  %9173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6432), align 8
   %9174 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9173, ptr noundef nonnull %0)
   %9175 = extractvalue { ptr, i8 } %9174, 0
   %9176 = extractvalue { ptr, i8 } %9174, 1
@@ -14607,7 +14607,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17960, label %9178, label %10795
 
 9178:                                             ; preds = %9170
-  %9179 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8416), align 8
+  %9179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8416), align 8
   %9180 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9179, ptr noundef nonnull %0)
   %9181 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17961 = icmp eq i8 %9181, 0
@@ -14634,7 +14634,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9194 = extractvalue { ptr, i8 } %9191, 1
   %9195 = extractvalue { ptr, i8 } %9191, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 356, ptr %9195, i8 %9194) #7
-  %9196 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6440), align 8
+  %9196 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6440), align 8
   %9197 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9196, ptr noundef nonnull %0)
   %9198 = extractvalue { ptr, i8 } %9197, 0
   %9199 = extractvalue { ptr, i8 } %9197, 1
@@ -14643,7 +14643,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17963, label %9201, label %10795
 
 9201:                                             ; preds = %9193
-  %9202 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8424), align 8
+  %9202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8424), align 8
   %9203 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9202, ptr noundef nonnull %0)
   %9204 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17964 = icmp eq i8 %9204, 0
@@ -14670,7 +14670,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9217 = extractvalue { ptr, i8 } %9214, 1
   %9218 = extractvalue { ptr, i8 } %9214, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 357, ptr %9218, i8 %9217) #7
-  %9219 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6448), align 8
+  %9219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6448), align 8
   %9220 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9219, ptr noundef nonnull %0)
   %9221 = extractvalue { ptr, i8 } %9220, 0
   %9222 = extractvalue { ptr, i8 } %9220, 1
@@ -14679,7 +14679,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17966, label %9224, label %10795
 
 9224:                                             ; preds = %9216
-  %9225 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8432), align 8
+  %9225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8432), align 8
   %9226 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9225, ptr noundef nonnull %0)
   %9227 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17967 = icmp eq i8 %9227, 0
@@ -14706,7 +14706,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9240 = extractvalue { ptr, i8 } %9237, 1
   %9241 = extractvalue { ptr, i8 } %9237, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 358, ptr %9241, i8 %9240) #7
-  %9242 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6456), align 8
+  %9242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6456), align 8
   %9243 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9242, ptr noundef nonnull %0)
   %9244 = extractvalue { ptr, i8 } %9243, 0
   %9245 = extractvalue { ptr, i8 } %9243, 1
@@ -14715,7 +14715,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17969, label %9247, label %10795
 
 9247:                                             ; preds = %9239
-  %9248 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8440), align 8
+  %9248 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8440), align 8
   %9249 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9248, ptr noundef nonnull %0)
   %9250 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17970 = icmp eq i8 %9250, 0
@@ -14742,7 +14742,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9263 = extractvalue { ptr, i8 } %9260, 1
   %9264 = extractvalue { ptr, i8 } %9260, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 359, ptr %9264, i8 %9263) #7
-  %9265 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6464), align 8
+  %9265 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6464), align 8
   %9266 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9265, ptr noundef nonnull %0)
   %9267 = extractvalue { ptr, i8 } %9266, 0
   %9268 = extractvalue { ptr, i8 } %9266, 1
@@ -14751,7 +14751,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17972, label %9270, label %10795
 
 9270:                                             ; preds = %9262
-  %9271 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8448), align 8
+  %9271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8448), align 8
   %9272 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9271, ptr noundef nonnull %0)
   %9273 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17973 = icmp eq i8 %9273, 0
@@ -14778,7 +14778,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9286 = extractvalue { ptr, i8 } %9283, 1
   %9287 = extractvalue { ptr, i8 } %9283, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 360, ptr %9287, i8 %9286) #7
-  %9288 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6472), align 8
+  %9288 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6472), align 8
   %9289 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9288, ptr noundef nonnull %0)
   %9290 = extractvalue { ptr, i8 } %9289, 0
   %9291 = extractvalue { ptr, i8 } %9289, 1
@@ -14787,7 +14787,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17975, label %9293, label %10795
 
 9293:                                             ; preds = %9285
-  %9294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8456), align 8
+  %9294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8456), align 8
   %9295 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9294, ptr noundef nonnull %0)
   %9296 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17976 = icmp eq i8 %9296, 0
@@ -14814,7 +14814,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9309 = extractvalue { ptr, i8 } %9306, 1
   %9310 = extractvalue { ptr, i8 } %9306, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 361, ptr %9310, i8 %9309) #7
-  %9311 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6480), align 8
+  %9311 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6480), align 8
   %9312 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9311, ptr noundef nonnull %0)
   %9313 = extractvalue { ptr, i8 } %9312, 0
   %9314 = extractvalue { ptr, i8 } %9312, 1
@@ -14823,7 +14823,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17978, label %9316, label %10795
 
 9316:                                             ; preds = %9308
-  %9317 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8464), align 8
+  %9317 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8464), align 8
   %9318 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9317, ptr noundef nonnull %0)
   %9319 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17979 = icmp eq i8 %9319, 0
@@ -14850,7 +14850,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9332 = extractvalue { ptr, i8 } %9329, 1
   %9333 = extractvalue { ptr, i8 } %9329, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 362, ptr %9333, i8 %9332) #7
-  %9334 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6488), align 8
+  %9334 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6488), align 8
   %9335 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9334, ptr noundef nonnull %0)
   %9336 = extractvalue { ptr, i8 } %9335, 0
   %9337 = extractvalue { ptr, i8 } %9335, 1
@@ -14859,7 +14859,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17981, label %9339, label %10795
 
 9339:                                             ; preds = %9331
-  %9340 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8472), align 8
+  %9340 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8472), align 8
   %9341 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9340, ptr noundef nonnull %0)
   %9342 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17982 = icmp eq i8 %9342, 0
@@ -14886,7 +14886,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9355 = extractvalue { ptr, i8 } %9352, 1
   %9356 = extractvalue { ptr, i8 } %9352, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 363, ptr %9356, i8 %9355) #7
-  %9357 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6496), align 8
+  %9357 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6496), align 8
   %9358 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9357, ptr noundef nonnull %0)
   %9359 = extractvalue { ptr, i8 } %9358, 0
   %9360 = extractvalue { ptr, i8 } %9358, 1
@@ -14895,7 +14895,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17984, label %9362, label %10795
 
 9362:                                             ; preds = %9354
-  %9363 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8480), align 8
+  %9363 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8480), align 8
   %9364 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9363, ptr noundef nonnull %0)
   %9365 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17985 = icmp eq i8 %9365, 0
@@ -14922,7 +14922,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9378 = extractvalue { ptr, i8 } %9375, 1
   %9379 = extractvalue { ptr, i8 } %9375, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 364, ptr %9379, i8 %9378) #7
-  %9380 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6504), align 8
+  %9380 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6504), align 8
   %9381 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9380, ptr noundef nonnull %0)
   %9382 = extractvalue { ptr, i8 } %9381, 0
   %9383 = extractvalue { ptr, i8 } %9381, 1
@@ -14931,7 +14931,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17987, label %9385, label %10795
 
 9385:                                             ; preds = %9377
-  %9386 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8488), align 8
+  %9386 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8488), align 8
   %9387 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9386, ptr noundef nonnull %0)
   %9388 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17988 = icmp eq i8 %9388, 0
@@ -14958,7 +14958,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9401 = extractvalue { ptr, i8 } %9398, 1
   %9402 = extractvalue { ptr, i8 } %9398, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 365, ptr %9402, i8 %9401) #7
-  %9403 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6512), align 8
+  %9403 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6512), align 8
   %9404 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9403, ptr noundef nonnull %0)
   %9405 = extractvalue { ptr, i8 } %9404, 0
   %9406 = extractvalue { ptr, i8 } %9404, 1
@@ -14967,7 +14967,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17990, label %9408, label %10795
 
 9408:                                             ; preds = %9400
-  %9409 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8496), align 8
+  %9409 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8496), align 8
   %9410 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9409, ptr noundef nonnull %0)
   %9411 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17991 = icmp eq i8 %9411, 0
@@ -14994,7 +14994,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9424 = extractvalue { ptr, i8 } %9421, 1
   %9425 = extractvalue { ptr, i8 } %9421, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 366, ptr %9425, i8 %9424) #7
-  %9426 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6520), align 8
+  %9426 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6520), align 8
   %9427 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9426, ptr noundef nonnull %0)
   %9428 = extractvalue { ptr, i8 } %9427, 0
   %9429 = extractvalue { ptr, i8 } %9427, 1
@@ -15003,7 +15003,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17993, label %9431, label %10795
 
 9431:                                             ; preds = %9423
-  %9432 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8504), align 8
+  %9432 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8504), align 8
   %9433 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9432, ptr noundef nonnull %0)
   %9434 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17994 = icmp eq i8 %9434, 0
@@ -15030,7 +15030,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9447 = extractvalue { ptr, i8 } %9444, 1
   %9448 = extractvalue { ptr, i8 } %9444, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 367, ptr %9448, i8 %9447) #7
-  %9449 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6528), align 8
+  %9449 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6528), align 8
   %9450 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9449, ptr noundef nonnull %0)
   %9451 = extractvalue { ptr, i8 } %9450, 0
   %9452 = extractvalue { ptr, i8 } %9450, 1
@@ -15039,7 +15039,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17996, label %9454, label %10795
 
 9454:                                             ; preds = %9446
-  %9455 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8512), align 8
+  %9455 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8512), align 8
   %9456 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9455, ptr noundef nonnull %0)
   %9457 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not17997 = icmp eq i8 %9457, 0
@@ -15066,7 +15066,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9470 = extractvalue { ptr, i8 } %9467, 1
   %9471 = extractvalue { ptr, i8 } %9467, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 368, ptr %9471, i8 %9470) #7
-  %9472 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6536), align 8
+  %9472 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6536), align 8
   %9473 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9472, ptr noundef nonnull %0)
   %9474 = extractvalue { ptr, i8 } %9473, 0
   %9475 = extractvalue { ptr, i8 } %9473, 1
@@ -15075,7 +15075,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not17999, label %9477, label %10795
 
 9477:                                             ; preds = %9469
-  %9478 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8520), align 8
+  %9478 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8520), align 8
   %9479 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9478, ptr noundef nonnull %0)
   %9480 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18000 = icmp eq i8 %9480, 0
@@ -15102,7 +15102,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9493 = extractvalue { ptr, i8 } %9490, 1
   %9494 = extractvalue { ptr, i8 } %9490, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 369, ptr %9494, i8 %9493) #7
-  %9495 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6544), align 8
+  %9495 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6544), align 8
   %9496 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9495, ptr noundef nonnull %0)
   %9497 = extractvalue { ptr, i8 } %9496, 0
   %9498 = extractvalue { ptr, i8 } %9496, 1
@@ -15111,7 +15111,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18002, label %9500, label %10795
 
 9500:                                             ; preds = %9492
-  %9501 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8528), align 8
+  %9501 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8528), align 8
   %9502 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9501, ptr noundef nonnull %0)
   %9503 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18003 = icmp eq i8 %9503, 0
@@ -15138,7 +15138,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9516 = extractvalue { ptr, i8 } %9513, 1
   %9517 = extractvalue { ptr, i8 } %9513, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 370, ptr %9517, i8 %9516) #7
-  %9518 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6552), align 8
+  %9518 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6552), align 8
   %9519 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9518, ptr noundef nonnull %0)
   %9520 = extractvalue { ptr, i8 } %9519, 0
   %9521 = extractvalue { ptr, i8 } %9519, 1
@@ -15147,7 +15147,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18005, label %9523, label %10795
 
 9523:                                             ; preds = %9515
-  %9524 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8536), align 8
+  %9524 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8536), align 8
   %9525 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9524, ptr noundef nonnull %0)
   %9526 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18006 = icmp eq i8 %9526, 0
@@ -15174,7 +15174,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9539 = extractvalue { ptr, i8 } %9536, 1
   %9540 = extractvalue { ptr, i8 } %9536, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 371, ptr %9540, i8 %9539) #7
-  %9541 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6560), align 8
+  %9541 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6560), align 8
   %9542 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9541, ptr noundef nonnull %0)
   %9543 = extractvalue { ptr, i8 } %9542, 0
   %9544 = extractvalue { ptr, i8 } %9542, 1
@@ -15183,7 +15183,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18008, label %9546, label %10795
 
 9546:                                             ; preds = %9538
-  %9547 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8544), align 8
+  %9547 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8544), align 8
   %9548 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9547, ptr noundef nonnull %0)
   %9549 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18009 = icmp eq i8 %9549, 0
@@ -15210,7 +15210,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9562 = extractvalue { ptr, i8 } %9559, 1
   %9563 = extractvalue { ptr, i8 } %9559, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 372, ptr %9563, i8 %9562) #7
-  %9564 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6568), align 8
+  %9564 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6568), align 8
   %9565 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9564, ptr noundef nonnull %0)
   %9566 = extractvalue { ptr, i8 } %9565, 0
   %9567 = extractvalue { ptr, i8 } %9565, 1
@@ -15219,7 +15219,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18011, label %9569, label %10795
 
 9569:                                             ; preds = %9561
-  %9570 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8552), align 8
+  %9570 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8552), align 8
   %9571 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9570, ptr noundef nonnull %0)
   %9572 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18012 = icmp eq i8 %9572, 0
@@ -15246,7 +15246,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9585 = extractvalue { ptr, i8 } %9582, 1
   %9586 = extractvalue { ptr, i8 } %9582, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 373, ptr %9586, i8 %9585) #7
-  %9587 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6576), align 8
+  %9587 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6576), align 8
   %9588 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9587, ptr noundef nonnull %0)
   %9589 = extractvalue { ptr, i8 } %9588, 0
   %9590 = extractvalue { ptr, i8 } %9588, 1
@@ -15255,7 +15255,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18014, label %9592, label %10795
 
 9592:                                             ; preds = %9584
-  %9593 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8560), align 8
+  %9593 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8560), align 8
   %9594 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9593, ptr noundef nonnull %0)
   %9595 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18015 = icmp eq i8 %9595, 0
@@ -15282,7 +15282,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9608 = extractvalue { ptr, i8 } %9605, 1
   %9609 = extractvalue { ptr, i8 } %9605, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 374, ptr %9609, i8 %9608) #7
-  %9610 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1712), align 8
+  %9610 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1712), align 8
   %9611 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9610, ptr noundef nonnull %0)
   %9612 = extractvalue { ptr, i8 } %9611, 0
   %9613 = extractvalue { ptr, i8 } %9611, 1
@@ -15291,7 +15291,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18017, label %9615, label %10795
 
 9615:                                             ; preds = %9607
-  %9616 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6584), align 8
+  %9616 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6584), align 8
   %9617 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9616, ptr noundef nonnull %0)
   %9618 = extractvalue { ptr, i8 } %9617, 0
   %9619 = extractvalue { ptr, i8 } %9617, 1
@@ -15300,7 +15300,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18018, label %9621, label %10795
 
 9621:                                             ; preds = %9615
-  %9622 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8568), align 8
+  %9622 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8568), align 8
   %9623 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9622, ptr noundef nonnull %0)
   %9624 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18019 = icmp eq i8 %9624, 0
@@ -15327,7 +15327,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9637 = extractvalue { ptr, i8 } %9634, 1
   %9638 = extractvalue { ptr, i8 } %9634, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 375, ptr %9638, i8 %9637) #7
-  %9639 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6592), align 8
+  %9639 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6592), align 8
   %9640 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9639, ptr noundef nonnull %0)
   %9641 = extractvalue { ptr, i8 } %9640, 0
   %9642 = extractvalue { ptr, i8 } %9640, 1
@@ -15336,7 +15336,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18021, label %9644, label %10795
 
 9644:                                             ; preds = %9636
-  %9645 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
+  %9645 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7096), align 8
   %9646 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9645, ptr noundef nonnull %0)
   %9647 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18022 = icmp eq i8 %9647, 0
@@ -15363,7 +15363,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9660 = extractvalue { ptr, i8 } %9657, 1
   %9661 = extractvalue { ptr, i8 } %9657, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 376, ptr %9661, i8 %9660) #7
-  %9662 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 480), align 8
+  %9662 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 480), align 8
   %9663 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9662, ptr noundef nonnull %0)
   %9664 = extractvalue { ptr, i8 } %9663, 0
   %9665 = extractvalue { ptr, i8 } %9663, 1
@@ -15372,7 +15372,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18024, label %9667, label %10795
 
 9667:                                             ; preds = %9659
-  %9668 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %9668 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %9669 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9668, ptr noundef nonnull %0)
   %9670 = extractvalue { ptr, i8 } %9669, 0
   %9671 = extractvalue { ptr, i8 } %9669, 1
@@ -15381,7 +15381,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18025, label %9673, label %10795
 
 9673:                                             ; preds = %9667
-  %9674 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %9674 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %9675 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9674, ptr noundef nonnull %0)
   %9676 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18026 = icmp eq i8 %9676, 0
@@ -15408,7 +15408,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9689 = extractvalue { ptr, i8 } %9686, 1
   %9690 = extractvalue { ptr, i8 } %9686, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 377, ptr %9690, i8 %9689) #7
-  %9691 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %9691 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %9692 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9691, ptr noundef nonnull %0)
   %9693 = extractvalue { ptr, i8 } %9692, 0
   %9694 = extractvalue { ptr, i8 } %9692, 1
@@ -15417,7 +15417,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18028, label %9696, label %10795
 
 9696:                                             ; preds = %9688
-  %9697 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
+  %9697 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
   %9698 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9697, ptr noundef nonnull %0)
   %9699 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18029 = icmp eq i8 %9699, 0
@@ -15444,7 +15444,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9712 = extractvalue { ptr, i8 } %9709, 1
   %9713 = extractvalue { ptr, i8 } %9709, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 378, ptr %9713, i8 %9712) #7
-  %9714 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %9714 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %9715 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9714, ptr noundef nonnull %0)
   %9716 = extractvalue { ptr, i8 } %9715, 0
   %9717 = extractvalue { ptr, i8 } %9715, 1
@@ -15453,7 +15453,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18031, label %9719, label %10795
 
 9719:                                             ; preds = %9711
-  %9720 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
+  %9720 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
   %9721 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9720, ptr noundef nonnull %0)
   %9722 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18032 = icmp eq i8 %9722, 0
@@ -15480,7 +15480,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9735 = extractvalue { ptr, i8 } %9732, 1
   %9736 = extractvalue { ptr, i8 } %9732, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 379, ptr %9736, i8 %9735) #7
-  %9737 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
+  %9737 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
   %9738 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9737, ptr noundef nonnull %0)
   %9739 = extractvalue { ptr, i8 } %9738, 0
   %9740 = extractvalue { ptr, i8 } %9738, 1
@@ -15489,7 +15489,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18034, label %9742, label %10795
 
 9742:                                             ; preds = %9734
-  %9743 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7552), align 8
+  %9743 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7552), align 8
   %9744 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9743, ptr noundef nonnull %0)
   %9745 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18035 = icmp eq i8 %9745, 0
@@ -15516,7 +15516,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9758 = extractvalue { ptr, i8 } %9755, 1
   %9759 = extractvalue { ptr, i8 } %9755, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 380, ptr %9759, i8 %9758) #7
-  %9760 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
+  %9760 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
   %9761 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9760, ptr noundef nonnull %0)
   %9762 = extractvalue { ptr, i8 } %9761, 0
   %9763 = extractvalue { ptr, i8 } %9761, 1
@@ -15525,7 +15525,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18037, label %9765, label %10795
 
 9765:                                             ; preds = %9757
-  %9766 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7544), align 8
+  %9766 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7544), align 8
   %9767 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9766, ptr noundef nonnull %0)
   %9768 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18038 = icmp eq i8 %9768, 0
@@ -15552,7 +15552,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9781 = extractvalue { ptr, i8 } %9778, 1
   %9782 = extractvalue { ptr, i8 } %9778, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 381, ptr %9782, i8 %9781) #7
-  %9783 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
+  %9783 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
   %9784 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9783, ptr noundef nonnull %0)
   %9785 = extractvalue { ptr, i8 } %9784, 0
   %9786 = extractvalue { ptr, i8 } %9784, 1
@@ -15561,7 +15561,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18040, label %9788, label %10795
 
 9788:                                             ; preds = %9780
-  %9789 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7536), align 8
+  %9789 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7536), align 8
   %9790 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9789, ptr noundef nonnull %0)
   %9791 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18041 = icmp eq i8 %9791, 0
@@ -15588,7 +15588,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9804 = extractvalue { ptr, i8 } %9801, 1
   %9805 = extractvalue { ptr, i8 } %9801, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 382, ptr %9805, i8 %9804) #7
-  %9806 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3728), align 8
+  %9806 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3728), align 8
   %9807 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9806, ptr noundef nonnull %0)
   %9808 = extractvalue { ptr, i8 } %9807, 0
   %9809 = extractvalue { ptr, i8 } %9807, 1
@@ -15597,7 +15597,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18043, label %9811, label %10795
 
 9811:                                             ; preds = %9803
-  %9812 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
+  %9812 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
   %9813 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9812, ptr noundef nonnull %0)
   %9814 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18044 = icmp eq i8 %9814, 0
@@ -15624,7 +15624,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9827 = extractvalue { ptr, i8 } %9824, 1
   %9828 = extractvalue { ptr, i8 } %9824, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 383, ptr %9828, i8 %9827) #7
-  %9829 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 472), align 8
+  %9829 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 472), align 8
   %9830 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9829, ptr noundef nonnull %0)
   %9831 = extractvalue { ptr, i8 } %9830, 0
   %9832 = extractvalue { ptr, i8 } %9830, 1
@@ -15633,7 +15633,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18046, label %9834, label %10795
 
 9834:                                             ; preds = %9826
-  %9835 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %9835 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %9836 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9835, ptr noundef nonnull %0)
   %9837 = extractvalue { ptr, i8 } %9836, 0
   %9838 = extractvalue { ptr, i8 } %9836, 1
@@ -15642,7 +15642,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18047, label %9840, label %10795
 
 9840:                                             ; preds = %9834
-  %9841 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %9841 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %9842 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9841, ptr noundef nonnull %0)
   %9843 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18048 = icmp eq i8 %9843, 0
@@ -15669,7 +15669,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9856 = extractvalue { ptr, i8 } %9853, 1
   %9857 = extractvalue { ptr, i8 } %9853, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 384, ptr %9857, i8 %9856) #7
-  %9858 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %9858 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %9859 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9858, ptr noundef nonnull %0)
   %9860 = extractvalue { ptr, i8 } %9859, 0
   %9861 = extractvalue { ptr, i8 } %9859, 1
@@ -15678,7 +15678,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18050, label %9863, label %10795
 
 9863:                                             ; preds = %9855
-  %9864 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
+  %9864 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6832), align 8
   %9865 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9864, ptr noundef nonnull %0)
   %9866 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18051 = icmp eq i8 %9866, 0
@@ -15705,7 +15705,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9879 = extractvalue { ptr, i8 } %9876, 1
   %9880 = extractvalue { ptr, i8 } %9876, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 385, ptr %9880, i8 %9879) #7
-  %9881 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %9881 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %9882 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9881, ptr noundef nonnull %0)
   %9883 = extractvalue { ptr, i8 } %9882, 0
   %9884 = extractvalue { ptr, i8 } %9882, 1
@@ -15714,7 +15714,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18053, label %9886, label %10795
 
 9886:                                             ; preds = %9878
-  %9887 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
+  %9887 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
   %9888 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9887, ptr noundef nonnull %0)
   %9889 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18054 = icmp eq i8 %9889, 0
@@ -15741,7 +15741,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9902 = extractvalue { ptr, i8 } %9899, 1
   %9903 = extractvalue { ptr, i8 } %9899, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 386, ptr %9903, i8 %9902) #7
-  %9904 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
+  %9904 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
   %9905 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9904, ptr noundef nonnull %0)
   %9906 = extractvalue { ptr, i8 } %9905, 0
   %9907 = extractvalue { ptr, i8 } %9905, 1
@@ -15750,7 +15750,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18056, label %9909, label %10795
 
 9909:                                             ; preds = %9901
-  %9910 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7576), align 8
+  %9910 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7576), align 8
   %9911 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9910, ptr noundef nonnull %0)
   %9912 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18057 = icmp eq i8 %9912, 0
@@ -15777,7 +15777,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9925 = extractvalue { ptr, i8 } %9922, 1
   %9926 = extractvalue { ptr, i8 } %9922, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 387, ptr %9926, i8 %9925) #7
-  %9927 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
+  %9927 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
   %9928 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9927, ptr noundef nonnull %0)
   %9929 = extractvalue { ptr, i8 } %9928, 0
   %9930 = extractvalue { ptr, i8 } %9928, 1
@@ -15786,7 +15786,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18059, label %9932, label %10795
 
 9932:                                             ; preds = %9924
-  %9933 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7568), align 8
+  %9933 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7568), align 8
   %9934 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9933, ptr noundef nonnull %0)
   %9935 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18060 = icmp eq i8 %9935, 0
@@ -15813,7 +15813,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9948 = extractvalue { ptr, i8 } %9945, 1
   %9949 = extractvalue { ptr, i8 } %9945, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 388, ptr %9949, i8 %9948) #7
-  %9950 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
+  %9950 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3800), align 8
   %9951 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9950, ptr noundef nonnull %0)
   %9952 = extractvalue { ptr, i8 } %9951, 0
   %9953 = extractvalue { ptr, i8 } %9951, 1
@@ -15822,7 +15822,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18062, label %9955, label %10795
 
 9955:                                             ; preds = %9947
-  %9956 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7560), align 8
+  %9956 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7560), align 8
   %9957 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9956, ptr noundef nonnull %0)
   %9958 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18063 = icmp eq i8 %9958, 0
@@ -15849,7 +15849,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9971 = extractvalue { ptr, i8 } %9968, 1
   %9972 = extractvalue { ptr, i8 } %9968, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 389, ptr %9972, i8 %9971) #7
-  %9973 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3728), align 8
+  %9973 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3728), align 8
   %9974 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9973, ptr noundef nonnull %0)
   %9975 = extractvalue { ptr, i8 } %9974, 0
   %9976 = extractvalue { ptr, i8 } %9974, 1
@@ -15858,7 +15858,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18065, label %9978, label %10795
 
 9978:                                             ; preds = %9970
-  %9979 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
+  %9979 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7360), align 8
   %9980 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9979, ptr noundef nonnull %0)
   %9981 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18066 = icmp eq i8 %9981, 0
@@ -15885,7 +15885,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %9994 = extractvalue { ptr, i8 } %9991, 1
   %9995 = extractvalue { ptr, i8 } %9991, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 390, ptr %9995, i8 %9994) #7
-  %9996 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %9996 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %9997 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %9996, ptr noundef nonnull %0)
   %9998 = extractvalue { ptr, i8 } %9997, 0
   %9999 = extractvalue { ptr, i8 } %9997, 1
@@ -15894,7 +15894,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18068, label %10001, label %10795
 
 10001:                                            ; preds = %9993
-  %10002 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3728), align 8
+  %10002 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3728), align 8
   %10003 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10002, ptr noundef nonnull %0)
   %10004 = extractvalue { ptr, i8 } %10003, 0
   %10005 = extractvalue { ptr, i8 } %10003, 1
@@ -15903,7 +15903,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18069, label %10007, label %10795
 
 10007:                                            ; preds = %10001
-  %10008 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7584), align 8
+  %10008 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7584), align 8
   %10009 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10008, ptr noundef nonnull %0)
   %10010 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18070 = icmp eq i8 %10010, 0
@@ -15930,7 +15930,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10023 = extractvalue { ptr, i8 } %10020, 1
   %10024 = extractvalue { ptr, i8 } %10020, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 391, ptr %10024, i8 %10023) #7
-  %10025 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 48), align 8
+  %10025 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 48), align 8
   %10026 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10025, ptr noundef nonnull %0)
   %10027 = extractvalue { ptr, i8 } %10026, 0
   %10028 = extractvalue { ptr, i8 } %10026, 1
@@ -15939,7 +15939,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18072, label %10030, label %10795
 
 10030:                                            ; preds = %10022
-  %10031 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %10031 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %10032 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10031, ptr noundef nonnull %0)
   %10033 = extractvalue { ptr, i8 } %10032, 0
   %10034 = extractvalue { ptr, i8 } %10032, 1
@@ -15948,7 +15948,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18073, label %10036, label %10795
 
 10036:                                            ; preds = %10030
-  %10037 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
+  %10037 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7136), align 8
   %10038 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10037, ptr noundef nonnull %0)
   %10039 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18074 = icmp eq i8 %10039, 0
@@ -15975,7 +15975,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10052 = extractvalue { ptr, i8 } %10049, 1
   %10053 = extractvalue { ptr, i8 } %10049, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 392, ptr %10053, i8 %10052) #7
-  %10054 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %10054 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
   %10055 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10054, ptr noundef nonnull %0)
   %10056 = extractvalue { ptr, i8 } %10055, 0
   %10057 = extractvalue { ptr, i8 } %10055, 1
@@ -15984,7 +15984,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18076, label %10059, label %10795
 
 10059:                                            ; preds = %10051
-  %10060 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %10060 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %10061 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10060, ptr noundef nonnull %0)
   %10062 = extractvalue { ptr, i8 } %10061, 0
   %10063 = extractvalue { ptr, i8 } %10061, 1
@@ -15993,7 +15993,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18077, label %10065, label %10795
 
 10065:                                            ; preds = %10059
-  %10066 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
+  %10066 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
   %10067 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10066, ptr noundef nonnull %0)
   %10068 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18078 = icmp eq i8 %10068, 0
@@ -16020,7 +16020,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10081 = extractvalue { ptr, i8 } %10078, 1
   %10082 = extractvalue { ptr, i8 } %10078, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 393, ptr %10082, i8 %10081) #7
-  %10083 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 424), align 8
+  %10083 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 424), align 8
   %10084 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10083, ptr noundef nonnull %0)
   %10085 = extractvalue { ptr, i8 } %10084, 0
   %10086 = extractvalue { ptr, i8 } %10084, 1
@@ -16029,7 +16029,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18080, label %10088, label %10795
 
 10088:                                            ; preds = %10080
-  %10089 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1896), align 8
+  %10089 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1896), align 8
   %10090 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10089, ptr noundef nonnull %0)
   %10091 = extractvalue { ptr, i8 } %10090, 0
   %10092 = extractvalue { ptr, i8 } %10090, 1
@@ -16038,7 +16038,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18081, label %10094, label %10795
 
 10094:                                            ; preds = %10088
-  %10095 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7376), align 8
+  %10095 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7376), align 8
   %10096 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10095, ptr noundef nonnull %0)
   %10097 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18082 = icmp eq i8 %10097, 0
@@ -16065,7 +16065,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10110 = extractvalue { ptr, i8 } %10107, 1
   %10111 = extractvalue { ptr, i8 } %10107, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 394, ptr %10111, i8 %10110) #7
-  %10112 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2120), align 8
+  %10112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 2120), align 8
   %10113 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10112, ptr noundef nonnull %0)
   %10114 = extractvalue { ptr, i8 } %10113, 0
   %10115 = extractvalue { ptr, i8 } %10113, 1
@@ -16074,7 +16074,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18084, label %10117, label %10795
 
 10117:                                            ; preds = %10109
-  %10118 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1896), align 8
+  %10118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1896), align 8
   %10119 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10118, ptr noundef nonnull %0)
   %10120 = extractvalue { ptr, i8 } %10119, 0
   %10121 = extractvalue { ptr, i8 } %10119, 1
@@ -16083,7 +16083,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18085, label %10123, label %10795
 
 10123:                                            ; preds = %10117
-  %10124 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
+  %10124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
   %10125 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10124, ptr noundef nonnull %0)
   %10126 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18086 = icmp eq i8 %10126, 0
@@ -16110,7 +16110,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10139 = extractvalue { ptr, i8 } %10136, 1
   %10140 = extractvalue { ptr, i8 } %10136, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 395, ptr %10140, i8 %10139) #7
-  %10141 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1832), align 8
+  %10141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1832), align 8
   %10142 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10141, ptr noundef nonnull %0)
   %10143 = extractvalue { ptr, i8 } %10142, 0
   %10144 = extractvalue { ptr, i8 } %10142, 1
@@ -16119,7 +16119,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18088, label %10146, label %10795
 
 10146:                                            ; preds = %10138
-  %10147 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
+  %10147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
   %10148 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10147, ptr noundef nonnull %0)
   %10149 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18089 = icmp eq i8 %10149, 0
@@ -16146,7 +16146,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10162 = extractvalue { ptr, i8 } %10159, 1
   %10163 = extractvalue { ptr, i8 } %10159, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 396, ptr %10163, i8 %10162) #7
-  %10164 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1840), align 8
+  %10164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1840), align 8
   %10165 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10164, ptr noundef nonnull %0)
   %10166 = extractvalue { ptr, i8 } %10165, 0
   %10167 = extractvalue { ptr, i8 } %10165, 1
@@ -16155,7 +16155,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18091, label %10169, label %10795
 
 10169:                                            ; preds = %10161
-  %10170 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
+  %10170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
   %10171 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10170, ptr noundef nonnull %0)
   %10172 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18092 = icmp eq i8 %10172, 0
@@ -16182,7 +16182,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10185 = extractvalue { ptr, i8 } %10182, 1
   %10186 = extractvalue { ptr, i8 } %10182, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 397, ptr %10186, i8 %10185) #7
-  %10187 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1848), align 8
+  %10187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1848), align 8
   %10188 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10187, ptr noundef nonnull %0)
   %10189 = extractvalue { ptr, i8 } %10188, 0
   %10190 = extractvalue { ptr, i8 } %10188, 1
@@ -16191,7 +16191,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18094, label %10192, label %10795
 
 10192:                                            ; preds = %10184
-  %10193 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
+  %10193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
   %10194 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10193, ptr noundef nonnull %0)
   %10195 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18095 = icmp eq i8 %10195, 0
@@ -16218,7 +16218,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10208 = extractvalue { ptr, i8 } %10205, 1
   %10209 = extractvalue { ptr, i8 } %10205, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 398, ptr %10209, i8 %10208) #7
-  %10210 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1856), align 8
+  %10210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1856), align 8
   %10211 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10210, ptr noundef nonnull %0)
   %10212 = extractvalue { ptr, i8 } %10211, 0
   %10213 = extractvalue { ptr, i8 } %10211, 1
@@ -16227,7 +16227,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18097, label %10215, label %10795
 
 10215:                                            ; preds = %10207
-  %10216 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
+  %10216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
   %10217 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10216, ptr noundef nonnull %0)
   %10218 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18098 = icmp eq i8 %10218, 0
@@ -16254,7 +16254,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10231 = extractvalue { ptr, i8 } %10228, 1
   %10232 = extractvalue { ptr, i8 } %10228, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 399, ptr %10232, i8 %10231) #7
-  %10233 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1864), align 8
+  %10233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1864), align 8
   %10234 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10233, ptr noundef nonnull %0)
   %10235 = extractvalue { ptr, i8 } %10234, 0
   %10236 = extractvalue { ptr, i8 } %10234, 1
@@ -16263,7 +16263,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18100, label %10238, label %10795
 
 10238:                                            ; preds = %10230
-  %10239 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
+  %10239 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
   %10240 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10239, ptr noundef nonnull %0)
   %10241 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18101 = icmp eq i8 %10241, 0
@@ -16290,7 +16290,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10254 = extractvalue { ptr, i8 } %10251, 1
   %10255 = extractvalue { ptr, i8 } %10251, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 400, ptr %10255, i8 %10254) #7
-  %10256 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1872), align 8
+  %10256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1872), align 8
   %10257 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10256, ptr noundef nonnull %0)
   %10258 = extractvalue { ptr, i8 } %10257, 0
   %10259 = extractvalue { ptr, i8 } %10257, 1
@@ -16299,7 +16299,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18103, label %10261, label %10795
 
 10261:                                            ; preds = %10253
-  %10262 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
+  %10262 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
   %10263 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10262, ptr noundef nonnull %0)
   %10264 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18104 = icmp eq i8 %10264, 0
@@ -16326,7 +16326,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10277 = extractvalue { ptr, i8 } %10274, 1
   %10278 = extractvalue { ptr, i8 } %10274, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 401, ptr %10278, i8 %10277) #7
-  %10279 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1880), align 8
+  %10279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1880), align 8
   %10280 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10279, ptr noundef nonnull %0)
   %10281 = extractvalue { ptr, i8 } %10280, 0
   %10282 = extractvalue { ptr, i8 } %10280, 1
@@ -16335,7 +16335,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18106, label %10284, label %10795
 
 10284:                                            ; preds = %10276
-  %10285 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
+  %10285 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1888), align 8
   %10286 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10285, ptr noundef nonnull %0)
   %10287 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18107 = icmp eq i8 %10287, 0
@@ -16362,7 +16362,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10300 = extractvalue { ptr, i8 } %10297, 1
   %10301 = extractvalue { ptr, i8 } %10297, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 402, ptr %10301, i8 %10300) #7
-  %10302 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 176), align 8
+  %10302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 176), align 8
   %10303 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10302, ptr noundef nonnull %0)
   %10304 = extractvalue { ptr, i8 } %10303, 0
   %10305 = extractvalue { ptr, i8 } %10303, 1
@@ -16371,7 +16371,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18109, label %10307, label %10795
 
 10307:                                            ; preds = %10299
-  %10308 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6600), align 8
+  %10308 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6600), align 8
   %10309 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10308, ptr noundef nonnull %0)
   %10310 = extractvalue { ptr, i8 } %10309, 0
   %10311 = extractvalue { ptr, i8 } %10309, 1
@@ -16380,7 +16380,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18110, label %10313, label %10795
 
 10313:                                            ; preds = %10307
-  %10314 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
+  %10314 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6760), align 8
   %10315 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10314, ptr noundef nonnull %0)
   %10316 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18111 = icmp eq i8 %10316, 0
@@ -16407,7 +16407,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10329 = extractvalue { ptr, i8 } %10326, 1
   %10330 = extractvalue { ptr, i8 } %10326, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 403, ptr %10330, i8 %10329) #7
-  %10331 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 224), align 8
+  %10331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 224), align 8
   %10332 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10331, ptr noundef nonnull %0)
   %10333 = extractvalue { ptr, i8 } %10332, 0
   %10334 = extractvalue { ptr, i8 } %10332, 1
@@ -16416,7 +16416,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18113, label %10336, label %10795
 
 10336:                                            ; preds = %10328
-  %10337 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6608), align 8
+  %10337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6608), align 8
   %10338 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10337, ptr noundef nonnull %0)
   %10339 = extractvalue { ptr, i8 } %10338, 0
   %10340 = extractvalue { ptr, i8 } %10338, 1
@@ -16425,7 +16425,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18114, label %10342, label %10795
 
 10342:                                            ; preds = %10336
-  %10343 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6768), align 8
+  %10343 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6768), align 8
   %10344 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10343, ptr noundef nonnull %0)
   %10345 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18115 = icmp eq i8 %10345, 0
@@ -16452,7 +16452,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10358 = extractvalue { ptr, i8 } %10355, 1
   %10359 = extractvalue { ptr, i8 } %10355, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 404, ptr %10359, i8 %10358) #7
-  %10360 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 184), align 8
+  %10360 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 184), align 8
   %10361 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10360, ptr noundef nonnull %0)
   %10362 = extractvalue { ptr, i8 } %10361, 0
   %10363 = extractvalue { ptr, i8 } %10361, 1
@@ -16461,7 +16461,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18117, label %10365, label %10795
 
 10365:                                            ; preds = %10357
-  %10366 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6616), align 8
+  %10366 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6616), align 8
   %10367 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10366, ptr noundef nonnull %0)
   %10368 = extractvalue { ptr, i8 } %10367, 0
   %10369 = extractvalue { ptr, i8 } %10367, 1
@@ -16470,7 +16470,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18118, label %10371, label %10795
 
 10371:                                            ; preds = %10365
-  %10372 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6776), align 8
+  %10372 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6776), align 8
   %10373 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10372, ptr noundef nonnull %0)
   %10374 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18119 = icmp eq i8 %10374, 0
@@ -16497,7 +16497,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10387 = extractvalue { ptr, i8 } %10384, 1
   %10388 = extractvalue { ptr, i8 } %10384, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 405, ptr %10388, i8 %10387) #7
-  %10389 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 240), align 8
+  %10389 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 240), align 8
   %10390 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10389, ptr noundef nonnull %0)
   %10391 = extractvalue { ptr, i8 } %10390, 0
   %10392 = extractvalue { ptr, i8 } %10390, 1
@@ -16506,7 +16506,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18121, label %10394, label %10795
 
 10394:                                            ; preds = %10386
-  %10395 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6624), align 8
+  %10395 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6624), align 8
   %10396 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10395, ptr noundef nonnull %0)
   %10397 = extractvalue { ptr, i8 } %10396, 0
   %10398 = extractvalue { ptr, i8 } %10396, 1
@@ -16515,7 +16515,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18122, label %10400, label %10795
 
 10400:                                            ; preds = %10394
-  %10401 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6784), align 8
+  %10401 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6784), align 8
   %10402 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10401, ptr noundef nonnull %0)
   %10403 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18123 = icmp eq i8 %10403, 0
@@ -16542,7 +16542,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10416 = extractvalue { ptr, i8 } %10413, 1
   %10417 = extractvalue { ptr, i8 } %10413, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 406, ptr %10417, i8 %10416) #7
-  %10418 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %10418 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %10419 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10418, ptr noundef nonnull %0)
   %10420 = extractvalue { ptr, i8 } %10419, 0
   %10421 = extractvalue { ptr, i8 } %10419, 1
@@ -16551,7 +16551,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18125, label %10423, label %10795
 
 10423:                                            ; preds = %10415
-  %10424 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6632), align 8
+  %10424 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6632), align 8
   %10425 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10424, ptr noundef nonnull %0)
   %10426 = extractvalue { ptr, i8 } %10425, 0
   %10427 = extractvalue { ptr, i8 } %10425, 1
@@ -16560,7 +16560,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18126, label %10429, label %10795
 
 10429:                                            ; preds = %10423
-  %10430 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6792), align 8
+  %10430 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6792), align 8
   %10431 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10430, ptr noundef nonnull %0)
   %10432 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18127 = icmp eq i8 %10432, 0
@@ -16587,7 +16587,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10445 = extractvalue { ptr, i8 } %10442, 1
   %10446 = extractvalue { ptr, i8 } %10442, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 407, ptr %10446, i8 %10445) #7
-  %10447 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %10447 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %10448 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10447, ptr noundef nonnull %0)
   %10449 = extractvalue { ptr, i8 } %10448, 0
   %10450 = extractvalue { ptr, i8 } %10448, 1
@@ -16596,7 +16596,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18129, label %10452, label %10795
 
 10452:                                            ; preds = %10444
-  %10453 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6640), align 8
+  %10453 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6640), align 8
   %10454 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10453, ptr noundef nonnull %0)
   %10455 = extractvalue { ptr, i8 } %10454, 0
   %10456 = extractvalue { ptr, i8 } %10454, 1
@@ -16605,7 +16605,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18130, label %10458, label %10795
 
 10458:                                            ; preds = %10452
-  %10459 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6800), align 8
+  %10459 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6800), align 8
   %10460 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10459, ptr noundef nonnull %0)
   %10461 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18131 = icmp eq i8 %10461, 0
@@ -16632,7 +16632,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10474 = extractvalue { ptr, i8 } %10471, 1
   %10475 = extractvalue { ptr, i8 } %10471, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 408, ptr %10475, i8 %10474) #7
-  %10476 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
+  %10476 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
   %10477 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10476, ptr noundef nonnull %0)
   %10478 = extractvalue { ptr, i8 } %10477, 0
   %10479 = extractvalue { ptr, i8 } %10477, 1
@@ -16641,7 +16641,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18133, label %10481, label %10795
 
 10481:                                            ; preds = %10473
-  %10482 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6648), align 8
+  %10482 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6648), align 8
   %10483 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10482, ptr noundef nonnull %0)
   %10484 = extractvalue { ptr, i8 } %10483, 0
   %10485 = extractvalue { ptr, i8 } %10483, 1
@@ -16650,7 +16650,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18134, label %10487, label %10795
 
 10487:                                            ; preds = %10481
-  %10488 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6808), align 8
+  %10488 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6808), align 8
   %10489 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10488, ptr noundef nonnull %0)
   %10490 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18135 = icmp eq i8 %10490, 0
@@ -16677,7 +16677,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10503 = extractvalue { ptr, i8 } %10500, 1
   %10504 = extractvalue { ptr, i8 } %10500, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 409, ptr %10504, i8 %10503) #7
-  %10505 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 216), align 8
+  %10505 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 216), align 8
   %10506 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10505, ptr noundef nonnull %0)
   %10507 = extractvalue { ptr, i8 } %10506, 0
   %10508 = extractvalue { ptr, i8 } %10506, 1
@@ -16686,7 +16686,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18137, label %10510, label %10795
 
 10510:                                            ; preds = %10502
-  %10511 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6656), align 8
+  %10511 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6656), align 8
   %10512 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10511, ptr noundef nonnull %0)
   %10513 = extractvalue { ptr, i8 } %10512, 0
   %10514 = extractvalue { ptr, i8 } %10512, 1
@@ -16695,7 +16695,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18138, label %10516, label %10795
 
 10516:                                            ; preds = %10510
-  %10517 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6816), align 8
+  %10517 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6816), align 8
   %10518 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10517, ptr noundef nonnull %0)
   %10519 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18139 = icmp eq i8 %10519, 0
@@ -16722,7 +16722,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10532 = extractvalue { ptr, i8 } %10529, 1
   %10533 = extractvalue { ptr, i8 } %10529, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 410, ptr %10533, i8 %10532) #7
-  %10534 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 176), align 8
+  %10534 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 176), align 8
   %10535 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10534, ptr noundef nonnull %0)
   %10536 = extractvalue { ptr, i8 } %10535, 0
   %10537 = extractvalue { ptr, i8 } %10535, 1
@@ -16731,7 +16731,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18141, label %10539, label %10795
 
 10539:                                            ; preds = %10531
-  %10540 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
+  %10540 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
   %10541 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10540, ptr noundef nonnull %0)
   %10542 = extractvalue { ptr, i8 } %10541, 0
   %10543 = extractvalue { ptr, i8 } %10541, 1
@@ -16740,7 +16740,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18142, label %10545, label %10795
 
 10545:                                            ; preds = %10539
-  %10546 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6672), align 8
+  %10546 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6672), align 8
   %10547 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10546, ptr noundef nonnull %0)
   %10548 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18143 = icmp eq i8 %10548, 0
@@ -16767,7 +16767,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10561 = extractvalue { ptr, i8 } %10558, 1
   %10562 = extractvalue { ptr, i8 } %10558, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 411, ptr %10562, i8 %10561) #7
-  %10563 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 224), align 8
+  %10563 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 224), align 8
   %10564 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10563, ptr noundef nonnull %0)
   %10565 = extractvalue { ptr, i8 } %10564, 0
   %10566 = extractvalue { ptr, i8 } %10564, 1
@@ -16776,7 +16776,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18145, label %10568, label %10795
 
 10568:                                            ; preds = %10560
-  %10569 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
+  %10569 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
   %10570 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10569, ptr noundef nonnull %0)
   %10571 = extractvalue { ptr, i8 } %10570, 0
   %10572 = extractvalue { ptr, i8 } %10570, 1
@@ -16785,7 +16785,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18146, label %10574, label %10795
 
 10574:                                            ; preds = %10568
-  %10575 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6680), align 8
+  %10575 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6680), align 8
   %10576 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10575, ptr noundef nonnull %0)
   %10577 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18147 = icmp eq i8 %10577, 0
@@ -16812,7 +16812,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10590 = extractvalue { ptr, i8 } %10587, 1
   %10591 = extractvalue { ptr, i8 } %10587, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 412, ptr %10591, i8 %10590) #7
-  %10592 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 184), align 8
+  %10592 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 184), align 8
   %10593 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10592, ptr noundef nonnull %0)
   %10594 = extractvalue { ptr, i8 } %10593, 0
   %10595 = extractvalue { ptr, i8 } %10593, 1
@@ -16821,7 +16821,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18149, label %10597, label %10795
 
 10597:                                            ; preds = %10589
-  %10598 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
+  %10598 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
   %10599 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10598, ptr noundef nonnull %0)
   %10600 = extractvalue { ptr, i8 } %10599, 0
   %10601 = extractvalue { ptr, i8 } %10599, 1
@@ -16830,7 +16830,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18150, label %10603, label %10795
 
 10603:                                            ; preds = %10597
-  %10604 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6688), align 8
+  %10604 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6688), align 8
   %10605 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10604, ptr noundef nonnull %0)
   %10606 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18151 = icmp eq i8 %10606, 0
@@ -16857,7 +16857,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10619 = extractvalue { ptr, i8 } %10616, 1
   %10620 = extractvalue { ptr, i8 } %10616, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 413, ptr %10620, i8 %10619) #7
-  %10621 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 240), align 8
+  %10621 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 240), align 8
   %10622 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10621, ptr noundef nonnull %0)
   %10623 = extractvalue { ptr, i8 } %10622, 0
   %10624 = extractvalue { ptr, i8 } %10622, 1
@@ -16866,7 +16866,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18153, label %10626, label %10795
 
 10626:                                            ; preds = %10618
-  %10627 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
+  %10627 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
   %10628 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10627, ptr noundef nonnull %0)
   %10629 = extractvalue { ptr, i8 } %10628, 0
   %10630 = extractvalue { ptr, i8 } %10628, 1
@@ -16875,7 +16875,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18154, label %10632, label %10795
 
 10632:                                            ; preds = %10626
-  %10633 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6696), align 8
+  %10633 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6696), align 8
   %10634 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10633, ptr noundef nonnull %0)
   %10635 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18155 = icmp eq i8 %10635, 0
@@ -16902,7 +16902,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10648 = extractvalue { ptr, i8 } %10645, 1
   %10649 = extractvalue { ptr, i8 } %10645, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 414, ptr %10649, i8 %10648) #7
-  %10650 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
+  %10650 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 256), align 8
   %10651 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10650, ptr noundef nonnull %0)
   %10652 = extractvalue { ptr, i8 } %10651, 0
   %10653 = extractvalue { ptr, i8 } %10651, 1
@@ -16911,7 +16911,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18157, label %10655, label %10795
 
 10655:                                            ; preds = %10647
-  %10656 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
+  %10656 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
   %10657 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10656, ptr noundef nonnull %0)
   %10658 = extractvalue { ptr, i8 } %10657, 0
   %10659 = extractvalue { ptr, i8 } %10657, 1
@@ -16920,7 +16920,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18158, label %10661, label %10795
 
 10661:                                            ; preds = %10655
-  %10662 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6704), align 8
+  %10662 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6704), align 8
   %10663 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10662, ptr noundef nonnull %0)
   %10664 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18159 = icmp eq i8 %10664, 0
@@ -16947,7 +16947,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10677 = extractvalue { ptr, i8 } %10674, 1
   %10678 = extractvalue { ptr, i8 } %10674, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 415, ptr %10678, i8 %10677) #7
-  %10679 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
+  %10679 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 272), align 8
   %10680 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10679, ptr noundef nonnull %0)
   %10681 = extractvalue { ptr, i8 } %10680, 0
   %10682 = extractvalue { ptr, i8 } %10680, 1
@@ -16956,7 +16956,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18161, label %10684, label %10795
 
 10684:                                            ; preds = %10676
-  %10685 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
+  %10685 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
   %10686 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10685, ptr noundef nonnull %0)
   %10687 = extractvalue { ptr, i8 } %10686, 0
   %10688 = extractvalue { ptr, i8 } %10686, 1
@@ -16965,7 +16965,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18162, label %10690, label %10795
 
 10690:                                            ; preds = %10684
-  %10691 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6712), align 8
+  %10691 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6712), align 8
   %10692 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10691, ptr noundef nonnull %0)
   %10693 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18163 = icmp eq i8 %10693, 0
@@ -16992,7 +16992,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10706 = extractvalue { ptr, i8 } %10703, 1
   %10707 = extractvalue { ptr, i8 } %10703, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 416, ptr %10707, i8 %10706) #7
-  %10708 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
+  %10708 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 208), align 8
   %10709 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10708, ptr noundef nonnull %0)
   %10710 = extractvalue { ptr, i8 } %10709, 0
   %10711 = extractvalue { ptr, i8 } %10709, 1
@@ -17001,7 +17001,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18165, label %10713, label %10795
 
 10713:                                            ; preds = %10705
-  %10714 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
+  %10714 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
   %10715 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10714, ptr noundef nonnull %0)
   %10716 = extractvalue { ptr, i8 } %10715, 0
   %10717 = extractvalue { ptr, i8 } %10715, 1
@@ -17010,7 +17010,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18166, label %10719, label %10795
 
 10719:                                            ; preds = %10713
-  %10720 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6720), align 8
+  %10720 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6720), align 8
   %10721 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10720, ptr noundef nonnull %0)
   %10722 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18167 = icmp eq i8 %10722, 0
@@ -17037,7 +17037,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10735 = extractvalue { ptr, i8 } %10732, 1
   %10736 = extractvalue { ptr, i8 } %10732, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 417, ptr %10736, i8 %10735) #7
-  %10737 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 216), align 8
+  %10737 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 216), align 8
   %10738 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10737, ptr noundef nonnull %0)
   %10739 = extractvalue { ptr, i8 } %10738, 0
   %10740 = extractvalue { ptr, i8 } %10738, 1
@@ -17046,7 +17046,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18169, label %10742, label %10795
 
 10742:                                            ; preds = %10734
-  %10743 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
+  %10743 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6664), align 8
   %10744 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10743, ptr noundef nonnull %0)
   %10745 = extractvalue { ptr, i8 } %10744, 0
   %10746 = extractvalue { ptr, i8 } %10744, 1
@@ -17055,7 +17055,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18170, label %10748, label %10795
 
 10748:                                            ; preds = %10742
-  %10749 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6728), align 8
+  %10749 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6728), align 8
   %10750 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10749, ptr noundef nonnull %0)
   %10751 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18171 = icmp eq i8 %10751, 0
@@ -17082,7 +17082,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   %10764 = extractvalue { ptr, i8 } %10761, 1
   %10765 = extractvalue { ptr, i8 } %10761, 0
   tail call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %423, i8 %424, i32 noundef 418, ptr %10765, i8 %10764) #7
-  %10766 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9144), align 8
+  %10766 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9144), align 8
   %10767 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10766, ptr noundef nonnull %0)
   %10768 = extractvalue { ptr, i8 } %10767, 0
   %10769 = extractvalue { ptr, i8 } %10767, 1
@@ -17091,7 +17091,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18173, label %10771, label %10795
 
 10771:                                            ; preds = %10763
-  %10772 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6736), align 8
+  %10772 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6736), align 8
   %10773 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10772, ptr noundef nonnull %0)
   %10774 = extractvalue { ptr, i8 } %10773, 0
   %10775 = extractvalue { ptr, i8 } %10773, 1
@@ -17100,7 +17100,7 @@ define hidden { ptr, i8 } @_ZN12CompilerToVM21initialize_intrinsicsEP8JVMCIEnv(p
   br i1 %.not18174, label %10777, label %10795
 
 10777:                                            ; preds = %10771
-  %10778 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6744), align 8
+  %10778 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6744), align 8
   %10779 = tail call { ptr, i8 } @_ZN8JVMCIEnv13create_stringEP6SymbolPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %10778, ptr noundef nonnull %0)
   %10780 = tail call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #7
   %.not18175 = icmp eq i8 %10780, 0

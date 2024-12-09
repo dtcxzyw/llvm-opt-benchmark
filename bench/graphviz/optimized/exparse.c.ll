@@ -1196,11 +1196,11 @@ define range(i32 -1, 1) i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not46, label %11, label %12
 
 11:                                               ; preds = %8
-  store ptr getelementptr inbounds (i8, ptr @expr, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @expr, i64 16), ptr %9, align 8
   br label %12
 
 12:                                               ; preds = %11, %8
-  %13 = phi ptr [ getelementptr inbounds (i8, ptr @expr, i64 16), %11 ], [ %10, %8 ]
+  %13 = phi ptr [ getelementptr inbounds nuw (i8, ptr @expr, i64 16), %11 ], [ %10, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %3, ptr %14, align 8
   %.not47 = icmp eq ptr %3, null
@@ -1264,7 +1264,7 @@ define range(i32 -1, 1) i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %40, label %.sink.split, label %41
 
 .sink.split:                                      ; preds = %39, %36
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 8), align 8
   br label %41
 
 41:                                               ; preds = %.sink.split, %39, %36
@@ -1276,18 +1276,18 @@ define range(i32 -1, 1) i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef 
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store i32 0, ptr %45, align 8
   store ptr %5, ptr %9, align 8
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 24), align 8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %46, ptr %47, align 8
   %48 = icmp sgt i32 %2, -1
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %41
-  store ptr %.039, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
+  store ptr %.039, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 24), align 8
   br label %50
 
 50:                                               ; preds = %49, %41
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 8), align 8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %51, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1298,10 +1298,10 @@ define range(i32 -1, 1) i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef 
   %55 = zext i1 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %55, ptr %56, align 4
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %57, ptr %58, align 8
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br label %59
 
 59:                                               ; preds = %50, %6
@@ -1355,7 +1355,7 @@ define range(i32 -1, 1) i32 @expop(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %12, %9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr getelementptr inbounds (i8, ptr @_err_info, i64 24), align 8
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 24), align 8
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %16, align 8
   %.not33 = icmp eq ptr %17, null
@@ -1391,7 +1391,7 @@ define range(i32 -1, 1) i32 @expop(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %.preheader, %.preheader, %18, %21, %24, %13
   %storemerge.in = getelementptr inbounds nuw i8, ptr %3, i64 32
   %storemerge = load i32, ptr %storemerge.in, align 8
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @_err_info, i64 8), align 8
+  store i32 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @_err_info, i64 8), align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %31 = load ptr, ptr %30, align 8
   %.not38 = icmp eq ptr %31, null
@@ -1425,7 +1425,7 @@ define range(i32 -1, 1) i32 @expop(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not40, label %47, label %46
 
 46:                                               ; preds = %37
-  store ptr %45, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br label %47
 
 47:                                               ; preds = %37, %46, %1, %4, %6
@@ -1472,7 +1472,7 @@ define range(i32 -1, 1) i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 0, ptr %21, align 4
   %22 = tail call i32 @expop(ptr noundef nonnull %0)
   store i32 %7, ptr %6, align 8
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 112), align 8
   %.not25 = icmp eq i32 %23, 0
   br i1 %.not25, label %41, label %24
 
@@ -1495,9 +1495,9 @@ define range(i32 -1, 1) i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef 
   %32 = load ptr, ptr %25, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %32, ptr noundef nonnull %.02430, i32 noundef 2) #22
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 112), align 8
   %36 = add nsw i32 %35, -1
-  store i32 %36, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
+  store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 112), align 8
   %.not28 = icmp eq i32 %36, 0
   br i1 %.not28, label %._crit_edge, label %37
 
@@ -1509,7 +1509,7 @@ define range(i32 -1, 1) i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %37, %31, %24
-  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 112), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 112), align 8
   br label %41
 
 41:                                               ; preds = %9, %._crit_edge, %5
@@ -1661,7 +1661,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br label %68
 
 68:                                               ; preds = %63, %65
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %70 = call i32 @extoken_fn(ptr noundef %69) #22
   store i32 %70, ptr @ex_char, align 4
   br label %71
@@ -1931,7 +1931,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br i1 %.not896, label %.loopexit990, label %149
 
 149:                                              ; preds = %146
-  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 280
   %152 = load ptr, ptr %151, align 8
   %.not897 = icmp eq ptr %152, null
@@ -1954,12 +1954,12 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %161 = load ptr, ptr %160, align 8
   store ptr %161, ptr %147, align 8
   store ptr null, ptr %160, align 8
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   call void @exfreenode(ptr noundef %162, ptr noundef nonnull %155)
   br label %163
 
 163:                                              ; preds = %159, %154
-  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 240
   store i64 293, ptr %165, align 8
   %166 = load ptr, ptr %147, align 8
@@ -1975,13 +1975,13 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   store i32 1, ptr %171, align 8
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 40
   store ptr %166, ptr %173, align 8
-  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 280
   store ptr %170, ptr %175, align 8
   br label %.loopexit990
 
 176:                                              ; preds = %145
-  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %.not891 = icmp eq ptr %177, null
   br i1 %.not891, label %179, label %178
 
@@ -1994,7 +1994,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i64 293, ptr %182, align 8
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %184 = load ptr, ptr %180, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 32
   %186 = load i64, ptr %185, align 8
@@ -2013,7 +2013,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %194 = load ptr, ptr %180, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 56
   store ptr %190, ptr %195, align 8
-  store ptr %190, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  store ptr %190, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   store i32 259, ptr %190, align 8
   %196 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
   %.not892 = icmp eq ptr %196, null
@@ -2025,7 +2025,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
 
 199:                                              ; preds = %197, %179
   store i32 80, ptr %196, align 8
-  %200 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 104), align 8
+  %200 = load i32, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 104), align 8
   %.not893 = icmp eq i32 %200, 0
   br i1 %.not893, label %.loopexit990, label %201
 
@@ -2039,17 +2039,17 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
 206:                                              ; preds = %201
   %207 = load ptr, ptr @Dtset, align 8
   %208 = call ptr @dtopen(ptr noundef nonnull %196, ptr noundef %207) #22
-  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 48
   store ptr %208, ptr %210, align 8
   %.not894 = icmp eq ptr %208, null
   br i1 %.not894, label %219, label %211
 
 211:                                              ; preds = %206
-  %212 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 48
   %214 = load ptr, ptr %213, align 8
-  %215 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8
   %218 = call ptr @dtview(ptr noundef %214, ptr noundef %217) #22
@@ -2061,10 +2061,10 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br label %221
 
 221:                                              ; preds = %219, %211
-  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 48
   %224 = load ptr, ptr %223, align 8
-  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 112
   store ptr %224, ptr %226, align 8
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 8
@@ -2072,8 +2072,8 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br label %.loopexit990
 
 228:                                              ; preds = %145
-  store ptr null, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
-  %229 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
+  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 112
   %231 = load ptr, ptr %230, align 8
   %.not889 = icmp eq ptr %231, null
@@ -2084,11 +2084,11 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr %234, ptr %235, align 8
-  %236 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 112
   %238 = load ptr, ptr %237, align 8
   %239 = call ptr @dtview(ptr noundef %238, ptr noundef null) #22
-  %240 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 112
   store ptr null, ptr %241, align 8
   br label %242
@@ -2110,9 +2110,9 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %251 = load ptr, ptr %250, align 8
   store ptr %251, ptr %.2701, align 8
   store ptr null, ptr %250, align 8
-  %252 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %252 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   call void @exfreenode(ptr noundef %252, ptr noundef nonnull %244)
-  %.pre1062 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %.pre1062 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %.pre1063 = load ptr, ptr %.2701, align 8
   br label %253
 
@@ -2150,7 +2150,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %273 = getelementptr inbounds nuw i8, ptr %269, i64 4
   %274 = load i32, ptr %273, align 4
   %275 = icmp eq i32 %274, 271
-  %276 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br i1 %275, label %277, label %279
 
 277:                                              ; preds = %272
@@ -2192,7 +2192,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br i1 %296, label %297, label %.loopexit990
 
 297:                                              ; preds = %294
-  %298 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %298 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 96
   %300 = load ptr, ptr %299, align 8
   %301 = call ptr @vmalloc(ptr noundef %300, i64 noundef 72) #22
@@ -2209,7 +2209,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
 305:                                              ; preds = %145
   %306 = load i64, ptr %.2701, align 8
   %307 = trunc i64 %306 to i32
-  store i32 %307, ptr getelementptr inbounds (i8, ptr @expr, i64 108), align 4
+  store i32 %307, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 108), align 4
   br label %.loopexit990
 
 308:                                              ; preds = %145
@@ -2217,13 +2217,13 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 32
   %311 = load i64, ptr %310, align 8
   %312 = trunc i64 %311 to i32
-  store i32 %312, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  store i32 %312, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   br label %.loopexit990
 
 313:                                              ; preds = %145
   %314 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %315 = load ptr, ptr %314, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   br label %.loopexit990
 
 316:                                              ; preds = %145
@@ -2252,7 +2252,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br i1 %327, label %328, label %336
 
 328:                                              ; preds = %exisAssign.exit.thread
-  %329 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %329 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 96
   %331 = load ptr, ptr %330, align 8
   %332 = call ptr @vmalloc(ptr noundef %331, i64 noundef 72) #22
@@ -2272,7 +2272,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br i1 %or.cond, label %341, label %338
 
 338:                                              ; preds = %336
-  %339 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %339 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %340 = call ptr @excast(ptr noundef %339, ptr noundef nonnull %325, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split
 
@@ -2283,7 +2283,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
 
 341:                                              ; preds = %.sink.split, %336
   %342 = phi ptr [ %325, %336 ], [ %.sink1090, %.sink.split ]
-  %343 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %343 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %344 = getelementptr inbounds i8, ptr %.2701, i64 -40
   %345 = load ptr, ptr %344, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 24
@@ -2329,7 +2329,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br label %.loopexit990
 
 369:                                              ; preds = %145
-  %370 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %370 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 96
   %372 = load ptr, ptr %371, align 8
   %373 = call ptr @vmalloc(ptr noundef %372, i64 noundef 72) #22
@@ -2386,7 +2386,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
 
 398:                                              ; preds = %397, %394, %386
   %399 = phi ptr [ %.pre1060, %397 ], [ %390, %394 ], [ %390, %386 ]
-  %400 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %400 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %401 = getelementptr inbounds nuw i8, ptr %399, i64 48
   %402 = load ptr, ptr %401, align 8
   call void @exfreenode(ptr noundef %400, ptr noundef %402)
@@ -2405,7 +2405,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br i1 %.not879, label %410, label %419
 
 410:                                              ; preds = %407
-  %411 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %411 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 96
   %413 = load ptr, ptr %412, align 8
   %414 = call ptr @vmalloc(ptr noundef %413, i64 noundef 72) #22
@@ -2428,7 +2428,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br i1 %421, label %422, label %430
 
 422:                                              ; preds = %419
-  %423 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %423 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 96
   %425 = load ptr, ptr %424, align 8
   %426 = call ptr @vmalloc(ptr noundef %425, i64 noundef 72) #22
@@ -2449,14 +2449,14 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br i1 %or.cond908, label %435, label %432
 
 432:                                              ; preds = %430
-  %433 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %433 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %434 = call ptr @excast(ptr noundef %433, ptr noundef nonnull %409, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %434, ptr %408, align 8
   br label %435
 
 435:                                              ; preds = %430, %422, %432, %410
   %436 = phi ptr [ %409, %430 ], [ %426, %422 ], [ %434, %432 ], [ %.pre1056, %410 ]
-  %437 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %437 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %438 = getelementptr inbounds i8, ptr %.2701, i64 -64
   %439 = load ptr, ptr %438, align 8
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 24
@@ -2496,7 +2496,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br i1 %.not880, label %.loopexit990, label %461
 
 461:                                              ; preds = %435
-  %462 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %462 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 96
   %464 = load ptr, ptr %463, align 8
   %465 = call ptr @vmalloc(ptr noundef %464, i64 noundef 72) #22
@@ -2513,7 +2513,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br label %.loopexit990
 
 470:                                              ; preds = %145
-  %471 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %471 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 96
   %473 = load ptr, ptr %472, align 8
   %474 = call ptr @vmalloc(ptr noundef %473, i64 noundef 72) #22
@@ -2570,7 +2570,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
 
 499:                                              ; preds = %498, %495, %487
   %500 = phi ptr [ %.pre1055, %498 ], [ %491, %495 ], [ %491, %487 ]
-  %501 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %501 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %502 = getelementptr inbounds nuw i8, ptr %500, i64 48
   %503 = load ptr, ptr %502, align 8
   call void @exfreenode(ptr noundef %501, ptr noundef %503)
@@ -2596,7 +2596,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br label %516
 
 516:                                              ; preds = %514, %508
-  %517 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %517 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 96
   %519 = load ptr, ptr %518, align 8
   %520 = call ptr @vmalloc(ptr noundef %519, i64 noundef 72) #22
@@ -2658,7 +2658,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br label %extypename.exit
 
 555:                                              ; preds = %544
-  %556 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %556 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 160
   %558 = load ptr, ptr %557, align 8
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 72
@@ -2684,7 +2684,7 @@ extypename.exit:                                  ; preds = %548, %555
   br label %extypename.exit921
 
 571:                                              ; preds = %extypename.exit
-  %572 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %572 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 160
   %574 = load ptr, ptr %573, align 8
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 72
@@ -2698,7 +2698,7 @@ extypename.exit921:                               ; preds = %564, %571
   br label %578
 
 578:                                              ; preds = %extypename.exit921, %539, %534
-  %579 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %579 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 96
   %581 = load ptr, ptr %580, align 8
   %582 = call ptr @vmalloc(ptr noundef %581, i64 noundef 72) #22
@@ -2743,7 +2743,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %601, label %602, label %610
 
 602:                                              ; preds = %exisAssign.exit922.thread
-  %603 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %603 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 96
   %605 = load ptr, ptr %604, align 8
   %606 = call ptr @vmalloc(ptr noundef %605, i64 noundef 72) #22
@@ -2763,7 +2763,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %or.cond909, label %615, label %612
 
 612:                                              ; preds = %610
-  %613 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %613 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %614 = call ptr @excast(ptr noundef %613, ptr noundef nonnull %599, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split1091
 
@@ -2774,7 +2774,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
 
 615:                                              ; preds = %.sink.split1091, %610
   %616 = phi ptr [ %599, %610 ], [ %.sink1093, %.sink.split1091 ]
-  %617 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %617 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %618 = getelementptr inbounds i8, ptr %.2701, i64 -32
   %619 = load ptr, ptr %618, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 24
@@ -2809,12 +2809,12 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
 636:                                              ; preds = %145
   %637 = load ptr, ptr %.2701, align 8
   %638 = load i32, ptr %637, align 8
-  store i32 %638, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  store i32 %638, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   br label %.loopexit990
 
 639:                                              ; preds = %145
-  %640 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
-  %641 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %640 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
+  %641 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %642 = getelementptr inbounds i8, ptr %.2701, i64 -56
   %643 = load ptr, ptr %642, align 8
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 24
@@ -2851,9 +2851,9 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   store ptr %648, ptr %664, align 8
   %665 = getelementptr inbounds nuw i8, ptr %661, i64 40
   store ptr %655, ptr %665, align 8
-  %666 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %666 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %667 = load ptr, ptr %666, align 8
-  store ptr %667, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  store ptr %667, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %668 = getelementptr inbounds nuw i8, ptr %640, i64 32
   %669 = load ptr, ptr %668, align 8
   call void @free(ptr noundef %669) #22
@@ -2865,7 +2865,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %671
 
 671:                                              ; preds = %670, %639
-  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   br label %.loopexit990
 
 672:                                              ; preds = %145, %145
@@ -2875,7 +2875,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %.not872, label %675, label %684
 
 675:                                              ; preds = %672
-  %676 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %676 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %677 = getelementptr inbounds nuw i8, ptr %676, i64 96
   %678 = load ptr, ptr %677, align 8
   %679 = call ptr @vmalloc(ptr noundef %678, i64 noundef 72) #22
@@ -2899,14 +2899,14 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %or.cond910, label %690, label %687
 
 687:                                              ; preds = %684
-  %688 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %688 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %689 = call ptr @excast(ptr noundef %688, ptr noundef nonnull %674, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %689, ptr %673, align 8
   br label %690
 
 690:                                              ; preds = %684, %687, %675
   %691 = phi ptr [ %674, %684 ], [ %689, %687 ], [ %.pre1047, %675 ]
-  %692 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %692 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %693 = getelementptr inbounds i8, ptr %.2701, i64 -16
   %694 = load ptr, ptr %693, align 8
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 24
@@ -2932,16 +2932,16 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %.not867, label %.thread980, label %708
 
 .thread980:                                       ; preds = %704
-  %707 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %707 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br label %725
 
 708:                                              ; preds = %704
-  %709 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %709 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %.not868 = icmp eq ptr %709, null
   br i1 %.not868, label %.thread, label %711
 
 .thread:                                          ; preds = %708
-  %710 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %710 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br label %717
 
 711:                                              ; preds = %708
@@ -2950,13 +2950,13 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %.not869, label %714, label %.thread978
 
 .thread978:                                       ; preds = %711
-  %713 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %713 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br label %717
 
 714:                                              ; preds = %711
   call void (ptr, ...) @exerror(ptr noundef nonnull @.str.28) #22
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
-  %715 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
+  %715 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %716 = load ptr, ptr %705, align 8
   %.not870 = icmp eq ptr %.pr, null
   br i1 %.not870, label %717, label %._crit_edge1045
@@ -2971,7 +2971,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %720 = phi i32 [ 259, %714 ], [ 259, %.thread ], [ %712, %.thread978 ], [ %.pre1046, %._crit_edge1045 ]
   %721 = call ptr @excast(ptr noundef %719, ptr noundef %718, i32 noundef %720, ptr noundef null, i32 noundef 0)
   store ptr %721, ptr %705, align 8
-  %722 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %722 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %.not871 = icmp eq ptr %721, null
   br i1 %.not871, label %725, label %723
 
@@ -2997,7 +2997,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 735:                                              ; preds = %145
-  %736 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %736 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %.not864 = icmp eq ptr %736, null
   br i1 %.not864, label %743, label %737
 
@@ -3008,7 +3008,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
 
 739:                                              ; preds = %737
   %740 = call ptr @exnospace() #22
-  %.pre1043 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %.pre1043 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   br label %741
 
 741:                                              ; preds = %739, %737
@@ -3019,8 +3019,8 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
 
 743:                                              ; preds = %735, %741
   %.1716 = phi ptr [ %.0715, %741 ], [ @swstate, %735 ]
-  store ptr %.1716, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
-  %744 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  store ptr %.1716, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
+  %744 = load i32, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   %745 = getelementptr inbounds nuw i8, ptr %.1716, i64 60
   store i32 %744, ptr %745, align 4
   %746 = getelementptr inbounds nuw i8, ptr %.1716, i64 8
@@ -3049,8 +3049,8 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 757:                                              ; preds = %145
-  %758 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
-  %759 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %758 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
+  %759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %760 = load ptr, ptr %.2701, align 8
   %761 = getelementptr inbounds nuw i8, ptr %759, i64 96
   %762 = load ptr, ptr %761, align 8
@@ -3096,7 +3096,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %783 = ptrtoint ptr %780 to i64
   %784 = sub i64 %782, %783
   store ptr %780, ptr %767, align 8
-  %785 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %785 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 96
   %787 = load ptr, ptr %786, align 8
   %788 = add i64 %784, 8
@@ -3133,7 +3133,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 803:                                              ; preds = %145
-  %804 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %804 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %805 = getelementptr inbounds nuw i8, ptr %804, i64 40
   %806 = load ptr, ptr %805, align 8
   %807 = getelementptr inbounds nuw i8, ptr %804, i64 48
@@ -3150,7 +3150,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %815 = ashr exact i64 %814, 3
   %816 = shl i64 %814, 1
   %817 = call ptr @realloc(ptr noundef %811, i64 noundef %816) #28
-  %818 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %818 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %819 = getelementptr inbounds nuw i8, ptr %818, i64 32
   store ptr %817, ptr %819, align 8
   %.not859 = icmp eq ptr %817, null
@@ -3162,20 +3162,20 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
 
 821:                                              ; preds = %820, %809
   %.0717 = phi i64 [ %815, %809 ], [ 0, %820 ]
-  %822 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %822 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %823 = getelementptr inbounds nuw i8, ptr %822, i64 32
   %824 = load ptr, ptr %823, align 8
   %825 = getelementptr inbounds ptr, ptr %824, i64 %.0717
   %826 = getelementptr inbounds nuw i8, ptr %822, i64 40
   store ptr %825, ptr %826, align 8
-  %827 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %827 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %828 = getelementptr inbounds nuw i8, ptr %827, i64 32
   %829 = load ptr, ptr %828, align 8
   %.idx = shl nsw i64 %.0717, 4
   %830 = getelementptr inbounds i8, ptr %829, i64 %.idx
   %831 = getelementptr inbounds nuw i8, ptr %827, i64 48
   store ptr %830, ptr %831, align 8
-  %.pre1038 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %.pre1038 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %.phi.trans.insert1039 = getelementptr inbounds nuw i8, ptr %.pre1038, i64 40
   %.pre1040 = load ptr, ptr %.phi.trans.insert1039, align 8
   br label %832
@@ -3187,7 +3187,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %.not860, label %.loopexit990, label %835
 
 835:                                              ; preds = %832
-  %836 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %836 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %837 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %838 = load ptr, ptr %837, align 8
   %839 = getelementptr inbounds nuw i8, ptr %834, i64 60
@@ -3195,7 +3195,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %841 = call ptr @excast(ptr noundef %836, ptr noundef %838, i32 noundef %840, ptr noundef null, i32 noundef 0)
   store ptr %841, ptr %837, align 8
   %842 = getelementptr inbounds nuw i8, ptr %841, i64 32
-  %843 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %843 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 40
   %845 = load ptr, ptr %844, align 8
   %846 = getelementptr inbounds nuw i8, ptr %845, i64 8
@@ -3204,7 +3204,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 847:                                              ; preds = %145
-  %848 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 120), align 8
+  %848 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 120), align 8
   %849 = getelementptr inbounds nuw i8, ptr %848, i64 56
   store i32 1, ptr %849, align 8
   br label %.loopexit990
@@ -3224,7 +3224,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %.not857, label %.loopexit990, label %856
 
 856:                                              ; preds = %853
-  %857 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %857 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %858 = load i32, ptr %852, align 8
   %859 = getelementptr inbounds nuw i8, ptr %857, i64 96
   %860 = load ptr, ptr %859, align 8
@@ -3254,7 +3254,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %872 = getelementptr inbounds nuw i8, ptr %871, i64 32
   %873 = load i64, ptr %872, align 8
   %.not847 = icmp ne i64 %873, 0
-  %874 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  %874 = load i32, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   %.not848 = icmp eq i32 %874, 0
   %or.cond911 = select i1 %.not847, i1 %.not848, i1 false
   br i1 %or.cond911, label %877, label %875
@@ -3299,7 +3299,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %894 = phi ptr [ %.pre1032, %._crit_edge1031 ], [ %.pre1033, %879 ]
   %895 = getelementptr inbounds nuw i8, ptr %894, i64 16
   store i64 275, ptr %895, align 8
-  %896 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %896 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %897 = getelementptr inbounds nuw i8, ptr %896, i64 96
   %898 = load ptr, ptr %897, align 8
   %899 = call ptr @vmalloc(ptr noundef %898, i64 noundef 72) #22
@@ -3390,7 +3390,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
 942:                                              ; preds = %935
   %943 = trunc i64 %941 to i32
   store i32 %943, ptr %936, align 8
-  %944 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %944 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %945 = load ptr, ptr %.2701, align 8
   %946 = getelementptr inbounds nuw i8, ptr %945, i64 40
   %947 = load ptr, ptr %946, align 8
@@ -3410,7 +3410,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
 
 956:                                              ; preds = %942, %935
   %957 = phi i32 [ %955, %942 ], [ %937, %935 ]
-  %958 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %958 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %959 = getelementptr inbounds nuw i8, ptr %958, i64 96
   %960 = load ptr, ptr %959, align 8
   %961 = call ptr @vmalloc(ptr noundef %960, i64 noundef 72) #22
@@ -3468,7 +3468,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %995, label %.loopexit990, label %996
 
 996:                                              ; preds = %987
-  %997 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %997 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %998 = trunc i64 %994 to i32
   %999 = call ptr @excast(ptr noundef %997, ptr noundef nonnull %988, i32 noundef %998, ptr noundef null, i32 noundef 0)
   br label %.loopexit990
@@ -3527,7 +3527,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1019, label %1020, label %1023
 
 1020:                                             ; preds = %1018
-  %1021 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1021 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1022 = call ptr @excast(ptr noundef %1021, ptr noundef nonnull %1014, i32 noundef %1017, ptr noundef nonnull %1016, i32 noundef 0)
   store ptr %1022, ptr %1002, align 8
   br label %1038
@@ -3537,7 +3537,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1024, label %1025, label %1028
 
 1025:                                             ; preds = %1023
-  %1026 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1026 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1027 = call ptr @excast(ptr noundef %1026, ptr noundef nonnull %1016, i32 noundef %1015, ptr noundef nonnull %1014, i32 noundef 0)
   store ptr %1027, ptr %.2701, align 8
   br label %1038
@@ -3547,7 +3547,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1029, label %1030, label %1033
 
 1030:                                             ; preds = %1028
-  %1031 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1031 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1032 = call ptr @excast(ptr noundef %1031, ptr noundef nonnull %1016, i32 noundef 262, ptr noundef nonnull %1014, i32 noundef 0)
   store ptr %1032, ptr %.2701, align 8
   br label %1038
@@ -3557,7 +3557,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1034, label %1035, label %1038
 
 1035:                                             ; preds = %1033
-  %1036 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1036 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1037 = call ptr @excast(ptr noundef %1036, ptr noundef nonnull %1014, i32 noundef 262, ptr noundef nonnull %1016, i32 noundef 0)
   store ptr %1037, ptr %1002, align 8
   br label %1038
@@ -3580,7 +3580,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
 
 .fold.split:                                      ; preds = %1039, %1041, %1039, %1038
   %.1714 = phi i32 [ %.0713, %1038 ], [ %1040, %1039 ], [ %1043, %1041 ], [ %1040, %1039 ]
-  %1044 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1044 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1045 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %1046 = load i32, ptr %1045, align 8
   %1047 = load ptr, ptr %.2701, align 8
@@ -3597,7 +3597,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   store ptr %.pre1028, ptr %1053, align 8
   %1054 = getelementptr inbounds nuw i8, ptr %1050, i64 40
   store ptr %1047, ptr %1054, align 8
-  %1055 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1055 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 860
   %1057 = load i32, ptr %1056, align 4
   %.not846 = icmp eq i32 %1057, 0
@@ -3629,7 +3629,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1069, label %1070, label %1075
 
 1070:                                             ; preds = %1066
-  %1071 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1071 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 96
   %1073 = load ptr, ptr %1072, align 8
   %1074 = call ptr @vmstrdup(ptr noundef %1073, ptr noundef %1067) #22
@@ -3639,10 +3639,10 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
 1075:                                             ; preds = %1070, %1066
   store i32 0, ptr %1051, align 8
   store i32 271, ptr %1052, align 4
-  %1076 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1076 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1077 = load ptr, ptr %1002, align 8
   call void @exfreenode(ptr noundef %1076, ptr noundef %1077)
-  %1078 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1078 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1079 = load ptr, ptr %.2701, align 8
   call void @exfreenode(ptr noundef %1078, ptr noundef %1079)
   br label %.loopexit990
@@ -3670,7 +3670,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1091, label %1092, label %1100
 
 1092:                                             ; preds = %1087
-  %1093 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1093 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1094 = getelementptr inbounds nuw i8, ptr %1093, i64 96
   %1095 = load ptr, ptr %1094, align 8
   %1096 = call ptr @vmalloc(ptr noundef %1095, i64 noundef 72) #22
@@ -3689,7 +3689,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1101, label %1105, label %1102
 
 1102:                                             ; preds = %1100
-  %1103 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1104 = call ptr @excast(ptr noundef %1103, ptr noundef nonnull %1089, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split1096
 
@@ -3705,7 +3705,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1108, label %1109, label %1117
 
 1109:                                             ; preds = %1105
-  %1110 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1111 = getelementptr inbounds nuw i8, ptr %1110, i64 96
   %1112 = load ptr, ptr %1111, align 8
   %1113 = call ptr @vmalloc(ptr noundef %1112, i64 noundef 72) #22
@@ -3724,7 +3724,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1118, label %1000, label %1119
 
 1119:                                             ; preds = %1117
-  %1120 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1121 = call ptr @excast(ptr noundef %1120, ptr noundef nonnull %1106, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split1094
 
@@ -3734,7 +3734,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 4
   %1126 = load i32, ptr %1125, align 4
   %1127 = icmp eq i32 %1126, 271
-  %1128 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br i1 %1127, label %1129, label %1131
 
 1129:                                             ; preds = %1122
@@ -3761,11 +3761,11 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1141:                                             ; preds = %145
-  store i32 1, ptr getelementptr inbounds (i8, ptr @expr, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 12), align 4
   br label %.loopexit990
 
 1142:                                             ; preds = %145
-  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 12), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 12), align 4
   br label %.loopexit990
 
 1143:                                             ; preds = %145
@@ -3806,7 +3806,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1159, label %1160, label %1168
 
 1160:                                             ; preds = %1155
-  %1161 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1162 = getelementptr inbounds nuw i8, ptr %1161, i64 96
   %1163 = load ptr, ptr %1162, align 8
   %1164 = call ptr @vmalloc(ptr noundef %1163, i64 noundef 72) #22
@@ -3826,7 +3826,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %or.cond912, label %1173, label %1170
 
 1170:                                             ; preds = %1168
-  %1171 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1172 = call ptr @excast(ptr noundef %1171, ptr noundef nonnull %1157, i32 noundef 259, ptr noundef null, i32 noundef 0)
   br label %.sink.split1098
 
@@ -3858,7 +3858,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1183, label %1184, label %1187
 
 1184:                                             ; preds = %1182
-  %1185 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1186 = call ptr @excast(ptr noundef %1185, ptr noundef nonnull %1176, i32 noundef 262, ptr noundef null, i32 noundef 0)
   store ptr %1186, ptr %.2701, align 8
   br label %1192
@@ -3868,7 +3868,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1188, label %1189, label %1192
 
 1189:                                             ; preds = %1187
-  %1190 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1191 = call ptr @excast(ptr noundef %1190, ptr noundef nonnull %1174, i32 noundef 262, ptr noundef null, i32 noundef 0)
   store ptr %1191, ptr %1144, align 8
   br label %1192
@@ -3884,19 +3884,19 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   %1198 = getelementptr inbounds nuw i8, ptr %1193, i64 32
   %1199 = load i64, ptr %1198, align 8
   %.not839 = icmp eq i64 %1199, 0
-  %1200 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %..2701 = select i1 %.not839, ptr %1144, ptr %.2701
   %.2701. = select i1 %.not839, ptr %.2701, ptr %1144
   %.sroa.0.0 = load ptr, ptr %.2701., align 8
   %.sink1100 = load ptr, ptr %..2701, align 8
   call void @exfreenode(ptr noundef %1200, ptr noundef %.sink1100)
-  %1201 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1202 = load ptr, ptr %1156, align 8
   call void @exfreenode(ptr noundef %1201, ptr noundef %1202)
   br label %.loopexit990
 
 1203:                                             ; preds = %1192
-  %1204 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1205 = load ptr, ptr %1144, align 8
   %1206 = load i32, ptr %1205, align 8
   %1207 = load ptr, ptr %.2701, align 8
@@ -3934,7 +3934,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1224, label %1225, label %1233
 
 1225:                                             ; preds = %1221
-  %1226 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1227 = getelementptr inbounds nuw i8, ptr %1226, i64 96
   %1228 = load ptr, ptr %1227, align 8
   %1229 = call ptr @vmalloc(ptr noundef %1228, i64 noundef 72) #22
@@ -3955,14 +3955,14 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %or.cond914, label %1238, label %1235
 
 1235:                                             ; preds = %1233
-  %1236 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1237 = call ptr @excast(ptr noundef %1236, ptr noundef nonnull %1222, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %1237, ptr %.2701, align 8
   br label %1238
 
 1238:                                             ; preds = %._crit_edge1026, %1233, %1225, %1235
   %1239 = phi ptr [ %.pre1027, %._crit_edge1026 ], [ %1222, %1233 ], [ %1229, %1225 ], [ %1237, %1235 ]
-  %1240 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1241 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %1242 = load i32, ptr %1241, align 8
   %1243 = load i32, ptr %1239, align 8
@@ -3986,12 +3986,12 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1254, label %1255, label %1260
 
 1255:                                             ; preds = %1238
-  %1256 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1257 = call ptr @exeval(ptr noundef %1256, ptr noundef nonnull %1247, ptr noundef null) #22
   store ptr %1257, ptr %1250, align 8
   store i32 0, ptr %1248, align 8
   store i32 271, ptr %1249, align 4
-  %1258 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1258 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1259 = load ptr, ptr %.2701, align 8
   call void @exfreenode(ptr noundef %1258, ptr noundef %1259)
   br label %.loopexit990
@@ -4002,7 +4002,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %1262, label %.loopexit990, label %1263
 
 1263:                                             ; preds = %1260
-  %1264 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1264 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   call fastcc void @checkBinary(ptr noundef %1264, ptr noundef nonnull %1251, ptr noundef nonnull %1247, ptr noundef null)
   br label %.loopexit990
 
@@ -4019,7 +4019,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %1272
 
 1272:                                             ; preds = %1270, %1265
-  %1273 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1273 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1274 = getelementptr inbounds nuw i8, ptr %1273, i64 96
   %1275 = load ptr, ptr %1274, align 8
   %1276 = call ptr @vmalloc(ptr noundef %1275, i64 noundef 72) #22
@@ -4039,7 +4039,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1283:                                             ; preds = %145
-  %1284 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1284 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1285 = load ptr, ptr %.2701, align 8
   %1286 = load i32, ptr %1285, align 8
   %1287 = getelementptr inbounds nuw i8, ptr %1284, i64 160
@@ -4066,7 +4066,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1301:                                             ; preds = %145
-  %1302 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1302 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1303 = getelementptr inbounds i8, ptr %.2701, i64 -24
   %1304 = load ptr, ptr %1303, align 8
   %1305 = getelementptr inbounds nuw i8, ptr %1304, i64 32
@@ -4101,7 +4101,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1325:                                             ; preds = %145
-  %1326 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1326 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1327 = getelementptr inbounds i8, ptr %.2701, i64 -24
   %1328 = load ptr, ptr %1327, align 8
   %1329 = getelementptr inbounds nuw i8, ptr %1328, i64 32
@@ -4136,28 +4136,28 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1349:                                             ; preds = %145
-  %1350 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1350 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1351 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %1352 = load ptr, ptr %1351, align 8
   %1353 = call fastcc ptr @exnewsub(ptr noundef %1350, ptr noundef %1352, i32 noundef 280)
   br label %.loopexit990
 
 1354:                                             ; preds = %145
-  %1355 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1355 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1356 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %1357 = load ptr, ptr %1356, align 8
   %1358 = call fastcc ptr @exnewsub(ptr noundef %1355, ptr noundef %1357, i32 noundef 302)
   br label %.loopexit990
 
 1359:                                             ; preds = %145
-  %1360 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1360 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1361 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %1362 = load ptr, ptr %1361, align 8
   %1363 = call fastcc ptr @exnewsubstr(ptr noundef %1360, ptr noundef %1362)
   br label %.loopexit990
 
 1364:                                             ; preds = %145
-  %1365 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1365 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1366 = getelementptr inbounds i8, ptr %.2701, i64 -40
   %1367 = load ptr, ptr %1366, align 8
   %1368 = getelementptr inbounds nuw i8, ptr %1367, i64 24
@@ -4171,7 +4171,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1376:                                             ; preds = %145
-  %1377 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1377 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1378 = getelementptr inbounds i8, ptr %.2701, i64 -56
   %1379 = load ptr, ptr %1378, align 8
   %1380 = getelementptr inbounds nuw i8, ptr %1379, i64 24
@@ -4195,14 +4195,14 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %or.cond916, label %1398, label %1395
 
 1395:                                             ; preds = %1390
-  %1396 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1396 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1397 = call ptr @excast(ptr noundef %1396, ptr noundef nonnull %1392, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %1397, ptr %1391, align 8
   br label %1398
 
 1398:                                             ; preds = %1390, %1395
   %1399 = phi ptr [ %1392, %1390 ], [ %1397, %1395 ]
-  %1400 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1400 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1401 = getelementptr inbounds nuw i8, ptr %1400, i64 96
   %1402 = load ptr, ptr %1401, align 8
   %1403 = call ptr @vmalloc(ptr noundef %1402, i64 noundef 72) #22
@@ -4217,7 +4217,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1407:                                             ; preds = %145
-  %1408 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1408 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1409 = getelementptr inbounds nuw i8, ptr %1408, i64 96
   %1410 = load ptr, ptr %1409, align 8
   %1411 = call ptr @vmalloc(ptr noundef %1410, i64 noundef 72) #22
@@ -4231,7 +4231,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1415:                                             ; preds = %145
-  %1416 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1416 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1417 = getelementptr inbounds nuw i8, ptr %1416, i64 96
   %1418 = load ptr, ptr %1417, align 8
   %1419 = call ptr @vmalloc(ptr noundef %1418, i64 noundef 72) #22
@@ -4253,14 +4253,14 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br i1 %or.cond917, label %1431, label %1428
 
 1428:                                             ; preds = %1423
-  %1429 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1429 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1430 = call ptr @excast(ptr noundef %1429, ptr noundef nonnull %1425, i32 noundef 259, ptr noundef null, i32 noundef 0)
   store ptr %1430, ptr %1424, align 8
   br label %1431
 
 1431:                                             ; preds = %1423, %1428
   %1432 = phi ptr [ %1425, %1423 ], [ %1430, %1428 ]
-  %1433 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1433 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 96
   %1435 = load ptr, ptr %1434, align 8
   %1436 = call ptr @vmalloc(ptr noundef %1435, i64 noundef 72) #22
@@ -4275,7 +4275,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1440:                                             ; preds = %145
-  %1441 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1441 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1442 = getelementptr inbounds i8, ptr %.2701, i64 -24
   %1443 = load ptr, ptr %1442, align 8
   %1444 = getelementptr inbounds nuw i8, ptr %1443, i64 32
@@ -4300,7 +4300,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1457:                                             ; preds = %145
-  %1458 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1458 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1459 = getelementptr inbounds i8, ptr %.2701, i64 -24
   %1460 = load ptr, ptr %1459, align 8
   %1461 = getelementptr inbounds i8, ptr %.2701, i64 -8
@@ -4309,7 +4309,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1464:                                             ; preds = %145
-  %1465 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1465 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1466 = getelementptr inbounds i8, ptr %.2701, i64 -24
   %1467 = load ptr, ptr %1466, align 8
   %1468 = getelementptr inbounds nuw i8, ptr %1467, i64 24
@@ -4359,7 +4359,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   ]
 
 1496:                                             ; preds = %1492
-  %1497 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1497 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1498 = getelementptr inbounds nuw i8, ptr %1497, i64 96
   %1499 = load ptr, ptr %1498, align 8
   %1500 = call ptr @vmalloc(ptr noundef %1499, i64 noundef 72) #22
@@ -4376,7 +4376,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %1514
 
 1505:                                             ; preds = %1492
-  %1506 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1506 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1507 = getelementptr inbounds nuw i8, ptr %1506, i64 96
   %1508 = load ptr, ptr %1507, align 8
   %1509 = call ptr @vmalloc(ptr noundef %1508, i64 noundef 72) #22
@@ -4399,7 +4399,7 @@ exisAssign.exit922.thread:                        ; preds = %590, %598, %exisAss
   br label %.loopexit990
 
 1517:                                             ; preds = %145
-  %1518 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1518 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1519 = getelementptr inbounds i8, ptr %.2701, i64 -24
   %1520 = load ptr, ptr %1519, align 8
   %1521 = getelementptr inbounds nuw i8, ptr %1520, i64 24
@@ -4549,7 +4549,7 @@ thread-pre-split:                                 ; preds = %1545, %1559
   br i1 %1597, label %1598, label %1608
 
 1598:                                             ; preds = %1592
-  %1599 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1599 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1600 = getelementptr inbounds nuw i8, ptr %1599, i64 160
   %1601 = load ptr, ptr %1600, align 8
   %1602 = getelementptr inbounds nuw i8, ptr %1601, i64 120
@@ -4580,7 +4580,7 @@ thread-pre-split:                                 ; preds = %1545, %1559
 
 1613:                                             ; preds = %1612
   store i32 %1609, ptr %1591, align 8
-  %1614 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1614 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1615 = load ptr, ptr %.2701, align 8
   %1616 = getelementptr inbounds nuw i8, ptr %1615, i64 40
   %1617 = load ptr, ptr %1616, align 8
@@ -4615,7 +4615,7 @@ thread-pre-split:                                 ; preds = %1545, %1559
 1633:                                             ; preds = %1632, %1628
   %1634 = phi i32 [ %.pre1021, %1632 ], [ %1630, %1628 ]
   %1635 = phi ptr [ %.pre1020, %1632 ], [ %1629, %1628 ]
-  %1636 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1636 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1637 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %1638 = load i32, ptr %1637, align 8
   %1639 = getelementptr inbounds nuw i8, ptr %1636, i64 96
@@ -4648,7 +4648,7 @@ thread-pre-split:                                 ; preds = %1545, %1559
 1652:                                             ; preds = %1651, %1646
   %1653 = phi i32 [ %.pre1019, %1651 ], [ %1649, %1646 ]
   %1654 = phi ptr [ %.pre1018, %1651 ], [ %1648, %1646 ]
-  %1655 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1655 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1656 = load i32, ptr %.2701, align 8
   %1657 = getelementptr inbounds nuw i8, ptr %1655, i64 96
   %1658 = load ptr, ptr %1657, align 8
@@ -4708,7 +4708,7 @@ thread-pre-split:                                 ; preds = %1545, %1559
   br label %extypename.exit931
 
 1692:                                             ; preds = %1681
-  %1693 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1693 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1694 = getelementptr inbounds nuw i8, ptr %1693, i64 160
   %1695 = load ptr, ptr %1694, align 8
   %1696 = getelementptr inbounds nuw i8, ptr %1695, i64 72
@@ -4734,7 +4734,7 @@ extypename.exit931:                               ; preds = %1685, %1692
   br label %extypename.exit933
 
 1708:                                             ; preds = %extypename.exit931
-  %1709 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1709 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1710 = getelementptr inbounds nuw i8, ptr %1709, i64 160
   %1711 = load ptr, ptr %1710, align 8
   %1712 = getelementptr inbounds nuw i8, ptr %1711, i64 72
@@ -4748,7 +4748,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   br label %1715
 
 1715:                                             ; preds = %extypename.exit933, %1676, %1671
-  %1716 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1716 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1717 = getelementptr inbounds nuw i8, ptr %1716, i64 96
   %1718 = load ptr, ptr %1717, align 8
   %1719 = call ptr @vmalloc(ptr noundef %1718, i64 noundef 72) #22
@@ -4768,7 +4768,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   br label %.loopexit990
 
 1727:                                             ; preds = %145
-  %1728 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1728 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1729 = load ptr, ptr %.2701, align 8
   %1730 = getelementptr inbounds nuw i8, ptr %1729, i64 32
   %1731 = load i64, ptr %1730, align 8
@@ -4783,7 +4783,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   store i32 %1732, ptr %1735, align 8
   %1738 = getelementptr inbounds nuw i8, ptr %1735, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1738, i8 0, i64 16, i1 false)
-  %1739 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1740 = getelementptr inbounds nuw i8, ptr %1739, i64 160
   %1741 = load ptr, ptr %1740, align 8
   %1742 = getelementptr inbounds nuw i8, ptr %1741, i64 112
@@ -4803,7 +4803,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   br label %.loopexit990
 
 1749:                                             ; preds = %145
-  %1750 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1750 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1751 = getelementptr inbounds nuw i8, ptr %1750, i64 96
   %1752 = load ptr, ptr %1751, align 8
   %1753 = call ptr @vmalloc(ptr noundef %1752, i64 noundef 72) #22
@@ -4819,7 +4819,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   br label %.loopexit990
 
 1758:                                             ; preds = %145
-  %1759 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1760 = getelementptr inbounds nuw i8, ptr %1759, i64 96
   %1761 = load ptr, ptr %1760, align 8
   %1762 = call ptr @vmalloc(ptr noundef %1761, i64 noundef 72) #22
@@ -4835,7 +4835,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   br label %.loopexit990
 
 1767:                                             ; preds = %145
-  %1768 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1768 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1769 = getelementptr inbounds nuw i8, ptr %1768, i64 96
   %1770 = load ptr, ptr %1769, align 8
   %1771 = call ptr @vmalloc(ptr noundef %1770, i64 noundef 72) #22
@@ -4851,7 +4851,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   br label %.loopexit990
 
 1776:                                             ; preds = %145
-  %1777 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1777 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1778 = getelementptr inbounds nuw i8, ptr %1777, i64 96
   %1779 = load ptr, ptr %1778, align 8
   %1780 = call ptr @vmalloc(ptr noundef %1779, i64 noundef 72) #22
@@ -4867,7 +4867,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   br label %.loopexit990
 
 1785:                                             ; preds = %145
-  %1786 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1786 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1787 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %1788 = load ptr, ptr %1787, align 8
   %1789 = load ptr, ptr %.2701, align 8
@@ -4875,7 +4875,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   br label %.loopexit990
 
 1791:                                             ; preds = %145
-  %1792 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1792 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1793 = getelementptr inbounds i8, ptr %.2701, i64 -16
   %1794 = load ptr, ptr %1793, align 8
   %1795 = getelementptr inbounds nuw i8, ptr %1794, i64 32
@@ -4952,7 +4952,7 @@ extypename.exit933:                               ; preds = %1701, %1708
   br label %extypename.exit935
 
 1839:                                             ; preds = %1828
-  %1840 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1840 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1841 = getelementptr inbounds nuw i8, ptr %1840, i64 160
   %1842 = load ptr, ptr %1841, align 8
   %1843 = getelementptr inbounds nuw i8, ptr %1842, i64 72
@@ -4978,7 +4978,7 @@ extypename.exit935:                               ; preds = %1832, %1839
   br label %extypename.exit937
 
 1855:                                             ; preds = %extypename.exit935
-  %1856 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1856 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1857 = getelementptr inbounds nuw i8, ptr %1856, i64 160
   %1858 = load ptr, ptr %1857, align 8
   %1859 = getelementptr inbounds nuw i8, ptr %1858, i64 72
@@ -4997,14 +4997,14 @@ extypename.exit937:                               ; preds = %1848, %1855
   br i1 %.not820, label %.loopexit990, label %1864
 
 1864:                                             ; preds = %1862
-  %1865 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1865 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1866 = getelementptr inbounds nuw i8, ptr %1865, i64 96
   %1867 = load ptr, ptr %1866, align 8
   %1868 = call ptr @vmalloc(ptr noundef %1867, i64 noundef 72) #22
   %1869 = getelementptr inbounds nuw i8, ptr %1800, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1868, i8 0, i64 72, i1 false)
   store ptr %1868, ptr %1869, align 8
-  %1870 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1870 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1871 = load ptr, ptr %1793, align 8
   %1872 = load ptr, ptr %1806, align 8
   %1873 = load ptr, ptr %.2701, align 8
@@ -5012,7 +5012,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   br label %.loopexit990
 
 1875:                                             ; preds = %145
-  %1876 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1876 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1877 = getelementptr inbounds nuw i8, ptr %1876, i64 96
   %1878 = load ptr, ptr %1877, align 8
   %1879 = call ptr @vmalloc(ptr noundef %1878, i64 noundef 72) #22
@@ -5027,7 +5027,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   %1884 = load ptr, ptr %.2701, align 8
   store ptr %1884, ptr %1882, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1883, i8 0, i64 24, i1 false)
-  %1885 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1885 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1886 = getelementptr inbounds nuw i8, ptr %1885, i64 160
   %1887 = load ptr, ptr %1886, align 8
   %1888 = getelementptr inbounds nuw i8, ptr %1887, i64 8
@@ -5070,13 +5070,13 @@ extypename.exit937:                               ; preds = %1848, %1855
   %1909 = load ptr, ptr %.2701, align 8
   %1910 = getelementptr inbounds nuw i8, ptr %1909, i64 32
   store ptr null, ptr %1910, align 8
-  %1911 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1911 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1912 = load ptr, ptr %.2701, align 8
   call void @exfreenode(ptr noundef %1911, ptr noundef %1912)
   br label %.loopexit990
 
 1913:                                             ; preds = %145
-  %1914 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1914 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1915 = load ptr, ptr %.2701, align 8
   %1916 = load i32, ptr %1915, align 8
   %1917 = getelementptr inbounds nuw i8, ptr %1914, i64 96
@@ -5105,7 +5105,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   br label %.loopexit990
 
 1929:                                             ; preds = %145
-  %1930 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1930 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1931 = getelementptr inbounds i8, ptr %.2701, i64 -16
   %1932 = load ptr, ptr %1931, align 8
   %1933 = load i32, ptr %1932, align 8
@@ -5143,7 +5143,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   br label %.loopexit990
 
 1952:                                             ; preds = %145
-  %1953 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1953 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1954 = load ptr, ptr %.2701, align 8
   %1955 = load i32, ptr %1954, align 8
   %1956 = getelementptr inbounds nuw i8, ptr %1953, i64 96
@@ -5173,7 +5173,7 @@ extypename.exit937:                               ; preds = %1848, %1855
 
 1968:                                             ; preds = %1965
   %1969 = getelementptr inbounds nuw i8, ptr %.0706, i64 40
-  %1970 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1970 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1971 = load ptr, ptr %.2701, align 8
   %1972 = load i32, ptr %1971, align 8
   %1973 = getelementptr inbounds nuw i8, ptr %1970, i64 96
@@ -5195,11 +5195,11 @@ extypename.exit937:                               ; preds = %1848, %1855
   %1981 = getelementptr inbounds nuw i8, ptr %1980, i64 32
   %1982 = load i64, ptr %1981, align 8
   %1983 = trunc i64 %1982 to i32
-  store i32 %1983, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  store i32 %1983, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   br label %.loopexit990
 
 1984:                                             ; preds = %145
-  %1985 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %1985 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %1986 = getelementptr inbounds i8, ptr %.2701, i64 -16
   %1987 = load ptr, ptr %1986, align 8
   %1988 = getelementptr inbounds nuw i8, ptr %1987, i64 32
@@ -5225,7 +5225,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   %2002 = load ptr, ptr %.2701, align 8
   %2003 = getelementptr inbounds nuw i8, ptr %2002, i64 32
   store i64 %2001, ptr %2003, align 8
-  %2004 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2004 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2005 = getelementptr inbounds nuw i8, ptr %2004, i64 96
   %2006 = load ptr, ptr %2005, align 8
   %2007 = call ptr @vmalloc(ptr noundef %2006, i64 noundef 72) #22
@@ -5233,20 +5233,20 @@ extypename.exit937:                               ; preds = %1848, %1855
   %2008 = load ptr, ptr %.2701, align 8
   %2009 = getelementptr inbounds nuw i8, ptr %2008, i64 56
   store ptr %2007, ptr %2009, align 8
-  %2010 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %2010 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %2011 = getelementptr inbounds nuw i8, ptr %2010, i64 56
   %2012 = load i32, ptr %2011, align 8
   %2013 = add nsw i32 %2012, 1
   store i32 %2013, ptr %2011, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   br label %.loopexit990
 
 2014:                                             ; preds = %145
-  store ptr null, ptr getelementptr inbounds (i8, ptr @expr, i64 96), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 96), align 8
   br label %.loopexit990
 
 2015:                                             ; preds = %145
-  %2016 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2016 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2017 = getelementptr inbounds nuw i8, ptr %2016, i64 96
   %2018 = load ptr, ptr %2017, align 8
   %2019 = call ptr @vmalloc(ptr noundef %2018, i64 noundef 24) #22
@@ -5254,15 +5254,15 @@ extypename.exit937:                               ; preds = %1848, %1855
   %2020 = load ptr, ptr %.2701, align 8
   %2021 = getelementptr inbounds nuw i8, ptr %2019, i64 8
   store ptr %2020, ptr %2021, align 8
-  store ptr %2019, ptr getelementptr inbounds (i8, ptr @expr, i64 96), align 8
+  store ptr %2019, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 96), align 8
   store ptr null, ptr %2019, align 8
   %2022 = getelementptr inbounds nuw i8, ptr %2019, i64 16
   store ptr null, ptr %2022, align 8
-  %2023 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 96), align 8
+  %2023 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 96), align 8
   br label %.loopexit990
 
 2024:                                             ; preds = %145
-  %2025 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2025 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2026 = getelementptr inbounds nuw i8, ptr %2025, i64 96
   %2027 = load ptr, ptr %2026, align 8
   %2028 = call ptr @vmalloc(ptr noundef %2027, i64 noundef 24) #22
@@ -5273,7 +5273,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   %2031 = getelementptr inbounds nuw i8, ptr %2028, i64 16
   store ptr null, ptr %2031, align 8
   store ptr null, ptr %2028, align 8
-  %2032 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2032 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2033 = getelementptr inbounds nuw i8, ptr %2032, i64 96
   %2034 = load ptr, ptr %2033, align 8
   %2035 = call ptr @vmalloc(ptr noundef %2034, i64 noundef 24) #22
@@ -5285,7 +5285,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   %2039 = getelementptr inbounds nuw i8, ptr %2035, i64 16
   store ptr null, ptr %2039, align 8
   store ptr %2028, ptr %2035, align 8
-  store ptr %2035, ptr getelementptr inbounds (i8, ptr @expr, i64 96), align 8
+  store ptr %2035, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 96), align 8
   br label %.loopexit990
 
 2040:                                             ; preds = %145
@@ -5297,7 +5297,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   br label %.loopexit990
 
 2044:                                             ; preds = %145
-  %2045 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2045 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2046 = load ptr, ptr %.2701, align 8
   %2047 = load i32, ptr %2046, align 8
   %2048 = getelementptr inbounds nuw i8, ptr %2045, i64 96
@@ -5318,7 +5318,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   br label %.loopexit990
 
 2057:                                             ; preds = %145
-  %2058 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %2058 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %.not809 = icmp eq ptr %2058, null
   br i1 %.not809, label %2062, label %2059
 
@@ -5329,8 +5329,8 @@ extypename.exit937:                               ; preds = %1848, %1855
   br label %2062
 
 2062:                                             ; preds = %2059, %2057
-  %2063 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
-  %2064 = load i32, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  %2063 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
+  %2064 = load i32, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   %2065 = getelementptr inbounds nuw i8, ptr %2063, i64 96
   %2066 = load ptr, ptr %2065, align 8
   %2067 = call ptr @vmalloc(ptr noundef %2066, i64 noundef 72) #22
@@ -5342,7 +5342,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   store i32 1, ptr %2068, align 8
   %2070 = getelementptr inbounds nuw i8, ptr %2067, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2070, i8 0, i64 16, i1 false)
-  store ptr %2067, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  store ptr %2067, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %2071 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
   %.not810 = icmp eq ptr %2071, null
   br i1 %.not810, label %2072, label %2074
@@ -5362,17 +5362,17 @@ extypename.exit937:                               ; preds = %1848, %1855
 2079:                                             ; preds = %2074
   %2080 = load ptr, ptr @Dtset, align 8
   %2081 = call ptr @dtopen(ptr noundef nonnull %2071, ptr noundef %2080) #22
-  %2082 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %2082 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %2083 = getelementptr inbounds nuw i8, ptr %2082, i64 48
   store ptr %2081, ptr %2083, align 8
   %.not811 = icmp eq ptr %2081, null
   br i1 %.not811, label %2092, label %2084
 
 2084:                                             ; preds = %2079
-  %2085 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %2085 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %2086 = getelementptr inbounds nuw i8, ptr %2085, i64 48
   %2087 = load ptr, ptr %2086, align 8
-  %2088 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2088 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2089 = getelementptr inbounds nuw i8, ptr %2088, i64 8
   %2090 = load ptr, ptr %2089, align 8
   %2091 = call ptr @dtview(ptr noundef %2087, ptr noundef %2090) #22
@@ -5384,42 +5384,42 @@ extypename.exit937:                               ; preds = %1848, %1855
   br label %2094
 
 2094:                                             ; preds = %2092, %2084
-  %2095 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %2095 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %2096 = getelementptr inbounds nuw i8, ptr %2095, i64 48
   %2097 = load ptr, ptr %2096, align 8
-  %2098 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2098 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2099 = getelementptr inbounds nuw i8, ptr %2098, i64 112
   store ptr %2097, ptr %2099, align 8
   %2100 = getelementptr inbounds nuw i8, ptr %2098, i64 8
   store ptr %2097, ptr %2100, align 8
-  %2101 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2102 = getelementptr inbounds nuw i8, ptr %2101, i64 864
   store i32 1, ptr %2102, align 8
   br label %2103
 
 2103:                                             ; preds = %2094, %2074
-  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   br label %.loopexit990
 
 2104:                                             ; preds = %145
   %2105 = load ptr, ptr @expr, align 8
   %2106 = getelementptr inbounds nuw i8, ptr %2105, i64 16
   store i64 293, ptr %2106, align 8
-  %2107 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
+  %2107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
   %2108 = load i32, ptr %2107, align 8
   %2109 = sext i32 %2108 to i64
   %2110 = getelementptr inbounds nuw i8, ptr %2105, i64 32
   store i64 %2109, ptr %2110, align 8
-  %2111 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2112 = getelementptr inbounds nuw i8, ptr %2111, i64 864
   store i32 0, ptr %2112, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @expr, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 8), align 8
   br label %.loopexit990
 
 2113:                                             ; preds = %145
-  %2114 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @expr, i64 88), align 8
-  %2115 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8
+  %2115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2116 = getelementptr inbounds nuw i8, ptr %2115, i64 112
   %2117 = load ptr, ptr %2116, align 8
   %.not808 = icmp eq ptr %2117, null
@@ -5430,11 +5430,11 @@ extypename.exit937:                               ; preds = %1848, %1855
   %2120 = load ptr, ptr %2119, align 8
   %2121 = getelementptr inbounds nuw i8, ptr %2115, i64 8
   store ptr %2120, ptr %2121, align 8
-  %2122 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2123 = getelementptr inbounds nuw i8, ptr %2122, i64 112
   %2124 = load ptr, ptr %2123, align 8
   %2125 = call ptr @dtview(ptr noundef %2124, ptr noundef null) #22
-  %2126 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2127 = getelementptr inbounds nuw i8, ptr %2126, i64 112
   store ptr null, ptr %2127, align 8
   br label %2128
@@ -5444,14 +5444,14 @@ extypename.exit937:                               ; preds = %1848, %1855
   %2130 = load ptr, ptr %2129, align 8
   %2131 = getelementptr inbounds nuw i8, ptr %2114, i64 32
   store ptr %2130, ptr %2131, align 8
-  %2132 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2133 = getelementptr inbounds i8, ptr %.2701, i64 -8
   %2134 = load ptr, ptr %2133, align 8
   %2135 = load i32, ptr %2114, align 8
   %2136 = call ptr @excast(ptr noundef %2132, ptr noundef %2134, i32 noundef %2135, ptr noundef null, i32 noundef 0)
   %2137 = getelementptr inbounds nuw i8, ptr %2114, i64 40
   store ptr %2136, ptr %2137, align 8
-  %2138 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %2138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %2139 = getelementptr inbounds nuw i8, ptr %2138, i64 848
   %2140 = load ptr, ptr %2139, align 8
   %2141 = getelementptr inbounds i8, ptr %2140, i64 -1
@@ -6185,7 +6185,7 @@ extypename.exit16:                                ; preds = %45, %52
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @vmalloc(ptr noundef %5, i64 noundef 72) #22
@@ -6203,7 +6203,7 @@ define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef %1) unnamed
   store ptr %0, ptr %9, align 8
   store ptr null, ptr %10, align 8
   %.0242 = ashr i32 %13, 4
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 160
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
@@ -6238,7 +6238,7 @@ define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef %1) unnamed
 29:                                               ; preds = %24
   %30 = tail call ptr @excast(ptr noundef nonnull %23, ptr noundef nonnull %27, i32 noundef %.0.i10, ptr noundef null, i32 noundef %25)
   store ptr %30, ptr %26, align 8
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br label %31
 
 31:                                               ; preds = %29, %24
@@ -6845,7 +6845,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not134, label %17, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @vmalloc(ptr noundef %14, i64 noundef 48) #22
@@ -6871,7 +6871,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %34
   %23 = phi i8 [ %36, %34 ], [ %22, %.lr.ph ]
   %.0116222.us = phi ptr [ %35, %34 ], [ %19, %.lr.ph ]
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %25, i8 noundef signext %23)
   %26 = load i8, ptr %.0116222.us, align 1
@@ -6904,7 +6904,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %51
   %37 = phi i8 [ %53, %51 ], [ %22, %.lr.ph ]
   %.0116222 = phi ptr [ %52, %51 ], [ %19, %.lr.ph ]
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %39, i8 noundef signext %37)
   %40 = load i8, ptr %.0116222, align 1
@@ -6928,7 +6928,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not137, label %48, label %._crit_edge.preheader
 
 48:                                               ; preds = %46
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %50, i8 noundef signext 37)
   br label %51
@@ -6950,7 +6950,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   %.0106 = phi ptr [ %.1107, %265 ], [ %.fr, %._crit_edge.preheader ]
   %.0105 = phi ptr [ %.4, %265 ], [ %19, %._crit_edge.preheader ]
   %.0104 = phi ptr [ %.1, %265 ], [ null, %._crit_edge.preheader ]
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @vmalloc(ptr noundef %56, i64 noundef 48) #22
@@ -7033,7 +7033,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
 79:                                               ; preds = %.outer, %agxbputc.exit
   %.7 = phi ptr [ %123, %agxbputc.exit ], [ %.7.ph, %.outer ]
   %.1115 = phi i8 [ %124, %agxbputc.exit ], [ %.1115.ph, %.outer ]
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 184
   %82 = getelementptr i8, ptr %80, i64 215
   %.val.i.i = load i8, ptr %82, align 1
@@ -7185,7 +7185,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %.0114 = phi i8 [ %63, %131 ], [ 42, %72 ], [ %63, %62 ], [ %124, %agxbputc.exit ], [ 41, %127 ]
   %.1110 = phi i32 [ %.0109, %131 ], [ %75, %72 ], [ %.0109, %62 ], [ %.0109, %agxbputc.exit ], [ %.0109, %127 ]
   %.3 = phi ptr [ %.2, %131 ], [ %78, %72 ], [ %.2, %62 ], [ %.2, %agxbputc.exit ], [ %.2, %127 ]
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %137, i8 noundef signext %.0114)
   %.pr162 = load i8, ptr %.6, align 1
@@ -7202,7 +7202,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
 
 .loopexit165:                                     ; preds = %62, %62, %62, %.loopexit165.loopexit, %.loopexit354, %.loopexit292
   %.2113 = phi i32 [ 260, %.loopexit292 ], [ 263, %.loopexit354 ], [ 259, %.loopexit165.loopexit ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
-  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %139, i8 noundef signext %63)
   br label %140
@@ -7230,7 +7230,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
 
 146:                                              ; preds = %142, %140
   %.10 = phi ptr [ %.8, %140 ], [ %143, %142 ]
-  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 184
   tail call fastcc void @agxbputc(ptr noundef nonnull %148, i8 noundef signext %141)
   %149 = getelementptr inbounds nuw i8, ptr %.10, i64 1
@@ -7263,7 +7263,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   br i1 %.not155, label %247, label %158
 
 158:                                              ; preds = %156
-  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %160 = icmp eq i32 %157, 263
   %161 = add i32 %157, -259
   %162 = icmp ult i32 %161, 3
@@ -7295,7 +7295,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   br i1 %or.cond, label %195, label %178
 
 178:                                              ; preds = %175
-  %179 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %180 = icmp eq i32 %176, 263
   %181 = icmp eq i32 %176, 262
   %182 = select i1 %181, i32 308, i32 319
@@ -7336,14 +7336,14 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   br i1 %202, label %203, label %._crit_edge288
 
 ._crit_edge288:                                   ; preds = %199
-  %.pre289 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %.pre289 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br label %225
 
 203:                                              ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %154, i64 40
   %205 = load ptr, ptr %204, align 8
   %.not147 = icmp eq ptr %205, null
-  %.pre290 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %.pre290 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   br i1 %.not147, label %225, label %206
 
 206:                                              ; preds = %203
@@ -7364,7 +7364,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   br label %247
 
 215:                                              ; preds = %211
-  %216 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 96
   %218 = load ptr, ptr %217, align 8
   %219 = load ptr, ptr %155, align 8
@@ -7429,7 +7429,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
 250:                                              ; preds = %247, %59
   %.4 = phi ptr [ %.8, %247 ], [ %.3119, %59 ]
   %.1107 = phi ptr [ %249, %247 ], [ %.0106, %59 ]
-  %251 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %251 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 96
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 184
@@ -7476,7 +7476,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
   br label %269
 
 269:                                              ; preds = %267, %268, %151, %145, %130, %71, %69, %65
-  %270 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %271 = getelementptr i8, ptr %270, i64 215
   %.val.i = load i8, ptr %271, align 1
   %.not.i161 = icmp eq i8 %.val.i, -1
@@ -7561,7 +7561,7 @@ define internal fastcc noundef ptr @makeVar(ptr noundef %0, ptr noundef %1, ptr 
   br label %45
 
 37:                                               ; preds = %19
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 160
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 112

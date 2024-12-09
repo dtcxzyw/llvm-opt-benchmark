@@ -706,7 +706,7 @@ declare void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull al
 define dso_local void @_ZN4node6timers11BindingDataC2EPNS_5RealmEN2v85LocalINS4_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef %realm, ptr %object.coerce) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node18SnapshotableObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEENS_18EmbedderObjectTypeE(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef %realm, ptr %object.coerce, i8 noundef zeroext 6) #15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6timers11BindingDataE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6timers11BindingDataE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -779,7 +779,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !5
   tail call void @_ZN4node18SnapshotableObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEENS_18EmbedderObjectTypeE(ptr noundef nonnull align 8 dereferenceable(33) %call.i, ptr noundef nonnull %this, ptr %target.coerce, i8 noundef zeroext 6) #15, !noalias !5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6timers11BindingDataE, i64 16), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6timers11BindingDataE, i64 16), ptr %call.i, align 8, !noalias !5
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #15, !noalias !5
   %call.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #15, !noalias !5
   store ptr %call.i.i, ptr %item, align 8, !alias.scope !5
@@ -2108,7 +2108,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %entry, %init.check.
   %.fca.1.load.i.i.i.i = load ptr, ptr %.fca.1.gep.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i)
   store ptr %.fca.0.load.i.i.i.i, ptr @_ZN4node6timers11BindingData19fast_get_libuv_now_E, align 8
-  store ptr %.fca.1.load.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4node6timers11BindingData19fast_get_libuv_now_E, i64 8), align 8
+  store ptr %.fca.1.load.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node6timers11BindingData19fast_get_libuv_now_E, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i2)
   %3 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEENS2_IlJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i.i3 = icmp eq i8 %3, 0
@@ -2136,7 +2136,7 @@ __cxx_global_var_init.9.exit:                     ; preds = %__cxx_global_var_in
   %.fca.1.load.i.i.i.i6 = load ptr, ptr %.fca.1.gep.i.i.i.i5, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i2)
   store ptr %.fca.0.load.i.i.i.i4, ptr @_ZN4node6timers11BindingData21fast_schedule_timers_E, align 8
-  store ptr %.fca.1.load.i.i.i.i6, ptr getelementptr inbounds (i8, ptr @_ZN4node6timers11BindingData21fast_schedule_timers_E, i64 8), align 8
+  store ptr %.fca.1.load.i.i.i.i6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node6timers11BindingData21fast_schedule_timers_E, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i11)
   %5 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEENS2_IbJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i.i12 = icmp eq i8 %5, 0
@@ -2164,7 +2164,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %__cxx_global_var_in
   %.fca.1.load.i.i.i.i15 = load ptr, ptr %.fca.1.gep.i.i.i.i14, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i11)
   store ptr %.fca.0.load.i.i.i.i13, ptr @_ZN4node6timers11BindingData22fast_toggle_timer_ref_E, align 8
-  store ptr %.fca.1.load.i.i.i.i15, ptr getelementptr inbounds (i8, ptr @_ZN4node6timers11BindingData22fast_toggle_timer_ref_E, i64 8), align 8
+  store ptr %.fca.1.load.i.i.i.i15, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node6timers11BindingData22fast_toggle_timer_ref_E, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i20)
   %7 = load atomic i8, ptr @_ZGVZN2v88internal28CFunctionBuilderWithFunctionINS_16CTypeInfoBuilderIvJEEEJNS2_INS_5LocalINS_6ObjectEEEJEEENS2_IbJEEEEE5BuildILNS_13CFunctionInfo19Int64RepresentationE0EEEDavE8instance acquire, align 8
   %guard.uninitialized.i.i.i.i21 = icmp eq i8 %7, 0
@@ -2192,7 +2192,7 @@ __cxx_global_var_init.11.exit:                    ; preds = %__cxx_global_var_in
   %.fca.1.load.i.i.i.i24 = load ptr, ptr %.fca.1.gep.i.i.i.i23, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i20)
   store ptr %.fca.0.load.i.i.i.i22, ptr @_ZN4node6timers11BindingData26fast_toggle_immediate_ref_E, align 8
-  store ptr %.fca.1.load.i.i.i.i24, ptr getelementptr inbounds (i8, ptr @_ZN4node6timers11BindingData26fast_toggle_immediate_ref_E, i64 8), align 8
+  store ptr %.fca.1.load.i.i.i.i24, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node6timers11BindingData26fast_toggle_immediate_ref_E, i64 8), align 8
   ret void
 }
 

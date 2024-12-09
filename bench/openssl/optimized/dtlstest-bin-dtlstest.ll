@@ -195,7 +195,7 @@ if.end23:                                         ; preds = %if.end16
   br i1 %cmp24, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end23
-  store i8 -1, ptr getelementptr inbounds (i8, ptr @certstatus, i64 10), align 2
+  store i8 -1, ptr getelementptr inbounds nuw (i8, ptr @certstatus, i64 10), align 2
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then26, %if.end23

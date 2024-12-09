@@ -6981,7 +6981,7 @@ define dso_local range(i32 -1, 1) i32 @acct_policy_handle_accrue_time(ptr nounde
   br label %111
 
 11:                                               ; preds = %2
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 842), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 842), align 2
   %13 = and i16 %12, 1
   %.not61 = icmp eq i16 %13, 0
   br i1 %.not61, label %20, label %14
@@ -7263,7 +7263,7 @@ define dso_local ptr @acct_policy_get_user_used_limits(ptr nocapture noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_remove_accrue_time_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %7 = and i64 %6, 1125899906842624
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %12, label %8
@@ -7372,7 +7372,7 @@ define internal fastcc void @_remove_accrue_time_internal(ptr noundef %0, ptr no
   br i1 %.not63, label %72, label %52
 
 52:                                               ; preds = %.lr.ph
-  %53 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %54 = and i64 %53, 1125899906842624
   %.not64 = icmp eq i64 %54, 0
   br i1 %.not64, label %68, label %55
@@ -7622,7 +7622,7 @@ define internal fastcc void @_handle_add_accrue(ptr noundef %0, ptr noundef %1, 
   br label %63
 
 .critedge:                                        ; preds = %10
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %38 = and i64 %37, 1125899906842624
   %.not53 = icmp eq i64 %38, 0
   br i1 %.not53, label %63, label %39
@@ -7658,7 +7658,7 @@ define internal fastcc void @_handle_add_accrue(ptr noundef %0, ptr noundef %1, 
 49:                                               ; preds = %.lr.ph
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 %5, ptr %50, align 8
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %52 = and i64 %51, 1125899906842624
   %.not55 = icmp eq i64 %52, 0
   br i1 %.not55, label %57, label %53
@@ -7701,7 +7701,7 @@ define dso_local void @acct_policy_add_accrue_time(ptr noundef %0, i1 noundef ze
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @time(ptr noundef null) #12
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 842), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 842), align 2
   %10 = and i16 %9, 1
   %.not = icmp eq i16 %10, 0
   br i1 %.not, label %11, label %62
@@ -7819,7 +7819,7 @@ define dso_local void @acct_policy_add_accrue_time(ptr noundef %0, i1 noundef ze
 define dso_local void @acct_policy_remove_accrue_time(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) @__const.acct_policy_remove_accrue_time.locks, i64 28, i1 false)
-  %4 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 842), align 2
+  %4 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 842), align 2
   %5 = and i16 %4, 1
   %.not = icmp eq i16 %5, 0
   br i1 %.not, label %6, label %58
@@ -8110,7 +8110,7 @@ acct_policy_set_qos_order.exit.thread36:          ; preds = %12, %18, %9, %8, %a
   br label %37
 
 .thread41:                                        ; preds = %18, %17, %29
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 792), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 792), align 8
   %.not20 = icmp eq i32 %33, -1
   br i1 %.not20, label %37, label %34
 
@@ -8196,7 +8196,7 @@ acct_policy_set_qos_order.exit.thread36.i:        ; preds = %acct_policy_set_qos
   br label %acct_policy_get_preemptable_time.exit
 
 .thread41.i:                                      ; preds = %31, %20, %19
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 792), align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 792), align 8
   %.not20.i = icmp eq i32 %35, -1
   br i1 %.not20.i, label %acct_policy_get_preemptable_time.exit, label %36
 
@@ -12321,7 +12321,7 @@ declare i32 @bit_overlap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_add_accrue_time_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %7 = and i64 %6, 1125899906842624
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %12, label %8
@@ -12373,7 +12373,7 @@ define internal fastcc void @_add_accrue_time_internal(ptr noundef %0, ptr nound
 
 .lr.ph:                                           ; preds = %26, %44
   %.033 = phi ptr [ %51, %44 ], [ %0, %26 ]
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %28 = and i64 %27, 1125899906842624
   %.not31 = icmp eq i64 %28, 0
   br i1 %.not31, label %44, label %29

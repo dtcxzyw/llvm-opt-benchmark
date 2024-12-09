@@ -215,8 +215,8 @@ define void @_ZN22EnabledProtocolsDialogC2EP7QWidget(ptr noundef nonnull align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22EnabledProtocolsDialog, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22EnabledProtocolsDialog, i64 488), ptr %39, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22EnabledProtocolsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22EnabledProtocolsDialog, i64 488), ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #16
           to label %43 unwind label %193
@@ -1568,7 +1568,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i127:   ; preds = %166
   %174 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i32 0, ptr %175, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %174, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 12
   store i32 40, ptr %176, align 4
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 16
@@ -2176,9 +2176,9 @@ declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22EnabledProtocolsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22EnabledProtocolsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22EnabledProtocolsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22EnabledProtocolsDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22EnabledProtocolsDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

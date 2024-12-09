@@ -29414,7 +29414,7 @@ _ZN4core3ops8function6FnOnce9call_once17h0f27028fa112d34dE.exit.i: ; preds = %"_
   br label %.thread206
 
 161:                                              ; preds = %.noexc122, %"_ZN4core6option15Option$LT$T$GT$6filter17h1058a7b89fcf1b02E.exit"
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %157, %.noexc122 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %"_ZN4core6option15Option$LT$T$GT$6filter17h1058a7b89fcf1b02E.exit" ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %157, %.noexc122 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %"_ZN4core6option15Option$LT$T$GT$6filter17h1058a7b89fcf1b02E.exit" ]
   %162 = load i64, ptr %.sroa.0.0.i.i.i2.i, align 8, !noalias !5107, !noundef !4
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i, i64 8
   %164 = load i64, ptr %163, align 8, !noalias !5107, !noundef !4

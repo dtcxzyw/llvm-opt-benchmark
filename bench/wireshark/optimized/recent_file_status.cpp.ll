@@ -35,8 +35,8 @@ define void @_ZN16RecentFileStatusC2E7QStringP7QObject(ptr noundef nonnull align
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %7, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16RecentFileStatus, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16RecentFileStatus, i64 136), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16RecentFileStatus, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16RecentFileStatus, i64 136), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %9 = invoke noundef ptr @_ZNK7QString5utf16Ev(ptr noundef nonnull align 8 dereferenceable(24) %1)

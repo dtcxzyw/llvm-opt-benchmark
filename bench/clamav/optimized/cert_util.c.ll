@@ -52,80 +52,80 @@ define noundef nonnull ptr @cert_store_get_int() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @cert_store_unload_int() local_unnamed_addr #1 {
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 40), align 8
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 40), align 8
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %26
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8
   %.not12.i = icmp eq ptr %4, null
   br i1 %.not12.i, label %cert_store_free_cert_list_int.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 56), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8
   %.not14.i = icmp eq i64 %5, 0
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.013.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8
   %7 = getelementptr inbounds ptr, ptr %6, i64 %.013.i
   %8 = load ptr, ptr %7, align 8
   tail call void @X509_free(ptr noundef %8) #15
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %.013.i
   store ptr null, ptr %10, align 8
   %11 = add nuw i64 %.013.i, 1
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 56), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %14 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %4, %.preheader.i ]
   tail call void @free(ptr noundef %14) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_cert_store, i64 48), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), i8 0, i64 16, i1 false)
   br label %cert_store_free_cert_list_int.exit
 
 cert_store_free_cert_list_int.exit:               ; preds = %3, %._crit_edge.i
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %.not12.i1 = icmp eq ptr %15, null
   br i1 %.not12.i1, label %cert_store_free_cert_list_int.exit9, label %.preheader.i2
 
 .preheader.i2:                                    ; preds = %cert_store_free_cert_list_int.exit
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   %.not14.i3 = icmp eq i64 %16, 0
   br i1 %.not14.i3, label %._crit_edge.i8, label %.lr.ph.i4
 
 .lr.ph.i4:                                        ; preds = %.preheader.i2, %.lr.ph.i4
   %.013.i5 = phi i64 [ %22, %.lr.ph.i4 ], [ 0, %.preheader.i2 ]
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %18 = getelementptr inbounds ptr, ptr %17, i64 %.013.i5
   %19 = load ptr, ptr %18, align 8
   tail call void @X509_free(ptr noundef %19) #15
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %.013.i5
   store ptr null, ptr %21, align 8
   %22 = add nuw i64 %.013.i5, 1
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %.lr.ph.i4, label %._crit_edge.loopexit.i6
 
 ._crit_edge.loopexit.i6:                          ; preds = %.lr.ph.i4
-  %.pre.i7 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %.pre.i7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   br label %._crit_edge.i8
 
 ._crit_edge.i8:                                   ; preds = %._crit_edge.loopexit.i6, %.preheader.i2
   %25 = phi ptr [ %.pre.i7, %._crit_edge.loopexit.i6 ], [ %15, %.preheader.i2 ]
   tail call void @free(ptr noundef %25) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_cert_store, i64 64), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), i8 0, i64 16, i1 false)
   br label %cert_store_free_cert_list_int.exit9
 
 cert_store_free_cert_list_int.exit9:              ; preds = %cert_store_free_cert_list_int.exit, %._crit_edge.i8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 40), align 8
   br label %26
 
 26:                                               ; preds = %cert_store_free_cert_list_int.exit9, %0
@@ -325,12 +325,12 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   br label %16
 
 16:                                               ; preds = %14, %12
-  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 40), align 8
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 40), align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %.preheader73, label %.loopexit
 
 .preheader73:                                     ; preds = %16
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 56), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8
   %.not84 = icmp eq i64 %19, 0
   br i1 %.not84, label %.preheader, label %.lr.ph
 
@@ -341,7 +341,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %25
   %20 = phi i64 [ %27, %25 ], [ 0, %.lr.ph ]
   %.04677.us = phi i32 [ %26, %25 ], [ 0, %.lr.ph ]
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8
   %24 = call fastcc i32 @_x509_to_pem_append(ptr noundef %23, ptr noundef %0, ptr noundef %1, ptr noundef %4)
@@ -351,13 +351,13 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
 25:                                               ; preds = %.lr.ph.split.us
   %26 = add i32 %.04677.us, 1
   %27 = zext i32 %26 to i64
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 56), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8
   %29 = icmp ugt i64 %28, %27
   br i1 %29, label %.lr.ph.split.us, label %.preheader
 
 .preheader:                                       ; preds = %46, %25, %.preheader73
   %.0.lcssa = phi i1 [ true, %.preheader73 ], [ true, %25 ], [ %spec.select, %46 ]
-  %30 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   %.not87 = icmp eq i64 %30, 0
   br i1 %.not87, label %._crit_edge, label %.lr.ph81
 
@@ -368,7 +368,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
 .lr.ph81.split.us:                                ; preds = %.lr.ph81, %36
   %31 = phi i64 [ %38, %36 ], [ 0, %.lr.ph81 ]
   %.14779.us = phi i32 [ %37, %36 ], [ 0, %.lr.ph81 ]
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8
   %35 = call fastcc i32 @_x509_to_pem_append(ptr noundef %34, ptr noundef %0, ptr noundef %1, ptr noundef %4)
@@ -378,7 +378,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
 36:                                               ; preds = %.lr.ph81.split.us
   %37 = add i32 %.14779.us, 1
   %38 = zext i32 %37 to i64
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   %40 = icmp ugt i64 %39, %38
   br i1 %40, label %.lr.ph81.split.us, label %._crit_edge
 
@@ -386,7 +386,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %41 = phi i64 [ %55, %46 ], [ 0, %.lr.ph ]
   %.078 = phi i1 [ %spec.select, %46 ], [ true, %.lr.ph ]
   %.04677 = phi i32 [ %54, %46 ], [ 0, %.lr.ph ]
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
   %45 = call fastcc i32 @_x509_to_pem_append(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef %4)
@@ -395,7 +395,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
 
 46:                                               ; preds = %.lr.ph.split
   store i32 0, ptr %5, align 4
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8
   %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %41
   %49 = load ptr, ptr %48, align 8
   %50 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %49, ptr noundef %2, ptr noundef %5)
@@ -406,7 +406,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %spec.select = select i1 %or.cond5.not, i1 %.078, i1 false
   %54 = add i32 %.04677, 1
   %55 = zext i32 %54 to i64
-  %56 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 56), align 8
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8
   %57 = icmp ugt i64 %56, %55
   br i1 %57, label %.lr.ph.split, label %.preheader
 
@@ -414,7 +414,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %58 = phi i64 [ %72, %63 ], [ 0, %.lr.ph81 ]
   %.280 = phi i1 [ %spec.select68, %63 ], [ %.0.lcssa, %.lr.ph81 ]
   %.14779 = phi i32 [ %71, %63 ], [ 0, %.lr.ph81 ]
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %58
   %61 = load ptr, ptr %60, align 8
   %62 = call fastcc i32 @_x509_to_pem_append(ptr noundef %61, ptr noundef %0, ptr noundef %1, ptr noundef %4)
@@ -423,7 +423,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
 
 63:                                               ; preds = %.lr.ph81.split
   store i32 0, ptr %6, align 4
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8
   %67 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %66, ptr noundef %2, ptr noundef %6)
@@ -434,7 +434,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %spec.select68 = select i1 %or.cond7.not, i1 %.280, i1 false
   %71 = add i32 %.14779, 1
   %72 = zext i32 %71 to i64
-  %73 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   %74 = icmp ugt i64 %73, %72
   br i1 %74, label %.lr.ph81.split, label %._crit_edge
 
@@ -712,7 +712,7 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly %0, 
 .preheader:                                       ; preds = %6, %28
   %.sroa.7.033 = phi i64 [ %.sroa.7.1, %28 ], [ 0, %6 ]
   %.02332 = phi i64 [ %29, %28 ], [ 0, %6 ]
-  %9 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 56), align 8
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8
   %.not37 = icmp eq i64 %9, 0
   br i1 %.not37, label %.critedge, label %.lr.ph
 
@@ -724,14 +724,14 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly %0, 
   %.031 = phi i1 [ false, %.lr.ph ], [ %spec.select, %11 ]
   %.02230 = phi i64 [ 0, %.lr.ph ], [ %18, %11 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 48), align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.02230
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @X509_cmp(ptr noundef %12, ptr noundef %15) #15
   %17 = icmp eq i32 %16, 0
   %spec.select = select i1 %17, i1 true, i1 %.031
   %18 = add nuw i64 %.02230, 1
-  %19 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 56), align 8
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 56), align 8
   %20 = icmp ult i64 %18, %19
   br i1 %20, label %11, label %._crit_edge
 
@@ -762,31 +762,31 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly %0, 
   br i1 %exitcond.not, label %._crit_edge34, label %.preheader
 
 ._crit_edge34:                                    ; preds = %28
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %.not12.i = icmp eq ptr %30, null
   br i1 %.not12.i, label %cert_store_free_cert_list_int.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge34
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   %.not14.i = icmp eq i64 %31, 0
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.013.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %.013.i
   %34 = load ptr, ptr %33, align 8
   tail call void @X509_free(ptr noundef %34) #15
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %36 = getelementptr inbounds ptr, ptr %35, i64 %.013.i
   store ptr null, ptr %36, align 8
   %37 = add nuw i64 %.013.i, 1
-  %38 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   %39 = icmp ult i64 %37, %38
   br i1 %39, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -795,8 +795,8 @@ define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly %0, 
   br label %cert_store_free_cert_list_int.exit
 
 cert_store_free_cert_list_int.exit:               ; preds = %._crit_edge34, %._crit_edge.i
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
-  store i64 %.sroa.7.1, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
+  store i64 %.sroa.7.1, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   br label %41
 
 41:                                               ; preds = %cert_store_free_cert_list_int.exit, %8, %5
@@ -821,7 +821,7 @@ define range(i32 0, 9) i32 @cert_store_set_trusted(ptr noundef %0, i64 noundef %
   br label %6
 
 6:                                                ; preds = %4, %2
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 40), align 8
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 40), align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %11
 
@@ -858,13 +858,13 @@ define i64 @cert_store_remove_trusted() local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %2, %0
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 40), align 8
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 40), align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %cert_store_free_cert_list_int.exit
 
 7:                                                ; preds = %4
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %.not12.i = icmp eq ptr %9, null
   br i1 %.not12.i, label %cert_store_free_cert_list_int.exit, label %.preheader.i
 
@@ -874,26 +874,26 @@ define i64 @cert_store_remove_trusted() local_unnamed_addr #1 {
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.013.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 %.013.i
   %12 = load ptr, ptr %11, align 8
   tail call void @X509_free(ptr noundef %12) #15
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.013.i
   store ptr null, ptr %14, align 8
   %15 = add nuw i64 %.013.i, 1
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %18 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %9, %.preheader.i ]
   tail call void @free(ptr noundef %18) #15
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_cert_store, i64 64), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), i8 0, i64 16, i1 false)
   br label %cert_store_free_cert_list_int.exit
 
 cert_store_free_cert_list_int.exit:               ; preds = %._crit_edge.i, %7, %4

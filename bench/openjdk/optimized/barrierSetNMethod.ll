@@ -216,7 +216,7 @@ define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod21nmethod_entry_barrierE
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %2
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVZN17BarrierSetNMethod21nmethod_entry_barrierEP7nmethodE19OopKeepAliveClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVZN17BarrierSetNMethod21nmethod_entry_barrierEP7nmethodE19OopKeepAliveClosure, i64 16), ptr %3, align 8
   call void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214) %1, ptr noundef nonnull %3, i1 noundef zeroext false) #8
   call void @_ZN7nmethod22mark_as_maybe_on_stackEv(ptr noundef nonnull align 8 dereferenceable(214) %1) #8
   %11 = load ptr, ptr %0, align 8
@@ -253,7 +253,7 @@ define hidden void @_ZN17BarrierSetNMethod16arm_all_nmethodsEv(ptr nocapture nou
   %6 = icmp eq i32 %5, 2147483647
   %spec.select = select i1 %6, i32 1, i32 %5
   store i32 %spec.select, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27BarrierSetNMethodArmClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27BarrierSetNMethodArmClosure, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %spec.select, ptr %7, align 8
   call void @_ZN7Threads10threads_doEP13ThreadClosure(ptr noundef nonnull %2) #8

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @ossl_gcm_init_4bit(ptr noundef %Htable, ptr noundef %H) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   %1 = and i32 %0, 272629760
@@ -23,7 +23,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ossl_gcm_gmult_4bit(ptr noundef %Xi, ptr noundef %Htable) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   %1 = and i32 %0, 272629760
@@ -37,7 +37,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ossl_gcm_ghash_4bit(ptr noundef %Xi, ptr noundef %Htable, ptr noundef %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   %1 = and i32 %0, 272629760
@@ -70,7 +70,7 @@ entry:
   store i64 %3, ptr %arrayidx10, align 8
   %funcs = getelementptr inbounds nuw i8, ptr %ctx, i64 352
   store ptr @gcm_init_4bit, ptr %funcs, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and.i = and i32 %4, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %gcm_get_funcs.exit, label %if.then.i
@@ -1520,7 +1520,7 @@ if.then:                                          ; preds = %entry
   store i64 %3, ptr %arrayidx10.i, align 8
   %funcs.i = getelementptr inbounds nuw i8, ptr %call, i64 352
   store ptr @gcm_init_4bit, ptr %funcs.i, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and.i.i = and i32 %4, 2
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %CRYPTO_gcm128_init.exit, label %if.then.i.i

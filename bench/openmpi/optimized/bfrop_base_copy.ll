@@ -164,7 +164,7 @@ define internal fastcc range(i32 -29, 1) i32 @pmix_bfrops_base_tma_copy_payload(
 
 39:                                               ; preds = %27
   %40 = add i64 %34, %30
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 288), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 288), align 8
   %.not54.i = icmp ult i64 %40, %41
   br i1 %.not54.i, label %47, label %42
 
@@ -178,7 +178,7 @@ define internal fastcc range(i32 -29, 1) i32 @pmix_bfrops_base_tma_copy_payload(
 
 47:                                               ; preds = %39
   %48 = icmp eq i64 %32, 0
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_globals, i64 280), align 8
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 280), align 8
   %spec.select.i = select i1 %48, i64 %49, i64 %32
   br label %50
 
@@ -1516,7 +1516,7 @@ pmix_bfrops_base_tma_load_key.exit1041:           ; preds = %.preheader.i1034, %
 .lr.ph116:                                        ; preds = %267, %pmix_obj_run_constructors.exit
   %.0827115 = phi i64 [ %287, %pmix_obj_run_constructors.exit ], [ 0, %267 ]
   %272 = load i32, ptr @pmix_class_init_epoch, align 4
-  %273 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 32), align 8
+  %273 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_buffer_t_class, i64 32), align 8
   %.not948 = icmp eq i32 %272, %273
   br i1 %.not948, label %275, label %274
 
@@ -3029,7 +3029,7 @@ pmix_bfrops_base_tma_load_key.exit:               ; preds = %.preheader.i17, %13
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_bfrops_base_copy_regex(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg, i64 40), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg, i64 40), align 8
   %6 = call i32 %5(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1) #17
   ret i32 %6
 }
@@ -5565,7 +5565,7 @@ pmix_bfrops_base_tma_regattr_destruct.exit.i:     ; preds = %pmix_bfrops_base_tm
   br i1 %.not96, label %136, label %104
 
 104:                                              ; preds = %101
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg, i64 64), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg, i64 64), align 8
   %106 = tail call i32 %105(ptr noundef nonnull %103) #17
   br label %136
 
@@ -6542,7 +6542,7 @@ pmix_bfrops_base_tma_endpoint_destruct.exit.i:    ; preds = %239, %236
   br i1 %.not, label %252, label %249
 
 249:                                              ; preds = %.lr.ph11
-  %250 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_preg, i64 64), align 8
+  %250 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_preg, i64 64), align 8
   %251 = tail call i32 %250(ptr noundef nonnull %248) #17
   %.pre66 = load i64, ptr %244, align 8
   br label %252

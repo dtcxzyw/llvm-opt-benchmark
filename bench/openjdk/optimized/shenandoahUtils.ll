@@ -339,7 +339,7 @@ define hidden void @_ZN20ShenandoahPausePhaseC2EPKcN22ShenandoahPhaseTimings5Pha
   store double %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = zext i1 %3 to i8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21GCTraceTimeLoggerImpl, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21GCTraceTimeLoggerImpl, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %18 = icmp ne ptr %17, null
@@ -364,7 +364,7 @@ define hidden void @_ZN20ShenandoahPausePhaseC2EPKcN22ShenandoahPhaseTimings5Pha
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16GCTraceTimeTimer, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16GCTraceTimeTimer, i64 16), ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %1, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -563,7 +563,7 @@ define hidden void @_ZN25ShenandoahConcurrentPhaseC2EPKcN22ShenandoahPhaseTiming
   store double %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = zext i1 %3 to i8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV21GCTraceTimeLoggerImpl, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV21GCTraceTimeLoggerImpl, i64 16), ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %18 = icmp ne ptr %17, null
@@ -588,7 +588,7 @@ define hidden void @_ZN25ShenandoahConcurrentPhaseC2EPKcN22ShenandoahPhaseTiming
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16GCTraceTimeTimer, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16GCTraceTimeTimer, i64 16), ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %1, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136

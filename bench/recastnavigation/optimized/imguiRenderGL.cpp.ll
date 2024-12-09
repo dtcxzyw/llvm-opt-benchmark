@@ -9262,7 +9262,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
   %120 = call float @llvm.fmuladd.f32(float %119, float %67, float %71)
   %121 = getelementptr inbounds nuw i8, ptr %.384.i, i64 12
   store float %120, ptr %118, align 4
-  %122 = load float, ptr getelementptr inbounds (i8, ptr @_ZL13g_circleVerts, i64 4), align 4
+  %122 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_circleVerts, i64 4), align 4
   %123 = call float @llvm.fmuladd.f32(float %122, float %67, float %86)
   store float %123, ptr %121, align 4
   call fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef %2, i32 noundef 36, i32 noundef %69)

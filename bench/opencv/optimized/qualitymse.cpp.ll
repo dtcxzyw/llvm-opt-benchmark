@@ -135,10 +135,10 @@ define void @_ZN2cv7quality10QualityMSE6createERKNS_11_InputArrayE(ptr dead_on_u
           to label %.noexc6 unwind label %38
 
 .noexc6:                                          ; preds = %12
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %13, i32 noundef 0) #15
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv7quality10QualityMSEE, i64 80), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv7quality10QualityMSEE, i64 80), ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 88
   invoke void @_ZN2cv4UMatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %_ZN2cv7quality10QualityMSEC1ENS_4UMatE.exit unwind label %15
@@ -146,7 +146,7 @@ define void @_ZN2cv7quality10QualityMSE6createERKNS_11_InputArrayE(ptr dead_on_u
 15:                                               ; preds = %.noexc6
   %16 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %5, align 8
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %13) #15
   call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5) #15
   br label %.body.thread17
@@ -191,7 +191,7 @@ _ZN2cv7quality10QualityMSEC1ENS_4UMatE.exit:      ; preds = %.noexc6
   store i32 1, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 1, ptr %34, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7quality10QualityMSEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv7quality10QualityMSEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %5, ptr %35, align 8
   store ptr %18, ptr %17, align 8
@@ -606,10 +606,10 @@ define linkonce_odr hidden void @_ZNK2cv7quality11QualityBase13getQualityMapERKN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7quality10QualityMSED1Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv7quality10QualityMSEE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv7quality10QualityMSEE, i64 80), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #15
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #15
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
@@ -618,10 +618,10 @@ define linkonce_odr hidden void @_ZN2cv7quality10QualityMSED1Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7quality10QualityMSED0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv7quality10QualityMSEE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv7quality10QualityMSEE, i64 80), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #15
-  store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTCN2cv7quality10QualityMSEE0_NS0_11QualityBaseE, i64 80), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #15
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #15

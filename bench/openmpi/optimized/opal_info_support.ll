@@ -550,10 +550,10 @@ define range(i32 -16, 1) i32 @opal_info_register_project_frameworks(ptr noundef 
   ]
 
 14:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @opal_info_component_map_t_class, i64 56), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_info_component_map_t_class, i64 56), align 8
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #21
   %17 = load i32, ptr @opal_class_init_epoch, align 4
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @opal_info_component_map_t_class, i64 32), align 8
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_info_component_map_t_class, i64 32), align 8
   %.not.i.i = icmp eq i32 %17, %18
   br i1 %.not.i.i, label %20, label %19
 
@@ -1116,7 +1116,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %48) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   %49 = load ptr, ptr @opal_info_path_exec_prefix, align 8
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 8), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   %51 = call noalias ptr @strdup(ptr noundef %49) #17
   %52 = load i8, ptr %51, align 1
@@ -1132,7 +1132,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %58) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   %59 = load ptr, ptr @opal_info_path_bindir, align 8
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 16), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   %61 = call noalias ptr @strdup(ptr noundef %59) #17
   %62 = load i8, ptr %61, align 1
@@ -1148,7 +1148,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %68) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   %69 = load ptr, ptr @opal_info_path_sbindir, align 8
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 24), align 8
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   %71 = call noalias ptr @strdup(ptr noundef %69) #17
   %72 = load i8, ptr %71, align 1
@@ -1164,7 +1164,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %78) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   %79 = load ptr, ptr @opal_info_path_libdir, align 8
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 80), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 80), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   %81 = call noalias ptr @strdup(ptr noundef %79) #17
   %82 = load i8, ptr %81, align 1
@@ -1180,7 +1180,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %88) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   %89 = load ptr, ptr @opal_info_path_incdir, align 8
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 88), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   %91 = call noalias ptr @strdup(ptr noundef %89) #17
   %92 = load i8, ptr %91, align 1
@@ -1196,7 +1196,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %98) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   %99 = load ptr, ptr @opal_info_path_mandir, align 8
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 104), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 104), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   %101 = call noalias ptr @strdup(ptr noundef %99) #17
   %102 = load i8, ptr %101, align 1
@@ -1212,7 +1212,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %108) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   %109 = load ptr, ptr @opal_info_path_pkglibdir, align 8
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   %111 = call noalias ptr @strdup(ptr noundef %109) #17
   %112 = load i8, ptr %111, align 1
@@ -1228,7 +1228,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %118) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   %119 = load ptr, ptr @opal_info_path_libexecdir, align 8
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 32), align 8
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 32), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   %121 = call noalias ptr @strdup(ptr noundef %119) #17
   %122 = load i8, ptr %121, align 1
@@ -1244,7 +1244,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %128) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   %129 = load ptr, ptr @opal_info_path_datarootdir, align 8
-  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 40), align 8
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 40), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %131 = call noalias ptr @strdup(ptr noundef %129) #17
   %132 = load i8, ptr %131, align 1
@@ -1260,7 +1260,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %138) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   %139 = load ptr, ptr @opal_info_path_datadir, align 8
-  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 48), align 8
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 48), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %141 = call noalias ptr @strdup(ptr noundef %139) #17
   %142 = load i8, ptr %141, align 1
@@ -1276,7 +1276,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %148) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   %149 = load ptr, ptr @opal_info_path_sysconfdir, align 8
-  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   %151 = call noalias ptr @strdup(ptr noundef %149) #17
   %152 = load i8, ptr %151, align 1
@@ -1292,7 +1292,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %158) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   %159 = load ptr, ptr @opal_info_path_sharedstatedir, align 8
-  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 64), align 8
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 64), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   %161 = call noalias ptr @strdup(ptr noundef %159) #17
   %162 = load i8, ptr %161, align 1
@@ -1308,7 +1308,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %168) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   %169 = load ptr, ptr @opal_info_path_localstatedir, align 8
-  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 72), align 8
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 72), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   %171 = call noalias ptr @strdup(ptr noundef %169) #17
   %172 = load i8, ptr %171, align 1
@@ -1324,7 +1324,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %178) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %179 = load ptr, ptr @opal_info_path_infodir, align 8
-  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 96), align 8
+  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 96), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   %181 = call noalias ptr @strdup(ptr noundef %179) #17
   %182 = load i8, ptr %181, align 1
@@ -1340,7 +1340,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %188) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %189 = load ptr, ptr @opal_info_path_pkgdatadir, align 8
-  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
+  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 112), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   %191 = call noalias ptr @strdup(ptr noundef %189) #17
   %192 = load i8, ptr %191, align 1
@@ -1356,7 +1356,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %198) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %199 = load ptr, ptr @opal_info_path_pkglibdir, align 8
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   %201 = call noalias ptr @strdup(ptr noundef %199) #17
   %202 = load i8, ptr %201, align 1
@@ -1372,7 +1372,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   call void @free(ptr noundef %208) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %209 = load ptr, ptr @opal_info_path_pkgincludedir, align 8
-  %210 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 128), align 8
+  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 128), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   %211 = call noalias ptr @strdup(ptr noundef %209) #17
   %212 = load i8, ptr %211, align 1
@@ -1427,7 +1427,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %239, label %240, label %250
 
 240:                                              ; preds = %236
-  %241 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 16), align 8
+  %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %242 = call noalias ptr @strdup(ptr noundef %237) #17
   %243 = load i8, ptr %242, align 1
@@ -1451,7 +1451,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %253, label %254, label %264
 
 254:                                              ; preds = %250
-  %255 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 80), align 8
+  %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 80), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %256 = call noalias ptr @strdup(ptr noundef %251) #17
   %257 = load i8, ptr %256, align 1
@@ -1475,7 +1475,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %267, label %268, label %278
 
 268:                                              ; preds = %264
-  %269 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 88), align 8
+  %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %270 = call noalias ptr @strdup(ptr noundef %265) #17
   %271 = load i8, ptr %270, align 1
@@ -1499,7 +1499,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %281, label %282, label %292
 
 282:                                              ; preds = %278
-  %283 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 104), align 8
+  %283 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 104), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %284 = call noalias ptr @strdup(ptr noundef %279) #17
   %285 = load i8, ptr %284, align 1
@@ -1523,7 +1523,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %295, label %296, label %306
 
 296:                                              ; preds = %292
-  %297 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
+  %297 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %298 = call noalias ptr @strdup(ptr noundef %293) #17
   %299 = load i8, ptr %298, align 1
@@ -1547,7 +1547,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %309, label %310, label %320
 
 310:                                              ; preds = %306
-  %311 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
+  %311 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %312 = call noalias ptr @strdup(ptr noundef %307) #17
   %313 = load i8, ptr %312, align 1
@@ -1571,7 +1571,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %323, label %324, label %334
 
 324:                                              ; preds = %320
-  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 8), align 8
+  %325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %326 = call noalias ptr @strdup(ptr noundef %321) #17
   %327 = load i8, ptr %326, align 1
@@ -1595,7 +1595,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %337, label %338, label %348
 
 338:                                              ; preds = %334
-  %339 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 24), align 8
+  %339 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %340 = call noalias ptr @strdup(ptr noundef %335) #17
   %341 = load i8, ptr %340, align 1
@@ -1619,7 +1619,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %351, label %352, label %362
 
 352:                                              ; preds = %348
-  %353 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 32), align 8
+  %353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 32), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %354 = call noalias ptr @strdup(ptr noundef %349) #17
   %355 = load i8, ptr %354, align 1
@@ -1643,7 +1643,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %365, label %366, label %376
 
 366:                                              ; preds = %362
-  %367 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 40), align 8
+  %367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 40), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %368 = call noalias ptr @strdup(ptr noundef %363) #17
   %369 = load i8, ptr %368, align 1
@@ -1667,7 +1667,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %379, label %380, label %382
 
 380:                                              ; preds = %376
-  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 48), align 8
+  %381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 48), align 8
   call void @opal_info_show_path(ptr noundef %377, ptr noundef %381)
   br label %416
 
@@ -1678,7 +1678,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %385, label %386, label %388
 
 386:                                              ; preds = %382
-  %387 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 64), align 8
+  %387 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 64), align 8
   call void @opal_info_show_path(ptr noundef %383, ptr noundef %387)
   br label %416
 
@@ -1689,7 +1689,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %391, label %392, label %394
 
 392:                                              ; preds = %388
-  %393 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 72), align 8
+  %393 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 72), align 8
   call void @opal_info_show_path(ptr noundef %389, ptr noundef %393)
   br label %416
 
@@ -1700,7 +1700,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %397, label %398, label %400
 
 398:                                              ; preds = %394
-  %399 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 96), align 8
+  %399 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 96), align 8
   call void @opal_info_show_path(ptr noundef %395, ptr noundef %399)
   br label %416
 
@@ -1711,7 +1711,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %403, label %404, label %406
 
 404:                                              ; preds = %400
-  %405 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
+  %405 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 112), align 8
   call void @opal_info_show_path(ptr noundef %401, ptr noundef %405)
   br label %416
 
@@ -1722,7 +1722,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
   br i1 %409, label %410, label %412
 
 410:                                              ; preds = %406
-  %411 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 128), align 8
+  %411 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 128), align 8
   call void @opal_info_show_path(ptr noundef %407, ptr noundef %411)
   br label %416
 

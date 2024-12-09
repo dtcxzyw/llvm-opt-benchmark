@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @heartbeat_start() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca %union.pthread_attr_t, align 8
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 256), align 8
   %4 = icmp ult i32 %3, 2
   br i1 %4, label %5, label %9
 
@@ -192,7 +192,7 @@ define internal noalias noundef ptr @_heartbeat_thread(ptr nocapture readnone %0
   %3 = alloca %struct.timespec, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1242), align 2
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1242), align 2
   %7 = tail call i16 @llvm.umin.i16(i16 %6, i16 120)
   %narrow = lshr i16 %7, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -237,7 +237,7 @@ define internal noalias noundef ptr @_heartbeat_thread(ptr nocapture readnone %0
   br label %23
 
 23:                                               ; preds = %22, %17
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %25 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.11, ptr noundef %24) #9
   store ptr %25, ptr %4, align 8
   %26 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.17, ptr noundef %25) #9
@@ -409,7 +409,7 @@ define dso_local i64 @get_last_heartbeat(ptr noundef writeonly %0) local_unnamed
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %6 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.11, ptr noundef %5) #9
   store ptr %6, ptr %2, align 8
   br label %7

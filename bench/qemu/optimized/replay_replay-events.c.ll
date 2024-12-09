@@ -90,7 +90,7 @@ if.then6:                                         ; preds = %while.body
   br label %if.end14
 
 if.else11:                                        ; preds = %while.body
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @events_list, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @events_list, i64 8), align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else11, %if.then6
@@ -218,7 +218,7 @@ if.then6.i:                                       ; preds = %while.body.i
   br label %if.end14.i
 
 if.else11.i:                                      ; preds = %while.body.i
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @events_list, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @events_list, i64 8), align 8
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.else11.i, %if.then6.i
@@ -287,11 +287,11 @@ if.else16:                                        ; preds = %if.end9
 do.body18:                                        ; preds = %if.end9
   %events = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %events, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @events_list, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @events_list, i64 8), align 8
   %tql_prev = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %2, ptr %tql_prev, align 8
   store ptr %call, ptr %2, align 8
-  store ptr %events, ptr getelementptr inbounds (i8, ptr @events_list, i64 8), align 8
+  store ptr %events, ptr getelementptr inbounds nuw (i8, ptr @events_list, i64 8), align 8
   %3 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
@@ -484,7 +484,7 @@ if.then3:                                         ; preds = %replay_save_event.e
   br label %if.end11
 
 if.else8:                                         ; preds = %replay_save_event.exit
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @events_list, i64 8), align 8
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @events_list, i64 8), align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else8, %if.then3
@@ -507,7 +507,7 @@ entry:
   br i1 %call, label %while.cond.preheader, label %if.else
 
 while.cond.preheader:                             ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 28), align 4
   %1 = add i32 %0, -3
   %2 = icmp ult i32 %1, 7
   br i1 %2, label %while.body, label %while.end
@@ -530,7 +530,7 @@ while.body:                                       ; preds = %while.cond.preheade
   ]
 
 sw.bb.i:                                          ; preds = %while.body, %while.body
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @replay_state, i64 64), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 64), align 8
   %cmp.i = icmp eq i64 %5, -1
   br i1 %cmp.i, label %sw.epilog.sink.split.i, label %sw.epilog.i
 
@@ -558,7 +558,7 @@ sw.bb9.i:                                         ; preds = %while.body
   br label %if.end4
 
 sw.bb14.i:                                        ; preds = %while.body
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @replay_state, i64 64), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 64), align 8
   %cmp15.i = icmp eq i64 %6, -1
   br i1 %cmp15.i, label %sw.epilog.sink.split.i, label %sw.epilog.i
 
@@ -575,7 +575,7 @@ default.unreachable:                              ; preds = %while.body
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb14.i, %sw.bb.i
   %call17.i = tail call i64 @replay_get_qword() #10
-  store i64 %call17.i, ptr getelementptr inbounds (i8, ptr @replay_state, i64 64), align 8
+  store i64 %call17.i, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 64), align 8
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %sw.bb14.i, %sw.bb.i
@@ -635,7 +635,7 @@ if.then34.i:                                      ; preds = %do.body.i
   br label %if.end41.i
 
 if.else.i:                                        ; preds = %do.body.i
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @events_list, i64 8), align 8
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @events_list, i64 8), align 8
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.else.i, %if.then34.i
@@ -647,10 +647,10 @@ if.end41.i:                                       ; preds = %if.else.i, %if.then
 if.end4:                                          ; preds = %sw.bb19.i, %sw.bb9.i, %sw.bb5.i, %sw.bb1.i, %if.end41.i
   %retval.0.i.ph = phi ptr [ %.us-phi.i, %if.end41.i ], [ %call2.i, %sw.bb1.i ], [ %call6.i, %sw.bb5.i ], [ %call10.i, %sw.bb9.i ], [ %call20.i, %sw.bb19.i ]
   tail call void @replay_finish_event() #10
-  store i64 -1, ptr getelementptr inbounds (i8, ptr @replay_state, i64 64), align 8
+  store i64 -1, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 64), align 8
   tail call fastcc void @replay_run_event(ptr noundef nonnull %retval.0.i.ph)
   tail call void @g_free(ptr noundef nonnull %retval.0.i.ph) #10
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 28), align 4
   %15 = add i32 %14, -3
   %16 = icmp ult i32 %15, 7
   br i1 %16, label %while.body, label %while.end, !llvm.loop !10
@@ -664,7 +664,7 @@ declare void @replay_finish_event() local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @replay_init_events() local_unnamed_addr #7 {
 entry:
-  store i64 -1, ptr getelementptr inbounds (i8, ptr @replay_state, i64 64), align 8
+  store i64 -1, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 64), align 8
   ret void
 }
 
@@ -706,7 +706,7 @@ if.then6.i:                                       ; preds = %while.body.i
   br label %if.end14.i
 
 if.else11.i:                                      ; preds = %while.body.i
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @events_list, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @events_list, i64 8), align 8
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.else11.i, %if.then6.i
@@ -736,9 +736,9 @@ entry:
   br i1 %.b1.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @replay_state, i64 48), align 8
+  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 48), align 8
   %inc = add i64 %0, 1
-  store i64 %inc, ptr getelementptr inbounds (i8, ptr @replay_state, i64 48), align 8
+  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @replay_state, i64 48), align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.then

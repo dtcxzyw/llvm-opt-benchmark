@@ -17,7 +17,7 @@ define noundef zeroext i1 @_RNvCsjIaN6dkKMFO_12turborepo_ci5is_ci() unnamed_addr
   br label %_RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockbE15get_or_try_initNCINvB2_11get_or_initNCNvCsjIaN6dkKMFO_12turborepo_ci5is_ci0E0zEB1B_.exit
 
 _RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockbE15get_or_try_initNCINvB2_11get_or_initNCNvCsjIaN6dkKMFO_12turborepo_ci5is_ci0E0zEB1B_.exit: ; preds = %0, %2
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci5IS_CI, i64 4), align 4, !range !4, !noundef !5
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci5IS_CI, i64 4), align 4, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }

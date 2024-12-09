@@ -905,7 +905,7 @@ define hidden void @av1_init_wedge_masks() local_unnamed_addr #4 {
   %indvars.iv51.i = phi i64 [ 16, %0 ], [ %indvars.iv.next5265.i, %shift_copy.exit45.i ]
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %shift_copy.exit45.i ]
   %2 = shl nuw nsw i64 %indvars.iv.i, 6
-  %3 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 12288), i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 12288), i64 0, i64 %2
   %4 = icmp sgt i64 %indvars.iv51.i, -1
   br i1 %4, label %shift_copy.exit.i, label %shift_copy.exit.thread.i
 
@@ -919,7 +919,7 @@ shift_copy.exit.thread.i:                         ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 64, i64 %5, i1 false)
   %indvars.iv.next5264.i = add nsw i64 %indvars.iv51.i, -1
   %10 = or disjoint i64 %2, 64
-  %11 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 12288), i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 12288), i64 0, i64 %10
   br label %19
 
 shift_copy.exit.i:                                ; preds = %1
@@ -928,7 +928,7 @@ shift_copy.exit.i:                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 16 @wedge_master_oblique_even, i64 %13, i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 0, i64 %indvars.iv51.i, i1 false)
   %14 = or disjoint i64 %2, 64
-  %15 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 12288), i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 12288), i64 0, i64 %14
   %.not.i = icmp eq i64 %indvars.iv51.i, 0
   br i1 %.not.i, label %19, label %16
 
@@ -956,9 +956,9 @@ shift_copy.exit.i:                                ; preds = %1
 shift_copy.exit45.i:                              ; preds = %19, %16
   %27 = phi i64 [ %14, %16 ], [ %21, %19 ]
   %indvars.iv.next5265.i = phi i64 [ %indvars.iv.next52.i, %16 ], [ %indvars.iv.next5266.i, %19 ]
-  %28 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 4096), i64 0, i64 %2
+  %28 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 4096), i64 0, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %28, ptr noundef nonnull align 16 dereferenceable(64) @wedge_master_vertical, i64 64, i1 false)
-  %29 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 4096), i64 0, i64 %27
+  %29 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 4096), i64 0, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %29, ptr noundef nonnull align 16 dereferenceable(64) @wedge_master_vertical, i64 64, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp samesign ult i64 %indvars.iv.i, 62
@@ -974,35 +974,35 @@ shift_copy.exit45.i:                              ; preds = %19, %16
 34:                                               ; preds = %34, %.preheader.i
   %indvars.iv56.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next57.i, %34 ]
   %35 = or disjoint i64 %indvars.iv56.i, %31
-  %36 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 12288), i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 12288), i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = shl nuw nsw i64 %indvars.iv56.i, 6
   %39 = or disjoint i64 %38, %indvars.iv59.i
-  %40 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 8192), i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 8192), i64 0, i64 %39
   store i8 %37, ptr %40, align 1
   %41 = sub i8 64, %37
   %42 = sub nuw nsw i64 %32, %38
-  %43 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 20480), i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 20480), i64 0, i64 %42
   store i8 %41, ptr %43, align 1
   %44 = sub nuw nsw i64 %33, %indvars.iv56.i
-  %45 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 16384), i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 16384), i64 0, i64 %44
   store i8 %41, ptr %45, align 1
-  %46 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 32768), i64 0, i64 %39
+  %46 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 32768), i64 0, i64 %39
   store i8 %41, ptr %46, align 1
-  %47 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 36864), i64 0, i64 %35
+  %47 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 36864), i64 0, i64 %35
   store i8 %41, ptr %47, align 1
-  %48 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 45056), i64 0, i64 %42
+  %48 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 45056), i64 0, i64 %42
   store i8 %37, ptr %48, align 1
-  %49 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 40960), i64 0, i64 %44
+  %49 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 40960), i64 0, i64 %44
   store i8 %37, ptr %49, align 1
-  %50 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 4096), i64 0, i64 %35
+  %50 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 4096), i64 0, i64 %35
   %51 = load i8, ptr %50, align 1
   %52 = getelementptr inbounds nuw [4096 x i8], ptr @wedge_mask_obl, i64 0, i64 %39
   store i8 %51, ptr %52, align 1
   %53 = sub i8 64, %51
-  %54 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 24576), i64 0, i64 %39
+  %54 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 24576), i64 0, i64 %39
   store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds (i8, ptr @wedge_mask_obl, i64 28672), i64 0, i64 %35
+  %55 = getelementptr inbounds nuw [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @wedge_mask_obl, i64 28672), i64 0, i64 %35
   store i8 %53, ptr %55, align 1
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next57.i, 64

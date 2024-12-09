@@ -986,7 +986,7 @@ define dso_local noundef i32 @_ZN4llvm3ARM8parseFPUENS_9StringRefE(ptr %0, i64 %
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us
   %.014.idx19.us = phi i64 [ %.014.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm3ARML8FPUNamesE, i64 8), i64 %.014.idx19.us
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm3ARML8FPUNamesE, i64 8), i64 %.014.idx19.us
   %.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
   %.not.i.us = icmp eq i64 %.sroa.2.0.copyload.us, 0
   br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us
@@ -2895,7 +2895,7 @@ _ZL19stripNegationPrefixRN4llvm9StringRefE.exit:  ; preds = %7, %_ZNK4llvm9Strin
 
 .split.us.i:                                      ; preds = %_ZL19stripNegationPrefixRN4llvm9StringRefE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i
   %.010.idx15.us.i = phi i64 [ %.010.add.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i ], [ 0, %_ZL19stripNegationPrefixRN4llvm9StringRefE.exit ]
-  %gep.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm3ARML12ARCHExtNamesE, i64 8), i64 %.010.idx15.us.i
+  %gep.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm3ARML12ARCHExtNamesE, i64 8), i64 %.010.idx15.us.i
   %.sroa.2.0.copyload.us.i = load i64, ptr %gep.i, align 8
   %.not.i.us.i = icmp eq i64 %.sroa.2.0.copyload.us.i, 0
   br i1 %.not.i.us.i, label %_ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i
@@ -3311,7 +3311,7 @@ define dso_local noundef i64 @_ZN4llvm3ARM12parseArchExtENS_9StringRefE(ptr noca
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us
   %.010.idx15.us = phi i64 [ %.010.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm3ARML12ARCHExtNamesE, i64 8), i64 %.010.idx15.us
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm3ARML12ARCHExtNamesE, i64 8), i64 %.010.idx15.us
   %.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
   %.not.i.us = icmp eq i64 %.sroa.2.0.copyload.us, 0
   br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us
@@ -3462,7 +3462,7 @@ _ZL15getHWDivSynonymN4llvm9StringRefE.exit.split.preheader: ; preds = %2, %_ZL15
 
 _ZL15getHWDivSynonymN4llvm9StringRefE.exit.split.us: ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us
   %.014.idx19.us = phi i64 [ %.014.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us ], [ %.fr22, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm3ARML10HWDivNamesE, i64 8), i64 %.014.idx19.us
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm3ARML10HWDivNamesE, i64 8), i64 %.014.idx19.us
   %.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
   %.not.i.us = icmp eq i64 %.sroa.2.0.copyload.us, 0
   br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us
@@ -3511,7 +3511,7 @@ define dso_local noundef i32 @_ZN4llvm3ARM12parseCPUArchENS_9StringRefE(ptr noca
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us
   %.010.idx15.us = phi i64 [ %.010.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm3ARML8CPUNamesE, i64 8), i64 %.010.idx15.us
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm3ARML8CPUNamesE, i64 8), i64 %.010.idx15.us
   %.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
   %.not.i.us = icmp eq i64 %.sroa.2.0.copyload.us, 0
   br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us
@@ -4097,7 +4097,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit17:          ; preds = %89, %90
   %91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   %92 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   store ptr %88, ptr %56, align 8, !alias.scope !63
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcS2_EEE, i64 16), ptr %6, align 8, !alias.scope !63
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJPKcS2_EEE, i64 16), ptr %6, align 8, !alias.scope !63
   store ptr %92, ptr %57, align 8, !alias.scope !63
   store ptr %91, ptr %58, align 8, !alias.scope !63
   %93 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i14, ptr noundef nonnull align 8 dereferenceable(16) %6) #17

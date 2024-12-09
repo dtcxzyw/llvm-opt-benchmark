@@ -224,7 +224,7 @@ define dso_local void @_ZN4llvm16X86FrameLoweringC2ERKNS_12X86SubtargetENS_10May
   store i32 %8, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %13, align 4
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN4llvm16X86FrameLoweringE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 400) (i8, ptr @_ZTVN4llvm16X86FrameLoweringE, i64 16), ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32

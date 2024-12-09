@@ -550,7 +550,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !117
   store ptr @anon.dcf0590ddea9489929259de672f22440.59, ptr %6, align 8, !noalias !117
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.dcf0590ddea9489929259de672f22440.59, i64 48), ptr %160, align 8, !noalias !117
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.dcf0590ddea9489929259de672f22440.59, i64 48), ptr %160, align 8, !noalias !117
   br label %161
 
 161:                                              ; preds = %.noexc210, %159
@@ -615,7 +615,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !144
   store ptr @anon.dcf0590ddea9489929259de672f22440.61, ptr %4, align 8, !noalias !144
   %180 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.dcf0590ddea9489929259de672f22440.61, i64 16), ptr %180, align 8, !noalias !144
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.dcf0590ddea9489929259de672f22440.61, i64 16), ptr %180, align 8, !noalias !144
   br label %181
 
 181:                                              ; preds = %.noexc215, %179

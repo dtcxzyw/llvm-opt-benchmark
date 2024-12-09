@@ -1628,7 +1628,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %336, align 8, !noalias !13
   %337 = getelementptr inbounds nuw i8, ptr %335, i64 12
   store i32 1, ptr %337, align 4, !noalias !13
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileSourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %335, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileSourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %335, align 8, !noalias !13
   %338 = getelementptr inbounds nuw i8, ptr %335, i64 16
   invoke void @_ZN2cv9videostab15VideoFileSourceC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(24) %338, ptr noundef nonnull align 8 dereferenceable(32) %40, i1 noundef zeroext false)
           to label %340 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileSourceESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !13
@@ -1801,7 +1801,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %383 unwind label %397
 
 383:                                              ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit470
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %377, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %377, align 8
   %384 = getelementptr inbounds nuw i8, ptr %377, i64 8
   invoke void @_ZN2cv17CommandLineParserC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %384, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %.noexc471 unwind label %399
@@ -1809,7 +1809,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 .noexc471:                                        ; preds = %383
   %385 = icmp eq i32 %382, 0
   %386 = zext i1 %385 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV24MotionEstimatorL1Builder, i64 16), ptr %377, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV24MotionEstimatorL1Builder, i64 16), ptr %377, align 8
   %387 = getelementptr inbounds nuw i8, ptr %377, i64 16
   store i8 %386, ptr %387, align 8
   %388 = getelementptr inbounds nuw i8, ptr %377, i64 24
@@ -1820,7 +1820,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %390 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %377, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %377, align 8
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %384) #25
   br label %.body472
 
@@ -1917,7 +1917,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %411 unwind label %420
 
 411:                                              ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit477
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %405, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %405, align 8
   %412 = getelementptr inbounds nuw i8, ptr %405, i64 8
   invoke void @_ZN2cv17CommandLineParserC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %412, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %.noexc478 unwind label %422
@@ -1925,7 +1925,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 .noexc478:                                        ; preds = %411
   %413 = icmp eq i32 %410, 0
   %414 = zext i1 %413 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV30MotionEstimatorRansacL2Builder, i64 16), ptr %405, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV30MotionEstimatorRansacL2Builder, i64 16), ptr %405, align 8
   %415 = getelementptr inbounds nuw i8, ptr %405, i64 16
   store i8 %414, ptr %415, align 8
   %416 = getelementptr inbounds nuw i8, ptr %405, i64 24
@@ -1936,7 +1936,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %418 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %405, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %405, align 8
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %412) #25
   br label %.body479
 
@@ -2053,7 +2053,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %438 unwind label %452
 
 438:                                              ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit487
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %432, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %432, align 8
   %439 = getelementptr inbounds nuw i8, ptr %432, i64 8
   invoke void @_ZN2cv17CommandLineParserC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %439, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %.noexc488 unwind label %454
@@ -2061,7 +2061,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 .noexc488:                                        ; preds = %438
   %440 = icmp eq i32 %437, 0
   %441 = zext i1 %440 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV24MotionEstimatorL1Builder, i64 16), ptr %432, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV24MotionEstimatorL1Builder, i64 16), ptr %432, align 8
   %442 = getelementptr inbounds nuw i8, ptr %432, i64 16
   store i8 %441, ptr %442, align 8
   %443 = getelementptr inbounds nuw i8, ptr %432, i64 24
@@ -2072,7 +2072,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %445 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %432, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %432, align 8
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %439) #25
   br label %.body489
 
@@ -2169,7 +2169,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %466 unwind label %475
 
 466:                                              ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit496
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %460, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %460, align 8
   %467 = getelementptr inbounds nuw i8, ptr %460, i64 8
   invoke void @_ZN2cv17CommandLineParserC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %467, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %.noexc497 unwind label %477
@@ -2177,7 +2177,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 .noexc497:                                        ; preds = %466
   %468 = icmp eq i32 %465, 0
   %469 = zext i1 %468 to i8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV30MotionEstimatorRansacL2Builder, i64 16), ptr %460, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV30MotionEstimatorRansacL2Builder, i64 16), ptr %460, align 8
   %470 = getelementptr inbounds nuw i8, ptr %460, i64 16
   store i8 %469, ptr %470, align 8
   %471 = getelementptr inbounds nuw i8, ptr %460, i64 24
@@ -2188,7 +2188,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %473 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %460, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %460, align 8
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %467) #25
   br label %.body498
 
@@ -2407,7 +2407,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %514, align 8, !noalias !19
   %515 = getelementptr inbounds nuw i8, ptr %513, i64 12
   store i32 1, ptr %515, align 4, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab18LpMotionStabilizerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %513, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab18LpMotionStabilizerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %513, align 8, !noalias !19
   %516 = getelementptr inbounds nuw i8, ptr %513, i64 16
   invoke void @_ZN2cv9videostab18LpMotionStabilizerC1ENS0_11MotionModelE(ptr noundef nonnull align 8 dereferenceable(232) %516, i32 noundef 4)
           to label %518 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab18LpMotionStabilizerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !19
@@ -3075,9 +3075,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %730, align 8, !noalias !22
   %731 = getelementptr inbounds nuw i8, ptr %729, i64 12
   store i32 1, ptr %731, align 4, !noalias !22
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %729, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %729, align 8, !noalias !22
   %732 = getelementptr inbounds nuw i8, ptr %729, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab20GaussianMotionFilterE, i64 16), ptr %732, align 8, !noalias !22
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab20GaussianMotionFilterE, i64 16), ptr %732, align 8, !noalias !22
   %733 = getelementptr inbounds nuw i8, ptr %729, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %733, i8 0, i64 24, i1 false), !noalias !22
   invoke void @_ZN2cv9videostab20GaussianMotionFilter9setParamsEif(ptr noundef nonnull align 8 dereferenceable(40) %732, i32 noundef %728, float noundef -1.000000e+00)
@@ -3338,9 +3338,9 @@ _ZN2cv3PtrINS_9videostab20GaussianMotionFilterEED2Ev.exit: ; preds = %_ZNSt16_Sp
   store i32 1, ptr %829, align 8, !noalias !27
   %830 = getelementptr inbounds nuw i8, ptr %828, i64 12
   store i32 1, ptr %830, align 4, !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %828, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %828, align 8, !noalias !27
   %831 = getelementptr inbounds nuw i8, ptr %828, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab20GaussianMotionFilterE, i64 16), ptr %831, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab20GaussianMotionFilterE, i64 16), ptr %831, align 8, !noalias !27
   %832 = getelementptr inbounds nuw i8, ptr %828, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %832, i8 0, i64 24, i1 false), !noalias !27
   invoke void @_ZN2cv9videostab20GaussianMotionFilter9setParamsEif(ptr noundef nonnull align 8 dereferenceable(40) %831, i32 noundef %824, float noundef %827)
@@ -3614,7 +3614,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %929, align 8, !noalias !32
   %930 = getelementptr inbounds nuw i8, ptr %928, i64 12
   store i32 1, ptr %930, align 4, !noalias !32
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab34MoreAccurateMotionWobbleSuppressorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %928, align 8, !noalias !32
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab34MoreAccurateMotionWobbleSuppressorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %928, align 8, !noalias !32
   %931 = getelementptr inbounds nuw i8, ptr %928, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %931, i8 0, i64 256, i1 false), !noalias !32
   invoke void @_ZN2cv9videostab20WobbleSuppressorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %931)
@@ -3630,7 +3630,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab34MoreAccura
 _ZN2cv3PtrINS_9videostab34MoreAccurateMotionWobbleSuppressorEED2Ev.exit: ; preds = %.noexc617
   %933 = getelementptr inbounds nuw i8, ptr %928, i64 72
   store i32 30, ptr %933, align 8, !noalias !32
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv9videostab34MoreAccurateMotionWobbleSuppressorE, i64 16), ptr %931, align 8, !noalias !32
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN2cv9videostab34MoreAccurateMotionWobbleSuppressorE, i64 16), ptr %931, align 8, !noalias !32
   %934 = getelementptr inbounds nuw i8, ptr %928, i64 80
   call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %934) #25, !noalias !32
   %935 = load i32, ptr %934, align 8, !noalias !32
@@ -4298,7 +4298,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %1214, align 8, !noalias !40
   %1215 = getelementptr inbounds nuw i8, ptr %1213, i64 12
   store i32 1, ptr %1215, align 4, !noalias !40
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20FromFileMotionReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1213, align 8, !noalias !40
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20FromFileMotionReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1213, align 8, !noalias !40
   %1216 = getelementptr inbounds nuw i8, ptr %1213, i64 16
   invoke void @_ZN2cv9videostab20FromFileMotionReaderC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(536) %1216, ptr noundef nonnull align 8 dereferenceable(32) %129)
           to label %1218 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20FromFileMotionReaderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !40
@@ -4735,7 +4735,7 @@ _ZNK2cv9videostab20WobbleSuppressorBase15motionEstimatorEv.exit734: ; preds = %_
   store i32 1, ptr %1386, align 8, !noalias !51
   %1387 = getelementptr inbounds nuw i8, ptr %1385, i64 12
   store i32 1, ptr %1387, align 4, !noalias !51
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab18ToFileMotionWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1385, align 8, !noalias !51
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab18ToFileMotionWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1385, align 8, !noalias !51
   %1388 = getelementptr inbounds nuw i8, ptr %1385, i64 16
   invoke void @_ZSt10_ConstructIN2cv9videostab18ToFileMotionWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_3PtrINS1_24ImageMotionEstimatorBaseEEEEEvPT_DpOT0_(ptr noundef nonnull %1388, ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(16) %139)
           to label %1390 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab18ToFileMotionWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !51
@@ -5277,9 +5277,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %1610, align 8, !noalias !59
   %1611 = getelementptr inbounds nuw i8, ptr %1609, i64 12
   store i32 1, ptr %1611, align 4, !noalias !59
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1609, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1609, align 8, !noalias !59
   %1612 = getelementptr inbounds nuw i8, ptr %1609, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab20GaussianMotionFilterE, i64 16), ptr %1612, align 8, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab20GaussianMotionFilterE, i64 16), ptr %1612, align 8, !noalias !59
   %1613 = getelementptr inbounds nuw i8, ptr %1609, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1613, i8 0, i64 24, i1 false), !noalias !59
   invoke void @_ZN2cv9videostab20GaussianMotionFilter9setParamsEif(ptr noundef nonnull align 8 dereferenceable(40) %1612, i32 noundef %1608, float noundef -1.000000e+00)
@@ -5547,9 +5547,9 @@ _ZN2cv3PtrINS_9videostab20GaussianMotionFilterEED2Ev.exit824: ; preds = %_ZNSt16
   store i32 1, ptr %1711, align 8, !noalias !64
   %1712 = getelementptr inbounds nuw i8, ptr %1710, i64 12
   store i32 1, ptr %1712, align 4, !noalias !64
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1710, align 8, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20GaussianMotionFilterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1710, align 8, !noalias !64
   %1713 = getelementptr inbounds nuw i8, ptr %1710, i64 16
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab20GaussianMotionFilterE, i64 16), ptr %1713, align 8, !noalias !64
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab20GaussianMotionFilterE, i64 16), ptr %1713, align 8, !noalias !64
   %1714 = getelementptr inbounds nuw i8, ptr %1710, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1714, i8 0, i64 24, i1 false), !noalias !64
   invoke void @_ZN2cv9videostab20GaussianMotionFilter9setParamsEif(ptr noundef nonnull align 8 dereferenceable(40) %1713, i32 noundef %1706, float noundef %1709)
@@ -6239,7 +6239,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %1995, align 8, !noalias !72
   %1996 = getelementptr inbounds nuw i8, ptr %1994, i64 12
   store i32 1, ptr %1996, align 4, !noalias !72
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileSourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1994, align 8, !noalias !72
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileSourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %1994, align 8, !noalias !72
   %1997 = getelementptr inbounds nuw i8, ptr %1994, i64 16
   invoke void @_ZN2cv9videostab15VideoFileSourceC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(24) %1997, ptr noundef nonnull align 8 dereferenceable(32) %156, i1 noundef zeroext false)
           to label %1999 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileSourceESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i910, !noalias !72
@@ -6264,7 +6264,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileS
   store i32 1, ptr %2003, align 8, !noalias !78
   %2004 = getelementptr inbounds nuw i8, ptr %2001, i64 12
   store i32 1, ptr %2004, align 4, !noalias !78
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab15MaskFrameSourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2001, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab15MaskFrameSourceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2001, align 8, !noalias !78
   %2005 = getelementptr inbounds nuw i8, ptr %2001, i64 16
   %2006 = load i8, ptr @__libc_single_threaded, align 1, !noalias !78
   %.not.i.i.i.i.i.i1498 = icmp eq i8 %2006, 0
@@ -6276,7 +6276,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileS
   %2009 = load i32, ptr %1995, align 4, !noalias !78
   %2010 = add nsw i32 %2009, 1
   store i32 %2010, ptr %1995, align 4, !noalias !78
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab15MaskFrameSourceE, i64 16), ptr %2005, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab15MaskFrameSourceE, i64 16), ptr %2005, align 8, !noalias !78
   store ptr %1997, ptr %2007, align 8, !noalias !78
   store ptr %1994, ptr %2008, align 8, !noalias !78
   br label %2014
@@ -6285,7 +6285,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab15VideoFileS
   %2012 = atomicrmw volatile add ptr %1995, i32 1 acq_rel, align 4, !noalias !78
   %.pre1507 = load i8, ptr @__libc_single_threaded, align 1, !noalias !78
   %2013 = icmp eq i8 %.pre1507, 0
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab15MaskFrameSourceE, i64 16), ptr %2005, align 8, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab15MaskFrameSourceE, i64 16), ptr %2005, align 8, !noalias !78
   store ptr %1997, ptr %2007, align 8, !noalias !78
   store ptr %1994, ptr %2008, align 8, !noalias !78
   br i1 %2013, label %2017, label %2014
@@ -7013,7 +7013,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %2316, align 8, !noalias !84
   %2317 = getelementptr inbounds nuw i8, ptr %2315, i64 12
   store i32 1, ptr %2317, align 4, !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20FromFileMotionReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2315, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab20FromFileMotionReaderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2315, align 8, !noalias !84
   %2318 = getelementptr inbounds nuw i8, ptr %2315, i64 16
   invoke void @_ZN2cv9videostab20FromFileMotionReaderC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(536) %2318, ptr noundef nonnull align 8 dereferenceable(32) %165)
           to label %_ZN2cvL7makePtrINS_9videostab20FromFileMotionReaderEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_3PtrIT_EEDpRKT0_.exit985 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab20FromFileMotionReaderESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i981, !noalias !84
@@ -7425,7 +7425,7 @@ _ZNK2cv9videostab14StabilizerBase15motionEstimatorEv.exit1032: ; preds = %_ZNK2c
   store i32 1, ptr %2475, align 8, !noalias !95
   %2476 = getelementptr inbounds nuw i8, ptr %2474, i64 12
   store i32 1, ptr %2476, align 4, !noalias !95
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab18ToFileMotionWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2474, align 8, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab18ToFileMotionWriterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2474, align 8, !noalias !95
   %2477 = getelementptr inbounds nuw i8, ptr %2474, i64 16
   invoke void @_ZSt10_ConstructIN2cv9videostab18ToFileMotionWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_3PtrINS1_24ImageMotionEstimatorBaseEEEEEvPT_DpOT0_(ptr noundef nonnull %2477, ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(16) %175)
           to label %_ZN2cvL7makePtrINS_9videostab18ToFileMotionWriterEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3PtrINS1_24ImageMotionEstimatorBaseEEEEEENS9_IT_EEDpRKT0_.exit1037 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab18ToFileMotionWriterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i1033, !noalias !95
@@ -7884,7 +7884,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %2657, align 8, !noalias !106
   %2658 = getelementptr inbounds nuw i8, ptr %2656, i64 12
   store i32 1, ptr %2658, align 4, !noalias !106
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab17WeightingDeblurerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2656, align 8, !noalias !106
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab17WeightingDeblurerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2656, align 8, !noalias !106
   %2659 = getelementptr inbounds nuw i8, ptr %2656, i64 16
   invoke void @_ZN2cv9videostab17WeightingDeblurerC1Ev(ptr noundef nonnull align 8 dereferenceable(432) %2659)
           to label %2661 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab17WeightingDeblurerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !106
@@ -8518,7 +8518,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 7, ptr %2868, align 4
   %2869 = getelementptr inbounds nuw i8, ptr %2866, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2869, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv9videostab18InpaintingPipelineE, i64 16), ptr %2866, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN2cv9videostab18InpaintingPipelineE, i64 16), ptr %2866, align 8
   %2870 = getelementptr inbounds nuw i8, ptr %2866, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2870, i8 0, i64 24, i1 false)
   store ptr %2866, ptr %205, align 8
@@ -8561,7 +8561,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %2887, align 8
   %2888 = getelementptr inbounds nuw i8, ptr %2872, i64 12
   store i32 1, ptr %2888, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv9videostab18InpaintingPipelineELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2872, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv9videostab18InpaintingPipelineELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2872, align 8
   %2889 = getelementptr inbounds nuw i8, ptr %2872, i64 16
   store ptr %2866, ptr %2889, align 8
   store ptr %2872, ptr %2871, align 8
@@ -8600,7 +8600,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %2896, align 8, !noalias !112
   %2897 = getelementptr inbounds nuw i8, ptr %2895, i64 12
   store i32 1, ptr %2897, align 4, !noalias !112
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab25ConsistentMosaicInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2895, align 8, !noalias !112
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab25ConsistentMosaicInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2895, align 8, !noalias !112
   %2898 = getelementptr inbounds nuw i8, ptr %2895, i64 16
   invoke void @_ZN2cv9videostab25ConsistentMosaicInpainterC1Ev(ptr noundef nonnull align 8 dereferenceable(52) %2898)
           to label %2900 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab25ConsistentMosaicInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !112
@@ -8922,7 +8922,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %3021, align 8, !noalias !118
   %3022 = getelementptr inbounds nuw i8, ptr %3020, i64 12
   store i32 1, ptr %3022, align 4, !noalias !118
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab15MotionInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3020, align 8, !noalias !118
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab15MotionInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3020, align 8, !noalias !118
   %3023 = getelementptr inbounds nuw i8, ptr %3020, i64 16
   invoke void @_ZN2cv9videostab15MotionInpainterC1Ev(ptr noundef nonnull align 8 dereferenceable(1368) %3023)
           to label %3025 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab15MotionInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !118
@@ -9237,7 +9237,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %3145, align 8, !noalias !121
   %3146 = getelementptr inbounds nuw i8, ptr %3143, i64 12
   store i32 1, ptr %3146, align 4, !noalias !121
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab21ColorAverageInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3143, align 8, !noalias !121
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab21ColorAverageInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3143, align 8, !noalias !121
   %3147 = getelementptr inbounds nuw i8, ptr %3143, i64 16
   %3148 = getelementptr inbounds nuw i8, ptr %3143, i64 28
   %3149 = getelementptr inbounds nuw i8, ptr %3143, i64 24
@@ -9245,7 +9245,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 7, ptr %3148, align 4, !noalias !121
   %3150 = getelementptr inbounds nuw i8, ptr %3143, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3150, i8 0, i64 32, i1 false), !noalias !121
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv9videostab21ColorAverageInpainterE, i64 16), ptr %3147, align 8, !noalias !121
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN2cv9videostab21ColorAverageInpainterE, i64 16), ptr %3147, align 8, !noalias !121
   %3151 = getelementptr inbounds nuw i8, ptr %3143, i64 64
   store float 1.000000e+06, ptr %3151, align 8, !noalias !121
   %3152 = getelementptr inbounds nuw i8, ptr %3143, i64 72
@@ -9527,7 +9527,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %3270, align 8, !noalias !126
   %3271 = getelementptr inbounds nuw i8, ptr %3268, i64 12
   store i32 1, ptr %3271, align 4, !noalias !126
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab14ColorInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3268, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab14ColorInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3268, align 8, !noalias !126
   %3272 = getelementptr inbounds nuw i8, ptr %3268, i64 16
   %3273 = getelementptr inbounds nuw i8, ptr %3268, i64 24
   store i32 0, ptr %3273, align 8, !noalias !126
@@ -9535,7 +9535,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 7, ptr %3274, align 4, !noalias !126
   %3275 = getelementptr inbounds nuw i8, ptr %3268, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3275, i8 0, i64 32, i1 false), !noalias !126
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv9videostab14ColorInpainterE, i64 16), ptr %3272, align 8, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN2cv9videostab14ColorInpainterE, i64 16), ptr %3272, align 8, !noalias !126
   %3276 = getelementptr inbounds nuw i8, ptr %3268, i64 64
   store i32 0, ptr %3276, align 8, !noalias !126
   %3277 = getelementptr inbounds nuw i8, ptr %3268, i64 72
@@ -9829,7 +9829,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %3391, align 8, !noalias !131
   %3392 = getelementptr inbounds nuw i8, ptr %3389, i64 12
   store i32 1, ptr %3392, align 4, !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab14ColorInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3389, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab14ColorInpainterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3389, align 8, !noalias !131
   %3393 = getelementptr inbounds nuw i8, ptr %3389, i64 16
   %3394 = getelementptr inbounds nuw i8, ptr %3389, i64 24
   store i32 0, ptr %3394, align 8, !noalias !131
@@ -9837,7 +9837,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 7, ptr %3395, align 4, !noalias !131
   %3396 = getelementptr inbounds nuw i8, ptr %3389, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3396, i8 0, i64 32, i1 false), !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv9videostab14ColorInpainterE, i64 16), ptr %3393, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN2cv9videostab14ColorInpainterE, i64 16), ptr %3393, align 8, !noalias !131
   %3397 = getelementptr inbounds nuw i8, ptr %3389, i64 64
   store i32 1, ptr %3397, align 8, !noalias !131
   %3398 = getelementptr inbounds nuw i8, ptr %3389, i64 72
@@ -12397,10 +12397,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24MotionEstimatorL1BuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV24MotionEstimatorL1Builder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV24MotionEstimatorL1Builder, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #25
   ret void
@@ -12408,10 +12408,10 @@ define linkonce_odr hidden void @_ZN24MotionEstimatorL1BuilderD2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24MotionEstimatorL1BuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV24MotionEstimatorL1Builder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV24MotionEstimatorL1Builder, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
@@ -12477,7 +12477,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %30, align 8, !noalias !142
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 1, ptr %31, align 4, !noalias !142
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab17MotionEstimatorL1ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29, align 8, !noalias !142
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab17MotionEstimatorL1ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %29, align 8, !noalias !142
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   invoke void @_ZN2cv9videostab17MotionEstimatorL1C1ENS0_11MotionModelE(ptr noundef nonnull align 8 dereferenceable(208) %32, i32 noundef %27)
           to label %34 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab17MotionEstimatorL1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !142
@@ -12502,9 +12502,9 @@ _ZN2cv3PtrINS_9videostab19NullOutlierRejectorEED2Ev.exit: ; preds = %34
   store i32 1, ptr %37, align 8, !noalias !145
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 1, ptr %38, align 4, !noalias !145
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab19NullOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %36, align 8, !noalias !145
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab19NullOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %36, align 8, !noalias !145
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9videostab19NullOutlierRejectorE, i64 16), ptr %39, align 8, !noalias !145
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv9videostab19NullOutlierRejectorE, i64 16), ptr %39, align 8, !noalias !145
   store ptr %39, ptr %8, align 8
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %36, ptr %40, align 8
@@ -12550,7 +12550,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %49, align 8, !noalias !153
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 1, ptr %50, align 4, !noalias !153
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab36TranslationBasedLocalOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !noalias !153
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab36TranslationBasedLocalOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !noalias !153
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   invoke void @_ZN2cv9videostab36TranslationBasedLocalOutlierRejectorC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %51)
           to label %53 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab36TranslationBasedLocalOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !153
@@ -12886,7 +12886,7 @@ _ZN2cv3PtrINS_9videostab36TranslationBasedLocalOutlierRejectorEED2Ev.exit: ; pre
   store i32 1, ptr %167, align 8, !noalias !159
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 12
   store i32 1, ptr %168, align 4, !noalias !159
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBasedMotionEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %166, align 8, !noalias !159
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBasedMotionEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %166, align 8, !noalias !159
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 16
   invoke void @_ZSt10_ConstructIN2cv9videostab28KeypointBasedMotionEstimatorEJRKNS0_3PtrINS1_17MotionEstimatorL1EEEEEvPT_DpOT0_(ptr noundef nonnull %169, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %171 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBasedMotionEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !159
@@ -13578,7 +13578,7 @@ declare void @_ZN2cv17CommandLineParserC1ERKS0_(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23IMotionEstimatorBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #25
   ret void
@@ -14358,10 +14358,10 @@ _ZNSt10shared_ptrIN2cv9videostab19MotionEstimatorBaseEED2Ev.exit: ; preds = %1, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN30MotionEstimatorRansacL2BuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV30MotionEstimatorRansacL2Builder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV30MotionEstimatorRansacL2Builder, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #25
   ret void
@@ -14369,10 +14369,10 @@ define linkonce_odr hidden void @_ZN30MotionEstimatorRansacL2BuilderD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN30MotionEstimatorRansacL2BuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV30MotionEstimatorRansacL2Builder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV30MotionEstimatorRansacL2Builder, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV23IMotionEstimatorBuilder, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
@@ -14450,7 +14450,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %42, align 8, !noalias !165
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 1, ptr %43, align 4, !noalias !165
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab23MotionEstimatorRansacL2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8, !noalias !165
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab23MotionEstimatorRansacL2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %41, align 8, !noalias !165
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   invoke void @_ZN2cv9videostab23MotionEstimatorRansacL2C1ENS0_11MotionModelE(ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef %39)
           to label %46 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab23MotionEstimatorRansacL2ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !165
@@ -14687,9 +14687,9 @@ _ZN2cv3PtrINS_9videostab19NullOutlierRejectorEED2Ev.exit: ; preds = %94
   store i32 1, ptr %98, align 8, !noalias !168
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 12
   store i32 1, ptr %99, align 4, !noalias !168
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab19NullOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %97, align 8, !noalias !168
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab19NullOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %97, align 8, !noalias !168
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9videostab19NullOutlierRejectorE, i64 16), ptr %100, align 8, !noalias !168
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv9videostab19NullOutlierRejectorE, i64 16), ptr %100, align 8, !noalias !168
   store ptr %100, ptr %20, align 8
   %101 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %97, ptr %101, align 8
@@ -14735,7 +14735,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   store i32 1, ptr %110, align 8, !noalias !176
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store i32 1, ptr %111, align 4, !noalias !176
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab36TranslationBasedLocalOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %109, align 8, !noalias !176
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab36TranslationBasedLocalOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %109, align 8, !noalias !176
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
   invoke void @_ZN2cv9videostab36TranslationBasedLocalOutlierRejectorC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %112)
           to label %114 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab36TranslationBasedLocalOutlierRejectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !176
@@ -15067,7 +15067,7 @@ _ZN2cv3PtrINS_9videostab36TranslationBasedLocalOutlierRejectorEED2Ev.exit: ; pre
   store i32 1, ptr %228, align 8, !noalias !182
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 12
   store i32 1, ptr %229, align 4, !noalias !182
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBasedMotionEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %227, align 8, !noalias !182
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBasedMotionEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %227, align 8, !noalias !182
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 16
   invoke void @_ZSt10_ConstructIN2cv9videostab28KeypointBasedMotionEstimatorEJRKNS0_3PtrINS1_23MotionEstimatorRansacL2EEEEEvPT_DpOT0_(ptr noundef nonnull %230, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %232 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab28KeypointBasedMotionEstimatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !182
@@ -16393,7 +16393,7 @@ _ZNSt12__shared_ptrI23IMotionEstimatorBuilderLN9__gnu_cxx12_Lock_policyE2EEC2I24
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIP24MotionEstimatorL1BuilderLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIP24MotionEstimatorL1BuilderLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %23, align 8
   store ptr %1, ptr %0, align 8
@@ -16565,7 +16565,7 @@ _ZNSt12__shared_ptrI23IMotionEstimatorBuilderLN9__gnu_cxx12_Lock_policyE2EEC2I30
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIP30MotionEstimatorRansacL2BuilderLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIP30MotionEstimatorRansacL2BuilderLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %23, align 8
   store ptr %1, ptr %0, align 8
@@ -17165,7 +17165,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv9videostab15MaskFrameSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab15MaskFrameSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab15MaskFrameSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -17263,7 +17263,7 @@ _ZN2cv3PtrINS_9videostab12IFrameSourceEED2Ev.exit: ; preds = %_ZNSt8functionIFvR
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv9videostab15MaskFrameSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab15MaskFrameSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN2cv9videostab15MaskFrameSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -17522,7 +17522,7 @@ _ZNSt12__shared_ptrIN2cv9videostab12IFrameSourceELN9__gnu_cxx12_Lock_policyE2EEC
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv9videostab12IFrameSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv9videostab12IFrameSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %23, align 8
   store ptr %1, ptr %0, align 8

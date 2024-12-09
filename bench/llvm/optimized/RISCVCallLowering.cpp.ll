@@ -168,7 +168,7 @@ $_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable = comdat any
 define dso_local void @_ZN4llvm17RISCVCallLoweringC2ERKNS_19RISCVTargetLoweringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(408136) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4llvm17RISCVCallLoweringE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4llvm17RISCVCallLoweringE, i64 16), ptr %0, align 8
   ret void
 }
 
@@ -230,7 +230,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17RISCVCallLowering11lowerReturnER
   %_ZN4llvm5RISCV15CC_RISCV_FastCCERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE._ZN4llvm5RISCV8CC_RISCVERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE = select i1 %44, ptr @_ZN4llvm5RISCV15CC_RISCV_FastCCERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE, ptr @_ZN4llvm5RISCV8CC_RISCVERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %45, i8 0, i64 25, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126RISCVOutgoingValueAssignerE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126RISCVOutgoingValueAssignerE, i64 16), ptr %10, align 8
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %_ZN4llvm5RISCV15CC_RISCV_FastCCERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE._ZN4llvm5RISCV8CC_RISCVERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -245,7 +245,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17RISCVCallLowering11lowerReturnER
   store ptr %50, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i8 0, ptr %53, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125RISCVOutgoingValueHandlerE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125RISCVOutgoingValueHandlerE, i64 16), ptr %11, align 8
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %14, ptr %54, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -1217,7 +1217,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
   store i8 1, ptr %113, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126RISCVIncomingValueAssignerE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126RISCVIncomingValueAssignerE, i64 16), ptr %11, align 8
   %114 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %_ZN4llvm5RISCV15CC_RISCV_FastCCERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE._ZN4llvm5RISCV8CC_RISCVERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -1236,7 +1236,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   store ptr %124, ptr %121, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_121RISCVFormalArgHandlerE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_121RISCVFormalArgHandlerE, i64 16), ptr %12, align 8
   %125 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %13, ptr noundef nonnull %125, i64 noundef 16) #16
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1516,7 +1516,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17RISCVCallLowering9lowerCallERNS_
   %_ZN4llvm5RISCV15CC_RISCV_FastCCERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE._ZN4llvm5RISCV8CC_RISCVERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE = select i1 %85, ptr @_ZN4llvm5RISCV15CC_RISCV_FastCCERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE, ptr @_ZN4llvm5RISCV8CC_RISCVERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %86, i8 0, i64 25, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126RISCVOutgoingValueAssignerE, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126RISCVOutgoingValueAssignerE, i64 16), ptr %11, align 8
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %_ZN4llvm5RISCV15CC_RISCV_FastCCERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE._ZN4llvm5RISCV8CC_RISCVERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -1531,7 +1531,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17RISCVCallLowering9lowerCallERNS_
   store ptr %91, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i8 0, ptr %94, align 8
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125RISCVOutgoingValueHandlerE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125RISCVOutgoingValueHandlerE, i64 16), ptr %12, align 8
   %95 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %72, ptr %95, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1634,7 +1634,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17RISCVCallLowering9lowerCallERNS_
   %154 = getelementptr inbounds nuw i8, ptr %15, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, i8 0, i64 24, i1 false)
   store i8 1, ptr %154, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126RISCVIncomingValueAssignerE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126RISCVIncomingValueAssignerE, i64 16), ptr %15, align 8
   %155 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %_ZN4llvm5RISCV15CC_RISCV_FastCCERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE._ZN4llvm5RISCV8CC_RISCVERKNS_10DataLayoutENS_8RISCVABI3ABIEjNS_3MVTES6_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEbbPNS_4TypeERKNS_19RISCVTargetLoweringESt8optionalIjE, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -1653,7 +1653,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17RISCVCallLowering9lowerCallERNS_
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
   store ptr %165, ptr %162, align 8
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_122RISCVCallReturnHandlerE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_122RISCVCallReturnHandlerE, i64 16), ptr %16, align 8
   %166 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %72, ptr %166, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 48

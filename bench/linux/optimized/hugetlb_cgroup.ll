@@ -783,12 +783,12 @@ define internal ptr @hugetlb_cgroup_css_alloc(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %40, %18
   %21 = phi i32 [ %16, %18 ], [ %42, %40 ]
   %22 = zext nneg i32 %21 to i64
-  %23 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 16), i64 %22) #9, !srcloc !24
+  %23 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 16), i64 %22) #9, !srcloc !24
   %24 = icmp ult i8 %23, 2
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i8 %23, 0
   %26 = select i1 %25, i32 -1, i32 %21
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %28 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_node_trace(ptr noundef %27, i32 noundef 3520, i32 noundef %26, i64 noundef 16) #14
   %29 = getelementptr [0 x ptr], ptr %19, i64 0, i64 %22
   store ptr %28, ptr %29, align 8
@@ -1500,7 +1500,7 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr n
   br i1 %13, label %76, label %15
 
 15:                                               ; preds = %2
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %.thread, label %18
 
@@ -1548,7 +1548,7 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr n
 .thread:                                          ; preds = %15, %.thread13, %18
   %46 = phi i64 [ 0, %18 ], [ %45, %.thread13 ], [ 0, %15 ]
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef %46) #9
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %.thread14, label %49
 
@@ -1577,7 +1577,7 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr n
 
 65:                                               ; preds = %56
   %66 = add nuw nsw i32 %57, 1
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %68 = zext nneg i32 %66 to i64
   %69 = shl nsw i64 -1, %68
   %70 = and i64 %67, %69
@@ -1602,7 +1602,7 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr n
   %81 = load volatile i64, ptr %80, align 8
   %82 = shl i64 %81, 12
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %77, i64 noundef %82) #9
-  %83 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %.thread17, label %85
 
@@ -1649,7 +1649,7 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr n
 
 108:                                              ; preds = %.loopexit
   %109 = add nuw nsw i32 %89, 1
-  %110 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %110 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %111 = zext nneg i32 %109 to i64
   %112 = shl nsw i64 -1, %111
   %113 = and i64 %110, %112

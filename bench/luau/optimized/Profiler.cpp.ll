@@ -217,14 +217,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_Z13profilerStartP9lua_Statei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::thread", align 8
-  store i32 %1, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 8), align 8
+  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 8), align 8
   %5 = tail call noundef ptr @_Z13lua_callbacksP9lua_State(ptr noundef %0)
   store ptr %5, ptr @gProfiler, align 8
-  store atomic i8 0, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 24) seq_cst, align 8
+  store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 24) seq_cst, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %4, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvvEEEEEEE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvvEEEEEEE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZL12profilerLoopv, ptr %7, align 8
   store ptr %6, ptr %3, align 8
@@ -262,7 +262,7 @@ _ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit7.i: ; pred
 
 _ZNSt6threadC2IRFvvEJEvEEOT_DpOT0_.exit:          ; preds = %8, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.sroa.0.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 16), align 8
+  %.sroa.0.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 16), align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %.not.i, label %_ZNSt6threadD2Ev.exit, label %19
 
@@ -272,7 +272,7 @@ _ZNSt6threadC2IRFvvEJEvEEOT_DpOT0_.exit:          ; preds = %8, %_ZNKSt14default
 
 _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt6threadC2IRFvvEJEvEEOT_DpOT0_.exit
   %20 = load i64, ptr %4, align 8
-  store i64 %20, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 16), align 8
+  store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 16), align 8
   ret void
 }
 
@@ -281,7 +281,7 @@ declare noundef ptr @_Z13lua_callbacksP9lua_State(ptr noundef) local_unnamed_add
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL12profilerLoopv() #0 personality ptr @__gxx_personality_v0 {
   %1 = tail call noundef double @_Z9lua_clockv()
-  %2 = load atomic i8, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 24) seq_cst, align 8
+  %2 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 24) seq_cst, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %._crit_edge, label %.lr.ph
 
@@ -289,7 +289,7 @@ define internal void @_ZL12profilerLoopv() #0 personality ptr @__gxx_personality
   %.07 = phi double [ %.1, %21 ], [ %1, %0 ]
   %4 = tail call noundef double @_Z9lua_clockv()
   %5 = fsub double %4, %.07
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 8), align 8
   %7 = sitofp i32 %6 to double
   %8 = fdiv double 1.000000e+00, %7
   %9 = fcmp ult double %5, %8
@@ -298,8 +298,8 @@ define internal void @_ZL12profilerLoopv() #0 personality ptr @__gxx_personality
 10:                                               ; preds = %.lr.ph
   %11 = fmul double %5, 1.000000e+06
   %12 = fptosi double %11 to i64
-  %13 = atomicrmw add ptr getelementptr inbounds (i8, ptr @gProfiler, i64 32), i64 %12 seq_cst, align 8
-  %14 = atomicrmw add ptr getelementptr inbounds (i8, ptr @gProfiler, i64 40), i64 1 seq_cst, align 8
+  %13 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 32), i64 %12 seq_cst, align 8
+  %14 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 40), i64 1 seq_cst, align 8
   %15 = load ptr, ptr @gProfiler, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @_ZL15profilerTriggerP9lua_Statei, ptr %16, align 8
@@ -313,7 +313,7 @@ define internal void @_ZL12profilerLoopv() #0 personality ptr @__gxx_personality
 
 21:                                               ; preds = %19, %10
   %.1 = phi double [ %18, %10 ], [ %.07, %19 ]
-  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 24) seq_cst, align 8
+  %22 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 24) seq_cst, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -323,8 +323,8 @@ define internal void @_ZL12profilerLoopv() #0 personality ptr @__gxx_personality
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z12profilerStopv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  store atomic i8 1, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 24) seq_cst, align 8
-  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (i8, ptr @gProfiler, i64 16))
+  store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 24) seq_cst, align 8
+  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 16))
   ret void
 }
 
@@ -343,14 +343,14 @@ define dso_local void @_Z12profilerDumpPKc(ptr noundef %0) local_unnamed_addr #0
   br label %60
 
 7:                                                ; preds = %1
-  %8 = tail call { ptr, i64 } @_ZN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_mES8_IKS7_mENS0_16ItemInterfaceMapIS7_mEESt4hashIS7_ESt8equal_toIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @gProfiler, i64 88))
+  %8 = tail call { ptr, i64 } @_ZN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_mES8_IKS7_mENS0_16ItemInterfaceMapIS7_mEESt4hashIS7_ESt8equal_toIS7_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 88))
   %9 = extractvalue { ptr, i64 } %8, 0
   store ptr %9, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = extractvalue { ptr, i64 } %8, 1
   store i64 %11, ptr %10, align 8
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 96), align 8
-  %.not.i40 = icmp ne ptr %9, getelementptr inbounds (i8, ptr @gProfiler, i64 88)
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 96), align 8
+  %.not.i40 = icmp ne ptr %9, getelementptr inbounds nuw (i8, ptr @gProfiler, i64 88)
   %13 = icmp ne i64 %11, %12
   %14 = select i1 %.not.i40, i1 true, i1 %13
   br i1 %14, label %.lr.ph, label %._crit_edge
@@ -369,7 +369,7 @@ define dso_local void @_Z12profilerDumpPKc(ptr noundef %0) local_unnamed_addr #0
   %24 = add i64 %23, %.03241
   %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_mES8_IKS7_mENS0_16ItemInterfaceMapIS7_mEESt4hashIS7_ESt8equal_toIS7_EE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %26 = load ptr, ptr %2, align 8
-  %.not.i = icmp ne ptr %26, getelementptr inbounds (i8, ptr @gProfiler, i64 88)
+  %.not.i = icmp ne ptr %26, getelementptr inbounds nuw (i8, ptr @gProfiler, i64 88)
   %27 = load i64, ptr %10, align 8
   %28 = icmp ne i64 %27, %12
   %29 = select i1 %.not.i, i1 true, i1 %28
@@ -383,18 +383,18 @@ define dso_local void @_Z12profilerDumpPKc(ptr noundef %0) local_unnamed_addr #0
   %.032.lcssa = phi double [ 0.000000e+00, %7 ], [ %30, %._crit_edge.loopexit ]
   %31 = call i32 @fclose(ptr noundef nonnull %3)
   %32 = fdiv double %.032.lcssa, 1.000000e+06
-  %33 = load atomic i64, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 40) seq_cst, align 8
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 104), align 8
+  %33 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 40) seq_cst, align 8
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 104), align 8
   %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %0, double noundef %32, i64 noundef %33, i64 noundef %34)
   br label %36
 
 36:                                               ; preds = %._crit_edge, %36
   %.03343 = phi i64 [ 0, %._crit_edge ], [ %38, %36 ]
-  %.03442 = phi ptr [ getelementptr inbounds (i8, ptr @gProfiler, i64 152), %._crit_edge ], [ %39, %36 ]
+  %.03442 = phi ptr [ getelementptr inbounds nuw (i8, ptr @gProfiler, i64 152), %._crit_edge ], [ %39, %36 ]
   %37 = load i64, ptr %.03442, align 8
   %38 = add i64 %37, %.03343
   %39 = getelementptr inbounds nuw i8, ptr %.03442, i64 8
-  %.not37 = icmp eq ptr %39, getelementptr inbounds (i8, ptr @gProfiler, i64 280)
+  %.not37 = icmp eq ptr %39, getelementptr inbounds nuw (i8, ptr @gProfiler, i64 280)
   br i1 %.not37, label %40, label %36
 
 40:                                               ; preds = %36
@@ -411,7 +411,7 @@ define dso_local void @_Z12profilerDumpPKc(ptr noundef %0) local_unnamed_addr #0
 
 47:                                               ; preds = %41, %57
   %.03144 = phi i64 [ 0, %41 ], [ %58, %57 ]
-  %48 = getelementptr inbounds nuw [16 x i64], ptr getelementptr inbounds (i8, ptr @gProfiler, i64 152), i64 0, i64 %.03144
+  %48 = getelementptr inbounds nuw [16 x i64], ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 152), i64 0, i64 %.03144
   %49 = load i64, ptr %48, align 8
   %.not39 = icmp eq i64 %49, 0
   br i1 %.not39, label %57, label %50
@@ -671,19 +671,19 @@ declare noundef double @_Z9lua_clockv() local_unnamed_addr #3
 define internal void @_ZL15profilerTriggerP9lua_Statei(ptr noundef %0, i32 noundef %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.lua_Debug, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 32) seq_cst, align 8
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 48), align 8
+  %5 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 32) seq_cst, align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 48), align 8
   %7 = sub i64 %5, %6
   %.not = icmp eq i64 %5, %6
   br i1 %.not, label %58, label %8
 
 8:                                                ; preds = %2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56)) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56)) #16
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56), ptr noundef nonnull @.str.9)
+  %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56), ptr noundef nonnull @.str.9)
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -698,34 +698,34 @@ define internal void @_ZL15profilerTriggerP9lua_Statei(ptr noundef %0, i32 nound
 
 16:                                               ; preds = %.lr.ph, %36
   %.01624 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
-  %17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56)) #16
+  %17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56)) #16
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56), i8 noundef signext 59)
+  %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56), i8 noundef signext 59)
   br label %20
 
 20:                                               ; preds = %18, %16
   %21 = load ptr, ptr %14, align 8
-  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56), ptr noundef %21)
-  %23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56), i8 noundef signext 44)
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56), ptr noundef %21)
+  %23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56), i8 noundef signext 44)
   %24 = load ptr, ptr %3, align 8
   %.not22 = icmp eq ptr %24, null
   br i1 %.not22, label %27, label %25
 
 25:                                               ; preds = %20
-  %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56), ptr noundef nonnull %24)
+  %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56), ptr noundef nonnull %24)
   br label %27
 
 27:                                               ; preds = %25, %20
-  %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56), i8 noundef signext 44)
+  %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56), i8 noundef signext 44)
   %29 = load i32, ptr %15, align 8
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %27
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %29) #16
-  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56), ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56), ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %33 unwind label %34
 
 33:                                               ; preds = %31
@@ -745,28 +745,28 @@ define internal void @_ZL15profilerTriggerP9lua_Statei(ptr noundef %0, i32 nound
   br i1 %.not21, label %._crit_edge, label %16, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %36, %12
-  %39 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56)) #16
+  %39 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56)) #16
   br i1 %39, label %52, label %40
 
 40:                                               ; preds = %._crit_edge
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 104), align 8
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 96), align 8
+  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 104), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 96), align 8
   %43 = mul i64 %42, 3
   %44 = lshr i64 %43, 2
   %.not.i.i = icmp ult i64 %41, %44
   br i1 %.not.i.i, label %_ZN4Luau12DenseHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hashIS6_ESt8equal_toIS6_EEixERKS6_.exit, label %45
 
 45:                                               ; preds = %40
-  %46 = call noundef ptr @_ZNK4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_mES8_IKS7_mENS0_16ItemInterfaceMapIS7_mEESt4hashIS7_ESt8equal_toIS7_EE4findERSA_(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @gProfiler, i64 88), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56))
+  %46 = call noundef ptr @_ZNK4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_mES8_IKS7_mENS0_16ItemInterfaceMapIS7_mEESt4hashIS7_ESt8equal_toIS7_EE4findERSA_(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 88), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56))
   %.not2.i.i = icmp eq ptr %46, null
   br i1 %.not2.i.i, label %47, label %_ZN4Luau12DenseHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hashIS6_ESt8equal_toIS6_EEixERKS6_.exit
 
 47:                                               ; preds = %45
-  call void @_ZN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_mES8_IKS7_mENS0_16ItemInterfaceMapIS7_mEESt4hashIS7_ESt8equal_toIS7_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @gProfiler, i64 88))
+  call void @_ZN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_mES8_IKS7_mENS0_16ItemInterfaceMapIS7_mEESt4hashIS7_ESt8equal_toIS7_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 88))
   br label %_ZN4Luau12DenseHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hashIS6_ESt8equal_toIS6_EEixERKS6_.exit
 
 _ZN4Luau12DenseHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hashIS6_ESt8equal_toIS6_EEixERKS6_.exit: ; preds = %40, %45, %47
-  %48 = call noundef ptr @_ZN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_mES8_IKS7_mENS0_16ItemInterfaceMapIS7_mEESt4hashIS7_ESt8equal_toIS7_EE13insert_unsafeERSA_(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @gProfiler, i64 88), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @gProfiler, i64 56))
+  %48 = call noundef ptr @_ZN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_mES8_IKS7_mENS0_16ItemInterfaceMapIS7_mEESt4hashIS7_ESt8equal_toIS7_EE13insert_unsafeERSA_(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 88), ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @gProfiler, i64 56))
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, %7
@@ -778,14 +778,14 @@ _ZN4Luau12DenseHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4h
 
 53:                                               ; preds = %52
   %54 = zext nneg i32 %1 to i64
-  %55 = getelementptr inbounds nuw [16 x i64], ptr getelementptr inbounds (i8, ptr @gProfiler, i64 152), i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i64], ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 152), i64 0, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %7
   store i64 %57, ptr %55, align 8
   br label %58
 
 58:                                               ; preds = %52, %53, %2
-  store i64 %5, ptr getelementptr inbounds (i8, ptr @gProfiler, i64 48), align 8
+  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @gProfiler, i64 48), align 8
   %59 = load ptr, ptr @gProfiler, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr null, ptr %60, align 8

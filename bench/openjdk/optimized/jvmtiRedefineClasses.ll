@@ -639,7 +639,7 @@ $_ZTV17LogStreamImplBase = comdat any
 define hidden void @_ZN18VM_RedefineClassesC2EiPK20jvmtiClassDefinition18JvmtiClassLoadKind(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 28), (32, 44), (80, 85), (88, 96), (104, 105), (112, 120), (128, 129), (136, 144), (152, 153), (160, 168), (176, 177)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV18VM_RedefineClasses, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV18VM_RedefineClasses, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %7, align 8
@@ -1200,7 +1200,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %39, %43, %47
   br i1 %.not.i, label %_ZN18VM_RedefineClasses19is_modifiable_classEP7oopDesc.exit, label %_ZN18VM_RedefineClasses19is_modifiable_classEP7oopDesc.exit.thread
 
 _ZN18VM_RedefineClasses19is_modifiable_classEP7oopDesc.exit: ; preds = %60
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 392), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 392), align 8
   %.not25 = icmp eq ptr %54, %63
   br i1 %.not25, label %_ZN18VM_RedefineClasses19is_modifiable_classEP7oopDesc.exit.thread, label %14
 
@@ -1355,7 +1355,7 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses19is_modifiable_classEP
   br i1 %.not, label %16, label %19
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 392), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 392), align 8
   %18 = icmp ne ptr %7, %17
   br label %19
 
@@ -1617,27 +1617,27 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %121, %131
 
 138:                                              ; preds = %_ZNK7oopDesc5klassEv.exit, %136
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %21) #19
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1288), align 8
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1288), align 8
   %140 = icmp eq ptr %134, %139
   br i1 %140, label %286, label %141
 
 141:                                              ; preds = %138
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1280), align 8
   %143 = icmp eq ptr %134, %142
   br i1 %143, label %286, label %144
 
 144:                                              ; preds = %141
-  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1272), align 8
+  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1272), align 8
   %146 = icmp eq ptr %134, %145
   br i1 %146, label %286, label %147
 
 147:                                              ; preds = %144
-  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
   %149 = icmp eq ptr %134, %148
   br i1 %149, label %286, label %150
 
 150:                                              ; preds = %147
-  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   %152 = icmp eq ptr %134, %151
   %. = select i1 %152, i32 110, i32 62
   br label %286
@@ -1707,12 +1707,12 @@ _ZNK7oopDesc5klassEv.exit99:                      ; preds = %163, %173
 
 187:                                              ; preds = %185, %183, %181, %178
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %21) #19
-  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   %189 = icmp eq ptr %176, %188
   br i1 %189, label %286, label %190
 
 190:                                              ; preds = %187
-  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
+  %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1336), align 8
   %192 = icmp eq ptr %176, %191
   %.93 = select i1 %192, i32 21, i32 113
   br label %286
@@ -1774,7 +1774,7 @@ _ZNK7oopDesc5klassEv.exit101:                     ; preds = %206, %216
 
 223:                                              ; preds = %_ZNK7oopDesc5klassEv.exit101, %221
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %21) #19
-  %224 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   %225 = icmp eq ptr %219, %224
   %.94 = select i1 %225, i32 110, i32 62
   br label %286
@@ -1822,7 +1822,7 @@ _ZNK7oopDesc5klassEv.exit103:                     ; preds = %233, %243
 
 250:                                              ; preds = %_ZNK7oopDesc5klassEv.exit103, %248
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %21) #19
-  %251 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %251 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   %252 = icmp eq ptr %246, %251
   %.95 = select i1 %252, i32 110, i32 113
   br label %286
@@ -1877,7 +1877,7 @@ _ZNK7oopDesc5klassEv.exit105:                     ; preds = %260, %270
 
 277:                                              ; preds = %_ZNK7oopDesc5klassEv.exit105, %275
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %21) #19
-  %278 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  %278 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
   %279 = icmp eq ptr %273, %278
   %.96 = select i1 %279, i32 110, i32 113
   br label %286
@@ -2036,7 +2036,7 @@ _ZN18VM_RedefineClasses20flush_dependent_codeEv.exit: ; preds = %41, %43, %.sink
   store i8 1, ptr @_ZN11JvmtiExport30_all_dependencies_are_recordedE, align 1
   call void @_ZN19DeoptimizationScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN18VM_RedefineClasses22AdjustAndCleanMetadataE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN18VM_RedefineClasses22AdjustAndCleanMetadataE, i64 16), ptr %5, align 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %45, align 8
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %5) #19
@@ -2068,7 +2068,7 @@ _ZN18VM_RedefineClasses20flush_dependent_codeEv.exit: ; preds = %41, %43, %.sink
   br label %57
 
 57:                                               ; preds = %54, %56
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN18VM_RedefineClasses10CheckClassE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN18VM_RedefineClasses10CheckClassE, i64 16), ptr %7, align 8
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %58, align 8
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %7) #19
@@ -8884,7 +8884,7 @@ define hidden void @_ZN18VM_RedefineClasses25rewrite_cp_refs_in_methodE12methodH
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9Bytecodes5_nameE, i64 144), align 16
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9Bytecodes5_nameE, i64 144), align 16
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -11956,11 +11956,11 @@ define hidden void @_ZN18VM_RedefineClasses12dump_methodsEv() local_unnamed_addr
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %18) #19
   store i32 1, ptr %19, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_38ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %1, align 8
   %21 = load ptr, ptr @_ZN18VM_RedefineClasses12_old_methodsE, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
@@ -12008,11 +12008,11 @@ define hidden void @_ZN18VM_RedefineClasses12dump_methodsEv() local_unnamed_addr
 41:                                               ; preds = %.lr.ph53, %41
   %indvars.iv68 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next69, %41 ]
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %39) #19
   store i32 1, ptr %40, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_38ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i37, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %3, align 8
   %42 = load ptr, ptr @_ZN18VM_RedefineClasses12_new_methodsE, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv68
@@ -12059,11 +12059,11 @@ define hidden void @_ZN18VM_RedefineClasses12dump_methodsEv() local_unnamed_addr
 61:                                               ; preds = %.lr.ph57, %61
   %indvars.iv71 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next72, %61 ]
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %59) #19
   store i32 1, ptr %60, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_38ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i39, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %5, align 8
   %62 = load ptr, ptr @_ZN18VM_RedefineClasses21_matching_old_methodsE, align 8
   %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv71
   %64 = load ptr, ptr %63, align 8
@@ -12120,11 +12120,11 @@ define hidden void @_ZN18VM_RedefineClasses12dump_methodsEv() local_unnamed_addr
 86:                                               ; preds = %.lr.ph61, %86
   %indvars.iv74 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next75, %86 ]
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %8, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %8, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %84) #19
   store i32 1, ptr %85, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_38ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i42, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %8, align 8
   %87 = load ptr, ptr @_ZN18VM_RedefineClasses16_deleted_methodsE, align 8
   %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv74
   %89 = load ptr, ptr %88, align 8
@@ -12169,11 +12169,11 @@ define hidden void @_ZN18VM_RedefineClasses12dump_methodsEv() local_unnamed_addr
 104:                                              ; preds = %.lr.ph65, %104
   %indvars.iv77 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next78, %104 ]
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %10, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %10, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %102) #19
   store i32 1, ptr %103, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_38ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i44, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE125ELS3_16ELS3_38ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %10, align 8
   %105 = load ptr, ptr @_ZN18VM_RedefineClasses14_added_methodsE, align 8
   %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv77
   %107 = load ptr, ptr %106, align 8
@@ -16867,7 +16867,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #19
   ret void

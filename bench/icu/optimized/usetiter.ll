@@ -30,7 +30,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7518UnicodeSetIteratorC2ERKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (24, 32), (56, 64)) %this, ptr noundef nonnull align 8 dereferenceable(200) %uSet) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518UnicodeSetIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518UnicodeSetIteratorE, i64 16), ptr %this, align 8
   %cpString = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %cpString, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -136,7 +136,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7518UnicodeSetIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 8), (16, 64)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518UnicodeSetIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518UnicodeSetIteratorE, i64 16), ptr %this, align 8
   %set = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %set, align 8
   %cpString = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -450,7 +450,7 @@ if.end.thread2:                                   ; preds = %if.then4
   br label %if.end12
 
 if.end:                                           ; preds = %if.then4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %call, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr %call, ptr %cpString, align 8

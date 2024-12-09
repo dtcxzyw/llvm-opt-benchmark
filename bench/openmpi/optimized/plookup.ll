@@ -116,7 +116,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 29:                                               ; preds = %24
   %30 = load i32, ptr @pmix_class_init_epoch, align 4
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not88 = icmp eq i32 %30, %31
   br i1 %.not88, label %33, label %32
 
@@ -282,7 +282,7 @@ pmix_cmd_line_is_taken.exit:                      ; preds = %77, %.lr.ph.i.i100,
 102:                                              ; preds = %94
   call void @PMIx_Info_free(ptr noundef %96, i64 noundef 1) #11
   %103 = load i32, ptr @pmix_class_init_epoch, align 4
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not93 = icmp eq i32 %103, %104
   br i1 %.not93, label %106, label %105
 
@@ -567,7 +567,7 @@ define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr n
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @stderr, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @myproc, i64 256), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @myproc, i64 256), align 4
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.27, ptr noundef nonnull @myproc, i32 noundef %6, i32 noundef %0, i64 noundef %1) #12
   br label %8
 

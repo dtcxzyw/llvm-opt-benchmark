@@ -113,14 +113,14 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv() local_unnamed_addr #4 align 2 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119defaultLoggerMemoryE, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119defaultLoggerMemoryE, i64 8), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %3
 
 2:                                                ; preds = %0
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV17StreamLogAppender, i64 16), ptr @_ZN12_GLOBAL__N_124defaultLogAppenderMemoryE, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV17StreamLogAppender, i64 16), ptr @_ZN12_GLOBAL__N_124defaultLogAppenderMemoryE, align 16
   store ptr @_ZSt4cout, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_124defaultLogAppenderMemoryE, i64 8), align 8
-  store ptr @_ZN12_GLOBAL__N_124defaultLogAppenderMemoryE, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119defaultLoggerMemoryE, i64 8), align 8
+  store ptr @_ZN12_GLOBAL__N_124defaultLogAppenderMemoryE, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119defaultLoggerMemoryE, i64 8), align 8
   br label %3
 
 3:                                                ; preds = %2, %0

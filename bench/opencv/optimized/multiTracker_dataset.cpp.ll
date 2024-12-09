@@ -1084,8 +1084,8 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %17 = sitofp i32 %1 to double
   store double %17, ptr @boundingBox, align 8
   %18 = sitofp i32 %2 to double
-  store double %18, ptr getelementptr inbounds (i8, ptr @boundingBox, i64 8), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @boundingBox, i64 16), i8 0, i64 16, i1 false)
+  store double %18, ptr getelementptr inbounds nuw (i8, ptr @boundingBox, i64 8), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @boundingBox, i64 16), i8 0, i64 16, i1 false)
   br label %119
 
 19:                                               ; preds = %15
@@ -1093,12 +1093,12 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %21 = load double, ptr @boundingBox, align 8
   %22 = fsub double %20, %21
   %23 = tail call noundef double @llvm.fabs.f64(double %22)
-  store double %23, ptr getelementptr inbounds (i8, ptr @boundingBox, i64 16), align 8
+  store double %23, ptr getelementptr inbounds nuw (i8, ptr @boundingBox, i64 16), align 8
   %24 = sitofp i32 %2 to double
-  %25 = load double, ptr getelementptr inbounds (i8, ptr @boundingBox, i64 8), align 8
+  %25 = load double, ptr getelementptr inbounds nuw (i8, ptr @boundingBox, i64 8), align 8
   %26 = fsub double %24, %25
   %27 = tail call noundef double @llvm.fabs.f64(double %26)
-  store double %27, ptr getelementptr inbounds (i8, ptr @boundingBox, i64 24), align 8
+  store double %27, ptr getelementptr inbounds nuw (i8, ptr @boundingBox, i64 24), align 8
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @boundingBoxes, i64 8), align 8
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @boundingBoxes, i64 16), align 8
   %.not.i = icmp eq ptr %28, %29
@@ -1272,7 +1272,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backERKS2_.exit: ; preds = %30, %_ZNSt6
   store ptr %6, ptr %98, align 8
   %100 = load double, ptr @boundingBox, align 8
   %101 = fptosi double %100 to i32
-  %102 = load double, ptr getelementptr inbounds (i8, ptr @boundingBox, i64 8), align 8
+  %102 = load double, ptr getelementptr inbounds nuw (i8, ptr @boundingBox, i64 8), align 8
   %103 = fptosi double %102 to i32
   store double 2.550000e+02, ptr %11, align 8
   %104 = getelementptr inbounds nuw i8, ptr %11, i64 8

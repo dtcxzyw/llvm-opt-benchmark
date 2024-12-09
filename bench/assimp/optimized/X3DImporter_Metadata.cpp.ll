@@ -625,7 +625,7 @@ if.else:                                          ; preds = %invoke.cont8
 invoke.cont16:                                    ; preds = %if.else
   %mNodeElementCur = getelementptr inbounds nuw i8, ptr %this, i64 96
   %10 = load ptr, ptr %mNodeElementCur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
   %Parent.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store ptr %10, ptr %Parent.i.i.i, align 8
   %ID.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 16
@@ -638,12 +638,12 @@ invoke.cont16:                                    ; preds = %if.else
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i, align 8
   %Type.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 72
   store i32 1, ptr %Type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
   %Name.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25X3DNodeElementMetaBoolean, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25X3DNodeElementMetaBoolean, i64 16), ptr %call14, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %call14, i64 144
   store ptr null, ptr %Value.i, align 8
   %_M_offset.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 152
@@ -686,7 +686,7 @@ call.i.noexc:                                     ; preds = %if.then27
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 15))
           to label %invoke.cont30 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1010,7 +1010,7 @@ if.else:                                          ; preds = %invoke.cont8
 invoke.cont16:                                    ; preds = %if.else
   %mNodeElementCur = getelementptr inbounds nuw i8, ptr %this, i64 96
   %10 = load ptr, ptr %mNodeElementCur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
   %Parent.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store ptr %10, ptr %Parent.i.i.i, align 8
   %ID.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 16
@@ -1023,12 +1023,12 @@ invoke.cont16:                                    ; preds = %if.else
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i, align 8
   %Type.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 72
   store i32 2, ptr %Type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
   %Name.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24X3DNodeElementMetaDouble, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24X3DNodeElementMetaDouble, i64 16), ptr %call14, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %call14, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Value.i, i8 0, i64 24, i1 false)
   %call17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %def) #19
@@ -1063,7 +1063,7 @@ call.i.noexc:                                     ; preds = %if.then27
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 14))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 14))
           to label %invoke.cont30 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1363,7 +1363,7 @@ if.else:                                          ; preds = %invoke.cont8
 invoke.cont16:                                    ; preds = %if.else
   %mNodeElementCur = getelementptr inbounds nuw i8, ptr %this, i64 96
   %10 = load ptr, ptr %mNodeElementCur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
   %Parent.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store ptr %10, ptr %Parent.i.i.i, align 8
   %ID.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 16
@@ -1376,12 +1376,12 @@ invoke.cont16:                                    ; preds = %if.else
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i, align 8
   %Type.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 72
   store i32 3, ptr %Type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
   %Name.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23X3DNodeElementMetaFloat, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23X3DNodeElementMetaFloat, i64 16), ptr %call14, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %call14, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Value.i, i8 0, i64 24, i1 false)
   %call17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %def) #19
@@ -1416,7 +1416,7 @@ call.i.noexc:                                     ; preds = %if.then27
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.2, i64 13))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 13))
           to label %invoke.cont30 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -1716,7 +1716,7 @@ if.else:                                          ; preds = %invoke.cont8
 invoke.cont16:                                    ; preds = %if.else
   %mNodeElementCur = getelementptr inbounds nuw i8, ptr %this, i64 96
   %10 = load ptr, ptr %mNodeElementCur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
   %Parent.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store ptr %10, ptr %Parent.i.i.i, align 8
   %ID.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 16
@@ -1729,12 +1729,12 @@ invoke.cont16:                                    ; preds = %if.else
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i, align 8
   %Type.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 72
   store i32 4, ptr %Type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
   %Name.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21X3DNodeElementMetaInt, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21X3DNodeElementMetaInt, i64 16), ptr %call14, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %call14, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Value.i, i8 0, i64 24, i1 false)
   %call17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %def) #19
@@ -1769,7 +1769,7 @@ call.i.noexc:                                     ; preds = %if.then27
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 15))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 15))
           to label %invoke.cont30 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2063,7 +2063,7 @@ if.else:                                          ; preds = %invoke.cont6
 invoke.cont14:                                    ; preds = %if.else
   %mNodeElementCur = getelementptr inbounds nuw i8, ptr %this, i64 96
   %10 = load ptr, ptr %mNodeElementCur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call12, align 8
   %Parent.i.i.i = getelementptr inbounds nuw i8, ptr %call12, i64 8
   store ptr %10, ptr %Parent.i.i.i, align 8
   %ID.i.i.i = getelementptr inbounds nuw i8, ptr %call12, i64 16
@@ -2076,12 +2076,12 @@ invoke.cont14:                                    ; preds = %if.else
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i, align 8
   %Type.i.i.i = getelementptr inbounds nuw i8, ptr %call12, i64 72
   store i32 5, ptr %Type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call12, align 8
   %Name.i.i = getelementptr inbounds nuw i8, ptr %call12, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %call12, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21X3DNodeElementMetaSet, i64 16), ptr %call12, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21X3DNodeElementMetaSet, i64 16), ptr %call12, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %call12, i64 144
   %_M_prev.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call12, i64 152
   store ptr %Value.i, ptr %_M_prev.i.i.i.i.i.i, align 8
@@ -2116,7 +2116,7 @@ call.i.noexc:                                     ; preds = %if.then23
           to label %.noexc unwind label %lpad25
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 11))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 11))
           to label %invoke.cont26 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -2398,7 +2398,7 @@ if.else:                                          ; preds = %invoke.cont8
 invoke.cont16:                                    ; preds = %if.else
   %mNodeElementCur = getelementptr inbounds nuw i8, ptr %this, i64 96
   %10 = load ptr, ptr %mNodeElementCur, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %call14, align 8
   %Parent.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store ptr %10, ptr %Parent.i.i.i, align 8
   %ID.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 16
@@ -2411,12 +2411,12 @@ invoke.cont16:                                    ; preds = %if.else
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i.i, align 8
   %Type.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 72
   store i32 6, ptr %Type.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %call14, align 8
   %Name.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24X3DNodeElementMetaString, i64 16), ptr %call14, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24X3DNodeElementMetaString, i64 16), ptr %call14, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %call14, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Value.i, i8 0, i64 24, i1 false)
   %call17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %def) #19
@@ -2451,7 +2451,7 @@ call.i.noexc:                                     ; preds = %if.then27
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 14))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 14))
           to label %invoke.cont30 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3536,7 +3536,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont5:                                     ; preds = %.noexc
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %unreachable unwind label %lpad4
@@ -3624,7 +3624,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont11:                                    ; preds = %.noexc
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DeadlyImportError, i64 16), ptr %exception, align 8
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %unreachable unwind label %lpad10
@@ -3837,7 +3837,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25X3DNodeElementMetaBooleanD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25X3DNodeElementMetaBoolean, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25X3DNodeElementMetaBoolean, i64 16), ptr %this, align 8
   %Value = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3864,12 +3864,12 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i) #19
   %Name.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load ptr, ptr %Children.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %2, %Children.i.i
@@ -3891,7 +3891,7 @@ _ZN18X3DNodeElementMetaD2Ev.exit:                 ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25X3DNodeElementMetaBooleanD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV25X3DNodeElementMetaBoolean, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV25X3DNodeElementMetaBoolean, i64 16), ptr %this, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3918,12 +3918,12 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit.i
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
   %Name.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load ptr, ptr %Children.i.i.i, align 8
   %cmp.not4.i.i.i.i.i.i = icmp eq ptr %2, %Children.i.i.i
@@ -3946,12 +3946,12 @@ _ZN25X3DNodeElementMetaBooleanD2Ev.exit:          ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18X3DNodeElementMetaD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference) #19
   %Name = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %Children.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Children.i
@@ -3973,12 +3973,12 @@ _ZN18X3DNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18X3DNodeElementMetaD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i) #19
   %Name.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %Children.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %Children.i.i
@@ -4001,7 +4001,7 @@ _ZN18X3DNodeElementMetaD2Ev.exit:                 ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18X3DNodeElementBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %Children, align 8
   %cmp.not4.i.i.i = icmp eq ptr %0, %Children
@@ -4023,7 +4023,7 @@ _ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit: ; preds = %while.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18X3DNodeElementBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %Children.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Children.i
@@ -4046,7 +4046,7 @@ _ZN18X3DNodeElementBaseD2Ev.exit:                 ; preds = %while.body.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24X3DNodeElementMetaDoubleD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24X3DNodeElementMetaDouble, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24X3DNodeElementMetaDouble, i64 16), ptr %this, align 8
   %Value = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -4057,12 +4057,12 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i) #19
   %Name.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %Children.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %1, %Children.i.i
@@ -4084,7 +4084,7 @@ _ZN18X3DNodeElementMetaD2Ev.exit:                 ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24X3DNodeElementMetaDoubleD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24X3DNodeElementMetaDouble, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24X3DNodeElementMetaDouble, i64 16), ptr %this, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -4095,12 +4095,12 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
   %Name.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %Children.i.i.i, align 8
   %cmp.not4.i.i.i.i.i.i = icmp eq ptr %1, %Children.i.i.i
@@ -4123,7 +4123,7 @@ _ZN24X3DNodeElementMetaDoubleD2Ev.exit:           ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23X3DNodeElementMetaFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23X3DNodeElementMetaFloat, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23X3DNodeElementMetaFloat, i64 16), ptr %this, align 8
   %Value = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -4134,12 +4134,12 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i) #19
   %Name.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %Children.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %1, %Children.i.i
@@ -4161,7 +4161,7 @@ _ZN18X3DNodeElementMetaD2Ev.exit:                 ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23X3DNodeElementMetaFloatD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23X3DNodeElementMetaFloat, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23X3DNodeElementMetaFloat, i64 16), ptr %this, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -4172,12 +4172,12 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
   %Name.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %Children.i.i.i, align 8
   %cmp.not4.i.i.i.i.i.i = icmp eq ptr %1, %Children.i.i.i
@@ -4200,7 +4200,7 @@ _ZN23X3DNodeElementMetaFloatD2Ev.exit:            ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN21X3DNodeElementMetaIntD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21X3DNodeElementMetaInt, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21X3DNodeElementMetaInt, i64 16), ptr %this, align 8
   %Value = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -4211,12 +4211,12 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i) #19
   %Name.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %Children.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %1, %Children.i.i
@@ -4238,7 +4238,7 @@ _ZN18X3DNodeElementMetaD2Ev.exit:                 ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN21X3DNodeElementMetaIntD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21X3DNodeElementMetaInt, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21X3DNodeElementMetaInt, i64 16), ptr %this, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -4249,12 +4249,12 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
   %Name.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %Children.i.i.i, align 8
   %cmp.not4.i.i.i.i.i.i = icmp eq ptr %1, %Children.i.i.i
@@ -4277,7 +4277,7 @@ _ZN21X3DNodeElementMetaIntD2Ev.exit:              ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN21X3DNodeElementMetaSetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21X3DNodeElementMetaSet, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21X3DNodeElementMetaSet, i64 16), ptr %this, align 8
   %Value = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value, align 8
   %cmp.not4.i.i.i = icmp eq ptr %0, %Value
@@ -4295,12 +4295,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listI18X3DNodeElementMetaSaIS1_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !16
 
 _ZNSt7__cxx114listI18X3DNodeElementMetaSaIS1_EED2Ev.exit: ; preds = %while.body.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i) #19
   %Name.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %Children.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %3, %Children.i.i
@@ -4322,7 +4322,7 @@ _ZN18X3DNodeElementMetaD2Ev.exit:                 ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN21X3DNodeElementMetaSetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21X3DNodeElementMetaSet, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21X3DNodeElementMetaSet, i64 16), ptr %this, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %Value.i
@@ -4340,12 +4340,12 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listI18X3DNodeElementMetaSaIS1_EED2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !16
 
 _ZNSt7__cxx114listI18X3DNodeElementMetaSaIS1_EED2Ev.exit.i: ; preds = %while.body.i.i.i.i, %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i.i) #19
   %Name.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %Children.i.i.i, align 8
   %cmp.not4.i.i.i.i.i.i = icmp eq ptr %3, %Children.i.i.i
@@ -4368,7 +4368,7 @@ _ZN21X3DNodeElementMetaSetD2Ev.exit:              ; preds = %while.body.i.i.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN24X3DNodeElementMetaStringD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24X3DNodeElementMetaString, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24X3DNodeElementMetaString, i64 16), ptr %this, align 8
   %Value = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %Value, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -4397,12 +4397,12 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementMeta, i64 16), ptr %this, align 8
   %Reference.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Reference.i) #19
   %Name.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18X3DNodeElementBase, i64 16), ptr %this, align 8
   %Children.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %Children.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %3, %Children.i.i

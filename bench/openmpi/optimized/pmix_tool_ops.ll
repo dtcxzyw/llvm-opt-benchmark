@@ -50,7 +50,7 @@ define i32 @pmix_tool_relay_op(i8 noundef zeroext %0, ptr noundef %1, ptr nounde
   br i1 %4, label %5, label %.critedge, !llvm.loop !4
 
 5:                                                ; preds = %.critedge163
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 1632), align 8
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1632), align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %.critedge
 
@@ -370,7 +370,7 @@ pmix_obj_new_tma.exit143:                         ; preds = %.lr.ph.i.i140, %134
   %158 = getelementptr inbounds nuw i8, ptr %130, i64 288
   store ptr %10, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %130, i64 128
-  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8
   %161 = tail call i32 @pmix_event_assign(ptr noundef nonnull %159, ptr noundef %160, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_ptl_base_send_recv, ptr noundef %130) #10
   fence release
   tail call void @event_active(ptr noundef nonnull %159, i32 noundef 4, i16 noundef signext 1) #10
@@ -540,7 +540,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %13, %1
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 0
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 480
@@ -704,7 +704,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %55
   br i1 %.not.i.i99, label %pmix_obj_new_tma.exit100, label %.lr.ph.i.i97, !llvm.loop !6
 
 pmix_obj_new_tma.exit100:                         ; preds = %.lr.ph.i.i97, %100, %101
-  %112 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 368), align 8
+  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 368), align 8
   %113 = tail call i32 @htonl(i32 noundef %112) #11
   %114 = getelementptr inbounds nuw i8, ptr %96, i64 272
   store i32 %113, ptr %114, align 8

@@ -643,7 +643,7 @@ define void @_ZN8QuantLib15FixedRateCouponC1ERKNS_4DateEddRKNS_10DayCounterES3_S
 entry:
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 0, ptr %1, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -655,7 +655,7 @@ entry:
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i32 0, ptr %3, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 216
@@ -666,15 +666,15 @@ entry:
   store ptr %3, ptr %_M_right.i.i.i.i.i.i4, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i5, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %nominal, ptr noundef nonnull align 8 dereferenceable(8) %accrualStartDate, ptr noundef nonnull align 8 dereferenceable(8) %accrualEndDate, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodStart, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodEnd, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %nominal, ptr noundef nonnull align 8 dereferenceable(8) %accrualStartDate, ptr noundef nonnull align 8 dereferenceable(8) %accrualEndDate, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodStart, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodEnd, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %this, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %0, align 8, !tbaa !33
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %2, align 8, !tbaa !33
   %rate_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %dayCounter, align 8, !tbaa !41
   store ptr %4, ptr %agg.tmp, align 8, !tbaa !41
@@ -799,7 +799,7 @@ entry:
 define void @_ZN8QuantLib15FixedRateCouponC1ERKNS_4DateEdNS_12InterestRateES3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) initializes((136, 144), (152, 156), (160, 168)) %this, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %nominal, ptr nocapture noundef %interestRate, ptr noundef nonnull align 8 dereferenceable(8) %accrualStartDate, ptr noundef nonnull align 8 dereferenceable(8) %accrualEndDate, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodStart, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodEnd, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 0, ptr %1, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -811,7 +811,7 @@ entry:
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i32 0, ptr %3, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 216
@@ -822,15 +822,15 @@ entry:
   store ptr %3, ptr %_M_right.i.i.i.i.i.i3, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %nominal, ptr noundef nonnull align 8 dereferenceable(8) %accrualStartDate, ptr noundef nonnull align 8 dereferenceable(8) %accrualEndDate, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodStart, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodEnd, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %nominal, ptr noundef nonnull align 8 dereferenceable(8) %accrualStartDate, ptr noundef nonnull align 8 dereferenceable(8) %accrualEndDate, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodStart, ptr noundef nonnull align 8 dereferenceable(8) %refPeriodEnd, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %this, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %0, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %0, align 8, !tbaa !33
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %2, align 8, !tbaa !33
   %rate_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load double, ptr %interestRate, align 8, !tbaa !45
   store double %4, ptr %rate_, align 8, !tbaa !45
@@ -3516,7 +3516,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit145:       ; preds = %invoke.cont156, %if
   %comp_4.i144 = getelementptr inbounds nuw i8, ptr %r, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %comp_.i143, ptr noundef nonnull align 8 dereferenceable(16) %comp_4.i144, i64 16, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %call157, i64 136
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %94, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %94, align 8, !tbaa !33
   %95 = getelementptr inbounds nuw i8, ptr %call157, i64 152
   store i32 0, ptr %95, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call157, i64 160
@@ -3528,7 +3528,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit145:       ; preds = %invoke.cont156, %if
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call157, i64 184
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !16
   %96 = getelementptr inbounds nuw i8, ptr %call157, i64 192
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %96, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %96, align 8, !tbaa !33
   %97 = getelementptr inbounds nuw i8, ptr %call157, i64 208
   store i32 0, ptr %97, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %call157, i64 216
@@ -3539,15 +3539,15 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit145:       ; preds = %invoke.cont156, %if
   store ptr %97, ptr %_M_right.i.i.i.i.i.i3.i, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call157, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4.i, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call157, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %ref, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call157, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %ref, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont160 unwind label %cleanup.action169
 
 invoke.cont160:                                   ; preds = %_ZN8QuantLib12InterestRateC2ERKS0_.exit145
-  store ptr getelementptr inbounds inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %call157, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %94, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %call157, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %94, align 8, !tbaa !33
   %add.ptr2.i = getelementptr inbounds nuw i8, ptr %call157, i64 8
-  store ptr getelementptr inbounds inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2.i, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %96, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %96, align 8, !tbaa !33
   %rate_.i = getelementptr inbounds nuw i8, ptr %call157, i64 88
   %98 = load double, ptr %agg.tmp158, align 8, !tbaa !45
   store double %98, ptr %rate_.i, align 8, !tbaa !45
@@ -3603,7 +3603,7 @@ invoke.cont162:                                   ; preds = %invoke.cont160
   store i32 1, ptr %use_count_.i.i.i.i.i149, align 8, !tbaa !130
   %weak_count_.i.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i150, align 4, !tbaa !132
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib15FixedRateCouponEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib15FixedRateCouponEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !33
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call157, ptr %px_.i.i.i.i, align 8, !tbaa !133
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !44
@@ -4037,7 +4037,7 @@ if.then.i.i.i.i264:                               ; preds = %invoke.cont238
 _ZN8QuantLib12InterestRateC2ERKS0_.exit268:       ; preds = %invoke.cont238, %if.then.i.i.i.i264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %comp_.i266, ptr noundef nonnull align 8 dereferenceable(16) %comp_.i, i64 16, i1 false)
   %173 = getelementptr inbounds nuw i8, ptr %call239, i64 136
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %173, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %173, align 8, !tbaa !33
   %174 = getelementptr inbounds nuw i8, ptr %call239, i64 152
   store i32 0, ptr %174, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i.i269 = getelementptr inbounds nuw i8, ptr %call239, i64 160
@@ -4049,7 +4049,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit268:       ; preds = %invoke.cont238, %if
   %_M_node_count.i.i.i.i.i.i.i272 = getelementptr inbounds nuw i8, ptr %call239, i64 184
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i272, align 8, !tbaa !16
   %175 = getelementptr inbounds nuw i8, ptr %call239, i64 192
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %175, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %175, align 8, !tbaa !33
   %176 = getelementptr inbounds nuw i8, ptr %call239, i64 208
   store i32 0, ptr %176, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i1.i273 = getelementptr inbounds nuw i8, ptr %call239, i64 216
@@ -4060,15 +4060,15 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit268:       ; preds = %invoke.cont238, %if
   store ptr %176, ptr %_M_right.i.i.i.i.i.i3.i275, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4.i276 = getelementptr inbounds nuw i8, ptr %call239, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4.i276, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call239, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate180, double noundef %nominal.0, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call239, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate180, double noundef %nominal.0, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont242 unwind label %cleanup.action251
 
 invoke.cont242:                                   ; preds = %_ZN8QuantLib12InterestRateC2ERKS0_.exit268
-  store ptr getelementptr inbounds inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %call239, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %173, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %call239, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %173, align 8, !tbaa !33
   %add.ptr2.i278 = getelementptr inbounds nuw i8, ptr %call239, i64 8
-  store ptr getelementptr inbounds inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2.i278, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %175, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2.i278, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %175, align 8, !tbaa !33
   %rate_.i279 = getelementptr inbounds nuw i8, ptr %call239, i64 88
   %177 = load double, ptr %agg.tmp240, align 8, !tbaa !45
   store double %177, ptr %rate_.i279, align 8, !tbaa !45
@@ -4123,7 +4123,7 @@ invoke.cont244:                                   ; preds = %invoke.cont242
   store i32 1, ptr %use_count_.i.i.i.i.i298, align 8, !tbaa !130
   %weak_count_.i.i.i.i.i299 = getelementptr inbounds nuw i8, ptr %call.i.i.i289, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i299, align 4, !tbaa !132
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib15FixedRateCouponEEE, i64 16), ptr %call.i.i.i289, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib15FixedRateCouponEEE, i64 16), ptr %call.i.i.i289, align 8, !tbaa !33
   %px_.i.i.i.i300 = getelementptr inbounds nuw i8, ptr %call.i.i.i289, i64 16
   store ptr %call239, ptr %px_.i.i.i.i300, align 8, !tbaa !133
   store ptr %call.i.i.i289, ptr %pn.i288, align 8, !tbaa !44
@@ -4609,7 +4609,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit483:       ; preds = %invoke.cont363, %if
   %comp_4.i482 = getelementptr inbounds nuw i8, ptr %r327, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %comp_.i481, ptr noundef nonnull align 8 dereferenceable(16) %comp_4.i482, i64 16, i1 false)
   %263 = getelementptr inbounds nuw i8, ptr %call364, i64 136
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %263, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %263, align 8, !tbaa !33
   %264 = getelementptr inbounds nuw i8, ptr %call364, i64 152
   store i32 0, ptr %264, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i.i484 = getelementptr inbounds nuw i8, ptr %call364, i64 160
@@ -4621,7 +4621,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit483:       ; preds = %invoke.cont363, %if
   %_M_node_count.i.i.i.i.i.i.i487 = getelementptr inbounds nuw i8, ptr %call364, i64 184
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i487, align 8, !tbaa !16
   %265 = getelementptr inbounds nuw i8, ptr %call364, i64 192
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %265, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %265, align 8, !tbaa !33
   %266 = getelementptr inbounds nuw i8, ptr %call364, i64 208
   store i32 0, ptr %266, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i1.i488 = getelementptr inbounds nuw i8, ptr %call364, i64 216
@@ -4632,15 +4632,15 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit483:       ; preds = %invoke.cont363, %if
   store ptr %266, ptr %_M_right.i.i.i.i.i.i3.i490, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4.i491 = getelementptr inbounds nuw i8, ptr %call364, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4.i491, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call364, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate270, double noundef %nominal.1, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call364, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate270, double noundef %nominal.1, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont367 unwind label %cleanup.action376
 
 invoke.cont367:                                   ; preds = %_ZN8QuantLib12InterestRateC2ERKS0_.exit483
-  store ptr getelementptr inbounds inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %call364, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %263, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %call364, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %263, align 8, !tbaa !33
   %add.ptr2.i493 = getelementptr inbounds nuw i8, ptr %call364, i64 8
-  store ptr getelementptr inbounds inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2.i493, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %265, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2.i493, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %265, align 8, !tbaa !33
   %rate_.i494 = getelementptr inbounds nuw i8, ptr %call364, i64 88
   %267 = load double, ptr %agg.tmp365, align 8, !tbaa !45
   store double %267, ptr %rate_.i494, align 8, !tbaa !45
@@ -4696,7 +4696,7 @@ invoke.cont369:                                   ; preds = %invoke.cont367
   store i32 1, ptr %use_count_.i.i.i.i.i513, align 8, !tbaa !130
   %weak_count_.i.i.i.i.i514 = getelementptr inbounds nuw i8, ptr %call.i.i.i504, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i514, align 4, !tbaa !132
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib15FixedRateCouponEEE, i64 16), ptr %call.i.i.i504, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib15FixedRateCouponEEE, i64 16), ptr %call.i.i.i504, align 8, !tbaa !33
   %px_.i.i.i.i515 = getelementptr inbounds nuw i8, ptr %call.i.i.i504, i64 16
   store ptr %call364, ptr %px_.i.i.i.i515, align 8, !tbaa !133
   store ptr %call.i.i.i504, ptr %pn.i503, align 8, !tbaa !44
@@ -4885,7 +4885,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit572:       ; preds = %invoke.cont399, %if
   %comp_4.i571 = getelementptr inbounds nuw i8, ptr %r327, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %comp_.i570, ptr noundef nonnull align 8 dereferenceable(16) %comp_4.i571, i64 16, i1 false)
   %301 = getelementptr inbounds nuw i8, ptr %call400, i64 136
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %301, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %301, align 8, !tbaa !33
   %302 = getelementptr inbounds nuw i8, ptr %call400, i64 152
   store i32 0, ptr %302, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i.i573 = getelementptr inbounds nuw i8, ptr %call400, i64 160
@@ -4897,7 +4897,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit572:       ; preds = %invoke.cont399, %if
   %_M_node_count.i.i.i.i.i.i.i576 = getelementptr inbounds nuw i8, ptr %call400, i64 184
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i576, align 8, !tbaa !16
   %303 = getelementptr inbounds nuw i8, ptr %call400, i64 192
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %303, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %303, align 8, !tbaa !33
   %304 = getelementptr inbounds nuw i8, ptr %call400, i64 208
   store i32 0, ptr %304, align 8, !tbaa !8
   %_M_parent.i.i.i.i.i.i1.i577 = getelementptr inbounds nuw i8, ptr %call400, i64 216
@@ -4908,15 +4908,15 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit572:       ; preds = %invoke.cont399, %if
   store ptr %304, ptr %_M_right.i.i.i.i.i.i3.i579, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4.i580 = getelementptr inbounds nuw i8, ptr %call400, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4.i580, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call400, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate270, double noundef %nominal.1, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %ref380, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call400, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate270, double noundef %nominal.1, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %ref380, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont403 unwind label %cleanup.action412
 
 invoke.cont403:                                   ; preds = %_ZN8QuantLib12InterestRateC2ERKS0_.exit572
-  store ptr getelementptr inbounds inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %call400, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %301, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %call400, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %301, align 8, !tbaa !33
   %add.ptr2.i582 = getelementptr inbounds nuw i8, ptr %call400, i64 8
-  store ptr getelementptr inbounds inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2.i582, align 8, !tbaa !33
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %303, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr2.i582, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %303, align 8, !tbaa !33
   %rate_.i583 = getelementptr inbounds nuw i8, ptr %call400, i64 88
   %305 = load double, ptr %agg.tmp401, align 8, !tbaa !45
   store double %305, ptr %rate_.i583, align 8, !tbaa !45
@@ -4972,7 +4972,7 @@ invoke.cont405:                                   ; preds = %invoke.cont403
   store i32 1, ptr %use_count_.i.i.i.i.i602, align 8, !tbaa !130
   %weak_count_.i.i.i.i.i603 = getelementptr inbounds nuw i8, ptr %call.i.i.i593, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i603, align 4, !tbaa !132
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib15FixedRateCouponEEE, i64 16), ptr %call.i.i.i593, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib15FixedRateCouponEEE, i64 16), ptr %call.i.i.i593, align 8, !tbaa !33
   %px_.i.i.i.i604 = getelementptr inbounds nuw i8, ptr %call.i.i.i593, i64 16
   store ptr %call400, ptr %px_.i.i.i.i604, align 8, !tbaa !133
   store ptr %call.i.i.i593, ptr %pn.i592, align 8, !tbaa !44
@@ -5381,7 +5381,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !33
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !44
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5933,7 +5933,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EED2Ev.exit:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %this, align 8, !tbaa !33
   %observables_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !14
@@ -6246,13 +6246,13 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib15FixedRateCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 96) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 32), ptr %this, align 8, !tbaa !33
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %add.ptr.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 224), ptr %add.ptr.i, align 8, !tbaa !33
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr3.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-32, 40) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 160), ptr %add.ptr3.i, align 8, !tbaa !33
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %this, i64 192
-  store ptr getelementptr inbounds inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %add.ptr7.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-40, 32) (i8, ptr @_ZTVN8QuantLib15FixedRateCouponE, i64 280), ptr %add.ptr7.i, align 8, !tbaa !33
   %pn.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %pn.i.i.i.i, align 8, !tbaa !44
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -6292,7 +6292,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib15FixedRateCouponD2Ev.exit:           ; preds = %entry, %if.then.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %add.ptr7.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %add.ptr7.i, align 8, !tbaa !33
   %observables_.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %7 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !14
@@ -6346,7 +6346,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i, %con
   unreachable
 
 _ZN8QuantLib8ObserverD2Ev.exit:                   ; preds = %for.cond.cleanup.i
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr.i, align 8, !tbaa !33
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %_M_parent.i.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 160
   %15 = load ptr, ptr %_M_parent.i.i.i.i.i1, align 8, !tbaa !13
@@ -6750,7 +6750,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !33
   %observers_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !13
@@ -6771,7 +6771,7 @@ _ZNSt3setIPN8QuantLib8ObserverESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib10ObservableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !33
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %this, align 8, !tbaa !33
   %observers_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !13

@@ -30,7 +30,7 @@ define internal noundef i32 @errmgr_prted_close() #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @errmgr_prted_component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 820), align 4
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 820), align 4
   %4 = and i8 %3, 2
   %.not = icmp eq i8 %4, 0
   %5 = load i32, ptr @my_priority, align 4

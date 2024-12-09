@@ -1168,7 +1168,7 @@ if.end7:                                          ; preds = %_Py_NewRef.exit
   store i32 %mul, ptr %recursion_depth8, align 8
   %recursion_limit = getelementptr inbounds nuw i8, ptr %call.i, i64 76
   store i32 3000, ptr %recursion_limit, align 4
-  %call9 = tail call fastcc i32 @symtable_enter_block(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 60720), i32 noundef 2, ptr noundef %mod, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call9 = tail call fastcc i32 @symtable_enter_block(ptr noundef %call.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60720), i32 noundef 2, ptr noundef %mod, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then11, label %if.end12
 
@@ -2252,7 +2252,7 @@ if.then438:                                       ; preds = %cond.false430
   %98 = load i32, ptr %end_lineno253, align 8
   %99 = load i32, ptr %end_col_offset254, align 4
   %100 = load ptr, ptr %st_cur.i698, align 8
-  %call.i703 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34680), i32 noundef 2, ptr noundef %100, i32 noundef %96, i32 noundef %97, i32 noundef %98, i32 noundef %99)
+  %call.i703 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34680), i32 noundef 2, ptr noundef %100, i32 noundef %96, i32 noundef %97, i32 noundef %98, i32 noundef %99)
   %tobool444.not = icmp eq i32 %call.i703, 0
   br i1 %tobool444.not, label %return, label %if.end448
 
@@ -2262,7 +2262,7 @@ if.end448:                                        ; preds = %if.then438
   %103 = load i32, ptr %end_lineno253, align 8
   %104 = load i32, ptr %end_col_offset254, align 4
   %105 = load ptr, ptr %st_cur.i698, align 8
-  %call.i705 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 16, ptr noundef %105, i32 noundef %101, i32 noundef %102, i32 noundef %103, i32 noundef %104)
+  %call.i705 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25640), i32 noundef 16, ptr noundef %105, i32 noundef %101, i32 noundef %102, i32 noundef %103, i32 noundef %104)
   %tobool454.not = icmp eq i32 %call.i705, 0
   br i1 %tobool454.not, label %return, label %if.end459
 
@@ -2420,7 +2420,7 @@ land.lhs.true:                                    ; preds = %if.end599
   %end_col_offset612 = getelementptr inbounds nuw i8, ptr %133, i64 44
   %137 = load i32, ptr %end_col_offset612, align 4
   %138 = load ptr, ptr %st_cur, align 8
-  %call.i707 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %138, i32 noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef %137)
+  %call.i707 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %138, i32 noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef %137)
   %tobool614.not = icmp eq i32 %call.i707, 0
   br i1 %tobool614.not, label %return, label %if.end618
 
@@ -4322,7 +4322,7 @@ if.end126:                                        ; preds = %for.inc123, %for.co
   %40 = load i32, ptr %end_lineno129, align 8
   %end_col_offset130 = getelementptr inbounds nuw i8, ptr %e, i64 44
   %41 = load i32, ptr %end_col_offset130, align 4
-  %call131 = tail call fastcc i32 @symtable_enter_block(ptr noundef %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 49824), i32 noundef 0, ptr noundef %e, i32 noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef %41)
+  %call131 = tail call fastcc i32 @symtable_enter_block(ptr noundef %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49824), i32 noundef 0, ptr noundef %e, i32 noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef %41)
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %if.then133, label %if.end136
 
@@ -4524,7 +4524,7 @@ sw.bb271:                                         ; preds = %if.end
   %generators.i = getelementptr inbounds nuw i8, ptr %e, i64 16
   %66 = load ptr, ptr %generators.i, align 8
   %67 = load ptr, ptr %v.i, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46528), ptr noundef %66, ptr noundef %67, ptr noundef null)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46528), ptr noundef %66, ptr noundef %67, ptr noundef null)
   %tobool273.not = icmp eq i32 %call.i, 0
   br i1 %tobool273.not, label %if.then274, label %sw.epilog
 
@@ -4539,7 +4539,7 @@ sw.bb278:                                         ; preds = %if.end
   %generators.i253 = getelementptr inbounds nuw i8, ptr %e, i64 16
   %69 = load ptr, ptr %generators.i253, align 8
   %70 = load ptr, ptr %v.i252, align 8
-  %call.i254 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 50648), ptr noundef %69, ptr noundef %70, ptr noundef null)
+  %call.i254 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50648), ptr noundef %69, ptr noundef %70, ptr noundef null)
   %tobool280.not = icmp eq i32 %call.i254, 0
   br i1 %tobool280.not, label %if.then281, label %sw.epilog
 
@@ -4554,7 +4554,7 @@ sw.bb285:                                         ; preds = %if.end
   %generators.i256 = getelementptr inbounds nuw i8, ptr %e, i64 16
   %72 = load ptr, ptr %generators.i256, align 8
   %73 = load ptr, ptr %v.i255, align 8
-  %call.i257 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57904), ptr noundef %72, ptr noundef %73, ptr noundef null)
+  %call.i257 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57904), ptr noundef %72, ptr noundef %73, ptr noundef null)
   %tobool287.not = icmp eq i32 %call.i257, 0
   br i1 %tobool287.not, label %if.then288, label %sw.epilog
 
@@ -4571,7 +4571,7 @@ sw.bb292:                                         ; preds = %if.end
   %76 = load ptr, ptr %v.i258, align 8
   %value.i = getelementptr inbounds nuw i8, ptr %e, i64 16
   %77 = load ptr, ptr %value.i, align 8
-  %call.i260 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42992), ptr noundef %75, ptr noundef %76, ptr noundef %77)
+  %call.i260 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42992), ptr noundef %75, ptr noundef %76, ptr noundef %77)
   %tobool294.not = icmp eq i32 %call.i260, 0
   br i1 %tobool294.not, label %if.then295, label %sw.epilog
 
@@ -5063,7 +5063,7 @@ if.then626:                                       ; preds = %land.lhs.true621
   %148 = load i32, ptr %end_lineno606, align 8
   %149 = load i32, ptr %end_col_offset607, align 4
   %150 = load ptr, ptr %st_cur.i, align 8
-  %call.i265 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608), i32 noundef 16, ptr noundef %150, i32 noundef %146, i32 noundef %147, i32 noundef %148, i32 noundef %149)
+  %call.i265 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27608), i32 noundef 16, ptr noundef %150, i32 noundef %146, i32 noundef %147, i32 noundef %148, i32 noundef %149)
   %tobool632.not = icmp eq i32 %call.i265, 0
   br i1 %tobool632.not, label %if.then633, label %sw.epilog
 
@@ -6626,12 +6626,12 @@ if.then1.i215:                                    ; preds = %if.end.i212
   br label %if.end71
 
 if.else:                                          ; preds = %while.end
-  %call63 = call i32 @PySet_Add(ptr noundef nonnull %call13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608)) #7
+  %call63 = call i32 @PySet_Add(ptr noundef nonnull %call13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27608)) #7
   %cmp64 = icmp slt i32 %call63, 0
   br i1 %cmp64, label %if.then.i146, label %if.end66
 
 if.end66:                                         ; preds = %if.else
-  %call67 = call i32 @PySet_Add(ptr noundef nonnull %call13, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784)) #7
+  %call67 = call i32 @PySet_Add(ptr noundef nonnull %call13, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27784)) #7
   %cmp68 = icmp slt i32 %call67, 0
   br i1 %cmp68, label %if.then.i146, label %if.end71
 
@@ -7422,7 +7422,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @drop_class_free(ptr nocapture noundef %ste, ptr noundef nonnull %free) unnamed_addr #0 {
 entry:
-  %call = tail call i32 @PySet_Discard(ptr noundef nonnull %free, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608)) #7
+  %call = tail call i32 @PySet_Discard(ptr noundef nonnull %free, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27608)) #7
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -7438,7 +7438,7 @@ if.then1:                                         ; preds = %if.end
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
-  %call3 = tail call i32 @PySet_Discard(ptr noundef nonnull %free, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784)) #7
+  %call3 = tail call i32 @PySet_Discard(ptr noundef nonnull %free, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27784)) #7
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %return, label %if.end6
 
@@ -7884,7 +7884,7 @@ if.then1:                                         ; preds = %if.end
   %bf.set = or i8 %bf.load, -128
   store i8 %bf.set, ptr %ste_can_see_class_scope, align 8
   %3 = load ptr, ptr %st_cur, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %3, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %3, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool4.not = icmp eq i32 %call.i, 0
   br i1 %tobool4.not, label %return, label %if.end7
 
@@ -7894,13 +7894,13 @@ if.end7:                                          ; preds = %if.then1, %if.end
 
 if.then9:                                         ; preds = %if.end7
   %4 = load ptr, ptr %st_cur, align 8
-  %call.i41 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 2, ptr noundef %4, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i41 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25640), i32 noundef 2, ptr noundef %4, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool11.not = icmp eq i32 %call.i41, 0
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.then9
   %5 = load ptr, ptr %st_cur, align 8
-  %call.i43 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 16, ptr noundef %5, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i43 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25640), i32 noundef 16, ptr noundef %5, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool15.not = icmp eq i32 %call.i43, 0
   br i1 %tobool15.not, label %return, label %if.end17
 
@@ -7908,13 +7908,13 @@ if.end17:                                         ; preds = %if.end13
   %st_private = getelementptr inbounds nuw i8, ptr %st, i64 56
   store ptr %name, ptr %st_private, align 8
   %6 = load ptr, ptr %st_cur, align 8
-  %call.i45 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25264), i32 noundef 2, ptr noundef %6, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i45 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25264), i32 noundef 2, ptr noundef %6, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool19.not = icmp eq i32 %call.i45, 0
   br i1 %tobool19.not, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end17
   %7 = load ptr, ptr %st_cur, align 8
-  %call.i47 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25264), i32 noundef 16, ptr noundef %7, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i47 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25264), i32 noundef 16, ptr noundef %7, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool23.not = icmp eq i32 %call.i47, 0
   br i1 %tobool23.not, label %return, label %if.end26
 
@@ -7924,7 +7924,7 @@ if.end26:                                         ; preds = %if.end21, %if.end7
 
 if.then28:                                        ; preds = %if.end26
   %8 = load ptr, ptr %st_cur, align 8
-  %call.i49 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25056), i32 noundef 4, ptr noundef %8, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i49 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25056), i32 noundef 4, ptr noundef %8, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool30.not = icmp eq i32 %call.i49, 0
   br i1 %tobool30.not, label %return, label %if.end33
 
@@ -7934,7 +7934,7 @@ if.end33:                                         ; preds = %if.then28, %if.end2
 
 if.then35:                                        ; preds = %if.end33
   %9 = load ptr, ptr %st_cur, align 8
-  %call.i51 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25376), i32 noundef 4, ptr noundef %9, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i51 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 25376), i32 noundef 4, ptr noundef %9, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool37.not = icmp eq i32 %call.i51, 0
   br i1 %tobool37.not, label %return, label %if.end40
 
@@ -8042,7 +8042,7 @@ land.lhs.true:                                    ; preds = %if.end20
   %end_col_offset36 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %25 = load i32, ptr %end_col_offset36, align 4
   %26 = load ptr, ptr %st_cur.i, align 8
-  %call.i49 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %26, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
+  %call.i49 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %26, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
   %tobool38.not = icmp eq i32 %call.i49, 0
   br i1 %tobool38.not, label %if.then39, label %if.end42
 
@@ -8133,7 +8133,7 @@ land.lhs.true:                                    ; preds = %entry
   %4 = load i32, ptr %end_lineno, align 8
   %end_col_offset = getelementptr inbounds nuw i8, ptr %o, i64 76
   %5 = load i32, ptr %end_col_offset, align 4
-  %call = tail call fastcc i32 @symtable_enter_block(ptr noundef %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35416), i32 noundef 3, ptr noundef %o, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %call = tail call fastcc i32 @symtable_enter_block(ptr noundef %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35416), i32 noundef 3, ptr noundef %o, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return.sink.split, label %if.end
 
@@ -8605,7 +8605,7 @@ land.lhs.true:                                    ; preds = %entry
   %4 = load i32, ptr %end_lineno, align 8
   %end_col_offset = getelementptr inbounds nuw i8, ptr %annotation, i64 44
   %5 = load i32, ptr %end_col_offset, align 4
-  %call = tail call fastcc i32 @symtable_enter_block(ptr noundef %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35416), i32 noundef 3, ptr noundef %annotation, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %call = tail call fastcc i32 @symtable_enter_block(ptr noundef %st, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35416), i32 noundef 3, ptr noundef %annotation, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.then, label %if.end.thread
 

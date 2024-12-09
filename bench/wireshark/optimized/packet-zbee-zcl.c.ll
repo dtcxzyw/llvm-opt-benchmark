@@ -2338,7 +2338,7 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
   %.031 = phi i16 [ %4, %.lr.ph ], [ %24, %23 ]
   %15 = icmp samesign ult i64 %indvars.iv, 15
   %16 = getelementptr [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 %indvars.iv
-  %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
+  %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds nuw (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
   %.sink = load i32, ptr %.sink.in, align 4
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %.sink, ptr noundef null, ptr noundef nonnull @.str.829, i32 noundef %17) #5
@@ -2383,7 +2383,7 @@ define internal fastcc void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1
   %.029 = phi i16 [ %4, %.lr.ph ], [ %23, %22 ]
   %15 = icmp samesign ult i64 %indvars.iv, 15
   %16 = getelementptr [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 %indvars.iv
-  %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
+  %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds nuw (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
   %.sink = load i32, ptr %.sink.in, align 4
   %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %.sink, ptr noundef null, ptr noundef nonnull @.str.830) #5
   %18 = load i32, ptr %2, align 4

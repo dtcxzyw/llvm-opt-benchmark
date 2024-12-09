@@ -2052,7 +2052,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10FreezeBase14stack_overflowEv
   br i1 %22, label %_ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit.thread, label %24
 
 _ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit.thread: ; preds = %17
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, i32 noundef 1288, ptr noundef %23, ptr noundef nonnull @.str.26) #16
   unreachable
 
@@ -2081,7 +2081,7 @@ _ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit.thread: ; preds = %17
 _ZN19ContinuationWrapper11SafepointOpD2Ev.exit:   ; preds = %36, %34
   %.0.i.i.i.i.i = phi ptr [ %30, %34 ], [ %37, %36 ]
   store ptr %21, ptr %.0.i.i.i.i.i, align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, i32 noundef 1288, ptr noundef %38, ptr noundef nonnull @.str.26) #16
   %39 = load ptr, ptr %.0.i.i.i.i.i, align 8
   store ptr %39, ptr %20, align 8
@@ -3500,7 +3500,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %21, %19
 _ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit: ; preds = %1, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
   %storemerge.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i ], [ null, %1 ]
   %23 = load ptr, ptr %2, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %23, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %24, ptr noundef nonnull @.str.14) #16
   %25 = icmp ne ptr %storemerge.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -7301,7 +7301,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
   %10 = ptrtoint ptr %2 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %12, %14
   %16 = trunc i64 %15 to i32
@@ -7329,7 +7329,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
@@ -7362,7 +7362,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1B
   %19 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = zext i32 %13 to i64
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %23 = zext nneg i32 %22 to i64
   %24 = shl i64 %21, %23
   %25 = add i64 %24, %20
@@ -7376,7 +7376,7 @@ _ZN12G1BarrierSet19write_ref_field_preILm286822E9narrowOopEEvPT0_.exit.i.i: ; pr
   %29 = ptrtoint ptr %2 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %33 = zext nneg i32 %32 to i64
   %34 = lshr i64 %31, %33
   %35 = trunc i64 %34 to i32
@@ -7421,7 +7421,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
@@ -7537,7 +7537,7 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %2, %7, %13, %_Z
   %59 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %60 = ptrtoint ptr %59 to i64
   %61 = zext i32 %56 to i64
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %63 = zext nneg i32 %62 to i64
   %64 = shl i64 %61, %63
   %65 = add i64 %64, %60
@@ -7589,7 +7589,7 @@ _ZN20ShenandoahBarrierSet12satb_barrierILm286822E9narrowOopEEvPT0_.exit: ; preds
   %101 = ptrtoint ptr %1 to i64
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
-  %104 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %105 = zext nneg i32 %104 to i64
   %106 = lshr i64 %103, %105
   %107 = trunc i64 %106 to i32
@@ -8357,7 +8357,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -8376,7 +8376,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -8395,7 +8395,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -8414,7 +8414,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -8433,7 +8433,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %22 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %14, %23
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 %24, %26
   %28 = trunc i64 %27 to i32
@@ -8461,7 +8461,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %6 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -9202,7 +9202,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E19CardTableBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E19CardTableBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -9293,7 +9293,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -9324,7 +9324,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind0E19CardTableBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -9538,7 +9538,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E19CardTab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E19CardTableBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -9610,7 +9610,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -9640,7 +9640,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -9852,7 +9852,7 @@ _ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit: ; preds = %_ZNK19Stack
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK19StackChunkAllocator10initializeEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = ashr i32 %5, 3
@@ -9948,7 +9948,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN19Car
   %10 = ptrtoint ptr %2 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %12, %14
   %16 = trunc i64 %15 to i32
@@ -9976,7 +9976,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN17Eps
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
@@ -9996,7 +9996,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN12G1B
   %10 = ptrtoint ptr %2 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %12, %14
   %16 = trunc i64 %15 to i32
@@ -10093,7 +10093,7 @@ _ZN20ShenandoahBarrierSet13AccessBarrierILm4481126ES_E20oop_store_in_heap_atEP7o
   %53 = ptrtoint ptr %2 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %57 = zext nneg i32 %56 to i64
   %58 = lshr i64 %55, %57
   %59 = trunc i64 %58 to i32
@@ -10112,7 +10112,7 @@ define linkonce_odr hidden void @_ZN14AccessInternal19PostRuntimeDispatchIN11XBa
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %11, %13
   %15 = trunc i64 %14 to i32
@@ -10692,7 +10692,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -10783,7 +10783,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -10814,7 +10814,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -10884,7 +10884,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E17Epsilon
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -10956,7 +10956,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -10986,7 +10986,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -11490,7 +11490,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E12G1BarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E12G1BarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -11581,7 +11581,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -11612,7 +11612,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind0E12G1BarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -11682,7 +11682,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E12G1Barri
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E12G1BarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -11754,7 +11754,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -11784,7 +11784,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -12288,7 +12288,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -12379,7 +12379,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -12410,7 +12410,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -12480,7 +12480,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E20Shenand
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -12552,7 +12552,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -12582,7 +12582,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -13086,7 +13086,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E11XBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E11XBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -13177,7 +13177,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -13208,7 +13208,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind0E11XBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -13278,7 +13278,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E11XBarrie
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E11XBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -13350,7 +13350,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -13380,7 +13380,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -13884,7 +13884,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E11ZBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind0E11ZBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -13975,7 +13975,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -14006,7 +14006,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind0E11ZBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -14076,7 +14076,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E11ZBarrie
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind0E11ZBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -14148,7 +14148,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -14178,7 +14178,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -14682,7 +14682,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E19CardTableBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E19CardTableBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -14773,7 +14773,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -14804,7 +14804,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind1E19CardTableBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -14874,7 +14874,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E19CardTab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E19CardTableBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -14946,7 +14946,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -14976,7 +14976,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -15480,7 +15480,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -15571,7 +15571,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -15602,7 +15602,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -15672,7 +15672,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E17Epsilon
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -15744,7 +15744,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -15774,7 +15774,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -16278,7 +16278,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E12G1BarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E12G1BarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -16369,7 +16369,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -16400,7 +16400,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind1E12G1BarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -16470,7 +16470,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E12G1Barri
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E12G1BarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -16542,7 +16542,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -16572,7 +16572,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -17076,7 +17076,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -17167,7 +17167,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -17198,7 +17198,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -17268,7 +17268,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E20Shenand
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -17340,7 +17340,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -17370,7 +17370,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -17874,7 +17874,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E11XBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E11XBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -17965,7 +17965,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -17996,7 +17996,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind1E11XBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -18066,7 +18066,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E11XBarrie
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E11XBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -18138,7 +18138,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -18168,7 +18168,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -18672,7 +18672,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit.i:               ; preds = %50, %_ZN18Safepoint
   %70 = getelementptr inbounds i64, ptr %7, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %70, ptr %71, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E11ZBarrierSetEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV6FreezeI6ConfigIL8oop_kind1E11ZBarrierSetEE, i64 16), ptr %4, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -18763,7 +18763,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %133, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %134, align 8
   %135 = load ptr, ptr %71, align 8
@@ -18794,7 +18794,7 @@ _ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i: ; preds = %129, 
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %154, align 4
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #16
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %5, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %5, ptr %155, align 8
   br label %_ZN6FreezeI6ConfigIL8oop_kind1E11ZBarrierSetEE15try_freeze_fastEv.exit.sink.split
@@ -18864,7 +18864,7 @@ define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E11ZBarrie
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6FreezeI6ConfigIL8oop_kind1E11ZBarrierSetEE14allocate_chunkEmi(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %class.StackChunkAllocator, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 400), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = ashr i32 %7, 3
@@ -18936,7 +18936,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %52, %50
 _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ null, %32 ]
   %54 = load ptr, ptr %33, align 8
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1400), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %54, ptr noundef nonnull @.str.13, i32 noundef 1461, ptr noundef %55, ptr noundef nonnull @.str.14) #16
   %56 = icmp ne ptr %storemerge.i.i.i, null
   tail call void @llvm.assume(i1 %56)
@@ -18966,7 +18966,7 @@ _ZN10FreezeBase39throw_stack_overflow_on_humongous_chunkEv.exit: ; preds = %32, 
   store ptr %5, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %25, ptr %75, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19StackChunkAllocator, i64 16), ptr %4, align 8
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %1, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40

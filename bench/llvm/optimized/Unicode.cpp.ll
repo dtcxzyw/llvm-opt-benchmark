@@ -35,7 +35,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %1, 
   br i1 %9, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i
-  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm3sys7unicode11isPrintableEiE15PrintableRanges, i64 5688)
+  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicode11isPrintableEiE15PrintableRanges, i64 5688)
   br i1 %.not.i.i, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit, label %10
 
 10:                                               ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i
@@ -71,7 +71,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %_ZS
   br i1 %8, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i
-  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm3sys7unicode12isFormattingEiE2Cf, i64 168)
+  %.not.i.i = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicode12isFormattingEiE2Cf, i64 168)
   br i1 %.not.i.i, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit, label %9
 
 9:                                                ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i
@@ -156,7 +156,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i: ; preds = 
   br i1 %33, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm3sys7unicode11isPrintableEiE15PrintableRanges, i64 5688)
+  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicode11isPrintableEiE15PrintableRanges, i64 5688)
   br i1 %.not.i.i.i.i, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit, label %_ZN4llvm3sys7unicode11isPrintableEi.exit.i
 
 _ZN4llvm3sys7unicode11isPrintableEi.exit.i:       ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i.i
@@ -186,7 +186,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i: ; preds = %_
   br i1 %40, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i
-  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm3sys7unicodeL9charWidthEiE24CombiningCharacterRanges, i64 2744)
+  %.not.i.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicodeL9charWidthEiE24CombiningCharacterRanges, i64 2744)
   br i1 %.not.i.i.i, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i.preheader, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit.i:  ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i.i
@@ -216,7 +216,7 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i: ; preds = %
   br i1 %47, label %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i, label %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i, !llvm.loop !4
 
 _ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i: ; preds = %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i
-  %.not.i.i15.i = icmp eq ptr %.1.i.i.i13.i, getelementptr inbounds (i8, ptr @_ZZN4llvm3sys7unicodeL9charWidthEiE26DoubleWidthCharacterRanges, i64 800)
+  %.not.i.i15.i = icmp eq ptr %.1.i.i.i13.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3sys7unicodeL9charWidthEiE26DoubleWidthCharacterRanges, i64 800)
   br i1 %.not.i.i15.i, label %48, label %_ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i
 
 _ZNK4llvm3sys14UnicodeCharSet8containsEj.exit18.i: ; preds = %_ZSt13__lower_boundIPKN4llvm3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i14.i

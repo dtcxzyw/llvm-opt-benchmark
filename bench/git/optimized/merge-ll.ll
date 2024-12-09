@@ -232,7 +232,7 @@ for.body20.i:                                     ; preds = %for.body20.i.prehea
   br i1 %tobool23.not.i, label %find_ll_merge_driver.exit, label %for.cond17.i
 
 find_ll_merge_driver.exit:                        ; preds = %for.body.i, %for.cond17.i, %for.body20.i, %initialize_ll_merge.exit.i, %if.else.i, %if.then5.i
-  %retval.0.i = phi ptr [ getelementptr inbounds (i8, ptr @ll_merge_drv, i64 48), %initialize_ll_merge.exit.i ], [ @ll_merge_drv, %if.else.i ], [ getelementptr inbounds (i8, ptr @ll_merge_drv, i64 48), %if.then5.i ], [ %arrayidx.i, %for.body20.i ], [ getelementptr inbounds (i8, ptr @ll_merge_drv, i64 48), %for.cond17.i ], [ %fn.015.i, %for.body.i ]
+  %retval.0.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %initialize_ll_merge.exit.i ], [ @ll_merge_drv, %if.else.i ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %if.then5.i ], [ %arrayidx.i, %for.body20.i ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %for.cond17.i ], [ %fn.015.i, %for.body.i ]
   %bf.load17 = load i8, ptr %spec.store.select, align 8
   %bf.clear18 = and i8 %bf.load17, 1
   %tobool20.not = icmp eq i8 %bf.clear18, 0
@@ -297,7 +297,7 @@ for.body20.i68:                                   ; preds = %for.body20.i68.preh
   br i1 %tobool23.not.i72, label %if.end27, label %for.cond17.i73
 
 if.end27:                                         ; preds = %for.body.i59, %for.body20.i68, %for.cond17.i73, %if.else.i51, %initialize_ll_merge.exit.i49, %if.then21, %find_ll_merge_driver.exit
-  %driver.0 = phi ptr [ %retval.0.i, %if.then21 ], [ %retval.0.i, %find_ll_merge_driver.exit ], [ getelementptr inbounds (i8, ptr @ll_merge_drv, i64 48), %initialize_ll_merge.exit.i49 ], [ @ll_merge_drv, %if.else.i51 ], [ %arrayidx.i70, %for.body20.i68 ], [ getelementptr inbounds (i8, ptr @ll_merge_drv, i64 48), %for.cond17.i73 ], [ %fn.015.i60, %for.body.i59 ]
+  %driver.0 = phi ptr [ %retval.0.i, %if.then21 ], [ %retval.0.i, %find_ll_merge_driver.exit ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %initialize_ll_merge.exit.i49 ], [ @ll_merge_drv, %if.else.i51 ], [ %arrayidx.i70, %for.body20.i68 ], [ getelementptr inbounds nuw (i8, ptr @ll_merge_drv, i64 48), %for.cond17.i73 ], [ %fn.015.i60, %for.body.i59 ]
   %extra_marker_size = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 4
   %26 = load i32, ptr %extra_marker_size, align 4
   %add = add i32 %26, %marker_size.0

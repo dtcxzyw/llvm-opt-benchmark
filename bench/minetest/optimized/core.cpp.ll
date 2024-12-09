@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN13RenderingCoreC2EPN3irr14IrrlichtDeviceEP6ClientP3HudP14ShadowRendererP14RenderPipelineNS0_4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %this, ptr noundef %_device, ptr noundef %_client, ptr noundef %_hud, ptr noundef %_shadow_renderer, ptr noundef %_pipeline, <2 x float> %_virtual_size_scale.coerce) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13RenderingCore, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13RenderingCore, i64 16), ptr %this, align 8, !tbaa !4
   %device = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %_device, ptr %device, align 8, !tbaa !7
   %client = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -41,7 +41,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13RenderingCoreD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13RenderingCore, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13RenderingCore, i64 16), ptr %this, align 8, !tbaa !4
   %pipeline = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pipeline, align 8, !tbaa !18
   %isnull = icmp eq ptr %0, null
@@ -78,7 +78,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13RenderingCoreD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13RenderingCore, i64 16), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13RenderingCore, i64 16), ptr %this, align 8, !tbaa !4
   %pipeline.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pipeline.i, align 8, !tbaa !18
   %isnull.i = icmp eq ptr %0, null

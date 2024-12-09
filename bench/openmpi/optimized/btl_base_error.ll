@@ -58,7 +58,7 @@ define void @mca_btl_base_error_no_nics(ptr noundef %0, ptr noundef %1) local_un
   %11 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str, ptr noundef %10) #9
   %12 = load ptr, ptr @opal_show_help, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %15 = call i32 (ptr, ptr, i32, ...) %12(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef %13, ptr noundef %0, ptr noundef %14, ptr noundef %1) #9
   %16 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %16) #9

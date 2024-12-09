@@ -451,14 +451,14 @@ define i32 @ompi_coll_base_allgather_intra_sparbit(ptr noundef %0, i32 noundef %
   %.neg90 = mul i32 %.08298, %.neg
   %64 = add i32 %41, %.neg90
   %65 = urem i32 %64, %.val.val
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %67 = sext i32 %63 to i64
   %68 = mul i64 %43, %67
   %69 = getelementptr inbounds i8, ptr %3, i64 %68
   %70 = sub nsw i32 -1073741823, %63
   %71 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %72 = tail call i32 %66(ptr noundef %69, i64 noundef %42, ptr noundef %5, i32 noundef %48, i32 noundef %70, i32 noundef 4, ptr noundef %6, ptr noundef %71) #8
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %74 = sext i32 %65 to i64
   %75 = mul i64 %45, %74
   %76 = getelementptr inbounds i8, ptr %3, i64 %75
@@ -476,7 +476,7 @@ define i32 @ompi_coll_base_allgather_intra_sparbit(ptr noundef %0, i32 noundef %
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %46
   %.085.lcssa = phi i64 [ 0, %46 ], [ %81, %._crit_edge.loopexit ]
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %83 = tail call i32 %82(i64 noundef %.085.lcssa, ptr noundef %27, ptr noundef null) #8
   %84 = lshr i32 %.08298, 1
   %85 = shl i32 %.08497, 1

@@ -1592,7 +1592,7 @@ define hidden void @_ZN17ThreadsSMRSupport9free_listEP11ThreadsList(ptr noundef 
 
 _ZN19ThreadScanHashtableC2Ev.exit:                ; preds = %20, %24
   store ptr %22, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV37ScanHazardPtrGatherThreadsListClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37ScanHazardPtrGatherThreadsListClosure, i64 16), ptr %2, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %21, ptr %25, align 8
   %26 = load volatile ptr, ptr @_ZN17ThreadsSMRSupport17_java_thread_listE, align 8
@@ -1748,7 +1748,7 @@ _ZN11ThreadsListD2Ev.exit:                        ; preds = %76, %80
   br label %93
 
 93:                                               ; preds = %90, %.critedge, %._crit_edge
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ValidateHazardPtrsClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25ValidateHazardPtrsClosure, i64 16), ptr %3, align 8
   %94 = load volatile ptr, ptr @_ZN17ThreadsSMRSupport17_java_thread_listE, align 8
   %95 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
@@ -1860,7 +1860,7 @@ define hidden noundef zeroext i1 @_ZN17ThreadsSMRSupport25is_a_protected_JavaThr
 
 _ZN19ThreadScanHashtableC2Ev.exit:                ; preds = %1, %6
   store ptr %4, ptr %3, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV42ScanHazardPtrGatherProtectedThreadsClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV42ScanHazardPtrGatherProtectedThreadsClosure, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %7, align 8
   %8 = load volatile ptr, ptr @_ZN17ThreadsSMRSupport17_java_thread_listE, align 8
@@ -2241,7 +2241,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %6, %8
   br i1 %.not17, label %.loopexit, label %22
 
 22:                                               ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV40ScanHazardPtrPrintMatchingThreadsClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV40ScanHazardPtrPrintMatchingThreadsClosure, i64 16), ptr %2, align 8
   store ptr %0, ptr %4, align 8
   %23 = load volatile ptr, ptr @_ZN17ThreadsSMRSupport17_java_thread_listE, align 8
   %24 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
@@ -2443,14 +2443,14 @@ define hidden void @_ZN17ThreadsSMRSupport14log_statisticsEv() local_unnamed_add
 
 3:                                                ; preds = %0
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #15
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 3, ptr %5, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %1, align 8
   call void @_ZN17ThreadsSMRSupport13print_info_onEP12outputStream(ptr noundef nonnull %1)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %1) #15
   br label %6
@@ -4904,7 +4904,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #15
   ret void

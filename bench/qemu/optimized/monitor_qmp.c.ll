@@ -260,17 +260,17 @@ if.then12.i.i:                                    ; preds = %do.body10.i.i
   br label %while.body
 
 if.else.i.i:                                      ; preds = %do.body10.i.i
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @mon_list, i64 8), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @mon_list, i64 8), align 8
   br label %while.body
 
 while.body:                                       ; preds = %if.else.i.i, %if.then12.i.i
   %12 = phi ptr [ null, %if.else.i.i ], [ %.pre.i.i, %if.then12.i.i ]
   store ptr %12, ptr %11, align 8
   store i64 0, ptr %entry11.i.i, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mon_list, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mon_list, i64 8), align 8
   store ptr %13, ptr %tql_prev18.i.i, align 8
   store ptr %mon.027.i.us.i, ptr %13, align 8
-  store ptr %entry11.i.i, ptr getelementptr inbounds (i8, ptr @mon_list, i64 8), align 8
+  store ptr %entry11.i.i, ptr getelementptr inbounds nuw (i8, ptr @mon_list, i64 8), align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @monitor_lock, ptr noundef nonnull @.str.8, i32 noundef 132) #6
   %14 = load ptr, ptr %call2.i.us.i, align 8
   %qmp_requests = getelementptr inbounds nuw i8, ptr %14, i64 328

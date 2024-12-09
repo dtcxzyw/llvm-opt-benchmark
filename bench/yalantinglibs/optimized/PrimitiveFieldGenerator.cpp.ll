@@ -447,7 +447,7 @@ _ZN9struct_pb8compiler14FieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK
   %d_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %descriptor, ptr %d_.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -5539,7 +5539,7 @@ _ZN9struct_pb8compiler14FieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK
   %d_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %descriptor, ptr %d_.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler31RepeatedPrimitiveFieldGeneratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9struct_pb8compiler31RepeatedPrimitiveFieldGeneratorE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -5623,7 +5623,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i, 
   %d_.i.i = getelementptr inbounds nuw i8, ptr %g, i64 56
   store ptr %1, ptr %d_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
   %11 = load ptr, ptr %d_, align 8
   %label_.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 60
   %12 = load i32, ptr %label_.i.i.i.i, align 4
@@ -6164,7 +6164,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i, 
   %d_.i.i = getelementptr inbounds nuw i8, ptr %g, i64 56
   store ptr %1, ptr %d_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
   %11 = load ptr, ptr %d_, align 8
   %call = invoke noundef zeroext i1 @_ZN9struct_pb8compiler9is_varintEPKN6google8protobuf15FieldDescriptorE(ptr noundef %11)
           to label %invoke.cont4 unwind label %lpad3
@@ -6821,7 +6821,7 @@ _ZN9struct_pb8compiler23PrimitiveFieldGeneratorC2EPKN6google8protobuf15FieldDesc
   %d_.i.i = getelementptr inbounds nuw i8, ptr %g, i64 56
   store ptr %0, ptr %d_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
   store ptr %p, ptr %format, align 8
   %10 = getelementptr inbounds nuw i8, ptr %format, i64 16
   store i32 0, ptr %10, align 8
@@ -7862,7 +7862,7 @@ _ZN9struct_pb8compiler23PrimitiveFieldGeneratorC2EPKN6google8protobuf15FieldDesc
   %d_.i.i = getelementptr inbounds nuw i8, ptr %g, i64 56
   store ptr %0, ptr %d_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
   store ptr %p, ptr %format, align 8
   %10 = getelementptr inbounds nuw i8, ptr %format, i64 16
   store i32 0, ptr %10, align 8
@@ -9661,7 +9661,7 @@ _ZN9struct_pb8compiler23PrimitiveFieldGeneratorC2EPKN6google8protobuf15FieldDesc
   %d_.i.i = getelementptr inbounds nuw i8, ptr %g, i64 56
   store ptr %0, ptr %d_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
@@ -9920,7 +9920,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i, 
   %d_.i.i = getelementptr inbounds nuw i8, ptr %g, i64 56
   store ptr %13, ptr %d_.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9struct_pb8compiler23PrimitiveFieldGeneratorE, i64 16), ptr %g, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull @.str.46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
           to label %invoke.cont14 unwind label %lpad13

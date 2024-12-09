@@ -1451,7 +1451,7 @@ if.then3.i201:                                    ; preds = %if.then.i200
 
 if.then294:                                       ; preds = %if.then.i200, %if.then3.i201
   %arg.4 = phi ptr [ %incdec.ptr.i202, %if.then3.i201 ], [ null, %if.then.i200 ]
-  %158 = load i8, ptr getelementptr inbounds (i8, ptr @ref_excludes, i64 64), align 8
+  %158 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ref_excludes, i64 64), align 8
   %tobool295.not = icmp eq i8 %158, 0
   br i1 %tobool295.not, label %if.end300, label %if.then296
 
@@ -1508,7 +1508,7 @@ if.then3.i219:                                    ; preds = %if.then.i218
 
 if.then304:                                       ; preds = %if.then.i218, %if.then3.i219
   %arg.5 = phi ptr [ %incdec.ptr.i220, %if.then3.i219 ], [ null, %if.then.i218 ]
-  %163 = load i8, ptr getelementptr inbounds (i8, ptr @ref_excludes, i64 64), align 8
+  %163 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ref_excludes, i64 64), align 8
   %tobool305.not = icmp eq i8 %163, 0
   br i1 %tobool305.not, label %if.end310, label %if.then306
 
@@ -1584,7 +1584,7 @@ if.then3.i250:                                    ; preds = %if.then.i249
 
 if.then317:                                       ; preds = %if.then.i249, %if.then3.i250
   %arg.7 = phi ptr [ %incdec.ptr.i251, %if.then3.i250 ], [ null, %if.then.i249 ]
-  %170 = load i8, ptr getelementptr inbounds (i8, ptr @ref_excludes, i64 64), align 8
+  %170 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ref_excludes, i64 64), align 8
   %tobool318.not = icmp eq i8 %170, 0
   br i1 %tobool318.not, label %if.end323, label %if.then319
 
@@ -1909,7 +1909,7 @@ if.then468:                                       ; preds = %if.then464
   unreachable
 
 if.end470:                                        ; preds = %if.then464
-  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @the_index, i64 40), align 8
+  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 40), align 8
   %tobool471.not = icmp eq ptr %186, null
   br i1 %tobool471.not, label %for.inc566, label %if.then472
 

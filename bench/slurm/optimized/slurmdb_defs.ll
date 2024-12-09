@@ -3279,7 +3279,7 @@ define ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %4, %1
   %.0 = phi i1 [ false, %1 ], [ %.not34, %4 ]
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %8 = tail call ptr @acct_storage_g_get_connection(i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %7) #20
   store ptr %8, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
@@ -7516,7 +7516,7 @@ define internal range(i32 -1, 2) i32 @_sort_local_cluster(ptr nocapture noundef 
   br i1 %19, label %32, label %20
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 272
   %24 = load ptr, ptr %23, align 8
@@ -7525,7 +7525,7 @@ define internal range(i32 -1, 2) i32 @_sort_local_cluster(ptr nocapture noundef 
   br i1 %.not, label %32, label %26
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 272
   %30 = load ptr, ptr %29, align 8

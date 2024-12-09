@@ -640,8 +640,8 @@ define void @_ZN16SampleEditPluginC2Ev(ptr noundef nonnull align 8 dereferenceab
           to label %4 unwind label %22
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16SampleEditPlugin, i64 16), ptr %0, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16SampleEditPlugin, i64 192), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16SampleEditPlugin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16SampleEditPlugin, i64 192), ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36

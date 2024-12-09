@@ -177,7 +177,7 @@ opal_pointer_array_get_item.exit.i9:              ; preds = %65, %58
   br label %ompi_mpi_errcode_get_class.exit
 
 ompi_mpi_errcode_get_class.exit:                  ; preds = %50, %opal_pointer_array_get_item.exit.i9, %67, %70
-  %.05.in.i = phi ptr [ %71, %70 ], [ getelementptr inbounds (i8, ptr @ompi_err_unknown, i64 20), %67 ], [ getelementptr inbounds (i8, ptr @ompi_err_unknown, i64 20), %opal_pointer_array_get_item.exit.i9 ], [ getelementptr inbounds (i8, ptr @ompi_err_unknown, i64 20), %50 ]
+  %.05.in.i = phi ptr [ %71, %70 ], [ getelementptr inbounds nuw (i8, ptr @ompi_err_unknown, i64 20), %67 ], [ getelementptr inbounds nuw (i8, ptr @ompi_err_unknown, i64 20), %opal_pointer_array_get_item.exit.i9 ], [ getelementptr inbounds nuw (i8, ptr @ompi_err_unknown, i64 20), %50 ]
   %.05.i = load i32, ptr %.05.in.i, align 4
   store i32 %.05.i, ptr %1, align 4
   tail call void @ompi_mpi_instance_release() #4

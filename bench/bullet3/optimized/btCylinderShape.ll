@@ -76,7 +76,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN15btCylinderShapeC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %halfExtents) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btCylinderShape, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btCylinderShape, i64 16), ptr %this, align 8
   %m_upAxis = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 1, ptr %m_upAxis, align 8
   %m_collisionMargin.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -194,7 +194,7 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN16btCylinderShapeXC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %halfExtents) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN15btCylinderShapeC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 4 dereferenceable(16) %halfExtents)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16btCylinderShapeX, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btCylinderShapeX, i64 16), ptr %this, align 8
   %m_upAxis = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %m_upAxis, align 8
   ret void
@@ -204,7 +204,7 @@ entry:
 define dso_local void @_ZN16btCylinderShapeZC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %halfExtents) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN15btCylinderShapeC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 4 dereferenceable(16) %halfExtents)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16btCylinderShapeZ, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btCylinderShapeZ, i64 16), ptr %this, align 8
   %m_upAxis = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 2, ptr %m_upAxis, align 8
   ret void

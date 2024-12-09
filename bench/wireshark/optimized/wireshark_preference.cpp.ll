@@ -500,7 +500,7 @@ $_ZTI13UatPreference = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV19WiresharkPreference, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19WiresharkPreference, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %3, align 8
   ret void
@@ -682,7 +682,7 @@ define linkonce_odr noundef ptr @_ZN30BoolPreferencePREF_BOOLFactory6createEP7QO
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14BoolPreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14BoolPreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -823,7 +823,7 @@ define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_STRINGFactory6createE
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16StringPreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16StringPreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -1015,7 +1015,7 @@ define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_CUSTOMFactory6createE
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16StringPreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16StringPreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -1041,7 +1041,7 @@ define linkonce_odr noundef ptr @_ZN37StringPreferencePREF_DISSECTORFactory6crea
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16StringPreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16StringPreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -1067,7 +1067,7 @@ define linkonce_odr noundef ptr @_ZN38PasswordPreferencePREF_PASSWORDFactory6cre
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18PasswordPreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18PasswordPreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -1125,7 +1125,7 @@ define linkonce_odr noundef ptr @_ZN30UIntPreferencePREF_UINTFactory6createEP7QO
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14UIntPreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14UIntPreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -1164,7 +1164,7 @@ define linkonce_odr noundef ptr @_ZN30EnumPreferencePREF_ENUMFactory6createEP7QO
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV14EnumPreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14EnumPreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -1544,7 +1544,7 @@ define linkonce_odr noundef ptr @_ZN32RangePreferencePREF_RANGEFactory6createEP7
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15RangePreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15RangePreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -1730,7 +1730,7 @@ define linkonce_odr noundef ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactory
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15RangePreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15RangePreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -1756,7 +1756,7 @@ define linkonce_odr noundef ptr @_ZN32ColorPreferencePREF_COLORFactory6createEP7
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15ColorPreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15ColorPreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -2036,7 +2036,7 @@ define linkonce_odr noundef ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactor
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18SaveFilePreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18SaveFilePreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -3441,7 +3441,7 @@ define linkonce_odr noundef ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactor
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18OpenFilePreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18OpenFilePreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -3793,7 +3793,7 @@ define linkonce_odr noundef ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6creat
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17DirNamePreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17DirNamePreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -4113,7 +4113,7 @@ define linkonce_odr noundef ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObj
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13UatPreference, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13UatPreference, i64 16), ptr %3, align 8
   ret ptr %3
 
 6:                                                ; preds = %2
@@ -4171,7 +4171,7 @@ declare void @_ZN9UatDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(112)
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_wireshark_preference.cpp() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL37global_BoolPreferencePREF_BOOLFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30BoolPreferencePREF_BOOLFactory, i64 16), ptr @_ZL37global_BoolPreferencePREF_BOOLFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30BoolPreferencePREF_BOOLFactory, i64 16), ptr @_ZL37global_BoolPreferencePREF_BOOLFactory, align 8
   %1 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %2 unwind label %3
 
@@ -4193,7 +4193,7 @@ common.resume:                                    ; preds = %68, %63, %58, %53, 
 __cxx_global_var_init.exit:                       ; preds = %2
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN30BoolPreferencePREF_BOOLFactoryD2Ev, ptr nonnull @_ZL37global_BoolPreferencePREF_BOOLFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL41global_StringPreferencePREF_STRINGFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34StringPreferencePREF_STRINGFactory, i64 16), ptr @_ZL41global_StringPreferencePREF_STRINGFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34StringPreferencePREF_STRINGFactory, i64 16), ptr @_ZL41global_StringPreferencePREF_STRINGFactory, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %8
 
@@ -4209,7 +4209,7 @@ __cxx_global_var_init.exit:                       ; preds = %2
 __cxx_global_var_init.1.exit:                     ; preds = %7
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN34StringPreferencePREF_STRINGFactoryD2Ev, ptr nonnull @_ZL41global_StringPreferencePREF_STRINGFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL41global_StringPreferencePREF_CUSTOMFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34StringPreferencePREF_CUSTOMFactory, i64 16), ptr @_ZL41global_StringPreferencePREF_CUSTOMFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34StringPreferencePREF_CUSTOMFactory, i64 16), ptr @_ZL41global_StringPreferencePREF_CUSTOMFactory, align 8
   %11 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %12 unwind label %13
 
@@ -4225,7 +4225,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
 __cxx_global_var_init.2.exit:                     ; preds = %12
   %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN34StringPreferencePREF_CUSTOMFactoryD2Ev, ptr nonnull @_ZL41global_StringPreferencePREF_CUSTOMFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL44global_StringPreferencePREF_DISSECTORFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV37StringPreferencePREF_DISSECTORFactory, i64 16), ptr @_ZL44global_StringPreferencePREF_DISSECTORFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV37StringPreferencePREF_DISSECTORFactory, i64 16), ptr @_ZL44global_StringPreferencePREF_DISSECTORFactory, align 8
   %16 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %17 unwind label %18
 
@@ -4241,7 +4241,7 @@ __cxx_global_var_init.2.exit:                     ; preds = %12
 __cxx_global_var_init.3.exit:                     ; preds = %17
   %20 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN37StringPreferencePREF_DISSECTORFactoryD2Ev, ptr nonnull @_ZL44global_StringPreferencePREF_DISSECTORFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL45global_PasswordPreferencePREF_PASSWORDFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV38PasswordPreferencePREF_PASSWORDFactory, i64 16), ptr @_ZL45global_PasswordPreferencePREF_PASSWORDFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV38PasswordPreferencePREF_PASSWORDFactory, i64 16), ptr @_ZL45global_PasswordPreferencePREF_PASSWORDFactory, align 8
   %21 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %22 unwind label %23
 
@@ -4257,7 +4257,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %17
 __cxx_global_var_init.4.exit:                     ; preds = %22
   %25 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN38PasswordPreferencePREF_PASSWORDFactoryD2Ev, ptr nonnull @_ZL45global_PasswordPreferencePREF_PASSWORDFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL37global_UIntPreferencePREF_UINTFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30UIntPreferencePREF_UINTFactory, i64 16), ptr @_ZL37global_UIntPreferencePREF_UINTFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30UIntPreferencePREF_UINTFactory, i64 16), ptr @_ZL37global_UIntPreferencePREF_UINTFactory, align 8
   %26 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %27 unwind label %28
 
@@ -4273,7 +4273,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %22
 __cxx_global_var_init.5.exit:                     ; preds = %27
   %30 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN30UIntPreferencePREF_UINTFactoryD2Ev, ptr nonnull @_ZL37global_UIntPreferencePREF_UINTFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL37global_EnumPreferencePREF_ENUMFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30EnumPreferencePREF_ENUMFactory, i64 16), ptr @_ZL37global_EnumPreferencePREF_ENUMFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30EnumPreferencePREF_ENUMFactory, i64 16), ptr @_ZL37global_EnumPreferencePREF_ENUMFactory, align 8
   %31 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %32 unwind label %33
 
@@ -4289,7 +4289,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %27
 __cxx_global_var_init.6.exit:                     ; preds = %32
   %35 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN30EnumPreferencePREF_ENUMFactoryD2Ev, ptr nonnull @_ZL37global_EnumPreferencePREF_ENUMFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL39global_RangePreferencePREF_RANGEFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV32RangePreferencePREF_RANGEFactory, i64 16), ptr @_ZL39global_RangePreferencePREF_RANGEFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32RangePreferencePREF_RANGEFactory, i64 16), ptr @_ZL39global_RangePreferencePREF_RANGEFactory, align 8
   %36 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %37 unwind label %38
 
@@ -4305,7 +4305,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %32
 __cxx_global_var_init.7.exit:                     ; preds = %37
   %40 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32RangePreferencePREF_RANGEFactoryD2Ev, ptr nonnull @_ZL39global_RangePreferencePREF_RANGEFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL49global_RangePreferencePREF_DECODE_AS_RANGEFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory, i64 16), ptr @_ZL49global_RangePreferencePREF_DECODE_AS_RANGEFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory, i64 16), ptr @_ZL49global_RangePreferencePREF_DECODE_AS_RANGEFactory, align 8
   %41 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %42 unwind label %43
 
@@ -4321,7 +4321,7 @@ __cxx_global_var_init.7.exit:                     ; preds = %37
 __cxx_global_var_init.8.exit:                     ; preds = %42
   %45 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD2Ev, ptr nonnull @_ZL49global_RangePreferencePREF_DECODE_AS_RANGEFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL39global_ColorPreferencePREF_COLORFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV32ColorPreferencePREF_COLORFactory, i64 16), ptr @_ZL39global_ColorPreferencePREF_COLORFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV32ColorPreferencePREF_COLORFactory, i64 16), ptr @_ZL39global_ColorPreferencePREF_COLORFactory, align 8
   %46 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %47 unwind label %48
 
@@ -4337,7 +4337,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %42
 __cxx_global_var_init.9.exit:                     ; preds = %47
   %50 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN32ColorPreferencePREF_COLORFactoryD2Ev, ptr nonnull @_ZL39global_ColorPreferencePREF_COLORFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL50global_SaveFilePreferencePREF_SAVE_FILENAMEFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory, i64 16), ptr @_ZL50global_SaveFilePreferencePREF_SAVE_FILENAMEFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory, i64 16), ptr @_ZL50global_SaveFilePreferencePREF_SAVE_FILENAMEFactory, align 8
   %51 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %52 unwind label %53
 
@@ -4353,7 +4353,7 @@ __cxx_global_var_init.9.exit:                     ; preds = %47
 __cxx_global_var_init.10.exit:                    ; preds = %52
   %55 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD2Ev, ptr nonnull @_ZL50global_SaveFilePreferencePREF_SAVE_FILENAMEFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL50global_OpenFilePreferencePREF_OPEN_FILENAMEFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory, i64 16), ptr @_ZL50global_OpenFilePreferencePREF_OPEN_FILENAMEFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory, i64 16), ptr @_ZL50global_OpenFilePreferencePREF_OPEN_FILENAMEFactory, align 8
   %56 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %57 unwind label %58
 
@@ -4369,7 +4369,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %52
 __cxx_global_var_init.11.exit:                    ; preds = %57
   %60 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD2Ev, ptr nonnull @_ZL50global_OpenFilePreferencePREF_OPEN_FILENAMEFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL43global_DirNamePreferencePREF_DIRNAMEFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV36DirNamePreferencePREF_DIRNAMEFactory, i64 16), ptr @_ZL43global_DirNamePreferencePREF_DIRNAMEFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV36DirNamePreferencePREF_DIRNAMEFactory, i64 16), ptr @_ZL43global_DirNamePreferencePREF_DIRNAMEFactory, align 8
   %61 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %62 unwind label %63
 
@@ -4385,7 +4385,7 @@ __cxx_global_var_init.11.exit:                    ; preds = %57
 __cxx_global_var_init.12.exit:                    ; preds = %62
   %65 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD2Ev, ptr nonnull @_ZL43global_DirNamePreferencePREF_DIRNAMEFactory, ptr nonnull @__dso_handle) #18
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) @_ZL35global_UatPreferencePREF_UATFactory, ptr noundef null)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV28UatPreferencePREF_UATFactory, i64 16), ptr @_ZL35global_UatPreferencePREF_UATFactory, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28UatPreferencePREF_UATFactory, i64 16), ptr @_ZL35global_UatPreferencePREF_UATFactory, align 8
   %66 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %67 unwind label %68
 

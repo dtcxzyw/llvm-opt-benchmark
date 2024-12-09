@@ -643,7 +643,7 @@ define linkonce_odr hidden void @_ZN18CallStaticJavaNodeC2EP7CompilePK8TypeFuncP
   store ptr %4, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV18CallStaticJavaNode, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV18CallStaticJavaNode, i64 16), ptr %0, align 8
   store i32 31, ptr %11, align 4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i8, ptr %25, align 4
@@ -1060,7 +1060,7 @@ _ZN4NodenwEm.exit:                                ; preds = %159, %161
   store ptr %168, ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 144
   store i8 0, ptr %186, align 8
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV19CallDynamicJavaNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTV19CallDynamicJavaNode, i64 16), ptr %.0.i.i.i, align 8
   %187 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 148
   store i32 %170, ptr %187, align 4
   store i32 47, ptr %176, align 4
@@ -1144,7 +1144,7 @@ define hidden noundef ptr @_ZN13CallGenerator10for_inlineEP8ciMethodf(ptr nounde
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %0, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV14ParseGenerator, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV14ParseGenerator, i64 16), ptr %12, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -1182,7 +1182,7 @@ define hidden noundef ptr @_ZN13CallGenerator7for_osrEP8ciMethodi(ptr noundef %0
   %17 = sitofp i32 %6 to float
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %0, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV14ParseGenerator, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV14ParseGenerator, i64 16), ptr %14, align 8
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -1211,7 +1211,7 @@ define hidden noundef ptr @_ZN13CallGenerator15for_direct_callEP8ciMethodb(ptr n
   %13 = zext i1 %1 to i8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV19DirectCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV19DirectCallGenerator, i64 16), ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i8 %13, ptr %15, align 8
   br label %16
@@ -1236,7 +1236,7 @@ define hidden noundef ptr @_ZN13CallGenerator16for_virtual_callEP8ciMethodi(ptr 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %13, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV20VirtualCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV20VirtualCallGenerator, i64 16), ptr %10, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -1267,7 +1267,7 @@ define hidden noundef ptr @_ZN13CallGenerator15for_late_inlineEP8ciMethodPS_(ptr
   store ptr %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i8 1, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV23LateInlineCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV23LateInlineCallGenerator, i64 16), ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -2016,7 +2016,7 @@ define hidden noundef ptr @_ZN13CallGenerator18for_mh_late_inlineEP8ciMethodS1_b
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr null, ptr %25, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV25LateInlineMHCallGenerator, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV25LateInlineMHCallGenerator, i64 16), ptr %17, align 8
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -2247,7 +2247,7 @@ define hidden noundef ptr @_ZN13CallGenerator23for_late_inline_virtualEP8ciMetho
   store i8 1, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV30LateInlineVirtualCallGenerator, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV30LateInlineVirtualCallGenerator, i64 16), ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %18, i8 0, i64 25, i1 false)
@@ -2487,7 +2487,7 @@ define hidden void @_ZN13CallGenerator21do_late_inline_helperEv(ptr noundef nonn
 145:                                              ; preds = %139
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(81) %143, i32 noundef %142) #8
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 44
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV13SafePointNode, i64 16), ptr %143, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV13SafePointNode, i64 16), ptr %143, align 8
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 56
   store ptr %140, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 64
@@ -3231,7 +3231,7 @@ define hidden noundef ptr @_ZN13CallGenerator22for_string_late_inlineEP8ciMethod
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %1, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV29LateInlineStringCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV29LateInlineStringCallGenerator, i64 16), ptr %10, align 8
   br label %18
 
 18:                                               ; preds = %12, %2
@@ -3262,7 +3262,7 @@ define hidden noundef ptr @_ZN13CallGenerator22for_boxing_late_inlineEP8ciMethod
   store i8 1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %1, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV29LateInlineBoxingCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV29LateInlineBoxingCallGenerator, i64 16), ptr %10, align 8
   br label %18
 
 18:                                               ; preds = %12, %2
@@ -3293,7 +3293,7 @@ define hidden noundef ptr @_ZN13CallGenerator31for_vector_reboxing_late_inlineEP
   store i8 1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %1, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV37LateInlineVectorReboxingCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV37LateInlineVectorReboxingCallGenerator, i64 16), ptr %10, align 8
   br label %18
 
 18:                                               ; preds = %12, %2
@@ -3318,7 +3318,7 @@ define hidden noundef ptr @_ZN13CallGenerator18for_predicted_callEP7ciKlassPS_S2
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %16, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV22PredictedCallGenerator, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV22PredictedCallGenerator, i64 16), ptr %12, align 8
   %18 = fcmp ogt float %3, 0x3FEFFFFDE0000000
   %.0.i = select i1 %18, float 0x3FEFFFFDE0000000, float %3
   %19 = fcmp olt float %.0.i, 0x3EB0C6F7A0000000
@@ -3357,7 +3357,7 @@ define hidden noundef ptr @_ZN13CallGenerator16for_guarded_callEP7ciKlassPS_S2_(
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %15, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV22PredictedCallGenerator, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV22PredictedCallGenerator, i64 16), ptr %11, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -3664,7 +3664,7 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
 193:                                              ; preds = %180
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store ptr %183, ptr %194, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV19DirectCallGenerator, i64 16), ptr %191, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV19DirectCallGenerator, i64 16), ptr %191, align 8
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store i8 0, ptr %195, align 8
   br label %_ZN13CallGenerator15for_direct_callEP8ciMethodb.exit
@@ -3761,7 +3761,7 @@ _ZN4NodenwEm.exit:                                ; preds = %245, %247
 
 250:                                              ; preds = %_ZN4NodenwEm.exit
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i, i32 noundef 3) #8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %.0.i.i.i, align 8
   %251 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i8 0, ptr %251, align 4
   %252 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -4492,7 +4492,7 @@ _ZN7Compile21should_delay_inliningEv.exit.thread: ; preds = %4
   store ptr %2, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i8 1, ptr %31, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV23LateInlineCallGenerator, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV23LateInlineCallGenerator, i64 16), ptr %27, align 8
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i64 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -4573,7 +4573,7 @@ _ZN7Compile21should_delay_inliningEv.exit.thread: ; preds = %4
   store i8 0, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 48
   store ptr null, ptr %84, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV25LateInlineMHCallGenerator, i64 16), ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV25LateInlineMHCallGenerator, i64 16), ptr %76, align 8
   %85 = getelementptr inbounds nuw i8, ptr %76, i64 56
   store ptr %1, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %76, i64 64
@@ -4594,7 +4594,7 @@ _ZN7Compile21should_delay_inliningEv.exit.thread: ; preds = %4
 96:                                               ; preds = %87
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr %2, ptr %97, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV19DirectCallGenerator, i64 16), ptr %94, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV19DirectCallGenerator, i64 16), ptr %94, align 8
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 24
   store i8 0, ptr %98, align 8
   br label %_ZN13CallGenerator15for_late_inlineEP8ciMethodPS_.exit
@@ -4641,7 +4641,7 @@ define hidden noundef ptr @_ZN13CallGenerator24for_predicated_intrinsicEPS_S0_(p
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %14, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV28PredicatedIntrinsicGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV28PredicatedIntrinsicGenerator, i64 16), ptr %10, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -4796,7 +4796,7 @@ _ZN4NodenwEm.exit:                                ; preds = %104, %106
 
 109:                                              ; preds = %_ZN4NodenwEm.exit
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i, i32 noundef 1) #8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %.0.i.i.i, align 8
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i8 0, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -5230,7 +5230,7 @@ _ZN4NodenwEm.exit144:                             ; preds = %351, %353
 356:                                              ; preds = %_ZN4NodenwEm.exit144
   %357 = add nsw i32 %.3, 1
   call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i143, i32 noundef %357) #8
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %.0.i.i.i143, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV10RegionNode, i64 16), ptr %.0.i.i.i143, align 8
   %358 = getelementptr inbounds nuw i8, ptr %.0.i.i.i143, i64 52
   store i8 0, ptr %358, align 4
   %359 = getelementptr inbounds nuw i8, ptr %.0.i.i.i143, i64 56
@@ -5971,7 +5971,7 @@ define hidden noundef ptr @_ZN13CallGenerator17for_uncommon_trapEP8ciMethodN14De
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV25UncommonTrapCallGenerator, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV25UncommonTrapCallGenerator, i64 16), ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 20
@@ -6221,7 +6221,7 @@ define linkonce_odr hidden noundef ptr @_ZN19DirectCallGenerator14with_call_node
   %17 = and i8 %16, 1
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %14, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV19DirectCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV19DirectCallGenerator, i64 16), ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i8 %17, ptr %19, align 8
   br label %20
@@ -6267,7 +6267,7 @@ define linkonce_odr hidden noundef ptr @_ZN20VirtualCallGenerator14with_call_nod
   %19 = and i8 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %14, ptr %20, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV20VirtualCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV20VirtualCallGenerator, i64 16), ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %16, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -6330,7 +6330,7 @@ define linkonce_odr hidden noundef ptr @_ZN23LateInlineCallGenerator14with_call_
   store ptr %14, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i8 1, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV23LateInlineCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV23LateInlineCallGenerator, i64 16), ptr %10, align 8
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -6527,7 +6527,7 @@ define linkonce_odr hidden noundef ptr @_ZN25LateInlineMHCallGenerator14with_cal
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr null, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV25LateInlineMHCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV25LateInlineMHCallGenerator, i64 16), ptr %10, align 8
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %14, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -6686,7 +6686,7 @@ define linkonce_odr hidden noundef ptr @_ZN30LateInlineVirtualCallGenerator14wit
   store i32 %16, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 1, ptr %21, align 4
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV30LateInlineVirtualCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV30LateInlineVirtualCallGenerator, i64 16), ptr %10, align 8
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %22, i8 0, i64 25, i1 false)
@@ -7197,7 +7197,7 @@ define linkonce_odr hidden noundef ptr @_ZN29LateInlineStringCallGenerator14with
   store i8 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %16, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV29LateInlineStringCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV29LateInlineStringCallGenerator, i64 16), ptr %10, align 8
   br label %22
 
 22:                                               ; preds = %12, %2
@@ -7376,7 +7376,7 @@ define linkonce_odr hidden noundef ptr @_ZN29LateInlineBoxingCallGenerator14with
   store i8 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %16, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV29LateInlineBoxingCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV29LateInlineBoxingCallGenerator, i64 16), ptr %10, align 8
   br label %22
 
 22:                                               ; preds = %12, %2
@@ -7456,7 +7456,7 @@ define linkonce_odr hidden noundef ptr @_ZN37LateInlineVectorReboxingCallGenerat
   store i8 1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %16, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV37LateInlineVectorReboxingCallGenerator, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV37LateInlineVectorReboxingCallGenerator, i64 16), ptr %10, align 8
   br label %22
 
 22:                                               ; preds = %12, %2

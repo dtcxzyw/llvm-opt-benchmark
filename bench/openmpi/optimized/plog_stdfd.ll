@@ -44,13 +44,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @init() #0 {
   %1 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull @.str.1, i32 noundef 44) #13
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @pmix_plog_stdfd_module, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @pmix_plog_stdfd_module, i64 8), align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @finalize() #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_plog_stdfd_module, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_plog_stdfd_module, i64 8), align 8
   tail call void @PMIx_Argv_free(ptr noundef %1) #13
   ret void
 }
@@ -63,7 +63,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef readonly %1, i64 noundef 
   br i1 %or.cond, label %.loopexit, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1073741828
@@ -85,10 +85,10 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef readonly %1, i64 noundef 
   br i1 %20, label %21, label %75
 
 21:                                               ; preds = %18
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_iof_deliver_t_class, i64 56), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_iof_deliver_t_class, i64 56), align 8
   %23 = tail call noalias noundef ptr @malloc(i64 noundef %22) #15
   %24 = load i32, ptr @pmix_class_init_epoch, align 4
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_iof_deliver_t_class, i64 32), align 8
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_iof_deliver_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %24, %25
   br i1 %.not.i, label %27, label %26
 
@@ -208,10 +208,10 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %61
   br i1 %77, label %78, label %132
 
 78:                                               ; preds = %75
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_iof_deliver_t_class, i64 56), align 8
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_iof_deliver_t_class, i64 56), align 8
   %80 = tail call noalias noundef ptr @malloc(i64 noundef %79) #15
   %81 = load i32, ptr @pmix_class_init_epoch, align 4
-  %82 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_iof_deliver_t_class, i64 32), align 8
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_iof_deliver_t_class, i64 32), align 8
   %.not.i96 = icmp eq i32 %81, %82
   br i1 %.not.i96, label %84, label %83
 

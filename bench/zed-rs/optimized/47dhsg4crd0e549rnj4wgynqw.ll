@@ -93141,7 +93141,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h0b356b770ed41
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces32WL_DATA_DEVICE_MANAGER_INTERFACE17ha7135c7516959963E, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces32WL_DATA_DEVICE_MANAGER_INTERFACE17ha7135c7516959963E, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -93190,7 +93190,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h0b356b770ed41
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces32WL_DATA_DEVICE_MANAGER_INTERFACE17ha7135c7516959963E, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces32WL_DATA_DEVICE_MANAGER_INTERFACE17ha7135c7516959963E, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -93400,7 +93400,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h253020b7ed4e3
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols3xdg10decoration3zv19generated6client12__interfaces36ZXDG_DECORATION_MANAGER_V1_INTERFACE17h70e0f0846d536a02E, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols3xdg10decoration3zv19generated6client12__interfaces36ZXDG_DECORATION_MANAGER_V1_INTERFACE17h70e0f0846d536a02E, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -93449,7 +93449,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h253020b7ed4e3
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols3xdg10decoration3zv19generated6client12__interfaces36ZXDG_DECORATION_MANAGER_V1_INTERFACE17h70e0f0846d536a02E, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols3xdg10decoration3zv19generated6client12__interfaces36ZXDG_DECORATION_MANAGER_V1_INTERFACE17h70e0f0846d536a02E, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -93659,7 +93659,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h4b62fd2df2bca
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces16WL_SHM_INTERFACE17h8ce3a5e12c9a6a39E, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces16WL_SHM_INTERFACE17h8ce3a5e12c9a6a39E, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -93708,7 +93708,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h4b62fd2df2bca
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces16WL_SHM_INTERFACE17h8ce3a5e12c9a6a39E, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces16WL_SHM_INTERFACE17h8ce3a5e12c9a6a39E, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -93918,7 +93918,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h5644f1ad6cca6
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN24wayland_protocols_plasma4blur9generated6client12__interfaces35ORG_KDE_KWIN_BLUR_MANAGER_INTERFACE17ha83ced3829007f60E, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN24wayland_protocols_plasma4blur9generated6client12__interfaces35ORG_KDE_KWIN_BLUR_MANAGER_INTERFACE17ha83ced3829007f60E, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -93967,7 +93967,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h5644f1ad6cca6
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN24wayland_protocols_plasma4blur9generated6client12__interfaces35ORG_KDE_KWIN_BLUR_MANAGER_INTERFACE17ha83ced3829007f60E, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN24wayland_protocols_plasma4blur9generated6client12__interfaces35ORG_KDE_KWIN_BLUR_MANAGER_INTERFACE17ha83ced3829007f60E, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -94177,7 +94177,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h84ca92a0cb156
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp17primary_selection3zv19generated6client12__interfaces49ZWP_PRIMARY_SELECTION_DEVICE_MANAGER_V1_INTERFACE17h2e833f9a80b9f1c7E, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp17primary_selection3zv19generated6client12__interfaces49ZWP_PRIMARY_SELECTION_DEVICE_MANAGER_V1_INTERFACE17h2e833f9a80b9f1c7E, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -94226,7 +94226,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h84ca92a0cb156
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp17primary_selection3zv19generated6client12__interfaces49ZWP_PRIMARY_SELECTION_DEVICE_MANAGER_V1_INTERFACE17h2e833f9a80b9f1c7E, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp17primary_selection3zv19generated6client12__interfaces49ZWP_PRIMARY_SELECTION_DEVICE_MANAGER_V1_INTERFACE17h2e833f9a80b9f1c7E, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -94436,7 +94436,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h917ce151b194c
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp10text_input3zv39generated6client12__interfaces35ZWP_TEXT_INPUT_MANAGER_V3_INTERFACE17h2e8bc793b3d39d9cE, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp10text_input3zv39generated6client12__interfaces35ZWP_TEXT_INPUT_MANAGER_V3_INTERFACE17h2e8bc793b3d39d9cE, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -94485,7 +94485,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h917ce151b194c
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp10text_input3zv39generated6client12__interfaces35ZWP_TEXT_INPUT_MANAGER_V3_INTERFACE17h2e8bc793b3d39d9cE, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp10text_input3zv39generated6client12__interfaces35ZWP_TEXT_INPUT_MANAGER_V3_INTERFACE17h2e8bc793b3d39d9cE, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -94695,7 +94695,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h9941766819ac9
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols3xdg5shell9generated6client12__interfaces21XDG_WM_BASE_INTERFACE17h435a27b9c0cf3dd1E, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols3xdg5shell9generated6client12__interfaces21XDG_WM_BASE_INTERFACE17h435a27b9c0cf3dd1E, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -94744,7 +94744,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17h9941766819ac9
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols3xdg5shell9generated6client12__interfaces21XDG_WM_BASE_INTERFACE17h435a27b9c0cf3dd1E, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols3xdg5shell9generated6client12__interfaces21XDG_WM_BASE_INTERFACE17h435a27b9c0cf3dd1E, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -94954,7 +94954,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha2fa347ae666f
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces23WL_COMPOSITOR_INTERFACE17h19fc7f7888c575f9E, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces23WL_COMPOSITOR_INTERFACE17h19fc7f7888c575f9E, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -95003,7 +95003,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha2fa347ae666f
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN14wayland_client8protocol12__interfaces23WL_COMPOSITOR_INTERFACE17h19fc7f7888c575f9E, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN14wayland_client8protocol12__interfaces23WL_COMPOSITOR_INTERFACE17h19fc7f7888c575f9E, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -95213,7 +95213,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha858f1dbc6cd7
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp12cursor_shape2v19generated6client12__interfaces36WP_CURSOR_SHAPE_MANAGER_V1_INTERFACE17h29158d708b054eabE, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp12cursor_shape2v19generated6client12__interfaces36WP_CURSOR_SHAPE_MANAGER_V1_INTERFACE17h29158d708b054eabE, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -95262,7 +95262,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17ha858f1dbc6cd7
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp12cursor_shape2v19generated6client12__interfaces36WP_CURSOR_SHAPE_MANAGER_V1_INTERFACE17h29158d708b054eabE, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp12cursor_shape2v19generated6client12__interfaces36WP_CURSOR_SHAPE_MANAGER_V1_INTERFACE17h29158d708b054eabE, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -95472,7 +95472,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hb374a135d9ed0
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols3xdg10activation2v19generated6client12__interfaces27XDG_ACTIVATION_V1_INTERFACE17h0e670e9cb867fe69E, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols3xdg10activation2v19generated6client12__interfaces27XDG_ACTIVATION_V1_INTERFACE17h0e670e9cb867fe69E, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -95521,7 +95521,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hb374a135d9ed0
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols3xdg10activation2v19generated6client12__interfaces27XDG_ACTIVATION_V1_INTERFACE17h0e670e9cb867fe69E, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols3xdg10activation2v19generated6client12__interfaces27XDG_ACTIVATION_V1_INTERFACE17h0e670e9cb867fe69E, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -95731,7 +95731,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hc4bf4eabec51e
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp10viewporter9generated6client12__interfaces23WP_VIEWPORTER_INTERFACE17hd23b2f76dfe2e458E, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp10viewporter9generated6client12__interfaces23WP_VIEWPORTER_INTERFACE17hd23b2f76dfe2e458E, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -95780,7 +95780,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hc4bf4eabec51e
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp10viewporter9generated6client12__interfaces23WP_VIEWPORTER_INTERFACE17hd23b2f76dfe2e458E, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp10viewporter9generated6client12__interfaces23WP_VIEWPORTER_INTERFACE17hd23b2f76dfe2e458E, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -95990,7 +95990,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hf367d95ea2e3e
   %11 = load i32, ptr %3, align 4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp16fractional_scale2v19generated6client12__interfaces40WP_FRACTIONAL_SCALE_MANAGER_V1_INTERFACE17h1dee2deb54cdb87cE, i64 56), align 8, !noundef !4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp16fractional_scale2v19generated6client12__interfaces40WP_FRACTIONAL_SCALE_MANAGER_V1_INTERFACE17h1dee2deb54cdb87cE, i64 56), align 8, !noundef !4
   %15 = icmp ugt i32 %13, %14
   br i1 %15, label %39, label %16
 
@@ -96039,7 +96039,7 @@ define hidden void @_ZN14wayland_client7globals10GlobalList4bind17hf367d95ea2e3e
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.417.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr getelementptr inbounds (i8, ptr @_ZN17wayland_protocols2wp16fractional_scale2v19generated6client12__interfaces40WP_FRACTIONAL_SCALE_MANAGER_V1_INTERFACE17h1dee2deb54cdb87cE, i64 56), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17wayland_protocols2wp16fractional_scale2v19generated6client12__interfaces40WP_FRACTIONAL_SCALE_MANAGER_V1_INTERFACE17h1dee2deb54cdb87cE, i64 56), ptr %41, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h6d49b57f8f724836E", ptr %.sroa.421.0..sroa_idx, align 8
   store ptr @anon.e3d4ff95a0fce4b81e2500fb01c87d0d.232, ptr %10, align 8
@@ -107040,7 +107040,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i: ; preds = %
   br i1 %88, label %.thread.i, label %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i: ; preds = %.noexc.i, %85
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %87, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %85 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %87, %.noexc.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %85 ]
   %89 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !22858, !noundef !4
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !22858
   %90 = icmp eq ptr %89, null
@@ -107597,7 +107597,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i: ; preds = %
   br i1 %88, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h9076293ed4f28068E.exit.thread.i", label %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i: ; preds = %.noexc.i, %85
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %87, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %85 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %87, %.noexc.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %85 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !23000
   %89 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !23001, !noundef !4
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !23001
@@ -108128,7 +108128,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i: ; preds = %
   br i1 %84, label %.thread.i, label %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i: ; preds = %.noexc.i, %80
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %83, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %80 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %83, %.noexc.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %80 ]
   %85 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !23119, !noundef !4
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !23119
   %86 = icmp eq ptr %85, null
@@ -108620,7 +108620,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i: ; preds = %
   br i1 %87, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfc3a4f8114c76764E.exit.thread.i", label %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i: ; preds = %.noexc.i, %84
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %86, %.noexc.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %84 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %86, %.noexc.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %84 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !23247
   %88 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !23248, !noundef !4
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !23248
@@ -114077,7 +114077,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i: ; preds = %
   br i1 %95, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb69cfd0fa36a09c4E.exit.i", label %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i: ; preds = %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i, %92
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %94, %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %92 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %94, %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %92 ]
   %96 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !24189, !noundef !4
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !24189
   %97 = icmp eq ptr %96, null
@@ -114474,7 +114474,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i: ; preds = %
   br i1 %91, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb5ff75ec9cdb3fadE.exit.i", label %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i: ; preds = %.noexc15, %88
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %90, %.noexc15 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %88 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %90, %.noexc15 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %88 ]
   %92 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !24252, !noundef !4
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !24252
   %93 = icmp eq ptr %92, null
@@ -114914,7 +114914,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i: ; preds = %
   br i1 %91, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h15691de535c37de4E.exit.i", label %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i: ; preds = %.noexc15, %88
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %90, %.noexc15 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %88 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %90, %.noexc15 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %88 ]
   %92 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !24315, !noundef !4
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !24315
   %93 = icmp eq ptr %92, null
@@ -115340,7 +115340,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.i.i: ; preds = %
   br i1 %93, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hdc2672fb3d23f0c5E.exit.i", label %_ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hd33c7d6aa75918b1E.exit.thread2.i.i: ; preds = %.noexc20, %90
-  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %92, %.noexc20 ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %90 ]
+  %.sroa.0.0.i.i.i4.i.i = phi ptr [ %92, %.noexc20 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc7context7Context4with7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h99365070d1dd5f6aE", i64 8), %90 ]
   %94 = load ptr, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !24373, !noundef !4
   store ptr null, ptr %.sroa.0.0.i.i.i4.i.i, align 8, !noalias !24373
   %95 = icmp eq ptr %94, null
@@ -116454,7 +116454,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7bbd39a91fb03080E.exit.i: ; preds = %8
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h17bc22eeef918870E.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7bbd39a91fb03080E.exit.i, %8
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %10, %_ZN4core3ops8function6FnOnce9call_once17h7bbd39a91fb03080E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb096bde4fb57311bE", i64 1), %8 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %10, %_ZN4core3ops8function6FnOnce9call_once17h7bbd39a91fb03080E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb096bde4fb57311bE", i64 1), %8 ]
   %13 = ptrtoint ptr %.sroa.0.0.i.i.i2.i to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
@@ -137548,7 +137548,7 @@ _ZN7polling6Poller16modify_with_mode17hdb7030eb283e1213E.exit.i: ; preds = %162
   br i1 %179, label %180, label %.thread122
 
 180:                                              ; preds = %177
-  %181 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN85_$LT$async_io..reactor..Writable$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17hd3a471f81b12c28bE", i64 16) monotonic, align 8
+  %181 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN85_$LT$async_io..reactor..Writable$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17hd3a471f81b12c28bE", i64 16) monotonic, align 8
   switch i8 %181, label %182 [
     i8 0, label %.thread122
     i8 1, label %.thread

@@ -223,7 +223,7 @@ define hidden void @_ZN24ShenandoahConcurrentMark21mark_concurrent_rootsEv(ptr n
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %15, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahMarkConcurrentRootsTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahMarkConcurrentRootsTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 1, ptr %16, align 4
   tail call void @_ZN20SuspendibleThreadSet4joinEv() #7
@@ -234,7 +234,7 @@ define hidden void @_ZN24ShenandoahConcurrentMark21mark_concurrent_rootsEv(ptr n
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 576
   store ptr %7, ptr %19, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %2) #7
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahMarkConcurrentRootsTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV33ShenandoahMarkConcurrentRootsTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %2, align 8
   call void @_ZN31ShenandoahConcurrentRootScannerD1Ev(ptr noundef nonnull align 8 dereferenceable(540) %17) #7
   %20 = load i8, ptr %16, align 4
   %21 = trunc i8 %20 to i1
@@ -267,7 +267,7 @@ define hidden void @_ZN24ShenandoahConcurrentMark15concurrent_markEv(ptr noundef
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 664
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str, ptr %14, align 8
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV35ShenandoahFlushSATBHandshakeClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV35ShenandoahFlushSATBHandshakeClosure, i64 16), ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %13, ptr %15, align 8
   %16 = load i64, ptr @ShenandoahMaxSATBBufferFlushes, align 8
@@ -287,11 +287,11 @@ define hidden void @_ZN24ShenandoahConcurrentMark15concurrent_markEv(ptr noundef
   %.017 = phi i32 [ 0, %.lr.ph ], [ %33, %32 ]
   %24 = load ptr, ptr %0, align 8
   call void @_ZN14TaskTerminatorC1EjP17TaskQueueSetSuper(ptr noundef nonnull align 8 dereferenceable(384) %3, i32 noundef %9, ptr noundef %24) #7
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %4, align 8
   store ptr @.str.9, ptr %17, align 8
   %25 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %25, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV31ShenandoahConcurrentMarkingTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV31ShenandoahConcurrentMarkingTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %4, align 8
   store ptr %0, ptr %19, align 8
   store ptr %3, ptr %20, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull %4) #7
@@ -365,7 +365,7 @@ define hidden void @_ZN24ShenandoahConcurrentMark11finish_markEv(ptr noundef non
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %18, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV26ShenandoahFinalMarkingTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26ShenandoahFinalMarkingTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -415,7 +415,7 @@ define hidden void @_ZN24ShenandoahConcurrentMark16finish_mark_workEv(ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %18, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV26ShenandoahFinalMarkingTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26ShenandoahFinalMarkingTaskIL24ShenandoahGenerationType0EE, i64 16), ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -593,7 +593,7 @@ _ZN33ShenandoahConcurrentWorkerSessionC2Ej.exit:  ; preds = %2, %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %17 = load ptr, ptr %16, align 8
   call void @_ZN30ShenandoahMarkRefsSuperClosureC2EP6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP28ShenandoahReferenceProcessor(ptr noundef nonnull align 8 dereferenceable(41) %4, ptr noundef %15, ptr noundef %17) #7
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN31ShenandoahConcurrentRootScanner8roots_doEP10OopClosurej(ptr noundef nonnull align 8 dereferenceable(540) %18, ptr noundef nonnull %4, i32 noundef %1) #7
   call void @_ZN33ShenandoahConcurrentWorkerSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
@@ -864,7 +864,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refI9narrowOo
   %8 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = zext i32 %5 to i64
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %10, %12
   %14 = add i64 %13, %9
@@ -1191,7 +1191,7 @@ _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %2, %11
   %20 = zext i32 %1 to i64
   %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahSATBBufferClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahSATBBufferClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %5, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1211,11 +1211,11 @@ _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %2, %11
 
 33:                                               ; preds = %31
   call void @_ZN30ShenandoahMarkRefsSuperClosureC2EP6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP28ShenandoahReferenceProcessor(ptr noundef nonnull align 8 dereferenceable(41) %6, ptr noundef %22, ptr noundef %14) #7
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EE, i64 16), ptr %6, align 8
   %34 = load i8, ptr @ShenandoahIUBarrier, align 1
   %35 = trunc i8 %34 to i1
   %. = select i1 %35, ptr %6, ptr null
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahSATBAndRemarkThreadsClosure, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahSATBAndRemarkThreadsClosure, i64 16), ptr %7, align 8
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %30, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 16

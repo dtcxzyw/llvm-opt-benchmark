@@ -4757,8 +4757,8 @@ entry:
   %ch2.i = alloca i32, align 4
   %verch = alloca ptr, align 8
   %horch = alloca ptr, align 8
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %verch, align 8
-  store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %horch, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), ptr %verch, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3816), ptr %horch, align 8
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
   switch i64 %args.val, label %sw.default [

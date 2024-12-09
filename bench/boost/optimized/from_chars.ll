@@ -2441,7 +2441,7 @@ _ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47
   %.0910.i50 = phi i8 [ %57, %.lr.ph.i48 ], [ 0, %50 ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.011.i49
   %53 = load i8, ptr %52, align 1, !tbaa !19
-  %54 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.1, i64 3), i64 %.011.i49
+  %54 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.1, i64 3), i64 %.011.i49
   %55 = load i8, ptr %54, align 1, !tbaa !19
   %56 = xor i8 %55, %53
   %57 = or i8 %56, %.0910.i50
@@ -6452,7 +6452,7 @@ _ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47
   %.0910.i50 = phi i8 [ %57, %.lr.ph.i48 ], [ 0, %50 ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.011.i49
   %53 = load i8, ptr %52, align 1, !tbaa !19
-  %54 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @.str.1, i64 3), i64 %.011.i49
+  %54 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @.str.1, i64 3), i64 %.011.i49
   %55 = load i8, ptr %54, align 1, !tbaa !19
   %56 = xor i8 %55, %53
   %57 = or i8 %56, %.0910.i50

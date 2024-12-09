@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca %struct.ompi_status_public_t, align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_mpi_int, i64 24), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_mpi_int, i64 24), align 8
   %11 = getelementptr i8, ptr %1, i64 248
   %.val = load ptr, ptr %11, align 8
   %12 = getelementptr i8, ptr %.val, i64 16
@@ -284,10 +284,10 @@ define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr n
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 216
   %145 = load ptr, ptr %144, align 8
   %146 = tail call i32 %143(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %20, i32 noundef 2, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_sum, ptr noundef %1, ptr noundef %145) #9
-  %147 = load i64, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 56), align 8
+  %147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 56), align 8
   %148 = tail call noalias ptr @malloc(i64 noundef %147) #10
   %149 = load i32, ptr @opal_class_init_epoch, align 4
-  %150 = load i32, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 32), align 8
+  %150 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_base_comm_dist_graph_2_2_0_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %149, %150
   br i1 %.not.i, label %152, label %151
 
@@ -398,7 +398,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %153
   %203 = load i32, ptr %202, align 4
   %.0262 = shl nsw i32 %200, %197
   %.0 = shl nsw i32 %203, %197
-  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %205 = sext i32 %.0 to i64
   %206 = getelementptr inbounds i32, ptr %67, i64 %205
   %207 = sext i32 %.0262 to i64
@@ -421,7 +421,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %153
   %218 = load i32, ptr %217, align 4
   %.1263 = shl nsw i32 %215, %197
   %.1 = shl nsw i32 %218, %197
-  %219 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
+  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %220 = sext i32 %.1 to i64
   %221 = getelementptr inbounds i32, ptr %72, i64 %220
   %222 = sext i32 %.1263 to i64
@@ -476,7 +476,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %153
 245:                                              ; preds = %.lr.ph376, %.loopexit341
   %.0267374 = phi i32 [ %.2264, %.lr.ph376 ], [ %272, %.loopexit341 ]
   %.0273373 = phi i32 [ 0, %.lr.ph376 ], [ %.1274, %.loopexit341 ]
-  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %247 = sub nsw i32 %.2264, %.0267374
   %248 = sext i32 %247 to i64
   %249 = getelementptr inbounds i32, ptr %.0260, i64 %248
@@ -571,7 +571,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %153
 294:                                              ; preds = %.lr.ph385, %.loopexit
   %.1268383 = phi i32 [ %.3265, %.lr.ph385 ], [ %321, %.loopexit ]
   %.3276382 = phi i32 [ 0, %.lr.ph385 ], [ %.4277, %.loopexit ]
-  %295 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %295 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %296 = sub nsw i32 %.3265, %.1268383
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds i32, ptr %.1261, i64 %297
@@ -634,7 +634,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %153
   br label %324
 
 324:                                              ; preds = %323, %._crit_edge386
-  %325 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 48), align 8
   %326 = call i32 %325(i64 noundef %.0279.lcssa, ptr noundef %195, ptr noundef null) #9
   store ptr %148, ptr %7, align 8
   br label %327

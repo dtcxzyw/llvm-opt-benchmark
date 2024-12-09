@@ -501,9 +501,9 @@ define void @_ZN22edit_mutualcorrsDialogC2EP7QWidgetP21EditMutualCorrsPlugin(ptr
   %4 = alloca %class.QRect, align 4
   %5 = alloca %class.QPoint, align 4
   tail call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22edit_mutualcorrsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22edit_mutualcorrsDialog, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22edit_mutualcorrsDialog, i64 448), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22edit_mutualcorrsDialog, i64 448), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = invoke noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #20
           to label %9 unwind label %52
@@ -4791,9 +4791,9 @@ declare void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22edit_mutualcorrsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22edit_mutualcorrsDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22edit_mutualcorrsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV22edit_mutualcorrsDialog, i64 448), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22edit_mutualcorrsDialog, i64 448), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

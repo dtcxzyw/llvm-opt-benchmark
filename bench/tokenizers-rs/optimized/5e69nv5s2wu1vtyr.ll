@@ -11277,7 +11277,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9t
 
 66:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12244614425474959946.exit.thread"
   %67 = load ptr, ptr @_ZN18unicode_categories6tables13OTHER_CONTROL17h5048d2e3d8b8060bE, align 8, !nonnull !4, !align !2070, !noundef !4
-  %68 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables13OTHER_CONTROL17h5048d2e3d8b8060bE, i64 8), align 8, !noundef !4
+  %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables13OTHER_CONTROL17h5048d2e3d8b8060bE, i64 8), align 8, !noundef !4
   %69 = invoke noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef range(i32 1114113, 1114112) %65, ptr noalias noundef nonnull readonly align 4 %67, i64 noundef %68)
           to label %.noexc unwind label %.loopexit
 
@@ -11286,7 +11286,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9t
 
 70:                                               ; preds = %.noexc
   %71 = load ptr, ptr @_ZN18unicode_categories6tables12OTHER_FORMAT17hb98ed9a88a43a8d8E, align 8, !nonnull !4, !align !2070, !noundef !4
-  %72 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables12OTHER_FORMAT17hb98ed9a88a43a8d8E, i64 8), align 8, !noundef !4
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables12OTHER_FORMAT17hb98ed9a88a43a8d8E, i64 8), align 8, !noundef !4
   %73 = invoke noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef range(i32 1114113, 1114112) %65, ptr noalias noundef nonnull readonly align 4 %71, i64 noundef %72)
           to label %.noexc29 unwind label %.loopexit
 
@@ -11306,7 +11306,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9t
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr @_ZN18unicode_categories6tables17OTHER_PRIVATE_USE17h6b7b1ee9b970c795E, align 8, !nonnull !4, !align !2070, !noundef !4
-  %80 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables17OTHER_PRIVATE_USE17h6b7b1ee9b970c795E, i64 8), align 8, !noundef !4
+  %80 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables17OTHER_PRIVATE_USE17h6b7b1ee9b970c795E, i64 8), align 8, !noundef !4
   %81 = invoke noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef range(i32 1114113, 1114112) %65, ptr noalias noundef nonnull readonly align 4 %79, i64 noundef %80)
           to label %"_ZN10tokenizers11normalizers4bert14BertNormalizer13do_clean_text28_$u7b$$u7b$closure$u7d$$u7d$17hba5d73ef71daee08E.exit" unwind label %.loopexit
 
@@ -11768,7 +11768,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9t
   %65 = phi i32 [ %62, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12244614425474959946.exit" ], [ %42, %41 ], [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i" ], [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i" ]
   %.sroa.0.137 = phi ptr [ %54, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12244614425474959946.exit" ], [ %28, %41 ], [ %44, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i" ], [ %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i" ]
   %66 = load ptr, ptr @_ZN18unicode_categories6tables15MARK_NONSPACING17hcd403887b93f2541E, align 8, !nonnull !4, !align !2070, !noundef !4
-  %67 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN18unicode_categories6tables15MARK_NONSPACING17hcd403887b93f2541E, i64 8), align 8, !noundef !4
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18unicode_categories6tables15MARK_NONSPACING17hcd403887b93f2541E, i64 8), align 8, !noundef !4
   %68 = invoke noundef zeroext i1 @_ZN18unicode_categories19table_binary_search17h2dfb9b16befa88ccE(i32 noundef range(i32 1114113, 1114112) %65, ptr noalias noundef nonnull readonly align 4 %66, i64 noundef %67)
           to label %81 unwind label %.loopexit
 

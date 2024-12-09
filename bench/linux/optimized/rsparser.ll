@@ -1304,7 +1304,7 @@ define internal fastcc void @pnpacpi_parse_allocated_vendor(ptr noundef %0, ptr 
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %12 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %11, ptr noundef nonnull dereferenceable(16) getelementptr inbounds (i8, ptr @hp_ccsr_uuid, i64 1), i64 16)
+  %12 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %11, ptr noundef nonnull dereferenceable(16) getelementptr inbounds nuw (i8, ptr @hp_ccsr_uuid, i64 1), i64 16)
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %25
 

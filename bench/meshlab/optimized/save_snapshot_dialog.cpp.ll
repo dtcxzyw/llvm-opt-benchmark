@@ -107,9 +107,9 @@ $_ZN11QStringListD2Ev = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18SaveSnapshotDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18SaveSnapshotDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18SaveSnapshotDialog, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18SaveSnapshotDialog, i64 488), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18SaveSnapshotDialog, i64 488), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = invoke noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #11
           to label %6 unwind label %11
@@ -539,7 +539,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i58:  ; preds = %_ZN9QtPrivate8RefCo
   %110 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i32 0, ptr %111, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %110, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 12
   store i32 16, ptr %112, align 4
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -761,7 +761,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i88:  ; preds = %_ZN9QtPrivate8RefCo
   %183 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i32 0, ptr %184, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 20, ptr %185, align 4
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 16
@@ -946,7 +946,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i112: ; preds = %_ZN9QtPrivate8RefCo
   %245 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i32 0, ptr %246, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %245, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %245, align 8
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 12
   store i32 20, ptr %247, align 4
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 16
@@ -1047,7 +1047,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i124: ; preds = %_ZN9QtPrivate8RefCo
   %281 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   store i32 0, ptr %282, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %281, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %281, align 8
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 12
   store i32 20, ptr %283, align 4
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 16
@@ -1330,7 +1330,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i172: ; preds = %_ZN9QtPrivate8RefCo
   %356 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   store i32 0, ptr %357, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %356, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %356, align 8
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 12
   store i32 40, ptr %358, align 4
   %359 = getelementptr inbounds nuw i8, ptr %356, i64 16
@@ -1431,7 +1431,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i184: ; preds = %_ZN9QtPrivate8RefCo
   %392 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 8
   store i32 0, ptr %393, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %392, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %392, align 8
   %394 = getelementptr inbounds nuw i8, ptr %392, i64 12
   store i32 20, ptr %394, align 4
   %395 = getelementptr inbounds nuw i8, ptr %392, i64 16
@@ -2909,9 +2909,9 @@ declare noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN18SaveSnapshotDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18SaveSnapshotDialog, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18SaveSnapshotDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV18SaveSnapshotDialog, i64 488), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18SaveSnapshotDialog, i64 488), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

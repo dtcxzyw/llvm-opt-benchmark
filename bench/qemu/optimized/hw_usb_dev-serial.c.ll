@@ -717,7 +717,7 @@ sw.bb12:                                          ; preds = %entry
 
 if.end17:                                         ; preds = %sw.bb12
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %header.i)
-  %10 = load i16, ptr getelementptr inbounds (i8, ptr @.compoundliteral, i64 2), align 2
+  %10 = load i16, ptr getelementptr inbounds nuw (i8, ptr @.compoundliteral, i64 2), align 2
   %conv.i = zext i16 %10 to i32
   %size.i = getelementptr inbounds nuw i8, ptr %p, i64 64
   %11 = load i64, ptr %size.i, align 8

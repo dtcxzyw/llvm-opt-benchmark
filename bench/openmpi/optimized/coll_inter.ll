@@ -53,10 +53,10 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %14
   br i1 %or.cond, label %opal_obj_new.exit.thread, label %22
 
 22:                                               ; preds = %ompi_comm_remote_size.exit
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_inter_module_t_class, i64 56), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_inter_module_t_class, i64 56), align 8
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #6
   %25 = load i32, ptr @opal_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_inter_module_t_class, i64 32), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_inter_module_t_class, i64 32), align 8
   %.not.i28 = icmp eq i32 %25, %26
   br i1 %.not.i28, label %28, label %27
 

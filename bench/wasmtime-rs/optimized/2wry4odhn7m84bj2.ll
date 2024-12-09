@@ -33081,7 +33081,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha158e6416f363dbaE.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit, %14
   %.0.i.i.i = phi i8 [ %17, %14 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit ]
-  %18 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 4) monotonic, align 4, !noalias !4999
+  %18 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 4) monotonic, align 4, !noalias !4999
   %.not64 = icmp eq i8 %18, 0
   br i1 %.not64, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc744c3ea794682dbE.exit", label %19
 
@@ -33346,7 +33346,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17ha158e6416f363dbaE.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit, %18
   %.0.i.i.i = phi i8 [ %21, %18 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit ]
-  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 4) monotonic, align 4, !noalias !5052
+  %22 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7jitdump12JITDUMP_FILE17h25b18705965cf232E, i64 4) monotonic, align 4, !noalias !5052
   %.not36 = icmp eq i8 %22, 0
   br i1 %.not36, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc744c3ea794682dbE.exit", label %23
 
@@ -33583,7 +33583,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h5fc8805729d5871aE.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit, %13
   %.0.i.i.i = phi i8 [ %16, %13 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit ]
-  %17 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 4) monotonic, align 4, !noalias !5094
+  %17 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 4) monotonic, align 4, !noalias !5094
   %.not47 = icmp eq i8 %17, 0
   br i1 %.not47, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46bcadc1c11d8047E.exit", label %18
 
@@ -33707,18 +33707,18 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %31
   %55 = landingpad { ptr, i32 }
           cleanup
   store i64 %49, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8), align 8
-  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 16), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 24), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 32), align 8
-  store i32 %38, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 36), align 4
+  store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 24), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 32), align 8
+  store i32 %38, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 36), align 4
   br label %.body
 
 "_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h68e23b84b38d3090E.exit": ; preds = %48, %53
   store i64 %49, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 8), align 8
-  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 16), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 24), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 32), align 8
-  store i32 %38, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 36), align 4
+  store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 24), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 32), align 8
+  store i32 %38, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 36), align 4
   br label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h026cf0eb5b6f8eebE.exit"
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h026cf0eb5b6f8eebE.exit": ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17h68e23b84b38d3090E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46bcadc1c11d8047E.exit"
@@ -33825,7 +33825,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h5fc8805729d5871aE.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit, %27
   %.0.i.i.i = phi i8 [ %30, %27 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit ]
-  %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 4) monotonic, align 4, !noalias !5127
+  %31 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8wasmtime15profiling_agent7perfmap12PERFMAP_FILE17hfbab26725316414fE, i64 4) monotonic, align 4, !noalias !5127
   %.not = icmp eq i8 %31, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46bcadc1c11d8047E.exit", label %32
 

@@ -8058,7 +8058,7 @@ define internal void @point_gencode(ptr noundef %0, ptr noundef %1) #0 {
   %36 = load i32, ptr %3, align 4
   %37 = and i32 %36, 32
   %.not88 = icmp eq i32 %37, 0
-  %.point_style = select i1 %.not88, ptr getelementptr inbounds (i8, ptr @point_style, i64 8), ptr @point_style
+  %.point_style = select i1 %.not88, ptr getelementptr inbounds nuw (i8, ptr @point_style, i64 8), ptr @point_style
   tail call void @gvrender_set_style(ptr noundef nonnull %0, ptr noundef nonnull %.point_style) #25
   %38 = load ptr, ptr @N_penwidth, align 8
   %.not89 = icmp eq ptr %38, null

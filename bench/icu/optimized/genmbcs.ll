@@ -55,18 +55,18 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef nonnull ptr @MBCSGetDummy() local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456528) @_ZL6gDummy, i8 0, i64 456528, i1 false)
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL6gDummy, i64 456522), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL6gDummy, i64 456522), align 2
   %0 = load i8, ptr @SMALL, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL6gDummy, i64 456523), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL6gDummy, i64 456523), align 1
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
   %.sink = phi i16 [ -1, %if.then ], [ -10241, %entry ]
-  store i16 %.sink, ptr getelementptr inbounds (i8, ptr @_ZL6gDummy, i64 456520), align 8
+  store i16 %.sink, ptr getelementptr inbounds nuw (i8, ptr @_ZL6gDummy, i64 456520), align 8
   ret ptr @_ZL6gDummy
 }
 

@@ -173,7 +173,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode6AppendENS
   store i32 1, ptr %35, align 4, !noalias !4
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr null, ptr %36, align 8, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNodeE, i64 16), ptr %34, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNodeE, i64 16), ptr %34, align 8, !noalias !4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i8 %2, ptr %37, align 8, !noalias !4
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -1885,7 +1885,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
 .noexc.i:                                         ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 1, ptr %27, align 4, !noalias !20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %26, align 8, !noalias !20
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %26, align 8, !noalias !20
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i8 0, ptr %28, align 4, !noalias !20
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 13
@@ -2738,7 +2738,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_18TraceAggregateNodeEEC2IS1_E
 .noexc.i146:                                      ; preds = %376
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store i32 1, ptr %378, align 4, !noalias !36
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %377, align 8, !noalias !36
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %377, align 8, !noalias !36
   %379 = getelementptr inbounds nuw i8, ptr %377, i64 12
   store i8 0, ptr %379, align 4, !noalias !36
   %380 = getelementptr inbounds nuw i8, ptr %377, i64 13
@@ -3333,7 +3333,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode6GetKeyEv.exit43: ; pre
   store i32 1, ptr %142, align 4, !noalias !54
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store ptr null, ptr %143, align 8, !noalias !54
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNodeE, i64 16), ptr %141, align 8, !noalias !54
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNodeE, i64 16), ptr %141, align 8, !noalias !54
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %145 = load i8, ptr %128, align 1, !noalias !54
   store i8 %145, ptr %144, align 8, !noalias !54
@@ -4784,7 +4784,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNodeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS_18TraceAggregateNode13_CounterValueENS_6TfHashESt8equal_toIiELj128EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120

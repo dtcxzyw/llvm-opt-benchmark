@@ -346,15 +346,15 @@ ompi_request_wait_completion.exit:                ; preds = %106, %.critedge11.b
   br i1 %.not, label %169, label %152
 
 152:                                              ; preds = %151
-  %153 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 4), align 4
+  %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 4), align 4
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %153, ptr %154, align 4
   %155 = load i32, ptr @ompi_status_empty, align 8
   store i32 %155, ptr %1, align 8
-  %156 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
+  %156 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 16), align 8
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %156, ptr %157, align 8
-  %158 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
+  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 12), align 4
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %158, ptr %159, align 4
   br label %169
@@ -499,15 +499,15 @@ opal_thread_compare_exchange_strong_ptr.exit.thread: ; preds = %32, %40, %opal_t
   br i1 %.not, label %63, label %55
 
 55:                                               ; preds = %54
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 4), align 4
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 4), align 4
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %56, ptr %57, align 4
   %58 = load i32, ptr @ompi_status_empty, align 8
   store i32 %58, ptr %3, align 8
-  %59 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 16), align 8
+  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 16), align 8
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %59, ptr %60, align 8
-  %61 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 12), align 4
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 12), align 4
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %61, ptr %62, align 4
   br label %63
@@ -1215,7 +1215,7 @@ opal_thread_compare_exchange_strong_ptr.exit138:  ; preds = %132, %135, %127
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %176
-  %182 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_status_empty, i64 8), align 8
+  %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_status_empty, i64 8), align 8
   br label %217
 
 183:                                              ; preds = %176

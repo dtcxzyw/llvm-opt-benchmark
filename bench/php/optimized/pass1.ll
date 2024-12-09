@@ -305,10 +305,10 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not467, label %143, label %166
 
 143:                                              ; preds = %141
-  %144 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   store ptr %0, ptr %26, align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %145 = call ptr @zend_get_constant_str(ptr noundef nonnull @.str, i64 noundef 24) #6
   %.not469 = icmp eq ptr %145, null
   br i1 %.not469, label %165, label %146
@@ -348,7 +348,7 @@ define hidden void @zend_optimizer_pass1(ptr noundef %0, ptr noundef %1) local_u
   br label %165
 
 165:                                              ; preds = %160, %143
-  store ptr %144, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %144, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   br label %.critedge
 
 166:                                              ; preds = %136, %141

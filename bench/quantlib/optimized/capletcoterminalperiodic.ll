@@ -260,7 +260,7 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1143,7 +1143,7 @@ invoke.cont171:                                   ; preds = %invoke.cont169
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8, !tbaa !41
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i, align 4, !tbaa !44
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib16PseudoRootFacadeEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib16PseudoRootFacadeEEE, i64 16), ptr %call.i.i.i, align 8, !tbaa !14
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call150, ptr %px_.i.i.i.i, align 8, !tbaa !45
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !16
@@ -1225,7 +1225,7 @@ invoke.cont189:                                   ; preds = %invoke.cont185
   store i32 1, ptr %use_count_.i.i.i.i.i243, align 8, !tbaa !41
   %weak_count_.i.i.i.i.i244 = getelementptr inbounds nuw i8, ptr %call.i.i.i234, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i244, align 4, !tbaa !44
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib19CotSwapToFwdAdapterEEE, i64 16), ptr %call.i.i.i234, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib19CotSwapToFwdAdapterEEE, i64 16), ptr %call.i.i.i234, align 8, !tbaa !14
   %px_.i.i.i.i245 = getelementptr inbounds nuw i8, ptr %call.i.i.i234, i64 16
   store ptr %call183, ptr %px_.i.i.i.i245, align 8, !tbaa !47
   store ptr %call.i.i.i234, ptr %pn.i233, align 8, !tbaa !16
@@ -1352,7 +1352,7 @@ invoke.cont205:                                   ; preds = %invoke.cont203
   store i32 1, ptr %use_count_.i.i.i.i.i290, align 8, !tbaa !41
   %weak_count_.i.i.i.i.i291 = getelementptr inbounds nuw i8, ptr %call.i.i.i281, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i291, align 4, !tbaa !44
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib16FwdPeriodAdapterEEE, i64 16), ptr %call.i.i.i281, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib16FwdPeriodAdapterEEE, i64 16), ptr %call.i.i.i281, align 8, !tbaa !14
   %px_.i.i.i.i292 = getelementptr inbounds nuw i8, ptr %call.i.i.i281, i64 16
   store ptr %call198, ptr %px_.i.i.i.i292, align 8, !tbaa !58
   store ptr %call.i.i.i281, ptr %pn.i280, align 8, !tbaa !16
@@ -1420,7 +1420,7 @@ invoke.cont221:                                   ; preds = %invoke.cont215
   store i32 1, ptr %use_count_.i.i.i.i.i312, align 8, !tbaa !41
   %weak_count_.i.i.i.i.i313 = getelementptr inbounds nuw i8, ptr %call.i.i.i303, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i313, align 4, !tbaa !44
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib19FwdToCotSwapAdapterEEE, i64 16), ptr %call.i.i.i303, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail17sp_counted_impl_pIN8QuantLib19FwdToCotSwapAdapterEEE, i64 16), ptr %call.i.i.i303, align 8, !tbaa !14
   %px_.i.i.i.i314 = getelementptr inbounds nuw i8, ptr %call.i.i.i303, i64 16
   store ptr %call213, ptr %px_.i.i.i.i314, align 8, !tbaa !60
   store ptr %call.i.i.i303, ptr %pn.i302, align 8, !tbaa !16
@@ -2800,7 +2800,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib22CTSMMCapletCalibrationD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib22CTSMMCapletCalibrationE, i64 16), ptr %this, align 8, !tbaa !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib22CTSMMCapletCalibrationE, i64 16), ptr %this, align 8, !tbaa !14
   %swapCovariancePseudoRoots_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load ptr, ptr %swapCovariancePseudoRoots_, align 8, !tbaa !96
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 408

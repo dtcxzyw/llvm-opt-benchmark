@@ -54,7 +54,7 @@ define dso_local zeroext i1 @io_wq_worker_stopped() local_unnamed_addr #0 align 
   %2 = inttoptr i64 %1 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1528
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !6
+  %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #16, !srcloc !6
   %6 = and i32 %5, 16711936
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %15
@@ -740,7 +740,7 @@ define dso_local ptr @io_wq_create(i32 noundef %0, ptr nocapture noundef readonl
   br label %90
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %16 = tail call noalias align 8 dereferenceable_or_null(784) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 784) #19
   %17 = icmp eq ptr %16, null
   br i1 %17, label %90, label %18
@@ -1962,7 +1962,7 @@ define internal noundef i32 @io_wq_worker(ptr noundef %0) #9 align 16 {
   br label %.outer, !llvm.loop !52
 
 105:                                              ; preds = %103
-  %106 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !53
+  %106 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !53
   %107 = zext i32 %106 to i64
   %108 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 %107) #17, !srcloc !54
   %109 = icmp ult i8 %108, 2
@@ -2711,7 +2711,7 @@ define internal fastcc noundef zeroext i1 @create_io_worker(ptr noundef %0, i32 
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store volatile i32 0, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(176) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 176) #19
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %23

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @opal_tsd_tracked_key_constructor(ptr noundef initializes((24, 32)) %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %5, label %4
 
@@ -48,7 +48,7 @@ define void @opal_tsd_tracked_key_constructor(ptr noundef initializes((24, 32)) 
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %13 = load i32, ptr @opal_class_init_epoch, align 4
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not8 = icmp eq i32 %13, %14
   br i1 %.not8, label %16, label %15
 
@@ -319,10 +319,10 @@ define range(i32 -11, 1) i32 @opal_tsd_tracked_key_set(ptr noundef %0, ptr nound
   br i1 %6, label %7, label %34
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @opal_tsd_list_item_t_class, i64 56), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_tsd_list_item_t_class, i64 56), align 8
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #7
   %10 = load i32, ptr @opal_class_init_epoch, align 4
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @opal_tsd_list_item_t_class, i64 32), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_tsd_list_item_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %10, %11
   br i1 %.not.i, label %13, label %12
 

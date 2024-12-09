@@ -243,7 +243,7 @@ define dso_local i32 @next_demotion_node(i32 noundef %0) local_unnamed_addr #0 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @alloc_memory_type(i32 noundef %0) #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 56) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -426,7 +426,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mt_set_default_dram_perf(i32 nou
   br label %63
 
 23:                                               ; preds = %18
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @default_dram_perf, i64 8), align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_dram_perf, i64 8), align 4
   %25 = sub i32 %7, %24
   %26 = tail call i32 @llvm.abs.i32(i32 %25, i1 false)
   %27 = mul i32 %26, 10
@@ -434,7 +434,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mt_set_default_dram_perf(i32 nou
   br i1 %28, label %47, label %29
 
 29:                                               ; preds = %23
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @default_dram_perf, i64 12), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_dram_perf, i64 12), align 4
   %31 = sub i32 %9, %30
   %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 false)
   %33 = mul i32 %32, 10
@@ -450,7 +450,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mt_set_default_dram_perf(i32 nou
   br i1 %40, label %47, label %41
 
 41:                                               ; preds = %35
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @default_dram_perf, i64 4), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_dram_perf, i64 4), align 4
   %43 = sub i32 %15, %42
   %44 = tail call i32 @llvm.abs.i32(i32 %43, i1 false)
   %45 = mul i32 %44, 10
@@ -461,10 +461,10 @@ define dso_local noundef range(i32 -22, 1) i32 @mt_set_default_dram_perf(i32 nou
   %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %0, i32 noundef %19) #15
   %49 = load i32, ptr @default_dram_perf_ref_nid, align 4
   %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %49) #15
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @default_dram_perf, i64 8), align 4
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @default_dram_perf, i64 12), align 4
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_dram_perf, i64 8), align 4
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_dram_perf, i64 12), align 4
   %53 = load i32, ptr @default_dram_perf, align 4
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @default_dram_perf, i64 4), align 4
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_dram_perf, i64 4), align 4
   %55 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %54) #15
   %56 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %0) #15
   %57 = load i32, ptr %6, align 4
@@ -521,12 +521,12 @@ define dso_local noundef range(i32 -22, 1) i32 @mt_perf_to_adistance(ptr nocaptu
   %22 = load i32, ptr %10, align 4
   %23 = add i32 %22, %21
   %24 = mul i32 %23, 576
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @default_dram_perf, i64 8), align 4
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @default_dram_perf, i64 12), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_dram_perf, i64 8), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_dram_perf, i64 12), align 4
   %27 = add i32 %26, %25
   %28 = udiv i32 %24, %27
   %29 = load i32, ptr @default_dram_perf, align 4
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @default_dram_perf, i64 4), align 4
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_dram_perf, i64 4), align 4
   %31 = add i32 %30, %29
   %32 = mul i32 %31, %28
   %33 = load i32, ptr %0, align 4
@@ -608,7 +608,7 @@ define internal noundef i32 @memory_tier_init() #5 section ".init.text" align 16
   unreachable
 
 16:                                               ; preds = %12
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %.thread, label %19
 
@@ -623,7 +623,7 @@ define internal noundef i32 @memory_tier_init() #5 section ".init.text" align 16
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 24), i64 %24) #11, !srcloc !19
+  %27 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 24), i64 %24) #11, !srcloc !19
   %28 = icmp ult i8 %27, 2
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i8 %27, 0
@@ -715,7 +715,7 @@ define internal noundef i32 @memory_tier_init() #5 section ".init.text" align 16
   br i1 %76, label %77, label %.preheader.i, !llvm.loop !25
 
 77:                                               ; preds = %75, %.preheader.i
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %79 = tail call noalias noundef align 8 dereferenceable_or_null(776) ptr @kmalloc_trace(ptr noundef %78, i32 noundef 3520, i64 noundef 776) #14
   %80 = icmp eq ptr %79, null
   br i1 %80, label %.thread, label %81
@@ -789,7 +789,7 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
 
 111:                                              ; preds = %set_node_memory_tier.exit
   %112 = add nuw nsw i32 %23, 1
-  %113 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %113 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %114 = zext nneg i32 %112 to i64
   %115 = shl nsw i64 -1, %114
   %116 = and i64 %113, %115
@@ -810,7 +810,7 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
 
 124:                                              ; preds = %.thread
   store i64 0, ptr %1, align 8, !annotation !29
-  %125 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %.thread.i, label %127
 
@@ -847,7 +847,7 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
 
 144:                                              ; preds = %.thread23.i
   %145 = add nuw nsw i32 %131, 1
-  %146 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %146 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %147 = zext nneg i32 %145 to i64
   %148 = shl nsw i64 -1, %147
   %149 = and i64 %146, %148
@@ -862,7 +862,7 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
 
 .thread.i:                                        ; preds = %151, %144, %.thread23.i, %127, %124
   tail call void @synchronize_rcu() #11
-  %155 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %155 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %156 = icmp eq i64 %155, 0
   br i1 %156, label %.thread25.i, label %157
 
@@ -873,12 +873,12 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
   br i1 %160, label %.preheader36.i, label %.thread25.i
 
 .thread25.i:                                      ; preds = %214, %207, %.thread26.i, %157, %.thread.i
-  %161 = load ptr, ptr getelementptr inbounds (i8, ptr @memory_tiers, i64 8), align 8
+  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memory_tiers, i64 8), align 8
   %162 = icmp eq ptr %161, @memory_tiers
   br i1 %162, label %.loopexit32.i, label %163
 
 163:                                              ; preds = %.thread25.i
-  %164 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 32), align 16
+  %164 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 32), align 16
   br label %218
 
 .preheader36.i:                                   ; preds = %157, %214
@@ -953,7 +953,7 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
 
 207:                                              ; preds = %.thread26.i
   %208 = add nuw nsw i32 %166, 1
-  %209 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %209 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   %210 = zext nneg i32 %208 to i64
   %211 = shl nsw i64 -1, %210
   %212 = and i64 %209, %211
@@ -1009,7 +1009,7 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
   br i1 %242, label %establish_demotion_targets.exit, label %243
 
 243:                                              ; preds = %.loopexit32.i
-  %244 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
+  %244 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
   br label %245
 
 245:                                              ; preds = %.loopexit.i5, %243

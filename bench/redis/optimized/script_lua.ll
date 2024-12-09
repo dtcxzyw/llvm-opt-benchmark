@@ -586,7 +586,7 @@ entry:
   br i1 %cmp.not, label %if.end4, label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp1 = icmp sgt i32 %0, 3
   br i1 %cmp1, label %do.end, label %if.end
 
@@ -640,7 +640,7 @@ entry:
   br i1 %cmp.not, label %if.end4, label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp1 = icmp sgt i32 %0, 3
   br i1 %cmp1, label %do.end, label %if.end
 
@@ -719,7 +719,7 @@ for.body36:                                       ; preds = %for.inc28, %for.con
   br i1 %cmp38, label %if.end52, label %for.cond34
 
 for.end43:                                        ; preds = %for.cond34
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp47 = icmp sgt i32 %8, 3
   br i1 %cmp47, label %if.end52, label %if.end49
 
@@ -863,7 +863,7 @@ if.then12:                                        ; preds = %if.end5
   br label %return
 
 if.end14:                                         ; preds = %if.end5
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp15 = icmp sgt i32 %0, %conv
   br i1 %cmp15, label %return, label %for.body.preheader
 
@@ -1498,7 +1498,7 @@ luaSaveOnRegistry.exit:
   tail call void @lua_pushstring(ptr noundef %lua, ptr noundef nonnull @.str.40) #11
   tail call void @lua_pushlightuserdata(ptr noundef %lua, ptr noundef nonnull %run_ctx) #11
   tail call void @lua_settable(ptr noundef %lua, i32 noundef -10000) #11
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5312), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5312), align 8
   %cmp = icmp slt i64 %1, 1
   %tobool = icmp ne i32 %debug_enabled, 0
   %or.cond = or i1 %tobool, %cmp
@@ -1817,7 +1817,7 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp, label %do.body, label %if.end10
 
 do.body:                                          ; preds = %cond.end
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp5 = icmp sgt i32 %0, 2
   br i1 %cmp5, label %do.end, label %if.end
 
@@ -1893,11 +1893,11 @@ cond.false:                                       ; preds = %if.then5
   %resp8 = getelementptr inbounds nuw i8, ptr %c, i64 24
   %1 = load i32, ptr %resp8, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond.in = phi ptr [ %arrayidx, %cond.false ], [ getelementptr inbounds (i8, ptr @shared, i64 32), %if.then5 ]
+  %cond.in = phi ptr [ %arrayidx, %cond.false ], [ getelementptr inbounds nuw (i8, ptr @shared, i64 32), %if.then5 ]
   %cond = load ptr, ptr %cond.in, align 8
   tail call void @addReply(ptr noundef %c, ptr noundef %cond) #11
   br label %sw.epilog
@@ -2299,7 +2299,7 @@ if.end:                                           ; preds = %cond.end
   br i1 %tobool12.not, label %if.end18, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp14 = icmp sgt i32 %2, 3
   br i1 %cmp14, label %do.end, label %if.end17
 

@@ -598,7 +598,7 @@ gv_calloc.exit:                                   ; preds = %172
   br i1 %.not400, label %264, label %261
 
 261:                                              ; preds = %257
-  %262 = load ptr, ptr getelementptr inbounds (i8, ptr @sinfo, i64 8), align 8
+  %262 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sinfo, i64 8), align 8
   %263 = call zeroext i1 %262(ptr noundef nonnull %241) #23
   br i1 %263, label %._crit_edge1091, label %.loopexit632
 
@@ -4522,12 +4522,12 @@ spline_merge.exit.i:                              ; preds = %2353, %2349, %makeL
   br i1 %2386, label %.lr.ph.lr.ph.i, label %.critedge.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %2381
-  %2387 = load ptr, ptr getelementptr inbounds (i8, ptr @sinfo, i64 8), align 8
+  %2387 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sinfo, i64 8), align 8
   %2388 = call zeroext i1 %2387(ptr noundef nonnull %2343) #23
   br i1 %2388, label %.critedge.i, label %.lr.ph791
 
 .lr.ph.i468:                                      ; preds = %.outer.i
-  %2389 = load ptr, ptr getelementptr inbounds (i8, ptr @sinfo, i64 8), align 8
+  %2389 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sinfo, i64 8), align 8
   %2390 = call zeroext i1 %2389(ptr noundef nonnull %2703) #23
   br i1 %2390, label %.critedge.i, label %.lr.ph791
 
@@ -4545,7 +4545,7 @@ spline_merge.exit.i:                              ; preds = %2353, %2349, %makeL
   br label %2395
 
 2392:                                             ; preds = %boxes_append.exit393.i
-  %2393 = load ptr, ptr getelementptr inbounds (i8, ptr @sinfo, i64 8), align 8
+  %2393 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sinfo, i64 8), align 8
   %2394 = call zeroext i1 %2393(ptr noundef nonnull %2544) #23
   br i1 %2394, label %.critedge.i, label %2395
 
@@ -8609,7 +8609,7 @@ define internal fastcc void @recover_slack(ptr nocapture noundef readonly %0, pt
   %15 = phi ptr [ %7, %.lr.ph48 ], [ %71, %62 ]
   %.047 = phi ptr [ %.045, %.lr.ph48 ], [ %.0, %62 ]
   %.03846 = phi i32 [ 0, %.lr.ph48 ], [ %31, %62 ]
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @sinfo, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sinfo, i64 8), align 8
   %17 = tail call zeroext i1 %16(ptr noundef nonnull %.047) #23
   br i1 %17, label %.critedge, label %.preheader
 

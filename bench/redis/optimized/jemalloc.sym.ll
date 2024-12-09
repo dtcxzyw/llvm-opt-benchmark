@@ -11899,7 +11899,7 @@ land.lhs.true1584.thread:                         ; preds = %lor.lhs.false1563, 
 if.else1571:                                      ; preds = %lor.lhs.false1563
   %.call1559 = call i64 @llvm.umin.i64(i64 %call1559, i64 2097152)
   %.sink2159 = call i64 @llvm.umax.i64(i64 %.call1559, i64 4096)
-  store i64 %.sink2159, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  store i64 %.sink2159, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 8), align 8
   %155 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1585 = trunc i8 %155 to i1
   br i1 %tobool1585, label %if.then1590, label %while.cond.backedge
@@ -11935,7 +11935,7 @@ land.lhs.true1625.thread:                         ; preds = %lor.lhs.false1608, 
 land.lhs.true1625:                                ; preds = %lor.lhs.false1608
   %158 = shl nuw nsw i32 %157, 5
   %mul.i = zext nneg i32 %158 to i64
-  store i64 %mul.i, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  store i64 %mul.i, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 8), align 8
   %159 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1626 = trunc i8 %159 to i1
   br i1 %tobool1626, label %if.then1631, label %while.cond.backedge
@@ -11973,7 +11973,7 @@ land.lhs.true1660.thread:                         ; preds = %lor.lhs.false1649, 
   br label %while.cond.backedge
 
 land.lhs.true1660:                                ; preds = %lor.lhs.false1649
-  store i64 %call1645, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 24), align 8
+  store i64 %call1645, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 24), align 8
   %163 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1661 = trunc i8 %163 to i1
   br i1 %tobool1661, label %if.then1666, label %while.cond.backedge
@@ -12012,7 +12012,7 @@ land.lhs.true1695.thread:                         ; preds = %lor.lhs.false1684, 
   br label %while.cond.backedge
 
 land.lhs.true1695:                                ; preds = %lor.lhs.false1684
-  store i64 %call1680, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 32), align 8
+  store i64 %call1680, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 32), align 8
   %167 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1696 = trunc i8 %167 to i1
   br i1 %tobool1696, label %if.then1701, label %while.cond.backedge
@@ -12055,7 +12055,7 @@ land.lhs.true1715.tail:                           ; preds = %sub_02078, %sub_120
   br i1 %cmp1717, label %if.then1719, label %if.end1731
 
 if.then1719:                                      ; preds = %land.lhs.true1715.tail
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 16), align 8
   %176 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1722 = trunc i8 %176 to i1
   br i1 %tobool1722, label %if.then1727, label %while.cond.backedge
@@ -12081,7 +12081,7 @@ land.lhs.true1752.thread:                         ; preds = %lor.lhs.false1739, 
 
 land.lhs.true1752:                                ; preds = %lor.lhs.false1739
   %178 = load i32, ptr %ratio1732, align 4
-  store i32 %178, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
+  store i32 %178, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_opts, i64 16), align 8
   %179 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1753 = trunc i8 %179 to i1
   br i1 %tobool1753, label %if.then1758, label %while.cond.backedge
@@ -12159,7 +12159,7 @@ land.lhs.true1832.thread:                         ; preds = %lor.lhs.false1816, 
 
 if.else1824:                                      ; preds = %lor.lhs.false1816
   %.call1812 = call i64 @llvm.umax.i64(i64 %call1812, i64 4096)
-  store i64 %.call1812, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 8), align 8
+  store i64 %.call1812, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 8), align 8
   %187 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1833 = trunc i8 %187 to i1
   br i1 %tobool1833, label %if.then1838, label %while.cond.backedge
@@ -12195,7 +12195,7 @@ land.lhs.true1872.thread:                         ; preds = %lor.lhs.false1856, 
 
 if.else1864:                                      ; preds = %lor.lhs.false1856
   %.call1852 = call i64 @llvm.umax.i64(i64 %call1852, i64 4096)
-  store i64 %.call1852, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 16), align 8
+  store i64 %.call1852, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 16), align 8
   %191 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1873 = trunc i8 %191 to i1
   br i1 %tobool1873, label %if.then1878, label %while.cond.backedge
@@ -12235,7 +12235,7 @@ land.lhs.true1912.thread:                         ; preds = %lor.lhs.false1896, 
 
 if.else1904:                                      ; preds = %lor.lhs.false1896
   %.call1892 = call i64 @llvm.umax.i64(i64 %call1892, i64 4096)
-  store i64 %.call1892, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 24), align 8
+  store i64 %.call1892, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 24), align 8
   %195 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1913 = trunc i8 %195 to i1
   br i1 %tobool1913, label %if.then1918, label %while.cond.backedge
@@ -12275,7 +12275,7 @@ land.lhs.true1957.thread:                         ; preds = %lor.lhs.false1936, 
 
 if.else1948:                                      ; preds = %lor.lhs.false1936
   %.call1932 = call i64 @llvm.umin.i64(i64 %call1932, i64 512)
-  store i64 %.call1932, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 32), align 8
+  store i64 %.call1932, ptr getelementptr inbounds nuw (i8, ptr @opt_hpa_sec_opts, i64 32), align 8
   %199 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1958 = trunc i8 %199 to i1
   br i1 %tobool1958, label %if.then1963, label %while.cond.backedge

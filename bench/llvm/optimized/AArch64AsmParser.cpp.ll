@@ -1384,7 +1384,7 @@ define internal noundef nonnull ptr @_ZN4llvm19RegisterMCAsmParserIN12_GLOBAL__N
   %6 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #26
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   tail call void @_ZN4llvm17MCTargetAsmParserC2ERKNS_15MCTargetOptionsERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoE(ptr noundef nonnull align 8 dereferenceable(362) %6, ptr noundef nonnull align 8 dereferenceable(201) %3, ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(44) %2) #25
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN12_GLOBAL__N_116AArch64AsmParserE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN12_GLOBAL__N_116AArch64AsmParserE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 340
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 0, i64 36, i1 false)
@@ -2764,7 +2764,7 @@ declare noundef nonnull align 8 dereferenceable(288) ptr @_ZNK4llvm17MCTargetAsm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116AArch64AsmParserD2Ev(ptr noundef nonnull align 8 dereferenceable(362) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN12_GLOBAL__N_116AArch64AsmParserE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN12_GLOBAL__N_116AArch64AsmParserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %4 = load i32, ptr %3, align 4
@@ -2812,7 +2812,7 @@ _ZN4llvm9StringMapISt4pairIN12_GLOBAL__N_17RegKindEjENS_15MallocAllocatorEED2Ev.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116AArch64AsmParserD0Ev(ptr noundef nonnull align 8 dereferenceable(362) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN12_GLOBAL__N_116AArch64AsmParserE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN12_GLOBAL__N_116AArch64AsmParserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %4 = load i32, ptr %3, align 4
@@ -4136,12 +4136,12 @@ _ZNK4llvm9StringRef8containsEc.exit.thread.i:     ; preds = %_ZNSt11char_traitsI
   %266 = load ptr, ptr %265, align 8
   %267 = call noundef nonnull align 8 dereferenceable(2432) ptr %266(ptr noundef nonnull align 8 dereferenceable(34) %263) #25
   %268 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %268, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %268, align 8, !noalias !19
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store i32 -1, ptr %269, align 8, !noalias !19
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %270) #25, !noalias !19
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %268, align 8, !noalias !19
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %268, align 8, !noalias !19
   %271 = getelementptr inbounds nuw i8, ptr %268, i64 48
   store i32 10, ptr %271, align 8, !noalias !19
   %272 = getelementptr inbounds nuw i8, ptr %268, i64 56
@@ -5064,12 +5064,12 @@ _ZNK4llvm9StringRef4findEcm.exit366:              ; preds = %.lr.ph, %_ZNSt11cha
   %592 = load ptr, ptr %591, align 8
   %593 = call noundef nonnull align 8 dereferenceable(2432) ptr %592(ptr noundef nonnull align 8 dereferenceable(34) %589) #25
   %594 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %594, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %594, align 8, !noalias !84
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 8
   store i32 -1, ptr %595, align 8, !noalias !84
   %596 = getelementptr inbounds nuw i8, ptr %594, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %596) #25, !noalias !84
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %594, align 8, !noalias !84
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %594, align 8, !noalias !84
   %597 = getelementptr inbounds nuw i8, ptr %594, i64 48
   store i32 10, ptr %597, align 8, !noalias !84
   %598 = getelementptr inbounds nuw i8, ptr %594, i64 56
@@ -5764,7 +5764,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i:    ; preds = %"_ZN9__gnu_cxx5__op
   br label %184
 
 "_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread.i": ; preds = %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchENS_5SMLocEE3$_0EEDaOT_T0_.exit.i", %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread44.i", %165, %163
-  %.028.i.i.i.i24.i = phi ptr [ %.ptr30.i.le, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchENS_5SMLocEE3$_0EEDaOT_T0_.exit.i" ], [ getelementptr inbounds (i8, ptr @_ZL12ExtensionMap, i64 3888), %165 ], [ getelementptr inbounds (i8, ptr @_ZL12ExtensionMap, i64 3840), %163 ], [ %.028.i.i.i.i.ptr46.i, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread44.i" ]
+  %.028.i.i.i.i24.i = phi ptr [ %.ptr30.i.le, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchENS_5SMLocEE3$_0EEDaOT_T0_.exit.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12ExtensionMap, i64 3888), %165 ], [ getelementptr inbounds nuw (i8, ptr @_ZL12ExtensionMap, i64 3840), %163 ], [ %.028.i.i.i.i.ptr46.i, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser18parseDirectiveArchENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread44.i" ]
   %174 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i24.i, i64 8
   br i1 %140, label %176, label %175
 
@@ -6167,7 +6167,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i.i91:  ; preds = %"_ZN9__gnu_cxx5__op
   br label %312
 
 "_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread.i": ; preds = %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUENS_5SMLocEE3$_0EEDaOT_T0_.exit.i", %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread37.i", %293, %291
-  %.028.i.i.i.i19.i = phi ptr [ %.ptr25.i.le, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUENS_5SMLocEE3$_0EEDaOT_T0_.exit.i" ], [ getelementptr inbounds (i8, ptr @_ZL12ExtensionMap, i64 3888), %293 ], [ getelementptr inbounds (i8, ptr @_ZL12ExtensionMap, i64 3840), %291 ], [ %.028.i.i.i.i.ptr39.i, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread37.i" ]
+  %.028.i.i.i.i19.i = phi ptr [ %.ptr25.i.le, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUENS_5SMLocEE3$_0EEDaOT_T0_.exit.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12ExtensionMap, i64 3888), %293 ], [ getelementptr inbounds nuw (i8, ptr @_ZL12ExtensionMap, i64 3840), %291 ], [ %.028.i.i.i.i.ptr39.i, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser17parseDirectiveCPUENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread37.i" ]
   %302 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i19.i, i64 8
   br i1 %268, label %304, label %303
 
@@ -6951,7 +6951,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %80 = load ptr, ptr %79, align 8
   %81 = tail call i32 %80(ptr noundef nonnull align 8 dereferenceable(112) %59) #25
   %82 = lshr i32 %81, 3
-  %83 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 726), align 2
+  %83 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 726), align 2
   %84 = zext i16 %83 to i32
   %.not.i471 = icmp samesign ult i32 %82, %84
   br i1 %.not.i471, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %.thread
@@ -6963,7 +6963,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %75
   %87 = and i32 %81, 7
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 712), align 8
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 712), align 8
   %89 = zext nneg i32 %82 to i64
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 %89
   %91 = load i8, ptr %90, align 1
@@ -7004,12 +7004,12 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %75
   %119 = load ptr, ptr %118, align 8
   %120 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %119(ptr noundef nonnull align 8 dereferenceable(34) %116) #25
   %121 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !113
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %121, align 8, !noalias !113
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %121, align 8, !noalias !113
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i32 -1, ptr %122, align 8, !noalias !113
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #25, !noalias !113
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %121, align 8, !noalias !113
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %121, align 8, !noalias !113
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 48
   store i32 10, ptr %124, align 8, !noalias !113
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 56
@@ -7052,12 +7052,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %147 = load ptr, ptr %146, align 8
   %148 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %147(ptr noundef nonnull align 8 dereferenceable(34) %144) #25
   %149 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !119
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %149, align 8, !noalias !119
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %149, align 8, !noalias !119
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i32 -1, ptr %150, align 8, !noalias !119
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %151) #25, !noalias !119
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %149, align 8, !noalias !119
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %149, align 8, !noalias !119
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 48
   store i32 0, ptr %152, align 8, !noalias !119
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 56
@@ -7097,12 +7097,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %172 = load ptr, ptr %171, align 8
   %173 = call noundef nonnull align 8 dereferenceable(2432) ptr %172(ptr noundef nonnull align 8 dereferenceable(34) %169) #25
   %174 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !125
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %174, align 8, !noalias !125
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %174, align 8, !noalias !125
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i32 -1, ptr %175, align 8, !noalias !125
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %176) #25, !noalias !125
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %174, align 8, !noalias !125
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %174, align 8, !noalias !125
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 48
   store i32 0, ptr %177, align 8, !noalias !125
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 56
@@ -7183,14 +7183,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit487.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %222 = load ptr, ptr %221, align 8
   %223 = call i32 %222(ptr noundef nonnull align 8 dereferenceable(112) %191) #25
   %224 = lshr i32 %223, 3
-  %225 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
+  %225 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
   %226 = zext i16 %225 to i32
   %.not.i490 = icmp samesign ult i32 %224, %226
   br i1 %.not.i490, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit492, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit492.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit492: ; preds = %215
   %227 = and i32 %223, 7
-  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
+  %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
   %229 = zext nneg i32 %224 to i64
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 %229
   %231 = load i8, ptr %230, align 1
@@ -7380,10 +7380,10 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
 330:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit487.thread, %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit519, %208, %256, %246, %237
   %switch = phi i1 [ false, %237 ], [ false, %246 ], [ false, %256 ], [ true, %208 ], [ true, %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit519 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit487.thread ]
   %.0 = phi i1 [ %243, %237 ], [ %252, %246 ], [ %262, %256 ], [ undef, %208 ], [ undef, %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit519 ], [ undef, %_ZN4llvmeqENS_9StringRefES0_.exit487.thread ]
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %10, align 8
   %331 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %331) #25
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %9, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %9, align 8
   %332 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %332) #25
   br i1 %switch, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.exit483, label %_ZN4llvm6MCInstD2Ev.exit
@@ -7471,14 +7471,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit523.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %374 = load ptr, ptr %373, align 8
   %375 = tail call i32 %374(ptr noundef nonnull align 8 dereferenceable(112) %340) #25
   %376 = lshr i32 %375, 3
-  %377 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
+  %377 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
   %378 = zext i16 %377 to i32
   %.not.i534 = icmp samesign ult i32 %376, %378
   br i1 %.not.i534, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit536, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit536.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit536: ; preds = %367
   %379 = and i32 %375, 7
-  %380 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
+  %380 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
   %381 = zext nneg i32 %376 to i64
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 %381
   %383 = load i8, ptr %382, align 1
@@ -7801,14 +7801,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit582.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %565 = load ptr, ptr %564, align 8
   %566 = tail call i32 %565(ptr noundef nonnull align 8 dereferenceable(112) %531) #25
   %567 = lshr i32 %566, 3
-  %568 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
+  %568 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
   %569 = zext i16 %568 to i32
   %.not.i593 = icmp samesign ult i32 %567, %569
   br i1 %.not.i593, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit595, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit595.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit595: ; preds = %558
   %570 = and i32 %566, 7
-  %571 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
+  %571 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
   %572 = zext nneg i32 %567 to i64
   %573 = getelementptr inbounds nuw i8, ptr %571, i64 %572
   %574 = load i8, ptr %573, align 1
@@ -8219,12 +8219,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit649.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %803 = load ptr, ptr %802, align 8
   %804 = call noundef nonnull align 8 dereferenceable(2432) ptr %803(ptr noundef nonnull align 8 dereferenceable(34) %800) #25
   %805 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %805, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %805, align 8, !noalias !131
   %806 = getelementptr inbounds nuw i8, ptr %805, i64 8
   store i32 -1, ptr %806, align 8, !noalias !131
   %807 = getelementptr inbounds nuw i8, ptr %805, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %807) #25, !noalias !131
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %805, align 8, !noalias !131
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %805, align 8, !noalias !131
   %808 = getelementptr inbounds nuw i8, ptr %805, i64 48
   store i32 4, ptr %808, align 8, !noalias !131
   %809 = getelementptr inbounds nuw i8, ptr %805, i64 56
@@ -8280,14 +8280,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit663.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %833 = load ptr, ptr %832, align 8
   %834 = call i32 %833(ptr noundef nonnull align 8 dereferenceable(112) %824) #25
   %835 = lshr i32 %834, 3
-  %836 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
+  %836 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
   %837 = zext i16 %836 to i32
   %.not.i668 = icmp samesign ult i32 %835, %837
   br i1 %.not.i668, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit670, label %.critedge429
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit670: ; preds = %830
   %838 = and i32 %834, 7
-  %839 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
+  %839 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
   %840 = zext nneg i32 %835 to i64
   %841 = getelementptr inbounds nuw i8, ptr %839, i64 %840
   %842 = load i8, ptr %841, align 1
@@ -8375,14 +8375,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit680.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %895 = load ptr, ptr %894, align 8
   %896 = call i32 %895(ptr noundef nonnull align 8 dereferenceable(112) %886) #25
   %897 = lshr i32 %896, 3
-  %898 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
+  %898 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
   %899 = zext i16 %898 to i32
   %.not.i685 = icmp samesign ult i32 %897, %899
   br i1 %.not.i685, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit687, label %.critedge429
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit687: ; preds = %892
   %900 = and i32 %896, 7
-  %901 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
+  %901 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
   %902 = zext nneg i32 %897 to i64
   %903 = getelementptr inbounds nuw i8, ptr %901, i64 %902
   %904 = load i8, ptr %903, align 1
@@ -16148,12 +16148,12 @@ _ZNK4llvm9StringRef8containsEc.exit.thread:       ; preds = %5, %_ZNSt11char_tra
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %44(ptr noundef nonnull align 8 dereferenceable(34) %41) #25
   %46 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !556
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %46, align 8, !noalias !556
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %46, align 8, !noalias !556
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 -1, ptr %47, align 8, !noalias !556
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25, !noalias !556
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %46, align 8, !noalias !556
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %46, align 8, !noalias !556
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 48
   store i32 10, ptr %49, align 8, !noalias !556
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 56
@@ -16512,12 +16512,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateTokenEN4ll
   %7 = zext i1 %5 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !586)
   %8 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !586
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %8, align 8, !noalias !586
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %8, align 8, !noalias !586
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 -1, ptr %9, align 8, !noalias !586
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25, !noalias !586
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %8, align 8, !noalias !586
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %8, align 8, !noalias !586
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 10, ptr %11, align 8, !noalias !586
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -16792,12 +16792,12 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateCondCodeEN4llvm9AArch64CC8CondCodeENS1_5SMLocES4_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, i32 noundef %1, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !589)
   %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !589
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !589
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !589
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %7, align 8, !noalias !589
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25, !noalias !589
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %6, align 8, !noalias !589
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %6, align 8, !noalias !589
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 3, ptr %9, align 8, !noalias !589
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -16918,12 +16918,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser12
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef nonnull align 8 dereferenceable(2432) ptr %79(ptr noundef nonnull align 8 dereferenceable(34) %76) #25
   %81 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !592
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %81, align 8, !noalias !592
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %81, align 8, !noalias !592
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 -1, ptr %82, align 8, !noalias !592
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #25, !noalias !592
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %81, align 8, !noalias !592
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %81, align 8, !noalias !592
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 48
   store i32 0, ptr %84, align 8, !noalias !592
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 56
@@ -17022,12 +17022,12 @@ _ZN4llvm8AsmTokenC2ERKS0_.exit:                   ; preds = %101, %103
   %133 = load ptr, ptr %132, align 8
   %134 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %133(ptr noundef nonnull align 8 dereferenceable(34) %130) #25
   %135 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !598
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %135, align 8, !noalias !598
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %135, align 8, !noalias !598
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i32 -1, ptr %136, align 8, !noalias !598
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %137) #25, !noalias !598
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %135, align 8, !noalias !598
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %135, align 8, !noalias !598
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 48
   store i32 10, ptr %138, align 8, !noalias !598
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 56
@@ -17470,12 +17470,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser19parseNeonVectorListERN4llvm15SmallVectorImp
   %330 = load ptr, ptr %329, align 8
   %331 = call noundef nonnull align 8 dereferenceable(2432) ptr %330(ptr noundef nonnull align 8 dereferenceable(34) %327) #25
   %332 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !605
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %332, align 8, !noalias !605
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %332, align 8, !noalias !605
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   store i32 -1, ptr %333, align 8, !noalias !605
   %334 = getelementptr inbounds nuw i8, ptr %332, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %334) #25, !noalias !605
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %332, align 8, !noalias !605
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %332, align 8, !noalias !605
   %335 = getelementptr inbounds nuw i8, ptr %332, i64 48
   store i32 10, ptr %335, align 8, !noalias !605
   %336 = getelementptr inbounds nuw i8, ptr %332, i64 56
@@ -17532,12 +17532,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %360 = load ptr, ptr %359, align 8
   %361 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %360(ptr noundef nonnull align 8 dereferenceable(34) %357) #25
   %362 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !611
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %362, align 8, !noalias !611
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %362, align 8, !noalias !611
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   store i32 -1, ptr %363, align 8, !noalias !611
   %364 = getelementptr inbounds nuw i8, ptr %362, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %364) #25, !noalias !611
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %362, align 8, !noalias !611
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %362, align 8, !noalias !611
   %365 = getelementptr inbounds nuw i8, ptr %362, i64 48
   store i32 10, ptr %365, align 8, !noalias !611
   %366 = getelementptr inbounds nuw i8, ptr %362, i64 56
@@ -17905,12 +17905,12 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread350:      ; preds = %_ZN4llvmneENS_9Stri
   %521 = load ptr, ptr %520, align 8
   %522 = call noundef nonnull align 8 dereferenceable(2432) ptr %521(ptr noundef nonnull align 8 dereferenceable(34) %518) #25
   %523 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !623
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %523, align 8, !noalias !623
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %523, align 8, !noalias !623
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
   store i32 -1, ptr %524, align 8, !noalias !623
   %525 = getelementptr inbounds nuw i8, ptr %523, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %525) #25, !noalias !623
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %523, align 8, !noalias !623
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %523, align 8, !noalias !623
   %526 = getelementptr inbounds nuw i8, ptr %523, i64 48
   store i32 10, ptr %526, align 8, !noalias !623
   %527 = getelementptr inbounds nuw i8, ptr %523, i64 56
@@ -17946,12 +17946,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %540 = load ptr, ptr %539, align 8
   %541 = call noundef nonnull align 8 dereferenceable(2432) ptr %540(ptr noundef nonnull align 8 dereferenceable(34) %537) #25
   %542 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !629
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %542, align 8, !noalias !629
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %542, align 8, !noalias !629
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 8
   store i32 -1, ptr %543, align 8, !noalias !629
   %544 = getelementptr inbounds nuw i8, ptr %542, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %544) #25, !noalias !629
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %542, align 8, !noalias !629
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %542, align 8, !noalias !629
   %545 = getelementptr inbounds nuw i8, ptr %542, i64 48
   store i32 10, ptr %545, align 8, !noalias !629
   %546 = getelementptr inbounds nuw i8, ptr %542, i64 56
@@ -18013,12 +18013,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %570 = load ptr, ptr %569, align 8
   %571 = call noundef nonnull align 8 dereferenceable(2432) ptr %570(ptr noundef nonnull align 8 dereferenceable(34) %567) #25
   %572 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !635
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %572, align 8, !noalias !635
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %572, align 8, !noalias !635
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 8
   store i32 -1, ptr %573, align 8, !noalias !635
   %574 = getelementptr inbounds nuw i8, ptr %572, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %574) #25, !noalias !635
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %572, align 8, !noalias !635
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %572, align 8, !noalias !635
   %575 = getelementptr inbounds nuw i8, ptr %572, i64 48
   store i32 0, ptr %575, align 8, !noalias !635
   %576 = getelementptr inbounds nuw i8, ptr %572, i64 56
@@ -18173,14 +18173,14 @@ _ZN4llvmneENS_9StringRefES0_.exit242.thread374:   ; preds = %_ZN4llvmneENS_9Stri
   %650 = load ptr, ptr %649, align 8
   %651 = call i32 %650(ptr noundef nonnull align 8 dereferenceable(48) %636) #25
   %652 = lshr i32 %651, 3
-  %653 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
+  %653 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1238), align 2
   %654 = zext i16 %653 to i32
   %.not.i243 = icmp samesign ult i32 %652, %654
   br i1 %.not.i243, label %655, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 655:                                              ; preds = %647
   %656 = and i32 %651, 7
-  %657 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
+  %657 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1224), align 8
   %658 = zext nneg i32 %652 to i64
   %659 = getelementptr inbounds nuw i8, ptr %657, i64 %658
   %660 = load i8, ptr %659, align 1
@@ -18868,12 +18868,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_116AArch64AsmParser14createSysAlias
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %29(ptr noundef nonnull align 8 dereferenceable(34) %26) #25
   %31 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !645
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %31, align 8, !noalias !645
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %31, align 8, !noalias !645
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 -1, ptr %32, align 8, !noalias !645
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #25, !noalias !645
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %31, align 8, !noalias !645
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %31, align 8, !noalias !645
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i32 0, ptr %34, align 8, !noalias !645
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -18909,12 +18909,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %49 = load ptr, ptr %48, align 8
   %50 = call noundef nonnull align 8 dereferenceable(2432) ptr %49(ptr noundef nonnull align 8 dereferenceable(34) %46) #25
   %51 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !651
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %51, align 8, !noalias !651
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %51, align 8, !noalias !651
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 -1, ptr %52, align 8, !noalias !651
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #25, !noalias !651
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %51, align 8, !noalias !651
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %51, align 8, !noalias !651
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store i32 12, ptr %54, align 8, !noalias !651
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 56
@@ -18950,12 +18950,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %69 = load ptr, ptr %68, align 8
   %70 = call noundef nonnull align 8 dereferenceable(2432) ptr %69(ptr noundef nonnull align 8 dereferenceable(34) %66) #25
   %71 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !657
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %71, align 8, !noalias !657
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %71, align 8, !noalias !657
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 -1, ptr %72, align 8, !noalias !657
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #25, !noalias !657
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %71, align 8, !noalias !657
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %71, align 8, !noalias !657
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store i32 12, ptr %74, align 8, !noalias !657
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 56
@@ -18997,12 +18997,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %95 = load ptr, ptr %94, align 8
   %96 = call noundef nonnull align 8 dereferenceable(2432) ptr %95(ptr noundef nonnull align 8 dereferenceable(34) %92) #25
   %97 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !663
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %97, align 8, !noalias !663
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %97, align 8, !noalias !663
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 -1, ptr %98, align 8, !noalias !663
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #25, !noalias !663
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %97, align 8, !noalias !663
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %97, align 8, !noalias !663
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 48
   store i32 0, ptr %100, align 8, !noalias !663
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 56
@@ -19099,12 +19099,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser13
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %37(ptr noundef nonnull align 8 dereferenceable(34) %34) #25
   %39 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !669
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %39, align 8, !noalias !669
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %39, align 8, !noalias !669
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 -1, ptr %40, align 8, !noalias !669
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #25, !noalias !669
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %39, align 8, !noalias !669
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %39, align 8, !noalias !669
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 48
   store i32 4, ptr %42, align 8, !noalias !669
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 56
@@ -19146,12 +19146,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef nonnull align 8 dereferenceable(2432) ptr %59(ptr noundef nonnull align 8 dereferenceable(34) %56) #25
   %61 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !678
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %61, align 8, !noalias !678
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %61, align 8, !noalias !678
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 -1, ptr %62, align 8, !noalias !678
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #25, !noalias !678
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %61, align 8, !noalias !678
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %61, align 8, !noalias !678
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store i32 10, ptr %64, align 8, !noalias !678
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 56
@@ -19239,12 +19239,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser26tryParseNeonVectorRegisterERN4llvm15SmallVe
   %95 = load ptr, ptr %94, align 8
   %96 = call noundef nonnull align 8 dereferenceable(2432) ptr %95(ptr noundef nonnull align 8 dereferenceable(34) %92) #25
   %97 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !684
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %97, align 8, !noalias !684
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %97, align 8, !noalias !684
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 -1, ptr %98, align 8, !noalias !684
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #25, !noalias !684
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %97, align 8, !noalias !684
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %97, align 8, !noalias !684
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 48
   store i32 4, ptr %100, align 8, !noalias !684
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 56
@@ -19293,12 +19293,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %124 = load ptr, ptr %123, align 8
   %125 = call noundef nonnull align 8 dereferenceable(2432) ptr %124(ptr noundef nonnull align 8 dereferenceable(34) %121) #25
   %126 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !690
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %126, align 8, !noalias !690
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %126, align 8, !noalias !690
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 -1, ptr %127, align 8, !noalias !690
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #25, !noalias !690
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %126, align 8, !noalias !690
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %126, align 8, !noalias !690
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 48
   store i32 10, ptr %129, align 8, !noalias !690
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 56
@@ -19356,12 +19356,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %159 = load ptr, ptr %158, align 8
   %160 = call noundef nonnull align 8 dereferenceable(2432) ptr %159(ptr noundef nonnull align 8 dereferenceable(34) %156) #25
   %161 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !696
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %161, align 8, !noalias !696
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %161, align 8, !noalias !696
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i32 -1, ptr %162, align 8, !noalias !696
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %163) #25, !noalias !696
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %161, align 8, !noalias !696
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %161, align 8, !noalias !696
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 48
   store i32 0, ptr %164, align 8, !noalias !696
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 56
@@ -19415,12 +19415,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %188 = load ptr, ptr %187, align 8
   %189 = call noundef nonnull align 8 dereferenceable(2432) ptr %188(ptr noundef nonnull align 8 dereferenceable(34) %185) #25
   %190 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !702
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %190, align 8, !noalias !702
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %190, align 8, !noalias !702
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i32 -1, ptr %191, align 8, !noalias !702
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %192) #25, !noalias !702
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %190, align 8, !noalias !702
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %190, align 8, !noalias !702
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 48
   store i32 10, ptr %193, align 8, !noalias !702
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 56
@@ -19520,12 +19520,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser17tryParseZTOperandERN4llvm15SmallVectorImplI
   %220 = load ptr, ptr %219, align 8
   %221 = call noundef nonnull align 8 dereferenceable(2432) ptr %220(ptr noundef nonnull align 8 dereferenceable(34) %217) #25
   %222 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !708
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %222, align 8, !noalias !708
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %222, align 8, !noalias !708
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i32 -1, ptr %223, align 8, !noalias !708
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %224) #25, !noalias !708
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %222, align 8, !noalias !708
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %222, align 8, !noalias !708
   %225 = getelementptr inbounds nuw i8, ptr %222, i64 48
   store i32 4, ptr %225, align 8, !noalias !708
   %226 = getelementptr inbounds nuw i8, ptr %222, i64 56
@@ -19765,12 +19765,12 @@ declare noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noun
 define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llvm6MCExprENS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef %1, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !718)
   %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !718
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !718
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !718
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %7, align 8, !noalias !718
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25, !noalias !718
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %6, align 8, !noalias !718
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %6, align 8, !noalias !718
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %9, align 8, !noalias !718
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -19787,7 +19787,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateImmEPKN4llv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114AArch64OperandD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   ret void
@@ -19795,7 +19795,7 @@ define internal void @_ZN12_GLOBAL__N_114AArch64OperandD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_114AArch64OperandD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #27
@@ -21326,12 +21326,12 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser1
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef nonnull align 8 dereferenceable(2432) ptr %38(ptr noundef nonnull align 8 dereferenceable(34) %35) #25
   %40 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !729
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %40, align 8, !noalias !729
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %40, align 8, !noalias !729
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 -1, ptr %41, align 8, !noalias !729
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25, !noalias !729
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %40, align 8, !noalias !729
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %40, align 8, !noalias !729
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store i32 9, ptr %43, align 8, !noalias !729
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 56
@@ -21364,12 +21364,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
 define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand9CreateRegEjNS_7RegKindEN4llvm5SMLocES3_RNS2_9MCContextENS_23RegConstraintEqualityTyENS2_10AArch64_AM15ShiftExtendTypeEjj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, i32 noundef %1, i32 noundef range(i32 0, 7) %2, ptr %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %5, i32 noundef range(i32 0, 3) %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, 2) %9) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !735)
   %11 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !735
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %11, align 8, !noalias !735
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %11, align 8, !noalias !735
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 -1, ptr %12, align 8, !noalias !735
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #25, !noalias !735
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %11, align 8, !noalias !735
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %11, align 8, !noalias !735
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 4, ptr %14, align 8, !noalias !735
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -21519,12 +21519,12 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit29: ; preds = %_ZN4llvm8AsmToken
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef nonnull align 8 dereferenceable(2432) ptr %70(ptr noundef nonnull align 8 dereferenceable(34) %67) #25
   %72 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !744
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %72, align 8, !noalias !744
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %72, align 8, !noalias !744
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 -1, ptr %73, align 8, !noalias !744
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #25, !noalias !744
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %72, align 8, !noalias !744
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %72, align 8, !noalias !744
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 48
   store i32 10, ptr %75, align 8, !noalias !744
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 56
@@ -21571,12 +21571,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %97 = load ptr, ptr %96, align 8
   %98 = call noundef nonnull align 8 dereferenceable(2432) ptr %97(ptr noundef nonnull align 8 dereferenceable(34) %94) #25
   %99 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !750
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %99, align 8, !noalias !750
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %99, align 8, !noalias !750
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i32 -1, ptr %100, align 8, !noalias !750
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #25, !noalias !750
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %99, align 8, !noalias !750
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %99, align 8, !noalias !750
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 48
   store i32 10, ptr %102, align 8, !noalias !750
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 56
@@ -21652,12 +21652,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %145 = load ptr, ptr %144, align 8
   %146 = call noundef nonnull align 8 dereferenceable(2432) ptr %145(ptr noundef nonnull align 8 dereferenceable(34) %142) #25
   %147 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !756
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %147, align 8, !noalias !756
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %147, align 8, !noalias !756
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i32 -1, ptr %148, align 8, !noalias !756
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %149) #25, !noalias !756
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %147, align 8, !noalias !756
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %147, align 8, !noalias !756
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 48
   store i32 0, ptr %150, align 8, !noalias !756
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 56
@@ -21828,12 +21828,12 @@ _ZN4llvm8AsmTokenC2ERKS0_.exit:                   ; preds = %20, %22
   %77 = load ptr, ptr %76, align 8
   %78 = call noundef nonnull align 8 dereferenceable(2432) ptr %77(ptr noundef nonnull align 8 dereferenceable(34) %74) #25
   %79 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !762
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %79, align 8, !noalias !762
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %79, align 8, !noalias !762
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i32 -1, ptr %80, align 8, !noalias !762
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #25, !noalias !762
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %79, align 8, !noalias !762
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %79, align 8, !noalias !762
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 48
   store i32 4, ptr %82, align 8, !noalias !762
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 56
@@ -22125,11 +22125,11 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit45.thread: ; preds = %1
   br i1 %.0.i, label %148, label %150
 
 148:                                              ; preds = %147
-  %149 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(224) %71, i32 %.sroa.023.0.copyload, i32 noundef 18, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1952)) #25
+  %149 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(224) %71, i32 %.sroa.023.0.copyload, i32 noundef 18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1952)) #25
   br label %152
 
 150:                                              ; preds = %147
-  %151 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(224) %71, i32 %.sroa.023.0.copyload, i32 noundef 17, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1056)) #25
+  %151 = tail call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(224) %71, i32 %.sroa.023.0.copyload, i32 noundef 17, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1056)) #25
   br label %152
 
 152:                                              ; preds = %150, %148
@@ -23245,12 +23245,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AA
   %357 = load ptr, ptr %356, align 8
   %358 = call noundef nonnull align 8 dereferenceable(2432) ptr %357(ptr noundef nonnull align 8 dereferenceable(34) %354) #25
   %359 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !774
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %359, align 8, !noalias !774
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %359, align 8, !noalias !774
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   store i32 -1, ptr %360, align 8, !noalias !774
   %361 = getelementptr inbounds nuw i8, ptr %359, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %361) #25, !noalias !774
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %359, align 8, !noalias !774
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %359, align 8, !noalias !774
   %362 = getelementptr inbounds nuw i8, ptr %359, i64 48
   store i32 0, ptr %362, align 8, !noalias !774
   %363 = getelementptr inbounds nuw i8, ptr %359, i64 56
@@ -23460,12 +23460,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser17classifySymbolRefEPKN4llvm6MCExprERNS1_13AA
   %464 = load ptr, ptr %463, align 8
   %465 = call noundef nonnull align 8 dereferenceable(2432) ptr %464(ptr noundef nonnull align 8 dereferenceable(34) %461) #25
   %466 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !780
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %466, align 8, !noalias !780
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %466, align 8, !noalias !780
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   store i32 -1, ptr %467, align 8, !noalias !780
   %468 = getelementptr inbounds nuw i8, ptr %466, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %468) #25, !noalias !780
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %466, align 8, !noalias !780
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %466, align 8, !noalias !780
   %469 = getelementptr inbounds nuw i8, ptr %466, i64 48
   store i32 0, ptr %469, align 8, !noalias !780
   %470 = getelementptr inbounds nuw i8, ptr %466, i64 56
@@ -23551,12 +23551,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser17tryParseAdrpLabelERN4llvm15SmallVectorImplI
   %503 = load ptr, ptr %502, align 8
   %504 = call noundef nonnull align 8 dereferenceable(2432) ptr %503(ptr noundef nonnull align 8 dereferenceable(34) %500) #25
   %505 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !786
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %505, align 8, !noalias !786
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %505, align 8, !noalias !786
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
   store i32 -1, ptr %506, align 8, !noalias !786
   %507 = getelementptr inbounds nuw i8, ptr %505, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %507) #25, !noalias !786
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %505, align 8, !noalias !786
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %505, align 8, !noalias !786
   %508 = getelementptr inbounds nuw i8, ptr %505, i64 48
   store i32 18, ptr %508, align 8, !noalias !786
   %509 = getelementptr inbounds nuw i8, ptr %505, i64 56
@@ -23763,12 +23763,12 @@ _ZN4llvm9StringRefC2EPKc.exit.i179:               ; preds = %.thread.i178, %581
   %591 = load ptr, ptr %590, align 8
   %592 = call noundef nonnull align 8 dereferenceable(2432) ptr %591(ptr noundef nonnull align 8 dereferenceable(34) %588) #25
   %593 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !792
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %593, align 8, !noalias !792
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %593, align 8, !noalias !792
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 8
   store i32 -1, ptr %594, align 8, !noalias !792
   %595 = getelementptr inbounds nuw i8, ptr %593, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %595) #25, !noalias !792
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %593, align 8, !noalias !792
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %593, align 8, !noalias !792
   %596 = getelementptr inbounds nuw i8, ptr %593, i64 48
   store i32 16, ptr %596, align 8, !noalias !792
   %597 = getelementptr inbounds nuw i8, ptr %593, i64 56
@@ -24069,12 +24069,12 @@ _ZN4llvm9StringRefC2EPKc.exit.i169:               ; preds = %707, %700
   %714 = load ptr, ptr %713, align 8
   %715 = call noundef nonnull align 8 dereferenceable(2432) ptr %714(ptr noundef nonnull align 8 dereferenceable(34) %711) #25
   %716 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !798
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %716, align 8, !noalias !798
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %716, align 8, !noalias !798
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 8
   store i32 -1, ptr %717, align 8, !noalias !798
   %718 = getelementptr inbounds nuw i8, ptr %716, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %718) #25, !noalias !798
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %716, align 8, !noalias !798
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %716, align 8, !noalias !798
   %719 = getelementptr inbounds nuw i8, ptr %716, i64 48
   store i32 16, ptr %719, align 8, !noalias !798
   %720 = getelementptr inbounds nuw i8, ptr %716, i64 56
@@ -24148,12 +24148,12 @@ _ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i.i170: ; preds 
   %753 = load ptr, ptr %752, align 8
   %754 = call noundef nonnull align 8 dereferenceable(2432) ptr %753(ptr noundef nonnull align 8 dereferenceable(34) %750) #25
   %755 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !804
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %755, align 8, !noalias !804
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %755, align 8, !noalias !804
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 8
   store i32 -1, ptr %756, align 8, !noalias !804
   %757 = getelementptr inbounds nuw i8, ptr %755, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %757) #25, !noalias !804
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %755, align 8, !noalias !804
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %755, align 8, !noalias !804
   %758 = getelementptr inbounds nuw i8, ptr %755, i64 48
   store i32 16, ptr %758, align 8, !noalias !804
   %759 = getelementptr inbounds nuw i8, ptr %755, i64 56
@@ -24459,12 +24459,12 @@ _ZN4llvm7APFloat10changeSignEv.exit.i:            ; preds = %861, %860, %_ZN4llv
   %871 = load ptr, ptr %870, align 8
   %872 = call noundef nonnull align 8 dereferenceable(2432) ptr %871(ptr noundef nonnull align 8 dereferenceable(34) %868) #25
   %873 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !813
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %873, align 8, !noalias !813
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %873, align 8, !noalias !813
   %874 = getelementptr inbounds nuw i8, ptr %873, i64 8
   store i32 -1, ptr %874, align 8, !noalias !813
   %875 = getelementptr inbounds nuw i8, ptr %873, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %875) #25, !noalias !813
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %873, align 8, !noalias !813
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %873, align 8, !noalias !813
   %876 = getelementptr inbounds nuw i8, ptr %873, i64 48
   store i32 10, ptr %876, align 8, !noalias !813
   %877 = getelementptr inbounds nuw i8, ptr %873, i64 56
@@ -24500,12 +24500,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %890 = load ptr, ptr %889, align 8
   %891 = call noundef nonnull align 8 dereferenceable(2432) ptr %890(ptr noundef nonnull align 8 dereferenceable(34) %887) #25
   %892 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !819
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %892, align 8, !noalias !819
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %892, align 8, !noalias !819
   %893 = getelementptr inbounds nuw i8, ptr %892, i64 8
   store i32 -1, ptr %893, align 8, !noalias !819
   %894 = getelementptr inbounds nuw i8, ptr %892, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %894) #25, !noalias !819
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %892, align 8, !noalias !819
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %892, align 8, !noalias !819
   %895 = getelementptr inbounds nuw i8, ptr %892, i64 48
   store i32 10, ptr %895, align 8, !noalias !819
   %896 = getelementptr inbounds nuw i8, ptr %892, i64 56
@@ -24672,12 +24672,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser13tryParseFPImmILb1EEEN4llvm11ParseStatusERNS
   %951 = load ptr, ptr %950, align 8
   %952 = call noundef nonnull align 8 dereferenceable(2432) ptr %951(ptr noundef nonnull align 8 dereferenceable(34) %948) #25
   %953 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !825
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %953, align 8, !noalias !825
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %953, align 8, !noalias !825
   %954 = getelementptr inbounds nuw i8, ptr %953, i64 8
   store i32 -1, ptr %954, align 8, !noalias !825
   %955 = getelementptr inbounds nuw i8, ptr %953, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %955) #25, !noalias !825
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %953, align 8, !noalias !825
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %953, align 8, !noalias !825
   %956 = getelementptr inbounds nuw i8, ptr %953, i64 48
   store i32 4, ptr %956, align 8, !noalias !825
   %957 = getelementptr inbounds nuw i8, ptr %953, i64 56
@@ -24756,12 +24756,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser18tryParseGPROperandILb0ELNS_23RegConstraintE
   %991 = load ptr, ptr %990, align 8
   %992 = call noundef nonnull align 8 dereferenceable(2432) ptr %991(ptr noundef nonnull align 8 dereferenceable(34) %988) #25
   %993 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !831
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %993, align 8, !noalias !831
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %993, align 8, !noalias !831
   %994 = getelementptr inbounds nuw i8, ptr %993, i64 8
   store i32 -1, ptr %994, align 8, !noalias !831
   %995 = getelementptr inbounds nuw i8, ptr %993, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %995) #25, !noalias !831
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %993, align 8, !noalias !831
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %993, align 8, !noalias !831
   %996 = getelementptr inbounds nuw i8, ptr %993, i64 48
   store i32 4, ptr %996, align 8, !noalias !831
   %997 = getelementptr inbounds nuw i8, ptr %993, i64 56
@@ -24850,12 +24850,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser18tryParseGPROperandILb0ELNS_23RegConstraintE
   %1034 = load ptr, ptr %1033, align 8
   %1035 = call noundef nonnull align 8 dereferenceable(2432) ptr %1034(ptr noundef nonnull align 8 dereferenceable(34) %1031) #25
   %1036 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !837
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1036, align 8, !noalias !837
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1036, align 8, !noalias !837
   %1037 = getelementptr inbounds nuw i8, ptr %1036, i64 8
   store i32 -1, ptr %1037, align 8, !noalias !837
   %1038 = getelementptr inbounds nuw i8, ptr %1036, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1038) #25, !noalias !837
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1036, align 8, !noalias !837
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1036, align 8, !noalias !837
   %1039 = getelementptr inbounds nuw i8, ptr %1036, i64 48
   store i32 4, ptr %1039, align 8, !noalias !837
   %1040 = getelementptr inbounds nuw i8, ptr %1036, i64 56
@@ -24987,7 +24987,7 @@ _ZN12_GLOBAL__N_116AArch64AsmParser23tryParseGPR64sp0OperandERN4llvm15SmallVecto
   %1102 = getelementptr inbounds nuw i8, ptr %1101, i64 160
   %1103 = load ptr, ptr %1102, align 8
   %.sroa.03.0.copyload.i121 = load i32, ptr %65, align 4
-  %1104 = call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(224) %1103, i32 %.sroa.03.0.copyload.i121, i32 noundef 21, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 7456)) #25
+  %1104 = call i32 @_ZNK4llvm14MCRegisterInfo19getMatchingSuperRegENS_10MCRegisterEjPKNS_15MCRegisterClassE(ptr noundef nonnull align 8 dereferenceable(224) %1103, i32 %.sroa.03.0.copyload.i121, i32 noundef 21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 7456)) #25
   %.not.i122 = icmp eq i32 %1104, 0
   br i1 %.not.i122, label %1105, label %1109
 
@@ -25005,12 +25005,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser23tryParseGPR64sp0OperandERN4llvm15SmallVecto
   %1110 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %.val.i123) #25
   %1111 = call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %1110) #25
   %1112 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !843
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1112, align 8, !noalias !843
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1112, align 8, !noalias !843
   %1113 = getelementptr inbounds nuw i8, ptr %1112, i64 8
   store i32 -1, ptr %1113, align 8, !noalias !843
   %1114 = getelementptr inbounds nuw i8, ptr %1112, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1114) #25, !noalias !843
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1112, align 8, !noalias !843
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1112, align 8, !noalias !843
   %1115 = getelementptr inbounds nuw i8, ptr %1112, i64 48
   store i32 4, ptr %1115, align 8, !noalias !843
   %1116 = getelementptr inbounds nuw i8, ptr %1112, i64 56
@@ -25187,12 +25187,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser15tryParseGPR64x8ERN4llvm15SmallVectorImplISt
   %1197 = load ptr, ptr %1196, align 8
   %1198 = call noundef nonnull align 8 dereferenceable(2432) ptr %1197(ptr noundef nonnull align 8 dereferenceable(34) %1194) #25
   %1199 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !849
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1199, align 8, !noalias !849
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1199, align 8, !noalias !849
   %1200 = getelementptr inbounds nuw i8, ptr %1199, i64 8
   store i32 -1, ptr %1200, align 8, !noalias !849
   %1201 = getelementptr inbounds nuw i8, ptr %1199, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1201) #25, !noalias !849
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1199, align 8, !noalias !849
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1199, align 8, !noalias !849
   %1202 = getelementptr inbounds nuw i8, ptr %1199, i64 48
   store i32 17, ptr %1202, align 8, !noalias !849
   %1203 = getelementptr inbounds nuw i8, ptr %1199, i64 56
@@ -25363,12 +25363,12 @@ _ZNKRSt8optionalIN4llvm9StringRefEE8value_orIRA1_KcEES1_OT_.exit.i100: ; preds =
   %1270 = load ptr, ptr %1269, align 8
   %1271 = call noundef nonnull align 8 dereferenceable(2432) ptr %1270(ptr noundef nonnull align 8 dereferenceable(34) %1267) #25
   %1272 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !868
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1272, align 8, !noalias !868
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1272, align 8, !noalias !868
   %1273 = getelementptr inbounds nuw i8, ptr %1272, i64 8
   store i32 -1, ptr %1273, align 8, !noalias !868
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1274) #25, !noalias !868
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1272, align 8, !noalias !868
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1272, align 8, !noalias !868
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 48
   store i32 13, ptr %1275, align 8, !noalias !868
   %1276 = getelementptr inbounds nuw i8, ptr %1272, i64 56
@@ -25437,12 +25437,12 @@ _ZZN12_GLOBAL__N_116AArch64AsmParser16tryParsePrefetchILb0EEEN4llvm11ParseStatus
   %1303 = load ptr, ptr %1302, align 8
   %1304 = call noundef nonnull align 8 dereferenceable(2432) ptr %1303(ptr noundef nonnull align 8 dereferenceable(34) %1300) #25
   %1305 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !874
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1305, align 8, !noalias !874
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1305, align 8, !noalias !874
   %1306 = getelementptr inbounds nuw i8, ptr %1305, i64 8
   store i32 -1, ptr %1306, align 8, !noalias !874
   %1307 = getelementptr inbounds nuw i8, ptr %1305, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1307) #25, !noalias !874
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1305, align 8, !noalias !874
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1305, align 8, !noalias !874
   %1308 = getelementptr inbounds nuw i8, ptr %1305, i64 48
   store i32 13, ptr %1308, align 8, !noalias !874
   %1309 = getelementptr inbounds nuw i8, ptr %1305, i64 56
@@ -25621,12 +25621,12 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %.thread.i, %1368
   %1378 = load ptr, ptr %1377, align 8
   %1379 = call noundef nonnull align 8 dereferenceable(2432) ptr %1378(ptr noundef nonnull align 8 dereferenceable(34) %1375) #25
   %1380 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !889
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1380, align 8, !noalias !889
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1380, align 8, !noalias !889
   %1381 = getelementptr inbounds nuw i8, ptr %1380, i64 8
   store i32 -1, ptr %1381, align 8, !noalias !889
   %1382 = getelementptr inbounds nuw i8, ptr %1380, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1382) #25, !noalias !889
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1380, align 8, !noalias !889
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1380, align 8, !noalias !889
   %1383 = getelementptr inbounds nuw i8, ptr %1380, i64 48
   store i32 13, ptr %1383, align 8, !noalias !889
   %1384 = getelementptr inbounds nuw i8, ptr %1380, i64 56
@@ -25695,12 +25695,12 @@ _ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i.i77: ; preds =
   %1414 = load ptr, ptr %1413, align 8
   %1415 = call noundef nonnull align 8 dereferenceable(2432) ptr %1414(ptr noundef nonnull align 8 dereferenceable(34) %1411) #25
   %1416 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !895
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1416, align 8, !noalias !895
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1416, align 8, !noalias !895
   %1417 = getelementptr inbounds nuw i8, ptr %1416, i64 8
   store i32 -1, ptr %1417, align 8, !noalias !895
   %1418 = getelementptr inbounds nuw i8, ptr %1416, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1418) #25, !noalias !895
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1416, align 8, !noalias !895
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1416, align 8, !noalias !895
   %1419 = getelementptr inbounds nuw i8, ptr %1416, i64 48
   store i32 13, ptr %1419, align 8, !noalias !895
   %1420 = getelementptr inbounds nuw i8, ptr %1416, i64 56
@@ -25840,12 +25840,12 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.i: ; preds = %1456
   %1470 = load ptr, ptr %1469, align 8
   %1471 = call noundef nonnull align 8 dereferenceable(2432) ptr %1470(ptr noundef nonnull align 8 dereferenceable(34) %1467) #25
   %1472 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !904
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1472, align 8, !noalias !904
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1472, align 8, !noalias !904
   %1473 = getelementptr inbounds nuw i8, ptr %1472, i64 8
   store i32 -1, ptr %1473, align 8, !noalias !904
   %1474 = getelementptr inbounds nuw i8, ptr %1472, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1474) #25, !noalias !904
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1472, align 8, !noalias !904
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1472, align 8, !noalias !904
   %1475 = getelementptr inbounds nuw i8, ptr %1472, i64 48
   store i32 7, ptr %1475, align 8, !noalias !904
   %1476 = getelementptr inbounds nuw i8, ptr %1472, i64 56
@@ -26006,12 +26006,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser12tryParseSVCRERN4llvm15SmallVectorImplISt10u
   %1557 = load ptr, ptr %1556, align 8
   %1558 = call noundef nonnull align 8 dereferenceable(2432) ptr %1557(ptr noundef nonnull align 8 dereferenceable(34) %1554) #25
   %1559 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !910
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1559, align 8, !noalias !910
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1559, align 8, !noalias !910
   %1560 = getelementptr inbounds nuw i8, ptr %1559, i64 8
   store i32 -1, ptr %1560, align 8, !noalias !910
   %1561 = getelementptr inbounds nuw i8, ptr %1559, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1561) #25, !noalias !910
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1559, align 8, !noalias !910
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1559, align 8, !noalias !910
   %1562 = getelementptr inbounds nuw i8, ptr %1559, i64 48
   store i32 0, ptr %1562, align 8, !noalias !910
   %1563 = getelementptr inbounds nuw i8, ptr %1559, i64 56
@@ -26167,12 +26167,12 @@ _ZNKRSt8optionalIN4llvm9StringRefEE8value_orIRA1_KcEES1_OT_.exit.i: ; preds = %1
   %1622 = load ptr, ptr %1621, align 8
   %1623 = call noundef nonnull align 8 dereferenceable(2432) ptr %1622(ptr noundef nonnull align 8 dereferenceable(34) %1619) #25
   %1624 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !928
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1624, align 8, !noalias !928
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1624, align 8, !noalias !928
   %1625 = getelementptr inbounds nuw i8, ptr %1624, i64 8
   store i32 -1, ptr %1625, align 8, !noalias !928
   %1626 = getelementptr inbounds nuw i8, ptr %1624, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1626) #25, !noalias !928
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1624, align 8, !noalias !928
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1624, align 8, !noalias !928
   %1627 = getelementptr inbounds nuw i8, ptr %1624, i64 48
   store i32 13, ptr %1627, align 8, !noalias !928
   %1628 = getelementptr inbounds nuw i8, ptr %1624, i64 56
@@ -26241,12 +26241,12 @@ _ZZN12_GLOBAL__N_116AArch64AsmParser16tryParsePrefetchILb1EEEN4llvm11ParseStatus
   %1655 = load ptr, ptr %1654, align 8
   %1656 = call noundef nonnull align 8 dereferenceable(2432) ptr %1655(ptr noundef nonnull align 8 dereferenceable(34) %1652) #25
   %1657 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !934
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1657, align 8, !noalias !934
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1657, align 8, !noalias !934
   %1658 = getelementptr inbounds nuw i8, ptr %1657, i64 8
   store i32 -1, ptr %1658, align 8, !noalias !934
   %1659 = getelementptr inbounds nuw i8, ptr %1657, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1659) #25, !noalias !934
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1657, align 8, !noalias !934
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1657, align 8, !noalias !934
   %1660 = getelementptr inbounds nuw i8, ptr %1657, i64 48
   store i32 13, ptr %1660, align 8, !noalias !934
   %1661 = getelementptr inbounds nuw i8, ptr %1657, i64 56
@@ -26338,12 +26338,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser16tryParsePrefetchILb1EEEN4llvm11ParseStatusE
   %1704 = load ptr, ptr %1703, align 8
   %1705 = call noundef nonnull align 8 dereferenceable(2432) ptr %1704(ptr noundef nonnull align 8 dereferenceable(34) %1701) #25
   %1706 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !940
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1706, align 8, !noalias !940
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1706, align 8, !noalias !940
   %1707 = getelementptr inbounds nuw i8, ptr %1706, i64 8
   store i32 -1, ptr %1707, align 8, !noalias !940
   %1708 = getelementptr inbounds nuw i8, ptr %1706, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1708) #25, !noalias !940
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1706, align 8, !noalias !940
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1706, align 8, !noalias !940
   %1709 = getelementptr inbounds nuw i8, ptr %1706, i64 48
   store i32 0, ptr %1709, align 8, !noalias !940
   %1710 = getelementptr inbounds nuw i8, ptr %1706, i64 56
@@ -26492,12 +26492,12 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.i: ; preds = %1758
   %1778 = load ptr, ptr %1777, align 8
   %1779 = call noundef nonnull align 8 dereferenceable(2432) ptr %1778(ptr noundef nonnull align 8 dereferenceable(34) %1775) #25
   %1780 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !946
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1780, align 8, !noalias !946
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1780, align 8, !noalias !946
   %1781 = getelementptr inbounds nuw i8, ptr %1780, i64 8
   store i32 -1, ptr %1781, align 8, !noalias !946
   %1782 = getelementptr inbounds nuw i8, ptr %1780, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1782) #25, !noalias !946
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1780, align 8, !noalias !946
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1780, align 8, !noalias !946
   %1783 = getelementptr inbounds nuw i8, ptr %1780, i64 48
   store i32 12, ptr %1783, align 8, !noalias !946
   %1784 = getelementptr inbounds nuw i8, ptr %1780, i64 56
@@ -26770,12 +26770,12 @@ _ZN12_GLOBAL__N_116AArch64AsmParser20tryParseSysCROperandERN4llvm15SmallVectorIm
   %1909 = load ptr, ptr %1908, align 8
   %1910 = call noundef nonnull align 8 dereferenceable(2432) ptr %1909(ptr noundef nonnull align 8 dereferenceable(34) %1906) #25
   %1911 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !952
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1911, align 8, !noalias !952
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %1911, align 8, !noalias !952
   %1912 = getelementptr inbounds nuw i8, ptr %1911, i64 8
   store i32 -1, ptr %1912, align 8, !noalias !952
   %1913 = getelementptr inbounds nuw i8, ptr %1911, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1913) #25, !noalias !952
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1911, align 8, !noalias !952
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %1911, align 8, !noalias !952
   %1914 = getelementptr inbounds nuw i8, ptr %1911, i64 48
   store i32 4, ptr %1914, align 8, !noalias !952
   %1915 = getelementptr inbounds nuw i8, ptr %1911, i64 56
@@ -27148,12 +27148,12 @@ _ZN4llvm8AsmTokenC2ERKS0_.exit.i:                 ; preds = %2073, %2071
   %2087 = load ptr, ptr %2086, align 8
   %2088 = call noundef nonnull align 8 dereferenceable(2432) ptr %2087(ptr noundef nonnull align 8 dereferenceable(34) %2084) #25
   %2089 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !961
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %2089, align 8, !noalias !961
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %2089, align 8, !noalias !961
   %2090 = getelementptr inbounds nuw i8, ptr %2089, i64 8
   store i32 -1, ptr %2090, align 8, !noalias !961
   %2091 = getelementptr inbounds nuw i8, ptr %2089, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2091) #25, !noalias !961
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2089, align 8, !noalias !961
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2089, align 8, !noalias !961
   %2092 = getelementptr inbounds nuw i8, ptr %2089, i64 48
   store i32 6, ptr %2092, align 8, !noalias !961
   %2093 = getelementptr inbounds nuw i8, ptr %2089, i64 56
@@ -27219,12 +27219,12 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i: ; preds = %2101
   %2120 = load ptr, ptr %2119, align 8
   %2121 = call noundef nonnull align 8 dereferenceable(2432) ptr %2120(ptr noundef nonnull align 8 dereferenceable(34) %2117) #25
   %2122 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !967
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %2122, align 8, !noalias !967
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %2122, align 8, !noalias !967
   %2123 = getelementptr inbounds nuw i8, ptr %2122, i64 8
   store i32 -1, ptr %2123, align 8, !noalias !967
   %2124 = getelementptr inbounds nuw i8, ptr %2122, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2124) #25, !noalias !967
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2122, align 8, !noalias !967
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %2122, align 8, !noalias !967
   %2125 = getelementptr inbounds nuw i8, ptr %2122, i64 48
   store i32 6, ptr %2125, align 8, !noalias !967
   %2126 = getelementptr inbounds nuw i8, ptr %2122, i64 56
@@ -28127,7 +28127,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
   %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %8) #25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.273, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.273, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.273, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.273, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #25
   %24 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br i1 %24, label %32, label %25
@@ -28203,12 +28203,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AArch64AsmParser13
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef nonnull align 8 dereferenceable(2432) ptr %58(ptr noundef nonnull align 8 dereferenceable(34) %55) #25
   %60 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !989
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %60, align 8, !noalias !989
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %60, align 8, !noalias !989
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 -1, ptr %61, align 8, !noalias !989
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #25, !noalias !989
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %60, align 8, !noalias !989
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %60, align 8, !noalias !989
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
   store i32 3, ptr %63, align 8, !noalias !989
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 56
@@ -28385,12 +28385,12 @@ _ZN4llvm12StringSwitchINS_10AArch64_AM15ShiftExtendTypeES2_E4CaseENS_13StringLit
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef nonnull align 8 dereferenceable(2432) ptr %62(ptr noundef nonnull align 8 dereferenceable(34) %59) #25
   %64 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !995
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %64, align 8, !noalias !995
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %64, align 8, !noalias !995
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 -1, ptr %65, align 8, !noalias !995
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #25, !noalias !995
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %64, align 8, !noalias !995
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %64, align 8, !noalias !995
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store i32 14, ptr %67, align 8, !noalias !995
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 56
@@ -28493,12 +28493,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef nonnull align 8 dereferenceable(2432) ptr %123(ptr noundef nonnull align 8 dereferenceable(34) %120) #25
   %125 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1001
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %125, align 8, !noalias !1001
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %125, align 8, !noalias !1001
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i32 -1, ptr %126, align 8, !noalias !1001
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %127) #25, !noalias !1001
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %125, align 8, !noalias !1001
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %125, align 8, !noalias !1001
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 48
   store i32 14, ptr %128, align 8, !noalias !1001
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 56
@@ -28620,12 +28620,12 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit18: ; 
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef nonnull align 8 dereferenceable(2432) ptr %35(ptr noundef nonnull align 8 dereferenceable(34) %32) #25
   %37 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1007
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %37, align 8, !noalias !1007
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %37, align 8, !noalias !1007
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 -1, ptr %38, align 8, !noalias !1007
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #25, !noalias !1007
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %37, align 8, !noalias !1007
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %37, align 8, !noalias !1007
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store i32 10, ptr %40, align 8, !noalias !1007
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 56
@@ -28688,12 +28688,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand17CreateShiftExten
   %8 = zext i1 %3 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1013)
   %9 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1013
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %9, align 8, !noalias !1013
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %9, align 8, !noalias !1013
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 -1, ptr %10, align 8, !noalias !1013
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #25, !noalias !1013
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %9, align 8, !noalias !1013
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %9, align 8, !noalias !1013
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 14, ptr %12, align 8, !noalias !1013
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -28886,12 +28886,12 @@ _ZN4llvm8AsmTokenD2Ev.exit.thread:                ; preds = %33, %58, %_ZN4llvm8
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef nonnull align 8 dereferenceable(2432) ptr %73(ptr noundef nonnull align 8 dereferenceable(34) %70) #25
   %75 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1019
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %75, align 8, !noalias !1019
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %75, align 8, !noalias !1019
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i32 -1, ptr %76, align 8, !noalias !1019
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #25, !noalias !1019
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %75, align 8, !noalias !1019
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %75, align 8, !noalias !1019
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 48
   store i32 0, ptr %78, align 8, !noalias !1019
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 56
@@ -28937,12 +28937,12 @@ _ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i: ; preds = %66
   %101 = load ptr, ptr %100, align 8
   %102 = call noundef nonnull align 8 dereferenceable(2432) ptr %101(ptr noundef nonnull align 8 dereferenceable(34) %98) #25
   %103 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1025
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %103, align 8, !noalias !1025
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %103, align 8, !noalias !1025
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i32 -1, ptr %104, align 8, !noalias !1025
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %105) #25, !noalias !1025
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %103, align 8, !noalias !1025
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %103, align 8, !noalias !1025
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 48
   store i32 0, ptr %106, align 8, !noalias !1025
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 56
@@ -28980,12 +28980,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %120 = load ptr, ptr %119, align 8
   %121 = call noundef nonnull align 8 dereferenceable(2432) ptr %120(ptr noundef nonnull align 8 dereferenceable(34) %117) #25
   %122 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1031
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %122, align 8, !noalias !1031
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %122, align 8, !noalias !1031
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i32 -1, ptr %123, align 8, !noalias !1031
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %124) #25, !noalias !1031
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %122, align 8, !noalias !1031
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %122, align 8, !noalias !1031
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 48
   store i32 10, ptr %125, align 8, !noalias !1031
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 56
@@ -29228,12 +29228,12 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser1
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %23(ptr noundef nonnull align 8 dereferenceable(34) %20) #25
   %25 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1037
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %25, align 8, !noalias !1037
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %25, align 8, !noalias !1037
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 -1, ptr %26, align 8, !noalias !1037
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #25, !noalias !1037
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %25, align 8, !noalias !1037
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %25, align 8, !noalias !1037
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store i32 4, ptr %28, align 8, !noalias !1037
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 56
@@ -29300,12 +29300,12 @@ _ZNKSt14default_deleteIN4llvm18MCParsedAsmOperandEEclEPS1_.exit.i: ; preds = %16
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 %spec.select.i16
   %.0.in.i = load i8, ptr %68, align 8
   %69 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1043
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %69, align 8, !noalias !1043
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %69, align 8, !noalias !1043
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 -1, ptr %70, align 8, !noalias !1043
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #25, !noalias !1043
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %69, align 8, !noalias !1043
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %69, align 8, !noalias !1043
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store i32 4, ptr %72, align 8, !noalias !1043
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 56
@@ -29609,12 +29609,12 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit77: ; preds = %72
   %87 = load ptr, ptr %86, align 8
   %88 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %87(ptr noundef nonnull align 8 dereferenceable(34) %84) #25
   %89 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1058
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %89, align 8, !noalias !1058
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %89, align 8, !noalias !1058
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 -1, ptr %90, align 8, !noalias !1058
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #25, !noalias !1058
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %89, align 8, !noalias !1058
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %89, align 8, !noalias !1058
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 48
   store i32 11, ptr %92, align 8, !noalias !1058
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 56
@@ -29705,12 +29705,12 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %27(ptr noundef nonnull align 8 dereferenceable(34) %24) #25
   %29 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1064
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %29, align 8, !noalias !1064
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %29, align 8, !noalias !1064
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 -1, ptr %30, align 8, !noalias !1064
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #25, !noalias !1064
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %29, align 8, !noalias !1064
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %29, align 8, !noalias !1064
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store i32 4, ptr %32, align 8, !noalias !1064
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 56
@@ -29790,12 +29790,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef nonnull align 8 dereferenceable(2432) ptr %74(ptr noundef nonnull align 8 dereferenceable(34) %71) #25
   %76 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1073
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %76, align 8, !noalias !1073
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %76, align 8, !noalias !1073
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 -1, ptr %77, align 8, !noalias !1073
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #25, !noalias !1073
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %76, align 8, !noalias !1073
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %76, align 8, !noalias !1073
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 48
   store i32 10, ptr %79, align 8, !noalias !1073
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 56
@@ -29871,12 +29871,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %116 = load ptr, ptr %115, align 8
   %117 = call noundef nonnull align 8 dereferenceable(2432) ptr %116(ptr noundef nonnull align 8 dereferenceable(34) %113) #25
   %118 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1079
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %118, align 8, !noalias !1079
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %118, align 8, !noalias !1079
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i32 -1, ptr %119, align 8, !noalias !1079
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #25, !noalias !1079
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %118, align 8, !noalias !1079
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %118, align 8, !noalias !1079
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 48
   store i32 10, ptr %121, align 8, !noalias !1079
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 56
@@ -29967,12 +29967,12 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %27(ptr noundef nonnull align 8 dereferenceable(34) %24) #25
   %29 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1085
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %29, align 8, !noalias !1085
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %29, align 8, !noalias !1085
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 -1, ptr %30, align 8, !noalias !1085
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #25, !noalias !1085
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %29, align 8, !noalias !1085
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %29, align 8, !noalias !1085
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store i32 4, ptr %32, align 8, !noalias !1085
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 56
@@ -30051,12 +30051,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef nonnull align 8 dereferenceable(2432) ptr %73(ptr noundef nonnull align 8 dereferenceable(34) %70) #25
   %75 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1094
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %75, align 8, !noalias !1094
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %75, align 8, !noalias !1094
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i32 -1, ptr %76, align 8, !noalias !1094
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #25, !noalias !1094
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %75, align 8, !noalias !1094
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %75, align 8, !noalias !1094
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 48
   store i32 10, ptr %78, align 8, !noalias !1094
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 56
@@ -30137,12 +30137,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %117 = load ptr, ptr %116, align 8
   %118 = call noundef nonnull align 8 dereferenceable(2432) ptr %117(ptr noundef nonnull align 8 dereferenceable(34) %114) #25
   %119 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1100
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %119, align 8, !noalias !1100
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %119, align 8, !noalias !1100
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i32 -1, ptr %120, align 8, !noalias !1100
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %121) #25, !noalias !1100
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %119, align 8, !noalias !1100
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %119, align 8, !noalias !1100
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 48
   store i32 10, ptr %122, align 8, !noalias !1100
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 56
@@ -30356,12 +30356,12 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %29(ptr noundef nonnull align 8 dereferenceable(34) %26) #25
   %31 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1109
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %31, align 8, !noalias !1109
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %31, align 8, !noalias !1109
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 -1, ptr %32, align 8, !noalias !1109
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #25, !noalias !1109
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %31, align 8, !noalias !1109
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %31, align 8, !noalias !1109
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i32 4, ptr %34, align 8, !noalias !1109
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -30439,12 +30439,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114AArch64OperandESt14default_deleteIS1_EED2Ev.e
   %78 = getelementptr inbounds nuw i8, ptr %62, i64 %spec.select.i22
   %.0.in.i = load i8, ptr %78, align 8
   %79 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1118
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %79, align 8, !noalias !1118
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %79, align 8, !noalias !1118
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i32 -1, ptr %80, align 8, !noalias !1118
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #25, !noalias !1118
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %79, align 8, !noalias !1118
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %79, align 8, !noalias !1118
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 48
   store i32 4, ptr %82, align 8, !noalias !1118
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 56
@@ -30567,12 +30567,12 @@ define internal fastcc range(i32 0, 3) i32 @_ZN12_GLOBAL__N_116AArch64AsmParser2
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %23(ptr noundef nonnull align 8 dereferenceable(34) %20) #25
   %25 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1127
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %25, align 8, !noalias !1127
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %25, align 8, !noalias !1127
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 -1, ptr %26, align 8, !noalias !1127
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #25, !noalias !1127
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %25, align 8, !noalias !1127
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %25, align 8, !noalias !1127
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store i32 4, ptr %28, align 8, !noalias !1127
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 56
@@ -31435,12 +31435,12 @@ _ZNK4llvm9StringRef4findEcm.exit.thread:          ; preds = %21, %_ZNSt11char_tr
   %49 = load ptr, ptr %48, align 8
   %50 = call noundef nonnull align 8 dereferenceable(2432) ptr %49(ptr noundef nonnull align 8 dereferenceable(34) %46) #25
   %51 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1138
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %51, align 8, !noalias !1138
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %51, align 8, !noalias !1138
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 -1, ptr %52, align 8, !noalias !1138
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #25, !noalias !1138
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %51, align 8, !noalias !1138
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %51, align 8, !noalias !1138
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store i32 5, ptr %54, align 8, !noalias !1138
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 56
@@ -31577,12 +31577,12 @@ _ZN4llvm12StringSwitchIN12_GLOBAL__N_110MatrixKindES2_E4CaseENS_13StringLiteralE
   %116 = load ptr, ptr %115, align 8
   %117 = call noundef nonnull align 8 dereferenceable(2432) ptr %116(ptr noundef nonnull align 8 dereferenceable(34) %113) #25
   %118 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1144
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %118, align 8, !noalias !1144
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %118, align 8, !noalias !1144
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i32 -1, ptr %119, align 8, !noalias !1144
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #25, !noalias !1144
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %118, align 8, !noalias !1144
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %118, align 8, !noalias !1144
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 48
   store i32 5, ptr %121, align 8, !noalias !1144
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 56
@@ -31992,12 +31992,12 @@ _ZN4llvm7APFloatD2Ev.exit23:                      ; preds = %85, %84, %_ZN4llvm7
 define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateShiftedImmEPKN4llvm6MCExprEjNS1_5SMLocES5_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(2432) %5) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1153)
   %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1153
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %7, align 8, !noalias !1153
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %7, align 8, !noalias !1153
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 -1, ptr %8, align 8, !noalias !1153
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25, !noalias !1153
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %7, align 8, !noalias !1153
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %7, align 8, !noalias !1153
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 1, ptr %10, align 8, !noalias !1153
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -32102,12 +32102,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand13CreateBarrierEjN
   %8 = zext i1 %6 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1156)
   %9 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1156
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %9, align 8, !noalias !1156
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %9, align 8, !noalias !1156
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 -1, ptr %10, align 8, !noalias !1156
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #25, !noalias !1156
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %9, align 8, !noalias !1156
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %9, align 8, !noalias !1156
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 16, ptr %12, align 8, !noalias !1156
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -32142,12 +32142,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand11CreateFPImmEN4ll
   %6 = alloca %"class.llvm::APInt", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1159)
   %7 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1159
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %7, align 8, !noalias !1159
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %7, align 8, !noalias !1159
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 -1, ptr %8, align 8, !noalias !1159
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25, !noalias !1159
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %7, align 8, !noalias !1159
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %7, align 8, !noalias !1159
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 15, ptr %10, align 8, !noalias !1159
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -32709,7 +32709,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !1212
   %155 = load ptr, ptr %2, align 8, !noalias !1215
   store ptr null, ptr %2, align 8, !noalias !1215
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
@@ -32902,12 +32902,12 @@ declare noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr
 define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand14CreateImmRangeEjjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1233)
   %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1233
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !1233
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !1233
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %7, align 8, !noalias !1233
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25, !noalias !1233
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %6, align 8, !noalias !1233
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %6, align 8, !noalias !1233
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 2, ptr %9, align 8, !noalias !1233
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -33043,12 +33043,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand16CreateVectorList
   %12 = inttoptr i64 %8 to ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1236)
   %13 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1236
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %13, align 8, !noalias !1236
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %13, align 8, !noalias !1236
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 -1, ptr %14, align 8, !noalias !1236
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #25, !noalias !1236
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %13, align 8, !noalias !1236
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %13, align 8, !noalias !1236
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 8, ptr %16, align 8, !noalias !1236
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -33192,12 +33192,12 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %.critedge4, %47, %5
 define internal fastcc void @_ZN12_GLOBAL__N_114AArch64Operand20CreateMatrixTileListEjN4llvm5SMLocES2_RNS1_9MCContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, i32 noundef %1, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1239)
   %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #26, !noalias !1239
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !1239
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %6, align 8, !noalias !1239
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %7, align 8, !noalias !1239
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25, !noalias !1239
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %6, align 8, !noalias !1239
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %6, align 8, !noalias !1239
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 6, ptr %9, align 8, !noalias !1239
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -35458,7 +35458,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i93.i.i.i.i:      ; preds = %"_ZN9__gnu_cxx5__op
   br label %79
 
 "_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread": ; preds = %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread17", %63, %61, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionENS_5SMLocEE3$_0EEDaOT_T0_.exit"
-  %.028.i.i.i.i7 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionENS_5SMLocEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds (i8, ptr @_ZL12ExtensionMap, i64 3888), %63 ], [ getelementptr inbounds (i8, ptr @_ZL12ExtensionMap, i64 3840), %61 ], [ %.028.i.i.i.i.ptr19, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread17" ]
+  %.028.i.i.i.i7 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionENS_5SMLocEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZL12ExtensionMap, i64 3888), %63 ], [ getelementptr inbounds nuw (i8, ptr @_ZL12ExtensionMap, i64 3840), %61 ], [ %.028.i.i.i.i.ptr19, %"_ZN4llvm7find_ifIRA82_K9ExtensionZN12_GLOBAL__N_116AArch64AsmParser27parseDirectiveArchExtensionENS_5SMLocEE3$_0EEDaOT_T0_.exit.thread17" ]
   %72 = call noundef nonnull align 8 dereferenceable(288) ptr @_ZN4llvm17MCTargetAsmParser7copySTIEv(ptr noundef nonnull align 8 dereferenceable(304) %0) #25
   %73 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i7, i64 8
   br i1 %35, label %75, label %74
@@ -38368,12 +38368,12 @@ declare noundef ptr @_ZN4llvm18AArch64InstPrinter15getRegisterNameENS_10MCRegist
 define internal fastcc void @_ZN12_GLOBAL__N_114AArch64OperandC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 40, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_114AArch64OperandE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -39699,8 +39699,8 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.
   br i1 %138, label %99, label %._crit_edge, !llvm.loop !1294
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader210
-  %.sroa.1.0.copyload = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
-  %.sroa.2167.0.copyload = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
+  %.sroa.1.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
+  %.sroa.2167.0.copyload = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
   %139 = trunc i8 %.sroa.2184.0.copyload to i1
   br i1 %139, label %.preheader209, label %185
 
@@ -57806,14 +57806,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand11i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
   %13 = zext i16 %12 to i32
   %.not.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i, label %14, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 14:                                               ; preds = %8
   %15 = and i32 %10, 7
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
   %17 = zext nneg i32 %11 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -57845,14 +57845,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -57903,14 +57903,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -57961,14 +57961,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -58019,14 +58019,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -58077,14 +58077,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1366), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj42EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1352), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -58133,14 +58133,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand11i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 790), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 790), align 2
   %13 = zext i16 %12 to i32
   %.not.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i, label %14, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 14:                                               ; preds = %8
   %15 = and i32 %10, 7
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 776), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 776), align 8
   %17 = zext nneg i32 %11 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -58172,14 +58172,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -58230,14 +58230,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -58288,14 +58288,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -58346,14 +58346,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -58404,14 +58404,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand22
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -58462,14 +58462,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand7is
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1334), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1334), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1320), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1320), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -58499,14 +58499,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand9is
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 7478), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 7478), align 2
   %13 = zext i16 %12 to i32
   %.not.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i, label %14, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 14:                                               ; preds = %8
   %15 = and i32 %10, 7
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 7464), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 7464), align 8
   %17 = zext nneg i32 %11 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -59092,14 +59092,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59138,14 +59138,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59184,14 +59184,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59230,14 +59230,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59276,14 +59276,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59322,14 +59322,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59368,14 +59368,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59414,14 +59414,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59460,14 +59460,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 246), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj7EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 232), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59506,14 +59506,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 150), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj4EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 136), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59552,14 +59552,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand30
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59598,14 +59598,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand30
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59644,14 +59644,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand30
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 278), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 278), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj8EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj8EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj8EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 264), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 264), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59690,14 +59690,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand30
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59736,14 +59736,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand30
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59782,14 +59782,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand30
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 182), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj5EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 168), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -59835,14 +59835,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand44
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %14 = lshr i32 %13, 3
-  %15 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 86), align 2
+  %15 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 86), align 2
   %16 = zext i16 %15 to i32
   %.not.i.i = icmp samesign ult i32 %14, %16
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj2EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj2EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj2EEEbv.exit: ; preds = %9
   %17 = and i32 %13, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 72), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 72), align 8
   %19 = zext nneg i32 %14 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -59866,14 +59866,14 @@ _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj2EEEbv.exit.thr
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %30(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %32 = lshr i32 %31, 3
-  %33 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 86), align 2
+  %33 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 86), align 2
   %34 = zext i16 %33 to i32
   %.not.i.i.i = icmp samesign ult i32 %32, %34
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj2EEEbv.exit.i, label %.critedge
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj2EEEbv.exit.i: ; preds = %27
   %35 = and i32 %31, 7
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 72), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 72), align 8
   %37 = zext nneg i32 %32 to i64
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
   %39 = load i8, ptr %38, align 1
@@ -59925,14 +59925,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand44
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %14 = lshr i32 %13, 3
-  %15 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 86), align 2
+  %15 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 86), align 2
   %16 = zext i16 %15 to i32
   %.not.i.i = icmp samesign ult i32 %14, %16
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj2EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj2EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj2EEEbv.exit: ; preds = %9
   %17 = and i32 %13, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 72), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 72), align 8
   %19 = zext nneg i32 %14 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -59956,14 +59956,14 @@ _ZNK12_GLOBAL__N_114AArch64Operand26isSVEPredicateAsCounterRegILj2EEEbv.exit.thr
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %30(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %32 = lshr i32 %31, 3
-  %33 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 86), align 2
+  %33 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 86), align 2
   %34 = zext i16 %33 to i32
   %.not.i.i.i = icmp samesign ult i32 %32, %34
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj2EEEbv.exit.i, label %.critedge
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj2EEEbv.exit.i: ; preds = %27
   %35 = and i32 %31, 7
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 72), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 72), align 8
   %37 = zext nneg i32 %32 to i64
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
   %39 = load i8, ptr %38, align 1
@@ -61831,14 +61831,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand13i
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1302), align 2
   %15 = zext i16 %14 to i32
   %.not.i.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i.i, label %16, label %_ZNK12_GLOBAL__N_114AArch64Operand7isGPR64ILj40EEEbv.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1288), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -64519,14 +64519,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand19i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2582), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2582), align 2
   %13 = zext i16 %12 to i32
   %.not.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i, label %14, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 14:                                               ; preds = %8
   %15 = and i32 %10, 7
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2568), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2568), align 8
   %17 = zext nneg i32 %11 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -64556,14 +64556,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand17i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2486), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2486), align 2
   %13 = zext i16 %12 to i32
   %.not.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %8
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2472), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2472), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -64574,14 +64574,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %8
   br i1 %.not, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit3
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread: ; preds = %8, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
-  %22 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1558), align 2
+  %22 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1558), align 2
   %23 = zext i16 %22 to i32
   %.not.i1 = icmp samesign ult i32 %11, %23
   br i1 %.not.i1, label %24, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit3
 
 24:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
   %25 = and i32 %10, 7
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1544), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1544), align 8
   %27 = zext nneg i32 %11 to i64
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
   %29 = load i8, ptr %28, align 1
@@ -64611,14 +64611,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand10i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1078), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1078), align 2
   %13 = zext i16 %12 to i32
   %.not.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i, label %14, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 14:                                               ; preds = %8
   %15 = and i32 %10, 7
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1064), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1064), align 8
   %17 = zext nneg i32 %11 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -64648,14 +64648,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand10i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1974), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1974), align 2
   %13 = zext i16 %12 to i32
   %.not.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i, label %14, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 14:                                               ; preds = %8
   %15 = and i32 %10, 7
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1960), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1960), align 8
   %17 = zext nneg i32 %11 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -64687,14 +64687,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -64749,14 +64749,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -64811,14 +64811,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -64873,14 +64873,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -64935,14 +64935,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -64997,14 +64997,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65059,14 +65059,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65121,14 +65121,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65190,14 +65190,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65252,14 +65252,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65314,14 +65314,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65376,14 +65376,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65438,14 +65438,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65507,14 +65507,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65569,14 +65569,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65631,14 +65631,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65693,14 +65693,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65755,14 +65755,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65817,14 +65817,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65879,14 +65879,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -65941,14 +65941,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66003,14 +66003,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66072,14 +66072,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66134,14 +66134,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66196,14 +66196,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66258,14 +66258,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66320,14 +66320,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66389,14 +66389,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand33
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread.i
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.i: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66451,14 +66451,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66497,14 +66497,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66543,14 +66543,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66589,14 +66589,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2614), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2614), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj81EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj81EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj81EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2600), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2600), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66635,14 +66635,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2614), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2614), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj81EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj81EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj81EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2600), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2600), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66681,14 +66681,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2614), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2614), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj81EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj81EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj81EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2600), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2600), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66727,14 +66727,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2550), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2550), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2536), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2536), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66773,14 +66773,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2550), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2550), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2536), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2536), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66819,14 +66819,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2550), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2550), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2536), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2536), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66865,14 +66865,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2550), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2550), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj79EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2536), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2536), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66911,14 +66911,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -66957,14 +66957,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -67003,14 +67003,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand25
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %11 = lshr i32 %10, 3
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2454), align 2
   %13 = zext i16 %12 to i32
   %.not.i.i = icmp samesign ult i32 %11, %13
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit, label %_ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit.thread
 
 _ZNK12_GLOBAL__N_114AArch64Operand14isSVEVectorRegILj76EEEbv.exit: ; preds = %6
   %14 = and i32 %10, 7
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2440), align 8
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
@@ -67357,14 +67357,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand7is
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 54), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 54), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 40), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 40), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -67396,14 +67396,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand7is
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 118), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 118), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 104), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 104), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -67435,14 +67435,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand7is
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 758), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 758), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 744), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 744), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -67474,14 +67474,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand7is
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1270), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1270), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1256), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1256), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -67513,14 +67513,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand7is
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2422), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2422), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2408), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2408), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -67859,14 +67859,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand10i
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 54), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 54), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 40), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 40), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -67898,14 +67898,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand10i
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 758), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 758), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 744), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 744), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -67937,14 +67937,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand10i
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1270), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1270), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1256), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 1256), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -67976,14 +67976,14 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand10i
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   %13 = lshr i32 %12, 3
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2422), align 2
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2422), align 2
   %15 = zext i16 %14 to i32
   %.not.i = icmp samesign ult i32 %13, %15
   br i1 %.not.i, label %16, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit
 
 16:                                               ; preds = %8
   %17 = and i32 %12, 7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2408), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2408), align 8
   %19 = zext nneg i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -69420,14 +69420,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9686), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9686), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9672), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9672), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69464,14 +69464,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9046), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9046), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9032), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9032), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69508,14 +69508,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3926), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3926), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3912), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3912), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69552,14 +69552,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9750), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9750), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9736), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9736), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69596,14 +69596,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9686), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9686), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9672), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9672), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69640,14 +69640,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9046), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9046), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9032), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9032), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69684,14 +69684,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3926), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3926), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3912), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3912), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69728,14 +69728,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2518), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2518), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2504), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2504), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69772,14 +69772,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9750), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9750), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9736), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9736), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69816,14 +69816,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9686), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9686), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9672), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9672), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69860,14 +69860,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9046), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9046), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9032), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9032), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69904,14 +69904,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3926), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3926), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3912), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 3912), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69948,14 +69948,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2518), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2518), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2504), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 2504), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -69992,14 +69992,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -70036,14 +70036,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -70080,14 +70080,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -70124,14 +70124,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -70168,14 +70168,14 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val = load i32, ptr %7, align 8
   %8 = lshr i32 %.val, 3
-  %9 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
+  %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9718), align 2
   %10 = zext i16 %9 to i32
   %.not.i = icmp samesign ult i32 %8, %10
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %6
   %11 = and i32 %.val, 7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 9704), align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -72184,7 +72184,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit: ; preds = %34, %_ZN
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
   %65 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %65, ptr noundef nonnull align 1 dereferenceable(1) %11) #25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.1051, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1051, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.1051, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1051, i64 16))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
   %66 = ptrtoint ptr %.sroa.8.1 to i64
   %67 = ptrtoint ptr %.sroa.035.1 to i64

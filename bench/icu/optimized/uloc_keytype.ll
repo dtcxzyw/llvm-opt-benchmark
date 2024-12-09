@@ -729,7 +729,7 @@ invoke.cont79.i:                                  ; preds = %if.end76.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uBcpKeyId.i, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uBcpKeyId.i, align 8, !alias.scope !4
   store i16 2, ptr %fUnion2.i.i.i, align 8, !alias.scope !4
   store i32 0, ptr %len.i.i, align 4, !noalias !4
   %call.i.i = invoke ptr @ures_getString_75(ptr noundef %call71.i, ptr noundef nonnull %len.i.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
@@ -1009,7 +1009,7 @@ if.end223.i:                                      ; preds = %_ZSt7replaceIPccEvT
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i164.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i165.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uBcpTypeId.i, align 8, !alias.scope !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uBcpTypeId.i, align 8, !alias.scope !11
   store i16 2, ptr %fUnion2.i.i166.i, align 8, !alias.scope !11
   store i32 0, ptr %len.i164.i, align 4, !noalias !11
   %call.i167.i = invoke ptr @ures_getString_75(ptr noundef %call174.i, ptr noundef nonnull %len.i164.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)

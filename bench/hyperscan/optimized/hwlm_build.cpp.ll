@@ -543,7 +543,7 @@ _ZN3ue212bytecode_ptrI9noodTableED2Ev.exit:       ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !7
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIP9noodTableN3ue212bytecode_ptrIS0_E7deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIP9noodTableN3ue212bytecode_ptrIS0_E7deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i, align 8, !noalias !7
   br label %if.end27
 
 do.end15:                                         ; preds = %entry
@@ -598,7 +598,7 @@ _ZN3ue212bytecode_ptrI3FDRED2Ev.exit:             ; preds = %invoke.cont16
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i21, align 8, !noalias !10
   %_M_weak_count.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i14, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i22, align 4, !noalias !10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIP3FDRN3ue212bytecode_ptrIS0_E7deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i14, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19_Sp_counted_deleterIP3FDRN3ue212bytecode_ptrIS0_E7deleterIS0_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i.i14, align 8, !noalias !10
   br label %if.end27
 
 if.end27:                                         ; preds = %_ZN3ue212bytecode_ptrI3FDRED2Ev.exit, %_ZN3ue212bytecode_ptrI9noodTableED2Ev.exit
@@ -1705,7 +1705,7 @@ _ZNSt10unique_ptrI4HWLMN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5resetEPS0_.exit: 
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrI4HWLMN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5resetEPS0_.exit
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #21
           to label %unreachable unwind label %lpad
 

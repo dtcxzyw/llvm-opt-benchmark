@@ -64,7 +64,7 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %6 = alloca %struct.AbiType, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %10 = tail call i32 @type_size(ptr noundef %0) #5
   br i1 %1, label %11, label %.critedge
 
@@ -83,7 +83,7 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %.059 = phi i32 [ %17, %14 ], [ %12, %11 ]
   %19 = add i32 %.059, -18
   %20 = icmp ult i32 %19, -5
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 244), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 244), align 4
   %.not = icmp ult i32 %21, %10
   %or.cond = select i1 %20, i1 true, i1 %.not
   br i1 %or.cond, label %27, label %22
@@ -273,7 +273,7 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %116
 
 99:                                               ; preds = %93
-  %100 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %101 = shl i32 %100, 1
   %102 = icmp eq i32 %54, %101
   br i1 %102, label %103, label %108
@@ -459,7 +459,7 @@ define dso_local void @c_abi_func_create_riscv(ptr nocapture noundef initializes
 
 15:                                               ; preds = %1
   store i32 2, ptr %2, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 244), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 244), align 4
   %.not.i = icmp eq i32 %16, 0
   %17 = select i1 %.not.i, i32 0, i32 2
   store i32 %17, ptr %3, align 4
@@ -478,7 +478,7 @@ riscv_classify_return.exit:                       ; preds = %13, %15
 
 22:                                               ; preds = %riscv_classify_return.exit
   %23 = tail call i32 @type_size(ptr noundef nonnull %8) #5
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %25 = shl i32 %24, 1
   %26 = icmp ugt i32 %23, %25
   %spec.select = select i1 %26, i1 true, i1 %20
@@ -488,7 +488,7 @@ riscv_classify_return.exit:                       ; preds = %13, %15
   %.0.shrunk = phi i1 [ %20, %riscv_classify_return.exit ], [ %spec.select, %22 ]
   %28 = select i1 %.0.shrunk, i32 7, i32 8
   store i32 %28, ptr %4, align 4
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 244), align 4
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 244), align 4
   %.not = icmp eq i32 %29, 0
   %30 = select i1 %.not, i32 0, i32 8
   store i32 %30, ptr %5, align 4
@@ -648,13 +648,13 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   %14 = icmp ult i32 %.in, 11
   %15 = add i32 %.078, -13
   %16 = icmp ult i32 %15, 5
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 244), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 244), align 4
   %18 = tail call i32 @type_size(ptr noundef nonnull %0) #5
   %brmerge = icmp ult i32 %.in, 16
   br i1 %brmerge, label %19, label %35
 
 19:                                               ; preds = %13
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %21 = icmp ugt i32 %18, %20
   %or.cond88 = select i1 %14, i1 %21, i1 false
   br i1 %or.cond88, label %.loopexit, label %22

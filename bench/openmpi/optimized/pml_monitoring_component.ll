@@ -47,14 +47,14 @@ define i32 @mca_pml_monitoring_add_procs(ptr noundef %0, i64 noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_del_procs(ptr noundef %0, i64 noundef %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pml_selected_module, i64 8), align 8
   %4 = tail call i32 %3(ptr noundef %0, i64 noundef %1) #5
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_enable(i1 noundef zeroext %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pml_selected_module, i64 16), align 8
   %3 = tail call i32 %2(i1 noundef zeroext %0) #5
   ret i32 %3
 }
@@ -93,7 +93,7 @@ declare i32 @mca_pml_monitoring_mrecv(ptr noundef, i64 noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_pml_monitoring_dump(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 160), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pml_selected_module, i64 160), align 8
   %4 = tail call i32 %3(ptr noundef %0, i32 noundef %1) #5
   ret i32 %4
 }
@@ -107,7 +107,7 @@ define internal noundef i32 @mca_pml_monitoring_component_open() #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call noalias ptr @strdup(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_monitoring_component, i64 84)) #5
+  %3 = tail call noalias ptr @strdup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_pml_monitoring_component, i64 84)) #5
   %4 = tail call i32 @opal_pointer_array_add(ptr noundef nonnull @mca_pml_base_pml, ptr noundef %3) #5
   br label %5
 
@@ -146,8 +146,8 @@ define internal noundef i32 @mca_pml_monitoring_component_finish() #0 {
   br i1 %.b, label %44, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.013 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 112), align 8
-  %.not1114 = icmp eq ptr %.013, getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 96)
+  %.013 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_base_framework, i64 112), align 8
+  %.not1114 = icmp eq ptr %.013, getelementptr inbounds nuw (i8, ptr @ompi_pml_base_framework, i64 96)
   br i1 %.not1114, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %38
@@ -169,9 +169,9 @@ define internal noundef i32 @mca_pml_monitoring_component_finish() #0 {
   %14 = load volatile ptr, ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store volatile ptr %13, ptr %15, align 8
-  %16 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 136), align 8
+  %16 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_base_framework, i64 136), align 8
   %17 = add i64 %16, -1
-  store volatile i64 %17, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 136), align 8
+  store volatile i64 %17, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_base_framework, i64 136), align 8
   %18 = load volatile ptr, ptr %10, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %20 = load i8, ptr @opal_uses_threads, align 1
@@ -217,7 +217,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %30
   br label %.loopexit
 
 38:                                               ; preds = %.lr.ph
-  %.not11 = icmp eq ptr %7, getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 96)
+  %.not11 = icmp eq ptr %7, getelementptr inbounds nuw (i8, ptr @ompi_pml_base_framework, i64 96)
   br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %38, %.preheader, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
@@ -225,26 +225,26 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) @pml_selected_module, ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, i64 192, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @mca_pml_base_selected_component, ptr noundef nonnull align 8 dereferenceable(280) @mca_pml_monitoring_component, i64 280, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, ptr noundef nonnull align 8 dereferenceable(192) @mca_pml_monitoring_module, i64 192, i1 false)
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 24), align 8
-  store ptr %39, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 24), align 8
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 168), align 8
-  store i32 %40, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 168), align 8
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 172), align 4
-  store i32 %41, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 172), align 4
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @pml_selected_module, i64 176), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pml_selected_module, i64 24), align 8
+  store ptr %39, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 24), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pml_selected_module, i64 168), align 8
+  store i32 %40, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 168), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pml_selected_module, i64 172), align 4
+  store i32 %41, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 172), align 4
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pml_selected_module, i64 176), align 8
   %43 = or i32 %42, 1
-  store i32 %43, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 176), align 8
+  store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 176), align 8
   store i1 true, ptr @mca_pml_monitoring_active, align 4
   br label %49
 
 44:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @mca_pml_base_selected_component, ptr noundef nonnull align 8 dereferenceable(280) @pml_selected_component, i64 280, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) @mca_pml, ptr noundef nonnull align 8 dereferenceable(192) @pml_selected_module, i64 192, i1 false)
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @pml_selected_component, i64 272), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pml_selected_component, i64 272), align 8
   %46 = tail call i32 %45() #5
   tail call void @mca_common_monitoring_finalize() #5
-  %47 = tail call i32 @mca_base_component_repository_retain_component(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_monitoring_component, i64 40), ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_monitoring_component, i64 84)) #5
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 76), align 4
+  %47 = tail call i32 @mca_base_component_repository_retain_component(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_pml_monitoring_component, i64 40), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_pml_monitoring_component, i64 84)) #5
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_pml_base_framework, i64 76), align 4
   tail call void @mca_base_component_close(ptr noundef nonnull @mca_pml_monitoring_component, i32 noundef %48) #5
   br label %49
 

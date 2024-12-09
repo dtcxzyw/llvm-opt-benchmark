@@ -22521,7 +22521,7 @@ define void @_ZN7copilot12copilot_chat11CopilotChat3new17h35062904e30ec306E(ptr 
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  %29 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN7copilot12copilot_chat24copilot_chat_config_path23COPILOT_CHAT_CONFIG_DIR17hccf4893cafcc3ed3E, i64 24) acquire, align 8
+  %29 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7copilot12copilot_chat24copilot_chat_config_path23COPILOT_CHAT_CONFIG_DIR17hccf4893cafcc3ed3E, i64 24) acquire, align 8
   %.not.i.i = icmp eq i32 %29, 4
   br i1 %.not.i.i, label %_ZN7copilot12copilot_chat24copilot_chat_config_path17hc56ad01ef303caf0E.exit, label %30
 

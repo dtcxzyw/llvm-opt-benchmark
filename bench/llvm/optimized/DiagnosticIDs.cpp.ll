@@ -1176,7 +1176,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZN4
   br i1 %18, label %3, label %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit", !llvm.loop !11
 
 "_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit": ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i"
-  %19 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZL11OptionTable, i64 25320)
+  %19 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZL11OptionTable, i64 25320)
   br i1 %19, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %20
 
 20:                                               ; preds = %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit"
@@ -1276,12 +1276,12 @@ define dso_local void @_ZN5clang13DiagnosticIDs18getDiagnosticFlagsB5cxx11Ev(ptr
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #23
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 2))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 2))
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #23
   %15 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %8) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 5))
   %16 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   store ptr %16, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -1320,7 +1320,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
 27:                                               ; preds = %26, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit6
   %28 = phi i8 [ 16, %26 ], [ %53, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit6 ]
   %.07 = phi i64 [ 1, %26 ], [ %31, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit6 ]
-  %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @_ZL14DiagGroupNames, i64 1), i64 %.07
+  %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14DiagGroupNames, i64 1), i64 %.07
   %29 = sext i8 %28 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %gep, i64 noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %10) #23
@@ -1455,7 +1455,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_Z
   br i1 %21, label %6, label %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit.i", !llvm.loop !11
 
 "_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit.i": ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i.i"
-  %22 = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZL11OptionTable, i64 25320)
+  %22 = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL11OptionTable, i64 25320)
   br i1 %22, label %_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefE.exit.thread, label %23
 
 23:                                               ; preds = %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit.i"

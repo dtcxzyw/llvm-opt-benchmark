@@ -397,12 +397,12 @@ define linkonce_odr dso_local void @_ZN3dap6Socket6Shared6createEPKcS3_(ptr dead
   store i32 1, ptr %22, align 8, !noalias !5
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %23, align 4, !noalias !5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !noalias !5
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %5, align 8, !noalias !5
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %24, align 8, !noalias !5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %26, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %24, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %26, align 8, !noalias !5
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %25, ptr %27, align 8, !noalias !5
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -577,11 +577,11 @@ _ZNSt10shared_ptrIN3dap6Socket6SharedEED2Ev.exit.i.i: ; preds = %23
   store i32 1, ptr %25, align 8, !noalias !8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %26, align 4, !noalias !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8, !noalias !8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %27, align 8, !noalias !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %28, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %27, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %28, align 8, !noalias !8
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %29, align 8, !noalias !8
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -1599,9 +1599,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap6Socket6SharedD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1613,7 +1613,7 @@ define linkonce_odr dso_local void @_ZN3dap6Socket6SharedD1Ev(ptr noundef nonnul
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = phi ptr [ %.pre, %5 ], [ getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), %1 ]
+  %7 = phi ptr [ %.pre, %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(128) %0)
@@ -1634,9 +1634,9 @@ _ZN3dap6Socket6SharedD2Ev.exit:                   ; preds = %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap6Socket6SharedD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -1648,7 +1648,7 @@ define linkonce_odr dso_local void @_ZN3dap6Socket6SharedD0Ev(ptr noundef nonnul
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = phi ptr [ %.pre.i, %5 ], [ getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), %1 ]
+  %7 = phi ptr [ %.pre.i, %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(128) %0)
@@ -2160,8 +2160,8 @@ _ZN3dap5RLockD2Ev.exit:                           ; preds = %_ZNSt11unique_lockI
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N3dap6Socket6SharedD1Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -2173,7 +2173,7 @@ define linkonce_odr dso_local void @_ZThn8_N3dap6Socket6SharedD1Ev(ptr noundef %
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = phi ptr [ %.pre.i, %5 ], [ getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), %1 ]
+  %7 = phi ptr [ %.pre.i, %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(128) %2)
@@ -2195,8 +2195,8 @@ _ZN3dap6Socket6SharedD1Ev.exit:                   ; preds = %6
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N3dap6Socket6SharedD0Ev(ptr noundef %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 144), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -2208,7 +2208,7 @@ define linkonce_odr dso_local void @_ZThn8_N3dap6Socket6SharedD0Ev(ptr noundef %
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = phi ptr [ %.pre.i.i, %5 ], [ getelementptr inbounds (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), %1 ]
+  %7 = phi ptr [ %.pre.i.i, %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN3dap6Socket6SharedE, i64 48), %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(128) %2)

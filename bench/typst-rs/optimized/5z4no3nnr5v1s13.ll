@@ -51696,7 +51696,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1158, ptr %134, align 8, !alias.scope !10337, !noalias !10338
   %135 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr getelementptr inbounds (i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1158, i64 81), ptr %135, align 8, !alias.scope !10337, !noalias !10338
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.1158, i64 81), ptr %135, align 8, !alias.scope !10337, !noalias !10338
   %136 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h19c65ba4a8818e63E.llvm.10579729455205085779"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %136, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9)
   store i8 33, ptr %16, align 8, !alias.scope !10329
@@ -103143,7 +103143,7 @@ define void @_ZN5typst14LibraryBuilder5build17h806ff51d0882224bE(ptr noalias noc
 
 _ZN5typst11foundations5scope5Scope11define_type17h970c562b24cb1cbbE.exit.i.i: ; preds = %131
   %140 = load ptr, ptr @"_ZN5typst11foundations3int68_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$i64$GT$4data4DATA17hb82cc13d5ff5a541E.llvm.12850028421071809815", align 8, !noalias !20608, !nonnull !14, !align !1405, !noundef !14
-  %141 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst11foundations3int68_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$i64$GT$4data4DATA17hb82cc13d5ff5a541E.llvm.12850028421071809815", i64 8), align 8, !noalias !20608, !noundef !14
+  %141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst11foundations3int68_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$i64$GT$4data4DATA17hb82cc13d5ff5a541E.llvm.12850028421071809815", i64 8), align 8, !noalias !20608, !noundef !14
   invoke void @_ZN5typst11foundations5scope5Scope6define17ha7250009cda29e51E.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %98, ptr noalias noundef nonnull readonly align 1 %140, i64 noundef %141, ptr noundef nonnull align 8 @"_ZN5typst11foundations3int68_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$i64$GT$4data4DATA17hb82cc13d5ff5a541E.llvm.12850028421071809815", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.455.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_type17h46bf418f9c4567efE.exit.i.i unwind label %.body.thread40.i.i, !noalias !20582
 
@@ -103191,7 +103191,7 @@ _ZN5typst11foundations5scope5Scope11define_type17h8409dddc9ea8485eE.exit.i.i: ; 
 
 _ZN5typst11foundations5scope5Scope11define_type17h69510bc825c8353fE.exit.i.i: ; preds = %_ZN5typst11foundations5scope5Scope11define_type17h8409dddc9ea8485eE.exit.i.i
   %156 = load ptr, ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", align 8, !noalias !20632, !nonnull !14, !align !1405, !noundef !14
-  %157 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", i64 8), align 8, !noalias !20632, !noundef !14
+  %157 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", i64 8), align 8, !noalias !20632, !noundef !14
   invoke void @_ZN5typst11foundations5scope5Scope6define17ha7250009cda29e51E.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %98, ptr noalias noundef nonnull readonly align 1 %156, i64 noundef %157, ptr noundef nonnull align 8 @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.455.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_type17h817eb0dfd68c2b0fE.exit.i.i unwind label %.body.thread40.i.i, !noalias !20582
 
@@ -103209,7 +103209,7 @@ _ZN5typst11foundations5scope5Scope11define_type17ha30c972c4966044eE.exit.i.i: ; 
 
 _ZN5typst11foundations5scope5Scope11define_type17h0d1decf5609cac03E.exit.i.i: ; preds = %_ZN5typst11foundations5scope5Scope11define_type17ha30c972c4966044eE.exit.i.i
   %162 = load ptr, ptr @"_ZN89_$LT$typst..foundations..module..Module$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h8685b6ca7c378072E.llvm.12850028421071809815", align 8, !noalias !20641, !nonnull !14, !align !1405, !noundef !14
-  %163 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN89_$LT$typst..foundations..module..Module$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h8685b6ca7c378072E.llvm.12850028421071809815", i64 8), align 8, !noalias !20641, !noundef !14
+  %163 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN89_$LT$typst..foundations..module..Module$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h8685b6ca7c378072E.llvm.12850028421071809815", i64 8), align 8, !noalias !20641, !noundef !14
   invoke void @_ZN5typst11foundations5scope5Scope6define17ha7250009cda29e51E.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %98, ptr noalias noundef nonnull readonly align 1 %162, i64 noundef %163, ptr noundef nonnull align 8 @"_ZN89_$LT$typst..foundations..module..Module$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h8685b6ca7c378072E.llvm.12850028421071809815", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.455.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_type17h44322329657127ecE.exit.i.i unwind label %.body.thread40.i.i, !noalias !20582
 
@@ -103227,7 +103227,7 @@ _ZN5typst11foundations5scope5Scope11define_type17hd69bbc9f67c89851E.exit.i.i: ; 
 
 _ZN5typst11foundations5scope5Scope11define_type17h6051a9dc4db6f890E.exit.i.i: ; preds = %_ZN5typst11foundations5scope5Scope11define_type17hd69bbc9f67c89851E.exit.i.i
   %168 = load ptr, ptr @"_ZN93_$LT$typst..foundations..datetime..Datetime$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h1187b8635b42e4e8E.llvm.12850028421071809815", align 8, !noalias !20650, !nonnull !14, !align !1405, !noundef !14
-  %169 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN93_$LT$typst..foundations..datetime..Datetime$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h1187b8635b42e4e8E.llvm.12850028421071809815", i64 8), align 8, !noalias !20650, !noundef !14
+  %169 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN93_$LT$typst..foundations..datetime..Datetime$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h1187b8635b42e4e8E.llvm.12850028421071809815", i64 8), align 8, !noalias !20650, !noundef !14
   invoke void @_ZN5typst11foundations5scope5Scope6define17ha7250009cda29e51E.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %98, ptr noalias noundef nonnull readonly align 1 %168, i64 noundef %169, ptr noundef nonnull align 8 @"_ZN93_$LT$typst..foundations..datetime..Datetime$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h1187b8635b42e4e8E.llvm.12850028421071809815", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.455.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_type17hd00d27259aec4f27E.exit.i.i unwind label %.body.thread40.i.i, !noalias !20582
 
@@ -103250,8 +103250,8 @@ _ZN5typst11foundations5scope5Scope11define_type17hda60a28ab4852decE.exit.i.i: ; 
           to label %_ZN5typst11foundations5scope5Scope11define_type17h3495aa5e8a5dcdc1E.exit.i.i unwind label %.body.thread40.i.i, !noalias !20582
 
 _ZN5typst11foundations5scope5Scope11define_type17h3495aa5e8a5dcdc1E.exit.i.i: ; preds = %_ZN5typst11foundations5scope5Scope11define_type17hda60a28ab4852decE.exit.i.i
-  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..repr..repr$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hbac1a4babffb9a23E.llvm.12850028421071809815", i64 8), align 8, !noalias !20662, !nonnull !14, !align !1405, !noundef !14
-  %177 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..foundations..repr..repr$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hbac1a4babffb9a23E.llvm.12850028421071809815", i64 16), align 8, !noalias !20662, !noundef !14
+  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..repr..repr$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hbac1a4babffb9a23E.llvm.12850028421071809815", i64 8), align 8, !noalias !20662, !nonnull !14, !align !1405, !noundef !14
+  %177 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..foundations..repr..repr$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hbac1a4babffb9a23E.llvm.12850028421071809815", i64 16), align 8, !noalias !20662, !noundef !14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %91), !noalias !20662
   call void @llvm.experimental.noalias.scope.decl(metadata !20665)
   call void @llvm.experimental.noalias.scope.decl(metadata !20668)
@@ -103286,8 +103286,8 @@ _ZN5typst11foundations5scope5Scope11define_type17h3495aa5e8a5dcdc1E.exit.i.i: ; 
 
 186:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91), !noalias !20662
-  %187 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN82_$LT$typst..foundations..panic$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hcd0191a9f8282b6aE.llvm.12850028421071809815", i64 8), align 8, !noalias !20674, !nonnull !14, !align !1405, !noundef !14
-  %188 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN82_$LT$typst..foundations..panic$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hcd0191a9f8282b6aE.llvm.12850028421071809815", i64 16), align 8, !noalias !20674, !noundef !14
+  %187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN82_$LT$typst..foundations..panic$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hcd0191a9f8282b6aE.llvm.12850028421071809815", i64 8), align 8, !noalias !20674, !nonnull !14, !align !1405, !noundef !14
+  %188 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN82_$LT$typst..foundations..panic$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hcd0191a9f8282b6aE.llvm.12850028421071809815", i64 16), align 8, !noalias !20674, !noundef !14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %89), !noalias !20674
   call void @llvm.experimental.noalias.scope.decl(metadata !20677)
   call void @llvm.experimental.noalias.scope.decl(metadata !20680)
@@ -103322,8 +103322,8 @@ _ZN5typst11foundations5scope5Scope11define_type17h3495aa5e8a5dcdc1E.exit.i.i: ; 
 
 197:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i1.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %89), !noalias !20674
-  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$typst..foundations..assert$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h95b8141dd30b412eE.llvm.12850028421071809815", i64 8), align 8, !noalias !20686, !nonnull !14, !align !1405, !noundef !14
-  %199 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$typst..foundations..assert$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h95b8141dd30b412eE.llvm.12850028421071809815", i64 16), align 8, !noalias !20686, !noundef !14
+  %198 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$typst..foundations..assert$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h95b8141dd30b412eE.llvm.12850028421071809815", i64 8), align 8, !noalias !20686, !nonnull !14, !align !1405, !noundef !14
+  %199 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$typst..foundations..assert$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h95b8141dd30b412eE.llvm.12850028421071809815", i64 16), align 8, !noalias !20686, !noundef !14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %87), !noalias !20686
   call void @llvm.experimental.noalias.scope.decl(metadata !20689)
   call void @llvm.experimental.noalias.scope.decl(metadata !20692)
@@ -103358,8 +103358,8 @@ _ZN5typst11foundations5scope5Scope11define_type17h3495aa5e8a5dcdc1E.exit.i.i: ; 
 
 208:                                              ; preds = %"_ZN122_$LT$typst..foundations..func..Func$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..func..NativeFuncData$GT$$GT$4from17h7206c3c9075acdf9E.exit.i5.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87), !noalias !20686
-  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN81_$LT$typst..foundations..eval$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h756333f146111d8dE.llvm.12850028421071809815", i64 8), align 8, !noalias !20698, !nonnull !14, !align !1405, !noundef !14
-  %210 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN81_$LT$typst..foundations..eval$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h756333f146111d8dE.llvm.12850028421071809815", i64 16), align 8, !noalias !20698, !noundef !14
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN81_$LT$typst..foundations..eval$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h756333f146111d8dE.llvm.12850028421071809815", i64 8), align 8, !noalias !20698, !nonnull !14, !align !1405, !noundef !14
+  %210 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN81_$LT$typst..foundations..eval$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h756333f146111d8dE.llvm.12850028421071809815", i64 16), align 8, !noalias !20698, !noundef !14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %85), !noalias !20698
   call void @llvm.experimental.noalias.scope.decl(metadata !20701)
   call void @llvm.experimental.noalias.scope.decl(metadata !20704)
@@ -129070,7 +129070,7 @@ _ZN5typst11foundations5scope5Scope13deduplicating17h8f0843815aa89837E.exit: ; pr
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr null, ptr %12, align 8, !alias.scope !27050
   %13 = load ptr, ptr @"_ZN5typst5model4list1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..list..ListItem$GT$4data4DATA17ha549fd46ca528a64E.llvm.12850028421071809815", align 8, !noalias !27060, !nonnull !14, !align !1405, !noundef !14
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model4list1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..list..ListItem$GT$4data4DATA17ha549fd46ca528a64E.llvm.12850028421071809815", i64 8), align 8, !noalias !27060, !noundef !14
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst5model4list1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..list..ListItem$GT$4data4DATA17ha549fd46ca528a64E.llvm.12850028421071809815", i64 8), align 8, !noalias !27060, !noundef !14
   invoke void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14, ptr noundef nonnull align 8 @"_ZN5typst5model4list1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..list..ListItem$GT$4data4DATA17ha549fd46ca528a64E.llvm.12850028421071809815", ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.152f57749fcdf0a673d809c4f4545e7f.456.llvm.3683678558897460461)
           to label %_ZN5typst11foundations5scope5Scope11define_elem17h337e33399a6d07c3E.exit unwind label %15
 

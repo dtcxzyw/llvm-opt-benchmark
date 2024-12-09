@@ -10199,7 +10199,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1000:            ; preds = %_ZN5Yosys5RTLIL7Sig
   br i1 %.not.i, label %2958, label %2954
 
 2954:                                             ; preds = %2952
-  %2955 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.149, i64 1))
+  %2955 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.149, i64 1))
           to label %2956 unwind label %2966, !noalias !28
 
 2956:                                             ; preds = %2954
@@ -15419,7 +15419,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_0clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.108, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -15523,7 +15523,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_1clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.109, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.109, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -15611,7 +15611,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_2clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.110, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.110, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -15657,7 +15657,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_3clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.111, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.111, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -15764,7 +15764,7 @@ define internal fastcc void @_ZN5YosysL11widthExtendEPNS_3AST7AstNodeERNS_5RTLIL
   br i1 %.not.i, label %50, label %46
 
 46:                                               ; preds = %44
-  %47 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.110, i64 1))
+  %47 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.110, i64 1))
           to label %48 unwind label %58, !noalias !51
 
 48:                                               ; preds = %46
@@ -17152,7 +17152,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_4clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.113, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.113, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17198,7 +17198,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_5clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.114, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.114, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17244,7 +17244,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_6clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.115, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.115, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17290,7 +17290,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_7clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.116, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17336,7 +17336,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_8clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.117, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.117, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17382,7 +17382,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK3$_9clEv"(ptr
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.118, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.118, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17428,7 +17428,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_10clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.119, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.119, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17474,7 +17474,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_11clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.120, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.120, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17520,7 +17520,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_12clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.121, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.121, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17685,7 +17685,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_13clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.122, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.122, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17731,7 +17731,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_14clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.123, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.123, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17777,7 +17777,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_15clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.124, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.124, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17823,7 +17823,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_16clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.125, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.125, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17869,7 +17869,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_17clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.108, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.108, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17915,7 +17915,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_18clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.126, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.126, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -17961,7 +17961,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_19clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.122, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.122, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18007,7 +18007,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_20clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.127, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.127, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18053,7 +18053,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_21clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.128, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.128, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18099,7 +18099,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_22clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.129, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.129, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18145,7 +18145,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_23clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.130, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.130, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18191,7 +18191,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_24clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.131, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.131, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18237,7 +18237,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_25clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.132, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.132, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18283,7 +18283,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_26clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.133, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.133, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18329,7 +18329,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_27clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.134, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.134, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18375,7 +18375,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_28clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.135, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.135, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18421,7 +18421,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_29clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.136, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.136, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18467,7 +18467,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_30clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.137, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.137, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18513,7 +18513,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_31clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.138, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.138, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18559,7 +18559,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_32clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.139, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.139, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18605,7 +18605,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_33clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.140, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.140, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18651,7 +18651,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_34clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.141, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.141, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18697,7 +18697,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_35clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.142, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.142, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18743,7 +18743,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_36clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.143, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.143, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18793,7 +18793,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_37clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.121, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.121, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -18903,7 +18903,7 @@ define internal fastcc void @_ZN5YosysL9mux2rtlilEPNS_3AST7AstNodeERKNS_5RTLIL7S
   br i1 %.not.i, label %53, label %49
 
 49:                                               ; preds = %47
-  %50 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.145, i64 1))
+  %50 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.145, i64 1))
           to label %51 unwind label %61, !noalias !61
 
 51:                                               ; preds = %49
@@ -19738,7 +19738,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_38clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.147, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.147, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -19827,7 +19827,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_39clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.148, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.148, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -20031,7 +20031,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_42clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.151, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.151, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -20083,7 +20083,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_43clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.152, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.152, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -20129,7 +20129,7 @@ define internal fastcc void @"_ZZN5Yosys3AST7AstNode8genRTLILEibENK4$_44clEv"(pt
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.153, i64 1))
+  %7 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.153, i64 1))
           to label %8 unwind label %18
 
 8:                                                ; preds = %6
@@ -32225,7 +32225,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
   br i1 %.not.i573, label %1224, label %1220
 
 1220:                                             ; preds = %1218
-  %1221 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.185, i64 1))
+  %1221 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.185, i64 1))
           to label %1222 unwind label %1232, !noalias !121
 
 1222:                                             ; preds = %1220
@@ -34402,7 +34402,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit787: ; preds = %_ZN
   br i1 %.not.i802, label %2029, label %2025
 
 2025:                                             ; preds = %2023
-  %2026 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.149, i64 1))
+  %2026 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.149, i64 1))
           to label %2027 unwind label %2037, !noalias !133
 
 2027:                                             ; preds = %2025

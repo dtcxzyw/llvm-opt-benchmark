@@ -3649,7 +3649,7 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h60a810a513539da6E.exit"
 
 "_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h60a810a513539da6E.exit": ; preds = %1, %3, %5
-  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
+  %.sroa.0.0.i.i = phi ptr [ null, %5 ], [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @"_ZN4gpui6window13ELEMENT_ARENA29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h8f638260cd1d200cE", i64 8), %1 ]
   ret ptr %.sroa.0.0.i.i
 }
 

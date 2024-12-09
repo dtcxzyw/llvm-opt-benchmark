@@ -1086,7 +1086,7 @@ define hidden ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef %1) loc
 
 4:                                                ; preds = %2
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.4) #12
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @globalContext, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 16), align 8
   br label %21
 
 6:                                                ; preds = %2
@@ -1122,7 +1122,7 @@ _cmsGetContext.exit:                              ; preds = %6, %.sink.split.i
   br i1 %.not, label %18, label %21
 
 18:                                               ; preds = %_cmsGetContext.exit
-  %19 = getelementptr inbounds nuw [16 x ptr], ptr getelementptr inbounds (i8, ptr @globalContext, i64 16), i64 0, i64 %15
+  %19 = getelementptr inbounds nuw [16 x ptr], ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 16), i64 0, i64 %15
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -1328,7 +1328,7 @@ define hidden void @cmsDeleteContext(ptr noundef %0) local_unnamed_addr #2 {
 
 4:                                                ; preds = %1
   tail call void @cmsUnregisterPluginsTHR(ptr noundef null)
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @globalContext, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 8), align 8
   %.not23 = icmp eq ptr %5, null
   br i1 %.not23, label %7, label %6
 
@@ -1337,7 +1337,7 @@ define hidden void @cmsDeleteContext(ptr noundef %0) local_unnamed_addr #2 {
   br label %7
 
 7:                                                ; preds = %6, %4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @globalContext, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 8), align 8
   br label %27
 
 8:                                                ; preds = %1
@@ -1646,7 +1646,7 @@ _cmsGetContext.exit.i:                            ; preds = %.sink.split.i.i, %1
   %9 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @globalContext, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 16), align 8
   %spec.select = select i1 %.not.i, ptr %11, ptr %10
   ret ptr %spec.select
 }

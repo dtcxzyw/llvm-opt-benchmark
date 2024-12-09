@@ -57,7 +57,7 @@ define void @_ZN7Imf_3_215OpaqueAttributeC2EPKc(ptr noundef nonnull align 8 dere
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
   %_typeName = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_typeName)
@@ -128,7 +128,7 @@ declare void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferencea
 define void @_ZN7Imf_3_215OpaqueAttributeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
   %_typeName = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_typeName2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_typeName, ptr noundef nonnull align 8 dereferenceable(32) %_typeName2)
@@ -196,7 +196,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_215OpaqueAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
   %_data.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_data.i, align 8
   %isnull.i = icmp eq ptr %0, null

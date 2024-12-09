@@ -1520,7 +1520,7 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
 
 38:                                               ; preds = %.thread173
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.6) #12
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
   br label %54
@@ -1534,13 +1534,13 @@ define hidden void @zif_password_hash(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not153, label %46, label %52
 
 46:                                               ; preds = %41
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not154 = icmp eq ptr %47, null
   br i1 %.not154, label %48, label %50
 
 48:                                               ; preds = %46
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7) #12
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %49 = icmp ne ptr %.pre, null
   br label %50
 
@@ -1579,11 +1579,11 @@ define hidden void @zif_password_algos(ptr nocapture noundef readonly %0, ptr no
   store ptr %7, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @php_password_algos, i64 16), align 8
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @php_password_algos, i64 24), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_password_algos, i64 16), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_password_algos, i64 24), align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw %struct._Bucket, ptr %9, i64 %11
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @php_password_algos, i64 8), align 8
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_password_algos, i64 8), align 8
   %14 = and i32 %13, 4
   %.not22 = icmp eq i32 %14, 0
   tail call void @llvm.assume(i1 %.not22)

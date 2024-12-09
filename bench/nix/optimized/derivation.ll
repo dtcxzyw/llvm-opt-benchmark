@@ -2483,7 +2483,7 @@ define void @_ZN3nix36DerivationTest_BadATerm_version_Test8TestBodyEv(ptr nounde
           to label %27 unwind label %52
 
 27:                                               ; preds = %25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %30 = load ptr, ptr %29, align 8
@@ -2756,7 +2756,7 @@ declare void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10DerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8
@@ -3193,7 +3193,7 @@ define void @_ZN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_Test8TestBody
           to label %27 unwind label %52
 
 27:                                               ; preds = %25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %30 = load ptr, ptr %29, align 8
@@ -11349,7 +11349,7 @@ define void @_ZN3nix13makeSimpleDrvERKNS_5StoreE(ptr dead_on_unwind noalias nonn
   %16 = alloca %"class.std::allocator", align 1
   %17 = alloca [1 x %"struct.std::pair.147"], align 8
   tail call void @_ZN3nix15BasicDerivationC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -12448,7 +12448,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %106
   store ptr null, ptr %107, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %5, align 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %118 = load ptr, ptr %117, align 8
@@ -12464,7 +12464,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_del
 
 _ZN3nix10DerivationD2Ev.exit.i.i:                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i
   call void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %5) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %4, align 8
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %124 = load ptr, ptr %123, align 8
@@ -12632,7 +12632,7 @@ define void @_ZN3nix45DerivationTest_Derivation_simple_to_json_Test8TestBodyEv(p
           to label %26 unwind label %33
 
 26:                                               ; preds = %.noexc.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %6, align 8, !noalias !119
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %6, align 8, !noalias !119
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %29 = load ptr, ptr %28, align 8, !noalias !119
@@ -13635,7 +13635,7 @@ _ZN7testing15AssertionResultD2Ev.exit48.i.i:      ; preds = %_ZNKSt14default_del
   br label %174
 
 174:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit48.i.i, %_ZN7testing15AssertionResultD2Ev.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %3, align 8
   %175 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %177 = load ptr, ptr %176, align 8
@@ -13651,7 +13651,7 @@ _ZN7testing15AssertionResultD2Ev.exit48.i.i:      ; preds = %_ZNKSt14default_del
 
 _ZN3nix10DerivationD2Ev.exit.i.i:                 ; preds = %174
   call void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %3) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %2, align 8
   %181 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %183 = load ptr, ptr %182, align 8
@@ -13805,7 +13805,7 @@ define void @_ZN3nix46DerivationTest_Derivation_simple_to_aterm_Test8TestBodyEv(
           to label %22 unwind label %29
 
 22:                                               ; preds = %.noexc.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %2, align 8, !noalias !135
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %2, align 8, !noalias !135
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %25 = load ptr, ptr %24, align 8, !noalias !135
@@ -14259,7 +14259,7 @@ define void @_ZN3nix20makeDynDepDerivationERKNS_5StoreE(ptr dead_on_unwind noali
   %28 = alloca %"class.std::allocator", align 1
   %29 = alloca [1 x %"struct.std::pair.147"], align 8
   tail call void @_ZN3nix15BasicDerivationC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -15772,7 +15772,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %106
   store ptr null, ptr %107, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %5, align 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %118 = load ptr, ptr %117, align 8
@@ -15788,7 +15788,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_del
 
 _ZN3nix10DerivationD2Ev.exit.i.i:                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i
   call void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %5) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %4, align 8
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %124 = load ptr, ptr %123, align 8
@@ -15956,7 +15956,7 @@ define void @_ZN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_Tes
           to label %26 unwind label %33
 
 26:                                               ; preds = %.noexc.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %6, align 8, !noalias !144
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %6, align 8, !noalias !144
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %29 = load ptr, ptr %28, align 8, !noalias !144
@@ -16959,7 +16959,7 @@ _ZN7testing15AssertionResultD2Ev.exit48.i.i:      ; preds = %_ZNKSt14default_del
   br label %174
 
 174:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit48.i.i, %_ZN7testing15AssertionResultD2Ev.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %3, align 8
   %175 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %177 = load ptr, ptr %176, align 8
@@ -16975,7 +16975,7 @@ _ZN7testing15AssertionResultD2Ev.exit48.i.i:      ; preds = %_ZNKSt14default_del
 
 _ZN3nix10DerivationD2Ev.exit.i.i:                 ; preds = %174
   call void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %3) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %2, align 8
   %181 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %183 = load ptr, ptr %182, align 8
@@ -17129,7 +17129,7 @@ define void @_ZN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_Te
           to label %22 unwind label %29
 
 22:                                               ; preds = %.noexc.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %2, align 8, !noalias !160
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %2, align 8, !noalias !160
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %25 = load ptr, ptr %24, align 8, !noalias !160
@@ -19680,7 +19680,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36DerivationTest_BadATerm_version_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix36DerivationTest_BadATerm_version_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -19690,10 +19690,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -20114,7 +20114,7 @@ define linkonce_odr void @_ZN3nix27ExperimentalFeatureSettingsC2Ev(ptr noundef n
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -20148,7 +20148,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %19, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(233) %19)
           to label %_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEC2EPNS_6ConfigERKS6_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS1_ISH_S3_ISH_ESaISH_EEbSt8optionalIS2_E.exit unwind label %32
 
@@ -20597,7 +20597,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #17 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #31
   unreachable
 }
@@ -20650,7 +20650,7 @@ _ZNSt8_Rb_treeIN3nix19ExperimentalFeatureES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6ConfigE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix6ConfigE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -20665,7 +20665,7 @@ define linkonce_odr void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 derefer
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14AbstractConfigE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix14AbstractConfigE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -20700,7 +20700,7 @@ define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureES
   %8 = alloca %"struct.std::_Rb_tree<nix::ExperimentalFeature, nix::ExperimentalFeature, std::_Identity<nix::ExperimentalFeature>, std::less<nix::ExperimentalFeature>>::_Alloc_node", align 8
   %9 = alloca %"struct.std::_Rb_tree<nix::ExperimentalFeature, nix::ExperimentalFeature, std::_Identity<nix::ExperimentalFeature>, std::less<nix::ExperimentalFeature>>::_Alloc_node", align 8
   tail call void @_ZN3nix15AbstractSettingC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3setIS6_St4lessIS6_ESaIS6_EESt8optionalINS_19ExperimentalFeatureEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 %6)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %11, align 8
@@ -20826,7 +20826,7 @@ declare void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -20861,7 +20861,7 @@ _ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -20932,7 +20932,7 @@ declare void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -20967,7 +20967,7 @@ _ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev.exit1: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -21527,7 +21527,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10DerivationD0Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10DerivationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8
@@ -21549,7 +21549,7 @@ _ZN3nix10DerivationD2Ev.exit:                     ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15BasicDerivationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix15BasicDerivationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -22276,7 +22276,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Dy
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22287,9 +22287,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22322,7 +22322,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix61De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22332,10 +22332,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix61De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22368,7 +22368,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22378,10 +22378,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22414,7 +22414,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix58De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22424,10 +22424,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix58De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22460,7 +22460,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix56De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22470,10 +22470,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix56De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22506,7 +22506,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22516,10 +22516,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22552,7 +22552,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix55De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22562,10 +22562,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix55De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22598,7 +22598,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix61Dy
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22609,9 +22609,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix61Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22644,7 +22644,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Dy
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22655,9 +22655,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22690,7 +22690,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Ca
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22701,9 +22701,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Ca
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22736,7 +22736,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57Ca
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22747,9 +22747,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57Ca
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22782,7 +22782,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix55De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22792,10 +22792,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix55De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22828,7 +22828,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix53De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22838,10 +22838,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix53De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22874,7 +22874,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Im
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22885,9 +22885,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Im
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22920,7 +22920,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57Im
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -22931,9 +22931,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57Im
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22952,7 +22952,7 @@ define linkonce_odr void @_ZN3nix15BasicDerivationC2Ev(ptr noundef nonnull align
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix15BasicDerivationE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix15BasicDerivationE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -23716,7 +23716,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23726,10 +23726,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23762,7 +23762,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix45De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23772,10 +23772,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix45De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23808,7 +23808,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix48De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23818,10 +23818,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix48De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23854,7 +23854,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46De
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 8))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23864,10 +23864,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23918,7 +23918,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix61Dy
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23929,9 +23929,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix61Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23964,7 +23964,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Dy
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -23975,9 +23975,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -24010,7 +24010,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix62Dy
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -24021,9 +24021,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix62Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -24056,7 +24056,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix60Dy
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 16))
+  invoke void @_ZN3nix14DerivationTestC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 16))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -24067,9 +24067,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix60Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 160), ptr %3, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 88), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 160), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 88), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -24366,9 +24366,9 @@ _ZN3nix12LibStoreTestD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
@@ -24398,7 +24398,7 @@ _ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev.exit.i.i: ; preds 
 
 _ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.exit: ; preds = %_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev.exit.i.i
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %2) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix6ConfigE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix6ConfigE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -24413,7 +24413,7 @@ _ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.exit: 
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14AbstractConfigE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix14AbstractConfigE, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
@@ -24952,7 +24952,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
 
 69:                                               ; preds = %64
   %70 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = load i32, ptr %72, align 8
@@ -24960,7 +24960,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %75) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %70, align 8
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %78 = load i64, ptr %77, align 8
@@ -24972,7 +24972,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %7, align 8
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %79) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #30
@@ -25086,7 +25086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
 118:                                              ; preds = %69
   %119 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %7, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %75) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #30
   br label %120
@@ -25226,7 +25226,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 167:                                              ; preds = %163
   %168 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %168, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %171 = load i32, ptr %170, align 8
@@ -25234,7 +25234,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %173 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef nonnull align 8 dereferenceable(16) %173) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %168, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %168, align 8
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %175 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %176 = load i64, ptr %175, align 8
@@ -25246,7 +25246,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %163
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
   %177 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %177) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #30
@@ -25342,7 +25342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
 208:                                              ; preds = %167
   %209 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %173) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #30
   br label %210
@@ -26292,7 +26292,7 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -26301,7 +26301,7 @@ define linkonce_odr void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
@@ -29466,7 +29466,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %99 unwind label %107
 
 99:                                               ; preds = %97
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %10, align 8
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %100) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #30
@@ -29495,7 +29495,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 107:                                              ; preds = %97
   %108 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %10, align 8
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %109) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #30
@@ -29562,7 +29562,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %127 unwind label %135
 
 127:                                              ; preds = %125
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
   %128 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %128) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #30
@@ -29591,7 +29591,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 135:                                              ; preds = %125
   %136 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
   %137 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %137) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #30
@@ -29744,7 +29744,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i111:               ; preds = %172, %169
           to label %192 unwind label %202
 
 192:                                              ; preds = %190
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %24, align 8
   %193 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %193) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #30
@@ -29778,7 +29778,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i111:               ; preds = %172, %169
 202:                                              ; preds = %190
   %203 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %24, align 8
   %204 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %204) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #30
@@ -29908,7 +29908,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
           to label %245 unwind label %253
 
 245:                                              ; preds = %243
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %30, align 8
   %246 = getelementptr inbounds nuw i8, ptr %30, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %246) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #30
@@ -29937,7 +29937,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
 253:                                              ; preds = %243
   %254 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %30, align 8
   %255 = getelementptr inbounds nuw i8, ptr %30, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %255) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #30
@@ -29988,7 +29988,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
           to label %267 unwind label %275
 
 267:                                              ; preds = %265
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %37, align 8
   %268 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %268) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %37) #30
@@ -30017,7 +30017,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
 275:                                              ; preds = %265
   %276 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %37, align 8
   %277 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %277) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %37) #30
@@ -30131,7 +30131,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
 
 322:                                              ; preds = %317
   %323 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %323, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %323, align 8
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %325 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %326 = load i32, ptr %325, align 8
@@ -30139,7 +30139,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
   %327 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %328 = getelementptr inbounds nuw i8, ptr %44, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %327, ptr noundef nonnull align 8 dereferenceable(16) %328) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %323, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %323, align 8
   %329 = getelementptr inbounds nuw i8, ptr %323, i64 32
   %330 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %331 = load i64, ptr %330, align 8
@@ -30151,7 +30151,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %317
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %44, align 8
   %332 = getelementptr inbounds nuw i8, ptr %44, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %332) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #30
@@ -30242,7 +30242,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
 361:                                              ; preds = %322
   %362 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %44, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %328) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #30
   br label %363
@@ -30316,7 +30316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
 
 383:                                              ; preds = %378
   %384 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %384, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %384, align 8
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %386 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %387 = load i32, ptr %386, align 8
@@ -30324,7 +30324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   %388 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %389 = getelementptr inbounds nuw i8, ptr %51, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %388, ptr noundef nonnull align 8 dereferenceable(16) %389) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %384, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %384, align 8
   %390 = getelementptr inbounds nuw i8, ptr %384, i64 32
   %391 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %392 = load i64, ptr %391, align 8
@@ -30336,7 +30336,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit139: ; preds = %378
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %51, align 8
   %393 = getelementptr inbounds nuw i8, ptr %51, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %393) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %51) #30
@@ -30427,7 +30427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
 422:                                              ; preds = %383
   %423 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %51, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %389) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %51) #30
   br label %424
@@ -30497,7 +30497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
 
 444:                                              ; preds = %439
   %445 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %445, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %445, align 8
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
   %447 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %448 = load i32, ptr %447, align 8
@@ -30505,7 +30505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %449 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %450 = getelementptr inbounds nuw i8, ptr %58, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %449, ptr noundef nonnull align 8 dereferenceable(16) %450) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %445, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %445, align 8
   %451 = getelementptr inbounds nuw i8, ptr %445, i64 32
   %452 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %453 = load i64, ptr %452, align 8
@@ -30517,7 +30517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit153: ; preds = %439
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %58, align 8
   %454 = getelementptr inbounds nuw i8, ptr %58, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %454) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #30
@@ -30608,7 +30608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163: ; preds = %_Z
 483:                                              ; preds = %444
   %484 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %58, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %450) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #30
   br label %485
@@ -30680,7 +30680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163: ; preds = %_Z
 
 507:                                              ; preds = %502
   %508 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %508, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %508, align 8
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   %510 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %511 = load i32, ptr %510, align 8
@@ -30688,7 +30688,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163: ; preds = %_Z
   %512 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %513 = getelementptr inbounds nuw i8, ptr %65, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %512, ptr noundef nonnull align 8 dereferenceable(16) %513) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %508, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %508, align 8
   %514 = getelementptr inbounds nuw i8, ptr %508, i64 32
   %515 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %516 = load i64, ptr %515, align 8
@@ -30700,7 +30700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit168: ; preds = %502
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %65, align 8
   %517 = getelementptr inbounds nuw i8, ptr %65, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %517) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %65) #30
@@ -30791,7 +30791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178: ; preds = %_Z
 546:                                              ; preds = %507
   %547 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %65, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %513) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %65) #30
   br label %548
@@ -31225,7 +31225,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #30
   %76 = load i64, ptr %2, align 8
   %77 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -31240,7 +31240,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br label %112
 
 81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %0, align 8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %76, ptr %82, align 8
   %83 = load ptr, ptr %7, align 8
@@ -32254,7 +32254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
@@ -32545,7 +32545,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %101 unwind label %109
 
 101:                                              ; preds = %99
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %10, align 8
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #30
@@ -32574,7 +32574,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 109:                                              ; preds = %99
   %110 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %10, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %10, align 8
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %111) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #30
@@ -32644,7 +32644,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %133 unwind label %141
 
 133:                                              ; preds = %131
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
   %134 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %134) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #30
@@ -32673,7 +32673,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 141:                                              ; preds = %131
   %142 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %17, align 8
   %143 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %143) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #30
@@ -32825,7 +32825,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i111:               ; preds = %178, %175
           to label %198 unwind label %208
 
 198:                                              ; preds = %196
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %24, align 8
   %199 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %199) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #30
@@ -32859,7 +32859,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i111:               ; preds = %178, %175
 208:                                              ; preds = %196
   %209 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %24, align 8
   %210 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %210) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #30
@@ -32989,7 +32989,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
           to label %251 unwind label %259
 
 251:                                              ; preds = %249
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %30, align 8
   %252 = getelementptr inbounds nuw i8, ptr %30, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %252) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #30
@@ -33018,7 +33018,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
 259:                                              ; preds = %249
   %260 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %30, align 8
   %261 = getelementptr inbounds nuw i8, ptr %30, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %261) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %30) #30
@@ -33069,7 +33069,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
           to label %273 unwind label %281
 
 273:                                              ; preds = %271
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %37, align 8
   %274 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %274) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %37) #30
@@ -33098,7 +33098,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
 281:                                              ; preds = %271
   %282 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %37, align 8
   %283 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %283) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %37) #30
@@ -33208,7 +33208,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
 
 327:                                              ; preds = %322
   %328 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %328, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %328, align 8
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %330 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %331 = load i32, ptr %330, align 8
@@ -33216,7 +33216,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %333 = getelementptr inbounds nuw i8, ptr %44, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %332, ptr noundef nonnull align 8 dereferenceable(16) %333) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %328, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %328, align 8
   %334 = getelementptr inbounds nuw i8, ptr %328, i64 32
   %335 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %336 = load i64, ptr %335, align 8
@@ -33228,7 +33228,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %322
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %44, align 8
   %337 = getelementptr inbounds nuw i8, ptr %44, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %337) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #30
@@ -33319,7 +33319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
 366:                                              ; preds = %327
   %367 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %44, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %44, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %333) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #30
   br label %368
@@ -33393,7 +33393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
 
 388:                                              ; preds = %383
   %389 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %389, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %389, align 8
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %391 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %392 = load i32, ptr %391, align 8
@@ -33401,7 +33401,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   %393 = getelementptr inbounds nuw i8, ptr %389, i64 16
   %394 = getelementptr inbounds nuw i8, ptr %51, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %393, ptr noundef nonnull align 8 dereferenceable(16) %394) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %389, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %389, align 8
   %395 = getelementptr inbounds nuw i8, ptr %389, i64 32
   %396 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %397 = load i64, ptr %396, align 8
@@ -33413,7 +33413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit139: ; preds = %383
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %51, align 8
   %398 = getelementptr inbounds nuw i8, ptr %51, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %398) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %51) #30
@@ -33504,7 +33504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
 427:                                              ; preds = %388
   %428 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %51, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %51, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %394) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %51) #30
   br label %429
@@ -33577,7 +33577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
 
 453:                                              ; preds = %448
   %454 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %454, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %454, align 8
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %456 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %457 = load i32, ptr %456, align 8
@@ -33585,7 +33585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %458 = getelementptr inbounds nuw i8, ptr %454, i64 16
   %459 = getelementptr inbounds nuw i8, ptr %58, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %458, ptr noundef nonnull align 8 dereferenceable(16) %459) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %454, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %454, align 8
   %460 = getelementptr inbounds nuw i8, ptr %454, i64 32
   %461 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %462 = load i64, ptr %461, align 8
@@ -33597,7 +33597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit155: ; preds = %448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %58, align 8
   %463 = getelementptr inbounds nuw i8, ptr %58, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %463) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #30
@@ -33688,7 +33688,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165: ; preds = %_Z
 492:                                              ; preds = %453
   %493 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %58, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %58, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %459) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %58) #30
   br label %494
@@ -33756,7 +33756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165: ; preds = %_Z
 
 515:                                              ; preds = %510
   %516 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %516, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %516, align 8
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 8
   %518 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %519 = load i32, ptr %518, align 8
@@ -33764,7 +33764,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165: ; preds = %_Z
   %520 = getelementptr inbounds nuw i8, ptr %516, i64 16
   %521 = getelementptr inbounds nuw i8, ptr %65, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %520, ptr noundef nonnull align 8 dereferenceable(16) %521) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %516, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %516, align 8
   %522 = getelementptr inbounds nuw i8, ptr %516, i64 32
   %523 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %524 = load i64, ptr %523, align 8
@@ -33776,7 +33776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit170: ; preds = %510
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %65, align 8
   %525 = getelementptr inbounds nuw i8, ptr %65, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %525) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %65) #30
@@ -33867,7 +33867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180: ; preds = %_Z
 554:                                              ; preds = %515
   %555 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %65, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %521) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %65) #30
   br label %556
@@ -35422,7 +35422,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #30
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -35437,7 +35437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 16), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -35546,7 +35546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
@@ -37113,7 +37113,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #30
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -37128,7 +37128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 16), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -37197,7 +37197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
@@ -37206,7 +37206,7 @@ define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
@@ -37417,7 +37417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #30
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -37432,7 +37432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 16), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -37518,7 +37518,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail10type_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
@@ -37579,7 +37579,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail10type_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
@@ -38743,7 +38743,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -38751,13 +38751,13 @@ define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #30
@@ -40256,7 +40256,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -40264,7 +40264,7 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
@@ -40274,7 +40274,7 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #30
@@ -42693,9 +42693,9 @@ define linkonce_odr void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112
   store i32 1, ptr %16, align 8, !noalias !339
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 1, ptr %17, align 4, !noalias !339
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8, !noalias !339
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8, !noalias !339
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %18, align 8, !noalias !339
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %18, align 8, !noalias !339
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %0, ptr %19, align 8, !noalias !339
   store ptr %18, ptr %10, align 8
@@ -46749,9 +46749,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nlohmann
   store i32 1, ptr %14, align 8, !noalias !385
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !noalias !385
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8, !noalias !385
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %13, align 8, !noalias !385
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail21output_stream_adapterIcEE, i64 16), ptr %16, align 8, !noalias !385
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8nlohmann6detail21output_stream_adapterIcEE, i64 16), ptr %16, align 8, !noalias !385
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %0, ptr %17, align 8, !noalias !385
   store ptr %16, ptr %5, align 8
@@ -50356,7 +50356,7 @@ define internal void @_GLOBAL__sub_I_derivation.cc() #11 section ".text.startup"
           to label %82 unwind label %101
 
 82:                                               ; preds = %80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36DerivationTest_BadATerm_version_TestEEE, i64 16), ptr %81, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36DerivationTest_BadATerm_version_TestEEE, i64 16), ptr %81, align 8
   %83 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %70, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %77, ptr noundef %79, ptr noundef nonnull %81)
           to label %84 unwind label %101
 
@@ -50455,7 +50455,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %112 unwind label %131
 
 112:                                              ; preds = %110
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestEEE, i64 16), ptr %111, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestEEE, i64 16), ptr %111, align 8
   %113 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef null, ptr noundef nonnull %67, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %107, ptr noundef %109, ptr noundef nonnull %111)
           to label %114 unwind label %131
 
@@ -50548,7 +50548,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %142 unwind label %161
 
 142:                                              ; preds = %140
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestEEE, i64 16), ptr %141, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestEEE, i64 16), ptr %141, align 8
   %143 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef null, ptr noundef nonnull %64, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %137, ptr noundef %139, ptr noundef nonnull %141)
           to label %144 unwind label %161
 
@@ -50641,7 +50641,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %172 unwind label %191
 
 172:                                              ; preds = %170
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestEEE, i64 16), ptr %171, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestEEE, i64 16), ptr %171, align 8
   %173 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef null, ptr noundef nonnull %61, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %167, ptr noundef %169, ptr noundef nonnull %171)
           to label %174 unwind label %191
 
@@ -50734,7 +50734,7 @@ __cxx_global_var_init.25.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %202 unwind label %221
 
 202:                                              ; preds = %200
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestEEE, i64 16), ptr %201, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestEEE, i64 16), ptr %201, align 8
   %203 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %197, ptr noundef %199, ptr noundef nonnull %201)
           to label %204 unwind label %221
 
@@ -50827,7 +50827,7 @@ __cxx_global_var_init.27.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %232 unwind label %251
 
 232:                                              ; preds = %230
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestEEE, i64 16), ptr %231, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestEEE, i64 16), ptr %231, align 8
   %233 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %227, ptr noundef %229, ptr noundef nonnull %231)
           to label %234 unwind label %251
 
@@ -50920,7 +50920,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %262 unwind label %281
 
 262:                                              ; preds = %260
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestEEE, i64 16), ptr %261, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestEEE, i64 16), ptr %261, align 8
   %263 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %257, ptr noundef %259, ptr noundef nonnull %261)
           to label %264 unwind label %281
 
@@ -51013,7 +51013,7 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %292 unwind label %311
 
 292:                                              ; preds = %290
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestEEE, i64 16), ptr %291, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestEEE, i64 16), ptr %291, align 8
   %293 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %287, ptr noundef %289, ptr noundef nonnull %291)
           to label %294 unwind label %311
 
@@ -51106,7 +51106,7 @@ __cxx_global_var_init.35.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %322 unwind label %341
 
 322:                                              ; preds = %320
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestEEE, i64 16), ptr %321, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestEEE, i64 16), ptr %321, align 8
   %323 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %317, ptr noundef %319, ptr noundef nonnull %321)
           to label %324 unwind label %341
 
@@ -51199,7 +51199,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %352 unwind label %371
 
 352:                                              ; preds = %350
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestEEE, i64 16), ptr %351, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestEEE, i64 16), ptr %351, align 8
   %353 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %347, ptr noundef %349, ptr noundef nonnull %351)
           to label %354 unwind label %371
 
@@ -51292,7 +51292,7 @@ __cxx_global_var_init.40.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %382 unwind label %401
 
 382:                                              ; preds = %380
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestEEE, i64 16), ptr %381, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestEEE, i64 16), ptr %381, align 8
   %383 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix16CaDerivationTestEE6dummy_E, ptr noundef %377, ptr noundef %379, ptr noundef nonnull %381)
           to label %384 unwind label %401
 
@@ -51385,7 +51385,7 @@ __cxx_global_var_init.42.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %412 unwind label %431
 
 412:                                              ; preds = %410
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestEEE, i64 16), ptr %411, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestEEE, i64 16), ptr %411, align 8
   %413 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix16CaDerivationTestEE6dummy_E, ptr noundef %407, ptr noundef %409, ptr noundef nonnull %411)
           to label %414 unwind label %431
 
@@ -51478,7 +51478,7 @@ __cxx_global_var_init.46.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %442 unwind label %461
 
 442:                                              ; preds = %440
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestEEE, i64 16), ptr %441, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestEEE, i64 16), ptr %441, align 8
   %443 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.49, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %437, ptr noundef %439, ptr noundef nonnull %441)
           to label %444 unwind label %461
 
@@ -51571,7 +51571,7 @@ __cxx_global_var_init.48.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %472 unwind label %491
 
 472:                                              ; preds = %470
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestEEE, i64 16), ptr %471, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestEEE, i64 16), ptr %471, align 8
   %473 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.52, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %467, ptr noundef %469, ptr noundef nonnull %471)
           to label %474 unwind label %491
 
@@ -51664,7 +51664,7 @@ __cxx_global_var_init.51.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %502 unwind label %521
 
 502:                                              ; preds = %500
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestEEE, i64 16), ptr %501, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestEEE, i64 16), ptr %501, align 8
   %503 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E, ptr noundef %497, ptr noundef %499, ptr noundef nonnull %501)
           to label %504 unwind label %521
 
@@ -51757,7 +51757,7 @@ __cxx_global_var_init.53.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %532 unwind label %551
 
 532:                                              ; preds = %530
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestEEE, i64 16), ptr %531, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestEEE, i64 16), ptr %531, align 8
   %533 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E, ptr noundef %527, ptr noundef %529, ptr noundef nonnull %531)
           to label %534 unwind label %551
 
@@ -51850,7 +51850,7 @@ __cxx_global_var_init.57.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %562 unwind label %581
 
 562:                                              ; preds = %560
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47DerivationTest_Derivation_simple_from_json_TestEEE, i64 16), ptr %561, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47DerivationTest_Derivation_simple_from_json_TestEEE, i64 16), ptr %561, align 8
   %563 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.71, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %557, ptr noundef %559, ptr noundef nonnull %561)
           to label %564 unwind label %581
 
@@ -51943,7 +51943,7 @@ __cxx_global_var_init.70.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %592 unwind label %611
 
 592:                                              ; preds = %590
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45DerivationTest_Derivation_simple_to_json_TestEEE, i64 16), ptr %591, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45DerivationTest_Derivation_simple_to_json_TestEEE, i64 16), ptr %591, align 8
   %593 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.74, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %587, ptr noundef %589, ptr noundef nonnull %591)
           to label %594 unwind label %611
 
@@ -52036,7 +52036,7 @@ __cxx_global_var_init.73.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %622 unwind label %641
 
 622:                                              ; preds = %620
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix48DerivationTest_Derivation_simple_from_aterm_TestEEE, i64 16), ptr %621, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix48DerivationTest_Derivation_simple_from_aterm_TestEEE, i64 16), ptr %621, align 8
   %623 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.76, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %617, ptr noundef %619, ptr noundef nonnull %621)
           to label %624 unwind label %641
 
@@ -52129,7 +52129,7 @@ __cxx_global_var_init.75.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %652 unwind label %671
 
 652:                                              ; preds = %650
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46DerivationTest_Derivation_simple_to_aterm_TestEEE, i64 16), ptr %651, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46DerivationTest_Derivation_simple_to_aterm_TestEEE, i64 16), ptr %651, align 8
   %653 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.79, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %647, ptr noundef %649, ptr noundef nonnull %651)
           to label %654 unwind label %671
 
@@ -52222,7 +52222,7 @@ __cxx_global_var_init.78.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %682 unwind label %701
 
 682:                                              ; preds = %680
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestEEE, i64 16), ptr %681, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestEEE, i64 16), ptr %681, align 8
   %683 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.84, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %677, ptr noundef %679, ptr noundef nonnull %681)
           to label %684 unwind label %701
 
@@ -52315,7 +52315,7 @@ __cxx_global_var_init.83.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %712 unwind label %731
 
 712:                                              ; preds = %710
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestEEE, i64 16), ptr %711, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestEEE, i64 16), ptr %711, align 8
   %713 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.87, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %707, ptr noundef %709, ptr noundef nonnull %711)
           to label %714 unwind label %731
 
@@ -52408,7 +52408,7 @@ __cxx_global_var_init.86.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %742 unwind label %761
 
 742:                                              ; preds = %740
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestEEE, i64 16), ptr %741, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestEEE, i64 16), ptr %741, align 8
   %743 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.89, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %737, ptr noundef %739, ptr noundef nonnull %741)
           to label %744 unwind label %761
 
@@ -52501,7 +52501,7 @@ __cxx_global_var_init.88.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %772 unwind label %791
 
 772:                                              ; preds = %770
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestEEE, i64 16), ptr %771, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestEEE, i64 16), ptr %771, align 8
   %773 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.92, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %767, ptr noundef %769, ptr noundef nonnull %771)
           to label %774 unwind label %791
 

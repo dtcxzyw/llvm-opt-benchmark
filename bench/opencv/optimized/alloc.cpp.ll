@@ -332,7 +332,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define internal void @_GLOBAL__sub_I_alloc.cpp() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv5utils12_GLOBAL__N_119AllocatorStatisticsE, i64 16), ptr @_ZN2cvL15allocator_statsE, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv5utils12_GLOBAL__N_119AllocatorStatisticsE, i64 16), ptr @_ZN2cvL15allocator_statsE, align 8
   %2 = load atomic i8, ptr @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %__cxx_global_var_init.2.exit, !prof !4

@@ -24,13 +24,13 @@ $__clang_call_terminate = comdat any
 define void @_ZN3zmq7dgram_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(1848) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3zmq13socket_base_tC2EPNS_5ctx_tEjib(ptr noundef nonnull align 8 dereferenceable(1825) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_, i1 noundef zeroext false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq7dgram_tE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq7dgram_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq7dgram_tE, i64 392), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq7dgram_tE, i64 392), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 1464
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq7dgram_tE, i64 424), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq7dgram_tE, i64 424), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1472
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq7dgram_tE, i64 480), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq7dgram_tE, i64 480), ptr %add.ptr3, align 8
   %_pipe = getelementptr inbounds nuw i8, ptr %this, i64 1832
   store ptr null, ptr %_pipe, align 8
   %_more_out = getelementptr inbounds nuw i8, ptr %this, i64 1840

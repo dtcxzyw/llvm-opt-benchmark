@@ -1262,13 +1262,13 @@ if.then2.i:                                       ; preds = %if.end.i
   %conv.i23 = sext i32 %19 to i64
   %call4.i = call ptr @xcalloc(i64 noundef %conv.i23, i64 noundef 1) #19
   call void @ensure_full_index(ptr noundef nonnull @the_index) #19
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %cmp58.not.i = icmp eq i32 %20, 0
   br i1 %cmp58.not.i, label %for.end.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %22 = zext i32 %21 to i64
   %cmp5.i = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %cmp5.i, label %for.body.i, label %for.end.i, !llvm.loop !5
@@ -6998,7 +6998,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %if.then4, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %cmp730.not = icmp eq i32 %2, 0
   br i1 %cmp730.not, label %for.end, label %for.body.lr.ph
 
@@ -7074,7 +7074,7 @@ do.end:                                           ; preds = %do.body.do.end_crit
   %idxprom43 = sext i32 %11 to i64
   %arrayidx44 = getelementptr inbounds ptr, ptr %12, i64 %idxprom43
   store ptr %4, ptr %arrayidx44, align 8
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %14 = load ptr, ptr @the_index, align 8
   %15 = add nuw i32 %i.031, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %13, i32 %15)
@@ -7103,7 +7103,7 @@ for.inc.loopexit.split.loop.exit34:               ; preds = %land.rhs
 for.inc:                                          ; preds = %while.cond, %for.inc.loopexit.split.loop.exit34, %for.body, %lor.lhs.false
   %i.1 = phi i32 [ %i.031, %lor.lhs.false ], [ %i.031, %for.body ], [ %19, %for.inc.loopexit.split.loop.exit34 ], [ %16, %while.cond ]
   %inc58 = add nuw nsw i32 %i.1, 1
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @the_index, i64 12), align 4
   %cmp7 = icmp ult i32 %inc58, %20
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !17
 

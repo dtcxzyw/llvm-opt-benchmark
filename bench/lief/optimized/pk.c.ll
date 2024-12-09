@@ -100,7 +100,7 @@ define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup_rsa_alt(ptr nocapture n
   br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @mbedtls_rsa_alt_info, i64 72), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_rsa_alt_info, i64 72), align 8
   %9 = tail call ptr %8() #6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8

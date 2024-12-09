@@ -703,7 +703,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZNK30G1MonotonicArenaFreeMe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN30G1MonotonicArenaFreeMemoryTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   tail call void @_ZN13G1ServiceTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) #14
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV30G1MonotonicArenaFreeMemoryTask, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV30G1MonotonicArenaFreeMemoryTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48

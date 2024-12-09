@@ -47,7 +47,7 @@ define internal void @scon(ptr noundef initializes((144, 148), (192, 204), (208,
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 -1, ptr %2, align 8
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -79,7 +79,7 @@ define internal void @scon(ptr noundef initializes((144, 148), (192, 204), (208,
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %16 = load i32, ptr @pmix_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not9 = icmp eq i32 %16, %17
   br i1 %.not9, label %19, label %18
 
@@ -323,7 +323,7 @@ define internal void @htcon(ptr noundef initializes((144, 160), (760, 772), (776
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -355,7 +355,7 @@ define internal void @htcon(ptr noundef initializes((144, 160), (760, 772), (776
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %16 = load i32, ptr @pmix_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_hash_table_t_class, i64 32), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_hash_table_t_class, i64 32), align 8
   %.not34 = icmp eq i32 %16, %17
   br i1 %.not34, label %19, label %18
 
@@ -390,7 +390,7 @@ pmix_obj_run_constructors.exit43:                 ; preds = %.lr.ph.i40, %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @.str.5, ptr %30, align 8
   %31 = load i32, ptr @pmix_class_init_epoch, align 4
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_hash_table_t_class, i64 32), align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_hash_table_t_class, i64 32), align 8
   %.not35 = icmp eq i32 %31, %32
   br i1 %.not35, label %34, label %33
 
@@ -425,7 +425,7 @@ pmix_obj_run_constructors.exit48:                 ; preds = %.lr.ph.i45, %34
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr @.str.6, ptr %45, align 8
   %46 = load i32, ptr @pmix_class_init_epoch, align 4
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_hash_table_t_class, i64 32), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_hash_table_t_class, i64 32), align 8
   %.not36 = icmp eq i32 %46, %47
   br i1 %.not36, label %49, label %48
 
@@ -462,7 +462,7 @@ pmix_obj_run_constructors.exit53:                 ; preds = %.lr.ph.i50, %49
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store i8 0, ptr %61, align 8
   %62 = load i32, ptr @pmix_class_init_epoch, align 4
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not37 = icmp eq i32 %62, %63
   br i1 %.not37, label %65, label %64
 
@@ -494,7 +494,7 @@ pmix_obj_run_constructors.exit53:                 ; preds = %.lr.ph.i50, %49
 
 pmix_obj_run_constructors.exit58:                 ; preds = %.lr.ph.i55, %65
   %75 = load i32, ptr @pmix_class_init_epoch, align 4
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not38 = icmp eq i32 %75, %76
   br i1 %.not38, label %78, label %77
 
@@ -1042,7 +1042,7 @@ define internal void @apcon(ptr noundef initializes((144, 148), (192, 204), (208
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %2, align 8
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %6, label %5
 
@@ -1074,7 +1074,7 @@ define internal void @apcon(ptr noundef initializes((144, 148), (192, 204), (208
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %16 = load i32, ptr @pmix_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not10 = icmp eq i32 %16, %17
   br i1 %.not10, label %19, label %18
 
@@ -1322,7 +1322,7 @@ define internal void @ndinfocon(ptr noundef initializes((144, 148), (152, 168), 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = load i32, ptr @pmix_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %4, %5
   br i1 %.not, label %7, label %6
 

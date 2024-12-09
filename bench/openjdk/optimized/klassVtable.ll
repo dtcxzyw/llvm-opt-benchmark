@@ -342,7 +342,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable22needs_new_vtable_entryEP6Met
   %21 = zext i16 %19 to i64
   %22 = getelementptr inbounds nuw i64, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %.not53 = icmp eq ptr %23, %24
   br i1 %.not53, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread, label %25
 
@@ -1702,7 +1702,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable23update_inherited_vtableEP6Th
   %27 = zext i16 %25 to i64
   %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
   %.not95 = icmp eq ptr %29, %30
   br i1 %.not95, label %196, label %31
 
@@ -2529,7 +2529,7 @@ _ZNK6HandleclEv.exit40:                           ; preds = %_ZNK6HandleclEv.exi
   %145 = call noundef ptr @_ZNK5Klass25class_in_module_of_loaderEbb(ptr noundef nonnull align 8 dereferenceable(196) %82, i1 noundef zeroext false, i1 noundef zeroext true) #15
   %146 = call noundef ptr @_ZNK5Klass25class_in_module_of_loaderEbb(ptr noundef nonnull align 8 dereferenceable(196) %45, i1 noundef zeroext false, i1 noundef zeroext true) #15
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.5, ptr noundef %139, ptr noundef %140, ptr noundef %142, ptr noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %146) #15
-  %147 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1176), align 8
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1176), align 8
   %148 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %6, i1 noundef zeroext false) #15
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %2, ptr noundef nonnull @.str.6, i32 noundef 608, ptr noundef %147, ptr noundef %148) #15
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %6) #15
@@ -4103,7 +4103,7 @@ _ZNK6HandleclEv.exit44:                           ; preds = %_ZNK6HandleclEv.exi
   %127 = call noundef ptr @_ZNK5Klass25class_in_module_of_loaderEbb(ptr noundef nonnull align 8 dereferenceable(196) %42, i1 noundef zeroext false, i1 noundef zeroext true) #15
   %128 = call noundef ptr @_ZNK5Klass25class_in_module_of_loaderEbb(ptr noundef nonnull align 8 dereferenceable(196) %36, i1 noundef zeroext false, i1 noundef zeroext true) #15
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.22, ptr noundef %120, ptr noundef %121, ptr noundef %123, ptr noundef %124, ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128) #15
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1176), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1176), align 8
   %130 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %5, i1 noundef zeroext false) #15
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %2, ptr noundef nonnull @.str.6, i32 noundef 1215, ptr noundef %129, ptr noundef %130) #15
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #15
@@ -4575,7 +4575,7 @@ define hidden void @_ZN11klassItable11dump_itableEv(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN11klassItable19compute_itable_sizeEP5ArrayIP13InstanceKlassE(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.CountInterfacesClosure, align 8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22CountInterfacesClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22CountInterfacesClosure, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -4681,7 +4681,7 @@ define hidden void @_ZN11klassItable25setup_itable_offset_tableEP13InstanceKlass
   br i1 %6, label %_ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exit27, label %7
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22CountInterfacesClosure, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22CountInterfacesClosure, i64 16), ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -4779,7 +4779,7 @@ _ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exi
   %54 = getelementptr inbounds i64, ptr %50, i64 %53
   %55 = getelementptr %class.itableOffsetEntry, ptr %54, i64 %48
   %56 = getelementptr i8, ptr %55, i64 16
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18SetupItableClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18SetupItableClosure, i64 16), ptr %3, align 8
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 8

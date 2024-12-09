@@ -236,7 +236,7 @@ $_ZTV23StaticFinalFieldPrinter = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ciInstanceKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN7ciKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1) #12
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15ciInstanceKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV15ciInstanceKlass, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -638,7 +638,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN5ciEnv18get_inst
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ciInstanceKlassC2EP8ciSymbolP8_jobjectS3_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN7ciKlassC2EP8ciSymbol9BasicType(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, i8 noundef zeroext 12) #12
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV15ciInstanceKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV15ciInstanceKlass, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -3967,7 +3967,7 @@ _ZN15ciInstanceKlass14is_initializedEv.exit32:    ; preds = %_ZN15ciInstanceKlas
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %_ZN15ciInstanceKlass14is_initializedEv.exit32
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23StaticFinalFieldPrinter, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23StaticFinalFieldPrinter, i64 16), ptr %3, align 8
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6630,7 +6630,7 @@ _ZNK7oopDesc11is_instanceEv.exit.thread:          ; preds = %128
   br i1 %147, label %148, label %_ZNK7oopDesc8is_arrayEv.exit
 
 148:                                              ; preds = %_ZNK7oopDesc11is_instanceEv.exit.thread, %_ZNK7oopDesc11is_instanceEv.exit
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
   %150 = tail call noundef zeroext i1 @_ZNK7oopDesc4is_aEP5Klass(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef %149)
   br i1 %150, label %151, label %155
 

@@ -35163,7 +35163,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i.i.i: ; preds
 .noexc19.i.i.i.i.i.i:                             ; preds = %1741
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !8371
   store ptr @anon.23cf3a31f6e66befa97e6d09516332a0.172, ptr %7, align 8, !noalias !8371
-  store ptr getelementptr inbounds (i8, ptr @anon.23cf3a31f6e66befa97e6d09516332a0.172, i64 6), ptr %1707, align 8, !noalias !8371
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.23cf3a31f6e66befa97e6d09516332a0.172, i64 6), ptr %1707, align 8, !noalias !8371
   br label %1744
 
 1744:                                             ; preds = %1746, %.noexc19.i.i.i.i.i.i

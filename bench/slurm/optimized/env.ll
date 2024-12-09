@@ -3697,7 +3697,7 @@ getenvp.exit:                                     ; preds = %.critedge.i.i
 
 getenvp.exit.thread:                              ; preds = %39, %25, %28, %getenvp.exit, %43, %._crit_edge
   %.promoted162 = phi i32 [ 0, %25 ], [ 0, %28 ], [ 0, %getenvp.exit ], [ %45, %43 ], [ %12, %._crit_edge ], [ 0, %39 ]
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %47 = tail call i32 (ptr, ptr, ptr, ...) @env_array_overwrite_fmt(ptr noundef %0, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.3, ptr noundef %46)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %49 = load i32, ptr %48, align 8
@@ -4609,7 +4609,7 @@ define i32 @env_array_to_file(ptr noundef %0, ptr noundef readonly %1, i1 nounde
   br label %20
 
 14:                                               ; preds = %12
-  %15 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %16 = and i64 %15, 2
   %.not61 = icmp eq i64 %16, 0
   br i1 %.not61, label %.outer..loopexit_crit_edge, label %17
@@ -4817,7 +4817,7 @@ define ptr @env_array_user_default(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %281
 
 25:                                               ; preds = %4
-  %26 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 384), align 8
+  %26 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 384), align 8
   %.not66 = icmp eq i16 %26, 0
   br i1 %.not66, label %27, label %29
 
@@ -4958,7 +4958,7 @@ _clone_env_child.exit:                            ; preds = %65
   %91 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i16 1, ptr %91, align 4
   %92 = icmp eq i32 %1, 0
-  %93 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 384), align 8
+  %93 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 384), align 8
   %94 = zext i16 %93 to i32
   %.050 = select i1 %92, i32 %94, i32 %1
   %95 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 262144, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2164, ptr noundef nonnull @__func__.env_array_user_default) #18
@@ -5400,7 +5400,7 @@ define internal fastcc ptr @_load_env_cache(ptr noundef %0) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
   %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.232, ptr noundef %7, ptr noundef %0) #18
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %12

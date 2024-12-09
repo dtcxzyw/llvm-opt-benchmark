@@ -437,7 +437,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %14, %17
 
 30:                                               ; preds = %27
   store ptr %29, ptr %26, align 8
-  store ptr @PyType_Type, ptr getelementptr inbounds (i8, ptr @_ZN8nanobind6detailL13nb_meta_slotsE, i64 8), align 8
+  store ptr @PyType_Type, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detailL13nb_meta_slotsE, i64 8), align 8
   %31 = invoke ptr @PyType_FromSpec(ptr noundef nonnull @_ZN8nanobind6detailL12nb_meta_specE)
           to label %32 unwind label %58
 

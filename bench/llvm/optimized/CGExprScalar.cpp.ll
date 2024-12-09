@@ -32449,7 +32449,7 @@ _ZN5clang7CodeGen15CodeGenFunction18OpaqueValueMappingC2ERS1_PKNS_27AbstractCond
   br i1 %59, label %60, label %68
 
 60:                                               ; preds = %57
-  %61 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %66
 
@@ -32893,7 +32893,7 @@ _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %.lr
   %295 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i16 257, ptr %295, align 8
   %296 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateZExtOrBitCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %291, ptr noundef %289, ptr noundef %294, ptr noundef nonnull align 8 dereferenceable(34) %31)
-  %297 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %297 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %298 = trunc i8 %297 to i1
   %299 = load ptr, ptr %0, align 8
   br i1 %298, label %300, label %303
@@ -33054,7 +33054,7 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit: ; preds = 
   br label %387
 
 387:                                              ; preds = %385, %_ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit
-  %388 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %388 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %389 = trunc i8 %388 to i1
   %390 = load ptr, ptr %0, align 8
   %.0.i133239. = select i1 %389, ptr %.0.i133239, ptr %1
@@ -33138,7 +33138,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   br label %427
 
 427:                                              ; preds = %425, %_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit
-  %428 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %428 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %429 = trunc i8 %428 to i1
   br i1 %429, label %430, label %432
 
@@ -33341,7 +33341,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit192: ; preds = %5
   %537 = zext i32 %532 to i64
   %538 = getelementptr inbounds nuw ptr, ptr %536, i64 %537
   store ptr %447, ptr %538, align 8
-  %539 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
+  %539 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 128), align 8
   %540 = trunc i8 %539 to i1
   br i1 %540, label %541, label %.critedge
 

@@ -555,7 +555,7 @@ define hidden noundef i32 @_ZNK5clang7targets15SparcTargetInfo16getCPUGeneration
 
 20:                                               ; preds = %._crit_edge.loopexit.i.i.i.i
   %21 = icmp eq i32 %1, 34
-  %spec.select.i = select i1 %21, ptr getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
+  %spec.select.i = select i1 %21, ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit"
 
 .loopexit.split.loop.exit47.i.i.i.i:              ; preds = %6
@@ -571,7 +571,7 @@ define hidden noundef i32 @_ZNK5clang7targets15SparcTargetInfo16getCPUGeneration
   br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit"
 
 "_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %._crit_edge.loopexit.i.i.i.i, %20, %.loopexit.split.loop.exit47.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i ], [ %22, %.loopexit.split.loop.exit47.i.i.i.i ], [ %23, %.loopexit.split.loop.exit49.i.i.i.i ], [ %24, %.loopexit.split.loop.exit51.i.i.i.i ], [ %spec.select.i, %20 ], [ %.02956.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i ], [ %22, %.loopexit.split.loop.exit47.i.i.i.i ], [ %23, %.loopexit.split.loop.exit49.i.i.i.i ], [ %24, %.loopexit.split.loop.exit51.i.i.i.i ], [ %spec.select.i, %20 ], [ %.02956.i.i.i.i, %.lr.ph.i.i.i.i ]
   %25 = icmp ne ptr %.028.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i, i64 20
@@ -735,7 +735,7 @@ define hidden noundef i32 @_ZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llv
   br i1 %25, label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread7", label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread"
 
 "_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread": ; preds = %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit77.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit73.i.i.i.i", %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit"
-  %.028.i.i.i.i6 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit77.i.i.i.i" ], [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit73.i.i.i.i" ], [ %.028.i.i.i.i.ptr36, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34" ]
+  %.028.i.i.i.i6 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 792), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit77.i.i.i.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 768), %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7targets15SparcTargetInfo10getCPUKindEN4llvm9StringRefEE3$_0EclIPK12SparcCPUInfoEEbT_.exit73.i.i.i.i" ], [ %.028.i.i.i.i.ptr36, %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread34" ]
   %26 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i6, i64 16
   %27 = load i32, ptr %26, align 8
   br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo10getCPUKindENS_9StringRefEE3$_0EEDaOT_T0_.exit.thread7"
@@ -1014,7 +1014,7 @@ _ZNK5clang7targets15SparcTargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12M
 
 63:                                               ; preds = %._crit_edge.loopexit.i.i.i.i.i
   %64 = icmp eq i32 %45, 34
-  %spec.select.i.i = select i1 %64, ptr getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
+  %spec.select.i.i = select i1 %64, ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   br label %_ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit
 
 .loopexit.split.loop.exit47.i.i.i.i.i:            ; preds = %49
@@ -1030,7 +1030,7 @@ _ZNK5clang7targets15SparcTargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12M
   br label %_ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit
 
 _ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i, %63, %.loopexit.split.loop.exit47.i.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i.i
-  %.028.i.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i.i ], [ %65, %.loopexit.split.loop.exit47.i.i.i.i.i ], [ %66, %.loopexit.split.loop.exit49.i.i.i.i.i ], [ %67, %.loopexit.split.loop.exit51.i.i.i.i.i ], [ %spec.select.i.i, %63 ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i.i ], [ %65, %.loopexit.split.loop.exit47.i.i.i.i.i ], [ %66, %.loopexit.split.loop.exit49.i.i.i.i.i ], [ %67, %.loopexit.split.loop.exit51.i.i.i.i.i ], [ %spec.select.i.i, %63 ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = icmp ne ptr %.028.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   call void @llvm.assume(i1 %68)
   %69 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i, i64 20
@@ -1123,7 +1123,7 @@ _ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit.thread:
 
 104:                                              ; preds = %._crit_edge.loopexit.i.i.i.i.i18
   %105 = icmp eq i32 %86, 34
-  %spec.select.i.i19 = select i1 %105, ptr getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
+  %spec.select.i.i19 = select i1 %105, ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   br label %_ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit26
 
 .loopexit.split.loop.exit47.i.i.i.i.i25:          ; preds = %90
@@ -1139,7 +1139,7 @@ _ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit.thread:
   br label %_ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit26
 
 _ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit26: ; preds = %.lr.ph.i.i.i.i.i11, %._crit_edge.loopexit.i.i.i.i.i18, %104, %.loopexit.split.loop.exit47.i.i.i.i.i25, %.loopexit.split.loop.exit49.i.i.i.i.i24, %.loopexit.split.loop.exit51.i.i.i.i.i23
-  %.028.i.i.i.i.i21 = phi ptr [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i.i18 ], [ %106, %.loopexit.split.loop.exit47.i.i.i.i.i25 ], [ %107, %.loopexit.split.loop.exit49.i.i.i.i.i24 ], [ %108, %.loopexit.split.loop.exit51.i.i.i.i.i23 ], [ %spec.select.i.i19, %104 ], [ %.02956.i.i.i.i.i13, %.lr.ph.i.i.i.i.i11 ]
+  %.028.i.i.i.i.i21 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i.i18 ], [ %106, %.loopexit.split.loop.exit47.i.i.i.i.i25 ], [ %107, %.loopexit.split.loop.exit49.i.i.i.i.i24 ], [ %108, %.loopexit.split.loop.exit51.i.i.i.i.i23 ], [ %spec.select.i.i19, %104 ], [ %.02956.i.i.i.i.i13, %.lr.ph.i.i.i.i.i11 ]
   %109 = icmp ne ptr %.028.i.i.i.i.i21, getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   call void @llvm.assume(i1 %109)
   %110 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i21, i64 20
@@ -1763,7 +1763,7 @@ define linkonce_odr hidden void @_ZNK5clang10TargetInfo17convertConstraintB5cxx1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %4) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.170, i64 1))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.170, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.170, i64 1))
   br label %13
 
 11:                                               ; preds = %3
@@ -2621,7 +2621,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang7targets17SparcV9TargetI
 
 23:                                               ; preds = %._crit_edge.loopexit.i.i.i.i.i
   %24 = icmp eq i32 %5, 34
-  %spec.select.i.i = select i1 %24, ptr getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
+  %spec.select.i.i = select i1 %24, ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   br label %_ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit
 
 .loopexit.split.loop.exit47.i.i.i.i.i:            ; preds = %9
@@ -2637,7 +2637,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang7targets17SparcV9TargetI
   br label %_ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit
 
 _ZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS1_7CPUKindE.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i, %23, %.loopexit.split.loop.exit47.i.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i.i
-  %.028.i.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i.i ], [ %25, %.loopexit.split.loop.exit47.i.i.i.i.i ], [ %26, %.loopexit.split.loop.exit49.i.i.i.i.i ], [ %27, %.loopexit.split.loop.exit51.i.i.i.i.i ], [ %spec.select.i.i, %23 ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i.i ], [ %25, %.loopexit.split.loop.exit47.i.i.i.i.i ], [ %26, %.loopexit.split.loop.exit49.i.i.i.i.i ], [ %27, %.loopexit.split.loop.exit51.i.i.i.i.i ], [ %spec.select.i.i, %23 ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %28 = icmp ne ptr %.028.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i, i64 20
@@ -2694,7 +2694,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17SparcV9Target
 
 22:                                               ; preds = %._crit_edge.loopexit.i.i.i.i.i
   %23 = icmp eq i32 %4, 34
-  %spec.select.i.i = select i1 %23, ptr getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
+  %spec.select.i.i = select i1 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 792), ptr getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i"
 
 .loopexit.split.loop.exit47.i.i.i.i.i:            ; preds = %8
@@ -2710,7 +2710,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17SparcV9Target
   br label %"_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i"
 
 "_ZN4llvm7find_ifIRA34_K12SparcCPUInfoZNK5clang7targets15SparcTargetInfo16getCPUGenerationENS7_7CPUKindEE3$_0EEDaOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i.i, %.loopexit.split.loop.exit49.i.i.i.i.i, %.loopexit.split.loop.exit47.i.i.i.i.i, %22, %._crit_edge.loopexit.i.i.i.i.i
-  %.028.i.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i.i ], [ %24, %.loopexit.split.loop.exit47.i.i.i.i.i ], [ %25, %.loopexit.split.loop.exit49.i.i.i.i.i ], [ %26, %.loopexit.split.loop.exit51.i.i.i.i.i ], [ %spec.select.i.i, %22 ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 768), %._crit_edge.loopexit.i.i.i.i.i ], [ %24, %.loopexit.split.loop.exit47.i.i.i.i.i ], [ %25, %.loopexit.split.loop.exit49.i.i.i.i.i ], [ %26, %.loopexit.split.loop.exit51.i.i.i.i.i ], [ %spec.select.i.i, %22 ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %27 = icmp ne ptr %.028.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL7CPUInfo, i64 816)
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i, i64 20

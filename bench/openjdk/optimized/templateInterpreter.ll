@@ -115,7 +115,7 @@ define hidden void @_ZN19TemplateInterpreter15initialize_stubEv() local_unnamed_
   %4 = mul i32 %3, 280
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 4, i32 noundef 0) #15
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 4, i32 noundef 0) #15
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV27InterpreterCodeletInterface, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV27InterpreterCodeletInterface, i64 16), ptr %6, align 8
   %7 = add i32 %1, 2240
   %8 = add i32 %7, %4
   tail call void @_ZN9StubQueueC1EP13StubInterfaceiP5MutexPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %6, i32 noundef %8, ptr noundef null, ptr noundef nonnull @.str) #15

@@ -384,11 +384,11 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_range3f.cpp() #10 section ".text.startup" {
   store float 0.000000e+00, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, i64 4), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, i64 8), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, i64 4), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, i64 8), align 4
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, i64 12), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, i64 16), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, i64 20), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, i64 16), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3f8UnitCubeE, i64 20), align 4
   ret void
 }
 

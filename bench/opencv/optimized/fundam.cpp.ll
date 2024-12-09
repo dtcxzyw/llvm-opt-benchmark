@@ -629,9 +629,9 @@ _ZN2cv3PtrINS_27HomographyEstimatorCallbackEED2Ev.exit: ; preds = %153
   store i32 1, ptr %156, align 8, !noalias !12
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 12
   store i32 1, ptr %157, align 4, !noalias !12
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv27HomographyEstimatorCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %155, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv27HomographyEstimatorCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %155, align 8, !noalias !12
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv27HomographyEstimatorCallbackE, i64 16), ptr %158, align 8, !noalias !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv27HomographyEstimatorCallbackE, i64 16), ptr %158, align 8, !noalias !12
   store ptr %158, ptr %40, align 8
   %159 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %155, ptr %159, align 8
@@ -1629,7 +1629,7 @@ _ZN2cv13compressElemsINS_6Point_IfEEEEiPT_PKhii.exit200: ; preds = %542
   store i32 1, ptr %579, align 8, !noalias !31
   %580 = getelementptr inbounds nuw i8, ptr %578, i64 12
   store i32 1, ptr %580, align 4, !noalias !31
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv24HomographyRefineCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %578, align 8, !noalias !31
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv24HomographyRefineCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %578, align 8, !noalias !31
   %581 = getelementptr inbounds nuw i8, ptr %578, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !31
@@ -4050,9 +4050,9 @@ _ZN2cv3PtrINS_19FMEstimatorCallbackEED2Ev.exit:   ; preds = %113
   store i32 1, ptr %115, align 8, !noalias !61
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 12
   store i32 1, ptr %116, align 4, !noalias !61
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19FMEstimatorCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %114, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv19FMEstimatorCallbackESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %114, align 8, !noalias !61
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv19FMEstimatorCallbackE, i64 16), ptr %117, align 8, !noalias !61
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN2cv19FMEstimatorCallbackE, i64 16), ptr %117, align 8, !noalias !61
   store ptr %117, ptr %23, align 8
   %118 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %114, ptr %118, align 8
@@ -7809,7 +7809,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 define linkonce_odr hidden void @_ZN2cv24HomographyRefineCallbackC2ERKNS_11_InputArrayES3_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::Mat", align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv24HomographyRefineCallbackE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv24HomographyRefineCallbackE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104

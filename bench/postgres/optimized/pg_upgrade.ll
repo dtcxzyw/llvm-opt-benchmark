@@ -135,12 +135,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call void @get_restricted_token() #8
   tail call void @adjust_data_dir(ptr noundef nonnull @old_cluster) #8
   tail call void @adjust_data_dir(ptr noundef nonnull @new_cluster) #8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %19 = tail call zeroext i1 @GetDataDirectoryCreatePerm(ptr noundef %18) #8
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %22 = tail call ptr @__errno_location() #9
   %23 = load i32, ptr %22, align 4
   %24 = tail call ptr @pg_strerror(i32 noundef %23) #8
@@ -150,7 +150,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 25:                                               ; preds = %2
   %26 = load i32, ptr @pg_mode_mask, align 4
   %27 = tail call i32 @umask(i32 noundef %26) #8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
@@ -159,7 +159,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %29 = tail call i64 @time(ptr noundef null) #8
   store i64 %29, ptr %9, align 8
   %30 = tail call ptr @pg_malloc0(i64 noundef 1024) #8
-  store ptr %30, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
+  store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 16), align 8
   %31 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %30, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %28, ptr noundef nonnull @.str.12) #8
   %32 = icmp sgt i32 %31, 1023
   br i1 %32, label %33, label %34
@@ -183,8 +183,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %45 = trunc i64 %44 to i32
   %46 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %40, i64 noundef %41, ptr noundef nonnull @.str.15, i32 noundef %45) #8
   %47 = call ptr @pg_malloc0(i64 noundef 1024) #8
-  store ptr %47, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
+  store ptr %47, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 24), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 16), align 8
   %49 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %47, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %48, ptr noundef nonnull %11) #8
   %50 = icmp sgt i32 %49, 1023
   br i1 %50, label %51, label %52
@@ -195,8 +195,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 52:                                               ; preds = %34
   %53 = call ptr @pg_malloc0(i64 noundef 1024) #8
-  store ptr %53, ptr getelementptr inbounds (i8, ptr @log_opts, i64 32), align 8
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
+  store ptr %53, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 32), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 16), align 8
   %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %53, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef %54, ptr noundef nonnull %11, ptr noundef nonnull @.str.17) #8
   %56 = icmp sgt i32 %55, 1023
   br i1 %56, label %57, label %58
@@ -207,8 +207,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 58:                                               ; preds = %52
   %59 = call ptr @pg_malloc0(i64 noundef 1024) #8
-  store ptr %59, ptr getelementptr inbounds (i8, ptr @log_opts, i64 40), align 8
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
+  store ptr %59, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 40), align 8
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 16), align 8
   %61 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %59, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef %60, ptr noundef nonnull %11, ptr noundef nonnull @.str.18) #8
   %62 = icmp sgt i32 %61, 1023
   br i1 %62, label %63, label %64
@@ -218,7 +218,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 64:                                               ; preds = %58
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 16), align 8
   %66 = load i32, ptr @pg_dir_create_mode, align 4
   %67 = call i32 @mkdir(ptr noundef %65, i32 noundef %66) #8
   %68 = icmp slt i32 %67, 0
@@ -231,40 +231,40 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not.i, label %74, label %72
 
 72:                                               ; preds = %69
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 16), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 16), align 8
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.19, ptr noundef %73) #10
   unreachable
 
 74:                                               ; preds = %69, %64
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 24), align 8
   %76 = load i32, ptr @pg_dir_create_mode, align 4
   %77 = call i32 @mkdir(ptr noundef %75, i32 noundef %76) #8
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %74
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 24), align 8
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.19, ptr noundef %80) #10
   unreachable
 
 81:                                               ; preds = %74
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 32), align 8
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 32), align 8
   %83 = load i32, ptr @pg_dir_create_mode, align 4
   %84 = call i32 @mkdir(ptr noundef %82, i32 noundef %83) #8
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %81
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 32), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 32), align 8
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.19, ptr noundef %87) #10
   unreachable
 
 88:                                               ; preds = %81
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 40), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 40), align 8
   %90 = load i32, ptr @pg_dir_create_mode, align 4
   %91 = call i32 @mkdir(ptr noundef %89, i32 noundef %90) #8
   %92 = icmp slt i32 %91, 0
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 40), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 40), align 8
   br i1 %92, label %94, label %95
 
 94:                                               ; preds = %88
@@ -298,7 +298,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 .lr.ph.i:                                         ; preds = %.preheader.i, %113
   %104 = phi ptr [ %118, %113 ], [ %102, %.preheader.i ]
   %.015.i = phi ptr [ %117, %113 ], [ @output_files, %.preheader.i ]
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 40), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 40), align 8
   %106 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %105, ptr noundef nonnull %104) #8
   %107 = icmp ugt i32 %106, 1023
   br i1 %107, label %108, label %109
@@ -334,7 +334,7 @@ make_outputdirs.exit:                             ; preds = %113, %.preheader.i
   %119 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
   call void @check_pghost_envvar() #8
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   %.not.i4 = icmp eq ptr %120, null
   br i1 %.not.i4, label %121, label %128
 
@@ -352,12 +352,12 @@ make_outputdirs.exit:                             ; preds = %113, %.preheader.i
   store i8 0, ptr %126, align 1
   call void @canonicalize_path(ptr noundef nonnull %8) #8
   %127 = call ptr @pg_strdup(ptr noundef nonnull %8) #8
-  store ptr %127, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  store ptr %127, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   br label %128
 
 128:                                              ; preds = %125, %make_outputdirs.exit
   call void @verify_directories() #8
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 136), align 8
   %130 = call zeroext i1 @pid_lock_file_exists(ptr noundef %129) #8
   br i1 %130, label %131, label %138
 
@@ -380,7 +380,7 @@ make_outputdirs.exit:                             ; preds = %113, %.preheader.i
 
 138:                                              ; preds = %134, %133, %128
   %.0 = phi i1 [ false, %133 ], [ false, %128 ], [ true, %134 ]
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %140 = call zeroext i1 @pid_lock_file_exists(ptr noundef %139) #8
   br i1 %140, label %141, label %setup.exit
 
@@ -408,7 +408,7 @@ setup.exit:                                       ; preds = %138, %143
   call void @check_new_cluster() #8
   call void @report_clusters_compatible() #8
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.5) #8
-  %146 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 112), align 8
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 112), align 8
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.27) #8
   %147 = call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef nonnull @.str.28) #8
   %148 = load ptr, ptr %146, align 8
@@ -434,7 +434,7 @@ setup.exit:                                       ; preds = %138, %143
 
 162:                                              ; preds = %160, %157
   %.0.i = phi ptr [ %159, %157 ], [ %161, %160 ]
-  %163 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 180), align 4
+  %163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 180), align 4
   %164 = icmp ugt i32 %163, 149999
   %165 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %166 = load i32, ptr %165, align 8
@@ -460,52 +460,52 @@ set_locale_and_encoding.exit:                     ; preds = %167, %172
   call void @PQfinish(ptr noundef %147) #8
   call void @check_ok() #8
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.32) #8
-  %174 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   %175 = call ptr @cluster_conn_opts(ptr noundef nonnull @new_cluster) #8
-  %176 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
+  %176 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8
   %177 = trunc i8 %176 to i1
   %178 = select i1 %177, ptr @.str.34, ptr @.str.35
   %179 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.33, ptr noundef %174, ptr noundef %175, ptr noundef nonnull %178) #8
   call void @check_ok() #8
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.36) #8
-  %180 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   %181 = call ptr @cluster_conn_opts(ptr noundef nonnull @new_cluster) #8
-  %182 = load i8, ptr getelementptr inbounds (i8, ptr @log_opts, i64 8), align 8
+  %182 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8
   %183 = trunc i8 %182 to i1
   %184 = select i1 %183, ptr @.str.34, ptr @.str.35
   %185 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.37, ptr noundef %180, ptr noundef %181, ptr noundef nonnull %184) #8
   call void @check_ok() #8
   call void @stop_postmaster(i1 noundef zeroext false) #8
-  %186 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %186 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 180), align 4
   %187 = icmp ult i32 %186, 90700
   %188 = select i1 %187, ptr @.str.62, ptr @.str.63
-  %189 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 180), align 4
+  %189 = load i32, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 180), align 4
   %190 = icmp ult i32 %189, 90700
   %191 = select i1 %190, ptr @.str.62, ptr @.str.63
   call fastcc void @copy_subdir_files(ptr noundef nonnull %188, ptr noundef nonnull %191)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.64) #8
-  %192 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
-  %193 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 60), align 4
-  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %192 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
+  %193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 60), align 4
+  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %195 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.65, ptr noundef %192, i32 noundef %193, ptr noundef %194) #8
   call void @check_ok() #8
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.66) #8
-  %196 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
-  %197 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 36), align 4
-  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %196 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
+  %197 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 36), align 4
+  %198 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %199 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.67, ptr noundef %196, i32 noundef %197, ptr noundef %198) #8
-  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
-  %201 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 40), align 8
-  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
+  %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 40), align 8
+  %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %203 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.68, ptr noundef %200, i32 noundef %201, ptr noundef %202) #8
-  %204 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
-  %205 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 36), align 4
-  %206 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
+  %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 36), align 4
+  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %207 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.69, ptr noundef %204, i32 noundef %205, i32 noundef %205, ptr noundef %206) #8
   call void @check_ok() #8
-  %208 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 4), align 4
+  %208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 4), align 4
   %209 = icmp ugt i32 %208, 201301230
-  %210 = load i32, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 4), align 4
+  %210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 4), align 4
   %211 = icmp ugt i32 %210, 201301230
   %or.cond.i = select i1 %209, i1 %211, i1 false
   br i1 %or.cond.i, label %212, label %219
@@ -514,11 +514,11 @@ set_locale_and_encoding.exit:                     ; preds = %167, %172
   call fastcc void @copy_subdir_files(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.70)
   call fastcc void @copy_subdir_files(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.71)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.72) #8
-  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
-  %214 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 52), align 4
-  %215 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 48), align 8
-  %216 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 56), align 8
-  %217 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
+  %214 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 52), align 4
+  %215 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 48), align 8
+  %216 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 56), align 8
+  %217 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %218 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.73, ptr noundef %213, i32 noundef %214, i32 noundef %215, i32 noundef %216, ptr noundef %217) #8
   br label %copy_xact_xlog_xid.exit.sink.split
 
@@ -528,7 +528,7 @@ set_locale_and_encoding.exit:                     ; preds = %167, %172
 220:                                              ; preds = %219
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.70) #8
-  %221 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %221 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %222 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %221, ptr noundef nonnull @.str.70) #8
   %223 = call zeroext i1 @rmtree(ptr noundef nonnull %7, i1 noundef zeroext false) #8
   br i1 %223, label %remove_new_subdir.exit.i, label %224
@@ -541,10 +541,10 @@ remove_new_subdir.exit.i:                         ; preds = %220
   call void @check_ok() #8
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.74) #8
-  %225 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
-  %226 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 48), align 8
+  %225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
+  %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 48), align 8
   %227 = add i32 %226, 1
-  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %229 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.75, ptr noundef %225, i32 noundef %227, i32 noundef %226, ptr noundef %228) #8
   br label %copy_xact_xlog_xid.exit.sink.split
 
@@ -554,16 +554,16 @@ copy_xact_xlog_xid.exit.sink.split:               ; preds = %remove_new_subdir.e
 
 copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.exit.sink.split, %219
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.76) #8
-  %230 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
-  %231 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
-  %232 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.77, ptr noundef %230, ptr noundef nonnull getelementptr inbounds (i8, ptr @old_cluster, i64 16), ptr noundef %231) #8
+  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
+  %231 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
+  %232 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.77, ptr noundef %230, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_cluster, i64 16), ptr noundef %231) #8
   call void @check_ok() #8
   %233 = call zeroext i1 @start_postmaster(ptr noundef nonnull @new_cluster, i1 noundef zeroext true) #8
   call fastcc void @set_frozenxids(i1 noundef zeroext false)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.38) #8
-  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   %235 = call ptr @cluster_conn_opts(ptr noundef nonnull @new_cluster) #8
-  %236 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 32), align 8
+  %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 32), align 8
   %237 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.39, ptr noundef %234, ptr noundef %235, ptr noundef %236, ptr noundef nonnull @.str.40) #8
   call void @check_ok() #8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
@@ -571,12 +571,12 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
   call void (ptr, ...) @prep_status_progress(ptr noundef nonnull @.str.53) #8
-  %238 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  %238 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %239 = icmp sgt i32 %238, 0
   br i1 %239, label %.lr.ph.i7, label %.preheader.i6.preheader
 
 .lr.ph.i7:                                        ; preds = %copy_xact_xlog_xid.exit
-  %240 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
+  %240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
   %wide.trip.count.i = zext nneg i32 %238 to i64
   br label %242
 
@@ -600,11 +600,11 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   %249 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.55, i32 noundef %248) #8
   %250 = load i32, ptr %243, align 8
   %251 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.56, i32 noundef %250) #8
-  %252 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  %252 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   %253 = call ptr @cluster_conn_opts(ptr noundef nonnull @new_cluster) #8
-  %254 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 32), align 8
+  %254 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 32), align 8
   %255 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull %4, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.58, ptr noundef %252, ptr noundef %253, ptr noundef nonnull @.str.57, ptr noundef %254, ptr noundef nonnull %3) #8
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %241, %247
@@ -613,7 +613,7 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   br i1 %257, label %.lr.ph20.preheader.i, label %.preheader.i6.preheader
 
 .lr.ph20.preheader.i:                             ; preds = %.loopexit.i
-  %.pre29.i = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
+  %.pre29.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
   br label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %276, %.lr.ph20.preheader.i
@@ -637,12 +637,12 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %270, ptr noundef nonnull dereferenceable(9) @.str.59) #11
   %272 = icmp eq i32 %271, 0
   %.str.57..str.60.i = select i1 %272, ptr @.str.57, ptr @.str.60
-  %273 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
+  %273 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   %274 = call ptr @cluster_conn_opts(ptr noundef nonnull @new_cluster) #8
-  %275 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 32), align 8
+  %275 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 32), align 8
   call void (ptr, ptr, ptr, ...) @parallel_exec_prog(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull @.str.61, ptr noundef %273, ptr noundef %274, ptr noundef nonnull %.str.57..str.60.i, ptr noundef %275, ptr noundef nonnull %5) #8
-  %.pre28.i = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
-  %.pre30.i = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  %.pre28.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
+  %.pre30.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   br label %276
 
 276:                                              ; preds = %265, %.lr.ph20.i
@@ -663,7 +663,7 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
 282:                                              ; preds = %.preheader.i6
   call void @end_progress_output() #8
   call void @check_ok() #8
-  %283 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %283 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 180), align 4
   %284 = icmp ult i32 %283, 90300
   br i1 %284, label %285, label %create_new_objects.exit
 
@@ -678,7 +678,7 @@ create_new_objects.exit:                          ; preds = %282, %285
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
   call void @stop_postmaster(i1 noundef zeroext false) #8
-  %286 = load i32, ptr getelementptr inbounds (i8, ptr @user_opts, i64 4), align 4
+  %286 = load i32, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 4), align 4
   %287 = icmp eq i32 %286, 2
   br i1 %287, label %288, label %289
 
@@ -687,13 +687,13 @@ create_new_objects.exit:                          ; preds = %282, %285
   br label %289
 
 289:                                              ; preds = %288, %create_new_objects.exit
-  %290 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
-  %291 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
-  call void @transfer_all_new_tablespaces(ptr noundef nonnull getelementptr inbounds (i8, ptr @old_cluster, i64 120), ptr noundef nonnull getelementptr inbounds (i8, ptr @new_cluster, i64 120), ptr noundef %290, ptr noundef %291) #8
+  %290 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 136), align 8
+  %291 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
+  call void @transfer_all_new_tablespaces(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @new_cluster, i64 120), ptr noundef %290, ptr noundef %291) #8
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.6) #8
-  %292 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
-  %293 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 44), align 4
-  %294 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %292 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
+  %293 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 44), align 4
+  %294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %295 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.7, ptr noundef %292, i32 noundef %293, ptr noundef %294) #8
   call void @check_ok() #8
   %296 = call i32 @count_old_cluster_logical_slots() #8
@@ -703,12 +703,12 @@ create_new_objects.exit:                          ; preds = %282, %285
 297:                                              ; preds = %289
   %298 = call zeroext i1 @start_postmaster(ptr noundef nonnull @new_cluster, i1 noundef zeroext true) #8
   call void (ptr, ...) @prep_status_progress(ptr noundef nonnull @.str.82) #8
-  %299 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  %299 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   %300 = icmp sgt i32 %299, 0
   br i1 %300, label %.lr.ph31.preheader.i, label %create_logical_replication_slots.exit
 
 .lr.ph31.preheader.i:                             ; preds = %297
-  %.pre37.i = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
+  %.pre37.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
   br label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %335, %.lr.ph31.preheader.i
@@ -769,8 +769,8 @@ create_new_objects.exit:                          ; preds = %282, %285
 ._crit_edge.i:                                    ; preds = %316, %307
   call void @PQfinish(ptr noundef %310) #8
   call void @destroyPQExpBuffer(ptr noundef %311) #8
-  %.pre.i9 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
-  %.pre38.i = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
+  %.pre.i9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
+  %.pre38.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 128), align 8
   br label %335
 
 335:                                              ; preds = %._crit_edge.i, %.lr.ph31.i
@@ -788,15 +788,15 @@ create_logical_replication_slots.exit:            ; preds = %335, %297
   br label %340
 
 340:                                              ; preds = %create_logical_replication_slots.exit, %289
-  %341 = load i8, ptr getelementptr inbounds (i8, ptr @user_opts, i64 1), align 1
+  %341 = load i8, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 1), align 1
   %342 = trunc i8 %341 to i1
   br i1 %342, label %343, label %348
 
 343:                                              ; preds = %340
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.8) #8
-  %344 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 152), align 8
-  %345 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
-  %346 = load ptr, ptr getelementptr inbounds (i8, ptr @user_opts, i64 24), align 8
+  %344 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
+  %345 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
+  %346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 24), align 8
   %347 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.9, ptr noundef %344, ptr noundef %345, ptr noundef %346) #8
   call void @check_ok() #8
   br label %348
@@ -951,14 +951,14 @@ define internal fastcc void @set_frozenxids(i1 noundef zeroext %0) unnamed_addr 
 3:                                                ; preds = %1
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.41) #8
   %4 = tail call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef nonnull @.str.28) #8
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 36), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 36), align 4
   %6 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %4, ptr noundef nonnull @.str.43, i32 noundef %5) #8
   tail call void @PQclear(ptr noundef %6) #8
   br label %7
 
 7:                                                ; preds = %.thread, %3
   %8 = phi ptr [ %2, %.thread ], [ %4, %3 ]
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 48), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 48), align 8
   %10 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.44, i32 noundef %9) #8
   tail call void @PQclear(ptr noundef %10) #8
   %11 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.45) #8
@@ -993,13 +993,13 @@ sub_0:                                            ; preds = %7, %.tail29.thread
   br i1 %0, label %sub_030, label %26
 
 26:                                               ; preds = %.tail.thread
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 36), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 36), align 4
   %28 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %25, ptr noundef nonnull @.str.50, i32 noundef %27) #8
   tail call void @PQclear(ptr noundef %28) #8
   br label %sub_030
 
 sub_030:                                          ; preds = %26, %.tail.thread
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 48), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 48), align 8
   %30 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %25, ptr noundef nonnull @.str.51, i32 noundef %29) #8
   tail call void @PQclear(ptr noundef %30) #8
   tail call void @PQfinish(ptr noundef %25) #8
@@ -1059,7 +1059,7 @@ define internal fastcc void @copy_subdir_files(ptr noundef %0, ptr noundef %1) u
   %5 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   tail call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.80, ptr noundef %1) #8
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %7 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %6, ptr noundef %1) #8
   %8 = call zeroext i1 @rmtree(ptr noundef nonnull %3, i1 noundef zeroext true) #8
   br i1 %8, label %remove_new_subdir.exit, label %9
@@ -1071,9 +1071,9 @@ define internal fastcc void @copy_subdir_files(ptr noundef %0, ptr noundef %1) u
 remove_new_subdir.exit:                           ; preds = %2
   call void @check_ok() #8
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 136), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 136), align 8
   %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %10, ptr noundef %0) #8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 136), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 136), align 8
   %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %12, ptr noundef %1) #8
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.78, ptr noundef %0) #8
   %14 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.79, ptr noundef nonnull %4, ptr noundef nonnull %5) #8

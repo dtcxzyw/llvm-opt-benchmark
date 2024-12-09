@@ -213,7 +213,7 @@ invoke.cont12:
   store i32 0, ptr %m_reportSolverAnalytics.i.i, align 8
   %m_numNonContactInnerIterations.i.i = getelementptr inbounds nuw i8, ptr %this, i64 276
   store i32 1, ptr %m_numNonContactInnerIterations.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btDiscreteDynamicsWorld, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btDiscreteDynamicsWorld, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 296
@@ -320,7 +320,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
 
 invoke.cont31:                                    ; preds = %invoke.cont26
   %2 = load ptr, ptr %m_constraintSolver, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27InplaceSolverIslandCallback, i64 16), ptr %call29, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27InplaceSolverIslandCallback, i64 16), ptr %call29, align 8
   %m_solverInfo.i24 = getelementptr inbounds nuw i8, ptr %call29, i64 8
   store ptr null, ptr %m_solverInfo.i24, align 8
   %m_solver.i = getelementptr inbounds nuw i8, ptr %call29, i64 16
@@ -531,7 +531,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23btDiscreteDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(508) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV23btDiscreteDynamicsWorld, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23btDiscreteDynamicsWorld, i64 16), ptr %this, align 8
   %m_ownsIslandManager = getelementptr inbounds nuw i8, ptr %this, i64 424
   %0 = load i8, ptr %m_ownsIslandManager, align 8
   %tobool = trunc i8 %0 to i1
@@ -3802,7 +3802,7 @@ invoke.cont32:                                    ; preds = %if.then19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_convexFromWorld.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i27, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_convexToWorld.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   store ptr null, ptr %m_hitCollisionObject.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34btClosestNotMeConvexResultCallback, i64 16), ptr %sweepResults, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34btClosestNotMeConvexResultCallback, i64 16), ptr %sweepResults, align 8
   store ptr %0, ptr %m_me.i, align 8
   store float 0.000000e+00, ptr %m_allowedPenetration.i, align 8
   store ptr %call29, ptr %m_pairCache.i, align 8
@@ -3813,7 +3813,7 @@ invoke.cont32:                                    ; preds = %if.then19
           to label %invoke.cont51 unwind label %lpad33
 
 invoke.cont51:                                    ; preds = %invoke.cont32
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %tmpSphere, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %tmpSphere, align 8
   store i32 8, ptr %m_shapeType.i, align 8
   store float 1.000000e+00, ptr %m_localScaling.i, align 8
   store float 1.000000e+00, ptr %arrayidx3.i.i, align 4
@@ -4334,7 +4334,7 @@ invoke.cont32:                                    ; preds = %if.then19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_convexFromWorld.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i27, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_convexToWorld.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   store ptr null, ptr %m_hitCollisionObject.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV34btClosestNotMeConvexResultCallback, i64 16), ptr %sweepResults, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV34btClosestNotMeConvexResultCallback, i64 16), ptr %sweepResults, align 8
   store ptr %0, ptr %m_me.i, align 8
   store float 0.000000e+00, ptr %m_allowedPenetration.i, align 8
   store ptr %call29, ptr %m_pairCache.i, align 8
@@ -4345,7 +4345,7 @@ invoke.cont32:                                    ; preds = %if.then19
           to label %invoke.cont51 unwind label %lpad33
 
 invoke.cont51:                                    ; preds = %invoke.cont32
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %tmpSphere, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13btSphereShape, i64 16), ptr %tmpSphere, align 8
   store i32 8, ptr %m_shapeType.i, align 8
   store float 1.000000e+00, ptr %m_localScaling.i, align 8
   store float 1.000000e+00, ptr %arrayidx3.i.i, align 4
@@ -7117,7 +7117,7 @@ declare void @_ZN16btCollisionWorldD2Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN27InplaceSolverIslandCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27InplaceSolverIslandCallback, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27InplaceSolverIslandCallback, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

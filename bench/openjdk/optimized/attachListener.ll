@@ -330,7 +330,7 @@ define hidden void @_ZN14AttachListener4initEv() local_unnamed_addr #0 align 2 {
 _ZN14AttachListener14has_init_errorEP10JavaThread.exit: ; preds = %0
   %11 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1800, i8 noundef zeroext 2, i32 noundef 0) #8
   call void @_ZN10JavaThreadC2EPFvPS_S0_Em8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(1800) %11, ptr noundef nonnull @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_, i64 noundef 0, i8 noundef zeroext 2) #8
-  store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV20AttachListenerThread, i64 16), ptr %11, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV20AttachListenerThread, i64 16), ptr %11, align 8
   call void @_ZN10JavaThread27vm_exit_on_osthread_failureEPS_(ptr noundef nonnull %11) #8
   call void @_ZN10JavaThread21start_internal_daemonEPS_S0_6Handle14ThreadPriority(ptr noundef nonnull %2, ptr noundef nonnull %11, ptr %3, i32 noundef -1) #8
   br label %12
@@ -444,7 +444,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL20get_agent_propertiesP15AttachOperationP12outputStream(ptr nocapture readnone %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9064), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9064), align 8
   %4 = tail call fastcc noundef i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol(ptr noundef %1, ptr noundef %3)
   ret i32 %4
 }
@@ -588,9 +588,9 @@ define internal noundef range(i32 -1, 1) i32 @_ZL10load_agentP15AttachOperationP
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %12) #8
   store i8 12, ptr %4, align 8
   %23 = call ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef nonnull @.str.28, ptr noundef %12) #8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9016), align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9024), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9016), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9024), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleP10JavaThread(ptr noundef nonnull %4, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr %23, ptr noundef %12) #8
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load ptr, ptr %27, align 8
@@ -640,7 +640,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %33, %35
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef range(i32 -1, 1) i32 @_ZL21get_system_propertiesP15AttachOperationP12outputStream(ptr nocapture readnone %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9056), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9056), align 8
   %4 = tail call fastcc noundef i32 @_ZL14get_propertiesP15AttachOperationP12outputStreamP6Symbol(ptr noundef %1, ptr noundef %3)
   ret i32 %4
 }
@@ -674,7 +674,7 @@ define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(p
   %.1.lcssa = phi i8 [ 0, %2 ], [ %.2, %.lr.ph ]
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %12, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintThreads, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintThreads, i64 16), ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -686,7 +686,7 @@ define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(p
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %17, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV16VM_FindDeadlocks, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV16VM_FindDeadlocks, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -801,7 +801,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL15heap_inspectionP15AttachOpera
   store i8 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %46, align 4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20VM_GC_HeapInspection, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20VM_GC_HeapInspection, i64 16), ptr %4, align 8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.038, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -912,7 +912,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL14get_propertiesP15Attac
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %7) #8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8936), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8936), align 8
   %9 = call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %8, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %7) #8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -962,7 +962,7 @@ _ZL25load_and_initialize_klassP6SymbolP10JavaThread.exit.thread2: ; preds = %17,
   store i32 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i8 0, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7312), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 7312), align 8
   call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef nonnull %4, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %31, ptr noundef nonnull %5, ptr noundef nonnull %7) #8
   %32 = load ptr, ptr %10, align 8
   %.not4 = icmp eq ptr %32, null

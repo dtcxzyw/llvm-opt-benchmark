@@ -1049,7 +1049,7 @@ host_lookup_ss7pc.exit:                           ; preds = %2, %13
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 24), align 4
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 24), align 4
   %.not = icmp eq i32 %28, 0
   %. = select i1 %.not, ptr %20, ptr %24
   br label %29
@@ -1062,10 +1062,10 @@ host_lookup_ss7pc.exit:                           ; preds = %2, %13
 ; Function Attrs: nounwind uwtable
 define hidden void @addr_resolve_pref_init(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @gbl_resolv_flags) #20
-  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8)) #20
-  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4)) #20
-  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 12)) #20
-  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16)) #20
+  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8)) #20
+  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4)) #20
+  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 12)) #20
+  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 16)) #20
   tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull @use_custom_dns_server_list) #20
   %2 = tail call ptr @uat_new(ptr noundef nonnull @.str.31, i64 noundef 16, ptr noundef nonnull @.str.32, i1 noundef zeroext true, ptr noundef nonnull @dnsserverlist_uats, ptr noundef nonnull @ndnsservers, i32 noundef 1, ptr noundef null, ptr noundef nonnull @dns_server_copy_cb, ptr noundef null, ptr noundef nonnull @dns_server_free_cb, ptr noundef nonnull @c_ares_set_dns_servers, ptr noundef null, ptr noundef nonnull @addr_resolve_pref_init.dns_server_uats_flds) #20
   store ptr %2, ptr @dnsserver_uat, align 8
@@ -1075,8 +1075,8 @@ define hidden void @addr_resolve_pref_init(ptr noundef %0) local_unnamed_addr #2
   tail call void @prefs_register_obsolete_preference(ptr noundef %0, ptr noundef nonnull @.str.36) #20
   tail call void @prefs_register_uint_preference(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 10, ptr noundef nonnull @name_resolve_concurrency) #20
   tail call void @prefs_register_obsolete_preference(ptr noundef %0, ptr noundef nonnull @.str.40) #20
-  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 20)) #20
-  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 24)) #20
+  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 20)) #20
+  tail call void @prefs_register_bool_preference(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 24)) #20
   ret void
 }
 
@@ -1555,7 +1555,7 @@ declare void @ares_process(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @get_hostname(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call fastcc ptr @host_lookup(i32 noundef %0)
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
@@ -1705,7 +1705,7 @@ fill_dummy_ip4.exit:                              ; preds = %._crit_edge.i, %sub
   %54 = load ptr, ptr @ipv4_hash_table, align 8
   %.0..0..0..0.6 = load volatile ptr, ptr %9, align 8
   %55 = call ptr @wmem_map_insert(ptr noundef %54, ptr noundef %12, ptr noundef %.0..0..0..0.6) #20
-  %.old = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not18.old = icmp eq i32 %.old, 0
   br i1 %.not18.old, label %81, label %61
 
@@ -1715,13 +1715,13 @@ fill_dummy_ip4.exit:                              ; preds = %._crit_edge.i, %sub
   %58 = load i8, ptr %57, align 4
   %59 = and i8 %58, 3
   %.not = icmp ne i8 %59, 0
-  %60 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not18 = icmp eq i32 %60, 0
   %or.cond29 = select i1 %.not, i1 true, i1 %.not18
   br i1 %or.cond29, label %81, label %61
 
 61:                                               ; preds = %56, %fill_dummy_ip4.exit
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 16), align 4
   %.not19 = icmp eq i32 %62, 0
   br i1 %.not19, label %81, label %63
 
@@ -1814,7 +1814,7 @@ define nonnull ptr @get_hostname6(ptr noundef %0) local_unnamed_addr #2 {
   %19 = load ptr, ptr @ipv6_hash_table, align 8
   %.0..0..0..0..0..0.8.i = load volatile ptr, ptr %4, align 8
   %20 = tail call ptr @wmem_map_insert(ptr noundef %19, ptr noundef %10, ptr noundef %.0..0..0..0..0..0.8.i) #20
-  %.old.i = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %.old.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not20.old.i = icmp eq i32 %.old.i, 0
   br i1 %.not20.old.i, label %host_lookup6.exit.thread, label %26
 
@@ -1829,13 +1829,13 @@ host_lookup6.exit.thread:                         ; preds = %8
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 3
   %.not.i = icmp ne i8 %24, 0
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not20.i = icmp eq i32 %25, 0
   %or.cond22.i = select i1 %.not.i, i1 true, i1 %.not20.i
   br i1 %or.cond22.i, label %host_lookup6.exit, label %26
 
 26:                                               ; preds = %21, %8
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 16), align 4
   %.not21.i = icmp eq i32 %27, 0
   br i1 %.not21.i, label %host_lookup6.exitthread-pre-split, label %28
 
@@ -1882,7 +1882,7 @@ sync_lookup_ip6.exit.i:                           ; preds = %32
   br label %host_lookup6.exitthread-pre-split
 
 host_lookup6.exitthread-pre-split:                ; preds = %41, %sync_lookup_ip6.exit.i, %28, %26
-  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   br label %host_lookup6.exit
 
 host_lookup6.exit:                                ; preds = %host_lookup6.exitthread-pre-split, %21
@@ -2912,7 +2912,7 @@ host_name_lookup_init.exit:                       ; preds = %read_ss7pcs_file.ex
 ; Function Attrs: nounwind uwtable
 define ptr @udp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
 
@@ -2973,7 +2973,7 @@ serv_name_lookup.exit:                            ; preds = %7, %19, %24
 ; Function Attrs: nounwind uwtable
 define hidden ptr @dccp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
 
@@ -3034,7 +3034,7 @@ serv_name_lookup.exit:                            ; preds = %7, %19, %24
 ; Function Attrs: nounwind uwtable
 define ptr @tcp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
 
@@ -3095,7 +3095,7 @@ serv_name_lookup.exit:                            ; preds = %7, %19, %24
 ; Function Attrs: nounwind uwtable
 define ptr @sctp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
 
@@ -3156,7 +3156,7 @@ serv_name_lookup.exit:                            ; preds = %7, %19, %24
 ; Function Attrs: nounwind uwtable
 define noalias ptr @port_with_resolution_to_str(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %6 = icmp eq i32 %5, 0
   %7 = icmp eq i32 %1, 0
   %or.cond = or i1 %7, %6
@@ -3218,7 +3218,7 @@ serv_name_lookup.exit:                            ; preds = %10, %22, %27
 ; Function Attrs: nounwind uwtable
 define noundef i32 @port_with_resolution_to_str_buf(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 8), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 8), align 4
   %7 = icmp eq i32 %6, 0
   %8 = icmp eq i32 %2, 0
   %or.cond = or i1 %8, %7
@@ -3374,7 +3374,7 @@ define hidden ptr @get_ether_name_if_known(ptr noundef %0) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @add_ether_byip(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %12, label %4
 
@@ -3438,7 +3438,7 @@ define internal fastcc ptr @add_eth_name(ptr noundef %0, ptr noundef %1) unnamed
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @get_ipxnet_name(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
 
@@ -3555,7 +3555,7 @@ declare ptr @ipxnet_to_str_punct(ptr noundef, i32 noundef, i8 noundef signext) l
 define hidden noalias ptr @get_vlan_name(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = alloca i16, align 2
   %4 = alloca [1024 x i8], align 16
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 20), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 20), align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %60, label %6
 
@@ -3655,7 +3655,7 @@ parse_vlan_line.exit.i.i.i:                       ; preds = %42, %39, %36
   br i1 %.not.i.i.i.i, label %.split.i.i, label %fgetline.exit.i.i.i, !llvm.loop !27
 
 49:                                               ; preds = %42
-  %50 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @get_vlanent.vlan, i64 4), ptr noundef nonnull %45, i64 noundef 128) #20
+  %50 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @get_vlanent.vlan, i64 4), ptr noundef nonnull %45, i64 noundef 128) #20
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
   %51 = load i32, ptr @get_vlanent.vlan, align 4
@@ -4181,9 +4181,9 @@ define range(i32 0, 2) i32 @get_host_ipaddr(ptr noundef %0, ptr noundef %1) loca
   br i1 %7, label %39, label %8
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not = icmp eq i32 %9, 0
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 16), align 4
   %.not22 = icmp eq i32 %10, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not22
   br i1 %or.cond, label %39, label %11
@@ -4298,9 +4298,9 @@ define range(i32 0, 2) i32 @get_host_ipaddr6(ptr noundef %0, ptr noundef %1) loc
   br i1 %7, label %39, label %8
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 4), align 4
   %.not22 = icmp eq i32 %9, 0
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 16), align 4
   %.not23 = icmp eq i32 %10, 0
   %or.cond = select i1 %.not22, i1 true, i1 %.not23
   br i1 %or.cond, label %39, label %11
@@ -5938,9 +5938,9 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
   %76 = trunc i32 %43 to i8
   store i8 %76, ptr @get_ethent.eth, align 1
   %77 = trunc i32 %57 to i8
-  store i8 %77, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 1), align 1
+  store i8 %77, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 1), align 1
   %78 = trunc i32 %71 to i8
-  store i8 %78, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 2), align 1
+  store i8 %78, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 2), align 1
   %79 = getelementptr i8, ptr %22, i64 8
   %80 = load i8, ptr %79, align 1
   %81 = icmp eq i8 %80, 0
@@ -6015,11 +6015,11 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
 
 136:                                              ; preds = %133
   %137 = trunc i32 %98 to i8
-  store i8 %137, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 3), align 1
+  store i8 %137, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 3), align 1
   %138 = trunc i32 %112 to i8
-  store i8 %138, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 4), align 1
+  store i8 %138, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 4), align 1
   %139 = trunc i32 %126 to i8
-  store i8 %139, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 5), align 1
+  store i8 %139, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 5), align 1
   %140 = getelementptr i8, ptr %22, i64 17
   %141 = load i8, ptr %140, align 1
   switch i8 %141, label %159 [
@@ -6055,14 +6055,14 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
 
 157:                                              ; preds = %154
   %158 = and i8 %137, -16
-  store i8 %158, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 3), align 1
+  store i8 %158, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 3), align 1
   br label %.sink.split.sink.split.i.i
 
 .sink.split.sink.split.i.i:                       ; preds = %157, %152
   %.sink1.i.i = phi i8 [ %153, %152 ], [ 0, %157 ]
   %.sink.ph.i.i = phi i32 [ 36, %152 ], [ 28, %157 ]
-  store i8 %.sink1.i.i, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 4), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 5), align 1
+  store i8 %.sink1.i.i, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 4), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 5), align 1
   br label %parse_ether_address_fast.exit.i
 
 parse_ether_address_fast.exit.i:                  ; preds = %.sink.split.sink.split.i.i, %136, %75
@@ -6081,11 +6081,11 @@ parse_ether_address_fast.exit.i:                  ; preds = %.sink.split.sink.sp
   br i1 %163, label %parse_ether_line.exit, label %parse_ether_line.exit.thread
 
 parse_ether_line.exit.thread:                     ; preds = %161
-  %164 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @get_ethent.eth, i64 6), ptr noundef nonnull %162, i64 noundef 64) #20
+  %164 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 6), ptr noundef nonnull %162, i64 noundef 64) #20
   %165 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.64) #20
   %.not28.i = icmp eq ptr %165, null
-  %..i = select i1 %.not28.i, ptr getelementptr inbounds (i8, ptr @get_ethent.eth, i64 6), ptr %165
-  %166 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @get_ethent.eth, i64 70), ptr noundef nonnull %..i, i64 noundef 64) #20
+  %..i = select i1 %.not28.i, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 6), ptr %165
+  %166 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 70), ptr noundef nonnull %..i, i64 noundef 64) #20
   br label %fgetline.exit.thread
 
 parse_ether_line.exit:                            ; preds = %13, %13, %21, %159, %161
@@ -6203,7 +6203,7 @@ parse_ipxnets_line.exit.thread:                   ; preds = %35, %37
   %48 = phi ptr [ %31, %37 ], [ %33, %35 ]
   %storemerge.i = phi i32 [ %47, %37 ], [ %36, %35 ]
   store i32 %storemerge.i, ptr @get_ipxnetent.ipxnet, align 4
-  %49 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @get_ipxnetent.ipxnet, i64 4), ptr noundef nonnull %48, i64 noundef 64) #20
+  %49 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @get_ipxnetent.ipxnet, i64 4), ptr noundef nonnull %48, i64 noundef 64) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)

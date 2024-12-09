@@ -211,7 +211,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @qemu_system_dump_in_progress() local_unnamed_addr #1 {
 entry:
-  %0 = load atomic i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 300) monotonic, align 4
+  %0 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 300) monotonic, align 4
   %cmp = icmp eq i32 %0, 1
   ret i1 %cmp
 }
@@ -220,14 +220,14 @@ entry:
 define dso_local noundef ptr @qmp_query_dump(ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %0 = load atomic i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 300) monotonic, align 4
+  %0 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 300) monotonic, align 4
   store i32 %0, ptr %call, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence acquire
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 328), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 328), align 8
   %completed = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %1, ptr %completed, align 8
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 320), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 320), align 8
   %total = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %2, ptr %total, align 8
   ret ptr %call
@@ -256,7 +256,7 @@ if.then8:                                         ; preds = %entry
   br label %cleanup
 
 if.end9:                                          ; preds = %entry
-  %0 = load atomic i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 300) monotonic, align 4
+  %0 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 300) monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %if.then11, label %if.end12
 
@@ -396,23 +396,23 @@ if.then85:                                        ; preds = %if.end82
 
 if.end87:                                         ; preds = %if.end82
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(300) @dump_state_global, i8 0, i64 300, i1 false)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 300), align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @dump_state_global, i64 304), i8 0, i64 48, i1 false)
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 300), align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 304), i8 0, i64 48, i1 false)
   call fastcc void @dump_init(i32 noundef %fd.0, i1 noundef zeroext %has_format, i32 noundef %format.addr.062, i1 noundef zeroext %paging, i1 noundef zeroext %has_begin, i64 noundef %begin, i64 noundef %length, i1 noundef zeroext %kdump_raw.061, ptr noundef nonnull %spec.select)
   %4 = load ptr, ptr %spec.select, align 8
   %tobool92.not = icmp eq ptr %4, null
   br i1 %tobool92.not, label %if.end100, label %while.end
 
 while.end:                                        ; preds = %if.end87
-  store atomic i32 3, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 300) monotonic, align 4
+  store atomic i32 3, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 300) monotonic, align 4
   br label %cleanup
 
 if.end100:                                        ; preds = %if.end87
   br i1 %spec.select51, label %if.then102, label %if.else103
 
 if.then102:                                       ; preds = %if.end100
-  store i8 1, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 113), align 1
-  call void @qemu_thread_create(ptr noundef nonnull getelementptr inbounds (i8, ptr @dump_state_global, i64 312), ptr noundef nonnull @.str.13, ptr noundef nonnull @dump_thread, ptr noundef nonnull @dump_state_global, i32 noundef 1) #18
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 113), align 1
+  call void @qemu_thread_create(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 312), ptr noundef nonnull @.str.13, ptr noundef nonnull @dump_thread, ptr noundef nonnull @dump_state_global, i32 noundef 1) #18
   br label %cleanup
 
 if.else103:                                       ; preds = %if.end100
@@ -470,10 +470,10 @@ cond.true.i:                                      ; preds = %entry
 
 vmcoreinfo_find.exit:                             ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %call.i.i, %cond.true.i ], [ null, %entry ]
-  store i8 %frombool, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 304), align 8
-  store i32 %format, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 308), align 4
-  store i64 0, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 328), align 8
-  store i8 %frombool3, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 114), align 2
+  store i8 %frombool, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 304), align 8
+  store i32 %format, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 308), align 4
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 328), align 8
+  store i8 %frombool3, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 114), align 2
   %cmp14 = icmp ne i32 %format, 0
   %or.cond1 = and i1 %has_format, %cmp14
   %brmerge = or i1 %paging, %has_filter
@@ -494,7 +494,7 @@ if.then23:                                        ; preds = %if.end21
 
 if.end27:                                         ; preds = %if.end21, %if.then23
   %storemerge = phi i8 [ 1, %if.then23 ], [ 0, %if.end21 ]
-  store i8 %storemerge, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 112), align 8
+  store i8 %storemerge, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 112), align 8
   tail call void @cpu_synchronize_all_states() #18
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !6
@@ -514,7 +514,7 @@ for.body:                                         ; preds = %if.end27, %for.body
 
 for.end:                                          ; preds = %for.body, %if.end27
   %nr_cpus.0.lcssa = phi i32 [ 0, %if.end27 ], [ %inc, %for.body ]
-  store i32 %fd, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 128), align 8
+  store i32 %fd, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 128), align 8
   %tobool42 = icmp eq i64 %length, 0
   %or.cond2.not = and i1 %has_filter, %tobool42
   br i1 %or.cond2.not, label %if.then43, label %if.end44
@@ -524,26 +524,26 @@ if.then43:                                        ; preds = %for.end
   br label %cleanup
 
 if.end44:                                         ; preds = %for.end
-  store i64 %begin, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 136), align 8
-  store i64 %length, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 144), align 8
+  store i64 %begin, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 136), align 8
+  store i64 %length, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 144), align 8
   %call45 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #18
-  store ptr %call45, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 224), align 8
+  store ptr %call45, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 224), align 8
   %call47 = tail call ptr @g_array_set_size(ptr noundef %call45, i32 noundef 1) #18
-  tail call void @memory_mapping_list_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @dump_state_global, i64 80)) #18
+  tail call void @memory_mapping_list_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 80)) #18
   tail call void @guest_phys_blocks_init(ptr noundef nonnull @dump_state_global) #18
   tail call void @guest_phys_blocks_append(ptr noundef nonnull @dump_state_global) #18
-  %block.01.i = load ptr, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 8), align 8
+  %block.01.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 8), align 8
   %tobool.not2.i = icmp eq ptr %block.01.i, null
   br i1 %tobool.not2.i, label %dump_calculate_size.exit.thread, label %for.body.lr.ph.i
 
 dump_calculate_size.exit.thread:                  ; preds = %if.end44
-  store i64 0, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 320), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 320), align 8
   br label %if.then52
 
 for.body.lr.ph.i:                                 ; preds = %if.end44
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 144), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 144), align 8
   %tobool.not.i.i = icmp eq i64 %2, 0
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 136), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 136), align 8
   %add.i.i = add i64 %3, %2
   br i1 %tobool.not.i.i, label %for.body.us.i, label %for.body.i
 
@@ -578,7 +578,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 
 dump_calculate_size.exit:                         ; preds = %for.body.i, %for.body.us.i
   %total.0.lcssa.i = phi i64 [ %add.us.i, %for.body.us.i ], [ %add.i, %for.body.i ]
-  store i64 %total.0.lcssa.i, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 320), align 8
+  store i64 %total.0.lcssa.i, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 320), align 8
   %tobool51.not = icmp eq i64 %total.0.lcssa.i, 0
   br i1 %tobool51.not, label %if.then52, label %if.end53
 
@@ -587,7 +587,7 @@ if.then52:                                        ; preds = %dump_calculate_size
   br label %cleanup
 
 if.end53:                                         ; preds = %dump_calculate_size.exit
-  %call55 = tail call i32 @cpu_get_dump_info(ptr noundef nonnull getelementptr inbounds (i8, ptr @dump_state_global, i64 24), ptr noundef nonnull @dump_state_global) #18
+  %call55 = tail call i32 @cpu_get_dump_info(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 24), ptr noundef nonnull @dump_state_global) #18
   %cmp56 = icmp slt i32 %call55, 0
   br i1 %cmp56, label %if.then57, label %if.end58
 
@@ -596,21 +596,21 @@ if.then57:                                        ; preds = %if.end53
   br label %cleanup
 
 if.end58:                                         ; preds = %if.end53
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 36), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 36), align 4
   %tobool60.not = icmp eq i32 %8, 0
   br i1 %tobool60.not, label %if.then61, label %if.end65
 
 if.then61:                                        ; preds = %if.end58
   %call62 = tail call i64 @qemu_target_page_size() #18
   %conv = trunc i64 %call62 to i32
-  store i32 %conv, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 36), align 4
+  store i32 %conv, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 36), align 4
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then61, %if.end58
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 32), align 8
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 24), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 32), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 24), align 8
   %call68 = tail call i64 @cpu_get_note_size(i32 noundef %9, i32 noundef %10, i32 noundef %nr_cpus.0.lcssa) #18
-  store i64 %call68, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 160), align 8
+  store i64 %call68, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 160), align 8
   %cmp70 = icmp sgt i64 %call68, -1
   br i1 %cmp70, label %if.end74, label %if.else73
 
@@ -661,10 +661,10 @@ if.else102:                                       ; preds = %if.else96
   %add = add nuw nsw i32 %12, 1
   %conv103 = zext nneg i32 %add to i64
   %call104 = tail call noalias ptr @g_malloc(i64 noundef %conv103) #20
-  store ptr %call104, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 336), align 8
+  store ptr %call104, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 336), align 8
   tail call void @cpu_physical_memory_rw(i64 noundef %13, ptr noundef %call104, i64 noundef range(i64 12, 0) %conv89, i1 noundef zeroext false) #18
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 336), align 8
-  %s.val.i = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 32), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 336), align 8
+  %s.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 32), align 8
   %cmp.i.i = icmp eq i32 %s.val.i, 2
   %17 = load i32, ptr %16, align 4
   %n_descsz.i = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -701,7 +701,7 @@ get_note_sizes.exit:                              ; preds = %if.then.i, %if.else
   %add116124 = add i64 %desc_sz.0.i, 15
   %div115123125 = add i64 %add116124, %div111122
   %mul = and i64 %div115123125, -4
-  store i64 %mul, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 344), align 8
+  store i64 %mul, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 344), align 8
   %cmp117 = icmp ugt i64 %name_sz.0.i, 1048576
   %cmp120 = icmp ugt i64 %desc_sz.0.i, 1048576
   %or.cond4 = select i1 %cmp117, i1 true, i1 %cmp120
@@ -711,45 +711,45 @@ get_note_sizes.exit:                              ; preds = %if.then.i, %if.else
 
 if.then127:                                       ; preds = %get_note_sizes.exit
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.22) #18
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 336), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 336), align 8
   tail call void @g_free(ptr noundef %25) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 336), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 336), align 8
   br label %if.end138
 
 if.else130:                                       ; preds = %get_note_sizes.exit
   tail call fastcc void @vmcoreinfo_update_phys_base()
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 344), align 8
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 160), align 8
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 344), align 8
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 160), align 8
   %add133 = add i64 %27, %26
-  store i64 %add133, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 160), align 8
+  store i64 %add133, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 160), align 8
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then87, %if.then100, %if.else130, %if.then127, %if.then95, %if.end74
   br i1 %paging, label %if.then140, label %if.else147
 
 if.then140:                                       ; preds = %if.end138
-  %call143 = call zeroext i1 @qemu_get_guest_memory_mapping(ptr noundef nonnull getelementptr inbounds (i8, ptr @dump_state_global, i64 80), ptr noundef nonnull @dump_state_global, ptr noundef %spec.select) #18
+  %call143 = call zeroext i1 @qemu_get_guest_memory_mapping(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 80), ptr noundef nonnull @dump_state_global, ptr noundef %spec.select) #18
   %28 = load ptr, ptr %spec.select, align 8
   %tobool144.not = icmp eq ptr %28, null
   br i1 %tobool144.not, label %if.end150, label %cleanup
 
 if.else147:                                       ; preds = %if.end138
-  tail call void @qemu_get_guest_simple_memory_mapping(ptr noundef nonnull getelementptr inbounds (i8, ptr @dump_state_global, i64 80), ptr noundef nonnull @dump_state_global) #18
+  tail call void @qemu_get_guest_simple_memory_mapping(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 80), ptr noundef nonnull @dump_state_global) #18
   br label %if.end150
 
 if.end150:                                        ; preds = %if.then140, %if.else147
-  store i32 %nr_cpus.0.lcssa, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 248), align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 16), align 8
+  store i32 %nr_cpus.0.lcssa, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 248), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 16), align 8
   %tql_prev1.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   %30 = load ptr, ptr %tql_prev1.i, align 8
   %31 = load ptr, ptr %30, align 8
   %target_end.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %32 = load i64, ptr %target_end.i, align 8
-  %dump_state_global.val.i = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 36), align 4
+  %dump_state_global.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 36), align 4
   %33 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %dump_state_global.val.i, i1 false)
   %sh_prom.i.i = zext nneg i32 %33 to i64
   %shr.i.i = lshr i64 %32, %sh_prom.i.i
-  store i64 %shr.i.i, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 256), align 8
+  store i64 %shr.i.i, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 256), align 8
   %sub154 = add i64 %shr.i.i, 7
   %div155126 = lshr i64 %sub154, 3
   %conv158 = zext i32 %dump_state_global.val.i to i64
@@ -758,7 +758,7 @@ if.end150:                                        ; preds = %if.then140, %if.els
   %sub160 = add i64 %add159.fr, -1
   %34 = urem i64 %sub160, %conv158
   %mul168 = sub nuw i64 %sub160, %34
-  store i64 %mul168, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 264), align 8
+  store i64 %mul168, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 264), align 8
   br i1 %or.cond1, label %if.then174, label %if.end180
 
 if.then174:                                       ; preds = %if.end150
@@ -769,34 +769,34 @@ if.then174:                                       ; preds = %if.end150
   ]
 
 sw.bb:                                            ; preds = %if.then174
-  store i32 1, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 296), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 296), align 8
   br label %cleanup238
 
 sw.bb175:                                         ; preds = %if.then174
-  store i32 2, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 296), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 296), align 8
   br label %cleanup238
 
 sw.bb177:                                         ; preds = %if.then174
-  store i32 4, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 296), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 296), align 8
   br label %cleanup238
 
 sw.default:                                       ; preds = %if.then174
-  store i32 0, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 296), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 296), align 8
   br label %cleanup238
 
 if.end180:                                        ; preds = %if.end150
-  %dump_state_global.val132 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 144), align 8
+  %dump_state_global.val132 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 144), align 8
   %cmp.i135 = icmp sgt i64 %dump_state_global.val132, 0
   br i1 %cmp.i135, label %if.then182, label %if.end186
 
 if.then182:                                       ; preds = %if.end180
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 136), align 8
-  call void @memory_mapping_filter(ptr noundef nonnull getelementptr inbounds (i8, ptr @dump_state_global, i64 80), i64 noundef %35, i64 noundef %dump_state_global.val132) #18
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 136), align 8
+  call void @memory_mapping_filter(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 80), i64 noundef %35, i64 noundef %dump_state_global.val132) #18
   br label %if.end186
 
 if.end186:                                        ; preds = %if.then182, %if.end180
-  store i32 2, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 156), align 4
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 48), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 156), align 4
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 48), align 8
   %tobool188.not = icmp eq ptr %36, null
   br i1 %tobool188.not, label %if.end192, label %if.then189
 
@@ -805,12 +805,12 @@ if.then189:                                       ; preds = %if.end186
   br label %if.end192
 
 if.end192:                                        ; preds = %if.then189, %if.end186
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 80), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 80), align 8
   %storemerge127 = call i32 @llvm.uadd.sat.i32(i32 %37, i32 1)
-  store i32 %storemerge127, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 152), align 8
-  %dump_state_global.val131 = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 32), align 8
+  store i32 %storemerge127, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 152), align 8
+  %dump_state_global.val131 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 32), align 8
   %cmp.i136 = icmp eq i32 %dump_state_global.val131, 2
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 156), align 4
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 156), align 4
   %conv208 = zext i32 %38 to i64
   %conv213 = zext i32 %storemerge127 to i64
   br i1 %cmp.i136, label %if.then205, label %if.else216
@@ -833,15 +833,15 @@ if.end230:                                        ; preds = %if.else216, %if.the
   %.sink = phi i64 [ 64, %if.then205 ], [ 52, %if.else216 ]
   %add222.sink = phi i64 [ %add210, %if.then205 ], [ %add222, %if.else216 ]
   %storemerge128 = phi i64 [ %add215, %if.then205 ], [ %add228, %if.else216 ]
-  store i64 %.sink, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 168), align 8
-  store i64 %add222.sink, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 176), align 8
-  store i64 %storemerge128, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 192), align 8
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 160), align 8
+  store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 168), align 8
+  store i64 %add222.sink, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 176), align 8
+  store i64 %storemerge128, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 192), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 160), align 8
   %add233 = add i64 %39, %storemerge128
-  store i64 %add233, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 120), align 8
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 320), align 8
+  store i64 %add233, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 120), align 8
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 320), align 8
   %add236 = add i64 %40, %add233
-  store i64 %add236, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 184), align 8
+  store i64 %add236, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 184), align 8
   br label %cleanup238
 
 cleanup:                                          ; preds = %if.then140, %if.then57, %if.then52, %if.then43
@@ -2963,14 +2963,14 @@ if.end25:                                         ; preds = %if.then5, %create_v
   %cond = select i1 %tobool19.not, i32 2, i32 3
   store atomic i32 %cond, ptr %status monotonic, align 4
   %call.i = call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %301 = load atomic i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 300) monotonic, align 4
+  %301 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 300) monotonic, align 4
   store i32 %301, ptr %call.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence acquire
-  %302 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 328), align 8
+  %302 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 328), align 8
   %completed.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %302, ptr %completed.i, align 8
-  %303 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 320), align 8
+  %303 = load i64, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 320), align 8
   %total.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %303, ptr %total.i, align 8
   %304 = load ptr, ptr %spec.select, align 8
@@ -3089,8 +3089,8 @@ declare void @g_free(ptr noundef) local_unnamed_addr #4
 define internal fastcc void @vmcoreinfo_update_phys_base() unnamed_addr #2 {
 entry:
   %phys_base = alloca i64, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 336), align 8
-  %s.val.i.i = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 32), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 336), align 8
+  %s.val.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 32), align 8
   %cmp.i.i.i = icmp eq i32 %s.val.i.i, 2
   %1 = load i32, ptr %0, align 4
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
@@ -3162,7 +3162,7 @@ get_note_sizes.exit:                              ; preds = %if.then.i, %if.else
   br i1 %tobool.not5, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %get_note_sizes.exit
-  %.pre8 = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 24), align 8
+  %.pre8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 24), align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -3181,7 +3181,7 @@ land.lhs.true:                                    ; preds = %if.then13, %for.bod
   %prefix.0.ph = phi ptr [ @.str.27, %for.body ], [ @.str.28, %if.then13 ]
   %call18 = tail call i32 @g_str_has_prefix(ptr noundef nonnull %14, ptr noundef nonnull %prefix.0.ph) #18
   %tobool19.not = icmp eq i32 %call18, 0
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 24), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 24), align 8
   br i1 %tobool19.not, label %for.inc, label %if.then20
 
 if.then20:                                        ; preds = %land.lhs.true
@@ -3199,7 +3199,7 @@ if.then26:                                        ; preds = %if.then20
 
 if.else27:                                        ; preds = %if.then20
   %16 = load i64, ptr %phys_base, align 8
-  store i64 %16, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 40), align 8
+  store i64 %16, ptr getelementptr inbounds nuw (i8, ptr @dump_state_global, i64 40), align 8
   br label %for.end
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true

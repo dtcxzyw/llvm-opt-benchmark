@@ -129,10 +129,10 @@ use_component.exit:                               ; preds = %.lr.ph.i
   br i1 %.059, label %use_component.exit.thread, label %77
 
 use_component.exit.thread:                        ; preds = %42, %use_component.exit.thr_comm, %use_component.exit
-  %52 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_component_list_item_t_class, i64 56), align 8
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_component_list_item_t_class, i64 56), align 8
   %53 = tail call noalias noundef ptr @malloc(i64 noundef %52) #14
   %54 = load i32, ptr @pmix_class_init_epoch, align 4
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_component_list_item_t_class, i64 32), align 8
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_component_list_item_t_class, i64 32), align 8
   %.not.i42 = icmp eq i32 %54, %55
   br i1 %.not.i42, label %57, label %56
 
@@ -343,7 +343,7 @@ find_dyn_components.exit:                         ; preds = %use_component.exit.
   br label %142
 
 136:                                              ; preds = %80, %.loopexit
-  %137 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_info, i64 4), align 4
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_info, i64 4), align 4
   %138 = icmp sgt i32 %137, 39
   br i1 %138, label %139, label %142
 

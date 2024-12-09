@@ -113,7 +113,7 @@ define internal range(i32 -27, 1) i32 @query(i32 noundef %0, ptr noundef %1, ptr
   br label %1232
 
 32:                                               ; preds = %23, %20
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 344), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 344), align 8
   %34 = tail call noalias ptr @strdup(ptr noundef %33) #17
   store ptr %34, ptr %1, align 8
   %35 = call i32 (ptr, i64, ptr, ...) @pmix_snprintf(ptr noundef nonnull %15, i64 noundef 4096, ptr noundef nonnull @.str, i32 noundef %0) #17
@@ -2343,7 +2343,7 @@ local_stripper.exit770.backedge:                  ; preds = %sub_1, %sub_0, %.ta
   br i1 %.not233, label %pmix_obj_run_destructors.exit877, label %1232
 
 1232:                                             ; preds = %.thread.thread899, %.thread
-  %1233 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 344), align 8
+  %1233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 344), align 8
   %1234 = call noalias ptr @strdup(ptr noundef %1233) #17
   store ptr %1234, ptr %2, align 8
   %1235 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.8, i32 noundef 0) #17
@@ -2680,7 +2680,7 @@ local_stripper.exit792._crit_edge:                ; preds = %local_stripper.exit
 
 1383:                                             ; preds = %1380
   %1384 = load i32, ptr @pmix_class_init_epoch, align 4
-  %1385 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %1385 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not239 = icmp eq i32 %1384, %1385
   br i1 %.not239, label %1387, label %1386
 
@@ -3052,7 +3052,7 @@ local_getline.exit848.loopexit:                   ; preds = %local_getline.exit8
 
 local_getline.exit848:                            ; preds = %local_getline.exit848.loopexit, %local_getline.exit843
   %1581 = load i32, ptr @pmix_class_init_epoch, align 4
-  %1582 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %1582 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not244 = icmp eq i32 %1581, %1582
   br i1 %.not244, label %1584, label %1583
 

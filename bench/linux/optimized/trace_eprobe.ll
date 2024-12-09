@@ -1459,7 +1459,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %236, label %244, label %237
 
 237:                                              ; preds = %.loopexit31
-  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @ftrace_trace_arrays, i64 8), align 8
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ftrace_trace_arrays, i64 8), align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 156
   %240 = load i32, ptr %239, align 4
   %241 = and i32 %240, 1
@@ -1598,8 +1598,8 @@ sub_1:                                            ; preds = %sub_0
   %310 = load i32, ptr %309, align 8
   %311 = or i32 %310, 32
   store i32 %311, ptr %309, align 8
-  %312 = load ptr, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
-  store ptr %308, ptr getelementptr inbounds (i8, ptr @dyn_event_list, i64 8), align 8
+  %312 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dyn_event_list, i64 8), align 8
+  store ptr %308, ptr getelementptr inbounds nuw (i8, ptr @dyn_event_list, i64 8), align 8
   store ptr @dyn_event_list, ptr %308, align 8
   %313 = getelementptr inbounds nuw i8, ptr %182, i64 40
   store ptr %312, ptr %313, align 8
@@ -1835,9 +1835,9 @@ define internal i32 @eprobe_register(ptr noundef %0, i32 noundef %1, ptr noundef
 43:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   store ptr null, ptr %4, align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %45 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3520, i64 noundef 16) #17
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %47 = call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3520, i64 noundef 112) #17
   %48 = icmp ne ptr %47, null
   %49 = icmp ne ptr %45, null

@@ -2766,7 +2766,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35hashString_testKnownMD5Hashes1_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix35hashString_testKnownMD5Hashes1_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2796,7 +2796,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35hashString_testKnownMD5Hashes2_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix35hashString_testKnownMD5Hashes2_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2824,7 +2824,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36hashString_testKnownSHA1Hashes1_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36hashString_testKnownSHA1Hashes1_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2852,7 +2852,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36hashString_testKnownSHA1Hashes2_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36hashString_testKnownSHA1Hashes2_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2880,7 +2880,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38hashString_testKnownSHA256Hashes1_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38hashString_testKnownSHA256Hashes1_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2908,7 +2908,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38hashString_testKnownSHA256Hashes2_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38hashString_testKnownSHA256Hashes2_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2936,7 +2936,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38hashString_testKnownSHA512Hashes1_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38hashString_testKnownSHA512Hashes1_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2964,7 +2964,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38hashString_testKnownSHA512Hashes2_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38hashString_testKnownSHA512Hashes2_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -2992,7 +2992,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix39hashFormat_testRoundTripPrintParse_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix39hashFormat_testRoundTripPrintParse_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3020,7 +3020,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix47hashFormat_testParseHashFormatOptException_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix47hashFormat_testParseHashFormatOptException_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -3865,7 +3865,7 @@ define internal void @_GLOBAL__sub_I_hash.cc() #11 section ".text.startup" perso
           to label %42 unwind label %61
 
 42:                                               ; preds = %40
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35hashString_testKnownMD5Hashes1_TestEEE, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35hashString_testKnownMD5Hashes1_TestEEE, i64 16), ptr %41, align 8
   %43 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef %35, ptr noundef %37, ptr noundef %39, ptr noundef nonnull %41)
           to label %44 unwind label %61
 
@@ -3968,7 +3968,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %74 unwind label %93
 
 74:                                               ; preds = %72
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35hashString_testKnownMD5Hashes2_TestEEE, i64 16), ptr %73, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35hashString_testKnownMD5Hashes2_TestEEE, i64 16), ptr %73, align 8
   %75 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef %67, ptr noundef %69, ptr noundef %71, ptr noundef nonnull %73)
           to label %76 unwind label %93
 
@@ -4065,7 +4065,7 @@ __cxx_global_var_init.11.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %106 unwind label %125
 
 106:                                              ; preds = %104
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36hashString_testKnownSHA1Hashes1_TestEEE, i64 16), ptr %105, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36hashString_testKnownSHA1Hashes1_TestEEE, i64 16), ptr %105, align 8
   %107 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef %99, ptr noundef %101, ptr noundef %103, ptr noundef nonnull %105)
           to label %108 unwind label %125
 
@@ -4162,7 +4162,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %138 unwind label %157
 
 138:                                              ; preds = %136
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36hashString_testKnownSHA1Hashes2_TestEEE, i64 16), ptr %137, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36hashString_testKnownSHA1Hashes2_TestEEE, i64 16), ptr %137, align 8
   %139 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef %131, ptr noundef %133, ptr noundef %135, ptr noundef nonnull %137)
           to label %140 unwind label %157
 
@@ -4259,7 +4259,7 @@ __cxx_global_var_init.20.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %170 unwind label %189
 
 170:                                              ; preds = %168
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38hashString_testKnownSHA256Hashes1_TestEEE, i64 16), ptr %169, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38hashString_testKnownSHA256Hashes1_TestEEE, i64 16), ptr %169, align 8
   %171 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef %163, ptr noundef %165, ptr noundef %167, ptr noundef nonnull %169)
           to label %172 unwind label %189
 
@@ -4356,7 +4356,7 @@ __cxx_global_var_init.25.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %202 unwind label %221
 
 202:                                              ; preds = %200
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38hashString_testKnownSHA256Hashes2_TestEEE, i64 16), ptr %201, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38hashString_testKnownSHA256Hashes2_TestEEE, i64 16), ptr %201, align 8
   %203 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef %195, ptr noundef %197, ptr noundef %199, ptr noundef nonnull %201)
           to label %204 unwind label %221
 
@@ -4453,7 +4453,7 @@ __cxx_global_var_init.29.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %234 unwind label %253
 
 234:                                              ; preds = %232
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38hashString_testKnownSHA512Hashes1_TestEEE, i64 16), ptr %233, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38hashString_testKnownSHA512Hashes1_TestEEE, i64 16), ptr %233, align 8
   %235 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef %227, ptr noundef %229, ptr noundef %231, ptr noundef nonnull %233)
           to label %236 unwind label %253
 
@@ -4550,7 +4550,7 @@ __cxx_global_var_init.33.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %266 unwind label %285
 
 266:                                              ; preds = %264
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38hashString_testKnownSHA512Hashes2_TestEEE, i64 16), ptr %265, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38hashString_testKnownSHA512Hashes2_TestEEE, i64 16), ptr %265, align 8
   %267 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %259, ptr noundef %261, ptr noundef %263, ptr noundef nonnull %265)
           to label %268 unwind label %285
 
@@ -4647,7 +4647,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %298 unwind label %317
 
 298:                                              ; preds = %296
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39hashFormat_testRoundTripPrintParse_TestEEE, i64 16), ptr %297, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39hashFormat_testRoundTripPrintParse_TestEEE, i64 16), ptr %297, align 8
   %299 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %291, ptr noundef %293, ptr noundef %295, ptr noundef nonnull %297)
           to label %300 unwind label %317
 
@@ -4744,7 +4744,7 @@ __cxx_global_var_init.42.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %330 unwind label %349
 
 330:                                              ; preds = %328
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47hashFormat_testParseHashFormatOptException_TestEEE, i64 16), ptr %329, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47hashFormat_testParseHashFormatOptException_TestEEE, i64 16), ptr %329, align 8
   %331 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.48, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %323, ptr noundef %325, ptr noundef %327, ptr noundef nonnull %329)
           to label %332 unwind label %349
 

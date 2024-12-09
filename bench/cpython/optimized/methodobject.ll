@@ -2049,7 +2049,7 @@ if.then:                                          ; preds = %lor.lhs.false, %PyO
   br label %return
 
 if.end:                                           ; preds = %PyObject_TypeCheck.exit
-  %call3 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46848)) #5
+  %call3 = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 46848)) #5
   %4 = load ptr, ptr %m_self, align 8
   %m_ml5 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %5 = load ptr, ptr %m_ml5, align 8
@@ -2125,7 +2125,7 @@ if.end:                                           ; preds = %PyObject_TypeCheck.
   %and.i.i = and i64 %.val14.val, 2147483648
   %cmp.i.i.not = icmp eq i64 %and.i.i, 0
   %spec.select = select i1 %cmp.i.i.not, ptr %.val14, ptr %4
-  %call9 = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %spec.select, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 32616)) #5
+  %call9 = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %spec.select, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 32616)) #5
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %return, label %if.end12
 

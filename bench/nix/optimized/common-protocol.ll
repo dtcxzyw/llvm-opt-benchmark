@@ -9549,7 +9549,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32CommonProtoTest_string_read_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix32CommonProtoTest_string_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -9559,10 +9559,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32CommonProtoTest_string_read_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32CommonProtoTest_string_read_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32CommonProtoTest_string_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32CommonProtoTest_string_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32CommonProtoTest_string_read_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32CommonProtoTest_string_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -10316,7 +10316,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #19 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt19bad_optional_access, i64 16), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #28
   unreachable
 }
@@ -10657,7 +10657,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33CommonProtoTest_string_write_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix33CommonProtoTest_string_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -10667,10 +10667,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33CommonProtoTest_string_write_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33CommonProtoTest_string_write_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33CommonProtoTest_string_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33CommonProtoTest_string_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33CommonProtoTest_string_write_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33CommonProtoTest_string_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -10703,7 +10703,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35CommonProtoTest_storePath_read_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix35CommonProtoTest_storePath_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -10713,10 +10713,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35CommonProtoTest_storePath_read_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35CommonProtoTest_storePath_read_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix35CommonProtoTest_storePath_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix35CommonProtoTest_storePath_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35CommonProtoTest_storePath_read_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix35CommonProtoTest_storePath_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -10749,7 +10749,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36CommonProtoTest_storePath_write_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix36CommonProtoTest_storePath_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -10759,10 +10759,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36CommonProtoTest_storePath_write_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36CommonProtoTest_storePath_write_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36CommonProtoTest_storePath_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36CommonProtoTest_storePath_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36CommonProtoTest_storePath_write_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36CommonProtoTest_storePath_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -10795,7 +10795,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix40CommonProtoTest_contentAddress_read_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix40CommonProtoTest_contentAddress_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -10805,10 +10805,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40CommonProtoTest_contentAddress_read_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40CommonProtoTest_contentAddress_read_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40CommonProtoTest_contentAddress_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40CommonProtoTest_contentAddress_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix40CommonProtoTest_contentAddress_read_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix40CommonProtoTest_contentAddress_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -10841,7 +10841,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix41CommonProtoTest_contentAddress_write_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix41CommonProtoTest_contentAddress_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -10851,10 +10851,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41CommonProtoTest_contentAddress_write_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41CommonProtoTest_contentAddress_write_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix41CommonProtoTest_contentAddress_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix41CommonProtoTest_contentAddress_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix41CommonProtoTest_contentAddress_write_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix41CommonProtoTest_contentAddress_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -10887,7 +10887,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix35CommonProtoTest_drvOutput_read_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix35CommonProtoTest_drvOutput_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -10897,10 +10897,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35CommonProtoTest_drvOutput_read_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35CommonProtoTest_drvOutput_read_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix35CommonProtoTest_drvOutput_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix35CommonProtoTest_drvOutput_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix35CommonProtoTest_drvOutput_read_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix35CommonProtoTest_drvOutput_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -10957,7 +10957,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix36CommonProtoTest_drvOutput_write_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix36CommonProtoTest_drvOutput_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -10967,10 +10967,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36CommonProtoTest_drvOutput_write_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36CommonProtoTest_drvOutput_write_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36CommonProtoTest_drvOutput_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36CommonProtoTest_drvOutput_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix36CommonProtoTest_drvOutput_write_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix36CommonProtoTest_drvOutput_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -11003,7 +11003,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix37CommonProtoTest_realisation_read_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix37CommonProtoTest_realisation_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -11013,10 +11013,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37CommonProtoTest_realisation_read_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37CommonProtoTest_realisation_read_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix37CommonProtoTest_realisation_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix37CommonProtoTest_realisation_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37CommonProtoTest_realisation_read_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix37CommonProtoTest_realisation_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -11346,7 +11346,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix38CommonProtoTest_realisation_write_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix38CommonProtoTest_realisation_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -11356,10 +11356,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38CommonProtoTest_realisation_write_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38CommonProtoTest_realisation_write_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38CommonProtoTest_realisation_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38CommonProtoTest_realisation_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix38CommonProtoTest_realisation_write_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix38CommonProtoTest_realisation_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -11392,7 +11392,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix32CommonProtoTest_vector_read_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix32CommonProtoTest_vector_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -11402,10 +11402,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32CommonProtoTest_vector_read_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32CommonProtoTest_vector_read_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32CommonProtoTest_vector_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32CommonProtoTest_vector_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32CommonProtoTest_vector_read_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32CommonProtoTest_vector_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -12067,7 +12067,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix33CommonProtoTest_vector_write_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix33CommonProtoTest_vector_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -12077,10 +12077,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33CommonProtoTest_vector_write_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33CommonProtoTest_vector_write_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33CommonProtoTest_vector_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33CommonProtoTest_vector_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix33CommonProtoTest_vector_write_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix33CommonProtoTest_vector_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -12113,7 +12113,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix29CommonProtoTest_set_read_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix29CommonProtoTest_set_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -12123,10 +12123,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29CommonProtoTest_set_read_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29CommonProtoTest_set_read_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29CommonProtoTest_set_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29CommonProtoTest_set_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix29CommonProtoTest_set_read_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix29CommonProtoTest_set_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -12975,7 +12975,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix30CommonProtoTest_set_write_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix30CommonProtoTest_set_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -12985,10 +12985,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30CommonProtoTest_set_write_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30CommonProtoTest_set_write_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30CommonProtoTest_set_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30CommonProtoTest_set_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix30CommonProtoTest_set_write_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix30CommonProtoTest_set_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -13021,7 +13021,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix43CommonProtoTest_optionalStorePath_read_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix43CommonProtoTest_optionalStorePath_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -13031,10 +13031,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43CommonProtoTest_optionalStorePath_read_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43CommonProtoTest_optionalStorePath_read_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix43CommonProtoTest_optionalStorePath_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix43CommonProtoTest_optionalStorePath_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix43CommonProtoTest_optionalStorePath_read_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix43CommonProtoTest_optionalStorePath_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -13067,7 +13067,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix44Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix44CommonProtoTest_optionalStorePath_write_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix44CommonProtoTest_optionalStorePath_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -13077,10 +13077,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix44Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix44CommonProtoTest_optionalStorePath_write_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix44CommonProtoTest_optionalStorePath_write_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix44CommonProtoTest_optionalStorePath_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix44CommonProtoTest_optionalStorePath_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix44CommonProtoTest_optionalStorePath_write_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix44CommonProtoTest_optionalStorePath_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -13113,7 +13113,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix48Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix48CommonProtoTest_optionalContentAddress_read_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix48CommonProtoTest_optionalContentAddress_read_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -13123,10 +13123,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix48Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix48CommonProtoTest_optionalContentAddress_read_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix48CommonProtoTest_optionalContentAddress_read_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix48CommonProtoTest_optionalContentAddress_read_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix48CommonProtoTest_optionalContentAddress_read_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix48CommonProtoTest_optionalContentAddress_read_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix48CommonProtoTest_optionalContentAddress_read_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -13159,7 +13159,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Co
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix49CommonProtoTest_optionalContentAddress_write_TestE, i64 8))
+  invoke void @_ZN3nix15CommonProtoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3nix49CommonProtoTest_optionalContentAddress_write_TestE, i64 8))
           to label %6 unwind label %4
 
 4:                                                ; preds = %.noexc
@@ -13169,10 +13169,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Co
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49CommonProtoTest_optionalContentAddress_write_TestE, i64 24), ptr %2, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49CommonProtoTest_optionalContentAddress_write_TestE, i64 152), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49CommonProtoTest_optionalContentAddress_write_TestE, i64 24), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49CommonProtoTest_optionalContentAddress_write_TestE, i64 152), ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix49CommonProtoTest_optionalContentAddress_write_TestE, i64 80), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix49CommonProtoTest_optionalContentAddress_write_TestE, i64 80), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -13598,7 +13598,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_tra
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -14809,7 +14809,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJNS
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::StringSink", align 8
   %5 = load ptr, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -14858,7 +14858,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_tra
           to label %22 unwind label %27
 
 22:                                               ; preds = %_ZN3nix11CommonProto9SerialiseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_S8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS9_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %23 = load ptr, ptr %6, align 8
   %24 = icmp eq ptr %23, %7
   br i1 %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -14890,7 +14890,7 @@ declare void @_ZN3nix5dirOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10StringSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15196,7 +15196,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJNS_9StorePathES3_EEE4readERKNS_14StoreD
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -16054,7 +16054,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJNS
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::StringSink", align 8
   %5 = load ptr, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -16088,7 +16088,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJNS_9StorePathES3_EEE5writeERKNS_14Store
           to label %19 unwind label %24
 
 19:                                               ; preds = %_ZN3nix11CommonProto9SerialiseISt5tupleIJNS_9StorePathES3_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS4_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = icmp eq ptr %20, %7
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -16287,7 +16287,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest13readProtoTestISt5tupleIJNS_
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -17059,7 +17059,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJNS
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::StringSink", align 8
   %5 = load ptr, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -17098,7 +17098,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJNS_14ContentAddressES3_S3_EEE5writeERKN
           to label %20 unwind label %25
 
 20:                                               ; preds = %_ZN3nix11CommonProto9SerialiseISt5tupleIJNS_14ContentAddressES3_S3_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS4_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = icmp eq ptr %21, %7
   br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -17295,7 +17295,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJNS_9DrvOutputES3_EEE4readERKNS_14StoreD
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -18181,7 +18181,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJNS
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::StringSink", align 8
   %5 = load ptr, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -18215,7 +18215,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJNS_9DrvOutputES3_EEE5writeERKNS_14Store
           to label %19 unwind label %24
 
 19:                                               ; preds = %_ZN3nix11CommonProto9SerialiseISt5tupleIJNS_9DrvOutputES3_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS4_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = icmp eq ptr %20, %7
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -18849,7 +18849,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJNS_11RealisationES3_EEE4readERKNS_14Sto
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -19651,7 +19651,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJNS
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::StringSink", align 8
   %5 = load ptr, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -19685,7 +19685,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJNS_11RealisationES3_EEE5writeERKNS_14St
           to label %19 unwind label %24
 
 19:                                               ; preds = %_ZN3nix11CommonProto9SerialiseISt5tupleIJNS_11RealisationES3_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS4_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = icmp eq ptr %20, %7
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -19882,7 +19882,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJSt6vectorINSt7__cxx1112basic_stringIcSt
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -21556,7 +21556,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJSt
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.nix::StringSink", align 8
   %7 = load ptr, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -21596,7 +21596,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJSt
           to label %25 unwind label %30
 
 25:                                               ; preds = %24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %6, align 8
   %26 = load ptr, ptr %8, align 8
   %27 = icmp eq ptr %26, %9
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -22734,7 +22734,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJSt3setINSt7__cxx1112basic_stringIcSt11c
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -24454,7 +24454,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJSt
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.nix::StringSink", align 8
   %7 = load ptr, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -24494,7 +24494,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJSt
           to label %25 unwind label %30
 
 25:                                               ; preds = %24
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %6, align 8
   %26 = load ptr, ptr %8, align 8
   %27 = icmp eq ptr %26, %9
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -24984,7 +24984,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJSt8optionalINS_9StorePathEES5_EEE4readE
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -26004,7 +26004,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJSt
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::StringSink", align 8
   %5 = load ptr, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -26038,7 +26038,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJSt8optionalINS_9StorePathEES5_EEE5write
           to label %19 unwind label %24
 
 19:                                               ; preds = %_ZN3nix11CommonProto9SerialiseISt5tupleIJSt8optionalINS_9StorePathEES5_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS6_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = icmp eq ptr %20, %7
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -26236,7 +26236,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest13readProtoTestISt5tupleIJSt8
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix12StringSourceE, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %11, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -27045,7 +27045,7 @@ define linkonce_odr void @_ZZN3nix15CommonProtoTest14writeProtoTestISt5tupleIJSt
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::StringSink", align 8
   %5 = load ptr, ptr %1, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -27079,7 +27079,7 @@ _ZN3nix11CommonProto9SerialiseISt5tupleIJSt8optionalINS_14ContentAddressEES5_EEE
           to label %19 unwind label %24
 
 19:                                               ; preds = %_ZN3nix11CommonProto9SerialiseISt5tupleIJSt8optionalINS_14ContentAddressEES5_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS6_.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = icmp eq ptr %20, %7
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -27351,7 +27351,7 @@ define internal void @_GLOBAL__sub_I_common_protocol.cc() #8 section ".text.star
           to label %64 unwind label %83
 
 64:                                               ; preds = %62
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32CommonProtoTest_string_read_TestEEE, i64 16), ptr %63, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32CommonProtoTest_string_read_TestEEE, i64 16), ptr %63, align 8
   %65 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %59, ptr noundef %61, ptr noundef nonnull %63)
           to label %66 unwind label %83
 
@@ -27450,7 +27450,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %94 unwind label %113
 
 94:                                               ; preds = %92
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33CommonProtoTest_string_write_TestEEE, i64 16), ptr %93, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33CommonProtoTest_string_write_TestEEE, i64 16), ptr %93, align 8
   %95 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %89, ptr noundef %91, ptr noundef nonnull %93)
           to label %96 unwind label %113
 
@@ -27543,7 +27543,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %124 unwind label %143
 
 124:                                              ; preds = %122
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35CommonProtoTest_storePath_read_TestEEE, i64 16), ptr %123, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35CommonProtoTest_storePath_read_TestEEE, i64 16), ptr %123, align 8
   %125 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %119, ptr noundef %121, ptr noundef nonnull %123)
           to label %126 unwind label %143
 
@@ -27636,7 +27636,7 @@ __cxx_global_var_init.15.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %154 unwind label %173
 
 154:                                              ; preds = %152
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36CommonProtoTest_storePath_write_TestEEE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36CommonProtoTest_storePath_write_TestEEE, i64 16), ptr %153, align 8
   %155 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %149, ptr noundef %151, ptr noundef nonnull %153)
           to label %156 unwind label %173
 
@@ -27729,7 +27729,7 @@ __cxx_global_var_init.20.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %184 unwind label %203
 
 184:                                              ; preds = %182
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40CommonProtoTest_contentAddress_read_TestEEE, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40CommonProtoTest_contentAddress_read_TestEEE, i64 16), ptr %183, align 8
   %185 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %179, ptr noundef %181, ptr noundef nonnull %183)
           to label %186 unwind label %203
 
@@ -27822,7 +27822,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %214 unwind label %233
 
 214:                                              ; preds = %212
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41CommonProtoTest_contentAddress_write_TestEEE, i64 16), ptr %213, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41CommonProtoTest_contentAddress_write_TestEEE, i64 16), ptr %213, align 8
   %215 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %209, ptr noundef %211, ptr noundef nonnull %213)
           to label %216 unwind label %233
 
@@ -27915,7 +27915,7 @@ __cxx_global_var_init.28.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %244 unwind label %263
 
 244:                                              ; preds = %242
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35CommonProtoTest_drvOutput_read_TestEEE, i64 16), ptr %243, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35CommonProtoTest_drvOutput_read_TestEEE, i64 16), ptr %243, align 8
   %245 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %239, ptr noundef %241, ptr noundef nonnull %243)
           to label %246 unwind label %263
 
@@ -28008,7 +28008,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %274 unwind label %293
 
 274:                                              ; preds = %272
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36CommonProtoTest_drvOutput_write_TestEEE, i64 16), ptr %273, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36CommonProtoTest_drvOutput_write_TestEEE, i64 16), ptr %273, align 8
   %275 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %269, ptr noundef %271, ptr noundef nonnull %273)
           to label %276 unwind label %293
 
@@ -28101,7 +28101,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %304 unwind label %323
 
 304:                                              ; preds = %302
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37CommonProtoTest_realisation_read_TestEEE, i64 16), ptr %303, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37CommonProtoTest_realisation_read_TestEEE, i64 16), ptr %303, align 8
   %305 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.40, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %299, ptr noundef %301, ptr noundef nonnull %303)
           to label %306 unwind label %323
 
@@ -28194,7 +28194,7 @@ __cxx_global_var_init.39.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %334 unwind label %353
 
 334:                                              ; preds = %332
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38CommonProtoTest_realisation_write_TestEEE, i64 16), ptr %333, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38CommonProtoTest_realisation_write_TestEEE, i64 16), ptr %333, align 8
   %335 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.45, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %329, ptr noundef %331, ptr noundef nonnull %333)
           to label %336 unwind label %353
 
@@ -28287,7 +28287,7 @@ __cxx_global_var_init.44.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %364 unwind label %383
 
 364:                                              ; preds = %362
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32CommonProtoTest_vector_read_TestEEE, i64 16), ptr %363, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32CommonProtoTest_vector_read_TestEEE, i64 16), ptr %363, align 8
   %365 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %359, ptr noundef %361, ptr noundef nonnull %363)
           to label %366 unwind label %383
 
@@ -28380,7 +28380,7 @@ __cxx_global_var_init.46.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %394 unwind label %413
 
 394:                                              ; preds = %392
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33CommonProtoTest_vector_write_TestEEE, i64 16), ptr %393, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33CommonProtoTest_vector_write_TestEEE, i64 16), ptr %393, align 8
   %395 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.54, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %389, ptr noundef %391, ptr noundef nonnull %393)
           to label %396 unwind label %413
 
@@ -28473,7 +28473,7 @@ __cxx_global_var_init.53.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %424 unwind label %443
 
 424:                                              ; preds = %422
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29CommonProtoTest_set_read_TestEEE, i64 16), ptr %423, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29CommonProtoTest_set_read_TestEEE, i64 16), ptr %423, align 8
   %425 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.56, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %419, ptr noundef %421, ptr noundef nonnull %423)
           to label %426 unwind label %443
 
@@ -28566,7 +28566,7 @@ __cxx_global_var_init.55.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %454 unwind label %473
 
 454:                                              ; preds = %452
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30CommonProtoTest_set_write_TestEEE, i64 16), ptr %453, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30CommonProtoTest_set_write_TestEEE, i64 16), ptr %453, align 8
   %455 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.59, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %449, ptr noundef %451, ptr noundef nonnull %453)
           to label %456 unwind label %473
 
@@ -28659,7 +28659,7 @@ __cxx_global_var_init.58.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %484 unwind label %503
 
 484:                                              ; preds = %482
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43CommonProtoTest_optionalStorePath_read_TestEEE, i64 16), ptr %483, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43CommonProtoTest_optionalStorePath_read_TestEEE, i64 16), ptr %483, align 8
   %485 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.61, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %479, ptr noundef %481, ptr noundef nonnull %483)
           to label %486 unwind label %503
 
@@ -28752,7 +28752,7 @@ __cxx_global_var_init.60.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %514 unwind label %533
 
 514:                                              ; preds = %512
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44CommonProtoTest_optionalStorePath_write_TestEEE, i64 16), ptr %513, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44CommonProtoTest_optionalStorePath_write_TestEEE, i64 16), ptr %513, align 8
   %515 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %509, ptr noundef %511, ptr noundef nonnull %513)
           to label %516 unwind label %533
 
@@ -28845,7 +28845,7 @@ __cxx_global_var_init.63.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %544 unwind label %563
 
 544:                                              ; preds = %542
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix48CommonProtoTest_optionalContentAddress_read_TestEEE, i64 16), ptr %543, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix48CommonProtoTest_optionalContentAddress_read_TestEEE, i64 16), ptr %543, align 8
   %545 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %539, ptr noundef %541, ptr noundef nonnull %543)
           to label %546 unwind label %563
 
@@ -28938,7 +28938,7 @@ __cxx_global_var_init.65.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %574 unwind label %593
 
 574:                                              ; preds = %572
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49CommonProtoTest_optionalContentAddress_write_TestEEE, i64 16), ptr %573, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49CommonProtoTest_optionalContentAddress_write_TestEEE, i64 16), ptr %573, align 8
   %575 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix15CommonProtoTestEE6dummy_E, ptr noundef %569, ptr noundef %571, ptr noundef nonnull %573)
           to label %576 unwind label %593
 

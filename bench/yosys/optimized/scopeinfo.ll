@@ -731,7 +731,7 @@ define void @_ZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEv(ptr noundef 
   br i1 %.not.i.i.i, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 1))
+  %37 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 1))
           to label %38 unwind label %43, !noalias !17
 
 38:                                               ; preds = %36
@@ -1127,7 +1127,7 @@ _ZN5Yosys6IdTreeINS_10ModuleItemEE6Cursor5entryEv.exit: ; preds = %66
   br i1 %.not.i36, label %83, label %79
 
 79:                                               ; preds = %77
-  %80 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 1))
+  %80 = invoke noundef i32 @_ZN5Yosys5RTLIL8IdString13get_referenceEPKc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 1))
           to label %81 unwind label %87, !noalias !21
 
 81:                                               ; preds = %79

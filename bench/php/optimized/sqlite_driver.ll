@@ -328,7 +328,7 @@ define hidden void @pdo_sqlite_create_function_internal(ptr noundef %0, ptr noca
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %57) #11
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %59 = icmp ne ptr %58, null
   call void @llvm.assume(i1 %59)
   br label %94
@@ -540,7 +540,7 @@ define hidden void @pdo_sqlite_create_aggregate_internal(ptr noundef %0, ptr noc
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %53) #11
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %55 = icmp ne ptr %54, null
   call void @llvm.assume(i1 %55)
   br label %98
@@ -719,7 +719,7 @@ define hidden void @pdo_sqlite_create_collation_internal(ptr noundef %0, ptr noc
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %38) #11
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
   br label %69
@@ -765,7 +765,7 @@ define hidden void @pdo_sqlite_create_collation_internal(ptr noundef %0, ptr noc
   br label %69
 
 65:                                               ; preds = %41
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not124 = icmp eq ptr %66, null
   br i1 %.not124, label %67, label %69
 
@@ -949,7 +949,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_handle_factory(ptr noundef initi
 
 pdo_attr_lval.exit:                               ; preds = %25, %26, %33, %35
   %.0.i = phi i64 [ %34, %33 ], [ %36, %35 ], [ 6, %26 ], [ 6, %25 ]
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   %.not33 = icmp eq ptr %37, null
   br i1 %.not33, label %40, label %38
 
@@ -975,7 +975,7 @@ pdo_attr_lval.exit:                               ; preds = %25, %26, %33, %35
   br label %74
 
 47:                                               ; preds = %42
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   %.not36 = icmp eq ptr %48, null
   br i1 %.not36, label %54, label %49
 
@@ -1103,7 +1103,7 @@ define internal fastcc void @do_callback(ptr noundef initializes((0, 20), (24, 3
   store i32 26, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr @executor_globals, align 8
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 8), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 8), align 8
   store ptr %33, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 %34, ptr %35, align 8
@@ -1412,7 +1412,7 @@ define internal fastcc ptr @make_filename_safe(ptr noundef %0) unnamed_addr #0 {
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8
   %.not21 = icmp eq ptr %8, null
   br i1 %.not21, label %11, label %9
 

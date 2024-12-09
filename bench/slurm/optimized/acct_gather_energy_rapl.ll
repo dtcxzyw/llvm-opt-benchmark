@@ -209,7 +209,7 @@ define void @acct_gather_energy_p_conf_set(i32 %0, ptr nocapture readnone %1) lo
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.preheader.i
   %44 = call i32 @fclose(ptr noundef nonnull %12)
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %46 = and i64 %45, 262144
   %.not2.i = icmp eq i64 %46, 0
   br i1 %.not2.i, label %_hardware.exit, label %47
@@ -406,7 +406,7 @@ _read_msr.exit:                                   ; preds = %27, %29, %32
   %36 = uitofp nneg i64 %35 to double
   %mul = fneg double %36
   %exp2 = tail call double @exp2(double %mul) #10
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %38 = and i64 %37, 262144
   %.not = icmp eq i64 %38, 0
   br i1 %.not, label %66, label %39
@@ -542,7 +542,7 @@ _get_package_energy.exit:                         ; preds = %_read_msr.exit.i, %
   br i1 %.b.i.i, label %_read_msr.exit.i53, label %101
 
 101:                                              ; preds = %100
-  %102 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %103 = and i64 %102, 262144
   %.not5.i.i = icmp eq i64 %103, 0
   br i1 %.not5.i.i, label %_read_msr.exit.i53, label %104
@@ -590,7 +590,7 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i53,
   %.040.lcssa = phi i64 [ 0, %66 ], [ %121, %_get_dram_energy.exit ]
   %125 = uitofp i64 %.040.lcssa to double
   %126 = fmul double %exp2, %125
-  %127 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %127 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %128 = and i64 %127, 262144
   %.not45 = icmp eq i64 %128, 0
   br i1 %.not45, label %133, label %129
@@ -669,7 +669,7 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i53,
   %169 = tail call i64 @time(ptr noundef null) #10
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %169, ptr %170, align 8
-  %171 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %171 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %172 = and i64 %171, 262144
   %.not48 = icmp eq i64 %172, 0
   br i1 %.not48, label %182, label %173
@@ -817,7 +817,7 @@ _running_profile.exit.i:                          ; preds = %9, %5
   br i1 %.b1.i.pr.i, label %13, label %_send_profile.exit
 
 13:                                               ; preds = %_running_profile.exit.i, %_running_profile.exit.thread.i
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %15 = and i64 %14, 262144
   %.not1.i = icmp eq i64 %15, 0
   br i1 %.not1.i, label %23, label %16
@@ -842,7 +842,7 @@ _running_profile.exit.i:                          ; preds = %9, %5
 26:                                               ; preds = %23
   %27 = call i32 @acct_gather_profile_g_create_dataset(ptr noundef nonnull @.str.15, i64 noundef -1, ptr noundef nonnull %4) #10
   store i32 %27, ptr @dataset_id, align 4
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %29 = and i64 %28, 262144
   %.not2.i = icmp eq i64 %29, 0
   br i1 %.not2.i, label %35, label %30
@@ -876,7 +876,7 @@ thread-pre-split.i:                               ; preds = %33, %30
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   store i64 %44, ptr %3, align 8
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %46 = and i64 %45, 2097152
   %.not3.i = icmp eq i64 %46, 0
   br i1 %.not3.i, label %53, label %47

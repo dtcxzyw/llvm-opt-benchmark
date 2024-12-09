@@ -130,12 +130,12 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN2cv8saliency30StaticSaliencySpectralResidualC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds inrange(-88, 72) (i8, ptr @_ZTCN2cv8saliency30StaticSaliencySpectralResidualE16_NS0_8SaliencyE, i64 88), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-72, 64) (i8, ptr @_ZTCN2cv8saliency30StaticSaliencySpectralResidualE16_NS0_8SaliencyE, i64 232), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-88, 72) (i8, ptr @_ZTCN2cv8saliency30StaticSaliencySpectralResidualE16_NS0_8SaliencyE, i64 88), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-72, 64) (i8, ptr @_ZTCN2cv8saliency30StaticSaliencySpectralResidualE16_NS0_8SaliencyE, i64 232), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  store ptr getelementptr inbounds inrange(-88, 72) (i8, ptr @_ZTVN2cv8saliency30StaticSaliencySpectralResidualE, i64 248), ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-88, 72) (i8, ptr @_ZTVN2cv8saliency30StaticSaliencySpectralResidualE, i64 88), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-88, 72) (i8, ptr @_ZTVN2cv8saliency30StaticSaliencySpectralResidualE, i64 248), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-88, 72) (i8, ptr @_ZTVN2cv8saliency30StaticSaliencySpectralResidualE, i64 88), ptr %0, align 8
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str)
           to label %5 unwind label %8
 
@@ -149,7 +149,7 @@ define void @_ZN2cv8saliency30StaticSaliencySpectralResidualC1Ev(ptr noundef non
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
+  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   resume { ptr, i32 } %9
 }
@@ -170,7 +170,7 @@ define void @_ZN2cv8saliency30StaticSaliencySpectralResidualD2Ev(ptr nocapture n
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv8saliency30StaticSaliencySpectralResidualD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
+  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   ret void
 }
@@ -182,7 +182,7 @@ define void @_ZTv0_n24_N2cv8saliency30StaticSaliencySpectralResidualD1Ev(ptr nou
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
+  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   ret void
 }
@@ -190,7 +190,7 @@ define void @_ZTv0_n24_N2cv8saliency30StaticSaliencySpectralResidualD1Ev(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv8saliency30StaticSaliencySpectralResidualD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
+  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
@@ -206,7 +206,7 @@ define void @_ZTv0_n24_N2cv8saliency30StaticSaliencySpectralResidualD0Ev(ptr nou
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
+  tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv8saliency30StaticSaliencySpectralResidualE, i64 48)) #17
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   ret void

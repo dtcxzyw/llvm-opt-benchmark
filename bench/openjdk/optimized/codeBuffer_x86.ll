@@ -49,9 +49,9 @@ define linkonce_odr hidden noundef zeroext i1 @_Z27emit_shared_stubs_to_interpI1
 
 _ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit: ; preds = %6, %10
   call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef %0) #3
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %3, align 8
   %13 = load i32, ptr %1, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.loopexit
@@ -89,7 +89,7 @@ _ZN17GrowableArrayViewI25SharedStubToInterpRequestE4sortEPFiPS0_S2_E.exit: ; pre
   %34 = getelementptr inbounds i8, ptr %30, i64 %33
   store ptr null, ptr %16, align 8, !alias.scope !6
   store i32 5, ptr %17, align 8, !alias.scope !6
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr %4, align 8, !alias.scope !6
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr %4, align 8, !alias.scope !6
   store ptr %34, ptr %18, align 8, !alias.scope !6
   %35 = load ptr, ptr %19, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16

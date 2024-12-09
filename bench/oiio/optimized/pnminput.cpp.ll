@@ -116,7 +116,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_08PNMInputE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18OpenImageIO_v2_6_08PNMInputE, i64 16), ptr %call, align 8
   %m_file_contents.i = getelementptr inbounds nuw i8, ptr %call, i64 200
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_file_contents.i) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_file_contents.i, i8 0, i64 56, i1 false)

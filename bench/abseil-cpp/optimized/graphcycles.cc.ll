@@ -451,7 +451,7 @@ invoke.cont8:                                     ; preds = %invoke.cont8.loopex
 do.body:                                          ; preds = %invoke.cont8
   %11 = trunc nuw i64 %indvars.iv74 to i32
   %12 = inttoptr i64 %xor.i to ptr
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 391, ptr noundef nonnull @.str.1, i32 noundef %11, ptr noundef nonnull %12)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 391, ptr noundef nonnull @.str.1, i32 noundef %11, ptr noundef nonnull %12)
           to label %do.body12 unwind label %lpad.loopexit.split-lp
 
 do.body12:                                        ; preds = %do.body
@@ -486,7 +486,7 @@ do.body16.invoke:                                 ; preds = %do.body28, %do.body
   %15 = phi i32 [ 394, %do.body16 ], [ 397, %do.body28 ]
   %16 = phi ptr [ @.str.2, %do.body16 ], [ @.str.3, %do.body28 ]
   %17 = phi i32 [ %14, %do.body16 ], [ %20, %do.body28 ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef %15, ptr noundef nonnull %16, i32 noundef %17)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef %15, ptr noundef nonnull %16, i32 noundef %17)
           to label %do.body16.cont unwind label %lpad.loopexit.split-lp
 
 do.body16.cont:                                   ; preds = %do.body16.invoke
@@ -543,7 +543,7 @@ for.body41:                                       ; preds = %while.body.i
 
 do.body49:                                        ; preds = %for.body41
   %27 = trunc nuw i64 %indvars.iv74 to i32
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 129), i32 noundef 405, ptr noundef nonnull @.str.4, i32 noundef %27, i32 noundef %22, i32 noundef %25, i32 noundef %26)
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 405, ptr noundef nonnull @.str.4, i32 noundef %27, i32 noundef %22, i32 noundef %25, i32 noundef %26)
           to label %do.body54 unwind label %lpad.loopexit.split-lp
 
 do.body54:                                        ; preds = %do.body49

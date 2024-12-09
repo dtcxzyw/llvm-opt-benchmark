@@ -194,7 +194,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %_ZN8LightGBM17LinearTreeLearnerC2EPKNS_6ConfigE.exit unwind label %62
 
 _ZN8LightGBM17LinearTreeLearnerC2EPKNS_6ConfigE.exit: ; preds = %54
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM17LinearTreeLearnerE, i64 16), ptr %55, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM17LinearTreeLearnerE, i64 16), ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 536
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 568
@@ -457,7 +457,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %.noexc unwind label %149
 
 .noexc:                                           ; preds = %141
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM14GPUTreeLearnerE, i64 16), ptr %142, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM14GPUTreeLearnerE, i64 16), ptr %142, align 8
   invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.9)
           to label %_ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit unwind label %143
 
@@ -722,7 +722,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %.noexc52 unwind label %236
 
 .noexc52:                                         ; preds = %228
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM24CUDASingleGPUTreeLearnerE, i64 16), ptr %229, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM24CUDASingleGPUTreeLearnerE, i64 16), ptr %229, align 8
   invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.12)
           to label %_ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit unwind label %230
 

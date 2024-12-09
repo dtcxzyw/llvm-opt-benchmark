@@ -347,7 +347,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
 _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit114: ; preds = %43, %45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %50 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr @.str.4, ptr %51, align 8
   %52 = ptrtoint ptr %50 to i64
@@ -506,7 +506,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @_Z11gmx_solvateiPPc)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %106 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %106, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr @.str.15, ptr %107, align 8
   %108 = ptrtoint ptr %106 to i64
@@ -552,7 +552,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @_Z7gmx_bariPPc)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %117 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr @.str.46, ptr %118, align 8
   %119 = ptrtoint ptr %117 to i64
@@ -583,7 +583,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %128 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %128, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store ptr @.str.47, ptr %129, align 8
   %130 = ptrtoint ptr %128 to i64
@@ -614,7 +614,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %139 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %139, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store ptr @.str.48, ptr %140, align 8
   %141 = ptrtoint ptr %139 to i64
@@ -645,7 +645,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   %150 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %150, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store ptr @.str.49, ptr %151, align 8
   %152 = ptrtoint ptr %150 to i64

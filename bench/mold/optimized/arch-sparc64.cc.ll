@@ -316,13 +316,13 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store i32 3, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, align 16
-  store i32 26672, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 4), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 8), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 12), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 16), align 16
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 20), align 4
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 24), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 28), align 4
+  store i32 26672, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 4), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 12), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 16), align 16
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 20), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 24), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 28), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf15write_plt_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn) #20
   br label %init.end
 
@@ -420,13 +420,13 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store i32 251662474, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, align 16
-  store i32 33554496, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 4), align 4
-  store i32 350247874, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 8), align 8
-  store i32 29383618, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 12), align 4
-  store i32 4243585, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 16), align 16
-  store i32 83890334, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 20), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 28), align 4
+  store i32 33554496, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 4), align 4
+  store i32 350247874, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 8), align 8
+  store i32 29383618, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 12), align 4
+  store i32 4243585, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 16), align 16
+  store i32 83890334, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry, i64 28), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf18write_pltgot_entryINS0_7SPARC64EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE5entry) #20
   br label %init.end
 
@@ -3435,11 +3435,11 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   store i32 3, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, align 16
-  store i32 6295682, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 4), align 4
-  store i32 29368706, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 8), align 8
-  store i32 136338128, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 12), align 4
-  store i32 148947841, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 16), align 16
-  store i32 138412176, ptr getelementptr inbounds (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 20), align 4
+  store i32 6295682, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 4), align 4
+  store i32 29368706, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 8), align 8
+  store i32 136338128, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 12), align 4
+  store i32 148947841, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 16), align 16
+  store i32 138412176, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn, i64 20), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4mold3elf22SparcTlsGetAddrSection8copy_bufERNS0_7ContextINS0_7SPARC64EEEE4insn) #20
   br label %init.end
 
@@ -3474,7 +3474,7 @@ init.end:                                         ; preds = %init, %init.check, 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf22SparcTlsGetAddrSectionD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3501,7 +3501,7 @@ _ZN4mold3elf5ChunkINS0_7SPARC64EED2Ev.exit:       ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf22SparcTlsGetAddrSectionD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i64 16), ptr %this, align 8
   %relr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -3666,7 +3666,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf5ChunkINS0_7SPARC64EED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i64 16), ptr %this, align 8
   %relr = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3693,7 +3693,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold3elf5ChunkINS0_7SPARC64EED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4mold3elf5ChunkINS0_7SPARC64EEE, i64 16), ptr %this, align 8
   %relr.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %relr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

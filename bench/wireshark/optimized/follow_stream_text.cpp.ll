@@ -70,9 +70,9 @@ define void @_ZN16FollowStreamTextC2EP7QWidget(ptr noundef nonnull align 8 deref
   %3 = alloca %class.QFont, align 8
   %4 = alloca %class.QColor, align 4
   tail call void @_ZN14QPlainTextEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16FollowStreamText, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16FollowStreamText, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16FollowStreamText, i64 528), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16FollowStreamText, i64 528), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -586,7 +586,7 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %53
   br i1 %2, label %68, label %91
 
 68:                                               ; preds = %67
-  %.sroa.06.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 24), align 8
+  %.sroa.06.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 24), align 8
   %69 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.06.0.copyload)
           to label %70 unwind label %61
 
@@ -618,7 +618,7 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %53
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #14
-  %.sroa.04.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 30), align 2
+  %.sroa.04.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 30), align 2
   %78 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.04.0.copyload)
           to label %79 unwind label %61
 
@@ -672,7 +672,7 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %53
   br label %128
 
 91:                                               ; preds = %67
-  %.sroa.02.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 12), align 4
+  %.sroa.02.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 12), align 4
   %92 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.02.0.copyload)
           to label %93 unwind label %61
 
@@ -704,7 +704,7 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %53
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #14
-  %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds (i8, ptr @prefs, i64 18), align 2
+  %.sroa.0.0.copyload = load i48, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 18), align 2
   %101 = invoke { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48 %.sroa.0.0.copyload)
           to label %102 unwind label %61
 

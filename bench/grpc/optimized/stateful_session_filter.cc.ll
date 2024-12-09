@@ -564,7 +564,7 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::StatefulSessionFilter", align 8
   call void @_ZN9grpc_core21StatefulSessionFilterC1ENS_13ChannelFilter4ArgsE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr %filter_args.coerce0, ptr %filter_args.coerce1)
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %1, align 8
   %event_engine_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %event_engine_2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %event_engine_2.i.i.i.i.i, align 8
@@ -577,7 +577,7 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont.thread, label %if.then.i.i.i.i.i.i.i.i
 
 invoke.cont.thread:                               ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %1, align 8
   %index_.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %index_2.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index_.i.i.i.i1, ptr noundef nonnull align 8 dereferenceable(16) %index_2.i.i.i.i2, i64 16, i1 false)
@@ -602,12 +602,12 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %.pr = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %1, align 8
   %index_.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %index_2.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %index_2.i.i.i.i, i64 16, i1 false)
   store i64 0, ptr %agg.result, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN9grpc_core21StatefulSessionFilterD2Ev.exit, label %if.then.i.i.i.i.i
 
@@ -689,7 +689,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core21StatefulSessionFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -770,10 +770,10 @@ _ZN9grpc_core13ChannelFilterD2Ev.exit:            ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core21StatefulSessionFilterC2ENS_13ChannelFilter4ArgsE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr %filter_args.coerce0, ptr %filter_args.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %event_engine_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %event_engine_.i, ptr nonnull @.str.9, i32 76)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %this, align 8
   %call5 = invoke noundef i64 @_Z41grpc_channel_stack_filter_instance_numberP18grpc_channel_stackP20grpc_channel_element(ptr noundef %filter_args.coerce0, ptr noundef %filter_args.coerce1)
           to label %invoke.cont4 unwind label %lpad
 
@@ -1694,9 +1694,9 @@ _ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_24XdsOverrideHostAttributeEEEJRS
   %retval.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i.i.i ], [ %call4.i.i.i58, %if.else.i.i.i ]
   %next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_24XdsOverrideHostAttributeEEE, i64 16), ptr %retval.0.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_24XdsOverrideHostAttributeEEE, i64 16), ptr %retval.0.i.i.i, align 8
   %t.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %t.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %t.i.i.i.i, align 8
   %cookie_address_list_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 24
   store i64 %78, ptr %cookie_address_list_.i.i.i.i.i, align 8
   %cookie_address_list.sroa.2.0.cookie_address_list_.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 32
@@ -1997,7 +1997,7 @@ invoke.cont60:                                    ; preds = %if.then.i.i.i.i.i, 
   %retval.0.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call4.i.i.i.i.i117, %if.else.i.i.i.i.i ]
   %next_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21StatefulSessionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_0ZNS6_10PrependMapISF_EEvT_NS_13DebugLocationEEUlvE_EE", i64 16), ptr %retval.0.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21StatefulSessionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_0ZNS6_10PrependMapISF_EEvT_NS_13DebugLocationEEUlvE_EE", i64 16), ptr %retval.0.i.i.i.i.i, align 8
   %fn_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i, i64 16
   store ptr %add.ptr.i.i21, ptr %fn_.i.i.i.i.i.i, align 8
   %agg.tmp56111.sroa.4.0.fn_.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i, i64 24
@@ -2346,7 +2346,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core21StatefulSessionFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -2434,7 +2434,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -2480,7 +2480,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core13ChannelFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -3830,9 +3830,9 @@ entry:
   %call_data = getelementptr inbounds nuw i8, ptr %elem, i64 16
   %0 = load ptr, ptr %call_data, align 8
   tail call void @_ZN9grpc_core21promise_filter_detail14ClientCallDataC2EP17grpc_call_elementPK22grpc_call_element_argsh(ptr noundef nonnull align 16 dereferenceable(272) %0, ptr noundef %elem, ptr noundef %args, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i64 16), ptr %0, align 16
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i64 160), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE0EEE, i64 160), ptr %add.ptr.i, align 8
   store i64 0, ptr %agg.result, align 8, !alias.scope !54
   ret void
 }
@@ -3956,7 +3956,7 @@ do.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
   call void @_ZN9grpc_core21StatefulSessionFilterC1ENS_13ChannelFilter4ArgsE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i, ptr %1, ptr %elem), !noalias !57
   %2 = getelementptr inbounds nuw i8, ptr %status, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %2, align 8, !alias.scope !57
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %2, align 8, !alias.scope !57
   %event_engine_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %status, i64 16
   %event_engine_2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %3 = load ptr, ptr %event_engine_2.i.i.i.i.i.i, align 8, !noalias !57
@@ -3969,7 +3969,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont.thread.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 invoke.cont.thread.i:                             ; preds = %do.end
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %2, align 8, !alias.scope !57
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %2, align 8, !alias.scope !57
   %index_.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %status, i64 32
   %index_2.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index_.i.i.i.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %index_2.i.i.i.i2.i, i64 16, i1 false)
@@ -3994,12 +3994,12 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %.pr.i = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !57
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %2, align 8, !alias.scope !57
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %2, align 8, !alias.scope !57
   %index_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %status, i64 32
   %index_2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %index_2.i.i.i.i.i, i64 16, i1 false)
   store i64 0, ptr %status, align 8, !alias.scope !57
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp.i, align 8, !noalias !57
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %ref.tmp.i, align 8, !noalias !57
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.thread, label %if.then.i.i.i.i.i.i
 
@@ -4086,13 +4086,13 @@ if.then1:                                         ; preds = %invoke.cont
   %18 = load ptr, ptr %channel_data, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %18, align 8
   %event_engine_.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   invoke void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %event_engine_.i.i, ptr nonnull @.str.9, i32 76)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.then1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE, i64 16), ptr %18, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE, i64 16), ptr %18, align 8
   store i64 %.pr, ptr %agg.tmp3, align 8
   %and.i.i.i = and i64 %.pr, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
@@ -4139,7 +4139,7 @@ lpad7:                                            ; preds = %invoke.cont6
 invoke.cont11:                                    ; preds = %invoke.cont.thread, %invoke.cont
   %channel_data10 = getelementptr inbounds nuw i8, ptr %elem, i64 8
   %27 = load ptr, ptr %channel_data10, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %27, align 8
   %event_engine_.i.i11 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %28 = load ptr, ptr %event_engine_.i.i.i.i.i.i, align 8
   store ptr %28, ptr %event_engine_.i.i11, align 8
@@ -4162,7 +4162,7 @@ if.then.i.i.i.i.i.i.i12:                          ; preds = %if.then.i.i.i.i.i
   br label %cleanup.thread49
 
 cleanup.thread49:                                 ; preds = %invoke.cont11, %if.then.i.i.i.i.i.i.i12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %27, align 8
   %index_.i51 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %index_2.i52 = getelementptr inbounds nuw i8, ptr %status, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index_.i51, ptr noundef nonnull align 8 dereferenceable(16) %index_2.i52, i64 16, i1 false)
@@ -4172,7 +4172,7 @@ cleanup.thread49:                                 ; preds = %invoke.cont11, %if.
 cleanup:                                          ; preds = %if.then.i.i.i.i.i
   %32 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %.pre.pre = load i64, ptr %status, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core21StatefulSessionFilterE, i64 16), ptr %27, align 8
   %index_.i = getelementptr inbounds nuw i8, ptr %27, i64 24
   %index_2.i = getelementptr inbounds nuw i8, ptr %status, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index_.i, ptr noundef nonnull align 8 dereferenceable(16) %index_2.i, i64 16, i1 false)
@@ -4181,7 +4181,7 @@ cleanup:                                          ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i13, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %cleanup.thread49, %cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %2, align 8
   %33 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i14 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i.i.i14, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core21StatefulSessionFilterEED2Ev.exit, label %if.then.i.i.i.i.i.i15
@@ -4453,7 +4453,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -4534,7 +4534,7 @@ _ZN9grpc_core13ChannelFilterD2Ev.exit:            ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -4624,7 +4624,7 @@ entry:
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %entry
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %1, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %1, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
@@ -4910,9 +4910,9 @@ declare void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_24XdsOverrideHostAttributeEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_24XdsOverrideHostAttributeEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_24XdsOverrideHostAttributeEEE, i64 16), ptr %this, align 8
   %t = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %t, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %t, align 8
   %actual_address_list_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %actual_address_list_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -4941,9 +4941,9 @@ _ZN9grpc_core24XdsOverrideHostAttributeD2Ev.exit: ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_24XdsOverrideHostAttributeEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_24XdsOverrideHostAttributeEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core5Arena14ManagedNewImplINS_24XdsOverrideHostAttributeEEE, i64 16), ptr %this, align 8
   %t.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %t.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %t.i, align 8
   %actual_address_list_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %actual_address_list_.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -4973,7 +4973,7 @@ _ZN9grpc_core5Arena14ManagedNewImplINS_24XdsOverrideHostAttributeEED2Ev.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core24XdsOverrideHostAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %this, align 8
   %actual_address_list_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %actual_address_list_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5002,7 +5002,7 @@ _ZN9grpc_core21RefCountedStringValueD2Ev.exit:    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core24XdsOverrideHostAttributeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core24XdsOverrideHostAttributeE, i64 16), ptr %this, align 8
   %actual_address_list_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %actual_address_list_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

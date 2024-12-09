@@ -91,7 +91,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_Z15grpc_iomgr_initv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %closure_list_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
@@ -118,7 +118,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i: ; preds
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %2, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i
   %5 = phi ptr [ %0, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.thread.i.i.i ], [ %3, %2 ]
   store ptr %time_cache_.i, ptr %5, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 16), ptr %time_cache_.i, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
@@ -151,7 +151,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i, %invok
 lpad.i:                                           ; preds = %10, %if.then.i.i, %6
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %12 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i, label %13
 
@@ -199,8 +199,8 @@ invoke.cont3:                                     ; preds = %invoke.cont2
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  store ptr @_ZL13g_root_object, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 16), align 8
-  store ptr @_ZL13g_root_object, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  store ptr @_ZL13g_root_object, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 16), align 8
+  store ptr @_ZL13g_root_object, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   store ptr @.str, ptr @_ZL13g_root_object, align 8
   invoke void @_Z24grpc_iomgr_platform_initv()
           to label %invoke.cont5 unwind label %lpad
@@ -210,7 +210,7 @@ invoke.cont5:                                     ; preds = %invoke.cont4
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %16 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %16, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -242,7 +242,7 @@ if.then.i.i11:                                    ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i11, %if.then.i, %invoke.cont2.i5
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %21 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 %.not.i.i.i.i, label %_ZN9grpc_core7ExecCtxD2Ev.exit, label %22
 
@@ -282,7 +282,7 @@ declare void @_Z20grpc_timer_list_initv() local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %this, align 8
   %flags_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_, align 8
   %or = or i64 %0, 1
@@ -319,7 +319,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then, %if.then.i, %invoke.cont2
   %time_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_, align 8
   %previous_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load ptr, ptr %previous_.i.i, align 8
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
@@ -355,7 +355,7 @@ declare void @_Z23grpc_timer_manager_initv() local_unnamed_addr #0
 define noundef i64 @_Z36grpc_iomgr_count_objects_for_testingv() local_unnamed_addr #5 {
 entry:
   tail call void @gpr_mu_lock(ptr noundef nonnull @_ZL4g_mu)
-  %obj.03.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  %obj.03.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp.not4.i = icmp eq ptr %obj.03.i, @_ZL13g_root_object
   br i1 %cmp.not4.i, label %_ZL13count_objectsv.exit, label %for.body.i
 
@@ -379,7 +379,7 @@ declare void @gpr_mu_lock(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef i64 @_ZL13count_objectsv() unnamed_addr #6 {
 entry:
-  %obj.03 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  %obj.03 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp.not4 = icmp eq ptr %obj.03, @_ZL13g_root_object
   br i1 %cmp.not4, label %for.end, label %for.body
 
@@ -415,7 +415,7 @@ entry:
   tail call void @_Z27grpc_timer_manager_shutdownv()
   tail call void @_Z25grpc_iomgr_platform_flushv()
   tail call void @gpr_mu_lock(ptr noundef nonnull @_ZL4g_mu)
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp.not22 = icmp eq ptr %6, @_ZL13g_root_object
   br i1 %cmp.not22, label %while.end, label %while.body.lr.ph
 
@@ -443,7 +443,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp13, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %while.body
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp14.not = icmp eq ptr %16, @_ZL13g_root_object
   br i1 %cmp14.not, label %if.end, label %for.body.i
 
@@ -509,12 +509,12 @@ _ZN9grpc_core7ExecCtx3GetEv.exit2:                ; preds = %if.then22, %22
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then39, %if.end31, %_ZN9grpc_core7ExecCtx3GetEv.exit2
-  %.pr = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp.not = icmp eq ptr %.pr, @_ZL13g_root_object
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !6
 
 if.end25:                                         ; preds = %_ZN9grpc_core7ExecCtx19SetNowIomgrShutdownEv.exit
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp26.not = icmp eq ptr %24, @_ZL13g_root_object
   br i1 %cmp26.not, label %while.end, label %if.then27
 
@@ -565,7 +565,7 @@ if.then39:                                        ; preds = %if.end31
   br i1 %cmp44, label %if.then45, label %while.cond.backedge
 
 if.then45:                                        ; preds = %if.then39
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp46.not = icmp eq ptr %35, @_ZL13g_root_object
   br i1 %cmp46.not, label %while.end, label %for.body.i5
 
@@ -580,7 +580,7 @@ for.body.i5:                                      ; preds = %if.then45, %for.bod
 
 _ZL13count_objectsv.exit13:                       ; preds = %for.body.i5
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 137, i32 noundef 0, ptr noundef nonnull @.str.3, i64 noundef %inc.i8)
-  %obj.01.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  %obj.01.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp.not2.i = icmp eq ptr %obj.01.i, @_ZL13g_root_object
   br i1 %cmp.not2.i, label %while.end, label %for.body.i14
 
@@ -659,7 +659,7 @@ _ZN9grpc_core10ConfigVars3GetEv.exit:             ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL12dump_objectsPKc() unnamed_addr #5 {
 entry:
-  %obj.01 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 8), align 8
+  %obj.01 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8
   %cmp.not2 = icmp eq ptr %obj.01, @_ZL13g_root_object
   br i1 %cmp.not2, label %for.end, label %for.body
 
@@ -791,7 +791,7 @@ entry:
   tail call void @gpr_mu_lock(ptr noundef nonnull @_ZL4g_mu)
   %next = getelementptr inbounds nuw i8, ptr %obj, i64 8
   store ptr @_ZL13g_root_object, ptr %next, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL13g_root_object, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 16), align 8
   %prev = getelementptr inbounds nuw i8, ptr %obj, i64 16
   store ptr %0, ptr %prev, align 8
   %next3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -832,7 +832,7 @@ declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %this, align 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %0, 1
@@ -869,7 +869,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %invoke.cont2.i
   %time_cache_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %time_cache_.i, align 8
   %previous_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load ptr, ptr %previous_.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null

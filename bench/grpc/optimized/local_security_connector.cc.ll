@@ -264,7 +264,7 @@ if.then.i.i6.i.i:                                 ; preds = %if.then.i3.i.i
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit.i.i
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit.i.i: ; preds = %if.then.i.i6.i.i, %if.then.i3.i.i, %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_137grpc_local_channel_security_connectorE, i64 16), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_137grpc_local_channel_security_connectorE, i64 16), ptr %call.i, align 8, !noalias !4
   %call.i.i13 = invoke ptr @gpr_strdup(ptr noundef nonnull %target_name)
           to label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_137grpc_local_channel_security_connectorEED2Ev.exit unwind label %lpad4.i.i, !noalias !4
 
@@ -400,7 +400,7 @@ _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit9.i: ; preds = %
   resume { ptr, i32 } %4
 
 _ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_136grpc_local_server_security_connectorEED2Ev.exit: ; preds = %if.then.i.i.i.i, %if.then.i.i.i, %invoke.cont.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_136grpc_local_server_security_connectorE, i64 16), ptr %call.i, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_136grpc_local_server_security_connectorE, i64 16), ptr %call.i, align 8, !noalias !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i), !noalias !7
   br label %return
 
@@ -419,7 +419,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -459,7 +459,7 @@ declare ptr @gpr_strdup(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN31grpc_channel_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV31grpc_channel_security_connector, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV31grpc_channel_security_connector, i64 16), ptr %this, align 8
   %channel_args_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %channel_args_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -521,7 +521,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV31grpc_channel_security_connector, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV31grpc_channel_security_connector, i64 16), ptr %this, align 8
   %channel_args_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %channel_args_.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -590,7 +590,7 @@ entry:
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV31grpc_channel_security_connector, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV31grpc_channel_security_connector, i64 16), ptr %this, align 8
   %channel_args_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %channel_args_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -1819,7 +1819,7 @@ declare void @_ZN30grpc_server_security_connectorC2ESt17basic_string_viewIcSt11c
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_136grpc_local_server_security_connectorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30grpc_server_security_connector, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30grpc_server_security_connector, i64 16), ptr %this, align 8
   %server_creds_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %server_creds_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1845,7 +1845,7 @@ _ZN30grpc_server_security_connectorD2Ev.exit:     ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_136grpc_local_server_security_connectorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV30grpc_server_security_connector, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30grpc_server_security_connector, i64 16), ptr %this, align 8
   %server_creds_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %server_creds_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null

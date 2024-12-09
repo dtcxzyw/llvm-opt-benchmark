@@ -114,7 +114,7 @@ define dso_local ptr @native_create_pci_msi_domain() local_unnamed_addr #2 secti
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @x86_create_pci_msi_domain() local_unnamed_addr #3 section ".init.text" align 16 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @x86_init, i64 80), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_init, i64 80), align 8
   %2 = tail call ptr %1() #8
   store ptr %2, ptr @x86_pci_msi_default_domain, align 8
   ret void
@@ -369,7 +369,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   br label %99
 
 57:                                               ; preds = %49
-  %58 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #9, !srcloc !19
+  %58 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #9, !srcloc !19
   %59 = icmp eq i32 %58, %21
   br i1 %59, label %65, label %60, !prof !8
 

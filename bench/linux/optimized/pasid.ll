@@ -84,7 +84,7 @@ define dso_local noundef range(i32 -19, 1) i32 @intel_pasid_alloc_table(ptr noun
   br label %73
 
 19:                                               ; preds = %14
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %21 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 16) #9
   %22 = icmp eq ptr %21, null
   br i1 %22, label %73, label %23

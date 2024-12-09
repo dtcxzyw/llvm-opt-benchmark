@@ -116,7 +116,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7Imf_3_25ImageC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 56)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_25ImageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_25ImageE, i64 16), ptr %this, align 8
   %_dataWindow = getelementptr inbounds nuw i8, ptr %this, i64 8
   %max.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %_dataWindow, align 8
@@ -164,7 +164,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_25ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 24)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_25ImageE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_25ImageE, i64 16), ptr %this, align 8
   %_dataWindow.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %_dataWindow.i, align 8
   %y3.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 12

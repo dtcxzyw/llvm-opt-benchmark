@@ -243,7 +243,7 @@ define dso_local void @pg_send_history(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %37, label %21
 
 21:                                               ; preds = %19
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 420), align 4
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 420), align 4
   %23 = and i32 %22, 1
   %.not17 = icmp ne i32 %23, 0
   %24 = icmp eq i8 %20, 32
@@ -315,7 +315,7 @@ define dso_local void @initializeInput(i32 noundef %0) local_unnamed_addr #0 {
   store i1 true, ptr @useHistory, align 1
   tail call void @using_history() #8
   store i32 0, ptr @history_lines_added, align 4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 368), align 8
   %8 = tail call ptr @GetVariable(ptr noundef %7, ptr noundef nonnull @.str.4) #8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %16
@@ -458,7 +458,7 @@ define internal void @finishInput() #0 {
   br i1 %or.cond, label %3, label %45
 
 3:                                                ; preds = %0
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 396), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 396), align 4
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.11) #9
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %saveHistory.exit, label %6
@@ -580,7 +580,7 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
 
 5:                                                ; preds = %3
   %.not = icmp eq i16 %1, 0
-  %6 = select i1 %.not, ptr null, ptr getelementptr inbounds (i8, ptr @pset, i64 48)
+  %6 = select i1 %.not, ptr null, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 48)
   %7 = tail call ptr @PageOutput(i32 noundef 2147483647, ptr noundef %6) #8
   br label %12
 

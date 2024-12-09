@@ -111,7 +111,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not138 = icmp eq ptr %34, null
   br i1 %.not138, label %35, label %160
 
@@ -158,7 +158,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
   br i1 %cond, label %48, label %44
 
 48:                                               ; preds = %.critedge2
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not136 = icmp eq ptr %49, null
   br i1 %.not136, label %50, label %160
 
@@ -219,7 +219,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %65
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not134 = icmp eq ptr %69, null
   br i1 %.not134, label %70, label %160
 
@@ -265,7 +265,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
   br i1 %85, label %86, label %93
 
 86:                                               ; preds = %82
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not128 = icmp eq ptr %87, null
   br i1 %.not128, label %88, label %160
 
@@ -417,7 +417,7 @@ php_filter_parse_octal.exit:                      ; preds = %99, %144, %135, %.p
   br i1 %or.cond, label %.thread164, label %158
 
 .thread164:                                       ; preds = %.lr.ph.i, %.critedge.i, %.lr.ph.split.i, %131, %.lr.ph.split.us.i, %119, %114, %105, %75, %php_filter_parse_octal.exit
-  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not132 = icmp eq ptr %152, null
   br i1 %.not132, label %153, label %160
 
@@ -606,7 +606,7 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nocap
   br i1 %.not65, label %.thread, label %.thread63
 
 .thread63:                                        ; preds = %.critedge52, %14, %26, %24, %19, %28
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not50 = icmp eq ptr %30, null
   br i1 %.not50, label %31, label %37
 
@@ -672,7 +672,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
   br i1 %cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge2, %4
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not312 = icmp eq ptr %14, null
   br i1 %.not312, label %15, label %216
 
@@ -747,7 +747,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
 43:                                               ; preds = %38
   %44 = tail call ptr @get_active_function_name() #14
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.9, ptr noundef %44) #14
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not310 = icmp eq ptr %45, null
   br i1 %.not310, label %46, label %216
 
@@ -809,7 +809,7 @@ define hidden void @php_filter_float(ptr noundef %0, i64 noundef %1, ptr noundef
 71:                                               ; preds = %66
   %72 = tail call ptr @get_active_function_name() #14
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.11, ptr noundef %72) #14
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not308 = icmp eq ptr %73, null
   br i1 %.not308, label %74, label %216
 
@@ -1175,7 +1175,7 @@ switch.early.test:                                ; preds = %134
 
 .thread379:                                       ; preds = %172, %170, %167, %switch.early.test.us, %175, %203, %181, %200, %202, %184, %189, %.critedge11, %.split411.us
   call void @_efree(ptr noundef %104) #14
-  %208 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not306 = icmp eq ptr %208, null
   br i1 %.not306, label %209, label %216
 
@@ -1255,7 +1255,7 @@ define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, p
 19:                                               ; preds = %16, %4, %6
   %20 = tail call ptr @get_active_function_name() #14
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.15, ptr noundef %20) #14
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not52 = icmp eq ptr %21, null
   br i1 %.not52, label %22, label %61
 
@@ -1281,7 +1281,7 @@ define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, p
   br i1 %.not54, label %30, label %37
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not55 = icmp eq ptr %31, null
   br i1 %.not55, label %32, label %61
 
@@ -1307,7 +1307,7 @@ define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, p
   br i1 %.not57, label %40, label %47
 
 40:                                               ; preds = %37
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not58 = icmp eq ptr %41, null
   br i1 %.not58, label %42, label %61
 
@@ -1335,7 +1335,7 @@ define hidden void @php_filter_validate_regexp(ptr noundef %0, i64 noundef %1, p
   %53 = call i32 @php_pcre2_match(ptr noundef nonnull %29, ptr noundef nonnull %49, i64 noundef %51, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %39, ptr noundef %52) #14
   call void @php_pcre_free_match_data(ptr noundef nonnull %39) #14
   %54 = icmp slt i32 %53, 0
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not60 = icmp eq ptr %55, null
   %or.cond = select i1 %54, i1 %.not60, i1 false
   br i1 %or.cond, label %56, label %61
@@ -1377,7 +1377,7 @@ define hidden void @php_filter_validate_domain(ptr noundef %0, i64 noundef %1, p
   %8 = load i64, ptr %7, align 8
   %9 = tail call fastcc i32 @_php_filter_validate_domain(ptr noundef nonnull %6, i64 noundef %8, i64 noundef %1)
   %.not = icmp eq i32 %9, 0
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not7 = icmp eq ptr %10, null
   %or.cond = select i1 %.not, i1 %.not7, i1 false
   br i1 %or.cond, label %.sink.split, label %13
@@ -1552,7 +1552,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %.not100, label %20, label %14
 
 14:                                               ; preds = %10, %4
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not125 = icmp eq ptr %15, null
   br i1 %.not125, label %16, label %193
 
@@ -1577,7 +1577,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not123 = icmp eq ptr %25, null
   br i1 %.not123, label %26, label %193
 
@@ -1675,7 +1675,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
 
 70:                                               ; preds = %66
   tail call void @php_url_free(ptr noundef nonnull %22) #14
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not106 = icmp eq ptr %71, null
   br i1 %.not106, label %72, label %193
 
@@ -1754,7 +1754,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
 
 .critedge4:                                       ; preds = %82, %30, %85, %76, %89, %92, %98, %46
   tail call void @php_url_free(ptr noundef nonnull %22) #14
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not121 = icmp eq ptr %102, null
   br i1 %.not121, label %103, label %193
 
@@ -1916,7 +1916,7 @@ is_userinfo_valid.exit:                           ; preds = %143, %110, %107
 
 is_userinfo_valid.exit.thread:                    ; preds = %136, %129, %127, %176, %169, %167
   tail call void @php_url_free(ptr noundef nonnull %22) #14
-  %188 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not119 = icmp eq ptr %188, null
   br i1 %.not119, label %189, label %193
 
@@ -2295,7 +2295,7 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not109 = icmp eq ptr %11, null
   br i1 %.not109, label %12, label %68
 
@@ -2357,7 +2357,7 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
   br i1 %.not101, label %37, label %44
 
 37:                                               ; preds = %36
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not102 = icmp eq ptr %38, null
   br i1 %.not102, label %39, label %68
 
@@ -2383,7 +2383,7 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
   br i1 %.not104, label %47, label %54
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not105 = icmp eq ptr %48, null
   br i1 %.not105, label %49, label %68
 
@@ -2411,7 +2411,7 @@ define hidden void @php_filter_validate_email(ptr noundef %0, i64 noundef %1, pt
   %60 = call i32 @php_pcre2_match(ptr noundef nonnull %27, ptr noundef nonnull %56, i64 noundef %58, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %46, ptr noundef %59) #14
   call void @php_pcre_free_match_data(ptr noundef nonnull %46) #14
   %61 = icmp slt i32 %60, 0
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not107 = icmp eq ptr %62, null
   %or.cond = select i1 %61, i1 %.not107, i1 false
   br i1 %or.cond, label %63, label %68
@@ -2455,7 +2455,7 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not229, label %13, label %20
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not230 = icmp eq ptr %14, null
   br i1 %.not230, label %15, label %.thread
 
@@ -2488,7 +2488,7 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %or.cond, label %25, label %32
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not236 = icmp eq ptr %26, null
   br i1 %.not236, label %27, label %.thread
 
@@ -2512,7 +2512,7 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %or.cond3.not, label %40, label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not234 = icmp eq ptr %34, null
   br i1 %.not234, label %35, label %.thread
 
@@ -2610,7 +2610,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %66
   br i1 %.not286, label %79, label %_php_filter_validate_ipv4.exit.thread
 
 _php_filter_validate_ipv4.exit.thread:            ; preds = %43, %69, %70, %63, %45, %56, %_php_filter_validate_ipv4.exit
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not253 = icmp eq ptr %73, null
   br i1 %.not253, label %74, label %.thread
 
@@ -2657,7 +2657,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %43, %69, %70, %63, 
   br i1 %or.cond12, label %94, label %101
 
 94:                                               ; preds = %91, %85, %82
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not264 = icmp eq ptr %95, null
   br i1 %.not264, label %96, label %.thread
 
@@ -2702,7 +2702,7 @@ switch.early.test:                                ; preds = %103
   br i1 %or.cond21, label %111, label %118
 
 111:                                              ; preds = %switch.early.test, %switch.early.test, %103, %106
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not262 = icmp eq ptr %112, null
   br i1 %.not262, label %113, label %.thread
 
@@ -2761,13 +2761,13 @@ switch.early.test:                                ; preds = %103
   %or.cond54 = select i1 %138, i1 %125, i1 false
   %139 = icmp eq i32 %127, 113
   %or.cond57 = select i1 %or.cond54, i1 %139, i1 false
-  %140 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not260 = icmp eq ptr %140, null
   %or.cond272 = select i1 %or.cond57, i1 %.not260, i1 false
   br i1 %or.cond272, label %142, label %.thread
 
 141:                                              ; preds = %134, %130, %123, %119
-  %.old = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.old = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not260.old = icmp eq ptr %.old, null
   br i1 %.not260.old, label %142, label %.thread
 
@@ -2792,7 +2792,7 @@ switch.early.test:                                ; preds = %103
   br i1 %.not238.not, label %149, label %156
 
 149:                                              ; preds = %147
-  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not250 = icmp eq ptr %150, null
   br i1 %.not250, label %151, label %.thread
 
@@ -2825,7 +2825,7 @@ switch.early.test:                                ; preds = %103
   br i1 %or.cond60, label %162, label %169
 
 162:                                              ; preds = %159
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not248 = icmp eq ptr %163, null
   br i1 %.not248, label %164, label %.thread
 
@@ -2907,7 +2907,7 @@ switch.early.test:                                ; preds = %103
   br i1 %or.cond278, label %202, label %209
 
 202:                                              ; preds = %198, %196, %199, %195, %192
-  %203 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not246 = icmp eq ptr %203, null
   br i1 %.not246, label %204, label %.thread
 
@@ -2954,13 +2954,13 @@ switch.early.test:                                ; preds = %103
   %219 = and i32 %172, -512
   %or.cond144 = icmp eq i32 %219, 64512
   %or.cond280 = or i1 %or.cond144, %or.cond140
-  %220 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not244 = icmp eq ptr %220, null
   %or.cond282 = select i1 %or.cond280, i1 %.not244, i1 false
   br i1 %or.cond282, label %222, label %.thread
 
 221:                                              ; preds = %214, %212, %210
-  %.old281 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.old281 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not244.old = icmp eq ptr %.old281, null
   br i1 %.not244.old, label %222, label %.thread
 
@@ -3031,7 +3031,7 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
 27:                                               ; preds = %22
   %28 = tail call ptr @get_active_function_name() #14
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.22, ptr noundef %28) #14
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not87 = icmp eq ptr %29, null
   br i1 %.not87, label %30, label %.loopexit
 
@@ -3067,7 +3067,7 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
   ]
 
 .critedge:                                        ; preds = %36, %.thread93
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not77 = icmp eq ptr %39, null
   br i1 %.not77, label %40, label %.loopexit
 
@@ -3102,7 +3102,7 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %.not79, label %56, label %49
 
 49:                                               ; preds = %46
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not85 = icmp eq ptr %50, null
   br i1 %.not85, label %51, label %.loopexit
 
@@ -3145,7 +3145,7 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %.not80, label %75, label %68
 
 68:                                               ; preds = %65
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not83 = icmp eq ptr %69, null
   br i1 %.not83, label %70, label %.loopexit
 
@@ -3209,7 +3209,7 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %91, label %.lr.ph.i, label %php_filter_parse_hex.exit
 
 92:                                               ; preds = %83, %86
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not81 = icmp eq ptr %93, null
   br i1 %.not81, label %94, label %.loopexit
 

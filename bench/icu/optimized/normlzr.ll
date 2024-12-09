@@ -42,7 +42,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7510NormalizerC2ERKNS_13UnicodeStringE18UNormalizationMode(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(64) %str, i32 noundef %mode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
   %fFilteredNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fUMode = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fFilteredNorm2, i8 0, i64 16, i1 false)
@@ -65,7 +65,7 @@ invoke.cont3:                                     ; preds = %entry, %new.notnull
   %nextIndex = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %nextIndex, align 4
   %buffer = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %bufferPos = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -147,7 +147,7 @@ new.notnull:                                      ; preds = %delete.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %new.notnull
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %call2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %call2, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %4, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
@@ -190,7 +190,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_7510NormalizerC2ENS_14ConstChar16PtrEi18UNormalizationMode(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 32)) %this, ptr nocapture noundef readonly %str, i32 noundef %length, i32 noundef %mode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
   %fFilteredNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fUMode = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fFilteredNorm2, i8 0, i64 16, i1 false)
@@ -220,7 +220,7 @@ invoke.cont10:                                    ; preds = %entry, %cleanup.act
   %nextIndex = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %nextIndex, align 4
   %buffer = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %bufferPos = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -256,7 +256,7 @@ declare void @_ZN6icu_7522UCharCharacterIteratorC1ENS_14ConstChar16PtrEi(ptr nou
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7510NormalizerC2ERKNS_17CharacterIteratorE18UNormalizationMode(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(24) %iter, i32 noundef %mode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
   %fFilteredNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fUMode = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fFilteredNorm2, i8 0, i64 16, i1 false)
@@ -277,7 +277,7 @@ invoke.cont2:                                     ; preds = %entry
   %nextIndex = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %nextIndex, align 4
   %buffer = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %buffer, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %bufferPos = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -308,7 +308,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7510NormalizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(116) %copy) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
   %fFilteredNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %fUMode = getelementptr inbounds nuw i8, ptr %this, i64 24
   %fUMode2 = getelementptr inbounds nuw i8, ptr %copy, i64 24
@@ -382,7 +382,7 @@ declare noundef ptr @_ZN6icu_7518Normalizer2Factory15getNoopInstanceER10UErrorCo
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7510NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
   %fFilteredNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fFilteredNorm2, align 8
   %isnull = icmp eq ptr %0, null
@@ -595,7 +595,7 @@ if.then5:                                         ; preds = %if.then
   br label %if.end35
 
 if.else:                                          ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %localDest, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %localDest, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %localDest, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp.not = icmp eq ptr %source, %result
@@ -618,7 +618,7 @@ if.then15:                                        ; preds = %if.then13
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %if.then15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %ref.tmp, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr %call9, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
@@ -715,7 +715,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %call4 = tail call ptr @uniset_getUnicode32Instance_75(ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %ref.tmp, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr %call, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
@@ -763,7 +763,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %call4 = tail call ptr @uniset_getUnicode32Instance_75(ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %ref.tmp, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr %call, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
@@ -827,7 +827,7 @@ if.then8:                                         ; preds = %if.then
   br label %if.end40
 
 if.else:                                          ; preds = %lor.lhs.false
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %localDest, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %localDest, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %localDest, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp.not = icmp eq ptr %right, %result
@@ -854,7 +854,7 @@ if.then20:                                        ; preds = %if.then18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 16), ptr %ref.tmp, align 8
   %norm2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr %call14, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
@@ -1186,7 +1186,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %segment, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %segment, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %segment, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 16

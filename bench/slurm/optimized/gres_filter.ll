@@ -593,7 +593,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %144, %153, %135, %s
   %283 = getelementptr inbounds nuw i8, ptr %279, i64 112
   %284 = getelementptr inbounds nuw i8, ptr %279, i64 104
   %285 = getelementptr inbounds nuw i8, ptr %279, i64 96
-  %286 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %286 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %.fr.i = freeze i16 %286
   %.not28.i660 = icmp sgt i16 %.fr.i, -1
   br i1 %.not28.i660, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -969,7 +969,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   br label %455
 
 455:                                              ; preds = %448, %449
-  %456 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %456 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %457 = and i64 %456, 1
   %.not618 = icmp eq i64 %457, 0
   br i1 %.not618, label %.outer.backedge, label %458
@@ -1038,7 +1038,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   br i1 %.not599, label %.loopexit695, label %488
 
 488:                                              ; preds = %487
-  %489 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %489 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %490 = and i64 %489, 1
   %.not600 = icmp eq i64 %490, 0
   br i1 %.not600, label %.loopexit695, label %491
@@ -1077,7 +1077,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 
 506:                                              ; preds = %504
   %507 = trunc i64 %505 to i32
-  %508 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %508 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %509 = and i64 %508, 1
   %.not609 = icmp eq i64 %509, 0
   br i1 %.not609, label %558, label %510
@@ -1101,7 +1101,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 518:                                              ; preds = %515
   %519 = trunc i64 %517 to i32
   %520 = mul i32 %.0505.lcssa, %519
-  %521 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %521 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %522 = and i64 %521, 1
   %.not608 = icmp eq i64 %522, 0
   br i1 %.not608, label %558, label %523
@@ -1125,7 +1125,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   %531 = load i32, ptr %8, align 4
   %532 = trunc i64 %529 to i32
   %533 = mul i32 %531, %532
-  %534 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %534 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %535 = and i64 %534, 1
   %.not607 = icmp eq i64 %535, 0
   br i1 %.not607, label %558, label %536
@@ -1146,7 +1146,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
 
 543:                                              ; preds = %542
   %544 = trunc i64 %.2487 to i32
-  %545 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %545 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %546 = and i64 %545, 1
   %.not606 = icmp eq i64 %546, 0
   br i1 %.not606, label %558, label %547
@@ -1161,7 +1161,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   br label %558
 
 551:                                              ; preds = %542
-  %552 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %552 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %553 = and i64 %552, 1
   %.not605 = icmp eq i64 %553, 0
   br i1 %.not605, label %558, label %554
@@ -1188,7 +1188,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   br i1 %564, label %565, label %572
 
 565:                                              ; preds = %558
-  %566 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %566 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %567 = and i64 %566, 1
   %.not610 = icmp eq i64 %567, 0
   br i1 %.not610, label %572, label %568
@@ -1215,7 +1215,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   br i1 %577, label %578, label %585
 
 578:                                              ; preds = %574
-  %579 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %579 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %580 = and i64 %579, 1
   %.not616 = icmp eq i64 %580, 0
   br i1 %.not616, label %.loopexit704.sink.split, label %581
@@ -1240,7 +1240,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   br i1 %590, label %591, label %.loopexit694
 
 591:                                              ; preds = %586
-  %592 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %592 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %593 = and i64 %592, 1
   %.not615 = icmp eq i64 %593, 0
   br i1 %.not615, label %.loopexit704.sink.split, label %594
@@ -1497,7 +1497,7 @@ _shared_gres_task_limit.exit:                     ; preds = %379, %363, %341, %.
   br i1 %695, label %699, label %696
 
 696:                                              ; preds = %693
-  %697 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1120), align 8
+  %697 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %698 = and i16 %697, 256
   %.not628 = icmp eq i16 %698, 0
   br i1 %.not628, label %699, label %708

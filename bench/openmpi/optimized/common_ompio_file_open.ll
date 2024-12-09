@@ -197,7 +197,7 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not111, label %79, label %73
 
 73:                                               ; preds = %71
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 76), align 4
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_io_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %74, ptr noundef nonnull @.str.3) #12
   store ptr null, ptr %69, align 8
   br label %79

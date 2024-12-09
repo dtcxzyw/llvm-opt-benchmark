@@ -138,7 +138,7 @@ define dso_local void @tick_install_broadcast_device(ptr noundef %0, i32 noundef
   br i1 %50, label %51, label %91
 
 51:                                               ; preds = %47
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %53 = icmp eq i32 %52, 1
   %54 = and i32 %48, 2
   %55 = icmp eq i32 %54, 0
@@ -188,14 +188,14 @@ define dso_local void @tick_install_broadcast_device(ptr noundef %0, i32 noundef
   br i1 %78, label %91, label %79
 
 79:                                               ; preds = %75
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %82, label %90
 
 82:                                               ; preds = %79
   %83 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tick_broadcast_lock) #11
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %85 = load ptr, ptr @tick_broadcast_device, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %89, label %87
@@ -228,7 +228,7 @@ declare dso_local void @clockevents_handle_noop(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local range(i32 0, 2) i32 @tick_broadcast_oneshot_active() local_unnamed_addr #4 align 16 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %2 = icmp eq i32 %1, 1
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -237,8 +237,8 @@ define dso_local range(i32 0, 2) i32 @tick_broadcast_oneshot_active() local_unna
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tick_broadcast_switch_to_oneshot() local_unnamed_addr #2 align 16 {
   %1 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tick_broadcast_lock) #11
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %3 = load ptr, ptr @tick_broadcast_device, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -329,7 +329,7 @@ define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture n
 20:                                               ; preds = %9, %19
   %21 = zext i32 %1 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_mask, i64 %21) #11, !srcloc !6
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %27
 
@@ -389,7 +389,7 @@ define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture n
   br label %50
 
 50:                                               ; preds = %49, %44
-  %51 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   switch i32 %51, label %68 [
     i32 1, label %52
     i32 0, label %53
@@ -442,7 +442,7 @@ declare dso_local void @tick_handle_periodic(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #2 align 16 {
-  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !9
+  %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !9
   %4 = icmp eq ptr %0, null
   br i1 %4, label %79, label %5
 
@@ -614,7 +614,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
   br i1 %11, label %12, label %57
 
 12:                                               ; preds = %7
-  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !17
+  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !17
   %14 = load ptr, ptr @tick_broadcast_device, align 8
   %15 = load i64, ptr @tick_broadcast_mask, align 8
   %16 = icmp eq i64 %15, 0
@@ -644,7 +644,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 128
   %29 = icmp eq i32 %28, 0
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %31 = icmp eq i32 %30, 0
   %32 = select i1 %29, i1 %31, i1 false
   br i1 %32, label %33, label %.thread
@@ -664,7 +664,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
   %39 = icmp ult i8 %38, 2
   tail call void @llvm.assume(i1 %39)
   %40 = icmp ne i8 %38, 0
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %42 = icmp eq i32 %41, 0
   %43 = select i1 %40, i1 %42, i1 false
   br i1 %43, label %44, label %45
@@ -693,7 +693,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
   br i1 %16, label %52, label %57
 
 52:                                               ; preds = %51
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %56
 
@@ -741,7 +741,7 @@ define internal void @tick_handle_periodic_broadcast(ptr noundef %0) #2 align 16
   %11 = load i64, ptr @tick_broadcast_mask, align 8
   %12 = and i64 %11, %10
   store i64 %12, ptr @tmpmask, align 8
-  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !21
+  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !21
   %14 = zext i32 %13 to i64
   %15 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tmpmask, i64 %14) #11, !srcloc !8
   %16 = icmp ult i8 %15, 2
@@ -832,7 +832,7 @@ define dso_local void @tick_broadcast_offline(i32 noundef %0) local_unnamed_addr
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_pending_mask, i64 %2) #11, !srcloc !7
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_force_mask, i64 %2) #11, !srcloc !7
   %15 = load ptr, ptr @tick_broadcast_device, align 8
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %17 = icmp eq i32 %16, 0
   %18 = icmp ne ptr %15, null
   %19 = select i1 %17, i1 %18, i1 false
@@ -868,12 +868,12 @@ define dso_local void @tick_suspend_broadcast() local_unnamed_addr #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @tick_resume_check_broadcast() local_unnamed_addr #2 align 16 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !22
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !22
   %5 = zext i32 %4 to i64
   %6 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_mask, i64 %5) #11, !srcloc !8
   %7 = icmp ult i8 %6, 2
@@ -895,7 +895,7 @@ define dso_local void @tick_resume_broadcast() local_unnamed_addr #2 align 16 {
 
 4:                                                ; preds = %0
   %5 = tail call i32 @clockevents_tick_resume(ptr noundef nonnull %2) #11
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   switch i32 %6, label %15 [
     i32 0, label %7
     i32 1, label %11
@@ -934,7 +934,7 @@ define dso_local noundef nonnull ptr @tick_get_broadcast_oneshot_mask() local_un
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @tick_check_broadcast_expired() local_unnamed_addr #6 section ".noinstr.text" align 16 {
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !23
+  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !23
   %2 = sext i32 %1 to i64
   %3 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_force_mask, i64 %2) #11, !srcloc !8
   %4 = icmp ult i8 %3, 2
@@ -945,7 +945,7 @@ define dso_local range(i32 0, 2) i32 @tick_check_broadcast_expired() local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tick_check_oneshot_broadcast_this_cpu() local_unnamed_addr #2 align 16 {
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !24
+  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !24
   %2 = zext i32 %1 to i64
   %3 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask, i64 %2) #11, !srcloc !8
   %4 = icmp ult i8 %3, 2
@@ -977,7 +977,7 @@ declare dso_local void @clockevents_switch_state(ptr noundef, i32 noundef) local
 define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !26
   %3 = inttoptr i64 %2 to ptr
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !27
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !27
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
@@ -1045,7 +1045,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
   br i1 %44, label %.thread7, label %45
 
 45:                                               ; preds = %41, %32, %37
-  %46 = load i32, ptr getelementptr inbounds (i8, ptr @tick_broadcast_device, i64 8), align 8
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @tick_broadcast_device, i64 8), align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %50
 
@@ -1081,7 +1081,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
   br i1 %63, label %77, label %64
 
 64:                                               ; preds = %60
-  %65 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !31
+  %65 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !31
   %66 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, 9223372036854775807
@@ -1411,7 +1411,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
 .thread:                                          ; preds = %4, %31, %12
   %.lcssa6 = phi i32 [ %8, %4 ], [ %33, %31 ], [ %8, %12 ]
   %.lcssa = phi i64 [ %7, %4 ], [ %34, %31 ], [ %7, %12 ]
-  %38 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !33
+  %38 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !33
   %39 = zext i32 %38 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_pending_mask, i64 %39) #11, !srcloc !7
   %40 = load i64, ptr @tmpmask, align 8
@@ -1436,7 +1436,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
   br label %51
 
 51:                                               ; preds = %47, %.thread
-  %52 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !21
+  %52 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !21
   %53 = zext i32 %52 to i64
   %54 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tmpmask, i64 %53) #11, !srcloc !8
   %55 = icmp ult i8 %54, 2

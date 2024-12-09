@@ -333,7 +333,7 @@ declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @statinidir(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @dbstat, i64 24), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dbstat, i64 24), align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -2735,7 +2735,7 @@ handle_stream.exit:                               ; preds = %1078, %1113
   %1324 = call i32 @close(i32 noundef %1323) #15
   %1325 = load i32, ptr %24, align 4
   %1326 = call i32 @close(i32 noundef %1325) #15
-  %1327 = load i32, ptr getelementptr inbounds (i8, ptr @dbstat, i64 24), align 8
+  %1327 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dbstat, i64 24), align 8
   %.not457 = icmp eq i32 %1327, 0
   br i1 %.not457, label %1330, label %1328
 
@@ -3226,7 +3226,7 @@ declare void @logg_close() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @need_db_reload() unnamed_addr #0 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @dbstat, i64 24), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dbstat, i64 24), align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %2
 
@@ -3296,7 +3296,7 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef non
   br label %81
 
 28:                                               ; preds = %20
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @dbstat, i64 24), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dbstat, i64 24), align 8
   %.not48 = icmp eq i32 %29, 0
   br i1 %.not48, label %32, label %30
 

@@ -68,7 +68,7 @@ define zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef readonly %0
   br i1 %.not19.i, label %23, label %26
 
 23:                                               ; preds = %19
-  %24 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %24 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), align 4
   %25 = and i16 %24, 16384
   %.not20.i = icmp eq i16 %25, 0
   br i1 %.not20.i, label %preempt_p_preemptable.exit, label %26
@@ -125,7 +125,7 @@ define zeroext i1 @preempt_p_preemptable(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not19, label %19, label %22
 
 19:                                               ; preds = %15
-  %20 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %20 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), align 4
   %21 = and i16 %20, 16384
   %.not20 = icmp eq i16 %21, 0
   br i1 %.not20, label %34, label %22
@@ -167,7 +167,7 @@ define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %
   ]
 
 4:                                                ; preds = %3
-  %5 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %5 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), align 4
   %6 = icmp ne i16 %5, 0
   %7 = zext i1 %6 to i8
   store i8 %7, ptr %2, align 1
@@ -186,7 +186,7 @@ define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %
   br i1 %.not6.i, label %13, label %_job_preempt_mode.exit
 
 13:                                               ; preds = %10, %8
-  %14 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), align 4
   br label %_job_preempt_mode.exit
 
 _job_preempt_mode.exit:                           ; preds = %10, %13

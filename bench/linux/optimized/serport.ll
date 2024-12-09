@@ -64,7 +64,7 @@ define internal noundef range(i32 -12, 1) i32 @serport_ldisc_open(ptr noundef %0
   br i1 %2, label %3, label %13
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 56) #13
   %6 = icmp eq ptr %5, null
   br i1 %6, label %13, label %7
@@ -109,7 +109,7 @@ define internal noundef range(i64 -16, 1) i64 @serport_ldisc_read(ptr noundef %0
   br i1 %13, label %14, label %56
 
 14:                                               ; preds = %6
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 1096) #13
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %16, ptr %17, align 8

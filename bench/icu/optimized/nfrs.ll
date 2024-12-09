@@ -34,7 +34,7 @@ invoke.cont:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %name = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %name, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %name, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %rules = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -477,7 +477,7 @@ if.then3.i:                                       ; preds = %for.inc.i
   br label %_ZN6icu_7510NFRuleList9deleteAllEv.exit
 
 _ZN6icu_7510NFRuleList9deleteAllEv.exit:          ; preds = %if.end, %if.then3.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %currentDescription, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %currentDescription, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %currentDescription, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %description, i64 8
@@ -1869,12 +1869,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %highWaterMark, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %highWaterMark, align 8
   %index.i = getelementptr inbounds nuw i8, ptr %highWaterMark, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds nuw i8, ptr %highWaterMark, i64 12
   store i32 -1, ptr %errorIndex.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %workingPos, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %workingPos, align 8
   %index.i22 = getelementptr inbounds nuw i8, ptr %workingPos, i64 8
   %index2.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   %3 = load i32, ptr %index2.i, align 8

@@ -1422,10 +1422,10 @@ define linkonce_odr hidden void @_ZN26hb_paint_extents_context_t9pop_groupE25hb_
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit.thread: ; preds = %2
   %.sroa.0.0.copyload7 = load i32, ptr @_hb_NullPool, align 16
-  %.sroa.7.0.copyload11 = load float, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 4), align 4
-  %.sroa.9.0.copyload18 = load float, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 8), align 8
-  %.sroa.11.0.copyload25 = load float, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 12), align 4
-  %.sroa.13.0.copyload32 = load float, ptr getelementptr inbounds (i8, ptr @_hb_NullPool, i64 16), align 16
+  %.sroa.7.0.copyload11 = load float, ptr getelementptr inbounds nuw (i8, ptr @_hb_NullPool, i64 4), align 4
+  %.sroa.9.0.copyload18 = load float, ptr getelementptr inbounds nuw (i8, ptr @_hb_NullPool, i64 8), align 8
+  %.sroa.11.0.copyload25 = load float, ptr getelementptr inbounds nuw (i8, ptr @_hb_NullPool, i64 12), align 4
+  %.sroa.13.0.copyload32 = load float, ptr getelementptr inbounds nuw (i8, ptr @_hb_NullPool, i64 16), align 16
   br label %10
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit:   ; preds = %2

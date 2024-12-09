@@ -302,7 +302,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   %151 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %151, align 4
   %152 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %152, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -320,7 +320,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   %159 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %159, align 4
   %160 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %160, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -341,7 +341,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   %167 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %167, align 4
   %168 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %168, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %169, align 8
   %170 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -359,7 +359,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   %175 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %175, align 4
   %176 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %176, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -379,7 +379,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   %182 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %183 = getelementptr inbounds nuw i8, ptr %19, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %182, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -400,7 +400,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   %188 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %189 = getelementptr inbounds nuw i8, ptr %19, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %188, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %189, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -446,7 +446,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   %223 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %224 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %225 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %226 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %226 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   %227 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %228
 
@@ -465,7 +465,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   store i32 -1, ptr %211, align 4
   store i32 %230, ptr %212, align 8
   store i8 0, ptr %213, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %214, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %214, align 8
   store ptr null, ptr %215, align 8
   store i32 0, ptr %216, align 8
   call void @_ZN9Assembler12vpbroadcastwE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 0, ptr noundef nonnull %20, i32 noundef 1) #6
@@ -481,7 +481,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   store i32 -1, ptr %203, align 4
   store i32 %231, ptr %204, align 8
   store i8 0, ptr %205, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %206, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %206, align 8
   store ptr null, ptr %207, align 8
   store i32 0, ptr %208, align 8
   call void @_ZN9Assembler6movzblE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 11, ptr noundef nonnull %21) #6
@@ -496,7 +496,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   store i32 -1, ptr %195, align 4
   store i32 %231, ptr %196, align 8
   store i8 0, ptr %197, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %198, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %198, align 8
   store ptr null, ptr %199, align 8
   store i32 0, ptr %200, align 8
   call void @_ZN9Assembler12vpbroadcastbE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 0, ptr noundef nonnull %22, i32 noundef 1) #6
@@ -509,7 +509,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   store i32 -1, ptr %219, align 4
   store i32 %232, ptr %220, align 8
   store i8 0, ptr %221, align 4
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %222, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %222, align 8
   store ptr null, ptr %223, align 8
   store i32 0, ptr %224, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
@@ -761,7 +761,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %306 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i8 0, ptr %306, align 4
   %307 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr null, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -779,7 +779,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %314 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 0, ptr %314, align 4
   %315 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %315, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %315, align 8
   %316 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr null, ptr %316, align 8
   %317 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -800,7 +800,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %322 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i8 0, ptr %322, align 4
   %323 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %323, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %323, align 8
   %324 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr null, ptr %324, align 8
   %325 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -818,7 +818,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %330 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i8 0, ptr %330, align 4
   %331 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %331, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %331, align 8
   %332 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %332, align 8
   %333 = getelementptr inbounds nuw i8, ptr %43, i64 40
@@ -834,7 +834,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %336 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %337 = getelementptr inbounds nuw i8, ptr %44, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %336, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %337, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %337, align 8
   %338 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr null, ptr %338, align 8
   %339 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -846,7 +846,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %340, i8 -1, i64 16, i1 false)
   store i8 0, ptr %341, align 4
   %342 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %342, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %342, align 8
   %343 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr null, ptr %343, align 8
   %344 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -875,7 +875,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %354 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i8 0, ptr %354, align 4
   %355 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %355, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %355, align 8
   %356 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr null, ptr %356, align 8
   %357 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -888,7 +888,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %358, i8 -1, i64 16, i1 false)
   store i8 0, ptr %359, align 4
   %360 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %360, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %360, align 8
   %361 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr null, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %49, i64 40
@@ -917,7 +917,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %372 = getelementptr inbounds nuw i8, ptr %52, i64 20
   store i8 0, ptr %372, align 4
   %373 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %373, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr null, ptr %374, align 8
   %375 = getelementptr inbounds nuw i8, ptr %52, i64 40
@@ -992,7 +992,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %395 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i8 0, ptr %395, align 4
   %396 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %396, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %396, align 8
   %397 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr null, ptr %397, align 8
   %398 = getelementptr inbounds nuw i8, ptr %56, i64 40
@@ -1010,7 +1010,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %403 = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i8 0, ptr %403, align 4
   %404 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %404, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %404, align 8
   %405 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr null, ptr %405, align 8
   %406 = getelementptr inbounds nuw i8, ptr %57, i64 40
@@ -1028,7 +1028,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %411 = getelementptr inbounds nuw i8, ptr %58, i64 20
   store i8 0, ptr %411, align 4
   %412 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %412, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %412, align 8
   %413 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store ptr null, ptr %413, align 8
   %414 = getelementptr inbounds nuw i8, ptr %58, i64 40
@@ -1073,7 +1073,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %424 = getelementptr inbounds nuw i8, ptr %60, i64 20
   store i8 0, ptr %424, align 4
   %425 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %425, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %425, align 8
   %426 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr null, ptr %426, align 8
   %427 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -1091,7 +1091,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %432 = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i8 0, ptr %432, align 4
   %433 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %433, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %433, align 8
   %434 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr null, ptr %434, align 8
   %435 = getelementptr inbounds nuw i8, ptr %61, i64 40
@@ -1117,7 +1117,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %442 = getelementptr inbounds nuw i8, ptr %62, i64 20
   store i8 0, ptr %442, align 4
   %443 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %443, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %443, align 8
   %444 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr null, ptr %444, align 8
   %445 = getelementptr inbounds nuw i8, ptr %62, i64 40
@@ -1165,7 +1165,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %457 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %458 = getelementptr inbounds nuw i8, ptr %65, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %457, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %458, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %458, align 8
   %459 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr null, ptr %459, align 8
   %460 = getelementptr inbounds nuw i8, ptr %65, i64 40
@@ -1192,7 +1192,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %463 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %464 = getelementptr inbounds nuw i8, ptr %66, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %463, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %464, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %464, align 8
   %465 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store ptr null, ptr %465, align 8
   %466 = getelementptr inbounds nuw i8, ptr %66, i64 40
@@ -1210,7 +1210,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %471 = getelementptr inbounds nuw i8, ptr %67, i64 20
   store i8 0, ptr %471, align 4
   %472 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %472, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %472, align 8
   %473 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr null, ptr %473, align 8
   %474 = getelementptr inbounds nuw i8, ptr %67, i64 40
@@ -1234,7 +1234,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %479 = getelementptr inbounds nuw i8, ptr %68, i64 20
   store i8 0, ptr %479, align 4
   %480 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %480, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %480, align 8
   %481 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr null, ptr %481, align 8
   %482 = getelementptr inbounds nuw i8, ptr %68, i64 40
@@ -1248,7 +1248,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %485 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %486 = getelementptr inbounds nuw i8, ptr %69, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %485, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %486, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %486, align 8
   %487 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr null, ptr %487, align 8
   %488 = getelementptr inbounds nuw i8, ptr %69, i64 40
@@ -1323,7 +1323,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %511 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %512 = getelementptr inbounds nuw i8, ptr %76, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %511, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %512, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %512, align 8
   %513 = getelementptr inbounds nuw i8, ptr %76, i64 32
   store ptr null, ptr %513, align 8
   %514 = getelementptr inbounds nuw i8, ptr %76, i64 40
@@ -1360,7 +1360,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %517 = getelementptr inbounds nuw i8, ptr %77, i64 12
   %518 = getelementptr inbounds nuw i8, ptr %77, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %517, i8 0, i64 9, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %518, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %518, align 8
   %519 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr null, ptr %519, align 8
   %520 = getelementptr inbounds nuw i8, ptr %77, i64 40
@@ -1378,7 +1378,7 @@ _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14Mac
   %525 = getelementptr inbounds nuw i8, ptr %78, i64 20
   store i8 0, ptr %525, align 4
   %526 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %526, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %526, align 8
   %527 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store ptr null, ptr %527, align 8
   %528 = getelementptr inbounds nuw i8, ptr %78, i64 40
@@ -1465,7 +1465,7 @@ define internal fastcc void @_ZL31broadcast_first_and_last_needle8RegisterS_S_N1
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i8 0, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %22, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1483,7 +1483,7 @@ define internal fastcc void @_ZL31broadcast_first_and_last_needle8RegisterS_S_N1
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %30, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -1504,7 +1504,7 @@ define internal fastcc void @_ZL31broadcast_first_and_last_needle8RegisterS_S_N1
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %39, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -1524,7 +1524,7 @@ define internal fastcc void @_ZL31broadcast_first_and_last_needle8RegisterS_S_N1
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -1547,7 +1547,7 @@ define internal fastcc void @_ZL31broadcast_first_and_last_needle8RegisterS_S_N1
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %56, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -1565,7 +1565,7 @@ define internal fastcc void @_ZL31broadcast_first_and_last_needle8RegisterS_S_N1
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -1672,7 +1672,7 @@ define internal fastcc void @_ZL20big_case_loop_helperbiR5LabelS0_8RegisterS1_S1
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i8 0, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %47, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -1684,7 +1684,7 @@ define internal fastcc void @_ZL20big_case_loop_helperbiR5LabelS0_8RegisterS1_S1
 50:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 21, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %52 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %52 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %51) #6
   call void @_ZN14MacroAssembler8vpcmpeqwE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 2, i32 0, ptr noundef nonnull %24, i32 noundef 1) #6
   br label %_ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAssembler.exit
@@ -1692,7 +1692,7 @@ define internal fastcc void @_ZL20big_case_loop_helperbiR5LabelS0_8RegisterS1_S1
 53:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 21, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %55 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %54) #6
   call void @_ZN14MacroAssembler8vpcmpeqbE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 2, i32 0, ptr noundef nonnull %25, i32 noundef 1) #6
   br label %_ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAssembler.exit
@@ -1721,7 +1721,7 @@ _ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAsse
   %65 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 0, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -1764,7 +1764,7 @@ _ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAsse
   %78 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i8 0, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -1825,7 +1825,7 @@ _ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAsse
   %95 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i8 0, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %96, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr null, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -1885,7 +1885,7 @@ _ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAsse
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %117, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1902,7 +1902,7 @@ _ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAsse
   %124 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %125, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -1981,7 +1981,7 @@ _ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAsse
   %151 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i8 0, ptr %151, align 4
   %152 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %152, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr null, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -2080,7 +2080,7 @@ define internal fastcc void @_ZL28broadcast_additional_needlesbi8RegisterS_S_N16
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -2101,7 +2101,7 @@ define internal fastcc void @_ZL28broadcast_additional_needlesbi8RegisterS_S_N16
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 0, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -2124,7 +2124,7 @@ define internal fastcc void @_ZL28broadcast_additional_needlesbi8RegisterS_S_N16
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -2178,7 +2178,7 @@ define internal fastcc void @_ZL26compare_haystack_to_needlebiR5Label8RegisterS1
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %29, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2199,7 +2199,7 @@ define internal fastcc void @_ZL26compare_haystack_to_needlebiR5Label8RegisterS1
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2211,7 +2211,7 @@ define internal fastcc void @_ZL26compare_haystack_to_needlebiR5Label8RegisterS1
 40:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 21, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %42 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %41) #6
   call void @_ZN14MacroAssembler8vpcmpeqwE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 15, i32 0, ptr noundef nonnull %12, i32 noundef 1) #6
   br label %_ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAssembler.exit
@@ -2219,7 +2219,7 @@ define internal fastcc void @_ZL26compare_haystack_to_needlebiR5Label8RegisterS1
 43:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %45 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %44) #6
   call void @_ZN14MacroAssembler8vpcmpeqbE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 15, i32 0, ptr noundef nonnull %13, i32 noundef 1) #6
   br label %_ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAssembler.exit
@@ -2280,7 +2280,7 @@ _ZL7vpcmpeq11XMMRegisterS_7AddressiN16StrIntrinsicNode11ArgEncodingEP14MacroAsse
   %66 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %67, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2419,7 +2419,7 @@ define internal fastcc void @_ZL19byte_compare_helperiR5LabelS0_8RegisterS1_S1_S
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i8 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %34, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -2440,7 +2440,7 @@ define internal fastcc void @_ZL19byte_compare_helperiR5LabelS0_8RegisterS1_S1_S
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -2462,7 +2462,7 @@ define internal fastcc void @_ZL19byte_compare_helperiR5LabelS0_8RegisterS1_S1_S
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 0, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %53, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -2483,7 +2483,7 @@ define internal fastcc void @_ZL19byte_compare_helperiR5LabelS0_8RegisterS1_S1_S
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i8 0, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %62, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -2524,7 +2524,7 @@ default.unreachable:                              ; preds = %65, %26
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %74, align 4
   %75 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2545,7 +2545,7 @@ default.unreachable:                              ; preds = %65, %26
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 0, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %84, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -2567,7 +2567,7 @@ default.unreachable:                              ; preds = %65, %26
   %93 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i8 0, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %94, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2588,7 +2588,7 @@ default.unreachable:                              ; preds = %65, %26
   %102 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i8 0, ptr %102, align 4
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %103, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %18, i64 40

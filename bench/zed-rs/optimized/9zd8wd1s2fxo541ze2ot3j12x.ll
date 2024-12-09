@@ -13680,7 +13680,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4a51c556e2e90214E.exit.i: ; preds = %8
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfcd7b9912ade557cE.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h4a51c556e2e90214E.exit.i, %8
-  %.sroa.0.0.i.i.i2.i = phi ptr [ %10, %_ZN4core3ops8function6FnOnce9call_once17h4a51c556e2e90214E.exit.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb096bde4fb57311bE", i64 1), %8 ]
+  %.sroa.0.0.i.i.i2.i = phi ptr [ %10, %_ZN4core3ops8function6FnOnce9call_once17h4a51c556e2e90214E.exit.i ], [ getelementptr inbounds nuw (i8, ptr @"_ZN3std4sync4mpmc5waker17current_thread_id5DUMMY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hb096bde4fb57311bE", i64 1), %8 ]
   %13 = ptrtoint ptr %.sroa.0.0.i.i.i2.i to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !7, !noundef !7

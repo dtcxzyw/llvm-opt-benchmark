@@ -4752,7 +4752,7 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
 84:                                               ; preds = %78
   %85 = load i32, ptr @null_address, align 8
   %86 = icmp eq i32 %70, %85
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @null_address, i64 4), align 4
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @null_address, i64 4), align 4
   %88 = icmp eq i32 %69, %87
   %or.cond.i.i = select i1 %86, i1 %88, i1 false
   br i1 %or.cond.i.i, label %89, label %addresses_equal.exit.i.i
@@ -4761,7 +4761,7 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   br i1 %68, label %iscsi_dissect_TargetAddress.exit.i, label %90
 
 90:                                               ; preds = %89
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @null_address, i64 8), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @null_address, i64 8), align 8
   %92 = zext nneg i32 %69 to i64
   %bcmp.i.i.i = call i32 @bcmp(ptr %67, ptr %91, i64 %92)
   %93 = icmp eq i32 %bcmp.i.i.i, 0

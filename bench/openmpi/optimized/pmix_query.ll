@@ -145,7 +145,7 @@ define void @pmix_parse_localquery(i32 %0, i16 signext %1, ptr noundef %2) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 488
   %10 = load i64, ptr %9, align 8
   %11 = load i32, ptr @pmix_class_init_epoch, align 4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %11, %12
   br i1 %.not, label %14, label %13
 
@@ -261,7 +261,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %14
 ._crit_edge:                                      ; preds = %63, %31
   %.1.lcssa = phi i1 [ %.0193, %31 ], [ %.2, %63 ]
   %67 = load i32, ptr @pmix_class_init_epoch, align 4
-  %68 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cb_t_class, i64 32), align 8
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cb_t_class, i64 32), align 8
   %.not142 = icmp eq i32 %67, %68
   br i1 %.not142, label %70, label %69
 
@@ -304,7 +304,7 @@ pmix_obj_run_constructors.exit159:                ; preds = %.lr.ph.i156, %70
 
 81:                                               ; preds = %80
   %82 = load ptr, ptr %28, align 8
-  call void @PMIx_Load_nspace(ptr noundef %82, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4)) #12
+  call void @PMIx_Load_nspace(ptr noundef %82, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4)) #12
   %.pre = load i32, ptr %23, align 4
   br label %83
 
@@ -319,7 +319,7 @@ pmix_obj_run_constructors.exit159:                ; preds = %.lr.ph.i156, %70
   br label %86
 
 86:                                               ; preds = %.sink.split248, %83, %76
-  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @pmix_globals, i64 4), %76 ], [ %6, %83 ], [ %6, %.sink.split248 ]
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4), %76 ], [ %6, %83 ], [ %6, %.sink.split248 ]
   store ptr %.sink, ptr %28, align 8
   %87 = load ptr, ptr %32, align 8
   %88 = load ptr, ptr %87, align 8
@@ -346,7 +346,7 @@ pmix_obj_run_constructors.exit159:                ; preds = %.lr.ph.i156, %70
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8
   %103 = call i32 @pmix_event_assign(ptr noundef nonnull %101, ptr noundef %102, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_attrs_query_support, ptr noundef %2) #12
   fence release
   call void @event_active(ptr noundef nonnull %101, i32 noundef 4, i16 noundef signext 1) #12
@@ -359,14 +359,14 @@ pmix_obj_run_constructors.exit159:                ; preds = %.lr.ph.i156, %70
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %109 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8
   %110 = call i32 @pmix_event_assign(ptr noundef nonnull %108, ptr noundef %109, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_ptl_base_query_servers, ptr noundef %2) #12
   fence release
   call void @event_active(ptr noundef nonnull %108, i32 noundef 4, i16 noundef signext 1) #12
   br label %279
 
 111:                                              ; preds = %104
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 120
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 504
@@ -1058,34 +1058,34 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %18
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @request_help(ptr noundef %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  %4 = load volatile i8, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
+  %4 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %6 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168), ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  %7 = load volatile i8, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  %6 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
+  %7 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   fence acquire
-  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  store volatile i8 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_host_server, i64 120), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_host_server, i64 120), align 8
   %.not = icmp eq ptr %12, null
   %or.cond = select i1 %11, i1 true, i1 %.not
   br i1 %or.cond, label %30, label %13
 
 13:                                               ; preds = %._crit_edge
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   fence release
-  %14 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #12
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %14 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 168)) #12
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond29 = icmp ult i32 %16, 64
   br i1 %or.cond29, label %17, label %23
 
@@ -1101,21 +1101,21 @@ define internal fastcc i32 @request_help(ptr noundef %0) unnamed_addr #1 {
   br label %23
 
 23:                                               ; preds = %22, %17, %13
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_host_server, i64 120), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_host_server, i64 120), align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %28 = load i64, ptr %27, align 8
-  %29 = tail call i32 %24(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), ptr noundef %26, i64 noundef %28, ptr noundef nonnull @finalstep, ptr noundef nonnull %0) #12
+  %29 = tail call i32 %24(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4), ptr noundef %26, i64 noundef %28, ptr noundef nonnull @finalstep, ptr noundef nonnull %0) #12
   br label %125
 
 30:                                               ; preds = %._crit_edge
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 1632), align 8
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1632), align 8
   %32 = trunc i8 %31 to i1
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   fence release
-  %33 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #12
-  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
+  %33 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 168)) #12
+  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
   br i1 %32, label %35, label %125
 
 35:                                               ; preds = %30
@@ -1344,26 +1344,26 @@ pmix_query_check_is_local_resolve.exit.thread.i34: ; preds = %105, %pmix_query_c
 
 ; Function Attrs: nounwind uwtable
 define i32 @PMIx_Query_info(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  %6 = load volatile i8, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
+  %6 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %8 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168), ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  %9 = load volatile i8, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  %8 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
+  %9 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   fence acquire
-  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  store volatile i8 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %11 = load i32, ptr @pmix_globals, align 8
   %12 = icmp slt i32 %11, 1
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   fence release
-  %13 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #12
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
+  %13 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 168)) #12
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
   br i1 %12, label %15, label %69
 
 15:                                               ; preds = %._crit_edge
@@ -1415,7 +1415,7 @@ pmix_query_get_num_local_resolve.exit.i:          ; preds = %._crit_edge.i.i, %1
   br i1 %.not.i, label %40, label %29
 
 29:                                               ; preds = %pmix_query_get_num_local_resolve.exit.i
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond.i = icmp ult i32 %30, 64
   br i1 %or.cond.i, label %31, label %pmix_query_resolve_all_pre_init.exit.thread
 
@@ -1487,7 +1487,7 @@ pmix_query_get_num_local_resolve.exit.i:          ; preds = %._crit_edge.i.i, %1
   br i1 %exitcond.not.i, label %pmix_query_resolve_all_pre_init.exit, label %.preheader.i, !llvm.loop !20
 
 pmix_query_resolve_all_pre_init.exit:             ; preds = %._crit_edge.i, %40
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond78 = icmp ult i32 %62, 64
   br i1 %or.cond78, label %63, label %pmix_query_resolve_all_pre_init.exit.thread
 
@@ -1503,7 +1503,7 @@ pmix_query_resolve_all_pre_init.exit:             ; preds = %._crit_edge.i, %40
   br label %pmix_query_resolve_all_pre_init.exit.thread
 
 69:                                               ; preds = %._crit_edge
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond79 = icmp ult i32 %70, 64
   br i1 %or.cond79, label %71, label %78
 
@@ -1515,7 +1515,7 @@ pmix_query_resolve_all_pre_init.exit:             ; preds = %._crit_edge.i, %40
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %71
-  %77 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4)) #12
+  %77 = tail call ptr @pmix_util_print_name_args(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4)) #12
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %70, ptr noundef nonnull @.str.12, ptr noundef %77) #12
   br label %78
 
@@ -1613,7 +1613,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i82, %103,
   %119 = getelementptr inbounds nuw i8, ptr %99, i64 896
   store ptr %99, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %99, i64 120
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8
   %122 = tail call i32 @pmix_event_assign(ptr noundef nonnull %120, ptr noundef %121, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_parse_localquery, ptr noundef %99) #12
   fence release
   tail call void @event_active(ptr noundef nonnull %120, i32 noundef 4, i16 noundef signext 1) #12
@@ -1708,7 +1708,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i84, %152
   br label %166
 
 166:                                              ; preds = %163, %165, %146
-  %167 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %167 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond80 = icmp ult i32 %167, 64
   br i1 %or.cond80, label %168, label %pmix_query_resolve_all_pre_init.exit.thread
 
@@ -1833,21 +1833,21 @@ define internal void @qinfocb(i32 noundef %0, ptr noundef %1, i64 noundef %2, pt
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -31, 1) i32 @PMIx_Query_info_nb(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  %6 = load volatile i8, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
+  %6 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %8 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168), ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  %9 = load volatile i8, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  %8 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
+  %9 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   fence acquire
-  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  store volatile i8 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond38 = icmp ult i32 %11, 64
   br i1 %or.cond38, label %12, label %18
 
@@ -1865,10 +1865,10 @@ define range(i32 -31, 1) i32 @PMIx_Query_info_nb(ptr noundef %0, i64 noundef %1,
 18:                                               ; preds = %17, %12, %._crit_edge
   %19 = load i32, ptr @pmix_globals, align 8
   %20 = icmp slt i32 %19, 1
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   fence release
-  %21 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #12
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
+  %21 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 168)) #12
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
   br i1 %20, label %.loopexit, label %23
 
 23:                                               ; preds = %18
@@ -1965,7 +1965,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %48, %4
   %64 = getelementptr inbounds nuw i8, ptr %44, i64 896
   store ptr %3, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %44, i64 120
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8
   %67 = tail call i32 @pmix_event_assign(ptr noundef nonnull %65, ptr noundef %66, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_parse_localquery, ptr noundef %44) #12
   fence release
   tail call void @event_active(ptr noundef nonnull %65, i32 noundef 4, i16 noundef signext 1) #12
@@ -1978,7 +1978,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %48, %4
 
 ; Function Attrs: nounwind uwtable
 define void @pmix_query_local_resolve_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((944, 960)) %3, ptr noundef readonly %4, ptr noundef %5) #1 {
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond = icmp ult i32 %7, 64
   br i1 %or.cond, label %8, label %18
 
@@ -2112,7 +2112,7 @@ declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef z
 
 ; Function Attrs: nounwind uwtable
 define internal void @local_resolve_release_cbfunc(ptr noundef %0) #1 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond = icmp ult i32 %2, 64
   br i1 %or.cond, label %3, label %9
 
@@ -2281,26 +2281,26 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %24
   br label %115
 
 38:                                               ; preds = %6
-  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  %40 = load volatile i8, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
+  %40 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %41 = trunc i8 %40 to i1
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
-  %42 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168), ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  %43 = load volatile i8, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  %42 = tail call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 168), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
+  %43 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   %44 = trunc i8 %43 to i1
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   fence acquire
-  store volatile i8 1, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 1632), align 8
+  store volatile i8 1, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 1632), align 8
   %46 = trunc i8 %45 to i1
-  store volatile i8 0, ptr getelementptr inbounds (i8, ptr @pmix_global_lock, i64 216), align 8
+  store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 216), align 8
   fence release
-  %47 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #12
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
+  %47 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 168)) #12
+  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_global_lock, i64 128)) #12
   br i1 %46, label %115, label %49
 
 49:                                               ; preds = %._crit_edge
@@ -3042,7 +3042,7 @@ pmix_obj_run_destructors.exit222:                 ; preds = %.lr.ph.i219, %283
   br label %353
 
 297:                                              ; preds = %238
-  %298 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %298 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond184 = icmp ult i32 %298, 64
   br i1 %or.cond184, label %299, label %305
 
@@ -3092,7 +3092,7 @@ pmix_obj_run_destructors.exit222:                 ; preds = %.lr.ph.i219, %283
   %324 = getelementptr inbounds nuw i8, ptr %311, i64 288
   store ptr %8, ptr %324, align 8
   %325 = getelementptr inbounds nuw i8, ptr %311, i64 128
-  %326 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 376), align 8
+  %326 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8
   %327 = call i32 @pmix_event_assign(ptr noundef nonnull %325, ptr noundef %326, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @pmix_ptl_base_send_recv, ptr noundef %311) #12
   fence release
   call void @event_active(ptr noundef nonnull %325, i32 noundef 4, i16 noundef signext 1) #12
@@ -3164,7 +3164,7 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @query_cbfunc(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond122 = icmp ult i32 %6, 64
   br i1 %or.cond122, label %7, label %13
 
@@ -3466,7 +3466,7 @@ pmix_obj_new_tma.exit130:                         ; preds = %.lr.ph.i.i127, %142
   %158 = call ptr @PMIx_Value_create(i64 noundef 1) #12
   %159 = getelementptr inbounds nuw i8, ptr %138, i64 152
   store ptr %158, ptr %159, align 8
-  %160 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 120
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 488
@@ -3476,7 +3476,7 @@ pmix_obj_new_tma.exit130:                         ; preds = %.lr.ph.i.i127, %142
   %167 = load ptr, ptr %106, align 8
   %168 = getelementptr inbounds %struct.pmix_info, ptr %167, i64 %.0100150, i32 2
   %169 = call i32 %166(ptr noundef %158, ptr noundef nonnull %168) #12
-  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 120
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 504
@@ -3506,7 +3506,7 @@ pmix_obj_new_tma.exit130:                         ; preds = %.lr.ph.i.i127, %142
 
 186:                                              ; preds = %184, %179, %177
   %187 = phi ptr [ %.pre, %184 ], [ %176, %179 ], [ %176, %177 ]
-  %188 = call i32 %187(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i8 noundef zeroext 4, ptr noundef nonnull %138) #12
+  %188 = call i32 %187(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4), i8 noundef zeroext 4, ptr noundef nonnull %138) #12
   br label %189
 
 189:                                              ; preds = %186, %pmix_obj_new_tma.exit130
@@ -3570,7 +3570,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %200
   br i1 %217, label %.lr.ph, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %214, %.preheader, %102, %72, %136, %101, %70
-  %218 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond123 = icmp ult i32 %218, 64
   br i1 %or.cond123, label %219, label %228
 
@@ -3670,7 +3670,7 @@ declare ptr @PMIx_Value_create(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @relcbfunc(ptr noundef %0) #1 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond = icmp ult i32 %2, 64
   br i1 %or.cond, label %3, label %9
 

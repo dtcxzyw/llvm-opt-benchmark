@@ -59,7 +59,7 @@ define dso_local noundef zeroext i1 @nbcon_can_proceed(ptr nocapture noundef %0)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr nocapture noundef %0, i32 %.0.val) unnamed_addr #1 align 16 {
-  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !5
+  %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %.0.val, 3
@@ -90,7 +90,7 @@ define internal fastcc noundef zeroext i1 @nbcon_context_can_proceed(ptr nocaptu
   br label %21
 
 21:                                               ; preds = %20, %18
-  %22 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !10
+  %22 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !10
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load volatile i32, ptr %24, align 4
@@ -223,7 +223,7 @@ define dso_local noundef zeroext i1 @nbcon_alloc(ptr noundef initializes((152, 1
   br label %26
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(3072) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 3072) #9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %10, ptr %11, align 8

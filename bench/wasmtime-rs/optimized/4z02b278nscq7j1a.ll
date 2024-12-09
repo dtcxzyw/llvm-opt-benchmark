@@ -1239,7 +1239,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %8 = alloca { ptr, i64, i64, ptr }, align 8
   %9 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.6.i)
-  %10 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get5STDIN17h65d652500f910f17E, i64 88) acquire, align 8
+  %10 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get5STDIN17h65d652500f910f17E, i64 88) acquire, align 8
   %.not.i.i.i = icmp eq i32 %10, 4
   br i1 %.not.i.i.i, label %_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get17h777ebc89a906f07eE.exit.i, label %11
 
@@ -11069,7 +11069,7 @@ define void @"_ZN107_$LT$wasmtime_wasi..stdio..worker_thread_stdin..Stdin$u20$as
   %.sroa.611 = alloca [4 x i64], align 8
   %12 = alloca { ptr, i64, i64, ptr }, align 8
   %13 = alloca { ptr, i64, i64, ptr }, align 8
-  %14 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get5STDIN17h65d652500f910f17E, i64 88) acquire, align 8
+  %14 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get5STDIN17h65d652500f910f17E, i64 88) acquire, align 8
   %.not.i.i = icmp eq i32 %14, 4
   br i1 %.not.i.i, label %_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get17h777ebc89a906f07eE.exit, label %15
 
@@ -11513,7 +11513,7 @@ default.unreachable49:                            ; preds = %33, %2
   unreachable
 
 8:                                                ; preds = %2
-  %9 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get5STDIN17h65d652500f910f17E, i64 88) acquire, align 8
+  %9 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get5STDIN17h65d652500f910f17E, i64 88) acquire, align 8
   %.not.i.i = icmp eq i32 %9, 4
   br i1 %.not.i.i, label %_ZN13wasmtime_wasi5stdio19worker_thread_stdin11GlobalStdin3get17h777ebc89a906f07eE.exit, label %10
 

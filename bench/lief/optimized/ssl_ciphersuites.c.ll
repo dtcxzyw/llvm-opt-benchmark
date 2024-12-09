@@ -205,14 +205,14 @@ define hidden noundef nonnull ptr @mbedtls_ssl_list_ciphersuites() local_unnamed
   br i1 %.not.i, label %mbedtls_ssl_ciphersuite_from_id.exit.thread, label %2, !llvm.loop !4
 
 mbedtls_ssl_ciphersuite_from_id.exit:             ; preds = %2
-  %.08.add = add nsw i64 %.08.idx14, 4
+  %.08.add = add nuw nsw i64 %.08.idx14, 4
   store i32 %1, ptr %.08.ptr16, align 4
   br label %mbedtls_ssl_ciphersuite_from_id.exit.thread
 
 mbedtls_ssl_ciphersuite_from_id.exit.thread:      ; preds = %5, %mbedtls_ssl_ciphersuite_from_id.exit
   %.1.idx = phi i64 [ %.08.add, %mbedtls_ssl_ciphersuite_from_id.exit ], [ %.08.idx14, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %.015, i64 4
-  %.08.ptr = getelementptr inbounds i8, ptr @supported_ciphersuites, i64 %.1.idx
+  %.08.ptr = getelementptr inbounds nuw i8, ptr @supported_ciphersuites, i64 %.1.idx
   %9 = load i32, ptr %8, align 4
   %10 = icmp ne i32 %9, 0
   %11 = icmp slt i64 %.1.idx, 660

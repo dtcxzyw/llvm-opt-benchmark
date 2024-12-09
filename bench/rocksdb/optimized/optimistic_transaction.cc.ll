@@ -219,13 +219,13 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7rocksdb23PointLockTrackerFactory3GetEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23PointLockTrackerFactoryE, i64 16), ptr @_ZZN7rocksdb23PointLockTrackerFactory3GetEvE8instance, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb23PointLockTrackerFactoryE, i64 16), ptr @_ZZN7rocksdb23PointLockTrackerFactory3GetEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb23PointLockTrackerFactory3GetEvE8instance) #18
   br label %_ZN7rocksdb23PointLockTrackerFactory3GetEv.exit
 
 _ZN7rocksdb23PointLockTrackerFactory3GetEv.exit:  ; preds = %entry, %init.check.i, %init.i
   tail call void @_ZN7rocksdb19TransactionBaseImplC2EPNS_2DBERKNS_12WriteOptionsERKNS_18LockTrackerFactoryE(ptr noundef nonnull align 8 dereferenceable(320) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN7rocksdb23PointLockTrackerFactory3GetEvE8instance)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21OptimisticTransactionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb21OptimisticTransactionE, i64 16), ptr %this, align 8
   %txn_db_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   store ptr %txn_db, ptr %txn_db_, align 8
   %3 = load i8, ptr %txn_options, align 8
@@ -358,7 +358,7 @@ sw.bb:                                            ; preds = %entry
 sw.bb3:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callback.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb29OptimisticTransactionCallbackE, i64 16), ptr %callback.i, align 8, !noalias !5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb29OptimisticTransactionCallbackE, i64 16), ptr %callback.i, align 8, !noalias !5
   %txn_.i.i = getelementptr inbounds nuw i8, ptr %callback.i, i64 8
   store ptr %this, ptr %txn_.i.i, align 8, !noalias !5
   %db_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -843,7 +843,7 @@ ehcleanup86:                                      ; preds = %_ZNSt10unique_ptrIN
 define void @_ZN7rocksdb21OptimisticTransaction24CommitWithSerialValidateEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(328) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %callback = alloca %"class.rocksdb::OptimisticTransactionCallback", align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb29OptimisticTransactionCallbackE, i64 16), ptr %callback, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb29OptimisticTransactionCallbackE, i64 16), ptr %callback, align 8
   %txn_.i = getelementptr inbounds nuw i8, ptr %callback, i64 8
   store ptr %this, ptr %txn_.i, align 8
   %db_ = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1914,7 +1914,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16PointLockTrackerE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb16PointLockTrackerE, i64 16), ptr %call, align 8
   %tracked_keys_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   store ptr %_M_single_bucket.i.i.i, ptr %tracked_keys_.i, align 8

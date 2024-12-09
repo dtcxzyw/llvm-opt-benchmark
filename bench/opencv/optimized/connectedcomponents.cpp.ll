@@ -3151,7 +3151,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i72: ; preds = %_ZNSt6vector
   br i1 %45, label %83, label %124
 
 83:                                               ; preds = %78
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_4NoOpEE22FirstScan8ConnectivityE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_4NoOpEE22FirstScan8ConnectivityE, i64 16), ptr %14, align 8
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3246,7 +3246,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEEvPT_iiRS2_.exit: ; preds = %112, %92
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit94
 
 124:                                              ; preds = %78
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_4NoOpEE22FirstScan4ConnectivityE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_4NoOpEE22FirstScan4ConnectivityE, i64 16), ptr %15, align 8
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -3464,7 +3464,7 @@ _ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit
 
 _ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %_ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit.i.i.i.i
   %215 = phi ptr [ null, %_ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %214, %_ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit.i.i.i.i ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_4NoOpEE10SecondScanE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_4NoOpEE10SecondScanE, i64 16), ptr %16, align 8
   %216 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -18884,7 +18884,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc58, %_ZNSt6ve
   %81 = tail call i32 @llvm.smin.i32(i32 %80, i32 %79)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %81, i32 1)
   %82 = uitofp nneg i32 %.sroa.speculated to double
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents21LabelingGranaParallelIihNS0_4NoOpEE9FirstScanE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents21LabelingGranaParallelIihNS0_4NoOpEE9FirstScanE, i64 16), ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -18997,7 +18997,7 @@ _ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit
 
 _ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %_ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit.i.i.i.i
   %125 = phi ptr [ null, %_ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %124, %_ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit.i.i.i.i ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents21LabelingGranaParallelIihNS0_4NoOpEE10SecondScanE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents21LabelingGranaParallelIihNS0_4NoOpEE10SecondScanE, i64 16), ptr %15, align 8
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -42612,7 +42612,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc58, %_ZNSt6ve
   %81 = tail call i32 @llvm.smin.i32(i32 %80, i32 %79)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %81, i32 1)
   %82 = uitofp nneg i32 %.sroa.speculated to double
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents23LabelingBolelliParallelIihNS0_4NoOpEE9FirstScanE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents23LabelingBolelliParallelIihNS0_4NoOpEE9FirstScanE, i64 16), ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -42725,7 +42725,7 @@ _ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit
 
 _ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %_ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit.i.i.i.i
   %125 = phi ptr [ null, %_ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %124, %_ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit.i.i.i.i ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents23LabelingBolelliParallelIihNS0_4NoOpEE10SecondScanE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents23LabelingBolelliParallelIihNS0_4NoOpEE10SecondScanE, i64 16), ptr %15, align 8
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -43939,7 +43939,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i55: ; preds = %_ZNSt6vector
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %80, i32 1)
   %81 = uitofp nneg i32 %.sroa.speculated to double
   store i32 1, ptr %13, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents25LabelingBolelli4CParallelIihNS0_4NoOpEE9FirstScanE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents25LabelingBolelli4CParallelIihNS0_4NoOpEE9FirstScanE, i64 16), ptr %14, align 8
   %82 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -44167,7 +44167,7 @@ _ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit
 
 _ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %_ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit.i.i.i.i
   %176 = phi ptr [ null, %_ZNSt6vectorIN2cv19connectedcomponents4NoOpESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %175, %_ZNSt16allocator_traitsISaIN2cv19connectedcomponents4NoOpEEE8allocateERS3_m.exit.i.i.i.i ]
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents25LabelingBolelli4CParallelIihNS0_4NoOpEE10SecondScanE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents25LabelingBolelli4CParallelIihNS0_4NoOpEE10SecondScanE, i64 16), ptr %15, align 8
   %177 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -69686,7 +69686,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i74: ; preds = %_ZNSt6vector
   br i1 %46, label %84, label %125
 
 84:                                               ; preds = %79
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_9CCStatsOpEE22FirstScan8ConnectivityE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_9CCStatsOpEE22FirstScan8ConnectivityE, i64 16), ptr %14, align 8
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -69781,7 +69781,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEEvPT_iiRS2_.exit: ; preds = %113, %93
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit99
 
 125:                                              ; preds = %79
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_9CCStatsOpEE22FirstScan4ConnectivityE, i64 16), ptr %15, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_9CCStatsOpEE22FirstScan4ConnectivityE, i64 16), ptr %15, align 8
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -70043,7 +70043,7 @@ _ZNSt12_Vector_baseIN2cv19connectedcomponents9CCStatsOpESaIS2_EEC2EmRKS3_.exit.i
 
 230:                                              ; preds = %.loopexit
   %231 = load ptr, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_9CCStatsOpEE10SecondScanE, i64 16), ptr %17, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents18LabelingWuParallelIihNS0_9CCStatsOpEE10SecondScanE, i64 16), ptr %17, align 8
   %232 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %2, ptr %232, align 8
   %233 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -89163,7 +89163,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc60, %_ZNSt6ve
   %82 = tail call i32 @llvm.smin.i32(i32 %81, i32 %80)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %82, i32 1)
   %83 = uitofp nneg i32 %.sroa.speculated to double
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents21LabelingGranaParallelIihNS0_9CCStatsOpEE9FirstScanE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents21LabelingGranaParallelIihNS0_9CCStatsOpEE9FirstScanE, i64 16), ptr %13, align 8
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -89320,7 +89320,7 @@ _ZNSt12_Vector_baseIN2cv19connectedcomponents9CCStatsOpESaIS2_EEC2EmRKS3_.exit.i
 
 140:                                              ; preds = %.loopexit
   %141 = load ptr, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents21LabelingGranaParallelIihNS0_9CCStatsOpEE10SecondScanE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents21LabelingGranaParallelIihNS0_9CCStatsOpEE10SecondScanE, i64 16), ptr %16, align 8
   %142 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -115029,7 +115029,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc60, %_ZNSt6ve
   %82 = tail call i32 @llvm.smin.i32(i32 %81, i32 %80)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %82, i32 1)
   %83 = uitofp nneg i32 %.sroa.speculated to double
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents23LabelingBolelliParallelIihNS0_9CCStatsOpEE9FirstScanE, i64 16), ptr %13, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents23LabelingBolelliParallelIihNS0_9CCStatsOpEE9FirstScanE, i64 16), ptr %13, align 8
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -115186,7 +115186,7 @@ _ZNSt12_Vector_baseIN2cv19connectedcomponents9CCStatsOpESaIS2_EEC2EmRKS3_.exit.i
 
 140:                                              ; preds = %.loopexit
   %141 = load ptr, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents23LabelingBolelliParallelIihNS0_9CCStatsOpEE10SecondScanE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents23LabelingBolelliParallelIihNS0_9CCStatsOpEE10SecondScanE, i64 16), ptr %16, align 8
   %142 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -116813,7 +116813,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i57: ; preds = %_ZNSt6vector
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %81, i32 1)
   %82 = uitofp nneg i32 %.sroa.speculated to double
   store i32 1, ptr %13, align 4
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents25LabelingBolelli4CParallelIihNS0_9CCStatsOpEE9FirstScanE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents25LabelingBolelli4CParallelIihNS0_9CCStatsOpEE9FirstScanE, i64 16), ptr %14, align 8
   %83 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -117085,7 +117085,7 @@ _ZNSt12_Vector_baseIN2cv19connectedcomponents9CCStatsOpESaIS2_EEC2EmRKS3_.exit.i
 
 191:                                              ; preds = %.loopexit
   %192 = load ptr, ptr %15, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents25LabelingBolelli4CParallelIihNS0_9CCStatsOpEE10SecondScanE, i64 16), ptr %16, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv19connectedcomponents25LabelingBolelli4CParallelIihNS0_9CCStatsOpEE10SecondScanE, i64 16), ptr %16, align 8
   %193 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %16, i64 16

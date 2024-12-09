@@ -13935,7 +13935,7 @@ _ZN7polling6Poller16modify_with_mode17hec5c4d984a4b4be6E.exit.i: ; preds = %210
   br i1 %227, label %228, label %.thread122
 
 228:                                              ; preds = %225
-  %229 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN85_$LT$async_io..reactor..Writable$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17hd3a471f81b12c28bE", i64 16) monotonic, align 8
+  %229 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN85_$LT$async_io..reactor..Writable$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17hd3a471f81b12c28bE", i64 16) monotonic, align 8
   switch i8 %229, label %230 [
     i8 0, label %.thread122
     i8 1, label %.thread

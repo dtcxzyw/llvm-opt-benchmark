@@ -163,7 +163,7 @@ define hidden void @_ZN8ciMethodC2ERK12methodHandleP15ciInstanceKlass(ptr nounde
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %7, align 8
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTV8ciMethod, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTV8ciMethod, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -626,7 +626,7 @@ define hidden void @_ZN8ciMethodC2EP15ciInstanceKlassP8ciSymbolS3_S1_(ptr nocapt
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTV8ciMethod, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTV8ciMethod, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1316,7 +1316,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN20ThreadInVMfrom
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %62 = load i64, ptr %61, align 8
   call void @_ZN14GenerateOopMapC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV19GeneratePairingInfo, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV19GeneratePairingInfo, i64 16), ptr %4, align 8
   %63 = call noundef zeroext i1 @_ZN14GenerateOopMap11compute_mapEP6Thread(ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull %10) #14
   br i1 %63, label %66, label %64
 
@@ -1350,7 +1350,7 @@ _ZN6Method31set_guaranteed_monitor_matchingEv.exit: ; preds = %74
   br label %77
 
 77:                                               ; preds = %66, %_ZN6Method31set_guaranteed_monitor_matchingEv.exit
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV14GenerateOopMap, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV14GenerateOopMap, i64 16), ptr %4, align 8
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %78) #14
   %79 = load ptr, ptr %56, align 8

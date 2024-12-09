@@ -85,7 +85,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
   store i8 0, ptr %m_can_destratify_negation.i.i, align 4
   %m_transformer.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 16
   store ptr null, ptr %m_transformer.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog13mk_coi_filterE, i64 16), ptr %call5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog13mk_coi_filterE, i64 16), ptr %call5, align 8
   %m.i = getelementptr inbounds nuw i8, ptr %call5, i64 24
   %1 = load ptr, ptr %ctx, align 8
   store ptr %1, ptr %m.i, align 8
@@ -243,7 +243,7 @@ invoke.cont60:                                    ; preds = %invoke.cont57
   store i8 0, ptr %m_can_destratify_negation.i.i52, align 4
   %m_transformer.i.i53 = getelementptr inbounds nuw i8, ptr %call59, i64 16
   store ptr null, ptr %m_transformer.i.i53, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog13mk_coi_filterE, i64 16), ptr %call59, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog13mk_coi_filterE, i64 16), ptr %call59, align 8
   %m.i54 = getelementptr inbounds nuw i8, ptr %call59, i64 24
   %12 = load ptr, ptr %ctx, align 8
   store ptr %12, ptr %m.i54, align 8
@@ -311,7 +311,7 @@ invoke.cont82:                                    ; preds = %invoke.cont79
   store i8 0, ptr %m_can_destratify_negation.i.i62, align 4
   %m_transformer.i.i63 = getelementptr inbounds nuw i8, ptr %call81, i64 16
   store ptr null, ptr %m_transformer.i.i63, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog13mk_coi_filterE, i64 16), ptr %call81, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog13mk_coi_filterE, i64 16), ptr %call81, align 8
   %m.i64 = getelementptr inbounds nuw i8, ptr %call81, i64 24
   %15 = load ptr, ptr %ctx, align 8
   store ptr %15, ptr %m.i64, align 8
@@ -575,7 +575,7 @@ invoke.cont3:
   store i8 0, ptr %m_can_destratify_negation.i, align 4
   %m_transformer.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_transformer.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog22mk_subsumption_checkerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog22mk_subsumption_checkerE, i64 16), ptr %this, align 8
   %m = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %ctx, align 8
   store ptr %0, ptr %m, align 8
@@ -666,7 +666,7 @@ invoke.cont6:
   store i8 0, ptr %m_can_destratify_negation.i, align 4
   %m_transformer.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_transformer.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15mk_rule_inlinerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog15mk_rule_inlinerE, i64 16), ptr %this, align 8
   %m = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %ctx, align 8
   store ptr %0, ptr %m, align 8
@@ -831,7 +831,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
   %m_head_visitor = getelementptr inbounds nuw i8, ptr %this, i64 1528
   %m_subst.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1536
   store ptr %m_subst, ptr %m_subst.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15mk_rule_inliner7visitorE, i64 16), ptr %m_head_visitor, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog15mk_rule_inliner7visitorE, i64 16), ptr %m_head_visitor, align 8
   %m_context.i42 = getelementptr inbounds nuw i8, ptr %this, i64 1544
   store ptr %ctx, ptr %m_context.i42, align 8
   %m_unifiers.i = getelementptr inbounds nuw i8, ptr %this, i64 1552
@@ -862,7 +862,7 @@ invoke.cont35:                                    ; preds = %invoke.cont32
   %m_tail_visitor = getelementptr inbounds nuw i8, ptr %this, i64 1600
   %m_subst.i.i47 = getelementptr inbounds nuw i8, ptr %this, i64 1608
   store ptr %m_subst, ptr %m_subst.i.i47, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15mk_rule_inliner7visitorE, i64 16), ptr %m_tail_visitor, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog15mk_rule_inliner7visitorE, i64 16), ptr %m_tail_visitor, align 8
   %m_context.i48 = getelementptr inbounds nuw i8, ptr %this, i64 1616
   store ptr %ctx, ptr %m_context.i48, align 8
   %m_unifiers.i49 = getelementptr inbounds nuw i8, ptr %this, i64 1624
@@ -1159,7 +1159,7 @@ declare void @_ZN12substitutionC1ER11ast_manager(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog15mk_rule_inliner7visitorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15mk_rule_inliner7visitorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog15mk_rule_inliner7visitorE, i64 16), ptr %this, align 8
   %m_positions = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_positions, align 8
   %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56

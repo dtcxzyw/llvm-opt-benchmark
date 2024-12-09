@@ -856,7 +856,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @parse_opt_passthru_argv.sb, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parse_opt_passthru_argv.sb, i64 16), align 8
   %call1 = tail call ptr @strvec_push(ptr noundef %0, ptr noundef %1) #11
   br label %return
 

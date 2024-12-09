@@ -771,7 +771,7 @@ _ZNSt10unique_ptrIN6hermes11FuncSigOptsESt14default_deleteIS1_EED2Ev.exit:
   store ptr @.str.1, ptr %name2.i.i.i.i, align 8, !noalias !17
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 11, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes11FuncSigOptsE, i64 16), ptr %call.i, align 8, !noalias !17
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes11FuncSigOptsE, i64 16), ptr %call.i, align 8, !noalias !17
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }

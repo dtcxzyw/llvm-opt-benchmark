@@ -291,7 +291,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_s
   br i1 %89, label %127, label %90
 
 90:                                               ; preds = %87
-  %91 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1112), align 8
+  %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1112), align 8
   %92 = getelementptr i8, ptr %91, i64 -1112
   %93 = icmp eq ptr %92, @init_task
   br i1 %93, label %.loopexit18, label %.preheader20
@@ -600,7 +600,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_ioprio_g
   br i1 %131, label %215, label %132
 
 132:                                              ; preds = %129
-  %133 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1112), align 8
+  %133 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1112), align 8
   %134 = getelementptr i8, ptr %133, i64 -1112
   %135 = icmp eq ptr %134, @init_task
   br i1 %135, label %.loopexit29, label %136

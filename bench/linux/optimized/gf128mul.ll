@@ -471,7 +471,7 @@ define dso_local void @gf128mul_bbe(ptr nocapture noundef %0, ptr nocapture noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr nocapture noundef readonly %0) #6 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 128) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader3
@@ -483,7 +483,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr nocapture noundef readon
 
 .preheader3:                                      ; preds = %1, %5
   %8 = phi i64 [ %6, %5 ], [ 0, %1 ]
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 4096) #12
   %11 = getelementptr [16 x ptr], ptr %3, i64 0, i64 %8
   store ptr %10, ptr %11, align 8
@@ -679,7 +679,7 @@ define dso_local void @gf128mul_64k_bbe(ptr nocapture noundef %0, ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr nocapture noundef readonly %0) #6 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 4096) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
@@ -754,7 +754,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr nocapture noundef readonly %0) #6 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 4096) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5

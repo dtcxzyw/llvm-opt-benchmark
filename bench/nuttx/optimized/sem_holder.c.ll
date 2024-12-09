@@ -25,7 +25,7 @@ define void @nxsem_initialize_holders() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %4, label %1, !llvm.loop !6
 
 4:                                                ; preds = %1
-  store ptr null, ptr getelementptr inbounds (i8, ptr @g_holderalloc, i64 280), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @g_holderalloc, i64 280), align 8
   ret void
 }
 

@@ -78,7 +78,7 @@ define internal fastcc range(i32 -1, 1803) i32 @_send_message_controller(i32 nou
   br label %28
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
   tail call void @slurm_msg_set_r_uid(ptr noundef nonnull %1, i32 noundef %9) #5
   %10 = tail call i32 @slurm_send_node_msg(i32 noundef %5, ptr noundef nonnull %1) #5
   %11 = icmp slt i32 %10, 0
@@ -141,11 +141,11 @@ define ptr @ping_all_controllers() local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [20 x i8], align 16
   %5 = alloca i64, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 256), align 8
   %7 = add i32 %6, 1
   %8 = zext i32 %7 to i64
   %9 = tail call ptr @slurm_xcalloc(i64 noundef %8, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @__func__.ping_all_controllers) #5
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 256), align 8
   %.not14 = icmp eq i32 %10, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -156,7 +156,7 @@ define ptr @ping_all_controllers() local_unnamed_addr #0 {
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 264), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 264), align 8
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw %struct.controller_ping_t, ptr %9, i64 %indvars.iv
@@ -180,7 +180,7 @@ define ptr @ping_all_controllers() local_unnamed_addr #0 {
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 256), align 8
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %28, label %12, label %._crit_edge, !llvm.loop !6
@@ -211,7 +211,7 @@ define range(i32 -1, 1803) i32 @slurm_shutdown(i16 noundef zeroext %0) local_unn
   store ptr %3, ptr %5, align 8
   %6 = load ptr, ptr @working_cluster_rec, align 8
   %.not = icmp eq ptr %6, null
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 256), align 8
   %8 = icmp ugt i32 %7, 1
   %or.cond = select i1 %.not, i1 %8, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
@@ -220,7 +220,7 @@ define range(i32 -1, 1803) i32 @slurm_shutdown(i16 noundef zeroext %0) local_unn
   %.04 = phi i32 [ %10, %.lr.ph ], [ 1, %1 ]
   %9 = call fastcc i32 @_send_message_controller(i32 noundef %.04, ptr noundef %2)
   %10 = add nuw nsw i32 %.04, 1
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 256), align 8
   %12 = icmp ult i32 %10, %11
   br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
@@ -301,7 +301,7 @@ define i32 @slurm_set_slurmd_debug_flags(ptr noundef %0, i64 noundef %1, i64 nou
   %6 = alloca %struct.set_debug_flags_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #5
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #5
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), align 8
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %4, i32 noundef %7) #5
   store i64 %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -364,7 +364,7 @@ define i32 @slurm_set_slurmd_debug_level(ptr noundef %0, i32 noundef %1) local_u
   %5 = alloca %struct.set_debug_level_msg, align 4
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #5
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #5
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1168), align 8
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %3, i32 noundef %6) #5
   store i32 %1, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 204

@@ -206,15 +206,15 @@ do.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4208) @gdbserver_state, i8 0, i64 4208, i1 false)
   store i8 1, ptr @gdbserver_state, align 8
   %call = tail call ptr @g_string_new(ptr noundef null) #18
-  store ptr %call, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  store ptr %call, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call1 = tail call ptr @g_byte_array_sized_new(i32 noundef 4096) #18
-  store ptr %call1, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  store ptr %call1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %call2 = tail call ptr @g_byte_array_sized_new(i32 noundef 4100) #18
-  store ptr %call2, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  store ptr %call2, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %call3 = tail call i32 @accel_supported_gdbstub_sstep_flags() #18
-  store i32 %call3, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4196), align 4
+  store i32 %call3, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4196), align 4
   %and = and i32 %call3, 7
-  store i32 %and, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4192), align 8
+  store i32 %and, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4192), align 8
   ret void
 }
 
@@ -543,11 +543,11 @@ for.cond.us.preheader:                            ; preds = %if.end
   br label %for.cond.us
 
 for.cond.us:                                      ; preds = %for.cond.us.preheader, %for.cond9.for.end_crit_edge.us
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %call.us = call ptr @g_byte_array_set_size(ptr noundef %12, i32 noundef 0) #18
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %call7.us = call ptr @g_byte_array_append(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 1) #18
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %call8.us = call ptr @g_byte_array_append(ptr noundef %14, ptr noundef %buf, i32 noundef %len) #18
   br label %for.body.us
 
@@ -579,9 +579,9 @@ for.cond9.for.end_crit_edge.us:                   ; preds = %for.body.us
   %retval.0.i14.us = select i1 %cmp.i11.us, i32 %add.i12.us, i32 %add1.i13.us
   %conv18.us = trunc nuw nsw i32 %retval.0.i14.us to i8
   store i8 %conv18.us, ptr %arrayidx19, align 1
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %call20.us = call ptr @g_byte_array_append(ptr noundef %16, ptr noundef nonnull %footer, i32 noundef 3) #18
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %18 = load ptr, ptr %17, align 8
   %len21.us = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %len21.us, align 8
@@ -590,18 +590,18 @@ for.cond9.for.end_crit_edge.us:                   ; preds = %for.body.us
   br i1 %call22.us, label %for.end25, label %for.cond.us
 
 for.cond:                                         ; preds = %if.end, %for.cond
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %call = call ptr @g_byte_array_set_size(ptr noundef %20, i32 noundef 0) #18
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %call7 = call ptr @g_byte_array_append(ptr noundef %21, ptr noundef nonnull @.str.2, i32 noundef 1) #18
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %call8 = call ptr @g_byte_array_append(ptr noundef %22, ptr noundef %buf, i32 noundef %len) #18
   store i8 35, ptr %footer, align 1
   store i8 48, ptr %arrayidx15, align 1
   store i8 48, ptr %arrayidx19, align 1
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %call20 = call ptr @g_byte_array_append(ptr noundef %23, ptr noundef nonnull %footer, i32 noundef 3) #18
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4144), align 8
   %25 = load ptr, ptr %24, align 8
   %len21 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %len21, align 8
@@ -669,7 +669,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_put_strbuf() local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @gdb_put_packet(ptr noundef %1)
   ret void
@@ -781,17 +781,17 @@ entry:
   br i1 %tobool.not, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5 = icmp sgt i32 %0, 0
   br i1 %cmp5, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %return
 
 for.cond:                                         ; preds = %for.body
@@ -850,17 +850,17 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i = icmp sgt i32 %2, 0
   tail call void @llvm.assume(i1 %cmp5.i.i)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i = zext nneg i32 %2 to i64
   %4 = load i32, ptr %3, align 8
   %cmp3.i.i3 = icmp eq i32 %4, %call.i.i
   br i1 %cmp3.i.i3, label %gdb_get_cpu_process.exit, label %for.cond.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit
 
 for.cond.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.cond.i.i
@@ -895,17 +895,17 @@ while.body2.i:                                    ; preds = %if.then, %while.end
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %while.body2.i
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i = icmp sgt i32 %9, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
   %11 = load i32, ptr %10, align 8
   %cmp3.i.i5.i = icmp eq i32 %11, %call.i.i.i
   br i1 %cmp3.i.i5.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body2.i
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
@@ -1177,7 +1177,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_append_thread_id(ptr noundef %cpu, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4156), align 4
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4156), align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
 
@@ -1208,17 +1208,17 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i = icmp sgt i32 %0, 0
   tail call void @llvm.assume(i1 %cmp5.i.i)
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
   %2 = load i32, ptr %1, align 8
   %cmp3.i.i3 = icmp eq i32 %2, %call.i.i
   br i1 %cmp3.i.i3, label %gdb_get_cpu_process.exit, label %for.cond.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit
 
 for.cond.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.cond.i.i
@@ -1239,8 +1239,8 @@ gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %gdb_get_cpu_process.exit
-  store ptr %cpu, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
-  store ptr %cpu, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  store ptr %cpu, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
+  store ptr %cpu, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   br label %return
 
 return:                                           ; preds = %gdb_get_cpu_process.exit, %if.end
@@ -1260,8 +1260,8 @@ entry:
   %_now.i.i30 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %reply = alloca i8, align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   switch i32 %0, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb8
@@ -1278,9 +1278,9 @@ sw.bb:                                            ; preds = %entry
   ]
 
 if.then:                                          ; preds = %sw.bb
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4132), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4132), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.else6:                                         ; preds = %sw.bb
@@ -1331,25 +1331,25 @@ sw.bb8:                                           ; preds = %entry
   ]
 
 if.then12:                                        ; preds = %sw.bb8
-  store i32 3, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
   %add = add i32 %7, 125
-  store i32 %add, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 %add, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
   br label %sw.epilog
 
 if.then18:                                        ; preds = %sw.bb8
-  store i32 4, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
   %add20 = add i32 %8, 42
-  store i32 %add20, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 %add20, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
   br label %sw.epilog
 
 if.then25:                                        ; preds = %sw.bb8
-  store i32 5, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.else26:                                        ; preds = %sw.bb8
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4132), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4132), align 4
   %cmp28 = icmp ugt i32 %9, 4094
   br i1 %cmp28, label %if.then30, label %if.else31
 
@@ -1388,18 +1388,18 @@ if.else.i.i39:                                    ; preds = %if.then.i.i37
 
 trace_gdbstub_err_overrun.exit:                   ; preds = %if.then30, %land.lhs.true5.i.i34, %if.then8.i.i40, %if.else.i.i39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i30)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.else31:                                        ; preds = %if.else26
   %conv27 = zext nneg i32 %9 to i64
   %inc = add nuw nsw i32 %9, 1
-  store i32 %inc, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4132), align 4
-  %arrayidx = getelementptr [4096 x i8], ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 36), i64 0, i64 %conv27
+  store i32 %inc, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4132), align 4
+  %arrayidx = getelementptr [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 36), i64 0, i64 %conv27
   store i8 %ch, ptr %arrayidx, align 1
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
   %add33 = add i32 %16, %conv9
-  store i32 %add33, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 %add33, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
@@ -1408,11 +1408,11 @@ sw.bb38:                                          ; preds = %entry
   br i1 %cmp40, label %if.then42, label %if.else43
 
 if.then42:                                        ; preds = %sw.bb38
-  store i32 5, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.else43:                                        ; preds = %sw.bb38
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4132), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4132), align 4
   %cmp45 = icmp ugt i32 %17, 4094
   br i1 %cmp45, label %if.then47, label %if.else48
 
@@ -1451,20 +1451,20 @@ if.else.i.i53:                                    ; preds = %if.then.i.i51
 
 trace_gdbstub_err_overrun.exit58:                 ; preds = %if.then47, %land.lhs.true5.i.i48, %if.then8.i.i54, %if.else.i.i53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i44)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.else48:                                        ; preds = %if.else43
   %conv44 = zext nneg i32 %17 to i64
   %xor = xor i8 %ch, 32
   %inc51 = add nuw nsw i32 %17, 1
-  store i32 %inc51, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4132), align 4
-  %arrayidx53 = getelementptr [4096 x i8], ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 36), i64 0, i64 %conv44
+  store i32 %inc51, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4132), align 4
+  %arrayidx53 = getelementptr [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 36), i64 0, i64 %conv44
   store i8 %xor, ptr %arrayidx53, align 1
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
   %add55 = add i32 %24, %conv39
-  store i32 %add55, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 %add55, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %entry
@@ -1511,12 +1511,12 @@ if.else.i.i68:                                    ; preds = %if.then.i.i66
 
 trace_gdbstub_err_invalid_repeat.exit:            ; preds = %if.then73, %land.lhs.true5.i.i63, %if.then8.i.i70, %if.else.i.i68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i59)
-  store i32 2, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.else74:                                        ; preds = %sw.bb58
   %add76 = add nsw i32 %conv59, -29
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4132), align 4
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4132), align 4
   %add77 = add i32 %35, %add76
   %cmp79 = icmp ugt i32 %add77, 4094
   br i1 %cmp79, label %if.then81, label %if.else82
@@ -1556,7 +1556,7 @@ if.else.i.i84:                                    ; preds = %if.then.i.i82
 
 trace_gdbstub_err_overrun.exit89:                 ; preds = %if.then81, %land.lhs.true5.i.i79, %if.then8.i.i85, %if.else.i.i84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i75)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.else82:                                        ; preds = %if.else74
@@ -1565,25 +1565,25 @@ if.else82:                                        ; preds = %if.else74
 
 if.then85:                                        ; preds = %if.else82
   tail call fastcc void @trace_gdbstub_err_invalid_rle()
-  store i32 2, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.else86:                                        ; preds = %if.else82
   %idx.ext = zext nneg i32 %35 to i64
-  %add.ptr = getelementptr i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 36), i64 %idx.ext
+  %add.ptr = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 36), i64 %idx.ext
   %sub87 = add nsw i32 %35, -1
   %idxprom88 = zext nneg i32 %sub87 to i64
-  %arrayidx89 = getelementptr [4096 x i8], ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 36), i64 0, i64 %idxprom88
+  %arrayidx89 = getelementptr [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 36), i64 0, i64 %idxprom88
   %42 = load i8, ptr %arrayidx89, align 1
   %conv91 = zext nneg i32 %add76 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 %42, i64 %conv91, i1 false)
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4132), align 4
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4132), align 4
   %add92 = add i32 %43, %add76
-  store i32 %add92, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4132), align 4
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 %add92, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4132), align 4
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
   %add94 = add i32 %44, %conv59
-  store i32 %add94, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
-  store i32 2, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 %add94, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %entry
@@ -1633,14 +1633,14 @@ if.else.i.i99:                                    ; preds = %if.then.i.i97
 
 trace_gdbstub_err_checksum_invalid.exit:          ; preds = %if.then103, %land.lhs.true5.i.i94, %if.then8.i.i101, %if.else.i.i99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i90)
-  store i32 2, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.end104:                                        ; preds = %sw.bb98
   %conv99 = zext i8 %ch to i32
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4132), align 4
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4132), align 4
   %idxprom105 = sext i32 %54 to i64
-  %arrayidx106 = getelementptr [4096 x i8], ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 36), i64 0, i64 %idxprom105
+  %arrayidx106 = getelementptr [4096 x i8], ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 36), i64 0, i64 %idxprom105
   store i8 0, ptr %arrayidx106, align 1
   %55 = add nsw i32 %conv99, -48
   %or.cond.i = icmp ult i32 %55, 10
@@ -1665,8 +1665,8 @@ if.else7.i:                                       ; preds = %if.else.i
 fromhex.exit:                                     ; preds = %if.end104, %if.then5.i, %if.else7.i
   %retval.0.i = phi i32 [ %add.i, %if.then5.i ], [ %spec.select.i, %if.else7.i ], [ %55, %if.end104 ]
   %shl = shl nuw nsw i32 %retval.0.i, 4
-  store i32 %shl, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4140), align 4
-  store i32 6, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 %shl, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4140), align 4
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 sw.bb109:                                         ; preds = %entry
@@ -1716,7 +1716,7 @@ if.else.i.i115:                                   ; preds = %if.then.i.i113
 
 trace_gdbstub_err_checksum_invalid.exit122:       ; preds = %if.then117, %land.lhs.true5.i.i110, %if.then8.i.i117, %if.else.i.i115
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i106)
-  store i32 2, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.end118:                                        ; preds = %sw.bb109
@@ -1743,10 +1743,10 @@ if.else7.i126:                                    ; preds = %if.else.i124
 
 fromhex.exit133:                                  ; preds = %if.end118, %if.then5.i131, %if.else7.i126
   %retval.0.i130 = phi i32 [ %add.i132, %if.then5.i131 ], [ %spec.select.i129, %if.else7.i126 ], [ %67, %if.end118 ]
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4140), align 4
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4140), align 4
   %or = or i32 %70, %retval.0.i130
-  store i32 %or, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4140), align 4
-  %71 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4136), align 8
+  store i32 %or, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4140), align 4
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4136), align 8
   %and121 = and i32 %71, 255
   %cmp122.not = icmp eq i32 %or, %and121
   br i1 %cmp122.not, label %if.else127, label %if.then124
@@ -1790,7 +1790,7 @@ trace_gdbstub_err_checksum_incorrect.exit:        ; preds = %if.then124, %land.l
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i134)
   store i8 45, ptr %reply, align 1
   call void @gdb_put_buffer(ptr noundef nonnull %reply, i32 noundef 1) #18
-  store i32 1, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 if.else127:                                       ; preds = %fromhex.exit133
@@ -1821,16 +1821,16 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %82 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %83 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i, i64 noundef %82, i64 noundef %83, ptr noundef nonnull getelementptr inbounds (i8, ptr @gdbserver_state, i64 36)) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i, i64 noundef %82, i64 noundef %83, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 36)) #18
   br label %trace_gdbstub_io_command.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @gdbserver_state, i64 36)) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 36)) #18
   br label %trace_gdbstub_io_command.exit.i
 
 trace_gdbstub_io_command.exit.i:                  ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.else127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %84 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 36), align 4
+  %84 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 36), align 4
   switch i8 %84, label %sw.default.i [
     i8 33, label %sw.bb.i
     i8 63, label %if.then.i
@@ -1929,11 +1929,11 @@ sw.default.i:                                     ; preds = %trace_gdbstub_io_co
 
 if.then.i:                                        ; preds = %sw.bb21.i, %sw.bb20.i, %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %trace_gdbstub_io_command.exit.i
   %cmd_parser.0.ph.i = phi ptr [ @gdb_handle_packet.target_halted_cmd_desc, %trace_gdbstub_io_command.exit.i ], [ @gdb_handle_packet.continue_cmd_desc, %sw.bb2.i ], [ @gdb_handle_packet.cont_with_sig_cmd_desc, %sw.bb3.i ], [ @gdb_handle_packet.v_cmd_desc, %sw.bb4.i ], [ @gdb_handle_packet.detach_cmd_desc, %sw.bb6.i ], [ @gdb_handle_packet.step_cmd_desc, %sw.bb7.i ], [ @gdb_handle_packet.backward_cmd_desc, %sw.bb8.i ], [ @gdb_handle_packet.file_io_cmd_desc, %sw.bb9.i ], [ @gdb_handle_packet.read_all_regs_cmd_desc, %sw.bb10.i ], [ @gdb_handle_packet.write_all_regs_cmd_desc, %sw.bb11.i ], [ @gdb_handle_packet.read_mem_cmd_desc, %sw.bb12.i ], [ @gdb_handle_packet.write_mem_cmd_desc, %sw.bb13.i ], [ @gdb_handle_packet.get_reg_cmd_desc, %sw.bb14.i ], [ @gdb_handle_packet.set_reg_cmd_desc, %sw.bb15.i ], [ @gdb_handle_packet.insert_bp_cmd_desc, %sw.bb16.i ], [ @gdb_handle_packet.remove_bp_cmd_desc, %sw.bb17.i ], [ @gdb_handle_packet.set_thread_cmd_desc, %sw.bb18.i ], [ @gdb_handle_packet.thread_alive_cmd_desc, %sw.bb19.i ], [ @gdb_handle_packet.gen_query_cmd_desc, %sw.bb20.i ], [ @gdb_handle_packet.gen_set_cmd_desc, %sw.bb21.i ]
-  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call.i.i = call ptr @g_string_set_size(ptr noundef %85, i64 noundef 0) #18
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %call1.i.i = call ptr @g_byte_array_set_size(ptr noundef %86, i32 noundef 0) #18
-  %call2.i.i = call fastcc i32 @process_string_cmd(ptr noundef nonnull getelementptr inbounds (i8, ptr @gdbserver_state, i64 36), ptr noundef nonnull %cmd_parser.0.ph.i, i32 noundef 1)
+  %call2.i.i = call fastcc i32 @process_string_cmd(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 36), ptr noundef nonnull %cmd_parser.0.ph.i, i32 noundef 1)
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %gdb_handle_packet.exit, label %if.then4.i.i
 
@@ -1942,7 +1942,7 @@ if.then4.i.i:                                     ; preds = %if.then.i
   br label %gdb_handle_packet.exit
 
 gdb_handle_packet.exit:                           ; preds = %sw.bb.i, %sw.bb5.i, %sw.default.i, %if.then.i, %if.then4.i.i
-  store i32 1, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -2003,7 +2003,7 @@ declare void @abort() local_unnamed_addr #7
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_create_default_process(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
 
@@ -2054,16 +2054,16 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_target_halt(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %1, ptr noundef nonnull @.str.64, i32 noundef 5) #18
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4156), align 4
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4156), align 4
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i
 
@@ -2079,7 +2079,7 @@ if.else.i:                                        ; preds = %if.then
   br label %gdb_append_thread_id.exit
 
 gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else.i
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %len.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i64, ptr %len.i, align 8
   %add.i = add i64 %6, 1
@@ -2104,14 +2104,14 @@ if.else.i1:                                       ; preds = %gdb_append_thread_i
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %if.then.i2, %if.else.i1
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %12 = load ptr, ptr %11, align 8
   %call.i3 = tail call i32 @gdb_put_packet(ptr noundef %12)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
   br label %if.end
 
 if.end:                                           ; preds = %g_string_append_c_inline.exit, %entry
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   tail call void @gdb_breakpoint_remove_all(ptr noundef %13) #18
   ret void
 }
@@ -2127,7 +2127,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %params, align 8
   %2 = load i64, ptr %1, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   tail call void @cpu_synchronize_state(ptr noundef %3) #18
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef %3) #18
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #18
@@ -2137,7 +2137,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  store i32 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4152), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4152), align 8
   tail call void @gdb_continue() #18
   ret void
 }
@@ -2161,7 +2161,7 @@ if.end:                                           ; preds = %if.then, %entry
   %call = tail call i32 @gdb_signal_to_target(i32 noundef %signal.0) #18
   %cmp = icmp eq i32 %call, -1
   %spec.select = select i1 %cmp, i32 0, i32 %call
-  store i32 %spec.select, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4152), align 8
+  store i32 %spec.select, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4152), align 8
   tail call void @gdb_continue() #18
   ret void
 }
@@ -2196,7 +2196,7 @@ declare void @gdb_qemu_exit(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_detach(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4156), align 4
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4156), align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %for.cond.preheader.i
 
@@ -2215,17 +2215,17 @@ if.end3:                                          ; preds = %if.then
 
 for.cond.preheader.i:                             ; preds = %entry, %if.end3
   %pid.068 = phi i32 [ %conv, %if.end3 ], [ 1, %entry ]
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i = icmp sgt i32 %4, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %gdb_get_process.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i = zext nneg i32 %4 to i64
   br label %for.body.i
 
 if.then.i:                                        ; preds = %if.end3
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_process.exit
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -2309,17 +2309,17 @@ if.then7:                                         ; preds = %gdb_process_breakpo
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.then7
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i = icmp sgt i32 %15, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %15 to i64
   %17 = load i32, ptr %16, align 8
   %cmp3.i.i3.i = icmp eq i32 %17, %call.i.i.i6
   br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then7
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
@@ -2354,17 +2354,17 @@ while.body2.i.i11:                                ; preds = %if.then.i7, %while.
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i11
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i.i = icmp sgt i32 %22, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i.i)
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i = zext nneg i32 %22 to i64
   %24 = load i32, ptr %23, align 8
   %cmp3.i.i5.i.i = icmp eq i32 %24, %call.i.i.i.i
   br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body2.i.i11
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
@@ -2394,7 +2394,7 @@ while.end8.i.i13:                                 ; preds = %gdb_get_cpu_process
 
 gdb_first_attached_cpu.exit:                      ; preds = %gdb_get_cpu_process.exit.i.i, %while.end8.i.i13, %gdb_get_cpu_process.exit.i, %if.then.i7
   %retval.0.i17 = phi ptr [ %14, %gdb_get_cpu_process.exit.i ], [ %cpu.addr.07.i.i9, %if.then.i7 ], [ %cpu.addr.09.i.i12, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.0.i.i15, %while.end8.i.i13 ]
-  store ptr %retval.0.i17, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  store ptr %retval.0.i17, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %gdb_first_attached_cpu.exit, %gdb_process_breakpoint_remove_all.exit
@@ -2411,17 +2411,17 @@ if.then13:                                        ; preds = %if.end9
   br i1 %tobool.not.i.i.i20, label %if.then.i.i.i63, label %for.cond.preheader.i.i.i21
 
 for.cond.preheader.i.i.i21:                       ; preds = %if.then13
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i22 = icmp sgt i32 %31, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i22)
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i23 = zext nneg i32 %31 to i64
   %33 = load i32, ptr %32, align 8
   %cmp3.i.i3.i24 = icmp eq i32 %33, %call.i.i.i19
   br i1 %cmp3.i.i3.i24, label %gdb_get_cpu_process.exit.i31, label %for.cond.i.i.i25
 
 if.then.i.i.i63:                                  ; preds = %if.then13
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i31
 
 for.cond.i.i.i25:                                 ; preds = %for.cond.preheader.i.i.i21, %for.cond.i.i.i25
@@ -2456,17 +2456,17 @@ while.body2.i.i39:                                ; preds = %if.then.i35, %while
   br i1 %tobool.not.i.i.i.i42, label %if.then.i.i.i.i62, label %for.cond.preheader.i.i.i.i43
 
 for.cond.preheader.i.i.i.i43:                     ; preds = %while.body2.i.i39
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i.i44 = icmp sgt i32 %38, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i.i44)
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i45 = zext nneg i32 %38 to i64
   %40 = load i32, ptr %39, align 8
   %cmp3.i.i5.i.i46 = icmp eq i32 %40, %call.i.i.i.i41
   br i1 %cmp3.i.i5.i.i46, label %gdb_get_cpu_process.exit.i.i53, label %for.cond.i.i.i.i47
 
 if.then.i.i.i.i62:                                ; preds = %while.body2.i.i39
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i.i53
 
 for.cond.i.i.i.i47:                               ; preds = %for.cond.preheader.i.i.i.i43, %for.cond.i.i.i.i47
@@ -2496,11 +2496,11 @@ while.end8.i.i57:                                 ; preds = %gdb_get_cpu_process
 
 gdb_first_attached_cpu.exit64:                    ; preds = %gdb_get_cpu_process.exit.i.i53, %while.end8.i.i57, %gdb_get_cpu_process.exit.i31, %if.then.i35
   %retval.0.i61 = phi ptr [ %30, %gdb_get_cpu_process.exit.i31 ], [ %cpu.addr.07.i.i37, %if.then.i35 ], [ %cpu.addr.09.i.i40, %gdb_get_cpu_process.exit.i.i53 ], [ %cpu.addr.0.i.i59, %while.end8.i.i57 ]
-  store ptr %retval.0.i61, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  store ptr %retval.0.i61, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %gdb_first_attached_cpu.exit64, %if.end9
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   %tobool16.not = icmp eq ptr %45, null
   br i1 %tobool16.not, label %if.then17, label %return
 
@@ -2526,7 +2526,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %params, align 8
   %2 = load i64, ptr %1, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   tail call void @cpu_synchronize_state(ptr noundef %3) #18
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef %3) #18
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #18
@@ -2536,8 +2536,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4192), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4192), align 8
   tail call void @cpu_single_step(ptr noundef %5, i32 noundef %6) #18
   tail call void @gdb_continue() #18
   ret void
@@ -2604,11 +2604,11 @@ declare void @gdb_handle_file_io(ptr noundef, ptr noundef) #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_read_all_regs(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   tail call void @cpu_synchronize_state(ptr noundef %0) #18
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %call = tail call ptr @g_byte_array_set_size(ptr noundef %1, i32 noundef 0) #18
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   %gdb_num_g_regs7 = getelementptr inbounds nuw i8, ptr %2, i64 564
   %3 = load i32, ptr %gdb_num_g_regs7, align 4
   %cmp8 = icmp sgt i32 %3, 0
@@ -2618,7 +2618,7 @@ for.body:                                         ; preds = %entry, %gdb_read_re
   %4 = phi ptr [ %14, %gdb_read_register.exit ], [ %2, %entry ]
   %len.010 = phi i64 [ %add, %gdb_read_register.exit ], [ 0, %entry ]
   %reg_id.09 = phi i32 [ %inc, %gdb_read_register.exit ], [ 0, %entry ]
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %4) #18
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #18
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 10176
@@ -2681,7 +2681,7 @@ gdb_read_register.exit:                           ; preds = %for.inc.i, %if.then
   %conv = sext i32 %retval.0.i to i64
   %add = add i64 %len.010, %conv
   %inc = add nuw nsw i32 %reg_id.09, 1
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   %gdb_num_g_regs = getelementptr inbounds nuw i8, ptr %14, i64 564
   %15 = load i32, ptr %gdb_num_g_regs, align 4
   %cmp = icmp slt i32 %inc, %15
@@ -2689,7 +2689,7 @@ gdb_read_register.exit:                           ; preds = %for.inc.i, %if.then
 
 do.body:                                          ; preds = %gdb_read_register.exit, %entry
   %len.0.lcssa = phi i64 [ 0, %entry ], [ %add, %gdb_read_register.exit ]
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %len2 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load i32, ptr %len2, align 8
   %conv3 = zext i32 %17 to i64
@@ -2701,11 +2701,11 @@ if.else:                                          ; preds = %do.body
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %19 = load ptr, ptr %16, align 8
   %conv6 = trunc nuw i64 %len.0.lcssa to i32
   tail call void @gdb_memtohex(ptr noundef %18, ptr noundef %19, i32 noundef %conv6)
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %21 = load ptr, ptr %20, align 8
   %call.i = tail call i32 @gdb_put_packet(ptr noundef %21)
   ret void
@@ -2721,13 +2721,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   tail call void @cpu_synchronize_state(ptr noundef %1) #18
   %2 = load ptr, ptr %params, align 8
   %3 = load ptr, ptr %2, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
   %div9 = lshr i64 %call, 1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %conv = trunc i64 %div9 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.i)
   %cmp15.i = icmp sgt i32 %conv, 0
@@ -2796,13 +2796,13 @@ fromhex.exit14.i:                                 ; preds = %if.else7.i7.i, %if.
   br i1 %exitcond.not.i, label %gdb_hextomem.exit.loopexit, label %for.body.i, !llvm.loop !7
 
 gdb_hextomem.exit.loopexit:                       ; preds = %fromhex.exit14.i
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   br label %gdb_hextomem.exit
 
 gdb_hextomem.exit:                                ; preds = %gdb_hextomem.exit.loopexit, %if.end
   %13 = phi ptr [ %.pre, %gdb_hextomem.exit.loopexit ], [ %4, %if.end ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.i)
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   %gdb_num_g_regs14 = getelementptr inbounds nuw i8, ptr %14, i64 564
   %15 = load i32, ptr %gdb_num_g_regs14, align 4
   %cmp15 = icmp sgt i32 %15, 0
@@ -2882,7 +2882,7 @@ gdb_write_register.exit:                          ; preds = %for.inc.i, %if.then
   %sub = sub i64 %len.017, %conv9
   %add.ptr = getelementptr i8, ptr %registers.018, i64 %conv9
   %inc = add nuw nsw i32 %reg_id.019, 1
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   %gdb_num_g_regs = getelementptr inbounds nuw i8, ptr %27, i64 564
   %28 = load i32, ptr %gdb_num_g_regs, align 4
   %cmp = icmp slt i32 %inc, %28
@@ -2914,13 +2914,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %conv = trunc nuw nsw i64 %2 to i32
   %call7 = tail call ptr @g_byte_array_set_size(ptr noundef %3, i32 noundef %conv) #18
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   %5 = load ptr, ptr %params, align 8
   %6 = load i64, ptr %5, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %8 = load ptr, ptr %7, align 8
   %len11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %len11, align 8
@@ -2929,13 +2929,13 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end4
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %12 = load ptr, ptr %11, align 8
   %len17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %len17, align 8
   tail call void @gdb_memtohex(ptr noundef %10, ptr noundef %12, i32 noundef %13)
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %15 = load ptr, ptr %14, align 8
   br label %return
 
@@ -2974,7 +2974,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %conv = trunc i64 %2 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.i)
   %cmp15.i = icmp sgt i32 %conv, 0
@@ -3044,14 +3044,14 @@ fromhex.exit14.i:                                 ; preds = %if.else7.i7.i, %if.
 
 gdb_hextomem.exit.loopexit:                       ; preds = %fromhex.exit14.i
   %.pre = load ptr, ptr %params, align 8
-  %.pre7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %.pre7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   br label %gdb_hextomem.exit
 
 gdb_hextomem.exit:                                ; preds = %gdb_hextomem.exit.loopexit, %if.end7
   %13 = phi ptr [ %.pre7, %gdb_hextomem.exit.loopexit ], [ %4, %if.end7 ]
   %14 = phi ptr [ %.pre, %gdb_hextomem.exit.loopexit ], [ %1, %if.end7 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.i)
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   %16 = load i64, ptr %14, align 8
   %17 = load ptr, ptr %13, align 8
   %len15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3081,8 +3081,8 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %3 = load ptr, ptr %params, align 8
   %4 = load i64, ptr %3, align 8
   %conv = trunc i64 %4 to i32
@@ -3149,13 +3149,13 @@ gdb_read_register.exit:                           ; preds = %if.then.i, %if.then
   br i1 %tobool2.not, label %return, label %if.else
 
 if.else:                                          ; preds = %gdb_read_register.exit
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %call5 = tail call ptr @g_byte_array_set_size(ptr noundef %13, i32 noundef %retval.0.i) #18
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %16 = load ptr, ptr %15, align 8
   tail call void @gdb_memtohex(ptr noundef %14, ptr noundef %16, i32 noundef %retval.0.i)
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %18 = load ptr, ptr %17, align 8
   br label %return
 
@@ -3185,7 +3185,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
   %div4 = lshr i64 %call1, 1
   %conv = trunc i64 %div4 to i32
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.i)
   %cmp15.i = icmp sgt i32 %conv, 0
   br i1 %cmp15.i, label %for.body.i, label %gdb_hextomem.exit
@@ -3253,7 +3253,7 @@ fromhex.exit14.i:                                 ; preds = %if.else7.i7.i, %if.
   br i1 %exitcond.not.i, label %gdb_hextomem.exit.loopexit, label %for.body.i, !llvm.loop !7
 
 gdb_hextomem.exit.loopexit:                       ; preds = %fromhex.exit14.i
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %.pre11 = load ptr, ptr %params, align 8
   br label %gdb_hextomem.exit
 
@@ -3261,7 +3261,7 @@ gdb_hextomem.exit:                                ; preds = %gdb_hextomem.exit.l
   %12 = phi ptr [ %.pre11, %gdb_hextomem.exit.loopexit ], [ %1, %if.end ]
   %13 = phi ptr [ %.pre, %gdb_hextomem.exit.loopexit ], [ %3, %if.end ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %byte.i)
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   %15 = load ptr, ptr %13, align 8
   %16 = load i64, ptr %12, align 8
   %conv7 = trunc i64 %16 to i32
@@ -3339,7 +3339,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   %2 = load ptr, ptr %params, align 8
   %3 = load i64, ptr %2, align 8
   %conv = trunc i64 %3 to i32
@@ -3371,7 +3371,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   %2 = load ptr, ptr %params, align 8
   %3 = load i64, ptr %2, align 8
   %conv = trunc i64 %3 to i32
@@ -3432,11 +3432,11 @@ if.end19:                                         ; preds = %if.end11
   ]
 
 sw.bb:                                            ; preds = %if.end19
-  store ptr %call16, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  store ptr %call16, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end19
-  store ptr %call16, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  store ptr %call16, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end19, %if.end11, %if.end, %entry, %sw.bb23, %sw.bb, %if.then9
@@ -4012,7 +4012,7 @@ if.end29:                                         ; preds = %cmd_parse_params.ex
   %allow_stop_reply = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %34 = load i8, ptr %allow_stop_reply, align 8
   %frombool = and i8 %34, 1
-  store i8 %frombool, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
+  store i8 %frombool, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
   %35 = load ptr, ptr %arrayidx, align 8
   call void %35(ptr noundef %call, ptr noundef null) #18
   br label %cleanup
@@ -4224,17 +4224,17 @@ sw.bb59.i:                                        ; preds = %if.end58.thread85.i
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %sw.bb59.i
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i.i = icmp sgt i32 %23, 0
   call void @llvm.assume(i1 %cmp5.i.i.i.i)
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i = zext nneg i32 %23 to i64
   %25 = load i32, ptr %24, align 8
   %cmp3.i.i3.i.i = icmp eq i32 %25, %call.i.i.i.i
   br i1 %cmp3.i.i3.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb59.i
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
@@ -4269,17 +4269,17 @@ while.body2.i.i.i:                                ; preds = %if.then.i31.i, %whi
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.cond.preheader.i.i.i.i.i
 
 for.cond.preheader.i.i.i.i.i:                     ; preds = %while.body2.i.i.i
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i.i.i = icmp sgt i32 %30, 0
   call void @llvm.assume(i1 %cmp5.i.i.i.i.i)
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i.i = zext nneg i32 %30 to i64
   %32 = load i32, ptr %31, align 8
   %cmp3.i.i5.i.i.i = icmp eq i32 %32, %call.i.i.i.i.i
   br i1 %cmp3.i.i5.i.i.i, label %gdb_get_cpu_process.exit.i.i.i, label %for.cond.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body2.i.i.i
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.cond.preheader.i.i.i.i.i, %for.cond.i.i.i.i.i
@@ -4346,17 +4346,17 @@ while.body2.i.i:                                  ; preds = %if.end74.i, %while.
   br i1 %tobool.not.i.i.i34.i, label %if.then.i.i.i47.i, label %for.cond.preheader.i.i.i35.i
 
 for.cond.preheader.i.i.i35.i:                     ; preds = %while.body2.i.i
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i36.i = icmp sgt i32 %40, 0
   call void @llvm.assume(i1 %cmp5.i.i.i36.i)
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i37.i = zext nneg i32 %40 to i64
   %42 = load i32, ptr %41, align 8
   %cmp3.i.i5.i.i = icmp eq i32 %42, %call.i.i.i33.i
   br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i43.i, label %for.cond.i.i.i38.i
 
 if.then.i.i.i47.i:                                ; preds = %while.body2.i.i
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i43.i
 
 for.cond.i.i.i38.i:                               ; preds = %for.cond.preheader.i.i.i35.i, %for.cond.i.i.i38.i
@@ -4397,17 +4397,17 @@ sw.bb77.i:                                        ; preds = %if.then14.i.i
   br i1 %tobool.not.i48.i, label %if.then.i50.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %sw.bb77.i
-  %47 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i = icmp sgt i32 %47, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_process.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i = zext nneg i32 %47 to i64
   br label %for.body.i.i
 
 if.then.i50.i:                                    ; preds = %sw.bb77.i
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_process.exit.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -4533,12 +4533,12 @@ while.end117.i:                                   ; preds = %sw.epilog.i
   br i1 %63, label %if.then120.i, label %gdb_handle_vcont.exit.thread8
 
 if.then120.i:                                     ; preds = %while.end117.i
-  store ptr %last_target.1.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  store ptr %last_target.1.i, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   br label %gdb_handle_vcont.exit.thread8
 
 gdb_handle_vcont.exit.thread8:                    ; preds = %while.cond10.preheader.i, %while.end117.i, %if.then120.i
   %signal.0.lcssa129.i = phi i32 [ %signal.1.i, %if.then120.i ], [ %signal.1.i, %while.end117.i ], [ 0, %while.cond10.preheader.i ]
-  store i32 %signal.0.lcssa129.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4152), align 8
+  store i32 %signal.0.lcssa129.i, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4152), align 8
   %call122.i = call i32 @gdb_continue_partial(ptr noundef %call1.i) #18
   call void @g_free(ptr noundef %call1.i) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.addr.i)
@@ -4581,7 +4581,7 @@ if.end8:                                          ; preds = %gdb_handle_vcont.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_v_attach(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call = tail call ptr @g_string_assign(ptr noundef %0, ptr noundef nonnull @.str.81) #18
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %1 = load i32, ptr %len, align 8
@@ -4596,17 +4596,17 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i = icmp sgt i32 %4, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %cleanup
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i = zext nneg i32 %4 to i64
   br label %for.body.i
 
 if.then.i:                                        ; preds = %if.end
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_process.exit
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -4650,17 +4650,17 @@ while.end5.i:                                     ; preds = %for.body.i7
 if.end8:                                          ; preds = %for.body.i7
   %attached = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 4
   store i8 1, ptr %attached, align 4
-  store ptr %cpu.06.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
-  store ptr %cpu.06.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
-  %11 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
+  store ptr %cpu.06.i, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
+  store ptr %cpu.06.i, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
   %tobool9 = trunc i8 %11 to i1
   br i1 %tobool9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %12, ptr noundef nonnull @.str.64, i32 noundef 5) #18
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4156), align 4
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4156), align 4
   %tobool.i = trunc i8 %14 to i1
   br i1 %tobool.i, label %if.then.i10, label %if.else.i
 
@@ -4676,7 +4676,7 @@ if.else.i:                                        ; preds = %if.then10
   br label %gdb_append_thread_id.exit
 
 gdb_append_thread_id.exit:                        ; preds = %if.then.i10, %if.else.i
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %len.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load i64, ptr %len.i, align 8
   %add.i = add i64 %16, 1
@@ -4701,11 +4701,11 @@ if.else.i13:                                      ; preds = %gdb_append_thread_i
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %if.then.i14, %if.else.i13
-  store i8 0, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4200), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond.i, %while.end5.i, %if.end4, %for.cond.preheader.i, %gdb_get_process.exit, %entry, %g_string_append_c_inline.exit
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %22 = load ptr, ptr %21, align 8
   %call.i15 = tail call i32 @gdb_put_packet(ptr noundef %22)
   br label %if.end12
@@ -4757,17 +4757,17 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.then
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i = icmp sgt i32 %3, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %3 to i64
   %5 = load i32, ptr %4, align 8
   %cmp3.i.i3.i = icmp eq i32 %5, %call.i.i.i
   br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
@@ -4802,17 +4802,17 @@ while.body2.i.i:                                  ; preds = %if.then.i, %while.e
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i.i = icmp sgt i32 %10, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i.i)
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i = zext nneg i32 %10 to i64
   %12 = load i32, ptr %11, align 8
   %cmp3.i.i5.i.i = icmp eq i32 %12, %call.i.i.i.i
   br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body2.i.i
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
@@ -4846,12 +4846,12 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond1, label %if.else12, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.else
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i = icmp sgt i32 %17, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %return
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i = zext nneg i32 %17 to i64
   br label %for.body.i
 
@@ -4920,17 +4920,17 @@ if.end16:                                         ; preds = %for.body.i20
   br i1 %tobool.not.i.i29, label %if.then.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end16
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i = icmp sgt i32 %26, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i = zext nneg i32 %26 to i64
   br label %for.body.i.i
 
 if.then.i.i:                                      ; preds = %if.end16
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -4989,17 +4989,17 @@ declare i32 @gdb_breakpoint_remove(ptr noundef, i32 noundef, i64 noundef, i64 no
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_query_qemu_sstepbits(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %0, ptr noundef nonnull @.str.87, i32 noundef 1) #18
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4196), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4196), align 4
   %and = and i32 %1, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %2, ptr noundef nonnull @.str.88, i32 noundef 2) #18
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4196), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4196), align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -5009,12 +5009,12 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %4, ptr noundef nonnull @.str.89, i32 noundef 4) #18
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %6 = load ptr, ptr %5, align 8
   %call.i = tail call i32 @gdb_put_packet(ptr noundef %6)
   ret void
@@ -5023,10 +5023,10 @@ if.end4:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_query_qemu_sstep(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4192), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4192), align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %0, ptr noundef nonnull @.str.90, i32 noundef %1) #18
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %3 = load ptr, ptr %2, align 8
   %call.i = tail call i32 @gdb_put_packet(ptr noundef %3)
   ret void
@@ -5044,14 +5044,14 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %params, align 8
   %2 = load i64, ptr %1, align 8
   %conv = trunc i64 %2 to i32
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4196), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4196), align 4
   %not = xor i32 %3, -1
   %and = and i32 %conv, %not
   %tobool1.not = icmp eq i32 %and, 0
   br i1 %tobool1.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  store i32 %conv, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4192), align 8
+  store i32 %conv, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4192), align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.end3
@@ -5071,17 +5071,17 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %entry
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i = icmp sgt i32 %0, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
   br label %for.body.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -5120,10 +5120,10 @@ while.end5.i:                                     ; preds = %for.body.i
 
 gdb_get_first_cpu_in_process.exit:                ; preds = %for.body.i, %while.end5.i, %gdb_get_cpu_process.exit
   %retval.0.i = phi ptr [ null, %gdb_get_cpu_process.exit ], [ %cpu.06.i, %for.body.i ], [ null, %while.end5.i ]
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call2 = tail call ptr @g_string_assign(ptr noundef %7, ptr noundef nonnull @.str.106) #18
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4156), align 4
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4156), align 4
   %tobool.i = trunc i8 %9 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i
 
@@ -5139,7 +5139,7 @@ if.else.i:                                        ; preds = %gdb_get_first_cpu_i
   br label %gdb_append_thread_id.exit
 
 gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else.i
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %11 = load ptr, ptr %10, align 8
   %call.i = tail call i32 @gdb_put_packet(ptr noundef %11)
   ret void
@@ -5148,7 +5148,7 @@ gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_query_threads(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 24), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 24), align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -5157,11 +5157,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call1 = tail call ptr @g_string_assign(ptr noundef %1, ptr noundef nonnull @.str.45) #18
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 24), align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4156), align 4
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 24), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4156), align 4
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i
 
@@ -5177,10 +5177,10 @@ if.else.i:                                        ; preds = %if.end
   br label %gdb_append_thread_id.exit
 
 gdb_append_thread_id.exit:                        ; preds = %if.then.i, %if.else.i
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %6 = load ptr, ptr %5, align 8
   %call.i = tail call i32 @gdb_put_packet(ptr noundef %6)
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 24), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 24), align 8
   %node.i = getelementptr inbounds nuw i8, ptr %7, i64 568
   %8 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
@@ -5195,17 +5195,17 @@ while.body2.i:                                    ; preds = %gdb_append_thread_i
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %while.body2.i
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i = icmp sgt i32 %9, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
   %11 = load i32, ptr %10, align 8
   %cmp3.i.i5.i = icmp eq i32 %11, %call.i.i.i
   br i1 %cmp3.i.i5.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body2.i
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
@@ -5235,7 +5235,7 @@ while.end8.i:                                     ; preds = %gdb_get_cpu_process
 
 gdb_next_attached_cpu.exit:                       ; preds = %gdb_get_cpu_process.exit.i, %while.end8.i, %gdb_append_thread_id.exit
   %cpu.addr.0.lcssa.i = phi ptr [ %cpu.addr.07.i, %gdb_append_thread_id.exit ], [ %cpu.addr.0.i, %while.end8.i ], [ %cpu.addr.09.i, %gdb_get_cpu_process.exit.i ]
-  store ptr %cpu.addr.0.lcssa.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 24), align 8
+  store ptr %cpu.addr.0.lcssa.i, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 24), align 8
   br label %return
 
 return:                                           ; preds = %gdb_next_attached_cpu.exit, %if.then
@@ -5253,17 +5253,17 @@ entry:
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i = icmp sgt i32 %2, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i = zext nneg i32 %2 to i64
   %4 = load i32, ptr %3, align 8
   %cmp3.i.i3.i = icmp eq i32 %4, %call.i.i.i
   br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
@@ -5298,17 +5298,17 @@ while.body2.i.i:                                  ; preds = %if.then.i, %while.e
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i.i.i = icmp sgt i32 %9, 0
   tail call void @llvm.assume(i1 %cmp5.i.i.i.i)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i.i.i = zext nneg i32 %9 to i64
   %11 = load i32, ptr %10, align 8
   %cmp3.i.i5.i.i = icmp eq i32 %11, %call.i.i.i.i
   br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body2.i.i
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
@@ -5338,7 +5338,7 @@ while.end8.i.i:                                   ; preds = %gdb_get_cpu_process
 
 gdb_first_attached_cpu.exit:                      ; preds = %gdb_get_cpu_process.exit.i.i, %while.end8.i.i, %gdb_get_cpu_process.exit.i, %if.then.i
   %retval.0.i = phi ptr [ %1, %gdb_get_cpu_process.exit.i ], [ %cpu.addr.07.i.i, %if.then.i ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ]
-  store ptr %retval.0.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 24), align 8
+  store ptr %retval.0.i, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 24), align 8
   tail call void @handle_query_threads(ptr poison, ptr poison)
   ret void
 }
@@ -5374,9 +5374,9 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.end9:                                          ; preds = %if.end
   tail call void @cpu_synchronize_state(ptr noundef nonnull %call6) #18
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4156), align 4
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4156), align 4
   %tobool10 = trunc i8 %5 to i1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp11 = icmp sgt i32 %6, 1
   %or.cond = select i1 %tobool10, i1 %cmp11, i1 false
   br i1 %or.cond, label %if.then12, label %if.else
@@ -5438,13 +5438,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 cleanup.thread:                                   ; preds = %if.else.i.i, %if.then8.i.i, %land.lhs.true5.i.i, %if.end20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %18 = load ptr, ptr %call, align 8
   %len22 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %19 = load i64, ptr %len22, align 8
   %conv = trunc i64 %19 to i32
   tail call void @gdb_memtohex(ptr noundef %17, ptr noundef %18, i32 noundef %conv)
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %21 = load ptr, ptr %20, align 8
   %call.i = tail call i32 @gdb_put_packet(ptr noundef %21)
   br label %if.then.i.i11
@@ -5466,7 +5466,7 @@ declare void @gdb_handle_query_offsets(ptr noundef, ptr noundef) #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_query_supported(ptr nocapture noundef readonly %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %0, ptr noundef nonnull @.str.114, i32 noundef 4096) #18
   %1 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
@@ -5479,7 +5479,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call1 = tail call ptr @g_string_append(ptr noundef %4, ptr noundef nonnull @.str.115) #18
   br label %if.end
 
@@ -5488,24 +5488,24 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %call2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call4 = tail call ptr @g_string_append(ptr noundef %5, ptr noundef nonnull @.str.116) #18
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   %opaque = getelementptr inbounds nuw i8, ptr %6, i64 624
   %7 = load ptr, ptr %opaque, align 16
   %tobool6.not = icmp eq ptr %7, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call8 = tail call ptr @g_string_append(ptr noundef %8, ptr noundef nonnull @.str.117) #18
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end5
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call10 = tail call ptr @g_string_append(ptr noundef %9, ptr noundef nonnull @.str.118) #18
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %10 = load i32, ptr %len, align 8
@@ -5520,13 +5520,13 @@ land.lhs.true:                                    ; preds = %if.end9
   br i1 %tobool13.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true
-  store i8 1, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4156), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4156), align 4
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %land.lhs.true, %if.end9
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %call16 = tail call ptr @g_string_append(ptr noundef %13, ptr noundef nonnull @.str.120) #18
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %15 = load ptr, ptr %14, align 8
   %call.i2 = tail call i32 @gdb_put_packet(ptr noundef %15)
   ret void
@@ -5550,17 +5550,17 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %if.then.i.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i = icmp sgt i32 %1, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   %wide.trip.count.i.i = zext nneg i32 %1 to i64
   br label %for.body.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
   br label %gdb_get_cpu_process.exit
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -5577,7 +5577,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.body.i.i, %for.cond.preheader.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %3, %if.then.i.i ], [ null, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.body.i.i ], [ null, %for.cond.i.i ]
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 16), align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %5) #18
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #18
   %gdb_core_xml_file = getelementptr inbounds nuw i8, ptr %call1.i, i64 272
@@ -5760,15 +5760,15 @@ if.end20:                                         ; preds = %if.end11
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %31, i64 2045)
   %sub = sub nuw i64 %call16, %30
   %cmp24 = icmp ult i64 %spec.store.select, %sub
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %add.ptr = getelementptr i8, ptr %retval.0.i25, i64 %30
   %.str.45..str.107 = select i1 %cmp24, ptr @.str.45, ptr @.str.107
   %spec.store.select.sub = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 %sub)
   %call27 = tail call ptr @g_string_assign(ptr noundef %32, ptr noundef nonnull %.str.45..str.107) #18
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %conv30 = trunc nuw nsw i64 %spec.store.select.sub to i32
   tail call void @gdb_memtox(ptr noundef %33, ptr noundef %add.ptr, i32 noundef %conv30)
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %35 = load ptr, ptr %34, align 8
   %len32 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %len32, align 8
@@ -5789,9 +5789,9 @@ declare void @gdb_handle_query_attached(ptr noundef, ptr noundef) #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_query_qemu_supported(ptr nocapture readnone %params, ptr nocapture readnone %user_ctx) #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %0, ptr noundef nonnull @.str.127) #18
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
   %2 = load ptr, ptr %1, align 8
   %call.i = tail call i32 @gdb_put_packet(ptr noundef %2)
   ret void

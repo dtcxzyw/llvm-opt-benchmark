@@ -1109,7 +1109,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -1190,7 +1190,7 @@ _ZNSt10shared_ptrIvED2Ev.exit:                    ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -1610,7 +1610,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #17
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 40))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 40))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #17
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 32
   store ptr @_ZN4node8builtinsL49internal_deps_acorn_acorn_walk_dist_walk_resourceE, ptr %second.i, align 8
@@ -1622,7 +1622,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i2) #17
   %call.i.i3 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element, ptr noundef %call.i.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i2) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element, ptr noundef nonnull @.str.334, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.334, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element, ptr noundef nonnull @.str.334, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.334, i64 36))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i2) #17
   %second.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 80
   store ptr null, ptr %second.i6, align 8
@@ -1634,7 +1634,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i8) #17
   %call.i.i9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element4) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element4, ptr noundef %call.i.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i8) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element4, ptr noundef nonnull @.str.335, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.335, i64 41))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element4, ptr noundef nonnull @.str.335, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.335, i64 41))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i8) #17
   %second.i12 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 128
   store ptr @_ZN4node8builtinsL50internal_deps_cjs_module_lexer_dist_lexer_resourceE, ptr %second.i12, align 8
@@ -1646,7 +1646,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i14) #17
   %call.i.i15 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element6) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element6, ptr noundef %call.i.i15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i14) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element6, ptr noundef nonnull @.str.336, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.336, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element6, ptr noundef nonnull @.str.336, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.336, i64 36))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i14) #17
   %second.i18 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 176
   store ptr @_ZN4node8builtinsL45internal_deps_cjs_module_lexer_lexer_resourceE, ptr %second.i18, align 8
@@ -1658,7 +1658,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i20) #17
   %call.i.i21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element8) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element8, ptr noundef %call.i.i21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i20) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element8, ptr noundef nonnull @.str.337, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.337, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element8, ptr noundef nonnull @.str.337, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.337, i64 29))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i20) #17
   %second.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 224
   store ptr @_ZN4node8builtinsL38internal_deps_minimatch_index_resourceE, ptr %second.i24, align 8
@@ -1670,7 +1670,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i26) #17
   %call.i.i27 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element10) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element10, ptr noundef %call.i.i27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i26) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element10, ptr noundef nonnull @.str.338, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.338, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element10, ptr noundef nonnull @.str.338, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.338, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i26) #17
   %second.i30 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 272
   store ptr null, ptr %second.i30, align 8
@@ -1682,7 +1682,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i32) #17
   %call.i.i33 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element12) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element12, ptr noundef %call.i.i33, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i32) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element12, ptr noundef nonnull @.str.339, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.339, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element12, ptr noundef nonnull @.str.339, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.339, i64 11))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i32) #17
   %second.i36 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 320
   store ptr @_ZN4node8builtinsL20_http_agent_resourceE, ptr %second.i36, align 8
@@ -1694,7 +1694,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i38) #17
   %call.i.i39 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element14) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element14, ptr noundef %call.i.i39, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i38) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element14, ptr noundef nonnull @.str.340, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.340, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element14, ptr noundef nonnull @.str.340, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.340, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i38) #17
   %second.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 368
   store ptr @_ZN4node8builtinsL21_http_client_resourceE, ptr %second.i42, align 8
@@ -1706,7 +1706,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i44) #17
   %call.i.i45 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element16) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element16, ptr noundef %call.i.i45, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i44) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element16, ptr noundef nonnull @.str.341, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.341, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element16, ptr noundef nonnull @.str.341, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.341, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i44) #17
   %second.i48 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 416
   store ptr @_ZN4node8builtinsL21_http_common_resourceE, ptr %second.i48, align 8
@@ -1718,7 +1718,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i50) #17
   %call.i.i51 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element18) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element18, ptr noundef %call.i.i51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i50) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element18, ptr noundef nonnull @.str.342, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.342, i64 14))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element18, ptr noundef nonnull @.str.342, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.342, i64 14))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i50) #17
   %second.i54 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 464
   store ptr @_ZN4node8builtinsL23_http_incoming_resourceE, ptr %second.i54, align 8
@@ -1730,7 +1730,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i56) #17
   %call.i.i57 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element20) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element20, ptr noundef %call.i.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i56) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element20, ptr noundef nonnull @.str.343, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.343, i64 14))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element20, ptr noundef nonnull @.str.343, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.343, i64 14))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i56) #17
   %second.i60 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 512
   store ptr @_ZN4node8builtinsL23_http_outgoing_resourceE, ptr %second.i60, align 8
@@ -1742,7 +1742,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i62) #17
   %call.i.i63 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element22) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element22, ptr noundef %call.i.i63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i62) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element22, ptr noundef nonnull @.str.344, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.344, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element22, ptr noundef nonnull @.str.344, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.344, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i62) #17
   %second.i66 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 560
   store ptr @_ZN4node8builtinsL21_http_server_resourceE, ptr %second.i66, align 8
@@ -1754,7 +1754,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i68) #17
   %call.i.i69 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element24) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element24, ptr noundef %call.i.i69, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i68) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element24, ptr noundef nonnull @.str.345, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.345, i64 14))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element24, ptr noundef nonnull @.str.345, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.345, i64 14))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i68) #17
   %second.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 608
   store ptr @_ZN4node8builtinsL23_stream_duplex_resourceE, ptr %second.i72, align 8
@@ -1766,7 +1766,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i74) #17
   %call.i.i75 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element26) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element26, ptr noundef %call.i.i75, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i74) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element26, ptr noundef nonnull @.str.346, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.346, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element26, ptr noundef nonnull @.str.346, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.346, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i74) #17
   %second.i78 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 656
   store ptr @_ZN4node8builtinsL28_stream_passthrough_resourceE, ptr %second.i78, align 8
@@ -1778,7 +1778,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i80) #17
   %call.i.i81 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element28) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element28, ptr noundef %call.i.i81, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i80) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element28, ptr noundef nonnull @.str.347, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.347, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element28, ptr noundef nonnull @.str.347, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.347, i64 16))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i80) #17
   %second.i84 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 704
   store ptr @_ZN4node8builtinsL25_stream_readable_resourceE, ptr %second.i84, align 8
@@ -1790,7 +1790,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i86) #17
   %call.i.i87 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element30) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element30, ptr noundef %call.i.i87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i86) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element30, ptr noundef nonnull @.str.348, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.348, i64 17))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element30, ptr noundef nonnull @.str.348, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.348, i64 17))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i86) #17
   %second.i90 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 752
   store ptr @_ZN4node8builtinsL26_stream_transform_resourceE, ptr %second.i90, align 8
@@ -1802,7 +1802,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i92) #17
   %call.i.i93 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element32) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element32, ptr noundef %call.i.i93, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i92) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element32, ptr noundef nonnull @.str.349, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.349, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element32, ptr noundef nonnull @.str.349, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.349, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i92) #17
   %second.i96 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 800
   store ptr @_ZN4node8builtinsL21_stream_wrap_resourceE, ptr %second.i96, align 8
@@ -1814,7 +1814,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i98) #17
   %call.i.i99 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element34) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element34, ptr noundef %call.i.i99, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i98) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element34, ptr noundef nonnull @.str.350, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.350, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element34, ptr noundef nonnull @.str.350, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.350, i64 16))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i98) #17
   %second.i102 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 848
   store ptr @_ZN4node8builtinsL25_stream_writable_resourceE, ptr %second.i102, align 8
@@ -1826,7 +1826,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i104) #17
   %call.i.i105 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element36) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element36, ptr noundef %call.i.i105, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i104) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element36, ptr noundef nonnull @.str.351, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.351, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element36, ptr noundef nonnull @.str.351, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.351, i64 11))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i104) #17
   %second.i108 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 896
   store ptr @_ZN4node8builtinsL20_tls_common_resourceE, ptr %second.i108, align 8
@@ -1838,7 +1838,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i110) #17
   %call.i.i111 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element38) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element38, ptr noundef %call.i.i111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i110) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element38, ptr noundef nonnull @.str.352, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.352, i64 9))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element38, ptr noundef nonnull @.str.352, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.352, i64 9))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i110) #17
   %second.i114 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 944
   store ptr @_ZN4node8builtinsL18_tls_wrap_resourceE, ptr %second.i114, align 8
@@ -1850,7 +1850,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i116) #17
   %call.i.i117 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element40) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element40, ptr noundef %call.i.i117, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i116) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element40, ptr noundef nonnull @.str.353, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.353, i64 6))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element40, ptr noundef nonnull @.str.353, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.353, i64 6))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i116) #17
   %second.i120 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 992
   store ptr @_ZN4node8builtinsL15assert_resourceE, ptr %second.i120, align 8
@@ -1862,7 +1862,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i122) #17
   %call.i.i123 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element42) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element42, ptr noundef %call.i.i123, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i122) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element42, ptr noundef nonnull @.str.354, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.354, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element42, ptr noundef nonnull @.str.354, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.354, i64 13))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i122) #17
   %second.i126 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1040
   store ptr @_ZN4node8builtinsL22assert_strict_resourceE, ptr %second.i126, align 8
@@ -1874,7 +1874,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i128) #17
   %call.i.i129 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element44) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element44, ptr noundef %call.i.i129, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i128) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element44, ptr noundef nonnull @.str.355, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.355, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element44, ptr noundef nonnull @.str.355, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.355, i64 11))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i128) #17
   %second.i132 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1088
   store ptr @_ZN4node8builtinsL20async_hooks_resourceE, ptr %second.i132, align 8
@@ -1886,7 +1886,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i134) #17
   %call.i.i135 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element46) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element46, ptr noundef %call.i.i135, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i134) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element46, ptr noundef nonnull @.str.356, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.356, i64 6))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element46, ptr noundef nonnull @.str.356, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.356, i64 6))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i134) #17
   %second.i138 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1136
   store ptr @_ZN4node8builtinsL15buffer_resourceE, ptr %second.i138, align 8
@@ -1898,7 +1898,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i140) #17
   %call.i.i141 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element48) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element48, ptr noundef %call.i.i141, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i140) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element48, ptr noundef nonnull @.str.357, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.357, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element48, ptr noundef nonnull @.str.357, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.357, i64 13))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i140) #17
   %second.i144 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1184
   store ptr @_ZN4node8builtinsL22child_process_resourceE, ptr %second.i144, align 8
@@ -1910,7 +1910,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i146) #17
   %call.i.i147 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element50) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element50, ptr noundef %call.i.i147, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i146) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element50, ptr noundef nonnull @.str.358, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.358, i64 7))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element50, ptr noundef nonnull @.str.358, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.358, i64 7))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i146) #17
   %second.i150 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1232
   store ptr @_ZN4node8builtinsL16cluster_resourceE, ptr %second.i150, align 8
@@ -1922,7 +1922,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i152) #17
   %call.i.i153 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element52) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element52, ptr noundef %call.i.i153, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i152) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element52, ptr noundef nonnull @.str.359, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.359, i64 7))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element52, ptr noundef nonnull @.str.359, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.359, i64 7))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i152) #17
   %second.i156 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1280
   store ptr @_ZN4node8builtinsL16console_resourceE, ptr %second.i156, align 8
@@ -1934,7 +1934,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i158) #17
   %call.i.i159 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element54) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element54, ptr noundef %call.i.i159, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i158) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element54, ptr noundef nonnull @.str.360, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.360, i64 9))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element54, ptr noundef nonnull @.str.360, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.360, i64 9))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i158) #17
   %second.i162 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1328
   store ptr @_ZN4node8builtinsL18constants_resourceE, ptr %second.i162, align 8
@@ -1946,7 +1946,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i164) #17
   %call.i.i165 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element56) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element56, ptr noundef %call.i.i165, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i164) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element56, ptr noundef nonnull @.str.361, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.361, i64 6))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element56, ptr noundef nonnull @.str.361, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.361, i64 6))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i164) #17
   %second.i168 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1376
   store ptr @_ZN4node8builtinsL15crypto_resourceE, ptr %second.i168, align 8
@@ -1958,7 +1958,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i170) #17
   %call.i.i171 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element58) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element58, ptr noundef %call.i.i171, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i170) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element58, ptr noundef nonnull @.str.362, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.362, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element58, ptr noundef nonnull @.str.362, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.362, i64 5))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i170) #17
   %second.i174 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1424
   store ptr @_ZN4node8builtinsL14dgram_resourceE, ptr %second.i174, align 8
@@ -1970,7 +1970,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i176) #17
   %call.i.i177 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element60) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element60, ptr noundef %call.i.i177, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i176) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element60, ptr noundef nonnull @.str.363, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.363, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element60, ptr noundef nonnull @.str.363, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.363, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i176) #17
   %second.i180 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1472
   store ptr @_ZN4node8builtinsL28diagnostics_channel_resourceE, ptr %second.i180, align 8
@@ -1982,7 +1982,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i182) #17
   %call.i.i183 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element62) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element62, ptr noundef %call.i.i183, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i182) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element62, ptr noundef nonnull @.str.364, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.364, i64 3))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element62, ptr noundef nonnull @.str.364, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.364, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i182) #17
   %second.i186 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1520
   store ptr @_ZN4node8builtinsL12dns_resourceE, ptr %second.i186, align 8
@@ -1994,7 +1994,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i188) #17
   %call.i.i189 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element64) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element64, ptr noundef %call.i.i189, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i188) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element64, ptr noundef nonnull @.str.365, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.365, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element64, ptr noundef nonnull @.str.365, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.365, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i188) #17
   %second.i192 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1568
   store ptr @_ZN4node8builtinsL21dns_promises_resourceE, ptr %second.i192, align 8
@@ -2006,7 +2006,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i194) #17
   %call.i.i195 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element66) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element66, ptr noundef %call.i.i195, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i194) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element66, ptr noundef nonnull @.str.366, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.366, i64 6))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element66, ptr noundef nonnull @.str.366, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.366, i64 6))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i194) #17
   %second.i198 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1616
   store ptr @_ZN4node8builtinsL15domain_resourceE, ptr %second.i198, align 8
@@ -2018,7 +2018,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i200) #17
   %call.i.i201 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element68) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element68, ptr noundef %call.i.i201, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i200) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element68, ptr noundef nonnull @.str.367, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.367, i64 6))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element68, ptr noundef nonnull @.str.367, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.367, i64 6))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i200) #17
   %second.i204 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1664
   store ptr @_ZN4node8builtinsL15events_resourceE, ptr %second.i204, align 8
@@ -2030,7 +2030,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i206) #17
   %call.i.i207 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element70) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element70, ptr noundef %call.i.i207, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i206) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element70, ptr noundef nonnull @.str.368, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.368, i64 2))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element70, ptr noundef nonnull @.str.368, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.368, i64 2))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i206) #17
   %second.i210 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1712
   store ptr @_ZN4node8builtinsL11fs_resourceE, ptr %second.i210, align 8
@@ -2042,7 +2042,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i212) #17
   %call.i.i213 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element72) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element72, ptr noundef %call.i.i213, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i212) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element72, ptr noundef nonnull @.str.369, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.369, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element72, ptr noundef nonnull @.str.369, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.369, i64 11))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i212) #17
   %second.i216 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1760
   store ptr @_ZN4node8builtinsL20fs_promises_resourceE, ptr %second.i216, align 8
@@ -2054,7 +2054,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i218) #17
   %call.i.i219 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element74) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element74, ptr noundef %call.i.i219, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i218) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element74, ptr noundef nonnull @.str.370, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.370, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element74, ptr noundef nonnull @.str.370, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.370, i64 4))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i218) #17
   %second.i222 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1808
   store ptr @_ZN4node8builtinsL13http_resourceE, ptr %second.i222, align 8
@@ -2066,7 +2066,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i224) #17
   %call.i.i225 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element76) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element76, ptr noundef %call.i.i225, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i224) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element76, ptr noundef nonnull @.str.371, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.371, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element76, ptr noundef nonnull @.str.371, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.371, i64 5))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i224) #17
   %second.i228 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1856
   store ptr @_ZN4node8builtinsL14http2_resourceE, ptr %second.i228, align 8
@@ -2078,7 +2078,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i230) #17
   %call.i.i231 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element78) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element78, ptr noundef %call.i.i231, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i230) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element78, ptr noundef nonnull @.str.372, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.372, i64 5))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element78, ptr noundef nonnull @.str.372, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.372, i64 5))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i230) #17
   %second.i234 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1904
   store ptr @_ZN4node8builtinsL14https_resourceE, ptr %second.i234, align 8
@@ -2090,7 +2090,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i236) #17
   %call.i.i237 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element80) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element80, ptr noundef %call.i.i237, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i236) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element80, ptr noundef nonnull @.str.373, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.373, i64 9))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element80, ptr noundef nonnull @.str.373, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.373, i64 9))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i236) #17
   %second.i240 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 1952
   store ptr @_ZN4node8builtinsL18inspector_resourceE, ptr %second.i240, align 8
@@ -2102,7 +2102,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i242) #17
   %call.i.i243 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element82) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element82, ptr noundef %call.i.i243, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i242) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element82, ptr noundef nonnull @.str.374, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.374, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element82, ptr noundef nonnull @.str.374, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.374, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i242) #17
   %second.i246 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2000
   store ptr @_ZN4node8builtinsL27inspector_promises_resourceE, ptr %second.i246, align 8
@@ -2114,7 +2114,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i248) #17
   %call.i.i249 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element84) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element84, ptr noundef %call.i.i249, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i248) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element84, ptr noundef nonnull @.str.375, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.375, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element84, ptr noundef nonnull @.str.375, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.375, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i248) #17
   %second.i252 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2048
   store ptr @_ZN4node8builtinsL34internal_abort_controller_resourceE, ptr %second.i252, align 8
@@ -2126,7 +2126,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i254) #17
   %call.i.i255 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element86) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element86, ptr noundef %call.i.i255, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i254) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element86, ptr noundef nonnull @.str.376, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.376, i64 15))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element86, ptr noundef nonnull @.str.376, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.376, i64 15))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i254) #17
   %second.i258 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2096
   store ptr @_ZN4node8builtinsL24internal_assert_resourceE, ptr %second.i258, align 8
@@ -2138,7 +2138,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i260) #17
   %call.i.i261 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element88) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element88, ptr noundef %call.i.i261, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i260) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element88, ptr noundef nonnull @.str.377, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.377, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element88, ptr noundef nonnull @.str.377, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.377, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i260) #17
   %second.i264 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2144
   store ptr @_ZN4node8builtinsL40internal_assert_assertion_error_resourceE, ptr %second.i264, align 8
@@ -2150,7 +2150,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i266) #17
   %call.i.i267 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element90) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element90, ptr noundef %call.i.i267, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i266) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element90, ptr noundef nonnull @.str.378, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.378, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element90, ptr noundef nonnull @.str.378, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.378, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i266) #17
   %second.i270 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2192
   store ptr @_ZN4node8builtinsL36internal_assert_calltracker_resourceE, ptr %second.i270, align 8
@@ -2162,7 +2162,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i272) #17
   %call.i.i273 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element92) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element92, ptr noundef %call.i.i273, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i272) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element92, ptr noundef nonnull @.str.379, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.379, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element92, ptr noundef nonnull @.str.379, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.379, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i272) #17
   %second.i276 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2240
   store ptr @_ZN4node8builtinsL29internal_async_hooks_resourceE, ptr %second.i276, align 8
@@ -2174,7 +2174,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i278) #17
   %call.i.i279 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element94) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element94, ptr noundef %call.i.i279, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i278) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element94, ptr noundef nonnull @.str.380, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.380, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element94, ptr noundef nonnull @.str.380, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.380, i64 13))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i278) #17
   %second.i282 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2288
   store ptr @_ZN4node8builtinsL22internal_blob_resourceE, ptr %second.i282, align 8
@@ -2186,7 +2186,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i284) #17
   %call.i.i285 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element96) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element96, ptr noundef %call.i.i285, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i284) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element96, ptr noundef nonnull @.str.381, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.381, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element96, ptr noundef nonnull @.str.381, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.381, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i284) #17
   %second.i288 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2336
   store ptr @_ZN4node8builtinsL27internal_blocklist_resourceE, ptr %second.i288, align 8
@@ -2198,7 +2198,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i290) #17
   %call.i.i291 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element98) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element98, ptr noundef %call.i.i291, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i290) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element98, ptr noundef nonnull @.str.382, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.382, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element98, ptr noundef nonnull @.str.382, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.382, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i290) #17
   %second.i294 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2384
   store ptr @_ZN4node8builtinsL32internal_bootstrap_node_resourceE, ptr %second.i294, align 8
@@ -2210,7 +2210,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i296) #17
   %call.i.i297 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element100) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element100, ptr noundef %call.i.i297, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i296) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element100, ptr noundef nonnull @.str.383, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.383, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element100, ptr noundef nonnull @.str.383, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.383, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i296) #17
   %second.i300 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2432
   store ptr @_ZN4node8builtinsL33internal_bootstrap_realm_resourceE, ptr %second.i300, align 8
@@ -2222,7 +2222,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i302) #17
   %call.i.i303 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element102) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element102, ptr noundef %call.i.i303, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i302) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element102, ptr noundef nonnull @.str.384, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.384, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element102, ptr noundef nonnull @.str.384, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.384, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i302) #17
   %second.i306 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2480
   store ptr @_ZN4node8builtinsL40internal_bootstrap_shadow_realm_resourceE, ptr %second.i306, align 8
@@ -2234,7 +2234,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i308) #17
   %call.i.i309 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element104) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element104, ptr noundef %call.i.i309, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i308) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element104, ptr noundef nonnull @.str.385, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.385, i64 54))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element104, ptr noundef nonnull @.str.385, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.385, i64 54))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i308) #17
   %second.i312 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2528
   store ptr @_ZN4node8builtinsL63internal_bootstrap_switches_does_not_own_process_state_resourceE, ptr %second.i312, align 8
@@ -2246,7 +2246,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i314) #17
   %call.i.i315 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element106) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element106, ptr noundef %call.i.i315, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i314) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element106, ptr noundef nonnull @.str.386, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.386, i64 50))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element106, ptr noundef nonnull @.str.386, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.386, i64 50))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i314) #17
   %second.i318 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2576
   store ptr @_ZN4node8builtinsL59internal_bootstrap_switches_does_own_process_state_resourceE, ptr %second.i318, align 8
@@ -2258,7 +2258,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i320) #17
   %call.i.i321 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element108) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element108, ptr noundef %call.i.i321, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i320) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element108, ptr noundef nonnull @.str.387, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.387, i64 42))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element108, ptr noundef nonnull @.str.387, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.387, i64 42))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i320) #17
   %second.i324 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2624
   store ptr @_ZN4node8builtinsL51internal_bootstrap_switches_is_main_thread_resourceE, ptr %second.i324, align 8
@@ -2270,7 +2270,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i326) #17
   %call.i.i327 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element110) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element110, ptr noundef %call.i.i327, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i326) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element110, ptr noundef nonnull @.str.388, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.388, i64 46))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element110, ptr noundef nonnull @.str.388, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.388, i64 46))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i326) #17
   %second.i330 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2672
   store ptr @_ZN4node8builtinsL55internal_bootstrap_switches_is_not_main_thread_resourceE, ptr %second.i330, align 8
@@ -2282,7 +2282,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i332) #17
   %call.i.i333 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element112) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element112, ptr noundef %call.i.i333, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i332) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element112, ptr noundef nonnull @.str.389, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.389, i64 39))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element112, ptr noundef nonnull @.str.389, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.389, i64 39))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i332) #17
   %second.i336 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2720
   store ptr @_ZN4node8builtinsL48internal_bootstrap_web_exposed_wildcard_resourceE, ptr %second.i336, align 8
@@ -2294,7 +2294,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i338) #17
   %call.i.i339 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element114) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element114, ptr noundef %call.i.i339, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i338) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element114, ptr noundef nonnull @.str.390, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.390, i64 47))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element114, ptr noundef nonnull @.str.390, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.390, i64 47))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i338) #17
   %second.i342 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2768
   store ptr @_ZN4node8builtinsL56internal_bootstrap_web_exposed_window_or_worker_resourceE, ptr %second.i342, align 8
@@ -2306,7 +2306,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i344) #17
   %call.i.i345 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element116) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element116, ptr noundef %call.i.i345, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i344) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element116, ptr noundef nonnull @.str.391, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.391, i64 15))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element116, ptr noundef nonnull @.str.391, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.391, i64 15))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i344) #17
   %second.i348 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2816
   store ptr @_ZN4node8builtinsL24internal_buffer_resourceE, ptr %second.i348, align 8
@@ -2318,7 +2318,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i350) #17
   %call.i.i351 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element118) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element118, ptr noundef %call.i.i351, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i350) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element118, ptr noundef nonnull @.str.392, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.392, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element118, ptr noundef nonnull @.str.392, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.392, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i350) #17
   %second.i354 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2864
   store ptr @_ZN4node8builtinsL31internal_child_process_resourceE, ptr %second.i354, align 8
@@ -2330,7 +2330,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i356) #17
   %call.i.i357 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element120) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element120, ptr noundef %call.i.i357, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i356) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element120, ptr noundef nonnull @.str.393, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.393, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element120, ptr noundef nonnull @.str.393, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.393, i64 36))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i356) #17
   %second.i360 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2912
   store ptr @_ZN4node8builtinsL45internal_child_process_serialization_resourceE, ptr %second.i360, align 8
@@ -2342,7 +2342,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i362) #17
   %call.i.i363 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element122) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element122, ptr noundef %call.i.i363, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i362) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element122, ptr noundef nonnull @.str.394, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.394, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element122, ptr noundef nonnull @.str.394, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.394, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i362) #17
   %second.i366 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 2960
   store ptr null, ptr %second.i366, align 8
@@ -2354,7 +2354,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i368) #17
   %call.i.i369 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element124) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element124, ptr noundef %call.i.i369, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i368) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element124, ptr noundef nonnull @.str.395, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.395, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element124, ptr noundef nonnull @.str.395, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.395, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i368) #17
   %second.i372 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3008
   store ptr @_ZN4node8builtinsL31internal_cluster_child_resourceE, ptr %second.i372, align 8
@@ -2366,7 +2366,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i374) #17
   %call.i.i375 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element126) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element126, ptr noundef %call.i.i375, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i374) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element126, ptr noundef nonnull @.str.396, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.396, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element126, ptr noundef nonnull @.str.396, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.396, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i374) #17
   %second.i378 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3056
   store ptr @_ZN4node8builtinsL33internal_cluster_primary_resourceE, ptr %second.i378, align 8
@@ -2378,7 +2378,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i380) #17
   %call.i.i381 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element128) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element128, ptr noundef %call.i.i381, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i380) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element128, ptr noundef nonnull @.str.397, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.397, i64 35))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element128, ptr noundef nonnull @.str.397, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.397, i64 35))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i380) #17
   %second.i384 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3104
   store ptr @_ZN4node8builtinsL44internal_cluster_round_robin_handle_resourceE, ptr %second.i384, align 8
@@ -2390,7 +2390,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i386) #17
   %call.i.i387 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element130) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element130, ptr noundef %call.i.i387, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i386) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element130, ptr noundef nonnull @.str.398, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.398, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element130, ptr noundef nonnull @.str.398, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.398, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i386) #17
   %second.i390 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3152
   store ptr @_ZN4node8builtinsL39internal_cluster_shared_handle_resourceE, ptr %second.i390, align 8
@@ -2402,7 +2402,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i392) #17
   %call.i.i393 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element132) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element132, ptr noundef %call.i.i393, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i392) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element132, ptr noundef nonnull @.str.399, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.399, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element132, ptr noundef nonnull @.str.399, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.399, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i392) #17
   %second.i396 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3200
   store ptr @_ZN4node8builtinsL31internal_cluster_utils_resourceE, ptr %second.i396, align 8
@@ -2414,7 +2414,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i398) #17
   %call.i.i399 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element134) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element134, ptr noundef %call.i.i399, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i398) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element134, ptr noundef nonnull @.str.400, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.400, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element134, ptr noundef nonnull @.str.400, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.400, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i398) #17
   %second.i402 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3248
   store ptr @_ZN4node8builtinsL32internal_cluster_worker_resourceE, ptr %second.i402, align 8
@@ -2426,7 +2426,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i404) #17
   %call.i.i405 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element136) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element136, ptr noundef %call.i.i405, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i404) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element136, ptr noundef nonnull @.str.401, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.401, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element136, ptr noundef nonnull @.str.401, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.401, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i404) #17
   %second.i408 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3296
   store ptr @_ZN4node8builtinsL37internal_console_constructor_resourceE, ptr %second.i408, align 8
@@ -2438,7 +2438,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i410) #17
   %call.i.i411 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element138) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element138, ptr noundef %call.i.i411, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i410) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element138, ptr noundef nonnull @.str.402, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.402, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element138, ptr noundef nonnull @.str.402, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.402, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i410) #17
   %second.i414 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3344
   store ptr @_ZN4node8builtinsL32internal_console_global_resourceE, ptr %second.i414, align 8
@@ -2450,7 +2450,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i416) #17
   %call.i.i417 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element140) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element140, ptr noundef %call.i.i417, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i416) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element140, ptr noundef nonnull @.str.403, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.403, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element140, ptr noundef nonnull @.str.403, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.403, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i416) #17
   %second.i420 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3392
   store ptr @_ZN4node8builtinsL27internal_constants_resourceE, ptr %second.i420, align 8
@@ -2462,7 +2462,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i422) #17
   %call.i.i423 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element142) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element142, ptr noundef %call.i.i423, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i422) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element142, ptr noundef nonnull @.str.404, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.404, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element142, ptr noundef nonnull @.str.404, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.404, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i422) #17
   %second.i426 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3440
   store ptr @_ZN4node8builtinsL28internal_crypto_aes_resourceE, ptr %second.i426, align 8
@@ -2474,7 +2474,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i428) #17
   %call.i.i429 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element144) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element144, ptr noundef %call.i.i429, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i428) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element144, ptr noundef nonnull @.str.405, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.405, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element144, ptr noundef nonnull @.str.405, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.405, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i428) #17
   %second.i432 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3488
   store ptr @_ZN4node8builtinsL36internal_crypto_certificate_resourceE, ptr %second.i432, align 8
@@ -2486,7 +2486,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i434) #17
   %call.i.i435 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element146) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element146, ptr noundef %call.i.i435, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i434) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element146, ptr noundef nonnull @.str.406, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.406, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element146, ptr noundef nonnull @.str.406, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.406, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i434) #17
   %second.i438 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3536
   store ptr @_ZN4node8builtinsL29internal_crypto_cfrg_resourceE, ptr %second.i438, align 8
@@ -2498,7 +2498,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i440) #17
   %call.i.i441 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element148) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element148, ptr noundef %call.i.i441, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i440) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element148, ptr noundef nonnull @.str.407, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.407, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element148, ptr noundef nonnull @.str.407, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.407, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i440) #17
   %second.i444 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3584
   store ptr @_ZN4node8builtinsL31internal_crypto_cipher_resourceE, ptr %second.i444, align 8
@@ -2510,7 +2510,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i446) #17
   %call.i.i447 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element150) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element150, ptr noundef %call.i.i447, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i446) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element150, ptr noundef nonnull @.str.408, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.408, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element150, ptr noundef nonnull @.str.408, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.408, i64 29))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i446) #17
   %second.i450 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3632
   store ptr @_ZN4node8builtinsL38internal_crypto_diffiehellman_resourceE, ptr %second.i450, align 8
@@ -2522,7 +2522,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i452) #17
   %call.i.i453 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element152) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element152, ptr noundef %call.i.i453, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i452) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element152, ptr noundef nonnull @.str.409, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.409, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element152, ptr noundef nonnull @.str.409, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.409, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i452) #17
   %second.i456 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3680
   store ptr @_ZN4node8builtinsL27internal_crypto_ec_resourceE, ptr %second.i456, align 8
@@ -2534,7 +2534,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i458) #17
   %call.i.i459 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element154) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element154, ptr noundef %call.i.i459, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i458) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element154, ptr noundef nonnull @.str.410, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.410, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element154, ptr noundef nonnull @.str.410, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.410, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i458) #17
   %second.i462 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3728
   store ptr @_ZN4node8builtinsL29internal_crypto_hash_resourceE, ptr %second.i462, align 8
@@ -2546,7 +2546,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i464) #17
   %call.i.i465 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element156) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element156, ptr noundef %call.i.i465, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i464) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element156, ptr noundef nonnull @.str.411, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.411, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element156, ptr noundef nonnull @.str.411, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.411, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i464) #17
   %second.i468 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3776
   store ptr @_ZN4node8builtinsL34internal_crypto_hashnames_resourceE, ptr %second.i468, align 8
@@ -2558,7 +2558,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i470) #17
   %call.i.i471 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element158) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element158, ptr noundef %call.i.i471, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i470) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element158, ptr noundef nonnull @.str.412, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.412, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element158, ptr noundef nonnull @.str.412, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.412, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i470) #17
   %second.i474 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3824
   store ptr @_ZN4node8builtinsL29internal_crypto_hkdf_resourceE, ptr %second.i474, align 8
@@ -2570,7 +2570,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i476) #17
   %call.i.i477 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element160) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element160, ptr noundef %call.i.i477, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i476) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element160, ptr noundef nonnull @.str.413, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.413, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element160, ptr noundef nonnull @.str.413, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.413, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i476) #17
   %second.i480 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3872
   store ptr @_ZN4node8builtinsL31internal_crypto_keygen_resourceE, ptr %second.i480, align 8
@@ -2582,7 +2582,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i482) #17
   %call.i.i483 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element162) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element162, ptr noundef %call.i.i483, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i482) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element162, ptr noundef nonnull @.str.414, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.414, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element162, ptr noundef nonnull @.str.414, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.414, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i482) #17
   %second.i486 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3920
   store ptr @_ZN4node8builtinsL29internal_crypto_keys_resourceE, ptr %second.i486, align 8
@@ -2594,7 +2594,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i488) #17
   %call.i.i489 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element164) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element164, ptr noundef %call.i.i489, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i488) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element164, ptr noundef nonnull @.str.415, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.415, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element164, ptr noundef nonnull @.str.415, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.415, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i488) #17
   %second.i492 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 3968
   store ptr @_ZN4node8builtinsL28internal_crypto_mac_resourceE, ptr %second.i492, align 8
@@ -2606,7 +2606,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i494) #17
   %call.i.i495 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element166) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element166, ptr noundef %call.i.i495, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i494) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element166, ptr noundef nonnull @.str.416, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.416, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element166, ptr noundef nonnull @.str.416, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.416, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i494) #17
   %second.i498 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4016
   store ptr @_ZN4node8builtinsL31internal_crypto_pbkdf2_resourceE, ptr %second.i498, align 8
@@ -2618,7 +2618,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i500) #17
   %call.i.i501 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element168) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element168, ptr noundef %call.i.i501, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i500) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element168, ptr noundef nonnull @.str.417, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.417, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element168, ptr noundef nonnull @.str.417, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.417, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i500) #17
   %second.i504 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4064
   store ptr @_ZN4node8builtinsL31internal_crypto_random_resourceE, ptr %second.i504, align 8
@@ -2630,7 +2630,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i506) #17
   %call.i.i507 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element170) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element170, ptr noundef %call.i.i507, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i506) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element170, ptr noundef nonnull @.str.418, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.418, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element170, ptr noundef nonnull @.str.418, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.418, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i506) #17
   %second.i510 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4112
   store ptr @_ZN4node8builtinsL28internal_crypto_rsa_resourceE, ptr %second.i510, align 8
@@ -2642,7 +2642,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i512) #17
   %call.i.i513 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element172) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element172, ptr noundef %call.i.i513, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i512) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element172, ptr noundef nonnull @.str.419, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.419, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element172, ptr noundef nonnull @.str.419, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.419, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i512) #17
   %second.i516 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4160
   store ptr @_ZN4node8builtinsL31internal_crypto_scrypt_resourceE, ptr %second.i516, align 8
@@ -2654,7 +2654,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i518) #17
   %call.i.i519 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element174) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element174, ptr noundef %call.i.i519, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i518) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element174, ptr noundef nonnull @.str.420, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.420, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element174, ptr noundef nonnull @.str.420, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.420, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i518) #17
   %second.i522 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4208
   store ptr @_ZN4node8builtinsL28internal_crypto_sig_resourceE, ptr %second.i522, align 8
@@ -2666,7 +2666,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i524) #17
   %call.i.i525 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element176) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element176, ptr noundef %call.i.i525, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i524) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element176, ptr noundef nonnull @.str.421, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.421, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element176, ptr noundef nonnull @.str.421, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.421, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i524) #17
   %second.i528 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4256
   store ptr @_ZN4node8builtinsL29internal_crypto_util_resourceE, ptr %second.i528, align 8
@@ -2678,7 +2678,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i530) #17
   %call.i.i531 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element178) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element178, ptr noundef %call.i.i531, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i530) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element178, ptr noundef nonnull @.str.422, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.422, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element178, ptr noundef nonnull @.str.422, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.422, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i530) #17
   %second.i534 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4304
   store ptr @_ZN4node8builtinsL34internal_crypto_webcrypto_resourceE, ptr %second.i534, align 8
@@ -2690,7 +2690,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i536) #17
   %call.i.i537 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element180) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element180, ptr noundef %call.i.i537, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i536) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element180, ptr noundef nonnull @.str.423, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.423, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element180, ptr noundef nonnull @.str.423, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.423, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i536) #17
   %second.i540 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4352
   store ptr @_ZN4node8builtinsL31internal_crypto_webidl_resourceE, ptr %second.i540, align 8
@@ -2702,7 +2702,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i542) #17
   %call.i.i543 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element182) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element182, ptr noundef %call.i.i543, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i542) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element182, ptr noundef nonnull @.str.424, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.424, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element182, ptr noundef nonnull @.str.424, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.424, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i542) #17
   %second.i546 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4400
   store ptr @_ZN4node8builtinsL29internal_crypto_x509_resourceE, ptr %second.i546, align 8
@@ -2714,7 +2714,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i548) #17
   %call.i.i549 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element184) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element184, ptr noundef %call.i.i549, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i548) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element184, ptr noundef nonnull @.str.425, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.425, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element184, ptr noundef nonnull @.str.425, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.425, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i548) #17
   %second.i552 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4448
   store ptr @_ZN4node8builtinsL34internal_debugger_inspect_resourceE, ptr %second.i552, align 8
@@ -2726,7 +2726,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i554) #17
   %call.i.i555 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element186) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element186, ptr noundef %call.i.i555, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i554) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element186, ptr noundef nonnull @.str.426, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.426, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element186, ptr noundef nonnull @.str.426, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.426, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i554) #17
   %second.i558 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4496
   store ptr @_ZN4node8builtinsL41internal_debugger_inspect_client_resourceE, ptr %second.i558, align 8
@@ -2738,7 +2738,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i560) #17
   %call.i.i561 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element188) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element188, ptr noundef %call.i.i561, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i560) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element188, ptr noundef nonnull @.str.427, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.427, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element188, ptr noundef nonnull @.str.427, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.427, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i560) #17
   %second.i564 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4544
   store ptr @_ZN4node8builtinsL39internal_debugger_inspect_repl_resourceE, ptr %second.i564, align 8
@@ -2750,7 +2750,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i566) #17
   %call.i.i567 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element190) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element190, ptr noundef %call.i.i567, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i566) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element190, ptr noundef nonnull @.str.428, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.428, i64 14))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element190, ptr noundef nonnull @.str.428, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.428, i64 14))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i566) #17
   %second.i570 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4592
   store ptr @_ZN4node8builtinsL23internal_dgram_resourceE, ptr %second.i570, align 8
@@ -2762,7 +2762,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i572) #17
   %call.i.i573 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element192) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element192, ptr noundef %call.i.i573, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i572) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element192, ptr noundef nonnull @.str.429, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.429, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element192, ptr noundef nonnull @.str.429, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.429, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i572) #17
   %second.i576 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4640
   store ptr @_ZN4node8builtinsL39internal_dns_callback_resolver_resourceE, ptr %second.i576, align 8
@@ -2774,7 +2774,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i578) #17
   %call.i.i579 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element194) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element194, ptr noundef %call.i.i579, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i578) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element194, ptr noundef nonnull @.str.430, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.430, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element194, ptr noundef nonnull @.str.430, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.430, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i578) #17
   %second.i582 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4688
   store ptr @_ZN4node8builtinsL30internal_dns_promises_resourceE, ptr %second.i582, align 8
@@ -2786,7 +2786,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i584) #17
   %call.i.i585 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element196) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element196, ptr noundef %call.i.i585, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i584) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element196, ptr noundef nonnull @.str.431, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.431, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element196, ptr noundef nonnull @.str.431, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.431, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i584) #17
   %second.i588 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4736
   store ptr @_ZN4node8builtinsL27internal_dns_utils_resourceE, ptr %second.i588, align 8
@@ -2798,7 +2798,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i590) #17
   %call.i.i591 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element198) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element198, ptr noundef %call.i.i591, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i590) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element198, ptr noundef nonnull @.str.432, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.432, i64 17))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element198, ptr noundef nonnull @.str.432, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.432, i64 17))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i590) #17
   %second.i594 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4784
   store ptr @_ZN4node8builtinsL26internal_encoding_resourceE, ptr %second.i594, align 8
@@ -2810,7 +2810,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i596) #17
   %call.i.i597 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element200) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element200, ptr noundef %call.i.i597, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i596) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element200, ptr noundef nonnull @.str.433, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.433, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element200, ptr noundef nonnull @.str.433, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.433, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i596) #17
   %second.i600 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4832
   store ptr @_ZN4node8builtinsL30internal_error_serdes_resourceE, ptr %second.i600, align 8
@@ -2822,7 +2822,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i602) #17
   %call.i.i603 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element202) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element202, ptr noundef %call.i.i603, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i602) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element202, ptr noundef nonnull @.str.434, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.434, i64 15))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element202, ptr noundef nonnull @.str.434, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.434, i64 15))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i602) #17
   %second.i606 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4880
   store ptr @_ZN4node8builtinsL24internal_errors_resourceE, ptr %second.i606, align 8
@@ -2834,7 +2834,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i608) #17
   %call.i.i609 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element204) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element204, ptr noundef %call.i.i609, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i608) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element204, ptr noundef nonnull @.str.435, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.435, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element204, ptr noundef nonnull @.str.435, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.435, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i608) #17
   %second.i612 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4928
   store ptr @_ZN4node8builtinsL30internal_event_target_resourceE, ptr %second.i612, align 8
@@ -2846,7 +2846,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i614) #17
   %call.i.i615 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element206) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element206, ptr noundef %call.i.i615, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i614) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element206, ptr noundef nonnull @.str.436, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.436, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element206, ptr noundef nonnull @.str.436, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.436, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i614) #17
   %second.i618 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4976
   store ptr @_ZN4node8builtinsL32internal_events_symbols_resourceE, ptr %second.i618, align 8
@@ -2858,7 +2858,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i620) #17
   %call.i.i621 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element208) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element208, ptr noundef %call.i.i621, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i620) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element208, ptr noundef nonnull @.str.437, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.437, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element208, ptr noundef nonnull @.str.437, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.437, i64 13))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i620) #17
   %second.i624 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5024
   store ptr @_ZN4node8builtinsL22internal_file_resourceE, ptr %second.i624, align 8
@@ -2870,7 +2870,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i626) #17
   %call.i.i627 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element210) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element210, ptr noundef %call.i.i627, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i626) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element210, ptr noundef nonnull @.str.438, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.438, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element210, ptr noundef nonnull @.str.438, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.438, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i626) #17
   %second.i630 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5072
   store ptr @_ZN4node8builtinsL29internal_fixed_queue_resourceE, ptr %second.i630, align 8
@@ -2882,7 +2882,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i632) #17
   %call.i.i633 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element212) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element212, ptr noundef %call.i.i633, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i632) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element212, ptr noundef nonnull @.str.439, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.439, i64 17))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element212, ptr noundef nonnull @.str.439, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.439, i64 17))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i632) #17
   %second.i636 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5120
   store ptr @_ZN4node8builtinsL26internal_freelist_resourceE, ptr %second.i636, align 8
@@ -2894,7 +2894,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i638) #17
   %call.i.i639 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element214) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element214, ptr noundef %call.i.i639, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i638) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element214, ptr noundef nonnull @.str.440, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.440, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element214, ptr noundef nonnull @.str.440, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.440, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i638) #17
   %second.i642 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5168
   store ptr @_ZN4node8builtinsL35internal_freeze_intrinsics_resourceE, ptr %second.i642, align 8
@@ -2906,7 +2906,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i644) #17
   %call.i.i645 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element216) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element216, ptr noundef %call.i.i645, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i644) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element216, ptr noundef nonnull @.str.441, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.441, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element216, ptr noundef nonnull @.str.441, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.441, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i644) #17
   %second.i648 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5216
   store ptr @_ZN4node8builtinsL31internal_fs_cp_cp_sync_resourceE, ptr %second.i648, align 8
@@ -2918,7 +2918,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i650) #17
   %call.i.i651 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element218) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element218, ptr noundef %call.i.i651, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i650) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element218, ptr noundef nonnull @.str.442, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.442, i64 17))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element218, ptr noundef nonnull @.str.442, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.442, i64 17))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i650) #17
   %second.i654 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5264
   store ptr @_ZN4node8builtinsL26internal_fs_cp_cp_resourceE, ptr %second.i654, align 8
@@ -2930,7 +2930,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i656) #17
   %call.i.i657 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element220) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element220, ptr noundef %call.i.i657, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i656) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element220, ptr noundef nonnull @.str.443, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.443, i64 15))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element220, ptr noundef nonnull @.str.443, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.443, i64 15))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i656) #17
   %second.i660 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5312
   store ptr @_ZN4node8builtinsL24internal_fs_dir_resourceE, ptr %second.i660, align 8
@@ -2942,7 +2942,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i662) #17
   %call.i.i663 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element222) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element222, ptr noundef %call.i.i663, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i662) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element222, ptr noundef nonnull @.str.444, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.444, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element222, ptr noundef nonnull @.str.444, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.444, i64 16))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i662) #17
   %second.i666 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5360
   store ptr @_ZN4node8builtinsL25internal_fs_glob_resourceE, ptr %second.i666, align 8
@@ -2954,7 +2954,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i668) #17
   %call.i.i669 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element224) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element224, ptr noundef %call.i.i669, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i668) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element224, ptr noundef nonnull @.str.445, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.445, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element224, ptr noundef nonnull @.str.445, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.445, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i668) #17
   %second.i672 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5408
   store ptr @_ZN4node8builtinsL29internal_fs_promises_resourceE, ptr %second.i672, align 8
@@ -2966,7 +2966,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i674) #17
   %call.i.i675 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element226) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element226, ptr noundef %call.i.i675, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i674) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element226, ptr noundef nonnull @.str.446, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.446, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element226, ptr noundef nonnull @.str.446, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.446, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i674) #17
   %second.i678 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5456
   store ptr @_ZN4node8builtinsL33internal_fs_read_context_resourceE, ptr %second.i678, align 8
@@ -2978,7 +2978,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i680) #17
   %call.i.i681 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element228) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element228, ptr noundef %call.i.i681, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i680) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element228, ptr noundef nonnull @.str.447, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.447, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element228, ptr noundef nonnull @.str.447, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.447, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i680) #17
   %second.i684 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5504
   store ptr @_ZN4node8builtinsL36internal_fs_recursive_watch_resourceE, ptr %second.i684, align 8
@@ -2990,7 +2990,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i686) #17
   %call.i.i687 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element230) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element230, ptr noundef %call.i.i687, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i686) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element230, ptr noundef nonnull @.str.448, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.448, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element230, ptr noundef nonnull @.str.448, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.448, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i686) #17
   %second.i690 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5552
   store ptr @_ZN4node8builtinsL27internal_fs_rimraf_resourceE, ptr %second.i690, align 8
@@ -3002,7 +3002,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i692) #17
   %call.i.i693 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element232) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element232, ptr noundef %call.i.i693, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i692) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element232, ptr noundef nonnull @.str.449, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.449, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element232, ptr noundef nonnull @.str.449, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.449, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i692) #17
   %second.i696 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5600
   store ptr @_ZN4node8builtinsL28internal_fs_streams_resourceE, ptr %second.i696, align 8
@@ -3014,7 +3014,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i698) #17
   %call.i.i699 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element234) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element234, ptr noundef %call.i.i699, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i698) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element234, ptr noundef nonnull @.str.450, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.450, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element234, ptr noundef nonnull @.str.450, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.450, i64 29))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i698) #17
   %second.i702 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5648
   store ptr @_ZN4node8builtinsL38internal_fs_sync_write_stream_resourceE, ptr %second.i702, align 8
@@ -3026,7 +3026,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i704) #17
   %call.i.i705 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element236) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element236, ptr noundef %call.i.i705, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i704) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element236, ptr noundef nonnull @.str.451, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.451, i64 17))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element236, ptr noundef nonnull @.str.451, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.451, i64 17))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i704) #17
   %second.i708 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5696
   store ptr @_ZN4node8builtinsL26internal_fs_utils_resourceE, ptr %second.i708, align 8
@@ -3038,7 +3038,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i710) #17
   %call.i.i711 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element238) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element238, ptr noundef %call.i.i711, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i710) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element238, ptr noundef nonnull @.str.452, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.452, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element238, ptr noundef nonnull @.str.452, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.452, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i710) #17
   %second.i714 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5744
   store ptr @_ZN4node8builtinsL29internal_fs_watchers_resourceE, ptr %second.i714, align 8
@@ -3050,7 +3050,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i716) #17
   %call.i.i717 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element240) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element240, ptr noundef %call.i.i717, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i716) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element240, ptr noundef nonnull @.str.453, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.453, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element240, ptr noundef nonnull @.str.453, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.453, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i716) #17
   %second.i720 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5792
   store ptr @_ZN4node8builtinsL28internal_heap_utils_resourceE, ptr %second.i720, align 8
@@ -3062,7 +3062,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i722) #17
   %call.i.i723 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element242) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element242, ptr noundef %call.i.i723, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i722) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element242, ptr noundef nonnull @.str.454, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.454, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element242, ptr noundef nonnull @.str.454, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.454, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i722) #17
   %second.i726 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5840
   store ptr @_ZN4node8builtinsL27internal_histogram_resourceE, ptr %second.i726, align 8
@@ -3074,7 +3074,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i728) #17
   %call.i.i729 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element244) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element244, ptr noundef %call.i.i729, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i728) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element244, ptr noundef nonnull @.str.455, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.455, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element244, ptr noundef nonnull @.str.455, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.455, i64 13))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i728) #17
   %second.i732 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5888
   store ptr @_ZN4node8builtinsL22internal_http_resourceE, ptr %second.i732, align 8
@@ -3086,7 +3086,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i734) #17
   %call.i.i735 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element246) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element246, ptr noundef %call.i.i735, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i734) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element246, ptr noundef nonnull @.str.456, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.456, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element246, ptr noundef nonnull @.str.456, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.456, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i734) #17
   %second.i738 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5936
   store ptr @_ZN4node8builtinsL30internal_http2_compat_resourceE, ptr %second.i738, align 8
@@ -3098,7 +3098,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i740) #17
   %call.i.i741 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element248) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element248, ptr noundef %call.i.i741, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i740) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element248, ptr noundef nonnull @.str.457, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.457, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element248, ptr noundef nonnull @.str.457, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.457, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i740) #17
   %second.i744 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 5984
   store ptr @_ZN4node8builtinsL28internal_http2_core_resourceE, ptr %second.i744, align 8
@@ -3110,7 +3110,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i746) #17
   %call.i.i747 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element250) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element250, ptr noundef %call.i.i747, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i746) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element250, ptr noundef nonnull @.str.458, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.458, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element250, ptr noundef nonnull @.str.458, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.458, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i746) #17
   %second.i750 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6032
   store ptr @_ZN4node8builtinsL28internal_http2_util_resourceE, ptr %second.i750, align 8
@@ -3122,7 +3122,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i752) #17
   %call.i.i753 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element252) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element252, ptr noundef %call.i.i753, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i752) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element252, ptr noundef nonnull @.str.459, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.459, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element252, ptr noundef nonnull @.str.459, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.459, i64 13))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i752) #17
   %second.i756 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6080
   store ptr @_ZN4node8builtinsL22internal_idna_resourceE, ptr %second.i756, align 8
@@ -3134,7 +3134,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i758) #17
   %call.i.i759 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element254) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element254, ptr noundef %call.i.i759, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i758) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element254, ptr noundef nonnull @.str.460, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.460, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element254, ptr noundef nonnull @.str.460, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.460, i64 29))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i758) #17
   %second.i762 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6128
   store ptr @_ZN4node8builtinsL38internal_inspector_async_hook_resourceE, ptr %second.i762, align 8
@@ -3146,7 +3146,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i764) #17
   %call.i.i765 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element256) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element256, ptr noundef %call.i.i765, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i764) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element256, ptr noundef nonnull @.str.461, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.461, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element256, ptr noundef nonnull @.str.461, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.461, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i764) #17
   %second.i768 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6176
   store ptr @_ZN4node8builtinsL34internal_js_stream_socket_resourceE, ptr %second.i768, align 8
@@ -3158,7 +3158,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i770) #17
   %call.i.i771 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element258) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element258, ptr noundef %call.i.i771, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i770) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element258, ptr noundef nonnull @.str.462, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.462, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element258, ptr noundef nonnull @.str.462, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.462, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i770) #17
   %second.i774 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6224
   store ptr @_ZN4node8builtinsL39internal_legacy_processbinding_resourceE, ptr %second.i774, align 8
@@ -3170,7 +3170,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i776) #17
   %call.i.i777 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element260) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element260, ptr noundef %call.i.i777, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i776) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element260, ptr noundef nonnull @.str.463, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.463, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element260, ptr noundef nonnull @.str.463, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.463, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i776) #17
   %second.i780 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6272
   store ptr @_ZN4node8builtinsL28internal_linkedlist_resourceE, ptr %second.i780, align 8
@@ -3182,7 +3182,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i782) #17
   %call.i.i783 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element262) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element262, ptr noundef %call.i.i783, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i782) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element262, ptr noundef nonnull @.str.464, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.464, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element262, ptr noundef nonnull @.str.464, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.464, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i782) #17
   %second.i786 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6320
   store ptr @_ZN4node8builtinsL35internal_main_check_syntax_resourceE, ptr %second.i786, align 8
@@ -3194,7 +3194,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i788) #17
   %call.i.i789 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element264) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element264, ptr noundef %call.i.i789, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i788) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element264, ptr noundef nonnull @.str.465, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.465, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element264, ptr noundef nonnull @.str.465, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.465, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i788) #17
   %second.i792 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6368
   store ptr @_ZN4node8builtinsL32internal_main_embedding_resourceE, ptr %second.i792, align 8
@@ -3206,7 +3206,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i794) #17
   %call.i.i795 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element266) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element266, ptr noundef %call.i.i795, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i794) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element266, ptr noundef nonnull @.str.466, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.466, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element266, ptr noundef nonnull @.str.466, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.466, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i794) #17
   %second.i798 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6416
   store ptr @_ZN4node8builtinsL33internal_main_eval_stdin_resourceE, ptr %second.i798, align 8
@@ -3218,7 +3218,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i800) #17
   %call.i.i801 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element268) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element268, ptr noundef %call.i.i801, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i800) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element268, ptr noundef nonnull @.str.467, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.467, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element268, ptr noundef nonnull @.str.467, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.467, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i800) #17
   %second.i804 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6464
   store ptr @_ZN4node8builtinsL34internal_main_eval_string_resourceE, ptr %second.i804, align 8
@@ -3230,7 +3230,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i806) #17
   %call.i.i807 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element270) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element270, ptr noundef %call.i.i807, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i806) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element270, ptr noundef nonnull @.str.468, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.468, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element270, ptr noundef nonnull @.str.468, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.468, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i806) #17
   %second.i810 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6512
   store ptr @_ZN4node8builtinsL30internal_main_inspect_resourceE, ptr %second.i810, align 8
@@ -3242,7 +3242,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i812) #17
   %call.i.i813 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element272) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element272, ptr noundef %call.i.i813, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i812) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element272, ptr noundef nonnull @.str.469, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.469, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element272, ptr noundef nonnull @.str.469, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.469, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i812) #17
   %second.i816 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6560
   store ptr @_ZN4node8builtinsL33internal_main_mksnapshot_resourceE, ptr %second.i816, align 8
@@ -3254,7 +3254,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i818) #17
   %call.i.i819 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element274) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element274, ptr noundef %call.i.i819, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i818) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element274, ptr noundef nonnull @.str.470, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.470, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element274, ptr noundef nonnull @.str.470, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.470, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i818) #17
   %second.i822 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6608
   store ptr @_ZN4node8builtinsL33internal_main_print_help_resourceE, ptr %second.i822, align 8
@@ -3266,7 +3266,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i824) #17
   %call.i.i825 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element276) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element276, ptr noundef %call.i.i825, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i824) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element276, ptr noundef nonnull @.str.471, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.471, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element276, ptr noundef nonnull @.str.471, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.471, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i824) #17
   %second.i828 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6656
   store ptr @_ZN4node8builtinsL35internal_main_prof_process_resourceE, ptr %second.i828, align 8
@@ -3278,7 +3278,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i830) #17
   %call.i.i831 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element278) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element278, ptr noundef %call.i.i831, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i830) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element278, ptr noundef nonnull @.str.472, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.472, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element278, ptr noundef nonnull @.str.472, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.472, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i830) #17
   %second.i834 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6704
   store ptr @_ZN4node8builtinsL27internal_main_repl_resourceE, ptr %second.i834, align 8
@@ -3290,7 +3290,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i836) #17
   %call.i.i837 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element280) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element280, ptr noundef %call.i.i837, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i836) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element280, ptr noundef nonnull @.str.473, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.473, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element280, ptr noundef nonnull @.str.473, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.473, i64 29))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i836) #17
   %second.i840 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6752
   store ptr @_ZN4node8builtinsL38internal_main_run_main_module_resourceE, ptr %second.i840, align 8
@@ -3302,7 +3302,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i842) #17
   %call.i.i843 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element282) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element282, ptr noundef %call.i.i843, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i842) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element282, ptr noundef nonnull @.str.474, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.474, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element282, ptr noundef nonnull @.str.474, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.474, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i842) #17
   %second.i846 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6800
   store ptr @_ZN4node8builtinsL34internal_main_test_runner_resourceE, ptr %second.i846, align 8
@@ -3314,7 +3314,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i848) #17
   %call.i.i849 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element284) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element284, ptr noundef %call.i.i849, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i848) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element284, ptr noundef nonnull @.str.475, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.475, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element284, ptr noundef nonnull @.str.475, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.475, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i848) #17
   %second.i852 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6848
   store ptr @_ZN4node8builtinsL33internal_main_watch_mode_resourceE, ptr %second.i852, align 8
@@ -3326,7 +3326,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i854) #17
   %call.i.i855 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element286) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element286, ptr noundef %call.i.i855, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i854) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element286, ptr noundef nonnull @.str.476, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.476, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element286, ptr noundef nonnull @.str.476, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.476, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i854) #17
   %second.i858 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6896
   store ptr @_ZN4node8builtinsL36internal_main_worker_thread_resourceE, ptr %second.i858, align 8
@@ -3338,7 +3338,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i860) #17
   %call.i.i861 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element288) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element288, ptr noundef %call.i.i861, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i860) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element288, ptr noundef nonnull @.str.477, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.477, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element288, ptr noundef nonnull @.str.477, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.477, i64 13))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i860) #17
   %second.i864 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6944
   store ptr @_ZN4node8builtinsL22internal_mime_resourceE, ptr %second.i864, align 8
@@ -3350,7 +3350,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i866) #17
   %call.i.i867 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element290) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element290, ptr noundef %call.i.i867, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i866) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element290, ptr noundef nonnull @.str.478, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.478, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element290, ptr noundef nonnull @.str.478, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.478, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i866) #17
   %second.i870 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 6992
   store ptr @_ZN4node8builtinsL36internal_modules_cjs_loader_resourceE, ptr %second.i870, align 8
@@ -3362,7 +3362,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i872) #17
   %call.i.i873 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element292) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element292, ptr noundef %call.i.i873, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i872) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element292, ptr noundef nonnull @.str.479, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.479, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element292, ptr noundef nonnull @.str.479, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.479, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i872) #17
   %second.i876 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7040
   store ptr @_ZN4node8builtinsL36internal_modules_esm_assert_resourceE, ptr %second.i876, align 8
@@ -3374,7 +3374,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i878) #17
   %call.i.i879 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element294) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element294, ptr noundef %call.i.i879, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i878) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element294, ptr noundef nonnull @.str.480, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.480, i64 42))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element294, ptr noundef nonnull @.str.480, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.480, i64 42))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i878) #17
   %second.i882 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7088
   store ptr @_ZN4node8builtinsL51internal_modules_esm_create_dynamic_module_resourceE, ptr %second.i882, align 8
@@ -3386,7 +3386,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i884) #17
   %call.i.i885 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element296) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element296, ptr noundef %call.i.i885, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i884) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element296, ptr noundef nonnull @.str.481, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.481, i64 33))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element296, ptr noundef nonnull @.str.481, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.481, i64 33))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i884) #17
   %second.i888 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7136
   store ptr @_ZN4node8builtinsL42internal_modules_esm_fetch_module_resourceE, ptr %second.i888, align 8
@@ -3398,7 +3398,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i890) #17
   %call.i.i891 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element298) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element298, ptr noundef %call.i.i891, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i890) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element298, ptr noundef nonnull @.str.482, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.482, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element298, ptr noundef nonnull @.str.482, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.482, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i890) #17
   %second.i894 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7184
   store ptr @_ZN4node8builtinsL37internal_modules_esm_formats_resourceE, ptr %second.i894, align 8
@@ -3410,7 +3410,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i896) #17
   %call.i.i897 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element300) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element300, ptr noundef %call.i.i897, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i896) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element300, ptr noundef nonnull @.str.483, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.483, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element300, ptr noundef nonnull @.str.483, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.483, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i896) #17
   %second.i900 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7232
   store ptr @_ZN4node8builtinsL40internal_modules_esm_get_format_resourceE, ptr %second.i900, align 8
@@ -3422,7 +3422,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i902) #17
   %call.i.i903 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element302) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element302, ptr noundef %call.i.i903, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i902) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element302, ptr noundef nonnull @.str.484, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.484, i64 40))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element302, ptr noundef nonnull @.str.484, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.484, i64 40))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i902) #17
   %second.i906 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7280
   store ptr @_ZN4node8builtinsL49internal_modules_esm_handle_process_exit_resourceE, ptr %second.i906, align 8
@@ -3434,7 +3434,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i908) #17
   %call.i.i909 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element304) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element304, ptr noundef %call.i.i909, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i908) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element304, ptr noundef nonnull @.str.485, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.485, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element304, ptr noundef nonnull @.str.485, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.485, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i908) #17
   %second.i912 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7328
   store ptr @_ZN4node8builtinsL35internal_modules_esm_hooks_resourceE, ptr %second.i912, align 8
@@ -3446,7 +3446,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i914) #17
   %call.i.i915 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element306) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element306, ptr noundef %call.i.i915, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i914) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element306, ptr noundef nonnull @.str.486, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.486, i64 43))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element306, ptr noundef nonnull @.str.486, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.486, i64 43))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i914) #17
   %second.i918 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7376
   store ptr @_ZN4node8builtinsL52internal_modules_esm_initialize_import_meta_resourceE, ptr %second.i918, align 8
@@ -3458,7 +3458,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i920) #17
   %call.i.i921 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element308) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element308, ptr noundef %call.i.i921, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i920) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element308, ptr noundef nonnull @.str.487, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.487, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element308, ptr noundef nonnull @.str.487, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.487, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i920) #17
   %second.i924 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7424
   store ptr @_ZN4node8builtinsL34internal_modules_esm_load_resourceE, ptr %second.i924, align 8
@@ -3470,7 +3470,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i926) #17
   %call.i.i927 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element310) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element310, ptr noundef %call.i.i927, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i926) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element310, ptr noundef nonnull @.str.488, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.488, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element310, ptr noundef nonnull @.str.488, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.488, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i926) #17
   %second.i930 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7472
   store ptr @_ZN4node8builtinsL36internal_modules_esm_loader_resourceE, ptr %second.i930, align 8
@@ -3482,7 +3482,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i932) #17
   %call.i.i933 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element312) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element312, ptr noundef %call.i.i933, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i932) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element312, ptr noundef nonnull @.str.489, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.489, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element312, ptr noundef nonnull @.str.489, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.489, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i932) #17
   %second.i936 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7520
   store ptr @_ZN4node8builtinsL40internal_modules_esm_module_job_resourceE, ptr %second.i936, align 8
@@ -3494,7 +3494,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i938) #17
   %call.i.i939 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element314) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element314, ptr noundef %call.i.i939, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i938) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element314, ptr noundef nonnull @.str.490, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.490, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element314, ptr noundef nonnull @.str.490, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.490, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i938) #17
   %second.i942 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7568
   store ptr @_ZN4node8builtinsL40internal_modules_esm_module_map_resourceE, ptr %second.i942, align 8
@@ -3506,7 +3506,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i944) #17
   %call.i.i945 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element316) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element316, ptr noundef %call.i.i945, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i944) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element316, ptr noundef nonnull @.str.491, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.491, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element316, ptr noundef nonnull @.str.491, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.491, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i944) #17
   %second.i948 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7616
   store ptr @_ZN4node8builtinsL37internal_modules_esm_resolve_resourceE, ptr %second.i948, align 8
@@ -3518,7 +3518,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i950) #17
   %call.i.i951 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element318) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element318, ptr noundef %call.i.i951, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i950) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element318, ptr noundef nonnull @.str.492, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.492, i64 37))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element318, ptr noundef nonnull @.str.492, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.492, i64 37))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i950) #17
   %second.i954 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7664
   store ptr @_ZN4node8builtinsL46internal_modules_esm_shared_constants_resourceE, ptr %second.i954, align 8
@@ -3530,7 +3530,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i956) #17
   %call.i.i957 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element320) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element320, ptr noundef %call.i.i957, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i956) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element320, ptr noundef nonnull @.str.493, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.493, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element320, ptr noundef nonnull @.str.493, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.493, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i956) #17
   %second.i960 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7712
   store ptr @_ZN4node8builtinsL41internal_modules_esm_translators_resourceE, ptr %second.i960, align 8
@@ -3542,7 +3542,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i962) #17
   %call.i.i963 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element322) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element322, ptr noundef %call.i.i963, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i962) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element322, ptr noundef nonnull @.str.494, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.494, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element322, ptr noundef nonnull @.str.494, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.494, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i962) #17
   %second.i966 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7760
   store ptr @_ZN4node8builtinsL35internal_modules_esm_utils_resourceE, ptr %second.i966, align 8
@@ -3554,7 +3554,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i968) #17
   %call.i.i969 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element324) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element324, ptr noundef %call.i.i969, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i968) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element324, ptr noundef nonnull @.str.495, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.495, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element324, ptr noundef nonnull @.str.495, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.495, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i968) #17
   %second.i972 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7808
   store ptr @_ZN4node8builtinsL36internal_modules_esm_worker_resourceE, ptr %second.i972, align 8
@@ -3566,7 +3566,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i974) #17
   %call.i.i975 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element326) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element326, ptr noundef %call.i.i975, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i974) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element326, ptr noundef nonnull @.str.496, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.496, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element326, ptr noundef nonnull @.str.496, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.496, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i974) #17
   %second.i978 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7856
   store ptr @_ZN4node8builtinsL33internal_modules_helpers_resourceE, ptr %second.i978, align 8
@@ -3578,7 +3578,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i980) #17
   %call.i.i981 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element328) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element328, ptr noundef %call.i.i981, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i980) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element328, ptr noundef nonnull @.str.497, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.497, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element328, ptr noundef nonnull @.str.497, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.497, i64 36))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i980) #17
   %second.i984 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7904
   store ptr @_ZN4node8builtinsL45internal_modules_package_json_reader_resourceE, ptr %second.i984, align 8
@@ -3590,7 +3590,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i986) #17
   %call.i.i987 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element330) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element330, ptr noundef %call.i.i987, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i986) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element330, ptr noundef nonnull @.str.498, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.498, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element330, ptr noundef nonnull @.str.498, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.498, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i986) #17
   %second.i990 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 7952
   store ptr @_ZN4node8builtinsL34internal_modules_run_main_resourceE, ptr %second.i990, align 8
@@ -3602,7 +3602,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i992) #17
   %call.i.i993 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element332) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element332, ptr noundef %call.i.i993, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i992) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element332, ptr noundef nonnull @.str.499, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.499, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element332, ptr noundef nonnull @.str.499, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.499, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i992) #17
   %second.i996 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8000
   store ptr @_ZN4node8builtinsL27internal_navigator_resourceE, ptr %second.i996, align 8
@@ -3614,7 +3614,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i998) #17
   %call.i.i999 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element334) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element334, ptr noundef %call.i.i999, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i998) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element334, ptr noundef nonnull @.str.500, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.500, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element334, ptr noundef nonnull @.str.500, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.500, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i998) #17
   %second.i1002 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8048
   store ptr @_ZN4node8builtinsL21internal_net_resourceE, ptr %second.i1002, align 8
@@ -3626,7 +3626,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1004) #17
   %call.i.i1005 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element336) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element336, ptr noundef %call.i.i1005, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1004) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element336, ptr noundef nonnull @.str.501, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.501, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element336, ptr noundef nonnull @.str.501, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.501, i64 16))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1004) #17
   %second.i1008 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8096
   store ptr @_ZN4node8builtinsL25internal_options_resourceE, ptr %second.i1008, align 8
@@ -3638,7 +3638,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1010) #17
   %call.i.i1011 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element338) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element338, ptr noundef %call.i.i1011, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1010) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element338, ptr noundef nonnull @.str.502, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.502, i64 33))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element338, ptr noundef nonnull @.str.502, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.502, i64 33))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1010) #17
   %second.i1014 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8144
   store ptr @_ZN4node8builtinsL42internal_per_context_domexception_resourceE, ptr %second.i1014, align 8
@@ -3650,7 +3650,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1016) #17
   %call.i.i1017 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element340) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element340, ptr noundef %call.i.i1017, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1016) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element340, ptr noundef nonnull @.str.503, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.503, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element340, ptr noundef nonnull @.str.503, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.503, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1016) #17
   %second.i1020 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8192
   store ptr @_ZN4node8builtinsL41internal_per_context_messageport_resourceE, ptr %second.i1020, align 8
@@ -3662,7 +3662,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1022) #17
   %call.i.i1023 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element342) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element342, ptr noundef %call.i.i1023, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1022) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element342, ptr noundef nonnull @.str.504, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.504, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element342, ptr noundef nonnull @.str.504, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.504, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1022) #17
   %second.i1026 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8240
   store ptr @_ZN4node8builtinsL41internal_per_context_primordials_resourceE, ptr %second.i1026, align 8
@@ -3674,7 +3674,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1028) #17
   %call.i.i1029 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element344) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element344, ptr noundef %call.i.i1029, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1028) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element344, ptr noundef nonnull @.str.505, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.505, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element344, ptr noundef nonnull @.str.505, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.505, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1028) #17
   %second.i1032 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8288
   store ptr @_ZN4node8builtinsL39internal_perf_event_loop_delay_resourceE, ptr %second.i1032, align 8
@@ -3686,7 +3686,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1034) #17
   %call.i.i1035 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element346) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element346, ptr noundef %call.i.i1035, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1034) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element346, ptr noundef nonnull @.str.506, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.506, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element346, ptr noundef nonnull @.str.506, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.506, i64 36))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1034) #17
   %second.i1038 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8336
   store ptr @_ZN4node8builtinsL45internal_perf_event_loop_utilization_resourceE, ptr %second.i1038, align 8
@@ -3698,7 +3698,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1040) #17
   %call.i.i1041 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element348) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element348, ptr noundef %call.i.i1041, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1040) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element348, ptr noundef nonnull @.str.507, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.507, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element348, ptr noundef nonnull @.str.507, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.507, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1040) #17
   %second.i1044 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8384
   store ptr @_ZN4node8builtinsL33internal_perf_nodetiming_resourceE, ptr %second.i1044, align 8
@@ -3710,7 +3710,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1046) #17
   %call.i.i1047 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element350) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element350, ptr noundef %call.i.i1047, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1046) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element350, ptr noundef nonnull @.str.508, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.508, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element350, ptr noundef nonnull @.str.508, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.508, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1046) #17
   %second.i1050 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8432
   store ptr @_ZN4node8builtinsL30internal_perf_observe_resourceE, ptr %second.i1050, align 8
@@ -3722,7 +3722,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1052) #17
   %call.i.i1053 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element352) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element352, ptr noundef %call.i.i1053, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1052) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element352, ptr noundef nonnull @.str.509, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.509, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element352, ptr noundef nonnull @.str.509, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.509, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1052) #17
   %second.i1056 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8480
   store ptr @_ZN4node8builtinsL34internal_perf_performance_resourceE, ptr %second.i1056, align 8
@@ -3734,7 +3734,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1058) #17
   %call.i.i1059 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element354) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element354, ptr noundef %call.i.i1059, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1058) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element354, ptr noundef nonnull @.str.510, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.510, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element354, ptr noundef nonnull @.str.510, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.510, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1058) #17
   %second.i1062 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8528
   store ptr @_ZN4node8builtinsL40internal_perf_performance_entry_resourceE, ptr %second.i1062, align 8
@@ -3746,7 +3746,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1064) #17
   %call.i.i1065 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element356) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element356, ptr noundef %call.i.i1065, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1064) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element356, ptr noundef nonnull @.str.511, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.511, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element356, ptr noundef nonnull @.str.511, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.511, i64 29))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1064) #17
   %second.i1068 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8576
   store ptr @_ZN4node8builtinsL38internal_perf_resource_timing_resourceE, ptr %second.i1068, align 8
@@ -3758,7 +3758,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1070) #17
   %call.i.i1071 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element358) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element358, ptr noundef %call.i.i1071, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1070) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element358, ptr noundef nonnull @.str.512, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.512, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element358, ptr noundef nonnull @.str.512, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.512, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1070) #17
   %second.i1074 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8624
   store ptr @_ZN4node8builtinsL31internal_perf_timerify_resourceE, ptr %second.i1074, align 8
@@ -3770,7 +3770,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1076) #17
   %call.i.i1077 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element360) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element360, ptr noundef %call.i.i1077, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1076) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element360, ptr noundef nonnull @.str.513, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.513, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element360, ptr noundef nonnull @.str.513, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.513, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1076) #17
   %second.i1080 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8672
   store ptr @_ZN4node8builtinsL33internal_perf_usertiming_resourceE, ptr %second.i1080, align 8
@@ -3782,7 +3782,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1082) #17
   %call.i.i1083 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element362) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element362, ptr noundef %call.i.i1083, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1082) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element362, ptr noundef nonnull @.str.514, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.514, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element362, ptr noundef nonnull @.str.514, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.514, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1082) #17
   %second.i1086 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8720
   store ptr @_ZN4node8builtinsL28internal_perf_utils_resourceE, ptr %second.i1086, align 8
@@ -3794,7 +3794,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1088) #17
   %call.i.i1089 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element364) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element364, ptr noundef %call.i.i1089, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1088) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element364, ptr noundef nonnull @.str.515, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.515, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element364, ptr noundef nonnull @.str.515, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.515, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1088) #17
   %second.i1092 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8768
   store ptr @_ZN4node8builtinsL33internal_policy_manifest_resourceE, ptr %second.i1092, align 8
@@ -3806,7 +3806,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1094) #17
   %call.i.i1095 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element366) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element366, ptr noundef %call.i.i1095, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1094) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element366, ptr noundef nonnull @.str.516, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.516, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element366, ptr noundef nonnull @.str.516, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.516, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1094) #17
   %second.i1098 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8816
   store ptr @_ZN4node8builtinsL28internal_policy_sri_resourceE, ptr %second.i1098, align 8
@@ -3818,7 +3818,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1100) #17
   %call.i.i1101 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element368) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element368, ptr noundef %call.i.i1101, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1100) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element368, ptr noundef nonnull @.str.517, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.517, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element368, ptr noundef nonnull @.str.517, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.517, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1100) #17
   %second.i1104 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8864
   store ptr @_ZN4node8builtinsL32internal_priority_queue_resourceE, ptr %second.i1104, align 8
@@ -3830,7 +3830,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1106) #17
   %call.i.i1107 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element370) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element370, ptr noundef %call.i.i1107, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1106) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element370, ptr noundef nonnull @.str.518, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.518, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element370, ptr noundef nonnull @.str.518, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.518, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1106) #17
   %second.i1110 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8912
   store ptr @_ZN4node8builtinsL36internal_process_esm_loader_resourceE, ptr %second.i1110, align 8
@@ -3842,7 +3842,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1112) #17
   %call.i.i1113 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element372) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element372, ptr noundef %call.i.i1113, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1112) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element372, ptr noundef nonnull @.str.519, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.519, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element372, ptr noundef nonnull @.str.519, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.519, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1112) #17
   %second.i1116 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8960
   store ptr @_ZN4node8builtinsL35internal_process_execution_resourceE, ptr %second.i1116, align 8
@@ -3854,7 +3854,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1118) #17
   %call.i.i1119 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element374) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element374, ptr noundef %call.i.i1119, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1118) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element374, ptr noundef nonnull @.str.520, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.520, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element374, ptr noundef nonnull @.str.520, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.520, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1118) #17
   %second.i1122 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9008
   store ptr @_ZN4node8builtinsL36internal_process_per_thread_resourceE, ptr %second.i1122, align 8
@@ -3866,7 +3866,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1124) #17
   %call.i.i1125 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element376) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element376, ptr noundef %call.i.i1125, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1124) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element376, ptr noundef nonnull @.str.521, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.521, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element376, ptr noundef nonnull @.str.521, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.521, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1124) #17
   %second.i1128 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9056
   store ptr @_ZN4node8builtinsL36internal_process_permission_resourceE, ptr %second.i1128, align 8
@@ -3878,7 +3878,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1130) #17
   %call.i.i1131 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element378) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element378, ptr noundef %call.i.i1131, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1130) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element378, ptr noundef nonnull @.str.522, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.522, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element378, ptr noundef nonnull @.str.522, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.522, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1130) #17
   %second.i1134 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9104
   store ptr @_ZN4node8builtinsL32internal_process_policy_resourceE, ptr %second.i1134, align 8
@@ -3890,7 +3890,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1136) #17
   %call.i.i1137 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element380) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element380, ptr noundef %call.i.i1137, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1136) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element380, ptr noundef nonnull @.str.523, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.523, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element380, ptr noundef nonnull @.str.523, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.523, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1136) #17
   %second.i1140 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9152
   store ptr @_ZN4node8builtinsL39internal_process_pre_execution_resourceE, ptr %second.i1140, align 8
@@ -3902,7 +3902,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1142) #17
   %call.i.i1143 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element382) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element382, ptr noundef %call.i.i1143, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1142) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element382, ptr noundef nonnull @.str.524, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.524, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element382, ptr noundef nonnull @.str.524, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.524, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1142) #17
   %second.i1146 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9200
   store ptr @_ZN4node8builtinsL34internal_process_promises_resourceE, ptr %second.i1146, align 8
@@ -3914,7 +3914,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1148) #17
   %call.i.i1149 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element384) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element384, ptr noundef %call.i.i1149, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1148) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element384, ptr noundef nonnull @.str.525, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.525, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element384, ptr noundef nonnull @.str.525, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.525, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1148) #17
   %second.i1152 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9248
   store ptr @_ZN4node8builtinsL32internal_process_report_resourceE, ptr %second.i1152, align 8
@@ -3926,7 +3926,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1154) #17
   %call.i.i1155 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element386) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element386, ptr noundef %call.i.i1155, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1154) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element386, ptr noundef nonnull @.str.526, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.526, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element386, ptr noundef nonnull @.str.526, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.526, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1154) #17
   %second.i1158 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9296
   store ptr @_ZN4node8builtinsL32internal_process_signal_resourceE, ptr %second.i1158, align 8
@@ -3938,7 +3938,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1160) #17
   %call.i.i1161 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element388) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element388, ptr noundef %call.i.i1161, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1160) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element388, ptr noundef nonnull @.str.527, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.527, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element388, ptr noundef nonnull @.str.527, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.527, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1160) #17
   %second.i1164 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9344
   store ptr @_ZN4node8builtinsL37internal_process_task_queues_resourceE, ptr %second.i1164, align 8
@@ -3950,7 +3950,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1166) #17
   %call.i.i1167 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element390) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element390, ptr noundef %call.i.i1167, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1166) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element390, ptr noundef nonnull @.str.528, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.528, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element390, ptr noundef nonnull @.str.528, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.528, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1166) #17
   %second.i1170 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9392
   store ptr @_ZN4node8builtinsL33internal_process_warning_resourceE, ptr %second.i1170, align 8
@@ -3962,7 +3962,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1172) #17
   %call.i.i1173 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element392) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element392, ptr noundef %call.i.i1173, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1172) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element392, ptr noundef nonnull @.str.529, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.529, i64 35))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element392, ptr noundef nonnull @.str.529, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.529, i64 35))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1172) #17
   %second.i1176 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9440
   store ptr @_ZN4node8builtinsL44internal_process_worker_thread_only_resourceE, ptr %second.i1176, align 8
@@ -3974,7 +3974,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1178) #17
   %call.i.i1179 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element394) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element394, ptr noundef %call.i.i1179, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1178) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element394, ptr noundef nonnull @.str.530, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.530, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element394, ptr noundef nonnull @.str.530, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.530, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1178) #17
   %second.i1182 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9488
   store ptr @_ZN4node8builtinsL31internal_promise_hooks_resourceE, ptr %second.i1182, align 8
@@ -3986,7 +3986,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1184) #17
   %call.i.i1185 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element396) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element396, ptr noundef %call.i.i1185, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1184) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element396, ptr noundef nonnull @.str.531, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.531, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element396, ptr noundef nonnull @.str.531, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.531, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1184) #17
   %second.i1188 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9536
   store ptr @_ZN4node8builtinsL29internal_querystring_resourceE, ptr %second.i1188, align 8
@@ -3998,7 +3998,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1190) #17
   %call.i.i1191 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element398) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element398, ptr noundef %call.i.i1191, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1190) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element398, ptr noundef nonnull @.str.532, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.532, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element398, ptr noundef nonnull @.str.532, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.532, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1190) #17
   %second.i1194 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9584
   store ptr @_ZN4node8builtinsL36internal_readline_callbacks_resourceE, ptr %second.i1194, align 8
@@ -4010,7 +4010,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1196) #17
   %call.i.i1197 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element400) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element400, ptr noundef %call.i.i1197, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1196) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element400, ptr noundef nonnull @.str.533, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.533, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element400, ptr noundef nonnull @.str.533, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.533, i64 36))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1196) #17
   %second.i1200 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9632
   store ptr @_ZN4node8builtinsL45internal_readline_emitKeypressEvents_resourceE, ptr %second.i1200, align 8
@@ -4022,7 +4022,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1202) #17
   %call.i.i1203 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element402) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element402, ptr noundef %call.i.i1203, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1202) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element402, ptr noundef nonnull @.str.534, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.534, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element402, ptr noundef nonnull @.str.534, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.534, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1202) #17
   %second.i1206 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9680
   store ptr @_ZN4node8builtinsL36internal_readline_interface_resourceE, ptr %second.i1206, align 8
@@ -4034,7 +4034,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1208) #17
   %call.i.i1209 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element404) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element404, ptr noundef %call.i.i1209, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1208) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element404, ptr noundef nonnull @.str.535, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.535, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element404, ptr noundef nonnull @.str.535, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.535, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1208) #17
   %second.i1212 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9728
   store ptr @_ZN4node8builtinsL35internal_readline_promises_resourceE, ptr %second.i1212, align 8
@@ -4046,7 +4046,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1214) #17
   %call.i.i1215 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element406) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element406, ptr noundef %call.i.i1215, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1214) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element406, ptr noundef nonnull @.str.536, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.536, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element406, ptr noundef nonnull @.str.536, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.536, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1214) #17
   %second.i1218 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9776
   store ptr @_ZN4node8builtinsL32internal_readline_utils_resourceE, ptr %second.i1218, align 8
@@ -4058,7 +4058,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1220) #17
   %call.i.i1221 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element408) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element408, ptr noundef %call.i.i1221, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1220) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element408, ptr noundef nonnull @.str.537, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.537, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element408, ptr noundef nonnull @.str.537, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.537, i64 13))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1220) #17
   %second.i1224 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9824
   store ptr @_ZN4node8builtinsL22internal_repl_resourceE, ptr %second.i1224, align 8
@@ -4070,7 +4070,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1226) #17
   %call.i.i1227 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element410) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element410, ptr noundef %call.i.i1227, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1226) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element410, ptr noundef nonnull @.str.538, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.538, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element410, ptr noundef nonnull @.str.538, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.538, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1226) #17
   %second.i1230 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9872
   store ptr @_ZN4node8builtinsL28internal_repl_await_resourceE, ptr %second.i1230, align 8
@@ -4082,7 +4082,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1232) #17
   %call.i.i1233 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element412) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element412, ptr noundef %call.i.i1233, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1232) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element412, ptr noundef nonnull @.str.539, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.539, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element412, ptr noundef nonnull @.str.539, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.539, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1232) #17
   %second.i1236 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9920
   store ptr @_ZN4node8builtinsL30internal_repl_history_resourceE, ptr %second.i1236, align 8
@@ -4094,7 +4094,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1238) #17
   %call.i.i1239 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element414) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element414, ptr noundef %call.i.i1239, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1238) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element414, ptr noundef nonnull @.str.540, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.540, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element414, ptr noundef nonnull @.str.540, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.540, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1238) #17
   %second.i1242 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 9968
   store ptr @_ZN4node8builtinsL28internal_repl_utils_resourceE, ptr %second.i1242, align 8
@@ -4106,7 +4106,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1244) #17
   %call.i.i1245 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element416) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element416, ptr noundef %call.i.i1245, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1244) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element416, ptr noundef nonnull @.str.541, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.541, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element416, ptr noundef nonnull @.str.541, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.541, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1244) #17
   %second.i1248 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10016
   store ptr @_ZN4node8builtinsL29internal_socket_list_resourceE, ptr %second.i1248, align 8
@@ -4118,7 +4118,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1250) #17
   %call.i.i1251 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element418) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element418, ptr noundef %call.i.i1251, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1250) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element418, ptr noundef nonnull @.str.542, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.542, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element418, ptr noundef nonnull @.str.542, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.542, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1250) #17
   %second.i1254 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10064
   store ptr @_ZN4node8builtinsL31internal_socketaddress_resourceE, ptr %second.i1254, align 8
@@ -4130,7 +4130,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1256) #17
   %call.i.i1257 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element420) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element420, ptr noundef %call.i.i1257, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1256) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element420, ptr noundef nonnull @.str.543, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.543, i64 39))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element420, ptr noundef nonnull @.str.543, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.543, i64 39))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1256) #17
   %second.i1260 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10112
   store ptr @_ZN4node8builtinsL48internal_source_map_prepare_stack_trace_resourceE, ptr %second.i1260, align 8
@@ -4142,7 +4142,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1262) #17
   %call.i.i1263 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element422) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element422, ptr noundef %call.i.i1263, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1262) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element422, ptr noundef nonnull @.str.544, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.544, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element422, ptr noundef nonnull @.str.544, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.544, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1262) #17
   %second.i1266 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10160
   store ptr @_ZN4node8builtinsL39internal_source_map_source_map_resourceE, ptr %second.i1266, align 8
@@ -4154,7 +4154,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1268) #17
   %call.i.i1269 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element424) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element424, ptr noundef %call.i.i1269, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1268) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element424, ptr noundef nonnull @.str.545, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.545, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element424, ptr noundef nonnull @.str.545, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.545, i64 36))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1268) #17
   %second.i1272 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10208
   store ptr @_ZN4node8builtinsL45internal_source_map_source_map_cache_resourceE, ptr %second.i1272, align 8
@@ -4166,7 +4166,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1274) #17
   %call.i.i1275 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element426) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element426, ptr noundef %call.i.i1275, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1274) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element426, ptr noundef nonnull @.str.546, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.546, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element426, ptr noundef nonnull @.str.546, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.546, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1274) #17
   %second.i1278 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10256
   store ptr @_ZN4node8builtinsL37internal_stream_base_commons_resourceE, ptr %second.i1278, align 8
@@ -4178,7 +4178,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1280) #17
   %call.i.i1281 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element428) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element428, ptr noundef %call.i.i1281, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1280) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element428, ptr noundef nonnull @.str.547, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.547, i64 33))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element428, ptr noundef nonnull @.str.547, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.547, i64 33))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1280) #17
   %second.i1284 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10304
   store ptr @_ZN4node8builtinsL42internal_streams_add_abort_signal_resourceE, ptr %second.i1284, align 8
@@ -4190,7 +4190,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1286) #17
   %call.i.i1287 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element430) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element430, ptr noundef %call.i.i1287, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1286) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element430, ptr noundef nonnull @.str.548, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.548, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element430, ptr noundef nonnull @.str.548, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.548, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1286) #17
   %second.i1290 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10352
   store ptr @_ZN4node8builtinsL33internal_streams_compose_resourceE, ptr %second.i1290, align 8
@@ -4202,7 +4202,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1292) #17
   %call.i.i1293 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element432) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element432, ptr noundef %call.i.i1293, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1292) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element432, ptr noundef nonnull @.str.549, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.549, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element432, ptr noundef nonnull @.str.549, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.549, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1292) #17
   %second.i1296 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10400
   store ptr @_ZN4node8builtinsL33internal_streams_destroy_resourceE, ptr %second.i1296, align 8
@@ -4214,7 +4214,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1298) #17
   %call.i.i1299 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element434) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element434, ptr noundef %call.i.i1299, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1298) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element434, ptr noundef nonnull @.str.550, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.550, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element434, ptr noundef nonnull @.str.550, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.550, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1298) #17
   %second.i1302 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10448
   store ptr @_ZN4node8builtinsL32internal_streams_duplex_resourceE, ptr %second.i1302, align 8
@@ -4226,7 +4226,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1304) #17
   %call.i.i1305 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element436) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element436, ptr noundef %call.i.i1305, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1304) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element436, ptr noundef nonnull @.str.551, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.551, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element436, ptr noundef nonnull @.str.551, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.551, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1304) #17
   %second.i1308 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10496
   store ptr @_ZN4node8builtinsL35internal_streams_duplexify_resourceE, ptr %second.i1308, align 8
@@ -4238,7 +4238,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1310) #17
   %call.i.i1311 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element438) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element438, ptr noundef %call.i.i1311, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1310) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element438, ptr noundef nonnull @.str.552, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.552, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element438, ptr noundef nonnull @.str.552, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.552, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1310) #17
   %second.i1314 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10544
   store ptr @_ZN4node8builtinsL39internal_streams_end_of_stream_resourceE, ptr %second.i1314, align 8
@@ -4250,7 +4250,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1316) #17
   %call.i.i1317 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element440) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element440, ptr noundef %call.i.i1317, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1316) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element440, ptr noundef nonnull @.str.553, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.553, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element440, ptr noundef nonnull @.str.553, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.553, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1316) #17
   %second.i1320 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10592
   store ptr @_ZN4node8builtinsL30internal_streams_from_resourceE, ptr %second.i1320, align 8
@@ -4262,7 +4262,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1322) #17
   %call.i.i1323 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element442) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element442, ptr noundef %call.i.i1323, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1322) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element442, ptr noundef nonnull @.str.554, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.554, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element442, ptr noundef nonnull @.str.554, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.554, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1322) #17
   %second.i1326 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10640
   store ptr @_ZN4node8builtinsL40internal_streams_lazy_transform_resourceE, ptr %second.i1326, align 8
@@ -4274,7 +4274,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1328) #17
   %call.i.i1329 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element444) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element444, ptr noundef %call.i.i1329, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1328) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element444, ptr noundef nonnull @.str.555, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.555, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element444, ptr noundef nonnull @.str.555, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.555, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1328) #17
   %second.i1332 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10688
   store ptr @_ZN4node8builtinsL32internal_streams_legacy_resourceE, ptr %second.i1332, align 8
@@ -4286,7 +4286,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1334) #17
   %call.i.i1335 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element446) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element446, ptr noundef %call.i.i1335, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1334) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element446, ptr noundef nonnull @.str.556, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.556, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element446, ptr noundef nonnull @.str.556, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.556, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1334) #17
   %second.i1338 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10736
   store ptr @_ZN4node8builtinsL35internal_streams_operators_resourceE, ptr %second.i1338, align 8
@@ -4298,7 +4298,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1340) #17
   %call.i.i1341 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element448) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element448, ptr noundef %call.i.i1341, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1340) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element448, ptr noundef nonnull @.str.557, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.557, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element448, ptr noundef nonnull @.str.557, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.557, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1340) #17
   %second.i1344 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10784
   store ptr @_ZN4node8builtinsL37internal_streams_passthrough_resourceE, ptr %second.i1344, align 8
@@ -4310,7 +4310,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1346) #17
   %call.i.i1347 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element450) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element450, ptr noundef %call.i.i1347, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1346) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element450, ptr noundef nonnull @.str.558, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.558, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element450, ptr noundef nonnull @.str.558, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.558, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1346) #17
   %second.i1350 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10832
   store ptr @_ZN4node8builtinsL34internal_streams_pipeline_resourceE, ptr %second.i1350, align 8
@@ -4322,7 +4322,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1352) #17
   %call.i.i1353 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element452) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element452, ptr noundef %call.i.i1353, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1352) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element452, ptr noundef nonnull @.str.559, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.559, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element452, ptr noundef nonnull @.str.559, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.559, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1352) #17
   %second.i1356 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10880
   store ptr @_ZN4node8builtinsL34internal_streams_readable_resourceE, ptr %second.i1356, align 8
@@ -4334,7 +4334,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1358) #17
   %call.i.i1359 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element454) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element454, ptr noundef %call.i.i1359, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1358) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element454, ptr noundef nonnull @.str.560, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.560, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element454, ptr noundef nonnull @.str.560, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.560, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1358) #17
   %second.i1362 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10928
   store ptr @_ZN4node8builtinsL31internal_streams_state_resourceE, ptr %second.i1362, align 8
@@ -4346,7 +4346,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1364) #17
   %call.i.i1365 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element456) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element456, ptr noundef %call.i.i1365, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1364) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element456, ptr noundef nonnull @.str.561, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.561, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element456, ptr noundef nonnull @.str.561, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.561, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1364) #17
   %second.i1368 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 10976
   store ptr @_ZN4node8builtinsL35internal_streams_transform_resourceE, ptr %second.i1368, align 8
@@ -4358,7 +4358,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1370) #17
   %call.i.i1371 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element458) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element458, ptr noundef %call.i.i1371, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1370) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element458, ptr noundef nonnull @.str.562, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.562, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element458, ptr noundef nonnull @.str.562, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.562, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1370) #17
   %second.i1374 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11024
   store ptr @_ZN4node8builtinsL31internal_streams_utils_resourceE, ptr %second.i1374, align 8
@@ -4370,7 +4370,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1376) #17
   %call.i.i1377 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element460) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element460, ptr noundef %call.i.i1377, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1376) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element460, ptr noundef nonnull @.str.563, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.563, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element460, ptr noundef nonnull @.str.563, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.563, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1376) #17
   %second.i1380 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11072
   store ptr @_ZN4node8builtinsL34internal_streams_writable_resourceE, ptr %second.i1380, align 8
@@ -4382,7 +4382,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1382) #17
   %call.i.i1383 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element462) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element462, ptr noundef %call.i.i1383, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1382) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element462, ptr noundef nonnull @.str.564, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.564, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element462, ptr noundef nonnull @.str.564, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.564, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1382) #17
   %second.i1386 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11120
   store ptr @_ZN4node8builtinsL30internal_test_binding_resourceE, ptr %second.i1386, align 8
@@ -4394,7 +4394,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1388) #17
   %call.i.i1389 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element464) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element464, ptr noundef %call.i.i1389, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1388) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element464, ptr noundef nonnull @.str.565, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.565, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element464, ptr noundef nonnull @.str.565, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.565, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1388) #17
   %second.i1392 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11168
   store ptr @_ZN4node8builtinsL31internal_test_transfer_resourceE, ptr %second.i1392, align 8
@@ -4406,7 +4406,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1394) #17
   %call.i.i1395 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element466) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element466, ptr noundef %call.i.i1395, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1394) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element466, ptr noundef nonnull @.str.566, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.566, i64 29))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element466, ptr noundef nonnull @.str.566, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.566, i64 29))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1394) #17
   %second.i1398 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11216
   store ptr @_ZN4node8builtinsL38internal_test_runner_coverage_resourceE, ptr %second.i1398, align 8
@@ -4418,7 +4418,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1400) #17
   %call.i.i1401 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element468) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element468, ptr noundef %call.i.i1401, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1400) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element468, ptr noundef nonnull @.str.567, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.567, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element468, ptr noundef nonnull @.str.567, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.567, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1400) #17
   %second.i1404 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11264
   store ptr @_ZN4node8builtinsL37internal_test_runner_harness_resourceE, ptr %second.i1404, align 8
@@ -4430,7 +4430,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1406) #17
   %call.i.i1407 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element470) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element470, ptr noundef %call.i.i1407, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1406) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element470, ptr noundef nonnull @.str.568, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.568, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element470, ptr noundef nonnull @.str.568, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.568, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1406) #17
   %second.i1410 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11312
   store ptr @_ZN4node8builtinsL39internal_test_runner_mock_mock_resourceE, ptr %second.i1410, align 8
@@ -4442,7 +4442,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1412) #17
   %call.i.i1413 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element472) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element472, ptr noundef %call.i.i1413, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1412) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element472, ptr noundef nonnull @.str.569, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.569, i64 37))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element472, ptr noundef nonnull @.str.569, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.569, i64 37))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1412) #17
   %second.i1416 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11360
   store ptr @_ZN4node8builtinsL46internal_test_runner_mock_mock_timers_resourceE, ptr %second.i1416, align 8
@@ -4454,7 +4454,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1418) #17
   %call.i.i1419 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element474) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element474, ptr noundef %call.i.i1419, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1418) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element474, ptr noundef nonnull @.str.570, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.570, i64 33))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element474, ptr noundef nonnull @.str.570, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.570, i64 33))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1418) #17
   %second.i1422 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11408
   store ptr @_ZN4node8builtinsL42internal_test_runner_reporter_dot_resourceE, ptr %second.i1422, align 8
@@ -4466,7 +4466,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1424) #17
   %call.i.i1425 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element476) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element476, ptr noundef %call.i.i1425, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1424) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element476, ptr noundef nonnull @.str.571, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.571, i64 35))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element476, ptr noundef nonnull @.str.571, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.571, i64 35))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1424) #17
   %second.i1428 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11456
   store ptr @_ZN4node8builtinsL44internal_test_runner_reporter_junit_resourceE, ptr %second.i1428, align 8
@@ -4478,7 +4478,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1430) #17
   %call.i.i1431 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element478) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element478, ptr noundef %call.i.i1431, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1430) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element478, ptr noundef nonnull @.str.572, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.572, i64 34))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element478, ptr noundef nonnull @.str.572, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.572, i64 34))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1430) #17
   %second.i1434 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11504
   store ptr @_ZN4node8builtinsL43internal_test_runner_reporter_lcov_resourceE, ptr %second.i1434, align 8
@@ -4490,7 +4490,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1436) #17
   %call.i.i1437 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element480) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element480, ptr noundef %call.i.i1437, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1436) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element480, ptr noundef nonnull @.str.573, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.573, i64 34))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element480, ptr noundef nonnull @.str.573, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.573, i64 34))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1436) #17
   %second.i1440 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11552
   store ptr @_ZN4node8builtinsL43internal_test_runner_reporter_spec_resourceE, ptr %second.i1440, align 8
@@ -4502,7 +4502,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1442) #17
   %call.i.i1443 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element482) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element482, ptr noundef %call.i.i1443, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1442) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element482, ptr noundef nonnull @.str.574, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.574, i64 33))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element482, ptr noundef nonnull @.str.574, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.574, i64 33))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1442) #17
   %second.i1446 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11600
   store ptr @_ZN4node8builtinsL42internal_test_runner_reporter_tap_resourceE, ptr %second.i1446, align 8
@@ -4514,7 +4514,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1448) #17
   %call.i.i1449 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element484) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element484, ptr noundef %call.i.i1449, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1448) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element484, ptr noundef nonnull @.str.575, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.575, i64 43))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element484, ptr noundef nonnull @.str.575, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.575, i64 43))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1448) #17
   %second.i1452 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11648
   store ptr @_ZN4node8builtinsL52internal_test_runner_reporter_v8_serializer_resourceE, ptr %second.i1452, align 8
@@ -4526,7 +4526,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1454) #17
   %call.i.i1455 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element486) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element486, ptr noundef %call.i.i1455, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1454) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element486, ptr noundef nonnull @.str.576, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.576, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element486, ptr noundef nonnull @.str.576, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.576, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1454) #17
   %second.i1458 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11696
   store ptr @_ZN4node8builtinsL36internal_test_runner_runner_resourceE, ptr %second.i1458, align 8
@@ -4538,7 +4538,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1460) #17
   %call.i.i1461 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element488) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element488, ptr noundef %call.i.i1461, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1460) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element488, ptr noundef nonnull @.str.577, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.577, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element488, ptr noundef nonnull @.str.577, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.577, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1460) #17
   %second.i1464 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11744
   store ptr @_ZN4node8builtinsL34internal_test_runner_test_resourceE, ptr %second.i1464, align 8
@@ -4550,7 +4550,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1466) #17
   %call.i.i1467 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element490) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element490, ptr noundef %call.i.i1467, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1466) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element490, ptr noundef nonnull @.str.578, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.578, i64 33))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element490, ptr noundef nonnull @.str.578, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.578, i64 33))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1466) #17
   %second.i1470 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11792
   store ptr @_ZN4node8builtinsL42internal_test_runner_tests_stream_resourceE, ptr %second.i1470, align 8
@@ -4562,7 +4562,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1472) #17
   %call.i.i1473 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element492) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element492, ptr noundef %call.i.i1473, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1472) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element492, ptr noundef nonnull @.str.579, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.579, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element492, ptr noundef nonnull @.str.579, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.579, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1472) #17
   %second.i1476 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11840
   store ptr @_ZN4node8builtinsL35internal_test_runner_utils_resourceE, ptr %second.i1476, align 8
@@ -4574,7 +4574,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1478) #17
   %call.i.i1479 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element494) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element494, ptr noundef %call.i.i1479, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1478) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element494, ptr noundef nonnull @.str.580, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.580, i64 15))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element494, ptr noundef nonnull @.str.580, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.580, i64 15))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1478) #17
   %second.i1482 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11888
   store ptr null, ptr %second.i1482, align 8
@@ -4586,7 +4586,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1484) #17
   %call.i.i1485 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element496) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element496, ptr noundef %call.i.i1485, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1484) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element496, ptr noundef nonnull @.str.581, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.581, i64 27))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element496, ptr noundef nonnull @.str.581, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.581, i64 27))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1484) #17
   %second.i1488 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11936
   store ptr @_ZN4node8builtinsL36internal_tls_secure_context_resourceE, ptr %second.i1488, align 8
@@ -4598,7 +4598,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1490) #17
   %call.i.i1491 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element498) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element498, ptr noundef %call.i.i1491, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1490) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element498, ptr noundef nonnull @.str.582, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.582, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element498, ptr noundef nonnull @.str.582, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.582, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1490) #17
   %second.i1494 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 11984
   store ptr @_ZN4node8builtinsL33internal_tls_secure_pair_resourceE, ptr %second.i1494, align 8
@@ -4610,7 +4610,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1496) #17
   %call.i.i1497 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element500) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element500, ptr noundef %call.i.i1497, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1496) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element500, ptr noundef nonnull @.str.583, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.583, i64 33))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element500, ptr noundef nonnull @.str.583, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.583, i64 33))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1496) #17
   %second.i1500 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12032
   store ptr @_ZN4node8builtinsL42internal_trace_events_async_hooks_resourceE, ptr %second.i1500, align 8
@@ -4622,7 +4622,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1502) #17
   %call.i.i1503 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element502) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element502, ptr noundef %call.i.i1503, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1502) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element502, ptr noundef nonnull @.str.584, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.584, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element502, ptr noundef nonnull @.str.584, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.584, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1502) #17
   %second.i1506 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12080
   store ptr @_ZN4node8builtinsL21internal_tty_resourceE, ptr %second.i1506, align 8
@@ -4634,7 +4634,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1508) #17
   %call.i.i1509 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element504) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element504, ptr noundef %call.i.i1509, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1508) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element504, ptr noundef nonnull @.str.585, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.585, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element504, ptr noundef nonnull @.str.585, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.585, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1508) #17
   %second.i1512 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12128
   store ptr @_ZN4node8builtinsL21internal_url_resourceE, ptr %second.i1512, align 8
@@ -4646,7 +4646,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1514) #17
   %call.i.i1515 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element506) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element506, ptr noundef %call.i.i1515, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1514) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element506, ptr noundef nonnull @.str.586, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.586, i64 13))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element506, ptr noundef nonnull @.str.586, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.586, i64 13))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1514) #17
   %second.i1518 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12176
   store ptr @_ZN4node8builtinsL22internal_util_resourceE, ptr %second.i1518, align 8
@@ -4658,7 +4658,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1520) #17
   %call.i.i1521 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element508) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element508, ptr noundef %call.i.i1521, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1520) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element508, ptr noundef nonnull @.str.587, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.587, i64 20))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element508, ptr noundef nonnull @.str.587, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.587, i64 20))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1520) #17
   %second.i1524 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12224
   store ptr @_ZN4node8builtinsL29internal_util_colors_resourceE, ptr %second.i1524, align 8
@@ -4670,7 +4670,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1526) #17
   %call.i.i1527 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element510) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element510, ptr noundef %call.i.i1527, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1526) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element510, ptr noundef nonnull @.str.588, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.588, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element510, ptr noundef nonnull @.str.588, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.588, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1526) #17
   %second.i1530 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12272
   store ptr @_ZN4node8builtinsL34internal_util_comparisons_resourceE, ptr %second.i1530, align 8
@@ -4682,7 +4682,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1532) #17
   %call.i.i1533 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element512) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element512, ptr noundef %call.i.i1533, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1532) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element512, ptr noundef nonnull @.str.589, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.589, i64 22))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element512, ptr noundef nonnull @.str.589, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.589, i64 22))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1532) #17
   %second.i1536 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12320
   store ptr @_ZN4node8builtinsL31internal_util_debuglog_resourceE, ptr %second.i1536, align 8
@@ -4694,7 +4694,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1538) #17
   %call.i.i1539 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element514) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element514, ptr noundef %call.i.i1539, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1538) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element514, ptr noundef nonnull @.str.590, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.590, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element514, ptr noundef nonnull @.str.590, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.590, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1538) #17
   %second.i1542 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12368
   store ptr @_ZN4node8builtinsL32internal_util_embedding_resourceE, ptr %second.i1542, align 8
@@ -4706,7 +4706,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1544) #17
   %call.i.i1545 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element516) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element516, ptr noundef %call.i.i1545, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1544) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element516, ptr noundef nonnull @.str.591, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.591, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element516, ptr noundef nonnull @.str.591, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.591, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1544) #17
   %second.i1548 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12416
   store ptr @_ZN4node8builtinsL30internal_util_inspect_resourceE, ptr %second.i1548, align 8
@@ -4718,7 +4718,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1550) #17
   %call.i.i1551 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element518) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element518, ptr noundef %call.i.i1551, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1550) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element518, ptr noundef nonnull @.str.592, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.592, i64 23))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element518, ptr noundef nonnull @.str.592, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.592, i64 23))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1550) #17
   %second.i1554 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12464
   store ptr @_ZN4node8builtinsL32internal_util_inspector_resourceE, ptr %second.i1554, align 8
@@ -4730,7 +4730,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1556) #17
   %call.i.i1557 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element520) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element520, ptr noundef %call.i.i1557, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1556) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element520, ptr noundef nonnull @.str.593, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.593, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element520, ptr noundef nonnull @.str.593, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.593, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1556) #17
   %second.i1560 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12512
   store ptr @_ZN4node8builtinsL40internal_util_iterable_weak_map_resourceE, ptr %second.i1560, align 8
@@ -4742,7 +4742,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1562) #17
   %call.i.i1563 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element522) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element522, ptr noundef %call.i.i1563, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1562) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element522, ptr noundef nonnull @.str.594, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.594, i64 35))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element522, ptr noundef nonnull @.str.594, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.594, i64 35))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1562) #17
   %second.i1566 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12560
   store ptr @_ZN4node8builtinsL44internal_util_parse_args_parse_args_resourceE, ptr %second.i1566, align 8
@@ -4754,7 +4754,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1568) #17
   %call.i.i1569 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element524) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element524, ptr noundef %call.i.i1569, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1568) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element524, ptr noundef nonnull @.str.595, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.595, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element524, ptr noundef nonnull @.str.595, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.595, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1568) #17
   %second.i1572 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12608
   store ptr @_ZN4node8builtinsL39internal_util_parse_args_utils_resourceE, ptr %second.i1572, align 8
@@ -4766,7 +4766,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1574) #17
   %call.i.i1575 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element526) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element526, ptr noundef %call.i.i1575, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1574) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element526, ptr noundef nonnull @.str.596, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.596, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element526, ptr noundef nonnull @.str.596, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.596, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1574) #17
   %second.i1578 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12656
   store ptr @_ZN4node8builtinsL28internal_util_types_resourceE, ptr %second.i1578, align 8
@@ -4778,7 +4778,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1580) #17
   %call.i.i1581 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element528) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element528, ptr noundef %call.i.i1581, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1580) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element528, ptr noundef nonnull @.str.597, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.597, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element528, ptr noundef nonnull @.str.597, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.597, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1580) #17
   %second.i1584 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12704
   store ptr @_ZN4node8builtinsL37internal_v8_startup_snapshot_resourceE, ptr %second.i1584, align 8
@@ -4790,7 +4790,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1586) #17
   %call.i.i1587 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element530) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element530, ptr noundef %call.i.i1587, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1586) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element530, ptr noundef nonnull @.str.598, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.598, i64 25))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element530, ptr noundef nonnull @.str.598, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.598, i64 25))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1586) #17
   %second.i1590 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12752
   store ptr @_ZN4node8builtinsL34internal_v8_prof_polyfill_resourceE, ptr %second.i1590, align 8
@@ -4802,7 +4802,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1592) #17
   %call.i.i1593 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element532) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element532, ptr noundef %call.i.i1593, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1592) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element532, ptr noundef nonnull @.str.599, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.599, i64 26))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element532, ptr noundef nonnull @.str.599, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.599, i64 26))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1592) #17
   %second.i1596 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12800
   store ptr @_ZN4node8builtinsL35internal_v8_prof_processor_resourceE, ptr %second.i1596, align 8
@@ -4814,7 +4814,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1598) #17
   %call.i.i1599 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element534) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element534, ptr noundef %call.i.i1599, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1598) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element534, ptr noundef nonnull @.str.600, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.600, i64 19))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element534, ptr noundef nonnull @.str.600, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.600, i64 19))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1598) #17
   %second.i1602 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12848
   store ptr @_ZN4node8builtinsL28internal_validators_resourceE, ptr %second.i1602, align 8
@@ -4826,7 +4826,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1604) #17
   %call.i.i1605 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element536) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element536, ptr noundef %call.i.i1605, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1604) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element536, ptr noundef nonnull @.str.601, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.601, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element536, ptr noundef nonnull @.str.601, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.601, i64 11))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1604) #17
   %second.i1608 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12896
   store ptr @_ZN4node8builtinsL20internal_vm_resourceE, ptr %second.i1608, align 8
@@ -4838,7 +4838,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1610) #17
   %call.i.i1611 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element538) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element538, ptr noundef %call.i.i1611, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1610) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element538, ptr noundef nonnull @.str.602, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.602, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element538, ptr noundef nonnull @.str.602, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.602, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1610) #17
   %second.i1614 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12944
   store ptr @_ZN4node8builtinsL27internal_vm_module_resourceE, ptr %second.i1614, align 8
@@ -4850,7 +4850,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1616) #17
   %call.i.i1617 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element540) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element540, ptr noundef %call.i.i1617, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1616) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element540, ptr noundef nonnull @.str.603, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.603, i64 21))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element540, ptr noundef nonnull @.str.603, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.603, i64 21))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1616) #17
   %second.i1620 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12992
   store ptr @_ZN4node8builtinsL30internal_wasm_web_api_resourceE, ptr %second.i1620, align 8
@@ -4862,7 +4862,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1622) #17
   %call.i.i1623 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element542) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element542, ptr noundef %call.i.i1623, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1622) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element542, ptr noundef nonnull @.str.604, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.604, i64 33))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element542, ptr noundef nonnull @.str.604, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.604, i64 33))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1622) #17
   %second.i1626 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13040
   store ptr @_ZN4node8builtinsL42internal_watch_mode_files_watcher_resourceE, ptr %second.i1626, align 8
@@ -4874,7 +4874,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1628) #17
   %call.i.i1629 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element544) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element544, ptr noundef %call.i.i1629, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1628) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element544, ptr noundef nonnull @.str.605, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.605, i64 17))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element544, ptr noundef nonnull @.str.605, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.605, i64 17))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1628) #17
   %second.i1632 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13088
   store ptr @_ZN4node8builtinsL26internal_watchdog_resourceE, ptr %second.i1632, align 8
@@ -4886,7 +4886,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1634) #17
   %call.i.i1635 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element546) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element546, ptr noundef %call.i.i1635, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1634) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element546, ptr noundef nonnull @.str.606, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.606, i64 15))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element546, ptr noundef nonnull @.str.606, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.606, i64 15))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1634) #17
   %second.i1638 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13136
   store ptr null, ptr %second.i1638, align 8
@@ -4898,7 +4898,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1640) #17
   %call.i.i1641 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element548) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element548, ptr noundef %call.i.i1641, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1640) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element548, ptr noundef nonnull @.str.607, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.607, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element548, ptr noundef nonnull @.str.607, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.607, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1640) #17
   %second.i1644 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13184
   store ptr @_ZN4node8builtinsL37internal_webstreams_adapters_resourceE, ptr %second.i1644, align 8
@@ -4910,7 +4910,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1646) #17
   %call.i.i1647 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element550) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element550, ptr noundef %call.i.i1647, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1646) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element550, ptr noundef nonnull @.str.608, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.608, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element550, ptr noundef nonnull @.str.608, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.608, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1646) #17
   %second.i1650 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13232
   store ptr @_ZN4node8builtinsL40internal_webstreams_compression_resourceE, ptr %second.i1650, align 8
@@ -4922,7 +4922,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1652) #17
   %call.i.i1653 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element552) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element552, ptr noundef %call.i.i1653, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1652) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element552, ptr noundef nonnull @.str.609, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.609, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element552, ptr noundef nonnull @.str.609, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.609, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1652) #17
   %second.i1656 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13280
   store ptr @_ZN4node8builtinsL37internal_webstreams_encoding_resourceE, ptr %second.i1656, align 8
@@ -4934,7 +4934,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1658) #17
   %call.i.i1659 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element554) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element554, ptr noundef %call.i.i1659, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1658) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element554, ptr noundef nonnull @.str.610, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.610, i64 37))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element554, ptr noundef nonnull @.str.610, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.610, i64 37))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1658) #17
   %second.i1662 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13328
   store ptr @_ZN4node8builtinsL46internal_webstreams_queuingstrategies_resourceE, ptr %second.i1662, align 8
@@ -4946,7 +4946,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1664) #17
   %call.i.i1665 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element556) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element556, ptr noundef %call.i.i1665, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1664) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element556, ptr noundef nonnull @.str.611, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.611, i64 34))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element556, ptr noundef nonnull @.str.611, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.611, i64 34))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1664) #17
   %second.i1668 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13376
   store ptr @_ZN4node8builtinsL43internal_webstreams_readablestream_resourceE, ptr %second.i1668, align 8
@@ -4958,7 +4958,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1670) #17
   %call.i.i1671 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element558) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element558, ptr noundef %call.i.i1671, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1670) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element558, ptr noundef nonnull @.str.612, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.612, i64 28))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element558, ptr noundef nonnull @.str.612, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.612, i64 28))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1670) #17
   %second.i1674 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13424
   store ptr @_ZN4node8builtinsL37internal_webstreams_transfer_resourceE, ptr %second.i1674, align 8
@@ -4970,7 +4970,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1676) #17
   %call.i.i1677 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element560) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element560, ptr noundef %call.i.i1677, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1676) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element560, ptr noundef nonnull @.str.613, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.613, i64 35))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element560, ptr noundef nonnull @.str.613, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.613, i64 35))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1676) #17
   %second.i1680 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13472
   store ptr @_ZN4node8builtinsL44internal_webstreams_transformstream_resourceE, ptr %second.i1680, align 8
@@ -4982,7 +4982,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1682) #17
   %call.i.i1683 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element562) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element562, ptr noundef %call.i.i1683, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1682) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element562, ptr noundef nonnull @.str.614, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.614, i64 24))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element562, ptr noundef nonnull @.str.614, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.614, i64 24))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1682) #17
   %second.i1686 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13520
   store ptr @_ZN4node8builtinsL33internal_webstreams_util_resourceE, ptr %second.i1686, align 8
@@ -4994,7 +4994,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1688) #17
   %call.i.i1689 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element564) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element564, ptr noundef %call.i.i1689, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1688) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element564, ptr noundef nonnull @.str.615, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.615, i64 34))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element564, ptr noundef nonnull @.str.615, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.615, i64 34))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1688) #17
   %second.i1692 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13568
   store ptr @_ZN4node8builtinsL43internal_webstreams_writablestream_resourceE, ptr %second.i1692, align 8
@@ -5006,7 +5006,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1694) #17
   %call.i.i1695 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element566) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element566, ptr noundef %call.i.i1695, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1694) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element566, ptr noundef nonnull @.str.616, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.616, i64 15))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element566, ptr noundef nonnull @.str.616, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.616, i64 15))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1694) #17
   %second.i1698 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13616
   store ptr @_ZN4node8builtinsL24internal_worker_resourceE, ptr %second.i1698, align 8
@@ -5018,7 +5018,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1700) #17
   %call.i.i1701 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element568) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element568, ptr noundef %call.i.i1701, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1700) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element568, ptr noundef nonnull @.str.617, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.617, i64 18))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element568, ptr noundef nonnull @.str.617, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.617, i64 18))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1700) #17
   %second.i1704 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13664
   store ptr @_ZN4node8builtinsL27internal_worker_io_resourceE, ptr %second.i1704, align 8
@@ -5030,7 +5030,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1706) #17
   %call.i.i1707 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element570) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element570, ptr noundef %call.i.i1707, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1706) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element570, ptr noundef nonnull @.str.618, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.618, i64 31))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element570, ptr noundef nonnull @.str.618, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.618, i64 31))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1706) #17
   %second.i1710 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13712
   store ptr @_ZN4node8builtinsL40internal_worker_js_transferable_resourceE, ptr %second.i1710, align 8
@@ -5042,7 +5042,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1712) #17
   %call.i.i1713 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element572) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element572, ptr noundef %call.i.i1713, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1712) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element572, ptr noundef nonnull @.str.619, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.619, i64 6))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element572, ptr noundef nonnull @.str.619, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.619, i64 6))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1712) #17
   %second.i1716 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13760
   store ptr @_ZN4node8builtinsL15module_resourceE, ptr %second.i1716, align 8
@@ -5054,7 +5054,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1718) #17
   %call.i.i1719 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element574) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element574, ptr noundef %call.i.i1719, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1718) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element574, ptr noundef nonnull @.str.620, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.620, i64 3))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element574, ptr noundef nonnull @.str.620, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.620, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1718) #17
   %second.i1722 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13808
   store ptr @_ZN4node8builtinsL12net_resourceE, ptr %second.i1722, align 8
@@ -5066,7 +5066,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1724) #17
   %call.i.i1725 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element576) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element576, ptr noundef %call.i.i1725, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1724) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element576, ptr noundef nonnull @.str.621, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.621, i64 2))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element576, ptr noundef nonnull @.str.621, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.621, i64 2))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1724) #17
   %second.i1728 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13856
   store ptr @_ZN4node8builtinsL11os_resourceE, ptr %second.i1728, align 8
@@ -5078,7 +5078,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1730) #17
   %call.i.i1731 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element578) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element578, ptr noundef %call.i.i1731, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1730) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element578, ptr noundef nonnull @.str.622, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.622, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element578, ptr noundef nonnull @.str.622, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.622, i64 4))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1730) #17
   %second.i1734 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13904
   store ptr @_ZN4node8builtinsL13path_resourceE, ptr %second.i1734, align 8
@@ -5090,7 +5090,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1736) #17
   %call.i.i1737 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element580) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element580, ptr noundef %call.i.i1737, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1736) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element580, ptr noundef nonnull @.str.623, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.623, i64 10))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element580, ptr noundef nonnull @.str.623, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.623, i64 10))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1736) #17
   %second.i1740 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 13952
   store ptr @_ZN4node8builtinsL19path_posix_resourceE, ptr %second.i1740, align 8
@@ -5102,7 +5102,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1742) #17
   %call.i.i1743 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element582) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element582, ptr noundef %call.i.i1743, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1742) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element582, ptr noundef nonnull @.str.624, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.624, i64 10))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element582, ptr noundef nonnull @.str.624, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.624, i64 10))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1742) #17
   %second.i1746 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14000
   store ptr @_ZN4node8builtinsL19path_win32_resourceE, ptr %second.i1746, align 8
@@ -5114,7 +5114,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1748) #17
   %call.i.i1749 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element584) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element584, ptr noundef %call.i.i1749, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1748) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element584, ptr noundef nonnull @.str.625, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.625, i64 10))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element584, ptr noundef nonnull @.str.625, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.625, i64 10))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1748) #17
   %second.i1752 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14048
   store ptr @_ZN4node8builtinsL19perf_hooks_resourceE, ptr %second.i1752, align 8
@@ -5126,7 +5126,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1754) #17
   %call.i.i1755 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element586) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element586, ptr noundef %call.i.i1755, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1754) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element586, ptr noundef nonnull @.str.626, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.626, i64 7))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element586, ptr noundef nonnull @.str.626, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.626, i64 7))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1754) #17
   %second.i1758 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14096
   store ptr @_ZN4node8builtinsL16process_resourceE, ptr %second.i1758, align 8
@@ -5138,7 +5138,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1760) #17
   %call.i.i1761 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element588) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element588, ptr noundef %call.i.i1761, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1760) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element588, ptr noundef nonnull @.str.627, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.627, i64 8))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element588, ptr noundef nonnull @.str.627, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.627, i64 8))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1760) #17
   %second.i1764 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14144
   store ptr @_ZN4node8builtinsL17punycode_resourceE, ptr %second.i1764, align 8
@@ -5150,7 +5150,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1766) #17
   %call.i.i1767 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element590) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element590, ptr noundef %call.i.i1767, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1766) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element590, ptr noundef nonnull @.str.628, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.628, i64 11))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element590, ptr noundef nonnull @.str.628, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.628, i64 11))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1766) #17
   %second.i1770 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14192
   store ptr @_ZN4node8builtinsL20querystring_resourceE, ptr %second.i1770, align 8
@@ -5162,7 +5162,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1772) #17
   %call.i.i1773 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element592) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element592, ptr noundef %call.i.i1773, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1772) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element592, ptr noundef nonnull @.str.629, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.629, i64 8))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element592, ptr noundef nonnull @.str.629, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.629, i64 8))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1772) #17
   %second.i1776 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14240
   store ptr @_ZN4node8builtinsL17readline_resourceE, ptr %second.i1776, align 8
@@ -5174,7 +5174,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1778) #17
   %call.i.i1779 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element594) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element594, ptr noundef %call.i.i1779, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1778) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element594, ptr noundef nonnull @.str.630, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.630, i64 17))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element594, ptr noundef nonnull @.str.630, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.630, i64 17))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1778) #17
   %second.i1782 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14288
   store ptr @_ZN4node8builtinsL26readline_promises_resourceE, ptr %second.i1782, align 8
@@ -5186,7 +5186,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1784) #17
   %call.i.i1785 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element596) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element596, ptr noundef %call.i.i1785, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1784) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element596, ptr noundef nonnull @.str.631, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.631, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element596, ptr noundef nonnull @.str.631, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.631, i64 4))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1784) #17
   %second.i1788 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14336
   store ptr @_ZN4node8builtinsL13repl_resourceE, ptr %second.i1788, align 8
@@ -5198,7 +5198,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1790) #17
   %call.i.i1791 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element598) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element598, ptr noundef %call.i.i1791, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1790) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element598, ptr noundef nonnull @.str.632, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.632, i64 6))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element598, ptr noundef nonnull @.str.632, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.632, i64 6))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1790) #17
   %second.i1794 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14384
   store ptr @_ZN4node8builtinsL15stream_resourceE, ptr %second.i1794, align 8
@@ -5210,7 +5210,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1796) #17
   %call.i.i1797 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element600) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element600, ptr noundef %call.i.i1797, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1796) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element600, ptr noundef nonnull @.str.633, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.633, i64 16))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element600, ptr noundef nonnull @.str.633, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.633, i64 16))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1796) #17
   %second.i1800 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14432
   store ptr @_ZN4node8builtinsL25stream_consumers_resourceE, ptr %second.i1800, align 8
@@ -5222,7 +5222,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1802) #17
   %call.i.i1803 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element602) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element602, ptr noundef %call.i.i1803, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1802) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element602, ptr noundef nonnull @.str.634, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.634, i64 15))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element602, ptr noundef nonnull @.str.634, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.634, i64 15))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1802) #17
   %second.i1806 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14480
   store ptr @_ZN4node8builtinsL24stream_promises_resourceE, ptr %second.i1806, align 8
@@ -5234,7 +5234,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1808) #17
   %call.i.i1809 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element604) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element604, ptr noundef %call.i.i1809, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1808) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element604, ptr noundef nonnull @.str.635, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.635, i64 10))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element604, ptr noundef nonnull @.str.635, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.635, i64 10))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1808) #17
   %second.i1812 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14528
   store ptr @_ZN4node8builtinsL19stream_web_resourceE, ptr %second.i1812, align 8
@@ -5246,7 +5246,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1814) #17
   %call.i.i1815 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element606) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element606, ptr noundef %call.i.i1815, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1814) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element606, ptr noundef nonnull @.str.636, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.636, i64 14))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element606, ptr noundef nonnull @.str.636, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.636, i64 14))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1814) #17
   %second.i1818 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14576
   store ptr @_ZN4node8builtinsL23string_decoder_resourceE, ptr %second.i1818, align 8
@@ -5258,7 +5258,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1820) #17
   %call.i.i1821 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element608) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element608, ptr noundef %call.i.i1821, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1820) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element608, ptr noundef nonnull @.str.637, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.637, i64 3))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element608, ptr noundef nonnull @.str.637, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.637, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1820) #17
   %second.i1824 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14624
   store ptr @_ZN4node8builtinsL12sys_resourceE, ptr %second.i1824, align 8
@@ -5270,7 +5270,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1826) #17
   %call.i.i1827 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element610) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element610, ptr noundef %call.i.i1827, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1826) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element610, ptr noundef nonnull @.str.638, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.638, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element610, ptr noundef nonnull @.str.638, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.638, i64 4))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1826) #17
   %second.i1830 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14672
   store ptr @_ZN4node8builtinsL13test_resourceE, ptr %second.i1830, align 8
@@ -5282,7 +5282,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1832) #17
   %call.i.i1833 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element612) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element612, ptr noundef %call.i.i1833, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1832) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element612, ptr noundef nonnull @.str.639, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.639, i64 14))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element612, ptr noundef nonnull @.str.639, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.639, i64 14))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1832) #17
   %second.i1836 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14720
   store ptr @_ZN4node8builtinsL23test_reporters_resourceE, ptr %second.i1836, align 8
@@ -5294,7 +5294,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1838) #17
   %call.i.i1839 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element614) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element614, ptr noundef %call.i.i1839, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1838) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element614, ptr noundef nonnull @.str.640, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.640, i64 6))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element614, ptr noundef nonnull @.str.640, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.640, i64 6))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1838) #17
   %second.i1842 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14768
   store ptr @_ZN4node8builtinsL15timers_resourceE, ptr %second.i1842, align 8
@@ -5306,7 +5306,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1844) #17
   %call.i.i1845 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element616) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element616, ptr noundef %call.i.i1845, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1844) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element616, ptr noundef nonnull @.str.641, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.641, i64 15))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element616, ptr noundef nonnull @.str.641, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.641, i64 15))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1844) #17
   %second.i1848 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14816
   store ptr @_ZN4node8builtinsL24timers_promises_resourceE, ptr %second.i1848, align 8
@@ -5318,7 +5318,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1850) #17
   %call.i.i1851 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element618) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element618, ptr noundef %call.i.i1851, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1850) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element618, ptr noundef nonnull @.str.642, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.642, i64 3))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element618, ptr noundef nonnull @.str.642, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.642, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1850) #17
   %second.i1854 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14864
   store ptr @_ZN4node8builtinsL12tls_resourceE, ptr %second.i1854, align 8
@@ -5330,7 +5330,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1856) #17
   %call.i.i1857 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element620) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element620, ptr noundef %call.i.i1857, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1856) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element620, ptr noundef nonnull @.str.643, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.643, i64 12))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element620, ptr noundef nonnull @.str.643, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.643, i64 12))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1856) #17
   %second.i1860 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14912
   store ptr @_ZN4node8builtinsL21trace_events_resourceE, ptr %second.i1860, align 8
@@ -5342,7 +5342,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1862) #17
   %call.i.i1863 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element622) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element622, ptr noundef %call.i.i1863, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1862) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element622, ptr noundef nonnull @.str.644, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.644, i64 3))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element622, ptr noundef nonnull @.str.644, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.644, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1862) #17
   %second.i1866 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 14960
   store ptr @_ZN4node8builtinsL12tty_resourceE, ptr %second.i1866, align 8
@@ -5354,7 +5354,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1868) #17
   %call.i.i1869 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element624) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element624, ptr noundef %call.i.i1869, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1868) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element624, ptr noundef nonnull @.str.645, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.645, i64 3))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element624, ptr noundef nonnull @.str.645, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.645, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1868) #17
   %second.i1872 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15008
   store ptr @_ZN4node8builtinsL12url_resourceE, ptr %second.i1872, align 8
@@ -5366,7 +5366,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1874) #17
   %call.i.i1875 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element626) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element626, ptr noundef %call.i.i1875, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1874) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element626, ptr noundef nonnull @.str.646, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.646, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element626, ptr noundef nonnull @.str.646, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.646, i64 4))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1874) #17
   %second.i1878 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15056
   store ptr @_ZN4node8builtinsL13util_resourceE, ptr %second.i1878, align 8
@@ -5378,7 +5378,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1880) #17
   %call.i.i1881 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element628) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element628, ptr noundef %call.i.i1881, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1880) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element628, ptr noundef nonnull @.str.647, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.647, i64 10))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element628, ptr noundef nonnull @.str.647, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.647, i64 10))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1880) #17
   %second.i1884 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15104
   store ptr @_ZN4node8builtinsL19util_types_resourceE, ptr %second.i1884, align 8
@@ -5390,7 +5390,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1886) #17
   %call.i.i1887 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element630) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element630, ptr noundef %call.i.i1887, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1886) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element630, ptr noundef nonnull @.str.648, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.648, i64 2))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element630, ptr noundef nonnull @.str.648, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.648, i64 2))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1886) #17
   %second.i1890 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15152
   store ptr @_ZN4node8builtinsL11v8_resourceE, ptr %second.i1890, align 8
@@ -5402,7 +5402,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1892) #17
   %call.i.i1893 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element632) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element632, ptr noundef %call.i.i1893, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1892) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element632, ptr noundef nonnull @.str.649, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.649, i64 2))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element632, ptr noundef nonnull @.str.649, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.649, i64 2))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1892) #17
   %second.i1896 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15200
   store ptr @_ZN4node8builtinsL11vm_resourceE, ptr %second.i1896, align 8
@@ -5414,7 +5414,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1898) #17
   %call.i.i1899 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element634) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element634, ptr noundef %call.i.i1899, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1898) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element634, ptr noundef nonnull @.str.650, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.650, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element634, ptr noundef nonnull @.str.650, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.650, i64 4))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1898) #17
   %second.i1902 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15248
   store ptr @_ZN4node8builtinsL13wasi_resourceE, ptr %second.i1902, align 8
@@ -5426,7 +5426,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1904) #17
   %call.i.i1905 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element636) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element636, ptr noundef %call.i.i1905, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1904) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element636, ptr noundef nonnull @.str.651, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.651, i64 14))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element636, ptr noundef nonnull @.str.651, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.651, i64 14))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1904) #17
   %second.i1908 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15296
   store ptr @_ZN4node8builtinsL23worker_threads_resourceE, ptr %second.i1908, align 8
@@ -5438,7 +5438,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1910) #17
   %call.i.i1911 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element638) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element638, ptr noundef %call.i.i1911, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1910) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element638, ptr noundef nonnull @.str.652, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.652, i64 4))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element638, ptr noundef nonnull @.str.652, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.652, i64 4))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1910) #17
   %second.i1914 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15344
   store ptr @_ZN4node8builtinsL13zlib_resourceE, ptr %second.i1914, align 8
@@ -5450,7 +5450,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1916) #17
   %call.i.i1917 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element640) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element640, ptr noundef %call.i.i1917, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1916) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element640, ptr noundef nonnull @.str.653, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.653, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element640, ptr noundef nonnull @.str.653, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.653, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1916) #17
   %second.i1920 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15392
   store ptr @_ZN4node8builtinsL41internal_deps_v8_tools_arguments_resourceE, ptr %second.i1920, align 8
@@ -5462,7 +5462,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1922) #17
   %call.i.i1923 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element642) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element642, ptr noundef %call.i.i1923, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1922) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element642, ptr noundef nonnull @.str.654, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.654, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element642, ptr noundef nonnull @.str.654, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.654, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1922) #17
   %second.i1926 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15440
   store ptr @_ZN4node8builtinsL39internal_deps_v8_tools_codemap_resourceE, ptr %second.i1926, align 8
@@ -5474,7 +5474,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1928) #17
   %call.i.i1929 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element644) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element644, ptr noundef %call.i.i1929, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1928) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element644, ptr noundef nonnull @.str.655, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.655, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element644, ptr noundef nonnull @.str.655, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.655, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1928) #17
   %second.i1932 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15488
   store ptr @_ZN4node8builtinsL41internal_deps_v8_tools_consarray_resourceE, ptr %second.i1932, align 8
@@ -5486,7 +5486,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1934) #17
   %call.i.i1935 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element646) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element646, ptr noundef %call.i.i1935, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1934) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element646, ptr noundef nonnull @.str.656, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.656, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element646, ptr noundef nonnull @.str.656, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.656, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1934) #17
   %second.i1938 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15536
   store ptr @_ZN4node8builtinsL41internal_deps_v8_tools_csvparser_resourceE, ptr %second.i1938, align 8
@@ -5498,7 +5498,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1940) #17
   %call.i.i1941 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element648) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element648, ptr noundef %call.i.i1941, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1940) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element648, ptr noundef nonnull @.str.657, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.657, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element648, ptr noundef nonnull @.str.657, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.657, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1940) #17
   %second.i1944 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15584
   store ptr @_ZN4node8builtinsL41internal_deps_v8_tools_logreader_resourceE, ptr %second.i1944, align 8
@@ -5510,7 +5510,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1946) #17
   %call.i.i1947 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element650) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element650, ptr noundef %call.i.i1947, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1946) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element650, ptr noundef nonnull @.str.658, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.658, i64 30))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element650, ptr noundef nonnull @.str.658, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.658, i64 30))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1946) #17
   %second.i1950 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15632
   store ptr @_ZN4node8builtinsL39internal_deps_v8_tools_profile_resourceE, ptr %second.i1950, align 8
@@ -5522,7 +5522,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1952) #17
   %call.i.i1953 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element652) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element652, ptr noundef %call.i.i1953, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1952) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element652, ptr noundef nonnull @.str.659, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.659, i64 35))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element652, ptr noundef nonnull @.str.659, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.659, i64 35))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1952) #17
   %second.i1956 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15680
   store ptr @_ZN4node8builtinsL44internal_deps_v8_tools_profile_view_resourceE, ptr %second.i1956, align 8
@@ -5534,7 +5534,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1958) #17
   %call.i.i1959 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element654) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element654, ptr noundef %call.i.i1959, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1958) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element654, ptr noundef nonnull @.str.660, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.660, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element654, ptr noundef nonnull @.str.660, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.660, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1958) #17
   %second.i1962 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15728
   store ptr @_ZN4node8builtinsL41internal_deps_v8_tools_sourcemap_resourceE, ptr %second.i1962, align 8
@@ -5546,7 +5546,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1964) #17
   %call.i.i1965 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element656) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element656, ptr noundef %call.i.i1965, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1964) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element656, ptr noundef nonnull @.str.661, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.661, i64 32))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element656, ptr noundef nonnull @.str.661, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.661, i64 32))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1964) #17
   %second.i1968 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15776
   store ptr @_ZN4node8builtinsL41internal_deps_v8_tools_splaytree_resourceE, ptr %second.i1968, align 8
@@ -5558,7 +5558,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1970) #17
   %call.i.i1971 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element658) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element658, ptr noundef %call.i.i1971, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1970) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element658, ptr noundef nonnull @.str.662, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.662, i64 43))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element658, ptr noundef nonnull @.str.662, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.662, i64 43))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1970) #17
   %second.i1974 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15824
   store ptr @_ZN4node8builtinsL52internal_deps_v8_tools_tickprocessor_driver_resourceE, ptr %second.i1974, align 8
@@ -5570,7 +5570,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1976) #17
   %call.i.i1977 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element660) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element660, ptr noundef %call.i.i1977, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1976) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element660, ptr noundef nonnull @.str.663, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.663, i64 36))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(48) %arrayinit.element660, ptr noundef nonnull @.str.663, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.663, i64 36))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1976) #17
   %second.i1980 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 15872
   store ptr @_ZN4node8builtinsL45internal_deps_v8_tools_tickprocessor_resourceE, ptr %second.i1980, align 8
@@ -5761,7 +5761,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node10UnionBytes
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !8
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10UnionBytesESt4lessIS8_ESaISt4pairIKS8_S9_EEEE4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10UnionBytesESt4lessIS8_ESaISt4pairIKS8_S9_EEEE4ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i.i.i.i.i, align 8, !noalias !8
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 16
   %call.i.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_rwlock_init(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl.i.i.i.i.i.i.i) #17, !noalias !8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i.i, 0
@@ -26557,7 +26557,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -26682,7 +26682,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -26951,1993 +26951,1993 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #17
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL49internal_deps_acorn_acorn_walk_dist_walk_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL49internal_deps_acorn_acorn_walk_dist_walk_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL49internal_deps_acorn_acorn_walk_dist_walk_resourceE, align 8
   store ptr @.str.664, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL49internal_deps_acorn_acorn_walk_dist_walk_resourceE, i64 16), align 8
   store i64 16002, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL49internal_deps_acorn_acorn_walk_dist_walk_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL49internal_deps_acorn_acorn_walk_dist_walk_resourceE, i64 32), i8 0, i64 16, i1 false)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL49internal_deps_acorn_acorn_walk_dist_walk_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_acorn_acorn_dist_acorn_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_deps_acorn_acorn_dist_acorn_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_deps_acorn_acorn_dist_acorn_resourceE, align 8
   store ptr @.str.665, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_acorn_acorn_dist_acorn_resourceE, i64 16), align 8
   store i64 231109, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_acorn_acorn_dist_acorn_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_acorn_acorn_dist_acorn_resourceE, i64 32), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL45internal_deps_acorn_acorn_dist_acorn_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL50internal_deps_cjs_module_lexer_dist_lexer_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL50internal_deps_cjs_module_lexer_dist_lexer_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL50internal_deps_cjs_module_lexer_dist_lexer_resourceE, align 8
   store ptr @.str.666, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL50internal_deps_cjs_module_lexer_dist_lexer_resourceE, i64 16), align 8
   store i64 33616, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL50internal_deps_cjs_module_lexer_dist_lexer_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL50internal_deps_cjs_module_lexer_dist_lexer_resourceE, i64 32), i8 0, i64 16, i1 false)
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL50internal_deps_cjs_module_lexer_dist_lexer_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_cjs_module_lexer_lexer_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_deps_cjs_module_lexer_lexer_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_deps_cjs_module_lexer_lexer_resourceE, align 8
   store ptr @.str.667, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_cjs_module_lexer_lexer_resourceE, i64 16), align 8
   store i64 53562, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_cjs_module_lexer_lexer_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_cjs_module_lexer_lexer_resourceE, i64 32), i8 0, i64 16, i1 false)
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL45internal_deps_cjs_module_lexer_lexer_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_deps_minimatch_index_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_deps_minimatch_index_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_deps_minimatch_index_resourceE, align 8
   store ptr @.str.668, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_deps_minimatch_index_resourceE, i64 16), align 8
   store i64 55572, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_deps_minimatch_index_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_deps_minimatch_index_resourceE, i64 32), i8 0, i64 16, i1 false)
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL38internal_deps_minimatch_index_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_deps_undici_undici_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_deps_undici_undici_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_deps_undici_undici_resourceE, align 8
   store ptr @.str.669, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_deps_undici_undici_resourceE, i64 16), align 8
   store i64 571300, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_deps_undici_undici_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_deps_undici_undici_resourceE, i64 32), i8 0, i64 16, i1 false)
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_deps_undici_undici_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20_http_agent_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20_http_agent_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20_http_agent_resourceE, align 8
   store ptr @.str.670, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20_http_agent_resourceE, i64 16), align 8
   store i64 16996, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20_http_agent_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20_http_agent_resourceE, i64 32), i8 0, i64 16, i1 false)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL20_http_agent_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_client_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21_http_client_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21_http_client_resourceE, align 8
   store ptr @.str.671, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_client_resourceE, i64 16), align 8
   store i64 28287, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_client_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_client_resourceE, i64 32), i8 0, i64 16, i1 false)
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL21_http_client_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_common_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21_http_common_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21_http_common_resourceE, align 8
   store ptr @.str.672, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_common_resourceE, i64 16), align 8
   store i64 8261, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_common_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_common_resourceE, i64 32), i8 0, i64 16, i1 false)
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL21_http_common_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_http_incoming_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23_http_incoming_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23_http_incoming_resourceE, align 8
   store ptr @.str.673, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_http_incoming_resourceE, i64 16), align 8
   store i64 14903, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_http_incoming_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_http_incoming_resourceE, i64 32), i8 0, i64 16, i1 false)
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL23_http_incoming_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_http_outgoing_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23_http_outgoing_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23_http_outgoing_resourceE, align 8
   store ptr @.str.674, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_http_outgoing_resourceE, i64 16), align 8
   store i64 36002, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_http_outgoing_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_http_outgoing_resourceE, i64 32), i8 0, i64 16, i1 false)
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL23_http_outgoing_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_server_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21_http_server_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21_http_server_resourceE, align 8
   store ptr @.str.675, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_server_resourceE, i64 16), align 8
   store i64 38678, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_server_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_http_server_resourceE, i64 32), i8 0, i64 16, i1 false)
   %12 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL21_http_server_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_stream_duplex_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23_stream_duplex_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23_stream_duplex_resourceE, align 8
   store ptr @.str.676, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_stream_duplex_resourceE, i64 16), align 8
   store i64 117, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_stream_duplex_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23_stream_duplex_resourceE, i64 32), i8 0, i64 16, i1 false)
   %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL23_stream_duplex_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28_stream_passthrough_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28_stream_passthrough_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28_stream_passthrough_resourceE, align 8
   store ptr @.str.677, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28_stream_passthrough_resourceE, i64 16), align 8
   store i64 122, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28_stream_passthrough_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28_stream_passthrough_resourceE, i64 32), i8 0, i64 16, i1 false)
   %14 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28_stream_passthrough_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25_stream_readable_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25_stream_readable_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25_stream_readable_resourceE, align 8
   store ptr @.str.678, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25_stream_readable_resourceE, i64 16), align 8
   store i64 119, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25_stream_readable_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25_stream_readable_resourceE, i64 32), i8 0, i64 16, i1 false)
   %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL25_stream_readable_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26_stream_transform_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26_stream_transform_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26_stream_transform_resourceE, align 8
   store ptr @.str.679, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26_stream_transform_resourceE, i64 16), align 8
   store i64 120, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26_stream_transform_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26_stream_transform_resourceE, i64 32), i8 0, i64 16, i1 false)
   %16 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL26_stream_transform_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_stream_wrap_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21_stream_wrap_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21_stream_wrap_resourceE, align 8
   store ptr @.str.680, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_stream_wrap_resourceE, i64 16), align 8
   store i64 186, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_stream_wrap_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21_stream_wrap_resourceE, i64 32), i8 0, i64 16, i1 false)
   %17 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL21_stream_wrap_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25_stream_writable_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25_stream_writable_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25_stream_writable_resourceE, align 8
   store ptr @.str.681, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25_stream_writable_resourceE, i64 16), align 8
   store i64 119, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25_stream_writable_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25_stream_writable_resourceE, i64 32), i8 0, i64 16, i1 false)
   %18 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL25_stream_writable_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20_tls_common_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20_tls_common_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20_tls_common_resourceE, align 8
   store ptr @.str.682, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20_tls_common_resourceE, i64 16), align 8
   store i64 5130, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20_tls_common_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20_tls_common_resourceE, i64 32), i8 0, i64 16, i1 false)
   %19 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL20_tls_common_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18_tls_wrap_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL18_tls_wrap_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL18_tls_wrap_resourceE, align 8
   store ptr @.str.683, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18_tls_wrap_resourceE, i64 16), align 8
   store i64 53598, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18_tls_wrap_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18_tls_wrap_resourceE, i64 32), i8 0, i64 16, i1 false)
   %20 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL18_tls_wrap_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15assert_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15assert_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15assert_resourceE, align 8
   store ptr @.str.684, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15assert_resourceE, i64 16), align 8
   store i64 32218, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15assert_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15assert_resourceE, i64 32), i8 0, i64 16, i1 false)
   %21 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL15assert_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22assert_strict_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22assert_strict_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22assert_strict_resourceE, align 8
   store ptr @.str.685, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22assert_strict_resourceE, i64 16), align 8
   store i64 58, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22assert_strict_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22assert_strict_resourceE, i64 32), i8 0, i64 16, i1 false)
   %22 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL22assert_strict_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20async_hooks_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20async_hooks_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20async_hooks_resourceE, align 8
   store ptr @.str.686, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20async_hooks_resourceE, i64 16), align 8
   store i64 10295, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20async_hooks_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20async_hooks_resourceE, i64 32), i8 0, i64 16, i1 false)
   %23 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL20async_hooks_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15buffer_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15buffer_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15buffer_resourceE, align 8
   store ptr @.str.687, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15buffer_resourceE, i64 16), align 8
   store i64 41042, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15buffer_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15buffer_resourceE, i64 32), i8 0, i64 16, i1 false)
   %24 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL15buffer_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22child_process_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22child_process_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22child_process_resourceE, align 8
   store ptr @.str.688, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22child_process_resourceE, i64 16), align 8
   store i64 27198, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22child_process_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22child_process_resourceE, i64 32), i8 0, i64 16, i1 false)
   %25 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL22child_process_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16cluster_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL16cluster_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL16cluster_resourceE, align 8
   store ptr @.str.689, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16cluster_resourceE, i64 16), align 8
   store i64 1376, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16cluster_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16cluster_resourceE, i64 32), i8 0, i64 16, i1 false)
   %26 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL16cluster_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16console_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL16console_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL16console_resourceE, align 8
   store ptr @.str.690, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16console_resourceE, i64 16), align 8
   store i64 1202, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16console_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16console_resourceE, i64 32), i8 0, i64 16, i1 false)
   %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL16console_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18constants_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL18constants_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL18constants_resourceE, align 8
   store ptr @.str.691, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18constants_resourceE, i64 16), align 8
   store i64 1713, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18constants_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18constants_resourceE, i64 32), i8 0, i64 16, i1 false)
   %28 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL18constants_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15crypto_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15crypto_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15crypto_resourceE, align 8
   store ptr @.str.692, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15crypto_resourceE, i64 16), align 8
   store i64 8265, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15crypto_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15crypto_resourceE, i64 32), i8 0, i64 16, i1 false)
   %29 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL15crypto_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14dgram_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL14dgram_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL14dgram_resourceE, align 8
   store ptr @.str.693, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14dgram_resourceE, i64 16), align 8
   store i64 28289, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14dgram_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14dgram_resourceE, i64 32), i8 0, i64 16, i1 false)
   %30 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL14dgram_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28diagnostics_channel_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28diagnostics_channel_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28diagnostics_channel_resourceE, align 8
   store ptr @.str.694, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28diagnostics_channel_resourceE, i64 16), align 8
   store i64 9673, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28diagnostics_channel_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28diagnostics_channel_resourceE, i64 32), i8 0, i64 16, i1 false)
   %31 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28diagnostics_channel_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12dns_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12dns_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12dns_resourceE, align 8
   store ptr @.str.695, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12dns_resourceE, i64 16), align 8
   store i64 8873, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12dns_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12dns_resourceE, i64 32), i8 0, i64 16, i1 false)
   %32 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL12dns_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21dns_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21dns_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21dns_promises_resourceE, align 8
   store ptr @.str.696, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21dns_promises_resourceE, i64 16), align 8
   store i64 66, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21dns_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21dns_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %33 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL21dns_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15domain_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15domain_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15domain_resourceE, align 8
   store ptr @.str.697, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15domain_resourceE, i64 16), align 8
   store i64 16713, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15domain_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15domain_resourceE, i64 32), i8 0, i64 16, i1 false)
   %34 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL15domain_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15events_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15events_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15events_resourceE, align 8
   store ptr @.str.698, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15events_resourceE, i64 16), align 8
   store i64 36759, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15events_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15events_resourceE, i64 32), i8 0, i64 16, i1 false)
   %35 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL15events_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11fs_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL11fs_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL11fs_resourceE, align 8
   store ptr @.str.699, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11fs_resourceE, i64 16), align 8
   store i64 85802, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11fs_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11fs_resourceE, i64 32), i8 0, i64 16, i1 false)
   %36 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL11fs_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20fs_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20fs_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20fs_promises_resourceE, align 8
   store ptr @.str.700, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20fs_promises_resourceE, i64 16), align 8
   store i64 73, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20fs_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20fs_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %37 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL20fs_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13http_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13http_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13http_resourceE, align 8
   store ptr @.str.701, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13http_resourceE, i64 16), align 8
   store i64 5714, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13http_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13http_resourceE, i64 32), i8 0, i64 16, i1 false)
   %38 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL13http_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14http2_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL14http2_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL14http2_resourceE, align 8
   store ptr @.str.702, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14http2_resourceE, i64 16), align 8
   store i64 468, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14http2_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14http2_resourceE, i64 32), i8 0, i64 16, i1 false)
   %39 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL14http2_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14https_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL14https_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL14https_resourceE, align 8
   store ptr @.str.703, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14https_resourceE, i64 16), align 8
   store i64 10902, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14https_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL14https_resourceE, i64 32), i8 0, i64 16, i1 false)
   %40 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL14https_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18inspector_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL18inspector_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL18inspector_resourceE, align 8
   store ptr @.str.704, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18inspector_resourceE, i64 16), align 8
   store i64 4958, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18inspector_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL18inspector_resourceE, i64 32), i8 0, i64 16, i1 false)
   %41 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL18inspector_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27inspector_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27inspector_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27inspector_promises_resourceE, align 8
   store ptr @.str.705, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27inspector_promises_resourceE, i64 16), align 8
   store i64 343, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27inspector_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27inspector_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %42 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27inspector_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_abort_controller_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_abort_controller_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_abort_controller_resourceE, align 8
   store ptr @.str.706, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_abort_controller_resourceE, i64 16), align 8
   store i64 12492, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_abort_controller_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_abort_controller_resourceE, i64 32), i8 0, i64 16, i1 false)
   %43 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_abort_controller_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_assert_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_assert_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_assert_resourceE, align 8
   store ptr @.str.707, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_assert_resourceE, i64 16), align 8
   store i64 474, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_assert_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_assert_resourceE, i64 32), i8 0, i64 16, i1 false)
   %44 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL24internal_assert_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_assert_assertion_error_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_assert_assertion_error_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_assert_assertion_error_resourceE, align 8
   store ptr @.str.708, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_assert_assertion_error_resourceE, i64 16), align 8
   store i64 17104, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_assert_assertion_error_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_assert_assertion_error_resourceE, i64 32), i8 0, i64 16, i1 false)
   %45 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_assert_assertion_error_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_assert_calltracker_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_assert_calltracker_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_assert_calltracker_resourceE, align 8
   store ptr @.str.709, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_assert_calltracker_resourceE, i64 16), align 8
   store i64 3452, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_assert_calltracker_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_assert_calltracker_resourceE, i64 32), i8 0, i64 16, i1 false)
   %46 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_assert_calltracker_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_async_hooks_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_async_hooks_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_async_hooks_resourceE, align 8
   store ptr @.str.710, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_async_hooks_resourceE, i64 16), align 8
   store i64 20082, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_async_hooks_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_async_hooks_resourceE, i64 32), i8 0, i64 16, i1 false)
   %47 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_async_hooks_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_blob_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_blob_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_blob_resourceE, align 8
   store ptr @.str.711, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_blob_resourceE, i64 16), align 8
   store i64 12817, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_blob_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_blob_resourceE, i64 32), i8 0, i64 16, i1 false)
   %48 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL22internal_blob_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_blocklist_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_blocklist_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_blocklist_resourceE, align 8
   store ptr @.str.712, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_blocklist_resourceE, i64 16), align 8
   store i64 3892, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_blocklist_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_blocklist_resourceE, i64 32), i8 0, i64 16, i1 false)
   %49 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_blocklist_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_bootstrap_node_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_bootstrap_node_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_bootstrap_node_resourceE, align 8
   store ptr @.str.713, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_bootstrap_node_resourceE, i64 16), align 8
   store i64 13817, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_bootstrap_node_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_bootstrap_node_resourceE, i64 32), i8 0, i64 16, i1 false)
   %50 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_bootstrap_node_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_bootstrap_realm_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_bootstrap_realm_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_bootstrap_realm_resourceE, align 8
   store ptr @.str.714, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_bootstrap_realm_resourceE, i64 16), align 8
   store i64 15070, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_bootstrap_realm_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_bootstrap_realm_resourceE, i64 32), i8 0, i64 16, i1 false)
   %51 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_bootstrap_realm_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_bootstrap_shadow_realm_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_bootstrap_shadow_realm_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_bootstrap_shadow_realm_resourceE, align 8
   store ptr @.str.715, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_bootstrap_shadow_realm_resourceE, i64 16), align 8
   store i64 579, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_bootstrap_shadow_realm_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_bootstrap_shadow_realm_resourceE, i64 32), i8 0, i64 16, i1 false)
   %52 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_bootstrap_shadow_realm_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL63internal_bootstrap_switches_does_not_own_process_state_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL63internal_bootstrap_switches_does_not_own_process_state_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL63internal_bootstrap_switches_does_not_own_process_state_resourceE, align 8
   store ptr @.str.716, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL63internal_bootstrap_switches_does_not_own_process_state_resourceE, i64 16), align 8
   store i64 1278, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL63internal_bootstrap_switches_does_not_own_process_state_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL63internal_bootstrap_switches_does_not_own_process_state_resourceE, i64 32), i8 0, i64 16, i1 false)
   %53 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL63internal_bootstrap_switches_does_not_own_process_state_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL59internal_bootstrap_switches_does_own_process_state_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL59internal_bootstrap_switches_does_own_process_state_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL59internal_bootstrap_switches_does_own_process_state_resourceE, align 8
   store ptr @.str.717, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL59internal_bootstrap_switches_does_own_process_state_resourceE, i64 16), align 8
   store i64 3645, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL59internal_bootstrap_switches_does_own_process_state_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL59internal_bootstrap_switches_does_own_process_state_resourceE, i64 32), i8 0, i64 16, i1 false)
   %54 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL59internal_bootstrap_switches_does_own_process_state_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL51internal_bootstrap_switches_is_main_thread_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL51internal_bootstrap_switches_is_main_thread_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL51internal_bootstrap_switches_is_main_thread_resourceE, align 8
   store ptr @.str.718, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL51internal_bootstrap_switches_is_main_thread_resourceE, i64 16), align 8
   store i64 8705, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL51internal_bootstrap_switches_is_main_thread_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL51internal_bootstrap_switches_is_main_thread_resourceE, i64 32), i8 0, i64 16, i1 false)
   %55 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL51internal_bootstrap_switches_is_main_thread_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL55internal_bootstrap_switches_is_not_main_thread_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL55internal_bootstrap_switches_is_not_main_thread_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL55internal_bootstrap_switches_is_not_main_thread_resourceE, align 8
   store ptr @.str.719, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL55internal_bootstrap_switches_is_not_main_thread_resourceE, i64 16), align 8
   store i64 1185, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL55internal_bootstrap_switches_is_not_main_thread_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL55internal_bootstrap_switches_is_not_main_thread_resourceE, i64 32), i8 0, i64 16, i1 false)
   %56 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL55internal_bootstrap_switches_is_not_main_thread_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL48internal_bootstrap_web_exposed_wildcard_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL48internal_bootstrap_web_exposed_wildcard_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL48internal_bootstrap_web_exposed_wildcard_resourceE, align 8
   store ptr @.str.720, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL48internal_bootstrap_web_exposed_wildcard_resourceE, i64 16), align 8
   store i64 3439, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL48internal_bootstrap_web_exposed_wildcard_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL48internal_bootstrap_web_exposed_wildcard_resourceE, i64 32), i8 0, i64 16, i1 false)
   %57 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL48internal_bootstrap_web_exposed_wildcard_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL56internal_bootstrap_web_exposed_window_or_worker_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL56internal_bootstrap_web_exposed_window_or_worker_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL56internal_bootstrap_web_exposed_window_or_worker_resourceE, align 8
   store ptr @.str.721, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL56internal_bootstrap_web_exposed_window_or_worker_resourceE, i64 16), align 8
   store i64 2232, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL56internal_bootstrap_web_exposed_window_or_worker_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL56internal_bootstrap_web_exposed_window_or_worker_resourceE, i64 32), i8 0, i64 16, i1 false)
   %58 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL56internal_bootstrap_web_exposed_window_or_worker_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_buffer_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_buffer_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_buffer_resourceE, align 8
   store ptr @.str.722, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_buffer_resourceE, i64 16), align 8
   store i64 31262, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_buffer_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_buffer_resourceE, i64 32), i8 0, i64 16, i1 false)
   %59 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL24internal_buffer_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_child_process_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_child_process_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_child_process_resourceE, align 8
   store ptr @.str.723, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_child_process_resourceE, i64 16), align 8
   store i64 31801, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_child_process_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_child_process_resourceE, i64 32), i8 0, i64 16, i1 false)
   %60 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_child_process_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_child_process_serialization_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_child_process_serialization_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_child_process_serialization_resourceE, align 8
   store ptr @.str.724, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_child_process_serialization_resourceE, i64 16), align 8
   store i64 5360, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_child_process_serialization_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_child_process_serialization_resourceE, i64 32), i8 0, i64 16, i1 false)
   %61 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL45internal_child_process_serialization_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_cli_table_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_cli_table_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_cli_table_resourceE, align 8
   store ptr @.str.725, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_cli_table_resourceE, i64 16), align 8
   store i64 2861, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_cli_table_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_cli_table_resourceE, i64 32), i8 0, i64 16, i1 false)
   %62 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_cli_table_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_cluster_child_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_cluster_child_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_cluster_child_resourceE, align 8
   store ptr @.str.726, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_cluster_child_resourceE, i64 16), align 8
   store i64 8053, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_cluster_child_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_cluster_child_resourceE, i64 32), i8 0, i64 16, i1 false)
   %63 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_cluster_child_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_cluster_primary_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_cluster_primary_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_cluster_primary_resourceE, align 8
   store ptr @.str.727, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_cluster_primary_resourceE, i64 16), align 8
   store i64 10127, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_cluster_primary_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_cluster_primary_resourceE, i64 32), i8 0, i64 16, i1 false)
   %64 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_cluster_primary_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_cluster_round_robin_handle_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_cluster_round_robin_handle_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_cluster_round_robin_handle_resourceE, align 8
   store ptr @.str.728, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_cluster_round_robin_handle_resourceE, i64 16), align 8
   store i64 3453, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_cluster_round_robin_handle_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_cluster_round_robin_handle_resourceE, i64 32), i8 0, i64 16, i1 false)
   %65 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL44internal_cluster_round_robin_handle_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_cluster_shared_handle_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_cluster_shared_handle_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_cluster_shared_handle_resourceE, align 8
   store ptr @.str.729, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_cluster_shared_handle_resourceE, i64 16), align 8
   store i64 1102, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_cluster_shared_handle_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_cluster_shared_handle_resourceE, i64 32), i8 0, i64 16, i1 false)
   %66 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_cluster_shared_handle_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_cluster_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_cluster_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_cluster_utils_resourceE, align 8
   store ptr @.str.730, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_cluster_utils_resourceE, i64 16), align 8
   store i64 1054, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_cluster_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_cluster_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %67 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_cluster_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_cluster_worker_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_cluster_worker_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_cluster_worker_resourceE, align 8
   store ptr @.str.731, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_cluster_worker_resourceE, i64 16), align 8
   store i64 1379, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_cluster_worker_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_cluster_worker_resourceE, i64 32), i8 0, i64 16, i1 false)
   %68 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_cluster_worker_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_console_constructor_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_console_constructor_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_console_constructor_resourceE, align 8
   store ptr @.str.732, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_console_constructor_resourceE, i64 16), align 8
   store i64 21766, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_console_constructor_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_console_constructor_resourceE, i64 32), i8 0, i64 16, i1 false)
   %69 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_console_constructor_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_console_global_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_console_global_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_console_global_resourceE, align 8
   store ptr @.str.733, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_console_global_resourceE, i64 16), align 8
   store i64 1814, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_console_global_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_console_global_resourceE, i64 32), i8 0, i64 16, i1 false)
   %70 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_console_global_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_constants_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_constants_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_constants_resourceE, align 8
   store ptr @.str.734, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_constants_resourceE, i64 16), align 8
   store i64 1583, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_constants_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_constants_resourceE, i64 32), i8 0, i64 16, i1 false)
   %71 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_constants_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_aes_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_crypto_aes_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_crypto_aes_resourceE, align 8
   store ptr @.str.735, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_aes_resourceE, i64 16), align 8
   store i64 8645, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_aes_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_aes_resourceE, i64 32), i8 0, i64 16, i1 false)
   %72 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_crypto_aes_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_crypto_certificate_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_crypto_certificate_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_crypto_certificate_resourceE, align 8
   store ptr @.str.736, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_crypto_certificate_resourceE, i64 16), align 8
   store i64 1546, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_crypto_certificate_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_crypto_certificate_resourceE, i64 32), i8 0, i64 16, i1 false)
   %73 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_crypto_certificate_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_cfrg_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_cfrg_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_cfrg_resourceE, align 8
   store ptr @.str.737, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_cfrg_resourceE, i64 16), align 8
   store i64 8688, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_cfrg_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_cfrg_resourceE, i64 32), i8 0, i64 16, i1 false)
   %74 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_crypto_cfrg_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_cipher_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_cipher_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_cipher_resourceE, align 8
   store ptr @.str.738, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_cipher_resourceE, i64 16), align 8
   store i64 9795, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_cipher_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_cipher_resourceE, i64 32), i8 0, i64 16, i1 false)
   %75 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_crypto_cipher_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_crypto_diffiehellman_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_crypto_diffiehellman_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_crypto_diffiehellman_resourceE, align 8
   store ptr @.str.739, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_crypto_diffiehellman_resourceE, i64 16), align 8
   store i64 9910, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_crypto_diffiehellman_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_crypto_diffiehellman_resourceE, i64 32), i8 0, i64 16, i1 false)
   %76 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL38internal_crypto_diffiehellman_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_crypto_ec_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_crypto_ec_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_crypto_ec_resourceE, align 8
   store ptr @.str.740, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_crypto_ec_resourceE, i64 16), align 8
   store i64 7924, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_crypto_ec_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_crypto_ec_resourceE, i64 32), i8 0, i64 16, i1 false)
   %77 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_crypto_ec_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_hash_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_hash_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_hash_resourceE, align 8
   store ptr @.str.741, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_hash_resourceE, i64 16), align 8
   store i64 4541, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_hash_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_hash_resourceE, i64 32), i8 0, i64 16, i1 false)
   %78 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_crypto_hash_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_crypto_hashnames_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_crypto_hashnames_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_crypto_hashnames_resourceE, align 8
   store ptr @.str.742, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_crypto_hashnames_resourceE, i64 16), align 8
   store i64 2520, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_crypto_hashnames_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_crypto_hashnames_resourceE, i64 32), i8 0, i64 16, i1 false)
   %79 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_crypto_hashnames_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_hkdf_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_hkdf_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_hkdf_resourceE, align 8
   store ptr @.str.743, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_hkdf_resourceE, i64 16), align 8
   store i64 3401, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_hkdf_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_hkdf_resourceE, i64 32), i8 0, i64 16, i1 false)
   %80 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_crypto_hkdf_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_keygen_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_keygen_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_keygen_resourceE, align 8
   store ptr @.str.744, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_keygen_resourceE, i64 16), align 8
   store i64 10712, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_keygen_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_keygen_resourceE, i64 32), i8 0, i64 16, i1 false)
   %81 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_crypto_keygen_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_keys_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_keys_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_keys_resourceE, align 8
   store ptr @.str.745, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_keys_resourceE, i64 16), align 8
   store i64 22314, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_keys_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_keys_resourceE, i64 32), i8 0, i64 16, i1 false)
   %82 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_crypto_keys_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_mac_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_crypto_mac_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_crypto_mac_resourceE, align 8
   store ptr @.str.746, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_mac_resourceE, i64 16), align 8
   store i64 4610, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_mac_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_mac_resourceE, i64 32), i8 0, i64 16, i1 false)
   %83 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_crypto_mac_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_pbkdf2_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_pbkdf2_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_pbkdf2_resourceE, align 8
   store ptr @.str.747, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_pbkdf2_resourceE, i64 16), align 8
   store i64 3018, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_pbkdf2_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_pbkdf2_resourceE, i64 32), i8 0, i64 16, i1 false)
   %84 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_crypto_pbkdf2_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_random_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_random_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_random_resourceE, align 8
   store ptr @.str.748, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_random_resourceE, i64 16), align 8
   store i64 16246, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_random_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_random_resourceE, i64 32), i8 0, i64 16, i1 false)
   %85 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_crypto_random_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_rsa_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_crypto_rsa_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_crypto_rsa_resourceE, align 8
   store ptr @.str.749, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_rsa_resourceE, i64 16), align 8
   store i64 8570, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_rsa_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_rsa_resourceE, i64 32), i8 0, i64 16, i1 false)
   %86 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_crypto_rsa_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_scrypt_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_scrypt_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_scrypt_resourceE, align 8
   store ptr @.str.750, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_scrypt_resourceE, i64 16), align 8
   store i64 3331, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_scrypt_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_scrypt_resourceE, i64 32), i8 0, i64 16, i1 false)
   %87 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_crypto_scrypt_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_sig_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_crypto_sig_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_crypto_sig_resourceE, align 8
   store ptr @.str.751, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_sig_resourceE, i64 16), align 8
   store i64 6942, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_sig_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_crypto_sig_resourceE, i64 32), i8 0, i64 16, i1 false)
   %88 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_crypto_sig_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_util_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_util_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_util_resourceE, align 8
   store ptr @.str.752, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_util_resourceE, i64 16), align 8
   store i64 15015, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_util_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_util_resourceE, i64 32), i8 0, i64 16, i1 false)
   %89 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_crypto_util_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_crypto_webcrypto_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_crypto_webcrypto_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_crypto_webcrypto_resourceE, align 8
   store ptr @.str.753, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_crypto_webcrypto_resourceE, i64 16), align 8
   store i64 30940, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_crypto_webcrypto_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_crypto_webcrypto_resourceE, i64 32), i8 0, i64 16, i1 false)
   %90 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_crypto_webcrypto_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_webidl_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_webidl_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_crypto_webidl_resourceE, align 8
   store ptr @.str.754, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_webidl_resourceE, i64 16), align 8
   store i64 16586, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_webidl_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_crypto_webidl_resourceE, i64 32), i8 0, i64 16, i1 false)
   %91 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_crypto_webidl_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_x509_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_x509_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_crypto_x509_resourceE, align 8
   store ptr @.str.755, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_x509_resourceE, i64 16), align 8
   store i64 9921, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_x509_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_crypto_x509_resourceE, i64 32), i8 0, i64 16, i1 false)
   %92 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_crypto_x509_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_debugger_inspect_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_debugger_inspect_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_debugger_inspect_resourceE, align 8
   store ptr @.str.756, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_debugger_inspect_resourceE, i64 16), align 8
   store i64 9932, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_debugger_inspect_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_debugger_inspect_resourceE, i64 32), i8 0, i64 16, i1 false)
   %93 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_debugger_inspect_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_debugger_inspect_client_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_debugger_inspect_client_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_debugger_inspect_client_resourceE, align 8
   store ptr @.str.757, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_debugger_inspect_client_resourceE, i64 16), align 8
   store i64 9847, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_debugger_inspect_client_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_debugger_inspect_client_resourceE, i64 32), i8 0, i64 16, i1 false)
   %94 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_debugger_inspect_client_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_debugger_inspect_repl_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_debugger_inspect_repl_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_debugger_inspect_repl_resourceE, align 8
   store ptr @.str.758, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_debugger_inspect_repl_resourceE, i64 16), align 8
   store i64 36673, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_debugger_inspect_repl_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_debugger_inspect_repl_resourceE, i64 32), i8 0, i64 16, i1 false)
   %95 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_debugger_inspect_repl_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23internal_dgram_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23internal_dgram_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23internal_dgram_resourceE, align 8
   store ptr @.str.759, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23internal_dgram_resourceE, i64 16), align 8
   store i64 1851, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23internal_dgram_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23internal_dgram_resourceE, i64 32), i8 0, i64 16, i1 false)
   %96 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL23internal_dgram_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_dns_callback_resolver_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_dns_callback_resolver_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_dns_callback_resolver_resourceE, align 8
   store ptr @.str.760, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_dns_callback_resolver_resourceE, i64 16), align 8
   store i64 2785, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_dns_callback_resolver_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_dns_callback_resolver_resourceE, i64 32), i8 0, i64 16, i1 false)
   %97 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_dns_callback_resolver_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_dns_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_dns_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_dns_promises_resourceE, align 8
   store ptr @.str.761, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_dns_promises_resourceE, i64 16), align 8
   store i64 9966, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_dns_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_dns_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %98 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_dns_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_dns_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_dns_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_dns_utils_resourceE, align 8
   store ptr @.str.762, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_dns_utils_resourceE, i64 16), align 8
   store i64 9625, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_dns_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_dns_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %99 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_dns_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_encoding_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_encoding_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_encoding_resourceE, align 8
   store ptr @.str.763, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_encoding_resourceE, i64 16), align 8
   store i64 17354, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_encoding_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_encoding_resourceE, i64 32), i8 0, i64 16, i1 false)
   %100 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL26internal_encoding_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_error_serdes_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_error_serdes_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_error_serdes_resourceE, align 8
   store ptr @.str.764, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_error_serdes_resourceE, i64 16), align 8
   store i64 5723, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_error_serdes_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_error_serdes_resourceE, i64 32), i8 0, i64 16, i1 false)
   %101 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_error_serdes_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_errors_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_errors_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_errors_resourceE, align 8
   store ptr @.str.765, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_errors_resourceE, i64 16), align 8
   store i64 66480, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_errors_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_errors_resourceE, i64 32), i8 0, i64 16, i1 false)
   %102 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL24internal_errors_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_event_target_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_event_target_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_event_target_resourceE, align 8
   store ptr @.str.766, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_event_target_resourceE, i64 16), align 8
   store i64 31079, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_event_target_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_event_target_resourceE, i64 32), i8 0, i64 16, i1 false)
   %103 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_event_target_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_events_symbols_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_events_symbols_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_events_symbols_resourceE, align 8
   store ptr @.str.767, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_events_symbols_resourceE, i64 16), align 8
   store i64 154, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_events_symbols_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_events_symbols_resourceE, i64 32), i8 0, i64 16, i1 false)
   %104 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_events_symbols_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_file_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_file_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_file_resourceE, align 8
   store ptr @.str.768, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_file_resourceE, i64 16), align 8
   store i64 1838, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_file_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_file_resourceE, i64 32), i8 0, i64 16, i1 false)
   %105 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL22internal_file_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fixed_queue_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_fixed_queue_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_fixed_queue_resourceE, align 8
   store ptr @.str.769, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fixed_queue_resourceE, i64 16), align 8
   store i64 4208, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fixed_queue_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fixed_queue_resourceE, i64 32), i8 0, i64 16, i1 false)
   %106 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_fixed_queue_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_freelist_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_freelist_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_freelist_resourceE, align 8
   store ptr @.str.770, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_freelist_resourceE, i64 16), align 8
   store i64 476, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_freelist_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_freelist_resourceE, i64 32), i8 0, i64 16, i1 false)
   %107 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL26internal_freelist_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_freeze_intrinsics_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_freeze_intrinsics_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_freeze_intrinsics_resourceE, align 8
   store ptr @.str.771, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_freeze_intrinsics_resourceE, i64 16), align 8
   store i64 15028, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_freeze_intrinsics_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_freeze_intrinsics_resourceE, i64 32), i8 0, i64 16, i1 false)
   %108 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_freeze_intrinsics_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_fs_cp_cp_sync_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_fs_cp_cp_sync_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_fs_cp_cp_sync_resourceE, align 8
   store ptr @.str.772, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_fs_cp_cp_sync_resourceE, i64 16), align 8
   store i64 9446, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_fs_cp_cp_sync_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_fs_cp_cp_sync_resourceE, i64 32), i8 0, i64 16, i1 false)
   %109 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_fs_cp_cp_sync_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_fs_cp_cp_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_fs_cp_cp_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_fs_cp_cp_resourceE, align 8
   store ptr @.str.773, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_fs_cp_cp_resourceE, i64 16), align 8
   store i64 10792, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_fs_cp_cp_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_fs_cp_cp_resourceE, i64 32), i8 0, i64 16, i1 false)
   %110 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL26internal_fs_cp_cp_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_fs_dir_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_fs_dir_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_fs_dir_resourceE, align 8
   store ptr @.str.774, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_fs_dir_resourceE, i64 16), align 8
   store i64 8077, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_fs_dir_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_fs_dir_resourceE, i64 32), i8 0, i64 16, i1 false)
   %111 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL24internal_fs_dir_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25internal_fs_glob_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25internal_fs_glob_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25internal_fs_glob_resourceE, align 8
   store ptr @.str.775, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25internal_fs_glob_resourceE, i64 16), align 8
   store i64 12630, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25internal_fs_glob_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25internal_fs_glob_resourceE, i64 32), i8 0, i64 16, i1 false)
   %112 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL25internal_fs_glob_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fs_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_fs_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_fs_promises_resourceE, align 8
   store ptr @.str.776, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fs_promises_resourceE, i64 16), align 8
   store i64 34131, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fs_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fs_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %113 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_fs_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_fs_read_context_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_fs_read_context_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_fs_read_context_resourceE, align 8
   store ptr @.str.777, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_fs_read_context_resourceE, i64 16), align 8
   store i64 2902, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_fs_read_context_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_fs_read_context_resourceE, i64 32), i8 0, i64 16, i1 false)
   %114 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_fs_read_context_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_fs_recursive_watch_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_fs_recursive_watch_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_fs_recursive_watch_resourceE, align 8
   store ptr @.str.778, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_fs_recursive_watch_resourceE, i64 16), align 8
   store i64 7634, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_fs_recursive_watch_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_fs_recursive_watch_resourceE, i64 32), i8 0, i64 16, i1 false)
   %115 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_fs_recursive_watch_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_fs_rimraf_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_fs_rimraf_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_fs_rimraf_resourceE, align 8
   store ptr @.str.779, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_fs_rimraf_resourceE, i64 16), align 8
   store i64 7454, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_fs_rimraf_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_fs_rimraf_resourceE, i64 32), i8 0, i64 16, i1 false)
   %116 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_fs_rimraf_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_fs_streams_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_fs_streams_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_fs_streams_resourceE, align 8
   store ptr @.str.780, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_fs_streams_resourceE, i64 16), align 8
   store i64 15271, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_fs_streams_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_fs_streams_resourceE, i64 32), i8 0, i64 16, i1 false)
   %117 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_fs_streams_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_fs_sync_write_stream_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_fs_sync_write_stream_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_fs_sync_write_stream_resourceE, align 8
   store ptr @.str.781, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_fs_sync_write_stream_resourceE, i64 16), align 8
   store i64 1094, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_fs_sync_write_stream_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_fs_sync_write_stream_resourceE, i64 32), i8 0, i64 16, i1 false)
   %118 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL38internal_fs_sync_write_stream_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_fs_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_fs_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_fs_utils_resourceE, align 8
   store ptr @.str.782, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_fs_utils_resourceE, i64 16), align 8
   store i64 26952, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_fs_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_fs_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %119 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL26internal_fs_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fs_watchers_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_fs_watchers_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_fs_watchers_resourceE, align 8
   store ptr @.str.783, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fs_watchers_resourceE, i64 16), align 8
   store i64 11262, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fs_watchers_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_fs_watchers_resourceE, i64 32), i8 0, i64 16, i1 false)
   %120 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_fs_watchers_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_heap_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_heap_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_heap_utils_resourceE, align 8
   store ptr @.str.784, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_heap_utils_resourceE, i64 16), align 8
   store i64 1382, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_heap_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_heap_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %121 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_heap_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_histogram_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_histogram_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_histogram_resourceE, align 8
   store ptr @.str.785, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_histogram_resourceE, i64 16), align 8
   store i64 8467, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_histogram_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_histogram_resourceE, i64 32), i8 0, i64 16, i1 false)
   %122 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_histogram_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_http_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_http_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_http_resourceE, align 8
   store ptr @.str.786, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_http_resourceE, i64 16), align 8
   store i64 1195, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_http_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_http_resourceE, i64 32), i8 0, i64 16, i1 false)
   %123 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL22internal_http_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_http2_compat_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_http2_compat_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_http2_compat_resourceE, align 8
   store ptr @.str.787, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_http2_compat_resourceE, i64 16), align 8
   store i64 22062, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_http2_compat_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_http2_compat_resourceE, i64 32), i8 0, i64 16, i1 false)
   %124 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_http2_compat_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_http2_core_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_http2_core_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_http2_core_resourceE, align 8
   store ptr @.str.788, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_http2_core_resourceE, i64 16), align 8
   store i64 108402, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_http2_core_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_http2_core_resourceE, i64 32), i8 0, i64 16, i1 false)
   %125 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_http2_core_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_http2_util_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_http2_util_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_http2_util_resourceE, align 8
   store ptr @.str.789, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_http2_util_resourceE, i64 16), align 8
   store i64 22193, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_http2_util_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_http2_util_resourceE, i64 32), i8 0, i64 16, i1 false)
   %126 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_http2_util_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_idna_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_idna_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_idna_resourceE, align 8
   store ptr @.str.790, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_idna_resourceE, i64 16), align 8
   store i64 124, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_idna_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_idna_resourceE, i64 32), i8 0, i64 16, i1 false)
   %127 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL22internal_idna_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_inspector_async_hook_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_inspector_async_hook_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_inspector_async_hook_resourceE, align 8
   store ptr @.str.791, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_inspector_async_hook_resourceE, i64 16), align 8
   store i64 1973, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_inspector_async_hook_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_inspector_async_hook_resourceE, i64 32), i8 0, i64 16, i1 false)
   %128 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL38internal_inspector_async_hook_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_js_stream_socket_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_js_stream_socket_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_js_stream_socket_resourceE, align 8
   store ptr @.str.792, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_js_stream_socket_resourceE, i64 16), align 8
   store i64 8363, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_js_stream_socket_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_js_stream_socket_resourceE, i64 32), i8 0, i64 16, i1 false)
   %129 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_js_stream_socket_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_legacy_processbinding_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_legacy_processbinding_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_legacy_processbinding_resourceE, align 8
   store ptr @.str.793, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_legacy_processbinding_resourceE, i64 16), align 8
   store i64 1124, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_legacy_processbinding_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_legacy_processbinding_resourceE, i64 32), i8 0, i64 16, i1 false)
   %130 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_legacy_processbinding_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_linkedlist_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_linkedlist_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_linkedlist_resourceE, align 8
   store ptr @.str.794, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_linkedlist_resourceE, i64 16), align 8
   store i64 1128, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_linkedlist_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_linkedlist_resourceE, i64 32), i8 0, i64 16, i1 false)
   %131 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_linkedlist_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_main_check_syntax_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_main_check_syntax_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_main_check_syntax_resourceE, align 8
   store ptr @.str.795, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_main_check_syntax_resourceE, i64 16), align 8
   store i64 2422, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_main_check_syntax_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_main_check_syntax_resourceE, i64 32), i8 0, i64 16, i1 false)
   %132 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_main_check_syntax_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_main_embedding_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_main_embedding_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_main_embedding_resourceE, align 8
   store ptr @.str.796, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_main_embedding_resourceE, i64 16), align 8
   store i64 641, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_main_embedding_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_main_embedding_resourceE, i64 32), i8 0, i64 16, i1 false)
   %133 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_main_embedding_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_eval_stdin_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_main_eval_stdin_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_main_eval_stdin_resourceE, align 8
   store ptr @.str.797, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_eval_stdin_resourceE, i64 16), align 8
   store i64 1023, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_eval_stdin_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_eval_stdin_resourceE, i64 32), i8 0, i64 16, i1 false)
   %134 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_main_eval_stdin_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_main_eval_string_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_main_eval_string_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_main_eval_string_resourceE, align 8
   store ptr @.str.798, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_main_eval_string_resourceE, i64 16), align 8
   store i64 2149, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_main_eval_string_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_main_eval_string_resourceE, i64 32), i8 0, i64 16, i1 false)
   %135 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_main_eval_string_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_main_inspect_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_main_inspect_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_main_inspect_resourceE, align 8
   store ptr @.str.799, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_main_inspect_resourceE, i64 16), align 8
   store i64 333, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_main_inspect_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_main_inspect_resourceE, i64 32), i8 0, i64 16, i1 false)
   %136 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_main_inspect_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_mksnapshot_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_main_mksnapshot_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_main_mksnapshot_resourceE, align 8
   store ptr @.str.800, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_mksnapshot_resourceE, i64 16), align 8
   store i64 4912, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_mksnapshot_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_mksnapshot_resourceE, i64 32), i8 0, i64 16, i1 false)
   %137 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_main_mksnapshot_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_print_help_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_main_print_help_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_main_print_help_resourceE, align 8
   store ptr @.str.801, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_print_help_resourceE, i64 16), align 8
   store i64 7964, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_print_help_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_print_help_resourceE, i64 32), i8 0, i64 16, i1 false)
   %138 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_main_print_help_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_main_prof_process_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_main_prof_process_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_main_prof_process_resourceE, align 8
   store ptr @.str.802, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_main_prof_process_resourceE, i64 16), align 8
   store i64 220, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_main_prof_process_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_main_prof_process_resourceE, i64 32), i8 0, i64 16, i1 false)
   %139 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_main_prof_process_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_main_repl_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_main_repl_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_main_repl_resourceE, align 8
   store ptr @.str.803, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_main_repl_resourceE, i64 16), align 8
   store i64 1955, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_main_repl_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_main_repl_resourceE, i64 32), i8 0, i64 16, i1 false)
   %140 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_main_repl_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_main_run_main_module_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_main_run_main_module_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_main_run_main_module_resourceE, align 8
   store ptr @.str.804, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_main_run_main_module_resourceE, i64 16), align 8
   store i64 1182, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_main_run_main_module_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_main_run_main_module_resourceE, i64 32), i8 0, i64 16, i1 false)
   %141 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL38internal_main_run_main_module_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_main_test_runner_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_main_test_runner_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_main_test_runner_resourceE, align 8
   store ptr @.str.805, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_main_test_runner_resourceE, i64 16), align 8
   store i64 2043, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_main_test_runner_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_main_test_runner_resourceE, i64 32), i8 0, i64 16, i1 false)
   %142 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_main_test_runner_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_watch_mode_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_main_watch_mode_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_main_watch_mode_resourceE, align 8
   store ptr @.str.806, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_watch_mode_resourceE, i64 16), align 8
   store i64 4357, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_watch_mode_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_main_watch_mode_resourceE, i64 32), i8 0, i64 16, i1 false)
   %143 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_main_watch_mode_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_main_worker_thread_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_main_worker_thread_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_main_worker_thread_resourceE, align 8
   store ptr @.str.807, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_main_worker_thread_resourceE, i64 16), align 8
   store i64 7335, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_main_worker_thread_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_main_worker_thread_resourceE, i64 32), i8 0, i64 16, i1 false)
   %144 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_main_worker_thread_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_mime_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_mime_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_mime_resourceE, align 8
   store ptr @.str.808, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_mime_resourceE, i64 16), align 8
   store i64 11166, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_mime_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_mime_resourceE, i64 32), i8 0, i64 16, i1 false)
   %145 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL22internal_mime_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_cjs_loader_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_modules_cjs_loader_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_modules_cjs_loader_resourceE, align 8
   store ptr @.str.809, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_cjs_loader_resourceE, i64 16), align 8
   store i64 51943, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_cjs_loader_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_cjs_loader_resourceE, i64 32), i8 0, i64 16, i1 false)
   %146 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_modules_cjs_loader_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_assert_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_modules_esm_assert_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_modules_esm_assert_resourceE, align 8
   store ptr @.str.810, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_assert_resourceE, i64 16), align 8
   store i64 3848, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_assert_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_assert_resourceE, i64 32), i8 0, i64 16, i1 false)
   %147 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_modules_esm_assert_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL51internal_modules_esm_create_dynamic_module_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL51internal_modules_esm_create_dynamic_module_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL51internal_modules_esm_create_dynamic_module_resourceE, align 8
   store ptr @.str.811, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL51internal_modules_esm_create_dynamic_module_resourceE, i64 16), align 8
   store i64 2927, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL51internal_modules_esm_create_dynamic_module_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL51internal_modules_esm_create_dynamic_module_resourceE, i64 32), i8 0, i64 16, i1 false)
   %148 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL51internal_modules_esm_create_dynamic_module_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_modules_esm_fetch_module_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_modules_esm_fetch_module_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_modules_esm_fetch_module_resourceE, align 8
   store ptr @.str.812, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_modules_esm_fetch_module_resourceE, i64 16), align 8
   store i64 9395, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_modules_esm_fetch_module_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_modules_esm_fetch_module_resourceE, i64 32), i8 0, i64 16, i1 false)
   %149 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL42internal_modules_esm_fetch_module_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_modules_esm_formats_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_modules_esm_formats_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_modules_esm_formats_resourceE, align 8
   store ptr @.str.813, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_modules_esm_formats_resourceE, i64 16), align 8
   store i64 1798, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_modules_esm_formats_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_modules_esm_formats_resourceE, i64 32), i8 0, i64 16, i1 false)
   %150 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_modules_esm_formats_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_get_format_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_modules_esm_get_format_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_modules_esm_get_format_resourceE, align 8
   store ptr @.str.814, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_get_format_resourceE, i64 16), align 8
   store i64 6677, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_get_format_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_get_format_resourceE, i64 32), i8 0, i64 16, i1 false)
   %151 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_modules_esm_get_format_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL49internal_modules_esm_handle_process_exit_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL49internal_modules_esm_handle_process_exit_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL49internal_modules_esm_handle_process_exit_resourceE, align 8
   store ptr @.str.815, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL49internal_modules_esm_handle_process_exit_resourceE, i64 16), align 8
   store i64 432, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL49internal_modules_esm_handle_process_exit_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL49internal_modules_esm_handle_process_exit_resourceE, i64 32), i8 0, i64 16, i1 false)
   %152 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL49internal_modules_esm_handle_process_exit_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_modules_esm_hooks_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_modules_esm_hooks_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_modules_esm_hooks_resourceE, align 8
   store ptr @.str.816, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_modules_esm_hooks_resourceE, i64 16), align 8
   store i64 22894, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_modules_esm_hooks_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_modules_esm_hooks_resourceE, i64 32), i8 0, i64 16, i1 false)
   %153 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_modules_esm_hooks_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_modules_esm_initialize_import_meta_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL52internal_modules_esm_initialize_import_meta_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL52internal_modules_esm_initialize_import_meta_resourceE, align 8
   store ptr @.str.817, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_modules_esm_initialize_import_meta_resourceE, i64 16), align 8
   store i64 2412, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_modules_esm_initialize_import_meta_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_modules_esm_initialize_import_meta_resourceE, i64 32), i8 0, i64 16, i1 false)
   %154 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL52internal_modules_esm_initialize_import_meta_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_modules_esm_load_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_modules_esm_load_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_modules_esm_load_resourceE, align 8
   store ptr @.str.818, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_modules_esm_load_resourceE, i64 16), align 8
   store i64 7608, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_modules_esm_load_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_modules_esm_load_resourceE, i64 32), i8 0, i64 16, i1 false)
   %155 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_modules_esm_load_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_loader_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_modules_esm_loader_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_modules_esm_loader_resourceE, align 8
   store ptr @.str.819, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_loader_resourceE, i64 16), align 8
   store i64 21896, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_loader_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_loader_resourceE, i64 32), i8 0, i64 16, i1 false)
   %156 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_modules_esm_loader_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_module_job_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_modules_esm_module_job_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_modules_esm_module_job_resourceE, align 8
   store ptr @.str.820, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_module_job_resourceE, i64 16), align 8
   store i64 8804, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_module_job_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_module_job_resourceE, i64 32), i8 0, i64 16, i1 false)
   %157 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_modules_esm_module_job_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_module_map_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_modules_esm_module_map_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_modules_esm_module_map_resourceE, align 8
   store ptr @.str.821, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_module_map_resourceE, i64 16), align 8
   store i64 3877, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_module_map_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_modules_esm_module_map_resourceE, i64 32), i8 0, i64 16, i1 false)
   %158 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_modules_esm_module_map_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_modules_esm_resolve_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_modules_esm_resolve_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_modules_esm_resolve_resourceE, align 8
   store ptr @.str.822, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_modules_esm_resolve_resourceE, i64 16), align 8
   store i64 44340, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_modules_esm_resolve_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_modules_esm_resolve_resourceE, i64 32), i8 0, i64 16, i1 false)
   %159 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_modules_esm_resolve_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_modules_esm_shared_constants_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL46internal_modules_esm_shared_constants_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL46internal_modules_esm_shared_constants_resourceE, align 8
   store ptr @.str.823, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_modules_esm_shared_constants_resourceE, i64 16), align 8
   store i64 633, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_modules_esm_shared_constants_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_modules_esm_shared_constants_resourceE, i64 32), i8 0, i64 16, i1 false)
   %160 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL46internal_modules_esm_shared_constants_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_modules_esm_translators_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_modules_esm_translators_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_modules_esm_translators_resourceE, align 8
   store ptr @.str.824, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_modules_esm_translators_resourceE, i64 16), align 8
   store i64 19857, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_modules_esm_translators_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_modules_esm_translators_resourceE, i64 32), i8 0, i64 16, i1 false)
   %161 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_modules_esm_translators_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_modules_esm_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_modules_esm_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_modules_esm_utils_resourceE, align 8
   store ptr @.str.825, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_modules_esm_utils_resourceE, i64 16), align 8
   store i64 9468, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_modules_esm_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_modules_esm_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %162 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_modules_esm_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_worker_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_modules_esm_worker_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_modules_esm_worker_resourceE, align 8
   store ptr @.str.826, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_worker_resourceE, i64 16), align 8
   store i64 9123, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_worker_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_modules_esm_worker_resourceE, i64 32), i8 0, i64 16, i1 false)
   %163 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_modules_esm_worker_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_modules_helpers_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_modules_helpers_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_modules_helpers_resourceE, align 8
   store ptr @.str.827, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_modules_helpers_resourceE, i64 16), align 8
   store i64 9402, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_modules_helpers_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_modules_helpers_resourceE, i64 32), i8 0, i64 16, i1 false)
   %164 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_modules_helpers_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_modules_package_json_reader_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_modules_package_json_reader_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_modules_package_json_reader_resourceE, align 8
   store ptr @.str.828, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_modules_package_json_reader_resourceE, i64 16), align 8
   store i64 5801, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_modules_package_json_reader_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_modules_package_json_reader_resourceE, i64 32), i8 0, i64 16, i1 false)
   %165 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL45internal_modules_package_json_reader_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_modules_run_main_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_modules_run_main_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_modules_run_main_resourceE, align 8
   store ptr @.str.829, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_modules_run_main_resourceE, i64 16), align 8
   store i64 5164, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_modules_run_main_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_modules_run_main_resourceE, i64 32), i8 0, i64 16, i1 false)
   %166 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_modules_run_main_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_navigator_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_navigator_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_navigator_resourceE, align 8
   store ptr @.str.830, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_navigator_resourceE, i64 16), align 8
   store i64 3423, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_navigator_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_navigator_resourceE, i64 32), i8 0, i64 16, i1 false)
   %167 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_navigator_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_net_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21internal_net_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21internal_net_resourceE, align 8
   store ptr @.str.831, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_net_resourceE, i64 16), align 8
   store i64 2252, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_net_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_net_resourceE, i64 32), i8 0, i64 16, i1 false)
   %168 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL21internal_net_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25internal_options_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25internal_options_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25internal_options_resourceE, align 8
   store ptr @.str.832, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25internal_options_resourceE, i64 16), align 8
   store i64 1922, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25internal_options_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25internal_options_resourceE, i64 32), i8 0, i64 16, i1 false)
   %169 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL25internal_options_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_per_context_domexception_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_per_context_domexception_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_per_context_domexception_resourceE, align 8
   store ptr @.str.833, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_per_context_domexception_resourceE, i64 16), align 8
   store i64 4483, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_per_context_domexception_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_per_context_domexception_resourceE, i64 32), i8 0, i64 16, i1 false)
   %170 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL42internal_per_context_domexception_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_per_context_messageport_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_per_context_messageport_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_per_context_messageport_resourceE, align 8
   store ptr @.str.834, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_per_context_messageport_resourceE, i64 16), align 8
   store i64 995, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_per_context_messageport_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_per_context_messageport_resourceE, i64 32), i8 0, i64 16, i1 false)
   %171 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_per_context_messageport_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_per_context_primordials_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_per_context_primordials_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_per_context_primordials_resourceE, align 8
   store ptr @.str.835, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_per_context_primordials_resourceE, i64 16), align 8
   store i64 21684, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_per_context_primordials_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_per_context_primordials_resourceE, i64 32), i8 0, i64 16, i1 false)
   %172 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_per_context_primordials_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_perf_event_loop_delay_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_perf_event_loop_delay_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_perf_event_loop_delay_resourceE, align 8
   store ptr @.str.836, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_perf_event_loop_delay_resourceE, i64 16), align 8
   store i64 1749, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_perf_event_loop_delay_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_perf_event_loop_delay_resourceE, i64 32), i8 0, i64 16, i1 false)
   %173 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_perf_event_loop_delay_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_perf_event_loop_utilization_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_perf_event_loop_utilization_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_perf_event_loop_utilization_resourceE, align 8
   store ptr @.str.837, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_perf_event_loop_utilization_resourceE, i64 16), align 8
   store i64 1527, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_perf_event_loop_utilization_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_perf_event_loop_utilization_resourceE, i64 32), i8 0, i64 16, i1 false)
   %174 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL45internal_perf_event_loop_utilization_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_perf_nodetiming_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_perf_nodetiming_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_perf_nodetiming_resourceE, align 8
   store ptr @.str.838, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_perf_nodetiming_resourceE, i64 16), align 8
   store i64 3516, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_perf_nodetiming_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_perf_nodetiming_resourceE, i64 32), i8 0, i64 16, i1 false)
   %175 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_perf_nodetiming_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_perf_observe_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_perf_observe_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_perf_observe_resourceE, align 8
   store ptr @.str.839, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_perf_observe_resourceE, i64 16), align 8
   store i64 16722, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_perf_observe_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_perf_observe_resourceE, i64 32), i8 0, i64 16, i1 false)
   %176 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_perf_observe_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_perf_performance_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_perf_performance_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_perf_performance_resourceE, align 8
   store ptr @.str.840, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_perf_performance_resourceE, i64 16), align 8
   store i64 6365, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_perf_performance_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_perf_performance_resourceE, i64 32), i8 0, i64 16, i1 false)
   %177 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_perf_performance_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_perf_performance_entry_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_perf_performance_entry_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_perf_performance_entry_resourceE, align 8
   store ptr @.str.841, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_perf_performance_entry_resourceE, i64 16), align 8
   store i64 3272, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_perf_performance_entry_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_perf_performance_entry_resourceE, i64 32), i8 0, i64 16, i1 false)
   %178 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_perf_performance_entry_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_perf_resource_timing_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_perf_resource_timing_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_perf_resource_timing_resourceE, align 8
   store ptr @.str.842, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_perf_resource_timing_resourceE, i64 16), align 8
   store i64 7433, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_perf_resource_timing_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_perf_resource_timing_resourceE, i64 32), i8 0, i64 16, i1 false)
   %179 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL38internal_perf_resource_timing_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_perf_timerify_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_perf_timerify_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_perf_timerify_resourceE, align 8
   store ptr @.str.843, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_perf_timerify_resourceE, i64 16), align 8
   store i64 2280, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_perf_timerify_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_perf_timerify_resourceE, i64 32), i8 0, i64 16, i1 false)
   %180 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_perf_timerify_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_perf_usertiming_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_perf_usertiming_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_perf_usertiming_resourceE, align 8
   store ptr @.str.844, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_perf_usertiming_resourceE, i64 16), align 8
   store i64 6259, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_perf_usertiming_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_perf_usertiming_resourceE, i64 32), i8 0, i64 16, i1 false)
   %181 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_perf_usertiming_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_perf_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_perf_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_perf_utils_resourceE, align 8
   store ptr @.str.845, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_perf_utils_resourceE, i64 16), align 8
   store i64 614, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_perf_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_perf_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %182 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_perf_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_policy_manifest_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_policy_manifest_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_policy_manifest_resourceE, align 8
   store ptr @.str.846, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_policy_manifest_resourceE, i64 16), align 8
   store i64 22025, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_policy_manifest_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_policy_manifest_resourceE, i64 32), i8 0, i64 16, i1 false)
   %183 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_policy_manifest_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_policy_sri_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_policy_sri_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_policy_sri_resourceE, align 8
   store ptr @.str.847, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_policy_sri_resourceE, i64 16), align 8
   store i64 2075, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_policy_sri_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_policy_sri_resourceE, i64 32), i8 0, i64 16, i1 false)
   %184 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_policy_sri_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_priority_queue_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_priority_queue_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_priority_queue_resourceE, align 8
   store ptr @.str.848, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_priority_queue_resourceE, i64 16), align 8
   store i64 2630, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_priority_queue_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_priority_queue_resourceE, i64 32), i8 0, i64 16, i1 false)
   %185 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_priority_queue_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_esm_loader_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_process_esm_loader_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_process_esm_loader_resourceE, align 8
   store ptr @.str.849, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_esm_loader_resourceE, i64 16), align 8
   store i64 1105, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_esm_loader_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_esm_loader_resourceE, i64 32), i8 0, i64 16, i1 false)
   %186 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_process_esm_loader_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_process_execution_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_process_execution_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_process_execution_resourceE, align 8
   store ptr @.str.850, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_process_execution_resourceE, i64 16), align 8
   store i64 7780, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_process_execution_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_process_execution_resourceE, i64 32), i8 0, i64 16, i1 false)
   %187 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_process_execution_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_per_thread_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_process_per_thread_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_process_per_thread_resourceE, align 8
   store ptr @.str.851, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_per_thread_resourceE, i64 16), align 8
   store i64 12443, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_per_thread_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_per_thread_resourceE, i64 32), i8 0, i64 16, i1 false)
   %188 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_process_per_thread_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_permission_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_process_permission_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_process_permission_resourceE, align 8
   store ptr @.str.852, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_permission_resourceE, i64 16), align 8
   store i64 919, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_permission_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_process_permission_resourceE, i64 32), i8 0, i64 16, i1 false)
   %189 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_process_permission_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_policy_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_process_policy_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_process_policy_resourceE, align 8
   store ptr @.str.853, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_policy_resourceE, i64 16), align 8
   store i64 1596, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_policy_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_policy_resourceE, i64 32), i8 0, i64 16, i1 false)
   %190 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_process_policy_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_process_pre_execution_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_process_pre_execution_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_process_pre_execution_resourceE, align 8
   store ptr @.str.854, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_process_pre_execution_resourceE, i64 16), align 8
   store i64 25542, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_process_pre_execution_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_process_pre_execution_resourceE, i64 32), i8 0, i64 16, i1 false)
   %191 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_process_pre_execution_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_process_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_process_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_process_promises_resourceE, align 8
   store ptr @.str.855, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_process_promises_resourceE, i64 16), align 8
   store i64 11045, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_process_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_process_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %192 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_process_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_report_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_process_report_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_process_report_resourceE, align 8
   store ptr @.str.856, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_report_resourceE, i64 16), align 8
   store i64 2644, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_report_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_report_resourceE, i64 32), i8 0, i64 16, i1 false)
   %193 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_process_report_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_signal_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_process_signal_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_process_signal_resourceE, align 8
   store ptr @.str.857, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_signal_resourceE, i64 16), align 8
   store i64 1180, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_signal_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_process_signal_resourceE, i64 32), i8 0, i64 16, i1 false)
   %194 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_process_signal_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_process_task_queues_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_process_task_queues_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_process_task_queues_resourceE, align 8
   store ptr @.str.858, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_process_task_queues_resourceE, i64 16), align 8
   store i64 4285, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_process_task_queues_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_process_task_queues_resourceE, i64 32), i8 0, i64 16, i1 false)
   %195 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_process_task_queues_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_process_warning_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_process_warning_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_process_warning_resourceE, align 8
   store ptr @.str.859, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_process_warning_resourceE, i64 16), align 8
   store i64 6053, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_process_warning_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_process_warning_resourceE, i64 32), i8 0, i64 16, i1 false)
   %196 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_process_warning_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_process_worker_thread_only_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_process_worker_thread_only_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_process_worker_thread_only_resourceE, align 8
   store ptr @.str.860, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_process_worker_thread_only_resourceE, i64 16), align 8
   store i64 426, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_process_worker_thread_only_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_process_worker_thread_only_resourceE, i64 32), i8 0, i64 16, i1 false)
   %197 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL44internal_process_worker_thread_only_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_promise_hooks_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_promise_hooks_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_promise_hooks_resourceE, align 8
   store ptr @.str.861, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_promise_hooks_resourceE, i64 16), align 8
   store i64 3074, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_promise_hooks_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_promise_hooks_resourceE, i64 32), i8 0, i64 16, i1 false)
   %198 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_promise_hooks_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_querystring_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_querystring_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_querystring_resourceE, align 8
   store ptr @.str.862, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_querystring_resourceE, i64 16), align 8
   store i64 3316, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_querystring_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_querystring_resourceE, i64 32), i8 0, i64 16, i1 false)
   %199 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_querystring_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_readline_callbacks_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_readline_callbacks_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_readline_callbacks_resourceE, align 8
   store ptr @.str.863, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_readline_callbacks_resourceE, i64 16), align 8
   store i64 2754, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_readline_callbacks_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_readline_callbacks_resourceE, i64 32), i8 0, i64 16, i1 false)
   %200 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_readline_callbacks_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_readline_emitKeypressEvents_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_readline_emitKeypressEvents_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_readline_emitKeypressEvents_resourceE, align 8
   store ptr @.str.864, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_readline_emitKeypressEvents_resourceE, i64 16), align 8
   store i64 2663, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_readline_emitKeypressEvents_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_readline_emitKeypressEvents_resourceE, i64 32), i8 0, i64 16, i1 false)
   %201 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL45internal_readline_emitKeypressEvents_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_readline_interface_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_readline_interface_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_readline_interface_resourceE, align 8
   store ptr @.str.865, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_readline_interface_resourceE, i64 16), align 8
   store i64 39029, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_readline_interface_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_readline_interface_resourceE, i64 32), i8 0, i64 16, i1 false)
   %202 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_readline_interface_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_readline_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_readline_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_readline_promises_resourceE, align 8
   store ptr @.str.866, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_readline_promises_resourceE, i64 16), align 8
   store i64 3509, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_readline_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_readline_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %203 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_readline_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_readline_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_readline_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_readline_utils_resourceE, align 8
   store ptr @.str.867, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_readline_utils_resourceE, i64 16), align 8
   store i64 12396, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_readline_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_readline_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %204 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_readline_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_repl_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_repl_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_repl_resourceE, align 8
   store ptr @.str.868, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_repl_resourceE, i64 16), align 8
   store i64 1214, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_repl_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_repl_resourceE, i64 32), i8 0, i64 16, i1 false)
   %205 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL22internal_repl_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_repl_await_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_repl_await_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_repl_await_resourceE, align 8
   store ptr @.str.869, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_repl_await_resourceE, i64 16), align 8
   store i64 8533, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_repl_await_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_repl_await_resourceE, i64 32), i8 0, i64 16, i1 false)
   %206 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_repl_await_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_repl_history_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_repl_history_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_repl_history_resourceE, align 8
   store ptr @.str.870, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_repl_history_resourceE, i64 16), align 8
   store i64 4491, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_repl_history_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_repl_history_resourceE, i64 32), i8 0, i64 16, i1 false)
   %207 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_repl_history_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_repl_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_repl_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_repl_utils_resourceE, align 8
   store ptr @.str.871, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_repl_utils_resourceE, i64 16), align 8
   store i64 25204, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_repl_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_repl_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %208 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_repl_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_socket_list_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_socket_list_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_socket_list_resourceE, align 8
   store ptr @.str.872, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_socket_list_resourceE, i64 16), align 8
   store i64 2709, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_socket_list_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_socket_list_resourceE, i64 32), i8 0, i64 16, i1 false)
   %209 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_socket_list_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_socketaddress_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_socketaddress_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_socketaddress_resourceE, align 8
   store ptr @.str.873, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_socketaddress_resourceE, i64 16), align 8
   store i64 3402, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_socketaddress_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_socketaddress_resourceE, i64 32), i8 0, i64 16, i1 false)
   %210 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_socketaddress_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL48internal_source_map_prepare_stack_trace_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL48internal_source_map_prepare_stack_trace_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL48internal_source_map_prepare_stack_trace_resourceE, align 8
   store ptr @.str.874, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL48internal_source_map_prepare_stack_trace_resourceE, i64 16), align 8
   store i64 7404, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL48internal_source_map_prepare_stack_trace_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL48internal_source_map_prepare_stack_trace_resourceE, i64 32), i8 0, i64 16, i1 false)
   %211 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL48internal_source_map_prepare_stack_trace_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_source_map_source_map_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_source_map_source_map_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_source_map_source_map_resourceE, align 8
   store ptr @.str.875, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_source_map_source_map_resourceE, i64 16), align 8
   store i64 12067, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_source_map_source_map_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_source_map_source_map_resourceE, i64 32), i8 0, i64 16, i1 false)
   %212 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_source_map_source_map_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_source_map_source_map_cache_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_source_map_source_map_cache_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_source_map_source_map_cache_resourceE, align 8
   store ptr @.str.876, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_source_map_source_map_cache_resourceE, i64 16), align 8
   store i64 10784, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_source_map_source_map_cache_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_source_map_source_map_cache_resourceE, i64 32), i8 0, i64 16, i1 false)
   %213 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL45internal_source_map_source_map_cache_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_stream_base_commons_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_stream_base_commons_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_stream_base_commons_resourceE, align 8
   store ptr @.str.877, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_stream_base_commons_resourceE, i64 16), align 8
   store i64 7057, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_stream_base_commons_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_stream_base_commons_resourceE, i64 32), i8 0, i64 16, i1 false)
   %214 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_stream_base_commons_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_streams_add_abort_signal_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_streams_add_abort_signal_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_streams_add_abort_signal_resourceE, align 8
   store ptr @.str.878, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_streams_add_abort_signal_resourceE, i64 16), align 8
   store i64 1704, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_streams_add_abort_signal_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_streams_add_abort_signal_resourceE, i64 32), i8 0, i64 16, i1 false)
   %215 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL42internal_streams_add_abort_signal_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_streams_compose_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_streams_compose_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_streams_compose_resourceE, align 8
   store ptr @.str.879, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_streams_compose_resourceE, i64 16), align 8
   store i64 5451, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_streams_compose_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_streams_compose_resourceE, i64 32), i8 0, i64 16, i1 false)
   %216 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_streams_compose_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_streams_destroy_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_streams_destroy_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_streams_destroy_resourceE, align 8
   store ptr @.str.880, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_streams_destroy_resourceE, i64 16), align 8
   store i64 7437, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_streams_destroy_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_streams_destroy_resourceE, i64 32), i8 0, i64 16, i1 false)
   %217 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_streams_destroy_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_streams_duplex_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_streams_duplex_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_streams_duplex_resourceE, align 8
   store ptr @.str.881, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_streams_duplex_resourceE, i64 16), align 8
   store i64 6489, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_streams_duplex_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_streams_duplex_resourceE, i64 32), i8 0, i64 16, i1 false)
   %218 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_streams_duplex_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_duplexify_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_streams_duplexify_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_streams_duplexify_resourceE, align 8
   store ptr @.str.882, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_duplexify_resourceE, i64 16), align 8
   store i64 8125, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_duplexify_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_duplexify_resourceE, i64 32), i8 0, i64 16, i1 false)
   %219 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_streams_duplexify_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_streams_end_of_stream_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_streams_end_of_stream_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_streams_end_of_stream_resourceE, align 8
   store ptr @.str.883, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_streams_end_of_stream_resourceE, i64 16), align 8
   store i64 8360, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_streams_end_of_stream_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_streams_end_of_stream_resourceE, i64 32), i8 0, i64 16, i1 false)
   %220 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_streams_end_of_stream_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_streams_from_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_streams_from_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_streams_from_resourceE, align 8
   store ptr @.str.884, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_streams_from_resourceE, i64 16), align 8
   store i64 4341, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_streams_from_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_streams_from_resourceE, i64 32), i8 0, i64 16, i1 false)
   %221 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_streams_from_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_streams_lazy_transform_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_streams_lazy_transform_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_streams_lazy_transform_resourceE, align 8
   store ptr @.str.885, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_streams_lazy_transform_resourceE, i64 16), align 8
   store i64 1386, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_streams_lazy_transform_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_streams_lazy_transform_resourceE, i64 32), i8 0, i64 16, i1 false)
   %222 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_streams_lazy_transform_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_streams_legacy_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_streams_legacy_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_streams_legacy_resourceE, align 8
   store ptr @.str.886, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_streams_legacy_resourceE, i64 16), align 8
   store i64 2934, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_streams_legacy_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_streams_legacy_resourceE, i64 32), i8 0, i64 16, i1 false)
   %223 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_streams_legacy_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_operators_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_streams_operators_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_streams_operators_resourceE, align 8
   store ptr @.str.887, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_operators_resourceE, i64 16), align 8
   store i64 10140, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_operators_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_operators_resourceE, i64 32), i8 0, i64 16, i1 false)
   %224 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_streams_operators_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_streams_passthrough_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_streams_passthrough_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_streams_passthrough_resourceE, align 8
   store ptr @.str.888, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_streams_passthrough_resourceE, i64 16), align 8
   store i64 1762, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_streams_passthrough_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_streams_passthrough_resourceE, i64 32), i8 0, i64 16, i1 false)
   %225 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_streams_passthrough_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_pipeline_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_streams_pipeline_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_streams_pipeline_resourceE, align 8
   store ptr @.str.889, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_pipeline_resourceE, i64 16), align 8
   store i64 12326, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_pipeline_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_pipeline_resourceE, i64 32), i8 0, i64 16, i1 false)
   %226 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_streams_pipeline_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_readable_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_streams_readable_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_streams_readable_resourceE, align 8
   store ptr @.str.890, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_readable_resourceE, i64 16), align 8
   store i64 51291, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_readable_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_readable_resourceE, i64 32), i8 0, i64 16, i1 false)
   %227 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_streams_readable_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_streams_state_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_streams_state_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_streams_state_resourceE, align 8
   store ptr @.str.891, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_streams_state_resourceE, i64 16), align 8
   store i64 1332, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_streams_state_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_streams_state_resourceE, i64 32), i8 0, i64 16, i1 false)
   %228 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_streams_state_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_transform_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_streams_transform_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_streams_transform_resourceE, align 8
   store ptr @.str.892, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_transform_resourceE, i64 16), align 8
   store i64 7121, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_transform_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_streams_transform_resourceE, i64 32), i8 0, i64 16, i1 false)
   %229 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_streams_transform_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_streams_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_streams_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_streams_utils_resourceE, align 8
   store ptr @.str.893, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_streams_utils_resourceE, i64 16), align 8
   store i64 8934, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_streams_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_streams_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %230 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_streams_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_writable_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_streams_writable_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_streams_writable_resourceE, align 8
   store ptr @.str.894, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_writable_resourceE, i64 16), align 8
   store i64 33087, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_writable_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_streams_writable_resourceE, i64 32), i8 0, i64 16, i1 false)
   %231 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_streams_writable_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_test_binding_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_test_binding_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_test_binding_resourceE, align 8
   store ptr @.str.895, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_test_binding_resourceE, i64 16), align 8
   store i64 338, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_test_binding_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_test_binding_resourceE, i64 32), i8 0, i64 16, i1 false)
   %232 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_test_binding_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_test_transfer_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_test_transfer_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_test_transfer_resourceE, align 8
   store ptr @.str.896, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_test_transfer_resourceE, i64 16), align 8
   store i64 732, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_test_transfer_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_test_transfer_resourceE, i64 32), i8 0, i64 16, i1 false)
   %233 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_test_transfer_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_test_runner_coverage_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_test_runner_coverage_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL38internal_test_runner_coverage_resourceE, align 8
   store ptr @.str.897, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_test_runner_coverage_resourceE, i64 16), align 8
   store i64 16634, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_test_runner_coverage_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL38internal_test_runner_coverage_resourceE, i64 32), i8 0, i64 16, i1 false)
   %234 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL38internal_test_runner_coverage_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_test_runner_harness_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_test_runner_harness_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_test_runner_harness_resourceE, align 8
   store ptr @.str.898, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_test_runner_harness_resourceE, i64 16), align 8
   store i64 7309, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_test_runner_harness_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_test_runner_harness_resourceE, i64 32), i8 0, i64 16, i1 false)
   %235 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_test_runner_harness_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_test_runner_mock_mock_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_test_runner_mock_mock_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_test_runner_mock_mock_resourceE, align 8
   store ptr @.str.899, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_test_runner_mock_mock_resourceE, i64 16), align 8
   store i64 13322, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_test_runner_mock_mock_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_test_runner_mock_mock_resourceE, i64 32), i8 0, i64 16, i1 false)
   %236 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_test_runner_mock_mock_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_test_runner_mock_mock_timers_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL46internal_test_runner_mock_mock_timers_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL46internal_test_runner_mock_mock_timers_resourceE, align 8
   store ptr @.str.900, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_test_runner_mock_mock_timers_resourceE, i64 16), align 8
   store i64 20692, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_test_runner_mock_mock_timers_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_test_runner_mock_mock_timers_resourceE, i64 32), i8 0, i64 16, i1 false)
   %237 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL46internal_test_runner_mock_mock_timers_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_reporter_dot_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_test_runner_reporter_dot_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_test_runner_reporter_dot_resourceE, align 8
   store ptr @.str.901, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_reporter_dot_resourceE, i64 16), align 8
   store i64 612, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_reporter_dot_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_reporter_dot_resourceE, i64 32), i8 0, i64 16, i1 false)
   %238 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL42internal_test_runner_reporter_dot_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_test_runner_reporter_junit_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_test_runner_reporter_junit_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_test_runner_reporter_junit_resourceE, align 8
   store ptr @.str.902, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_test_runner_reporter_junit_resourceE, i64 16), align 8
   store i64 5513, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_test_runner_reporter_junit_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_test_runner_reporter_junit_resourceE, i64 32), i8 0, i64 16, i1 false)
   %239 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL44internal_test_runner_reporter_junit_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_test_runner_reporter_lcov_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL43internal_test_runner_reporter_lcov_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL43internal_test_runner_reporter_lcov_resourceE, align 8
   store ptr @.str.903, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_test_runner_reporter_lcov_resourceE, i64 16), align 8
   store i64 4316, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_test_runner_reporter_lcov_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_test_runner_reporter_lcov_resourceE, i64 32), i8 0, i64 16, i1 false)
   %240 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL43internal_test_runner_reporter_lcov_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_test_runner_reporter_spec_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL43internal_test_runner_reporter_spec_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL43internal_test_runner_reporter_spec_resourceE, align 8
   store ptr @.str.904, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_test_runner_reporter_spec_resourceE, i64 16), align 8
   store i64 5829, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_test_runner_reporter_spec_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_test_runner_reporter_spec_resourceE, i64 32), i8 0, i64 16, i1 false)
   %241 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL43internal_test_runner_reporter_spec_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_reporter_tap_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_test_runner_reporter_tap_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_test_runner_reporter_tap_resourceE, align 8
   store ptr @.str.905, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_reporter_tap_resourceE, i64 16), align 8
   store i64 7719, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_reporter_tap_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_reporter_tap_resourceE, i64 32), i8 0, i64 16, i1 false)
   %242 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL42internal_test_runner_reporter_tap_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_test_runner_reporter_v8_serializer_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL52internal_test_runner_reporter_v8_serializer_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL52internal_test_runner_reporter_v8_serializer_resourceE, align 8
   store ptr @.str.906, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_test_runner_reporter_v8_serializer_resourceE, i64 16), align 8
   store i64 1458, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_test_runner_reporter_v8_serializer_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_test_runner_reporter_v8_serializer_resourceE, i64 32), i8 0, i64 16, i1 false)
   %243 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL52internal_test_runner_reporter_v8_serializer_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_test_runner_runner_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_test_runner_runner_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_test_runner_runner_resourceE, align 8
   store ptr @.str.907, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_test_runner_runner_resourceE, i64 16), align 8
   store i64 17222, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_test_runner_runner_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_test_runner_runner_resourceE, i64 32), i8 0, i64 16, i1 false)
   %244 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_test_runner_runner_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_test_runner_test_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_test_runner_test_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_test_runner_test_resourceE, align 8
   store ptr @.str.908, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_test_runner_test_resourceE, i64 16), align 8
   store i64 26794, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_test_runner_test_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_test_runner_test_resourceE, i64 32), i8 0, i64 16, i1 false)
   %245 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_test_runner_test_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_tests_stream_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_test_runner_tests_stream_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_test_runner_tests_stream_resourceE, align 8
   store ptr @.str.909, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_tests_stream_resourceE, i64 16), align 8
   store i64 2836, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_tests_stream_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_test_runner_tests_stream_resourceE, i64 32), i8 0, i64 16, i1 false)
   %246 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL42internal_test_runner_tests_stream_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_test_runner_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_test_runner_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_test_runner_utils_resourceE, align 8
   store ptr @.str.910, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_test_runner_utils_resourceE, i64 16), align 8
   store i64 13370, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_test_runner_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_test_runner_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %247 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_test_runner_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_timers_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_timers_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_timers_resourceE, align 8
   store ptr @.str.911, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_timers_resourceE, i64 16), align 8
   store i64 19560, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_timers_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_timers_resourceE, i64 32), i8 0, i64 16, i1 false)
   %248 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL24internal_timers_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_tls_secure_context_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_tls_secure_context_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL36internal_tls_secure_context_resourceE, align 8
   store ptr @.str.912, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_tls_secure_context_resourceE, i64 16), align 8
   store i64 9491, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_tls_secure_context_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL36internal_tls_secure_context_resourceE, i64 32), i8 0, i64 16, i1 false)
   %249 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL36internal_tls_secure_context_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_tls_secure_pair_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_tls_secure_pair_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_tls_secure_pair_resourceE, align 8
   store ptr @.str.913, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_tls_secure_pair_resourceE, i64 16), align 8
   store i64 1991, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_tls_secure_pair_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_tls_secure_pair_resourceE, i64 32), i8 0, i64 16, i1 false)
   %250 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_tls_secure_pair_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_trace_events_async_hooks_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_trace_events_async_hooks_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_trace_events_async_hooks_resourceE, align 8
   store ptr @.str.914, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_trace_events_async_hooks_resourceE, i64 16), align 8
   store i64 2810, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_trace_events_async_hooks_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_trace_events_async_hooks_resourceE, i64 32), i8 0, i64 16, i1 false)
   %251 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL42internal_trace_events_async_hooks_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_tty_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21internal_tty_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21internal_tty_resourceE, align 8
   store ptr @.str.915, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_tty_resourceE, i64 16), align 8
   store i64 6485, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_tty_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_tty_resourceE, i64 32), i8 0, i64 16, i1 false)
   %252 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL21internal_tty_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_url_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21internal_url_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21internal_url_resourceE, align 8
   store ptr @.str.916, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_url_resourceE, i64 16), align 8
   store i64 44147, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_url_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21internal_url_resourceE, i64 32), i8 0, i64 16, i1 false)
   %253 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL21internal_url_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_util_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_util_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL22internal_util_resourceE, align 8
   store ptr @.str.917, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_util_resourceE, i64 16), align 8
   store i64 25038, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_util_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL22internal_util_resourceE, i64 32), i8 0, i64 16, i1 false)
   %254 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL22internal_util_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_util_colors_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_util_colors_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL29internal_util_colors_resourceE, align 8
   store ptr @.str.918, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_util_colors_resourceE, i64 16), align 8
   store i64 1122, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_util_colors_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL29internal_util_colors_resourceE, i64 32), i8 0, i64 16, i1 false)
   %255 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL29internal_util_colors_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_util_comparisons_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_util_comparisons_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_util_comparisons_resourceE, align 8
   store ptr @.str.919, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_util_comparisons_resourceE, i64 16), align 8
   store i64 18464, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_util_comparisons_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_util_comparisons_resourceE, i64 32), i8 0, i64 16, i1 false)
   %256 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_util_comparisons_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_util_debuglog_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_util_debuglog_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL31internal_util_debuglog_resourceE, align 8
   store ptr @.str.920, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_util_debuglog_resourceE, i64 16), align 8
   store i64 3395, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_util_debuglog_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL31internal_util_debuglog_resourceE, i64 32), i8 0, i64 16, i1 false)
   %257 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL31internal_util_debuglog_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_util_embedding_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_util_embedding_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_util_embedding_resourceE, align 8
   store ptr @.str.921, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_util_embedding_resourceE, i64 16), align 8
   store i64 1511, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_util_embedding_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_util_embedding_resourceE, i64 32), i8 0, i64 16, i1 false)
   %258 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_util_embedding_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_util_inspect_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_util_inspect_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_util_inspect_resourceE, align 8
   store ptr @.str.922, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_util_inspect_resourceE, i64 16), align 8
   store i64 81559, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_util_inspect_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_util_inspect_resourceE, i64 32), i8 0, i64 16, i1 false)
   %259 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_util_inspect_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_util_inspector_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_util_inspector_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL32internal_util_inspector_resourceE, align 8
   store ptr @.str.923, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_util_inspector_resourceE, i64 16), align 8
   store i64 3929, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_util_inspector_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL32internal_util_inspector_resourceE, i64 32), i8 0, i64 16, i1 false)
   %260 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL32internal_util_inspector_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_util_iterable_weak_map_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_util_iterable_weak_map_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_util_iterable_weak_map_resourceE, align 8
   store ptr @.str.924, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_util_iterable_weak_map_resourceE, i64 16), align 8
   store i64 1959, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_util_iterable_weak_map_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_util_iterable_weak_map_resourceE, i64 32), i8 0, i64 16, i1 false)
   %261 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_util_iterable_weak_map_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_util_parse_args_parse_args_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_util_parse_args_parse_args_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_util_parse_args_parse_args_resourceE, align 8
   store ptr @.str.925, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_util_parse_args_parse_args_resourceE, i64 16), align 8
   store i64 12919, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_util_parse_args_parse_args_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_util_parse_args_parse_args_resourceE, i64 32), i8 0, i64 16, i1 false)
   %262 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL44internal_util_parse_args_parse_args_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_util_parse_args_utils_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_util_parse_args_utils_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_util_parse_args_utils_resourceE, align 8
   store ptr @.str.926, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_util_parse_args_utils_resourceE, i64 16), align 8
   store i64 6225, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_util_parse_args_utils_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_util_parse_args_utils_resourceE, i64 32), i8 0, i64 16, i1 false)
   %263 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_util_parse_args_utils_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_util_types_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_util_types_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_util_types_resourceE, align 8
   store ptr @.str.927, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_util_types_resourceE, i64 16), align 8
   store i64 2469, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_util_types_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_util_types_resourceE, i64 32), i8 0, i64 16, i1 false)
   %264 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_util_types_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_v8_startup_snapshot_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_v8_startup_snapshot_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_v8_startup_snapshot_resourceE, align 8
   store ptr @.str.928, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_v8_startup_snapshot_resourceE, i64 16), align 8
   store i64 3382, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_v8_startup_snapshot_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_v8_startup_snapshot_resourceE, i64 32), i8 0, i64 16, i1 false)
   %265 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_v8_startup_snapshot_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_v8_prof_polyfill_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_v8_prof_polyfill_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL34internal_v8_prof_polyfill_resourceE, align 8
   store ptr @.str.929, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_v8_prof_polyfill_resourceE, i64 16), align 8
   store i64 5884, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_v8_prof_polyfill_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL34internal_v8_prof_polyfill_resourceE, i64 32), i8 0, i64 16, i1 false)
   %266 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL34internal_v8_prof_polyfill_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_v8_prof_processor_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_v8_prof_processor_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL35internal_v8_prof_processor_resourceE, align 8
   store ptr @.str.930, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_v8_prof_processor_resourceE, i64 16), align 8
   store i64 1618, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_v8_prof_processor_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL35internal_v8_prof_processor_resourceE, i64 32), i8 0, i64 16, i1 false)
   %267 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL35internal_v8_prof_processor_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_validators_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_validators_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL28internal_validators_resourceE, align 8
   store ptr @.str.931, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_validators_resourceE, i64 16), align 8
   store i64 16411, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_validators_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL28internal_validators_resourceE, i64 32), i8 0, i64 16, i1 false)
   %268 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL28internal_validators_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20internal_vm_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20internal_vm_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20internal_vm_resourceE, align 8
   store ptr @.str.932, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20internal_vm_resourceE, i64 16), align 8
   store i64 4906, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20internal_vm_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20internal_vm_resourceE, i64 32), i8 0, i64 16, i1 false)
   %269 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL20internal_vm_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_vm_module_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_vm_module_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_vm_module_resourceE, align 8
   store ptr @.str.933, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_vm_module_resourceE, i64 16), align 8
   store i64 12199, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_vm_module_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_vm_module_resourceE, i64 32), i8 0, i64 16, i1 false)
   %270 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_vm_module_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_wasm_web_api_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_wasm_web_api_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL30internal_wasm_web_api_resourceE, align 8
   store ptr @.str.934, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_wasm_web_api_resourceE, i64 16), align 8
   store i64 1948, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_wasm_web_api_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL30internal_wasm_web_api_resourceE, i64 32), i8 0, i64 16, i1 false)
   %271 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL30internal_wasm_web_api_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_watch_mode_files_watcher_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_watch_mode_files_watcher_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL42internal_watch_mode_files_watcher_resourceE, align 8
   store ptr @.str.935, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_watch_mode_files_watcher_resourceE, i64 16), align 8
   store i64 4728, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_watch_mode_files_watcher_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL42internal_watch_mode_files_watcher_resourceE, i64 32), i8 0, i64 16, i1 false)
   %272 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL42internal_watch_mode_files_watcher_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_watchdog_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_watchdog_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26internal_watchdog_resourceE, align 8
   store ptr @.str.936, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_watchdog_resourceE, i64 16), align 8
   store i64 1363, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_watchdog_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26internal_watchdog_resourceE, i64 32), i8 0, i64 16, i1 false)
   %273 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL26internal_watchdog_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_webidl_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_webidl_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_webidl_resourceE, align 8
   store ptr @.str.937, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_webidl_resourceE, i64 16), align 8
   store i64 5611, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_webidl_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_webidl_resourceE, i64 32), i8 0, i64 16, i1 false)
   %274 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIttN2v86String22ExternalStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL24internal_webidl_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_adapters_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_webstreams_adapters_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_webstreams_adapters_resourceE, align 8
   store ptr @.str.938, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_adapters_resourceE, i64 16), align 8
   store i64 25953, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_adapters_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_adapters_resourceE, i64 32), i8 0, i64 16, i1 false)
   %275 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_webstreams_adapters_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_webstreams_compression_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_webstreams_compression_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_webstreams_compression_resourceE, align 8
   store ptr @.str.939, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_webstreams_compression_resourceE, i64 16), align 8
   store i64 3408, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_webstreams_compression_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_webstreams_compression_resourceE, i64 32), i8 0, i64 16, i1 false)
   %276 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_webstreams_compression_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_encoding_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_webstreams_encoding_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_webstreams_encoding_resourceE, align 8
   store ptr @.str.940, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_encoding_resourceE, i64 16), align 8
   store i64 4950, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_encoding_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_encoding_resourceE, i64 32), i8 0, i64 16, i1 false)
   %277 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_webstreams_encoding_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_webstreams_queuingstrategies_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL46internal_webstreams_queuingstrategies_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL46internal_webstreams_queuingstrategies_resourceE, align 8
   store ptr @.str.941, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_webstreams_queuingstrategies_resourceE, i64 16), align 8
   store i64 3292, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_webstreams_queuingstrategies_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL46internal_webstreams_queuingstrategies_resourceE, i64 32), i8 0, i64 16, i1 false)
   %278 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL46internal_webstreams_queuingstrategies_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_webstreams_readablestream_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL43internal_webstreams_readablestream_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL43internal_webstreams_readablestream_resourceE, align 8
   store ptr @.str.942, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_webstreams_readablestream_resourceE, i64 16), align 8
   store i64 93703, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_webstreams_readablestream_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_webstreams_readablestream_resourceE, i64 32), i8 0, i64 16, i1 false)
   %279 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL43internal_webstreams_readablestream_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_transfer_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_webstreams_transfer_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL37internal_webstreams_transfer_resourceE, align 8
   store ptr @.str.943, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_transfer_resourceE, i64 16), align 8
   store i64 7470, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_transfer_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL37internal_webstreams_transfer_resourceE, i64 32), i8 0, i64 16, i1 false)
   %280 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL37internal_webstreams_transfer_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_webstreams_transformstream_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_webstreams_transformstream_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_webstreams_transformstream_resourceE, align 8
   store ptr @.str.944, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_webstreams_transformstream_resourceE, i64 16), align 8
   store i64 18834, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_webstreams_transformstream_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_webstreams_transformstream_resourceE, i64 32), i8 0, i64 16, i1 false)
   %281 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL44internal_webstreams_transformstream_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_webstreams_util_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_webstreams_util_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL33internal_webstreams_util_resourceE, align 8
   store ptr @.str.945, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_webstreams_util_resourceE, i64 16), align 8
   store i64 7549, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_webstreams_util_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL33internal_webstreams_util_resourceE, i64 32), i8 0, i64 16, i1 false)
   %282 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL33internal_webstreams_util_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_webstreams_writablestream_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL43internal_webstreams_writablestream_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL43internal_webstreams_writablestream_resourceE, align 8
   store ptr @.str.946, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_webstreams_writablestream_resourceE, i64 16), align 8
   store i64 37544, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_webstreams_writablestream_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL43internal_webstreams_writablestream_resourceE, i64 32), i8 0, i64 16, i1 false)
   %283 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL43internal_webstreams_writablestream_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_worker_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_worker_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24internal_worker_resourceE, align 8
   store ptr @.str.947, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_worker_resourceE, i64 16), align 8
   store i64 16328, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_worker_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24internal_worker_resourceE, i64 32), i8 0, i64 16, i1 false)
   %284 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL24internal_worker_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_worker_io_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_worker_io_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL27internal_worker_io_resourceE, align 8
   store ptr @.str.948, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_worker_io_resourceE, i64 16), align 8
   store i64 15479, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_worker_io_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL27internal_worker_io_resourceE, i64 32), i8 0, i64 16, i1 false)
   %285 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL27internal_worker_io_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_worker_js_transferable_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_worker_js_transferable_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL40internal_worker_js_transferable_resourceE, align 8
   store ptr @.str.949, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_worker_js_transferable_resourceE, i64 16), align 8
   store i64 3207, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_worker_js_transferable_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL40internal_worker_js_transferable_resourceE, i64 32), i8 0, i64 16, i1 false)
   %286 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL40internal_worker_js_transferable_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15module_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15module_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15module_resourceE, align 8
   store ptr @.str.950, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15module_resourceE, i64 16), align 8
   store i64 397, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15module_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15module_resourceE, i64 32), i8 0, i64 16, i1 false)
   %287 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL15module_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12net_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12net_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12net_resourceE, align 8
   store ptr @.str.951, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12net_resourceE, i64 16), align 8
   store i64 66365, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12net_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12net_resourceE, i64 32), i8 0, i64 16, i1 false)
   %288 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL12net_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11os_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL11os_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL11os_resourceE, align 8
   store ptr @.str.952, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11os_resourceE, i64 16), align 8
   store i64 9774, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11os_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11os_resourceE, i64 32), i8 0, i64 16, i1 false)
   %289 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL11os_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13path_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13path_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13path_resourceE, align 8
   store ptr @.str.953, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13path_resourceE, i64 16), align 8
   store i64 46851, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13path_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13path_resourceE, i64 32), i8 0, i64 16, i1 false)
   %290 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL13path_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19path_posix_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19path_posix_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19path_posix_resourceE, align 8
   store ptr @.str.954, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19path_posix_resourceE, i64 16), align 8
   store i64 55, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19path_posix_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19path_posix_resourceE, i64 32), i8 0, i64 16, i1 false)
   %291 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL19path_posix_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19path_win32_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19path_win32_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19path_win32_resourceE, align 8
   store ptr @.str.955, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19path_win32_resourceE, i64 16), align 8
   store i64 55, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19path_win32_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19path_win32_resourceE, i64 32), i8 0, i64 16, i1 false)
   %292 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL19path_win32_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19perf_hooks_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19perf_hooks_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19perf_hooks_resourceE, align 8
   store ptr @.str.956, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19perf_hooks_resourceE, i64 16), align 8
   store i64 1065, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19perf_hooks_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19perf_hooks_resourceE, i64 32), i8 0, i64 16, i1 false)
   %293 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL19perf_hooks_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16process_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL16process_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL16process_resourceE, align 8
   store ptr @.str.957, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16process_resourceE, i64 16), align 8
   store i64 83, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16process_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL16process_resourceE, i64 32), i8 0, i64 16, i1 false)
   %294 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL16process_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL17punycode_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL17punycode_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL17punycode_resourceE, align 8
   store ptr @.str.958, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL17punycode_resourceE, i64 16), align 8
   store i64 12865, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL17punycode_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL17punycode_resourceE, i64 32), i8 0, i64 16, i1 false)
   %295 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL17punycode_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20querystring_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20querystring_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL20querystring_resourceE, align 8
   store ptr @.str.959, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20querystring_resourceE, i64 16), align 8
   store i64 14583, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20querystring_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL20querystring_resourceE, i64 32), i8 0, i64 16, i1 false)
   %296 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL20querystring_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL17readline_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL17readline_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL17readline_resourceE, align 8
   store ptr @.str.960, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL17readline_resourceE, i64 16), align 8
   store i64 12776, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL17readline_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL17readline_resourceE, i64 32), i8 0, i64 16, i1 false)
   %297 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL17readline_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26readline_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26readline_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL26readline_promises_resourceE, align 8
   store ptr @.str.961, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26readline_promises_resourceE, i64 16), align 8
   store i64 1634, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26readline_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL26readline_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %298 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL26readline_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13repl_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13repl_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13repl_resourceE, align 8
   store ptr @.str.962, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13repl_resourceE, i64 16), align 8
   store i64 60913, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13repl_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13repl_resourceE, i64 32), i8 0, i64 16, i1 false)
   %299 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL13repl_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15stream_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15stream_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15stream_resourceE, align 8
   store ptr @.str.963, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15stream_resourceE, i64 16), align 8
   store i64 4792, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15stream_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15stream_resourceE, i64 32), i8 0, i64 16, i1 false)
   %300 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL15stream_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25stream_consumers_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25stream_consumers_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL25stream_consumers_resourceE, align 8
   store ptr @.str.964, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25stream_consumers_resourceE, i64 16), align 8
   store i64 1743, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25stream_consumers_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL25stream_consumers_resourceE, i64 32), i8 0, i64 16, i1 false)
   %301 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL25stream_consumers_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24stream_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24stream_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24stream_promises_resourceE, align 8
   store ptr @.str.965, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24stream_promises_resourceE, i64 16), align 8
   store i64 917, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24stream_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24stream_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %302 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL24stream_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19stream_web_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19stream_web_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19stream_web_resourceE, align 8
   store ptr @.str.966, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19stream_web_resourceE, i64 16), align 8
   store i64 1294, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19stream_web_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19stream_web_resourceE, i64 32), i8 0, i64 16, i1 false)
   %303 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL19stream_web_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23string_decoder_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23string_decoder_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23string_decoder_resourceE, align 8
   store ptr @.str.967, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23string_decoder_resourceE, i64 16), align 8
   store i64 5213, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23string_decoder_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23string_decoder_resourceE, i64 32), i8 0, i64 16, i1 false)
   %304 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL23string_decoder_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12sys_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12sys_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12sys_resourceE, align 8
   store ptr @.str.968, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12sys_resourceE, i64 16), align 8
   store i64 1433, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12sys_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12sys_resourceE, i64 32), i8 0, i64 16, i1 false)
   %305 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL12sys_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13test_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13test_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13test_resourceE, align 8
   store ptr @.str.969, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13test_resourceE, i64 16), align 8
   store i64 693, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13test_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13test_resourceE, i64 32), i8 0, i64 16, i1 false)
   %306 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL13test_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23test_reporters_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23test_reporters_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23test_reporters_resourceE, align 8
   store ptr @.str.970, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23test_reporters_resourceE, i64 16), align 8
   store i64 1178, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23test_reporters_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23test_reporters_resourceE, i64 32), i8 0, i64 16, i1 false)
   %307 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL23test_reporters_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15timers_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15timers_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15timers_resourceE, align 8
   store ptr @.str.971, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15timers_resourceE, i64 16), align 8
   store i64 9640, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15timers_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15timers_resourceE, i64 32), i8 0, i64 16, i1 false)
   %308 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL15timers_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24timers_promises_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24timers_promises_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL24timers_promises_resourceE, align 8
   store ptr @.str.972, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24timers_promises_resourceE, i64 16), align 8
   store i64 6380, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24timers_promises_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL24timers_promises_resourceE, i64 32), i8 0, i64 16, i1 false)
   %309 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL24timers_promises_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12tls_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12tls_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12tls_resourceE, align 8
   store ptr @.str.973, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12tls_resourceE, i64 16), align 8
   store i64 11612, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12tls_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12tls_resourceE, i64 32), i8 0, i64 16, i1 false)
   %310 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL12tls_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21trace_events_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21trace_events_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL21trace_events_resourceE, align 8
   store ptr @.str.974, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21trace_events_resourceE, i64 16), align 8
   store i64 2273, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21trace_events_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL21trace_events_resourceE, i64 32), i8 0, i64 16, i1 false)
   %311 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL21trace_events_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12tty_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12tty_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12tty_resourceE, align 8
   store ptr @.str.975, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12tty_resourceE, i64 16), align 8
   store i64 5066, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12tty_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12tty_resourceE, i64 32), i8 0, i64 16, i1 false)
   %312 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL12tty_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12url_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12url_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL12url_resourceE, align 8
   store ptr @.str.976, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12url_resourceE, i64 16), align 8
   store i64 32640, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12url_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL12url_resourceE, i64 32), i8 0, i64 16, i1 false)
   %313 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL12url_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13util_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13util_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13util_resourceE, align 8
   store ptr @.str.977, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13util_resourceE, i64 16), align 8
   store i64 14854, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13util_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13util_resourceE, i64 32), i8 0, i64 16, i1 false)
   %314 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL13util_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19util_types_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19util_types_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL19util_types_resourceE, align 8
   store ptr @.str.978, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19util_types_resourceE, i64 16), align 8
   store i64 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19util_types_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL19util_types_resourceE, i64 32), i8 0, i64 16, i1 false)
   %315 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL19util_types_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11v8_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL11v8_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL11v8_resourceE, align 8
   store ptr @.str.979, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11v8_resourceE, i64 16), align 8
   store i64 13302, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11v8_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11v8_resourceE, i64 32), i8 0, i64 16, i1 false)
   %316 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL11v8_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11vm_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL11vm_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL11vm_resourceE, align 8
   store ptr @.str.980, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11vm_resourceE, i64 16), align 8
   store i64 12253, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11vm_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL11vm_resourceE, i64 32), i8 0, i64 16, i1 false)
   %317 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL11vm_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13wasi_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13wasi_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13wasi_resourceE, align 8
   store ptr @.str.981, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13wasi_resourceE, i64 16), align 8
   store i64 4897, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13wasi_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13wasi_resourceE, i64 32), i8 0, i64 16, i1 false)
   %318 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL13wasi_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23worker_threads_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23worker_threads_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL23worker_threads_resourceE, align 8
   store ptr @.str.982, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23worker_threads_resourceE, i64 16), align 8
   store i64 743, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23worker_threads_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL23worker_threads_resourceE, i64 32), i8 0, i64 16, i1 false)
   %319 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL23worker_threads_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13zlib_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13zlib_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL13zlib_resourceE, align 8
   store ptr @.str.983, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13zlib_resourceE, i64 16), align 8
   store i64 29633, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13zlib_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL13zlib_resourceE, i64 32), i8 0, i64 16, i1 false)
   %320 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL13zlib_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_arguments_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_arguments_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_arguments_resourceE, align 8
   store ptr @.str.984, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_arguments_resourceE, i64 16), align 8
   store i64 2488, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_arguments_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_arguments_resourceE, i64 32), i8 0, i64 16, i1 false)
   %321 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_deps_v8_tools_arguments_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_deps_v8_tools_codemap_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_deps_v8_tools_codemap_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_deps_v8_tools_codemap_resourceE, align 8
   store ptr @.str.985, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_deps_v8_tools_codemap_resourceE, i64 16), align 8
   store i64 9789, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_deps_v8_tools_codemap_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_deps_v8_tools_codemap_resourceE, i64 32), i8 0, i64 16, i1 false)
   %322 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_deps_v8_tools_codemap_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_consarray_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_consarray_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_consarray_resourceE, align 8
   store ptr @.str.986, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_consarray_resourceE, i64 16), align 8
   store i64 3233, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_consarray_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_consarray_resourceE, i64 32), i8 0, i64 16, i1 false)
   %323 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_deps_v8_tools_consarray_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_csvparser_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_csvparser_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_csvparser_resourceE, align 8
   store ptr @.str.987, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_csvparser_resourceE, i64 16), align 8
   store i64 3862, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_csvparser_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_csvparser_resourceE, i64 32), i8 0, i64 16, i1 false)
   %324 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_deps_v8_tools_csvparser_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_logreader_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_logreader_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_logreader_resourceE, align 8
   store ptr @.str.988, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_logreader_resourceE, i64 16), align 8
   store i64 8677, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_logreader_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_logreader_resourceE, i64 32), i8 0, i64 16, i1 false)
   %325 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_deps_v8_tools_logreader_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_deps_v8_tools_profile_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_deps_v8_tools_profile_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL39internal_deps_v8_tools_profile_resourceE, align 8
   store ptr @.str.989, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_deps_v8_tools_profile_resourceE, i64 16), align 8
   store i64 41040, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_deps_v8_tools_profile_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL39internal_deps_v8_tools_profile_resourceE, i64 32), i8 0, i64 16, i1 false)
   %326 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL39internal_deps_v8_tools_profile_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_deps_v8_tools_profile_view_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_deps_v8_tools_profile_view_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL44internal_deps_v8_tools_profile_view_resourceE, align 8
   store ptr @.str.990, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_deps_v8_tools_profile_view_resourceE, i64 16), align 8
   store i64 6362, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_deps_v8_tools_profile_view_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL44internal_deps_v8_tools_profile_view_resourceE, i64 32), i8 0, i64 16, i1 false)
   %327 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL44internal_deps_v8_tools_profile_view_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_sourcemap_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_sourcemap_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_sourcemap_resourceE, align 8
   store ptr @.str.991, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_sourcemap_resourceE, i64 16), align 8
   store i64 13700, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_sourcemap_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_sourcemap_resourceE, i64 32), i8 0, i64 16, i1 false)
   %328 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_deps_v8_tools_sourcemap_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_splaytree_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_splaytree_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL41internal_deps_v8_tools_splaytree_resourceE, align 8
   store ptr @.str.992, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_splaytree_resourceE, i64 16), align 8
   store i64 8859, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_splaytree_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL41internal_deps_v8_tools_splaytree_resourceE, i64 32), i8 0, i64 16, i1 false)
   %329 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL41internal_deps_v8_tools_splaytree_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_deps_v8_tools_tickprocessor_driver_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL52internal_deps_v8_tools_tickprocessor_driver_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL52internal_deps_v8_tools_tickprocessor_driver_resourceE, align 8
   store ptr @.str.993, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_deps_v8_tools_tickprocessor_driver_resourceE, i64 16), align 8
   store i64 2008, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_deps_v8_tools_tickprocessor_driver_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL52internal_deps_v8_tools_tickprocessor_driver_resourceE, i64 32), i8 0, i64 16, i1 false)
   %330 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL52internal_deps_v8_tools_tickprocessor_driver_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_v8_tools_tickprocessor_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_deps_v8_tools_tickprocessor_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL45internal_deps_v8_tools_tickprocessor_resourceE, align 8
   store ptr @.str.994, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_v8_tools_tickprocessor_resourceE, i64 16), align 8
   store i64 34699, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_v8_tools_tickprocessor_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL45internal_deps_v8_tools_tickprocessor_resourceE, i64 32), i8 0, i64 16, i1 false)
   %331 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEED2Ev, ptr nonnull @_ZN4node8builtinsL45internal_deps_v8_tools_tickprocessor_resourceE, ptr nonnull @__dso_handle) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15config_resourceE, i64 8), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15config_resourceE, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node26StaticExternalByteResourceIhcN2v86String29ExternalOneByteStringResourceEEE, i64 16), ptr @_ZN4node8builtinsL15config_resourceE, align 8
   store ptr @.str.995, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15config_resourceE, i64 16), align 8
   store i64 27111, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15config_resourceE, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node8builtinsL15config_resourceE, i64 32), i8 0, i64 16, i1 false)

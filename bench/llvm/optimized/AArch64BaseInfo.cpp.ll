@@ -1899,7 +1899,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64AT14lookupATByNameENS2_9Strin
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm9AArch64AT14lookupATByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupATByNameES2_E7KeyTypeZNS1_14lookupATByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !4
 
 _ZSt11lower_boundIPKZN4llvm9AArch64AT14lookupATByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupATByNameES2_E7KeyTypeZNS1_14lookupATByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64AT14lookupATByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupATByNameES4_E9IndexTypeKZNS3_14lookupATByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9AArch64AT14lookupATByNameENS_9StringRefEE5Index, i64 272)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9AArch64AT14lookupATByNameENS_9StringRefEE5Index, i64 272)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm9AArch64AT14lookupATByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupATByNameES2_E7KeyTypeZNS1_14lookupATByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -1943,7 +1943,7 @@ define dso_local noundef ptr @_ZN4llvm9AArch64AT18lookupATByEncodingEt(i16 nound
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm9AArch64AT18lookupATByEncodingEtE9IndexTypeZNS1_18lookupATByEncodingEtE7KeyTypeZNS1_18lookupATByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !6
 
 _ZSt11lower_boundIPKZN4llvm9AArch64AT18lookupATByEncodingEtE9IndexTypeZNS1_18lookupATByEncodingEtE7KeyTypeZNS1_18lookupATByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9AArch64AT18lookupATByEncodingEtE5Index, i64 136)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9AArch64AT18lookupATByEncodingEtE5Index, i64 136)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm9AArch64AT18lookupATByEncodingEtE9IndexTypeZNS1_18lookupATByEncodingEtE7KeyTypeZNS1_18lookupATByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit
@@ -2018,7 +2018,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS2
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS0_9StringRefEE9IndexTypeZNS1_17lookupDBnXSByNameES2_E7KeyTypeZNS1_17lookupDBnXSByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !7
 
 _ZSt11lower_boundIPKZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS0_9StringRefEE9IndexTypeZNS1_17lookupDBnXSByNameES2_E7KeyTypeZNS1_17lookupDBnXSByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupDBnXSByNameES4_E9IndexTypeKZNS3_17lookupDBnXSByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS_9StringRefEE5Index, i64 64)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS_9StringRefEE5Index, i64 64)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm12AArch64DBnXS17lookupDBnXSByNameENS0_9StringRefEE9IndexTypeZNS1_17lookupDBnXSByNameES2_E7KeyTypeZNS1_17lookupDBnXSByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -2060,7 +2060,7 @@ define dso_local noundef ptr @_ZN4llvm12AArch64DBnXS21lookupDBnXSByEncodingEh(i8
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm12AArch64DBnXS21lookupDBnXSByEncodingEhE9IndexTypeZNS1_21lookupDBnXSByEncodingEhE7KeyTypeZNS1_21lookupDBnXSByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !8
 
 _ZSt11lower_boundIPKZN4llvm12AArch64DBnXS21lookupDBnXSByEncodingEhE9IndexTypeZNS1_21lookupDBnXSByEncodingEhE7KeyTypeZNS1_21lookupDBnXSByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm12AArch64DBnXS21lookupDBnXSByEncodingEhE5Index, i64 32)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12AArch64DBnXS21lookupDBnXSByEncodingEhE5Index, i64 32)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm12AArch64DBnXS21lookupDBnXSByEncodingEhE9IndexTypeZNS1_21lookupDBnXSByEncodingEhE7KeyTypeZNS1_21lookupDBnXSByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit
@@ -2100,7 +2100,7 @@ define dso_local noundef ptr @_ZN4llvm12AArch64DBnXS21lookupDBnXSByImmValueEh(i8
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm12AArch64DBnXS21lookupDBnXSByImmValueEhE9IndexTypeZNS1_21lookupDBnXSByImmValueEhE7KeyTypeZNS1_21lookupDBnXSByImmValueEhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !9
 
 _ZSt11lower_boundIPKZN4llvm12AArch64DBnXS21lookupDBnXSByImmValueEhE9IndexTypeZNS1_21lookupDBnXSByImmValueEhE7KeyTypeZNS1_21lookupDBnXSByImmValueEhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm12AArch64DBnXS21lookupDBnXSByImmValueEhE5Index, i64 32)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12AArch64DBnXS21lookupDBnXSByImmValueEhE5Index, i64 32)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm12AArch64DBnXS21lookupDBnXSByImmValueEhE9IndexTypeZNS1_21lookupDBnXSByImmValueEhE7KeyTypeZNS1_21lookupDBnXSByImmValueEhE4CompET_S7_S7_RKT0_T1_.exit
@@ -2175,7 +2175,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64DB14lookupDBByNameENS2_9Strin
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm9AArch64DB14lookupDBByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupDBByNameES2_E7KeyTypeZNS1_14lookupDBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !10
 
 _ZSt11lower_boundIPKZN4llvm9AArch64DB14lookupDBByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupDBByNameES2_E7KeyTypeZNS1_14lookupDBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64DB14lookupDBByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupDBByNameES4_E9IndexTypeKZNS3_14lookupDBByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9AArch64DB14lookupDBByNameENS_9StringRefEE5Index, i64 192)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9AArch64DB14lookupDBByNameENS_9StringRefEE5Index, i64 192)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm9AArch64DB14lookupDBByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupDBByNameES2_E7KeyTypeZNS1_14lookupDBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -2217,7 +2217,7 @@ define dso_local noundef ptr @_ZN4llvm9AArch64DB18lookupDBByEncodingEh(i8 nounde
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm9AArch64DB18lookupDBByEncodingEhE9IndexTypeZNS1_18lookupDBByEncodingEhE7KeyTypeZNS1_18lookupDBByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !11
 
 _ZSt11lower_boundIPKZN4llvm9AArch64DB18lookupDBByEncodingEhE9IndexTypeZNS1_18lookupDBByEncodingEhE7KeyTypeZNS1_18lookupDBByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9AArch64DB18lookupDBByEncodingEhE5Index, i64 96)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9AArch64DB18lookupDBByEncodingEhE5Index, i64 96)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm9AArch64DB18lookupDBByEncodingEhE9IndexTypeZNS1_18lookupDBByEncodingEhE7KeyTypeZNS1_18lookupDBByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit
@@ -2292,7 +2292,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64DC14lookupDCByNameENS2_9Strin
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm9AArch64DC14lookupDCByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupDCByNameES2_E7KeyTypeZNS1_14lookupDCByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !12
 
 _ZSt11lower_boundIPKZN4llvm9AArch64DC14lookupDCByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupDCByNameES2_E7KeyTypeZNS1_14lookupDCByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64DC14lookupDCByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupDCByNameES4_E9IndexTypeKZNS3_14lookupDCByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9AArch64DC14lookupDCByNameENS_9StringRefEE5Index, i64 480)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9AArch64DC14lookupDCByNameENS_9StringRefEE5Index, i64 480)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm9AArch64DC14lookupDCByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupDCByNameES2_E7KeyTypeZNS1_14lookupDCByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -2334,7 +2334,7 @@ define dso_local noundef ptr @_ZN4llvm9AArch64DC18lookupDCByEncodingEt(i16 nound
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm9AArch64DC18lookupDCByEncodingEtE9IndexTypeZNS1_18lookupDCByEncodingEtE7KeyTypeZNS1_18lookupDCByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !13
 
 _ZSt11lower_boundIPKZN4llvm9AArch64DC18lookupDCByEncodingEtE9IndexTypeZNS1_18lookupDCByEncodingEtE7KeyTypeZNS1_18lookupDCByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9AArch64DC18lookupDCByEncodingEtE5Index, i64 240)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9AArch64DC18lookupDCByEncodingEtE5Index, i64 240)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm9AArch64DC18lookupDCByEncodingEtE9IndexTypeZNS1_18lookupDCByEncodingEtE7KeyTypeZNS1_18lookupDCByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit
@@ -2409,7 +2409,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64IC14lookupICByNameENS2_9Strin
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm9AArch64IC14lookupICByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupICByNameES2_E7KeyTypeZNS1_14lookupICByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !14
 
 _ZSt11lower_boundIPKZN4llvm9AArch64IC14lookupICByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupICByNameES2_E7KeyTypeZNS1_14lookupICByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm9AArch64IC14lookupICByNameENS2_9StringRefEE4CompEclIPKZNS3_14lookupICByNameES4_E9IndexTypeKZNS3_14lookupICByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9AArch64IC14lookupICByNameENS_9StringRefEE5Index, i64 48)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9AArch64IC14lookupICByNameENS_9StringRefEE5Index, i64 48)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm9AArch64IC14lookupICByNameENS0_9StringRefEE9IndexTypeZNS1_14lookupICByNameES2_E7KeyTypeZNS1_14lookupICByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -2451,7 +2451,7 @@ define dso_local noundef ptr @_ZN4llvm9AArch64IC18lookupICByEncodingEt(i16 nound
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm9AArch64IC18lookupICByEncodingEtE9IndexTypeZNS1_18lookupICByEncodingEtE7KeyTypeZNS1_18lookupICByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !15
 
 _ZSt11lower_boundIPKZN4llvm9AArch64IC18lookupICByEncodingEtE9IndexTypeZNS1_18lookupICByEncodingEtE7KeyTypeZNS1_18lookupICByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm9AArch64IC18lookupICByEncodingEtE5Index, i64 24)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm9AArch64IC18lookupICByEncodingEtE5Index, i64 24)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm9AArch64IC18lookupICByEncodingEtE9IndexTypeZNS1_18lookupICByEncodingEtE7KeyTypeZNS1_18lookupICByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit
@@ -2620,7 +2620,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64PRFM16lookupPRFMByNameENS2_9
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm11AArch64PRFM16lookupPRFMByNameENS0_9StringRefEE9IndexTypeZNS1_16lookupPRFMByNameES2_E7KeyTypeZNS1_16lookupPRFMByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !16
 
 _ZSt11lower_boundIPKZN4llvm11AArch64PRFM16lookupPRFMByNameENS0_9StringRefEE9IndexTypeZNS1_16lookupPRFMByNameES2_E7KeyTypeZNS1_16lookupPRFMByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64PRFM16lookupPRFMByNameENS2_9StringRefEE4CompEclIPKZNS3_16lookupPRFMByNameES4_E9IndexTypeKZNS3_16lookupPRFMByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm11AArch64PRFM16lookupPRFMByNameENS_9StringRefEE5Index, i64 384)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm11AArch64PRFM16lookupPRFMByNameENS_9StringRefEE5Index, i64 384)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm11AArch64PRFM16lookupPRFMByNameENS0_9StringRefEE9IndexTypeZNS1_16lookupPRFMByNameES2_E7KeyTypeZNS1_16lookupPRFMByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -2715,7 +2715,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm14AArch64SVEPRFM19lookupSVEPRFMByName
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm14AArch64SVEPRFM19lookupSVEPRFMByNameENS0_9StringRefEE9IndexTypeZNS1_19lookupSVEPRFMByNameES2_E7KeyTypeZNS1_19lookupSVEPRFMByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !17
 
 _ZSt11lower_boundIPKZN4llvm14AArch64SVEPRFM19lookupSVEPRFMByNameENS0_9StringRefEE9IndexTypeZNS1_19lookupSVEPRFMByNameES2_E7KeyTypeZNS1_19lookupSVEPRFMByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm14AArch64SVEPRFM19lookupSVEPRFMByNameENS2_9StringRefEE4CompEclIPKZNS3_19lookupSVEPRFMByNameES4_E9IndexTypeKZNS3_19lookupSVEPRFMByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm14AArch64SVEPRFM19lookupSVEPRFMByNameENS_9StringRefEE5Index, i64 192)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm14AArch64SVEPRFM19lookupSVEPRFMByNameENS_9StringRefEE5Index, i64 192)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64SVEPRFM19lookupSVEPRFMByNameENS0_9StringRefEE9IndexTypeZNS1_19lookupSVEPRFMByNameES2_E7KeyTypeZNS1_19lookupSVEPRFMByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -2757,7 +2757,7 @@ define dso_local noundef ptr @_ZN4llvm14AArch64SVEPRFM23lookupSVEPRFMByEncodingE
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm14AArch64SVEPRFM23lookupSVEPRFMByEncodingEhE9IndexTypeZNS1_23lookupSVEPRFMByEncodingEhE7KeyTypeZNS1_23lookupSVEPRFMByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !18
 
 _ZSt11lower_boundIPKZN4llvm14AArch64SVEPRFM23lookupSVEPRFMByEncodingEhE9IndexTypeZNS1_23lookupSVEPRFMByEncodingEhE7KeyTypeZNS1_23lookupSVEPRFMByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm14AArch64SVEPRFM23lookupSVEPRFMByEncodingEhE5Index, i64 96)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm14AArch64SVEPRFM23lookupSVEPRFMByEncodingEhE5Index, i64 96)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64SVEPRFM23lookupSVEPRFMByEncodingEhE9IndexTypeZNS1_23lookupSVEPRFMByEncodingEhE7KeyTypeZNS1_23lookupSVEPRFMByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit
@@ -2832,7 +2832,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64RPRFM17lookupRPRFMByNameENS2
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm12AArch64RPRFM17lookupRPRFMByNameENS0_9StringRefEE9IndexTypeZNS1_17lookupRPRFMByNameES2_E7KeyTypeZNS1_17lookupRPRFMByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !19
 
 _ZSt11lower_boundIPKZN4llvm12AArch64RPRFM17lookupRPRFMByNameENS0_9StringRefEE9IndexTypeZNS1_17lookupRPRFMByNameES2_E7KeyTypeZNS1_17lookupRPRFMByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64RPRFM17lookupRPRFMByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupRPRFMByNameES4_E9IndexTypeKZNS3_17lookupRPRFMByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm12AArch64RPRFM17lookupRPRFMByNameENS_9StringRefEE5Index, i64 64)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12AArch64RPRFM17lookupRPRFMByNameENS_9StringRefEE5Index, i64 64)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm12AArch64RPRFM17lookupRPRFMByNameENS0_9StringRefEE9IndexTypeZNS1_17lookupRPRFMByNameES2_E7KeyTypeZNS1_17lookupRPRFMByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -2874,7 +2874,7 @@ define dso_local noundef ptr @_ZN4llvm12AArch64RPRFM21lookupRPRFMByEncodingEh(i8
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm12AArch64RPRFM21lookupRPRFMByEncodingEhE9IndexTypeZNS1_21lookupRPRFMByEncodingEhE7KeyTypeZNS1_21lookupRPRFMByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !20
 
 _ZSt11lower_boundIPKZN4llvm12AArch64RPRFM21lookupRPRFMByEncodingEhE9IndexTypeZNS1_21lookupRPRFMByEncodingEhE7KeyTypeZNS1_21lookupRPRFMByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm12AArch64RPRFM21lookupRPRFMByEncodingEhE5Index, i64 32)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12AArch64RPRFM21lookupRPRFMByEncodingEhE5Index, i64 32)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm12AArch64RPRFM21lookupRPRFMByEncodingEhE9IndexTypeZNS1_21lookupRPRFMByEncodingEhE7KeyTypeZNS1_21lookupRPRFMByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit
@@ -2949,7 +2949,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21AArch64SVEPredPattern22lookupSVEPRE
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm21AArch64SVEPredPattern22lookupSVEPREDPATByNameENS0_9StringRefEE9IndexTypeZNS1_22lookupSVEPREDPATByNameES2_E7KeyTypeZNS1_22lookupSVEPREDPATByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !21
 
 _ZSt11lower_boundIPKZN4llvm21AArch64SVEPredPattern22lookupSVEPREDPATByNameENS0_9StringRefEE9IndexTypeZNS1_22lookupSVEPREDPATByNameES2_E7KeyTypeZNS1_22lookupSVEPREDPATByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21AArch64SVEPredPattern22lookupSVEPREDPATByNameENS2_9StringRefEE4CompEclIPKZNS3_22lookupSVEPREDPATByNameES4_E9IndexTypeKZNS3_22lookupSVEPREDPATByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm21AArch64SVEPredPattern22lookupSVEPREDPATByNameENS_9StringRefEE5Index, i64 272)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm21AArch64SVEPredPattern22lookupSVEPREDPATByNameENS_9StringRefEE5Index, i64 272)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm21AArch64SVEPredPattern22lookupSVEPREDPATByNameENS0_9StringRefEE9IndexTypeZNS1_22lookupSVEPREDPATByNameES2_E7KeyTypeZNS1_22lookupSVEPREDPATByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -2991,7 +2991,7 @@ define dso_local noundef ptr @_ZN4llvm21AArch64SVEPredPattern26lookupSVEPREDPATB
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm21AArch64SVEPredPattern26lookupSVEPREDPATByEncodingEhE9IndexTypeZNS1_26lookupSVEPREDPATByEncodingEhE7KeyTypeZNS1_26lookupSVEPREDPATByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !22
 
 _ZSt11lower_boundIPKZN4llvm21AArch64SVEPredPattern26lookupSVEPREDPATByEncodingEhE9IndexTypeZNS1_26lookupSVEPREDPATByEncodingEhE7KeyTypeZNS1_26lookupSVEPREDPATByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm21AArch64SVEPredPattern26lookupSVEPREDPATByEncodingEhE5Index, i64 136)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm21AArch64SVEPredPattern26lookupSVEPREDPATByEncodingEhE5Index, i64 136)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm21AArch64SVEPredPattern26lookupSVEPREDPATByEncodingEhE9IndexTypeZNS1_26lookupSVEPREDPATByEncodingEhE7KeyTypeZNS1_26lookupSVEPREDPATByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit
@@ -3066,7 +3066,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25AArch64SVEVecLenSpecifier30lookupSV
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS0_9StringRefEE9IndexTypeZNS1_30lookupSVEVECLENSPECIFIERByNameES2_E7KeyTypeZNS1_30lookupSVEVECLENSPECIFIERByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !23
 
 _ZSt11lower_boundIPKZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS0_9StringRefEE9IndexTypeZNS1_30lookupSVEVECLENSPECIFIERByNameES2_E7KeyTypeZNS1_30lookupSVEVECLENSPECIFIERByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS2_9StringRefEE4CompEclIPKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E9IndexTypeKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS_9StringRefEE5Index, i64 32)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS_9StringRefEE5Index, i64 32)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS0_9StringRefEE9IndexTypeZNS1_30lookupSVEVECLENSPECIFIERByNameES2_E7KeyTypeZNS1_30lookupSVEVECLENSPECIFIERByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -3179,7 +3179,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm17AArch64ExactFPImm22lookupExactFPImm
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm17AArch64ExactFPImm22lookupExactFPImmByReprENS0_9StringRefEE9IndexTypeZNS1_22lookupExactFPImmByReprES2_E7KeyTypeZNS1_22lookupExactFPImmByReprES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !24
 
 _ZSt11lower_boundIPKZN4llvm17AArch64ExactFPImm22lookupExactFPImmByReprENS0_9StringRefEE9IndexTypeZNS1_22lookupExactFPImmByReprES2_E7KeyTypeZNS1_22lookupExactFPImmByReprES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm17AArch64ExactFPImm22lookupExactFPImmByReprENS2_9StringRefEE4CompEclIPKZNS3_22lookupExactFPImmByReprES4_E9IndexTypeKZNS3_22lookupExactFPImmByReprES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm17AArch64ExactFPImm22lookupExactFPImmByReprENS_9StringRefEE5Index, i64 64)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm17AArch64ExactFPImm22lookupExactFPImmByReprENS_9StringRefEE5Index, i64 64)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm17AArch64ExactFPImm22lookupExactFPImmByReprENS0_9StringRefEE9IndexTypeZNS1_22lookupExactFPImmByReprES2_E7KeyTypeZNS1_22lookupExactFPImmByReprES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -3256,7 +3256,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState25lookupPStateImm0_15B
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm13AArch64PState25lookupPStateImm0_15ByNameENS0_9StringRefEE9IndexTypeZNS1_25lookupPStateImm0_15ByNameES2_E7KeyTypeZNS1_25lookupPStateImm0_15ByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !25
 
 _ZSt11lower_boundIPKZN4llvm13AArch64PState25lookupPStateImm0_15ByNameENS0_9StringRefEE9IndexTypeZNS1_25lookupPStateImm0_15ByNameES2_E7KeyTypeZNS1_25lookupPStateImm0_15ByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState25lookupPStateImm0_15ByNameENS2_9StringRefEE4CompEclIPKZNS3_25lookupPStateImm0_15ByNameES4_E9IndexTypeKZNS3_25lookupPStateImm0_15ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm13AArch64PState25lookupPStateImm0_15ByNameENS_9StringRefEE5Index, i64 128)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm13AArch64PState25lookupPStateImm0_15ByNameENS_9StringRefEE5Index, i64 128)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm13AArch64PState25lookupPStateImm0_15ByNameENS0_9StringRefEE9IndexTypeZNS1_25lookupPStateImm0_15ByNameES2_E7KeyTypeZNS1_25lookupPStateImm0_15ByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -3298,7 +3298,7 @@ define dso_local noundef ptr @_ZN4llvm13AArch64PState29lookupPStateImm0_15ByEnco
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm13AArch64PState29lookupPStateImm0_15ByEncodingEhE9IndexTypeZNS1_29lookupPStateImm0_15ByEncodingEhE7KeyTypeZNS1_29lookupPStateImm0_15ByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !26
 
 _ZSt11lower_boundIPKZN4llvm13AArch64PState29lookupPStateImm0_15ByEncodingEhE9IndexTypeZNS1_29lookupPStateImm0_15ByEncodingEhE7KeyTypeZNS1_29lookupPStateImm0_15ByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm13AArch64PState29lookupPStateImm0_15ByEncodingEhE5Index, i64 64)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm13AArch64PState29lookupPStateImm0_15ByEncodingEhE5Index, i64 64)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm13AArch64PState29lookupPStateImm0_15ByEncodingEhE9IndexTypeZNS1_29lookupPStateImm0_15ByEncodingEhE7KeyTypeZNS1_29lookupPStateImm0_15ByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit
@@ -3373,7 +3373,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState24lookupPStateImm0_1By
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS0_9StringRefEE9IndexTypeZNS1_24lookupPStateImm0_1ByNameES2_E7KeyTypeZNS1_24lookupPStateImm0_1ByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !27
 
 _ZSt11lower_boundIPKZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS0_9StringRefEE9IndexTypeZNS1_24lookupPStateImm0_1ByNameES2_E7KeyTypeZNS1_24lookupPStateImm0_1ByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS2_9StringRefEE4CompEclIPKZNS3_24lookupPStateImm0_1ByNameES4_E9IndexTypeKZNS3_24lookupPStateImm0_1ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS_9StringRefEE5Index, i64 32)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS_9StringRefEE5Index, i64 32)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS0_9StringRefEE9IndexTypeZNS1_24lookupPStateImm0_1ByNameES2_E7KeyTypeZNS1_24lookupPStateImm0_1ByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -3415,7 +3415,7 @@ define dso_local noundef ptr @_ZN4llvm13AArch64PState28lookupPStateImm0_1ByEncod
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm13AArch64PState28lookupPStateImm0_1ByEncodingEtE9IndexTypeZNS1_28lookupPStateImm0_1ByEncodingEtE7KeyTypeZNS1_28lookupPStateImm0_1ByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !28
 
 _ZSt11lower_boundIPKZN4llvm13AArch64PState28lookupPStateImm0_1ByEncodingEtE9IndexTypeZNS1_28lookupPStateImm0_1ByEncodingEtE7KeyTypeZNS1_28lookupPStateImm0_1ByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm13AArch64PState28lookupPStateImm0_1ByEncodingEtE5Index, i64 16)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm13AArch64PState28lookupPStateImm0_1ByEncodingEtE5Index, i64 16)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm13AArch64PState28lookupPStateImm0_1ByEncodingEtE9IndexTypeZNS1_28lookupPStateImm0_1ByEncodingEtE7KeyTypeZNS1_28lookupPStateImm0_1ByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit
@@ -3537,7 +3537,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm14AArch64BTIHint15lookupBTIByNameENS2
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm14AArch64BTIHint15lookupBTIByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupBTIByNameES2_E7KeyTypeZNS1_15lookupBTIByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !29
 
 _ZSt11lower_boundIPKZN4llvm14AArch64BTIHint15lookupBTIByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupBTIByNameES2_E7KeyTypeZNS1_15lookupBTIByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm14AArch64BTIHint15lookupBTIByNameENS2_9StringRefEE4CompEclIPKZNS3_15lookupBTIByNameES4_E9IndexTypeKZNS3_15lookupBTIByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm14AArch64BTIHint15lookupBTIByNameENS_9StringRefEE5Index, i64 48)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm14AArch64BTIHint15lookupBTIByNameENS_9StringRefEE5Index, i64 48)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64BTIHint15lookupBTIByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupBTIByNameES2_E7KeyTypeZNS1_15lookupBTIByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -3579,7 +3579,7 @@ define dso_local noundef ptr @_ZN4llvm14AArch64BTIHint19lookupBTIByEncodingEh(i8
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm14AArch64BTIHint19lookupBTIByEncodingEhE9IndexTypeZNS1_19lookupBTIByEncodingEhE7KeyTypeZNS1_19lookupBTIByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !30
 
 _ZSt11lower_boundIPKZN4llvm14AArch64BTIHint19lookupBTIByEncodingEhE9IndexTypeZNS1_19lookupBTIByEncodingEhE7KeyTypeZNS1_19lookupBTIByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm14AArch64BTIHint19lookupBTIByEncodingEhE5Index, i64 24)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm14AArch64BTIHint19lookupBTIByEncodingEhE5Index, i64 24)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64BTIHint19lookupBTIByEncodingEhE9IndexTypeZNS1_19lookupBTIByEncodingEhE7KeyTypeZNS1_19lookupBTIByEncodingEhE4CompET_S7_S7_RKT0_T1_.exit
@@ -3654,7 +3654,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64SysReg18lookupSysRegByNameEN
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm13AArch64SysReg18lookupSysRegByNameENS0_9StringRefEE9IndexTypeZNS1_18lookupSysRegByNameES2_E7KeyTypeZNS1_18lookupSysRegByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !31
 
 _ZSt11lower_boundIPKZN4llvm13AArch64SysReg18lookupSysRegByNameENS0_9StringRefEE9IndexTypeZNS1_18lookupSysRegByNameES2_E7KeyTypeZNS1_18lookupSysRegByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64SysReg18lookupSysRegByNameENS2_9StringRefEE4CompEclIPKZNS3_18lookupSysRegByNameES4_E9IndexTypeKZNS3_18lookupSysRegByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm13AArch64SysReg18lookupSysRegByNameENS_9StringRefEE5Index, i64 19424)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm13AArch64SysReg18lookupSysRegByNameENS_9StringRefEE5Index, i64 19424)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm13AArch64SysReg18lookupSysRegByNameENS0_9StringRefEE9IndexTypeZNS1_18lookupSysRegByNameES2_E7KeyTypeZNS1_18lookupSysRegByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -3696,7 +3696,7 @@ define dso_local noundef ptr @_ZN4llvm13AArch64SysReg22lookupSysRegByEncodingEt(
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm13AArch64SysReg22lookupSysRegByEncodingEtE9IndexTypeZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !32
 
 _ZSt11lower_boundIPKZN4llvm13AArch64SysReg22lookupSysRegByEncodingEtE9IndexTypeZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm13AArch64SysReg22lookupSysRegByEncodingEtE5Index, i64 9712)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm13AArch64SysReg22lookupSysRegByEncodingEtE5Index, i64 9712)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm13AArch64SysReg22lookupSysRegByEncodingEtE9IndexTypeZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit
@@ -4161,7 +4161,7 @@ define dso_local noundef ptr @_ZN4llvm11AArch64TLBI20lookupTLBIByEncodingEt(i16 
   br i1 %8, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm11AArch64TLBI20lookupTLBIByEncodingEtE9IndexTypeZNS1_20lookupTLBIByEncodingEtE7KeyTypeZNS1_20lookupTLBIByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !77
 
 _ZSt11lower_boundIPKZN4llvm11AArch64TLBI20lookupTLBIByEncodingEtE9IndexTypeZNS1_20lookupTLBIByEncodingEtE7KeyTypeZNS1_20lookupTLBIByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit: ; preds = %.lr.ph.i.i
-  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm11AArch64TLBI20lookupTLBIByEncodingEtE5Index, i64 1360)
+  %9 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm11AArch64TLBI20lookupTLBIByEncodingEtE5Index, i64 1360)
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm11AArch64TLBI20lookupTLBIByEncodingEtE9IndexTypeZNS1_20lookupTLBIByEncodingEtE7KeyTypeZNS1_20lookupTLBIByEncodingEtE4CompET_S7_S7_RKT0_T1_.exit
@@ -4236,7 +4236,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64TLBI16lookupTLBIByNameENS2_9
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm11AArch64TLBI16lookupTLBIByNameENS0_9StringRefEE9IndexTypeZNS1_16lookupTLBIByNameES2_E7KeyTypeZNS1_16lookupTLBIByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !78
 
 _ZSt11lower_boundIPKZN4llvm11AArch64TLBI16lookupTLBIByNameENS0_9StringRefEE9IndexTypeZNS1_16lookupTLBIByNameES2_E7KeyTypeZNS1_16lookupTLBIByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64TLBI16lookupTLBIByNameENS2_9StringRefEE4CompEclIPKZNS3_16lookupTLBIByNameES4_E9IndexTypeKZNS3_16lookupTLBIByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm11AArch64TLBI16lookupTLBIByNameENS_9StringRefEE5Index, i64 2720)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm11AArch64TLBI16lookupTLBIByNameENS_9StringRefEE5Index, i64 2720)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm11AArch64TLBI16lookupTLBIByNameENS0_9StringRefEE9IndexTypeZNS1_16lookupTLBIByNameES2_E7KeyTypeZNS1_16lookupTLBIByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
@@ -4313,7 +4313,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64SVCR16lookupSVCRByNameENS2_9
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm11AArch64SVCR16lookupSVCRByNameENS0_9StringRefEE9IndexTypeZNS1_16lookupSVCRByNameES2_E7KeyTypeZNS1_16lookupSVCRByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !79
 
 _ZSt11lower_boundIPKZN4llvm11AArch64SVCR16lookupSVCRByNameENS0_9StringRefEE9IndexTypeZNS1_16lookupSVCRByNameES2_E7KeyTypeZNS1_16lookupSVCRByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm11AArch64SVCR16lookupSVCRByNameENS2_9StringRefEE4CompEclIPKZNS3_16lookupSVCRByNameES4_E9IndexTypeKZNS3_16lookupSVCRByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
-  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm11AArch64SVCR16lookupSVCRByNameENS_9StringRefEE5Index, i64 48)
+  %21 = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN4llvm11AArch64SVCR16lookupSVCRByNameENS_9StringRefEE5Index, i64 48)
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm11AArch64SVCR16lookupSVCRByNameENS0_9StringRefEE9IndexTypeZNS1_16lookupSVCRByNameES2_E7KeyTypeZNS1_16lookupSVCRByNameES2_E4CompET_S8_S8_RKT0_T1_.exit

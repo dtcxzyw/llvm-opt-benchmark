@@ -749,7 +749,7 @@ invoke.cont42:
   %ref.tmp = alloca %"struct.btSoftBody::Node", align 8
   %ref.tmp107 = alloca %struct.btDbvtAabbMm, align 8
   tail call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 400
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 392
@@ -1458,7 +1458,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTV24btSoftBodyCollisionShape, i64 16), ptr %call.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24btSoftBodyCollisionShape, i64 16), ptr %call.i, align 8
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 32, ptr %m_shapeType.i, align 8
   %m_body.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -3228,7 +3228,7 @@ declare void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereference
 define dso_local void @_ZN10btSoftBodyC2EP19btSoftBodyWorldInfo(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef %worldInfo) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont42:
   tail call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 400
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 392
@@ -4366,7 +4366,7 @@ sw.epilog:                                        ; preds = %_ZN20btAlignedObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
   %m_collisionShape = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_collisionShape, align 8
   %isnull = icmp eq ptr %0, null
@@ -11352,7 +11352,7 @@ entry:
   %scevgep.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6LJointE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody6LJointE, i64 16), ptr %call, align 8
   store ptr %body0, ptr %scevgep.i.i, align 8
   %ref.tmp.sroa.2.0.m_bodies.sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.2.0.m_bodies.sroa_idx, i8 0, i64 16, i1 false)
@@ -11687,7 +11687,7 @@ entry:
   %scevgep.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 0, i64 168, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6AJointE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody6AJointE, i64 16), ptr %call, align 8
   store ptr %body0, ptr %scevgep.i.i, align 8
   %ref.tmp.sroa.2.0.m_bodies.sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.2.0.m_bodies.sroa_idx, i8 0, i64 16, i1 false)
@@ -25574,7 +25574,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
 
 if.else:                                          ; preds = %lor.lhs.false
   %23 = load float, ptr %mint, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %collider, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %collider, align 8
   %m_rayFrom.i = getelementptr inbounds nuw i8, ptr %collider, i64 8
   %m_rayTo.i = getelementptr inbounds nuw i8, ptr %collider, i64 24
   %m_rayNormalizedDirection.i = getelementptr inbounds nuw i8, ptr %collider, i64 40
@@ -25820,7 +25820,7 @@ if.end4:                                          ; preds = %if.else, %if.then3
   %index = getelementptr inbounds nuw i8, ptr %results, i64 12
   store i32 -1, ptr %index, align 4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %collider.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %collider.i, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %collider.i, align 8
   %m_rayFrom.i.i = getelementptr inbounds nuw i8, ptr %collider.i, i64 8
   %m_rayTo.i.i = getelementptr inbounds nuw i8, ptr %collider.i, i64 24
   %m_rayNormalizedDirection.i.i = getelementptr inbounds nuw i8, ptr %collider.i, i64 40
@@ -25884,7 +25884,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZNK10btSoftBody11rayFaceTestERK9b
 entry:
   %collider = alloca %"struct.btSoftBody::RayFromToCaster", align 8
   %0 = load float, ptr %mint, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %collider, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %collider, align 8
   %m_rayFrom.i = getelementptr inbounds nuw i8, ptr %collider, i64 8
   %m_rayTo.i = getelementptr inbounds nuw i8, ptr %collider, i64 24
   %m_rayNormalizedDirection.i = getelementptr inbounds nuw i8, ptr %collider, i64 40
@@ -28955,7 +28955,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN10btSoftBody15RayFromToCasterC2ERK9btVector3S3_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 60), (64, 76)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayTo, float noundef %mxt) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %this, align 8
   %m_rayFrom = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_rayTo = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_rayNormalizedDirection = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -32278,7 +32278,7 @@ cond.end9:                                        ; preds = %cond.true3, %cond.f
   %retval.sroa.0.4.vec.insert.i81 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i80, float %sub8.i76, i64 1
   %retval.sroa.3.12.vec.insert.i82 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i79, i64 0
   call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %triangle)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangle, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangle, align 8
   %m_vertices1.ptr.i = getelementptr inbounds nuw i8, ptr %triangle, i64 80
   %m_shapeType.i = getelementptr inbounds nuw i8, ptr %triangle, i64 8
   store i32 1, ptr %m_shapeType.i, align 8
@@ -32451,7 +32451,7 @@ invoke.cont104:                                   ; preds = %invoke.cont101
   %retval.sroa.0.0.vec.insert.i103 = insertelement <2 x float> poison, float %sub.i96, i64 0
   %sub8.i99 = fsub float %93, %94
   %retval.sroa.0.4.vec.insert.i104 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i103, float %sub8.i99, i64 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangle2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangle2, align 8
   %m_vertices1.ptr.i120 = getelementptr inbounds nuw i8, ptr %triangle2, i64 80
   %m_shapeType.i121 = getelementptr inbounds nuw i8, ptr %triangle2, i64 8
   store i32 1, ptr %m_shapeType.i121, align 8
@@ -32533,7 +32533,7 @@ invoke.cont151:                                   ; preds = %invoke.cont148
   %retval.sroa.0.0.vec.insert.i142 = insertelement <2 x float> poison, float %sub.i135, i64 0
   %sub8.i138 = fsub float %109, %110
   %retval.sroa.0.4.vec.insert.i143 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i142, float %sub8.i138, i64 1
-  store ptr getelementptr inbounds (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangle2125, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %triangle2125, align 8
   %m_vertices1.ptr.i159 = getelementptr inbounds nuw i8, ptr %triangle2125, i64 80
   %m_shapeType.i160 = getelementptr inbounds nuw i8, ptr %triangle2125, i64 8
   store i32 1, ptr %m_shapeType.i160, align 8
@@ -38016,7 +38016,7 @@ entry:
   ]
 
 invoke.cont16:                                    ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders13CollideSDF_RSE, i64 16), ptr %docollide, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders13CollideSDF_RSE, i64 16), ptr %docollide, align 8
   %m_collisionObject.i = getelementptr inbounds nuw i8, ptr %pcoWrap, i64 16
   %1 = load ptr, ptr %m_collisionObject.i, align 8
   %m_internalType.i.i = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -38101,7 +38101,7 @@ sw.bb39:                                          ; preds = %entry
   %idt.i.i = getelementptr inbounds nuw i8, ptr %collider, i64 12
   %18 = getelementptr inbounds nuw i8, ptr %collider, i64 24
   store i32 0, ptr %18, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideCL_RSE, i64 16), ptr %collider, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders12CollideCL_RSE, i64 16), ptr %collider, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %mins.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %maxs.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %volume.i)
@@ -38255,7 +38255,7 @@ if.then:                                          ; preds = %sw.bb42
   br i1 %tobool.not, label %if.end, label %if.then66
 
 if.then66:                                        ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders13CollideSDF_RDE, i64 16), ptr %docollideNode, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders13CollideSDF_RDE, i64 16), ptr %docollideNode, align 8
   %psb67 = getelementptr inbounds nuw i8, ptr %docollideNode, i64 8
   store ptr %this, ptr %psb67, align 8
   %m_colObj1Wrap68 = getelementptr inbounds nuw i8, ptr %docollideNode, i64 16
@@ -38294,7 +38294,7 @@ land.lhs.true87:                                  ; preds = %if.end
   br i1 %tobool91.not, label %sw.epilog, label %if.then92
 
 if.then92:                                        ; preds = %land.lhs.true87, %land.lhs.true
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders14CollideSDF_RDFE, i64 16), ptr %docollideFace, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders14CollideSDF_RDFE, i64 16), ptr %docollideFace, align 8
   %psb93 = getelementptr inbounds nuw i8, ptr %docollideFace, i64 8
   store ptr %this, ptr %psb93, align 8
   %m_colObj1Wrap94 = getelementptr inbounds nuw i8, ptr %docollideFace, i64 16
@@ -38636,7 +38636,7 @@ if.then:                                          ; preds = %sw.bb
   %idt.i.i = getelementptr inbounds nuw i8, ptr %docollide, i64 12
   %3 = getelementptr inbounds nuw i8, ptr %docollide, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 12, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideCL_SSE, i64 16), ptr %docollide, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders12CollideCL_SSE, i64 16), ptr %docollide, align 8
   %isdt.i = getelementptr inbounds nuw i8, ptr %this, i64 628
   %4 = load float, ptr %isdt.i, align 4
   store float %4, ptr %idt.i.i, align 4
@@ -38690,7 +38690,7 @@ sw.bb10:                                          ; preds = %entry
   br i1 %cmp11.not, label %cleanup, label %if.then12
 
 if.then12:                                        ; preds = %sw.bb10
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideVF_SSE, i64 16), ptr %docollide13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders12CollideVF_SSE, i64 16), ptr %docollide13, align 8
   %m_collisionShape.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %15 = load ptr, ptr %m_collisionShape.i, align 8
   %vtable = load ptr, ptr %15, align 8
@@ -38767,7 +38767,7 @@ if.then62:                                        ; preds = %lor.lhs.false59, %i
   br i1 %cmp63.not, label %if.else128, label %if.then64
 
 if.then64:                                        ; preds = %if.then62
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideVF_DDE, i64 16), ptr %docollide65, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders12CollideVF_DDE, i64 16), ptr %docollide65, align 8
   %m_collisionShape.i24 = getelementptr inbounds nuw i8, ptr %this, i64 200
   %27 = load ptr, ptr %m_collisionShape.i24, align 8
   %vtable69 = load ptr, ptr %27, align 8
@@ -38833,7 +38833,7 @@ if.else128:                                       ; preds = %if.then62
   br i1 %tobool.i, label %if.then130, label %cleanup
 
 if.then130:                                       ; preds = %if.else128
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders12CollideFF_DDE, i64 16), ptr %docollide131, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders12CollideFF_DDE, i64 16), ptr %docollide131, align 8
   %m_collisionShape.i27 = getelementptr inbounds nuw i8, ptr %this, i64 200
   %40 = load ptr, ptr %m_collisionShape.i27, align 8
   %vtable135 = load ptr, ptr %40, align 8
@@ -39685,7 +39685,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp.not, label %if.else45, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders10CollideCCDE, i64 16), ptr %docollide, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders10CollideCCDE, i64 16), ptr %docollide, align 8
   %mrg = getelementptr inbounds nuw i8, ptr %docollide, i64 28
   store float 0x3EE9000000000000, ptr %mrg, align 4
   %m_sst = getelementptr inbounds nuw i8, ptr %psb, i64 624
@@ -39728,7 +39728,7 @@ if.else45:                                        ; preds = %if.then
   br i1 %tobool.i, label %if.then47, label %if.end73
 
 if.then47:                                        ; preds = %if.else45
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN15btSoftColliders10CollideCCDE, i64 16), ptr %docollide48, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN15btSoftColliders10CollideCCDE, i64 16), ptr %docollide48, align 8
   %mrg49 = getelementptr inbounds nuw i8, ptr %docollide48, i64 28
   store float 0x3EE9000000000000, ptr %mrg49, align 4
   %psb50 = getelementptr inbounds nuw i8, ptr %docollide48, i64 8
@@ -47394,7 +47394,7 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %leaf, i64 40
   %1 = load ptr, ptr %0, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %cshape)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btSoftClusterCollisionShape, i64 16), ptr %cshape, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btSoftClusterCollisionShape, i64 16), ptr %cshape, align 8
   %m_cluster.i = getelementptr inbounds nuw i8, ptr %cshape, i64 72
   store ptr %1, ptr %m_cluster.i, align 8
   %m_collisionMargin.i.i.i = getelementptr inbounds nuw i8, ptr %cshape, i64 64
@@ -47469,7 +47469,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i.i, i8 0, i64 48, i1 false)
   %m_delete.i.i = getelementptr inbounds nuw i8, ptr %joint, i64 180
   store i8 0, ptr %m_delete.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %joint, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %joint, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %m_rigid.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rigid.i, i8 0, i64 16, i1 false)
@@ -47501,7 +47501,7 @@ invoke.cont29:                                    ; preds = %if.then25
   %m_delete.i.i13 = getelementptr inbounds nuw i8, ptr %call27, i64 180
   %15 = getelementptr inbounds nuw i8, ptr %call27, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %15, i8 0, i64 240, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %call27, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %call27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %scevgep.i.i12, ptr noundef nonnull align 8 dereferenceable(124) %scevgep.i.i, i64 124, i1 false)
   %m_massmatrix.i.i = getelementptr inbounds nuw i8, ptr %call27, i64 132
   %m_massmatrix3.i.i = getelementptr inbounds nuw i8, ptr %joint, i64 132
@@ -50868,7 +50868,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then16:                                        ; preds = %land.lhs.true, %entry, %if.then
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %csa)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btSoftClusterCollisionShape, i64 16), ptr %csa, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btSoftClusterCollisionShape, i64 16), ptr %csa, align 8
   %m_cluster.i = getelementptr inbounds nuw i8, ptr %csa, i64 72
   store ptr %1, ptr %m_cluster.i, align 8
   %m_collisionMargin.i.i.i = getelementptr inbounds nuw i8, ptr %csa, i64 64
@@ -50877,7 +50877,7 @@ if.then16:                                        ; preds = %land.lhs.true, %ent
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.then16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV27btSoftClusterCollisionShape, i64 16), ptr %csb, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27btSoftClusterCollisionShape, i64 16), ptr %csb, align 8
   %m_cluster.i13 = getelementptr inbounds nuw i8, ptr %csb, i64 72
   store ptr %3, ptr %m_cluster.i13, align 8
   %m_collisionMargin.i.i.i14 = getelementptr inbounds nuw i8, ptr %csb, i64 64
@@ -50974,7 +50974,7 @@ invoke.cont29:                                    ; preds = %invoke.cont26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i.i, i8 0, i64 48, i1 false)
   %m_delete.i.i = getelementptr inbounds nuw i8, ptr %joint, i64 180
   store i8 0, ptr %m_delete.i.i, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %joint, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %joint, align 8
   store ptr %1, ptr %agg.tmp, align 8
   %m_rigid.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rigid.i, i8 0, i64 16, i1 false)
@@ -50996,7 +50996,7 @@ invoke.cont40:                                    ; preds = %if.then36
   %m_delete.i.i29 = getelementptr inbounds nuw i8, ptr %call38, i64 180
   %26 = getelementptr inbounds nuw i8, ptr %call38, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %26, i8 0, i64 240, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %call38, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN10btSoftBody6CJointE, i64 16), ptr %call38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %scevgep.i.i28, ptr noundef nonnull align 8 dereferenceable(124) %scevgep.i.i, i64 124, i1 false)
   %m_massmatrix.i.i = getelementptr inbounds nuw i8, ptr %call38, i64 132
   %m_massmatrix3.i.i = getelementptr inbounds nuw i8, ptr %joint, i64 132
@@ -54527,50 +54527,50 @@ define internal void @_GLOBAL__sub_I_btSoftBody.cpp() #34 section ".text.startup
 entry:
   store float 1.000000e+00, ptr @_ZL3dop, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 4), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 20), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZL3dop, i64 24), i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 40), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 44), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 48), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 52), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 56), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 60), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 64), align 16
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 68), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 72), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 76), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 80), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 84), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 88), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 92), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 96), align 16
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 100), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 104), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 108), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 112), align 16
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 116), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 120), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 124), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 128), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 132), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 136), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 140), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 144), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 148), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 152), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 156), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 160), align 16
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 164), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 168), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 172), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 176), align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 180), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 184), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 188), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 192), align 16
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 196), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 200), align 8
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL3dop, i64 204), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 20), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 24), i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 40), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 44), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 48), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 52), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 56), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 60), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 64), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 68), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 72), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 76), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 80), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 84), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 88), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 92), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 96), align 16
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 100), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 104), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 108), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 112), align 16
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 116), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 120), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 124), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 128), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 132), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 136), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 140), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 144), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 148), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 152), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 156), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 160), align 16
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 164), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 168), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 172), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 176), align 16
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 180), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 184), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 188), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 192), align 16
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 196), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 200), align 8
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL3dop, i64 204), align 4
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #40
   ret void

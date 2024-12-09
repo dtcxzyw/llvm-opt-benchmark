@@ -559,7 +559,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %.val88 = load float, ptr %204, align 4
   %205 = load float, ptr @point, align 8
   %206 = fsub float %205, %.val
-  %207 = load float, ptr getelementptr inbounds (i8, ptr @point, i64 4), align 4
+  %207 = load float, ptr getelementptr inbounds nuw (i8, ptr @point, i64 4), align 4
   %208 = fsub float %207, %.val88
   %209 = fpext float %206 to double
   %210 = fpext float %208 to double
@@ -1124,7 +1124,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %8 = sitofp i32 %1 to float
   %9 = sitofp i32 %2 to float
   store float %8, ptr @point, align 8
-  store float %9, ptr getelementptr inbounds (i8, ptr @point, i64 4), align 4
+  store float %9, ptr getelementptr inbounds nuw (i8, ptr @point, i64 4), align 4
   store i8 1, ptr @addRemovePt, align 1
   br label %10
 

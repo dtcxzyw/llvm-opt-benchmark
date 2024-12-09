@@ -314,7 +314,7 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   store i64 0, ptr %4, align 8, !annotation !12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
   store i8 0, ptr %5, align 1, !annotation !12
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 16) #12
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13

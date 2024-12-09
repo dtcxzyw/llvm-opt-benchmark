@@ -184,8 +184,8 @@ define void @_ZN3g2o10EdgeLine2DC2Ev(ptr noundef nonnull align 16 dereferenceabl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 2, ptr %5, align 8
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2ENS_6Line2DEJNS_12VertexLine2DES2_EEE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2ENS_6Line2DEJNS_12VertexLine2DES2_EEE, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2ENS_6Line2DEJNS_12VertexLine2DES2_EEE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi2ENS_6Line2DEJNS_12VertexLine2DES2_EEE, i64 264), ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 0, ptr %6, align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -238,8 +238,8 @@ define void @_ZN3g2o10EdgeLine2DC2Ev(ptr noundef nonnull align 16 dereferenceabl
   store ptr %10, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %9, ptr %30, align 16
-  store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTVN3g2o10EdgeLine2DE, i64 16), ptr %0, align 16
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o10EdgeLine2DE, i64 272), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 240) (i8, ptr @_ZTVN3g2o10EdgeLine2DE, i64 16), ptr %0, align 16
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3g2o10EdgeLine2DE, i64 272), ptr %3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double 1.000000e+00, ptr %31, align 16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 200

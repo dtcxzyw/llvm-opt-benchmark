@@ -42,8 +42,8 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !4
 
 16:                                               ; preds = %12
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @kGammaToLinearTabS, i64 4096), align 16
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @kGammaToLinearTabS, i64 4100), align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kGammaToLinearTabS, i64 4096), align 16
+  store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @kGammaToLinearTabS, i64 4100), align 4
   br label %18
 
 18:                                               ; preds = %16, %28
@@ -74,8 +74,8 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   br i1 %exitcond27.not, label %32, label %18, !llvm.loop !6
 
 32:                                               ; preds = %28
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @kLinearToGammaTabS, i64 2048), align 16
-  store i32 %33, ptr getelementptr inbounds (i8, ptr @kLinearToGammaTabS, i64 2052), align 4
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kLinearToGammaTabS, i64 2048), align 16
+  store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @kLinearToGammaTabS, i64 2052), align 4
   store volatile i32 1, ptr @kGammaTablesSOk, align 4
   br label %34
 

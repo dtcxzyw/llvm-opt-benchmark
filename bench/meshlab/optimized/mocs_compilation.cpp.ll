@@ -424,7 +424,7 @@ define noundef ptr @_ZN12FilterCreate11qt_metacastEPKc(ptr noundef nonnull align
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) getelementptr inbounds (i8, ptr @_ZL31qt_meta_stringdata_FilterCreate, i64 24)) #24
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) getelementptr inbounds nuw (i8, ptr @_ZL31qt_meta_stringdata_FilterCreate, i64 24)) #24
   %.not8 = icmp eq i32 %4, 0
   br i1 %.not8, label %15, label %5
 
@@ -464,11 +464,11 @@ define noundef i32 @_ZN12FilterCreate11qt_metacallEN11QMetaObject4CallEiPPv(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12FilterCreateD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %6, %5
@@ -496,7 +496,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i, %
 
 _ZN12FilterCreateD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
   ret void
@@ -505,11 +505,11 @@ _ZN12FilterCreateD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12FilterCreateD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not8.i.i.i.i.i.i = icmp eq ptr %6, %5
@@ -537,7 +537,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
@@ -621,11 +621,11 @@ define linkonce_odr noundef i32 @_ZNK12FilterCreate11filterArityEPK7QAction(ptr 
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N12FilterCreateD1Ev(ptr noundef %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not8.i.i.i.i.i.i = icmp eq ptr %5, %4
@@ -654,7 +654,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
   ret void
@@ -662,11 +662,11 @@ _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N12FilterCreateD0Ev(ptr noundef %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not8.i.i.i.i.i.i.i = icmp eq ptr %5, %4
@@ -695,7 +695,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
 _ZN12FilterCreateD0Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %10) #23
@@ -728,11 +728,11 @@ define linkonce_odr void @_ZTv0_n24_N12FilterCreateD1Ev(ptr noundef %0) unnamed_
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8
   %.not8.i.i.i.i.i.i = icmp eq ptr %10, %9
@@ -760,7 +760,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #22
   ret void
@@ -773,11 +773,11 @@ define linkonce_odr void @_ZTv0_n24_N12FilterCreateD0Ev(ptr noundef %0) unnamed_
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 32), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 264), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store ptr getelementptr inbounds (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 328), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8
   %.not8.i.i.i.i.i.i.i = icmp eq ptr %10, %9
@@ -805,7 +805,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
 
 _ZN12FilterCreateD0Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #22
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %5) #23
@@ -1308,7 +1308,7 @@ declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   ret void

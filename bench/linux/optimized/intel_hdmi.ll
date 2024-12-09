@@ -6536,7 +6536,7 @@ define internal i32 @intel_hdmi_hdcp_write_an_aksv(ptr nocapture noundef readonl
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !35
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(9) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 9) #15
   %11 = icmp eq ptr %10, null
   br i1 %11, label %22, label %12

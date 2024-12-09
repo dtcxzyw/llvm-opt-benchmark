@@ -410,7 +410,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -835,7 +835,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1321,7 +1321,7 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericIhE21UnpackRGBAToImageDescERNS_16G
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -1653,7 +1653,7 @@ if.end:                                           ; preds = %invoke.cont.i.i16, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2134,7 +2134,7 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericItE21UnpackRGBAToImageDescERNS_16G
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -2466,7 +2466,7 @@ if.end:                                           ; preds = %invoke.cont.i.i16, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2947,7 +2947,7 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericIN9Imath_3_14halfEE21UnpackRGBAToI
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -3279,7 +3279,7 @@ if.end:                                           ; preds = %invoke.cont.i.i16, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3760,7 +3760,7 @@ declare void @_ZN19OpenColorIO_v2_4dev7GenericIfE21UnpackRGBAToImageDescERNS_16G
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -4095,7 +4095,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -4576,7 +4576,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -4961,7 +4961,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -5440,7 +5440,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -5825,7 +5825,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6304,7 +6304,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -6689,7 +6689,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -7168,7 +7168,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -7503,7 +7503,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -7984,7 +7984,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -8369,7 +8369,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -8848,7 +8848,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -9233,7 +9233,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -9712,7 +9712,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -10097,7 +10097,7 @@ if.end:                                           ; preds = %invoke.cont.i.i30, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -10576,7 +10576,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -10911,7 +10911,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -11392,7 +11392,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -11777,7 +11777,7 @@ if.end:                                           ; preds = %invoke.cont.i.i31, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -12256,7 +12256,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES4_SA_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -12641,7 +12641,7 @@ if.end:                                           ; preds = %invoke.cont.i.i31, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -13120,7 +13120,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEC2ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_(ptr noundef nonnull align 8 dereferenceable(309) %this, i32 noundef %inputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, i32 noundef %outputBitDepth, ptr noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i64 16), ptr %this, align 8
   %m_inputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %inputBitDepth, ptr %m_inputBitDepth, align 8
   %m_outputBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -13505,7 +13505,7 @@ if.end:                                           ; preds = %invoke.cont.i.i31, 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i64 16), ptr %this, align 8
   %m_outBitDepthBuffer = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_outBitDepthBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

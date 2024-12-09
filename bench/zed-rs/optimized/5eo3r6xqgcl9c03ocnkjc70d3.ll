@@ -3984,7 +3984,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h9a388283665
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %1, %35
-  %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8) acquire, align 8
+  %6 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8) acquire, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split
@@ -4012,7 +4012,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h9a388283665
   unreachable
 
 12:                                               ; preds = %.backedge
-  %13 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), i32 0, i32 2 acquire acquire, align 4
+  %13 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %13, 1
   br i1 %.sroa.18.0.in.i, label %19, label %.backedge.backedge
 
@@ -4040,7 +4040,7 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h9a388283665
 
 19:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store ptr getelementptr inbounds (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %20, align 8
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !4, !noundef !5
@@ -4085,12 +4085,12 @@ define internal fastcc void @_ZN3std3sys4sync4once5futex4Once4call17h9a388283665
   resume { ptr, i32 } %28
 
 33:                                               ; preds = %.backedge
-  %34 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), i32 2, i32 3 monotonic acquire, align 4
+  %34 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), i32 2, i32 3 monotonic acquire, align 4
   %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %34, 1
   br i1 %.sroa.18.0.in.i12, label %35, label %.backedge.backedge
 
 35:                                               ; preds = %33, %.backedge
-  %36 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %36 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h30abf43e2d55aa33E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8), i32 noundef 3, i64 undef, i32 noundef 1000000000)
   br label %.backedge.sink.split
 }
 
@@ -14515,7 +14515,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.ex
   br label %16
 
 51:                                               ; preds = %30
-  %52 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8) acquire, align 8
+  %52 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6client17ZED_ALWAYS_ACTIVE17h333a794122ad8136E, i64 8) acquire, align 8
   %53 = icmp eq i32 %52, 4
   br i1 %53, label %_ZN3std4sync4once4Once9call_once17h3b52c19470fb156eE.exit, label %54
 

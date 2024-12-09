@@ -1677,7 +1677,7 @@ if.end52.sink.split:                              ; preds = %cond.end30, %if.the
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end52.sink.split, %cond.end30, %if.else, %if.then
-  %tname.0.in = phi ptr [ getelementptr inbounds (i8, ptr @lj_obj_itypename, i64 88), %if.then ], [ @lj_obj_typename, %if.else ], [ @lj_obj_typename, %cond.end30 ], [ %arrayidx48, %if.end52.sink.split ]
+  %tname.0.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_obj_itypename, i64 88), %if.then ], [ @lj_obj_typename, %if.else ], [ @lj_obj_typename, %cond.end30 ], [ %arrayidx48, %if.end52.sink.split ]
   %tname.0 = load ptr, ptr %tname.0.in, align 8
   %9 = load ptr, ptr @lj_err_allmsg, align 8
   %add.ptr53 = getelementptr inbounds nuw i8, ptr %9, i64 517

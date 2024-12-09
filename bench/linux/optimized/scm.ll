@@ -172,7 +172,7 @@ define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture
   br label %61
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %56 = tail call noalias align 8 dereferenceable_or_null(2040) ptr @kmalloc_trace(ptr noundef %55, i32 noundef 4197568, i64 noundef 2040) #11
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.thread22, label %58

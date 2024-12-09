@@ -3488,14 +3488,14 @@ declare void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(
 define dso_local void @_ZN16GUIKeyChangeMenuC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(440) initializes((440, 460)) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %tsrc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 440
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   store ptr null, ptr %DebugName.i, align 8, !tbaa !54
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 456
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !56
-  tail call void @_ZN12GUIModalMenuC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerb(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT16GUIKeyChangeMenu, i64 8), ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, i1 noundef zeroext true)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIKeyChangeMenu, i64 24), ptr %this, align 8, !tbaa !4
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16GUIKeyChangeMenu, i64 384), ptr %0, align 8, !tbaa !4
+  tail call void @_ZN12GUIModalMenuC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerb(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT16GUIKeyChangeMenu, i64 8), ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, i1 noundef zeroext true)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16GUIKeyChangeMenu, i64 24), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16GUIKeyChangeMenu, i64 384), ptr %0, align 8, !tbaa !4
   %shift_down = getelementptr inbounds nuw i8, ptr %this, i64 384
   store i8 0, ptr %shift_down, align 8, !tbaa !7
   %active_key = getelementptr inbounds nuw i8, ptr %this, i64 392
@@ -3521,7 +3521,7 @@ if.then.i.i.i:                                    ; preds = %lpad2
   br label %_ZNSt6vectorIP11key_settingSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP11key_settingSaIS1_EED2Ev.exit:     ; preds = %if.then.i.i.i, %lpad2
-  tail call void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT16GUIKeyChangeMenu, i64 8)) #23
+  tail call void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTT16GUIKeyChangeMenu, i64 8)) #23
   resume { ptr, i32 } %1
 }
 

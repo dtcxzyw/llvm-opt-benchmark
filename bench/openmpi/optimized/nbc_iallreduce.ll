@@ -190,10 +190,10 @@ opal_datatype_span.exit:                          ; preds = %35, %39
 
 73:                                               ; preds = %65, %71, %68, %50, %57, %61, %66
   %.0141 = phi i32 [ 0, %66 ], [ 0, %61 ], [ 0, %57 ], [ %56, %50 ], [ 2, %68 ], [ %spec.select165, %71 ], [ %spec.select, %65 ]
-  %74 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %74 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %75 = tail call noalias ptr @malloc(i64 noundef %74) #10
   %76 = load i32, ptr @opal_class_init_epoch, align 4
-  %77 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i174 = icmp eq i32 %76, %77
   br i1 %.not.i174, label %79, label %78
 
@@ -1318,10 +1318,10 @@ opal_datatype_span.exit:                          ; preds = %ompi_comm_remote_si
   br i1 %37, label %141, label %38
 
 38:                                               ; preds = %opal_datatype_span.exit
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %40 = tail call noalias ptr @malloc(i64 noundef %39) #10
   %41 = load i32, ptr @opal_class_init_epoch, align 4
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @NBC_Schedule_class, i64 32), align 8
   %.not.i69 = icmp eq i32 %41, %42
   br i1 %.not.i69, label %44, label %43
 

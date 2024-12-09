@@ -274,7 +274,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 18, ptr %88, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(80) @constinit.1, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 120), i32 noundef 2, ptr nonnull %3, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %4) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 120), i32 noundef 2, ptr nonnull %3, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %4) #15
           to label %89 unwind label %156
 
 89:                                               ; preds = %87
@@ -284,7 +284,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 22, ptr %90, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(80) @constinit.2, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 240), i32 noundef 3, ptr nonnull %5, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %6) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 240), i32 noundef 3, ptr nonnull %5, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %6) #15
           to label %91 unwind label %158
 
 91:                                               ; preds = %89
@@ -294,7 +294,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 26, ptr %92, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, ptr noundef nonnull align 4 dereferenceable(80) @constinit.3, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 360), i32 noundef 4, ptr nonnull %7, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %8) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 360), i32 noundef 4, ptr nonnull %7, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %8) #15
           to label %93 unwind label %160
 
 93:                                               ; preds = %91
@@ -304,7 +304,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 30, ptr %94, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %10, ptr noundef nonnull align 4 dereferenceable(80) @constinit.4, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 480), i32 noundef 5, ptr nonnull %9, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %10) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 480), i32 noundef 5, ptr nonnull %9, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %10) #15
           to label %95 unwind label %162
 
 95:                                               ; preds = %93
@@ -314,7 +314,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 34, ptr %96, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %12, ptr noundef nonnull align 4 dereferenceable(80) @constinit.5, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 600), i32 noundef 6, ptr nonnull %11, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %12) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 600), i32 noundef 6, ptr nonnull %11, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %12) #15
           to label %97 unwind label %164
 
 97:                                               ; preds = %95
@@ -326,7 +326,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 38, ptr %99, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %14, ptr noundef nonnull align 4 dereferenceable(80) @constinit.6, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 720), i32 noundef 7, ptr nonnull %13, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %14) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 720), i32 noundef 7, ptr nonnull %13, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %14) #15
           to label %100 unwind label %166
 
 100:                                              ; preds = %97
@@ -338,7 +338,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 42, ptr %102, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %16, ptr noundef nonnull align 4 dereferenceable(80) @constinit.7, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 840), i32 noundef 8, ptr nonnull %15, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %16) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 840), i32 noundef 8, ptr nonnull %15, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %16) #15
           to label %103 unwind label %168
 
 103:                                              ; preds = %100
@@ -350,7 +350,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 46, ptr %105, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %18, ptr noundef nonnull align 4 dereferenceable(80) @constinit.8, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 960), i32 noundef 9, ptr nonnull %17, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %18) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 960), i32 noundef 9, ptr nonnull %17, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %18) #15
           to label %106 unwind label %170
 
 106:                                              ; preds = %103
@@ -362,7 +362,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 50, ptr %108, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %20) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %20, ptr noundef nonnull align 4 dereferenceable(80) @constinit.9, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1080), i32 noundef 10, ptr nonnull %19, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %20) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1080), i32 noundef 10, ptr nonnull %19, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %20) #15
           to label %109 unwind label %172
 
 109:                                              ; preds = %106
@@ -374,7 +374,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 54, ptr %111, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %22, ptr noundef nonnull align 4 dereferenceable(80) @constinit.10, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1200), i32 noundef 11, ptr nonnull %21, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %22) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1200), i32 noundef 11, ptr nonnull %21, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %22) #15
           to label %112 unwind label %174
 
 112:                                              ; preds = %109
@@ -386,7 +386,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 58, ptr %114, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %24, ptr noundef nonnull align 4 dereferenceable(80) @constinit.11, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1320), i32 noundef 12, ptr nonnull %23, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %24) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1320), i32 noundef 12, ptr nonnull %23, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %24) #15
           to label %115 unwind label %176
 
 115:                                              ; preds = %112
@@ -398,7 +398,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store i32 62, ptr %117, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %26) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %26, ptr noundef nonnull align 4 dereferenceable(80) @constinit.12, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1440), i32 noundef 13, ptr nonnull %25, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %26) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1440), i32 noundef 13, ptr nonnull %25, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %26) #15
           to label %118 unwind label %178
 
 118:                                              ; preds = %115
@@ -406,7 +406,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store <4 x i32> <i32 6, i32 26, i32 46, i32 66>, ptr %27, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %28, ptr noundef nonnull align 4 dereferenceable(80) @constinit.13, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1560), i32 noundef 14, ptr nonnull %27, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %28) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1560), i32 noundef 14, ptr nonnull %27, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %28) #15
           to label %119 unwind label %180
 
 119:                                              ; preds = %118
@@ -414,7 +414,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store <4 x i32> <i32 6, i32 26, i32 48, i32 70>, ptr %29, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %30) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %30, ptr noundef nonnull align 4 dereferenceable(80) @constinit.14, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1680), i32 noundef 15, ptr nonnull %29, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %30) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1680), i32 noundef 15, ptr nonnull %29, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %30) #15
           to label %120 unwind label %182
 
 120:                                              ; preds = %119
@@ -422,7 +422,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store <4 x i32> <i32 6, i32 26, i32 50, i32 74>, ptr %31, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %32, ptr noundef nonnull align 4 dereferenceable(80) @constinit.15, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1800), i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1800), i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #15
           to label %121 unwind label %184
 
 121:                                              ; preds = %120
@@ -430,7 +430,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store <4 x i32> <i32 6, i32 30, i32 54, i32 78>, ptr %33, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %34) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %34, ptr noundef nonnull align 4 dereferenceable(80) @constinit.16, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1920), i32 noundef 17, ptr nonnull %33, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %34) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1920), i32 noundef 17, ptr nonnull %33, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %34) #15
           to label %122 unwind label %186
 
 122:                                              ; preds = %121
@@ -438,7 +438,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store <4 x i32> <i32 6, i32 30, i32 56, i32 82>, ptr %35, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %36) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %36, ptr noundef nonnull align 4 dereferenceable(80) @constinit.17, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2040), i32 noundef 18, ptr nonnull %35, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %36) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2040), i32 noundef 18, ptr nonnull %35, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %36) #15
           to label %123 unwind label %188
 
 123:                                              ; preds = %122
@@ -446,7 +446,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store <4 x i32> <i32 6, i32 30, i32 58, i32 86>, ptr %37, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %38) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %38, ptr noundef nonnull align 4 dereferenceable(80) @constinit.18, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2160), i32 noundef 19, ptr nonnull %37, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %38) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2160), i32 noundef 19, ptr nonnull %37, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %38) #15
           to label %124 unwind label %190
 
 124:                                              ; preds = %123
@@ -454,7 +454,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   store <4 x i32> <i32 6, i32 34, i32 62, i32 90>, ptr %39, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %40) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %40, ptr noundef nonnull align 4 dereferenceable(80) @constinit.19, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2280), i32 noundef 20, ptr nonnull %39, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %40) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2280), i32 noundef 20, ptr nonnull %39, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %40) #15
           to label %125 unwind label %192
 
 125:                                              ; preds = %124
@@ -462,7 +462,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, ptr noundef nonnull align 4 dereferenceable(20) @constinit.20, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %42) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %42, ptr noundef nonnull align 4 dereferenceable(80) @constinit.21, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2400), i32 noundef 21, ptr nonnull %41, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %42) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2400), i32 noundef 21, ptr nonnull %41, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %42) #15
           to label %126 unwind label %194
 
 126:                                              ; preds = %125
@@ -470,7 +470,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %43, ptr noundef nonnull align 4 dereferenceable(20) @constinit.22, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %44) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %44, ptr noundef nonnull align 4 dereferenceable(80) @constinit.23, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2520), i32 noundef 22, ptr nonnull %43, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %44) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2520), i32 noundef 22, ptr nonnull %43, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %44) #15
           to label %127 unwind label %196
 
 127:                                              ; preds = %126
@@ -478,7 +478,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %45, ptr noundef nonnull align 4 dereferenceable(20) @constinit.24, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %46) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %46, ptr noundef nonnull align 4 dereferenceable(80) @constinit.25, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2640), i32 noundef 23, ptr nonnull %45, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %46) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2640), i32 noundef 23, ptr nonnull %45, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %46) #15
           to label %128 unwind label %198
 
 128:                                              ; preds = %127
@@ -486,7 +486,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %47, ptr noundef nonnull align 4 dereferenceable(20) @constinit.26, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %48) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %48, ptr noundef nonnull align 4 dereferenceable(80) @constinit.27, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2760), i32 noundef 24, ptr nonnull %47, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %48) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2760), i32 noundef 24, ptr nonnull %47, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %48) #15
           to label %129 unwind label %200
 
 129:                                              ; preds = %128
@@ -494,7 +494,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %49, ptr noundef nonnull align 4 dereferenceable(20) @constinit.28, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %50) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %50, ptr noundef nonnull align 4 dereferenceable(80) @constinit.29, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2880), i32 noundef 25, ptr nonnull %49, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %50) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2880), i32 noundef 25, ptr nonnull %49, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %50) #15
           to label %130 unwind label %202
 
 130:                                              ; preds = %129
@@ -502,7 +502,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %51, ptr noundef nonnull align 4 dereferenceable(20) @constinit.30, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %52) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %52, ptr noundef nonnull align 4 dereferenceable(80) @constinit.31, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3000), i32 noundef 26, ptr nonnull %51, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %52) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3000), i32 noundef 26, ptr nonnull %51, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %52) #15
           to label %131 unwind label %204
 
 131:                                              ; preds = %130
@@ -510,7 +510,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %53, ptr noundef nonnull align 4 dereferenceable(20) @constinit.32, i64 20, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %54) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %54, ptr noundef nonnull align 4 dereferenceable(80) @constinit.33, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3120), i32 noundef 27, ptr nonnull %53, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %54) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3120), i32 noundef 27, ptr nonnull %53, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %54) #15
           to label %132 unwind label %206
 
 132:                                              ; preds = %131
@@ -518,7 +518,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %55, ptr noundef nonnull align 4 dereferenceable(24) @constinit.34, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %56) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %56, ptr noundef nonnull align 4 dereferenceable(80) @constinit.35, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3240), i32 noundef 28, ptr nonnull %55, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %56) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3240), i32 noundef 28, ptr nonnull %55, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %56) #15
           to label %133 unwind label %208
 
 133:                                              ; preds = %132
@@ -526,7 +526,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %57, ptr noundef nonnull align 4 dereferenceable(24) @constinit.36, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %58) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %58, ptr noundef nonnull align 4 dereferenceable(80) @constinit.37, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3360), i32 noundef 29, ptr nonnull %57, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %58) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3360), i32 noundef 29, ptr nonnull %57, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %58) #15
           to label %134 unwind label %210
 
 134:                                              ; preds = %133
@@ -534,7 +534,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %59, ptr noundef nonnull align 4 dereferenceable(24) @constinit.38, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %60) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %60, ptr noundef nonnull align 4 dereferenceable(80) @constinit.39, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3480), i32 noundef 30, ptr nonnull %59, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %60) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3480), i32 noundef 30, ptr nonnull %59, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %60) #15
           to label %135 unwind label %212
 
 135:                                              ; preds = %134
@@ -542,7 +542,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %61, ptr noundef nonnull align 4 dereferenceable(24) @constinit.40, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %62) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %62, ptr noundef nonnull align 4 dereferenceable(80) @constinit.41, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3600), i32 noundef 31, ptr nonnull %61, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %62) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3600), i32 noundef 31, ptr nonnull %61, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %62) #15
           to label %136 unwind label %214
 
 136:                                              ; preds = %135
@@ -550,7 +550,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %63, ptr noundef nonnull align 4 dereferenceable(24) @constinit.42, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %64) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %64, ptr noundef nonnull align 4 dereferenceable(80) @constinit.43, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3720), i32 noundef 32, ptr nonnull %63, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %64) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3720), i32 noundef 32, ptr nonnull %63, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %64) #15
           to label %137 unwind label %216
 
 137:                                              ; preds = %136
@@ -558,7 +558,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %65, ptr noundef nonnull align 4 dereferenceable(24) @constinit.44, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %66) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %66, ptr noundef nonnull align 4 dereferenceable(80) @constinit.45, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3840), i32 noundef 33, ptr nonnull %65, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %66) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3840), i32 noundef 33, ptr nonnull %65, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %66) #15
           to label %138 unwind label %218
 
 138:                                              ; preds = %137
@@ -566,7 +566,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %67, ptr noundef nonnull align 4 dereferenceable(24) @constinit.46, i64 24, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %68) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %68, ptr noundef nonnull align 4 dereferenceable(80) @constinit.47, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3960), i32 noundef 34, ptr nonnull %67, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %68) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3960), i32 noundef 34, ptr nonnull %67, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %68) #15
           to label %139 unwind label %220
 
 139:                                              ; preds = %138
@@ -574,7 +574,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %69, ptr noundef nonnull align 4 dereferenceable(28) @constinit.48, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %70) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %70, ptr noundef nonnull align 4 dereferenceable(80) @constinit.49, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4080), i32 noundef 35, ptr nonnull %69, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %70) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4080), i32 noundef 35, ptr nonnull %69, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %70) #15
           to label %140 unwind label %222
 
 140:                                              ; preds = %139
@@ -582,7 +582,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %71, ptr noundef nonnull align 4 dereferenceable(28) @constinit.50, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %72) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %72, ptr noundef nonnull align 4 dereferenceable(80) @constinit.51, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4200), i32 noundef 36, ptr nonnull %71, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %72) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4200), i32 noundef 36, ptr nonnull %71, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %72) #15
           to label %141 unwind label %224
 
 141:                                              ; preds = %140
@@ -590,7 +590,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %73, ptr noundef nonnull align 4 dereferenceable(28) @constinit.52, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %74) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %74, ptr noundef nonnull align 4 dereferenceable(80) @constinit.53, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4320), i32 noundef 37, ptr nonnull %73, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %74) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4320), i32 noundef 37, ptr nonnull %73, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %74) #15
           to label %142 unwind label %226
 
 142:                                              ; preds = %141
@@ -598,7 +598,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %75, ptr noundef nonnull align 4 dereferenceable(28) @constinit.54, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %76) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %76, ptr noundef nonnull align 4 dereferenceable(80) @constinit.55, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4440), i32 noundef 38, ptr nonnull %75, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %76) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4440), i32 noundef 38, ptr nonnull %75, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %76) #15
           to label %143 unwind label %228
 
 143:                                              ; preds = %142
@@ -606,7 +606,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %77, ptr noundef nonnull align 4 dereferenceable(28) @constinit.56, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %78) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %78, ptr noundef nonnull align 4 dereferenceable(80) @constinit.57, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4560), i32 noundef 39, ptr nonnull %77, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %78) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4560), i32 noundef 39, ptr nonnull %77, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %78) #15
           to label %144 unwind label %230
 
 144:                                              ; preds = %143
@@ -614,7 +614,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %79, ptr noundef nonnull align 4 dereferenceable(28) @constinit.58, i64 28, i1 false), !tbaa.struct !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %80) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %80, ptr noundef nonnull align 4 dereferenceable(80) @constinit.59, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4680), i32 noundef 40, ptr nonnull %79, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %80) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4680), i32 noundef 40, ptr nonnull %79, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %80) #15
           to label %145 unwind label %232
 
 145:                                              ; preds = %144
@@ -2037,28 +2037,28 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 
 234:                                              ; preds = %232, %230
   %235 = phi { ptr, i32 } [ %233, %232 ], [ %231, %230 ]
-  %236 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4680), %232 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4560), %230 ]
+  %236 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4680), %232 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4560), %230 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %78) #14
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %77) #14
   br label %237
 
 237:                                              ; preds = %234, %228
   %238 = phi { ptr, i32 } [ %235, %234 ], [ %229, %228 ]
-  %239 = phi ptr [ %236, %234 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4440), %228 ]
+  %239 = phi ptr [ %236, %234 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4440), %228 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %76) #14
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %75) #14
   br label %240
 
 240:                                              ; preds = %237, %226
   %241 = phi { ptr, i32 } [ %238, %237 ], [ %227, %226 ]
-  %242 = phi ptr [ %239, %237 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4320), %226 ]
+  %242 = phi ptr [ %239, %237 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4320), %226 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %74) #14
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %73) #14
   br label %243
 
 243:                                              ; preds = %240, %224
   %244 = phi { ptr, i32 } [ %241, %240 ], [ %225, %224 ]
-  %245 = phi ptr [ %242, %240 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4200), %224 ]
+  %245 = phi ptr [ %242, %240 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4200), %224 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %72) #14
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %71) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %70) #14
@@ -2130,7 +2130,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   br label %246
 
 246:                                              ; preds = %243, %222, %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %156
-  %247 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 120), %156 ], [ %245, %243 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 240), %158 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 360), %160 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 480), %162 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 600), %164 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 720), %166 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 840), %168 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 960), %170 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1080), %172 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1200), %174 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1320), %176 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1440), %178 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1560), %180 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1680), %182 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1800), %184 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1920), %186 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2040), %188 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2160), %190 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2280), %192 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2400), %194 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2520), %196 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2640), %198 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2760), %200 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2880), %202 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3000), %204 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3120), %206 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3240), %208 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3360), %210 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3480), %212 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3600), %214 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3720), %216 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3840), %218 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3960), %220 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4080), %222 ]
+  %247 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 120), %156 ], [ %245, %243 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 240), %158 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 360), %160 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 480), %162 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 600), %164 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 720), %166 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 840), %168 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 960), %170 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1080), %172 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1200), %174 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1320), %176 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1440), %178 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1560), %180 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1680), %182 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1800), %184 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1920), %186 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2040), %188 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2160), %190 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2280), %192 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2400), %194 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2520), %196 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2640), %198 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2760), %200 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2880), %202 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3000), %204 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3120), %206 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3240), %208 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3360), %210 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3480), %212 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3600), %214 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3720), %216 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3840), %218 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3960), %220 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4080), %222 ]
   %248 = phi { ptr, i32 } [ %157, %156 ], [ %244, %243 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %185, %184 ], [ %187, %186 ], [ %189, %188 ], [ %191, %190 ], [ %193, %192 ], [ %195, %194 ], [ %197, %196 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ], [ %221, %220 ], [ %223, %222 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
@@ -2178,7 +2178,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 sect
   br label %2
 
 2:                                                ; preds = %9, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4800), %1 ], [ %4, %9 ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4800), %1 ], [ %4, %9 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -120
   %5 = getelementptr inbounds i8, ptr %3, i64 -112
   %6 = load ptr, ptr %5, align 8, !tbaa !13
@@ -2230,19 +2230,19 @@ define noundef ptr @_ZN5ZXing6QRCode7Version5MicroEi(i32 noundef %0) local_unnam
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %3, ptr noundef nonnull align 4 dereferenceable(80) @constinit.61, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 120), i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(80) %3) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 120), i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(80) %3) #15
           to label %13 unwind label %26
 
 13:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(80) @constinit.62, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 240), i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(80) %4) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 240), i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(80) %4) #15
           to label %14 unwind label %28
 
 14:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @constinit.63, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 360), i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(80) %5) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 360), i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(80) %5) #15
           to label %15 unwind label %30
 
 15:                                               ; preds = %14
@@ -2286,13 +2286,13 @@ define noundef ptr @_ZN5ZXing6QRCode7Version5MicroEi(i32 noundef %0) local_unnam
   br label %32
 
 32:                                               ; preds = %30, %28
-  %33 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 360), %30 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 240), %28 ]
+  %33 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 360), %30 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 240), %28 ]
   %34 = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
   br label %35
 
 35:                                               ; preds = %32, %26
-  %36 = phi ptr [ %33, %32 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 120), %26 ]
+  %36 = phi ptr [ %33, %32 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 120), %26 ]
   %37 = phi { ptr, i32 } [ %34, %32 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #14
@@ -2328,7 +2328,7 @@ define internal void @__cxx_global_array_dtor.64(ptr nocapture readnone %0) #4 s
   br label %2
 
 2:                                                ; preds = %9, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 480), %1 ], [ %4, %9 ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 480), %1 ], [ %4, %9 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -120
   %5 = getelementptr inbounds i8, ptr %3, i64 -112
   %6 = load ptr, ptr %5, align 8, !tbaa !13
@@ -2435,7 +2435,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 39, ptr %71, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 120), i32 noundef 2, ptr nonnull %4, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %5) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 120), i32 noundef 2, ptr nonnull %4, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %5) #15
           to label %72 unwind label %136
 
 72:                                               ; preds = %70
@@ -2445,7 +2445,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 51, ptr %73, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %7, ptr noundef nonnull align 4 dereferenceable(80) @constinit.67, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 240), i32 noundef 3, ptr nonnull %6, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %7) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 240), i32 noundef 3, ptr nonnull %6, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %7) #15
           to label %74 unwind label %138
 
 74:                                               ; preds = %72
@@ -2457,7 +2457,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 75, ptr %76, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %9, ptr noundef nonnull align 4 dereferenceable(80) @constinit.68, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 360), i32 noundef 4, ptr nonnull %8, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %9) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 360), i32 noundef 4, ptr nonnull %8, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %9) #15
           to label %77 unwind label %140
 
 77:                                               ; preds = %74
@@ -2465,7 +2465,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %10, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %11, ptr noundef nonnull align 4 dereferenceable(80) @constinit.69, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 480), i32 noundef 5, ptr nonnull %10, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %11) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 480), i32 noundef 5, ptr nonnull %10, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %11) #15
           to label %78 unwind label %142
 
 78:                                               ; preds = %77
@@ -2473,7 +2473,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 21, ptr %12, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %13, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 600), i32 noundef 6, ptr nonnull %12, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %13) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 600), i32 noundef 6, ptr nonnull %12, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %13) #15
           to label %79 unwind label %144
 
 79:                                               ; preds = %78
@@ -2483,7 +2483,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 39, ptr %80, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %15, ptr noundef nonnull align 4 dereferenceable(80) @constinit.71, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 720), i32 noundef 7, ptr nonnull %14, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %15) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 720), i32 noundef 7, ptr nonnull %14, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %15) #15
           to label %81 unwind label %146
 
 81:                                               ; preds = %79
@@ -2493,7 +2493,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 51, ptr %82, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %17, ptr noundef nonnull align 4 dereferenceable(80) @constinit.72, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 840), i32 noundef 8, ptr nonnull %16, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %17) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 840), i32 noundef 8, ptr nonnull %16, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %17) #15
           to label %83 unwind label %148
 
 83:                                               ; preds = %81
@@ -2505,7 +2505,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 75, ptr %85, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %19, ptr noundef nonnull align 4 dereferenceable(80) @constinit.73, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 960), i32 noundef 9, ptr nonnull %18, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %19) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 960), i32 noundef 9, ptr nonnull %18, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %19) #15
           to label %86 unwind label %150
 
 86:                                               ; preds = %83
@@ -2513,13 +2513,13 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %20, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %21) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %21, ptr noundef nonnull align 4 dereferenceable(80) @constinit.74, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1080), i32 noundef 10, ptr nonnull %20, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %21) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1080), i32 noundef 10, ptr nonnull %20, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %21) #15
           to label %87 unwind label %152
 
 87:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %22, ptr noundef nonnull align 4 dereferenceable(80) @constinit.75, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1200), i32 noundef 11, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %22) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1200), i32 noundef 11, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %22) #15
           to label %88 unwind label %154
 
 88:                                               ; preds = %87
@@ -2527,7 +2527,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 21, ptr %23, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %24, ptr noundef nonnull align 4 dereferenceable(80) @constinit.76, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1320), i32 noundef 12, ptr nonnull %23, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %24) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1320), i32 noundef 12, ptr nonnull %23, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %24) #15
           to label %89 unwind label %156
 
 89:                                               ; preds = %88
@@ -2537,7 +2537,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 39, ptr %90, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %26) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %26, ptr noundef nonnull align 4 dereferenceable(80) @constinit.77, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1440), i32 noundef 13, ptr nonnull %25, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %26) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1440), i32 noundef 13, ptr nonnull %25, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %26) #15
           to label %91 unwind label %158
 
 91:                                               ; preds = %89
@@ -2547,7 +2547,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 51, ptr %92, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %28, ptr noundef nonnull align 4 dereferenceable(80) @constinit.78, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1560), i32 noundef 14, ptr nonnull %27, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %28) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1560), i32 noundef 14, ptr nonnull %27, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %28) #15
           to label %93 unwind label %160
 
 93:                                               ; preds = %91
@@ -2559,7 +2559,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 75, ptr %95, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %30) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %30, ptr noundef nonnull align 4 dereferenceable(80) @constinit.79, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1680), i32 noundef 15, ptr nonnull %29, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %30) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1680), i32 noundef 15, ptr nonnull %29, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %30) #15
           to label %96 unwind label %162
 
 96:                                               ; preds = %93
@@ -2567,13 +2567,13 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %31, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %32, ptr noundef nonnull align 4 dereferenceable(80) @constinit.80, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1800), i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1800), i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #15
           to label %97 unwind label %164
 
 97:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %33) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %33, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1920), i32 noundef 17, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %33) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1920), i32 noundef 17, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %33) #15
           to label %98 unwind label %166
 
 98:                                               ; preds = %97
@@ -2581,7 +2581,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 21, ptr %34, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %35) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %35, ptr noundef nonnull align 4 dereferenceable(80) @constinit.82, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2040), i32 noundef 18, ptr nonnull %34, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %35) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2040), i32 noundef 18, ptr nonnull %34, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %35) #15
           to label %99 unwind label %168
 
 99:                                               ; preds = %98
@@ -2591,7 +2591,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 39, ptr %100, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %37) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %37, ptr noundef nonnull align 4 dereferenceable(80) @constinit.83, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2160), i32 noundef 19, ptr nonnull %36, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %37) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2160), i32 noundef 19, ptr nonnull %36, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %37) #15
           to label %101 unwind label %170
 
 101:                                              ; preds = %99
@@ -2601,7 +2601,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 51, ptr %102, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %39) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %39, ptr noundef nonnull align 4 dereferenceable(80) @constinit.84, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2280), i32 noundef 20, ptr nonnull %38, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %39) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2280), i32 noundef 20, ptr nonnull %38, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %39) #15
           to label %103 unwind label %172
 
 103:                                              ; preds = %101
@@ -2613,7 +2613,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 75, ptr %105, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %41) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %41, ptr noundef nonnull align 4 dereferenceable(80) @constinit.85, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2400), i32 noundef 21, ptr nonnull %40, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %41) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2400), i32 noundef 21, ptr nonnull %40, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %41) #15
           to label %106 unwind label %174
 
 106:                                              ; preds = %103
@@ -2621,7 +2621,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %42, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %43) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %43, ptr noundef nonnull align 4 dereferenceable(80) @constinit.86, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2520), i32 noundef 22, ptr nonnull %42, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %43) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2520), i32 noundef 22, ptr nonnull %42, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %43) #15
           to label %107 unwind label %176
 
 107:                                              ; preds = %106
@@ -2629,7 +2629,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 21, ptr %44, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %45) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %45, ptr noundef nonnull align 4 dereferenceable(80) @constinit.87, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2640), i32 noundef 23, ptr nonnull %44, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %45) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2640), i32 noundef 23, ptr nonnull %44, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %45) #15
           to label %108 unwind label %178
 
 108:                                              ; preds = %107
@@ -2639,7 +2639,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 39, ptr %109, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %47) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %47, ptr noundef nonnull align 4 dereferenceable(80) @constinit.88, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2760), i32 noundef 24, ptr nonnull %46, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %47) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2760), i32 noundef 24, ptr nonnull %46, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %47) #15
           to label %110 unwind label %180
 
 110:                                              ; preds = %108
@@ -2649,7 +2649,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 51, ptr %111, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %49) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %49, ptr noundef nonnull align 4 dereferenceable(80) @constinit.89, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2880), i32 noundef 25, ptr nonnull %48, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %49) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2880), i32 noundef 25, ptr nonnull %48, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %49) #15
           to label %112 unwind label %182
 
 112:                                              ; preds = %110
@@ -2661,7 +2661,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 75, ptr %114, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %51) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %51, ptr noundef nonnull align 4 dereferenceable(80) @constinit.90, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3000), i32 noundef 26, ptr nonnull %50, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %51) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3000), i32 noundef 26, ptr nonnull %50, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %51) #15
           to label %115 unwind label %184
 
 115:                                              ; preds = %112
@@ -2669,7 +2669,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %52, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %53) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %53, ptr noundef nonnull align 4 dereferenceable(80) @constinit.91, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3120), i32 noundef 27, ptr nonnull %52, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %53) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3120), i32 noundef 27, ptr nonnull %52, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %53) #15
           to label %116 unwind label %186
 
 116:                                              ; preds = %115
@@ -2677,7 +2677,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 21, ptr %54, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %55) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %55, ptr noundef nonnull align 4 dereferenceable(80) @constinit.92, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3240), i32 noundef 28, ptr nonnull %54, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %55) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3240), i32 noundef 28, ptr nonnull %54, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %55) #15
           to label %117 unwind label %188
 
 117:                                              ; preds = %116
@@ -2687,7 +2687,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 39, ptr %118, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %57) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %57, ptr noundef nonnull align 4 dereferenceable(80) @constinit.93, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3360), i32 noundef 29, ptr nonnull %56, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %57) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3360), i32 noundef 29, ptr nonnull %56, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %57) #15
           to label %119 unwind label %190
 
 119:                                              ; preds = %117
@@ -2697,7 +2697,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 51, ptr %120, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %59) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %59, ptr noundef nonnull align 4 dereferenceable(80) @constinit.94, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3480), i32 noundef 30, ptr nonnull %58, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %59) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3480), i32 noundef 30, ptr nonnull %58, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %59) #15
           to label %121 unwind label %192
 
 121:                                              ; preds = %119
@@ -2709,7 +2709,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store i32 75, ptr %123, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %61) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %61, ptr noundef nonnull align 4 dereferenceable(80) @constinit.95, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3600), i32 noundef 31, ptr nonnull %60, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %61) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3600), i32 noundef 31, ptr nonnull %60, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %61) #15
           to label %124 unwind label %194
 
 124:                                              ; preds = %121
@@ -2717,7 +2717,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   store <4 x i32> <i32 27, i32 55, i32 83, i32 111>, ptr %62, align 16, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %63) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %63, ptr noundef nonnull align 4 dereferenceable(80) @constinit.96, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3720), i32 noundef 32, ptr nonnull %62, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %63) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3720), i32 noundef 32, ptr nonnull %62, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %63) #15
           to label %125 unwind label %196
 
 125:                                              ; preds = %124
@@ -3584,28 +3584,28 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 
 198:                                              ; preds = %196, %194
   %199 = phi { ptr, i32 } [ %197, %196 ], [ %195, %194 ]
-  %200 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3720), %196 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3600), %194 ]
+  %200 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3720), %196 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3600), %194 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %61) #14
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %60) #14
   br label %201
 
 201:                                              ; preds = %198, %192
   %202 = phi { ptr, i32 } [ %199, %198 ], [ %193, %192 ]
-  %203 = phi ptr [ %200, %198 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3480), %192 ]
+  %203 = phi ptr [ %200, %198 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3480), %192 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %59) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #14
   br label %204
 
 204:                                              ; preds = %201, %190
   %205 = phi { ptr, i32 } [ %202, %201 ], [ %191, %190 ]
-  %206 = phi ptr [ %203, %201 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3360), %190 ]
+  %206 = phi ptr [ %203, %201 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3360), %190 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %57) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #14
   br label %207
 
 207:                                              ; preds = %204, %188
   %208 = phi { ptr, i32 } [ %205, %204 ], [ %189, %188 ]
-  %209 = phi ptr [ %206, %204 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3240), %188 ]
+  %209 = phi ptr [ %206, %204 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3240), %188 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %55) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %53) #14
@@ -3659,7 +3659,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   br label %210
 
 210:                                              ; preds = %207, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136
-  %211 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 120), %136 ], [ %209, %207 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 240), %138 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 360), %140 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 480), %142 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 600), %144 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 720), %146 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 840), %148 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 960), %150 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1080), %152 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1200), %154 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1320), %156 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1440), %158 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1560), %160 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1680), %162 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1800), %164 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1920), %166 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2040), %168 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2160), %170 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2280), %172 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2400), %174 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2520), %176 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2640), %178 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2760), %180 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2880), %182 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3000), %184 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3120), %186 ]
+  %211 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 120), %136 ], [ %209, %207 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 240), %138 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 360), %140 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 480), %142 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 600), %144 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 720), %146 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 840), %148 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 960), %150 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1080), %152 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1200), %154 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1320), %156 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1440), %158 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1560), %160 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1680), %162 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1800), %164 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1920), %166 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2040), %168 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2160), %170 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2280), %172 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2400), %174 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2520), %176 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2640), %178 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2760), %180 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2880), %182 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3000), %184 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3120), %186 ]
   %212 = phi { ptr, i32 } [ %137, %136 ], [ %208, %207 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %183, %182 ], [ %185, %184 ], [ %187, %186 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
@@ -3694,7 +3694,7 @@ define internal void @__cxx_global_array_dtor.97(ptr nocapture readnone %0) #4 s
   br label %2
 
 2:                                                ; preds = %9, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3840), %1 ], [ %4, %9 ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3840), %1 ], [ %4, %9 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -120
   %5 = getelementptr inbounds i8, ptr %3, i64 -112
   %6 = load ptr, ptr %5, align 8, !tbaa !13
@@ -3747,79 +3747,79 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %3, ptr noundef nonnull align 4 dereferenceable(80) @constinit.99, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 120), i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(80) %3) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 120), i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(80) %3) #15
           to label %23 unwind label %46
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(80) @constinit.100, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 240), i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(80) %4) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 240), i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(80) %4) #15
           to label %24 unwind label %48
 
 24:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @constinit.101, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 360), i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(80) %5) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 360), i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(80) %5) #15
           to label %25 unwind label %50
 
 25:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(80) @constinit.102, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 480), i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(80) %6) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 480), i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(80) %6) #15
           to label %26 unwind label %52
 
 26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %7, ptr noundef nonnull align 4 dereferenceable(80) @constinit.103, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 600), i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(80) %7) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 600), i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(80) %7) #15
           to label %27 unwind label %54
 
 27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, ptr noundef nonnull align 4 dereferenceable(80) @constinit.104, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 720), i32 noundef 7, ptr noundef nonnull align 4 dereferenceable(80) %8) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 720), i32 noundef 7, ptr noundef nonnull align 4 dereferenceable(80) %8) #15
           to label %28 unwind label %56
 
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %9, ptr noundef nonnull align 4 dereferenceable(80) @constinit.105, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 840), i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(80) %9) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 840), i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(80) %9) #15
           to label %29 unwind label %58
 
 29:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %10, ptr noundef nonnull align 4 dereferenceable(80) @constinit.106, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 960), i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(80) %10) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 960), i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(80) %10) #15
           to label %30 unwind label %60
 
 30:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %11, ptr noundef nonnull align 4 dereferenceable(80) @constinit.107, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1080), i32 noundef 10, ptr noundef nonnull align 4 dereferenceable(80) %11) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1080), i32 noundef 10, ptr noundef nonnull align 4 dereferenceable(80) %11) #15
           to label %31 unwind label %62
 
 31:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %12, ptr noundef nonnull align 4 dereferenceable(80) @constinit.108, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1200), i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(80) %12) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1200), i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(80) %12) #15
           to label %32 unwind label %64
 
 32:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %13, ptr noundef nonnull align 4 dereferenceable(80) @constinit.109, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1320), i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(80) %13) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1320), i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(80) %13) #15
           to label %33 unwind label %66
 
 33:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %14, ptr noundef nonnull align 4 dereferenceable(80) @constinit.110, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1440), i32 noundef 13, ptr noundef nonnull align 4 dereferenceable(80) %14) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1440), i32 noundef 13, ptr noundef nonnull align 4 dereferenceable(80) %14) #15
           to label %34 unwind label %68
 
 34:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %15, ptr noundef nonnull align 4 dereferenceable(80) @constinit.111, i64 80, i1 false), !tbaa.struct !4
-  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1560), i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(80) %15) #15
+  invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1560), i32 noundef 14, ptr noundef nonnull align 4 dereferenceable(80) %15) #15
           to label %35 unwind label %70
 
 35:                                               ; preds = %34
@@ -3951,25 +3951,25 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   br label %72
 
 72:                                               ; preds = %70, %68
-  %73 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1560), %70 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1440), %68 ]
+  %73 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1560), %70 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1440), %68 ]
   %74 = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #14
   br label %75
 
 75:                                               ; preds = %72, %66
-  %76 = phi ptr [ %73, %72 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1320), %66 ]
+  %76 = phi ptr [ %73, %72 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1320), %66 ]
   %77 = phi { ptr, i32 } [ %74, %72 ], [ %67, %66 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #14
   br label %78
 
 78:                                               ; preds = %75, %64
-  %79 = phi ptr [ %76, %75 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1200), %64 ]
+  %79 = phi ptr [ %76, %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1200), %64 ]
   %80 = phi { ptr, i32 } [ %77, %75 ], [ %65, %64 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #14
   br label %81
 
 81:                                               ; preds = %78, %62
-  %82 = phi ptr [ %79, %78 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1080), %62 ]
+  %82 = phi ptr [ %79, %78 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1080), %62 ]
   %83 = phi { ptr, i32 } [ %80, %78 ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #14
@@ -3983,7 +3983,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
 
 84:                                               ; preds = %81, %60, %58, %56, %54, %52, %50, %48, %46
   %85 = phi { ptr, i32 } [ %47, %46 ], [ %83, %81 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ]
-  %86 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 120), %46 ], [ %82, %81 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 240), %48 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 360), %50 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 480), %52 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 600), %54 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 720), %56 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 840), %58 ], [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 960), %60 ]
+  %86 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 120), %46 ], [ %82, %81 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 240), %48 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 360), %50 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 480), %52 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 600), %54 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 720), %56 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 840), %58 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 960), %60 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #14
   br label %87
@@ -4015,7 +4015,7 @@ define internal void @__cxx_global_array_dtor.112(ptr nocapture readnone %0) #4 
   br label %2
 
 2:                                                ; preds = %9, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1680), %1 ], [ %4, %9 ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 1680), %1 ], [ %4, %9 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -120
   %5 = getelementptr inbounds i8, ptr %3, i64 -112
   %6 = load ptr, ptr %5, align 8, !tbaa !13
@@ -4202,8 +4202,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %36
-  %46 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256), ptr nonnull %3) #15
-  %47 = icmp ne ptr %46, getelementptr inbounds (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256)
+  %46 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256), ptr nonnull %3) #15
+  %47 = icmp ne ptr %46, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256)
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %48, ptrtoint (ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64)
   %50 = and i64 %49, 34359738360
@@ -4234,8 +4234,8 @@ define linkonce_odr noundef i32 @_ZN5ZXing6QRCode7Version6NumberENS_6PointTIiEE(
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %1
-  %8 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256), ptr nonnull %2) #15
-  %9 = icmp eq ptr %8, getelementptr inbounds (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256)
+  %8 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256), ptr nonnull %2) #15
+  %9 = icmp eq ptr %8, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256)
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %10, ptrtoint (ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64)
   %12 = lshr exact i64 %11, 3

@@ -116,7 +116,7 @@ declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @register_cpu_under_node(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = sext i32 %1 to i64
-  %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %3) #9, !srcloc !8
+  %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %3) #9, !srcloc !8
   %5 = icmp ult i8 %4, 2
   tail call void @llvm.assume(i1 %5)
   %6 = icmp eq i8 %4, 0
@@ -162,7 +162,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @register_memory_node_under_compute_node(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = sext i32 %1 to i64
-  %5 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %4) #9, !srcloc !8
+  %5 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %4) #9, !srcloc !8
   %6 = icmp ult i8 %5, 2
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq i8 %5, 0
@@ -170,7 +170,7 @@ define dso_local i32 @register_memory_node_under_compute_node(i32 noundef %0, i3
 
 8:                                                ; preds = %3
   %9 = sext i32 %0 to i64
-  %10 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %9) #9, !srcloc !8
+  %10 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %9) #9, !srcloc !8
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i8 %10, 0
@@ -259,7 +259,7 @@ define internal fastcc ptr @node_init_node_access(ptr noundef %0, i32 noundef %1
   br i1 %11, label %34, label %4, !llvm.loop !9
 
 12:                                               ; preds = %4
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(752) ptr @kmalloc_trace(ptr noundef %13, i32 noundef 3520, i64 noundef 752) #10
   %15 = icmp eq ptr %14, null
   br i1 %15, label %36, label %16
@@ -321,7 +321,7 @@ declare dso_local void @sysfs_remove_link_from_group(ptr noundef, ptr noundef, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @unregister_cpu_under_node(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = sext i32 %1 to i64
-  %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %3) #9, !srcloc !8
+  %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %3) #9, !srcloc !8
   %5 = icmp ult i8 %4, 2
   tail call void @llvm.assume(i1 %5)
   %6 = icmp eq i8 %4, 0
@@ -352,7 +352,7 @@ declare dso_local void @sysfs_remove_link(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__register_one_node(i32 noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(744) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 744) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5
@@ -416,7 +416,7 @@ define dso_local i32 @__register_one_node(i32 noundef %0) local_unnamed_addr #0 
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %32
-  %41 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %8) #9, !srcloc !8
+  %41 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %8) #9, !srcloc !8
   %42 = icmp ult i8 %41, 2
   tail call void @llvm.assume(i1 %42)
   %43 = icmp eq i8 %41, 0
@@ -504,7 +504,7 @@ define dso_local void @node_dev_init() local_unnamed_addr #3 section ".init.text
   unreachable
 
 4:                                                ; preds = %0
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %.thread, label %7
 
@@ -517,7 +517,7 @@ define dso_local void @node_dev_init() local_unnamed_addr #3 section ".init.text
 .preheader:                                       ; preds = %7, %28
   %11 = phi i32 [ %30, %28 ], [ %9, %7 ]
   %12 = zext nneg i32 %11 to i64
-  %13 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @node_states, i64 8), i64 %12) #9, !srcloc !8
+  %13 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %12) #9, !srcloc !8
   %14 = icmp ult i8 %13, 2
   tail call void @llvm.assume(i1 %14)
   %15 = icmp eq i8 %13, 0
@@ -538,7 +538,7 @@ define dso_local void @node_dev_init() local_unnamed_addr #3 section ".init.text
 
 21:                                               ; preds = %.thread6
   %22 = add nuw nsw i32 %11, 1
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %24 = zext nneg i32 %22 to i64
   %25 = shl nsw i64 -1, %24
   %26 = and i64 %23, %25
@@ -740,7 +740,7 @@ declare dso_local i64 @sum_zone_numa_event_state(i32 noundef, i32 noundef) local
 define internal range(i64 -2147483648, 2147483648) i64 @node_read_distance(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %.thread, label %8
 
@@ -763,7 +763,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_distance(ptr n
 
 20:                                               ; preds = %.preheader
   %21 = add nuw nsw i32 %12, 1
-  %22 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 8), align 8
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %23 = zext nneg i32 %21 to i64
   %24 = shl nsw i64 -1, %23
   %25 = and i64 %22, %24

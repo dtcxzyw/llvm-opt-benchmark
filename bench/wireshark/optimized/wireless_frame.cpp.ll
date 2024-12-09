@@ -95,9 +95,9 @@ define void @_ZN13WirelessFrameC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13WirelessFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13WirelessFrame, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13WirelessFrame, i64 456), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13WirelessFrame, i64 456), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #13
           to label %9 unwind label %25
@@ -489,7 +489,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57:    ; preds = %102
   %111 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i32 0, ptr %112, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %111, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 12
   store i32 12, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
@@ -675,7 +675,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i87:    ; preds = %176
   %183 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i32 0, ptr %184, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %183, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 37, ptr %185, align 4
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 16
@@ -979,7 +979,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i137:   ; preds = %276
   %289 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store i32 0, ptr %290, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %289, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %289, i64 12
   store i32 40, ptr %291, align 4
   %292 = getelementptr inbounds nuw i8, ptr %289, i64 16
@@ -2088,9 +2088,9 @@ declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13WirelessFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13WirelessFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13WirelessFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV13WirelessFrame, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13WirelessFrame, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   invoke void @ws80211_free_interfaces(ptr noundef %4)

@@ -162,7 +162,7 @@ define internal i32 @yenta_probe(ptr noundef %0, ptr nocapture noundef readonly 
   br label %104
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %10 = tail call noalias noundef align 8 dereferenceable_or_null(1424) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 1424) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %104, label %12

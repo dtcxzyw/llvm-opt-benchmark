@@ -173,10 +173,10 @@ define noundef i32 @fini() local_unnamed_addr #0 {
 _free_tables.exit:                                ; preds = %8, %._crit_edge16.i
   tail call void @slurm_xfree(ptr noundef nonnull @datastr) #8
   tail call void @slurm_xfree(ptr noundef nonnull @influxdb_conf) #8
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @influxdb_conf, i64 8)) #8
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @influxdb_conf, i64 24)) #8
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @influxdb_conf, i64 32)) #8
-  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @influxdb_conf, i64 48)) #8
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 8)) #8
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 24)) #8
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 32)) #8
+  tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 48)) #8
   ret i32 0
 }
 
@@ -217,7 +217,7 @@ define void @acct_gather_profile_p_conf_set(ptr noundef %0) local_unnamed_addr #
   br label %6
 
 6:                                                ; preds = %5, %1
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 16), align 8
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 16), align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %7
 
@@ -230,7 +230,7 @@ define void @acct_gather_profile_p_conf_set(ptr noundef %0) local_unnamed_addr #
 10:                                               ; preds = %7
   %11 = load ptr, ptr %2, align 8
   %12 = call i32 @acct_gather_profile_from_string(ptr noundef %11) #8
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 16), align 8
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 16), align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %16
 
@@ -244,19 +244,19 @@ define void @acct_gather_profile_p_conf_set(ptr noundef %0) local_unnamed_addr #
   br label %17
 
 17:                                               ; preds = %16, %7
-  %18 = call i32 @slurm_s_p_get_string(ptr noundef nonnull getelementptr inbounds (i8, ptr @influxdb_conf, i64 8), ptr noundef nonnull @.str.3, ptr noundef nonnull %0) #8
-  %19 = call i32 @slurm_s_p_get_string(ptr noundef nonnull getelementptr inbounds (i8, ptr @influxdb_conf, i64 24), ptr noundef nonnull @.str.5, ptr noundef nonnull %0) #8
-  %20 = call i32 @slurm_s_p_get_string(ptr noundef nonnull getelementptr inbounds (i8, ptr @influxdb_conf, i64 32), ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #8
-  %21 = call i32 @slurm_s_p_get_uint32(ptr noundef nonnull getelementptr inbounds (i8, ptr @influxdb_conf, i64 40), ptr noundef nonnull @.str.7, ptr noundef nonnull %0) #8
+  %18 = call i32 @slurm_s_p_get_string(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 8), ptr noundef nonnull @.str.3, ptr noundef nonnull %0) #8
+  %19 = call i32 @slurm_s_p_get_string(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 24), ptr noundef nonnull @.str.5, ptr noundef nonnull %0) #8
+  %20 = call i32 @slurm_s_p_get_string(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 32), ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #8
+  %21 = call i32 @slurm_s_p_get_uint32(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 40), ptr noundef nonnull @.str.7, ptr noundef nonnull %0) #8
   %.not11 = icmp eq i32 %21, 0
   br i1 %.not11, label %22, label %23
 
 22:                                               ; preds = %17
-  store i32 10, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 40), align 8
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 40), align 8
   br label %23
 
 23:                                               ; preds = %22, %17
-  %24 = call i32 @slurm_s_p_get_string(ptr noundef nonnull getelementptr inbounds (i8, ptr @influxdb_conf, i64 48), ptr noundef nonnull @.str.8, ptr noundef nonnull %0) #8
+  %24 = call i32 @slurm_s_p_get_string(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 48), ptr noundef nonnull @.str.8, ptr noundef nonnull %0) #8
   br label %25
 
 25:                                               ; preds = %23, %6
@@ -269,7 +269,7 @@ define void @acct_gather_profile_p_conf_set(ptr noundef %0) local_unnamed_addr #
   unreachable
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 8), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 8), align 8
   %.not13 = icmp eq ptr %29, null
   br i1 %.not13, label %30, label %31
 
@@ -278,9 +278,9 @@ define void @acct_gather_profile_p_conf_set(ptr noundef %0) local_unnamed_addr #
   unreachable
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 24), align 8
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 24), align 8
   %33 = icmp eq ptr %32, null
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 48), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 48), align 8
   %35 = icmp ne ptr %34, null
   %or.cond = select i1 %33, i1 true, i1 %35
   br i1 %or.cond, label %37, label %36
@@ -290,7 +290,7 @@ define void @acct_gather_profile_p_conf_set(ptr noundef %0) local_unnamed_addr #
   unreachable
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 32), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 32), align 8
   %.not14 = icmp eq ptr %38, null
   br i1 %.not14, label %39, label %40
 
@@ -344,7 +344,7 @@ define void @acct_gather_profile_p_get(i32 noundef %0, ptr nocapture noundef wri
   br label %18
 
 10:                                               ; preds = %6
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 16), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 16), align 8
   store i32 %11, ptr %1, align 4
   br label %18
 
@@ -410,7 +410,7 @@ define noundef i32 @acct_gather_profile_p_node_step_start(ptr noundef %0) local_
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 448
   %21 = load i32, ptr %20, align 8
   %.not2.i = icmp eq i32 %21, 0
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 16), align 8
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 16), align 8
   %spec.select.i = select i1 %.not2.i, i32 %22, i32 %21
   br label %_determine_profile.exit
 
@@ -517,7 +517,7 @@ define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
   %22 = trunc i64 %20 to i32
   %23 = add i32 %21, %22
   store i32 %23, ptr @datastrlen, align 4
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %25 = and i64 %24, 2097152
   %.not41 = icmp eq i64 %25, 0
   br i1 %.not41, label %133, label %26
@@ -554,8 +554,8 @@ define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr @influxdb_conf, align 8
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 8), align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 32), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 8), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 32), align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.24, ptr noundef %42, ptr noundef %43, ptr noundef %44) #8
   %45 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 243, ptr noundef nonnull @__func__._send_data) #8
   store ptr %45, ptr %2, align 8
@@ -563,7 +563,7 @@ define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
   store i64 0, ptr %46, align 8
   %47 = load ptr, ptr %4, align 8
   %48 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %37, i32 noundef 10002, ptr noundef %47) #8
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 24), align 8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 24), align 8
   %.not35 = icmp eq ptr %49, null
   br i1 %.not35, label %52, label %50
 
@@ -578,7 +578,7 @@ define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
   %56 = load ptr, ptr @datastr, align 8
   %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #10
   %58 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %37, i32 noundef 60, i64 noundef %57) #8
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 48), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 48), align 8
   %.not36 = icmp eq ptr %59, null
   br i1 %.not36, label %62, label %60
 
@@ -589,7 +589,7 @@ define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
 62:                                               ; preds = %60, %52
   %63 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %37, i32 noundef 20011, ptr noundef nonnull @_write_callback) #8
   %64 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %37, i32 noundef 10001, ptr noundef nonnull %2) #8
-  %65 = load i32, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 40), align 8
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 40), align 8
   %66 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %37, i32 noundef 13, i32 noundef %65) #8
   %67 = call i32 @curl_easy_perform(ptr noundef nonnull %37) #8
   %.not37 = icmp eq i32 %67, 0
@@ -651,7 +651,7 @@ define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
   br label %95
 
 95:                                               ; preds = %93, %92
-  %96 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %97 = and i64 %96, 2097152
   %.not39 = icmp eq i64 %97, 0
   br i1 %.not39, label %115, label %.preheader
@@ -699,7 +699,7 @@ define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
   call void @curl_global_cleanup() #8
   %118 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %8) #8
-  %119 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %119 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %120 = and i64 %119, 2097152
   %.not40 = icmp eq i64 %120, 0
   br i1 %.not40, label %125, label %121
@@ -972,7 +972,7 @@ define void @acct_gather_profile_p_conf_values(ptr nocapture noundef readonly %0
   %12 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 614, ptr noundef nonnull @__func__.acct_gather_profile_p_conf_values) #8
   %13 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.3) #8
   store ptr %13, ptr %12, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 8), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 8), align 8
   %15 = tail call ptr @slurm_xstrdup(ptr noundef %14) #8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %15, ptr %16, align 8
@@ -981,7 +981,7 @@ define void @acct_gather_profile_p_conf_values(ptr nocapture noundef readonly %0
   %18 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 619, ptr noundef nonnull @__func__.acct_gather_profile_p_conf_values) #8
   %19 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.4) #8
   store ptr %19, ptr %18, align 8
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 16), align 8
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 16), align 8
   %21 = tail call ptr @acct_gather_profile_to_string(i32 noundef %20) #8
   %22 = tail call ptr @slurm_xstrdup(ptr noundef %21) #8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -991,7 +991,7 @@ define void @acct_gather_profile_p_conf_values(ptr nocapture noundef readonly %0
   %25 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 625, ptr noundef nonnull @__func__.acct_gather_profile_p_conf_values) #8
   %26 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.5) #8
   store ptr %26, ptr %25, align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 24), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 24), align 8
   %28 = tail call ptr @slurm_xstrdup(ptr noundef %27) #8
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %28, ptr %29, align 8
@@ -1000,7 +1000,7 @@ define void @acct_gather_profile_p_conf_values(ptr nocapture noundef readonly %0
   %31 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 630, ptr noundef nonnull @__func__.acct_gather_profile_p_conf_values) #8
   %32 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.6) #8
   store ptr %32, ptr %31, align 8
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 32), align 8
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 32), align 8
   %34 = tail call ptr @slurm_xstrdup(ptr noundef %33) #8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %34, ptr %35, align 8
@@ -1009,7 +1009,7 @@ define void @acct_gather_profile_p_conf_values(ptr nocapture noundef readonly %0
   %37 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 635, ptr noundef nonnull @__func__.acct_gather_profile_p_conf_values) #8
   %38 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #8
   store ptr %38, ptr %37, align 8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 40), align 8
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 40), align 8
   %40 = tail call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.20, i32 noundef %39) #8
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %40, ptr %41, align 8
@@ -1018,7 +1018,7 @@ define void @acct_gather_profile_p_conf_values(ptr nocapture noundef readonly %0
   %43 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 640, ptr noundef nonnull @__func__.acct_gather_profile_p_conf_values) #8
   %44 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.8) #8
   store ptr %44, ptr %43, align 8
-  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @influxdb_conf, i64 48), align 8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @influxdb_conf, i64 48), align 8
   %46 = tail call ptr @slurm_xstrdup(ptr noundef %45) #8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %46, ptr %47, align 8

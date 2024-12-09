@@ -1810,19 +1810,19 @@ switch.lookup:
 
 _ZNSt10unique_ptrIN4llvm15X86Disassembler10DumbFilterESt14default_deleteIS2_EED2Ev.exit: ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler10DumbFilterE, i64 16), ptr %7, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler10DumbFilterE, i64 16), ptr %7, align 8, !noalias !18
   br label %30
 
 _ZNSt10unique_ptrIN4llvm15X86Disassembler9ModFilterESt14default_deleteIS2_EED2Ev.exit: ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !21
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler9ModFilterE, i64 16), ptr %8, align 8, !noalias !21
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler9ModFilterE, i64 16), ptr %8, align 8, !noalias !21
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 1, ptr %9, align 8, !noalias !21
   br label %30
 
 _ZNSt10unique_ptrIN4llvm15X86Disassembler9ModFilterESt14default_deleteIS2_EED2Ev.exit21: ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler9ModFilterE, i64 16), ptr %10, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler9ModFilterE, i64 16), ptr %10, align 8, !noalias !24
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 0, ptr %11, align 8, !noalias !24
   br label %30
@@ -1830,7 +1830,7 @@ _ZNSt10unique_ptrIN4llvm15X86Disassembler9ModFilterESt14default_deleteIS2_EED2Ev
 _ZNSt10unique_ptrIN4llvm15X86Disassembler14ExtendedFilterESt14default_deleteIS2_EED2Ev.exit: ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   %12 = add nsw i8 %5, -48
   %13 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !27
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler14ExtendedFilterE, i64 16), ptr %13, align 8, !noalias !27
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler14ExtendedFilterE, i64 16), ptr %13, align 8, !noalias !27
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 1, ptr %14, align 8, !noalias !27
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 9
@@ -1840,7 +1840,7 @@ _ZNSt10unique_ptrIN4llvm15X86Disassembler14ExtendedFilterESt14default_deleteIS2_
 _ZNSt10unique_ptrIN4llvm15X86Disassembler14ExtendedFilterESt14default_deleteIS2_EED2Ev.exit30: ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   %16 = add nsw i8 %5, -56
   %17 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !30
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler14ExtendedFilterE, i64 16), ptr %17, align 8, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler14ExtendedFilterE, i64 16), ptr %17, align 8, !noalias !30
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 1, ptr %18, align 8, !noalias !30
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 9
@@ -1849,7 +1849,7 @@ _ZNSt10unique_ptrIN4llvm15X86Disassembler14ExtendedFilterESt14default_deleteIS2_
 
 _ZNSt10unique_ptrIN4llvm15X86Disassembler16ExtendedRMFilterESt14default_deleteIS2_EED2Ev.exit: ; preds = %switch.lookup
   %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !33
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler16ExtendedRMFilterE, i64 16), ptr %20, align 8, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler16ExtendedRMFilterE, i64 16), ptr %20, align 8, !noalias !33
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i8 1, ptr %21, align 8, !noalias !33
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 9
@@ -1859,7 +1859,7 @@ _ZNSt10unique_ptrIN4llvm15X86Disassembler16ExtendedRMFilterESt14default_deleteIS
 _ZNSt10unique_ptrIN4llvm15X86Disassembler14ExtendedFilterESt14default_deleteIS2_EED2Ev.exit39: ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   %23 = add nsw i8 %5, -32
   %24 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !36
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler14ExtendedFilterE, i64 16), ptr %24, align 8, !noalias !36
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler14ExtendedFilterE, i64 16), ptr %24, align 8, !noalias !36
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i8 0, ptr %25, align 8, !noalias !36
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 9
@@ -1869,7 +1869,7 @@ _ZNSt10unique_ptrIN4llvm15X86Disassembler14ExtendedFilterESt14default_deleteIS2_
 _ZNSt10unique_ptrIN4llvm15X86Disassembler11ExactFilterESt14default_deleteIS2_EED2Ev.exit: ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   %27 = or i8 %5, -128
   %28 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18, !noalias !39
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler11ExactFilterE, i64 16), ptr %28, align 8, !noalias !39
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm15X86Disassembler11ExactFilterE, i64 16), ptr %28, align 8, !noalias !39
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 %27, ptr %29, align 8, !noalias !39
   br label %30

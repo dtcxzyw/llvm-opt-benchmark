@@ -31,10 +31,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513DangiCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513DangiCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513DangiCalendarE, i64 16), ptr %this, align 8
   %call = tail call noundef ptr @_ZNK6icu_7513DangiCalendar24getDangiCalZoneAstroCalcER10UErrorCode(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(4) %success)
   tail call void @_ZN6icu_7515ChineseCalendarC2ERKNS_6LocaleEiPKNS_8TimeZoneER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, i32 noundef -2332, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513DangiCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513DangiCalendarE, i64 16), ptr %this, align 8
   ret void
 }
 
@@ -500,7 +500,7 @@ declare void @_ZN6icu_7515ChineseCalendarC2ERKNS_6LocaleEiPKNS_8TimeZoneER10UErr
 define void @_ZN6icu_7513DangiCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(632) %other) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7515ChineseCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(632) %other)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513DangiCalendarE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513DangiCalendarE, i64 16), ptr %this, align 8
   ret void
 }
 

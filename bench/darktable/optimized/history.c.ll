@@ -220,16 +220,16 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   tail call void @gtk_box_pack_start(ptr noundef %35, ptr noundef %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
   %36 = load ptr, ptr %7, align 8, !tbaa !16
   tail call void @gtk_widget_show_all(ptr noundef %36) #16
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %38 = and i32 %37, 2
   %39 = icmp ne i32 %38, 0
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3220), align 4
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3220), align 4
   %41 = icmp ne i32 %40, 0
   %42 = select i1 %39, i1 %41, i1 false
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %1
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !30
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !30
   %45 = and i32 %44, 1048576
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %48, label %47
@@ -239,18 +239,18 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br label %48
 
 48:                                               ; preds = %47, %43, %1
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !31
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
   tail call void @dt_control_signal_connect(ptr noundef %49, i32 noundef 24, ptr noundef nonnull @_lib_history_will_change_callback, ptr noundef nonnull %0) #16
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %51 = and i32 %50, 2
   %52 = icmp ne i32 %51, 0
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3224), align 8
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3224), align 8
   %54 = icmp ne i32 %53, 0
   %55 = select i1 %52, i1 %54, i1 false
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %48
-  %57 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !30
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !30
   %58 = and i32 %57, 1048576
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %61, label %60
@@ -260,18 +260,18 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br label %61
 
 61:                                               ; preds = %60, %56, %48
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !31
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
   tail call void @dt_control_signal_connect(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @_lib_history_change_callback, ptr noundef nonnull %0) #16
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %64 = and i32 %63, 2
   %65 = icmp ne i32 %64, 0
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3232), align 8
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3232), align 8
   %67 = icmp ne i32 %66, 0
   %68 = select i1 %65, i1 %67, i1 false
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %61
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !30
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !30
   %71 = and i32 %70, 1048576
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %74, label %73
@@ -281,7 +281,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br label %74
 
 74:                                               ; preds = %73, %69, %61
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !31
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
   tail call void @dt_control_signal_connect(ptr noundef %75, i32 noundef 27, ptr noundef nonnull @_lib_history_module_remove_callback, ptr noundef nonnull %0) #16
   ret void
 }
@@ -328,7 +328,7 @@ declare void @dtgtk_cairo_paint_styles(ptr noundef, i32 noundef, i32 noundef, i3
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_history_create_style_button_clicked_callback(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1544
   %5 = load i32, ptr %4, align 8, !tbaa !36
   %6 = icmp eq i32 %5, 0
@@ -336,7 +336,7 @@ define internal void @_lib_history_create_style_button_clicked_callback(ptr noca
 
 7:                                                ; preds = %2
   tail call void @dt_dev_write_history(ptr noundef nonnull %3) #16
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1544
   %10 = load i32, ptr %9, align 8, !tbaa !36
   tail call void @dt_gui_styles_dialog_new(i32 noundef %10) #16
@@ -388,12 +388,12 @@ define internal void @_lib_history_will_change_callback(ptr nocapture readnone %
 
 16:                                               ; preds = %12
   %17 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2024
   %20 = load ptr, ptr %19, align 8, !tbaa !58
   %21 = tail call ptr @dt_history_duplicate(ptr noundef %20) #16
   store ptr %21, ptr %17, align 8, !tbaa !59
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2016
   %24 = load i32, ptr %23, align 16, !tbaa !61
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -403,7 +403,7 @@ define internal void @_lib_history_will_change_callback(ptr nocapture readnone %
   %28 = tail call ptr @dt_ioppr_iop_order_copy_deep(ptr noundef %27) #16
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %28, ptr %29, align 8, !tbaa !64
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %32 = load ptr, ptr %31, align 8, !tbaa !65
   %33 = icmp eq ptr %32, null
@@ -411,7 +411,7 @@ define internal void @_lib_history_will_change_callback(ptr nocapture readnone %
 
 34:                                               ; preds = %16
   %35 = tail call i32 @dt_masks_get_edit_mode(ptr noundef nonnull %32) #16
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %38 = load ptr, ptr %37, align 8, !tbaa !65
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 504
@@ -425,7 +425,7 @@ define internal void @_lib_history_will_change_callback(ptr nocapture readnone %
   store i32 %42, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i32 %43, ptr %45, align 4
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 208), align 8, !tbaa !71
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !71
   tail call void @dt_undo_record(ptr noundef %46, ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %17, ptr noundef nonnull @_pop_undo, ptr noundef nonnull @_history_undo_data_free) #16
   br label %47
 
@@ -449,7 +449,7 @@ define internal void @_lib_history_change_callback(ptr nocapture readnone %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_history_module_remove_callback(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 208), align 8, !tbaa !71
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !71
   tail call void @dt_undo_iterate(ptr noundef %4, i32 noundef 2, ptr noundef %1, ptr noundef nonnull @_history_invalidate_cb) #16
   ret void
 }
@@ -459,13 +459,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %3 = and i32 %2, 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !30
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !30
   %7 = and i32 %6, 1048576
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %9
@@ -475,15 +475,15 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br label %10
 
 10:                                               ; preds = %9, %5, %1
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !31
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
   tail call void @dt_control_signal_disconnect(ptr noundef %11, ptr noundef nonnull @_lib_history_change_callback, ptr noundef %0) #16
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %13 = and i32 %12, 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %10
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !30
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !30
   %17 = and i32 %16, 1048576
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %20, label %19
@@ -493,15 +493,15 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br label %20
 
 20:                                               ; preds = %19, %15, %10
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !31
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
   tail call void @dt_control_signal_disconnect(ptr noundef %21, ptr noundef nonnull @_lib_history_will_change_callback, ptr noundef %0) #16
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %23 = and i32 %22, 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %20
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !30
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !30
   %27 = and i32 %26, 1048576
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %30, label %29
@@ -511,7 +511,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br label %30
 
 30:                                               ; preds = %29, %25, %20
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !31
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
   tail call void @dt_control_signal_disconnect(ptr noundef %31, ptr noundef nonnull @_lib_history_module_remove_callback, ptr noundef %0) #16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %33 = load ptr, ptr %32, align 8, !tbaa !6
@@ -528,7 +528,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #5
 define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1976
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #16
   %7 = load ptr, ptr %3, align 8, !tbaa !17
@@ -536,7 +536,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #16
   tail call void @dt_gui_container_destroy_children(ptr noundef %9) #16
   %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #16
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2016
   %13 = load i32, ptr %12, align 16, !tbaa !61
   %14 = icmp eq i32 %13, 0
@@ -546,7 +546,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %18 = tail call i64 @gtk_box_get_type() #18
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #16
   tail call void @gtk_box_pack_end(ptr noundef %19, ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2024
   %22 = load ptr, ptr %21, align 8, !tbaa !72
   %23 = icmp eq ptr %22, null
@@ -558,7 +558,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @gtk_widget_show_all(ptr noundef %25) #16
   %26 = load ptr, ptr %3, align 8, !tbaa !17
   tail call void @dt_gui_widget_reallocate_now(ptr noundef %26) #16
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2016
   %29 = load i32, ptr %28, align 16, !tbaa !61
   %30 = icmp eq i32 %24, %29
@@ -607,7 +607,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 
 54:                                               ; preds = %.tail.thread, %43, %35
   %55 = phi ptr [ %48, %43 ], [ %53, %.tail.thread ], [ %36, %35 ]
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 2016
   %58 = load i32, ptr %57, align 16, !tbaa !61
   %59 = add nsw i32 %58, -1
@@ -657,7 +657,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %93, i64 noundef %92) #16
   %95 = tail call ptr @gtk_scrolled_window_get_vadjustment(ptr noundef %94) #16
   tail call void @gtk_adjustment_set_value(ptr noundef %95, double noundef 0.000000e+00) #16
-  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   br label %97
 
 97:                                               ; preds = %90, %.loopexit
@@ -798,7 +798,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr nocaptur
   %11 = load ptr, ptr %10, align 16, !tbaa !83
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 768
   %13 = load ptr, ptr %12, align 16, !tbaa !84
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2024
   %16 = load ptr, ptr %15, align 8, !tbaa !72
   %17 = icmp eq ptr %16, null
@@ -2009,7 +2009,7 @@ declare void @gtk_adjustment_set_value(ptr noundef, double noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define void @gui_reset(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1544
   %4 = load i32, ptr %3, align 8, !tbaa !36
   %5 = icmp sgt i32 %4, 0
@@ -2028,12 +2028,12 @@ define void @gui_reset(ptr nocapture noundef readnone %0) local_unnamed_addr #1 
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %9, %6
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   tail call void @dt_dev_undo_start_record(ptr noundef %15) #16
   tail call void @dt_history_delete_on_image_ext(i32 noundef %4, i32 noundef 0, i32 noundef 1) #16
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   tail call void @dt_dev_undo_end_record(ptr noundef %16) #16
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %18 = tail call i32 @dt_dev_modulegroups_get(ptr noundef %17) #16
   tail call void @dt_dev_modulegroups_set(ptr noundef %17, i32 noundef %18) #16
   tail call void (...) @dt_control_queue_redraw_center() #16
@@ -2092,7 +2092,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %10 = load ptr, ptr %9, align 8, !tbaa !6
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %12 = load ptr, ptr %2, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !62
@@ -2199,7 +2199,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %79, label %80, label %91
 
 80:                                               ; preds = %74
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !126
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 120
   %83 = load i32, ptr %82, align 8, !tbaa !127
   %84 = add nsw i32 %83, 1
@@ -2207,7 +2207,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   %85 = getelementptr inbounds nuw i8, ptr %67, i64 176
   %86 = load ptr, ptr %85, align 16, !tbaa !131
   call void %86(ptr noundef nonnull %67) #16
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !126
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 120
   %89 = load i32, ptr %88, align 8, !tbaa !127
   %90 = add nsw i32 %89, -1
@@ -2286,7 +2286,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   store ptr %67, ptr %6, align 8, !tbaa !135
   store i32 %110, ptr %47, align 8, !tbaa !137
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 208), align 8, !tbaa !71
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !71
   call void @dt_undo_iterate_internal(ptr noundef %131, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull @_undo_items_cb) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   br label %132
@@ -2433,7 +2433,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 .loopexit28:                                      ; preds = %206, %205, %.preheader29, %211
   %215 = phi ptr [ %169, %211 ], [ %143, %.preheader29 ], [ %169, %206 ], [ %176, %205 ]
   %216 = phi ptr [ %170, %211 ], [ %144, %.preheader29 ], [ %170, %206 ], [ %179, %205 ]
-  %217 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %217 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 88
   %219 = load ptr, ptr %218, align 8, !tbaa !65
   %220 = icmp eq ptr %219, %216
@@ -2444,7 +2444,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br label %222
 
 222:                                              ; preds = %221, %.loopexit28
-  %223 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !126
+  %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 120
   %225 = load i32, ptr %224, align 8, !tbaa !127
   %226 = add nsw i32 %225, 1
@@ -2478,13 +2478,13 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
 
 241:                                              ; preds = %229, %222
   %242 = call ptr @g_list_remove_link(ptr noundef nonnull %141, ptr noundef nonnull %215) #16
-  %243 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 208), align 8, !tbaa !71
+  %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !71
   call void @dt_undo_iterate_internal(ptr noundef %243, i32 noundef 2, ptr noundef %216, ptr noundef nonnull @_history_invalidate_cb) #16
   call void @dt_action_cleanup_instance_iop(ptr noundef %216) #16
   %244 = load ptr, ptr %139, align 16, !tbaa !139
   %245 = call ptr @g_list_append(ptr noundef %244, ptr noundef %216) #16
   store ptr %245, ptr %139, align 16, !tbaa !139
-  %246 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !126
+  %246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 120
   %248 = load i32, ptr %247, align 8, !tbaa !127
   %249 = add nsw i32 %248, -1
@@ -2543,7 +2543,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %277, label %283, label %278
 
 278:                                              ; preds = %.preheader
-  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !126
+  %279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %280 = load ptr, ptr %279, align 8, !tbaa !140
   %281 = call ptr @dt_ui_get_container(ptr noundef %280, i32 noundef 4) #16
   %282 = add nsw i32 %272, 1
@@ -2561,7 +2561,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   call void @dt_dev_write_history(ptr noundef %11) #16
   call void @dt_dev_reload_history_items(ptr noundef %11) #16
   call void @dt_ioppr_resync_modules_order(ptr noundef %11) #16
-  %288 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %288 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %289 = call i32 @dt_dev_modulegroups_get(ptr noundef %288) #16
   call void @dt_dev_modulegroups_set(ptr noundef %288, i32 noundef %289) #16
   %290 = getelementptr inbounds nuw i8, ptr %11, i64 88
@@ -2575,7 +2575,7 @@ define internal void @_pop_undo(ptr nocapture noundef readonly %0, i32 noundef %
   call void @dt_masks_set_edit_mode(ptr noundef nonnull %291, i32 noundef %295) #16
   %296 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %297 = load i32, ptr %296, align 4, !tbaa !143
-  %298 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %298 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 88
   %300 = load ptr, ptr %299, align 8, !tbaa !65
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 504
@@ -2779,7 +2779,7 @@ declare void @g_object_set_data(ptr noundef, ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1544
   %6 = load i32, ptr %5, align 8, !tbaa !36
   %7 = icmp sgt i32 %6, 0
@@ -2811,7 +2811,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callbac
   %25 = tail call ptr @g_object_get_data(ptr noundef %24, ptr noundef nonnull @.str.29) #16
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i32
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2024
   %30 = load ptr, ptr %29, align 8, !tbaa !58
   %31 = add nsw i32 %27, -1
@@ -2820,7 +2820,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callbac
   br i1 %33, label %82, label %34
 
 34:                                               ; preds = %23
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %36 = load ptr, ptr %32, align 8, !tbaa !76
   tail call void @dt_dev_modulegroups_switch(ptr noundef %35, ptr noundef %36) #16
   %37 = load ptr, ptr %32, align 8, !tbaa !76
@@ -2841,7 +2841,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callbac
 .loopexit:                                        ; preds = %59, %38
   tail call void @g_list_free(ptr noundef %44) #16
   store i1 false, ptr @_lib_history_button_clicked_callback.reset, align 4
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !126
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !126
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
   %48 = load i32, ptr %47, align 8, !tbaa !127
   %49 = icmp eq i32 %48, 0
@@ -2869,30 +2869,30 @@ define internal noundef range(i32 0, 2) i32 @_lib_history_button_clicked_callbac
   br i1 %62, label %.loopexit, label %.preheader
 
 63:                                               ; preds = %.loopexit
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   tail call void @dt_dev_undo_start_record(ptr noundef %64) #16
   %65 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
   %66 = tail call ptr @g_object_get_data(ptr noundef %65, ptr noundef nonnull @.str.29) #16
   %67 = ptrtoint ptr %66 to i64
   %68 = trunc i64 %67 to i32
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   tail call void @dt_dev_pop_history_items(ptr noundef %69, i32 noundef %68) #16
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   tail call void @dt_dev_reorder_gui_module_list(ptr noundef %70) #16
   tail call void @dt_image_update_final_size(i32 noundef %6) #16
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 112
   %73 = tail call i32 @dt_image_is_raw(ptr noundef nonnull %72) #16
   %74 = icmp eq i32 %73, 0
   %75 = select i1 %74, i32 0, i32 2
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 96
   %78 = load ptr, ptr %77, align 16, !tbaa !145
   tail call void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef %78, i32 noundef %75) #16
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   tail call void @dt_dev_undo_end_record(ptr noundef %79) #16
   tail call void (...) @dt_iop_connect_accels_all() #16
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %81 = tail call i32 @dt_dev_modulegroups_get(ptr noundef %80) #16
   tail call void @dt_dev_modulegroups_set(ptr noundef %80, i32 noundef %81) #16
   br label %82
@@ -3414,7 +3414,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1544
   %5 = load i32, ptr %4, align 8, !tbaa !36
   %6 = icmp sgt i32 %5, 0
@@ -3422,7 +3422,7 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
 
 7:                                                ; preds = %1
   tail call void @dt_dev_undo_start_record(ptr noundef nonnull %3) #16
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   tail call void @dt_dev_write_history(ptr noundef %8) #16
   %9 = icmp eq i32 %0, 0
   br i1 %9, label %11, label %10
@@ -3432,7 +3432,7 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
   br label %15
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2016
   %14 = load i32, ptr %13, align 16, !tbaa !61
   tail call void @dt_history_truncate_on_image(i32 noundef %5, i32 noundef %14) #16
@@ -3440,12 +3440,12 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
 
 15:                                               ; preds = %11, %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   tail call void @dt_dev_reload_history_items(ptr noundef %16) #16
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   tail call void @dt_dev_write_history(ptr noundef %17) #16
   tail call void @dt_image_synch_xmp(i32 noundef %5) #16
-  %18 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !30
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !30
   %19 = and i32 %18, 256
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %22, label %21
@@ -3455,7 +3455,7 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
   br label %22
 
 22:                                               ; preds = %21, %15
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !151
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !151
   %24 = tail call ptr @dt_database_get(ptr noundef %23) #16
   %25 = call i32 @sqlite3_prepare_v2(ptr noundef %24, ptr noundef nonnull @.str.95, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #16
   %26 = icmp eq i32 %25, 0
@@ -3463,7 +3463,7 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @stderr, align 8, !tbaa !72
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !151
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !151
   %30 = call ptr @dt_database_get(ptr noundef %29) #16
   %31 = call ptr @sqlite3_errmsg(ptr noundef %30) #16
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.11, i32 noundef 1213, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef nonnull @.str.95, ptr noundef %31) #21
@@ -3477,7 +3477,7 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr @stderr, align 8, !tbaa !72
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 136), align 8, !tbaa !151
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !151
   %40 = call ptr @dt_database_get(ptr noundef %39) #16
   %41 = call ptr @sqlite3_errmsg(ptr noundef %40) #16
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.11, i32 noundef 1215, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef %41) #21
@@ -3492,7 +3492,7 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
 47:                                               ; preds = %43
   %48 = load ptr, ptr %2, align 8, !tbaa !72
   %49 = call i32 @sqlite3_column_int(ptr noundef %48, i32 noundef 0) #16
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 2016
   store i32 %49, ptr %51, align 16, !tbaa !61
   br label %52
@@ -3500,27 +3500,27 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
 52:                                               ; preds = %47, %43
   %53 = load ptr, ptr %2, align 8, !tbaa !72
   %54 = call i32 @sqlite3_finalize(ptr noundef %53) #16
-  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 2016
   %57 = load i32, ptr %56, align 16, !tbaa !61
   %58 = call i32 @dt_image_set_history_end(i32 noundef %5, i32 noundef %57) #16
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   call void @dt_dev_reload_history_items(ptr noundef %59) #16
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   call void @dt_dev_undo_end_record(ptr noundef %60) #16
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !35
   %62 = call i32 @dt_dev_modulegroups_get(ptr noundef %61) #16
   call void @dt_dev_modulegroups_set(ptr noundef %61, i32 noundef %62) #16
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3120), align 8, !tbaa !20
   %64 = and i32 %63, 1
   %65 = icmp ne i32 %64, 0
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3228), align 4
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3228), align 4
   %67 = icmp ne i32 %66, 0
   %68 = select i1 %65, i1 %67, i1 false
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %52
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !30
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !30
   %71 = and i32 %70, 1048576
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %74, label %73
@@ -3530,7 +3530,7 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
   br label %74
 
 74:                                               ; preds = %73, %69, %52
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !31
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !31
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %75, i32 noundef 26) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   br label %76

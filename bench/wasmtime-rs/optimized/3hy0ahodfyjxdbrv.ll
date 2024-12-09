@@ -31553,7 +31553,7 @@ define void @"_ZN93_$LT$cranelift_codegen..isa..x64..X64Backend$u20$as$u20$crane
   %.sroa.0.0.copyload2.i = load <2 x i8>, ptr %4, align 8, !alias.scope !8309, !noalias !8313
   store ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, ptr %3, align 8, !alias.scope !8304, !noalias !8307
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, i64 3280), ptr %5, align 8, !alias.scope !8304, !noalias !8307
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN17cranelift_codegen3isa3x648settings11DESCRIPTORS17h3f812ec1131dbf60E, i64 3280), ptr %5, align 8, !alias.scope !8304, !noalias !8307
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store <2 x i8> %.sroa.0.0.copyload2.i, ptr %6, align 8, !alias.scope !8304, !noalias !8307
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9599b0ce11d283ffE.llvm.14502953478370073462"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)

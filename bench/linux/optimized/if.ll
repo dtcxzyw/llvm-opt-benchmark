@@ -53,25 +53,25 @@ define dso_local ptr @mtrr_attrib_to_str(i32 noundef %0) local_unnamed_addr #0 a
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef range(i32 -19, 1) i32 @mtrr_if_init() #1 section ".init.text" align 16 {
-  %1 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
+  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 40), align 8
   %2 = and i64 %1, 4096
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %16
 
 4:                                                ; preds = %0
-  %5 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 48), align 8
+  %5 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 48), align 8
   %6 = and i64 %5, 8589934592
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %4
-  %9 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 48), align 8
+  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 48), align 8
   %10 = and i64 %9, 17179869184
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 48), align 8
+  %13 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 48), align 8
   %14 = and i64 %13, 34359738368
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %18, label %16

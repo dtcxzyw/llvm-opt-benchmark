@@ -1935,7 +1935,7 @@ do.end14:                                         ; preds = %do.end
 
 if.end15:                                         ; preds = %do.end
   %call.i = tail call noalias noundef nonnull dereferenceable(560) ptr @_Znwm(i64 noundef 560) #24, !noalias !168
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %call.i, align 8, !noalias !168
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %call.i, align 8, !noalias !168
   %kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 %2, ptr %kind.i.i, align 8, !noalias !168
   %states.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16

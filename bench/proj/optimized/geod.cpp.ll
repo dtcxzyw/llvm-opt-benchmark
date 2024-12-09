@@ -57,7 +57,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef %1) local_
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8
   %9 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #10
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 8), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
 
@@ -71,7 +71,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef %1) local_
 
 sub_0:                                            ; preds = %12, %10
   %storemerge = phi ptr [ %13, %12 ], [ %11, %10 ]
-  store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
+  store ptr %storemerge, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 8), align 8
   %14 = load i8, ptr %storemerge, align 1
   %.not138 = icmp eq i8 %14, 105
   br i1 %.not138, label %sub_1, label %.tail.thread
@@ -102,7 +102,7 @@ sub_1:                                            ; preds = %sub_0
 26:                                               ; preds = %23
   %27 = load ptr, ptr @stderr, align 8
   %28 = tail call noundef ptr @_Z14pj_get_releasev()
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 8), align 8
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.16, ptr noundef %28, ptr noundef %29) #11
   tail call void @exit(i32 noundef 0) #12
   unreachable
@@ -368,11 +368,11 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not88, label %148, label %133
 
 133:                                              ; preds = %131
-  %134 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %135 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  %134 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 48), align 8
+  %135 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8
   tail call fastcc void @_ZL7printLLdd(double noundef %134, double noundef %135)
   %136 = tail call i32 @putchar(i32 noundef 10)
-  %137 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %137 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8
   %138 = load i32, ptr @n_alpha, align 4
   %139 = add nsw i32 %138, -1
   store i32 %139, ptr @n_alpha, align 4
@@ -384,11 +384,11 @@ sub_1:                                            ; preds = %sub_0
   %140 = load double, ptr @del_alpha, align 8
   %141 = fadd double %.02.i, %140
   %142 = tail call noundef double @_Z6adjlond(double noundef %141)
-  store double %142, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  store double %142, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8
   tail call void @geod_pre()
   tail call void @geod_for()
-  %143 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %144 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  %143 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 48), align 8
+  %144 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8
   tail call fastcc void @_ZL7printLLdd(double noundef %143, double noundef %144)
   %145 = tail call i32 @putchar(i32 noundef 10)
   %146 = load i32, ptr @n_alpha, align 4
@@ -450,7 +450,7 @@ sub_1:                                            ; preds = %sub_0
   store ptr %storemerge91, ptr @emess_dat, align 8
   call void @llvm.lifetime.start.p0(i64 203, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %168 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.061)
   store ptr %168, ptr %4, align 8
   %.not17.i = icmp eq ptr %168, null
@@ -493,9 +493,9 @@ sub_1:                                            ; preds = %sub_0
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %353, %179
-  %182 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %183 = add nsw i32 %182, 1
-  store i32 %183, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  store i32 %183, ptr getelementptr inbounds nuw (i8, ptr @emess_dat, i64 16), align 8
   %184 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.061)
   store ptr %184, ptr %4, align 8
   %.not.i101 = icmp eq ptr %184, null
@@ -503,29 +503,29 @@ sub_1:                                            ; preds = %sub_0
 
 185:                                              ; preds = %.loopexit.i
   %186 = call noundef double @_Z6dmstorPKcPPc(ptr noundef nonnull %174, ptr noundef nonnull %4)
-  store double %186, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 24), align 8
+  store double %186, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 24), align 8
   %187 = load ptr, ptr %4, align 8
   %188 = call noundef double @_Z6dmstorPKcPPc(ptr noundef %187, ptr noundef nonnull %4)
-  store double %188, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 16), align 8
+  store double %188, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 16), align 8
   %189 = load ptr, ptr %4, align 8
   %190 = call noundef double @_Z6dmstorPKcPPc(ptr noundef %189, ptr noundef nonnull %4)
   br i1 %.not12.i, label %194, label %191
 
 191:                                              ; preds = %185
-  store double %190, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
+  store double %190, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 48), align 8
   %192 = load ptr, ptr %4, align 8
   %193 = call noundef double @_Z6dmstorPKcPPc(ptr noundef %192, ptr noundef nonnull %4)
-  store double %193, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  store double %193, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8
   call void @geod_inv()
   br label %199
 
 194:                                              ; preds = %185
-  store double %190, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  store double %190, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8
   %195 = load ptr, ptr %4, align 8
   %196 = call double @strtod(ptr noundef %195, ptr noundef nonnull %4) #13
   %197 = load double, ptr @to_meter, align 8
   %198 = fmul double %196, %197
-  store double %198, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  store double %198, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8
   call void @geod_pre()
   call void @geod_for()
   br label %199
@@ -548,23 +548,23 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.b10.i, label %207, label %217
 
 207:                                              ; preds = %206
-  %208 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %208 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8
   %209 = fcmp olt double %208, 0.000000e+00
   br i1 %209, label %210, label %212
 
 210:                                              ; preds = %207
   %211 = fadd double %208, 0x401921FB54442D18
-  store double %211, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  store double %211, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8
   br label %212
 
 212:                                              ; preds = %210, %207
-  %213 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %213 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8
   %214 = fcmp olt double %213, 0.000000e+00
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %212
   %216 = fadd double %213, 0x401921FB54442D18
-  store double %216, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  store double %216, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8
   br label %217
 
 217:                                              ; preds = %215, %212, %206
@@ -572,8 +572,8 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.b.i, label %218, label %289
 
 218:                                              ; preds = %217
-  %219 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 24), align 8
-  %220 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 16), align 8
+  %219 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 24), align 8
+  %220 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 16), align 8
   %221 = load ptr, ptr @_ZL5oform, align 8
   %.not.i105 = icmp eq ptr %221, null
   br i1 %.not.i105, label %229, label %222
@@ -601,8 +601,8 @@ sub_1:                                            ; preds = %sub_0
 
 _ZL7printLLdd.exit106:                            ; preds = %222, %229
   %237 = call i32 @putchar(i32 noundef 9)
-  %238 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %239 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  %238 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 48), align 8
+  %239 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8
   %240 = load ptr, ptr @_ZL5oform, align 8
   %.not.i103 = icmp eq ptr %240, null
   br i1 %.not.i103, label %248, label %241
@@ -636,38 +636,38 @@ _ZL7printLLdd.exit104:                            ; preds = %241, %248
 
 258:                                              ; preds = %_ZL7printLLdd.exit104
   %259 = load ptr, ptr @stdout, align 8
-  %260 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %260 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8
   %261 = fmul double %260, 0x404CA5DC1A63C1F8
   call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %259, ptr noundef nonnull %257, double noundef %261)
   %262 = call i32 @putchar(i32 noundef 9)
   %263 = load ptr, ptr @stdout, align 8
   %264 = load ptr, ptr @_ZL5oform, align 8
-  %265 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %265 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8
   %266 = fmul double %265, 0x404CA5DC1A63C1F8
   call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %263, ptr noundef %264, double noundef %266)
   %267 = call i32 @putchar(i32 noundef 9)
   %268 = load ptr, ptr @stdout, align 8
   %269 = load ptr, ptr @_ZL6osform, align 8
-  %270 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %270 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8
   %271 = load double, ptr @fr_meter, align 8
   %272 = fmul double %270, %271
   call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %268, ptr noundef %269, double noundef %272)
   br label %353
 
 273:                                              ; preds = %_ZL7printLLdd.exit104
-  %274 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %274 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8
   %275 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %274, i32 noundef 0, i32 noundef 0)
   %276 = load ptr, ptr @stdout, align 8
   %277 = call i32 @fputs(ptr noundef %275, ptr noundef %276)
   %278 = call i32 @putchar(i32 noundef 9)
-  %279 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %279 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8
   %280 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %279, i32 noundef 0, i32 noundef 0)
   %281 = load ptr, ptr @stdout, align 8
   %282 = call i32 @fputs(ptr noundef %280, ptr noundef %281)
   %283 = call i32 @putchar(i32 noundef 9)
   %284 = load ptr, ptr @stdout, align 8
   %285 = load ptr, ptr @_ZL6osform, align 8
-  %286 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %286 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8
   %287 = load double, ptr @fr_meter, align 8
   %288 = fmul double %286, %287
   call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %284, ptr noundef %285, double noundef %288)
@@ -683,46 +683,46 @@ _ZL7printLLdd.exit104:                            ; preds = %241, %248
 
 292:                                              ; preds = %290
   %293 = load ptr, ptr @stdout, align 8
-  %294 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %294 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8
   %295 = fmul double %294, 0x404CA5DC1A63C1F8
   call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %293, ptr noundef nonnull %291, double noundef %295)
   %296 = call i32 @putchar(i32 noundef 9)
   %297 = load ptr, ptr @stdout, align 8
   %298 = load ptr, ptr @_ZL5oform, align 8
-  %299 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %299 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8
   %300 = fmul double %299, 0x404CA5DC1A63C1F8
   call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %297, ptr noundef %298, double noundef %300)
   %301 = call i32 @putchar(i32 noundef 9)
   %302 = load ptr, ptr @stdout, align 8
   %303 = load ptr, ptr @_ZL6osform, align 8
-  %304 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %304 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8
   %305 = load double, ptr @fr_meter, align 8
   %306 = fmul double %304, %305
   call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %302, ptr noundef %303, double noundef %306)
   br label %353
 
 307:                                              ; preds = %290
-  %308 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %308 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8
   %309 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %308, i32 noundef 0, i32 noundef 0)
   %310 = load ptr, ptr @stdout, align 8
   %311 = call i32 @fputs(ptr noundef %309, ptr noundef %310)
   %312 = call i32 @putchar(i32 noundef 9)
-  %313 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %313 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8
   %314 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %313, i32 noundef 0, i32 noundef 0)
   %315 = load ptr, ptr @stdout, align 8
   %316 = call i32 @fputs(ptr noundef %314, ptr noundef %315)
   %317 = call i32 @putchar(i32 noundef 9)
   %318 = load ptr, ptr @stdout, align 8
   %319 = load ptr, ptr @_ZL6osform, align 8
-  %320 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %320 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8
   %321 = load double, ptr @fr_meter, align 8
   %322 = fmul double %320, %321
   call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %318, ptr noundef %319, double noundef %322)
   br label %353
 
 323:                                              ; preds = %289
-  %324 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %325 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  %324 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 48), align 8
+  %325 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8
   %326 = load ptr, ptr @_ZL5oform, align 8
   %.not.i102 = icmp eq ptr %326, null
   br i1 %.not.i102, label %334, label %327
@@ -756,13 +756,13 @@ _ZL7printLLdd.exit:                               ; preds = %327, %334
 
 344:                                              ; preds = %_ZL7printLLdd.exit
   %345 = load ptr, ptr @stdout, align 8
-  %346 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %346 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8
   %347 = fmul double %346, 0x404CA5DC1A63C1F8
   call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %345, ptr noundef nonnull %343, double noundef %347)
   br label %353
 
 348:                                              ; preds = %_ZL7printLLdd.exit
-  %349 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %349 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 56), align 8
   %350 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %349, i32 noundef 0, i32 noundef 0)
   %351 = load ptr, ptr @stdout, align 8
   %352 = call i32 @fputs(ptr noundef %350, ptr noundef %351)
@@ -827,17 +827,17 @@ declare void @geod_set(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc void @_ZL7do_geodv() unnamed_addr #5 {
-  %1 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %2 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
-  %3 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 24), align 8
-  %4 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 16), align 8
+  %1 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 48), align 8
+  %2 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8
+  %3 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 24), align 8
+  %4 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 16), align 8
   tail call fastcc void @_ZL7printLLdd(double noundef %3, double noundef %4)
   %5 = tail call i32 @putchar(i32 noundef 10)
-  %6 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %6 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8
   %7 = load i32, ptr @n_S, align 4
   %8 = sitofp i32 %7 to double
   %9 = fdiv double %6, %8
-  store double %9, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  store double %9, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8
   %10 = add nsw i32 %7, -1
   store i32 %10, ptr @n_S, align 4
   %.not3 = icmp eq i32 %10, 0
@@ -845,13 +845,13 @@ define internal fastcc void @_ZL7do_geodv() unnamed_addr #5 {
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   tail call void @geod_for()
-  %11 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %12 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  %11 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 48), align 8
+  %12 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8
   tail call fastcc void @_ZL7printLLdd(double noundef %11, double noundef %12)
   %13 = tail call i32 @putchar(i32 noundef 10)
-  %14 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %14 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8
   %15 = fadd double %9, %14
-  store double %15, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  store double %15, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8
   %16 = load i32, ptr @n_S, align 4
   %17 = add nsw i32 %16, -1
   store i32 %17, ptr @n_S, align 4

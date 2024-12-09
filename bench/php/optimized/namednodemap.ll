@@ -271,7 +271,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItem(ptr nocapture noundef reado
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
   br label %18
@@ -484,7 +484,7 @@ define hidden void @zim_DOMNamedNodeMap_item(ptr noundef %0, ptr noundef %1) loc
 
 17:                                               ; preds = %.thread90
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.1, i32 noundef 2147483647) #3
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
   br label %24
@@ -521,7 +521,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr nocapture noundef rea
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
   br label %49
@@ -609,7 +609,7 @@ define hidden void @zim_DOMNamedNodeMap_count(ptr nocapture noundef readonly %0,
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #3
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
   br label %31

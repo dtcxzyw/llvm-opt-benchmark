@@ -267,7 +267,7 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
   store ptr %1, ptr %15, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %4, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %4, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   store ptr %4, ptr %5, align 8, !tbaa !19
   %17 = call ptr @_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -401,7 +401,7 @@ _ZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterE
   store ptr %1, ptr %15, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %4, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %4, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   store ptr %4, ptr %5, align 8, !tbaa !19
   %17 = call ptr @_ZNKSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -508,7 +508,7 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   store ptr %40, ptr %23, align 8, !tbaa !3
   store ptr %41, ptr %24, align 8, !tbaa !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %5, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %5, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   store ptr %5, ptr %6, align 8, !tbaa !19
   %42 = invoke ptr @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -548,7 +548,7 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   store i64 %58, ptr %63, align 8, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %0, ptr %64, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %45, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %45, align 8, !tbaa !20
   %65 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i8 %60, ptr %65, align 8, !tbaa !27
   invoke void @_ZNK5boost13serialization16void_cast_detail11void_caster18recursive_registerEb(ptr noundef nonnull align 8 dereferenceable(41) %45, i1 noundef zeroext %59)
@@ -606,7 +606,7 @@ _ZN5boost13serialization16void_cast_detail20void_caster_shortcutC2EPKNS0_18exten
   store ptr %82, ptr %27, align 8, !tbaa !3
   store ptr %85, ptr %28, align 8, !tbaa !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %7, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_argumentE, i64 16), ptr %7, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
   store ptr %7, ptr %8, align 8, !tbaa !19
   %86 = invoke ptr @_ZNSt8_Rb_treeIPKN5boost13serialization16void_cast_detail11void_casterES5_St9_IdentityIS5_ENS2_19void_caster_compareESaIS5_EE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN5boost13serialization9singletonISt3setIPKNS0_16void_cast_detail11void_casterENS3_19void_caster_compareESaIS6_EEE12get_instanceEvE1t, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -646,7 +646,7 @@ _ZNSt3setIPKN5boost13serialization16void_cast_detail11void_casterENS2_19void_cas
   store i64 %102, ptr %107, align 8, !tbaa !25
   %108 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store ptr %0, ptr %108, align 8, !tbaa !26
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %89, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %89, align 8, !tbaa !20
   %109 = getelementptr inbounds nuw i8, ptr %89, i64 40
   store i8 %104, ptr %109, align 8, !tbaa !27
   invoke void @_ZNK5boost13serialization16void_cast_detail11void_caster18recursive_registerEb(ptr noundef nonnull align 8 dereferenceable(41) %89, i1 noundef zeroext %103)
@@ -905,7 +905,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13serialization16void_cast_det
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail20void_caster_shortcutD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %0, align 8, !tbaa !20
   invoke void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %2 unwind label %3
 
@@ -922,7 +922,7 @@ define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail20voi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization16void_cast_detail20void_caster_shortcutD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost13serialization16void_cast_detail20void_caster_shortcutE, i64 16), ptr %0, align 8, !tbaa !20
   invoke void @_ZNK5boost13serialization16void_cast_detail11void_caster20recursive_unregisterEv(ptr noundef nonnull align 8 dereferenceable(41) %0)
           to label %_ZN5boost13serialization16void_cast_detail20void_caster_shortcutD2Ev.exit unwind label %2
 

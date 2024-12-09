@@ -120,9 +120,9 @@ define void @_ZN12RsaKeysFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferen
   %11 = alloca %class.QString, align 8
   %12 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12RsaKeysFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12RsaKeysFrame, i64 16), ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12RsaKeysFrame, i64 456), ptr %13, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12RsaKeysFrame, i64 456), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #15
           to label %16 unwind label %84
@@ -730,7 +730,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i71:    ; preds = %120
   %129 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i32 0, ptr %130, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %129, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 12
   store i32 0, ptr %131, align 4
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 16
@@ -913,7 +913,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i101:   ; preds = %191
   %200 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i32 0, ptr %201, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %200, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %200, align 8
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 12
   store i32 0, ptr %202, align 4
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 16
@@ -1361,9 +1361,9 @@ declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12RsaKeysFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12RsaKeysFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12RsaKeysFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV12RsaKeysFrame, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12RsaKeysFrame, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

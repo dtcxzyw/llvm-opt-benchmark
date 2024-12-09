@@ -2480,7 +2480,7 @@ proto_item_set_generated.exit:                    ; preds = %375, %381, %384
   %422 = call i64 @wmem_strbuf_get_len(ptr noundef %421) #9
   %423 = call ptr @format_text(ptr noundef %418, ptr noundef %420, i64 noundef %422) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %417, i32 noundef 25, ptr noundef nonnull @.str.334, ptr noundef %423) #9
-  %424 = load i32, ptr getelementptr inbounds (i8, ptr @dissect_coap_hf, i64 88), align 4
+  %424 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dissect_coap_hf, i64 88), align 4
   %425 = load ptr, ptr %134, align 8
   %426 = call ptr @wmem_strbuf_get_str(ptr noundef %425) #9
   %427 = call ptr @proto_tree_add_string(ptr noundef %82, i32 noundef %424, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %426) #9

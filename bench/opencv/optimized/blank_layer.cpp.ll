@@ -515,7 +515,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit.i:        ; preds = %102, %_ZSt8_Destroy
           to label %.noexc39 unwind label %134
 
 .noexc39:                                         ; preds = %115
-  store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14BlankLayerImplE, i64 16), ptr %116, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn14BlankLayerImplE, i64 16), ptr %116, align 8
   invoke void @_ZN2cv3dnn14dnn4_v202405215Layer13setParamsFromERKNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(104) %116, ptr noundef nonnull align 8 dereferenceable(136) %1)
           to label %_ZN2cv3dnn14BlankLayerImplC2ERKNS0_14dnn4_v2024052111LayerParamsE.exit unwind label %117
 
@@ -564,7 +564,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110BlankLayerEED2Ev.exit: ; preds = %_ZN2cv3dnn
   store i32 1, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %119, i64 12
   store i32 1, ptr %131, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14BlankLayerImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %119, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv3dnn14BlankLayerImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %119, align 8
   %132 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %116, ptr %132, align 8
   store ptr %116, ptr %0, align 8

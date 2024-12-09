@@ -3090,7 +3090,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call6 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %path, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29008)) #22
+  %call6 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %path, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29008)) #22
   %cmp = icmp eq ptr %call6, null
   %cmp8 = icmp eq ptr %call6, @_Py_NoneStruct
   %or.cond = or i1 %cmp, %cmp8
@@ -10882,7 +10882,7 @@ if.then.i:                                        ; preds = %entry
   br label %os_forkpty_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not.i = icmp eq ptr %2, %5
   br i1 %cmp.i.not.i, label %if.end4.i, label %if.then3.i
 
@@ -19734,7 +19734,7 @@ land.end:                                         ; preds = %land.rhs, %if.end4
   br i1 %or.cond1, label %if.end43, label %if.then16
 
 if.then16:                                        ; preds = %land.end
-  %call17 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 29008)) #22
+  %call17 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %o, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29008)) #22
   %cmp18 = icmp eq ptr %call17, null
   %cmp19 = icmp eq ptr %call17, @_Py_NoneStruct
   %or.cond2 = or i1 %cmp18, %cmp19
@@ -22567,7 +22567,7 @@ if.end10:                                         ; preds = %for.end
   br i1 %cmp11, label %if.then13, label %if.end28
 
 if.then13:                                        ; preds = %if.then, %entry, %for.end, %if.end10
-  %call14 = call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 60464)) #22
+  %call14 = call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60464)) #22
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %if.then16, label %if.end17
 
@@ -22576,7 +22576,7 @@ if.then16:                                        ; preds = %if.then13
   br label %if.end34
 
 if.end17:                                         ; preds = %if.then13
-  %call18 = call ptr @PyObject_GetAttr(ptr noundef nonnull %call14, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35368)) #22
+  %call18 = call ptr @PyObject_GetAttr(ptr noundef nonnull %call14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35368)) #22
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %if.then20, label %if.end21
 
@@ -22598,7 +22598,7 @@ if.then1.i77:                                     ; preds = %if.end.i74
   br label %if.end34
 
 if.end21:                                         ; preds = %if.end17
-  %call22 = call ptr @PyObject_GetAttr(ptr noundef nonnull %call14, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 36616)) #22
+  %call22 = call ptr @PyObject_GetAttr(ptr noundef nonnull %call14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36616)) #22
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %if.then24, label %if.end25
 
@@ -25035,13 +25035,13 @@ if.end13:                                         ; preds = %if.end9
 if.end19:                                         ; preds = %if.end13
   store ptr @.str.579, ptr @stat_result_desc, align 8
   %22 = load ptr, ptr @PyStructSequence_UnnamedField, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @stat_result_desc, i64 16), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @stat_result_desc, i64 16), align 8
   %arrayidx = getelementptr i8, ptr %23, i64 112
   store ptr %22, ptr %arrayidx, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @stat_result_desc, i64 16), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @stat_result_desc, i64 16), align 8
   %arrayidx20 = getelementptr i8, ptr %24, i64 128
   store ptr %22, ptr %arrayidx20, align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @stat_result_desc, i64 16), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @stat_result_desc, i64 16), align 8
   %arrayidx22 = getelementptr i8, ptr %25, i64 144
   store ptr %22, ptr %arrayidx22, align 8
   %call24 = tail call ptr @PyStructSequence_NewType(ptr noundef nonnull @stat_result_desc) #22
@@ -25218,7 +25218,7 @@ declare ptr @PyStructSequence_NewType(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @statresult_new(ptr noundef %type, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
-  %call = tail call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 55280)) #22
+  %call = tail call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 55280)) #22
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 

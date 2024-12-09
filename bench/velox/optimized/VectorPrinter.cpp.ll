@@ -1126,7 +1126,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !14
   %decoded_.i.i = getelementptr inbounds nuw i8, ptr %call.i15, i64 8
   store i32 0, ptr %decoded_.i.i, align 8, !noalias !14
   %indices_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i15, i64 16
@@ -1166,7 +1166,7 @@ if.then.i.i.i2.i.i.i:                             ; preds = %_ZNSt6vectorImSaImE
 _ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE.exit.i: ; preds = %sw.bb
   %children_.i.i = getelementptr inbounds nuw i8, ptr %call.i15, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i, i8 0, i64 24, i1 false), !noalias !14
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_118ArrayVectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !14
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_118ArrayVectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !14
   %4 = load ptr, ptr %baseVector_.i.i.i, align 8, !noalias !14
   %5 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %4, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #22, !noalias !14
   %elements_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 136
@@ -1291,7 +1291,7 @@ _ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_118ArrayVectorPrinterESt14default
 sw.bb1:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !25
   %decoded_.i.i21 = getelementptr inbounds nuw i8, ptr %call.i15, i64 8
   store i32 0, ptr %decoded_.i.i21, align 8, !noalias !25
   %indices_.i.i.i22 = getelementptr inbounds nuw i8, ptr %call.i15, i64 16
@@ -1331,7 +1331,7 @@ if.then.i.i.i2.i.i.i33:                           ; preds = %_ZNSt6vectorImSaImE
 _ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE.exit.i35: ; preds = %sw.bb1
   %children_.i.i36 = getelementptr inbounds nuw i8, ptr %call.i15, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i36, i8 0, i64 24, i1 false), !noalias !25
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116MapVectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !25
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116MapVectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !25
   %18 = load ptr, ptr %baseVector_.i.i.i24, align 8, !noalias !25
   %19 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %18, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #22, !noalias !25
   %keys_.i.i = getelementptr inbounds nuw i8, ptr %19, i64 136
@@ -1550,7 +1550,7 @@ _ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_116MapVectorPrinterESt14default_d
 
 sw.bb3:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i89)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !42
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !42
   %decoded_.i.i90 = getelementptr inbounds nuw i8, ptr %call.i15, i64 8
   store i32 0, ptr %decoded_.i.i90, align 8, !noalias !42
   %indices_.i.i.i91 = getelementptr inbounds nuw i8, ptr %call.i15, i64 16
@@ -1590,7 +1590,7 @@ if.then.i.i.i2.i.i.i102:                          ; preds = %_ZNSt6vectorImSaImE
 _ZN8facebook5velox12_GLOBAL__N_113VectorPrinterC2ERKNS0_10BaseVectorE.exit.i104: ; preds = %sw.bb3
   %children_.i.i105 = getelementptr inbounds nuw i8, ptr %call.i15, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i105, i8 0, i64 24, i1 false), !noalias !42
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116RowVectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !42
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116RowVectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !42
   %40 = load ptr, ptr %baseVector_.i.i.i93, align 8, !noalias !42
   %41 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %40, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #22, !noalias !42
   %children_.i3.i = getelementptr inbounds nuw i8, ptr %41, i64 112
@@ -1734,7 +1734,7 @@ _ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_116RowVectorPrinterESt14default_d
   br label %return
 
 sw.default:                                       ; preds = %entry
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !52
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !52
   %decoded_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i15, i64 8
   store i32 0, ptr %decoded_.i.i.i, align 8, !noalias !52
   %indices_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i15, i64 16
@@ -1774,7 +1774,7 @@ if.then.i.i.i2.i.i.i.i:                           ; preds = %_ZNSt6vectorImSaImE
 _ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_122PrimitiveVectorPrinterESt14default_deleteIS3_EED2Ev.exit: ; preds = %sw.default
   %children_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i15, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children_.i.i.i, i8 0, i64 24, i1 false), !noalias !52
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_122PrimitiveVectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !52
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_122PrimitiveVectorPrinterE, i64 16), ptr %call.i15, align 8, !noalias !52
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_122PrimitiveVectorPrinterESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_116RowVectorPrinterESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_116MapVectorPrinterESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_118ArrayVectorPrinterESt14default_deleteIS3_EED2Ev.exit
@@ -2603,7 +2603,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox12_GLOBAL__N_118ArrayVectorPrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
   %children_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %children_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2670,7 +2670,7 @@ _ZN8facebook5velox12_GLOBAL__N_113VectorPrinterD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox12_GLOBAL__N_118ArrayVectorPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
   %children_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %children_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -3037,7 +3037,7 @@ lpad:                                             ; preds = %.noexc
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox12_GLOBAL__N_113VectorPrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %children_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -3189,7 +3189,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.6, i64 6))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 6))
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -3469,7 +3469,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox12_GLOBAL__N_116MapVectorPrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
   %children_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %children_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -3536,7 +3536,7 @@ _ZN8facebook5velox12_GLOBAL__N_113VectorPrinterD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox12_GLOBAL__N_116MapVectorPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
   %children_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %children_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -4009,7 +4009,7 @@ lpad:                                             ; preds = %.noexc
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox12_GLOBAL__N_116RowVectorPrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
   %children_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %children_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -4076,7 +4076,7 @@ _ZN8facebook5velox12_GLOBAL__N_113VectorPrinterD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox12_GLOBAL__N_116RowVectorPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
   %children_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %children_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -4359,7 +4359,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox12_GLOBAL__N_122PrimitiveVectorPrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
   %children_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %children_.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -4426,7 +4426,7 @@ _ZN8facebook5velox12_GLOBAL__N_113VectorPrinterD2Ev.exit: ; preds = %_ZNSt6vecto
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN8facebook5velox12_GLOBAL__N_122PrimitiveVectorPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_113VectorPrinterE, i64 16), ptr %this, align 8
   %children_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %children_.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -5038,7 +5038,7 @@ if.end.i:                                         ; preds = %.noexc.i
           to label %invoke.cont.i unwind label %lpad.i1
 
 invoke.cont.i:                                    ; preds = %if.end.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 3)) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 3)) #22
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8facebook5velox12_GLOBAL__N_17kIndentB5cxx11E, i64 noundef 3)
           to label %__cxx_global_var_init.exit unwind label %lpad.i1

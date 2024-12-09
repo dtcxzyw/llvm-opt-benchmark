@@ -137,7 +137,7 @@ $_ZTVN4llvh2cl11OptionValueIbEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -1221,7 +1221,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds nuw i8, ptr %Log, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %Log, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %Log, align 8
   %OS.i = getelementptr inbounds nuw i8, ptr %Log, i64 40
   store ptr %this, ptr %OS.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parts, i64 16
@@ -1761,12 +1761,12 @@ entry:
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 104), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 144), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 152), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 160), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 160), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 169), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 168), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL14ViewBackground, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL14ViewBackground, align 8
   tail call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 176), ptr noundef nonnull align 8 dereferenceable(145) @_ZL14ViewBackground) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 176), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 176), align 8
   tail call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(184) @_ZL14ViewBackground, ptr nonnull align 1 dereferenceable(16) @.str, i64 15) #16
   %bf.load.i.i.i.i.i.i = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL14ViewBackground, i64 12), align 4
   %bf.clear.i.i.i.i.i.i = and i16 %bf.load.i.i.i.i.i.i, -97

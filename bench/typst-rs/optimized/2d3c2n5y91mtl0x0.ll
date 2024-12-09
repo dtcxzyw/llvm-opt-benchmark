@@ -129966,8 +129966,8 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_func17h58fdb9b44c
 define hidden void @_ZN5typst11foundations5scope5Scope11define_func17h678f6ffbe5a66078E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [1 x i64] }, align 8
   %3 = alloca { { i64, [1 x i64] }, i64 }, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$typst..text..smallcaps_..smallcaps$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4249fbaa36bcea50E.llvm.3683678558897460461", i64 8), align 8, !nonnull !7, !align !1064, !noundef !7
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN91_$LT$typst..text..smallcaps_..smallcaps$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4249fbaa36bcea50E.llvm.3683678558897460461", i64 16), align 8, !noundef !7
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$typst..text..smallcaps_..smallcaps$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4249fbaa36bcea50E.llvm.3683678558897460461", i64 8), align 8, !nonnull !7, !align !1064, !noundef !7
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN91_$LT$typst..text..smallcaps_..smallcaps$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4249fbaa36bcea50E.llvm.3683678558897460461", i64 16), align 8, !noundef !7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22649)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22652)
@@ -130869,8 +130869,8 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_func17hb4809ed0ed
 define hidden void @_ZN5typst11foundations5scope5Scope11define_func17hb521797444affa66E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [1 x i64] }, align 8
   %3 = alloca { { i64, [1 x i64] }, i64 }, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$typst..text..lorem_..lorem$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hb18c3aa65b146b00E.llvm.3683678558897460461", i64 8), align 8, !nonnull !7, !align !1064, !noundef !7
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$typst..text..lorem_..lorem$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hb18c3aa65b146b00E.llvm.3683678558897460461", i64 16), align 8, !noundef !7
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$typst..text..lorem_..lorem$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hb18c3aa65b146b00E.llvm.3683678558897460461", i64 8), align 8, !nonnull !7, !align !1064, !noundef !7
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$typst..text..lorem_..lorem$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hb18c3aa65b146b00E.llvm.3683678558897460461", i64 16), align 8, !noundef !7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22796)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22799)
@@ -131686,8 +131686,8 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_func17hea3040edaf
 define hidden void @_ZN5typst11foundations5scope5Scope11define_func17hf2383c9155901beeE(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [1 x i64] }, align 8
   %3 = alloca { { i64, [1 x i64] }, i64 }, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..layout..layout_..layout$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha5ba8e6635e169acE.llvm.3683678558897460461", i64 8), align 8, !nonnull !7, !align !1064, !noundef !7
-  %5 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN87_$LT$typst..layout..layout_..layout$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha5ba8e6635e169acE.llvm.3683678558897460461", i64 16), align 8, !noundef !7
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..layout..layout_..layout$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha5ba8e6635e169acE.llvm.3683678558897460461", i64 8), align 8, !nonnull !7, !align !1064, !noundef !7
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN87_$LT$typst..layout..layout_..layout$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha5ba8e6635e169acE.llvm.3683678558897460461", i64 16), align 8, !noundef !7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22929)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22932)
@@ -131862,7 +131862,7 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_type17h0d1decf560
   %5 = alloca { { { [2 x i64] } } }, align 8
   %6 = alloca { [40 x i8], i8, [7 x i8] }, align 8
   %7 = load ptr, ptr @"_ZN83_$LT$typst..foundations..ty..Type$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h5dedbc0980f8fb27E.llvm.3683678558897460461", align 8, !nonnull !7, !align !1064, !noundef !7
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN83_$LT$typst..foundations..ty..Type$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h5dedbc0980f8fb27E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN83_$LT$typst..foundations..ty..Type$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h5dedbc0980f8fb27E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22957)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %2)
   %9 = icmp ugt i64 %8, 15
@@ -132114,7 +132114,7 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_type17h29c1baf7a9
   %5 = alloca { { { [2 x i64] } } }, align 8
   %6 = alloca { [40 x i8], i8, [7 x i8] }, align 8
   %7 = load ptr, ptr @"_ZN5typst11foundations5float68_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$f64$GT$4data4DATA17h02a462b64c79ed63E.llvm.3683678558897460461", align 8, !nonnull !7, !align !1064, !noundef !7
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst11foundations5float68_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$f64$GT$4data4DATA17h02a462b64c79ed63E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst11foundations5float68_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$f64$GT$4data4DATA17h02a462b64c79ed63E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23047)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %2)
   %9 = icmp ugt i64 %8, 15
@@ -133542,7 +133542,7 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_type17ha30c972c49
   %5 = alloca { { { [2 x i64] } } }, align 8
   %6 = alloca { [40 x i8], i8, [7 x i8] }, align 8
   %7 = load ptr, ptr @"_ZN85_$LT$typst..foundations..args..Args$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h02530d21786d79aeE.llvm.3683678558897460461", align 8, !nonnull !7, !align !1064, !noundef !7
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN85_$LT$typst..foundations..args..Args$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h02530d21786d79aeE.llvm.3683678558897460461", i64 8), align 8, !noundef !7
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN85_$LT$typst..foundations..args..Args$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h02530d21786d79aeE.llvm.3683678558897460461", i64 8), align 8, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23557)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %2)
   %9 = icmp ugt i64 %8, 15
@@ -134801,7 +134801,7 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17h1a389c832e
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17h1a7c79a8d56fa6c7E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 {
   %2 = load ptr, ptr @"_ZN5typst6layout7spacing1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..spacing..VElem$GT$4data4DATA17hb325cc759f4d2565E.llvm.3683678558897460461", align 8, !nonnull !7, !align !1064, !noundef !7
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst6layout7spacing1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..spacing..VElem$GT$4data4DATA17hb325cc759f4d2565E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst6layout7spacing1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..spacing..VElem$GT$4data4DATA17hb325cc759f4d2565E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull align 8 @"_ZN5typst6layout7spacing1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..spacing..VElem$GT$4data4DATA17hb325cc759f4d2565E.llvm.3683678558897460461", ptr noalias nonnull readonly align 8 poison)
   ret void
 }
@@ -135009,7 +135009,7 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17h662c79d116
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17h67dd68265697ff7eE(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 {
   %2 = load ptr, ptr @"_ZN5typst5model4emph1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..emph..EmphElem$GT$4data4DATA17h41ad9f44ef2c9337E.llvm.3683678558897460461", align 8, !nonnull !7, !align !1064, !noundef !7
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model4emph1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..emph..EmphElem$GT$4data4DATA17h41ad9f44ef2c9337E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst5model4emph1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..emph..EmphElem$GT$4data4DATA17h41ad9f44ef2c9337E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull align 8 @"_ZN5typst5model4emph1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..emph..EmphElem$GT$4data4DATA17h41ad9f44ef2c9337E.llvm.3683678558897460461", ptr noalias nonnull readonly align 8 poison)
   ret void
 }
@@ -135105,7 +135105,7 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17h7a6158c42c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17h7b7198d4a0b7e7c4E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 {
   %2 = load ptr, ptr @"_ZN5typst6layout7spacing1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..spacing..HElem$GT$4data4DATA17hc1603de95cd9b6d9E.llvm.3683678558897460461", align 8, !nonnull !7, !align !1064, !noundef !7
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst6layout7spacing1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..spacing..HElem$GT$4data4DATA17hc1603de95cd9b6d9E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst6layout7spacing1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..spacing..HElem$GT$4data4DATA17hc1603de95cd9b6d9E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull align 8 @"_ZN5typst6layout7spacing1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..spacing..HElem$GT$4data4DATA17hc1603de95cd9b6d9E.llvm.3683678558897460461", ptr noalias nonnull readonly align 8 poison)
   ret void
 }
@@ -135169,7 +135169,7 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17h87a5f5ab81
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17h89b1209a10e1235aE(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 {
   %2 = load ptr, ptr @"_ZN5typst5model9reference1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..reference..RefElem$GT$4data4DATA17hae1afd80f2d70c73E.llvm.3683678558897460461", align 8, !nonnull !7, !align !1064, !noundef !7
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model9reference1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..reference..RefElem$GT$4data4DATA17hae1afd80f2d70c73E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst5model9reference1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..reference..RefElem$GT$4data4DATA17hae1afd80f2d70c73E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull align 8 @"_ZN5typst5model9reference1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..reference..RefElem$GT$4data4DATA17hae1afd80f2d70c73E.llvm.3683678558897460461", ptr noalias nonnull readonly align 8 poison)
   ret void
 }
@@ -135265,7 +135265,7 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17ha36cace4c8
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17ha3fdff23d86de3e7E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 {
   %2 = load ptr, ptr @"_ZN5typst5model4link1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..link..LinkElem$GT$4data4DATA17hf2dadf1337b37811E.llvm.3683678558897460461", align 8, !nonnull !7, !align !1064, !noundef !7
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model4link1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..link..LinkElem$GT$4data4DATA17hf2dadf1337b37811E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst5model4link1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..link..LinkElem$GT$4data4DATA17hf2dadf1337b37811E.llvm.3683678558897460461", i64 8), align 8, !noundef !7
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull align 8 @"_ZN5typst5model4link1_101_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..link..LinkElem$GT$4data4DATA17hf2dadf1337b37811E.llvm.3683678558897460461", ptr noalias nonnull readonly align 8 poison)
   ret void
 }
@@ -135313,7 +135313,7 @@ define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17hbe1947ea97
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5typst11foundations5scope5Scope11define_elem17hbf1fa450b12f5b17E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 {
   %2 = load ptr, ptr @"_ZN5typst5model6strong1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..strong..StrongElem$GT$4data4DATA17h3b0ff49bea0d9adcE.llvm.3683678558897460461", align 8, !nonnull !7, !align !1064, !noundef !7
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @"_ZN5typst5model6strong1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..strong..StrongElem$GT$4data4DATA17h3b0ff49bea0d9adcE.llvm.3683678558897460461", i64 8), align 8, !noundef !7
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5typst5model6strong1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..strong..StrongElem$GT$4data4DATA17h3b0ff49bea0d9adcE.llvm.3683678558897460461", i64 8), align 8, !noundef !7
   tail call void @_ZN5typst11foundations5scope5Scope6define17h451cd18ffa75b07cE.llvm.3683678558897460461(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull align 8 @"_ZN5typst5model6strong1_105_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..strong..StrongElem$GT$4data4DATA17h3b0ff49bea0d9adcE.llvm.3683678558897460461", ptr noalias nonnull readonly align 8 poison)
   ret void
 }

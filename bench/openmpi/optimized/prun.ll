@@ -39,7 +39,7 @@ define dso_local i32 @prun(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %4 = alloca [4097 x i8], align 16
   %5 = alloca %struct.pmix_cli_result_t, align 8
   %6 = load i32, ptr @pmix_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %6, %7
   br i1 %.not, label %9, label %8
 
@@ -175,7 +175,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 
 62:                                               ; preds = %57
   %63 = load i32, ptr @pmix_class_init_epoch, align 4
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_cli_result_t_class, i64 32), align 8
   %.not67 = icmp eq i32 %63, %64
   br i1 %.not67, label %66, label %65
 

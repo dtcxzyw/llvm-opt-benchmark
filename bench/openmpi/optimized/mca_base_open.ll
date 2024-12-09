@@ -68,7 +68,7 @@ define i32 @mca_base_open() local_unnamed_addr #0 {
   br i1 %.not, label %5, label %144
 
 5:                                                ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 120), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
   %7 = tail call noalias ptr @strdup(ptr noundef %6) #9
   store ptr %7, ptr @mca_base_system_default_path, align 8
   %8 = tail call ptr @opal_home_directory() #9
@@ -310,7 +310,7 @@ parse_verbose.exit:                               ; preds = %.critedge.i, %.crit
 
 115:                                              ; preds = %34
   %116 = load i32, ptr @opal_class_init_epoch, align 4
-  %117 = load i32, ptr getelementptr inbounds (i8, ptr @opal_output_stream_t_class, i64 32), align 8
+  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_output_stream_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %116, %117
   br i1 %.not.i, label %119, label %118
 
@@ -346,13 +346,13 @@ set_defaults.exit:                                ; preds = %.lr.ph.i.i, %119
   br label %129
 
 129:                                              ; preds = %set_defaults.exit, %parse_verbose.exit
-  %130 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %opal_gethostname.exit
 
 132:                                              ; preds = %129
   %133 = call i32 @opal_init_gethostname() #9
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %129, %132

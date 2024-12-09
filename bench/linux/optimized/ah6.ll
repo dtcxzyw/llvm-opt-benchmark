@@ -217,7 +217,7 @@ define internal noundef range(i32 -22, 1) i32 @ah6_init_state(ptr nocapture noun
   br i1 %13, label %.thread6, label %70
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %16 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3520, i64 noundef 16) #14
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread6, label %18

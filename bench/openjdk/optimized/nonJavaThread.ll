@@ -127,7 +127,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13NonJavaThread8IteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0) unnamed_addr #0 align 2 {
-  %2 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 8)) #11, !srcloc !6
+  %2 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 8)) #11, !srcloc !6
   %3 = add i32 %2, 2
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -142,15 +142,15 @@ define hidden void @_ZN13NonJavaThread8IteratorD2Ev(ptr nocapture noundef nonnul
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 1
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw [2 x i32], ptr getelementptr inbounds (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 12), i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i32], ptr getelementptr inbounds nuw (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 12), i64 0, i64 %4
   %6 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %5) #11, !srcloc !6
   %7 = add i32 %6, 2
-  %8 = load volatile i32, ptr getelementptr inbounds (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 20), align 4
+  %8 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 20), align 4
   %9 = icmp eq i32 %7, %8
   br i1 %9, label %10, label %_ZN24SingleWriterSynchronizer4exitEj.exit
 
 10:                                               ; preds = %1
-  tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 24), i32 noundef 1) #11
+  tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 24), i32 noundef 1) #11
   br label %_ZN24SingleWriterSynchronizer4exitEj.exit
 
 _ZN24SingleWriterSynchronizer4exitEj.exit:        ; preds = %1, %10
@@ -171,7 +171,7 @@ define hidden void @_ZN13NonJavaThread8Iterator4stepEv(ptr nocapture noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13NonJavaThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN6ThreadC2E8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(888) %0, i8 noundef zeroext 2) #11
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13NonJavaThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13NonJavaThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store volatile ptr null, ptr %2, align 8
   ret void
@@ -288,14 +288,14 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %.loopexit, %14
   br i1 %.not.i.i10, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread, label %17
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit11.thread: ; preds = %_ZN11MutexLockerD2Ev.exit
-  tail call void @_ZN24SingleWriterSynchronizer11synchronizeEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 8)) #11
+  tail call void @_ZN24SingleWriterSynchronizer11synchronizeEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 8)) #11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store volatile ptr null, ptr %16, align 8
   br label %_ZN11MutexLockerD2Ev.exit13
 
 17:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %15) #11
-  tail call void @_ZN24SingleWriterSynchronizer11synchronizeEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 8)) #11
+  tail call void @_ZN24SingleWriterSynchronizer11synchronizeEv(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 8)) #11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store volatile ptr null, ptr %18, align 8
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %15) #11
@@ -367,7 +367,7 @@ define hidden void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereference
   tail call void @_ZN6ThreadC2E8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(896) %0, i8 noundef zeroext 2) #11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store volatile ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV11NamedThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV11NamedThread, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -377,7 +377,7 @@ define hidden void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV11NamedThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV11NamedThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #11
@@ -457,7 +457,7 @@ define hidden void @_ZN13WatcherThreadC2Ev(ptr noundef nonnull align 8 dereferen
   tail call void @_ZN6ThreadC2E8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(896) %0, i8 noundef zeroext 2) #11
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store volatile ptr null, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13WatcherThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13WatcherThread, i64 16), ptr %0, align 8
   %3 = tail call noundef zeroext i1 @_ZN2os13create_threadEP6ThreadNS_10ThreadTypeEm(ptr noundef nonnull %0, i32 noundef 4, i64 noundef 0) #11
   br i1 %3, label %4, label %6
 
@@ -648,7 +648,7 @@ declare void @_ZN2os17naked_short_sleepEl(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8fdStreamC2Ei(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false) #11
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV8fdStream, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
@@ -685,7 +685,7 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %0, %
   tail call void @_ZN6ThreadC2E8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(896) %3, i8 noundef zeroext 2) #11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 888
   store volatile ptr null, ptr %4, align 8
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13WatcherThread, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13WatcherThread, i64 16), ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZN2os13create_threadEP6ThreadNS_10ThreadTypeEm(ptr noundef nonnull align 8 dereferenceable(896) %3, i32 noundef 4, i64 noundef 0) #11
   br i1 %5, label %6, label %_ZN13WatcherThreadC2Ev.exit
 
@@ -810,7 +810,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13WatcherThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13WatcherThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13WatcherThread, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.9, i32 noundef 122, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #12
@@ -819,7 +819,7 @@ define linkonce_odr hidden void @_ZN13WatcherThreadD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13WatcherThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13WatcherThread, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV13WatcherThread, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.9, i32 noundef 122, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #12

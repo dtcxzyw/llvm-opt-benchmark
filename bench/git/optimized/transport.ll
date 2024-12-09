@@ -1228,7 +1228,7 @@ if.then99:                                        ; preds = %if.end95
 
 if.end104:                                        ; preds = %if.end95, %if.then99, %if.end80
   %hash_algo = getelementptr inbounds nuw i8, ptr %call, i64 144
-  store ptr getelementptr inbounds (i8, ptr @hash_algos, i64 104), ptr %hash_algo, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 104), ptr %hash_algo, align 8
   ret ptr %call
 }
 

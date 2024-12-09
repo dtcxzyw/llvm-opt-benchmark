@@ -57,7 +57,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   %6 = load i32, ptr %5, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
   %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 24) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %157, label %11

@@ -336,7 +336,7 @@ define void @_ZN5faiss14IndexBinaryIVF5trainElPKh(ptr noundef nonnull align 8 de
           to label %47 unwind label %58
 
 47:                                               ; preds = %44
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %5, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -411,7 +411,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 25
   store i8 1, ptr %88, align 1
   call void @_ZdaPv(ptr noundef nonnull %74) #30
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexLSHE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss8IndexLSHE, i64 16), ptr %6, align 8
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %90 = load ptr, ptr %89, align 8
   %.not.i.i.i.i = icmp eq ptr %90, null
@@ -423,7 +423,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %81
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %91, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15LinearTransformE, i64 16), ptr %92, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss15LinearTransformE, i64 16), ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %94 = load ptr, ptr %93, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %94, null
@@ -444,7 +444,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %95, %_ZNSt6vectorIf
   br label %_ZN5faiss20RandomRotationMatrixD2Ev.exit.i
 
 _ZN5faiss20RandomRotationMatrixD2Ev.exit.i:       ; preds = %98, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %6, align 8
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i.i.i = icmp eq ptr %100, null
@@ -456,7 +456,7 @@ _ZN5faiss20RandomRotationMatrixD2Ev.exit.i:       ; preds = %98, %_ZNSt6vectorIf
 
 _ZN5faiss8IndexLSHD2Ev.exit:                      ; preds = %_ZN5faiss20RandomRotationMatrixD2Ev.exit.i, %101
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %6) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %5, align 8
   %102 = load ptr, ptr %48, align 8
   %.not.i.i.i.i15 = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i15, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i16, label %103
@@ -466,7 +466,7 @@ _ZN5faiss8IndexLSHD2Ev.exit:                      ; preds = %_ZN5faiss20RandomRo
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i16
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i16:                ; preds = %103, %_ZN5faiss8IndexLSHD2Ev.exit
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %5, align 8
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %105 = load ptr, ptr %104, align 8
   %.not.i.i.i.i.i.i17 = icmp eq ptr %105, null
@@ -478,7 +478,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i16:                ; preds = %103, %_ZN5faiss8Ind
 
 _ZN5faiss11IndexFlatL2D2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i16, %106
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10ClusteringE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss10ClusteringE, i64 16), ptr %4, align 8
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %108 = load ptr, ptr %107, align 8
   %.not.i.i.i.i18 = icmp eq ptr %108, null
@@ -713,9 +713,9 @@ define void @_ZNK5faiss14IndexBinaryIVF6searchElPKhlPiPlPKNS_16SearchParametersE
 
 87:                                               ; preds = %85
   %88 = fsub double %86, %78
-  %89 = load double, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 32), align 8
+  %89 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 32), align 8
   %90 = fadd double %88, %89
-  store double %90, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 32), align 8
+  store double %90, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 32), align 8
   %91 = invoke noundef double @_ZN5faiss12getmillisecsEv()
           to label %92 unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit41
 
@@ -739,9 +739,9 @@ define void @_ZNK5faiss14IndexBinaryIVF6searchElPKhlPiPlPKNS_16SearchParametersE
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit: ; preds = %100
   %102 = fsub double %101, %91
-  %103 = load double, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 40), align 8
+  %103 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 40), align 8
   %104 = fadd double %102, %103
-  store double %104, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 40), align 8
+  store double %104, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 40), align 8
   tail call void @_ZdaPv(ptr noundef nonnull %76) #30
   tail call void @_ZdaPv(ptr noundef nonnull %72) #30
   ret void
@@ -851,9 +851,9 @@ define void @_ZNK5faiss14IndexBinaryIVF12range_searchElPKhiPNS_17RangeSearchResu
 
 49:                                               ; preds = %47
   %50 = fsub double %48, %40
-  %51 = load double, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 32), align 8
+  %51 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 32), align 8
   %52 = fadd double %50, %51
-  store double %52, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 32), align 8
+  store double %52, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 32), align 8
   %53 = invoke noundef double @_ZN5faiss12getmillisecsEv()
           to label %54 unwind label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit29
 
@@ -877,9 +877,9 @@ define void @_ZNK5faiss14IndexBinaryIVF12range_searchElPKhiPNS_17RangeSearchResu
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit: ; preds = %62
   %64 = fsub double %63, %53
-  %65 = load double, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 40), align 8
+  %65 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 40), align 8
   %66 = fadd double %64, %65
-  store double %66, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 40), align 8
+  store double %66, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 40), align 8
   tail call void @_ZdaPv(ptr noundef nonnull %38) #30
   tail call void @_ZdaPv(ptr noundef nonnull %34) #30
   ret void
@@ -1678,7 +1678,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss14IndexBinaryIVF23get_InvertedList
 
 _ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_112BuildScannerEJibEEENT_1TEiRS3_DpT0_.exit: ; preds = %2, %5, %6, %7, %8, %9, %10
   %.sink6.i = phi i64 [ 48, %10 ], [ 96, %9 ], [ 64, %8 ], [ 56, %7 ], [ 48, %6 ], [ 40, %5 ], [ 40, %2 ]
-  %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_22HammingComputerDefaultEEE, i64 16), %10 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer64EEE, i64 16), %9 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer32EEE, i64 16), %8 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer20EEE, i64 16), %7 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer16EEE, i64 16), %6 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer8EEE, i64 16), %5 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer4EEE, i64 16), %2 ]
+  %.sink.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_22HammingComputerDefaultEEE, i64 16), %10 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer64EEE, i64 16), %9 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer32EEE, i64 16), %8 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer20EEE, i64 16), %7 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer16EEE, i64 16), %6 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer8EEE, i64 16), %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer4EEE, i64 16), %2 ]
   %.sink4.i = phi i64 [ 24, %10 ], [ 72, %9 ], [ 40, %8 ], [ 32, %7 ], [ 24, %6 ], [ 16, %5 ], [ 16, %2 ]
   %.sink2.i = phi i64 [ 32, %10 ], [ 80, %9 ], [ 48, %8 ], [ 40, %7 ], [ 32, %6 ], [ 24, %5 ], [ 24, %2 ]
   %11 = zext i1 %1 to i8
@@ -1711,7 +1711,7 @@ define void @_ZNK5faiss14IndexBinaryIVF23reconstruct_from_offsetEllPh(ptr nocapt
 define void @_ZN5faiss14IndexBinaryIVFC2EPNS_11IndexBinaryEmm(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %2, i32 noundef 1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexBinaryIVFE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14IndexBinaryIVFE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #31
           to label %8 unwind label %46
@@ -1883,7 +1883,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
@@ -1965,7 +1965,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss14IndexBinaryIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i32 noundef 1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexBinaryIVFE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14IndexBinaryIVFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2523,17 +2523,17 @@ _ZN5faiss12_GLOBAL__N_123search_knn_hamming_heapEPKNS_14IndexBinaryIVFEmPKhlPKlP
   %223 = add i64 %222, %221
   store i64 %223, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !12
   %224 = load i64, ptr %191, align 8, !noalias !12
-  %225 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !12
+  %225 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !12
   %226 = add i64 %225, %224
-  store i64 %226, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !12
+  store i64 %226, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !12
   %227 = load i64, ptr %192, align 8, !noalias !12
-  %228 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !12
+  %228 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !12
   %229 = add i64 %228, %227
-  store i64 %229, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !12
+  store i64 %229, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !12
   %230 = load i64, ptr %193, align 8, !noalias !12
-  %231 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 24), align 8, !noalias !12
+  %231 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 24), align 8, !noalias !12
   %232 = add i64 %231, %230
-  store i64 %232, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 24), align 8, !noalias !12
+  store i64 %232, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 24), align 8, !noalias !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %179)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %181)
@@ -2802,13 +2802,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %308, %3
   %311 = add i64 %310, %309
   store i64 %311, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !22
   %312 = load i64, ptr %177, align 8, !noalias !22
-  %313 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !22
+  %313 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !22
   %314 = add i64 %313, %312
-  store i64 %314, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !22
+  store i64 %314, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !22
   %315 = load i64, ptr %178, align 8, !noalias !22
-  %316 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !22
+  %316 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !22
   %317 = add i64 %316, %315
-  store i64 %317, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !22
+  store i64 %317, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !22
   %318 = load ptr, ptr %176, align 8, !noalias !22
   %.not.i.i.i23.i.i.i = icmp eq ptr %318, null
   br i1 %.not.i.i.i23.i.i.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i, label %319
@@ -3090,13 +3090,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i96.i: ; preds = %392, 
   %395 = add i64 %394, %393
   store i64 %395, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !36
   %396 = load i64, ptr %165, align 8, !noalias !36
-  %397 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !36
+  %397 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !36
   %398 = add i64 %397, %396
-  store i64 %398, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !36
+  store i64 %398, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !36
   %399 = load i64, ptr %166, align 8, !noalias !36
-  %400 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !36
+  %400 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !36
   %401 = add i64 %400, %399
-  store i64 %401, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !36
+  store i64 %401, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !36
   %402 = load ptr, ptr %164, align 8, !noalias !36
   %.not.i.i.i23.i.i87.i = icmp eq ptr %402, null
   br i1 %.not.i.i.i23.i.i87.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i, label %403
@@ -3374,13 +3374,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i151.i: ; preds = %478,
   %481 = add i64 %480, %479
   store i64 %481, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !50
   %482 = load i64, ptr %153, align 8, !noalias !50
-  %483 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !50
+  %483 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !50
   %484 = add i64 %483, %482
-  store i64 %484, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !50
+  store i64 %484, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !50
   %485 = load i64, ptr %154, align 8, !noalias !50
-  %486 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !50
+  %486 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !50
   %487 = add i64 %486, %485
-  store i64 %487, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !50
+  store i64 %487, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !50
   %488 = load ptr, ptr %152, align 8, !noalias !50
   %.not.i.i.i23.i.i142.i = icmp eq ptr %488, null
   br i1 %.not.i.i.i23.i.i142.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i143.i, label %489
@@ -3665,13 +3665,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i203.i: ; preds = %567,
   %570 = add i64 %569, %568
   store i64 %570, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !64
   %571 = load i64, ptr %141, align 8, !noalias !64
-  %572 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !64
+  %572 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !64
   %573 = add i64 %572, %571
-  store i64 %573, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !64
+  store i64 %573, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !64
   %574 = load i64, ptr %142, align 8, !noalias !64
-  %575 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !64
+  %575 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !64
   %576 = add i64 %575, %574
-  store i64 %576, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !64
+  store i64 %576, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !64
   %577 = load ptr, ptr %140, align 8, !noalias !64
   %.not.i.i.i23.i.i194.i = icmp eq ptr %577, null
   br i1 %.not.i.i.i23.i.i194.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i195.i, label %578
@@ -3961,13 +3961,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i255.i: ; preds = %657,
   %660 = add i64 %659, %658
   store i64 %660, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !78
   %661 = load i64, ptr %129, align 8, !noalias !78
-  %662 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !78
+  %662 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !78
   %663 = add i64 %662, %661
-  store i64 %663, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !78
+  store i64 %663, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !78
   %664 = load i64, ptr %130, align 8, !noalias !78
-  %665 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !78
+  %665 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !78
   %666 = add i64 %665, %664
-  store i64 %666, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !78
+  store i64 %666, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !78
   %667 = load ptr, ptr %128, align 8, !noalias !78
   %.not.i.i.i23.i.i246.i = icmp eq ptr %667, null
   br i1 %.not.i.i.i23.i.i246.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i247.i, label %668
@@ -4281,13 +4281,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i311.i: ; preds = %755,
   %758 = add i64 %757, %756
   store i64 %758, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !92
   %759 = load i64, ptr %117, align 8, !noalias !92
-  %760 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !92
+  %760 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !92
   %761 = add i64 %760, %759
-  store i64 %761, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !92
+  store i64 %761, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !92
   %762 = load i64, ptr %118, align 8, !noalias !92
-  %763 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !92
+  %763 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !92
   %764 = add i64 %763, %762
-  store i64 %764, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !92
+  store i64 %764, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !92
   %765 = load ptr, ptr %116, align 8, !noalias !92
   %.not.i.i.i23.i.i302.i = icmp eq ptr %765, null
   br i1 %.not.i.i.i23.i.i302.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i303.i, label %766
@@ -4568,13 +4568,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i368.i: ; preds = %841,
   %844 = add i64 %843, %842
   store i64 %844, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !103
   %845 = load i64, ptr %105, align 8, !noalias !103
-  %846 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !103
+  %846 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !103
   %847 = add i64 %846, %845
-  store i64 %847, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !103
+  store i64 %847, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !103
   %848 = load i64, ptr %106, align 8, !noalias !103
-  %849 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !103
+  %849 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !103
   %850 = add i64 %849, %848
-  store i64 %850, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !103
+  store i64 %850, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !103
   %851 = load ptr, ptr %104, align 8, !noalias !103
   %.not.i.i.i23.i.i359.i = icmp eq ptr %851, null
   br i1 %.not.i.i.i23.i.i359.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i360.i, label %852
@@ -4856,13 +4856,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i391: ; preds = %926,
   %929 = add i64 %928, %927
   store i64 %929, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !119
   %930 = load i64, ptr %93, align 8, !noalias !119
-  %931 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !119
+  %931 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !119
   %932 = add i64 %931, %930
-  store i64 %932, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !119
+  store i64 %932, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !119
   %933 = load i64, ptr %94, align 8, !noalias !119
-  %934 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !119
+  %934 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !119
   %935 = add i64 %934, %933
-  store i64 %935, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !119
+  store i64 %935, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !119
   %936 = load ptr, ptr %92, align 8, !noalias !119
   %.not.i.i.i23.i.i.i381 = icmp eq ptr %936, null
   br i1 %.not.i.i.i23.i.i.i381, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i.i382, label %937
@@ -5134,13 +5134,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i96.i333: ; preds = %10
   %1013 = add i64 %1012, %1011
   store i64 %1013, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !132
   %1014 = load i64, ptr %81, align 8, !noalias !132
-  %1015 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !132
+  %1015 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !132
   %1016 = add i64 %1015, %1014
-  store i64 %1016, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !132
+  store i64 %1016, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !132
   %1017 = load i64, ptr %82, align 8, !noalias !132
-  %1018 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !132
+  %1018 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !132
   %1019 = add i64 %1018, %1017
-  store i64 %1019, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !132
+  store i64 %1019, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !132
   %1020 = load ptr, ptr %80, align 8, !noalias !132
   %.not.i.i.i23.i.i87.i323 = icmp eq ptr %1020, null
   br i1 %.not.i.i.i23.i.i87.i323, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i88.i324, label %1021
@@ -5418,13 +5418,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i151.i274: ; preds = %1
   %1099 = add i64 %1098, %1097
   store i64 %1099, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !145
   %1100 = load i64, ptr %69, align 8, !noalias !145
-  %1101 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !145
+  %1101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !145
   %1102 = add i64 %1101, %1100
-  store i64 %1102, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !145
+  store i64 %1102, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !145
   %1103 = load i64, ptr %70, align 8, !noalias !145
-  %1104 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !145
+  %1104 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !145
   %1105 = add i64 %1104, %1103
-  store i64 %1105, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !145
+  store i64 %1105, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !145
   %1106 = load ptr, ptr %68, align 8, !noalias !145
   %.not.i.i.i23.i.i142.i264 = icmp eq ptr %1106, null
   br i1 %.not.i.i.i23.i.i142.i264, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i143.i265, label %1107
@@ -5709,13 +5709,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i203.i213: ; preds = %1
   %1188 = add i64 %1187, %1186
   store i64 %1188, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !158
   %1189 = load i64, ptr %57, align 8, !noalias !158
-  %1190 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !158
+  %1190 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !158
   %1191 = add i64 %1190, %1189
-  store i64 %1191, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !158
+  store i64 %1191, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !158
   %1192 = load i64, ptr %58, align 8, !noalias !158
-  %1193 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !158
+  %1193 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !158
   %1194 = add i64 %1193, %1192
-  store i64 %1194, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !158
+  store i64 %1194, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !158
   %1195 = load ptr, ptr %56, align 8, !noalias !158
   %.not.i.i.i23.i.i194.i203 = icmp eq ptr %1195, null
   br i1 %.not.i.i.i23.i.i194.i203, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i195.i204, label %1196
@@ -6005,13 +6005,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i255.i150: ; preds = %1
   %1278 = add i64 %1277, %1276
   store i64 %1278, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !171
   %1279 = load i64, ptr %45, align 8, !noalias !171
-  %1280 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !171
+  %1280 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !171
   %1281 = add i64 %1280, %1279
-  store i64 %1281, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !171
+  store i64 %1281, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !171
   %1282 = load i64, ptr %46, align 8, !noalias !171
-  %1283 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !171
+  %1283 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !171
   %1284 = add i64 %1283, %1282
-  store i64 %1284, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !171
+  store i64 %1284, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !171
   %1285 = load ptr, ptr %44, align 8, !noalias !171
   %.not.i.i.i23.i.i246.i140 = icmp eq ptr %1285, null
   br i1 %.not.i.i.i23.i.i246.i140, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i247.i141, label %1286
@@ -6325,13 +6325,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i311.i82: ; preds = %13
   %1376 = add i64 %1375, %1374
   store i64 %1376, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !184
   %1377 = load i64, ptr %33, align 8, !noalias !184
-  %1378 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !184
+  %1378 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !184
   %1379 = add i64 %1378, %1377
-  store i64 %1379, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !184
+  store i64 %1379, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !184
   %1380 = load i64, ptr %34, align 8, !noalias !184
-  %1381 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !184
+  %1381 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !184
   %1382 = add i64 %1381, %1380
-  store i64 %1382, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !184
+  store i64 %1382, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !184
   %1383 = load ptr, ptr %32, align 8, !noalias !184
   %.not.i.i.i23.i.i302.i72 = icmp eq ptr %1383, null
   br i1 %.not.i.i.i23.i.i302.i72, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i303.i73, label %1384
@@ -6612,13 +6612,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i368.i451: ; preds = %1
   %1462 = add i64 %1461, %1460
   store i64 %1462, ptr @_ZN5faiss14indexIVF_statsE, align 8, !noalias !194
   %1463 = load i64, ptr %21, align 8, !noalias !194
-  %1464 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !194
+  %1464 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !194
   %1465 = add i64 %1464, %1463
-  store i64 %1465, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !194
+  store i64 %1465, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8, !noalias !194
   %1466 = load i64, ptr %22, align 8, !noalias !194
-  %1467 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !194
+  %1467 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !194
   %1468 = add i64 %1467, %1466
-  store i64 %1468, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !194
+  store i64 %1468, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8, !noalias !194
   %1469 = load ptr, ptr %20, align 8, !noalias !194
   %.not.i.i.i23.i.i359.i441 = icmp eq ptr %1469, null
   br i1 %.not.i.i.i23.i.i359.i441, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit27.i.i360.i442, label %1470
@@ -6679,7 +6679,7 @@ declare void @_ZN5faiss14real_to_binaryEmPKfPh(i64 noundef, ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss8IndexLSHD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexLSHE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss8IndexLSHE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -6691,7 +6691,7 @@ define linkonce_odr void @_ZN5faiss8IndexLSHD2Ev(ptr noundef nonnull align 8 der
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15LinearTransformE, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss15LinearTransformE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
@@ -6712,7 +6712,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %8, %_ZNSt6vectorIfS
   br label %_ZN5faiss20RandomRotationMatrixD2Ev.exit
 
 _ZN5faiss20RandomRotationMatrixD2Ev.exit:         ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %11
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -6729,7 +6729,7 @@ _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %_ZN5faiss20RandomRo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss11IndexFlatL2E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -6740,7 +6740,7 @@ define linkonce_odr void @_ZN5faiss11IndexFlatL2D2Ev(ptr noundef nonnull align 8
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i = icmp eq ptr %6, null
@@ -6757,7 +6757,7 @@ _ZN5faiss9IndexFlatD2Ev.exit:                     ; preds = %_ZNSt6vectorIfSaIfE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss10ClusteringD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10ClusteringE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss10ClusteringE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -25226,13 +25226,13 @@ _ZSt6fill_nIPPN5faiss24RangeSearchPartialResultEmS2_ET_S4_T0_RKT1_.exit.loopexit
   %37 = add i64 %36, %35
   store i64 %37, ptr @_ZN5faiss14indexIVF_statsE, align 8
   %38 = load i64, ptr %15, align 8
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8
   %40 = add i64 %39, %38
-  store i64 %40, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8
+  store i64 %40, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 8), align 8
   %41 = load i64, ptr %16, align 8
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8
   %43 = add i64 %42, %41
-  store i64 %43, ptr getelementptr inbounds (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8
+  store i64 %43, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss14indexIVF_statsE, i64 16), align 8
   %44 = load ptr, ptr %17, align 8
   %.not.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5faiss24RangeSearchPartialResultESaIS2_EED2Ev.exit, label %45
@@ -25671,7 +25671,7 @@ declare void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5faiss14IndexBinaryIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexBinaryIVFE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5faiss14IndexBinaryIVFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

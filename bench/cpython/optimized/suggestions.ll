@@ -1616,7 +1616,7 @@ Py_DECREF.exit113.i.i:                            ; preds = %if.then1.i111.i.i, 
   br i1 %cmp3.i.i21, label %land.lhs.true.i, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %Py_DECREF.exit113.i.i
-  %call6.i.i = tail call i32 @PySequence_Contains(ptr noundef nonnull %call2.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57544)) #5
+  %call6.i.i = tail call i32 @PySequence_Contains(ptr noundef nonnull %call2.i.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57544)) #5
   %cmp7.i.i = icmp slt i32 %call6.i.i, 0
   br i1 %cmp7.i.i, label %error.i.i, label %if.end9.i.i
 
@@ -1630,7 +1630,7 @@ if.then11.i.i:                                    ; preds = %if.end9.i.i
   br i1 %tobool.not.i.i, label %error.i.i, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then11.i.i
-  %call15.i.i = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call12.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57544)) #5
+  %call15.i.i = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call12.i.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57544)) #5
   %tobool16.not.i.i = icmp eq ptr %call15.i.i, null
   br i1 %tobool16.not.i.i, label %if.then17.i.i, label %if.end18.i.i
 

@@ -390,7 +390,7 @@ _set_cond.exit:                                   ; preds = %188, %66, %90
   br i1 %.not119, label %196, label %206
 
 196:                                              ; preds = %194
-  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %198 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.4, ptr noundef %197) #9
   store ptr %198, ptr %5, align 8
   %199 = call i32 @commit_check(ptr noundef %198) #9
@@ -404,7 +404,7 @@ _set_cond.exit:                                   ; preds = %188, %66, %90
 201:                                              ; preds = %196
   %202 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #9
   store ptr %202, ptr %.fr, align 8
-  %203 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 224), align 8
   %204 = call ptr @xstrdup(ptr noundef %203) #9
   call void @list_append(ptr noundef %202, ptr noundef %204) #9
   br label %205

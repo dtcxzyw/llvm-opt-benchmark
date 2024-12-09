@@ -1185,13 +1185,13 @@ Balloc.exit:                                      ; preds = %482, %492
   %500 = add nsw i64 %499, 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %496, ptr nonnull align 8 %466, i64 %500, i1 false)
   %501 = call fastcc ptr @d2b(ptr noundef %11, ptr noundef %7, ptr noundef %8)
-  %502 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  %502 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   %.not.i.i585 = icmp eq ptr %502, null
   br i1 %.not.i.i585, label %505, label %503
 
 503:                                              ; preds = %Balloc.exit
   %504 = load ptr, ptr %502, align 8
-  store ptr %504, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  store ptr %504, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   br label %i2b.exit
 
 505:                                              ; preds = %Balloc.exit
@@ -2049,13 +2049,13 @@ Bfree.exit638:                                    ; preds = %873, %874
   br i1 %882, label %897, label %883
 
 883:                                              ; preds = %878
-  %884 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  %884 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   %.not.i.i.i = icmp eq ptr %884, null
   br i1 %.not.i.i.i, label %887, label %885
 
 885:                                              ; preds = %883
   %886 = load ptr, ptr %884, align 8
-  store ptr %886, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  store ptr %886, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   br label %i2b.exit.i
 
 887:                                              ; preds = %883
@@ -2103,7 +2103,7 @@ i2b.exit.i:                                       ; preds = %890, %885
   %908 = or i32 %907, 1
   store i32 %908, ptr %906, align 8
   %909 = icmp eq i32 %.sroa.15.0, 0
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   br label %910
 
 910:                                              ; preds = %897, %i2b.exit.i
@@ -2121,7 +2121,7 @@ i2b.exit.i:                                       ; preds = %890, %885
 
 914:                                              ; preds = %910
   %915 = load ptr, ptr %911, align 8
-  store ptr %915, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  store ptr %915, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   br label %i2b.exit145.i
 
 916:                                              ; preds = %910
@@ -2583,13 +2583,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc nonnull ptr @d2b(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %7, label %5
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   br label %Balloc.exit
 
 7:                                                ; preds = %3
@@ -2862,13 +2862,13 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef range(i32 1, -2
   br i1 %.not30, label %14, label %.preheader
 
 14:                                               ; preds = %12
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %18, label %16
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %15, align 8
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   br label %i2b.exit
 
 18:                                               ; preds = %14
@@ -4399,13 +4399,13 @@ rv_alloc.exit:                                    ; preds = %175, %185
   %392 = select i1 %.not513.not, i32 %390, i32 %391
   %393 = add nsw i32 %392, %.1419
   %394 = add nsw i32 %392, %.1428
-  %395 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  %395 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   %.not.i.i580 = icmp eq ptr %395, null
   br i1 %.not.i.i580, label %398, label %396
 
 396:                                              ; preds = %389
   %397 = load ptr, ptr %395, align 8
-  store ptr %397, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  store ptr %397, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   br label %i2b.exit
 
 398:                                              ; preds = %389
@@ -4487,13 +4487,13 @@ i2b.exit:                                         ; preds = %396, %401
 Bfree.exit:                                       ; preds = %425, %424, %429, %415
   %.3407 = phi ptr [ %430, %429 ], [ %85, %415 ], [ %420, %424 ], [ %420, %425 ]
   %.3384 = phi ptr [ %.2383, %429 ], [ %.2383, %415 ], [ %419, %424 ], [ %419, %425 ]
-  %431 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  %431 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   %.not.i.i584 = icmp eq ptr %431, null
   br i1 %.not.i.i584, label %434, label %432
 
 432:                                              ; preds = %Bfree.exit
   %433 = load ptr, ptr %431, align 8
-  store ptr %433, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
+  store ptr %433, ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), align 8
   br label %i2b.exit587
 
 434:                                              ; preds = %Bfree.exit

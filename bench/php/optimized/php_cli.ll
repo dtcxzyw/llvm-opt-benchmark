@@ -244,7 +244,7 @@ define noundef i64 @sapi_cli_single_write(ptr noundef %0, i64 noundef %1) local_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 120, i1 false)
   store i64 2, ptr %3, align 8
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8
   store i64 %18, ptr %4, align 8
   store i64 0, ptr %13, align 8
   %19 = call i32 @select(i32 noundef 2, ptr noundef null, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4) #23
@@ -278,7 +278,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr null, ptr %3, align 8
   store i32 1, ptr %4, align 4
   %7 = call ptr @save_ps_args(i32 noundef %0, ptr noundef %1) #23
-  store ptr @additional_functions, ptr getelementptr inbounds (i8, ptr @cli_sapi_module, i64 264), align 8
+  store ptr @additional_functions, ptr getelementptr inbounds nuw (i8, ptr @cli_sapi_module, i64 264), align 8
   %8 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #23
   call void @zend_signal_startup() #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -345,7 +345,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %.backedge
 
 18:                                               ; preds = %9
-  store ptr @server_additional_functions, ptr getelementptr inbounds (i8, ptr @cli_server_sapi_module, i64 264), align 8
+  store ptr @server_additional_functions, ptr getelementptr inbounds nuw (i8, ptr @cli_server_sapi_module, i64 264), align 8
   br label %.outer127
 
 19:                                               ; preds = %9, %9
@@ -419,13 +419,13 @@ php_ini_builder_finish.exit:                      ; preds = %38, %40
   br i1 %.not46, label %54, label %51
 
 51:                                               ; preds = %50
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   %53 = or i32 %52, 3
-  store i32 %53, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
+  store i32 %53, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   br label %54
 
 54:                                               ; preds = %51, %50
-  store ptr %6, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %55 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #26
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %62
@@ -443,7 +443,7 @@ php_ini_builder_finish.exit:                      ; preds = %38, %40
 
 62:                                               ; preds = %58, %60, %54
   %.144 = phi i32 [ %59, %58 ], [ %61, %60 ], [ 0, %54 ]
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   br label %63
 
 63:                                               ; preds = %php_ini_builder_finish.exit, %62, %24, %19
@@ -548,14 +548,14 @@ define internal fastcc i32 @do_cli(i32 noundef %0, ptr noundef %1) unnamed_addr 
   %18 = call i32 @getpid() #23
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  store ptr %9, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %21 = call i32 @__sigsetjmp(ptr noundef nonnull %9, i32 noundef 0) #26
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %369
 
 23:                                               ; preds = %2
-  store i8 0, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1
   br label %24
 
 24:                                               ; preds = %24, %23
@@ -576,7 +576,7 @@ define internal fastcc i32 @do_cli(i32 noundef %0, ptr noundef %1) unnamed_addr 
   store volatile i32 1, ptr %6, align 4
   call void @php_print_info(i32 noundef -3) #23
   call void @php_output_end_all() #23
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %370
 
 30:                                               ; preds = %24
@@ -645,13 +645,13 @@ print_modules.exit:                               ; preds = %56, %37
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   %60 = call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.63) #23
   call void @php_output_end_all() #23
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %370
 
 61:                                               ; preds = %24
-  %62 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 432), align 8
+  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 432), align 8
   %63 = or i32 %62, 1
-  store i32 %63, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 432), align 8
+  store i32 %63, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 432), align 8
   store i32 1, ptr %8, align 4
   store ptr null, ptr %7, align 8
   br label %64
@@ -693,7 +693,7 @@ print_modules.exit:                               ; preds = %56, %37
   ]
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr getelementptr inbounds (i8, ptr @cli_shell_callbacks, i64 16), align 8
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cli_shell_callbacks, i64 16), align 8
   %.not389 = icmp eq ptr %67, null
   br i1 %.not389, label %.backedge, label %68
 
@@ -754,7 +754,7 @@ print_modules.exit:                               ; preds = %56, %37
   br i1 %.not386, label %82, label %.backedge
 
 82:                                               ; preds = %81
-  store i32 0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %.backedge
 
 83:                                               ; preds = %64
@@ -886,7 +886,7 @@ print_modules.exit:                               ; preds = %56, %37
 132:                                              ; preds = %131
   %133 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0353) #25
   %134 = call i64 @php_output_write(ptr noundef nonnull %.0353, i64 noundef %133) #23
-  store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %401
 
 135:                                              ; preds = %131
@@ -1029,16 +1029,16 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   %185 = load i32, ptr %8, align 4
   %186 = add i32 %0, 1
   %187 = sub i32 %186, %185
-  store i32 %187, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 140), align 4
+  store i32 %187, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 140), align 4
   %188 = sext i32 %185 to i64
   %189 = getelementptr ptr, ptr %1, i64 %188
   %190 = getelementptr i8, ptr %189, i64 -8
   %191 = load ptr, ptr %190, align 8
   %.not401 = icmp eq ptr %.5344, null
   %192 = select i1 %.not401, ptr %183, ptr %.5344
-  store ptr %192, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 40), align 8
+  store ptr %192, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 40), align 8
   store ptr %183, ptr %190, align 8
-  store ptr %190, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 144), align 8
+  store ptr %190, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 144), align 8
   %193 = call i32 @php_request_startup() #23
   %194 = icmp eq i32 %193, -1
   br i1 %194, label %195, label %197
@@ -1050,7 +1050,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
 
 197:                                              ; preds = %182
   store volatile i32 1, ptr %6, align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 152), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 152), align 8
   %198 = call i32 @is_ps_title_available() #23
   %199 = icmp eq i32 %198, 0
   call void @zend_register_bool_constant(ptr noundef nonnull @.str.77, i64 noundef 21, i1 noundef zeroext %199, i32 noundef 0, i32 noundef 0) #23
@@ -1078,7 +1078,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 528
   %206 = load ptr, ptr %205, align 8
   %207 = call zeroext i1 @zend_is_auto_global(ptr noundef %206) #23
-  store i8 0, ptr getelementptr inbounds (i8, ptr @core_globals, i64 482), align 2
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 482), align 2
   switch i32 %.5, label %369 [
     i32 1, label %208
     i32 4, label %215
@@ -1100,9 +1100,9 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   br i1 %209, label %210, label %213
 
 210:                                              ; preds = %208
-  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @cli_shell_callbacks, i64 16), align 8
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cli_shell_callbacks, i64 16), align 8
   %212 = call i32 %211() #23
-  store i32 %212, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 %212, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %369
 
 213:                                              ; preds = %208
@@ -1122,7 +1122,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
 
 222:                                              ; preds = %215
   %223 = call i64 (ptr, ...) %218(ptr noundef nonnull @.str.79, ptr noundef %219) #23
-  store i32 255, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 255, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %369
 
 224:                                              ; preds = %.loopexit
@@ -1189,7 +1189,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   br label %251
 
 251:                                              ; preds = %249, %248
-  %252 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %.lr.ph440, label %.critedge
 
@@ -1244,11 +1244,11 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   store i8 0, ptr %272, align 1
   store ptr %267, ptr %12, align 8
   store i32 262, ptr %254, align 8
-  %273 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef nonnull @.str.82, i64 noundef 4, ptr noundef nonnull %12) #23
+  %273 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef nonnull @.str.82, i64 noundef 4, ptr noundef nonnull %12) #23
   %274 = add i64 %.0336439, 1
   store i64 %274, ptr %13, align 8
   store i32 4, ptr %255, align 8
-  %275 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 304), ptr noundef nonnull @.str.83, i64 noundef 4, ptr noundef nonnull %13) #23
+  %275 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304), ptr noundef nonnull @.str.83, i64 noundef 4, ptr noundef nonnull %13) #23
   br i1 %235, label %278, label %276
 
 276:                                              ; preds = %.critedge21
@@ -1266,19 +1266,19 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
 281:                                              ; preds = %279
   %282 = load ptr, ptr @stderr, align 8
   %283 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %282, ptr noundef nonnull @.str.99, ptr noundef nonnull %.6422) #29
-  store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %286
 
 284:                                              ; preds = %279
   call void @zend_stream_init_fp(ptr noundef nonnull %5, ptr noundef nonnull %280, ptr noundef nonnull %.6422) #23
   store i8 1, ptr %256, align 1
-  store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 152), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 152), align 8
   %285 = call zeroext i1 @php_execute_script(ptr noundef nonnull %5) #23
   br label %286
 
 286:                                              ; preds = %278, %284, %281, %276
   call void @_efree(ptr noundef nonnull %259) #23
-  %287 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  %287 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   %288 = icmp eq i32 %287, 0
   br i1 %288, label %257, label %.critedge
 
@@ -1325,14 +1325,14 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   store i32 262, ptr %305, align 8
   %306 = call i32 @object_init_ex(ptr noundef nonnull %15, ptr noundef %.0323) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, i8 0, i64 80, i1 false)
-  store ptr %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %307 = getelementptr inbounds nuw i8, ptr %.0323, i64 256
   %308 = load ptr, ptr %307, align 8
   %309 = load ptr, ptr %15, align 8
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %311 = load ptr, ptr %310, align 8
   call void @zend_call_known_function(ptr noundef %308, ptr noundef %309, ptr noundef %311, ptr noundef null, i32 noundef 1, ptr noundef nonnull %14, ptr noundef null) #23
-  %312 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %312 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %.not408 = icmp eq ptr %312, null
   br i1 %.not408, label %336, label %313
 
@@ -1346,7 +1346,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   %320 = load ptr, ptr %318, align 8
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 24
   %322 = call i64 (ptr, ...) %319(ptr noundef nonnull @.str.87, ptr noundef nonnull %321) #23
-  %323 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %324 = load i32, ptr %323, align 4
   %325 = icmp ne i32 %324, 0
   call void @llvm.assume(i1 %325)
@@ -1371,8 +1371,8 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   br label %335
 
 335:                                              ; preds = %329, %334, %328
-  store ptr null, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %340
 
 336:                                              ; preds = %295
@@ -1405,7 +1405,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
 348:                                              ; preds = %345
   %349 = load ptr, ptr @zend_printf, align 8
   %350 = call i64 (ptr, ...) %349(ptr noundef nonnull @.str.89, ptr noundef %.5304) #23
-  store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %353
 
 351:                                              ; preds = %341
@@ -1449,7 +1449,7 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   %.0305 = phi ptr [ %.5310, %.loopexit ], [ %.5310, %354 ], [ %.5310, %353 ], [ %.5310, %340 ], [ %.5310, %289 ], [ %.5310, %.critedge ], [ %.5310, %232 ], [ %.5310, %220 ], [ %.5310, %222 ], [ %.5310, %210 ], [ %.5310, %213 ], [ null, %2 ]
   %.0299 = phi ptr [ %.5304, %.loopexit ], [ %.5304, %354 ], [ %.5304, %353 ], [ %.5304, %340 ], [ %.5304, %289 ], [ %.5304, %.critedge ], [ %.5304, %232 ], [ %.5304, %220 ], [ %.5304, %222 ], [ %.5304, %210 ], [ %.5304, %213 ], [ null, %2 ]
   %.0298 = phi i32 [ %.5, %.loopexit ], [ 13, %354 ], [ 11, %353 ], [ %.5, %340 ], [ 7, %289 ], [ 7, %.critedge ], [ 6, %232 ], [ 4, %220 ], [ 4, %222 ], [ 1, %210 ], [ 1, %213 ], [ 1, %2 ]
-  store ptr %20, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   br label %370
 
 370:                                              ; preds = %228, %231, %224, %227, %401, %369, %print_modules.exit, %30, %29
@@ -1535,7 +1535,7 @@ sub_2431:                                         ; preds = %sub_1430
   br label %.tail428.sink.split
 
 399:                                              ; preds = %393, %391
-  %400 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  %400 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   ret i32 %400
 
 401:                                              ; preds = %cli_seek_file_begin.exit.thread, %34, %26, %195, %132
@@ -1552,7 +1552,7 @@ sub_2431:                                         ; preds = %sub_1430
   %.1 = phi i32 [ 1, %34 ], [ %.5, %195 ], [ 1, %26 ], [ %.3, %132 ], [ %.5, %cli_seek_file_begin.exit.thread ]
   call void @sapi_deactivate() #23
   call void @zend_ini_deactivate() #23
-  store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   br label %370
 }
 
@@ -1581,13 +1581,13 @@ declare i32 @php_module_shutdown_wrapper(ptr noundef) #5
 define internal noundef i32 @sapi_cli_deactivate() #1 {
   %1 = load ptr, ptr @stdout, align 8
   %2 = tail call i32 @fflush(ptr noundef %1)
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 120), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 120), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %0
   tail call void @free(ptr noundef nonnull %3) #23
-  store ptr null, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 120), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 120), align 8
   br label %5
 
 5:                                                ; preds = %4, %0
@@ -1600,7 +1600,7 @@ define internal i64 @sapi_cli_ub_write(ptr noundef %0, i64 noundef %1) #1 {
   br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @cli_shell_callbacks, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cli_shell_callbacks, i64 8), align 8
   %.not23 = icmp eq ptr %4, null
   br i1 %.not23, label %.preheader, label %5
 
@@ -1620,7 +1620,7 @@ define internal i64 @sapi_cli_ub_write(ptr noundef %0, i64 noundef %1) #1 {
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 255, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
+  store i32 255, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 428), align 4
   tail call void @php_handle_aborted_connection() #23
   br label %.loopexit
 
@@ -1695,7 +1695,7 @@ define internal void @sapi_cli_register_variables(ptr noundef %0) #1 {
   %5 = load ptr, ptr @php_self, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25
   store i64 %6, ptr %2, align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
   %8 = call i32 %7(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @php_self, i64 noundef %6, ptr noundef nonnull %2) #23
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %9
@@ -1706,7 +1706,7 @@ define internal void @sapi_cli_register_variables(ptr noundef %0) #1 {
   br label %11
 
 11:                                               ; preds = %9, %1
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
   %13 = load i64, ptr %2, align 8
   %14 = call i32 %12(i32 noundef 5, ptr noundef nonnull @.str.42, ptr noundef nonnull @php_self, i64 noundef %13, ptr noundef nonnull %2) #23
   %.not6 = icmp eq i32 %14, 0
@@ -1721,7 +1721,7 @@ define internal void @sapi_cli_register_variables(ptr noundef %0) #1 {
   %18 = load ptr, ptr @script_filename, align 8
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #25
   store i64 %19, ptr %2, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
   %21 = call i32 %20(i32 noundef 5, ptr noundef nonnull @.str.43, ptr noundef nonnull @script_filename, i64 noundef %19, ptr noundef nonnull %2) #23
   %.not7 = icmp eq i32 %21, 0
   br i1 %.not7, label %24, label %22
@@ -1732,7 +1732,7 @@ define internal void @sapi_cli_register_variables(ptr noundef %0) #1 {
   br label %24
 
 24:                                               ; preds = %22, %17
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
   %26 = load i64, ptr %2, align 8
   %27 = call i32 %25(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef nonnull @script_filename, i64 noundef %26, ptr noundef nonnull %2) #23
   %.not8 = icmp eq i32 %27, 0
@@ -1745,7 +1745,7 @@ define internal void @sapi_cli_register_variables(ptr noundef %0) #1 {
 
 30:                                               ; preds = %28, %24
   store i64 0, ptr %2, align 8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
   %32 = call i32 %31(i32 noundef 5, ptr noundef nonnull @.str.45, ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull %2) #23
   %.not9 = icmp eq i32 %32, 0
   br i1 %.not9, label %35, label %33

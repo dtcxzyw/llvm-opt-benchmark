@@ -22,7 +22,7 @@ define internal void @ompi_osc_rdma_sync_constructor(ptr noundef initializes((24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store volatile i64 0, ptr %4, align 64
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %8, label %7
 
@@ -51,7 +51,7 @@ define internal void @ompi_osc_rdma_sync_constructor(ptr noundef initializes((24
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
   %16 = load i32, ptr @opal_class_init_epoch, align 4
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not9 = icmp eq i32 %16, %17
   br i1 %.not9, label %19, label %18
 
@@ -125,10 +125,10 @@ opal_obj_run_destructors.exit6:                   ; preds = %.lr.ph.i3, %opal_ob
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ompi_osc_rdma_sync_allocate(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_osc_rdma_sync_t_class, i64 56), align 8
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_rdma_sync_t_class, i64 56), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #6
   %4 = load i32, ptr @opal_class_init_epoch, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_rdma_sync_t_class, i64 32), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_osc_rdma_sync_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %4, %5
   br i1 %.not.i, label %7, label %6
 

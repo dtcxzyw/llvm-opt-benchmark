@@ -219,7 +219,7 @@ define internal i32 @eeepc_acpi_add(ptr noundef %0) #2 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #14
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(872) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 872) #15
   %9 = icmp eq ptr %8, null
   br i1 %9, label %210, label %10

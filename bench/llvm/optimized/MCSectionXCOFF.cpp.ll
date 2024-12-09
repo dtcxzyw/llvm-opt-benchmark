@@ -384,7 +384,7 @@ define dso_local void @_ZNK4llvm14MCSectionXCOFF20printSwitchToSectionERKNS_9MCA
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i28 to i32
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.9, ptr %66, align 8, !alias.scope !4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJNS_5XCOFF24DwarfSectionSubtypeFlagsEEEE, i64 16), ptr %6, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJNS_5XCOFF24DwarfSectionSubtypeFlagsEEEE, i64 16), ptr %6, align 8, !alias.scope !4
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sroa.0.0.extract.trunc, ptr %67, align 8, !alias.scope !4
   %68 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(16) %6) #8

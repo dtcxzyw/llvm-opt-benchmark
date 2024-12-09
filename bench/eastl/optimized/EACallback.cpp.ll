@@ -43,7 +43,7 @@ $_ZTIN2EA4StdC16ICallbackManagerE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA4StdC8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 52)) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA4StdC8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2EA4StdC8CallbackE, i64 16), ptr %this, align 8
   %mPeriod = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1000000000, ptr %mPeriod, align 8
   %mPrecision = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -90,7 +90,7 @@ if.end6:                                          ; preds = %if.then.i.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC8CallbackC2EPFvPS1_PvmmES3_mmNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 52)) %this, ptr noundef %pCallbackFunc, ptr noundef %pCallbackFuncArg, i64 noundef %period, i64 noundef %precision, i32 noundef %type, i1 noundef zeroext %bEnableRefCount) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA4StdC8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2EA4StdC8CallbackE, i64 16), ptr %this, align 8
   %mPeriod = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %period, ptr %mPeriod, align 8
   %mPrecision = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -128,7 +128,7 @@ _ZN2EA4StdC8Callback15SetFunctionInfoEPFvPS1_PvmmES3_b.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA4StdC8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA4StdC8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2EA4StdC8CallbackE, i64 16), ptr %this, align 8
   %mbStarted = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load atomic i32, ptr %mbStarted seq_cst, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -232,7 +232,7 @@ if.end7:                                          ; preds = %if.then.i.i, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA4StdC8CallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA4StdC8CallbackE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2EA4StdC8CallbackE, i64 16), ptr %this, align 8
   %mbStarted.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
   %tobool.not.i = icmp eq i32 %0, 0
@@ -617,7 +617,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA4StdC15CallbackManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA4StdC15CallbackManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2EA4StdC15CallbackManagerE, i64 16), ptr %this, align 8
   %mCallbackArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   %mLocalBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %mLocalBuffer.i, ptr %mCallbackArray, align 8
@@ -731,7 +731,7 @@ declare void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA4StdC15CallbackManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA4StdC15CallbackManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2EA4StdC15CallbackManagerE, i64 16), ptr %this, align 8
   invoke void @_ZN2EA4StdC15CallbackManager8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(296) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -871,7 +871,7 @@ if.end17:                                         ; preds = %for.end, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA4StdC15CallbackManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA4StdC15CallbackManagerE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN2EA4StdC15CallbackManagerE, i64 16), ptr %this, align 8
   invoke void @_ZN2EA4StdC15CallbackManager8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(296) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 

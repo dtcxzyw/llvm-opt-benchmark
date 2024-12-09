@@ -107,7 +107,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   br label %42
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !13
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !13
   %8 = and i32 %7, 16384
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %11, label %10
@@ -269,7 +269,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   ]
 
 35:                                               ; preds = %.loopexit10
-  %36 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !13
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !13
   %37 = and i32 %36, 16384
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %46, label %39
@@ -295,7 +295,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   br label %172
 
 52:                                               ; preds = %.loopexit10
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !13
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !13
   %54 = and i32 %53, 16384
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %63, label %56
@@ -321,7 +321,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   br label %172
 
 69:                                               ; preds = %.loopexit10
-  %70 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !13
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !13
   %71 = and i32 %70, 16384
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %80, label %73
@@ -496,7 +496,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   br i1 %185, label %.loopexit, label %.preheader
 
 186:                                              ; preds = %.loopexit
-  %187 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !13
+  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !13
   %188 = and i32 %187, 16384
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %.loopexit11, label %190

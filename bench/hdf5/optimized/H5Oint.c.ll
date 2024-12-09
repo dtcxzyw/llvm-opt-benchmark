@@ -2522,7 +2522,7 @@ define ptr @H5O_get_loc(i64 noundef %0) local_unnamed_addr #1 {
   ]
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_OBJ_GROUP, i64 56), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_OBJ_GROUP, i64 56), align 8
   %5 = tail call ptr %4(i64 noundef %0) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %35
@@ -2534,7 +2534,7 @@ define ptr @H5O_get_loc(i64 noundef %0) local_unnamed_addr #1 {
   br label %35
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_OBJ_DATASET, i64 56), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_OBJ_DATASET, i64 56), align 8
   %13 = tail call ptr %12(i64 noundef %0) #11
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %35
@@ -2546,7 +2546,7 @@ define ptr @H5O_get_loc(i64 noundef %0) local_unnamed_addr #1 {
   br label %35
 
 19:                                               ; preds = %1
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @H5O_OBJ_DATATYPE, i64 56), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @H5O_OBJ_DATATYPE, i64 56), align 8
   %21 = tail call ptr %20(i64 noundef %0) #11
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %35

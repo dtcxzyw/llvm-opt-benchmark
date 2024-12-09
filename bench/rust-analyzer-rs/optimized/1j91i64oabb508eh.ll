@@ -85768,7 +85768,7 @@ define hidden noundef zeroext i1 @_ZN13rust_analyzer6reload25should_refresh_for_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, i64 64), ptr %35, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, i64 64), ptr %35, align 8
   %36 = call fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hc5d2f28974935879E"(ptr noalias noundef align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %32)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %36, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit77.thread", label %37
@@ -85793,7 +85793,7 @@ define hidden noundef zeroext i1 @_ZN13rust_analyzer6reload25should_refresh_for_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, ptr %4, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds (i8, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, i64 64), ptr %45, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.6cb58fc054cbebc1183ce38d4f851cdf.799, i64 64), ptr %45, align 8
   %46 = call fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0c77dea408daf9e9E"(ptr noalias noundef align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %44)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit77.thread"

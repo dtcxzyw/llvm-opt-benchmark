@@ -168,7 +168,7 @@ define void @_ZN8QuantLib30FdmExtendedOrnsteinUhlenbeckOpC2ERKN5boost10shared_pt
 entry:
   %ref.tmp = alloca %"class.QuantLib::SecondDerivativeOp", align 8
   %ref.tmp7 = alloca %"class.QuantLib::Array", align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30FdmExtendedOrnsteinUhlenbeckOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30FdmExtendedOrnsteinUhlenbeckOpE, i64 16), ptr %this, align 8, !tbaa !3
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mesher, align 8, !tbaa !6
   store ptr %0, ptr %mesher_, align 8, !tbaa !6
@@ -458,7 +458,7 @@ declare void @_ZN8QuantLib18TripleBandLinearOpC1EmRKN5boost10shared_ptrINS_9FdmM
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18TripleBandLinearOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18TripleBandLinearOpE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %pn.i, align 8, !tbaa !11
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1603,7 +1603,7 @@ _ZN5boost7numeric5ublas15unbounded_arrayImSaImEED2Ev.exit11: ; preds = %_ZN5boos
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib30FdmExtendedOrnsteinUhlenbeckOpD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30FdmExtendedOrnsteinUhlenbeckOpE, i64 16), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib30FdmExtendedOrnsteinUhlenbeckOpE, i64 16), ptr %this, align 8, !tbaa !3
   %mapX_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %mapX_) #18
   %dxxMap_ = getelementptr inbounds nuw i8, ptr %this, i64 184

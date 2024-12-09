@@ -1596,7 +1596,7 @@ _get_pbs_option_value.exit235.i:                  ; preds = %460, %.critedge.i23
   store i32 %488, ptr %7, align 4
   %489 = call fastcc ptr @_get_pbs_option_value(ptr noundef nonnull %27, ptr noundef %7, i8 noundef signext 44)
   store ptr %489, ptr %8, align 8
-  %490 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 472), align 8
+  %490 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 472), align 8
   %.not99.i = icmp eq ptr %490, null
   br i1 %.not99.i, label %492, label %491
 
@@ -1808,8 +1808,8 @@ _get_next_pbs_option.exit.i:                      ; preds = %553, %537, %511, %4
   br i1 %579, label %580, label %587
 
 580:                                              ; preds = %._crit_edge.i
-  %581 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 424), align 8
-  %582 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 180), align 4
+  %581 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 424), align 8
+  %582 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 180), align 4
   %583 = icmp sgt i32 %581, %582
   br i1 %583, label %584, label %587
 
@@ -1826,7 +1826,7 @@ _get_next_pbs_option.exit.i:                      ; preds = %553, %537, %511, %4
   br i1 %588, label %589, label %_parse_pbs_resource_list.exit
 
 589:                                              ; preds = %587
-  %590 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 488), align 8
+  %590 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 488), align 8
   %.not73.i = icmp eq ptr %590, null
   br i1 %.not73.i, label %593, label %591
 
@@ -1955,7 +1955,7 @@ _xlate_pbs_mail_type.exit:                        ; preds = %._crit_edge.i20, %6
   br label %664
 
 636:                                              ; preds = %.lr.ph
-  %637 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 760), align 8
+  %637 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 760), align 8
   %638 = call ptr @xstrdup(ptr noundef %637) #12
   store ptr %638, ptr %11, align 8
   %.not16 = icmp eq ptr %638, null

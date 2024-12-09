@@ -1875,7 +1875,7 @@ invoke.cont6:
   %frombool = zext i1 %is_arena_mode to i8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25CompactionMergingIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb25CompactionMergingIteratorE, i64 16), ptr %this, align 8
   %is_arena_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 %frombool, ptr %is_arena_mode_, align 8
   %comparator_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2217,7 +2217,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb25CompactionMergingIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25CompactionMergingIteratorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb25CompactionMergingIteratorE, i64 16), ptr %this, align 8
   %range_tombstone_iters_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %range_tombstone_iters_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 112

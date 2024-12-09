@@ -247,7 +247,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -259,7 +259,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKjEED2Ev.exit
 
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -292,7 +292,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -304,7 +304,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -362,7 +362,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnu
   br i1 %.not.i, label %16, label %14
 
 14:                                               ; preds = %1
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL22UserBonusInstThreshold, i64 128), align 8
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 128), align 8
   store i32 %15, ptr %0, align 8
   br label %16
 
@@ -372,7 +372,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnu
   br i1 %.not9.i, label %21, label %18
 
 18:                                               ; preds = %16
-  %19 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL21UserForwardSwitchCond, i64 128), align 8
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 128), align 8
   %20 = and i8 %19, 1
   store i8 %20, ptr %2, align 4
   br label %21
@@ -383,7 +383,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnu
   br i1 %.not10.i, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 128), align 8
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 128), align 8
   %25 = and i8 %24, 1
   store i8 %25, ptr %3, align 1
   br label %26
@@ -394,7 +394,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnu
   br i1 %.not11.i, label %31, label %28
 
 28:                                               ; preds = %26
-  %29 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18UserSwitchToLookup, i64 128), align 8
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 128), align 8
   %30 = and i8 %29, 1
   store i8 %30, ptr %4, align 2
   br label %31
@@ -405,7 +405,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnu
   br i1 %.not12.i, label %36, label %33
 
 33:                                               ; preds = %31
-  %34 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13UserKeepLoops, i64 128), align 8
+  %34 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 128), align 8
   %35 = and i8 %34, 1
   store i8 %35, ptr %5, align 1
   br label %36
@@ -416,7 +416,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnu
   br i1 %.not13.i, label %41, label %38
 
 38:                                               ; preds = %36
-  %39 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20UserHoistCommonInsts, i64 128), align 8
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 128), align 8
   %40 = and i8 %39, 1
   store i8 %40, ptr %6, align 8
   br label %41
@@ -427,7 +427,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnu
   br i1 %.not14.i, label %46, label %43
 
 43:                                               ; preds = %41
-  %44 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 128), align 8
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 128), align 8
   %45 = and i8 %44, 1
   store i8 %45, ptr %7, align 1
   br label %46
@@ -438,7 +438,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnu
   br i1 %.not15.i, label %51, label %48
 
 48:                                               ; preds = %46
-  %49 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL19UserSinkCommonInsts, i64 128), align 8
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 128), align 8
   %50 = and i8 %49, 1
   store i8 %50, ptr %8, align 2
   br label %51
@@ -449,7 +449,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnu
   br i1 %.not16.i, label %_ZL34applyCommandLineOverridesToOptionsRN4llvm18SimplifyCFGOptionsE.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 128), align 8
+  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 128), align 8
   %55 = and i8 %54, 1
   store i8 %55, ptr %11, align 1
   br label %_ZL34applyCommandLineOverridesToOptionsRN4llvm18SimplifyCFGOptionsE.exit
@@ -466,7 +466,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(pt
   br i1 %.not.i, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL22UserBonusInstThreshold, i64 128), align 8
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 128), align 8
   store i32 %5, ptr %0, align 8
   br label %6
 
@@ -476,7 +476,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(pt
   br i1 %.not9.i, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL21UserForwardSwitchCond, i64 128), align 8
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 128), align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = and i8 %9, 1
   store i8 %11, ptr %10, align 4
@@ -488,7 +488,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(pt
   br i1 %.not10.i, label %18, label %14
 
 14:                                               ; preds = %12
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 128), align 8
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 128), align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %17 = and i8 %15, 1
   store i8 %17, ptr %16, align 1
@@ -500,7 +500,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(pt
   br i1 %.not11.i, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18UserSwitchToLookup, i64 128), align 8
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 128), align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %23 = and i8 %21, 1
   store i8 %23, ptr %22, align 2
@@ -512,7 +512,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(pt
   br i1 %.not12.i, label %30, label %26
 
 26:                                               ; preds = %24
-  %27 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13UserKeepLoops, i64 128), align 8
+  %27 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 128), align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %29 = and i8 %27, 1
   store i8 %29, ptr %28, align 1
@@ -524,7 +524,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(pt
   br i1 %.not13.i, label %36, label %32
 
 32:                                               ; preds = %30
-  %33 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20UserHoistCommonInsts, i64 128), align 8
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 128), align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = and i8 %33, 1
   store i8 %35, ptr %34, align 8
@@ -536,7 +536,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(pt
   br i1 %.not14.i, label %42, label %38
 
 38:                                               ; preds = %36
-  %39 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 128), align 8
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 128), align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %41 = and i8 %39, 1
   store i8 %41, ptr %40, align 1
@@ -548,7 +548,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(pt
   br i1 %.not15.i, label %48, label %44
 
 44:                                               ; preds = %42
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL19UserSinkCommonInsts, i64 128), align 8
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 128), align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %47 = and i8 %45, 1
   store i8 %47, ptr %46, align 2
@@ -560,7 +560,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(pt
   br i1 %.not16.i, label %_ZL34applyCommandLineOverridesToOptionsRN4llvm18SimplifyCFGOptionsE.exit, label %50
 
 50:                                               ; preds = %48
-  %51 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 128), align 8
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 128), align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %53 = and i8 %51, 1
   store i8 %53, ptr %52, align 1
@@ -1253,7 +1253,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPass3runERNS_8FunctionERNS_15Analysi
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %15
 
@@ -1307,7 +1307,7 @@ define dso_local void @_ZN4llvm15SimplifyCFGPass3runERNS_8FunctionERNS_15Analysi
   store i32 0, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %36, align 8
-  %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %40
 
@@ -2566,7 +2566,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115CFGSimplifyPassC2EN4llvm18Simpli
   store ptr @_ZN12_GLOBAL__N_115CFGSimplifyPass2IDE, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %8, align 8
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115CFGSimplifyPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115CFGSimplifyPassE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2618,7 +2618,7 @@ _ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit: ; preds = %_ZN
   br i1 %.not.i, label %28, label %26
 
 26:                                               ; preds = %_ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL22UserBonusInstThreshold, i64 128), align 8
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 128), align 8
   store i32 %27, ptr %9, align 8
   br label %28
 
@@ -2628,7 +2628,7 @@ _ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit: ; preds = %_ZN
   br i1 %.not9.i, label %34, label %30
 
 30:                                               ; preds = %28
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL21UserForwardSwitchCond, i64 128), align 8
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 128), align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %33 = and i8 %31, 1
   store i8 %33, ptr %32, align 4
@@ -2640,7 +2640,7 @@ _ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit: ; preds = %_ZN
   br i1 %.not10.i, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 128), align 8
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 128), align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %39 = and i8 %37, 1
   store i8 %39, ptr %38, align 1
@@ -2652,7 +2652,7 @@ _ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit: ; preds = %_ZN
   br i1 %.not11.i, label %46, label %42
 
 42:                                               ; preds = %40
-  %43 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18UserSwitchToLookup, i64 128), align 8
+  %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 128), align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %45 = and i8 %43, 1
   store i8 %45, ptr %44, align 2
@@ -2664,7 +2664,7 @@ _ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit: ; preds = %_ZN
   br i1 %.not12.i, label %52, label %48
 
 48:                                               ; preds = %46
-  %49 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13UserKeepLoops, i64 128), align 8
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 128), align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %51 = and i8 %49, 1
   store i8 %51, ptr %50, align 1
@@ -2676,7 +2676,7 @@ _ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit: ; preds = %_ZN
   br i1 %.not13.i, label %58, label %54
 
 54:                                               ; preds = %52
-  %55 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20UserHoistCommonInsts, i64 128), align 8
+  %55 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 128), align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = and i8 %55, 1
   store i8 %57, ptr %56, align 8
@@ -2688,7 +2688,7 @@ _ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit: ; preds = %_ZN
   br i1 %.not14.i, label %64, label %60
 
 60:                                               ; preds = %58
-  %61 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 128), align 8
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 128), align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %63 = and i8 %61, 1
   store i8 %63, ptr %62, align 1
@@ -2700,7 +2700,7 @@ _ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit: ; preds = %_ZN
   br i1 %.not15.i, label %70, label %66
 
 66:                                               ; preds = %64
-  %67 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL19UserSinkCommonInsts, i64 128), align 8
+  %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 128), align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %69 = and i8 %67, 1
   store i8 %69, ptr %68, align 2
@@ -2712,7 +2712,7 @@ _ZN4llvm29initializeCFGSimplifyPassPassERNS_12PassRegistryE.exit: ; preds = %_ZN
   br i1 %.not16.i, label %_ZL34applyCommandLineOverridesToOptionsRN4llvm18SimplifyCFGOptionsE.exit, label %72
 
 72:                                               ; preds = %70
-  %73 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 128), align 8
+  %73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 128), align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %75 = and i8 %73, 1
   store i8 %75, ptr %74, align 1
@@ -4297,7 +4297,7 @@ declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115CFGSimplifyPassD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115CFGSimplifyPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115CFGSimplifyPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -4315,7 +4315,7 @@ _ZNSt8functionIFbRKN4llvm8FunctionEEED2Ev.exit:   ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115CFGSimplifyPassD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115CFGSimplifyPassE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115CFGSimplifyPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -4357,7 +4357,7 @@ declare noundef i32 @_ZNK4llvm12FunctionPass27getPotentialPassManagerTypeEv(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNK12_GLOBAL__N_115CFGSimplifyPass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage13addRequiredIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm22AssumptionCacheTracker2IDE) #20
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %8
 
@@ -4367,7 +4367,7 @@ define internal void @_ZNK12_GLOBAL__N_115CFGSimplifyPass16getAnalysisUsageERN4l
 
 8:                                                ; preds = %6, %2
   %9 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage13addRequiredIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm30TargetTransformInfoWrapperPass2IDE) #20
-  %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %14
 
@@ -4445,7 +4445,7 @@ _ZNK4llvm4Pass11getAnalysisINS_22AssumptionCacheTrackerEEERT_v.exit: ; preds = %
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %28, ptr %30, align 8
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm25RequireAndPreserveDomTreeE, i64 128), align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %50
 
@@ -4665,7 +4665,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm30TargetTransfor
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -5049,10 +5049,10 @@ define internal void @_GLOBAL__sub_I_SimplifyCFGPass.cpp() #14 section ".text.st
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL22UserBonusInstThreshold, i32 noundef 0, i32 noundef 0)
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL22UserBonusInstThreshold, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL22UserBonusInstThreshold, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL22UserBonusInstThreshold) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 176), align 8
@@ -5074,10 +5074,10 @@ define internal void @_GLOBAL__sub_I_SimplifyCFGPass.cpp() #14 section ".text.st
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL13UserKeepLoops, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL13UserKeepLoops, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL13UserKeepLoops, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL13UserKeepLoops) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL13UserKeepLoops, i64 176), align 8
@@ -5097,10 +5097,10 @@ define internal void @_GLOBAL__sub_I_SimplifyCFGPass.cpp() #14 section ".text.st
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL21UserSwitchRangeToICmp, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL21UserSwitchRangeToICmp, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL21UserSwitchRangeToICmp, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL21UserSwitchRangeToICmp) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserSwitchRangeToICmp, i64 176), align 8
@@ -5120,10 +5120,10 @@ define internal void @_GLOBAL__sub_I_SimplifyCFGPass.cpp() #14 section ".text.st
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL18UserSwitchToLookup, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL18UserSwitchToLookup, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL18UserSwitchToLookup, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL18UserSwitchToLookup) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL18UserSwitchToLookup, i64 176), align 8
@@ -5143,10 +5143,10 @@ define internal void @_GLOBAL__sub_I_SimplifyCFGPass.cpp() #14 section ".text.st
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL21UserForwardSwitchCond, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL21UserForwardSwitchCond, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL21UserForwardSwitchCond, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL21UserForwardSwitchCond) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL21UserForwardSwitchCond, i64 176), align 8
@@ -5166,10 +5166,10 @@ define internal void @_GLOBAL__sub_I_SimplifyCFGPass.cpp() #14 section ".text.st
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL20UserHoistCommonInsts, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL20UserHoistCommonInsts, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL20UserHoistCommonInsts, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL20UserHoistCommonInsts) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL20UserHoistCommonInsts, i64 176), align 8
@@ -5189,10 +5189,10 @@ define internal void @_GLOBAL__sub_I_SimplifyCFGPass.cpp() #14 section ".text.st
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL36UserHoistLoadsStoresWithCondFaulting, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL36UserHoistLoadsStoresWithCondFaulting) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL36UserHoistLoadsStoresWithCondFaulting, i64 176), align 8
@@ -5212,10 +5212,10 @@ define internal void @_GLOBAL__sub_I_SimplifyCFGPass.cpp() #14 section ".text.st
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL19UserSinkCommonInsts, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL19UserSinkCommonInsts, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL19UserSinkCommonInsts, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL19UserSinkCommonInsts) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL19UserSinkCommonInsts, i64 176), align 8
@@ -5235,10 +5235,10 @@ define internal void @_GLOBAL__sub_I_SimplifyCFGPass.cpp() #14 section ".text.st
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL27UserSpeculateUnpredictables, i32 noundef 0, i32 noundef 0)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 128), align 8
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 136), align 8
-  store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL27UserSpeculateUnpredictables, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 136), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL27UserSpeculateUnpredictables, align 8
   call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL27UserSpeculateUnpredictables) #20
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 152), align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 152), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL27UserSpeculateUnpredictables, i64 176), align 8

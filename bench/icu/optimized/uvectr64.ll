@@ -31,7 +31,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_759UVector64C2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759UVector64E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759UVector64E, i64 16), ptr %this, align 8
   %count = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %count, align 8
   %capacity = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -114,7 +114,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_759UVector64C2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %this, i32 noundef %initialCapacity, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759UVector64E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759UVector64E, i64 16), ptr %this, align 8
   %count = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %count, align 8
   %capacity = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -170,7 +170,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_759UVector64D2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759UVector64E, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_759UVector64E, i64 16), ptr %this, align 8
   %elements = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %elements, align 8
   invoke void @uprv_free_75(ptr noundef %0)

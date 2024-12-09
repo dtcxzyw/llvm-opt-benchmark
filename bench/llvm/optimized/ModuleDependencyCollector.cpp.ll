@@ -218,7 +218,7 @@ define dso_local void @_ZN5clang25ModuleDependencyCollector17attachToASTReaderER
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !4
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN12_GLOBAL__N_124ModuleDependencyListenerE, i64 16), ptr %5, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN12_GLOBAL__N_124ModuleDependencyListenerE, i64 16), ptr %5, align 8, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -232,7 +232,7 @@ _ZNSt10unique_ptrIN5clang24ChainedASTReaderListenerESt14default_deleteIS1_EED2Ev
   %10 = ptrtoint ptr %9 to i64
   %11 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !7
   %12 = ptrtoint ptr %5 to i64
-  store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN5clang24ChainedASTReaderListenerE, i64 16), ptr %11, align 8, !noalias !7
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN5clang24ChainedASTReaderListenerE, i64 16), ptr %11, align 8, !noalias !7
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %12, ptr %13, align 8, !noalias !7
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -251,7 +251,7 @@ define dso_local void @_ZN5clang25ModuleDependencyCollector20attachToPreprocesso
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !10
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_127ModuleDependencyPPCallbacksE, i64 16), ptr %6, align 8, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_127ModuleDependencyPPCallbacksE, i64 16), ptr %6, align 8, !noalias !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8, !noalias !10
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -265,7 +265,7 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
   %11 = ptrtoint ptr %10 to i64
   %12 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !13
   %13 = ptrtoint ptr %6 to i64
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %12, align 8, !noalias !13
+  store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %12, align 8, !noalias !13
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %13, ptr %14, align 8, !noalias !13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -278,7 +278,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_127ModuleDependencyPPCallbacksESt14default_delet
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15, !noalias !16
-  store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_127ModuleDependencyMMCallbacksE, i64 16), ptr %18, align 8, !noalias !16
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_127ModuleDependencyMMCallbacksE, i64 16), ptr %18, align 8, !noalias !16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %0, ptr %19, align 8, !noalias !16
   store ptr %18, ptr %3, align 8
@@ -768,7 +768,7 @@ define dso_local void @_ZN5clang25ModuleDependencyCollector7addFileEN4llvm9Strin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang25ModuleDependencyCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN5clang25ModuleDependencyCollectorE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang25ModuleDependencyCollectorE, i64 16), ptr %0, align 8
   tail call void @_ZN5clang25ModuleDependencyCollector12writeFileMapEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -1921,7 +1921,7 @@ _ZNKSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
   store ptr null, ptr %1, align 8, !noalias !80
   %155 = load ptr, ptr %2, align 8, !noalias !83
   store ptr null, ptr %2, align 8, !noalias !83
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %153, align 8
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %158 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15

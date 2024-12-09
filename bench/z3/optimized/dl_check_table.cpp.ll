@@ -539,7 +539,7 @@ if.end10:                                         ; preds = %if.then3, %if.else,
   %3 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %s)
   %call15 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call15, align 8
   %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 8
   store ptr %this, ptr %m_plugin.i.i.i, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call15, i64 16
@@ -587,7 +587,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %12, ptr %m_kind.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call15, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call15, align 8
   %m_checker.i = getelementptr inbounds nuw i8, ptr %call15, i64 40
   store ptr %call11, ptr %m_checker.i, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %call15, i64 48
@@ -644,7 +644,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin7join_fnC2ERS0_RKNS_10table_baseES5_jPKjS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t1, ptr noundef nonnull align 8 dereferenceable(36) %t2, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin7join_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin7join_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -742,7 +742,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15join_project_fnC2ERS0_RKNS_10table_baseES5_jPKjS7_jS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t1, ptr noundef nonnull align 8 dereferenceable(36) %t2, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef %removed_col_cnt, ptr noundef %removed_cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin15join_project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin15join_project_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -851,7 +851,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin8union_fnC2ERS0_RKNS_10table_baseES5_PS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %tgt, ptr noundef nonnull align 8 dereferenceable(36) %src, ptr noundef %delta) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin8union_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin8union_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -964,7 +964,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin10project_fnC2ERS0_RKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin10project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin10project_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -1054,7 +1054,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin27select_equal_and_project_fnC2ERS0_RKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin27select_equal_and_project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin27select_equal_and_project_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -1144,7 +1144,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin9rename_fnC2ERS0_RKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %cycle_len, ptr noundef %cycle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin9rename_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin9rename_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -1234,7 +1234,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin19filter_identical_fnC2ERS0_RKNS_10table_baseEjPKj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %cnt, ptr noundef %cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin19filter_identical_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin19filter_identical_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -1324,7 +1324,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15filter_equal_fnC2ERS0_RKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(8) %v, i32 noundef %col) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin15filter_equal_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin15filter_equal_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -1414,7 +1414,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_interpreted_fnC2ERS0_RKNS_10table_baseEP3app(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef %condition) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_interpreted_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_interpreted_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -1504,7 +1504,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin33filter_interpreted_and_project_fnC2ERS0_RKNS_10table_baseEP3appjPKj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef %condition, i32 noundef %removed_col_cnt, ptr noundef %removed_cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin33filter_interpreted_and_project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin33filter_interpreted_and_project_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -1598,7 +1598,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_by_negation_fnC2ERS0_RKNS_10table_baseES5_jPKjS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef nonnull align 8 dereferenceable(36) %negated_obj, i32 noundef %joined_col_cnt, ptr noundef %t_cols, ptr noundef %negated_cols) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_by_negation_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_by_negation_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_manager.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -1674,7 +1674,7 @@ lpad6:                                            ; preds = %if.end.i.i13, %if.e
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 28), (32, 36)) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %p, ptr %m_plugin.i.i, align 8
   %m_signature.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1722,7 +1722,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit: ; pre
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %8 = load i32, ptr %m_kind.i.i.i, align 8
   store i32 %8, ptr %m_kind.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
   %call = invoke noundef zeroext i1 @_ZNK7datalog11check_table11well_formedEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont unwind label %lpad
 
@@ -2198,7 +2198,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog10table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -2223,7 +2223,7 @@ _ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev.exit: ; pr
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 28), (32, 36), (40, 56)) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig, ptr noundef %tocheck, ptr noundef %checker) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %p, ptr %m_plugin.i.i, align 8
   %m_signature.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2271,7 +2271,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit: ; pre
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %8 = load i32, ptr %m_kind.i.i.i, align 8
   store i32 %8, ptr %m_kind.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %checker, ptr %m_checker, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2292,7 +2292,7 @@ lpad:                                             ; preds = %_ZN7datalog10table_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7datalog11check_tableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -2311,7 +2311,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_signature.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -2355,7 +2355,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7datalog11check_tableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
@@ -2374,7 +2374,7 @@ invoke.cont.i:                                    ; preds = %entry
           to label %invoke.cont4.i unwind label %terminate.lpad.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_signature.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -2660,7 +2660,7 @@ if.end10:                                         ; preds = %if.then3, %if.else,
   %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 72
   %4 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(36) %3)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call11, align 8
   %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store ptr %0, ptr %m_plugin.i.i.i, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 16
@@ -2708,7 +2708,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %13, ptr %m_kind.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call11, align 8
   %m_checker.i = getelementptr inbounds nuw i8, ptr %call11, i64 40
   store ptr %call17, ptr %m_checker.i, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %call11, i64 48
@@ -2745,7 +2745,7 @@ entry:
   %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 128
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %p, ptr noundef %func_columns)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call, align 8
   %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %0, ptr %m_plugin.i.i.i, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -2793,7 +2793,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %13, ptr %m_kind.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call, align 8
   %m_checker.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %call7, ptr %m_checker.i, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %call, i64 48
@@ -3114,7 +3114,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin7join_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin7join_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin7join_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -3161,7 +3161,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin7join_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin7join_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin7join_fnE, i64 16), ptr %this, align 8
   %m_checker.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -3256,7 +3256,7 @@ if.end10:                                         ; preds = %if.then3, %if.else,
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t1, i64 8
   %8 = load ptr, ptr %m_plugin.i.i, align 8
   %m_signature.i = getelementptr inbounds nuw i8, ptr %call14, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call21, align 8
   %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call21, i64 8
   store ptr %8, ptr %m_plugin.i.i.i, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call21, i64 16
@@ -3304,7 +3304,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %17, ptr %m_kind.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call21, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call21, align 8
   %m_checker.i7 = getelementptr inbounds nuw i8, ptr %call21, i64 40
   store ptr %call20, ptr %m_checker.i7, align 8
   %m_tocheck.i8 = getelementptr inbounds nuw i8, ptr %call21, i64 48
@@ -3334,7 +3334,7 @@ declare noundef ptr @_ZN7datalog16relation_manager18mk_join_project_fnERKNS_10ta
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15join_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin15join_project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin15join_project_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -3381,7 +3381,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE7join_fnEED2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15join_project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin15join_project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin15join_project_fnE, i64 16), ptr %this, align 8
   %m_checker.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -3453,7 +3453,7 @@ entry:
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t1, i64 8
   %8 = load ptr, ptr %m_plugin.i.i, align 8
   %m_signature.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call11, align 8
   %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store ptr %8, ptr %m_plugin.i.i.i, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 16
@@ -3501,7 +3501,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %17, ptr %m_kind.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call11, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call11, align 8
   %m_checker.i7 = getelementptr inbounds nuw i8, ptr %call11, i64 40
   store ptr %call10, ptr %m_checker.i7, align 8
   %m_tocheck.i8 = getelementptr inbounds nuw i8, ptr %call11, i64 48
@@ -3549,7 +3549,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin8union_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin8union_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin8union_fnE, i64 16), ptr %this, align 8
   %m_checker = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -3596,7 +3596,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE8union_fnEED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin8union_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin8union_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin8union_fnE, i64 16), ptr %this, align 8
   %m_checker.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_checker.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -3748,7 +3748,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin10project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin10project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin10project_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -3795,7 +3795,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_f
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin10project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin10project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin10project_fnE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -3863,7 +3863,7 @@ entry:
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
   %m_signature.i = getelementptr inbounds nuw i8, ptr %call3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call9, align 8
   %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store ptr %6, ptr %m_plugin.i.i.i, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 16
@@ -3911,7 +3911,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %15, ptr %m_kind.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call9, align 8
   %m_checker.i4 = getelementptr inbounds nuw i8, ptr %call9, i64 40
   store ptr %call3, ptr %m_checker.i4, align 8
   %m_tocheck.i5 = getelementptr inbounds nuw i8, ptr %call9, i64 48
@@ -3934,7 +3934,7 @@ declare noundef ptr @_ZN7datalog16relation_manager30mk_select_equal_and_project_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin27select_equal_and_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin27select_equal_and_project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin27select_equal_and_project_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -3981,7 +3981,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_f
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin27select_equal_and_project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin27select_equal_and_project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin27select_equal_and_project_fnE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -4049,7 +4049,7 @@ entry:
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
   %m_signature.i = getelementptr inbounds nuw i8, ptr %call3, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call9, align 8
   %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store ptr %6, ptr %m_plugin.i.i.i, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 16
@@ -4097,7 +4097,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %15, ptr %m_kind.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call9, align 8
   %m_checker.i4 = getelementptr inbounds nuw i8, ptr %call9, i64 40
   store ptr %call3, ptr %m_checker.i4, align 8
   %m_tocheck.i5 = getelementptr inbounds nuw i8, ptr %call9, i64 48
@@ -4120,7 +4120,7 @@ declare noundef ptr @_ZN7datalog16relation_manager12mk_rename_fnERKNS_10table_ba
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin9rename_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin9rename_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin9rename_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -4167,7 +4167,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_f
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin9rename_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin9rename_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin9rename_fnE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -4258,7 +4258,7 @@ if.end10:                                         ; preds = %if.then3, %if.else,
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
   %m_signature.i = getelementptr inbounds nuw i8, ptr %call18, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call19, align 8
   %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call19, i64 8
   store ptr %6, ptr %m_plugin.i.i.i, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call19, i64 16
@@ -4306,7 +4306,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %15, ptr %m_kind.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call19, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call19, align 8
   %m_checker.i4 = getelementptr inbounds nuw i8, ptr %call19, i64 40
   store ptr %call13, ptr %m_checker.i4, align 8
   %m_tocheck.i5 = getelementptr inbounds nuw i8, ptr %call19, i64 48
@@ -4354,7 +4354,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin19filter_identical_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin19filter_identical_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin19filter_identical_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -4401,7 +4401,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin19filter_identical_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin19filter_identical_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin19filter_identical_fnE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -4488,7 +4488,7 @@ declare noundef ptr @_ZN7datalog16relation_manager18mk_filter_equal_fnERKNS_10ta
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15filter_equal_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin15filter_equal_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin15filter_equal_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -4535,7 +4535,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin15filter_equal_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin15filter_equal_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin15filter_equal_fnE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -4608,7 +4608,7 @@ declare noundef ptr @_ZN7datalog16relation_manager24mk_filter_interpreted_fnERKN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_interpreted_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_interpreted_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_interpreted_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -4655,7 +4655,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE10mutator_fnEED
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_interpreted_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_interpreted_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_interpreted_fnE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -4728,7 +4728,7 @@ declare noundef ptr @_ZN7datalog16relation_manager36mk_filter_interpreted_and_pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin33filter_interpreted_and_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin33filter_interpreted_and_project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin33filter_interpreted_and_project_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -4775,7 +4775,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_f
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin33filter_interpreted_and_project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin33filter_interpreted_and_project_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin33filter_interpreted_and_project_fnE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -4843,7 +4843,7 @@ entry:
   %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
   %m_signature.i = getelementptr inbounds nuw i8, ptr %call8, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call9, align 8
   %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store ptr %6, ptr %m_plugin.i.i.i, align 8
   %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 16
@@ -4891,7 +4891,7 @@ _ZN7datalog10table_baseC2ERNS_12table_pluginERKNS_15table_signatureE.exit.i: ; p
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %15, ptr %m_kind.i.i.i, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %call9, align 8
   %m_checker.i4 = getelementptr inbounds nuw i8, ptr %call9, i64 40
   store ptr %call3, ptr %m_checker.i4, align 8
   %m_tocheck.i5 = getelementptr inbounds nuw i8, ptr %call9, i64 48
@@ -4939,7 +4939,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_by_negation_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_by_negation_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_by_negation_fnE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -4986,7 +4986,7 @@ _ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE22intersection_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog18check_table_plugin21filter_by_negation_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_by_negation_fnE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog18check_table_plugin21filter_by_negation_fnE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tocheck.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -5084,7 +5084,7 @@ if.end10:                                         ; preds = %if.then3, %if.else,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_signature = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_signature, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null

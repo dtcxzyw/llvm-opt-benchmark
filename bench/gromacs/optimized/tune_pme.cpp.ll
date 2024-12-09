@@ -816,260 +816,260 @@ define noundef i32 @_Z12gmx_tune_pmeiPPc(i32 noundef %0, ptr noundef %1) local_u
 
 165:                                              ; preds = %163
   store i32 21, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, align 16
-  store ptr @.str.60, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8), align 8
-  store ptr @.str.61, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16), align 16
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32), i8 0, i64 24, i1 false)
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 56), align 8
-  store ptr @.str.62, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 64), align 16
-  store ptr @.str.63, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 72), align 8
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 80), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 88), i8 0, i64 24, i1 false)
-  store i32 26, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 112), align 16
-  store ptr @.str.64, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 120), align 8
-  store ptr @.str.65, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 128), align 16
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 136), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 144), i8 0, i64 24, i1 false)
-  store i32 26, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 168), align 8
-  store ptr @.str.66, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 176), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 184), align 8
-  store i64 2, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 192), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 200), i8 0, i64 24, i1 false)
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 224), align 16
-  store ptr @.str.67, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 232), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 240), align 16
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 248), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 256), i8 0, i64 24, i1 false)
-  store i32 5, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 280), align 8
-  store ptr @.str.68, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 288), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 296), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 304), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 312), i8 0, i64 24, i1 false)
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 336), align 16
-  store ptr @.str.69, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 344), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 352), align 16
-  store i64 10, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 360), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 368), i8 0, i64 24, i1 false)
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 392), align 8
-  store ptr @.str.70, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 400), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 408), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 416), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 424), i8 0, i64 24, i1 false)
-  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 448), align 16
-  store ptr @.str.71, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 456), align 8
-  store ptr @.str.72, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 464), align 16
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 472), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 480), i8 0, i64 24, i1 false)
-  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 504), align 8
-  store ptr @.str.73, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 512), align 16
-  store ptr @.str.74, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 520), align 8
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 528), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 536), i8 0, i64 24, i1 false)
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 560), align 16
-  store ptr @.str.75, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 568), align 8
-  store ptr @.str.76, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 576), align 16
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 584), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 592), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 616), align 8
-  store ptr @.str.77, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 624), align 16
-  store ptr @.str.78, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 632), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 640), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 648), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 672), align 16
-  store ptr @.str.79, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 680), align 8
-  store ptr @.str.80, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 688), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 696), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 704), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 728), align 8
-  store ptr @.str.81, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 736), align 16
-  store ptr @.str.82, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 744), align 8
-  store i64 10, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 752), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 760), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 784), align 16
-  store ptr @.str.83, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 792), align 8
-  store ptr @.str.84, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 800), align 16
-  store i64 10, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 808), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 816), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 840), align 8
-  store ptr @.str.85, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 848), align 16
-  store ptr @.str.82, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 856), align 8
-  store i64 10, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 864), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 872), i8 0, i64 24, i1 false)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 896), align 16
-  store ptr @.str.86, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 904), align 8
-  store ptr @.str.87, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 912), align 16
-  store i64 10, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 920), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 928), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 952), align 8
-  store ptr @.str.88, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 960), align 16
-  store ptr @.str.89, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 968), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 976), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 984), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1008), align 16
-  store ptr @.str.90, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1016), align 8
-  store ptr @.str.91, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1024), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1032), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1040), i8 0, i64 24, i1 false)
-  store i32 38, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1064), align 8
-  store ptr @.str.92, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1072), align 16
-  store ptr @.str.93, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1080), align 8
-  store i64 10, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1088), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1096), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1120), align 16
-  store ptr @.str.94, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1128), align 8
-  store ptr @.str.95, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1136), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1144), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1152), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1176), align 8
-  store ptr @.str.96, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1184), align 16
-  store ptr @.str.97, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1192), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1200), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1208), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1232), align 16
-  store ptr @.str.98, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1240), align 8
-  store ptr @.str.99, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1248), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1256), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1264), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1288), align 8
-  store ptr @.str.100, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1296), align 16
-  store ptr @.str.101, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1304), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1312), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1320), i8 0, i64 24, i1 false)
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1344), align 16
-  store ptr @.str.102, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1352), align 8
-  store ptr @.str.103, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1360), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1368), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1376), i8 0, i64 24, i1 false)
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1400), align 8
-  store ptr @.str.104, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1408), align 16
-  store ptr @.str.105, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1416), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1424), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1432), i8 0, i64 24, i1 false)
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1456), align 16
-  store ptr @.str.106, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1464), align 8
-  store ptr @.str.107, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1472), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1480), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1488), i8 0, i64 24, i1 false)
-  store i32 37, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1512), align 8
-  store ptr @.str.108, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1520), align 16
-  store ptr @.str.109, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1528), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1536), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1544), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1568), align 16
-  store ptr @.str.110, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1576), align 8
-  store ptr @.str.111, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1584), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1592), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1600), i8 0, i64 24, i1 false)
-  store i32 3, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1624), align 8
-  store ptr @.str.112, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1632), align 16
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1640), align 8
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1648), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1656), i8 0, i64 24, i1 false)
-  store i32 6, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1680), align 16
-  store ptr @.str.114, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1688), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1696), align 16
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1704), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1712), i8 0, i64 24, i1 false)
-  store i32 18, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1736), align 8
-  store ptr @.str.115, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1744), align 16
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1752), align 8
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1760), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1768), i8 0, i64 24, i1 false)
-  store i32 10, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1792), align 16
-  store ptr @.str.116, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1800), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1808), align 16
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1816), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1824), i8 0, i64 24, i1 false)
-  store i32 8, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1848), align 8
-  store ptr @.str.117, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1856), align 16
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1864), align 8
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1872), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1880), i8 0, i64 24, i1 false)
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1904), align 16
-  store ptr @.str.118, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1912), align 8
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1920), align 16
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1928), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1936), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1960), align 8
-  store ptr @.str.119, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1968), align 16
-  store ptr @.str.120, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1976), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1984), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1992), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2016), align 16
-  store ptr @.str.121, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2024), align 8
-  store ptr @.str.122, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2032), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2040), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2048), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2072), align 8
-  store ptr @.str.123, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2080), align 16
-  store ptr @.str.124, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2088), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2096), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2104), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2128), align 16
-  store ptr @.str.125, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2136), align 8
-  store ptr @.str.126, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2144), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2152), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2160), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2184), align 8
-  store ptr @.str.127, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2192), align 16
-  store ptr @.str.128, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2200), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2208), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2216), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2240), align 16
-  store ptr @.str.129, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2248), align 8
-  store ptr @.str.130, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2256), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2264), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2272), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2296), align 8
-  store ptr @.str.131, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2304), align 16
-  store ptr @.str.132, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2312), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2320), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2328), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2352), align 16
-  store ptr @.str.133, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2360), align 8
-  store ptr @.str.134, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2368), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2376), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2384), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2408), align 8
-  store ptr @.str.135, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2416), align 16
-  store ptr @.str.136, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2424), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2432), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2440), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2464), align 16
-  store ptr @.str.137, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2472), align 8
-  store ptr @.str.138, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2480), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2488), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2496), i8 0, i64 24, i1 false)
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2520), align 8
-  store ptr @.str.139, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2528), align 16
-  store ptr @.str.140, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2536), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2544), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2552), i8 0, i64 24, i1 false)
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2576), align 16
-  store ptr @.str.141, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2584), align 8
-  store ptr @.str.142, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2592), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2600), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2608), i8 0, i64 24, i1 false)
-  store i32 19, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2632), align 8
-  store ptr @.str.143, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2640), align 16
-  store ptr @.str.144, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2648), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2656), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2664), i8 0, i64 24, i1 false)
-  store i32 37, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2688), align 16
-  store ptr @.str.145, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2696), align 8
-  store ptr @.str.146, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2704), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2712), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2720), i8 0, i64 24, i1 false)
-  store i32 22, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2744), align 8
-  store ptr @.str.147, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2752), align 16
-  store ptr @.str.113, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2760), align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2768), align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2776), i8 0, i64 24, i1 false)
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2800), align 16
-  store ptr @.str.148, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2808), align 8
-  store ptr @.str.149, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2816), align 16
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2824), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2832), i8 0, i64 24, i1 false)
+  store ptr @.str.60, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 8), align 8
+  store ptr @.str.61, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 16), align 16
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 24), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 32), i8 0, i64 24, i1 false)
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 56), align 8
+  store ptr @.str.62, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 64), align 16
+  store ptr @.str.63, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 72), align 8
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 80), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 88), i8 0, i64 24, i1 false)
+  store i32 26, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 112), align 16
+  store ptr @.str.64, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 120), align 8
+  store ptr @.str.65, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 128), align 16
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 136), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 144), i8 0, i64 24, i1 false)
+  store i32 26, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 168), align 8
+  store ptr @.str.66, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 176), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 184), align 8
+  store i64 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 192), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 200), i8 0, i64 24, i1 false)
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 224), align 16
+  store ptr @.str.67, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 232), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 240), align 16
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 248), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 256), i8 0, i64 24, i1 false)
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 280), align 8
+  store ptr @.str.68, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 288), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 296), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 304), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 312), i8 0, i64 24, i1 false)
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 336), align 16
+  store ptr @.str.69, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 344), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 352), align 16
+  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 360), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 368), i8 0, i64 24, i1 false)
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 392), align 8
+  store ptr @.str.70, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 400), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 408), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 416), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 424), i8 0, i64 24, i1 false)
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 448), align 16
+  store ptr @.str.71, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 456), align 8
+  store ptr @.str.72, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 464), align 16
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 472), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 480), i8 0, i64 24, i1 false)
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 504), align 8
+  store ptr @.str.73, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 512), align 16
+  store ptr @.str.74, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 520), align 8
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 528), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 536), i8 0, i64 24, i1 false)
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 560), align 16
+  store ptr @.str.75, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 568), align 8
+  store ptr @.str.76, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 576), align 16
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 584), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 592), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 616), align 8
+  store ptr @.str.77, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 624), align 16
+  store ptr @.str.78, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 632), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 640), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 648), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 672), align 16
+  store ptr @.str.79, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 680), align 8
+  store ptr @.str.80, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 688), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 696), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 704), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 728), align 8
+  store ptr @.str.81, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 736), align 16
+  store ptr @.str.82, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 744), align 8
+  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 752), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 760), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 784), align 16
+  store ptr @.str.83, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 792), align 8
+  store ptr @.str.84, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 800), align 16
+  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 808), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 816), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 840), align 8
+  store ptr @.str.85, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 848), align 16
+  store ptr @.str.82, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 856), align 8
+  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 864), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 872), i8 0, i64 24, i1 false)
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 896), align 16
+  store ptr @.str.86, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 904), align 8
+  store ptr @.str.87, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 912), align 16
+  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 920), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 928), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 952), align 8
+  store ptr @.str.88, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 960), align 16
+  store ptr @.str.89, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 968), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 976), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 984), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1008), align 16
+  store ptr @.str.90, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1016), align 8
+  store ptr @.str.91, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1024), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1032), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1040), i8 0, i64 24, i1 false)
+  store i32 38, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1064), align 8
+  store ptr @.str.92, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1072), align 16
+  store ptr @.str.93, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1080), align 8
+  store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1088), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1096), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1120), align 16
+  store ptr @.str.94, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1128), align 8
+  store ptr @.str.95, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1136), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1144), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1152), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1176), align 8
+  store ptr @.str.96, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1184), align 16
+  store ptr @.str.97, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1192), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1200), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1208), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1232), align 16
+  store ptr @.str.98, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1240), align 8
+  store ptr @.str.99, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1248), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1256), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1264), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1288), align 8
+  store ptr @.str.100, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1296), align 16
+  store ptr @.str.101, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1304), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1312), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1320), i8 0, i64 24, i1 false)
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1344), align 16
+  store ptr @.str.102, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1352), align 8
+  store ptr @.str.103, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1360), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1368), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1376), i8 0, i64 24, i1 false)
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1400), align 8
+  store ptr @.str.104, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1408), align 16
+  store ptr @.str.105, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1416), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1424), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1432), i8 0, i64 24, i1 false)
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1456), align 16
+  store ptr @.str.106, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1464), align 8
+  store ptr @.str.107, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1472), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1480), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1488), i8 0, i64 24, i1 false)
+  store i32 37, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1512), align 8
+  store ptr @.str.108, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1520), align 16
+  store ptr @.str.109, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1528), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1536), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1544), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1568), align 16
+  store ptr @.str.110, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1576), align 8
+  store ptr @.str.111, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1584), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1592), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1600), i8 0, i64 24, i1 false)
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1624), align 8
+  store ptr @.str.112, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1632), align 16
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1640), align 8
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1648), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1656), i8 0, i64 24, i1 false)
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1680), align 16
+  store ptr @.str.114, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1688), align 8
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1696), align 16
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1704), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1712), i8 0, i64 24, i1 false)
+  store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1736), align 8
+  store ptr @.str.115, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1744), align 16
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1752), align 8
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1760), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1768), i8 0, i64 24, i1 false)
+  store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1792), align 16
+  store ptr @.str.116, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1800), align 8
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1808), align 16
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1816), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1824), i8 0, i64 24, i1 false)
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1848), align 8
+  store ptr @.str.117, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1856), align 16
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1864), align 8
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1872), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1880), i8 0, i64 24, i1 false)
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1904), align 16
+  store ptr @.str.118, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1912), align 8
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1920), align 16
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1928), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1936), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1960), align 8
+  store ptr @.str.119, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1968), align 16
+  store ptr @.str.120, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1976), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1984), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 1992), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2016), align 16
+  store ptr @.str.121, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2024), align 8
+  store ptr @.str.122, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2032), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2040), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2048), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2072), align 8
+  store ptr @.str.123, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2080), align 16
+  store ptr @.str.124, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2088), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2096), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2104), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2128), align 16
+  store ptr @.str.125, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2136), align 8
+  store ptr @.str.126, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2144), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2152), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2160), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2184), align 8
+  store ptr @.str.127, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2192), align 16
+  store ptr @.str.128, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2200), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2208), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2216), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2240), align 16
+  store ptr @.str.129, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2248), align 8
+  store ptr @.str.130, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2256), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2264), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2272), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2296), align 8
+  store ptr @.str.131, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2304), align 16
+  store ptr @.str.132, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2312), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2320), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2328), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2352), align 16
+  store ptr @.str.133, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2360), align 8
+  store ptr @.str.134, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2368), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2376), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2384), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2408), align 8
+  store ptr @.str.135, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2416), align 16
+  store ptr @.str.136, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2424), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2432), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2440), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2464), align 16
+  store ptr @.str.137, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2472), align 8
+  store ptr @.str.138, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2480), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2488), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2496), i8 0, i64 24, i1 false)
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2520), align 8
+  store ptr @.str.139, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2528), align 16
+  store ptr @.str.140, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2536), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2544), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2552), i8 0, i64 24, i1 false)
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2576), align 16
+  store ptr @.str.141, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2584), align 8
+  store ptr @.str.142, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2592), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2600), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2608), i8 0, i64 24, i1 false)
+  store i32 19, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2632), align 8
+  store ptr @.str.143, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2640), align 16
+  store ptr @.str.144, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2648), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2656), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2664), i8 0, i64 24, i1 false)
+  store i32 37, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2688), align 16
+  store ptr @.str.145, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2696), align 8
+  store ptr @.str.146, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2704), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2712), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2720), i8 0, i64 24, i1 false)
+  store i32 22, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2744), align 8
+  store ptr @.str.147, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2752), align 16
+  store ptr @.str.113, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2760), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2768), align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2776), i8 0, i64 24, i1 false)
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2800), align 16
+  store ptr @.str.148, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2808), align 8
+  store ptr @.str.149, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2816), align 16
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2824), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2832), i8 0, i64 24, i1 false)
   %166 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ12gmx_tune_pmeiPPcE3fnm) #23
   br label %167
@@ -7167,7 +7167,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 sect
   br label %2
 
 2:                                                ; preds = %_ZN8t_filenmD2Ev.exit, %1
-  %3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2856), %1 ], [ %4, %_ZN8t_filenmD2Ev.exit ]
+  %3 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZ12gmx_tune_pmeiPPcE3fnm, i64 2856), %1 ], [ %4, %_ZN8t_filenmD2Ev.exit ]
   %4 = getelementptr inbounds i8, ptr %3, i64 -56
   %5 = getelementptr inbounds i8, ptr %3, i64 -24
   %6 = load ptr, ptr %5, align 8

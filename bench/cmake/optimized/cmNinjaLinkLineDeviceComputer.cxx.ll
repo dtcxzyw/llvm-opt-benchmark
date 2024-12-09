@@ -41,7 +41,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN29cmNinjaLinkLineDeviceComputerC2EP17cmOutputConverterRK16cmStateDirectoryPK22cmGlobalNinjaGenerator(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3) unnamed_addr #3 align 2 {
   tail call void @_ZN24cmLinkLineDeviceComputerC2EP17cmOutputConverterRK16cmStateDirectory(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV29cmNinjaLinkLineDeviceComputer, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29cmNinjaLinkLineDeviceComputer, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %5, align 8
   ret void

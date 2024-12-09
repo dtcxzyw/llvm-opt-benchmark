@@ -6659,7 +6659,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %634, %_ZNK5clang4Ty
   %.sroa.0.0.copyload.i479 = load i64, ptr %661, align 8
   store i64 %.sroa.0.0.copyload.i479, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_15DeclarationNameEEEE, i64 16), ptr %24, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS_15DeclarationNameEEEE, i64 16), ptr %24, align 8
   %662 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 3630, ptr %662, align 8
   %663 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -6970,7 +6970,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.thread: ; preds = %788, %_ZNK5clang8
   %.sroa.0156.0.copyload = load i64, ptr %71, align 8
   store i32 5, ptr %89, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %23, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5clang4Sema18BoundTypeDiagnoserIJNS0_17AbstractDiagSelIDEEEE, i64 16), ptr %23, align 8
   %815 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 2624, ptr %815, align 8
   %816 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -8854,7 +8854,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 .loopexit:                                        ; preds = %.backedge, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %.1 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ false, %.backedge ]
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %6, align 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %39) #14
   %41 = load ptr, ptr %39, align 8
@@ -15548,7 +15548,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %152, %159
 
 173:                                              ; preds = %_ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef nonnull %56, i64 noundef 64) #14
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 1))
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.16, i64 1))
   %.sroa.07.0.copyload = load ptr, ptr %9, align 8
   %.sroa.28.0.copyload = load i64, ptr %48, align 8
   %174 = getelementptr inbounds i8, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload

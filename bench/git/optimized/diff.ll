@@ -1421,7 +1421,7 @@ if.then47:                                        ; preds = %if.then45
 
 if.end50:                                         ; preds = %if.then45
   %6 = load i32, ptr @diff_dirstat_permille_default, align 4
-  store i32 %6, ptr getelementptr inbounds (i8, ptr @default_diff_options, i64 308), align 4
+  store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @default_diff_options, i64 308), align 4
   %call51 = call fastcc i32 @parse_dirstat_params(ptr noundef nonnull @default_diff_options, ptr noundef nonnull %value, ptr noundef %errmsg)
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %if.end55, label %if.then53
@@ -1444,7 +1444,7 @@ _.exit50:                                         ; preds = %if.then53, %if.end3
 
 if.end55:                                         ; preds = %_.exit50, %if.end50
   call void @strbuf_release(ptr noundef nonnull %errmsg) #31
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @default_diff_options, i64 308), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @default_diff_options, i64 308), align 4
   store i32 %9, ptr @diff_dirstat_permille_default, align 4
   br label %return
 
@@ -3874,7 +3874,7 @@ if.end35:                                         ; preds = %land.lhs.true11, %i
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @diff_filter_bit(i8 noundef signext %status) local_unnamed_addr #19 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 260), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 260), align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %for.body.i, label %prepare_filter_bits.exit
 
@@ -4230,7 +4230,7 @@ if.then117:                                       ; preds = %if.end115
   %filter = getelementptr inbounds nuw i8, ptr %options, i64 244
   %32 = load i32, ptr %filter, align 4
   %tobool118.not = icmp eq i32 %32, 0
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 168), align 8
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 168), align 8
   %not = xor i32 %33, -1
   %34 = select i1 %tobool118.not, i32 %not, i32 %32
   %not123 = xor i32 %31, -1
@@ -7885,7 +7885,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 260), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 260), align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %for.body.i, label %prepare_filter_bits.exit
 
@@ -8624,13 +8624,13 @@ land.rhs:                                         ; preds = %land.lhs.true3
   br i1 %tobool5.not, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 340), align 4
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 340), align 4
   %and.i = and i32 %4, %3
   %tobool7.not = icmp eq i32 %and.i, 0
   br i1 %tobool7.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true3, %strmap_get_size.exit, %entry, %lor.rhs
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp8 = icmp sgt i32 %5, 0
   br i1 %cmp8, label %for.body.lr.ph, label %return
 
@@ -8747,7 +8747,7 @@ entry:
   %conv.i.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
   %algo.i.i = getelementptr inbounds nuw i8, ptr %oid, i64 32
   store i32 %conv.i.i.i, ptr %algo.i.i, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp157.i = icmp sgt i32 %6, 0
   br i1 %cmp157.i, label %for.body.lr.ph.i, label %diff_get_patch_id.exit
 
@@ -9284,7 +9284,7 @@ for.body.i145.i:                                  ; preds = %if.end189.i, %for.b
 
 flush_one_hunk.exit.i:                            ; preds = %for.body.i145.i, %if.end189.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hash.i.i)
-  %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %flush_one_hunk.exit.i, %if.end34.i, %lor.lhs.false.i, %if.end13.i, %if.end10.i, %for.body.i
@@ -9469,7 +9469,7 @@ entry:
   %diffstat = alloca %struct.diffstat_t, align 8
   %output_format1 = getelementptr inbounds nuw i8, ptr %options, i64 284
   %0 = load i32, ptr %output_format1, align 4
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
@@ -9477,7 +9477,7 @@ land.lhs.true:                                    ; preds = %entry
   %additional_path_headers = getelementptr inbounds nuw i8, ptr %options, i64 584
   %2 = load ptr, ptr %additional_path_headers, align 8
   %tobool2.not = icmp eq ptr %2, null
-  br i1 %tobool2.not, label %free_queue, label %if.end.thread
+  br i1 %tobool2.not, label %free_queuethread-pre-split, label %if.end.thread
 
 if.end:                                           ; preds = %entry
   %and = and i32 %0, 1793
@@ -9485,14 +9485,14 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.end10, label %for.cond.preheader
 
 if.end.thread:                                    ; preds = %land.lhs.true
-  %and439 = and i32 %0, 1793
-  %tobool3.not440 = icmp ne i32 %and439, 0
-  %spec.select = zext i1 %tobool3.not440 to i32
+  %and443 = and i32 %0, 1793
+  %tobool3.not444 = icmp ne i32 %and443, 0
+  %spec.select = zext i1 %tobool3.not444 to i32
   br label %if.end10
 
 for.cond.preheader:                               ; preds = %if.end
-  %cmp398 = icmp sgt i32 %1, 0
-  br i1 %cmp398, label %for.body.lr.ph, label %if.end10
+  %cmp401 = icmp sgt i32 %1, 0
+  br i1 %cmp401, label %for.body.lr.ph, label %if.end10
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %prefix_length.i.i.i = getelementptr inbounds nuw i8, ptr %options, i64 344
@@ -10090,7 +10090,7 @@ diff_line_prefix.exit.i:                          ; preds = %if.end.i24.i, %stri
 
 flush_one_pair.exit:                              ; preds = %if.then.i, %if.end.i.i, %lor.lhs.false.i.i, %if.end19.i.i, %builtin_checkdiff.exit.i.i.i, %diff_flush_raw.exit.i, %if.else4.i, %diff_line_prefix.exit.i
   store i32 1, ptr %found_changes.i, align 8
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %flush_one_pair.exit
@@ -10910,16 +10910,16 @@ for.end340.i:                                     ; preds = %for.inc338.i, %for.
   %adds.0.lcssa.i = phi i32 [ 0, %for.cond287.preheader.i ], [ %adds.1.i, %for.inc338.i ]
   call fastcc void @print_stat_summary_inserts_deletes(ptr noundef %options, i32 noundef %total_files.0.lcssa.i, i32 noundef %adds.0.lcssa.i, i32 noundef %dels.0.lcssa.i)
   call void @strbuf_release(ptr noundef nonnull %out.i) #31
-  %.pre431.pre434.pre.pre = load i32, ptr %diffstat, align 8
+  %.pre435.pre438.pre.pre = load i32, ptr %diffstat, align 8
   br label %show_stats.exit
 
 show_stats.exit:                                  ; preds = %diff_line_prefix.exit.i95, %for.end340.i
-  %.pre431.pre434.pre = phi i32 [ 0, %diff_line_prefix.exit.i95 ], [ %.pre431.pre434.pre.pre, %for.end340.i ]
+  %.pre435.pre438.pre = phi i32 [ 0, %diff_line_prefix.exit.i95 ], [ %.pre435.pre438.pre.pre, %for.end340.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %if.end29
 
 if.end29:                                         ; preds = %show_stats.exit, %if.end25
-  %.pre431.pre434 = phi i32 [ %.pre431.pre434.pre, %show_stats.exit ], [ %146, %if.end25 ]
+  %.pre435.pre438 = phi i32 [ %.pre435.pre438.pre, %show_stats.exit ], [ %146, %if.end25 ]
   %and30 = and i32 %0, 32
   %tobool31.not = icmp eq i32 %and30, 0
   br i1 %tobool31.not, label %if.end33, label %if.then32
@@ -10927,21 +10927,21 @@ if.end29:                                         ; preds = %show_stats.exit, %i
 if.then32:                                        ; preds = %if.end29
   %229 = getelementptr inbounds nuw i8, ptr %diffstat, i64 8
   %diffstat.val73 = load ptr, ptr %229, align 8
-  %cmp.i125 = icmp eq i32 %.pre431.pre434, 0
+  %cmp.i125 = icmp eq i32 %.pre435.pre438, 0
   br i1 %cmp.i125, label %if.end33.thread, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then32
-  %cmp31.i = icmp sgt i32 %.pre431.pre434, 0
+  %cmp31.i = icmp sgt i32 %.pre435.pre438, 0
   br i1 %cmp31.i, label %for.body.preheader.i, label %for.end.i126
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %wide.trip.count.i130 = zext nneg i32 %.pre431.pre434 to i64
+  %wide.trip.count.i130 = zext nneg i32 %.pre435.pre438 to i64
   br label %for.body.i131
 
 for.body.i131:                                    ; preds = %for.inc.i138, %for.body.preheader.i
   %indvars.iv.i132 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i142, %for.inc.i138 ]
   %adds.04.i = phi i32 [ 0, %for.body.preheader.i ], [ %adds.1.i141, %for.inc.i138 ]
-  %total_files.03.i = phi i32 [ %.pre431.pre434, %for.body.preheader.i ], [ %total_files.1.i140, %for.inc.i138 ]
+  %total_files.03.i = phi i32 [ %.pre435.pre438, %for.body.preheader.i ], [ %total_files.1.i140, %for.inc.i138 ]
   %dels.02.i = phi i32 [ 0, %for.body.preheader.i ], [ %dels.1.i139, %for.inc.i138 ]
   %arrayidx.i133 = getelementptr inbounds nuw ptr, ptr %diffstat.val73, i64 %indvars.iv.i132
   %230 = load ptr, ptr %arrayidx.i133, align 8
@@ -10989,20 +10989,20 @@ for.inc.i138:                                     ; preds = %if.then31.i, %if.el
 
 for.end.i126:                                     ; preds = %for.inc.i138, %for.cond.preheader.i
   %dels.0.lcssa.i127 = phi i32 [ 0, %for.cond.preheader.i ], [ %dels.1.i139, %for.inc.i138 ]
-  %total_files.0.lcssa.i128 = phi i32 [ %.pre431.pre434, %for.cond.preheader.i ], [ %total_files.1.i140, %for.inc.i138 ]
+  %total_files.0.lcssa.i128 = phi i32 [ %.pre435.pre438, %for.cond.preheader.i ], [ %total_files.1.i140, %for.inc.i138 ]
   %adds.0.lcssa.i129 = phi i32 [ 0, %for.cond.preheader.i ], [ %adds.1.i141, %for.inc.i138 ]
   call fastcc void @print_stat_summary_inserts_deletes(ptr noundef %options, i32 noundef %total_files.0.lcssa.i128, i32 noundef %adds.0.lcssa.i129, i32 noundef %dels.0.lcssa.i127)
-  %.pre431.pre = load i32, ptr %diffstat, align 8
+  %.pre435.pre = load i32, ptr %diffstat, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %for.end.i126, %if.end29
-  %.pre431 = phi i32 [ %.pre431.pre, %for.end.i126 ], [ %.pre431.pre434, %if.end29 ]
+  %.pre435 = phi i32 [ %.pre435.pre, %for.end.i126 ], [ %.pre435.pre438, %if.end29 ]
   %or.cond1 = and i1 %tobool12, %tobool20
   br i1 %or.cond1, label %if.then38, label %if.end39
 
 if.end33.thread:                                  ; preds = %if.then32
-  %or.cond1443 = and i1 %tobool12, %tobool20
-  br i1 %or.cond1443, label %if.then38.thread, label %free_diffstat_info.exit
+  %or.cond1447 = and i1 %tobool12, %tobool20
+  br i1 %or.cond1447, label %if.then38.thread, label %free_diffstat_info.exit
 
 if.then38.thread:                                 ; preds = %if.end33.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i)
@@ -11010,7 +11010,7 @@ if.then38.thread:                                 ; preds = %if.end33.thread
 
 if.then38:                                        ; preds = %if.end33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i)
-  %cmp.i147 = icmp eq i32 %.pre431, 0
+  %cmp.i147 = icmp eq i32 %.pre435, 0
   br i1 %cmp.i147, label %show_dirstat_by_line.exit, label %if.end.i148
 
 if.end.i148:                                      ; preds = %if.then38
@@ -11024,7 +11024,7 @@ if.end.i148:                                      ; preds = %if.then38
   %236 = load i32, ptr %dirstat_cumulative.i, align 8
   %cumulative.i = getelementptr inbounds nuw i8, ptr %dir.i, i64 20
   store i32 %236, ptr %cumulative.i, align 4
-  %cmp320.i = icmp sgt i32 %.pre431, 0
+  %cmp320.i = icmp sgt i32 %.pre435, 0
   br i1 %cmp320.i, label %for.body.lr.ph.i149, label %conclude_dirstat.exit.i
 
 for.body.lr.ph.i149:                              ; preds = %if.end.i148
@@ -11117,16 +11117,16 @@ sane_qsort.exit.i.i:                              ; preds = %if.then.i.i.i168, %
 conclude_dirstat.exit.i:                          ; preds = %sane_qsort.exit.i.i, %for.end.i165, %if.end.i148
   %.lcssa1842.i = phi ptr [ %247, %for.end.i165 ], [ %247, %sane_qsort.exit.i.i ], [ null, %if.end.i148 ]
   call void @free(ptr noundef %.lcssa1842.i) #31
-  %.pre430.pre = load i32, ptr %diffstat, align 8
+  %.pre434.pre = load i32, ptr %diffstat, align 8
   br label %show_dirstat_by_line.exit
 
 show_dirstat_by_line.exit:                        ; preds = %if.then38.thread, %if.then38, %conclude_dirstat.exit.i
-  %.pre430 = phi i32 [ 0, %if.then38 ], [ %.pre430.pre, %conclude_dirstat.exit.i ], [ 0, %if.then38.thread ]
+  %.pre434 = phi i32 [ 0, %if.then38 ], [ %.pre434.pre, %conclude_dirstat.exit.i ], [ 0, %if.then38.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dir.i)
   br label %if.end39
 
 if.end39:                                         ; preds = %show_dirstat_by_line.exit, %if.end33
-  %252 = phi i32 [ %.pre430, %show_dirstat_by_line.exit ], [ %.pre431, %if.end33 ]
+  %252 = phi i32 [ %.pre434, %show_dirstat_by_line.exit ], [ %.pre435, %if.end33 ]
   %cmp5.i = icmp sgt i32 %252, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i173, label %free_diffstat_info.exit
 
@@ -11182,7 +11182,7 @@ if.then46:                                        ; preds = %if.end41
   %262 = load i32, ptr %dirstat_cumulative.i187, align 8
   %cumulative.i188 = getelementptr inbounds nuw i8, ptr %dir.i182, i64 20
   store i32 %262, ptr %cumulative.i188, align 4
-  %263 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %263 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp119.i189 = icmp sgt i32 %263, 0
   br i1 %cmp119.i189, label %for.body.lr.ph.i191, label %show_dirstat.exit
 
@@ -11527,7 +11527,7 @@ do.end.i214:                                      ; preds = %st_mult.exit.i212, 
   store i64 %damage.0.i207, ptr %changed113.i, align 8
   %add114.i = add i64 %damage.0.i207, %changed.0121.i
   %.pre.i215 = load ptr, ptr @diff_queued_diff, align 8
-  %.pre136.i = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %.pre136.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   br label %for.inc.i216
 
 for.inc.i216:                                     ; preds = %do.end.i214, %if.else53.i
@@ -11577,7 +11577,7 @@ if.end47:                                         ; preds = %show_dirstat.exit, 
   br i1 %tobool49.not, label %if.end65, label %land.lhs.true50
 
 land.lhs.true50:                                  ; preds = %if.end47
-  %327 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %327 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp1.i = icmp sgt i32 %327, 0
   br i1 %cmp1.i, label %for.body.lr.ph.i237, label %if.end65
 
@@ -11639,9 +11639,9 @@ for.body57.lr.ph:                                 ; preds = %land.lhs.true.i247,
   br label %for.body57
 
 for.body57:                                       ; preds = %for.body57.lr.ph, %diff_summary.exit
-  %indvars.iv424 = phi i64 [ 0, %for.body57.lr.ph ], [ %indvars.iv.next425, %diff_summary.exit ]
+  %indvars.iv428 = phi i64 [ 0, %for.body57.lr.ph ], [ %indvars.iv.next429, %diff_summary.exit ]
   %336 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx60 = getelementptr inbounds nuw ptr, ptr %336, i64 %indvars.iv424
+  %arrayidx60 = getelementptr inbounds nuw ptr, ptr %336, i64 %indvars.iv428
   %337 = load ptr, ptr %arrayidx60, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i)
   %status.i253 = getelementptr inbounds nuw i8, ptr %337, i64 18
@@ -11768,10 +11768,10 @@ if.end.i274:                                      ; preds = %if.then.i268, %sw.d
 
 diff_summary.exit:                                ; preds = %sw.bb.i, %sw.bb1.i263, %sw.bb2.i, %sw.bb3.i, %if.end.i274
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
-  %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
-  %364 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %indvars.iv.next429 = add nuw nsw i64 %indvars.iv428, 1
+  %364 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %365 = sext i32 %364 to i64
-  %cmp56 = icmp slt i64 %indvars.iv.next425, %365
+  %cmp56 = icmp slt i64 %indvars.iv.next429, %365
   br i1 %cmp56, label %for.body57, label %if.end65.thread, !llvm.loop !30
 
 if.end65:                                         ; preds = %for.inc.i250, %land.lhs.true50, %if.end47
@@ -11821,7 +11821,7 @@ if.then2.i:                                       ; preds = %if.end.i277
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %present.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i.i)
   call void @strmap_init_with_options(ptr noundef nonnull %present.i.i, ptr noundef null, i32 noundef 0) #31
-  %369 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %369 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp41.i.i = icmp sgt i32 %369, 0
   br i1 %cmp41.i.i, label %for.body.i.i, label %for.end.i.i
 
@@ -11856,7 +11856,7 @@ if.then.i.i335:                                   ; preds = %cond.end.i.i331
 
 for.inc.i.i:                                      ; preds = %if.then.i.i335, %cond.end.i.i331
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %377 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %377 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %378 = sext i32 %377 to i64
   %cmp.i.i336 = icmp slt i64 %indvars.iv.next.i.i, %378
   br i1 %cmp.i.i336, label %for.body.i.i, label %for.end.i.i, !llvm.loop !31
@@ -11994,7 +11994,7 @@ for.inc27.i.i:                                    ; preds = %diff_queue.exit.i.i
   br i1 %tobool11.not.i.i, label %for.end30.i.i, label %for.body12.i.i, !llvm.loop !32
 
 for.end30.i.i:                                    ; preds = %for.inc27.i.i, %for.end.i.i
-  %389 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %389 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp.i.i33.i.i = icmp ugt i32 %389, 1
   br i1 %cmp.i.i33.i.i, label %if.then.i.i34.i.i, label %create_filepairs_for_header_only_notifications.exit.i
 
@@ -12011,7 +12011,7 @@ create_filepairs_for_header_only_notifications.exit.i: ; preds = %if.then.i.i34.
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %create_filepairs_for_header_only_notifications.exit.i, %if.end.i277
-  %391 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %391 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp105.i = icmp sgt i32 %391, 0
   br i1 %cmp105.i, label %for.body.preheader.i312, label %for.end.i279
 
@@ -12039,7 +12039,7 @@ sw.bb1.i.i:                                       ; preds = %for.body.i313
 if.then5.i319:                                    ; preds = %for.body.i313
   call fastcc void @diff_flush_patch(ptr noundef nonnull %394, ptr noundef %options)
   %.pre.i320 = load ptr, ptr @diff_queued_diff, align 8
-  %.pre130.i = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %.pre130.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   br label %for.inc.i316
 
 for.inc.i316:                                     ; preds = %if.then5.i319, %for.body.i313
@@ -13036,7 +13036,7 @@ if.end17.i:                                       ; preds = %for.inc.i82.i, %if.
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end17.i, %if.then9.i
-  %538 = load i32, ptr getelementptr inbounds (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
+  %538 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
   %cmp20107.i = icmp sgt i32 %538, 0
   br i1 %cmp20107.i, label %for.body21.i, label %for.end34.i
 
@@ -13050,7 +13050,7 @@ for.body21.i:                                     ; preds = %if.end18.i, %for.bo
   %arrayidx23.i = getelementptr inbounds nuw %struct.emitted_diff_symbol, ptr %540, i64 %indvars.iv123.i
   call fastcc void @emit_diff_symbol_from_struct(ptr noundef %options, ptr noundef %arrayidx23.i)
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
-  %541 = load i32, ptr getelementptr inbounds (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
+  %541 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
   %542 = sext i32 %541 to i64
   %cmp20.i283 = icmp slt i64 %indvars.iv.next124.i, %542
   br i1 %cmp20.i283, label %for.body21.i, label %for.cond27.preheader.i, !llvm.loop !45
@@ -13062,13 +13062,13 @@ for.body29.i:                                     ; preds = %for.cond27.preheade
   %544 = load ptr, ptr %arrayidx31.i, align 8
   call void @free(ptr noundef %544) #31
   %indvars.iv.next127.i = add nuw nsw i64 %indvars.iv126.i, 1
-  %545 = load i32, ptr getelementptr inbounds (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
+  %545 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
   %546 = sext i32 %545 to i64
   %cmp28.i = icmp slt i64 %indvars.iv.next127.i, %546
   br i1 %cmp28.i, label %for.body29.i, label %for.end34.i, !llvm.loop !46
 
 for.end34.i:                                      ; preds = %for.body29.i, %for.cond27.preheader.i, %if.end18.i
-  store i32 0, ptr getelementptr inbounds (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8
   store ptr null, ptr %emitted_symbols7.i, align 8
   br label %diff_flush_patch_all_file_pairs.exit
 
@@ -13092,19 +13092,19 @@ if.then78:                                        ; preds = %if.end75
 if.end79:                                         ; preds = %if.then78, %if.end75
   %and80 = and i32 %0, 2048
   %tobool81.not = icmp eq i32 %and80, 0
-  br i1 %tobool81.not, label %free_queue, label %land.lhs.true82
+  br i1 %tobool81.not, label %free_queuethread-pre-split, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.end79
   %exit_with_status = getelementptr inbounds nuw i8, ptr %options, i64 156
   %549 = load i32, ptr %exit_with_status, align 4
   %tobool84.not = icmp eq i32 %549, 0
-  br i1 %tobool84.not, label %free_queue, label %land.lhs.true85
+  br i1 %tobool84.not, label %free_queuethread-pre-split, label %land.lhs.true85
 
 land.lhs.true85:                                  ; preds = %land.lhs.true82
   %diff_from_contents = getelementptr inbounds nuw i8, ptr %options, i64 192
   %550 = load i32, ptr %diff_from_contents, align 8
   %tobool87.not = icmp eq i32 %550, 0
-  br i1 %tobool87.not, label %free_queue, label %if.then88
+  br i1 %tobool87.not, label %free_queuethread-pre-split, label %if.then88
 
 if.then88:                                        ; preds = %land.lhs.true85
   %close_file.i = getelementptr inbounds nuw i8, ptr %options, i64 456
@@ -13125,26 +13125,26 @@ diff_free_file.exit:                              ; preds = %if.then88, %if.then
   store i32 1, ptr %close_file.i, align 8
   %color_moved = getelementptr inbounds nuw i8, ptr %options, i64 568
   store i32 0, ptr %color_moved, align 8
-  %553 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
-  %cmp92402 = icmp sgt i32 %553, 0
-  br i1 %cmp92402, label %for.body93.lr.ph, label %free_queue
+  %553 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
+  %cmp92405 = icmp sgt i32 %553, 0
+  br i1 %cmp92405, label %for.body93.lr.ph, label %diff_free_queue.exit
 
 for.body93.lr.ph:                                 ; preds = %diff_free_file.exit
   %found_changes = getelementptr inbounds nuw i8, ptr %options, i64 432
-  %.pre433 = load ptr, ptr @diff_queued_diff, align 8
+  %.pre437 = load ptr, ptr @diff_queued_diff, align 8
   br label %for.body93
 
 for.cond90:                                       ; preds = %if.end101
-  %indvars.iv.next428 = add nuw nsw i64 %indvars.iv427, 1
-  %554 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
+  %554 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %555 = sext i32 %554 to i64
-  %cmp92 = icmp slt i64 %indvars.iv.next428, %555
+  %cmp92 = icmp slt i64 %indvars.iv.next432, %555
   br i1 %cmp92, label %for.body93, label %free_queue, !llvm.loop !47
 
 for.body93:                                       ; preds = %for.body93.lr.ph, %for.cond90
-  %556 = phi ptr [ %.pre433, %for.body93.lr.ph ], [ %559, %for.cond90 ]
-  %indvars.iv427 = phi i64 [ 0, %for.body93.lr.ph ], [ %indvars.iv.next428, %for.cond90 ]
-  %arrayidx97 = getelementptr inbounds nuw ptr, ptr %556, i64 %indvars.iv427
+  %556 = phi ptr [ %.pre437, %for.body93.lr.ph ], [ %559, %for.cond90 ]
+  %indvars.iv431 = phi i64 [ 0, %for.body93.lr.ph ], [ %indvars.iv.next432, %for.cond90 ]
+  %arrayidx97 = getelementptr inbounds nuw ptr, ptr %556, i64 %indvars.iv431
   %557 = load ptr, ptr %arrayidx97, align 8
   %558 = getelementptr i8, ptr %557, i64 18
   %.val72 = load i8, ptr %558, align 2
@@ -13159,17 +13159,21 @@ sw.bb1.i344:                                      ; preds = %for.body93
 
 if.then100:                                       ; preds = %for.body93
   call fastcc void @diff_flush_patch(ptr noundef nonnull %557, ptr noundef nonnull %options)
-  %.pre432 = load ptr, ptr @diff_queued_diff, align 8
+  %.pre436 = load ptr, ptr @diff_queued_diff, align 8
   br label %if.end101
 
 if.end101:                                        ; preds = %for.body93, %if.then100
-  %559 = phi ptr [ %556, %for.body93 ], [ %.pre432, %if.then100 ]
+  %559 = phi ptr [ %556, %for.body93 ], [ %.pre436, %if.then100 ]
   %560 = load i32, ptr %found_changes, align 8
   %tobool102.not = icmp eq i32 %560, 0
-  br i1 %tobool102.not, label %for.cond90, label %free_queue
+  br i1 %tobool102.not, label %for.cond90, label %free_queuethread-pre-split
 
-free_queue:                                       ; preds = %for.cond90, %if.end101, %diff_free_file.exit, %if.end79, %land.lhs.true82, %land.lhs.true85, %land.lhs.true
-  %561 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
+free_queuethread-pre-split:                       ; preds = %if.end101, %land.lhs.true, %land.lhs.true85, %land.lhs.true82, %if.end79
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
+  br label %free_queue
+
+free_queue:                                       ; preds = %for.cond90, %free_queuethread-pre-split
+  %561 = phi i32 [ %.pr, %free_queuethread-pre-split ], [ %554, %for.cond90 ]
   %cmp5.i348 = icmp sgt i32 %561, 0
   br i1 %cmp5.i348, label %for.body.i350, label %diff_free_queue.exit
 
@@ -13185,7 +13189,7 @@ for.body.i350:                                    ; preds = %free_queue, %for.bo
   %cmp.i354 = icmp slt i64 %indvars.iv.next.i353, %565
   br i1 %cmp.i354, label %for.body.i350, label %diff_free_queue.exit, !llvm.loop !15
 
-diff_free_queue.exit:                             ; preds = %for.body.i350, %free_queue
+diff_free_queue.exit:                             ; preds = %for.body.i350, %diff_free_file.exit, %free_queue
   %566 = load ptr, ptr @diff_queued_diff, align 8
   call void @free(ptr noundef %566) #31
   %no_free.i = getelementptr inbounds nuw i8, ptr %options, i64 592
@@ -13497,7 +13501,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %tobool2.not, label %if.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 340), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 340), align 4
   %and.i = and i32 %5, %4
   %tobool4 = icmp ne i32 %and.i, 0
   br label %land.end
@@ -13743,7 +13747,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @diffcore_fix_diff_index() local_unnamed_addr #23 {
 entry:
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp.i = icmp ugt i32 %0, 1
   br i1 %cmp.i, label %if.then.i, label %sane_qsort.exit
 
@@ -13832,7 +13836,7 @@ define dso_local void @diff_queued_diff_prefetch(ptr noundef %repository) #0 {
 entry:
   %to_fetch = alloca %struct.oid_array, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %to_fetch, i8 0, i64 32, i1 false)
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp21 = icmp sgt i32 %0, 0
   br i1 %cmp21, label %for.body, label %for.end
 
@@ -13899,7 +13903,7 @@ if.then.i19:                                      ; preds = %land.lhs.true4.i16
 
 diff_add_if_missing.exit20:                       ; preds = %diff_add_if_missing.exit, %land.lhs.true.i8, %land.lhs.true2.i13, %land.lhs.true4.i16, %if.then.i19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %10 = sext i32 %9 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !49
@@ -13975,7 +13979,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp14.i = icmp sgt i32 %6, 0
   br i1 %cmp14.i, label %for.body.lr.ph.i, label %diffcore_skip_stat_unmatch.exit
 
@@ -14048,7 +14052,7 @@ for.inc.i:                                        ; preds = %if.end.i, %diff_q.e
   %outq.sroa.5.1.i = phi i32 [ %outq.sroa.5.016.i, %if.end.i ], [ %outq.sroa.5.2.i, %diff_q.exit.i ]
   %outq.sroa.0.1.i = phi ptr [ %outq.sroa.0.017.i, %if.end.i ], [ %outq.sroa.0.2.i, %diff_q.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %14 = sext i32 %13 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %14
   br i1 %cmp.i, label %for.body.i, label %diffcore_skip_stat_unmatch.exit, !llvm.loop !50
@@ -14060,8 +14064,8 @@ diffcore_skip_stat_unmatch.exit:                  ; preds = %for.inc.i, %if.then
   %15 = load ptr, ptr @diff_queued_diff, align 8
   tail call void @free(ptr noundef %15) #31
   store ptr %outq.sroa.0.0.lcssa.i, ptr @diff_queued_diff, align 8
-  store i32 %outq.sroa.5.0.lcssa.i, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 8), align 8
-  store i32 %outq.sroa.8.0.lcssa.i, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  store i32 %outq.sroa.5.0.lcssa.i, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 8), align 8
+  store i32 %outq.sroa.8.0.lcssa.i, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %diffcore_skip_stat_unmatch.exit, %if.end
@@ -14133,7 +14137,7 @@ if.then34:                                        ; preds = %if.end32
 if.end35:                                         ; preds = %if.then34, %if.end32
   %24 = load i32, ptr %found_follow, align 4
   %tobool37.not = icmp eq i32 %24, 0
-  %25 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %cmp30.i = icmp sgt i32 %25, 0
   %or.cond = select i1 %tobool37.not, i1 %cmp30.i, i1 false
   br i1 %or.cond, label %for.body.i27, label %if.end39
@@ -14275,7 +14279,7 @@ for.inc.i31:                                      ; preds = %if.else83.i, %is_nu
   %.sink.i = phi i8 [ 88, %if.else83.i ], [ 85, %for.body.i27 ], [ 65, %if.else.i34 ], [ 68, %if.else6.i ], [ 84, %if.else13.i ], [ 77, %if.then31.i ], [ %..i, %if.else38.i ], [ 77, %is_null_oid.exit.i ], [ 77, %lor.lhs.false68.i ], [ 77, %lor.lhs.false61.i ], [ 77, %oideq.exit.i ]
   store i8 %.sink.i, ptr %status.i, align 2
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i28, 1
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %51 = sext i32 %50 to i64
   %cmp.i33 = icmp slt i64 %indvars.iv.next.i32, %51
   br i1 %cmp.i33, label %for.body.i27, label %if.end39, !llvm.loop !51
@@ -14288,7 +14292,7 @@ if.end39:                                         ; preds = %for.inc.i31, %if.en
   br i1 %tobool.not.i40, label %diffcore_apply_filter.exit, label %if.end.i41
 
 if.end.i41:                                       ; preds = %if.end39
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 168), align 8
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 168), align 8
   %and.i.i = and i32 %53, %52
   %tobool1.not.i = icmp eq i32 %and.i.i, 0
   %cmp2692.i = icmp sgt i32 %.pr, 0
@@ -14299,11 +14303,11 @@ for.cond.preheader.i:                             ; preds = %if.end.i41
 
 for.body.lr.ph.i42:                               ; preds = %for.cond.preheader.i
   %54 = load ptr, ptr @diff_queued_diff, align 8
-  %55 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 264), align 8
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 264), align 8
   %and.i.i.i = and i32 %55, %52
   %and.i.i.fr.i = freeze i32 %and.i.i.i
   %tobool4.not.i.i = icmp eq i32 %and.i.i.fr.i, 0
-  %56 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 308), align 4
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 308), align 4
   %and.i9.i.i = and i32 %56, %52
   %and.i9.i.fr.i = freeze i32 %and.i9.i.i
   %tobool9.not.i.i = icmp eq i32 %and.i9.i.fr.i, 0
@@ -14434,7 +14438,7 @@ for.body17.i:                                     ; preds = %for.body17.i.prehea
   %73 = load ptr, ptr %arrayidx20.i, align 8
   tail call void @diff_free_filepair(ptr noundef %73)
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
-  %74 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %75 = sext i32 %74 to i64
   %cmp16.i = icmp slt i64 %indvars.iv.next116.i, %75
   br i1 %cmp16.i, label %for.body17.i, label %if.end39.i, !llvm.loop !53
@@ -14460,13 +14464,13 @@ land.lhs.true.i32.i:                              ; preds = %for.body27.i
   br i1 %tobool.not.i34.i, label %land.lhs.true7.i40.i, label %land.lhs.true3.i36.i
 
 land.lhs.true3.i36.i:                             ; preds = %land.lhs.true.i32.i
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 264), align 8
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 264), align 8
   %and.i.i37.i = and i32 %80, %options.val7.i35.i
   %tobool4.not.i38.i = icmp eq i32 %and.i.i37.i, 0
   br i1 %tobool4.not.i38.i, label %if.else34.i, label %if.then33.i
 
 land.lhs.true7.i40.i:                             ; preds = %land.lhs.true.i32.i
-  %81 = load i32, ptr getelementptr inbounds (i8, ptr @filter_bit, i64 308), align 4
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @filter_bit, i64 308), align 4
   %and.i9.i41.i = and i32 %81, %options.val7.i35.i
   %tobool9.not.i42.i = icmp eq i32 %and.i9.i41.i, 0
   br i1 %tobool9.not.i42.i, label %if.else34.i, label %if.then33.i
@@ -14521,7 +14525,7 @@ for.inc36.i:                                      ; preds = %if.else34.i, %diff_
   %outq.sroa.5.2.i66 = phi i32 [ %outq.sroa.5.194.i, %if.else34.i ], [ %outq.sroa.5.3.i, %diff_q.exit.i63 ]
   %outq.sroa.0.2.i67 = phi ptr [ %outq.sroa.0.195.i, %if.else34.i ], [ %outq.sroa.0.3.i, %diff_q.exit.i63 ]
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %85 = sext i32 %84 to i64
   %cmp26.i = icmp slt i64 %indvars.iv.next119.i, %85
   br i1 %cmp26.i, label %for.body27.i, label %if.end39.i, !llvm.loop !54
@@ -14533,8 +14537,8 @@ if.end39.i:                                       ; preds = %for.body17.i, %for.
   %86 = load ptr, ptr @diff_queued_diff, align 8
   tail call void @free(ptr noundef %86) #31
   store ptr %outq.sroa.0.0.i, ptr @diff_queued_diff, align 8
-  store i32 %outq.sroa.5.0.i, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 8), align 8
-  store i32 %outq.sroa.8.0.i, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  store i32 %outq.sroa.5.0.i, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 8), align 8
+  store i32 %outq.sroa.8.0.i, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   br label %diffcore_apply_filter.exit
 
 diffcore_apply_filter.exit:                       ; preds = %for.body.i43, %match_filter.exit.us69.i, %land.lhs.true.i.us75.i, %match_filter.exit.us.i, %land.lhs.true.i.us.i, %match_filter.exit.us.us.i, %if.end39, %for.end.i, %if.end39.i
@@ -17787,7 +17791,7 @@ if.end13.i:                                       ; preds = %if.then8.i, %if.the
   %inc.i = add nsw i32 %63, 1
   store i32 %inc.i, ptr %diff_path_counter.i, align 8
   %call14.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env.i, ptr noundef nonnull @.str.415, i32 noundef %inc.i) #31
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4
   %call16.i = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env.i, ptr noundef nonnull @.str.416, i32 noundef %64) #31
   %tobool.not.i.i41 = icmp eq ptr %one, null
   br i1 %tobool.not.i.i41, label %diff_free_filespec_data.exit.i, label %if.end.i.i42
@@ -18493,12 +18497,12 @@ while.cond.while.end_crit_edge.i43.i.i:           ; preds = %while.body.i33.i.i
 
 count_lines.exit44.i.i:                           ; preds = %while.cond.while.end_crit_edge.i43.i.i, %count_lines.exit.i.i
   %retval.0.i32.i.i = phi i32 [ %163, %while.cond.while.end_crit_edge.i43.i.i ], [ 0, %count_lines.exit.i.i ]
-  %164 = load ptr, ptr getelementptr inbounds (i8, ptr @emit_rewrite_diff.a_name, i64 16), align 8
-  %165 = load i64, ptr getelementptr inbounds (i8, ptr @emit_rewrite_diff.a_name, i64 8), align 8
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @emit_rewrite_diff.a_name, i64 16), align 8
+  %165 = load i64, ptr getelementptr inbounds nuw (i8, ptr @emit_rewrite_diff.a_name, i64 8), align 8
   %conv27.i.i = trunc i64 %165 to i32
   call fastcc void @emit_diff_symbol(ptr noundef %o, i32 noundef 23, ptr noundef %164, i32 noundef %conv27.i.i, i32 noundef 0)
-  %166 = load ptr, ptr getelementptr inbounds (i8, ptr @emit_rewrite_diff.b_name, i64 16), align 8
-  %167 = load i64, ptr getelementptr inbounds (i8, ptr @emit_rewrite_diff.b_name, i64 8), align 8
+  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @emit_rewrite_diff.b_name, i64 16), align 8
+  %167 = load i64, ptr getelementptr inbounds nuw (i8, ptr @emit_rewrite_diff.b_name, i64 8), align 8
   %conv28.i.i = trunc i64 %167 to i32
   call fastcc void @emit_diff_symbol(ptr noundef %o, i32 noundef 22, ptr noundef %166, i32 noundef %conv28.i.i, i32 noundef 0)
   call void @strbuf_add(ptr noundef nonnull %out.i.i, ptr noundef nonnull @.str.436, i64 noundef 4) #31

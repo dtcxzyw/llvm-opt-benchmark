@@ -3978,7 +3978,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix34SearchPathElem_parse_justPath_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix34SearchPathElem_parse_justPath_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4008,7 +4008,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix37SearchPathElem_parse_emptyPrefix_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix37SearchPathElem_parse_emptyPrefix_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4036,7 +4036,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix31SearchPathElem_parse_oneEq_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix31SearchPathElem_parse_oneEq_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4064,7 +4064,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix32SearchPathElem_parse_twoEqs_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix32SearchPathElem_parse_twoEqs_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4092,7 +4092,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix51Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix51SearchPathElem_suffixIfPotentialMatch_justPath_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix51SearchPathElem_suffixIfPotentialMatch_justPath_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4120,7 +4120,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix60Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix1_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix1_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4148,7 +4148,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix60Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix2_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix2_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4176,7 +4176,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix56Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix56SearchPathElem_suffixIfPotentialMatch_partialPrefix_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix56SearchPathElem_suffixIfPotentialMatch_partialPrefix_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4204,7 +4204,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix54Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix54SearchPathElem_suffixIfPotentialMatch_exactPrefix_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix54SearchPathElem_suffixIfPotentialMatch_exactPrefix_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4232,7 +4232,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix51Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix51SearchPathElem_suffixIfPotentialMatch_multiKey_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix51SearchPathElem_suffixIfPotentialMatch_multiKey_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4260,7 +4260,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix56Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix56SearchPathElem_suffixIfPotentialMatch_trailingSlash_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix56SearchPathElem_suffixIfPotentialMatch_trailingSlash_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4288,7 +4288,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix62Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix62SearchPathElem_suffixIfPotentialMatch_trailingDoubleSlash_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix62SearchPathElem_suffixIfPotentialMatch_trailingDoubleSlash_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4316,7 +4316,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix55Se
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix55SearchPathElem_suffixIfPotentialMatch_trailingPath_TestE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix55SearchPathElem_suffixIfPotentialMatch_trailingPath_TestE, i64 16), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -4917,7 +4917,7 @@ define internal void @_GLOBAL__sub_I_search_path.cc() #10 section ".text.startup
           to label %51 unwind label %70
 
 51:                                               ; preds = %49
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34SearchPathElem_parse_justPath_TestEEE, i64 16), ptr %50, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34SearchPathElem_parse_justPath_TestEEE, i64 16), ptr %50, align 8
   %52 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef %44, ptr noundef %46, ptr noundef %48, ptr noundef nonnull %50)
           to label %53 unwind label %70
 
@@ -5020,7 +5020,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %83 unwind label %102
 
 83:                                               ; preds = %81
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37SearchPathElem_parse_emptyPrefix_TestEEE, i64 16), ptr %82, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37SearchPathElem_parse_emptyPrefix_TestEEE, i64 16), ptr %82, align 8
   %84 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef %76, ptr noundef %78, ptr noundef %80, ptr noundef nonnull %82)
           to label %85 unwind label %102
 
@@ -5117,7 +5117,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %115 unwind label %134
 
 115:                                              ; preds = %113
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31SearchPathElem_parse_oneEq_TestEEE, i64 16), ptr %114, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31SearchPathElem_parse_oneEq_TestEEE, i64 16), ptr %114, align 8
   %116 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef %108, ptr noundef %110, ptr noundef %112, ptr noundef nonnull %114)
           to label %117 unwind label %134
 
@@ -5214,7 +5214,7 @@ __cxx_global_var_init.12.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %147 unwind label %166
 
 147:                                              ; preds = %145
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32SearchPathElem_parse_twoEqs_TestEEE, i64 16), ptr %146, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32SearchPathElem_parse_twoEqs_TestEEE, i64 16), ptr %146, align 8
   %148 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef %140, ptr noundef %142, ptr noundef %144, ptr noundef nonnull %146)
           to label %149 unwind label %166
 
@@ -5311,7 +5311,7 @@ __cxx_global_var_init.18.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %179 unwind label %198
 
 179:                                              ; preds = %177
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51SearchPathElem_suffixIfPotentialMatch_justPath_TestEEE, i64 16), ptr %178, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51SearchPathElem_suffixIfPotentialMatch_justPath_TestEEE, i64 16), ptr %178, align 8
   %180 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef %172, ptr noundef %174, ptr noundef %176, ptr noundef nonnull %178)
           to label %181 unwind label %198
 
@@ -5408,7 +5408,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %211 unwind label %230
 
 211:                                              ; preds = %209
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix1_TestEEE, i64 16), ptr %210, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix1_TestEEE, i64 16), ptr %210, align 8
   %212 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef %204, ptr noundef %206, ptr noundef %208, ptr noundef nonnull %210)
           to label %213 unwind label %230
 
@@ -5505,7 +5505,7 @@ __cxx_global_var_init.29.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %243 unwind label %262
 
 243:                                              ; preds = %241
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix2_TestEEE, i64 16), ptr %242, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix2_TestEEE, i64 16), ptr %242, align 8
   %244 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.35, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef %236, ptr noundef %238, ptr noundef %240, ptr noundef nonnull %242)
           to label %245 unwind label %262
 
@@ -5602,7 +5602,7 @@ __cxx_global_var_init.34.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %275 unwind label %294
 
 275:                                              ; preds = %273
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56SearchPathElem_suffixIfPotentialMatch_partialPrefix_TestEEE, i64 16), ptr %274, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56SearchPathElem_suffixIfPotentialMatch_partialPrefix_TestEEE, i64 16), ptr %274, align 8
   %276 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef %268, ptr noundef %270, ptr noundef %272, ptr noundef nonnull %274)
           to label %277 unwind label %294
 
@@ -5699,7 +5699,7 @@ __cxx_global_var_init.38.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %307 unwind label %326
 
 307:                                              ; preds = %305
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54SearchPathElem_suffixIfPotentialMatch_exactPrefix_TestEEE, i64 16), ptr %306, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54SearchPathElem_suffixIfPotentialMatch_exactPrefix_TestEEE, i64 16), ptr %306, align 8
   %308 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef %300, ptr noundef %302, ptr noundef %304, ptr noundef nonnull %306)
           to label %309 unwind label %326
 
@@ -5796,7 +5796,7 @@ __cxx_global_var_init.41.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %339 unwind label %358
 
 339:                                              ; preds = %337
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51SearchPathElem_suffixIfPotentialMatch_multiKey_TestEEE, i64 16), ptr %338, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51SearchPathElem_suffixIfPotentialMatch_multiKey_TestEEE, i64 16), ptr %338, align 8
   %340 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.45, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef %332, ptr noundef %334, ptr noundef %336, ptr noundef nonnull %338)
           to label %341 unwind label %358
 
@@ -5893,7 +5893,7 @@ __cxx_global_var_init.44.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %371 unwind label %390
 
 371:                                              ; preds = %369
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56SearchPathElem_suffixIfPotentialMatch_trailingSlash_TestEEE, i64 16), ptr %370, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56SearchPathElem_suffixIfPotentialMatch_trailingSlash_TestEEE, i64 16), ptr %370, align 8
   %372 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.52, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %364, ptr noundef %366, ptr noundef %368, ptr noundef nonnull %370)
           to label %373 unwind label %390
 
@@ -5990,7 +5990,7 @@ __cxx_global_var_init.51.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %403 unwind label %422
 
 403:                                              ; preds = %401
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix62SearchPathElem_suffixIfPotentialMatch_trailingDoubleSlash_TestEEE, i64 16), ptr %402, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix62SearchPathElem_suffixIfPotentialMatch_trailingDoubleSlash_TestEEE, i64 16), ptr %402, align 8
   %404 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.56, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %396, ptr noundef %398, ptr noundef %400, ptr noundef nonnull %402)
           to label %405 unwind label %422
 
@@ -6087,7 +6087,7 @@ __cxx_global_var_init.55.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %435 unwind label %454
 
 435:                                              ; preds = %433
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55SearchPathElem_suffixIfPotentialMatch_trailingPath_TestEEE, i64 16), ptr %434, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55SearchPathElem_suffixIfPotentialMatch_trailingPath_TestEEE, i64 16), ptr %434, align 8
   %436 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %428, ptr noundef %430, ptr noundef %432, ptr noundef nonnull %434)
           to label %437 unwind label %454
 

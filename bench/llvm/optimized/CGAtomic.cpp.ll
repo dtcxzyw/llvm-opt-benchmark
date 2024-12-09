@@ -631,7 +631,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit197:         ; preds = %.lr.ph.i.i.i.i182, 
   br i1 %or.cond7.i.i, label %_ZNKSt14default_deleteIN5clang16AtomicScopeModelEEclEPS1_.exit.i, label %_ZNSt10unique_ptrIN5clang16AtomicScopeModelESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt14default_deleteIN5clang16AtomicScopeModelEEclEPS1_.exit.i: ; preds = %223, %230, %232
-  %.sink14.i.i = phi ptr [ getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang22AtomicScopeOpenCLModelE, i64 16), %223 ], [ getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang19AtomicScopeHIPModelE, i64 16), %230 ], [ getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang23AtomicScopeGenericModelE, i64 16), %232 ]
+  %.sink14.i.i = phi ptr [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang22AtomicScopeOpenCLModelE, i64 16), %223 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang19AtomicScopeHIPModelE, i64 16), %230 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang23AtomicScopeGenericModelE, i64 16), %232 ]
   %234 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15, !noalias !36
   store ptr %.sink14.i.i, ptr %234, align 8, !noalias !36
   %235 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -1588,7 +1588,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit334: ; pr
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #14
   %571 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %57) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef %571, ptr noundef nonnull align 1 dereferenceable(1) %58) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.7, i64 8))
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 8))
   %572 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %55) #14
   %573 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %55) #14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
@@ -3445,7 +3445,7 @@ define internal fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionE
   br i1 %or.cond7.i.i, label %28, label %259
 
 28:                                               ; preds = %10, %24, %26
-  %29 = phi ptr [ getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang22AtomicScopeOpenCLModelE, i64 16), %10 ], [ getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang19AtomicScopeHIPModelE, i64 16), %24 ], [ getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang23AtomicScopeGenericModelE, i64 16), %26 ]
+  %29 = phi ptr [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang22AtomicScopeOpenCLModelE, i64 16), %10 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang19AtomicScopeHIPModelE, i64 16), %24 ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang23AtomicScopeGenericModelE, i64 16), %26 ]
   %30 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15, !noalias !131
   store ptr %29, ptr %30, align 8, !noalias !131
   %31 = load i8, ptr %9, align 8

@@ -551,7 +551,7 @@ define internal void @_GLOBAL__sub_I_codeobject.cpp() #8 section ".text.startup"
   store i16 0, ptr %5, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %6, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy14PySignalObjectE, i64 16), ptr %2, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy14PySignalObjectE, i64 16), ptr %2, align 8
   store i8 0, ptr %3, align 8
   store ptr %2, ptr @_ZN4pkpy7PY_NULLE, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #10
@@ -562,7 +562,7 @@ define internal void @_GLOBAL__sub_I_codeobject.cpp() #8 section ".text.startup"
   store i16 0, ptr %10, align 2
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %11, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy14PySignalObjectE, i64 16), ptr %7, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy14PySignalObjectE, i64 16), ptr %7, align 8
   store i8 0, ptr %8, align 8
   store ptr %7, ptr @_ZN4pkpy10PY_OP_CALLE, align 8
   %12 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #10
@@ -573,7 +573,7 @@ define internal void @_GLOBAL__sub_I_codeobject.cpp() #8 section ".text.startup"
   store i16 0, ptr %15, align 2
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr null, ptr %16, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy14PySignalObjectE, i64 16), ptr %12, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4pkpy14PySignalObjectE, i64 16), ptr %12, align 8
   store i8 0, ptr %13, align 8
   store ptr %12, ptr @_ZN4pkpy11PY_OP_YIELDE, align 8
   ret void

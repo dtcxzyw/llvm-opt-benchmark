@@ -1580,7 +1580,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 180:                                              ; preds = %165, %161
-  %181 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %182 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %181, i32 noundef 3520, i64 noundef 104) #12
   %183 = icmp eq ptr %182, null
   br i1 %183, label %328, label %184
@@ -1630,7 +1630,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br i1 %207, label %208, label %229
 
 208:                                              ; preds = %206
-  %209 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %210 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %209, i32 noundef 3520, i64 noundef 104) #12
   %211 = icmp eq ptr %210, null
   br i1 %211, label %328, label %212
@@ -1671,7 +1671,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br i1 %230, label %231, label %252
 
 231:                                              ; preds = %229
-  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %233 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %232, i32 noundef 3520, i64 noundef 104) #12
   %234 = icmp eq ptr %233, null
   br i1 %234, label %328, label %235
@@ -1709,7 +1709,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
 
 252:                                              ; preds = %229
   %253 = icmp samesign ugt i8 %32, 72
-  %254 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %254 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %255 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %254, i32 noundef 3520, i64 noundef 104) #12
   %256 = icmp eq ptr %255, null
   br i1 %253, label %257, label %275
@@ -1817,7 +1817,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 309:                                              ; preds = %300
-  %310 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %310 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %311 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %310, i32 noundef 3520, i64 noundef 104) #12
   %312 = icmp eq ptr %311, null
   br i1 %312, label %328, label %313

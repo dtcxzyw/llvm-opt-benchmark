@@ -402,7 +402,7 @@ define hidden void @commandline_override_prefs(i32 noundef %0, ptr noundef %1, i
 
 .sink.split:                                      ; preds = %.sink.split.preheader, %11
   %.sink = phi ptr [ %15, %11 ], [ null, %.sink.split.preheader ]
-  store ptr %.sink, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  store ptr %.sink, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   br label %6
 
 6:                                                ; preds = %.backedge, %.sink.split
@@ -427,7 +427,7 @@ define hidden void @commandline_override_prefs(i32 noundef %0, ptr noundef %1, i
   ]
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %13 = load ptr, ptr @ws_optarg, align 8
   %14 = call noalias ptr @g_strdup(ptr noundef %13) #10
   %15 = call ptr @g_slist_prepend(ptr noundef %12, ptr noundef %14) #10
@@ -488,9 +488,9 @@ define hidden void @commandline_override_prefs(i32 noundef %0, ptr noundef %1, i
   unreachable
 
 36:                                               ; preds = %6
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %38 = call ptr @g_slist_reverse(ptr noundef %37) #10
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   ret void
 }
 
@@ -522,7 +522,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
   br label %5
 
 5:                                                ; preds = %4, %3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds (i8, ptr @global_commandline_info, i64 8), i8 0, i64 44, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 8), i8 0, i64 44, i1 false)
   br label %6
 
 6:                                                ; preds = %.backedge, %5
@@ -578,34 +578,34 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
   br label %.backedge
 
 9:                                                ; preds = %6
-  store i32 1, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 8), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 8), align 8
   br label %.backedge
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @ws_optarg, align 8
   %12 = tail call i32 @get_nonzero_guint32(ptr noundef %11, ptr noundef nonnull @.str.69) #10
-  store i32 %12, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 12), align 4
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 12), align 4
   br label %.backedge
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr @ws_optarg, align 8
-  store ptr %14, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 16), align 8
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 16), align 8
   br label %.backedge
 
 15:                                               ; preds = %6
   %16 = load ptr, ptr @ws_optarg, align 8
   %17 = tail call noalias ptr @g_strdup(ptr noundef %16) #10
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 24), align 8
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 24), align 8
   br label %.backedge
 
 18:                                               ; preds = %6
   %19 = load ptr, ptr @ws_optarg, align 8
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 32), align 8
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 32), align 8
   br label %.backedge
 
 20:                                               ; preds = %6
   %21 = load ptr, ptr @ws_optarg, align 8
-  store ptr %21, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 40), align 8
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 40), align 8
   br label %.backedge
 
 22:                                               ; preds = %6
@@ -644,7 +644,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
   unreachable
 
 36:                                               ; preds = %6
-  store i32 1, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 48), align 8
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 48), align 8
   br label %.backedge
 
 37:                                               ; preds = %6
@@ -663,7 +663,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
   br i1 %44, label %45, label %.thread37
 
 45:                                               ; preds = %39
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 24), align 8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 24), align 8
   %.not24 = icmp eq ptr %46, null
   br i1 %.not24, label %48, label %47
 
@@ -674,7 +674,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
 48:                                               ; preds = %45
   %49 = load ptr, ptr %43, align 8
   %50 = tail call noalias ptr @g_strdup(ptr noundef %49) #10
-  store ptr %50, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 24), align 8
+  store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 24), align 8
   br label %51
 
 51:                                               ; preds = %47, %48
@@ -720,26 +720,26 @@ declare i32 @dissect_opts_handle_opt(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define hidden void @commandline_options_drop(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.76, ptr noundef %0, ptr noundef %1) #10
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %8 = tail call ptr @g_slist_find_custom(ptr noundef %7, ptr noundef %6, ptr noundef nonnull @cl_find_custom) #10
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %9 = phi ptr [ %14, %.lr.ph ], [ %8, %5 ]
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %11 = tail call ptr @g_slist_remove_link(ptr noundef %10, ptr noundef nonnull %9) #10
-  store ptr %11, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %12 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %12) #10
   tail call void @g_slist_free_1(ptr noundef nonnull %9) #10
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %14 = tail call ptr @g_slist_find_custom(ptr noundef %13, ptr noundef %6, ptr noundef nonnull @cl_find_custom) #10
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -771,7 +771,7 @@ declare void @g_slist_free_1(ptr noundef) local_unnamed_addr #1
 define hidden void @commandline_options_reapply() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
-  %.06 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  %.06 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   %.not7 = icmp eq ptr %.06, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -800,8 +800,8 @@ define hidden void @commandline_options_reapply() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @commandline_options_free() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @global_commandline_info, i64 56), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 56), align 8
   tail call void @g_slist_free_full(ptr noundef %1, ptr noundef nonnull @g_free) #10
   ret void
 }

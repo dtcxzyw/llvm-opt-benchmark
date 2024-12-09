@@ -119,7 +119,7 @@ modnn.exit39:                                     ; preds = %.lr.ph.i37, %37
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal fastcc void @init_rs() unnamed_addr #1 {
-  store i32 0, ptr getelementptr inbounds (i8, ptr @Alpha_to, i64 32), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @Alpha_to, i64 32), align 16
   br label %1
 
 1:                                                ; preds = %11, %0
@@ -137,9 +137,9 @@ define internal fastcc void @init_rs() unnamed_addr #1 {
   br i1 %.not25.i, label %11, label %8
 
 8:                                                ; preds = %1
-  %9 = load i32, ptr getelementptr inbounds (i8, ptr @Alpha_to, i64 32), align 16
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Alpha_to, i64 32), align 16
   %10 = xor i32 %9, %.027.i
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @Alpha_to, i64 32), align 16
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @Alpha_to, i64 32), align 16
   br label %11
 
 11:                                               ; preds = %8, %1
@@ -149,7 +149,7 @@ define internal fastcc void @init_rs() unnamed_addr #1 {
   br i1 %exitcond.not.i, label %13, label %1, !llvm.loop !8
 
 13:                                               ; preds = %11
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @Alpha_to, i64 32), align 16
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Alpha_to, i64 32), align 16
   %15 = sext i32 %14 to i64
   %16 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %15
   store i32 8, ptr %16, align 4
@@ -162,7 +162,7 @@ define internal fastcc void @init_rs() unnamed_addr #1 {
   br i1 %.not.i, label %24, label %19
 
 19:                                               ; preds = %17
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @Alpha_to, i64 32), align 16
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Alpha_to, i64 32), align 16
   %21 = shl nuw i32 %18, 1
   %22 = xor i32 %21, %20
   %23 = xor i32 %22, 256
@@ -186,7 +186,7 @@ define internal fastcc void @init_rs() unnamed_addr #1 {
 
 generate_gf.exit:                                 ; preds = %26
   store i32 255, ptr @Index_of, align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @Alpha_to, i64 1020), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @Alpha_to, i64 1020), align 4
   store i32 1, ptr @Gg, align 16
   br label %31
 

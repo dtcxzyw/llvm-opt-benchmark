@@ -105,7 +105,7 @@ define internal i32 @dmi_id_init() #0 section ".init.text" align 16 {
   br i1 %5, label %6, label %21
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(728) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 728) #8
   store ptr %8, ptr @dmi_dev, align 8
   %9 = icmp eq ptr %8, null

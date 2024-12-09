@@ -205,13 +205,13 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool6.not, label %land.end, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @greeting_request, i64 16), align 16
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 16), align 16
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 31, ptr noundef nonnull @.str.11, ptr noundef %0) #2
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %land.end, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @greeting_request, i64 24), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @greeting_request, i64 24), align 8
   %call11 = tail call i32 @test_size_t_gt(ptr noundef nonnull @.str.6, i32 noundef 32, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i64 noundef %1, i64 noundef 0) #2
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %land.end, label %land.lhs.true13

@@ -518,10 +518,10 @@ define hidden void @_ZN18ObjectSampleWriterC2ER19JfrCheckpointWriterP9EdgeStore(
 
 5:                                                ; preds = %3
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14RootSystemType, i64 16), ptr %6, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14RootSystemType, i64 16), ptr %6, align 8
   %7 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 205, i1 noundef zeroext true, ptr noundef nonnull %6) #10
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #10
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV8RootType, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV8RootType, i64 16), ptr %8, align 8
   %9 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 206, i1 noundef zeroext true, ptr noundef nonnull %8) #10
   store i1 true, ptr @_ZZL20register_serializersvE13is_registered, align 1
   br label %_ZL20register_serializersv.exit
@@ -2966,7 +2966,7 @@ declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17RootResolutionSetC2EP9SampleSetIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV17RootResolutionSet, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV17RootResolutionSet, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr %1, align 8

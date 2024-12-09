@@ -1236,7 +1236,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_26HdsiLightLinkingSceneIndexEE
           to label %.noexc11 unwind label %13
 
 .noexc11:                                         ; preds = %.noexc10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 25))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 25))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
 8:                                                ; preds = %.noexc11
@@ -1391,7 +1391,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_Remove
 define void @_ZN32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndexC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.361", align 1
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndexE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndexE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store ptr null, ptr %5, align 8, !alias.scope !7
@@ -1912,7 +1912,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__31HdsiLightLinkingSceneIn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -2049,7 +2049,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndex11_IsGeometryE
           to label %.noexc16 unwind label %120
 
 .noexc16:                                         ; preds = %34
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceE, i64 16), ptr %37, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceE, i64 16), ptr %37, align 8, !noalias !18
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %.val, ptr %38, align 8, !noalias !18
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -2136,7 +2136,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceC2ERKSt10sh
   store i32 1, ptr %80, align 8, !noalias !18
   %81 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 1, ptr %81, align 4, !noalias !18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %65, align 8, !noalias !18
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %65, align 8, !noalias !18
   %82 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %37, ptr %82, align 8, !noalias !18
   store ptr %37, ptr %29, align 8
@@ -2281,7 +2281,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
           to label %.noexc28 unwind label %120
 
 .noexc28:                                         ; preds = %143
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceE, i64 16), ptr %146, align 8, !noalias !21
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceE, i64 16), ptr %146, align 8, !noalias !21
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store ptr %.val11, ptr %147, align 8, !noalias !21
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -2368,7 +2368,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceC2E
   store i32 1, ptr %189, align 8, !noalias !21
   %190 = getelementptr inbounds nuw i8, ptr %174, i64 12
   store i32 1, ptr %190, align 4, !noalias !21
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %174, align 8, !noalias !21
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %174, align 8, !noalias !21
   %191 = getelementptr inbounds nuw i8, ptr %174, i64 16
   store ptr %146, ptr %191, align 8, !noalias !21
   store ptr %146, ptr %29, align 8
@@ -2468,7 +2468,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndex14_IsLightFilt
 
 .noexc50:                                         ; preds = %233
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LightPrimDataSourceE, i64 16), ptr %235, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LightPrimDataSourceE, i64 16), ptr %235, align 8, !noalias !24
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %237 = load ptr, ptr %29, align 8, !noalias !24
   store ptr %237, ptr %236, align 8, !noalias !24
@@ -2586,7 +2586,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %251, 
   store i32 1, ptr %290, align 8, !noalias !24
   %291 = getelementptr inbounds nuw i8, ptr %275, i64 12
   store i32 1, ptr %291, align 4, !noalias !24
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LightPrimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %275, align 8, !noalias !24
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LightPrimDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %275, align 8, !noalias !24
   %292 = getelementptr inbounds nuw i8, ptr %275, i64 16
   store ptr %235, ptr %292, align 8, !noalias !24
   store ptr %235, ptr %29, align 8
@@ -3450,13 +3450,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndex26
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdCollectionSchema", align 8
   %9 = alloca %"class.std::shared_ptr.54", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
-  %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %11 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEEEbT_.exit
 
 13:                                               ; preds = %4
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
-  %14 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  %14 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEEEbT_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEEEbT_.exit: ; preds = %4, %13
@@ -3541,16 +3541,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
   br i1 %46, label %48, label %76
 
 48:                                               ; preds = %47
-  %49 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %49 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %51
-  %52 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %52 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %53
 
 53:                                               ; preds = %.noexc, %48
@@ -4553,16 +4553,16 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_7TfTokenENS
   br i1 %177, label %179, label %194
 
 179:                                              ; preds = %178
-  %180 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %180 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %182, label %184
 
 182:                                              ; preds = %179
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc53 unwind label %85
 
 .noexc53:                                         ; preds = %182
-  %183 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %183 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %184
 
 184:                                              ; preds = %.noexc53, %179
@@ -4610,16 +4610,16 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_7TfTokenENS
   br i1 %197, label %199, label %209
 
 199:                                              ; preds = %198
-  %200 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %200 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %204
 
 202:                                              ; preds = %199
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc55 unwind label %85
 
 .noexc55:                                         ; preds = %202
-  %203 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %203 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %204
 
 204:                                              ; preds = %.noexc55, %199
@@ -4731,16 +4731,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COL
   br i1 %247, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit.thread, label %248
 
 248:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEEEbT_.exit.i
-  %249 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %249 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %251, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit
 
 251:                                              ; preds = %248
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc67 unwind label %85
 
 .noexc67:                                         ; preds = %251
-  %252 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %252 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit: ; preds = %248, %.noexc67
@@ -4938,16 +4938,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COL
   br i1 %334, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit79.thread, label %335
 
 335:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEEEbT_.exit.i73
-  %336 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %336 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %337 = icmp eq i32 %336, 0
   br i1 %337, label %338, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit79
 
 338:                                              ; preds = %335
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc78 unwind label %85
 
 .noexc78:                                         ; preds = %338
-  %339 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %339 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit79
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit79: ; preds = %335, %.noexc78
@@ -5627,16 +5627,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndex13
   resume { ptr, i32 } %eh.lpad-body
 
 35:                                               ; preds = %31
-  %36 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %36 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %38
-  %39 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %39 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %40
 
 40:                                               ; preds = %.noexc, %35
@@ -6445,16 +6445,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8HdSchemacvbEv.exit52: ; preds = %129
   br i1 %.not75, label %169, label %139
 
 139:                                              ; preds = %137
-  %140 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %140 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %139
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc53 unwind label %146
 
 .noexc53:                                         ; preds = %142
-  %143 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %143 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %144
 
 144:                                              ; preds = %.noexc53, %139
@@ -7201,7 +7201,7 @@ _ZSt4findIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_ET_S4_S4_RKT0_.exit: 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndexE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdsiLightLinkingSceneIndexE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -7296,7 +7296,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31HdsiLightLinkingSceneIndex_Impl6_CacheEED2Ev.exit
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31HdsiLightLinkingSceneIndex_Impl6_CacheEED2Ev.exit: ; preds = %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EED2Ev.exit, %29, %42, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBaseE, i64 16), ptr %0, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #27
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -8657,16 +8657,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COL
   br i1 %71, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit.thread, label %72
 
 72:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEEEbT_.exit.i
-  %73 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %73 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit
 
 75:                                               ; preds = %72
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc31 unwind label %80
 
 .noexc31:                                         ; preds = %75
-  %76 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %76 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit: ; preds = %72, %.noexc31
@@ -9014,16 +9014,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__31HdsiLightLinkingSceneIndex_Impl6_Cache18_
   br i1 %174, label %270, label %250
 
 250:                                              ; preds = %249
-  %251 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %251 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %255
 
 253:                                              ; preds = %250
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc57 unwind label %257
 
 .noexc57:                                         ; preds = %253
-  %254 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %254 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %255
 
 255:                                              ; preds = %.noexc57, %250
@@ -9078,16 +9078,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COL
   br i1 %275, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit64.thread, label %276
 
 276:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEEEbT_.exit.i58
-  %277 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %277 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %278 = icmp eq i32 %277, 0
   br i1 %278, label %279, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit64
 
 279:                                              ; preds = %276
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
           to label %.noexc63 unwind label %257
 
 .noexc63:                                         ; preds = %279
-  %280 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %280 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit64
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit64: ; preds = %276, %.noexc63
@@ -9382,13 +9382,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COL
   br i1 %12, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit.thread, label %13
 
 13:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEEEbT_.exit.i
-  %14 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %14 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit
 
 16:                                               ; preds = %13
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
-  %17 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  %17 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit: ; preds = %13, %16
@@ -9988,13 +9988,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COL
   br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit.thread, label %12
 
 12:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEEEbT_.exit.i
-  %13 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  %13 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit
 
 15:                                               ; preds = %12
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
-  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug15_InitializeNodeERNS0_5_NodeEPKc(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4), ptr noundef nonnull @.str.20)
+  %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_44HDSI_LIGHT_LINK_COLLECTION_CACHE__DebugCodesEE5nodesE, i64 4) seq_cst, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L12_LogDebugMsgEv.exit: ; preds = %12, %15
@@ -18789,7 +18789,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__px
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__31HdsiLightLinkingSceneIndex_Impl6_CacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__31HdsiLightLinkingSceneIndex_Impl6_CacheESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %3, align 8
   store ptr %8, ptr %7, align 8
@@ -19241,7 +19241,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_GprimDataSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not.i.i = icmp eq i32 %3, 0
@@ -20312,7 +20312,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__32HdPrimTypeTokens_StaticToke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_InstancerPrimDataSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not.i.i = icmp eq i32 %3, 0
@@ -20547,7 +20547,7 @@ define internal noalias noundef ptr @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LightPrimDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LightPrimDataSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_LightPrimDataSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not.i.i = icmp eq i32 %3, 0
@@ -20779,7 +20779,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_p
 
 .noexc10:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !227
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LightDataSourceE, i64 16), ptr %51, align 8, !noalias !227
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LightDataSourceE, i64 16), ptr %51, align 8, !noalias !227
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %7, align 8, !noalias !227
   store ptr %53, ptr %52, align 8, !noalias !227
@@ -20925,7 +20925,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LightDataS
   store i32 1, ptr %118, align 8, !noalias !227
   %119 = getelementptr inbounds nuw i8, ptr %104, i64 12
   store i32 1, ptr %119, align 4, !noalias !227
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LightDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8, !noalias !227
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LightDataSourceELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %104, align 8, !noalias !227
   %120 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr %51, ptr %120, align 8, !noalias !227
   store ptr %51, ptr %0, align 8
@@ -21119,7 +21119,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__35HdLightSchemaTokens_StaticT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LightDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LightDataSourceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_LightDataSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %.not.i.i = icmp eq i32 %3, 0
@@ -21444,7 +21444,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_Ligh
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_GetLightLinkingSchemaTokensEv()
   %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_GetLightLinkingSchemaTokensEvE5names.val = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_GetLightLinkingSchemaTokensEvE5names, align 8
-  %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_GetLightLinkingSchemaTokensEvE5names.val16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_GetLightLinkingSchemaTokensEvE5names, i64 8), align 8
+  %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_GetLightLinkingSchemaTokensEvE5names.val16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_GetLightLinkingSchemaTokensEvE5names, i64 8), align 8
   %.val = load ptr, ptr %2, align 8
   %9 = ptrtoint ptr %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_GetLightLinkingSchemaTokensEvE5names.val16 to i64
   %10 = ptrtoint ptr %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_GetLightLinkingSchemaTokensEvE5names.val to i64
@@ -22354,7 +22354,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEE3NewERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.382") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEEE, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %1, align 8
   store i64 %5, ptr %4, align 8
@@ -22417,7 +22417,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDat
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 1, ptr %30, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS0_7TfTokenEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS0_7TfTokenEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %14, align 8
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %3, ptr %31, align 8
   store ptr %14, ptr %13, align 8
@@ -22505,7 +22505,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -22526,7 +22526,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEEE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTokenEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64

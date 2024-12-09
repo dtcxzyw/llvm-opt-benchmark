@@ -1135,7 +1135,7 @@ declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define hidden ptr @PyCArgObject_new() local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_state, i64 8), align 8
   %call = tail call ptr @_PyObject_GC_New(ptr noundef %0) #10
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
@@ -1751,7 +1751,7 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_state, i64 8), align 8
   %3 = getelementptr i8, ptr %obj, i64 8
   %obj.val49 = load ptr, ptr %3, align 8
   %cmp.i50.not = icmp eq ptr %obj.val49, %2
@@ -1874,7 +1874,7 @@ if.then75:                                        ; preds = %if.end69
   br label %return
 
 if.end78:                                         ; preds = %if.end57
-  %call79 = call i32 @PyObject_GetOptionalAttr(ptr noundef %obj, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35584), ptr noundef nonnull %arg) #10
+  %call79 = call i32 @PyObject_GetOptionalAttr(ptr noundef %obj, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35584), ptr noundef nonnull %arg) #10
   %cmp80 = icmp slt i32 %call79, 0
   br i1 %cmp80, label %return, label %if.end83
 
@@ -2036,7 +2036,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %call3 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.55, ptr noundef nonnull %cls) #10
-  %PyCPointer_Type.val18 = load ptr, ptr getelementptr inbounds (i8, ptr @PyCPointer_Type, i64 8), align 8
+  %PyCPointer_Type.val18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyCPointer_Type, i64 8), align 8
   %call5 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %PyCPointer_Type.val18, ptr noundef nonnull @.str.56, ptr noundef %call3, ptr noundef nonnull @PyCPointer_Type) #10
   store ptr %call5, ptr %result, align 8
   %cmp6 = icmp eq ptr %call5, null
@@ -2075,7 +2075,7 @@ if.then15:                                        ; preds = %if.else
   %tp_name = getelementptr inbounds nuw i8, ptr %cls, i64 24
   %6 = load ptr, ptr %tp_name, align 8
   %call17 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.57, ptr noundef %6) #10
-  %PyCPointer_Type.val = load ptr, ptr getelementptr inbounds (i8, ptr @PyCPointer_Type, i64 8), align 8
+  %PyCPointer_Type.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyCPointer_Type, i64 8), align 8
   %call19 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %PyCPointer_Type.val, ptr noundef nonnull @.str.58, ptr noundef %call17, ptr noundef nonnull @PyCPointer_Type, ptr noundef nonnull @.str.59, ptr noundef nonnull %cls) #10
   store ptr %call19, ptr %result, align 8
   %cmp20 = icmp eq ptr %call19, null
@@ -2225,13 +2225,13 @@ if.end:                                           ; preds = %entry
   store ptr %0, ptr %args.i, align 16
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %args.i, i64 8
   store ptr %0, ptr %arrayinit.element.i, align 8
-  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 31864), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #10
+  %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 31864), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call ptr @PyObject_GetAttr(ptr noundef nonnull %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34064)) #10
+  %call4 = call ptr @PyObject_GetAttr(ptr noundef nonnull %call.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 34064)) #10
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %error, label %if.end7
 
@@ -2751,7 +2751,7 @@ if.then11:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end14:                                         ; preds = %if.end8, %PyObject_TypeCheck.exit
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_state, i64 8), align 8
   %call.i = call ptr @_PyObject_GC_New(ptr noundef %7) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end18

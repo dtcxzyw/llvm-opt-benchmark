@@ -608,7 +608,7 @@ srun_info_create.exit:                            ; preds = %323, %332
   store i16 %365, ptr %366, align 8
   %367 = call i32 @acct_gather_profile_g_node_step_start(ptr noundef nonnull %15) #9
   %368 = load ptr, ptr %11, align 8
-  %369 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 448), align 8
+  %369 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 448), align 8
   %370 = call i32 @acct_gather_profile_startpoll(ptr noundef %368, ptr noundef %369) #9
   %371 = getelementptr inbounds nuw i8, ptr %15, i64 440
   store i64 -1, ptr %371, align 8
@@ -641,7 +641,7 @@ srun_info_create.exit:                            ; preds = %323, %332
   call void @format_core_allocs(ptr noundef %384, ptr noundef %387, i16 noundef zeroext %389, ptr noundef nonnull %390, ptr noundef nonnull %391, ptr noundef nonnull %392, ptr noundef nonnull %393) #9
   %394 = load i64, ptr %393, align 8
   %.not262 = icmp eq i64 %394, 0
-  %395 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 472), align 8
+  %395 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 472), align 8
   %.not263 = icmp eq i16 %395, 0
   %or.cond = select i1 %.not262, i1 true, i1 %.not263
   br i1 %or.cond, label %396, label %.sink.split
@@ -893,7 +893,7 @@ _expand_stdio_filename.exit69.i:                  ; preds = %510, %508, %506, %5
   br i1 %.not62.i, label %_job_init_task_info.exit, label %539
 
 539:                                              ; preds = %._crit_edge.i
-  %540 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1392), align 8
+  %540 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1392), align 8
   %541 = call i32 @xstrcmp(ptr noundef %540, ptr noundef nonnull @.str.11) #9
   %.not63.i = icmp eq i32 %541, 0
   br i1 %.not63.i, label %542, label %543
@@ -1665,7 +1665,7 @@ define dso_local ptr @batch_stepd_step_rec_create(ptr nocapture noundef %0) loca
   store i32 %83, ptr %84, align 8
   %85 = tail call i32 @acct_gather_profile_g_node_step_start(ptr noundef nonnull %12) #9
   %86 = load ptr, ptr %8, align 8
-  %87 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 448), align 8
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 448), align 8
   %88 = tail call i32 @acct_gather_profile_startpoll(ptr noundef %86, ptr noundef %87) #9
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %90 = load i8, ptr %89, align 8
@@ -1777,7 +1777,7 @@ define dso_local ptr @batch_stepd_step_rec_create(ptr nocapture noundef %0) loca
   tail call void @format_core_allocs(ptr noundef %154, ptr noundef %157, i16 noundef zeroext %159, ptr noundef nonnull %160, ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef nonnull %163) #9
   %164 = load i64, ptr %163, align 8
   %.not142 = icmp eq i64 %164, 0
-  %165 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 472), align 8
+  %165 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 472), align 8
   %.not143 = icmp eq i16 %165, 0
   %or.cond = select i1 %.not142, i1 true, i1 %.not143
   br i1 %or.cond, label %166, label %.sink.split

@@ -1061,7 +1061,7 @@ define hidden noundef ptr @_ZNK8MachNode8adr_typeEv(ptr noundef nonnull align 8 
   %22 = icmp eq i32 %21, 6
   %.not2130 = icmp ne ptr %19, null
   %.not21 = and i1 %.not2130, %22
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   %24 = icmp eq i32 %23, 0
   %or.cond = select i1 %.not21, i1 %24, i1 false
   br i1 %or.cond, label %25, label %_ZNK4Type8make_ptrEv.exit

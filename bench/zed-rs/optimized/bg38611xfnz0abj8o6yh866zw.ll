@@ -11931,7 +11931,7 @@ select.unfold:                                    ; preds = %"_ZN4core3ptr71drop
   br i1 %199, label %200, label %.thread172
 
 200:                                              ; preds = %"_ZN4core3ptr257drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$rpc..peer..ConnectionId$C$rpc..peer..ConnectionState$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h28303c42574b5ab0E.exit151"
-  %201 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0dc445f77a11f684E", i64 16) monotonic, align 8
+  %201 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0dc445f77a11f684E", i64 16) monotonic, align 8
   switch i8 %201, label %202 [
     i8 0, label %.thread172
     i8 1, label %.thread169
@@ -12222,7 +12222,7 @@ define hidden void @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$
   br i1 %21, label %22, label %.thread135
 
 22:                                               ; preds = %1
-  %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h133d3f9b76de5bccE", i64 16) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h133d3f9b76de5bccE", i64 16) monotonic, align 8
   switch i8 %23, label %24 [
     i8 0, label %.thread135
     i8 1, label %.thread

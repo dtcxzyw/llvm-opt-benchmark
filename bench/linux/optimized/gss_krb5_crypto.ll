@@ -198,7 +198,7 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr nocapture n
   br i1 %15, label %105, label %16
 
 16:                                               ; preds = %8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %18 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3264, i64 noundef 24) #9
   %19 = icmp eq ptr %18, null
   br i1 %19, label %105, label %20
@@ -1655,7 +1655,7 @@ define internal fastcc i32 @gss_krb5_cts_crypt(ptr noundef %0, ptr noundef %1, i
   br i1 %12, label %49, label %13
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3264, i64 noundef 32) #9
   %16 = icmp eq ptr %15, null
   br i1 %16, label %49, label %17

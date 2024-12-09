@@ -101,9 +101,9 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperI10QByteArrayE8metaTypeE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN21FilterExpressionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1)
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21FilterExpressionFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21FilterExpressionFrame, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21FilterExpressionFrame, i64 456), ptr %3, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21FilterExpressionFrame, i64 456), ptr %3, align 8
   %4 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #11
           to label %5 unwind label %10
 
@@ -314,7 +314,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i52:    ; preds = %62
   %70 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 0, ptr %71, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %70, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11QSpacerItem, i64 16), ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 20, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
@@ -1172,9 +1172,9 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %27, %_ZN17QArrayDat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21FilterExpressionFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21FilterExpressionFrame, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21FilterExpressionFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV21FilterExpressionFrame, i64 456), ptr %2, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21FilterExpressionFrame, i64 456), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2212,7 +2212,7 @@ _ZN8QVariant9fromValueI10QByteArrayEENSt9enable_ifIXsr3stdE23is_copy_constructib
           to label %198 unwind label %90
 
 198:                                              ; preds = %190, %183
-  invoke void @save_migrated_uat(ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @prefs, i64 448))
+  invoke void @save_migrated_uat(ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prefs, i64 448))
           to label %199 unwind label %90
 
 199:                                              ; preds = %198

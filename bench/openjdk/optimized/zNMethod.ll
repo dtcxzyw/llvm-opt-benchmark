@@ -279,7 +279,7 @@ define hidden void @_ZN8ZNMethod14attach_gc_dataEP7nmethod(ptr noundef %0) local
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -354,7 +354,7 @@ define hidden void @_ZN8ZNMethod14attach_gc_dataEP7nmethod(ptr noundef %0) local
 40:                                               ; preds = %38
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, i64 8), align 8, !alias.scope !7
   store i32 18, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, i64 16), align 8, !alias.scope !7
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, align 8, !alias.scope !7
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr @_ZZN13RelocIterator13barrier_relocEvE5proto, align 8, !alias.scope !7
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator13barrier_relocEvE5proto) #11
   br label %_ZN13RelocIterator13barrier_relocEv.exit
 
@@ -468,7 +468,7 @@ _ZN26GrowableArrayWithAllocatorI19ZNMethodDataBarrier18GrowableArrayCHeapIS0_L8M
 83:                                               ; preds = %81
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 8), align 8, !alias.scope !13
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator9oop_relocEvE5proto, i64 16), align 8, !alias.scope !13
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !13
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV14oop_Relocation, i64 16), ptr @_ZZN13RelocIterator9oop_relocEvE5proto, align 8, !alias.scope !13
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator9oop_relocEvE5proto) #11
   br label %_ZN13RelocIterator9oop_relocEv.exit
 
@@ -1640,15 +1640,15 @@ declare noundef ptr @_ZN9CodeCache12find_nmethodEPv(ptr noundef) local_unnamed_a
 define hidden void @_ZN8ZNMethod6unlinkEP8ZWorkersb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ZNMethodUnlinkTask, align 8
   call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.23) #11
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ZNMethodUnlinkTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ZNMethodUnlinkTask, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = zext i1 %1 to i8
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21ZNMethodUnlinkClosure, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21ZNMethodUnlinkClosure, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 %5, ptr %6, align 8
   call void @_ZN13ZNMethodTable17nmethods_do_beginEb(i1 noundef zeroext false) #11
   call void @_ZN8ZWorkers3runEP5ZTask(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %3) #11
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ZNMethodUnlinkTask, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18ZNMethodUnlinkTask, i64 16), ptr %3, align 8
   call void @_ZN13ZNMethodTable15nmethods_do_endEb(i1 noundef zeroext false) #11
   ret void
 }
@@ -2117,7 +2117,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit21:      ; preds = %24, %_ZN14ZReentran
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i32 @_ZN17BarrierSetNMethod11guard_valueEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull %1) #11
   %46 = sext i32 %45 to i64
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV31ZUncoloredRootProcessOopClosure, i64 16), ptr %3, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV31ZUncoloredRootProcessOopClosure, i64 16), ptr %3, align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %46, ptr %47, align 8
   call void @_ZN8ZNMethod21nmethod_oops_do_innerEP7nmethodP10OopClosure(ptr noundef nonnull %1, ptr noundef nonnull %3)

@@ -56,7 +56,7 @@ declare void @unblockClientOnTimeout(ptr noundef) local_unnamed_addr #1
 define dso_local range(i32 0, 2) i32 @clientsCronHandleTimeout(ptr noundef %c, i64 noundef %now_ms) local_unnamed_addr #0 {
 entry:
   %div = sdiv i64 %now_ms, 1000
-  %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3700), align 4
+  %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3700), align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
@@ -82,13 +82,13 @@ land.lhs.true12:                                  ; preds = %land.lhs.true4
   %lastinteraction = getelementptr inbounds nuw i8, ptr %c, i64 240
   %4 = load i64, ptr %lastinteraction, align 8
   %sub = sub nsw i64 %div, %4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3700), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3700), align 4
   %conv = sext i32 %5 to i64
   %cmp = icmp sgt i64 %sub, %conv
   br i1 %cmp, label %do.body, label %if.else
 
 do.body:                                          ; preds = %land.lhs.true12
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3696), align 8
   %cmp14 = icmp sgt i32 %6, 1
   br i1 %cmp14, label %do.end, label %if.end
 
@@ -105,7 +105,7 @@ if.else:                                          ; preds = %land.lhs.true12, %l
   %7 = load i64, ptr %flags17, align 8
   %and18 = and i64 %7, 16
   %tobool19.not = icmp eq i64 %and18, 0
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5172), align 4
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5172), align 4
   %tobool21.not = icmp eq i32 %8, 0
   %or.cond9 = select i1 %tobool19.not, i1 true, i1 %tobool21.not
   br i1 %or.cond9, label %return, label %if.then22
@@ -173,7 +173,7 @@ if.end:                                           ; preds = %entry
   store i64 %call.i, ptr %buf, align 16
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store ptr %c, ptr %add.ptr.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1504), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1504), align 8
   %call = call i32 @raxTryInsert(ptr noundef %1, ptr noundef nonnull %buf, i64 noundef 16, ptr noundef null, ptr noundef null) #3
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end6, label %if.then5
@@ -210,7 +210,7 @@ if.end:                                           ; preds = %entry
   store i64 %call.i, ptr %buf, align 16
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store ptr %c, ptr %add.ptr.i, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1504), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1504), align 8
   %call = call i32 @raxRemove(ptr noundef %2, ptr noundef nonnull %buf, i64 noundef 16, ptr noundef null) #3
   br label %return
 
@@ -224,14 +224,14 @@ declare i32 @raxRemove(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local
 define dso_local void @handleBlockedClientsTimeout() local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1504), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1504), align 8
   %call = tail call i64 @raxSize(ptr noundef %0) #3
   %cmp = icmp eq i64 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call1 = tail call i64 @mstime() #3
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1504), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1504), align 8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %1) #3
   %call2 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0) #3
   %key = getelementptr inbounds nuw i8, ptr %ri, i64 16
@@ -275,7 +275,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %checkBlockedClientTimeout.exit
 
 checkBlockedClientTimeout.exit:                   ; preds = %if.end6, %land.lhs.true.i, %if.then.i
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1504), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1504), align 8
   %9 = load ptr, ptr %key, align 8
   %10 = load i64, ptr %key_len, align 8
   %call9 = call i32 @raxRemove(ptr noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef null) #3

@@ -38,7 +38,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
 
 6:                                                ; preds = %4
   tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef nonnull %0, ptr noundef nonnull %0) #4
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 512
@@ -63,7 +63,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
   %23 = add i64 %22, 25
   %24 = tail call i32 @zend_shared_memdup_size(ptr noundef %19, i64 noundef %23) #4
   %25 = sext i32 %24 to i64
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 424
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %25
@@ -99,7 +99,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
   %45 = add i64 %44, 25
   %46 = tail call i32 @zend_shared_memdup_size(ptr noundef %40, i64 noundef %45) #4
   %47 = sext i32 %46 to i64
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 424
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, %47
@@ -119,7 +119,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
   br i1 %.not449, label %58, label %95
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 384
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
@@ -131,7 +131,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
   %66 = add i64 %65, 25
   %67 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %54, i64 noundef %66) #4
   %68 = sext i32 %67 to i64
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 424
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, %68
@@ -167,7 +167,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
   %88 = add i64 %87, 25
   %89 = tail call i32 @zend_shared_memdup_size(ptr noundef %83, i64 noundef %88) #4
   %90 = sext i32 %89 to i64
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 424
   %93 = load i64, ptr %92, align 8
   %94 = add i64 %93, %90
@@ -203,7 +203,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
   %113 = or disjoint i64 %112, 4
   %114 = add nuw nsw i64 %113, %110
   %115 = and i64 %114, 137438953464
-  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 424
   %118 = load i64, ptr %117, align 8
   %119 = add i64 %115, %118
@@ -235,7 +235,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
   %135 = or disjoint i64 %134, 4
   %136 = add nuw nsw i64 %135, %132
   %137 = and i64 %136, 137438953464
-  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 424
   %140 = load i64, ptr %139, align 8
   %141 = add i64 %140, %137
@@ -250,7 +250,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
   %146 = or disjoint i64 %145, 4
   %147 = add nuw nsw i64 %146, %143
   %148 = and i64 %147, 274877906936
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 424
   %151 = load i64, ptr %150, align 8
   %152 = add i64 %151, %148
@@ -281,7 +281,7 @@ zend_hash_persist_calc.exit:                      ; preds = %95, %99, %105, %130
 164:                                              ; preds = %.lr.ph
   %165 = getelementptr inbounds nuw i8, ptr %.0530, i64 24
   %166 = load ptr, ptr %165, align 8, !nonnull !4, !noundef !4
-  %167 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 384
   %169 = load i8, ptr %168, align 8
   %170 = trunc i8 %169 to i1
@@ -293,7 +293,7 @@ zend_hash_persist_calc.exit:                      ; preds = %95, %99, %105, %130
   %174 = add i64 %173, 25
   %175 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %166, i64 noundef %174) #4
   %176 = sext i32 %175 to i64
-  %177 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 424
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, %176
@@ -329,7 +329,7 @@ zend_hash_persist_calc.exit:                      ; preds = %95, %99, %105, %130
   %196 = add i64 %195, 25
   %197 = tail call i32 @zend_shared_memdup_size(ptr noundef %191, i64 noundef %196) #4
   %198 = sext i32 %197 to i64
-  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 424
   %201 = load i64, ptr %200, align 8
   %202 = add i64 %201, %198
@@ -357,7 +357,7 @@ zend_hash_persist_calc.exit:                      ; preds = %95, %99, %105, %130
   br i1 %.not34.i, label %213, label %zend_persist_class_method_calc.exit
 
 213:                                              ; preds = %211
-  %214 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 424
   %216 = load i64, ptr %215, align 8
   %217 = add i64 %216, 152
@@ -374,7 +374,7 @@ zend_hash_persist_calc.exit:                      ; preds = %95, %99, %105, %130
   br i1 %.not29.i, label %231, label %223
 
 223:                                              ; preds = %219
-  %224 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 384
   %226 = load i8, ptr %225, align 8
   %227 = trunc i8 %226 to i1
@@ -394,7 +394,7 @@ zend_hash_persist_calc.exit:                      ; preds = %95, %99, %105, %130
   br i1 %.not30.i, label %233, label %240
 
 233:                                              ; preds = %231
-  %234 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 424
   %236 = load i64, ptr %235, align 8
   %237 = add i64 %236, 240
@@ -447,7 +447,7 @@ zend_persist_class_method_calc.exit:              ; preds = %252, %247, %243, %2
   %258 = load i32, ptr %257, align 8
   %259 = sext i32 %258 to i64
   %260 = shl nsw i64 %259, 4
-  %261 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 424
   %263 = load i64, ptr %262, align 8
   %264 = add i64 %263, %260
@@ -478,7 +478,7 @@ zend_persist_class_method_calc.exit:              ; preds = %252, %247, %243, %2
   %276 = load i32, ptr %275, align 4
   %277 = sext i32 %276 to i64
   %278 = shl nsw i64 %277, 4
-  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 424
   %281 = load i64, ptr %280, align 8
   %282 = add i64 %281, %278
@@ -538,7 +538,7 @@ zend_persist_class_method_calc.exit:              ; preds = %252, %247, %243, %2
   %312 = or disjoint i64 %311, 4
   %313 = add nuw nsw i64 %312, %309
   %314 = and i64 %313, 137438953464
-  %315 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %315 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 424
   %317 = load i64, ptr %316, align 8
   %318 = add i64 %314, %317
@@ -570,7 +570,7 @@ zend_persist_class_method_calc.exit:              ; preds = %252, %247, %243, %2
   %334 = or disjoint i64 %333, 4
   %335 = add nuw nsw i64 %334, %331
   %336 = and i64 %335, 137438953464
-  %337 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 424
   %339 = load i64, ptr %338, align 8
   %340 = add i64 %339, %336
@@ -585,7 +585,7 @@ zend_persist_class_method_calc.exit:              ; preds = %252, %247, %243, %2
   %345 = or disjoint i64 %344, 4
   %346 = add nuw nsw i64 %345, %342
   %347 = and i64 %346, 274877906936
-  %348 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 424
   %350 = load i64, ptr %349, align 8
   %351 = add i64 %350, %347
@@ -616,7 +616,7 @@ zend_hash_persist_calc.exit513:                   ; preds = %.loopexit, %298, %3
 363:                                              ; preds = %.lr.ph539
   %364 = getelementptr inbounds nuw i8, ptr %.0387538, i64 24
   %365 = load ptr, ptr %364, align 8, !nonnull !4, !noundef !4
-  %366 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %366 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 384
   %368 = load i8, ptr %367, align 8
   %369 = trunc i8 %368 to i1
@@ -628,7 +628,7 @@ zend_hash_persist_calc.exit513:                   ; preds = %.loopexit, %298, %3
   %373 = add i64 %372, 25
   %374 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %365, i64 noundef %373) #4
   %375 = sext i32 %374 to i64
-  %376 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %376 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 424
   %378 = load i64, ptr %377, align 8
   %379 = add i64 %378, %375
@@ -664,7 +664,7 @@ zend_hash_persist_calc.exit513:                   ; preds = %.loopexit, %298, %3
   %395 = add i64 %394, 25
   %396 = tail call i32 @zend_shared_memdup_size(ptr noundef %390, i64 noundef %395) #4
   %397 = sext i32 %396 to i64
-  %398 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %398 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 424
   %400 = load i64, ptr %399, align 8
   %401 = add i64 %400, %397
@@ -678,7 +678,7 @@ zend_hash_persist_calc.exit513:                   ; preds = %.loopexit, %298, %3
   br i1 %.not.i514, label %405, label %zend_persist_class_constant_calc.exit
 
 405:                                              ; preds = %402
-  %406 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %406 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 384
   %408 = load i8, ptr %407, align 8
   %409 = trunc i8 %408 to i1
@@ -691,13 +691,13 @@ zend_hash_persist_calc.exit513:                   ; preds = %.loopexit, %298, %3
 
 413:                                              ; preds = %410, %405
   tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef %403, ptr noundef %403) #4
-  %414 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %414 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 424
   %416 = load i64, ptr %415, align 8
   %417 = add i64 %416, 56
   store i64 %417, ptr %415, align 8
   tail call fastcc void @zend_persist_zval_calc(ptr noundef %403)
-  %418 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 52), align 4
+  %418 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 52), align 4
   %419 = trunc i8 %418 to i1
   br i1 %419, label %420, label %433
 
@@ -713,7 +713,7 @@ zend_hash_persist_calc.exit513:                   ; preds = %.loopexit, %298, %3
   %426 = add i64 %425, 25
   %427 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %422, i64 noundef %426) #4
   %428 = sext i32 %427 to i64
-  %429 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %429 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 424
   %431 = load i64, ptr %430, align 8
   %432 = add i64 %431, %428
@@ -769,7 +769,7 @@ zend_persist_class_constant_calc.exit:            ; preds = %437, %410, %402, %.
   %457 = or disjoint i64 %456, 4
   %458 = add nuw nsw i64 %457, %454
   %459 = and i64 %458, 137438953464
-  %460 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %460 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 424
   %462 = load i64, ptr %461, align 8
   %463 = add i64 %459, %462
@@ -801,7 +801,7 @@ zend_persist_class_constant_calc.exit:            ; preds = %437, %410, %402, %.
   %479 = or disjoint i64 %478, 4
   %480 = add nuw nsw i64 %479, %476
   %481 = and i64 %480, 137438953464
-  %482 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %482 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 424
   %484 = load i64, ptr %483, align 8
   %485 = add i64 %484, %481
@@ -816,7 +816,7 @@ zend_persist_class_constant_calc.exit:            ; preds = %437, %410, %402, %.
   %490 = or disjoint i64 %489, 4
   %491 = add nuw nsw i64 %490, %487
   %492 = and i64 %491, 274877906936
-  %493 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %493 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 424
   %495 = load i64, ptr %494, align 8
   %496 = add i64 %495, %492
@@ -848,7 +848,7 @@ zend_hash_persist_calc.exit521:                   ; preds = %._crit_edge540, %44
   %509 = load ptr, ptr %.0388542, align 8
   %510 = getelementptr inbounds nuw i8, ptr %.0388542, i64 24
   %511 = load ptr, ptr %510, align 8, !nonnull !4, !noundef !4
-  %512 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %512 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 384
   %514 = load i8, ptr %513, align 8
   %515 = trunc i8 %514 to i1
@@ -860,7 +860,7 @@ zend_hash_persist_calc.exit521:                   ; preds = %._crit_edge540, %44
   %519 = add i64 %518, 25
   %520 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %511, i64 noundef %519) #4
   %521 = sext i32 %520 to i64
-  %522 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %522 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 424
   %524 = load i64, ptr %523, align 8
   %525 = add i64 %524, %521
@@ -896,7 +896,7 @@ zend_hash_persist_calc.exit521:                   ; preds = %._crit_edge540, %44
   %541 = add i64 %540, 25
   %542 = tail call i32 @zend_shared_memdup_size(ptr noundef %536, i64 noundef %541) #4
   %543 = sext i32 %542 to i64
-  %544 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %544 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 424
   %546 = load i64, ptr %545, align 8
   %547 = add i64 %546, %543
@@ -910,7 +910,7 @@ zend_hash_persist_calc.exit521:                   ; preds = %._crit_edge540, %44
   br i1 %551, label %552, label %zend_persist_property_info_calc.exit
 
 552:                                              ; preds = %548
-  %553 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %553 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 424
   %555 = load i64, ptr %554, align 8
   %556 = add i64 %555, 56
@@ -928,7 +928,7 @@ zend_hash_persist_calc.exit521:                   ; preds = %._crit_edge540, %44
   %565 = add i64 %564, 25
   %566 = tail call i32 @zend_shared_memdup_size(ptr noundef %561, i64 noundef %565) #4
   %567 = sext i32 %566 to i64
-  %568 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %568 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 424
   %570 = load i64, ptr %569, align 8
   %571 = add i64 %570, %567
@@ -964,7 +964,7 @@ zend_hash_persist_calc.exit521:                   ; preds = %._crit_edge540, %44
   %587 = add i64 %586, 25
   %588 = tail call i32 @zend_shared_memdup_size(ptr noundef %582, i64 noundef %587) #4
   %589 = sext i32 %588 to i64
-  %590 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %590 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 424
   %592 = load i64, ptr %591, align 8
   %593 = add i64 %592, %589
@@ -974,7 +974,7 @@ zend_hash_persist_calc.exit521:                   ; preds = %._crit_edge540, %44
 594:                                              ; preds = %584, %583, %576, %562
   %595 = getelementptr inbounds nuw i8, ptr %509, i64 40
   tail call fastcc void @zend_persist_type_calc(ptr noundef nonnull %595)
-  %596 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 52), align 4
+  %596 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 52), align 4
   %597 = trunc i8 %596 to i1
   br i1 %597, label %598, label %611
 
@@ -990,7 +990,7 @@ zend_hash_persist_calc.exit521:                   ; preds = %._crit_edge540, %44
   %604 = add i64 %603, 25
   %605 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %600, i64 noundef %604) #4
   %606 = sext i32 %605 to i64
-  %607 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %607 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 424
   %609 = load i64, ptr %608, align 8
   %610 = add i64 %609, %606
@@ -1023,7 +1023,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %620 = load i32, ptr %619, align 8
   %621 = sext i32 %620 to i64
   %622 = shl nsw i64 %621, 3
-  %623 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %623 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 424
   %625 = load i64, ptr %624, align 8
   %626 = add i64 %625, %622
@@ -1045,7 +1045,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 633:                                              ; preds = %630
   %634 = zext i32 %629 to i64
   %635 = shl nuw nsw i64 %634, 3
-  %636 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %636 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 424
   %638 = load i64, ptr %637, align 8
   %639 = add i64 %638, %635
@@ -1059,7 +1059,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   br i1 %.not463, label %648, label %643
 
 643:                                              ; preds = %640
-  %644 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %644 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 424
   %646 = load i64, ptr %645, align 8
   %647 = add i64 %646, 48
@@ -1073,7 +1073,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   br i1 %.not464, label %656, label %651
 
 651:                                              ; preds = %648
-  %652 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %652 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 424
   %654 = load i64, ptr %653, align 8
   %655 = add i64 %654, 32
@@ -1098,7 +1098,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %665 = add i64 %664, 25
   %666 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %661, i64 noundef %665) #4
   %667 = sext i32 %666 to i64
-  %668 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %668 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 424
   %670 = load i64, ptr %669, align 8
   %671 = add i64 %670, %667
@@ -1106,7 +1106,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   br label %672
 
 672:                                              ; preds = %662, %659
-  %673 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 52), align 4
+  %673 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 52), align 4
   %674 = trunc i8 %673 to i1
   br i1 %674, label %675, label %688
 
@@ -1122,7 +1122,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %681 = add i64 %680, 25
   %682 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %677, i64 noundef %681) #4
   %683 = sext i32 %682 to i64
-  %684 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %684 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 424
   %686 = load i64, ptr %685, align 8
   %687 = add i64 %686, %683
@@ -1152,7 +1152,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 .lr.ph546:                                        ; preds = %694
   %697 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %.pre589 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre589 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %698
 
 698:                                              ; preds = %.lr.ph546, %782
@@ -1172,7 +1172,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %709 = add i64 %708, 25
   %710 = tail call i32 @zend_shared_memdup_size(ptr noundef %705, i64 noundef %709) #4
   %711 = sext i32 %710 to i64
-  %712 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %712 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 424
   %714 = load i64, ptr %713, align 8
   %715 = add i64 %714, %711
@@ -1202,7 +1202,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 729:                                              ; preds = %724
   store ptr %725, ptr %727, align 8
-  %.pre590 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre590 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %740
 
 730:                                              ; preds = %724
@@ -1211,7 +1211,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %733 = add i64 %732, 25
   %734 = tail call i32 @zend_shared_memdup_size(ptr noundef %728, i64 noundef %733) #4
   %735 = sext i32 %734 to i64
-  %736 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %736 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 424
   %738 = load i64, ptr %737, align 8
   %739 = add i64 %738, %735
@@ -1234,7 +1234,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %751 = add i64 %750, 25
   %752 = tail call i32 @zend_shared_memdup_size(ptr noundef %747, i64 noundef %751) #4
   %753 = sext i32 %752 to i64
-  %754 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %754 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %755 = getelementptr inbounds nuw i8, ptr %754, i64 424
   %756 = load i64, ptr %755, align 8
   %757 = add i64 %756, %753
@@ -1264,7 +1264,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 771:                                              ; preds = %766
   store ptr %767, ptr %769, align 8
-  %.pre588 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre588 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %782
 
 772:                                              ; preds = %766
@@ -1273,7 +1273,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %775 = add i64 %774, 25
   %776 = tail call i32 @zend_shared_memdup_size(ptr noundef %770, i64 noundef %775) #4
   %777 = sext i32 %776 to i64
-  %778 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %778 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %779 = getelementptr inbounds nuw i8, ptr %778, i64 424
   %780 = load i64, ptr %779, align 8
   %781 = add i64 %780, %777
@@ -1306,7 +1306,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 .lr.ph549:                                        ; preds = %791
   %794 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %.pre594 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre594 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %795
 
 795:                                              ; preds = %.lr.ph549, %879
@@ -1326,7 +1326,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %806 = add i64 %805, 25
   %807 = tail call i32 @zend_shared_memdup_size(ptr noundef %802, i64 noundef %806) #4
   %808 = sext i32 %807 to i64
-  %809 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %809 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %810 = getelementptr inbounds nuw i8, ptr %809, i64 424
   %811 = load i64, ptr %810, align 8
   %812 = add i64 %811, %808
@@ -1356,7 +1356,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 826:                                              ; preds = %821
   store ptr %822, ptr %824, align 8
-  %.pre595 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre595 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %837
 
 827:                                              ; preds = %821
@@ -1365,7 +1365,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %830 = add i64 %829, 25
   %831 = tail call i32 @zend_shared_memdup_size(ptr noundef %825, i64 noundef %830) #4
   %832 = sext i32 %831 to i64
-  %833 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %833 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %834 = getelementptr inbounds nuw i8, ptr %833, i64 424
   %835 = load i64, ptr %834, align 8
   %836 = add i64 %835, %832
@@ -1388,7 +1388,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %848 = add i64 %847, 25
   %849 = tail call i32 @zend_shared_memdup_size(ptr noundef %844, i64 noundef %848) #4
   %850 = sext i32 %849 to i64
-  %851 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %851 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 424
   %853 = load i64, ptr %852, align 8
   %854 = add i64 %853, %850
@@ -1418,7 +1418,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 868:                                              ; preds = %863
   store ptr %864, ptr %866, align 8
-  %.pre593 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre593 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %879
 
 869:                                              ; preds = %863
@@ -1427,7 +1427,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %872 = add i64 %871, 25
   %873 = tail call i32 @zend_shared_memdup_size(ptr noundef %867, i64 noundef %872) #4
   %874 = sext i32 %873 to i64
-  %875 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %875 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %876 = getelementptr inbounds nuw i8, ptr %875, i64 424
   %877 = load i64, ptr %876, align 8
   %878 = add i64 %877, %874
@@ -1486,7 +1486,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %901 = add i64 %900, 25
   %902 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %893, i64 noundef %901) #4
   %903 = sext i32 %902 to i64
-  %904 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %904 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %905 = getelementptr inbounds nuw i8, ptr %904, i64 424
   %906 = load i64, ptr %905, align 8
   %907 = add i64 %906, %903
@@ -1517,7 +1517,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 922:                                              ; preds = %916
   store ptr %917, ptr %920, align 8
-  %.pre600.pre609.pre = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre600.pre609.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %933
 
 923:                                              ; preds = %916
@@ -1526,7 +1526,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %926 = add i64 %925, 25
   %927 = tail call i32 @zend_shared_memdup_size(ptr noundef %921, i64 noundef %926) #4
   %928 = sext i32 %927 to i64
-  %929 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %929 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 424
   %931 = load i64, ptr %930, align 8
   %932 = add i64 %931, %928
@@ -1555,7 +1555,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %946 = add i64 %945, 25
   %947 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %938, i64 noundef %946) #4
   %948 = sext i32 %947 to i64
-  %949 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %949 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 424
   %951 = load i64, ptr %950, align 8
   %952 = add i64 %951, %948
@@ -1587,7 +1587,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 968:                                              ; preds = %961
   store ptr %962, ptr %966, align 8
-  %.pre600.pre = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre600.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %979
 
 969:                                              ; preds = %961
@@ -1596,7 +1596,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %972 = add i64 %971, 25
   %973 = tail call i32 @zend_shared_memdup_size(ptr noundef %967, i64 noundef %972) #4
   %974 = sext i32 %973 to i64
-  %975 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %975 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %976 = getelementptr inbounds nuw i8, ptr %975, i64 424
   %977 = load i64, ptr %976, align 8
   %978 = add i64 %977, %974
@@ -1625,7 +1625,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %992 = add i64 %991, 25
   %993 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %984, i64 noundef %992) #4
   %994 = sext i32 %993 to i64
-  %995 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %995 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %996 = getelementptr inbounds nuw i8, ptr %995, i64 424
   %997 = load i64, ptr %996, align 8
   %998 = add i64 %997, %994
@@ -1657,7 +1657,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 1014:                                             ; preds = %1007
   store ptr %1008, ptr %1012, align 8
-  %.pre599 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre599 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %1025
 
 1015:                                             ; preds = %1007
@@ -1666,7 +1666,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1018 = add i64 %1017, 25
   %1019 = tail call i32 @zend_shared_memdup_size(ptr noundef %1013, i64 noundef %1018) #4
   %1020 = sext i32 %1019 to i64
-  %1021 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %1021 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %1022 = getelementptr inbounds nuw i8, ptr %1021, i64 424
   %1023 = load i64, ptr %1022, align 8
   %1024 = add i64 %1023, %1020
@@ -1737,7 +1737,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1056 = add i64 %1055, 25
   %1057 = tail call i32 @zend_shared_memdup_size(ptr noundef %1052, i64 noundef %1056) #4
   %1058 = sext i32 %1057 to i64
-  %1059 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %1059 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 424
   %1061 = load i64, ptr %1060, align 8
   %1062 = add i64 %1061, %1058
@@ -1768,7 +1768,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 1077:                                             ; preds = %1071
   store ptr %1072, ptr %1075, align 8
-  %.pre603 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre603 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %1088
 
 1078:                                             ; preds = %1071
@@ -1777,7 +1777,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1081 = add i64 %1080, 25
   %1082 = tail call i32 @zend_shared_memdup_size(ptr noundef %1076, i64 noundef %1081) #4
   %1083 = sext i32 %1082 to i64
-  %1084 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %1084 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %1085 = getelementptr inbounds nuw i8, ptr %1084, i64 424
   %1086 = load i64, ptr %1085, align 8
   %1087 = add i64 %1086, %1083
@@ -1803,7 +1803,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1101 = add i64 %1100, 25
   %1102 = tail call i32 @zend_shared_memdup_size(ptr noundef %1097, i64 noundef %1101) #4
   %1103 = sext i32 %1102 to i64
-  %1104 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %1104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 424
   %1106 = load i64, ptr %1105, align 8
   %1107 = add i64 %1106, %1103
@@ -1835,7 +1835,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 1123:                                             ; preds = %1116
   store ptr %1117, ptr %1121, align 8
-  %.pre606.pre = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre606.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %1134
 
 1124:                                             ; preds = %1116
@@ -1844,7 +1844,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1127 = add i64 %1126, 25
   %1128 = tail call i32 @zend_shared_memdup_size(ptr noundef %1122, i64 noundef %1127) #4
   %1129 = sext i32 %1128 to i64
-  %1130 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %1130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %1131 = getelementptr inbounds nuw i8, ptr %1130, i64 424
   %1132 = load i64, ptr %1131, align 8
   %1133 = add i64 %1132, %1129
@@ -1880,7 +1880,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1151 = add i64 %1150, 25
   %1152 = tail call i32 @zend_shared_memdup_size(ptr noundef %1147, i64 noundef %1151) #4
   %1153 = sext i32 %1152 to i64
-  %1154 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %1154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %1155 = getelementptr inbounds nuw i8, ptr %1154, i64 424
   %1156 = load i64, ptr %1155, align 8
   %1157 = add i64 %1156, %1153
@@ -1913,7 +1913,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 1174:                                             ; preds = %1166
   store ptr %1167, ptr %1172, align 8
-  %.pre604 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre604 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %1185
 
 1175:                                             ; preds = %1166
@@ -1922,7 +1922,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1178 = add i64 %1177, 25
   %1179 = tail call i32 @zend_shared_memdup_size(ptr noundef %1173, i64 noundef %1178) #4
   %1180 = sext i32 %1179 to i64
-  %1181 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %1181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 424
   %1183 = load i64, ptr %1182, align 8
   %1184 = add i64 %1183, %1180
@@ -2007,7 +2007,7 @@ define internal fastcc void @zend_persist_zval_calc(ptr nocapture noundef %0) un
   ]
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -2020,7 +2020,7 @@ define internal fastcc void @zend_persist_zval_calc(ptr nocapture noundef %0) un
   %13 = add i64 %12, 25
   %14 = tail call i32 @zend_shared_memdup_size(ptr noundef %9, i64 noundef %13) #4
   %15 = sext i32 %14 to i64
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 424
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %15
@@ -2056,7 +2056,7 @@ define internal fastcc void @zend_persist_zval_calc(ptr nocapture noundef %0) un
   %35 = add i64 %34, 25
   %36 = tail call i32 @zend_shared_memdup_size(ptr noundef %30, i64 noundef %35) #4
   %37 = sext i32 %36 to i64
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 424
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %37
@@ -2077,7 +2077,7 @@ define internal fastcc void @zend_persist_zval_calc(ptr nocapture noundef %0) un
   br label %.loopexit
 
 49:                                               ; preds = %1
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 384
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
@@ -2099,7 +2099,7 @@ define internal fastcc void @zend_persist_zval_calc(ptr nocapture noundef %0) un
   %62 = zext i32 %59 to i64
   %63 = add nuw nsw i64 %62, 7
   %64 = and i64 %63, 8589934584
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 424
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, %64
@@ -2217,7 +2217,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   br i1 %.not79, label %165, label %128
 
 128:                                              ; preds = %125
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 384
   %131 = load i8, ptr %130, align 8
   %132 = trunc i8 %131 to i1
@@ -2229,7 +2229,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %136 = add i64 %135, 25
   %137 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %127, i64 noundef %136) #4
   %138 = sext i32 %137 to i64
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 424
   %141 = load i64, ptr %140, align 8
   %142 = add i64 %141, %138
@@ -2265,7 +2265,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %158 = add i64 %157, 25
   %159 = tail call i32 @zend_shared_memdup_size(ptr noundef %153, i64 noundef %158) #4
   %160 = sext i32 %159 to i64
-  %161 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 424
   %163 = load i64, ptr %162, align 8
   %164 = add i64 %163, %160
@@ -2282,7 +2282,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   br i1 %.not78, label %.loopexit, label %.lr.ph91
 
 168:                                              ; preds = %1
-  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 384
   %171 = load i8, ptr %170, align 8
   %172 = trunc i8 %171 to i1
@@ -2303,7 +2303,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %180 = zext i32 %178 to i64
   %181 = add nuw nsw i64 %180, 7
   %182 = and i64 %181, 8589934584
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 424
   %185 = load i64, ptr %184, align 8
   %186 = add i64 %185, %182
@@ -2324,7 +2324,7 @@ define internal fastcc void @zend_persist_attributes_calc(ptr noundef nonnull %0
   br i1 %.not, label %3, label %.loopexit85
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 384
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -2336,7 +2336,7 @@ define internal fastcc void @zend_persist_attributes_calc(ptr noundef nonnull %0
 
 10:                                               ; preds = %8, %3
   tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef nonnull %0, ptr noundef nonnull %0) #4
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 424
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 56
@@ -2425,7 +2425,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %63 = mul nuw nsw i64 %62, 24
   %64 = add nuw nsw i64 %63, 39
   %65 = and i64 %64, 274877906936
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 424
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %65, %68
@@ -2442,7 +2442,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %77 = add i64 %76, 25
   %78 = tail call i32 @zend_shared_memdup_size(ptr noundef %73, i64 noundef %77) #4
   %79 = sext i32 %78 to i64
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 424
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, %79
@@ -2470,7 +2470,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
 
 95:                                               ; preds = %92
   store ptr %93, ptr %59, align 8
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %106
 
 96:                                               ; preds = %92
@@ -2479,7 +2479,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %99 = add i64 %98, 25
   %100 = tail call i32 @zend_shared_memdup_size(ptr noundef %94, i64 noundef %99) #4
   %101 = sext i32 %100 to i64
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 424
   %104 = load i64, ptr %103, align 8
   %105 = add i64 %104, %101
@@ -2501,7 +2501,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %116 = add i64 %115, 25
   %117 = tail call i32 @zend_shared_memdup_size(ptr noundef %112, i64 noundef %116) #4
   %118 = sext i32 %117 to i64
-  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 424
   %121 = load i64, ptr %120, align 8
   %122 = add i64 %121, %118
@@ -2537,7 +2537,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %138 = add i64 %137, 25
   %139 = tail call i32 @zend_shared_memdup_size(ptr noundef %133, i64 noundef %138) #4
   %140 = sext i32 %139 to i64
-  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 424
   %143 = load i64, ptr %142, align 8
   %144 = add i64 %143, %140
@@ -2561,7 +2561,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   br i1 %.not82, label %188, label %151
 
 151:                                              ; preds = %148
-  %152 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 384
   %154 = load i8, ptr %153, align 8
   %155 = trunc i8 %154 to i1
@@ -2573,7 +2573,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %159 = add i64 %158, 25
   %160 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %150, i64 noundef %159) #4
   %161 = sext i32 %160 to i64
-  %162 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 424
   %164 = load i64, ptr %163, align 8
   %165 = add i64 %164, %161
@@ -2609,7 +2609,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %181 = add i64 %180, 25
   %182 = tail call i32 @zend_shared_memdup_size(ptr noundef %176, i64 noundef %181) #4
   %183 = sext i32 %182 to i64
-  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 424
   %186 = load i64, ptr %185, align 8
   %187 = add i64 %186, %183
@@ -2638,7 +2638,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
 define hidden void @zend_persist_warnings_calc(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = shl nuw nsw i64 %3, 3
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
@@ -2662,7 +2662,7 @@ define hidden void @zend_persist_warnings_calc(i32 noundef %0, ptr nocapture nou
   %19 = add i64 %18, 25
   %20 = tail call i32 @zend_shared_memdup_size(ptr noundef %16, i64 noundef %19) #4
   %21 = sext i32 %20 to i64
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 424
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
@@ -2675,7 +2675,7 @@ define hidden void @zend_persist_warnings_calc(i32 noundef %0, ptr nocapture nou
   %31 = add i64 %30, 25
   %32 = tail call i32 @zend_shared_memdup_size(ptr noundef %28, i64 noundef %31) #4
   %33 = sext i32 %32 to i64
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 424
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %33
@@ -2695,7 +2695,7 @@ define hidden i32 @zend_accel_script_persist_calc(ptr noundef initializes((384, 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i8 0, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %6, label %17
 
@@ -2708,7 +2708,7 @@ define hidden i32 @zend_accel_script_persist_calc(ptr noundef initializes((384, 
   %10 = add i64 %9, 25
   %11 = tail call i32 @zend_shared_memdup_size(ptr noundef %7, i64 noundef %10) #4
   %12 = sext i32 %11 to i64
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 424
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
@@ -2746,7 +2746,7 @@ define hidden i32 @zend_accel_script_persist_calc(ptr noundef initializes((384, 
   %33 = add i64 %32, 25
   %34 = tail call i32 @zend_shared_memdup_size(ptr noundef %28, i64 noundef %33) #4
   %35 = sext i32 %34 to i64
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 424
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %35
@@ -2805,7 +2805,7 @@ zend_hash_persist_calc.exit.i.thread:             ; preds = %54
   %69 = or disjoint i64 %68, 4
   %70 = add nuw nsw i64 %69, %66
   %71 = and i64 %70, 137438953464
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 424
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %71, %74
@@ -2837,7 +2837,7 @@ zend_hash_persist_calc.exit.i.thread:             ; preds = %54
   %91 = or disjoint i64 %90, 4
   %92 = add nuw nsw i64 %91, %88
   %93 = and i64 %92, 137438953464
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 424
   %96 = load i64, ptr %95, align 8
   %97 = add i64 %96, %93
@@ -2852,7 +2852,7 @@ zend_hash_persist_calc.exit.i.thread:             ; preds = %54
   %102 = or disjoint i64 %101, 4
   %103 = add nuw nsw i64 %102, %99
   %104 = and i64 %103, 274877906936
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 424
   %107 = load i64, ptr %106, align 8
   %108 = add i64 %107, %104
@@ -2882,7 +2882,7 @@ zend_hash_persist_calc.exit.i:                    ; preds = %._crit_edge.i.i, %8
 118:                                              ; preds = %.lr.ph.i
   %119 = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %120 = load ptr, ptr %119, align 8, !nonnull !4, !noundef !4
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 384
   %123 = load i8, ptr %122, align 8
   %124 = trunc i8 %123 to i1
@@ -2894,7 +2894,7 @@ zend_hash_persist_calc.exit.i:                    ; preds = %._crit_edge.i.i, %8
   %128 = add i64 %127, 25
   %129 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %120, i64 noundef %128) #4
   %130 = sext i32 %129 to i64
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 424
   %133 = load i64, ptr %132, align 8
   %134 = add i64 %133, %130
@@ -2930,7 +2930,7 @@ zend_hash_persist_calc.exit.i:                    ; preds = %._crit_edge.i.i, %8
   %150 = add i64 %149, 25
   %151 = tail call i32 @zend_shared_memdup_size(ptr noundef %145, i64 noundef %150) #4
   %152 = sext i32 %151 to i64
-  %153 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 424
   %155 = load i64, ptr %154, align 8
   %156 = add i64 %155, %152
@@ -2995,7 +2995,7 @@ zend_hash_persist_calc.exit.thread:               ; preds = %171
   %186 = or disjoint i64 %185, 4
   %187 = add nuw nsw i64 %186, %183
   %188 = and i64 %187, 137438953464
-  %189 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 424
   %191 = load i64, ptr %190, align 8
   %192 = add i64 %188, %191
@@ -3027,7 +3027,7 @@ zend_hash_persist_calc.exit.thread:               ; preds = %171
   %208 = or disjoint i64 %207, 4
   %209 = add nuw nsw i64 %208, %205
   %210 = and i64 %209, 137438953464
-  %211 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 424
   %213 = load i64, ptr %212, align 8
   %214 = add i64 %213, %210
@@ -3042,7 +3042,7 @@ zend_hash_persist_calc.exit.thread:               ; preds = %171
   %219 = or disjoint i64 %218, 4
   %220 = add nuw nsw i64 %219, %216
   %221 = and i64 %220, 274877906936
-  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 424
   %224 = load i64, ptr %223, align 8
   %225 = add i64 %224, %221
@@ -3072,7 +3072,7 @@ zend_hash_persist_calc.exit:                      ; preds = %167, %178, %203, %.
 235:                                              ; preds = %.lr.ph
   %236 = getelementptr inbounds nuw i8, ptr %.084, i64 24
   %237 = load ptr, ptr %236, align 8, !nonnull !4, !noundef !4
-  %238 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 384
   %240 = load i8, ptr %239, align 8
   %241 = trunc i8 %240 to i1
@@ -3084,7 +3084,7 @@ zend_hash_persist_calc.exit:                      ; preds = %167, %178, %203, %.
   %245 = add i64 %244, 25
   %246 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %237, i64 noundef %245) #4
   %247 = sext i32 %246 to i64
-  %248 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %248 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 424
   %250 = load i64, ptr %249, align 8
   %251 = add i64 %250, %247
@@ -3120,7 +3120,7 @@ zend_hash_persist_calc.exit:                      ; preds = %167, %178, %203, %.
   %267 = add i64 %266, 25
   %268 = tail call i32 @zend_shared_memdup_size(ptr noundef %262, i64 noundef %267) #4
   %269 = sext i32 %268 to i64
-  %270 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 424
   %272 = load i64, ptr %271, align 8
   %273 = add i64 %272, %269
@@ -3138,7 +3138,7 @@ zend_hash_persist_calc.exit:                      ; preds = %167, %178, %203, %.
 
 278:                                              ; preds = %274
   tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef nonnull %.0.val, ptr noundef nonnull %.0.val) #4
-  %279 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %279 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 424
   %281 = load i64, ptr %280, align 8
   %282 = add i64 %281, 240
@@ -3160,7 +3160,7 @@ zend_persist_op_array_calc.exit:                  ; preds = %278, %274, %.lr.ph
   %288 = load ptr, ptr %287, align 8
   %289 = zext i32 %286 to i64
   %290 = shl nuw nsw i64 %289, 3
-  %291 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %291 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 424
   %293 = load i64, ptr %292, align 8
   %294 = add i64 %293, %290
@@ -3184,7 +3184,7 @@ zend_persist_op_array_calc.exit:                  ; preds = %278, %274, %.lr.ph
   %305 = add i64 %304, 25
   %306 = tail call i32 @zend_shared_memdup_size(ptr noundef %302, i64 noundef %305) #4
   %307 = sext i32 %306 to i64
-  %308 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %308 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 424
   %310 = load i64, ptr %309, align 8
   %311 = add i64 %310, %307
@@ -3197,7 +3197,7 @@ zend_persist_op_array_calc.exit:                  ; preds = %278, %274, %.lr.ph
   %317 = add i64 %316, 25
   %318 = tail call i32 @zend_shared_memdup_size(ptr noundef %314, i64 noundef %317) #4
   %319 = sext i32 %318 to i64
-  %320 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %320 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 424
   %322 = load i64, ptr %321, align 8
   %323 = add i64 %322, %319
@@ -3237,7 +3237,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
   %343 = add i64 %342, 25
   %344 = tail call i32 @zend_shared_memdup_size(ptr noundef %339, i64 noundef %343) #4
   %345 = sext i32 %344 to i64
-  %346 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %346 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 424
   %348 = load i64, ptr %347, align 8
   %349 = add i64 %348, %345
@@ -3265,7 +3265,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
 
 361:                                              ; preds = %358
   store ptr %359, ptr %335, align 8
-  %.pre56.i = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre56.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %372
 
 362:                                              ; preds = %358
@@ -3274,7 +3274,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
   %365 = add i64 %364, 25
   %366 = tail call i32 @zend_shared_memdup_size(ptr noundef %360, i64 noundef %365) #4
   %367 = sext i32 %366 to i64
-  %368 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %368 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 424
   %370 = load i64, ptr %369, align 8
   %371 = add i64 %370, %367
@@ -3296,7 +3296,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
   %382 = add i64 %381, 25
   %383 = tail call i32 @zend_shared_memdup_size(ptr noundef %378, i64 noundef %382) #4
   %384 = sext i32 %383 to i64
-  %385 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %385 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 424
   %387 = load i64, ptr %386, align 8
   %388 = add i64 %387, %384
@@ -3324,7 +3324,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
 
 400:                                              ; preds = %397
   store ptr %398, ptr %377, align 8
-  %.pre57.i = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre57.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %411
 
 401:                                              ; preds = %397
@@ -3333,7 +3333,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
   %404 = add i64 %403, 25
   %405 = tail call i32 @zend_shared_memdup_size(ptr noundef %399, i64 noundef %404) #4
   %406 = sext i32 %405 to i64
-  %407 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %407 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 424
   %409 = load i64, ptr %408, align 8
   %410 = add i64 %409, %406
@@ -3355,7 +3355,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
   %421 = add i64 %420, 25
   %422 = tail call i32 @zend_shared_memdup_size(ptr noundef %417, i64 noundef %421) #4
   %423 = sext i32 %422 to i64
-  %424 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %424 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 424
   %426 = load i64, ptr %425, align 8
   %427 = add i64 %426, %423
@@ -3383,7 +3383,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
 
 439:                                              ; preds = %436
   store ptr %437, ptr %416, align 8
-  %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %450
 
 440:                                              ; preds = %436
@@ -3392,7 +3392,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
   %443 = add i64 %442, 25
   %444 = tail call i32 @zend_shared_memdup_size(ptr noundef %438, i64 noundef %443) #4
   %445 = sext i32 %444 to i64
-  %446 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %446 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 424
   %448 = load i64, ptr %447, align 8
   %449 = add i64 %448, %445
@@ -3407,7 +3407,7 @@ zend_persist_warnings_calc.exit:                  ; preds = %.lr.ph.i75, %._crit
 
 zend_persist_early_bindings_calc.exit:            ; preds = %450, %zend_persist_warnings_calc.exit
   store i8 0, ptr %5, align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %452 = load i64, ptr %4, align 8
   %453 = trunc i64 %452 to i32
   ret i32 %453
@@ -3423,7 +3423,7 @@ define internal fastcc void @zend_persist_op_array_calc_ex(ptr noundef %0) unnam
   br i1 %.not, label %46, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -3435,7 +3435,7 @@ define internal fastcc void @zend_persist_op_array_calc_ex(ptr noundef %0) unnam
   %12 = add i64 %11, 25
   %13 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %3, i64 noundef %12) #4
   %14 = sext i32 %13 to i64
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 424
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %14
@@ -3471,7 +3471,7 @@ define internal fastcc void @zend_persist_op_array_calc_ex(ptr noundef %0) unnam
   %34 = add i64 %33, 25
   %35 = tail call i32 @zend_shared_memdup_size(ptr noundef %29, i64 noundef %34) #4
   %36 = sext i32 %35 to i64
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 424
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, %36
@@ -3543,7 +3543,7 @@ define internal fastcc void @zend_persist_op_array_calc_ex(ptr noundef %0) unnam
 69:                                               ; preds = %66
   %70 = load ptr, ptr %62, align 8
   tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef %70, ptr noundef %70) #4
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 424
   %73 = load i64, ptr %72, align 8
   %74 = add i64 %73, 56
@@ -3630,7 +3630,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
 120:                                              ; preds = %.lr.ph
   %121 = getelementptr inbounds nuw i8, ptr %.0147211, i64 24
   %122 = load ptr, ptr %121, align 8, !nonnull !4, !noundef !4
-  %123 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 384
   %125 = load i8, ptr %124, align 8
   %126 = trunc i8 %125 to i1
@@ -3642,7 +3642,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %130 = add i64 %129, 25
   %131 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %122, i64 noundef %130) #4
   %132 = sext i32 %131 to i64
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 424
   %135 = load i64, ptr %134, align 8
   %136 = add i64 %135, %132
@@ -3678,7 +3678,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %152 = add i64 %151, 25
   %153 = tail call i32 @zend_shared_memdup_size(ptr noundef %147, i64 noundef %152) #4
   %154 = sext i32 %153 to i64
-  %155 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 424
   %157 = load i64, ptr %156, align 8
   %158 = add i64 %157, %154
@@ -3706,7 +3706,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds %struct._zval_struct, ptr %163, i64 %167
   %169 = shl nsw i64 %167, 4
-  %170 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 424
   %172 = load i64, ptr %171, align 8
   %173 = add i64 %172, %169
@@ -3729,7 +3729,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %180 = load i32, ptr %179, align 4
   %181 = zext i32 %180 to i64
   %182 = shl nuw nsw i64 %181, 5
-  %183 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 424
   %185 = load i64, ptr %184, align 8
   %186 = add i64 %185, %182
@@ -3745,7 +3745,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %192 = add i64 %191, 25
   %193 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %188, i64 noundef %192) #4
   %194 = sext i32 %193 to i64
-  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 424
   %197 = load i64, ptr %196, align 8
   %198 = add i64 %197, %194
@@ -3790,7 +3790,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   br i1 %.not201, label %256, label %219
 
 219:                                              ; preds = %.lr.ph215
-  %220 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 384
   %222 = load i8, ptr %221, align 8
   %223 = trunc i8 %222 to i1
@@ -3802,7 +3802,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %227 = add i64 %226, 25
   %228 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %218, i64 noundef %227) #4
   %229 = sext i32 %228 to i64
-  %230 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 424
   %232 = load i64, ptr %231, align 8
   %233 = add i64 %232, %229
@@ -3838,7 +3838,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %249 = add i64 %248, 25
   %250 = tail call i32 @zend_shared_memdup_size(ptr noundef %244, i64 noundef %249) #4
   %251 = sext i32 %250 to i64
-  %252 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %252 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 424
   %254 = load i64, ptr %253, align 8
   %255 = add i64 %254, %251
@@ -3865,7 +3865,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %264 = mul nsw i64 %263, 12
   %265 = add nsw i64 %264, 7
   %266 = and i64 %265, -8
-  %267 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %267 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 424
   %269 = load i64, ptr %268, align 8
   %270 = add i64 %266, %269
@@ -3873,7 +3873,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   br label %271
 
 271:                                              ; preds = %260, %.loopexit207
-  %272 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 52), align 4
+  %272 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 52), align 4
   %273 = trunc i8 %272 to i1
   br i1 %273, label %274, label %287
 
@@ -3889,7 +3889,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %280 = add i64 %279, 25
   %281 = tail call i32 @zend_shared_memdup_size(ptr noundef nonnull %276, i64 noundef %280) #4
   %282 = sext i32 %281 to i64
-  %283 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %283 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 424
   %285 = load i64, ptr %284, align 8
   %286 = add i64 %285, %282
@@ -3917,7 +3917,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %296 = load i32, ptr %295, align 4
   %297 = sext i32 %296 to i64
   %298 = shl nsw i64 %297, 4
-  %299 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %299 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 424
   %301 = load i64, ptr %300, align 8
   %302 = add i64 %301, %298
@@ -3935,7 +3935,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %308 = load i32, ptr %307, align 8
   %309 = sext i32 %308 to i64
   %310 = shl nsw i64 %309, 3
-  %311 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %311 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 424
   %313 = load i64, ptr %312, align 8
   %314 = add i64 %313, %310
@@ -3961,7 +3961,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %327 = add i64 %326, 25
   %328 = tail call i32 @zend_shared_memdup_size(ptr noundef %323, i64 noundef %327) #4
   %329 = sext i32 %328 to i64
-  %330 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %330 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 424
   %332 = load i64, ptr %331, align 8
   %333 = add i64 %332, %329
@@ -3991,7 +3991,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
 
 347:                                              ; preds = %342
   store ptr %343, ptr %345, align 8
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   br label %358
 
 348:                                              ; preds = %342
@@ -4000,7 +4000,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
   %351 = add i64 %350, 25
   %352 = tail call i32 @zend_shared_memdup_size(ptr noundef %346, i64 noundef %351) #4
   %353 = sext i32 %352 to i64
-  %354 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 424
   %356 = load i64, ptr %355, align 8
   %357 = add i64 %356, %353
@@ -4024,7 +4024,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
 365:                                              ; preds = %.loopexit206
   %366 = zext i32 %364 to i64
   %367 = shl nuw nsw i64 %366, 3
-  %368 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %368 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 424
   %370 = load i64, ptr %369, align 8
   %371 = add i64 %370, %367
@@ -4051,7 +4051,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
 
 381:                                              ; preds = %374
   tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef nonnull %377, ptr noundef nonnull %377) #4
-  %382 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %382 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 424
   %384 = load i64, ptr %383, align 8
   %385 = add i64 %384, 240
@@ -4070,7 +4070,7 @@ zend_persist_op_array_calc.exit:                  ; preds = %374, %381
   %389 = tail call i64 @zend_extensions_op_array_persist_calc(ptr noundef nonnull %0) #4
   %390 = add i64 %389, 7
   %391 = and i64 %390, -8
-  %392 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %392 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 424
   %394 = load i64, ptr %393, align 8
   %395 = add i64 %394, %391
@@ -4094,7 +4094,7 @@ define internal fastcc void @zend_persist_ast_calc(ptr nocapture noundef %0) unn
   br i1 %switch, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 424
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 24
@@ -4115,7 +4115,7 @@ define internal fastcc void @zend_persist_ast_calc(ptr nocapture noundef %0) unn
   %17 = shl nuw nsw i64 %16, 3
   %18 = add nuw nsw i64 %17, 23
   %19 = and i64 %18, 68719476728
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 424
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
@@ -4154,7 +4154,7 @@ define internal fastcc void @zend_persist_ast_calc(ptr nocapture noundef %0) unn
   %narrow = add nuw nsw i32 %37, 15
   %38 = and i32 %narrow, 4088
   %39 = zext nneg i32 %38 to i64
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 424
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %39
@@ -4203,7 +4203,7 @@ define internal fastcc void @zend_persist_type_calc(ptr noundef %0) unnamed_addr
   %10 = shl nuw nsw i64 %9, 4
   %11 = add nuw nsw i64 %10, 31
   %12 = and i64 %11, 137438953464
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 424
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %12, %15
@@ -4253,7 +4253,7 @@ define internal fastcc void @zend_persist_type_calc(ptr noundef %0) unnamed_addr
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %.1, align 8
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 384
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
@@ -4283,7 +4283,7 @@ define internal fastcc void @zend_persist_type_calc(ptr noundef %0) unnamed_addr
   %54 = add i64 %53, 25
   %55 = tail call i32 @zend_shared_memdup_size(ptr noundef %37, i64 noundef %54) #4
   %56 = sext i32 %55 to i64
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 376), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 424
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %56

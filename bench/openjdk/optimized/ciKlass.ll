@@ -145,7 +145,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ciKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN6ciTypeC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %1) #5
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV7ciKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV7ciKlass, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -181,7 +181,7 @@ declare void @_ZN6ciTypeC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ciKlassC2EP5KlassP8ciSymbol(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN6ciTypeC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %1) #5
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV7ciKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV7ciKlass, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -192,7 +192,7 @@ define hidden void @_ZN7ciKlassC2EP5KlassP8ciSymbol(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ciKlassC2EP8ciSymbol9BasicType(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 2 {
   tail call void @_ZN6ciTypeC2E9BasicType(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 noundef zeroext %2) #5
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV7ciKlass, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV7ciKlass, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40

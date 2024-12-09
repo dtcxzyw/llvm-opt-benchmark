@@ -157,7 +157,7 @@ define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_ompio_mutex, i64 16)) #9
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_io_ompio_mutex, i64 16)) #9
   br label %8
 
 8:                                                ; preds = %3, %6
@@ -167,7 +167,7 @@ define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_io_ompio_mutex, i64 16)) #9
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_io_ompio_mutex, i64 16)) #9
   br label %14
 
 14:                                               ; preds = %8, %12

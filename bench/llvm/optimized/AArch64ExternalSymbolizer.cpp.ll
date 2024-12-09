@@ -252,7 +252,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i127:               ; preds = %_ZN4llvm11raw_ostre
   %125 = add i64 %123, %124
   %126 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @.str.2, ptr %126, align 8, !alias.scope !4
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJyEEE, i64 16), ptr %13, align 8, !alias.scope !4
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJyEEE, i64 16), ptr %13, align 8, !alias.scope !4
   %127 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %125, ptr %127, align 8, !alias.scope !4
   %128 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %13) #8

@@ -603,7 +603,7 @@ define hidden noundef zeroext i1 @_ZN14ZPageAllocator11prime_cacheEP8ZWorkersm(p
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = load i64, ptr %14, align 8
   call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull @.str.30) #13
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13ZPreTouchTask, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13ZPreTouchTask, i64 16), ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %11, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48

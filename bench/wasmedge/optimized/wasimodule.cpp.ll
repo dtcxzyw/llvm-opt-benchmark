@@ -3595,7 +3595,7 @@ define void @_ZN8WasmEdge4Host10WasiModuleC2Ev(ptr noundef nonnull align 8 deref
   unreachable
 
 _ZNSt8functionIFvPvEED2Ev.exit:                   ; preds = %141, %144
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge4Host10WasiModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge4Host10WasiModuleE, i64 16), ptr %0, align 8
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 920
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %149, i8 0, i64 40, i1 false)
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 960
@@ -8354,7 +8354,7 @@ _ZNSt8functionIFvPvEED2Ev.exit280:                ; preds = %926, %922, %1623
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceC2ESt17basic_string_viewIcSt11char_traitsIcEEPvSt8functionIFvS7_EE(ptr noundef nonnull align 8 dereferenceable(920) %0, i64 %1, ptr %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator.5", align 1
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge7Runtime8Instance14ModuleInstanceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge7Runtime8Instance14ModuleInstanceE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -8869,7 +8869,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiArgsGetEJRNS1_4
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -8899,7 +8899,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -8913,7 +8913,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host11WasiArgsGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host11WasiArgsGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -8923,7 +8923,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiArgsSizesGetEJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -8953,7 +8953,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -8967,7 +8967,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiArgsSizesGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiArgsSizesGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -8977,7 +8977,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiEnvironGetEJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9007,7 +9007,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9021,7 +9021,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiEnvironGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiEnvironGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9031,7 +9031,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host19WasiEnvironSizesGet
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9061,7 +9061,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9075,7 +9075,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host19WasiEnvironSizesGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host19WasiEnvironSizesGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9085,7 +9085,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host15WasiClockResGetEJRN
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9115,7 +9115,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9129,7 +9129,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host15WasiClockResGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host15WasiClockResGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9139,7 +9139,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiClockTimeGetEJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9169,7 +9169,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9183,7 +9183,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiClockTimeGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiClockTimeGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9193,7 +9193,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiFdAdviseEJRNS1_
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9223,7 +9223,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9237,7 +9237,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiFdAdviseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiFdAdviseE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9247,7 +9247,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiFdAllocateEJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9277,7 +9277,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9291,7 +9291,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiFdAllocateE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiFdAllocateE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9301,7 +9301,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiFdCloseEJRNS1_4
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9331,7 +9331,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9345,7 +9345,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host11WasiFdCloseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host11WasiFdCloseE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9355,7 +9355,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiFdDatasyncEJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9385,7 +9385,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9399,7 +9399,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiFdDatasyncE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiFdDatasyncE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9409,7 +9409,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host15WasiFdFdstatGetEJRN
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9439,7 +9439,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9453,7 +9453,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host15WasiFdFdstatGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host15WasiFdFdstatGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9463,7 +9463,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host20WasiFdFdstatSetFlag
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9493,7 +9493,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9507,7 +9507,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host20WasiFdFdstatSetFlagsE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host20WasiFdFdstatSetFlagsE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9517,7 +9517,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiFdFdstatSetRigh
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9547,7 +9547,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9561,7 +9561,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host21WasiFdFdstatSetRightsE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host21WasiFdFdstatSetRightsE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9571,7 +9571,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host17WasiFdFilestatGetEJ
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9601,7 +9601,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9615,7 +9615,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host17WasiFdFilestatGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host17WasiFdFilestatGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9625,7 +9625,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiFdFilestatSetSi
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9655,7 +9655,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9669,7 +9669,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host21WasiFdFilestatSetSizeE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host21WasiFdFilestatSetSizeE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9679,7 +9679,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host22WasiFdFilestatSetTi
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9709,7 +9709,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9723,7 +9723,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host22WasiFdFilestatSetTimesE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host22WasiFdFilestatSetTimesE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9733,7 +9733,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiFdPreadEJRNS1_4
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9763,7 +9763,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9777,7 +9777,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host11WasiFdPreadE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host11WasiFdPreadE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9787,7 +9787,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiFdPrestatGetEJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9817,7 +9817,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9831,7 +9831,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiFdPrestatGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiFdPrestatGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9841,7 +9841,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host20WasiFdPrestatDirNam
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9871,7 +9871,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9885,7 +9885,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host20WasiFdPrestatDirNameE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host20WasiFdPrestatDirNameE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9895,7 +9895,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiFdPwriteEJRNS1_
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9925,7 +9925,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9939,7 +9939,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiFdPwriteE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiFdPwriteE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -9949,7 +9949,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdReadEJRNS1_4W
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -9979,7 +9979,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -9993,7 +9993,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host10WasiFdReadE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host10WasiFdReadE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10003,7 +10003,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host13WasiFdReadDirEJRNS1
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10033,7 +10033,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10047,7 +10047,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host13WasiFdReadDirE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host13WasiFdReadDirE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10057,7 +10057,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiFdRenumberEJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10087,7 +10087,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10101,7 +10101,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiFdRenumberE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiFdRenumberE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10111,7 +10111,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdSeekEJRNS1_4W
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10141,7 +10141,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10155,7 +10155,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host10WasiFdSeekE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host10WasiFdSeekE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10165,7 +10165,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdSyncEJRNS1_4W
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10195,7 +10195,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10209,7 +10209,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host10WasiFdSyncE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host10WasiFdSyncE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10219,7 +10219,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host10WasiFdTellEJRNS1_4W
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10249,7 +10249,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10263,7 +10263,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host10WasiFdTellE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host10WasiFdTellE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10273,7 +10273,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host11WasiFdWriteEJRNS1_4
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10303,7 +10303,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10317,7 +10317,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host11WasiFdWriteE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host11WasiFdWriteE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10327,7 +10327,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host23WasiPathCreateDirec
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10357,7 +10357,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10371,7 +10371,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host23WasiPathCreateDirectoryE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host23WasiPathCreateDirectoryE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10381,7 +10381,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host19WasiPathFilestatGet
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10411,7 +10411,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10425,7 +10425,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host19WasiPathFilestatGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host19WasiPathFilestatGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10435,7 +10435,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host24WasiPathFilestatSet
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10465,7 +10465,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10479,7 +10479,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host24WasiPathFilestatSetTimesE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host24WasiPathFilestatSetTimesE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10489,7 +10489,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiPathLinkEJRNS1_
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10519,7 +10519,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10533,7 +10533,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiPathLinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiPathLinkE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10543,7 +10543,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiPathOpenEJRNS1_
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10573,7 +10573,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10587,7 +10587,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiPathOpenE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiPathOpenE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10597,7 +10597,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiPathReadLinkEJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10627,7 +10627,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10641,7 +10641,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiPathReadLinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiPathReadLinkE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10651,7 +10651,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host23WasiPathRemoveDirec
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10681,7 +10681,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10695,7 +10695,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host23WasiPathRemoveDirectoryE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host23WasiPathRemoveDirectoryE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10705,7 +10705,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiPathRenameEJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10735,7 +10735,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10749,7 +10749,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiPathRenameE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiPathRenameE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10759,7 +10759,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host15WasiPathSymlinkEJRN
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10789,7 +10789,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10803,7 +10803,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host15WasiPathSymlinkE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host15WasiPathSymlinkE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10813,7 +10813,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host18WasiPathUnlinkFileE
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10843,7 +10843,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10857,7 +10857,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host18WasiPathUnlinkFileE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host18WasiPathUnlinkFileE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10867,7 +10867,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiPollOneoffILNS1
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10897,7 +10897,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10911,7 +10911,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EEE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10921,7 +10921,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiPollOneoffILNS1
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -10951,7 +10951,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -10965,7 +10965,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EEE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -10975,7 +10975,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host12WasiProcExitEJRNS1_
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11005,7 +11005,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11019,7 +11019,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiProcExitE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host12WasiProcExitE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11029,7 +11029,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host13WasiProcRaiseEJRNS1
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11059,7 +11059,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11073,7 +11073,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host13WasiProcRaiseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host13WasiProcRaiseE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11083,7 +11083,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSchedYieldEJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11113,7 +11113,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11127,7 +11127,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSchedYieldE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSchedYieldE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11137,7 +11137,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host13WasiRandomGetEJRNS1
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11167,7 +11167,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11181,7 +11181,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host13WasiRandomGetE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host13WasiRandomGetE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11191,7 +11191,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockOpenV1EJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11221,7 +11221,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11235,7 +11235,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockOpenV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockOpenV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11245,7 +11245,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockBindV1EJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11275,7 +11275,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11289,7 +11289,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockBindV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockBindV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11299,7 +11299,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host17WasiSockConnectV1EJ
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11329,7 +11329,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11343,7 +11343,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host17WasiSockConnectV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host17WasiSockConnectV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11353,7 +11353,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockListenV1EJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11383,7 +11383,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11397,7 +11397,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockListenV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockListenV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11407,7 +11407,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockAcceptV1EJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11437,7 +11437,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11451,7 +11451,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockAcceptV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockAcceptV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11461,7 +11461,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockRecvV1EJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11491,7 +11491,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11505,7 +11505,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockRecvV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockRecvV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11515,7 +11515,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host18WasiSockRecvFromV1E
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11545,7 +11545,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11559,7 +11559,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host18WasiSockRecvFromV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host18WasiSockRecvFromV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11569,7 +11569,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockSendV1EJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11599,7 +11599,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11613,7 +11613,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockSendV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockSendV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11623,7 +11623,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockSendToV1EJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11653,7 +11653,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11667,7 +11667,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockSendToV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockSendToV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11677,7 +11677,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockAcceptV2EJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11707,7 +11707,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11721,7 +11721,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockAcceptV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockAcceptV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11731,7 +11731,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockOpenV2EJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11761,7 +11761,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11775,7 +11775,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockOpenV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockOpenV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11785,7 +11785,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockBindV2EJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11815,7 +11815,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11829,7 +11829,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockBindV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockBindV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11839,7 +11839,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host17WasiSockConnectV2EJ
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11869,7 +11869,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11883,7 +11883,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host17WasiSockConnectV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host17WasiSockConnectV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11893,7 +11893,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockListenV2EJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11923,7 +11923,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11937,7 +11937,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockListenV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockListenV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -11947,7 +11947,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockRecvV2EJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -11977,7 +11977,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -11991,7 +11991,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockRecvV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockRecvV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12001,7 +12001,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host18WasiSockRecvFromV2E
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12031,7 +12031,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12045,7 +12045,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host18WasiSockRecvFromV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host18WasiSockRecvFromV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12055,7 +12055,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockSendV2EJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12085,7 +12085,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12099,7 +12099,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockSendV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockSendV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12109,7 +12109,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockSendToV2EJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12139,7 +12139,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12153,7 +12153,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockSendToV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockSendToV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12163,7 +12163,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host16WasiSockShutdownEJR
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12193,7 +12193,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12207,7 +12207,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockShutdownE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host16WasiSockShutdownE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12217,7 +12217,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockGetOptEJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12247,7 +12247,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12261,7 +12261,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockGetOptE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockGetOptE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12271,7 +12271,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host14WasiSockSetOptEJRNS
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12301,7 +12301,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12315,7 +12315,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockSetOptE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host14WasiSockSetOptE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12325,7 +12325,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host22WasiSockGetLocalAdd
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12355,7 +12355,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12369,7 +12369,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host22WasiSockGetLocalAddrV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host22WasiSockGetLocalAddrV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12379,7 +12379,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiSockGetPeerAddr
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12409,7 +12409,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12423,7 +12423,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host21WasiSockGetPeerAddrV1E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host21WasiSockGetPeerAddrV1E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12433,7 +12433,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host22WasiSockGetLocalAdd
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12463,7 +12463,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12477,7 +12477,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host22WasiSockGetLocalAddrV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host22WasiSockGetLocalAddrV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12487,7 +12487,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host21WasiSockGetPeerAddr
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12517,7 +12517,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12531,7 +12531,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host21WasiSockGetPeerAddrV2E, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host21WasiSockGetPeerAddrV2E, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12541,7 +12541,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8WasmEdge4Host19WasiSockGetAddrinfo
   %3 = alloca %"class.WasmEdge::AST::FunctionType", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i8 1, ptr %5, align 8
@@ -12571,7 +12571,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 0, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEEE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEEE, i64 16), ptr %4, align 8
   invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %4)
           to label %17 unwind label %.body
 
@@ -12585,7 +12585,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i: ; preds = %2
 17:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr %1, ptr %18, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host19WasiSockGetAddrinfoE, i64 16), ptr %4, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge4Host19WasiSockGetAddrinfoE, i64 16), ptr %4, align 8
   store ptr %4, ptr %0, align 8
   ret void
 }
@@ -12595,7 +12595,7 @@ declare void @_ZN8WasmEdge4Host4WASI7EnvironD1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge4Host10WasiModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge4Host10WasiModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN8WasmEdge4Host4WASI7EnvironD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %2) #18
   tail call void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2Ev(ptr noundef nonnull align 8 dereferenceable(920) %0) #18
@@ -12604,7 +12604,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiModuleD2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) unnamed_addr #2 comdat align 2 {
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge4Host10WasiModuleE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge4Host10WasiModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   tail call void @_ZN8WasmEdge4Host4WASI7EnvironD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %2) #18
   tail call void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) #18
@@ -13354,7 +13354,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge7Runtime8Instance14ModuleInstanceE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8WasmEdge7Runtime8Instance14ModuleInstanceE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %8 = load ptr, ptr %7, align 8
@@ -15449,7 +15449,7 @@ declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiArgsGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -15501,7 +15501,7 @@ _ZN8WasmEdge4Host4WasiINS0_11WasiArgsGetEED2Ev.exit: ; preds = %_ZN8WasmEdge3AST
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiArgsGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -15769,7 +15769,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE11pushRetTypeISt5tuple
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -15821,7 +15821,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -15874,7 +15874,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEED2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -16224,7 +16224,7 @@ declare void @_ZN8WasmEdge4Host11WasiArgsGet4bodyERKNS_7Runtime12CallingFrameEjj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiArgsSizesGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -16276,7 +16276,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiArgsSizesGetEED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiArgsSizesGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -16544,7 +16544,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -16596,7 +16596,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -16786,7 +16786,7 @@ declare void @_ZN8WasmEdge4Host16WasiArgsSizesGet4bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiEnvironGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -16838,7 +16838,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiEnvironGetEED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiEnvironGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -17106,7 +17106,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -17158,7 +17158,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -17348,7 +17348,7 @@ declare void @_ZN8WasmEdge4Host14WasiEnvironGet4bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiEnvironSizesGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -17400,7 +17400,7 @@ _ZN8WasmEdge4Host4WasiINS0_19WasiEnvironSizesGetEED2Ev.exit: ; preds = %_ZN8Wasm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiEnvironSizesGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -17668,7 +17668,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE11pushRetTypeI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -17720,7 +17720,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -17910,7 +17910,7 @@ declare void @_ZN8WasmEdge4Host19WasiEnvironSizesGet4bodyERKNS_7Runtime12Calling
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiClockResGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -17962,7 +17962,7 @@ _ZN8WasmEdge4Host4WasiINS0_15WasiClockResGetEED2Ev.exit: ; preds = %_ZN8WasmEdge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiClockResGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -18230,7 +18230,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE11pushRetTypeISt5t
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -18282,7 +18282,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -18472,7 +18472,7 @@ declare void @_ZN8WasmEdge4Host15WasiClockResGet4bodyERKNS_7Runtime12CallingFram
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiClockTimeGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -18524,7 +18524,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiClockTimeGetEED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiClockTimeGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -18794,7 +18794,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -18846,7 +18846,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -19098,7 +19098,7 @@ declare void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiFdAdviseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -19150,7 +19150,7 @@ _ZN8WasmEdge4Host4WasiINS0_12WasiFdAdviseEED2Ev.exit: ; preds = %_ZN8WasmEdge3AS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiFdAdviseD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -19422,7 +19422,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE11pushRetTypeISt5tupl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -19474,7 +19474,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -19788,7 +19788,7 @@ declare void @_ZN8WasmEdge4Host12WasiFdAdvise4bodyERKNS_7Runtime12CallingFrameEi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdAllocateD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -19840,7 +19840,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiFdAllocateEED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdAllocateD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -20110,7 +20110,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -20162,7 +20162,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -20414,7 +20414,7 @@ declare void @_ZN8WasmEdge4Host14WasiFdAllocate4bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdCloseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -20466,7 +20466,7 @@ _ZN8WasmEdge4Host4WasiINS0_11WasiFdCloseEED2Ev.exit: ; preds = %_ZN8WasmEdge3AST
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdCloseD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -20798,7 +20798,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE11pushRetTypeISt5tuple
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -20850,7 +20850,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -20905,7 +20905,7 @@ declare void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdDatasyncD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -20957,7 +20957,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiFdDatasyncEED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdDatasyncD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -21289,7 +21289,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -21341,7 +21341,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -21396,7 +21396,7 @@ declare void @_ZN8WasmEdge4Host14WasiFdDatasync4bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiFdFdstatGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -21448,7 +21448,7 @@ _ZN8WasmEdge4Host4WasiINS0_15WasiFdFdstatGetEED2Ev.exit: ; preds = %_ZN8WasmEdge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiFdFdstatGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -21716,7 +21716,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE11pushRetTypeISt5t
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -21768,7 +21768,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -21958,7 +21958,7 @@ declare void @_ZN8WasmEdge4Host15WasiFdFdstatGet4bodyERKNS_7Runtime12CallingFram
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlagsD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -22010,7 +22010,7 @@ _ZN8WasmEdge4Host4WasiINS0_20WasiFdFdstatSetFlagsEED2Ev.exit: ; preds = %_ZN8Was
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlagsD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -22278,7 +22278,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE11pushRetType
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -22330,7 +22330,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -22520,7 +22520,7 @@ declare void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlags4bodyERKNS_7Runtime12Callin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiFdFdstatSetRightsD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -22572,7 +22572,7 @@ _ZN8WasmEdge4Host4WasiINS0_21WasiFdFdstatSetRightsEED2Ev.exit: ; preds = %_ZN8Wa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiFdFdstatSetRightsD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -22842,7 +22842,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE11pushRetTyp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -22894,7 +22894,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -23146,7 +23146,7 @@ declare void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12Calli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiFdFilestatGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -23198,7 +23198,7 @@ _ZN8WasmEdge4Host4WasiINS0_17WasiFdFilestatGetEED2Ev.exit: ; preds = %_ZN8WasmEd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiFdFilestatGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -23466,7 +23466,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE11pushRetTypeISt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -23518,7 +23518,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -23708,7 +23708,7 @@ declare void @_ZN8WasmEdge4Host17WasiFdFilestatGet4bodyERKNS_7Runtime12CallingFr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiFdFilestatSetSizeD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -23760,7 +23760,7 @@ _ZN8WasmEdge4Host4WasiINS0_21WasiFdFilestatSetSizeEED2Ev.exit: ; preds = %_ZN8Wa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiFdFilestatSetSizeD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -24028,7 +24028,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE11pushRetTyp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -24080,7 +24080,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -24270,7 +24270,7 @@ declare void @_ZN8WasmEdge4Host21WasiFdFilestatSetSize4bodyERKNS_7Runtime12Calli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimesD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -24322,7 +24322,7 @@ _ZN8WasmEdge4Host4WasiINS0_22WasiFdFilestatSetTimesEED2Ev.exit: ; preds = %_ZN8W
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimesD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -24594,7 +24594,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE11pushRetTy
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -24646,7 +24646,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -24960,7 +24960,7 @@ declare void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimes4bodyERKNS_7Runtime12Call
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdPreadD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -25012,7 +25012,7 @@ _ZN8WasmEdge4Host4WasiINS0_11WasiFdPreadEED2Ev.exit: ; preds = %_ZN8WasmEdge3AST
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdPreadD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -25286,7 +25286,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE11pushRetTypeISt5tuple
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -25338,7 +25338,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -25714,7 +25714,7 @@ declare void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEij
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiFdPrestatGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -25766,7 +25766,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiFdPrestatGetEED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiFdPrestatGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -26034,7 +26034,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -26086,7 +26086,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -26276,7 +26276,7 @@ declare void @_ZN8WasmEdge4Host16WasiFdPrestatGet4bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host20WasiFdPrestatDirNameD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -26328,7 +26328,7 @@ _ZN8WasmEdge4Host4WasiINS0_20WasiFdPrestatDirNameEED2Ev.exit: ; preds = %_ZN8Was
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host20WasiFdPrestatDirNameD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -26598,7 +26598,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE11pushRetType
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -26650,7 +26650,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -26902,7 +26902,7 @@ declare void @_ZN8WasmEdge4Host20WasiFdPrestatDirName4bodyERKNS_7Runtime12Callin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiFdPwriteD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -26954,7 +26954,7 @@ _ZN8WasmEdge4Host4WasiINS0_12WasiFdPwriteEED2Ev.exit: ; preds = %_ZN8WasmEdge3AS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiFdPwriteD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -27228,7 +27228,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE11pushRetTypeISt5tupl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -27280,7 +27280,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -27656,7 +27656,7 @@ declare void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdReadD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -27708,7 +27708,7 @@ _ZN8WasmEdge4Host4WasiINS0_10WasiFdReadEED2Ev.exit: ; preds = %_ZN8WasmEdge3AST1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdReadD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -27980,7 +27980,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE11pushRetTypeISt5tupleI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -28032,7 +28032,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -28346,7 +28346,7 @@ declare void @_ZN8WasmEdge4Host10WasiFdRead4bodyERKNS_7Runtime12CallingFrameEijj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiFdReadDirD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -28398,7 +28398,7 @@ _ZN8WasmEdge4Host4WasiINS0_13WasiFdReadDirEED2Ev.exit: ; preds = %_ZN8WasmEdge3A
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiFdReadDirD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -28672,7 +28672,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE11pushRetTypeISt5tup
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -28724,7 +28724,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -29100,7 +29100,7 @@ declare void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdRenumberD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -29152,7 +29152,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiFdRenumberEED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiFdRenumberD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -29420,7 +29420,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -29472,7 +29472,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -29662,7 +29662,7 @@ declare void @_ZN8WasmEdge4Host14WasiFdRenumber4bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdSeekD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -29714,7 +29714,7 @@ _ZN8WasmEdge4Host4WasiINS0_10WasiFdSeekEED2Ev.exit: ; preds = %_ZN8WasmEdge3AST1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdSeekD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -29986,7 +29986,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE11pushRetTypeISt5tupleI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -30038,7 +30038,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -30352,7 +30352,7 @@ declare void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEilj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdSyncD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -30404,7 +30404,7 @@ _ZN8WasmEdge4Host4WasiINS0_10WasiFdSyncEED2Ev.exit: ; preds = %_ZN8WasmEdge3AST1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdSyncD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -30736,7 +30736,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE11pushRetTypeISt5tupleI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -30788,7 +30788,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -30843,7 +30843,7 @@ declare void @_ZN8WasmEdge4Host10WasiFdSync4bodyERKNS_7Runtime12CallingFrameEi(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdTellD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -30895,7 +30895,7 @@ _ZN8WasmEdge4Host4WasiINS0_10WasiFdTellEED2Ev.exit: ; preds = %_ZN8WasmEdge3AST1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host10WasiFdTellD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -31163,7 +31163,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE11pushRetTypeISt5tupleI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -31215,7 +31215,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -31405,7 +31405,7 @@ declare void @_ZN8WasmEdge4Host10WasiFdTell4bodyERKNS_7Runtime12CallingFrameEij(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdWriteD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -31457,7 +31457,7 @@ _ZN8WasmEdge4Host4WasiINS0_11WasiFdWriteEED2Ev.exit: ; preds = %_ZN8WasmEdge3AST
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host11WasiFdWriteD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -31729,7 +31729,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE11pushRetTypeISt5tuple
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -31781,7 +31781,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -32095,7 +32095,7 @@ declare void @_ZN8WasmEdge4Host11WasiFdWrite4bodyERKNS_7Runtime12CallingFrameEij
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host23WasiPathCreateDirectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -32147,7 +32147,7 @@ _ZN8WasmEdge4Host4WasiINS0_23WasiPathCreateDirectoryEED2Ev.exit: ; preds = %_ZN8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host23WasiPathCreateDirectoryD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -32417,7 +32417,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE11pushRetT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -32469,7 +32469,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -32721,7 +32721,7 @@ declare void @_ZN8WasmEdge4Host23WasiPathCreateDirectory4bodyERKNS_7Runtime12Cal
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiPathFilestatGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -32773,7 +32773,7 @@ _ZN8WasmEdge4Host4WasiINS0_19WasiPathFilestatGetEED2Ev.exit: ; preds = %_ZN8Wasm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiPathFilestatGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -33047,7 +33047,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE11pushRetTypeI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -33099,7 +33099,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -33475,7 +33475,7 @@ declare void @_ZN8WasmEdge4Host19WasiPathFilestatGet4bodyERKNS_7Runtime12Calling
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimesD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -33527,7 +33527,7 @@ _ZN8WasmEdge4Host4WasiINS0_24WasiPathFilestatSetTimesEED2Ev.exit: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimesD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -33805,7 +33805,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE11pushRet
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -33857,7 +33857,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -34357,7 +34357,7 @@ declare void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimes4bodyERKNS_7Runtime12Ca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiPathLinkD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -34409,7 +34409,7 @@ _ZN8WasmEdge4Host4WasiINS0_12WasiPathLinkEED2Ev.exit: ; preds = %_ZN8WasmEdge3AS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiPathLinkD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -34687,7 +34687,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE11pushRetTypeISt5tupl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -34739,7 +34739,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -35239,7 +35239,7 @@ declare void @_ZN8WasmEdge4Host12WasiPathLink4bodyERKNS_7Runtime12CallingFrameEi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiPathOpenD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -35291,7 +35291,7 @@ _ZN8WasmEdge4Host4WasiINS0_12WasiPathOpenEED2Ev.exit: ; preds = %_ZN8WasmEdge3AS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiPathOpenD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -35573,7 +35573,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE11pushRetTypeISt5tupl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -35625,7 +35625,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -36249,7 +36249,7 @@ declare void @_ZN8WasmEdge4Host12WasiPathOpen4bodyERKNS_7Runtime12CallingFrameEi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiPathReadLinkD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -36301,7 +36301,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiPathReadLinkEED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiPathReadLinkD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -36577,7 +36577,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -36629,7 +36629,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -37067,7 +37067,7 @@ declare void @_ZN8WasmEdge4Host16WasiPathReadLink4bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host23WasiPathRemoveDirectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -37119,7 +37119,7 @@ _ZN8WasmEdge4Host4WasiINS0_23WasiPathRemoveDirectoryEED2Ev.exit: ; preds = %_ZN8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host23WasiPathRemoveDirectoryD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -37389,7 +37389,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE11pushRetT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -37441,7 +37441,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -37693,7 +37693,7 @@ declare void @_ZN8WasmEdge4Host23WasiPathRemoveDirectory4bodyERKNS_7Runtime12Cal
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPathRenameD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -37745,7 +37745,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiPathRenameEED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPathRenameD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -38021,7 +38021,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -38073,7 +38073,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -38511,7 +38511,7 @@ declare void @_ZN8WasmEdge4Host14WasiPathRename4bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiPathSymlinkD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -38563,7 +38563,7 @@ _ZN8WasmEdge4Host4WasiINS0_15WasiPathSymlinkEED2Ev.exit: ; preds = %_ZN8WasmEdge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host15WasiPathSymlinkD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -38837,7 +38837,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE11pushRetTypeISt5t
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -38889,7 +38889,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -39265,7 +39265,7 @@ declare void @_ZN8WasmEdge4Host15WasiPathSymlink4bodyERKNS_7Runtime12CallingFram
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiPathUnlinkFileD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -39317,7 +39317,7 @@ _ZN8WasmEdge4Host4WasiINS0_18WasiPathUnlinkFileEED2Ev.exit: ; preds = %_ZN8WasmE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiPathUnlinkFileD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -39587,7 +39587,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE11pushRetTypeIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -39639,7 +39639,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -39891,7 +39891,7 @@ declare void @_ZN8WasmEdge4Host18WasiPathUnlinkFile4bodyERKNS_7Runtime12CallingF
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -39943,7 +39943,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EEEED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EED0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -40215,7 +40215,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -40267,7 +40267,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -40581,7 +40581,7 @@ declare void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EE4body
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -40633,7 +40633,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EEEED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -40905,7 +40905,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -40957,7 +40957,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -41271,7 +41271,7 @@ declare void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EE4body
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiProcExitD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -41323,7 +41323,7 @@ _ZN8WasmEdge4Host4WasiINS0_12WasiProcExitEED2Ev.exit: ; preds = %_ZN8WasmEdge3AS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host12WasiProcExitD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -41546,7 +41546,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE11pushValTypeISt5tupl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -41598,7 +41598,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -41653,7 +41653,7 @@ declare void @_ZN8WasmEdge4Host12WasiProcExit4bodyERKNS_7Runtime12CallingFrameEj
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiProcRaiseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -41705,7 +41705,7 @@ _ZN8WasmEdge4Host4WasiINS0_13WasiProcRaiseEED2Ev.exit: ; preds = %_ZN8WasmEdge3A
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiProcRaiseD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42037,7 +42037,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE11pushRetTypeISt5tup
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42089,7 +42089,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42144,7 +42144,7 @@ declare void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSchedYieldD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42196,7 +42196,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSchedYieldEED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSchedYieldD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42422,7 +42422,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42474,7 +42474,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42529,7 +42529,7 @@ declare void @_ZN8WasmEdge4Host14WasiSchedYield4bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiRandomGetD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42581,7 +42581,7 @@ _ZN8WasmEdge4Host4WasiINS0_13WasiRandomGetEED2Ev.exit: ; preds = %_ZN8WasmEdge3A
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host13WasiRandomGetD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42849,7 +42849,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE11pushRetTypeISt5tup
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -42901,7 +42901,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -43091,7 +43091,7 @@ declare void @_ZN8WasmEdge4Host13WasiRandomGet4bodyERKNS_7Runtime12CallingFrameE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockOpenV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -43143,7 +43143,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockOpenV1EED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockOpenV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -43413,7 +43413,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -43465,7 +43465,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -43717,7 +43717,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockOpenV14bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockBindV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -43769,7 +43769,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockBindV1EED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockBindV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -44039,7 +44039,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -44091,7 +44091,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -44343,7 +44343,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockBindV14bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiSockConnectV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -44395,7 +44395,7 @@ _ZN8WasmEdge4Host4WasiINS0_17WasiSockConnectV1EED2Ev.exit: ; preds = %_ZN8WasmEd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiSockConnectV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -44665,7 +44665,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE11pushRetTypeISt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -44717,7 +44717,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -44969,7 +44969,7 @@ declare void @_ZN8WasmEdge4Host17WasiSockConnectV14bodyERKNS_7Runtime12CallingFr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockListenV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -45021,7 +45021,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiSockListenV1EED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockListenV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -45289,7 +45289,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -45341,7 +45341,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -45531,7 +45531,7 @@ declare void @_ZN8WasmEdge4Host16WasiSockListenV14bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockAcceptV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -45583,7 +45583,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiSockAcceptV1EED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockAcceptV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -45851,7 +45851,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -45903,7 +45903,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -46093,7 +46093,7 @@ declare void @_ZN8WasmEdge4Host16WasiSockAcceptV14bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockRecvV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -46145,7 +46145,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockRecvV1EED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockRecvV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -46421,7 +46421,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -46473,7 +46473,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -46911,7 +46911,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockRecvV14bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiSockRecvFromV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -46963,7 +46963,7 @@ _ZN8WasmEdge4Host4WasiINS0_18WasiSockRecvFromV1EED2Ev.exit: ; preds = %_ZN8WasmE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiSockRecvFromV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -47241,7 +47241,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE11pushRetTypeIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -47293,7 +47293,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -47793,7 +47793,7 @@ declare void @_ZN8WasmEdge4Host18WasiSockRecvFromV14bodyERKNS_7Runtime12CallingF
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSendV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -47845,7 +47845,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockSendV1EED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSendV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -48119,7 +48119,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -48171,7 +48171,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -48547,7 +48547,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockSendV14bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockSendToV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -48599,7 +48599,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiSockSendToV1EED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockSendToV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -48877,7 +48877,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -48929,7 +48929,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -49429,7 +49429,7 @@ declare void @_ZN8WasmEdge4Host16WasiSockSendToV14bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockAcceptV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -49481,7 +49481,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiSockAcceptV2EED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockAcceptV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -49751,7 +49751,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -49803,7 +49803,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -50055,7 +50055,7 @@ declare void @_ZN8WasmEdge4Host16WasiSockAcceptV24bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockOpenV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -50107,7 +50107,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockOpenV2EED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockOpenV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -50377,7 +50377,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -50429,7 +50429,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -50681,7 +50681,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockOpenV24bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockBindV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -50733,7 +50733,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockBindV2EED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockBindV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -51003,7 +51003,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -51055,7 +51055,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -51307,7 +51307,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockBindV24bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiSockConnectV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -51359,7 +51359,7 @@ _ZN8WasmEdge4Host4WasiINS0_17WasiSockConnectV2EED2Ev.exit: ; preds = %_ZN8WasmEd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host17WasiSockConnectV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -51629,7 +51629,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE11pushRetTypeISt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -51681,7 +51681,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -51933,7 +51933,7 @@ declare void @_ZN8WasmEdge4Host17WasiSockConnectV24bodyERKNS_7Runtime12CallingFr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockListenV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -51985,7 +51985,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiSockListenV2EED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockListenV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -52253,7 +52253,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -52305,7 +52305,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -52495,7 +52495,7 @@ declare void @_ZN8WasmEdge4Host16WasiSockListenV24bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockRecvV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -52547,7 +52547,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockRecvV2EED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockRecvV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -52823,7 +52823,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -52875,7 +52875,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -53313,7 +53313,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockRecvV24bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiSockRecvFromV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -53365,7 +53365,7 @@ _ZN8WasmEdge4Host4WasiINS0_18WasiSockRecvFromV2EED2Ev.exit: ; preds = %_ZN8WasmE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host18WasiSockRecvFromV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -53645,7 +53645,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE11pushRetTypeIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -53697,7 +53697,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -54259,7 +54259,7 @@ declare void @_ZN8WasmEdge4Host18WasiSockRecvFromV24bodyERKNS_7Runtime12CallingF
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSendV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -54311,7 +54311,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockSendV2EED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSendV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -54585,7 +54585,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -54637,7 +54637,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -55013,7 +55013,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockSendV24bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockSendToV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -55065,7 +55065,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiSockSendToV2EED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockSendToV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -55343,7 +55343,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -55395,7 +55395,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -55895,7 +55895,7 @@ declare void @_ZN8WasmEdge4Host16WasiSockSendToV24bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockShutdownD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -55947,7 +55947,7 @@ _ZN8WasmEdge4Host4WasiINS0_16WasiSockShutdownEED2Ev.exit: ; preds = %_ZN8WasmEdg
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host16WasiSockShutdownD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -56215,7 +56215,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE11pushRetTypeISt5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -56267,7 +56267,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -56457,7 +56457,7 @@ declare void @_ZN8WasmEdge4Host16WasiSockShutdown4bodyERKNS_7Runtime12CallingFra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockGetOptD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -56509,7 +56509,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockGetOptEED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockGetOptD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -56783,7 +56783,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -56835,7 +56835,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -57211,7 +57211,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockGetOpt4bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSetOptD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -57263,7 +57263,7 @@ _ZN8WasmEdge4Host4WasiINS0_14WasiSockSetOptEED2Ev.exit: ; preds = %_ZN8WasmEdge3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiSockSetOptD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -57537,7 +57537,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE11pushRetTypeISt5tu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -57589,7 +57589,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -57965,7 +57965,7 @@ declare void @_ZN8WasmEdge4Host14WasiSockSetOpt4bodyERKNS_7Runtime12CallingFrame
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -58017,7 +58017,7 @@ _ZN8WasmEdge4Host4WasiINS0_22WasiSockGetLocalAddrV1EED2Ev.exit: ; preds = %_ZN8W
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -58289,7 +58289,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE11pushRetTy
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -58341,7 +58341,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -58655,7 +58655,7 @@ declare void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV14bodyERKNS_7Runtime12Call
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV1D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -58707,7 +58707,7 @@ _ZN8WasmEdge4Host4WasiINS0_21WasiSockGetPeerAddrV1EED2Ev.exit: ; preds = %_ZN8Wa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV1D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -58979,7 +58979,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE11pushRetTyp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -59031,7 +59031,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -59345,7 +59345,7 @@ declare void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV14bodyERKNS_7Runtime12Calli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -59397,7 +59397,7 @@ _ZN8WasmEdge4Host4WasiINS0_22WasiSockGetLocalAddrV2EED2Ev.exit: ; preds = %_ZN8W
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -59667,7 +59667,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE11pushRetTy
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -59719,7 +59719,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -59971,7 +59971,7 @@ declare void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV24bodyERKNS_7Runtime12Call
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV2D2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -60023,7 +60023,7 @@ _ZN8WasmEdge4Host4WasiINS0_21WasiSockGetPeerAddrV2EED2Ev.exit: ; preds = %_ZN8Wa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV2D0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -60293,7 +60293,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE11pushRetTyp
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -60345,7 +60345,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -60597,7 +60597,7 @@ declare void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV24bodyERKNS_7Runtime12Calli
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiSockGetAddrinfoD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -60649,7 +60649,7 @@ _ZN8WasmEdge4Host4WasiINS0_19WasiSockGetAddrinfoEED2Ev.exit: ; preds = %_ZN8Wasm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host19WasiSockGetAddrinfoD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -60929,7 +60929,7 @@ _ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE11pushRetTypeI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8
@@ -60981,7 +60981,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i8, ptr %3, align 8

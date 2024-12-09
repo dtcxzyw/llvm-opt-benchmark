@@ -21216,7 +21216,7 @@ next_eht_scidx.exit180.i.i.i.i:                   ; preds = %2682, %2672, %2670,
   br label %2751
 
 2702:                                             ; preds = %.loopexit73.i.i.i.i
-  %spec.select67.i.i.i.i = select i1 %2559, ptr getelementptr inbounds (i8, ptr @ru_996_tone_160MHz_ng4, i64 40), ptr getelementptr inbounds (i8, ptr @ru_996_tone_160MHz_ng16, i64 100)
+  %spec.select67.i.i.i.i = select i1 %2559, ptr getelementptr inbounds nuw (i8, ptr @ru_996_tone_160MHz_ng4, i64 40), ptr getelementptr inbounds nuw (i8, ptr @ru_996_tone_160MHz_ng16, i64 100)
   %2703 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %2704 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2258, ptr noundef %1, i32 noundef %.3142.i.i.i.i, i32 noundef -1, i32 noundef %2703, ptr noundef nonnull %8, ptr noundef nonnull @.str.7636, i32 noundef 2) #22
   %2705 = zext nneg i8 %2560 to i32
@@ -25469,9 +25469,9 @@ define internal i32 @ieee80211_tag_ssid(ptr noundef %0, ptr noundef %1, ptr noun
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.9470, ptr noundef %34) #22
   %35 = call i32 @llvm.umin.i32(i32 %17, i32 32)
   %36 = zext nneg i32 %35 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 getelementptr inbounds (i8, ptr @wlan_stats, i64 2), ptr nonnull align 16 %5, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 getelementptr inbounds nuw (i8, ptr @wlan_stats, i64 2), ptr nonnull align 16 %5, i64 %36, i1 false)
   %37 = trunc i32 %17 to i8
-  store i8 %37, ptr getelementptr inbounds (i8, ptr @wlan_stats, i64 1), align 1
+  store i8 %37, ptr getelementptr inbounds nuw (i8, ptr @wlan_stats, i64 1), align 1
   br label %41
 
 38:                                               ; preds = %22
@@ -39627,7 +39627,7 @@ next_eht_scidx.exit131.i:                         ; preds = %331
   br label %412
 
 368:                                              ; preds = %.loopexit229.i
-  %spec.select227.i = select i1 %259, ptr getelementptr inbounds (i8, ptr @ru_996_tone_160MHz_ng4, i64 40), ptr getelementptr inbounds (i8, ptr @ru_996_tone_160MHz_ng16, i64 100)
+  %spec.select227.i = select i1 %259, ptr getelementptr inbounds nuw (i8, ptr @ru_996_tone_160MHz_ng4, i64 40), ptr getelementptr inbounds nuw (i8, ptr @ru_996_tone_160MHz_ng16, i64 100)
   %369 = load i32, ptr @ett_eht_beamforming_rpt_ru_index, align 4
   %370 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %46, ptr noundef %1, i32 noundef %.197.i, i32 noundef -1, i32 noundef %369, ptr noundef nonnull %7, ptr noundef nonnull @.str.7636, i32 noundef 2) #22
   %371 = zext nneg i8 %260 to i32
@@ -40732,7 +40732,7 @@ define internal fastcc void @dissect_ieee80211_pv0(ptr noundef %0, ptr noundef %
   %41 = and i32 %40, 15
   %42 = or disjoint i32 %41, 352
   %43 = trunc nuw nsw i32 %42 to i16
-  store i16 %43, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 72), align 8
+  store i16 %43, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 72), align 8
   br label %56
 
 44:                                               ; preds = %35
@@ -40741,7 +40741,7 @@ define internal fastcc void @dissect_ieee80211_pv0(ptr noundef %0, ptr noundef %
   %47 = and i32 %46, 15
   %48 = or disjoint i32 %45, %47
   %49 = trunc nuw nsw i32 %48 to i16
-  store i16 %49, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 72), align 8
+  store i16 %49, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 72), align 8
   %50 = icmp eq i32 %48, 23
   br i1 %50, label %51, label %56
 
@@ -41133,17 +41133,17 @@ dissect_durid.exit:                               ; preds = %164, %175, %181, %1
   %218 = load i32, ptr %207, align 8
   %219 = load i32, ptr %209, align 4
   %220 = load ptr, ptr %210, align 8
-  store i32 %218, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 24), align 8
-  store i32 %219, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 28), align 4
-  store ptr %220, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 32), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 40), align 8
+  store i32 %218, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 24), align 8
+  store i32 %219, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 28), align 4
+  store ptr %220, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 32), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 40), align 8
   %221 = load i32, ptr %197, align 8
   %222 = load i32, ptr %199, align 4
   %223 = load ptr, ptr %200, align 8
-  store i32 %221, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 48), align 16
-  store i32 %222, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 52), align 4
-  store ptr %223, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 56), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 64), align 16
+  store i32 %221, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 48), align 16
+  store i32 %222, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 52), align 4
+  store ptr %223, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 64), align 16
   %224 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 22) #22
   %225 = zext i16 %224 to i32
   %226 = and i32 %225, 15
@@ -41813,10 +41813,10 @@ save_proto_data.exit.thread:                      ; preds = %521, %527, %save_pr
   %539 = load i32, ptr %538, align 4
   %540 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %541 = load ptr, ptr %540, align 8
-  store i32 %537, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 24), align 8
-  store i32 %539, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 28), align 4
-  store ptr %541, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 32), align 16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 40), align 8
+  store i32 %537, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 24), align 8
+  store i32 %539, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 28), align 4
+  store ptr %541, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 32), align 16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 40), align 8
   br i1 %.not1170676994, label %552, label %544
 
 542:                                              ; preds = %527, %save_proto_data.exit
@@ -41840,10 +41840,10 @@ save_proto_data.exit.thread:                      ; preds = %521, %527, %save_pr
   %549 = load i32, ptr %548, align 4
   %550 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %551 = load ptr, ptr %550, align 8
-  store i32 %547, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 48), align 16
-  store i32 %549, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 52), align 4
-  store ptr %551, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 56), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 64), align 16
+  store i32 %547, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 48), align 16
+  store i32 %549, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 52), align 4
+  store ptr %551, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 56), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 64), align 16
   br label %552
 
 552:                                              ; preds = %save_proto_data.exit.thread, %544, %542
@@ -42445,7 +42445,7 @@ proto_item_set_generated.exit1290:                ; preds = %710, %720, %723
   br i1 %847, label %848, label %850
 
 848:                                              ; preds = %844
-  %849 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 8), align 8
+  %849 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 8), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %21, ptr noundef nonnull align 1 dereferenceable(6) %849, i64 6, i1 false)
   br label %851
 
@@ -42454,13 +42454,13 @@ proto_item_set_generated.exit1290:                ; preds = %710, %720, %723
   br label %851
 
 851:                                              ; preds = %850, %848
-  %852 = load i32, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 24), align 8
+  %852 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 24), align 8
   %.not1204 = icmp eq i32 %852, 0
   %853 = getelementptr inbounds nuw i8, ptr %21, i64 6
   br i1 %.not1204, label %856, label %854
 
 854:                                              ; preds = %851
-  %855 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 32), align 16
+  %855 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 32), align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %853, ptr noundef nonnull align 1 dereferenceable(6) %855, i64 6, i1 false)
   br label %857
 
@@ -43013,13 +43013,13 @@ proto_item_set_generated.exit1303.thread:         ; preds = %1138, %1136, %proto
   %.11080142 = phi i32 [ %1134, %1132 ], [ %1131, %1130 ], [ %1126, %weak_iv.exit ], [ %.11080, %proto_item_set_generated.exit1303 ], [ %.11080, %1136 ], [ %.11080, %1138 ]
   %.01082140 = phi i32 [ 4, %1132 ], [ 4, %1130 ], [ 4, %weak_iv.exit ], [ 8, %proto_item_set_generated.exit1303 ], [ 8, %1136 ], [ 8, %1138 ]
   %.411138 = phi i8 [ 0, %1132 ], [ 0, %1130 ], [ 0, %weak_iv.exit ], [ %.310, %proto_item_set_generated.exit1303 ], [ %.310, %1136 ], [ %.310, %1138 ]
-  %1141 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @wlan_stats, i64 34), ptr noundef nonnull %.str.9368.sink, i64 noundef 10) #22
+  %1141 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @wlan_stats, i64 34), ptr noundef nonnull %.str.9368.sink, i64 noundef 10) #22
   %1142 = icmp eq ptr %.01112, null
   %or.cond35 = select i1 %1140, i1 true, i1 %1142
   br i1 %or.cond35, label %1145, label %1162
 
 .thread198:                                       ; preds = %proto_item_set_generated.exit1303
-  %1143 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @wlan_stats, i64 34), ptr noundef nonnull @.str.8508, i64 noundef 10) #22
+  %1143 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @wlan_stats, i64 34), ptr noundef nonnull @.str.8508, i64 noundef 10) #22
   %1144 = icmp eq ptr %.01112, null
   %or.cond35204 = select i1 %1135, i1 true, i1 %1144
   br i1 %or.cond35204, label %1145, label %.sink.split264
@@ -44434,7 +44434,7 @@ dissect_ieee80211_extension.exit:                 ; preds = %.thread.us.i125.i, 
   br label %1948
 
 1948:                                             ; preds = %proto_item_set_generated.exit, %834, %dissect_ieee80211_extension.exit, %1759, %.thread148, %1160, %proto_item_set_generated.exit1296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 76), ptr noundef nonnull align 4 dereferenceable(48) @wlan_stats, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 76), ptr noundef nonnull align 4 dereferenceable(48) @wlan_stats, i64 48, i1 false)
   %1949 = load i32, ptr @wlan_tap, align 4
   call void @tap_queue_packet(i32 noundef %1949, ptr noundef nonnull %1, ptr noundef nonnull @dissect_ieee80211_common.whdrs) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @wlan_stats, i8 0, i64 48, i1 false)
@@ -44593,7 +44593,7 @@ proto_item_set_hidden.exit133:                    ; preds = %proto_item_set_hidd
 
 96:                                               ; preds = %proto_item_set_hidden.exit133
   %97 = tail call ptr @expert_add_info(ptr noundef %4, ptr noundef %94, ptr noundef nonnull @ei_ieee80211_fc_retry) #22
-  store i32 1, ptr getelementptr inbounds (i8, ptr @wlan_stats, i64 44), align 4
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @wlan_stats, i64 44), align 4
   br label %98
 
 98:                                               ; preds = %96, %proto_item_set_hidden.exit133

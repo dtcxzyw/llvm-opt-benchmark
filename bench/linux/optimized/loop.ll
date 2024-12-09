@@ -483,7 +483,7 @@ declare dso_local i32 @nonseekable_open(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @loop_add(i32 noundef %0) unnamed_addr #3 align 16 {
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(480) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 480) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %86, label %5
@@ -989,7 +989,7 @@ define internal noundef zeroext range(i8 0, 11) i8 @loop_queue_rq(ptr nocapture 
 .thread:                                          ; preds = %34, %53
   %56 = phi i64 [ %55, %53 ], [ 0, %34 ]
   %57 = phi ptr [ %54, %53 ], [ %35, %34 ]
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %59 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %58, i32 noundef 10496, i64 noundef 112) #17
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %88
